@@ -19,7 +19,7 @@ type ExportCertificateInput struct {
 	// arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012
 	//
 	// CertificateArn is a required field
-	CertificateArn *string `json:"ACM:ExportCertificateInput:CertificateArn" min:"20" type:"string" required:"true"`
+	CertificateArn *string `min:"20" type:"string" required:"true"`
 
 	// Passphrase to associate with the encrypted exported private key. If you want
 	// to later decrypt the private key, you must have the passphrase. You can use
@@ -30,7 +30,7 @@ type ExportCertificateInput struct {
 	// Passphrase is automatically base64 encoded/decoded by the SDK.
 	//
 	// Passphrase is a required field
-	Passphrase []byte `json:"ACM:ExportCertificateInput:Passphrase" min:"4" type:"blob" required:"true"`
+	Passphrase []byte `min:"4" type:"blob" required:"true"`
 }
 
 // String returns the string representation

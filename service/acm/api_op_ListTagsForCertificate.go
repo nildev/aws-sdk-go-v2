@@ -22,7 +22,7 @@ type ListTagsForCertificateInput struct {
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
 	//
 	// CertificateArn is a required field
-	CertificateArn *string `json:"ACM:ListTagsForCertificateInput:CertificateArn" min:"20" type:"string" required:"true"`
+	CertificateArn *string `min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation

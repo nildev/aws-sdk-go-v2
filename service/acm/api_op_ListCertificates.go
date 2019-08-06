@@ -14,21 +14,21 @@ type ListCertificatesInput struct {
 	_ struct{} `type:"structure"`
 
 	// Filter the certificate list by status value.
-	CertificateStatuses []CertificateStatus `json:"ACM:ListCertificatesInput:CertificateStatuses" type:"list"`
+	CertificateStatuses []CertificateStatus `type:"list"`
 
 	// Filter the certificate list. For more information, see the Filters structure.
-	Includes *Filters `json:"ACM:ListCertificatesInput:Includes" type:"structure"`
+	Includes *Filters `type:"structure"`
 
 	// Use this parameter when paginating results to specify the maximum number
 	// of items to return in the response. If additional items exist beyond the
 	// number you specify, the NextToken element is sent in the response. Use this
 	// NextToken value in a subsequent request to retrieve additional items.
-	MaxItems *int64 `json:"ACM:ListCertificatesInput:MaxItems" min:"1" type:"integer"`
+	MaxItems *int64 `min:"1" type:"integer"`
 
 	// Use this parameter only when paginating results and only in a subsequent
 	// request after you receive a response with truncated results. Set it to the
 	// value of NextToken from the response you just received.
-	NextToken *string `json:"ACM:ListCertificatesInput:NextToken" min:"1" type:"string"`
+	NextToken *string `min:"1" type:"string"`
 }
 
 // String returns the string representation

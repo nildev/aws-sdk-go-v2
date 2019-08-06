@@ -289,6 +289,9 @@ func renameCollidingField(name string, v *Shape, field *ShapeRef) {
 func (a *API) setJsonTag() {
 	for _, v := range a.Shapes {
 		var parent string
+		if v.UsedAsInput {
+			continue
+		}
 		if len(v.MemberRefs) > 0 {
 			parent = v.ShapeName
 		}
