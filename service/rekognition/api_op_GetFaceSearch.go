@@ -63,12 +63,12 @@ type GetFaceSearchOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current status of the face search job.
-	JobStatus VideoJobStatus `type:"string" enum:"true"`
+	JobStatus VideoJobStatus `json:"rekognition:GetFaceSearchOutput:JobStatus" type:"string" enum:"true"`
 
 	// If the response is truncated, Amazon Rekognition Video returns this token
 	// that you can use in the subsequent request to retrieve the next set of search
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:GetFaceSearchOutput:NextToken" type:"string"`
 
 	// An array of persons, PersonMatch, in the video whose face(s) match the face(s)
 	// in an Amazon Rekognition collection. It also includes time information for
@@ -76,15 +76,15 @@ type GetFaceSearchOutput struct {
 	// an initial call to StartFaceSearch. Each Persons element includes a time
 	// the person was matched, face match details (FaceMatches) for matching faces
 	// in the collection, and person information (Person) for the matched person.
-	Persons []PersonMatch `type:"list"`
+	Persons []PersonMatch `json:"rekognition:GetFaceSearchOutput:Persons" type:"list"`
 
 	// If the job fails, StatusMessage provides a descriptive error message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"rekognition:GetFaceSearchOutput:StatusMessage" type:"string"`
 
 	// Information about a video that Amazon Rekognition analyzed. Videometadata
 	// is returned in every page of paginated responses from a Amazon Rekognition
 	// Video operation.
-	VideoMetadata *VideoMetadata `type:"structure"`
+	VideoMetadata *VideoMetadata `json:"rekognition:GetFaceSearchOutput:VideoMetadata" type:"structure"`
 }
 
 // String returns the string representation

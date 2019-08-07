@@ -82,10 +82,10 @@ type GetDocumentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The custom metadata on the document.
-	CustomMetadata map[string]string `min:"1" type:"map"`
+	CustomMetadata map[string]string `json:"workdocs:GetDocumentOutput:CustomMetadata" min:"1" type:"map"`
 
 	// The metadata details of the document.
-	Metadata *DocumentMetadata `type:"structure"`
+	Metadata *DocumentMetadata `json:"workdocs:GetDocumentOutput:Metadata" type:"structure"`
 }
 
 // String returns the string representation

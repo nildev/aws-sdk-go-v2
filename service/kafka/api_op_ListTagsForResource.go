@@ -56,7 +56,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The key-value pair for the resource tag.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"kafka:ListTagsForResourceOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

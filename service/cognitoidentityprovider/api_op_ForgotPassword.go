@@ -79,7 +79,7 @@ type ForgotPasswordOutput struct {
 
 	// The code delivery details returned by the server in response to the request
 	// to reset a password.
-	CodeDeliveryDetails *CodeDeliveryDetailsType `type:"structure"`
+	CodeDeliveryDetails *CodeDeliveryDetailsType `json:"cognito-idp:ForgotPasswordOutput:CodeDeliveryDetails" type:"structure"`
 }
 
 // String returns the string representation

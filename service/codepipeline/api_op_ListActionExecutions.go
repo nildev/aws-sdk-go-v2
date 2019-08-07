@@ -68,12 +68,12 @@ type ListActionExecutionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details for a list of recent executions, such as action execution ID.
-	ActionExecutionDetails []ActionExecutionDetail `locationName:"actionExecutionDetails" type:"list"`
+	ActionExecutionDetails []ActionExecutionDetail `json:"codepipeline:ListActionExecutionsOutput:ActionExecutionDetails" locationName:"actionExecutionDetails" type:"list"`
 
 	// If the amount of returned information is significantly large, an identifier
 	// is also returned and can be used in a subsequent ListActionExecutions call
 	// to return the next set of action executions in the list.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codepipeline:ListActionExecutionsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

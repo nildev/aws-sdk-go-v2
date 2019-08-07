@@ -60,7 +60,7 @@ type UpdateJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns the name of the updated job definition.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"glue:UpdateJobOutput:JobName" min:"1" type:"string"`
 }
 
 // String returns the string representation

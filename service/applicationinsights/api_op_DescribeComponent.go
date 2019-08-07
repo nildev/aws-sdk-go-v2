@@ -53,10 +53,10 @@ type DescribeComponentOutput struct {
 
 	// Describes a standalone resource or similarly grouped resources that the application
 	// is made up of.
-	ApplicationComponent *ApplicationComponent `type:"structure"`
+	ApplicationComponent *ApplicationComponent `json:"applicationinsights:DescribeComponentOutput:ApplicationComponent" type:"structure"`
 
 	// The list of resource ARNs that belong to the component.
-	ResourceList []string `type:"list"`
+	ResourceList []string `json:"applicationinsights:DescribeComponentOutput:ResourceList" type:"list"`
 }
 
 // String returns the string representation

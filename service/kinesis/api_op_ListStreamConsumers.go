@@ -91,7 +91,7 @@ type ListStreamConsumersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of JSON objects. Each object represents one registered consumer.
-	Consumers []Consumer `type:"list"`
+	Consumers []Consumer `json:"kinesis:ListStreamConsumersOutput:Consumers" type:"list"`
 
 	// When the number of consumers that are registered with the data stream is
 	// greater than the default value for the MaxResults parameter, or if you explicitly
@@ -106,7 +106,7 @@ type ListStreamConsumersOutput struct {
 	// the response to a call to ListStreamConsumers, you have 300 seconds to use
 	// that value. If you specify an expired token in a call to ListStreamConsumers,
 	// you get ExpiredNextTokenException.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"kinesis:ListStreamConsumersOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

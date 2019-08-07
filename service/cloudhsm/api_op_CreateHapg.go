@@ -45,7 +45,7 @@ type CreateHapgOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the high-availability partition group.
-	HapgArn *string `type:"string"`
+	HapgArn *string `json:"cloudhsm:CreateHapgOutput:HapgArn" type:"string"`
 }
 
 // String returns the string representation

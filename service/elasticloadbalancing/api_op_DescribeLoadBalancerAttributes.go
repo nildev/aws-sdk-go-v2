@@ -45,7 +45,7 @@ type DescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the load balancer attributes.
-	LoadBalancerAttributes *LoadBalancerAttributes `type:"structure"`
+	LoadBalancerAttributes *LoadBalancerAttributes `json:"elasticloadbalancing:DescribeLoadBalancerAttributesOutput:LoadBalancerAttributes" type:"structure"`
 }
 
 // String returns the string representation

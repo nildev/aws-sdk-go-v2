@@ -59,10 +59,10 @@ type DescribeFleetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the EC2 Fleets.
-	Fleets []FleetData `locationName:"fleetSet" locationNameList:"item" type:"list"`
+	Fleets []FleetData `json:"ec2:DescribeFleetsOutput:Fleets" locationName:"fleetSet" locationNameList:"item" type:"list"`
 
 	// The token for the next set of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeFleetsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

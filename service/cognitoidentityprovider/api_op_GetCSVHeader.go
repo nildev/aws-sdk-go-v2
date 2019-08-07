@@ -50,10 +50,10 @@ type GetCSVHeaderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The header information for the .csv file for the user import job.
-	CSVHeader []string `type:"list"`
+	CSVHeader []string `json:"cognito-idp:GetCSVHeaderOutput:CSVHeader" type:"list"`
 
 	// The user pool ID for the user pool that the users are to be imported into.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:GetCSVHeaderOutput:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation

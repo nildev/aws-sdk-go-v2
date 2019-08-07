@@ -53,21 +53,21 @@ type DescribeConfigurationSetOutput struct {
 
 	// The configuration set object associated with the specified configuration
 	// set.
-	ConfigurationSet *ConfigurationSet `type:"structure"`
+	ConfigurationSet *ConfigurationSet `json:"email:DescribeConfigurationSetOutput:ConfigurationSet" type:"structure"`
 
 	// Specifies whether messages that use the configuration set are required to
 	// use Transport Layer Security (TLS).
-	DeliveryOptions *DeliveryOptions `type:"structure"`
+	DeliveryOptions *DeliveryOptions `json:"email:DescribeConfigurationSetOutput:DeliveryOptions" type:"structure"`
 
 	// A list of event destinations associated with the configuration set.
-	EventDestinations []EventDestination `type:"list"`
+	EventDestinations []EventDestination `json:"email:DescribeConfigurationSetOutput:EventDestinations" type:"list"`
 
 	// An object that represents the reputation settings for the configuration set.
-	ReputationOptions *ReputationOptions `type:"structure"`
+	ReputationOptions *ReputationOptions `json:"email:DescribeConfigurationSetOutput:ReputationOptions" type:"structure"`
 
 	// The name of the custom open and click tracking domain associated with the
 	// configuration set.
-	TrackingOptions *TrackingOptions `type:"structure"`
+	TrackingOptions *TrackingOptions `json:"email:DescribeConfigurationSetOutput:TrackingOptions" type:"structure"`
 }
 
 // String returns the string representation

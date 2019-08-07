@@ -58,10 +58,10 @@ type ListTagsForProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved for future use.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codestar:ListTagsForProjectOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// The tags for the project.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"codestar:ListTagsForProjectOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

@@ -53,10 +53,10 @@ type GetGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The collection of all active groups.
-	Groups []GroupSummary `type:"list"`
+	Groups []GroupSummary `json:"xray:GetGroupsOutput:Groups" type:"list"`
 
 	// Pagination token. Not used.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"xray:GetGroupsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

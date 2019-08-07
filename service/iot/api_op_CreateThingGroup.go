@@ -93,13 +93,13 @@ type CreateThingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The thing group ARN.
-	ThingGroupArn *string `locationName:"thingGroupArn" type:"string"`
+	ThingGroupArn *string `json:"iot:CreateThingGroupOutput:ThingGroupArn" locationName:"thingGroupArn" type:"string"`
 
 	// The thing group ID.
-	ThingGroupId *string `locationName:"thingGroupId" min:"1" type:"string"`
+	ThingGroupId *string `json:"iot:CreateThingGroupOutput:ThingGroupId" locationName:"thingGroupId" min:"1" type:"string"`
 
 	// The thing group name.
-	ThingGroupName *string `locationName:"thingGroupName" min:"1" type:"string"`
+	ThingGroupName *string `json:"iot:CreateThingGroupOutput:ThingGroupName" locationName:"thingGroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation

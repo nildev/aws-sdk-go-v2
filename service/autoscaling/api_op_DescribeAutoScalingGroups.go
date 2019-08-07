@@ -41,13 +41,13 @@ type DescribeAutoScalingGroupsOutput struct {
 	// The groups.
 	//
 	// AutoScalingGroups is a required field
-	AutoScalingGroups []AutoScalingGroup `type:"list" required:"true"`
+	AutoScalingGroups []AutoScalingGroup `json:"autoscaling:DescribeAutoScalingGroupsOutput:AutoScalingGroups" type:"list" required:"true"`
 
 	// A string that indicates that the response contains more items than can be
 	// returned in a single response. To receive additional items, specify this
 	// string for the NextToken value when requesting the next set of items. This
 	// value is null when there are no more items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeAutoScalingGroupsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -43,7 +43,7 @@ type DeleteImageBuilderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the image builder.
-	ImageBuilder *ImageBuilder `type:"structure"`
+	ImageBuilder *ImageBuilder `json:"appstream2:DeleteImageBuilderOutput:ImageBuilder" type:"structure"`
 }
 
 // String returns the string representation

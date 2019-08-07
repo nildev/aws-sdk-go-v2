@@ -55,10 +55,10 @@ type AddAttachmentsToSetOutput struct {
 	// new attachment set is created, and the ID of the set is returned in the response.
 	// If an attachmentSetId was specified, the attachments are added to the specified
 	// set, if it exists.
-	AttachmentSetId *string `locationName:"attachmentSetId" type:"string"`
+	AttachmentSetId *string `json:"support:AddAttachmentsToSetOutput:AttachmentSetId" locationName:"attachmentSetId" type:"string"`
 
 	// The time and date when the attachment set expires.
-	ExpiryTime *string `locationName:"expiryTime" type:"string"`
+	ExpiryTime *string `json:"support:AddAttachmentsToSetOutput:ExpiryTime" locationName:"expiryTime" type:"string"`
 }
 
 // String returns the string representation

@@ -108,11 +108,11 @@ type ListJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of jobs.
-	Jobs []JobSummary `locationName:"jobs" type:"list"`
+	Jobs []JobSummary `json:"iot:ListJobsOutput:Jobs" locationName:"jobs" type:"list"`
 
 	// The token for the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListJobsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

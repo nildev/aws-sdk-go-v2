@@ -30,7 +30,7 @@ type CreateInternetGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the internet gateway.
-	InternetGateway *InternetGateway `locationName:"internetGateway" type:"structure"`
+	InternetGateway *InternetGateway `json:"ec2:CreateInternetGatewayOutput:InternetGateway" locationName:"internetGateway" type:"structure"`
 }
 
 // String returns the string representation

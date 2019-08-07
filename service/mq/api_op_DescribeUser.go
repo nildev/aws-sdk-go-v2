@@ -67,17 +67,17 @@ func (s DescribeUserInput) MarshalFields(e protocol.FieldEncoder) error {
 type DescribeUserOutput struct {
 	_ struct{} `type:"structure"`
 
-	BrokerId *string `locationName:"brokerId" type:"string"`
+	BrokerId *string `json:"mq:DescribeUserOutput:BrokerId" locationName:"brokerId" type:"string"`
 
-	ConsoleAccess *bool `locationName:"consoleAccess" type:"boolean"`
+	ConsoleAccess *bool `json:"mq:DescribeUserOutput:ConsoleAccess" locationName:"consoleAccess" type:"boolean"`
 
-	Groups []string `locationName:"groups" type:"list"`
+	Groups []string `json:"mq:DescribeUserOutput:Groups" locationName:"groups" type:"list"`
 
 	// Returns information about the status of the changes pending for the ActiveMQ
 	// user.
-	Pending *UserPendingChanges `locationName:"pending" type:"structure"`
+	Pending *UserPendingChanges `json:"mq:DescribeUserOutput:Pending" locationName:"pending" type:"structure"`
 
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"mq:DescribeUserOutput:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation

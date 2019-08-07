@@ -72,10 +72,10 @@ type ListOutgoingCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The marker for the next set of results.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListOutgoingCertificatesOutput:NextMarker" locationName:"nextMarker" type:"string"`
 
 	// The certificates that are being transferred but not yet accepted.
-	OutgoingCertificates []OutgoingCertificate `locationName:"outgoingCertificates" type:"list"`
+	OutgoingCertificates []OutgoingCertificate `json:"iot:ListOutgoingCertificatesOutput:OutgoingCertificates" locationName:"outgoingCertificates" type:"list"`
 }
 
 // String returns the string representation

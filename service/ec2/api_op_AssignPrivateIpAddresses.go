@@ -60,10 +60,10 @@ type AssignPrivateIpAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The private IP addresses assigned to the network interface.
-	AssignedPrivateIpAddresses []AssignedPrivateIpAddress `locationName:"assignedPrivateIpAddressesSet" locationNameList:"item" type:"list"`
+	AssignedPrivateIpAddresses []AssignedPrivateIpAddress `json:"ec2:AssignPrivateIpAddressesOutput:AssignedPrivateIpAddresses" locationName:"assignedPrivateIpAddressesSet" locationNameList:"item" type:"list"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:AssignPrivateIpAddressesOutput:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 }
 
 // String returns the string representation

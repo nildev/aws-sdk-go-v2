@@ -52,7 +52,7 @@ type ListTagsForCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The key-value pairs that define the applied tags.
-	Tags []Tag `json:"ACM:ListTagsForCertificateOutput:Tags" min:"1" type:"list"`
+	Tags []Tag `json:"acm:ListTagsForCertificateOutput:Tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

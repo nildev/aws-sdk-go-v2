@@ -18,7 +18,7 @@ type AvailabilityZone struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Availability Zone.
-	Name *string `type:"string"`
+	Name *string `json:"elasticache:AvailabilityZone:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -41,27 +41,27 @@ type CacheCluster struct {
 	// using redis version 3.2.6, 4.x or later.
 	//
 	// Default: false
-	AtRestEncryptionEnabled *bool `type:"boolean"`
+	AtRestEncryptionEnabled *bool `json:"elasticache:CacheCluster:AtRestEncryptionEnabled" type:"boolean"`
 
 	// A flag that enables using an AuthToken (password) when issuing Redis commands.
 	//
 	// Default: false
-	AuthTokenEnabled *bool `type:"boolean"`
+	AuthTokenEnabled *bool `json:"elasticache:CacheCluster:AuthTokenEnabled" type:"boolean"`
 
 	// This parameter is currently disabled.
-	AutoMinorVersionUpgrade *bool `type:"boolean"`
+	AutoMinorVersionUpgrade *bool `json:"elasticache:CacheCluster:AutoMinorVersionUpgrade" type:"boolean"`
 
 	// The date and time when the cluster was created.
-	CacheClusterCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CacheClusterCreateTime *time.Time `json:"elasticache:CacheCluster:CacheClusterCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The user-supplied identifier of the cluster. This identifier is a unique
 	// key that identifies a cluster.
-	CacheClusterId *string `type:"string"`
+	CacheClusterId *string `json:"elasticache:CacheCluster:CacheClusterId" type:"string"`
 
 	// The current state of this cluster, one of the following values: available,
 	// creating, deleted, deleting, incompatible-network, modifying, rebooting cluster
 	// nodes, restore-failed, or snapshotting.
-	CacheClusterStatus *string `type:"string"`
+	CacheClusterStatus *string `json:"elasticache:CacheCluster:CacheClusterStatus" type:"string"`
 
 	// The name of the compute and memory capacity node type for the cluster.
 	//
@@ -99,55 +99,55 @@ type CacheCluster struct {
 	//
 	//    * Redis configuration variables appendonly and appendfsync are not supported
 	//    on Redis version 2.8.22 and later.
-	CacheNodeType *string `type:"string"`
+	CacheNodeType *string `json:"elasticache:CacheCluster:CacheNodeType" type:"string"`
 
 	// A list of cache nodes that are members of the cluster.
-	CacheNodes []CacheNode `locationNameList:"CacheNode" type:"list"`
+	CacheNodes []CacheNode `json:"elasticache:CacheCluster:CacheNodes" locationNameList:"CacheNode" type:"list"`
 
 	// Status of the cache parameter group.
-	CacheParameterGroup *CacheParameterGroupStatus `type:"structure"`
+	CacheParameterGroup *CacheParameterGroupStatus `json:"elasticache:CacheCluster:CacheParameterGroup" type:"structure"`
 
 	// A list of cache security group elements, composed of name and status sub-elements.
-	CacheSecurityGroups []CacheSecurityGroupMembership `locationNameList:"CacheSecurityGroup" type:"list"`
+	CacheSecurityGroups []CacheSecurityGroupMembership `json:"elasticache:CacheCluster:CacheSecurityGroups" locationNameList:"CacheSecurityGroup" type:"list"`
 
 	// The name of the cache subnet group associated with the cluster.
-	CacheSubnetGroupName *string `type:"string"`
+	CacheSubnetGroupName *string `json:"elasticache:CacheCluster:CacheSubnetGroupName" type:"string"`
 
 	// The URL of the web page where you can download the latest ElastiCache client
 	// library.
-	ClientDownloadLandingPage *string `type:"string"`
+	ClientDownloadLandingPage *string `json:"elasticache:CacheCluster:ClientDownloadLandingPage" type:"string"`
 
 	// Represents a Memcached cluster endpoint which, if Automatic Discovery is
 	// enabled on the cluster, can be used by an application to connect to any node
 	// in the cluster. The configuration endpoint will always have .cfg in it.
 	//
 	// Example: mem-3.9dvc4r.cfg.usw2.cache.amazonaws.com:11211
-	ConfigurationEndpoint *Endpoint `type:"structure"`
+	ConfigurationEndpoint *Endpoint `json:"elasticache:CacheCluster:ConfigurationEndpoint" type:"structure"`
 
 	// The name of the cache engine (memcached or redis) to be used for this cluster.
-	Engine *string `type:"string"`
+	Engine *string `json:"elasticache:CacheCluster:Engine" type:"string"`
 
 	// The version of the cache engine that is used in this cluster.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"elasticache:CacheCluster:EngineVersion" type:"string"`
 
 	// Describes a notification topic and its status. Notification topics are used
 	// for publishing ElastiCache events to subscribers using Amazon Simple Notification
 	// Service (SNS).
-	NotificationConfiguration *NotificationConfiguration `type:"structure"`
+	NotificationConfiguration *NotificationConfiguration `json:"elasticache:CacheCluster:NotificationConfiguration" type:"structure"`
 
 	// The number of cache nodes in the cluster.
 	//
 	// For clusters running Redis, this value must be 1. For clusters running Memcached,
 	// this value must be between 1 and 20.
-	NumCacheNodes *int64 `type:"integer"`
+	NumCacheNodes *int64 `json:"elasticache:CacheCluster:NumCacheNodes" type:"integer"`
 
 	// A group of settings that are applied to the cluster in the future, or that
 	// are currently being applied.
-	PendingModifiedValues *PendingModifiedValues `type:"structure"`
+	PendingModifiedValues *PendingModifiedValues `json:"elasticache:CacheCluster:PendingModifiedValues" type:"structure"`
 
 	// The name of the Availability Zone in which the cluster is located or "Multiple"
 	// if the cache nodes are located in different Availability Zones.
-	PreferredAvailabilityZone *string `type:"string"`
+	PreferredAvailabilityZone *string `json:"elasticache:CacheCluster:PreferredAvailabilityZone" type:"string"`
 
 	// Specifies the weekly time range during which maintenance on the cluster is
 	// performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi
@@ -170,14 +170,14 @@ type CacheCluster struct {
 	//    * sat
 	//
 	// Example: sun:23:00-mon:01:30
-	PreferredMaintenanceWindow *string `type:"string"`
+	PreferredMaintenanceWindow *string `json:"elasticache:CacheCluster:PreferredMaintenanceWindow" type:"string"`
 
 	// The replication group to which this cluster belongs. If this field is empty,
 	// the cluster is not associated with any replication group.
-	ReplicationGroupId *string `type:"string"`
+	ReplicationGroupId *string `json:"elasticache:CacheCluster:ReplicationGroupId" type:"string"`
 
 	// A list of VPC Security Groups associated with the cluster.
-	SecurityGroups []SecurityGroupMembership `type:"list"`
+	SecurityGroups []SecurityGroupMembership `json:"elasticache:CacheCluster:SecurityGroups" type:"list"`
 
 	// The number of days for which ElastiCache retains automatic cluster snapshots
 	// before deleting them. For example, if you set SnapshotRetentionLimit to 5,
@@ -185,13 +185,13 @@ type CacheCluster struct {
 	//
 	// If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
 	// off.
-	SnapshotRetentionLimit *int64 `type:"integer"`
+	SnapshotRetentionLimit *int64 `json:"elasticache:CacheCluster:SnapshotRetentionLimit" type:"integer"`
 
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily
 	// snapshot of your cluster.
 	//
 	// Example: 05:00-09:00
-	SnapshotWindow *string `type:"string"`
+	SnapshotWindow *string `json:"elasticache:CacheCluster:SnapshotWindow" type:"string"`
 
 	// A flag that enables in-transit encryption when set to true.
 	//
@@ -203,7 +203,7 @@ type CacheCluster struct {
 	// using redis version 3.2.6, 4.x or later.
 	//
 	// Default: false
-	TransitEncryptionEnabled *bool `type:"boolean"`
+	TransitEncryptionEnabled *bool `json:"elasticache:CacheCluster:TransitEncryptionEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -217,22 +217,22 @@ type CacheEngineVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the cache engine.
-	CacheEngineDescription *string `type:"string"`
+	CacheEngineDescription *string `json:"elasticache:CacheEngineVersion:CacheEngineDescription" type:"string"`
 
 	// The description of the cache engine version.
-	CacheEngineVersionDescription *string `type:"string"`
+	CacheEngineVersionDescription *string `json:"elasticache:CacheEngineVersion:CacheEngineVersionDescription" type:"string"`
 
 	// The name of the cache parameter group family associated with this cache engine.
 	//
 	// Valid values are: memcached1.4 | memcached1.5 | redis2.6 | redis2.8 | redis3.2
 	// | redis4.0 | redis5.0 |
-	CacheParameterGroupFamily *string `type:"string"`
+	CacheParameterGroupFamily *string `json:"elasticache:CacheEngineVersion:CacheParameterGroupFamily" type:"string"`
 
 	// The name of the cache engine.
-	Engine *string `type:"string"`
+	Engine *string `json:"elasticache:CacheEngineVersion:Engine" type:"string"`
 
 	// The version number of the cache engine.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"elasticache:CacheEngineVersion:EngineVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -283,28 +283,28 @@ type CacheNode struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the cache node was created.
-	CacheNodeCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CacheNodeCreateTime *time.Time `json:"elasticache:CacheNode:CacheNodeCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The cache node identifier. A node ID is a numeric identifier (0001, 0002,
 	// etc.). The combination of cluster ID and node ID uniquely identifies every
 	// cache node used in a customer's AWS account.
-	CacheNodeId *string `type:"string"`
+	CacheNodeId *string `json:"elasticache:CacheNode:CacheNodeId" type:"string"`
 
 	// The current state of this cache node.
-	CacheNodeStatus *string `type:"string"`
+	CacheNodeStatus *string `json:"elasticache:CacheNode:CacheNodeStatus" type:"string"`
 
 	// The Availability Zone where this node was created and now resides.
-	CustomerAvailabilityZone *string `type:"string"`
+	CustomerAvailabilityZone *string `json:"elasticache:CacheNode:CustomerAvailabilityZone" type:"string"`
 
 	// The hostname for connecting to this cache node.
-	Endpoint *Endpoint `type:"structure"`
+	Endpoint *Endpoint `json:"elasticache:CacheNode:Endpoint" type:"structure"`
 
 	// The status of the parameter group applied to this cache node.
-	ParameterGroupStatus *string `type:"string"`
+	ParameterGroupStatus *string `json:"elasticache:CacheNode:ParameterGroupStatus" type:"string"`
 
 	// The ID of the primary node to which this read replica node is synchronized.
 	// If this field is empty, this node is not associated with a primary cluster.
-	SourceCacheNodeId *string `type:"string"`
+	SourceCacheNodeId *string `json:"elasticache:CacheNode:SourceCacheNodeId" type:"string"`
 }
 
 // String returns the string representation
@@ -320,36 +320,36 @@ type CacheNodeTypeSpecificParameter struct {
 	_ struct{} `type:"structure"`
 
 	// The valid range of values for the parameter.
-	AllowedValues *string `type:"string"`
+	AllowedValues *string `json:"elasticache:CacheNodeTypeSpecificParameter:AllowedValues" type:"string"`
 
 	// A list of cache node types and their corresponding values for this parameter.
-	CacheNodeTypeSpecificValues []CacheNodeTypeSpecificValue `locationNameList:"CacheNodeTypeSpecificValue" type:"list"`
+	CacheNodeTypeSpecificValues []CacheNodeTypeSpecificValue `json:"elasticache:CacheNodeTypeSpecificParameter:CacheNodeTypeSpecificValues" locationNameList:"CacheNodeTypeSpecificValue" type:"list"`
 
 	// Indicates whether a change to the parameter is applied immediately or requires
 	// a reboot for the change to be applied. You can force a reboot or wait until
 	// the next maintenance window's reboot. For more information, see Rebooting
 	// a Cluster (https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html).
-	ChangeType ChangeType `type:"string" enum:"true"`
+	ChangeType ChangeType `json:"elasticache:CacheNodeTypeSpecificParameter:ChangeType" type:"string" enum:"true"`
 
 	// The valid data type for the parameter.
-	DataType *string `type:"string"`
+	DataType *string `json:"elasticache:CacheNodeTypeSpecificParameter:DataType" type:"string"`
 
 	// A description of the parameter.
-	Description *string `type:"string"`
+	Description *string `json:"elasticache:CacheNodeTypeSpecificParameter:Description" type:"string"`
 
 	// Indicates whether (true) or not (false) the parameter can be modified. Some
 	// parameters have security or operational implications that prevent them from
 	// being changed.
-	IsModifiable *bool `type:"boolean"`
+	IsModifiable *bool `json:"elasticache:CacheNodeTypeSpecificParameter:IsModifiable" type:"boolean"`
 
 	// The earliest cache engine version to which the parameter can apply.
-	MinimumEngineVersion *string `type:"string"`
+	MinimumEngineVersion *string `json:"elasticache:CacheNodeTypeSpecificParameter:MinimumEngineVersion" type:"string"`
 
 	// The name of the parameter.
-	ParameterName *string `type:"string"`
+	ParameterName *string `json:"elasticache:CacheNodeTypeSpecificParameter:ParameterName" type:"string"`
 
 	// The source of the parameter value.
-	Source *string `type:"string"`
+	Source *string `json:"elasticache:CacheNodeTypeSpecificParameter:Source" type:"string"`
 }
 
 // String returns the string representation
@@ -363,10 +363,10 @@ type CacheNodeTypeSpecificValue struct {
 	_ struct{} `type:"structure"`
 
 	// The cache node type for which this value applies.
-	CacheNodeType *string `type:"string"`
+	CacheNodeType *string `json:"elasticache:CacheNodeTypeSpecificValue:CacheNodeType" type:"string"`
 
 	// The value for the cache node type.
-	Value *string `type:"string"`
+	Value *string `json:"elasticache:CacheNodeTypeSpecificValue:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -384,13 +384,13 @@ type CacheParameterGroup struct {
 	//
 	// Valid values are: memcached1.4 | memcached1.5 | redis2.6 | redis2.8 | redis3.2
 	// | redis4.0 | redis5.0 |
-	CacheParameterGroupFamily *string `type:"string"`
+	CacheParameterGroupFamily *string `json:"elasticache:CacheParameterGroup:CacheParameterGroupFamily" type:"string"`
 
 	// The name of the cache parameter group.
-	CacheParameterGroupName *string `type:"string"`
+	CacheParameterGroupName *string `json:"elasticache:CacheParameterGroup:CacheParameterGroupName" type:"string"`
 
 	// The description for this cache parameter group.
-	Description *string `type:"string"`
+	Description *string `json:"elasticache:CacheParameterGroup:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -405,13 +405,13 @@ type CacheParameterGroupStatus struct {
 
 	// A list of the cache node IDs which need to be rebooted for parameter changes
 	// to be applied. A node ID is a numeric identifier (0001, 0002, etc.).
-	CacheNodeIdsToReboot []string `locationNameList:"CacheNodeId" type:"list"`
+	CacheNodeIdsToReboot []string `json:"elasticache:CacheParameterGroupStatus:CacheNodeIdsToReboot" locationNameList:"CacheNodeId" type:"list"`
 
 	// The name of the cache parameter group.
-	CacheParameterGroupName *string `type:"string"`
+	CacheParameterGroupName *string `json:"elasticache:CacheParameterGroupStatus:CacheParameterGroupName" type:"string"`
 
 	// The status of parameter updates.
-	ParameterApplyStatus *string `type:"string"`
+	ParameterApplyStatus *string `json:"elasticache:CacheParameterGroupStatus:ParameterApplyStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -431,17 +431,17 @@ type CacheSecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cache security group.
-	CacheSecurityGroupName *string `type:"string"`
+	CacheSecurityGroupName *string `json:"elasticache:CacheSecurityGroup:CacheSecurityGroupName" type:"string"`
 
 	// The description of the cache security group.
-	Description *string `type:"string"`
+	Description *string `json:"elasticache:CacheSecurityGroup:Description" type:"string"`
 
 	// A list of Amazon EC2 security groups that are associated with this cache
 	// security group.
-	EC2SecurityGroups []EC2SecurityGroup `locationNameList:"EC2SecurityGroup" type:"list"`
+	EC2SecurityGroups []EC2SecurityGroup `json:"elasticache:CacheSecurityGroup:EC2SecurityGroups" locationNameList:"EC2SecurityGroup" type:"list"`
 
 	// The AWS account ID of the cache security group owner.
-	OwnerId *string `type:"string"`
+	OwnerId *string `json:"elasticache:CacheSecurityGroup:OwnerId" type:"string"`
 }
 
 // String returns the string representation
@@ -455,12 +455,12 @@ type CacheSecurityGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cache security group.
-	CacheSecurityGroupName *string `type:"string"`
+	CacheSecurityGroupName *string `json:"elasticache:CacheSecurityGroupMembership:CacheSecurityGroupName" type:"string"`
 
 	// The membership status in the cache security group. The status changes when
 	// a cache security group is modified, or when the cache security groups assigned
 	// to a cluster are modified.
-	Status *string `type:"string"`
+	Status *string `json:"elasticache:CacheSecurityGroupMembership:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -478,17 +478,17 @@ type CacheSubnetGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the cache subnet group.
-	CacheSubnetGroupDescription *string `type:"string"`
+	CacheSubnetGroupDescription *string `json:"elasticache:CacheSubnetGroup:CacheSubnetGroupDescription" type:"string"`
 
 	// The name of the cache subnet group.
-	CacheSubnetGroupName *string `type:"string"`
+	CacheSubnetGroupName *string `json:"elasticache:CacheSubnetGroup:CacheSubnetGroupName" type:"string"`
 
 	// A list of subnets associated with the cache subnet group.
-	Subnets []Subnet `locationNameList:"Subnet" type:"list"`
+	Subnets []Subnet `json:"elasticache:CacheSubnetGroup:Subnets" locationNameList:"Subnet" type:"list"`
 
 	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 	// group.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"elasticache:CacheSubnetGroup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -516,7 +516,7 @@ type ConfigureShard struct {
 	//    to a replica if your primary node fails)
 	//
 	// NewReplicaCount is a required field
-	NewReplicaCount *int64 `type:"integer" required:"true"`
+	NewReplicaCount *int64 `json:"elasticache:ConfigureShard:NewReplicaCount" type:"integer" required:"true"`
 
 	// The 4-digit id for the node group you are configuring. For Redis (cluster
 	// mode disabled) replication groups, the node group id is always 0001. To find
@@ -524,14 +524,14 @@ type ConfigureShard struct {
 	// Shard's Id (https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html).
 	//
 	// NodeGroupId is a required field
-	NodeGroupId *string `min:"1" type:"string" required:"true"`
+	NodeGroupId *string `json:"elasticache:ConfigureShard:NodeGroupId" min:"1" type:"string" required:"true"`
 
 	// A list of PreferredAvailabilityZone strings that specify which availability
 	// zones the replication group's nodes are to be in. The nummber of PreferredAvailabilityZone
 	// values must equal the value of NewReplicaCount plus 1 to account for the
 	// primary node. If this member of ReplicaConfiguration is omitted, ElastiCache
 	// for Redis selects the availability zone for each of the replicas.
-	PreferredAvailabilityZones []string `locationNameList:"PreferredAvailabilityZone" type:"list"`
+	PreferredAvailabilityZones []string `json:"elasticache:ConfigureShard:PreferredAvailabilityZones" locationNameList:"PreferredAvailabilityZone" type:"list"`
 }
 
 // String returns the string representation
@@ -566,13 +566,13 @@ type EC2SecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Amazon EC2 security group.
-	EC2SecurityGroupName *string `type:"string"`
+	EC2SecurityGroupName *string `json:"elasticache:EC2SecurityGroup:EC2SecurityGroupName" type:"string"`
 
 	// The AWS account ID of the Amazon EC2 security group owner.
-	EC2SecurityGroupOwnerId *string `type:"string"`
+	EC2SecurityGroupOwnerId *string `json:"elasticache:EC2SecurityGroup:EC2SecurityGroupOwnerId" type:"string"`
 
 	// The status of the Amazon EC2 security group.
-	Status *string `type:"string"`
+	Status *string `json:"elasticache:EC2SecurityGroup:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -587,10 +587,10 @@ type Endpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The DNS hostname of the cache node.
-	Address *string `type:"string"`
+	Address *string `json:"elasticache:Endpoint:Address" type:"string"`
 
 	// The port number that the cache engine is listening on.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"elasticache:Endpoint:Port" type:"integer"`
 }
 
 // String returns the string representation
@@ -605,20 +605,20 @@ type EngineDefaults struct {
 
 	// A list of parameters specific to a particular cache node type. Each element
 	// in the list contains detailed information about one parameter.
-	CacheNodeTypeSpecificParameters []CacheNodeTypeSpecificParameter `locationNameList:"CacheNodeTypeSpecificParameter" type:"list"`
+	CacheNodeTypeSpecificParameters []CacheNodeTypeSpecificParameter `json:"elasticache:EngineDefaults:CacheNodeTypeSpecificParameters" locationNameList:"CacheNodeTypeSpecificParameter" type:"list"`
 
 	// Specifies the name of the cache parameter group family to which the engine
 	// default parameters apply.
 	//
 	// Valid values are: memcached1.4 | memcached1.5 | redis2.6 | redis2.8 | redis3.2
 	// | redis4.0 | redis5.0 |
-	CacheParameterGroupFamily *string `type:"string"`
+	CacheParameterGroupFamily *string `json:"elasticache:EngineDefaults:CacheParameterGroupFamily" type:"string"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:EngineDefaults:Marker" type:"string"`
 
 	// Contains a list of engine default parameters.
-	Parameters []Parameter `locationNameList:"Parameter" type:"list"`
+	Parameters []Parameter `json:"elasticache:EngineDefaults:Parameters" locationNameList:"Parameter" type:"list"`
 }
 
 // String returns the string representation
@@ -634,18 +634,18 @@ type Event struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the event occurred.
-	Date *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Date *time.Time `json:"elasticache:Event:Date" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The text of the event.
-	Message *string `type:"string"`
+	Message *string `json:"elasticache:Event:Message" type:"string"`
 
 	// The identifier for the source of the event. For example, if the event occurred
 	// at the cluster level, the identifier would be the name of the cluster.
-	SourceIdentifier *string `type:"string"`
+	SourceIdentifier *string `json:"elasticache:Event:SourceIdentifier" type:"string"`
 
 	// Specifies the origin of this event - a cluster, a parameter group, a security
 	// group, etc.
-	SourceType SourceType `type:"string" enum:"true"`
+	SourceType SourceType `json:"elasticache:Event:SourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -665,23 +665,23 @@ type NodeGroup struct {
 	// is 0001. A Redis (cluster mode enabled) replication group contains 1 to 90
 	// node groups numbered 0001 to 0090. Optionally, the user can provide the id
 	// for a node group.
-	NodeGroupId *string `type:"string"`
+	NodeGroupId *string `json:"elasticache:NodeGroup:NodeGroupId" type:"string"`
 
 	// A list containing information about individual nodes within the node group
 	// (shard).
-	NodeGroupMembers []NodeGroupMember `locationNameList:"NodeGroupMember" type:"list"`
+	NodeGroupMembers []NodeGroupMember `json:"elasticache:NodeGroup:NodeGroupMembers" locationNameList:"NodeGroupMember" type:"list"`
 
 	// The endpoint of the primary node in this node group (shard).
-	PrimaryEndpoint *Endpoint `type:"structure"`
+	PrimaryEndpoint *Endpoint `json:"elasticache:NodeGroup:PrimaryEndpoint" type:"structure"`
 
 	// The endpoint of the replica nodes in this node group (shard).
-	ReaderEndpoint *Endpoint `type:"structure"`
+	ReaderEndpoint *Endpoint `json:"elasticache:NodeGroup:ReaderEndpoint" type:"structure"`
 
 	// The keyspace for this node group (shard).
-	Slots *string `type:"string"`
+	Slots *string `json:"elasticache:NodeGroup:Slots" type:"string"`
 
 	// The current state of this replication group - creating, available, etc.
-	Status *string `type:"string"`
+	Status *string `json:"elasticache:NodeGroup:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -698,25 +698,25 @@ type NodeGroupConfiguration struct {
 
 	// Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
 	// for the node group these configuration values apply to.
-	NodeGroupId *string `min:"1" type:"string"`
+	NodeGroupId *string `json:"elasticache:NodeGroupConfiguration:NodeGroupId" min:"1" type:"string"`
 
 	// The Availability Zone where the primary node of this node group (shard) is
 	// launched.
-	PrimaryAvailabilityZone *string `type:"string"`
+	PrimaryAvailabilityZone *string `json:"elasticache:NodeGroupConfiguration:PrimaryAvailabilityZone" type:"string"`
 
 	// A list of Availability Zones to be used for the read replicas. The number
 	// of Availability Zones in this list must match the value of ReplicaCount or
 	// ReplicasPerNodeGroup if not specified.
-	ReplicaAvailabilityZones []string `locationNameList:"AvailabilityZone" type:"list"`
+	ReplicaAvailabilityZones []string `json:"elasticache:NodeGroupConfiguration:ReplicaAvailabilityZones" locationNameList:"AvailabilityZone" type:"list"`
 
 	// The number of read replica nodes in this node group (shard).
-	ReplicaCount *int64 `type:"integer"`
+	ReplicaCount *int64 `json:"elasticache:NodeGroupConfiguration:ReplicaCount" type:"integer"`
 
 	// A string that specifies the keyspace for a particular node group. Keyspaces
 	// range from 0 to 16,383. The string is in the format startkey-endkey.
 	//
 	// Example: "0-3999"
-	Slots *string `type:"string"`
+	Slots *string `json:"elasticache:NodeGroupConfiguration:Slots" type:"string"`
 }
 
 // String returns the string representation
@@ -743,23 +743,23 @@ type NodeGroupMember struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the cluster to which the node belongs.
-	CacheClusterId *string `type:"string"`
+	CacheClusterId *string `json:"elasticache:NodeGroupMember:CacheClusterId" type:"string"`
 
 	// The ID of the node within its cluster. A node ID is a numeric identifier
 	// (0001, 0002, etc.).
-	CacheNodeId *string `type:"string"`
+	CacheNodeId *string `json:"elasticache:NodeGroupMember:CacheNodeId" type:"string"`
 
 	// The role that is currently assigned to the node - primary or replica. This
 	// member is only applicable for Redis (cluster mode disabled) replication groups.
-	CurrentRole *string `type:"string"`
+	CurrentRole *string `json:"elasticache:NodeGroupMember:CurrentRole" type:"string"`
 
 	// The name of the Availability Zone in which the node is located.
-	PreferredAvailabilityZone *string `type:"string"`
+	PreferredAvailabilityZone *string `json:"elasticache:NodeGroupMember:PreferredAvailabilityZone" type:"string"`
 
 	// The information required for client programs to connect to a node for read
 	// operations. The read endpoint is only applicable on Redis (cluster mode disabled)
 	// clusters.
-	ReadEndpoint *Endpoint `type:"structure"`
+	ReadEndpoint *Endpoint `json:"elasticache:NodeGroupMember:ReadEndpoint" type:"structure"`
 }
 
 // String returns the string representation
@@ -773,32 +773,32 @@ type NodeGroupMemberUpdateStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The cache cluster ID
-	CacheClusterId *string `type:"string"`
+	CacheClusterId *string `json:"elasticache:NodeGroupMemberUpdateStatus:CacheClusterId" type:"string"`
 
 	// The node ID of the cache cluster
-	CacheNodeId *string `type:"string"`
+	CacheNodeId *string `json:"elasticache:NodeGroupMemberUpdateStatus:CacheNodeId" type:"string"`
 
 	// The deletion date of the node
-	NodeDeletionDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	NodeDeletionDate *time.Time `json:"elasticache:NodeGroupMemberUpdateStatus:NodeDeletionDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The end date of the update for a node
-	NodeUpdateEndDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	NodeUpdateEndDate *time.Time `json:"elasticache:NodeGroupMemberUpdateStatus:NodeUpdateEndDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Reflects whether the update was initiated by the customer or automatically
 	// applied
-	NodeUpdateInitiatedBy NodeUpdateInitiatedBy `type:"string" enum:"true"`
+	NodeUpdateInitiatedBy NodeUpdateInitiatedBy `json:"elasticache:NodeGroupMemberUpdateStatus:NodeUpdateInitiatedBy" type:"string" enum:"true"`
 
 	// The date when the update is triggered
-	NodeUpdateInitiatedDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	NodeUpdateInitiatedDate *time.Time `json:"elasticache:NodeGroupMemberUpdateStatus:NodeUpdateInitiatedDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The start date of the update for a node
-	NodeUpdateStartDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	NodeUpdateStartDate *time.Time `json:"elasticache:NodeGroupMemberUpdateStatus:NodeUpdateStartDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The update status of the node
-	NodeUpdateStatus NodeUpdateStatus `type:"string" enum:"true"`
+	NodeUpdateStatus NodeUpdateStatus `json:"elasticache:NodeGroupMemberUpdateStatus:NodeUpdateStatus" type:"string" enum:"true"`
 
 	// The date when the NodeUpdateStatus was last modified
-	NodeUpdateStatusModifiedDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	NodeUpdateStatusModifiedDate *time.Time `json:"elasticache:NodeGroupMemberUpdateStatus:NodeUpdateStatusModifiedDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -812,10 +812,10 @@ type NodeGroupUpdateStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the node group
-	NodeGroupId *string `type:"string"`
+	NodeGroupId *string `json:"elasticache:NodeGroupUpdateStatus:NodeGroupId" type:"string"`
 
 	// The status of the service update on the node group member
-	NodeGroupMemberUpdateStatus []NodeGroupMemberUpdateStatus `locationNameList:"NodeGroupMemberUpdateStatus" type:"list"`
+	NodeGroupMemberUpdateStatus []NodeGroupMemberUpdateStatus `json:"elasticache:NodeGroupUpdateStatus:NodeGroupMemberUpdateStatus" locationNameList:"NodeGroupMemberUpdateStatus" type:"list"`
 }
 
 // String returns the string representation
@@ -829,26 +829,26 @@ type NodeSnapshot struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier for the source cluster.
-	CacheClusterId *string `type:"string"`
+	CacheClusterId *string `json:"elasticache:NodeSnapshot:CacheClusterId" type:"string"`
 
 	// The date and time when the cache node was created in the source cluster.
-	CacheNodeCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CacheNodeCreateTime *time.Time `json:"elasticache:NodeSnapshot:CacheNodeCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The cache node identifier for the node in the source cluster.
-	CacheNodeId *string `type:"string"`
+	CacheNodeId *string `json:"elasticache:NodeSnapshot:CacheNodeId" type:"string"`
 
 	// The size of the cache on the source cache node.
-	CacheSize *string `type:"string"`
+	CacheSize *string `json:"elasticache:NodeSnapshot:CacheSize" type:"string"`
 
 	// The configuration for the source node group (shard).
-	NodeGroupConfiguration *NodeGroupConfiguration `type:"structure"`
+	NodeGroupConfiguration *NodeGroupConfiguration `json:"elasticache:NodeSnapshot:NodeGroupConfiguration" type:"structure"`
 
 	// A unique identifier for the source node group (shard).
-	NodeGroupId *string `type:"string"`
+	NodeGroupId *string `json:"elasticache:NodeSnapshot:NodeGroupId" type:"string"`
 
 	// The date and time when the source node's metadata and cache data set was
 	// obtained for the snapshot.
-	SnapshotCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	SnapshotCreateTime *time.Time `json:"elasticache:NodeSnapshot:SnapshotCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -864,10 +864,10 @@ type NotificationConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) that identifies the topic.
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"elasticache:NotificationConfiguration:TopicArn" type:"string"`
 
 	// The current state of the topic.
-	TopicStatus *string `type:"string"`
+	TopicStatus *string `json:"elasticache:NotificationConfiguration:TopicStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -882,36 +882,36 @@ type Parameter struct {
 	_ struct{} `type:"structure"`
 
 	// The valid range of values for the parameter.
-	AllowedValues *string `type:"string"`
+	AllowedValues *string `json:"elasticache:Parameter:AllowedValues" type:"string"`
 
 	// Indicates whether a change to the parameter is applied immediately or requires
 	// a reboot for the change to be applied. You can force a reboot or wait until
 	// the next maintenance window's reboot. For more information, see Rebooting
 	// a Cluster (https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html).
-	ChangeType ChangeType `type:"string" enum:"true"`
+	ChangeType ChangeType `json:"elasticache:Parameter:ChangeType" type:"string" enum:"true"`
 
 	// The valid data type for the parameter.
-	DataType *string `type:"string"`
+	DataType *string `json:"elasticache:Parameter:DataType" type:"string"`
 
 	// A description of the parameter.
-	Description *string `type:"string"`
+	Description *string `json:"elasticache:Parameter:Description" type:"string"`
 
 	// Indicates whether (true) or not (false) the parameter can be modified. Some
 	// parameters have security or operational implications that prevent them from
 	// being changed.
-	IsModifiable *bool `type:"boolean"`
+	IsModifiable *bool `json:"elasticache:Parameter:IsModifiable" type:"boolean"`
 
 	// The earliest cache engine version to which the parameter can apply.
-	MinimumEngineVersion *string `type:"string"`
+	MinimumEngineVersion *string `json:"elasticache:Parameter:MinimumEngineVersion" type:"string"`
 
 	// The name of the parameter.
-	ParameterName *string `type:"string"`
+	ParameterName *string `json:"elasticache:Parameter:ParameterName" type:"string"`
 
 	// The value of the parameter.
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `json:"elasticache:Parameter:ParameterValue" type:"string"`
 
 	// The source of the parameter.
-	Source *string `type:"string"`
+	Source *string `json:"elasticache:Parameter:Source" type:"string"`
 }
 
 // String returns the string representation
@@ -925,10 +925,10 @@ type ParameterNameValue struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the parameter.
-	ParameterName *string `type:"string"`
+	ParameterName *string `json:"elasticache:ParameterNameValue:ParameterName" type:"string"`
 
 	// The value of the parameter.
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `json:"elasticache:ParameterNameValue:ParameterValue" type:"string"`
 }
 
 // String returns the string representation
@@ -944,19 +944,19 @@ type PendingModifiedValues struct {
 
 	// A list of cache node IDs that are being removed (or will be removed) from
 	// the cluster. A node ID is a 4-digit numeric identifier (0001, 0002, etc.).
-	CacheNodeIdsToRemove []string `locationNameList:"CacheNodeId" type:"list"`
+	CacheNodeIdsToRemove []string `json:"elasticache:PendingModifiedValues:CacheNodeIdsToRemove" locationNameList:"CacheNodeId" type:"list"`
 
 	// The cache node type that this cluster or replication group is scaled to.
-	CacheNodeType *string `type:"string"`
+	CacheNodeType *string `json:"elasticache:PendingModifiedValues:CacheNodeType" type:"string"`
 
 	// The new cache engine version that the cluster runs.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"elasticache:PendingModifiedValues:EngineVersion" type:"string"`
 
 	// The new number of cache nodes for the cluster.
 	//
 	// For clusters running Redis, this value must be 1. For clusters running Memcached,
 	// this value must be between 1 and 20.
-	NumCacheNodes *int64 `type:"integer"`
+	NumCacheNodes *int64 `json:"elasticache:PendingModifiedValues:NumCacheNodes" type:"integer"`
 }
 
 // String returns the string representation
@@ -970,13 +970,13 @@ type ProcessedUpdateAction struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the replication group
-	ReplicationGroupId *string `type:"string"`
+	ReplicationGroupId *string `json:"elasticache:ProcessedUpdateAction:ReplicationGroupId" type:"string"`
 
 	// The unique ID of the service update
-	ServiceUpdateName *string `type:"string"`
+	ServiceUpdateName *string `json:"elasticache:ProcessedUpdateAction:ServiceUpdateName" type:"string"`
 
 	// The status of the update action on the Redis cluster
-	UpdateActionStatus UpdateActionStatus `type:"string" enum:"true"`
+	UpdateActionStatus UpdateActionStatus `json:"elasticache:ProcessedUpdateAction:UpdateActionStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -991,10 +991,10 @@ type RecurringCharge struct {
 	_ struct{} `type:"structure"`
 
 	// The monetary amount of the recurring charge.
-	RecurringChargeAmount *float64 `type:"double"`
+	RecurringChargeAmount *float64 `json:"elasticache:RecurringCharge:RecurringChargeAmount" type:"double"`
 
 	// The frequency of the recurring charge.
-	RecurringChargeFrequency *string `type:"string"`
+	RecurringChargeFrequency *string `json:"elasticache:RecurringCharge:RecurringChargeFrequency" type:"string"`
 }
 
 // String returns the string representation
@@ -1017,12 +1017,12 @@ type ReplicationGroup struct {
 	// using redis version 3.2.6, 4.x or later.
 	//
 	// Default: false
-	AtRestEncryptionEnabled *bool `type:"boolean"`
+	AtRestEncryptionEnabled *bool `json:"elasticache:ReplicationGroup:AtRestEncryptionEnabled" type:"boolean"`
 
 	// A flag that enables using an AuthToken (password) when issuing Redis commands.
 	//
 	// Default: false
-	AuthTokenEnabled *bool `type:"boolean"`
+	AuthTokenEnabled *bool `json:"elasticache:ReplicationGroup:AuthTokenEnabled" type:"boolean"`
 
 	// Indicates the status of Multi-AZ with automatic failover for this Redis replication
 	// group.
@@ -1035,41 +1035,41 @@ type ReplicationGroup struct {
 	//    * Redis (cluster mode disabled): T1 node types.
 	//
 	//    * Redis (cluster mode enabled): T1 node types.
-	AutomaticFailover AutomaticFailoverStatus `type:"string" enum:"true"`
+	AutomaticFailover AutomaticFailoverStatus `json:"elasticache:ReplicationGroup:AutomaticFailover" type:"string" enum:"true"`
 
 	// The name of the compute and memory capacity node type for each node in the
 	// replication group.
-	CacheNodeType *string `type:"string"`
+	CacheNodeType *string `json:"elasticache:ReplicationGroup:CacheNodeType" type:"string"`
 
 	// A flag indicating whether or not this replication group is cluster enabled;
 	// i.e., whether its data can be partitioned across multiple shards (API/CLI:
 	// node groups).
 	//
 	// Valid values: true | false
-	ClusterEnabled *bool `type:"boolean"`
+	ClusterEnabled *bool `json:"elasticache:ReplicationGroup:ClusterEnabled" type:"boolean"`
 
 	// The configuration endpoint for this replication group. Use the configuration
 	// endpoint to connect to this replication group.
-	ConfigurationEndpoint *Endpoint `type:"structure"`
+	ConfigurationEndpoint *Endpoint `json:"elasticache:ReplicationGroup:ConfigurationEndpoint" type:"structure"`
 
 	// The user supplied description of the replication group.
-	Description *string `type:"string"`
+	Description *string `json:"elasticache:ReplicationGroup:Description" type:"string"`
 
 	// The names of all the cache clusters that are part of this replication group.
-	MemberClusters []string `locationNameList:"ClusterId" type:"list"`
+	MemberClusters []string `json:"elasticache:ReplicationGroup:MemberClusters" locationNameList:"ClusterId" type:"list"`
 
 	// A list of node groups in this replication group. For Redis (cluster mode
 	// disabled) replication groups, this is a single-element list. For Redis (cluster
 	// mode enabled) replication groups, the list contains an entry for each node
 	// group (shard).
-	NodeGroups []NodeGroup `locationNameList:"NodeGroup" type:"list"`
+	NodeGroups []NodeGroup `json:"elasticache:ReplicationGroup:NodeGroups" locationNameList:"NodeGroup" type:"list"`
 
 	// A group of settings to be applied to the replication group, either immediately
 	// or during the next maintenance window.
-	PendingModifiedValues *ReplicationGroupPendingModifiedValues `type:"structure"`
+	PendingModifiedValues *ReplicationGroupPendingModifiedValues `json:"elasticache:ReplicationGroup:PendingModifiedValues" type:"structure"`
 
 	// The identifier for the replication group.
-	ReplicationGroupId *string `type:"string"`
+	ReplicationGroupId *string `json:"elasticache:ReplicationGroup:ReplicationGroupId" type:"string"`
 
 	// The number of days for which ElastiCache retains automatic cluster snapshots
 	// before deleting them. For example, if you set SnapshotRetentionLimit to 5,
@@ -1077,7 +1077,7 @@ type ReplicationGroup struct {
 	//
 	// If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
 	// off.
-	SnapshotRetentionLimit *int64 `type:"integer"`
+	SnapshotRetentionLimit *int64 `json:"elasticache:ReplicationGroup:SnapshotRetentionLimit" type:"integer"`
 
 	// The daily time range (in UTC) during which ElastiCache begins taking a daily
 	// snapshot of your node group (shard).
@@ -1088,15 +1088,15 @@ type ReplicationGroup struct {
 	// appropriate time range.
 	//
 	// This parameter is only valid if the Engine parameter is redis.
-	SnapshotWindow *string `type:"string"`
+	SnapshotWindow *string `json:"elasticache:ReplicationGroup:SnapshotWindow" type:"string"`
 
 	// The cluster ID that is used as the daily snapshot source for the replication
 	// group.
-	SnapshottingClusterId *string `type:"string"`
+	SnapshottingClusterId *string `json:"elasticache:ReplicationGroup:SnapshottingClusterId" type:"string"`
 
 	// The current state of this replication group - creating, available, modifying,
 	// deleting, create-failed, snapshotting.
-	Status *string `type:"string"`
+	Status *string `json:"elasticache:ReplicationGroup:Status" type:"string"`
 
 	// A flag that enables in-transit encryption when set to true.
 	//
@@ -1108,7 +1108,7 @@ type ReplicationGroup struct {
 	// using redis version 3.2.6, 4.x or later.
 	//
 	// Default: false
-	TransitEncryptionEnabled *bool `type:"boolean"`
+	TransitEncryptionEnabled *bool `json:"elasticache:ReplicationGroup:TransitEncryptionEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1133,14 +1133,14 @@ type ReplicationGroupPendingModifiedValues struct {
 	//    * Redis (cluster mode disabled): T1 node types.
 	//
 	//    * Redis (cluster mode enabled): T1 node types.
-	AutomaticFailoverStatus PendingAutomaticFailoverStatus `type:"string" enum:"true"`
+	AutomaticFailoverStatus PendingAutomaticFailoverStatus `json:"elasticache:ReplicationGroupPendingModifiedValues:AutomaticFailoverStatus" type:"string" enum:"true"`
 
 	// The primary cluster ID that is applied immediately (if --apply-immediately
 	// was specified), or during the next maintenance window.
-	PrimaryClusterId *string `type:"string"`
+	PrimaryClusterId *string `json:"elasticache:ReplicationGroupPendingModifiedValues:PrimaryClusterId" type:"string"`
 
 	// The status of an online resharding operation.
-	Resharding *ReshardingStatus `type:"structure"`
+	Resharding *ReshardingStatus `json:"elasticache:ReplicationGroupPendingModifiedValues:Resharding" type:"structure"`
 }
 
 // String returns the string representation
@@ -1154,7 +1154,7 @@ type ReservedCacheNode struct {
 	_ struct{} `type:"structure"`
 
 	// The number of cache nodes that have been reserved.
-	CacheNodeCount *int64 `type:"integer"`
+	CacheNodeCount *int64 `json:"elasticache:ReservedCacheNode:CacheNodeCount" type:"integer"`
 
 	// The cache node type for the reserved cache nodes.
 	//
@@ -1192,42 +1192,42 @@ type ReservedCacheNode struct {
 	//
 	//    * Redis configuration variables appendonly and appendfsync are not supported
 	//    on Redis version 2.8.22 and later.
-	CacheNodeType *string `type:"string"`
+	CacheNodeType *string `json:"elasticache:ReservedCacheNode:CacheNodeType" type:"string"`
 
 	// The duration of the reservation in seconds.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"elasticache:ReservedCacheNode:Duration" type:"integer"`
 
 	// The fixed price charged for this reserved cache node.
-	FixedPrice *float64 `type:"double"`
+	FixedPrice *float64 `json:"elasticache:ReservedCacheNode:FixedPrice" type:"double"`
 
 	// The offering type of this reserved cache node.
-	OfferingType *string `type:"string"`
+	OfferingType *string `json:"elasticache:ReservedCacheNode:OfferingType" type:"string"`
 
 	// The description of the reserved cache node.
-	ProductDescription *string `type:"string"`
+	ProductDescription *string `json:"elasticache:ReservedCacheNode:ProductDescription" type:"string"`
 
 	// The recurring price charged to run this reserved cache node.
-	RecurringCharges []RecurringCharge `locationNameList:"RecurringCharge" type:"list"`
+	RecurringCharges []RecurringCharge `json:"elasticache:ReservedCacheNode:RecurringCharges" locationNameList:"RecurringCharge" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the reserved cache node.
 	//
 	// Example: arn:aws:elasticache:us-east-1:123456789012:reserved-instance:ri-2017-03-27-08-33-25-582
-	ReservationARN *string `type:"string"`
+	ReservationARN *string `json:"elasticache:ReservedCacheNode:ReservationARN" type:"string"`
 
 	// The unique identifier for the reservation.
-	ReservedCacheNodeId *string `type:"string"`
+	ReservedCacheNodeId *string `json:"elasticache:ReservedCacheNode:ReservedCacheNodeId" type:"string"`
 
 	// The offering identifier.
-	ReservedCacheNodesOfferingId *string `type:"string"`
+	ReservedCacheNodesOfferingId *string `json:"elasticache:ReservedCacheNode:ReservedCacheNodesOfferingId" type:"string"`
 
 	// The time the reservation started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"elasticache:ReservedCacheNode:StartTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The state of the reserved cache node.
-	State *string `type:"string"`
+	State *string `json:"elasticache:ReservedCacheNode:State" type:"string"`
 
 	// The hourly price charged for this reserved cache node.
-	UsagePrice *float64 `type:"double"`
+	UsagePrice *float64 `json:"elasticache:ReservedCacheNode:UsagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -1276,28 +1276,28 @@ type ReservedCacheNodesOffering struct {
 	//
 	//    * Redis configuration variables appendonly and appendfsync are not supported
 	//    on Redis version 2.8.22 and later.
-	CacheNodeType *string `type:"string"`
+	CacheNodeType *string `json:"elasticache:ReservedCacheNodesOffering:CacheNodeType" type:"string"`
 
 	// The duration of the offering. in seconds.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"elasticache:ReservedCacheNodesOffering:Duration" type:"integer"`
 
 	// The fixed price charged for this offering.
-	FixedPrice *float64 `type:"double"`
+	FixedPrice *float64 `json:"elasticache:ReservedCacheNodesOffering:FixedPrice" type:"double"`
 
 	// The offering type.
-	OfferingType *string `type:"string"`
+	OfferingType *string `json:"elasticache:ReservedCacheNodesOffering:OfferingType" type:"string"`
 
 	// The cache engine used by the offering.
-	ProductDescription *string `type:"string"`
+	ProductDescription *string `json:"elasticache:ReservedCacheNodesOffering:ProductDescription" type:"string"`
 
 	// The recurring price charged to run this reserved cache node.
-	RecurringCharges []RecurringCharge `locationNameList:"RecurringCharge" type:"list"`
+	RecurringCharges []RecurringCharge `json:"elasticache:ReservedCacheNodesOffering:RecurringCharges" locationNameList:"RecurringCharge" type:"list"`
 
 	// A unique identifier for the reserved cache node offering.
-	ReservedCacheNodesOfferingId *string `type:"string"`
+	ReservedCacheNodesOfferingId *string `json:"elasticache:ReservedCacheNodesOffering:ReservedCacheNodesOfferingId" type:"string"`
 
 	// The hourly price charged for this offering.
-	UsagePrice *float64 `type:"double"`
+	UsagePrice *float64 `json:"elasticache:ReservedCacheNodesOffering:UsagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -1313,10 +1313,10 @@ type ReshardingConfiguration struct {
 
 	// Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
 	// for the node group these configuration values apply to.
-	NodeGroupId *string `min:"1" type:"string"`
+	NodeGroupId *string `json:"elasticache:ReshardingConfiguration:NodeGroupId" min:"1" type:"string"`
 
 	// A list of preferred availability zones for the nodes in this cluster.
-	PreferredAvailabilityZones []string `locationNameList:"AvailabilityZone" type:"list"`
+	PreferredAvailabilityZones []string `json:"elasticache:ReshardingConfiguration:PreferredAvailabilityZones" locationNameList:"AvailabilityZone" type:"list"`
 }
 
 // String returns the string representation
@@ -1343,7 +1343,7 @@ type ReshardingStatus struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the progress of an online resharding operation.
-	SlotMigration *SlotMigration `type:"structure"`
+	SlotMigration *SlotMigration `json:"elasticache:ReshardingStatus:SlotMigration" type:"structure"`
 }
 
 // String returns the string representation
@@ -1357,12 +1357,12 @@ type SecurityGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the cache security group.
-	SecurityGroupId *string `type:"string"`
+	SecurityGroupId *string `json:"elasticache:SecurityGroupMembership:SecurityGroupId" type:"string"`
 
 	// The status of the cache security group membership. The status changes whenever
 	// a cache security group is modified, or when the cache security groups assigned
 	// to a cluster are modified.
-	Status *string `type:"string"`
+	Status *string `json:"elasticache:SecurityGroupMembership:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -1377,42 +1377,42 @@ type ServiceUpdate struct {
 
 	// Indicates whether the service update will be automatically applied once the
 	// recommended apply-by date has expired.
-	AutoUpdateAfterRecommendedApplyByDate *bool `type:"boolean"`
+	AutoUpdateAfterRecommendedApplyByDate *bool `json:"elasticache:ServiceUpdate:AutoUpdateAfterRecommendedApplyByDate" type:"boolean"`
 
 	// The Redis engine to which the service update applies
-	Engine *string `type:"string"`
+	Engine *string `json:"elasticache:ServiceUpdate:Engine" type:"string"`
 
 	// The Redis engine version to which the service update applies
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"elasticache:ServiceUpdate:EngineVersion" type:"string"`
 
 	// The estimated length of time the service update will take
-	EstimatedUpdateTime *string `type:"string"`
+	EstimatedUpdateTime *string `json:"elasticache:ServiceUpdate:EstimatedUpdateTime" type:"string"`
 
 	// Provides details of the service update
-	ServiceUpdateDescription *string `type:"string"`
+	ServiceUpdateDescription *string `json:"elasticache:ServiceUpdate:ServiceUpdateDescription" type:"string"`
 
 	// The date after which the service update is no longer available
-	ServiceUpdateEndDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ServiceUpdateEndDate *time.Time `json:"elasticache:ServiceUpdate:ServiceUpdateEndDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The unique ID of the service update
-	ServiceUpdateName *string `type:"string"`
+	ServiceUpdateName *string `json:"elasticache:ServiceUpdate:ServiceUpdateName" type:"string"`
 
 	// The recommendend date to apply the service update in order to ensure compliance.
 	// For information on compliance, see Self-Service Security Updates for Compliance
 	// (https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service).
-	ServiceUpdateRecommendedApplyByDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ServiceUpdateRecommendedApplyByDate *time.Time `json:"elasticache:ServiceUpdate:ServiceUpdateRecommendedApplyByDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The date when the service update is initially available
-	ServiceUpdateReleaseDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ServiceUpdateReleaseDate *time.Time `json:"elasticache:ServiceUpdate:ServiceUpdateReleaseDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The severity of the service update
-	ServiceUpdateSeverity ServiceUpdateSeverity `type:"string" enum:"true"`
+	ServiceUpdateSeverity ServiceUpdateSeverity `json:"elasticache:ServiceUpdate:ServiceUpdateSeverity" type:"string" enum:"true"`
 
 	// The status of the service update
-	ServiceUpdateStatus ServiceUpdateStatus `type:"string" enum:"true"`
+	ServiceUpdateStatus ServiceUpdateStatus `json:"elasticache:ServiceUpdate:ServiceUpdateStatus" type:"string" enum:"true"`
 
 	// Reflects the nature of the service update
-	ServiceUpdateType ServiceUpdateType `type:"string" enum:"true"`
+	ServiceUpdateType ServiceUpdateType `json:"elasticache:ServiceUpdate:ServiceUpdateType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1426,7 +1426,7 @@ type SlotMigration struct {
 	_ struct{} `type:"structure"`
 
 	// The percentage of the slot migration that is complete.
-	ProgressPercentage *float64 `type:"double"`
+	ProgressPercentage *float64 `json:"elasticache:SlotMigration:ProgressPercentage" type:"double"`
 }
 
 // String returns the string representation
@@ -1441,7 +1441,7 @@ type Snapshot struct {
 	_ struct{} `type:"structure"`
 
 	// This parameter is currently disabled.
-	AutoMinorVersionUpgrade *bool `type:"boolean"`
+	AutoMinorVersionUpgrade *bool `json:"elasticache:Snapshot:AutoMinorVersionUpgrade" type:"boolean"`
 
 	// Indicates the status of Multi-AZ with automatic failover for the source Redis
 	// replication group.
@@ -1454,13 +1454,13 @@ type Snapshot struct {
 	//    * Redis (cluster mode disabled): T1 node types.
 	//
 	//    * Redis (cluster mode enabled): T1 node types.
-	AutomaticFailover AutomaticFailoverStatus `type:"string" enum:"true"`
+	AutomaticFailover AutomaticFailoverStatus `json:"elasticache:Snapshot:AutomaticFailover" type:"string" enum:"true"`
 
 	// The date and time when the source cluster was created.
-	CacheClusterCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CacheClusterCreateTime *time.Time `json:"elasticache:Snapshot:CacheClusterCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The user-supplied identifier of the source cluster.
-	CacheClusterId *string `type:"string"`
+	CacheClusterId *string `json:"elasticache:Snapshot:CacheClusterId" type:"string"`
 
 	// The name of the compute and memory capacity node type for the source cluster.
 	//
@@ -1498,39 +1498,39 @@ type Snapshot struct {
 	//
 	//    * Redis configuration variables appendonly and appendfsync are not supported
 	//    on Redis version 2.8.22 and later.
-	CacheNodeType *string `type:"string"`
+	CacheNodeType *string `json:"elasticache:Snapshot:CacheNodeType" type:"string"`
 
 	// The cache parameter group that is associated with the source cluster.
-	CacheParameterGroupName *string `type:"string"`
+	CacheParameterGroupName *string `json:"elasticache:Snapshot:CacheParameterGroupName" type:"string"`
 
 	// The name of the cache subnet group associated with the source cluster.
-	CacheSubnetGroupName *string `type:"string"`
+	CacheSubnetGroupName *string `json:"elasticache:Snapshot:CacheSubnetGroupName" type:"string"`
 
 	// The name of the cache engine (memcached or redis) used by the source cluster.
-	Engine *string `type:"string"`
+	Engine *string `json:"elasticache:Snapshot:Engine" type:"string"`
 
 	// The version of the cache engine version that is used by the source cluster.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"elasticache:Snapshot:EngineVersion" type:"string"`
 
 	// A list of the cache nodes in the source cluster.
-	NodeSnapshots []NodeSnapshot `locationNameList:"NodeSnapshot" type:"list"`
+	NodeSnapshots []NodeSnapshot `json:"elasticache:Snapshot:NodeSnapshots" locationNameList:"NodeSnapshot" type:"list"`
 
 	// The number of cache nodes in the source cluster.
 	//
 	// For clusters running Redis, this value must be 1. For clusters running Memcached,
 	// this value must be between 1 and 20.
-	NumCacheNodes *int64 `type:"integer"`
+	NumCacheNodes *int64 `json:"elasticache:Snapshot:NumCacheNodes" type:"integer"`
 
 	// The number of node groups (shards) in this snapshot. When restoring from
 	// a snapshot, the number of node groups (shards) in the snapshot and in the
 	// restored replication group must be the same.
-	NumNodeGroups *int64 `type:"integer"`
+	NumNodeGroups *int64 `json:"elasticache:Snapshot:NumNodeGroups" type:"integer"`
 
 	// The port number used by each cache nodes in the source cluster.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"elasticache:Snapshot:Port" type:"integer"`
 
 	// The name of the Availability Zone in which the source cluster is located.
-	PreferredAvailabilityZone *string `type:"string"`
+	PreferredAvailabilityZone *string `json:"elasticache:Snapshot:PreferredAvailabilityZone" type:"string"`
 
 	// Specifies the weekly time range during which maintenance on the cluster is
 	// performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi
@@ -1553,17 +1553,17 @@ type Snapshot struct {
 	//    * sat
 	//
 	// Example: sun:23:00-mon:01:30
-	PreferredMaintenanceWindow *string `type:"string"`
+	PreferredMaintenanceWindow *string `json:"elasticache:Snapshot:PreferredMaintenanceWindow" type:"string"`
 
 	// A description of the source replication group.
-	ReplicationGroupDescription *string `type:"string"`
+	ReplicationGroupDescription *string `json:"elasticache:Snapshot:ReplicationGroupDescription" type:"string"`
 
 	// The unique identifier of the source replication group.
-	ReplicationGroupId *string `type:"string"`
+	ReplicationGroupId *string `json:"elasticache:Snapshot:ReplicationGroupId" type:"string"`
 
 	// The name of a snapshot. For an automatic snapshot, the name is system-generated.
 	// For a manual snapshot, this is the user-provided name.
-	SnapshotName *string `type:"string"`
+	SnapshotName *string `json:"elasticache:Snapshot:SnapshotName" type:"string"`
 
 	// For an automatic snapshot, the number of days for which ElastiCache retains
 	// the snapshot before deleting it.
@@ -1575,27 +1575,27 @@ type Snapshot struct {
 	//
 	// Important If the value of SnapshotRetentionLimit is set to zero (0), backups
 	// are turned off.
-	SnapshotRetentionLimit *int64 `type:"integer"`
+	SnapshotRetentionLimit *int64 `json:"elasticache:Snapshot:SnapshotRetentionLimit" type:"integer"`
 
 	// Indicates whether the snapshot is from an automatic backup (automated) or
 	// was created manually (manual).
-	SnapshotSource *string `type:"string"`
+	SnapshotSource *string `json:"elasticache:Snapshot:SnapshotSource" type:"string"`
 
 	// The status of the snapshot. Valid values: creating | available | restoring
 	// | copying | deleting.
-	SnapshotStatus *string `type:"string"`
+	SnapshotStatus *string `json:"elasticache:Snapshot:SnapshotStatus" type:"string"`
 
 	// The daily time range during which ElastiCache takes daily snapshots of the
 	// source cluster.
-	SnapshotWindow *string `type:"string"`
+	SnapshotWindow *string `json:"elasticache:Snapshot:SnapshotWindow" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the topic used by the source cluster for
 	// publishing notifications.
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"elasticache:Snapshot:TopicArn" type:"string"`
 
 	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 	// group for the source cluster.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"elasticache:Snapshot:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1611,10 +1611,10 @@ type Subnet struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone associated with the subnet.
-	SubnetAvailabilityZone *AvailabilityZone `type:"structure"`
+	SubnetAvailabilityZone *AvailabilityZone `json:"elasticache:Subnet:SubnetAvailabilityZone" type:"structure"`
 
 	// The unique identifier for the subnet.
-	SubnetIdentifier *string `type:"string"`
+	SubnetIdentifier *string `json:"elasticache:Subnet:SubnetIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -1630,10 +1630,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The key for the tag. May not be null.
-	Key *string `type:"string"`
+	Key *string `json:"elasticache:Tag:Key" type:"string"`
 
 	// The tag's value. May be null.
-	Value *string `type:"string"`
+	Value *string `json:"elasticache:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1648,10 +1648,10 @@ type TimeRangeFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The end time of the time range filter
-	EndTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EndTime *time.Time `json:"elasticache:TimeRangeFilter:EndTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The start time of the time range filter
-	StartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"elasticache:TimeRangeFilter:StartTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1666,16 +1666,16 @@ type UnprocessedUpdateAction struct {
 	_ struct{} `type:"structure"`
 
 	// The error message that describes the reason the request was not processed
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"elasticache:UnprocessedUpdateAction:ErrorMessage" type:"string"`
 
 	// The error type for requests that are not processed
-	ErrorType *string `type:"string"`
+	ErrorType *string `json:"elasticache:UnprocessedUpdateAction:ErrorType" type:"string"`
 
 	// The replication group ID
-	ReplicationGroupId *string `type:"string"`
+	ReplicationGroupId *string `json:"elasticache:UnprocessedUpdateAction:ReplicationGroupId" type:"string"`
 
 	// The unique ID of the service update
-	ServiceUpdateName *string `type:"string"`
+	ServiceUpdateName *string `json:"elasticache:UnprocessedUpdateAction:ServiceUpdateName" type:"string"`
 }
 
 // String returns the string representation
@@ -1689,51 +1689,51 @@ type UpdateAction struct {
 	_ struct{} `type:"structure"`
 
 	// The estimated length of time for the update to complete
-	EstimatedUpdateTime *string `type:"string"`
+	EstimatedUpdateTime *string `json:"elasticache:UpdateAction:EstimatedUpdateTime" type:"string"`
 
 	// The status of the service update on the node group
-	NodeGroupUpdateStatus []NodeGroupUpdateStatus `locationNameList:"NodeGroupUpdateStatus" type:"list"`
+	NodeGroupUpdateStatus []NodeGroupUpdateStatus `json:"elasticache:UpdateAction:NodeGroupUpdateStatus" locationNameList:"NodeGroupUpdateStatus" type:"list"`
 
 	// The progress of the service update on the replication group
-	NodesUpdated *string `type:"string"`
+	NodesUpdated *string `json:"elasticache:UpdateAction:NodesUpdated" type:"string"`
 
 	// The ID of the replication group
-	ReplicationGroupId *string `type:"string"`
+	ReplicationGroupId *string `json:"elasticache:UpdateAction:ReplicationGroupId" type:"string"`
 
 	// The unique ID of the service update
-	ServiceUpdateName *string `type:"string"`
+	ServiceUpdateName *string `json:"elasticache:UpdateAction:ServiceUpdateName" type:"string"`
 
 	// The recommended date to apply the service update to ensure compliance. For
 	// information on compliance, see Self-Service Security Updates for Compliance
 	// (https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service).
-	ServiceUpdateRecommendedApplyByDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ServiceUpdateRecommendedApplyByDate *time.Time `json:"elasticache:UpdateAction:ServiceUpdateRecommendedApplyByDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The date the update is first available
-	ServiceUpdateReleaseDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ServiceUpdateReleaseDate *time.Time `json:"elasticache:UpdateAction:ServiceUpdateReleaseDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The severity of the service update
-	ServiceUpdateSeverity ServiceUpdateSeverity `type:"string" enum:"true"`
+	ServiceUpdateSeverity ServiceUpdateSeverity `json:"elasticache:UpdateAction:ServiceUpdateSeverity" type:"string" enum:"true"`
 
 	// The status of the service update
-	ServiceUpdateStatus ServiceUpdateStatus `type:"string" enum:"true"`
+	ServiceUpdateStatus ServiceUpdateStatus `json:"elasticache:UpdateAction:ServiceUpdateStatus" type:"string" enum:"true"`
 
 	// Reflects the nature of the service update
-	ServiceUpdateType ServiceUpdateType `type:"string" enum:"true"`
+	ServiceUpdateType ServiceUpdateType `json:"elasticache:UpdateAction:ServiceUpdateType" type:"string" enum:"true"`
 
 	// If yes, all nodes in the replication group have been updated by the recommended
 	// apply-by date. If no, at least one node in the replication group have not
 	// been updated by the recommended apply-by date. If N/A, the replication group
 	// was created after the recommended apply-by date.
-	SlaMet SlaMet `type:"string" enum:"true"`
+	SlaMet SlaMet `json:"elasticache:UpdateAction:SlaMet" type:"string" enum:"true"`
 
 	// The date that the service update is available to a replication group
-	UpdateActionAvailableDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UpdateActionAvailableDate *time.Time `json:"elasticache:UpdateAction:UpdateActionAvailableDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The status of the update action
-	UpdateActionStatus UpdateActionStatus `type:"string" enum:"true"`
+	UpdateActionStatus UpdateActionStatus `json:"elasticache:UpdateAction:UpdateActionStatus" type:"string" enum:"true"`
 
 	// The date when the UpdateActionStatus was last modified
-	UpdateActionStatusModifiedDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UpdateActionStatusModifiedDate *time.Time `json:"elasticache:UpdateAction:UpdateActionStatusModifiedDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation

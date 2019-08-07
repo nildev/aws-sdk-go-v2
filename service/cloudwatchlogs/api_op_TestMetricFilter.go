@@ -58,7 +58,7 @@ type TestMetricFilterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The matched events.
-	Matches []MetricFilterMatchRecord `locationName:"matches" type:"list"`
+	Matches []MetricFilterMatchRecord `json:"logs:TestMetricFilterOutput:Matches" locationName:"matches" type:"list"`
 }
 
 // String returns the string representation

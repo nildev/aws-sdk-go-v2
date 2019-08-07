@@ -59,10 +59,10 @@ type GetPendingJobExecutionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of JobExecutionSummary objects with status IN_PROGRESS.
-	InProgressJobs []JobExecutionSummary `locationName:"inProgressJobs" type:"list"`
+	InProgressJobs []JobExecutionSummary `json:"data.jobs.iot:GetPendingJobExecutionsOutput:InProgressJobs" locationName:"inProgressJobs" type:"list"`
 
 	// A list of JobExecutionSummary objects with status QUEUED.
-	QueuedJobs []JobExecutionSummary `locationName:"queuedJobs" type:"list"`
+	QueuedJobs []JobExecutionSummary `json:"data.jobs.iot:GetPendingJobExecutionsOutput:QueuedJobs" locationName:"queuedJobs" type:"list"`
 }
 
 // String returns the string representation

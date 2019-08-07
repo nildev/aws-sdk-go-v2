@@ -50,13 +50,13 @@ type ListApplicationsOutput struct {
 	// A list of ApplicationSummary objects.
 	//
 	// ApplicationSummaries is a required field
-	ApplicationSummaries []ApplicationSummary `type:"list" required:"true"`
+	ApplicationSummaries []ApplicationSummary `json:"kinesisanalytics:ListApplicationsOutput:ApplicationSummaries" type:"list" required:"true"`
 
 	// The pagination token for the next set of results, or null if there are no
 	// additional results. Pass this token into a subsequent command to retrieve
 	// the next set of items For more information about pagination, see Using the
 	// AWS Command Line Interface's Pagination Options (https://docs.aws.amazon.com/cli/latest/userguide/pagination.html).
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"kinesisanalytics:ListApplicationsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

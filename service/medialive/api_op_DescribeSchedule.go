@@ -73,9 +73,9 @@ func (s DescribeScheduleInput) MarshalFields(e protocol.FieldEncoder) error {
 type DescribeScheduleOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"medialive:DescribeScheduleOutput:NextToken" locationName:"nextToken" type:"string"`
 
-	ScheduleActions []ScheduleAction `locationName:"scheduleActions" type:"list"`
+	ScheduleActions []ScheduleAction `json:"medialive:DescribeScheduleOutput:ScheduleActions" locationName:"scheduleActions" type:"list"`
 }
 
 // String returns the string representation

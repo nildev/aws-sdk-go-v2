@@ -31,7 +31,7 @@ type DescribeLoggingOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current settings of the AWS IoT Analytics logging options.
-	LoggingOptions *LoggingOptions `locationName:"loggingOptions" type:"structure"`
+	LoggingOptions *LoggingOptions `json:"iotanalytics:DescribeLoggingOptionsOutput:LoggingOptions" locationName:"loggingOptions" type:"structure"`
 }
 
 // String returns the string representation

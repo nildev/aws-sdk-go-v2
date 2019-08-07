@@ -50,9 +50,9 @@ func (s *ListTagsForResourceInput) Validate() error {
 type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListTagsForResourceOutput:NextMarker" min:"1" type:"string"`
 
-	TagInfoForResource *TagInfoForResource `type:"structure"`
+	TagInfoForResource *TagInfoForResource `json:"waf:ListTagsForResourceOutput:TagInfoForResource" type:"structure"`
 }
 
 // String returns the string representation

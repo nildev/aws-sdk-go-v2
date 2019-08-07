@@ -59,10 +59,10 @@ type DescribeCACertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The CA certificate description.
-	CertificateDescription *CACertificateDescription `locationName:"certificateDescription" type:"structure"`
+	CertificateDescription *CACertificateDescription `json:"iot:DescribeCACertificateOutput:CertificateDescription" locationName:"certificateDescription" type:"structure"`
 
 	// Information about the registration configuration.
-	RegistrationConfig *RegistrationConfig `locationName:"registrationConfig" type:"structure"`
+	RegistrationConfig *RegistrationConfig `json:"iot:DescribeCACertificateOutput:RegistrationConfig" locationName:"registrationConfig" type:"structure"`
 }
 
 // String returns the string representation

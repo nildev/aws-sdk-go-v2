@@ -52,7 +52,7 @@ type TagResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of tags that are associated with the DAX resource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"dax:TagResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

@@ -56,7 +56,7 @@ type DescribeClusterOperationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Cluster operation information
-	ClusterOperationInfo *ClusterOperationInfo `locationName:"clusterOperationInfo" type:"structure"`
+	ClusterOperationInfo *ClusterOperationInfo `json:"kafka:DescribeClusterOperationOutput:ClusterOperationInfo" locationName:"clusterOperationInfo" type:"structure"`
 }
 
 // String returns the string representation

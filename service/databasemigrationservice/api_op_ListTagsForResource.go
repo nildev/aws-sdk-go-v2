@@ -44,7 +44,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of tags for the resource.
-	TagList []Tag `type:"list"`
+	TagList []Tag `json:"dms:ListTagsForResourceOutput:TagList" type:"list"`
 }
 
 // String returns the string representation

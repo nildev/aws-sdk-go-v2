@@ -58,11 +58,11 @@ type ListRemoteAccessSessionsOutput struct {
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:ListRemoteAccessSessionsOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 
 	// A container representing the metadata from the service about each remote
 	// access session you are requesting.
-	RemoteAccessSessions []RemoteAccessSession `locationName:"remoteAccessSessions" type:"list"`
+	RemoteAccessSessions []RemoteAccessSession `json:"devicefarm:ListRemoteAccessSessionsOutput:RemoteAccessSessions" locationName:"remoteAccessSessions" type:"list"`
 }
 
 // String returns the string representation

@@ -67,7 +67,7 @@ type ReportTaskRunnerHeartbeatOutput struct {
 	// Indicates whether the calling task runner should terminate.
 	//
 	// Terminate is a required field
-	Terminate *bool `locationName:"terminate" type:"boolean" required:"true"`
+	Terminate *bool `json:"datapipeline:ReportTaskRunnerHeartbeatOutput:Terminate" locationName:"terminate" type:"boolean" required:"true"`
 }
 
 // String returns the string representation

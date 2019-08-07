@@ -56,11 +56,11 @@ type DescribeVpcEndpointConnectionNotificationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// One or more notifications.
-	ConnectionNotificationSet []ConnectionNotification `locationName:"connectionNotificationSet" locationNameList:"item" type:"list"`
+	ConnectionNotificationSet []ConnectionNotification `json:"ec2:DescribeVpcEndpointConnectionNotificationsOutput:ConnectionNotificationSet" locationName:"connectionNotificationSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVpcEndpointConnectionNotificationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

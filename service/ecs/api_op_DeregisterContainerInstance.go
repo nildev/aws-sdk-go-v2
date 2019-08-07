@@ -66,7 +66,7 @@ type DeregisterContainerInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The container instance that was deregistered.
-	ContainerInstance *ContainerInstance `locationName:"containerInstance" type:"structure"`
+	ContainerInstance *ContainerInstance `json:"ecs:DeregisterContainerInstanceOutput:ContainerInstance" locationName:"containerInstance" type:"structure"`
 }
 
 // String returns the string representation

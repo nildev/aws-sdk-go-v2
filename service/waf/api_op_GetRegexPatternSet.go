@@ -49,7 +49,7 @@ type GetRegexPatternSetOutput struct {
 	// Information about the RegexPatternSet that you specified in the GetRegexPatternSet
 	// request, including the identifier of the pattern set and the regular expression
 	// patterns you want AWS WAF to search for.
-	RegexPatternSet *RegexPatternSet `type:"structure"`
+	RegexPatternSet *RegexPatternSet `json:"waf:GetRegexPatternSetOutput:RegexPatternSet" type:"structure"`
 }
 
 // String returns the string representation

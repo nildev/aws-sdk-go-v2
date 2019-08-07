@@ -42,7 +42,7 @@ type DescribePermissionsOutput struct {
 	//    * If the request contains a stack ID and an IAM ARN, the array contains
 	//    a single Permission object with permissions for the specified stack and
 	//    IAM ARN.
-	Permissions []Permission `type:"list"`
+	Permissions []Permission `json:"opsworks:DescribePermissionsOutput:Permissions" type:"list"`
 }
 
 // String returns the string representation

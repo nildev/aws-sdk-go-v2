@@ -48,11 +48,11 @@ type ListGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about a group.
-	Groups []GroupInformation `type:"list"`
+	Groups []GroupInformation `json:"greengrass:ListGroupsOutput:Groups" type:"list"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListGroupsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

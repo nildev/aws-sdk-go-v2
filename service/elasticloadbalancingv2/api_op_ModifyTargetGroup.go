@@ -109,7 +109,7 @@ type ModifyTargetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the modified target group.
-	TargetGroups []TargetGroup `type:"list"`
+	TargetGroups []TargetGroup `json:"elasticloadbalancing:ModifyTargetGroupOutput:TargetGroups" type:"list"`
 }
 
 // String returns the string representation

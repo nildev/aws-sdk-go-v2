@@ -67,7 +67,7 @@ type UpdateSAMLProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the SAML provider that was updated.
-	SAMLProviderArn *string `min:"20" type:"string"`
+	SAMLProviderArn *string `json:"iam:UpdateSAMLProviderOutput:SAMLProviderArn" min:"20" type:"string"`
 }
 
 // String returns the string representation

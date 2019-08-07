@@ -53,10 +53,10 @@ type GetAccessKeyLastUsedOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains information about the last time the access key was used.
-	AccessKeyLastUsed *AccessKeyLastUsed `type:"structure"`
+	AccessKeyLastUsed *AccessKeyLastUsed `json:"iam:GetAccessKeyLastUsedOutput:AccessKeyLastUsed" type:"structure"`
 
 	// The name of the AWS IAM user that owns this access key.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"iam:GetAccessKeyLastUsedOutput:UserName" min:"1" type:"string"`
 }
 
 // String returns the string representation

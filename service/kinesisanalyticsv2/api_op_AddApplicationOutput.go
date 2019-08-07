@@ -79,15 +79,15 @@ type AddApplicationOutputOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The application Amazon Resource Name (ARN).
-	ApplicationARN *string `min:"1" type:"string"`
+	ApplicationARN *string `json:"kinesisanalytics:AddApplicationOutputOutput:ApplicationARN" min:"1" type:"string"`
 
 	// The updated application version ID. Kinesis Data Analytics increments this
 	// ID when the application is updated.
-	ApplicationVersionId *int64 `min:"1" type:"long"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:AddApplicationOutputOutput:ApplicationVersionId" min:"1" type:"long"`
 
 	// Describes the application output configuration. For more information, see
 	// Configuring Application Output (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html).
-	OutputDescriptions []OutputDescription `type:"list"`
+	OutputDescriptions []OutputDescription `json:"kinesisanalytics:AddApplicationOutputOutput:OutputDescriptions" type:"list"`
 }
 
 // String returns the string representation

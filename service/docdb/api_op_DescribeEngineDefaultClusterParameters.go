@@ -71,7 +71,7 @@ type DescribeEngineDefaultClusterParametersOutput struct {
 
 	// Contains the result of a successful invocation of the DescribeEngineDefaultClusterParameters
 	// operation.
-	EngineDefaults *EngineDefaults `type:"structure"`
+	EngineDefaults *EngineDefaults `json:"rds:DescribeEngineDefaultClusterParametersOutput:EngineDefaults" type:"structure"`
 }
 
 // String returns the string representation

@@ -50,14 +50,14 @@ type GetPasswordDataOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Windows instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:GetPasswordDataOutput:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The password of the instance. Returns an empty string if the password is
 	// not available.
-	PasswordData *string `locationName:"passwordData" type:"string"`
+	PasswordData *string `json:"ec2:GetPasswordDataOutput:PasswordData" locationName:"passwordData" type:"string"`
 
 	// The time the data was last updated.
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"ec2:GetPasswordDataOutput:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation

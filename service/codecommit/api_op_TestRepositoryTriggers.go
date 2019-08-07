@@ -66,11 +66,11 @@ type TestRepositoryTriggersOutput struct {
 
 	// The list of triggers that were not able to be tested. This list provides
 	// the names of the triggers that could not be tested, separated by commas.
-	FailedExecutions []RepositoryTriggerExecutionFailure `locationName:"failedExecutions" type:"list"`
+	FailedExecutions []RepositoryTriggerExecutionFailure `json:"codecommit:TestRepositoryTriggersOutput:FailedExecutions" locationName:"failedExecutions" type:"list"`
 
 	// The list of triggers that were successfully tested. This list provides the
 	// names of the triggers that were successfully tested, separated by commas.
-	SuccessfulExecutions []string `locationName:"successfulExecutions" type:"list"`
+	SuccessfulExecutions []string `json:"codecommit:TestRepositoryTriggersOutput:SuccessfulExecutions" locationName:"successfulExecutions" type:"list"`
 }
 
 // String returns the string representation

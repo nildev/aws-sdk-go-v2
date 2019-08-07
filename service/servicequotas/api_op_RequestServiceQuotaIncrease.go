@@ -67,7 +67,7 @@ type RequestServiceQuotaIncreaseOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a list of service quota requests.
-	RequestedQuota *RequestedServiceQuotaChange `type:"structure"`
+	RequestedQuota *RequestedServiceQuotaChange `json:"servicequotas:RequestServiceQuotaIncreaseOutput:RequestedQuota" type:"structure"`
 }
 
 // String returns the string representation

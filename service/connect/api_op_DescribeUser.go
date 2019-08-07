@@ -80,7 +80,7 @@ type DescribeUserOutput struct {
 
 	// A User object that contains information about the user account and configuration
 	// settings.
-	User *User `type:"structure"`
+	User *User `json:"connect:DescribeUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

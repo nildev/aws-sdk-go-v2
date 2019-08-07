@@ -18,30 +18,30 @@ type AffectedEntity struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit AWS account number that contains the affected entity.
-	AwsAccountId *string `locationName:"awsAccountId" type:"string"`
+	AwsAccountId *string `json:"health:AffectedEntity:AwsAccountId" locationName:"awsAccountId" type:"string"`
 
 	// The unique identifier for the entity. Format: arn:aws:health:entity-region:aws-account:entity/entity-id
 	// . Example: arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K
-	EntityArn *string `locationName:"entityArn" type:"string"`
+	EntityArn *string `json:"health:AffectedEntity:EntityArn" locationName:"entityArn" type:"string"`
 
-	EntityUrl *string `locationName:"entityUrl" type:"string"`
+	EntityUrl *string `json:"health:AffectedEntity:EntityUrl" locationName:"entityUrl" type:"string"`
 
 	// The ID of the affected entity.
-	EntityValue *string `locationName:"entityValue" type:"string"`
+	EntityValue *string `json:"health:AffectedEntity:EntityValue" locationName:"entityValue" type:"string"`
 
 	// The unique identifier for the event. Format: arn:aws:health:event-region::event/SERVICE/EVENT_TYPE_CODE/EVENT_TYPE_PLUS_ID
 	// . Example: Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456
-	EventArn *string `locationName:"eventArn" type:"string"`
+	EventArn *string `json:"health:AffectedEntity:EventArn" locationName:"eventArn" type:"string"`
 
 	// The most recent time that the entity was updated.
-	LastUpdatedTime *time.Time `locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"health:AffectedEntity:LastUpdatedTime" locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The most recent status of the entity affected by the event. The possible
 	// values are IMPAIRED, UNIMPAIRED, and UNKNOWN.
-	StatusCode EntityStatusCode `locationName:"statusCode" type:"string" enum:"true"`
+	StatusCode EntityStatusCode `json:"health:AffectedEntity:StatusCode" locationName:"statusCode" type:"string" enum:"true"`
 
 	// A map of entity tags attached to the affected entity.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"health:AffectedEntity:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -60,10 +60,10 @@ type DateTimeRange struct {
 	_ struct{} `type:"structure"`
 
 	// The starting date and time of a time range.
-	From *time.Time `locationName:"from" type:"timestamp" timestampFormat:"unix"`
+	From *time.Time `json:"health:DateTimeRange:From" locationName:"from" type:"timestamp" timestampFormat:"unix"`
 
 	// The ending date and time of a time range.
-	To *time.Time `locationName:"to" type:"timestamp" timestampFormat:"unix"`
+	To *time.Time `json:"health:DateTimeRange:To" locationName:"to" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -78,11 +78,11 @@ type EntityAggregate struct {
 	_ struct{} `type:"structure"`
 
 	// The number entities that match the criteria for the specified events.
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"health:EntityAggregate:Count" locationName:"count" type:"integer"`
 
 	// The unique identifier for the event. Format: arn:aws:health:event-region::event/SERVICE/EVENT_TYPE_CODE/EVENT_TYPE_PLUS_ID
 	// . Example: Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456
-	EventArn *string `locationName:"eventArn" type:"string"`
+	EventArn *string `json:"health:EntityAggregate:EventArn" locationName:"eventArn" type:"string"`
 }
 
 // String returns the string representation
@@ -96,25 +96,25 @@ type EntityFilter struct {
 	_ struct{} `type:"structure"`
 
 	// A list of entity ARNs (unique identifiers).
-	EntityArns []string `locationName:"entityArns" min:"1" type:"list"`
+	EntityArns []string `json:"health:EntityFilter:EntityArns" locationName:"entityArns" min:"1" type:"list"`
 
 	// A list of IDs for affected entities.
-	EntityValues []string `locationName:"entityValues" min:"1" type:"list"`
+	EntityValues []string `json:"health:EntityFilter:EntityValues" locationName:"entityValues" min:"1" type:"list"`
 
 	// A list of event ARNs (unique identifiers). For example: "arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
 	// "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"
 	//
 	// EventArns is a required field
-	EventArns []string `locationName:"eventArns" min:"1" type:"list" required:"true"`
+	EventArns []string `json:"health:EntityFilter:EventArns" locationName:"eventArns" min:"1" type:"list" required:"true"`
 
 	// A list of the most recent dates and times that the entity was updated.
-	LastUpdatedTimes []DateTimeRange `locationName:"lastUpdatedTimes" min:"1" type:"list"`
+	LastUpdatedTimes []DateTimeRange `json:"health:EntityFilter:LastUpdatedTimes" locationName:"lastUpdatedTimes" min:"1" type:"list"`
 
 	// A list of entity status codes (IMPAIRED, UNIMPAIRED, or UNKNOWN).
-	StatusCodes []EntityStatusCode `locationName:"statusCodes" min:"1" type:"list"`
+	StatusCodes []EntityStatusCode `json:"health:EntityFilter:StatusCodes" locationName:"statusCodes" min:"1" type:"list"`
 
 	// A map of entity tags attached to the affected entity.
-	Tags []map[string]string `locationName:"tags" type:"list"`
+	Tags []map[string]string `json:"health:EntityFilter:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -160,37 +160,37 @@ type Event struct {
 
 	// The unique identifier for the event. Format: arn:aws:health:event-region::event/SERVICE/EVENT_TYPE_CODE/EVENT_TYPE_PLUS_ID
 	// . Example: Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"health:Event:Arn" locationName:"arn" type:"string"`
 
 	// The AWS Availability Zone of the event. For example, us-east-1a.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"health:Event:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The date and time that the event ended.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"health:Event:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The category of the event. Possible values are issue, scheduledChange, and
 	// accountNotification.
-	EventTypeCategory EventTypeCategory `locationName:"eventTypeCategory" min:"3" type:"string" enum:"true"`
+	EventTypeCategory EventTypeCategory `json:"health:Event:EventTypeCategory" locationName:"eventTypeCategory" min:"3" type:"string" enum:"true"`
 
 	// The unique identifier for the event type. The format is AWS_SERVICE_DESCRIPTION
 	// ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT.
-	EventTypeCode *string `locationName:"eventTypeCode" min:"3" type:"string"`
+	EventTypeCode *string `json:"health:Event:EventTypeCode" locationName:"eventTypeCode" min:"3" type:"string"`
 
 	// The most recent date and time that the event was updated.
-	LastUpdatedTime *time.Time `locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"health:Event:LastUpdatedTime" locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS region name of the event.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"health:Event:Region" locationName:"region" type:"string"`
 
 	// The AWS service that is affected by the event. For example, EC2, RDS.
-	Service *string `locationName:"service" min:"2" type:"string"`
+	Service *string `json:"health:Event:Service" locationName:"service" min:"2" type:"string"`
 
 	// The date and time that the event began.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"health:Event:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The most recent status of the event. Possible values are open, closed, and
 	// upcoming.
-	StatusCode EventStatusCode `locationName:"statusCode" type:"string" enum:"true"`
+	StatusCode EventStatusCode `json:"health:Event:StatusCode" locationName:"statusCode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -205,10 +205,10 @@ type EventAggregate struct {
 	_ struct{} `type:"structure"`
 
 	// The issue type for the associated count.
-	AggregateValue *string `locationName:"aggregateValue" type:"string"`
+	AggregateValue *string `json:"health:EventAggregate:AggregateValue" locationName:"aggregateValue" type:"string"`
 
 	// The number of events of the associated issue type.
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"health:EventAggregate:Count" locationName:"count" type:"integer"`
 }
 
 // String returns the string representation
@@ -223,7 +223,7 @@ type EventDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The most recent description of the event.
-	LatestDescription *string `locationName:"latestDescription" type:"string"`
+	LatestDescription *string `json:"health:EventDescription:LatestDescription" locationName:"latestDescription" type:"string"`
 }
 
 // String returns the string representation
@@ -239,13 +239,13 @@ type EventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Summary information about the event.
-	Event *Event `locationName:"event" type:"structure"`
+	Event *Event `json:"health:EventDetails:Event" locationName:"event" type:"structure"`
 
 	// The most recent description of the event.
-	EventDescription *EventDescription `locationName:"eventDescription" type:"structure"`
+	EventDescription *EventDescription `json:"health:EventDetails:EventDescription" locationName:"eventDescription" type:"structure"`
 
 	// Additional metadata about the event.
-	EventMetadata map[string]string `locationName:"eventMetadata" type:"map"`
+	EventMetadata map[string]string `json:"health:EventDetails:EventMetadata" locationName:"eventMetadata" type:"map"`
 }
 
 // String returns the string representation
@@ -260,14 +260,14 @@ type EventDetailsErrorItem struct {
 	_ struct{} `type:"structure"`
 
 	// A message that describes the error.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"health:EventDetailsErrorItem:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The name of the error.
-	ErrorName *string `locationName:"errorName" type:"string"`
+	ErrorName *string `json:"health:EventDetailsErrorItem:ErrorName" locationName:"errorName" type:"string"`
 
 	// The unique identifier for the event. Format: arn:aws:health:event-region::event/SERVICE/EVENT_TYPE_CODE/EVENT_TYPE_PLUS_ID
 	// . Example: Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456
-	EventArn *string `locationName:"eventArn" type:"string"`
+	EventArn *string `json:"health:EventDetailsErrorItem:EventArn" locationName:"eventArn" type:"string"`
 }
 
 // String returns the string representation
@@ -282,45 +282,45 @@ type EventFilter struct {
 	_ struct{} `type:"structure"`
 
 	// A list of AWS availability zones.
-	AvailabilityZones []string `locationName:"availabilityZones" type:"list"`
+	AvailabilityZones []string `json:"health:EventFilter:AvailabilityZones" locationName:"availabilityZones" type:"list"`
 
 	// A list of dates and times that the event ended.
-	EndTimes []DateTimeRange `locationName:"endTimes" min:"1" type:"list"`
+	EndTimes []DateTimeRange `json:"health:EventFilter:EndTimes" locationName:"endTimes" min:"1" type:"list"`
 
 	// A list of entity ARNs (unique identifiers).
-	EntityArns []string `locationName:"entityArns" min:"1" type:"list"`
+	EntityArns []string `json:"health:EventFilter:EntityArns" locationName:"entityArns" min:"1" type:"list"`
 
 	// A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS
 	// volumes (vol-426ab23e).
-	EntityValues []string `locationName:"entityValues" min:"1" type:"list"`
+	EntityValues []string `json:"health:EventFilter:EntityValues" locationName:"entityValues" min:"1" type:"list"`
 
 	// A list of event ARNs (unique identifiers). For example: "arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456",
 	// "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"
-	EventArns []string `locationName:"eventArns" min:"1" type:"list"`
+	EventArns []string `json:"health:EventFilter:EventArns" locationName:"eventArns" min:"1" type:"list"`
 
 	// A list of event status codes.
-	EventStatusCodes []EventStatusCode `locationName:"eventStatusCodes" min:"1" type:"list"`
+	EventStatusCodes []EventStatusCode `json:"health:EventFilter:EventStatusCodes" locationName:"eventStatusCodes" min:"1" type:"list"`
 
 	// A list of event type category codes (issue, scheduledChange, or accountNotification).
-	EventTypeCategories []EventTypeCategory `locationName:"eventTypeCategories" min:"1" type:"list"`
+	EventTypeCategories []EventTypeCategory `json:"health:EventFilter:EventTypeCategories" locationName:"eventTypeCategories" min:"1" type:"list"`
 
 	// A list of unique identifiers for event types. For example, "AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED"
-	EventTypeCodes []string `locationName:"eventTypeCodes" min:"1" type:"list"`
+	EventTypeCodes []string `json:"health:EventFilter:EventTypeCodes" locationName:"eventTypeCodes" min:"1" type:"list"`
 
 	// A list of dates and times that the event was last updated.
-	LastUpdatedTimes []DateTimeRange `locationName:"lastUpdatedTimes" min:"1" type:"list"`
+	LastUpdatedTimes []DateTimeRange `json:"health:EventFilter:LastUpdatedTimes" locationName:"lastUpdatedTimes" min:"1" type:"list"`
 
 	// A list of AWS regions.
-	Regions []string `locationName:"regions" min:"1" type:"list"`
+	Regions []string `json:"health:EventFilter:Regions" locationName:"regions" min:"1" type:"list"`
 
 	// The AWS services associated with the event. For example, EC2, RDS.
-	Services []string `locationName:"services" min:"1" type:"list"`
+	Services []string `json:"health:EventFilter:Services" locationName:"services" min:"1" type:"list"`
 
 	// A list of dates and times that the event began.
-	StartTimes []DateTimeRange `locationName:"startTimes" min:"1" type:"list"`
+	StartTimes []DateTimeRange `json:"health:EventFilter:StartTimes" locationName:"startTimes" min:"1" type:"list"`
 
 	// A map of entity tags attached to the affected entity.
-	Tags []map[string]string `locationName:"tags" type:"list"`
+	Tags []map[string]string `json:"health:EventFilter:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -379,14 +379,14 @@ type EventType struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event type category codes (issue, scheduledChange, or accountNotification).
-	Category EventTypeCategory `locationName:"category" min:"3" type:"string" enum:"true"`
+	Category EventTypeCategory `json:"health:EventType:Category" locationName:"category" min:"3" type:"string" enum:"true"`
 
 	// The unique identifier for the event type. The format is AWS_SERVICE_DESCRIPTION
 	// ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT.
-	Code *string `locationName:"code" min:"3" type:"string"`
+	Code *string `json:"health:EventType:Code" locationName:"code" min:"3" type:"string"`
 
 	// The AWS service that is affected by the event. For example, EC2, RDS.
-	Service *string `locationName:"service" min:"2" type:"string"`
+	Service *string `json:"health:EventType:Service" locationName:"service" min:"2" type:"string"`
 }
 
 // String returns the string representation
@@ -400,13 +400,13 @@ type EventTypeFilter struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event type category codes (issue, scheduledChange, or accountNotification).
-	EventTypeCategories []EventTypeCategory `locationName:"eventTypeCategories" min:"1" type:"list"`
+	EventTypeCategories []EventTypeCategory `json:"health:EventTypeFilter:EventTypeCategories" locationName:"eventTypeCategories" min:"1" type:"list"`
 
 	// A list of event type codes.
-	EventTypeCodes []string `locationName:"eventTypeCodes" min:"1" type:"list"`
+	EventTypeCodes []string `json:"health:EventTypeFilter:EventTypeCodes" locationName:"eventTypeCodes" min:"1" type:"list"`
 
 	// The AWS services associated with the event. For example, EC2, RDS.
-	Services []string `locationName:"services" min:"1" type:"list"`
+	Services []string `json:"health:EventTypeFilter:Services" locationName:"services" min:"1" type:"list"`
 }
 
 // String returns the string representation

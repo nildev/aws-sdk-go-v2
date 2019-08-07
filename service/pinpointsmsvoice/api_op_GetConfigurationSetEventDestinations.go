@@ -57,7 +57,7 @@ type GetConfigurationSetEventDestinationsOutput struct {
 
 	// An array of EventDestination objects. Each EventDestination object includes
 	// ARNs and other information that define an event destination.
-	EventDestinations []EventDestination `type:"list"`
+	EventDestinations []EventDestination `json:"sms-voice.pinpoint:GetConfigurationSetEventDestinationsOutput:EventDestinations" type:"list"`
 }
 
 // String returns the string representation

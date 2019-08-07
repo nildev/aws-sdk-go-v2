@@ -105,13 +105,13 @@ type ListJobsOutput struct {
 	// A list of job summaries that match the request.
 	//
 	// JobSummaryList is a required field
-	JobSummaryList []JobSummary `locationName:"jobSummaryList" type:"list" required:"true"`
+	JobSummaryList []JobSummary `json:"batch:ListJobsOutput:JobSummaryList" locationName:"jobSummaryList" type:"list" required:"true"`
 
 	// The nextToken value to include in a future ListJobs request. When the results
 	// of a ListJobs request exceed maxResults, this value can be used to retrieve
 	// the next page of results. This value is null when there are no more results
 	// to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"batch:ListJobsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -63,14 +63,14 @@ type ListHandshakesForAccountOutput struct {
 
 	// A list of Handshake objects with details about each of the handshakes that
 	// is associated with the specified account.
-	Handshakes []Handshake `type:"list"`
+	Handshakes []Handshake `json:"organizations:ListHandshakesForAccountOutput:Handshakes" type:"list"`
 
 	// If present, this value indicates that there is more output available than
 	// is included in the current response. Use this value in the NextToken request
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListHandshakesForAccountOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

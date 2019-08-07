@@ -67,7 +67,7 @@ type ListAttacksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attack information for the specified time range.
-	AttackSummaries []AttackSummary `type:"list"`
+	AttackSummaries []AttackSummary `json:"shield:ListAttacksOutput:AttackSummaries" type:"list"`
 
 	// The token returned by a previous call to indicate that there is more data
 	// available. If not null, more results are available. Pass this value for the
@@ -77,7 +77,7 @@ type ListAttacksOutput struct {
 	// AWS WAF might return the list of AttackSummary objects in batches smaller
 	// than the number specified by MaxResults. If there are more AttackSummary
 	// objects to return, AWS WAF will always also return a NextToken.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"shield:ListAttacksOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

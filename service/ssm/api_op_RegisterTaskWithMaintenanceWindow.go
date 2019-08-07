@@ -183,7 +183,7 @@ type RegisterTaskWithMaintenanceWindowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the task in the maintenance window.
-	WindowTaskId *string `min:"36" type:"string"`
+	WindowTaskId *string `json:"ssm:RegisterTaskWithMaintenanceWindowOutput:WindowTaskId" min:"36" type:"string"`
 }
 
 // String returns the string representation

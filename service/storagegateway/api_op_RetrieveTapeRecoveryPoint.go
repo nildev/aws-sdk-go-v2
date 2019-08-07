@@ -63,7 +63,7 @@ type RetrieveTapeRecoveryPointOutput struct {
 
 	// The Amazon Resource Name (ARN) of the virtual tape for which the recovery
 	// point was retrieved.
-	TapeARN *string `min:"50" type:"string"`
+	TapeARN *string `json:"storagegateway:RetrieveTapeRecoveryPointOutput:TapeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

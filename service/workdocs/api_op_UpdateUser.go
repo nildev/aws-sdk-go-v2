@@ -145,7 +145,7 @@ type UpdateUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user information.
-	User *User `type:"structure"`
+	User *User `json:"workdocs:UpdateUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

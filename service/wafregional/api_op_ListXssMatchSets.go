@@ -57,10 +57,10 @@ type ListXssMatchSetsOutput struct {
 	// XssMatchSet objects, submit another ListXssMatchSets request, and specify
 	// the NextMarker value from the response in the NextMarker value in the next
 	// request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf-regional:ListXssMatchSetsOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of XssMatchSetSummary objects.
-	XssMatchSets []waf.XssMatchSetSummary `type:"list"`
+	XssMatchSets []waf.XssMatchSetSummary `json:"waf-regional:ListXssMatchSetsOutput:XssMatchSets" type:"list"`
 }
 
 // String returns the string representation

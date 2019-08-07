@@ -60,23 +60,23 @@ type GetSigningProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of overrides applied by the target signing profile for signing operations.
-	Overrides *SigningPlatformOverrides `locationName:"overrides" type:"structure"`
+	Overrides *SigningPlatformOverrides `json:"signer:GetSigningProfileOutput:Overrides" locationName:"overrides" type:"structure"`
 
 	// The ID of the platform that is used by the target signing profile.
-	PlatformId *string `locationName:"platformId" type:"string"`
+	PlatformId *string `json:"signer:GetSigningProfileOutput:PlatformId" locationName:"platformId" type:"string"`
 
 	// The name of the target signing profile.
-	ProfileName *string `locationName:"profileName" min:"2" type:"string"`
+	ProfileName *string `json:"signer:GetSigningProfileOutput:ProfileName" locationName:"profileName" min:"2" type:"string"`
 
 	// The ARN of the certificate that the target profile uses for signing operations.
-	SigningMaterial *SigningMaterial `locationName:"signingMaterial" type:"structure"`
+	SigningMaterial *SigningMaterial `json:"signer:GetSigningProfileOutput:SigningMaterial" locationName:"signingMaterial" type:"structure"`
 
 	// A map of key-value pairs for signing operations that is attached to the target
 	// signing profile.
-	SigningParameters map[string]string `locationName:"signingParameters" type:"map"`
+	SigningParameters map[string]string `json:"signer:GetSigningProfileOutput:SigningParameters" locationName:"signingParameters" type:"map"`
 
 	// The status of the target signing profile.
-	Status SigningProfileStatus `locationName:"status" type:"string" enum:"true"`
+	Status SigningProfileStatus `json:"signer:GetSigningProfileOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

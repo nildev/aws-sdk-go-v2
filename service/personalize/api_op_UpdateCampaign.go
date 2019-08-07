@@ -53,7 +53,7 @@ type UpdateCampaignOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The same campaign ARN as given in the request.
-	CampaignArn *string `locationName:"campaignArn" type:"string"`
+	CampaignArn *string `json:"personalize:UpdateCampaignOutput:CampaignArn" locationName:"campaignArn" type:"string"`
 }
 
 // String returns the string representation

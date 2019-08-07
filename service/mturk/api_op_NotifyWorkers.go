@@ -63,7 +63,7 @@ type NotifyWorkersOutput struct {
 
 	// When MTurk sends notifications to the list of Workers, it returns back any
 	// failures it encounters in this list of NotifyWorkersFailureStatus objects.
-	NotifyWorkersFailureStatuses []NotifyWorkersFailureStatus `type:"list"`
+	NotifyWorkersFailureStatuses []NotifyWorkersFailureStatus `json:"mturk-requester:NotifyWorkersOutput:NotifyWorkersFailureStatuses" type:"list"`
 }
 
 // String returns the string representation

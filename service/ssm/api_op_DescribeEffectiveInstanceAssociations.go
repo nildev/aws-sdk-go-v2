@@ -55,11 +55,11 @@ type DescribeEffectiveInstanceAssociationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The associations for the requested instance.
-	Associations []InstanceAssociation `type:"list"`
+	Associations []InstanceAssociation `json:"ssm:DescribeEffectiveInstanceAssociationsOutput:Associations" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeEffectiveInstanceAssociationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

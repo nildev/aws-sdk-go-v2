@@ -116,10 +116,10 @@ type CreateRateBasedRuleOutput struct {
 	// The ChangeToken that you used to submit the CreateRateBasedRule request.
 	// You can also use this value to query the status of the request. For more
 	// information, see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf:CreateRateBasedRuleOutput:ChangeToken" min:"1" type:"string"`
 
 	// The RateBasedRule that is returned in the CreateRateBasedRule response.
-	Rule *RateBasedRule `type:"structure"`
+	Rule *RateBasedRule `json:"waf:CreateRateBasedRuleOutput:Rule" type:"structure"`
 }
 
 // String returns the string representation

@@ -65,10 +65,10 @@ type AnalyzeDocumentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The text that's detected and analyzed by AnalyzeDocument.
-	Blocks []Block `type:"list"`
+	Blocks []Block `json:"textract:AnalyzeDocumentOutput:Blocks" type:"list"`
 
 	// Metadata about the analyzed document. An example is the number of pages.
-	DocumentMetadata *DocumentMetadata `type:"structure"`
+	DocumentMetadata *DocumentMetadata `json:"textract:AnalyzeDocumentOutput:DocumentMetadata" type:"structure"`
 }
 
 // String returns the string representation

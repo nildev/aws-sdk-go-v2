@@ -114,10 +114,10 @@ type ListAuditTasksOutput struct {
 
 	// A token that can be used to retrieve the next set of results, or null if
 	// there are no additional results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListAuditTasksOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The audits that were performed during the specified time period.
-	Tasks []AuditTaskMetadata `locationName:"tasks" type:"list"`
+	Tasks []AuditTaskMetadata `json:"iot:ListAuditTasksOutput:Tasks" locationName:"tasks" type:"list"`
 }
 
 // String returns the string representation

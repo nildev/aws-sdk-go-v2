@@ -62,16 +62,16 @@ type ListBonusPaymentsOutput struct {
 
 	// A successful request to the ListBonusPayments operation returns a list of
 	// BonusPayment objects.
-	BonusPayments []BonusPayment `type:"list"`
+	BonusPayments []BonusPayment `json:"mturk-requester:ListBonusPaymentsOutput:BonusPayments" type:"list"`
 
 	// If the previous response was incomplete (because there is more data to retrieve),
 	// Amazon Mechanical Turk returns a pagination token in the response. You can
 	// use this pagination token to retrieve the next set of results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"mturk-requester:ListBonusPaymentsOutput:NextToken" min:"1" type:"string"`
 
 	// The number of bonus payments on this page in the filtered results list, equivalent
 	// to the number of bonus payments being returned by this call.
-	NumResults *int64 `type:"integer"`
+	NumResults *int64 `json:"mturk-requester:ListBonusPaymentsOutput:NumResults" type:"integer"`
 }
 
 // String returns the string representation

@@ -71,7 +71,7 @@ type PutSchemaFromJsonOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the schema to update.
-	Arn *string `type:"string"`
+	Arn *string `json:"clouddirectory:PutSchemaFromJsonOutput:Arn" type:"string"`
 }
 
 // String returns the string representation

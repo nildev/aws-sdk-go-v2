@@ -45,7 +45,7 @@ type DescribeBuildOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Set of properties describing the requested build.
-	Build *Build `type:"structure"`
+	Build *Build `json:"gamelift:DescribeBuildOutput:Build" type:"structure"`
 }
 
 // String returns the string representation

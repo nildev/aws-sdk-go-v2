@@ -137,12 +137,12 @@ type CreateTrafficPolicyInstanceOutput struct {
 	// A unique URL that represents a new traffic policy instance.
 	//
 	// Location is a required field
-	Location *string `location:"header" locationName:"Location" type:"string" required:"true"`
+	Location *string `json:"route53:CreateTrafficPolicyInstanceOutput:Location" location:"header" locationName:"Location" type:"string" required:"true"`
 
 	// A complex type that contains settings for the new traffic policy instance.
 	//
 	// TrafficPolicyInstance is a required field
-	TrafficPolicyInstance *TrafficPolicyInstance `type:"structure" required:"true"`
+	TrafficPolicyInstance *TrafficPolicyInstance `json:"route53:CreateTrafficPolicyInstanceOutput:TrafficPolicyInstance" type:"structure" required:"true"`
 }
 
 // String returns the string representation

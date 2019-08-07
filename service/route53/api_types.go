@@ -40,12 +40,12 @@ type AccountLimit struct {
 	//    Amazon Route 53 console.)
 	//
 	// Type is a required field
-	Type AccountLimitType `type:"string" required:"true" enum:"true"`
+	Type AccountLimitType `json:"route53:AccountLimit:Type" type:"string" required:"true" enum:"true"`
 
 	// The current value for the limit that is specified by Type (https://docs.aws.amazon.com/Route53/latest/APIReference/API_AccountLimit.html#Route53-Type-AccountLimit-Type).
 	//
 	// Value is a required field
-	Value *int64 `min:"1" type:"long" required:"true"`
+	Value *int64 `json:"route53:AccountLimit:Value" min:"1" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -90,7 +90,7 @@ type AlarmIdentifier struct {
 	//    statistics aren't supported.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"route53:AlarmIdentifier:Name" min:"1" type:"string" required:"true"`
 
 	// For the CloudWatch alarm that you want Route 53 health checkers to use to
 	// determine whether this health check is healthy, the region that the alarm
@@ -101,7 +101,7 @@ type AlarmIdentifier struct {
 	// Reference.
 	//
 	// Region is a required field
-	Region CloudWatchRegion `min:"1" type:"string" required:"true" enum:"true"`
+	Region CloudWatchRegion `json:"route53:AlarmIdentifier:Region" min:"1" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -281,7 +281,7 @@ type AliasTarget struct {
 	// a CNAME record for the zone apex isn't supported even for an alias record.
 	//
 	// DNSName is a required field
-	DNSName *string `type:"string" required:"true"`
+	DNSName *string `json:"route53:AliasTarget:DNSName" type:"string" required:"true"`
 
 	// Applies only to alias, failover alias, geolocation alias, latency alias,
 	// and weighted alias resource record sets: When EvaluateTargetHealth is true,
@@ -355,7 +355,7 @@ type AliasTarget struct {
 	// in the Amazon Route 53 Developer Guide.
 	//
 	// EvaluateTargetHealth is a required field
-	EvaluateTargetHealth *bool `type:"boolean" required:"true"`
+	EvaluateTargetHealth *bool `json:"route53:AliasTarget:EvaluateTargetHealth" type:"boolean" required:"true"`
 
 	// Alias resource records sets only: The value used depends on where you want
 	// to route traffic:
@@ -431,7 +431,7 @@ type AliasTarget struct {
 	// set can't reference a resource record set in a different hosted zone.)
 	//
 	// HostedZoneId is a required field
-	HostedZoneId *string `type:"string" required:"true"`
+	HostedZoneId *string `json:"route53:AliasTarget:HostedZoneId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -506,12 +506,12 @@ type Change struct {
 	//    values in the request.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"route53:Change:Action" type:"string" required:"true" enum:"true"`
 
 	// Information about the resource record set to create, delete, or update.
 	//
 	// ResourceRecordSet is a required field
-	ResourceRecordSet *ResourceRecordSet `type:"structure" required:"true"`
+	ResourceRecordSet *ResourceRecordSet `json:"route53:Change:ResourceRecordSet" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -566,10 +566,10 @@ type ChangeBatch struct {
 	// Information about the changes to make to the record sets.
 	//
 	// Changes is a required field
-	Changes []Change `locationNameList:"Change" min:"1" type:"list" required:"true"`
+	Changes []Change `json:"route53:ChangeBatch:Changes" locationNameList:"Change" min:"1" type:"list" required:"true"`
 
 	// Optional: Any comments you want to include about a change batch request.
-	Comment *string `type:"string"`
+	Comment *string `json:"route53:ChangeBatch:Comment" type:"string"`
 }
 
 // String returns the string representation
@@ -635,18 +635,18 @@ type ChangeInfo struct {
 	//
 	// This element contains an ID that you use when performing a GetChange (https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html)
 	// action to get detailed information about the change.
-	Comment *string `type:"string"`
+	Comment *string `json:"route53:ChangeInfo:Comment" type:"string"`
 
 	// The ID of the request.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"route53:ChangeInfo:Id" type:"string" required:"true"`
 
 	// The current state of the request. PENDING indicates that this request has
 	// not yet been applied to all Amazon Route 53 DNS servers.
 	//
 	// Status is a required field
-	Status ChangeStatus `type:"string" required:"true" enum:"true"`
+	Status ChangeStatus `json:"route53:ChangeInfo:Status" type:"string" required:"true" enum:"true"`
 
 	// The date and time that the change request was submitted in ISO 8601 format
 	// (https://en.wikipedia.org/wiki/ISO_8601) and Coordinated Universal Time (UTC).
@@ -654,7 +654,7 @@ type ChangeInfo struct {
 	// at 17:48:16.751 UTC.
 	//
 	// SubmittedAt is a required field
-	SubmittedAt *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	SubmittedAt *time.Time `json:"route53:ChangeInfo:SubmittedAt" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation
@@ -701,49 +701,49 @@ type CloudWatchAlarmConfiguration struct {
 	// operation that is used for the comparison.
 	//
 	// ComparisonOperator is a required field
-	ComparisonOperator ComparisonOperator `type:"string" required:"true" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"route53:CloudWatchAlarmConfiguration:ComparisonOperator" type:"string" required:"true" enum:"true"`
 
 	// For the metric that the CloudWatch alarm is associated with, a complex type
 	// that contains information about the dimensions for the metric. For information,
 	// see Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html)
 	// in the Amazon CloudWatch User Guide.
-	Dimensions []Dimension `locationNameList:"Dimension" type:"list"`
+	Dimensions []Dimension `json:"route53:CloudWatchAlarmConfiguration:Dimensions" locationNameList:"Dimension" type:"list"`
 
 	// For the metric that the CloudWatch alarm is associated with, the number of
 	// periods that the metric is compared to the threshold.
 	//
 	// EvaluationPeriods is a required field
-	EvaluationPeriods *int64 `min:"1" type:"integer" required:"true"`
+	EvaluationPeriods *int64 `json:"route53:CloudWatchAlarmConfiguration:EvaluationPeriods" min:"1" type:"integer" required:"true"`
 
 	// The name of the CloudWatch metric that the alarm is associated with.
 	//
 	// MetricName is a required field
-	MetricName *string `min:"1" type:"string" required:"true"`
+	MetricName *string `json:"route53:CloudWatchAlarmConfiguration:MetricName" min:"1" type:"string" required:"true"`
 
 	// The namespace of the metric that the alarm is associated with. For more information,
 	// see Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html)
 	// in the Amazon CloudWatch User Guide.
 	//
 	// Namespace is a required field
-	Namespace *string `min:"1" type:"string" required:"true"`
+	Namespace *string `json:"route53:CloudWatchAlarmConfiguration:Namespace" min:"1" type:"string" required:"true"`
 
 	// For the metric that the CloudWatch alarm is associated with, the duration
 	// of one evaluation period in seconds.
 	//
 	// Period is a required field
-	Period *int64 `min:"60" type:"integer" required:"true"`
+	Period *int64 `json:"route53:CloudWatchAlarmConfiguration:Period" min:"60" type:"integer" required:"true"`
 
 	// For the metric that the CloudWatch alarm is associated with, the statistic
 	// that is applied to the metric.
 	//
 	// Statistic is a required field
-	Statistic Statistic `type:"string" required:"true" enum:"true"`
+	Statistic Statistic `json:"route53:CloudWatchAlarmConfiguration:Statistic" type:"string" required:"true" enum:"true"`
 
 	// For the metric that the CloudWatch alarm is associated with, the value the
 	// metric is compared with.
 	//
 	// Threshold is a required field
-	Threshold *float64 `type:"double" required:"true"`
+	Threshold *float64 `json:"route53:CloudWatchAlarmConfiguration:Threshold" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -818,16 +818,16 @@ type DelegationSet struct {
 
 	// The value that you specified for CallerReference when you created the reusable
 	// delegation set.
-	CallerReference *string `min:"1" type:"string"`
+	CallerReference *string `json:"route53:DelegationSet:CallerReference" min:"1" type:"string"`
 
 	// The ID that Amazon Route 53 assigns to a reusable delegation set.
-	Id *string `type:"string"`
+	Id *string `json:"route53:DelegationSet:Id" type:"string"`
 
 	// A complex type that contains a list of the authoritative name servers for
 	// a hosted zone or for a reusable delegation set.
 	//
 	// NameServers is a required field
-	NameServers []string `locationNameList:"NameServer" min:"1" type:"list" required:"true"`
+	NameServers []string `json:"route53:DelegationSet:NameServers" locationNameList:"NameServer" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -874,13 +874,13 @@ type Dimension struct {
 	// one dimension.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"route53:Dimension:Name" min:"1" type:"string" required:"true"`
 
 	// For the metric that the CloudWatch alarm is associated with, the value of
 	// one dimension.
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"route53:Dimension:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -916,14 +916,14 @@ type GeoLocation struct {
 	//
 	// Constraint: Specifying ContinentCode with either CountryCode or SubdivisionCode
 	// returns an InvalidInput error.
-	ContinentCode *string `min:"2" type:"string"`
+	ContinentCode *string `json:"route53:GeoLocation:ContinentCode" min:"2" type:"string"`
 
 	// The two-letter code for the country.
-	CountryCode *string `min:"1" type:"string"`
+	CountryCode *string `json:"route53:GeoLocation:CountryCode" min:"1" type:"string"`
 
 	// The code for the subdivision. Route 53 currently supports only states in
 	// the United States.
-	SubdivisionCode *string `min:"1" type:"string"`
+	SubdivisionCode *string `json:"route53:GeoLocation:SubdivisionCode" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -980,24 +980,24 @@ type GeoLocationDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The two-letter code for the continent.
-	ContinentCode *string `min:"2" type:"string"`
+	ContinentCode *string `json:"route53:GeoLocationDetails:ContinentCode" min:"2" type:"string"`
 
 	// The full name of the continent.
-	ContinentName *string `min:"1" type:"string"`
+	ContinentName *string `json:"route53:GeoLocationDetails:ContinentName" min:"1" type:"string"`
 
 	// The two-letter code for the country.
-	CountryCode *string `min:"1" type:"string"`
+	CountryCode *string `json:"route53:GeoLocationDetails:CountryCode" min:"1" type:"string"`
 
 	// The name of the country.
-	CountryName *string `min:"1" type:"string"`
+	CountryName *string `json:"route53:GeoLocationDetails:CountryName" min:"1" type:"string"`
 
 	// The code for the subdivision. Route 53 currently supports only states in
 	// the United States.
-	SubdivisionCode *string `min:"1" type:"string"`
+	SubdivisionCode *string `json:"route53:GeoLocationDetails:SubdivisionCode" min:"1" type:"string"`
 
 	// The full name of the subdivision. Route 53 currently supports only states
 	// in the United States.
-	SubdivisionName *string `min:"1" type:"string"`
+	SubdivisionName *string `json:"route53:GeoLocationDetails:SubdivisionName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1055,23 +1055,23 @@ type HealthCheck struct {
 	// A unique string that you specified when you created the health check.
 	//
 	// CallerReference is a required field
-	CallerReference *string `min:"1" type:"string" required:"true"`
+	CallerReference *string `json:"route53:HealthCheck:CallerReference" min:"1" type:"string" required:"true"`
 
 	// A complex type that contains information about the CloudWatch alarm that
 	// Amazon Route 53 is monitoring for this health check.
-	CloudWatchAlarmConfiguration *CloudWatchAlarmConfiguration `type:"structure"`
+	CloudWatchAlarmConfiguration *CloudWatchAlarmConfiguration `json:"route53:HealthCheck:CloudWatchAlarmConfiguration" type:"structure"`
 
 	// A complex type that contains detailed information about one health check.
 	//
 	// HealthCheckConfig is a required field
-	HealthCheckConfig *HealthCheckConfig `type:"structure" required:"true"`
+	HealthCheckConfig *HealthCheckConfig `json:"route53:HealthCheck:HealthCheckConfig" type:"structure" required:"true"`
 
 	// The version of the health check. You can optionally pass this value in a
 	// call to UpdateHealthCheck to prevent overwriting another change to the health
 	// check.
 	//
 	// HealthCheckVersion is a required field
-	HealthCheckVersion *int64 `min:"1" type:"long" required:"true"`
+	HealthCheckVersion *int64 `json:"route53:HealthCheck:HealthCheckVersion" min:"1" type:"long" required:"true"`
 
 	// The identifier that Amazon Route 53assigned to the health check when you
 	// created it. When you add or update a resource record set, you use this value
@@ -1079,12 +1079,12 @@ type HealthCheck struct {
 	// long.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"route53:HealthCheck:Id" type:"string" required:"true"`
 
 	// If the health check was created by another service, the service that created
 	// the health check. When a health check is created by another service, you
 	// can't edit or delete it using Amazon Route 53.
-	LinkedService *LinkedService `type:"structure"`
+	LinkedService *LinkedService `json:"route53:HealthCheck:LinkedService" type:"structure"`
 }
 
 // String returns the string representation
@@ -1141,12 +1141,12 @@ type HealthCheckConfig struct {
 	// A complex type that identifies the CloudWatch alarm that you want Amazon
 	// Route 53 health checkers to use to determine whether the specified health
 	// check is healthy.
-	AlarmIdentifier *AlarmIdentifier `type:"structure"`
+	AlarmIdentifier *AlarmIdentifier `json:"route53:HealthCheckConfig:AlarmIdentifier" type:"structure"`
 
 	// (CALCULATED Health Checks Only) A complex type that contains one ChildHealthCheck
 	// element for each health check that you want to associate with a CALCULATED
 	// health check.
-	ChildHealthChecks []string `locationNameList:"ChildHealthCheck" type:"list"`
+	ChildHealthChecks []string `json:"route53:HealthCheckConfig:ChildHealthChecks" locationNameList:"ChildHealthCheck" type:"list"`
 
 	// Stops Route 53 from performing health checks. When you disable a health check,
 	// here's what happens:
@@ -1167,7 +1167,7 @@ type HealthCheckConfig struct {
 	//
 	// Charges for a health check still apply when the health check is disabled.
 	// For more information, see Amazon Route 53 Pricing (http://aws.amazon.com/route53/pricing/).
-	Disabled *bool `type:"boolean"`
+	Disabled *bool `json:"route53:HealthCheckConfig:Disabled" type:"boolean"`
 
 	// Specify whether you want Amazon Route 53 to send the value of FullyQualifiedDomainName
 	// to the endpoint in the client_hello message during TLS negotiation. This
@@ -1189,7 +1189,7 @@ type HealthCheckConfig struct {
 	// specified in FullyQualifiedDomainName, a health checker will retry the handshake.
 	// In the second attempt, the health checker will omit FullyQualifiedDomainName
 	// from the client_hello message.
-	EnableSNI *bool `type:"boolean"`
+	EnableSNI *bool `json:"route53:HealthCheckConfig:EnableSNI" type:"boolean"`
 
 	// The number of consecutive health checks that an endpoint must pass or fail
 	// for Amazon Route 53 to change the current status of the endpoint from unhealthy
@@ -1199,7 +1199,7 @@ type HealthCheckConfig struct {
 	//
 	// If you don't specify a value for FailureThreshold, the default value is three
 	// health checks.
-	FailureThreshold *int64 `min:"1" type:"integer"`
+	FailureThreshold *int64 `json:"route53:HealthCheckConfig:FailureThreshold" min:"1" type:"integer"`
 
 	// Amazon Route 53 behavior depends on whether you specify a value for IPAddress.
 	//
@@ -1257,7 +1257,7 @@ type HealthCheckConfig struct {
 	// or HTTPS_STR_MATCH, Route 53 passes the value of FullyQualifiedDomainName
 	// in the Host header, as it does when you specify a value for IPAddress. If
 	// the value of Type is TCP, Route 53 doesn't pass a Host header.
-	FullyQualifiedDomainName *string `type:"string"`
+	FullyQualifiedDomainName *string `json:"route53:HealthCheckConfig:FullyQualifiedDomainName" type:"string"`
 
 	// The number of child health checks that are associated with a CALCULATED health
 	// check that Amazon Route 53 must consider healthy for the CALCULATED health
@@ -1273,7 +1273,7 @@ type HealthCheckConfig struct {
 	//
 	//    * If you specify 0, Route 53 always considers this health check to be
 	//    healthy.
-	HealthThreshold *int64 `type:"integer"`
+	HealthThreshold *int64 `json:"route53:HealthCheckConfig:HealthThreshold" type:"integer"`
 
 	// The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53
 	// to perform health checks on. If you don't specify a value for IPAddress,
@@ -1311,7 +1311,7 @@ type HealthCheckConfig struct {
 	//    * RFC 5156, Special-Use IPv6 Addresses (https://tools.ietf.org/html/rfc5156)
 	//
 	// When the value of Type is CALCULATED or CLOUDWATCH_METRIC, omit IPAddress.
-	IPAddress *string `type:"string"`
+	IPAddress *string `json:"route53:HealthCheckConfig:IPAddress" type:"string"`
 
 	// When CloudWatch has insufficient data about the metric to determine the alarm
 	// state, the status that you want Amazon Route 53 to assign to the health check:
@@ -1324,23 +1324,23 @@ type HealthCheckConfig struct {
 	//    last time that CloudWatch had sufficient data to determine the alarm state.
 	//    For new health checks that have no last known status, the default status
 	//    for the health check is healthy.
-	InsufficientDataHealthStatus InsufficientDataHealthStatus `type:"string" enum:"true"`
+	InsufficientDataHealthStatus InsufficientDataHealthStatus `json:"route53:HealthCheckConfig:InsufficientDataHealthStatus" type:"string" enum:"true"`
 
 	// Specify whether you want Amazon Route 53 to invert the status of a health
 	// check, for example, to consider a health check unhealthy when it otherwise
 	// would be considered healthy.
-	Inverted *bool `type:"boolean"`
+	Inverted *bool `json:"route53:HealthCheckConfig:Inverted" type:"boolean"`
 
 	// Specify whether you want Amazon Route 53 to measure the latency between health
 	// checkers in multiple AWS regions and your endpoint, and to display CloudWatch
 	// latency graphs on the Health Checks page in the Route 53 console.
 	//
 	// You can't change the value of MeasureLatency after you create a health check.
-	MeasureLatency *bool `type:"boolean"`
+	MeasureLatency *bool `json:"route53:HealthCheckConfig:MeasureLatency" type:"boolean"`
 
 	// The port on the endpoint on which you want Amazon Route 53 to perform health
 	// checks. Specify a value for Port only when you specify a value for IPAddress.
-	Port *int64 `min:"1" type:"integer"`
+	Port *int64 `json:"route53:HealthCheckConfig:Port" min:"1" type:"integer"`
 
 	// A complex type that contains one Region element for each region from which
 	// you want Amazon Route 53 health checkers to check the specified endpoint.
@@ -1352,7 +1352,7 @@ type HealthCheckConfig struct {
 	// health checks, Route 53 will briefly continue to perform checks from that
 	// region to ensure that some health checkers are always checking the endpoint
 	// (for example, if you replace three regions with four different regions).
-	Regions []HealthCheckRegion `locationNameList:"Region" min:"3" type:"list"`
+	Regions []HealthCheckRegion `json:"route53:HealthCheckConfig:Regions" locationNameList:"Region" min:"3" type:"list"`
 
 	// The number of seconds between the time that Amazon Route 53 gets a response
 	// from your endpoint and the time that it sends the next health check request.
@@ -1362,14 +1362,14 @@ type HealthCheckConfig struct {
 	//
 	// If you don't specify a value for RequestInterval, the default value is 30
 	// seconds.
-	RequestInterval *int64 `min:"10" type:"integer"`
+	RequestInterval *int64 `json:"route53:HealthCheckConfig:RequestInterval" min:"10" type:"integer"`
 
 	// The path, if any, that you want Amazon Route 53 to request when performing
 	// health checks. The path can be any value for which your endpoint will return
 	// an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example,
 	// the file /docs/route53-health-check.html. You can also include query string
 	// parameters, for example, /welcome.html?language=jp&login=y.
-	ResourcePath *string `type:"string"`
+	ResourcePath *string `json:"route53:HealthCheckConfig:ResourcePath" type:"string"`
 
 	// If the value of Type is HTTP_STR_MATCH or HTTP_STR_MATCH, the string that
 	// you want Amazon Route 53 to search for in the response body from the specified
@@ -1377,7 +1377,7 @@ type HealthCheckConfig struct {
 	// the resource healthy.
 	//
 	// Route 53 considers case when searching for SearchString in the response body.
-	SearchString *string `type:"string"`
+	SearchString *string `json:"route53:HealthCheckConfig:SearchString" type:"string"`
 
 	// The type of health check that you want to create, which indicates how Amazon
 	// Route 53 determines whether an endpoint is healthy.
@@ -1422,7 +1422,7 @@ type HealthCheckConfig struct {
 	// in the Amazon Route 53 Developer Guide.
 	//
 	// Type is a required field
-	Type HealthCheckType `type:"string" required:"true" enum:"true"`
+	Type HealthCheckType `json:"route53:HealthCheckConfig:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1587,15 +1587,15 @@ type HealthCheckObservation struct {
 
 	// The IP address of the Amazon Route 53 health checker that provided the failure
 	// reason in StatusReport.
-	IPAddress *string `type:"string"`
+	IPAddress *string `json:"route53:HealthCheckObservation:IPAddress" type:"string"`
 
 	// The region of the Amazon Route 53 health checker that provided the status
 	// in StatusReport.
-	Region HealthCheckRegion `min:"1" type:"string" enum:"true"`
+	Region HealthCheckRegion `json:"route53:HealthCheckObservation:Region" min:"1" type:"string" enum:"true"`
 
 	// A complex type that contains the last failure reason as reported by one Amazon
 	// Route 53 health checker and the time of the failed health check.
-	StatusReport *StatusReport `type:"structure"`
+	StatusReport *StatusReport `json:"route53:HealthCheckObservation:StatusReport" type:"structure"`
 }
 
 // String returns the string representation
@@ -1635,23 +1635,23 @@ type HostedZone struct {
 	// zone.
 	//
 	// CallerReference is a required field
-	CallerReference *string `min:"1" type:"string" required:"true"`
+	CallerReference *string `json:"route53:HostedZone:CallerReference" min:"1" type:"string" required:"true"`
 
 	// A complex type that includes the Comment and PrivateZone elements. If you
 	// omitted the HostedZoneConfig and Comment elements from the request, the Config
 	// and Comment elements don't appear in the response.
-	Config *HostedZoneConfig `type:"structure"`
+	Config *HostedZoneConfig `json:"route53:HostedZone:Config" type:"structure"`
 
 	// The ID that Amazon Route 53 assigned to the hosted zone when you created
 	// it.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"route53:HostedZone:Id" type:"string" required:"true"`
 
 	// If the hosted zone was created by another service, the service that created
 	// the hosted zone. When a hosted zone is created by another service, you can't
 	// edit or delete it using Route 53.
-	LinkedService *LinkedService `type:"structure"`
+	LinkedService *LinkedService `json:"route53:HostedZone:LinkedService" type:"structure"`
 
 	// The name of the domain. For public hosted zones, this is the name that you
 	// have registered with your DNS registrar.
@@ -1661,10 +1661,10 @@ type HostedZone struct {
 	// (https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html).
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"route53:HostedZone:Name" type:"string" required:"true"`
 
 	// The number of resource record sets in the hosted zone.
-	ResourceRecordSetCount *int64 `type:"long"`
+	ResourceRecordSetCount *int64 `json:"route53:HostedZone:ResourceRecordSetCount" type:"long"`
 }
 
 // String returns the string representation
@@ -1721,10 +1721,10 @@ type HostedZoneConfig struct {
 	_ struct{} `type:"structure"`
 
 	// Any comments that you want to include about the hosted zone.
-	Comment *string `type:"string"`
+	Comment *string `json:"route53:HostedZoneConfig:Comment" type:"string"`
 
 	// A value that indicates whether this is a private hosted zone.
-	PrivateZone *bool `type:"boolean"`
+	PrivateZone *bool `json:"route53:HostedZoneConfig:PrivateZone" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1764,12 +1764,12 @@ type HostedZoneLimit struct {
 	//    you can associate with the specified private hosted zone.
 	//
 	// Type is a required field
-	Type HostedZoneLimitType `type:"string" required:"true" enum:"true"`
+	Type HostedZoneLimitType `json:"route53:HostedZoneLimit:Type" type:"string" required:"true" enum:"true"`
 
 	// The current value for the limit that is specified by Type.
 	//
 	// Value is a required field
-	Value *int64 `min:"1" type:"long" required:"true"`
+	Value *int64 `json:"route53:HostedZoneLimit:Value" min:"1" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1806,12 +1806,12 @@ type LinkedService struct {
 	// description that can be provided by the other service. When a resource is
 	// created by another service, you can't edit or delete it using Amazon Route
 	// 53.
-	Description *string `type:"string"`
+	Description *string `json:"route53:LinkedService:Description" type:"string"`
 
 	// If the health check or hosted zone was created by another service, the service
 	// that created the resource. When a resource is created by another service,
 	// you can't edit or delete it using Amazon Route 53.
-	ServicePrincipal *string `type:"string"`
+	ServicePrincipal *string `json:"route53:LinkedService:ServicePrincipal" type:"string"`
 }
 
 // String returns the string representation
@@ -1846,17 +1846,17 @@ type QueryLoggingConfig struct {
 	// Route 53 is publishing logs to.
 	//
 	// CloudWatchLogsLogGroupArn is a required field
-	CloudWatchLogsLogGroupArn *string `type:"string" required:"true"`
+	CloudWatchLogsLogGroupArn *string `json:"route53:QueryLoggingConfig:CloudWatchLogsLogGroupArn" type:"string" required:"true"`
 
 	// The ID of the hosted zone that CloudWatch Logs is logging queries for.
 	//
 	// HostedZoneId is a required field
-	HostedZoneId *string `type:"string" required:"true"`
+	HostedZoneId *string `json:"route53:QueryLoggingConfig:HostedZoneId" type:"string" required:"true"`
 
 	// The ID for a configuration for DNS query logging.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"route53:QueryLoggingConfig:Id" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1906,7 +1906,7 @@ type ResourceRecord struct {
 	// If you're creating an alias resource record set, omit Value.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"route53:ResourceRecord:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1960,7 +1960,7 @@ type ResourceRecordSet struct {
 	//    * For information about creating failover resource record sets in a private
 	//    hosted zone, see Configuring Failover in a Private Hosted Zone (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)
 	//    in the Amazon Route 53 Developer Guide.
-	AliasTarget *AliasTarget `type:"structure"`
+	AliasTarget *AliasTarget `json:"route53:ResourceRecordSet:AliasTarget" type:"structure"`
 
 	// Failover resource record sets only: To configure failover, you add the Failover
 	// element to two resource record sets. For one resource record set, you specify
@@ -2001,7 +2001,7 @@ type ResourceRecordSet struct {
 	//    * Route 53 Health Checks and DNS Failover (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)
 	//
 	//    * Configuring Failover in a Private Hosted Zone (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)
-	Failover ResourceRecordSetFailover `type:"string" enum:"true"`
+	Failover ResourceRecordSetFailover `json:"route53:ResourceRecordSet:Failover" type:"string" enum:"true"`
 
 	// Geolocation resource record sets only: A complex type that lets you control
 	// how Amazon Route 53 responds to DNS queries based on the geographic origin
@@ -2037,7 +2037,7 @@ type ResourceRecordSet struct {
 	//
 	// You can't create non-geolocation resource record sets that have the same
 	// values for the Name and Type elements as geolocation resource record sets.
-	GeoLocation *GeoLocation `type:"structure"`
+	GeoLocation *GeoLocation `json:"route53:ResourceRecordSet:GeoLocation" type:"structure"`
 
 	// If you want Amazon Route 53 to return this resource record set in response
 	// to a DNS query only when the status of a health check is healthy, include
@@ -2137,7 +2137,7 @@ type ResourceRecordSet struct {
 	//    as the name of a resource record set.
 	//
 	//    * Associate that health check with the resource record set.
-	HealthCheckId *string `type:"string"`
+	HealthCheckId *string `json:"route53:ResourceRecordSet:HealthCheckId" type:"string"`
 
 	// Multivalue answer resource record sets only: To route traffic approximately
 	// randomly to multiple resources, such as web servers, create one multivalue
@@ -2165,7 +2165,7 @@ type ResourceRecordSet struct {
 	//    client software typically tries another of the IP addresses in the response.
 	//
 	// You can't create multivalue answer alias records.
-	MultiValueAnswer *bool `type:"boolean"`
+	MultiValueAnswer *bool `json:"route53:ResourceRecordSet:MultiValueAnswer" type:"boolean"`
 
 	// For ChangeResourceRecordSets requests, the name of the record that you want
 	// to create, update, or delete. For ListResourceRecordSets responses, the name
@@ -2203,7 +2203,7 @@ type ResourceRecordSet struct {
 	// for example, you can't specify prod*.example.com.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"route53:ResourceRecordSet:Name" type:"string" required:"true"`
 
 	// Latency-based resource record sets only: The Amazon EC2 Region where you
 	// created the resource that this resource record set refers to. The resource
@@ -2234,12 +2234,12 @@ type ResourceRecordSet struct {
 	//
 	//    * You can't create non-latency resource record sets that have the same
 	//    values for the Name and Type elements as latency resource record sets.
-	Region ResourceRecordSetRegion `min:"1" type:"string" enum:"true"`
+	Region ResourceRecordSetRegion `json:"route53:ResourceRecordSet:Region" min:"1" type:"string" enum:"true"`
 
 	// Information about the resource records to act upon.
 	//
 	// If you're creating an alias resource record set, omit ResourceRecords.
-	ResourceRecords []ResourceRecord `locationNameList:"ResourceRecord" min:"1" type:"list"`
+	ResourceRecords []ResourceRecord `json:"route53:ResourceRecordSet:ResourceRecords" locationNameList:"ResourceRecord" min:"1" type:"list"`
 
 	// Resource record sets that have a routing policy other than simple: An identifier
 	// that differentiates among multiple resource record sets that have the same
@@ -2250,7 +2250,7 @@ type ResourceRecordSet struct {
 	//
 	// For information about routing policies, see Choosing a Routing Policy (https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html)
 	// in the Amazon Route 53 Developer Guide.
-	SetIdentifier *string `min:"1" type:"string"`
+	SetIdentifier *string `json:"route53:ResourceRecordSet:SetIdentifier" min:"1" type:"string"`
 
 	// The resource record cache time to live (TTL), in seconds. Note the following:
 	//
@@ -2271,7 +2271,7 @@ type ResourceRecordSet struct {
 	//    weighted resource record sets that have the same name and type. Values
 	//    other than 60 seconds (the TTL for load balancers) will change the effect
 	//    of the values that you specify for Weight.
-	TTL *int64 `type:"long"`
+	TTL *int64 `json:"route53:ResourceRecordSet:TTL" type:"long"`
 
 	// When you create a traffic policy instance, Amazon Route 53 automatically
 	// creates a resource record set. TrafficPolicyInstanceId is the ID of the traffic
@@ -2283,7 +2283,7 @@ type ResourceRecordSet struct {
 	// ChangeResourceRecordSets, Route 53 doesn't automatically delete the traffic
 	// policy instance, and you'll continue to be charged for it even though it's
 	// no longer in use.
-	TrafficPolicyInstanceId *string `min:"1" type:"string"`
+	TrafficPolicyInstanceId *string `json:"route53:ResourceRecordSet:TrafficPolicyInstanceId" min:"1" type:"string"`
 
 	// The DNS record type. For information about different record types and how
 	// data is encoded for them, see Supported DNS Resource Record Types (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html)
@@ -2336,7 +2336,7 @@ type ResourceRecordSet struct {
 	//    supported even for an alias record.
 	//
 	// Type is a required field
-	Type RRType `type:"string" required:"true" enum:"true"`
+	Type RRType `json:"route53:ResourceRecordSet:Type" type:"string" required:"true" enum:"true"`
 
 	// Weighted resource record sets only: Among resource record sets that have
 	// the same combination of DNS name and type, a value that determines the proportion
@@ -2368,7 +2368,7 @@ type ResourceRecordSet struct {
 	//    checks with weighted resource record sets. For more information, see Options
 	//    for Configuring Route 53 Active-Active and Active-Passive Failover (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html)
 	//    in the Amazon Route 53 Developer Guide.
-	Weight *int64 `type:"long"`
+	Weight *int64 `json:"route53:ResourceRecordSet:Weight" type:"long"`
 }
 
 // String returns the string representation
@@ -2515,17 +2515,17 @@ type ResourceTagSet struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for the specified resource.
-	ResourceId *string `type:"string"`
+	ResourceId *string `json:"route53:ResourceTagSet:ResourceId" type:"string"`
 
 	// The type of the resource.
 	//
 	//    * The resource type for health checks is healthcheck.
 	//
 	//    * The resource type for hosted zones is hostedzone.
-	ResourceType TagResourceType `type:"string" enum:"true"`
+	ResourceType TagResourceType `json:"route53:ResourceTagSet:ResourceType" type:"string" enum:"true"`
 
 	// The tags associated with the specified resource.
-	Tags []Tag `locationNameList:"Tag" min:"1" type:"list"`
+	Tags []Tag `json:"route53:ResourceTagSet:Tags" locationNameList:"Tag" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -2573,12 +2573,12 @@ type ReusableDelegationSetLimit struct {
 	// delegation set.
 	//
 	// Type is a required field
-	Type ReusableDelegationSetLimitType `type:"string" required:"true" enum:"true"`
+	Type ReusableDelegationSetLimitType `json:"route53:ReusableDelegationSetLimit:Type" type:"string" required:"true" enum:"true"`
 
 	// The current value for the MAX_ZONES_BY_REUSABLE_DELEGATION_SET limit.
 	//
 	// Value is a required field
-	Value *int64 `min:"1" type:"long" required:"true"`
+	Value *int64 `json:"route53:ReusableDelegationSetLimit:Value" min:"1" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -2613,11 +2613,11 @@ type StatusReport struct {
 	// 8601 format (https://en.wikipedia.org/wiki/ISO_8601) and Coordinated Universal
 	// Time (UTC). For example, the value 2017-03-27T17:48:16.751Z represents March
 	// 27, 2017 at 17:48:16.751 UTC.
-	CheckedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CheckedTime *time.Time `json:"route53:StatusReport:CheckedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A description of the status of the health check endpoint as reported by one
 	// of the Amazon Route 53 health checkers.
-	Status *string `type:"string"`
+	Status *string `json:"route53:StatusReport:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -2661,7 +2661,7 @@ type Tag struct {
 	//    * Give a name to a health check: Edit the default Name tag. In the Amazon
 	//    Route 53 console, the list of your health checks includes a Name column
 	//    that lets you see the name that you've given to each health check.
-	Key *string `type:"string"`
+	Key *string `json:"route53:Tag:Key" type:"string"`
 
 	// The value of Value depends on the operation that you want to perform:
 	//
@@ -2669,7 +2669,7 @@ type Tag struct {
 	//    you want to give the new tag.
 	//
 	//    * Edit a tag: Value is the new value that you want to assign the tag.
-	Value *string `type:"string"`
+	Value *string `json:"route53:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2700,37 +2700,37 @@ type TrafficPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The comment that you specify in the CreateTrafficPolicy request, if any.
-	Comment *string `type:"string"`
+	Comment *string `json:"route53:TrafficPolicy:Comment" type:"string"`
 
 	// The definition of a traffic policy in JSON format. You specify the JSON document
 	// to use for a new traffic policy in the CreateTrafficPolicy request. For more
 	// information about the JSON format, see Traffic Policy Document Format (https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html).
 	//
 	// Document is a required field
-	Document *string `type:"string" required:"true"`
+	Document *string `json:"route53:TrafficPolicy:Document" type:"string" required:"true"`
 
 	// The ID that Amazon Route 53 assigned to a traffic policy when you created
 	// it.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"route53:TrafficPolicy:Id" min:"1" type:"string" required:"true"`
 
 	// The name that you specified when you created the traffic policy.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"route53:TrafficPolicy:Name" type:"string" required:"true"`
 
 	// The DNS type of the resource record sets that Amazon Route 53 creates when
 	// you use a traffic policy to create a traffic policy instance.
 	//
 	// Type is a required field
-	Type RRType `type:"string" required:"true" enum:"true"`
+	Type RRType `json:"route53:TrafficPolicy:Type" type:"string" required:"true" enum:"true"`
 
 	// The version number that Amazon Route 53 assigns to a traffic policy. For
 	// a new traffic policy, the value of Version is always 1.
 	//
 	// Version is a required field
-	Version *int64 `min:"1" type:"integer" required:"true"`
+	Version *int64 `json:"route53:TrafficPolicy:Version" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2788,25 +2788,25 @@ type TrafficPolicyInstance struct {
 	// in.
 	//
 	// HostedZoneId is a required field
-	HostedZoneId *string `type:"string" required:"true"`
+	HostedZoneId *string `json:"route53:TrafficPolicyInstance:HostedZoneId" type:"string" required:"true"`
 
 	// The ID that Amazon Route 53 assigned to the new traffic policy instance.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"route53:TrafficPolicyInstance:Id" min:"1" type:"string" required:"true"`
 
 	// If State is Failed, an explanation of the reason for the failure. If State
 	// is another value, Message is empty.
 	//
 	// Message is a required field
-	Message *string `type:"string" required:"true"`
+	Message *string `json:"route53:TrafficPolicyInstance:Message" type:"string" required:"true"`
 
 	// The DNS name, such as www.example.com, for which Amazon Route 53 responds
 	// to queries by using the resource record sets that are associated with this
 	// traffic policy instance.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"route53:TrafficPolicyInstance:Name" type:"string" required:"true"`
 
 	// The value of State is one of the following values:
 	//
@@ -2827,31 +2827,31 @@ type TrafficPolicyInstance struct {
 	// request to fail.
 	//
 	// State is a required field
-	State *string `type:"string" required:"true"`
+	State *string `json:"route53:TrafficPolicyInstance:State" type:"string" required:"true"`
 
 	// The TTL that Amazon Route 53 assigned to all of the resource record sets
 	// that it created in the specified hosted zone.
 	//
 	// TTL is a required field
-	TTL *int64 `type:"long" required:"true"`
+	TTL *int64 `json:"route53:TrafficPolicyInstance:TTL" type:"long" required:"true"`
 
 	// The ID of the traffic policy that Amazon Route 53 used to create resource
 	// record sets in the specified hosted zone.
 	//
 	// TrafficPolicyId is a required field
-	TrafficPolicyId *string `min:"1" type:"string" required:"true"`
+	TrafficPolicyId *string `json:"route53:TrafficPolicyInstance:TrafficPolicyId" min:"1" type:"string" required:"true"`
 
 	// The DNS type that Amazon Route 53 assigned to all of the resource record
 	// sets that it created for this traffic policy instance.
 	//
 	// TrafficPolicyType is a required field
-	TrafficPolicyType RRType `type:"string" required:"true" enum:"true"`
+	TrafficPolicyType RRType `json:"route53:TrafficPolicyInstance:TrafficPolicyType" type:"string" required:"true" enum:"true"`
 
 	// The version of the traffic policy that Amazon Route 53 used to create resource
 	// record sets in the specified hosted zone.
 	//
 	// TrafficPolicyVersion is a required field
-	TrafficPolicyVersion *int64 `min:"1" type:"integer" required:"true"`
+	TrafficPolicyVersion *int64 `json:"route53:TrafficPolicyInstance:TrafficPolicyVersion" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2928,28 +2928,28 @@ type TrafficPolicySummary struct {
 	// it.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"route53:TrafficPolicySummary:Id" min:"1" type:"string" required:"true"`
 
 	// The version number of the latest version of the traffic policy.
 	//
 	// LatestVersion is a required field
-	LatestVersion *int64 `min:"1" type:"integer" required:"true"`
+	LatestVersion *int64 `json:"route53:TrafficPolicySummary:LatestVersion" min:"1" type:"integer" required:"true"`
 
 	// The name that you specified for the traffic policy when you created it.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"route53:TrafficPolicySummary:Name" type:"string" required:"true"`
 
 	// The number of traffic policies that are associated with the current AWS account.
 	//
 	// TrafficPolicyCount is a required field
-	TrafficPolicyCount *int64 `min:"1" type:"integer" required:"true"`
+	TrafficPolicyCount *int64 `json:"route53:TrafficPolicySummary:TrafficPolicyCount" min:"1" type:"integer" required:"true"`
 
 	// The DNS type of the resource record sets that Amazon Route 53 creates when
 	// you use a traffic policy to create a traffic policy instance.
 	//
 	// Type is a required field
-	Type RRType `type:"string" required:"true" enum:"true"`
+	Type RRType `json:"route53:TrafficPolicySummary:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2999,10 +2999,10 @@ type VPC struct {
 	_ struct{} `type:"structure"`
 
 	// (Private hosted zones only) The ID of an Amazon VPC.
-	VPCId *string `type:"string"`
+	VPCId *string `json:"route53:VPC:VPCId" type:"string"`
 
 	// (Private hosted zones only) The region that an Amazon VPC was created in.
-	VPCRegion VPCRegion `min:"1" type:"string" enum:"true"`
+	VPCRegion VPCRegion `json:"route53:VPC:VPCRegion" min:"1" type:"string" enum:"true"`
 }
 
 // String returns the string representation

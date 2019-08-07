@@ -51,11 +51,11 @@ type DescribeEnvironmentManagedActionHistoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of completed and failed managed actions.
-	ManagedActionHistoryItems []ManagedActionHistoryItem `min:"1" type:"list"`
+	ManagedActionHistoryItems []ManagedActionHistoryItem `json:"elasticbeanstalk:DescribeEnvironmentManagedActionHistoryOutput:ManagedActionHistoryItems" min:"1" type:"list"`
 
 	// A pagination token that you pass to DescribeEnvironmentManagedActionHistory
 	// to get the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"elasticbeanstalk:DescribeEnvironmentManagedActionHistoryOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

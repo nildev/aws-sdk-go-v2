@@ -54,7 +54,7 @@ type StopTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The task that was stopped.
-	Task *Task `locationName:"task" type:"structure"`
+	Task *Task `json:"ecs:StopTaskOutput:Task" locationName:"task" type:"structure"`
 }
 
 // String returns the string representation

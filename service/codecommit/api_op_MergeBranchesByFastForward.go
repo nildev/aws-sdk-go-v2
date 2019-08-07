@@ -72,10 +72,10 @@ type MergeBranchesByFastForwardOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The commit ID of the merge in the destination or target branch.
-	CommitId *string `locationName:"commitId" type:"string"`
+	CommitId *string `json:"codecommit:MergeBranchesByFastForwardOutput:CommitId" locationName:"commitId" type:"string"`
 
 	// The tree ID of the merge in the destination or target branch.
-	TreeId *string `locationName:"treeId" type:"string"`
+	TreeId *string `json:"codecommit:MergeBranchesByFastForwardOutput:TreeId" locationName:"treeId" type:"string"`
 }
 
 // String returns the string representation

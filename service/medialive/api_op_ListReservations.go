@@ -124,9 +124,9 @@ func (s ListReservationsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListReservationsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"medialive:ListReservationsOutput:NextToken" locationName:"nextToken" type:"string"`
 
-	Reservations []Reservation `locationName:"reservations" type:"list"`
+	Reservations []Reservation `json:"medialive:ListReservationsOutput:Reservations" locationName:"reservations" type:"list"`
 }
 
 // String returns the string representation

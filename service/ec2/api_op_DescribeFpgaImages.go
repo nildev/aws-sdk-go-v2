@@ -88,11 +88,11 @@ type DescribeFpgaImagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the FPGA images.
-	FpgaImages []FpgaImage `locationName:"fpgaImageSet" locationNameList:"item" type:"list"`
+	FpgaImages []FpgaImage `json:"ec2:DescribeFpgaImagesOutput:FpgaImages" locationName:"fpgaImageSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeFpgaImagesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

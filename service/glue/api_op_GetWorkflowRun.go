@@ -61,7 +61,7 @@ type GetWorkflowRunOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested workflow run metadata.
-	Run *WorkflowRun `type:"structure"`
+	Run *WorkflowRun `json:"glue:GetWorkflowRunOutput:Run" type:"structure"`
 }
 
 // String returns the string representation

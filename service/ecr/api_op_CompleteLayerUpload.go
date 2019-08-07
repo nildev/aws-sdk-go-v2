@@ -72,16 +72,16 @@ type CompleteLayerUploadOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The sha256 digest of the image layer.
-	LayerDigest *string `locationName:"layerDigest" type:"string"`
+	LayerDigest *string `json:"api.ecr:CompleteLayerUploadOutput:LayerDigest" locationName:"layerDigest" type:"string"`
 
 	// The registry ID associated with the request.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:CompleteLayerUploadOutput:RegistryId" locationName:"registryId" type:"string"`
 
 	// The repository name associated with the request.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:CompleteLayerUploadOutput:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 
 	// The upload ID associated with the layer.
-	UploadId *string `locationName:"uploadId" type:"string"`
+	UploadId *string `json:"api.ecr:CompleteLayerUploadOutput:UploadId" locationName:"uploadId" type:"string"`
 }
 
 // String returns the string representation

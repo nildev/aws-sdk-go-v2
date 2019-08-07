@@ -53,7 +53,7 @@ type AddListenerCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the certificates in the certificate list.
-	Certificates []Certificate `type:"list"`
+	Certificates []Certificate `json:"elasticloadbalancing:AddListenerCertificatesOutput:Certificates" type:"list"`
 }
 
 // String returns the string representation

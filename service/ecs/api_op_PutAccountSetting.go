@@ -67,7 +67,7 @@ type PutAccountSettingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current account setting for a resource.
-	Setting *Setting `locationName:"setting" type:"structure"`
+	Setting *Setting `json:"ecs:PutAccountSettingOutput:Setting" locationName:"setting" type:"structure"`
 }
 
 // String returns the string representation

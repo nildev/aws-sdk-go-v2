@@ -52,10 +52,10 @@ type AssignIpv6AddressesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv6 addresses assigned to the network interface.
-	AssignedIpv6Addresses []string `locationName:"assignedIpv6Addresses" locationNameList:"item" type:"list"`
+	AssignedIpv6Addresses []string `json:"ec2:AssignIpv6AddressesOutput:AssignedIpv6Addresses" locationName:"assignedIpv6Addresses" locationNameList:"item" type:"list"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:AssignIpv6AddressesOutput:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 }
 
 // String returns the string representation

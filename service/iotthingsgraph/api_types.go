@@ -20,12 +20,12 @@ type DefinitionDocument struct {
 	// The language used to define the entity. GRAPHQL is the only valid value.
 	//
 	// Language is a required field
-	Language DefinitionLanguage `locationName:"language" type:"string" required:"true" enum:"true"`
+	Language DefinitionLanguage `json:"iotthingsgraph:DefinitionDocument:Language" locationName:"language" type:"string" required:"true" enum:"true"`
 
 	// The GraphQL text that defines the entity.
 	//
 	// Text is a required field
-	Text *string `locationName:"text" type:"string" required:"true"`
+	Text *string `json:"iotthingsgraph:DefinitionDocument:Text" locationName:"text" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -57,10 +57,10 @@ type DependencyRevision struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the workflow or system.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"iotthingsgraph:DependencyRevision:Id" locationName:"id" type:"string"`
 
 	// The revision number of the workflow or system.
-	RevisionNumber *int64 `locationName:"revisionNumber" type:"long"`
+	RevisionNumber *int64 `json:"iotthingsgraph:DependencyRevision:RevisionNumber" locationName:"revisionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -74,19 +74,19 @@ type EntityDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The entity ARN.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"iotthingsgraph:EntityDescription:Arn" locationName:"arn" type:"string"`
 
 	// The time at which the entity was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iotthingsgraph:EntityDescription:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The definition document of the entity.
-	Definition *DefinitionDocument `locationName:"definition" type:"structure"`
+	Definition *DefinitionDocument `json:"iotthingsgraph:EntityDescription:Definition" locationName:"definition" type:"structure"`
 
 	// The entity ID.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"iotthingsgraph:EntityDescription:Id" locationName:"id" type:"string"`
 
 	// The entity type.
-	Type EntityType `locationName:"type" type:"string" enum:"true"`
+	Type EntityType `json:"iotthingsgraph:EntityDescription:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -105,11 +105,11 @@ type EntityFilter struct {
 	// The name of the entity search filter field. REFERENCED_ENTITY_ID filters
 	// on entities that are used by the entity in the result set. For example, you
 	// can filter on the ID of a property that is used in a state.
-	Name EntityFilterName `locationName:"name" type:"string" enum:"true"`
+	Name EntityFilterName `json:"iotthingsgraph:EntityFilter:Name" locationName:"name" type:"string" enum:"true"`
 
 	// An array of string values for the search filter field. Multiple values function
 	// as AND criteria in the search.
-	Value []string `locationName:"value" type:"list"`
+	Value []string `json:"iotthingsgraph:EntityFilter:Value" locationName:"value" type:"list"`
 }
 
 // String returns the string representation
@@ -123,16 +123,16 @@ type FlowExecutionMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The type of flow event .
-	EventType FlowExecutionEventType `locationName:"eventType" type:"string" enum:"true"`
+	EventType FlowExecutionEventType `json:"iotthingsgraph:FlowExecutionMessage:EventType" locationName:"eventType" type:"string" enum:"true"`
 
 	// The unique identifier of the message.
-	MessageId *string `locationName:"messageId" type:"string"`
+	MessageId *string `json:"iotthingsgraph:FlowExecutionMessage:MessageId" locationName:"messageId" type:"string"`
 
 	// A string containing information about the flow event.
-	Payload *string `locationName:"payload" type:"string"`
+	Payload *string `json:"iotthingsgraph:FlowExecutionMessage:Payload" locationName:"payload" type:"string"`
 
 	// The date and time when the message was last updated.
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"iotthingsgraph:FlowExecutionMessage:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -146,22 +146,22 @@ type FlowExecutionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the flow execution summary was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iotthingsgraph:FlowExecutionSummary:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the flow execution.
-	FlowExecutionId *string `locationName:"flowExecutionId" type:"string"`
+	FlowExecutionId *string `json:"iotthingsgraph:FlowExecutionSummary:FlowExecutionId" locationName:"flowExecutionId" type:"string"`
 
 	// The ID of the flow.
-	FlowTemplateId *string `locationName:"flowTemplateId" type:"string"`
+	FlowTemplateId *string `json:"iotthingsgraph:FlowExecutionSummary:FlowTemplateId" locationName:"flowTemplateId" type:"string"`
 
 	// The current status of the flow execution.
-	Status FlowExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status FlowExecutionStatus `json:"iotthingsgraph:FlowExecutionSummary:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The ID of the system instance that contains the flow.
-	SystemInstanceId *string `locationName:"systemInstanceId" type:"string"`
+	SystemInstanceId *string `json:"iotthingsgraph:FlowExecutionSummary:SystemInstanceId" locationName:"systemInstanceId" type:"string"`
 
 	// The date and time when the flow execution summary was last updated.
-	UpdatedAt *time.Time `locationName:"updatedAt" type:"timestamp" timestampFormat:"unix"`
+	UpdatedAt *time.Time `json:"iotthingsgraph:FlowExecutionSummary:UpdatedAt" locationName:"updatedAt" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -175,14 +175,14 @@ type FlowTemplateDescription struct {
 	_ struct{} `type:"structure"`
 
 	// A workflow's definition document.
-	Definition *DefinitionDocument `locationName:"definition" type:"structure"`
+	Definition *DefinitionDocument `json:"iotthingsgraph:FlowTemplateDescription:Definition" locationName:"definition" type:"structure"`
 
 	// An object that contains summary information about a workflow.
-	Summary *FlowTemplateSummary `locationName:"summary" type:"structure"`
+	Summary *FlowTemplateSummary `json:"iotthingsgraph:FlowTemplateDescription:Summary" locationName:"summary" type:"structure"`
 
 	// The version of the user's namespace against which the workflow was validated.
 	// Use this value in your system instance.
-	ValidatedNamespaceVersion *int64 `locationName:"validatedNamespaceVersion" type:"long"`
+	ValidatedNamespaceVersion *int64 `json:"iotthingsgraph:FlowTemplateDescription:ValidatedNamespaceVersion" locationName:"validatedNamespaceVersion" type:"long"`
 }
 
 // String returns the string representation
@@ -198,13 +198,13 @@ type FlowTemplateFilter struct {
 	// The name of the search filter field.
 	//
 	// Name is a required field
-	Name FlowTemplateFilterName `locationName:"name" type:"string" required:"true" enum:"true"`
+	Name FlowTemplateFilterName `json:"iotthingsgraph:FlowTemplateFilter:Name" locationName:"name" type:"string" required:"true" enum:"true"`
 
 	// An array of string values for the search filter field. Multiple values function
 	// as AND criteria in the search.
 	//
 	// Value is a required field
-	Value []string `locationName:"value" type:"list" required:"true"`
+	Value []string `json:"iotthingsgraph:FlowTemplateFilter:Value" locationName:"value" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -235,16 +235,16 @@ type FlowTemplateSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the workflow.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"iotthingsgraph:FlowTemplateSummary:Arn" locationName:"arn" type:"string"`
 
 	// The date when the workflow was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iotthingsgraph:FlowTemplateSummary:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the workflow.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"iotthingsgraph:FlowTemplateSummary:Id" locationName:"id" type:"string"`
 
 	// The revision number of the workflow.
-	RevisionNumber *int64 `locationName:"revisionNumber" type:"long"`
+	RevisionNumber *int64 `json:"iotthingsgraph:FlowTemplateSummary:RevisionNumber" locationName:"revisionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -259,10 +259,10 @@ type MetricsConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// A Boolean that specifies whether cloud metrics are collected.
-	CloudMetricEnabled *bool `locationName:"cloudMetricEnabled" type:"boolean"`
+	CloudMetricEnabled *bool `json:"iotthingsgraph:MetricsConfiguration:CloudMetricEnabled" locationName:"cloudMetricEnabled" type:"boolean"`
 
 	// The ARN of the role that is used to collect cloud metrics.
-	MetricRuleRoleArn *string `locationName:"metricRuleRoleArn" min:"20" type:"string"`
+	MetricRuleRoleArn *string `json:"iotthingsgraph:MetricsConfiguration:MetricRuleRoleArn" locationName:"metricRuleRoleArn" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -289,32 +289,32 @@ type SystemInstanceDescription struct {
 	_ struct{} `type:"structure"`
 
 	// A document that defines an entity.
-	Definition *DefinitionDocument `locationName:"definition" type:"structure"`
+	Definition *DefinitionDocument `json:"iotthingsgraph:SystemInstanceDescription:Definition" locationName:"definition" type:"structure"`
 
 	// The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph
 	// assumes during flow execution in a cloud deployment. This role must have
 	// read and write permissionss to AWS Lambda and AWS IoT and to any other AWS
 	// services that the flow uses.
-	FlowActionsRoleArn *string `locationName:"flowActionsRoleArn" min:"20" type:"string"`
+	FlowActionsRoleArn *string `json:"iotthingsgraph:SystemInstanceDescription:FlowActionsRoleArn" locationName:"flowActionsRoleArn" min:"20" type:"string"`
 
 	// An object that specifies whether cloud metrics are collected in a deployment
 	// and, if so, what role is used to collect metrics.
-	MetricsConfiguration *MetricsConfiguration `locationName:"metricsConfiguration" type:"structure"`
+	MetricsConfiguration *MetricsConfiguration `json:"iotthingsgraph:SystemInstanceDescription:MetricsConfiguration" locationName:"metricsConfiguration" type:"structure"`
 
 	// The Amazon Simple Storage Service bucket where information about a system
 	// instance is stored.
-	S3BucketName *string `locationName:"s3BucketName" type:"string"`
+	S3BucketName *string `json:"iotthingsgraph:SystemInstanceDescription:S3BucketName" locationName:"s3BucketName" type:"string"`
 
 	// An object that contains summary information about a system instance.
-	Summary *SystemInstanceSummary `locationName:"summary" type:"structure"`
+	Summary *SystemInstanceSummary `json:"iotthingsgraph:SystemInstanceDescription:Summary" locationName:"summary" type:"structure"`
 
 	// A list of objects that contain all of the IDs and revision numbers of workflows
 	// and systems that are used in a system instance.
-	ValidatedDependencyRevisions []DependencyRevision `locationName:"validatedDependencyRevisions" type:"list"`
+	ValidatedDependencyRevisions []DependencyRevision `json:"iotthingsgraph:SystemInstanceDescription:ValidatedDependencyRevisions" locationName:"validatedDependencyRevisions" type:"list"`
 
 	// The version of the user's namespace against which the system instance was
 	// validated.
-	ValidatedNamespaceVersion *int64 `locationName:"validatedNamespaceVersion" type:"long"`
+	ValidatedNamespaceVersion *int64 `json:"iotthingsgraph:SystemInstanceDescription:ValidatedNamespaceVersion" locationName:"validatedNamespaceVersion" type:"long"`
 }
 
 // String returns the string representation
@@ -331,11 +331,11 @@ type SystemInstanceFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the search filter field.
-	Name SystemInstanceFilterName `locationName:"name" type:"string" enum:"true"`
+	Name SystemInstanceFilterName `json:"iotthingsgraph:SystemInstanceFilter:Name" locationName:"name" type:"string" enum:"true"`
 
 	// An array of string values for the search filter field. Multiple values function
 	// as AND criteria in the search.
-	Value []string `locationName:"value" type:"list"`
+	Value []string `json:"iotthingsgraph:SystemInstanceFilter:Value" locationName:"value" type:"list"`
 }
 
 // String returns the string representation
@@ -349,31 +349,31 @@ type SystemInstanceSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the system instance.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"iotthingsgraph:SystemInstanceSummary:Arn" locationName:"arn" type:"string"`
 
 	// The date when the system instance was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iotthingsgraph:SystemInstanceSummary:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the Greengrass group where the system instance is deployed.
-	GreengrassGroupId *string `locationName:"greengrassGroupId" type:"string"`
+	GreengrassGroupId *string `json:"iotthingsgraph:SystemInstanceSummary:GreengrassGroupId" locationName:"greengrassGroupId" type:"string"`
 
 	// The ID of the Greengrass group where the system instance is deployed.
-	GreengrassGroupName *string `locationName:"greengrassGroupName" type:"string"`
+	GreengrassGroupName *string `json:"iotthingsgraph:SystemInstanceSummary:GreengrassGroupName" locationName:"greengrassGroupName" type:"string"`
 
 	// The version of the Greengrass group where the system instance is deployed.
-	GreengrassGroupVersionId *string `locationName:"greengrassGroupVersionId" type:"string"`
+	GreengrassGroupVersionId *string `json:"iotthingsgraph:SystemInstanceSummary:GreengrassGroupVersionId" locationName:"greengrassGroupVersionId" type:"string"`
 
 	// The ID of the system instance.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"iotthingsgraph:SystemInstanceSummary:Id" locationName:"id" type:"string"`
 
 	// The status of the system instance.
-	Status SystemInstanceDeploymentStatus `locationName:"status" type:"string" enum:"true"`
+	Status SystemInstanceDeploymentStatus `json:"iotthingsgraph:SystemInstanceSummary:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The target of the system instance.
-	Target DeploymentTarget `locationName:"target" type:"string" enum:"true"`
+	Target DeploymentTarget `json:"iotthingsgraph:SystemInstanceSummary:Target" locationName:"target" type:"string" enum:"true"`
 
 	// The date and time when the system instance was last updated.
-	UpdatedAt *time.Time `locationName:"updatedAt" type:"timestamp" timestampFormat:"unix"`
+	UpdatedAt *time.Time `json:"iotthingsgraph:SystemInstanceSummary:UpdatedAt" locationName:"updatedAt" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -387,14 +387,14 @@ type SystemTemplateDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The definition document of a system.
-	Definition *DefinitionDocument `locationName:"definition" type:"structure"`
+	Definition *DefinitionDocument `json:"iotthingsgraph:SystemTemplateDescription:Definition" locationName:"definition" type:"structure"`
 
 	// An object that contains summary information about a system.
-	Summary *SystemTemplateSummary `locationName:"summary" type:"structure"`
+	Summary *SystemTemplateSummary `json:"iotthingsgraph:SystemTemplateDescription:Summary" locationName:"summary" type:"structure"`
 
 	// The namespace version against which the system was validated. Use this value
 	// in your system instance.
-	ValidatedNamespaceVersion *int64 `locationName:"validatedNamespaceVersion" type:"long"`
+	ValidatedNamespaceVersion *int64 `json:"iotthingsgraph:SystemTemplateDescription:ValidatedNamespaceVersion" locationName:"validatedNamespaceVersion" type:"long"`
 }
 
 // String returns the string representation
@@ -410,13 +410,13 @@ type SystemTemplateFilter struct {
 	// The name of the system search filter field.
 	//
 	// Name is a required field
-	Name SystemTemplateFilterName `locationName:"name" type:"string" required:"true" enum:"true"`
+	Name SystemTemplateFilterName `json:"iotthingsgraph:SystemTemplateFilter:Name" locationName:"name" type:"string" required:"true" enum:"true"`
 
 	// An array of string values for the search filter field. Multiple values function
 	// as AND criteria in the search.
 	//
 	// Value is a required field
-	Value []string `locationName:"value" type:"list" required:"true"`
+	Value []string `json:"iotthingsgraph:SystemTemplateFilter:Value" locationName:"value" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -447,16 +447,16 @@ type SystemTemplateSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the system.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"iotthingsgraph:SystemTemplateSummary:Arn" locationName:"arn" type:"string"`
 
 	// The date when the system was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iotthingsgraph:SystemTemplateSummary:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the system.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"iotthingsgraph:SystemTemplateSummary:Id" locationName:"id" type:"string"`
 
 	// The revision number of the system.
-	RevisionNumber *int64 `locationName:"revisionNumber" type:"long"`
+	RevisionNumber *int64 `json:"iotthingsgraph:SystemTemplateSummary:RevisionNumber" locationName:"revisionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -474,13 +474,13 @@ type Tag struct {
 	// characters in length.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"iotthingsgraph:Tag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The optional value of the tag. The string value can be from 1 to 256 Unicode
 	// characters in length.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"iotthingsgraph:Tag:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -518,10 +518,10 @@ type Thing struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the thing.
-	ThingArn *string `locationName:"thingArn" type:"string"`
+	ThingArn *string `json:"iotthingsgraph:Thing:ThingArn" locationName:"thingArn" type:"string"`
 
 	// The name of the thing.
-	ThingName *string `locationName:"thingName" min:"1" type:"string"`
+	ThingName *string `json:"iotthingsgraph:Thing:ThingName" locationName:"thingName" min:"1" type:"string"`
 }
 
 // String returns the string representation

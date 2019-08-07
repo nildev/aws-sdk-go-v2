@@ -61,10 +61,10 @@ type CreateSizeConstraintSetOutput struct {
 	// The ChangeToken that you used to submit the CreateSizeConstraintSet request.
 	// You can also use this value to query the status of the request. For more
 	// information, see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf:CreateSizeConstraintSetOutput:ChangeToken" min:"1" type:"string"`
 
 	// A SizeConstraintSet that contains no SizeConstraint objects.
-	SizeConstraintSet *SizeConstraintSet `type:"structure"`
+	SizeConstraintSet *SizeConstraintSet `json:"waf:CreateSizeConstraintSetOutput:SizeConstraintSet" type:"structure"`
 }
 
 // String returns the string representation

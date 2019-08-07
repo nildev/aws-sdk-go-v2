@@ -41,7 +41,7 @@ type GetDataCatalogEncryptionSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested security configuration.
-	DataCatalogEncryptionSettings *DataCatalogEncryptionSettings `type:"structure"`
+	DataCatalogEncryptionSettings *DataCatalogEncryptionSettings `json:"glue:GetDataCatalogEncryptionSettingsOutput:DataCatalogEncryptionSettings" type:"structure"`
 }
 
 // String returns the string representation

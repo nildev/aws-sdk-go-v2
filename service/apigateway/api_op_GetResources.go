@@ -97,9 +97,9 @@ type GetResourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []Resource `locationName:"item" type:"list"`
+	Items []Resource `json:"apigateway:GetResourcesOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetResourcesOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

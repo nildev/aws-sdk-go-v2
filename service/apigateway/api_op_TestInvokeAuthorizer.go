@@ -159,28 +159,28 @@ func (s TestInvokeAuthorizerInput) MarshalFields(e protocol.FieldEncoder) error 
 type TestInvokeAuthorizerOutput struct {
 	_ struct{} `type:"structure"`
 
-	Authorization map[string][]string `locationName:"authorization" type:"map"`
+	Authorization map[string][]string `json:"apigateway:TestInvokeAuthorizerOutput:Authorization" locationName:"authorization" type:"map"`
 
 	// The open identity claims (https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims),
 	// with any supported custom attributes, returned from the Cognito Your User
 	// Pool configured for the API.
-	Claims map[string]string `locationName:"claims" type:"map"`
+	Claims map[string]string `json:"apigateway:TestInvokeAuthorizerOutput:Claims" locationName:"claims" type:"map"`
 
 	// The HTTP status code that the client would have received. Value is 0 if the
 	// authorizer succeeded.
-	ClientStatus *int64 `locationName:"clientStatus" type:"integer"`
+	ClientStatus *int64 `json:"apigateway:TestInvokeAuthorizerOutput:ClientStatus" locationName:"clientStatus" type:"integer"`
 
 	// The execution latency of the test authorizer request.
-	Latency *int64 `locationName:"latency" type:"long"`
+	Latency *int64 `json:"apigateway:TestInvokeAuthorizerOutput:Latency" locationName:"latency" type:"long"`
 
 	// The API Gateway execution log for the test authorizer request.
-	Log *string `locationName:"log" type:"string"`
+	Log *string `json:"apigateway:TestInvokeAuthorizerOutput:Log" locationName:"log" type:"string"`
 
 	// The JSON policy document returned by the Authorizer
-	Policy *string `locationName:"policy" type:"string"`
+	Policy *string `json:"apigateway:TestInvokeAuthorizerOutput:Policy" locationName:"policy" type:"string"`
 
 	// The principal identity returned by the Authorizer
-	PrincipalId *string `locationName:"principalId" type:"string"`
+	PrincipalId *string `json:"apigateway:TestInvokeAuthorizerOutput:PrincipalId" locationName:"principalId" type:"string"`
 }
 
 // String returns the string representation

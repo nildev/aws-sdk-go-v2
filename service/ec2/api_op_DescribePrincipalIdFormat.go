@@ -60,10 +60,10 @@ type DescribePrincipalIdFormatOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribePrincipalIdFormatOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the ID format settings for the ARN.
-	Principals []PrincipalIdFormat `locationName:"principalSet" locationNameList:"item" type:"list"`
+	Principals []PrincipalIdFormat `json:"ec2:DescribePrincipalIdFormatOutput:Principals" locationName:"principalSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

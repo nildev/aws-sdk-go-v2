@@ -21,10 +21,10 @@ type Lexicon struct {
 
 	// Lexicon content in string format. The content of a lexicon must be in PLS
 	// format.
-	Content *string `type:"string"`
+	Content *string `json:"polly:Lexicon:Content" type:"string"`
 
 	// Name of the lexicon.
-	Name *string `type:"string"`
+	Name *string `json:"polly:Lexicon:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -56,24 +56,24 @@ type LexiconAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// Phonetic alphabet used in the lexicon. Valid values are ipa and x-sampa.
-	Alphabet *string `type:"string"`
+	Alphabet *string `json:"polly:LexiconAttributes:Alphabet" type:"string"`
 
 	// Language code that the lexicon applies to. A lexicon with a language code
 	// such as "en" would be applied to all English languages (en-GB, en-US, en-AUS,
 	// en-WLS, and so on.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"polly:LexiconAttributes:LanguageCode" type:"string" enum:"true"`
 
 	// Date lexicon was last modified (a timestamp value).
-	LastModified *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModified *time.Time `json:"polly:LexiconAttributes:LastModified" type:"timestamp" timestampFormat:"unix"`
 
 	// Number of lexemes in the lexicon.
-	LexemesCount *int64 `type:"integer"`
+	LexemesCount *int64 `json:"polly:LexiconAttributes:LexemesCount" type:"integer"`
 
 	// Amazon Resource Name (ARN) of the lexicon.
-	LexiconArn *string `type:"string"`
+	LexiconArn *string `json:"polly:LexiconAttributes:LexiconArn" type:"string"`
 
 	// Total size of the lexicon, in characters.
-	Size *int64 `type:"integer"`
+	Size *int64 `json:"polly:LexiconAttributes:Size" type:"integer"`
 }
 
 // String returns the string representation
@@ -128,10 +128,10 @@ type LexiconDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Provides lexicon metadata.
-	Attributes *LexiconAttributes `type:"structure"`
+	Attributes *LexiconAttributes `json:"polly:LexiconDescription:Attributes" type:"structure"`
 
 	// Name of the lexicon.
-	Name *string `type:"string"`
+	Name *string `json:"polly:LexiconDescription:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -162,7 +162,7 @@ type SynthesisTask struct {
 	_ struct{} `type:"structure"`
 
 	// Timestamp for the time the synthesis task was started.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"polly:SynthesisTask:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Optional language code for a synthesis task. This is only necessary if using
 	// a bilingual voice, such as Aditi, which can be used for either Indian English
@@ -173,22 +173,22 @@ type SynthesisTask struct {
 	// for any voice is the one returned by the DescribeVoices (https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html)
 	// operation for the LanguageCode parameter. For example, if no language code
 	// is specified, Aditi will use Indian English rather than Hindi.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"polly:SynthesisTask:LanguageCode" type:"string" enum:"true"`
 
 	// List of one or more pronunciation lexicon names you want the service to apply
 	// during synthesis. Lexicons are applied only if the language of the lexicon
 	// is the same as the language of the voice.
-	LexiconNames []string `type:"list"`
+	LexiconNames []string `json:"polly:SynthesisTask:LexiconNames" type:"list"`
 
 	// The format in which the returned output will be encoded. For audio stream,
 	// this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
-	OutputFormat OutputFormat `type:"string" enum:"true"`
+	OutputFormat OutputFormat `json:"polly:SynthesisTask:OutputFormat" type:"string" enum:"true"`
 
 	// Pathway for the output speech file.
-	OutputUri *string `type:"string"`
+	OutputUri *string `json:"polly:SynthesisTask:OutputUri" type:"string"`
 
 	// Number of billable characters synthesized.
-	RequestCharacters *int64 `type:"integer"`
+	RequestCharacters *int64 `json:"polly:SynthesisTask:RequestCharacters" type:"integer"`
 
 	// The audio frequency specified in Hz.
 	//
@@ -196,31 +196,31 @@ type SynthesisTask struct {
 	// The default value is "22050".
 	//
 	// Valid values for pcm are "8000" and "16000" The default value is "16000".
-	SampleRate *string `type:"string"`
+	SampleRate *string `json:"polly:SynthesisTask:SampleRate" type:"string"`
 
 	// ARN for the SNS topic optionally used for providing status notification for
 	// a speech synthesis task.
-	SnsTopicArn *string `type:"string"`
+	SnsTopicArn *string `json:"polly:SynthesisTask:SnsTopicArn" type:"string"`
 
 	// The type of speech marks returned for the input text.
-	SpeechMarkTypes []SpeechMarkType `type:"list"`
+	SpeechMarkTypes []SpeechMarkType `json:"polly:SynthesisTask:SpeechMarkTypes" type:"list"`
 
 	// The Amazon Polly generated identifier for a speech synthesis task.
-	TaskId *string `type:"string"`
+	TaskId *string `json:"polly:SynthesisTask:TaskId" type:"string"`
 
 	// Current status of the individual speech synthesis task.
-	TaskStatus TaskStatus `type:"string" enum:"true"`
+	TaskStatus TaskStatus `json:"polly:SynthesisTask:TaskStatus" type:"string" enum:"true"`
 
 	// Reason for the current status of a specific speech synthesis task, including
 	// errors if the task has failed.
-	TaskStatusReason *string `type:"string"`
+	TaskStatusReason *string `json:"polly:SynthesisTask:TaskStatusReason" type:"string"`
 
 	// Specifies whether the input text is plain text or SSML. The default value
 	// is plain text.
-	TextType TextType `type:"string" enum:"true"`
+	TextType TextType `json:"polly:SynthesisTask:TextType" type:"string" enum:"true"`
 
 	// Voice ID to use for the synthesis.
-	VoiceId VoiceId `type:"string" enum:"true"`
+	VoiceId VoiceId `json:"polly:SynthesisTask:VoiceId" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -340,24 +340,24 @@ type Voice struct {
 	// For example, the default language for Aditi is Indian English (en-IN) because
 	// it was first used for that language. Since Aditi is bilingual and fluent
 	// in both Indian English and Hindi, this parameter would show the code hi-IN.
-	AdditionalLanguageCodes []LanguageCode `type:"list"`
+	AdditionalLanguageCodes []LanguageCode `json:"polly:Voice:AdditionalLanguageCodes" type:"list"`
 
 	// Gender of the voice.
-	Gender Gender `type:"string" enum:"true"`
+	Gender Gender `json:"polly:Voice:Gender" type:"string" enum:"true"`
 
 	// Amazon Polly assigned voice ID. This is the ID that you specify when calling
 	// the SynthesizeSpeech operation.
-	Id VoiceId `type:"string" enum:"true"`
+	Id VoiceId `json:"polly:Voice:Id" type:"string" enum:"true"`
 
 	// Language code of the voice.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"polly:Voice:LanguageCode" type:"string" enum:"true"`
 
 	// Human readable name of the language in English.
-	LanguageName *string `type:"string"`
+	LanguageName *string `json:"polly:Voice:LanguageName" type:"string"`
 
 	// Name of the voice (for example, Salli, Kendra, etc.). This provides a human
 	// readable voice name that you might display in your application.
-	Name *string `type:"string"`
+	Name *string `json:"polly:Voice:Name" type:"string"`
 }
 
 // String returns the string representation

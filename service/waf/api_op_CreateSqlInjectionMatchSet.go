@@ -63,10 +63,10 @@ type CreateSqlInjectionMatchSetOutput struct {
 	// The ChangeToken that you used to submit the CreateSqlInjectionMatchSet request.
 	// You can also use this value to query the status of the request. For more
 	// information, see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf:CreateSqlInjectionMatchSetOutput:ChangeToken" min:"1" type:"string"`
 
 	// A SqlInjectionMatchSet.
-	SqlInjectionMatchSet *SqlInjectionMatchSet `type:"structure"`
+	SqlInjectionMatchSet *SqlInjectionMatchSet `json:"waf:CreateSqlInjectionMatchSetOutput:SqlInjectionMatchSet" type:"structure"`
 }
 
 // String returns the string representation

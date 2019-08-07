@@ -82,7 +82,7 @@ type UpdateRegexPatternSetOutput struct {
 	// The ChangeToken that you used to submit the UpdateRegexPatternSet request.
 	// You can also use this value to query the status of the request. For more
 	// information, see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf:UpdateRegexPatternSetOutput:ChangeToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

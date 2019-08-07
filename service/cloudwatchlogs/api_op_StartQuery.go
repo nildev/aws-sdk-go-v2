@@ -85,7 +85,7 @@ type StartQueryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of the query.
-	QueryId *string `locationName:"queryId" type:"string"`
+	QueryId *string `json:"logs:StartQueryOutput:QueryId" locationName:"queryId" type:"string"`
 }
 
 // String returns the string representation

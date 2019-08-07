@@ -60,9 +60,9 @@ func (s ListInputsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListInputsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Inputs []Input `locationName:"inputs" type:"list"`
+	Inputs []Input `json:"medialive:ListInputsOutput:Inputs" locationName:"inputs" type:"list"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"medialive:ListInputsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -46,12 +46,12 @@ type DescribeDirectoriesOutput struct {
 	// in the Limit member of the request. This occurs if there are less than the
 	// requested number of items left to retrieve, or if the limitations of the
 	// operation have been exceeded.
-	DirectoryDescriptions []DirectoryDescription `type:"list"`
+	DirectoryDescriptions []DirectoryDescription `json:"ds:DescribeDirectoriesOutput:DirectoryDescriptions" type:"list"`
 
 	// If not null, more results are available. Pass this value for the NextToken
 	// parameter in a subsequent call to DescribeDirectories to retrieve the next
 	// set of items.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ds:DescribeDirectoriesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

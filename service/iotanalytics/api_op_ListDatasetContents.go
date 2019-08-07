@@ -103,11 +103,11 @@ type ListDatasetContentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Summary information about data set contents that have been created.
-	DatasetContentSummaries []DatasetContentSummary `locationName:"datasetContentSummaries" type:"list"`
+	DatasetContentSummaries []DatasetContentSummary `json:"iotanalytics:ListDatasetContentsOutput:DatasetContentSummaries" locationName:"datasetContentSummaries" type:"list"`
 
 	// The token to retrieve the next set of results, or null if there are no more
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotanalytics:ListDatasetContentsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

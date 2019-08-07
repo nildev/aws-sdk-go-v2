@@ -45,7 +45,7 @@ type DescribeTimeBasedAutoScalingOutput struct {
 
 	// An array of TimeBasedAutoScalingConfiguration objects that describe the configuration
 	// for the specified instances.
-	TimeBasedAutoScalingConfigurations []TimeBasedAutoScalingConfiguration `type:"list"`
+	TimeBasedAutoScalingConfigurations []TimeBasedAutoScalingConfiguration `json:"opsworks:DescribeTimeBasedAutoScalingOutput:TimeBasedAutoScalingConfigurations" type:"list"`
 }
 
 // String returns the string representation

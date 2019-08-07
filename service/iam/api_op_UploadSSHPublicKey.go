@@ -78,7 +78,7 @@ type UploadSSHPublicKeyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains information about the SSH public key.
-	SSHPublicKey *SSHPublicKey `type:"structure"`
+	SSHPublicKey *SSHPublicKey `json:"iam:UploadSSHPublicKeyOutput:SSHPublicKey" type:"structure"`
 }
 
 // String returns the string representation

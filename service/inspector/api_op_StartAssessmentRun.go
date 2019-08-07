@@ -56,7 +56,7 @@ type StartAssessmentRunOutput struct {
 	// The ARN of the assessment run that has been started.
 	//
 	// AssessmentRunArn is a required field
-	AssessmentRunArn *string `locationName:"assessmentRunArn" min:"1" type:"string" required:"true"`
+	AssessmentRunArn *string `json:"inspector:StartAssessmentRunOutput:AssessmentRunArn" locationName:"assessmentRunArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

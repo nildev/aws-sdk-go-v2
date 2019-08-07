@@ -43,7 +43,7 @@ type GetDiskSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about the disk snapshot.
-	DiskSnapshot *DiskSnapshot `locationName:"diskSnapshot" type:"structure"`
+	DiskSnapshot *DiskSnapshot `json:"lightsail:GetDiskSnapshotOutput:DiskSnapshot" locationName:"diskSnapshot" type:"structure"`
 }
 
 // String returns the string representation

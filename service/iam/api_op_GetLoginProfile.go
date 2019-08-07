@@ -53,7 +53,7 @@ type GetLoginProfileOutput struct {
 	// A structure containing the user name and password create date for the user.
 	//
 	// LoginProfile is a required field
-	LoginProfile *LoginProfile `type:"structure" required:"true"`
+	LoginProfile *LoginProfile `json:"iam:GetLoginProfileOutput:LoginProfile" type:"structure" required:"true"`
 }
 
 // String returns the string representation

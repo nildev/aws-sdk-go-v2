@@ -76,13 +76,13 @@ func (s CreateLoggerDefinitionVersionInput) MarshalFields(e protocol.FieldEncode
 type CreateLoggerDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:CreateLoggerDefinitionVersionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:CreateLoggerDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:CreateLoggerDefinitionVersionOutput:Id" type:"string"`
 
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:CreateLoggerDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

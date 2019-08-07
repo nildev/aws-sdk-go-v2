@@ -51,29 +51,29 @@ type DescribeStateMachineForExecutionOutput struct {
 	// Language (https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html).
 	//
 	// Definition is a required field
-	Definition *string `locationName:"definition" min:"1" type:"string" required:"true"`
+	Definition *string `json:"states:DescribeStateMachineForExecutionOutput:Definition" locationName:"definition" min:"1" type:"string" required:"true"`
 
 	// The name of the state machine associated with the execution.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"states:DescribeStateMachineForExecutionOutput:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the IAM role of the State Machine for the
 	// execution.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string" required:"true"`
+	RoleArn *string `json:"states:DescribeStateMachineForExecutionOutput:RoleArn" locationName:"roleArn" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the state machine associated with the execution.
 	//
 	// StateMachineArn is a required field
-	StateMachineArn *string `locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
+	StateMachineArn *string `json:"states:DescribeStateMachineForExecutionOutput:StateMachineArn" locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
 
 	// The date and time the state machine associated with an execution was updated.
 	// For a newly created state machine, this is the creation date.
 	//
 	// UpdateDate is a required field
-	UpdateDate *time.Time `locationName:"updateDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdateDate *time.Time `json:"states:DescribeStateMachineForExecutionOutput:UpdateDate" locationName:"updateDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation

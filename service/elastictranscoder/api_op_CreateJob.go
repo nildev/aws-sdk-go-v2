@@ -197,7 +197,7 @@ type CreateJobOutput struct {
 
 	// A section of the response body that provides information about the job that
 	// is created.
-	Job *Job `type:"structure"`
+	Job *Job `json:"elastictranscoder:CreateJobOutput:Job" type:"structure"`
 }
 
 // String returns the string representation

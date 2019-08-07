@@ -48,7 +48,7 @@ type GetStackPolicyOutput struct {
 	// Structure containing the stack policy body. (For more information, go to
 	// Prevent Updates to Stack Resources (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html)
 	// in the AWS CloudFormation User Guide.)
-	StackPolicyBody *string `min:"1" type:"string"`
+	StackPolicyBody *string `json:"cloudformation:GetStackPolicyOutput:StackPolicyBody" min:"1" type:"string"`
 }
 
 // String returns the string representation

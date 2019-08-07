@@ -54,10 +54,10 @@ type CreateAssociationBatchOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the associations that failed.
-	Failed []FailedCreateAssociation `type:"list"`
+	Failed []FailedCreateAssociation `json:"ssm:CreateAssociationBatchOutput:Failed" type:"list"`
 
 	// Information about the associations that succeeded.
-	Successful []AssociationDescription `type:"list"`
+	Successful []AssociationDescription `json:"ssm:CreateAssociationBatchOutput:Successful" type:"list"`
 }
 
 // String returns the string representation

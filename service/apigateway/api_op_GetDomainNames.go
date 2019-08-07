@@ -52,9 +52,9 @@ type GetDomainNamesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []DomainName `locationName:"item" type:"list"`
+	Items []DomainName `json:"apigateway:GetDomainNamesOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetDomainNamesOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

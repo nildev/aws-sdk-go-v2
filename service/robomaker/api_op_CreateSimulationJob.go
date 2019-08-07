@@ -214,14 +214,14 @@ type CreateSimulationJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the simulation job.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:CreateSimulationJobOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// Unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request.
-	ClientRequestToken *string `locationName:"clientRequestToken" min:"1" type:"string"`
+	ClientRequestToken *string `json:"robomaker:CreateSimulationJobOutput:ClientRequestToken" locationName:"clientRequestToken" min:"1" type:"string"`
 
 	// the failure behavior for the simulation job.
-	FailureBehavior FailureBehavior `locationName:"failureBehavior" type:"string" enum:"true"`
+	FailureBehavior FailureBehavior `json:"robomaker:CreateSimulationJobOutput:FailureBehavior" locationName:"failureBehavior" type:"string" enum:"true"`
 
 	// The failure code of the simulation job if it failed:
 	//
@@ -282,43 +282,43 @@ type CreateSimulationJobOutput struct {
 	// SimulationApplicationVersionMismatchedEtag
 	//
 	// Etag for SimulationApplication does not match value during version creation.
-	FailureCode SimulationJobErrorCode `locationName:"failureCode" type:"string" enum:"true"`
+	FailureCode SimulationJobErrorCode `json:"robomaker:CreateSimulationJobOutput:FailureCode" locationName:"failureCode" type:"string" enum:"true"`
 
 	// The IAM role that allows the simulation job to call the AWS APIs that are
 	// specified in its associated policies on your behalf.
-	IamRole *string `locationName:"iamRole" min:"1" type:"string"`
+	IamRole *string `json:"robomaker:CreateSimulationJobOutput:IamRole" locationName:"iamRole" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the simulation job was last
 	// started.
-	LastStartedAt *time.Time `locationName:"lastStartedAt" type:"timestamp" timestampFormat:"unix"`
+	LastStartedAt *time.Time `json:"robomaker:CreateSimulationJobOutput:LastStartedAt" locationName:"lastStartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in milliseconds since the epoch, when the simulation job was last
 	// updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"robomaker:CreateSimulationJobOutput:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The maximum simulation job duration in seconds.
-	MaxJobDurationInSeconds *int64 `locationName:"maxJobDurationInSeconds" type:"long"`
+	MaxJobDurationInSeconds *int64 `json:"robomaker:CreateSimulationJobOutput:MaxJobDurationInSeconds" locationName:"maxJobDurationInSeconds" type:"long"`
 
 	// Simulation job output files location.
-	OutputLocation *OutputLocation `locationName:"outputLocation" type:"structure"`
+	OutputLocation *OutputLocation `json:"robomaker:CreateSimulationJobOutput:OutputLocation" locationName:"outputLocation" type:"structure"`
 
 	// The robot application used by the simulation job.
-	RobotApplications []RobotApplicationConfig `locationName:"robotApplications" min:"1" type:"list"`
+	RobotApplications []RobotApplicationConfig `json:"robomaker:CreateSimulationJobOutput:RobotApplications" locationName:"robotApplications" min:"1" type:"list"`
 
 	// The simulation application used by the simulation job.
-	SimulationApplications []SimulationApplicationConfig `locationName:"simulationApplications" min:"1" type:"list"`
+	SimulationApplications []SimulationApplicationConfig `json:"robomaker:CreateSimulationJobOutput:SimulationApplications" locationName:"simulationApplications" min:"1" type:"list"`
 
 	// The simulation job execution duration in milliseconds.
-	SimulationTimeMillis *int64 `locationName:"simulationTimeMillis" type:"long"`
+	SimulationTimeMillis *int64 `json:"robomaker:CreateSimulationJobOutput:SimulationTimeMillis" locationName:"simulationTimeMillis" type:"long"`
 
 	// The status of the simulation job.
-	Status SimulationJobStatus `locationName:"status" type:"string" enum:"true"`
+	Status SimulationJobStatus `json:"robomaker:CreateSimulationJobOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The list of all tags added to the simulation job.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:CreateSimulationJobOutput:Tags" locationName:"tags" type:"map"`
 
 	// Information about the vpc configuration.
-	VpcConfig *VPCConfigResponse `locationName:"vpcConfig" type:"structure"`
+	VpcConfig *VPCConfigResponse `json:"robomaker:CreateSimulationJobOutput:VpcConfig" locationName:"vpcConfig" type:"structure"`
 }
 
 // String returns the string representation

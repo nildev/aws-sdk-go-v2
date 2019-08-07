@@ -40,10 +40,10 @@ type GetSamplingStatisticSummariesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Pagination token. Not used.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"xray:GetSamplingStatisticSummariesOutput:NextToken" type:"string"`
 
 	// Information about the number of requests instrumented for each sampling rule.
-	SamplingStatisticSummaries []SamplingStatisticSummary `type:"list"`
+	SamplingStatisticSummaries []SamplingStatisticSummary `json:"xray:GetSamplingStatisticSummariesOutput:SamplingStatisticSummaries" type:"list"`
 }
 
 // String returns the string representation

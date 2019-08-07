@@ -59,10 +59,10 @@ type DescribeMaintenanceWindowsOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeMaintenanceWindowsOutput:NextToken" type:"string"`
 
 	// Information about the maintenance windows.
-	WindowIdentities []MaintenanceWindowIdentity `type:"list"`
+	WindowIdentities []MaintenanceWindowIdentity `json:"ssm:DescribeMaintenanceWindowsOutput:WindowIdentities" type:"list"`
 }
 
 // String returns the string representation

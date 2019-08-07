@@ -53,7 +53,7 @@ type DeregisterInstanceOutput struct {
 
 	// A value that you can use to determine whether the request completed successfully.
 	// For more information, see GetOperation.
-	OperationId *string `type:"string"`
+	OperationId *string `json:"servicediscovery:DeregisterInstanceOutput:OperationId" type:"string"`
 }
 
 // String returns the string representation

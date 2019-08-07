@@ -51,7 +51,7 @@ type DeleteFlowLogsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the flow logs that could not be deleted successfully.
-	Unsuccessful []UnsuccessfulItem `locationName:"unsuccessful" locationNameList:"item" type:"list"`
+	Unsuccessful []UnsuccessfulItem `json:"ec2:DeleteFlowLogsOutput:Unsuccessful" locationName:"unsuccessful" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

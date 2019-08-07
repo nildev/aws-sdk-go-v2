@@ -71,10 +71,10 @@ type ListServiceQuotaIncreaseRequestsInTemplateOutput struct {
 	// a subsequent call to the operation to continue processing and get the next
 	// part of the output. You should repeat this until the NextToken response element
 	// comes back empty (as null).
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicequotas:ListServiceQuotaIncreaseRequestsInTemplateOutput:NextToken" type:"string"`
 
 	// Returns the list of values of the quota increase request in the template.
-	ServiceQuotaIncreaseRequestInTemplateList []ServiceQuotaIncreaseRequestInTemplate `type:"list"`
+	ServiceQuotaIncreaseRequestInTemplateList []ServiceQuotaIncreaseRequestInTemplate `json:"servicequotas:ListServiceQuotaIncreaseRequestsInTemplateOutput:ServiceQuotaIncreaseRequestInTemplateList" type:"list"`
 }
 
 // String returns the string representation

@@ -53,7 +53,7 @@ type UpdateDocumentDefaultVersionOutput struct {
 
 	// The description of a custom document that you want to set as the default
 	// version.
-	Description *DocumentDefaultVersionDescription `type:"structure"`
+	Description *DocumentDefaultVersionDescription `json:"ssm:UpdateDocumentDefaultVersionOutput:Description" type:"structure"`
 }
 
 // String returns the string representation

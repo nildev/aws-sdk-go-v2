@@ -45,7 +45,7 @@ type StartDBInstanceOutput struct {
 	// Contains the details of an Amazon RDS DB instance.
 	//
 	// This data type is used as a response element in the DescribeDBInstances action.
-	DBInstance *DBInstance `type:"structure"`
+	DBInstance *DBInstance `json:"rds:StartDBInstanceOutput:DBInstance" type:"structure"`
 }
 
 // String returns the string representation

@@ -79,11 +79,11 @@ type ListLabelingJobsForWorkteamOutput struct {
 	// An array of LabelingJobSummary objects, each describing a labeling job.
 	//
 	// LabelingJobSummaryList is a required field
-	LabelingJobSummaryList []LabelingJobForWorkteamSummary `type:"list" required:"true"`
+	LabelingJobSummaryList []LabelingJobForWorkteamSummary `json:"api.sagemaker:ListLabelingJobsForWorkteamOutput:LabelingJobSummaryList" type:"list" required:"true"`
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of labeling jobs, use it in the subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListLabelingJobsForWorkteamOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

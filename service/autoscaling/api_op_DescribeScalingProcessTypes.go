@@ -24,7 +24,7 @@ type DescribeScalingProcessTypesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The names of the process types.
-	Processes []ProcessType `type:"list"`
+	Processes []ProcessType `json:"autoscaling:DescribeScalingProcessTypesOutput:Processes" type:"list"`
 }
 
 // String returns the string representation

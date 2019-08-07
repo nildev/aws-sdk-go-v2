@@ -64,7 +64,7 @@ type CreateRelationalDatabaseSnapshotOutput struct {
 
 	// An object describing the result of your create relational database snapshot
 	// request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:CreateRelationalDatabaseSnapshotOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

@@ -146,10 +146,10 @@ type UpdateFlowOutputOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the flow that is associated with the updated output.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:UpdateFlowOutputOutput:FlowArn" locationName:"flowArn" type:"string"`
 
 	// The settings for an output.
-	Output *Output `locationName:"output" type:"structure"`
+	Output *Output `json:"mediaconnect:UpdateFlowOutputOutput:Output" locationName:"output" type:"structure"`
 }
 
 // String returns the string representation

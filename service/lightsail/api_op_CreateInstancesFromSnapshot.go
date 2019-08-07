@@ -98,7 +98,7 @@ type CreateInstancesFromSnapshotOutput struct {
 
 	// An array of key-value pairs containing information about the results of your
 	// create instances from snapshot request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:CreateInstancesFromSnapshotOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

@@ -74,32 +74,32 @@ type CreateSimulationApplicationVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the simulation application.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:CreateSimulationApplicationVersionOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the simulation application
 	// was last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"robomaker:CreateSimulationApplicationVersionOutput:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the simulation application.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:CreateSimulationApplicationVersionOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The rendering engine for the simulation application.
-	RenderingEngine *RenderingEngine `locationName:"renderingEngine" type:"structure"`
+	RenderingEngine *RenderingEngine `json:"robomaker:CreateSimulationApplicationVersionOutput:RenderingEngine" locationName:"renderingEngine" type:"structure"`
 
 	// The revision ID of the simulation application.
-	RevisionId *string `locationName:"revisionId" min:"1" type:"string"`
+	RevisionId *string `json:"robomaker:CreateSimulationApplicationVersionOutput:RevisionId" locationName:"revisionId" min:"1" type:"string"`
 
 	// Information about the robot software suite.
-	RobotSoftwareSuite *RobotSoftwareSuite `locationName:"robotSoftwareSuite" type:"structure"`
+	RobotSoftwareSuite *RobotSoftwareSuite `json:"robomaker:CreateSimulationApplicationVersionOutput:RobotSoftwareSuite" locationName:"robotSoftwareSuite" type:"structure"`
 
 	// The simulation software suite used by the simulation application.
-	SimulationSoftwareSuite *SimulationSoftwareSuite `locationName:"simulationSoftwareSuite" type:"structure"`
+	SimulationSoftwareSuite *SimulationSoftwareSuite `json:"robomaker:CreateSimulationApplicationVersionOutput:SimulationSoftwareSuite" locationName:"simulationSoftwareSuite" type:"structure"`
 
 	// The sources of the simulation application.
-	Sources []Source `locationName:"sources" type:"list"`
+	Sources []Source `json:"robomaker:CreateSimulationApplicationVersionOutput:Sources" locationName:"sources" type:"list"`
 
 	// The version of the simulation application.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"robomaker:CreateSimulationApplicationVersionOutput:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation

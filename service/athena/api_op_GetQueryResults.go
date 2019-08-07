@@ -53,13 +53,13 @@ type GetQueryResultsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token to be used by the next request if this request is truncated.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"athena:GetQueryResultsOutput:NextToken" min:"1" type:"string"`
 
 	// The results of the query execution.
-	ResultSet *ResultSet `type:"structure"`
+	ResultSet *ResultSet `json:"athena:GetQueryResultsOutput:ResultSet" type:"structure"`
 
 	// The number of rows inserted with a CREATE TABLE AS SELECT statement.
-	UpdateCount *int64 `type:"long"`
+	UpdateCount *int64 `json:"athena:GetQueryResultsOutput:UpdateCount" type:"long"`
 }
 
 // String returns the string representation

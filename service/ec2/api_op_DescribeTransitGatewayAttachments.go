@@ -80,10 +80,10 @@ type DescribeTransitGatewayAttachmentsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeTransitGatewayAttachmentsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the attachments.
-	TransitGatewayAttachments []TransitGatewayAttachment `locationName:"transitGatewayAttachments" locationNameList:"item" type:"list"`
+	TransitGatewayAttachments []TransitGatewayAttachment `json:"ec2:DescribeTransitGatewayAttachmentsOutput:TransitGatewayAttachments" locationName:"transitGatewayAttachments" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

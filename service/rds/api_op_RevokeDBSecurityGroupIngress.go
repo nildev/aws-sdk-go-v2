@@ -68,7 +68,7 @@ type RevokeDBSecurityGroupIngressOutput struct {
 	//
 	// This data type is used as a response element in the DescribeDBSecurityGroups
 	// action.
-	DBSecurityGroup *DBSecurityGroup `type:"structure"`
+	DBSecurityGroup *DBSecurityGroup `json:"rds:RevokeDBSecurityGroupIngressOutput:DBSecurityGroup" type:"structure"`
 }
 
 // String returns the string representation

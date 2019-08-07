@@ -48,7 +48,7 @@ type GetDeviceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about the requested device.
-	Device *Device `locationName:"device" type:"structure"`
+	Device *Device `json:"devicefarm:GetDeviceOutput:Device" locationName:"device" type:"structure"`
 }
 
 // String returns the string representation

@@ -235,7 +235,7 @@ type CreateProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the build project that was created.
-	Project *Project `locationName:"project" type:"structure"`
+	Project *Project `json:"codebuild:CreateProjectOutput:Project" locationName:"project" type:"structure"`
 }
 
 // String returns the string representation

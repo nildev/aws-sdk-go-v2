@@ -45,7 +45,7 @@ type DescribeSubscribedWorkteamOutput struct {
 	// A Workteam instance that contains information about the work team.
 	//
 	// SubscribedWorkteam is a required field
-	SubscribedWorkteam *SubscribedWorkteam `type:"structure" required:"true"`
+	SubscribedWorkteam *SubscribedWorkteam `json:"api.sagemaker:DescribeSubscribedWorkteamOutput:SubscribedWorkteam" type:"structure" required:"true"`
 }
 
 // String returns the string representation

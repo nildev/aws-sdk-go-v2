@@ -54,37 +54,37 @@ func (s StartChannelInput) MarshalFields(e protocol.FieldEncoder) error {
 type StartChannelOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:StartChannelOutput:Arn" locationName:"arn" type:"string"`
 
 	// A standard channel has two encoding pipelines and a single pipeline channel
 	// only has one.
-	ChannelClass ChannelClass `locationName:"channelClass" type:"string" enum:"true"`
+	ChannelClass ChannelClass `json:"medialive:StartChannelOutput:ChannelClass" locationName:"channelClass" type:"string" enum:"true"`
 
-	Destinations []OutputDestination `locationName:"destinations" type:"list"`
+	Destinations []OutputDestination `json:"medialive:StartChannelOutput:Destinations" locationName:"destinations" type:"list"`
 
-	EgressEndpoints []ChannelEgressEndpoint `locationName:"egressEndpoints" type:"list"`
+	EgressEndpoints []ChannelEgressEndpoint `json:"medialive:StartChannelOutput:EgressEndpoints" locationName:"egressEndpoints" type:"list"`
 
 	// Encoder Settings
-	EncoderSettings *EncoderSettings `locationName:"encoderSettings" type:"structure"`
+	EncoderSettings *EncoderSettings `json:"medialive:StartChannelOutput:EncoderSettings" locationName:"encoderSettings" type:"structure"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"medialive:StartChannelOutput:Id" locationName:"id" type:"string"`
 
-	InputAttachments []InputAttachment `locationName:"inputAttachments" type:"list"`
+	InputAttachments []InputAttachment `json:"medialive:StartChannelOutput:InputAttachments" locationName:"inputAttachments" type:"list"`
 
-	InputSpecification *InputSpecification `locationName:"inputSpecification" type:"structure"`
+	InputSpecification *InputSpecification `json:"medialive:StartChannelOutput:InputSpecification" locationName:"inputSpecification" type:"structure"`
 
 	// The log level the user wants for their channel.
-	LogLevel LogLevel `locationName:"logLevel" type:"string" enum:"true"`
+	LogLevel LogLevel `json:"medialive:StartChannelOutput:LogLevel" locationName:"logLevel" type:"string" enum:"true"`
 
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"medialive:StartChannelOutput:Name" locationName:"name" type:"string"`
 
-	PipelinesRunningCount *int64 `locationName:"pipelinesRunningCount" type:"integer"`
+	PipelinesRunningCount *int64 `json:"medialive:StartChannelOutput:PipelinesRunningCount" locationName:"pipelinesRunningCount" type:"integer"`
 
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"medialive:StartChannelOutput:RoleArn" locationName:"roleArn" type:"string"`
 
-	State ChannelState `locationName:"state" type:"string" enum:"true"`
+	State ChannelState `json:"medialive:StartChannelOutput:State" locationName:"state" type:"string" enum:"true"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:StartChannelOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

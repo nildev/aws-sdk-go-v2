@@ -95,7 +95,7 @@ type SendBounceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The message ID of the bounce message.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"email:SendBounceOutput:MessageId" type:"string"`
 }
 
 // String returns the string representation

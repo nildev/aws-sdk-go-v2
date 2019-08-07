@@ -58,7 +58,7 @@ type DisassociateTransitGatewayRouteTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the association.
-	Association *TransitGatewayAssociation `locationName:"association" type:"structure"`
+	Association *TransitGatewayAssociation `json:"ec2:DisassociateTransitGatewayRouteTableOutput:Association" locationName:"association" type:"structure"`
 }
 
 // String returns the string representation

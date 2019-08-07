@@ -59,7 +59,7 @@ type DescribeSuggestersOutput struct {
 	// The suggesters configured for the domain specified in the request.
 	//
 	// Suggesters is a required field
-	Suggesters []SuggesterStatus `type:"list" required:"true"`
+	Suggesters []SuggesterStatus `json:"cloudsearch:DescribeSuggestersOutput:Suggesters" type:"list" required:"true"`
 }
 
 // String returns the string representation

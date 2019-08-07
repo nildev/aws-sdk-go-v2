@@ -63,12 +63,12 @@ type ListConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of MSK configurations.
-	Configurations []Configuration `locationName:"configurations" type:"list"`
+	Configurations []Configuration `json:"kafka:ListConfigurationsOutput:Configurations" locationName:"configurations" type:"list"`
 
 	// The paginated results marker. When the result of a ListConfigurations operation
 	// is truncated, the call returns NextToken in the response. To get another
 	// batch of configurations, provide this token in your next request.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"kafka:ListConfigurationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

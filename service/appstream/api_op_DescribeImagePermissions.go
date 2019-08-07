@@ -61,14 +61,14 @@ type DescribeImagePermissionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the private image.
-	Name *string `type:"string"`
+	Name *string `json:"appstream2:DescribeImagePermissionsOutput:Name" type:"string"`
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:DescribeImagePermissionsOutput:NextToken" min:"1" type:"string"`
 
 	// The permissions for a private image that you own.
-	SharedImagePermissionsList []SharedImagePermissions `type:"list"`
+	SharedImagePermissionsList []SharedImagePermissions `json:"appstream2:DescribeImagePermissionsOutput:SharedImagePermissionsList" type:"list"`
 }
 
 // String returns the string representation

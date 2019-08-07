@@ -127,10 +127,10 @@ type CreatePipelineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the pipeline.
-	PipelineArn *string `locationName:"pipelineArn" type:"string"`
+	PipelineArn *string `json:"iotanalytics:CreatePipelineOutput:PipelineArn" locationName:"pipelineArn" type:"string"`
 
 	// The name of the pipeline.
-	PipelineName *string `locationName:"pipelineName" min:"1" type:"string"`
+	PipelineName *string `json:"iotanalytics:CreatePipelineOutput:PipelineName" locationName:"pipelineName" min:"1" type:"string"`
 }
 
 // String returns the string representation

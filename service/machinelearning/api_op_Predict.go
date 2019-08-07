@@ -70,7 +70,7 @@ type PredictOutput struct {
 	//    to each label.
 	//
 	//    * PredictedValue - Present for a REGRESSION MLModel request.
-	Prediction *Prediction `type:"structure"`
+	Prediction *Prediction `json:"machinelearning:PredictOutput:Prediction" type:"structure"`
 }
 
 // String returns the string representation

@@ -84,7 +84,7 @@ type ModifyTrafficMirrorFilterRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Modifies a Traffic Mirror rule.
-	TrafficMirrorFilterRule *TrafficMirrorFilterRule `locationName:"trafficMirrorFilterRule" type:"structure"`
+	TrafficMirrorFilterRule *TrafficMirrorFilterRule `json:"ec2:ModifyTrafficMirrorFilterRuleOutput:TrafficMirrorFilterRule" locationName:"trafficMirrorFilterRule" type:"structure"`
 }
 
 // String returns the string representation

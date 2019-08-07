@@ -66,7 +66,7 @@ type UpdateRuntimeConfigurationOutput struct {
 
 	// The run-time configuration currently in force. If the update was successful,
 	// this object matches the one in the request.
-	RuntimeConfiguration *RuntimeConfiguration `type:"structure"`
+	RuntimeConfiguration *RuntimeConfiguration `json:"gamelift:UpdateRuntimeConfigurationOutput:RuntimeConfiguration" type:"structure"`
 }
 
 // String returns the string representation

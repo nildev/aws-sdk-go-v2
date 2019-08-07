@@ -65,10 +65,10 @@ type DeleteChapCredentialsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The iSCSI initiator that connects to the target.
-	InitiatorName *string `min:"1" type:"string"`
+	InitiatorName *string `json:"storagegateway:DeleteChapCredentialsOutput:InitiatorName" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the target.
-	TargetARN *string `min:"50" type:"string"`
+	TargetARN *string `json:"storagegateway:DeleteChapCredentialsOutput:TargetARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

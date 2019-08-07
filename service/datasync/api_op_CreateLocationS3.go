@@ -80,7 +80,7 @@ type CreateLocationS3Output struct {
 
 	// The Amazon Resource Name (ARN) of the source Amazon S3 bucket location that
 	// is created.
-	LocationArn *string `type:"string"`
+	LocationArn *string `json:"datasync:CreateLocationS3Output:LocationArn" type:"string"`
 }
 
 // String returns the string representation

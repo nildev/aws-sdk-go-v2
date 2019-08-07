@@ -59,7 +59,7 @@ func (s *PutOrganizationConfigRuleInput) Validate() error {
 type PutOrganizationConfigRuleOutput struct {
 	_ struct{} `type:"structure"`
 
-	OrganizationConfigRuleArn *string `min:"1" type:"string"`
+	OrganizationConfigRuleArn *string `json:"config:PutOrganizationConfigRuleOutput:OrganizationConfigRuleArn" min:"1" type:"string"`
 }
 
 // String returns the string representation

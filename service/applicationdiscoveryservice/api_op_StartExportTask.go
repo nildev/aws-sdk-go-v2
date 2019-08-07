@@ -64,7 +64,7 @@ type StartExportTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier used to query the status of an export request.
-	ExportId *string `locationName:"exportId" type:"string"`
+	ExportId *string `json:"discovery:StartExportTaskOutput:ExportId" locationName:"exportId" type:"string"`
 }
 
 // String returns the string representation

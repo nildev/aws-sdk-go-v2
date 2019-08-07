@@ -43,7 +43,7 @@ type DeleteReplicationTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The deleted replication task.
-	ReplicationTask *ReplicationTask `type:"structure"`
+	ReplicationTask *ReplicationTask `json:"dms:DeleteReplicationTaskOutput:ReplicationTask" type:"structure"`
 }
 
 // String returns the string representation

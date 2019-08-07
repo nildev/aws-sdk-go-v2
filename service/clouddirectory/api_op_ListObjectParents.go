@@ -115,14 +115,14 @@ type ListObjectParentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListObjectParentsOutput:NextToken" type:"string"`
 
 	// Returns a list of parent reference and LinkName Tuples.
-	ParentLinks []ObjectIdentifierAndLinkNameTuple `type:"list"`
+	ParentLinks []ObjectIdentifierAndLinkNameTuple `json:"clouddirectory:ListObjectParentsOutput:ParentLinks" type:"list"`
 
 	// The parent structure, which is a map with key as the ObjectIdentifier and
 	// LinkName as the value.
-	Parents map[string]string `type:"map"`
+	Parents map[string]string `json:"clouddirectory:ListObjectParentsOutput:Parents" type:"map"`
 }
 
 // String returns the string representation

@@ -32,12 +32,12 @@ type StartSelector struct {
 
 	// Specifies the fragment number from where you want the GetMedia API to start
 	// returning the fragments.
-	AfterFragmentNumber *string `min:"1" type:"string"`
+	AfterFragmentNumber *string `json:"kinesisvideo:StartSelector:AfterFragmentNumber" min:"1" type:"string"`
 
 	// Continuation token that Kinesis Video Streams returned in the previous GetMedia
 	// response. The GetMedia API then starts with the chunk identified by the continuation
 	// token.
-	ContinuationToken *string `min:"1" type:"string"`
+	ContinuationToken *string `json:"kinesisvideo:StartSelector:ContinuationToken" min:"1" type:"string"`
 
 	// Identifies the fragment on the Kinesis video stream where you want to start
 	// getting the data from.
@@ -59,12 +59,12 @@ type StartSelector struct {
 	// you don't provide any additional information in the startSelector.
 	//
 	// StartSelectorType is a required field
-	StartSelectorType StartSelectorType `type:"string" required:"true" enum:"true"`
+	StartSelectorType StartSelectorType `json:"kinesisvideo:StartSelector:StartSelectorType" type:"string" required:"true" enum:"true"`
 
 	// A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP
 	// or the SERVER_TIMESTAMP as the startSelectorType. The GetMedia API then starts
 	// with the chunk containing the fragment that has the specified timestamp.
-	StartTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTimestamp *time.Time `json:"kinesisvideo:StartSelector:StartTimestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

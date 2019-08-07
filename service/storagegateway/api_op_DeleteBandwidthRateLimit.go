@@ -68,7 +68,7 @@ type DeleteBandwidthRateLimitOutput struct {
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:DeleteBandwidthRateLimitOutput:GatewayARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

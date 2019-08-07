@@ -61,10 +61,10 @@ type DescribeReservedElasticsearchInstanceOfferingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"es:DescribeReservedElasticsearchInstanceOfferingsOutput:NextToken" type:"string"`
 
 	// List of reserved Elasticsearch instance offerings
-	ReservedElasticsearchInstanceOfferings []ReservedElasticsearchInstanceOffering `type:"list"`
+	ReservedElasticsearchInstanceOfferings []ReservedElasticsearchInstanceOffering `json:"es:DescribeReservedElasticsearchInstanceOfferingsOutput:ReservedElasticsearchInstanceOfferings" type:"list"`
 }
 
 // String returns the string representation

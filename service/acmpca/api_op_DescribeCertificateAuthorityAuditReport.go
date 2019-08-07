@@ -62,16 +62,16 @@ type DescribeCertificateAuthorityAuditReportOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether report creation is in progress, has succeeded, or has failed.
-	AuditReportStatus AuditReportStatus `type:"string" enum:"true"`
+	AuditReportStatus AuditReportStatus `json:"acm-pca:DescribeCertificateAuthorityAuditReportOutput:AuditReportStatus" type:"string" enum:"true"`
 
 	// The date and time at which the report was created.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"acm-pca:DescribeCertificateAuthorityAuditReportOutput:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Name of the S3 bucket that contains the report.
-	S3BucketName *string `type:"string"`
+	S3BucketName *string `json:"acm-pca:DescribeCertificateAuthorityAuditReportOutput:S3BucketName" type:"string"`
 
 	// S3 key that uniquely identifies the report file in your S3 bucket.
-	S3Key *string `type:"string"`
+	S3Key *string `json:"acm-pca:DescribeCertificateAuthorityAuditReportOutput:S3Key" type:"string"`
 }
 
 // String returns the string representation

@@ -60,7 +60,7 @@ type DescribeCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the certificate.
-	CertificateDescription *CertificateDescription `locationName:"certificateDescription" type:"structure"`
+	CertificateDescription *CertificateDescription `json:"iot:DescribeCertificateOutput:CertificateDescription" locationName:"certificateDescription" type:"structure"`
 }
 
 // String returns the string representation

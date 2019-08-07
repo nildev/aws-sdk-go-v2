@@ -69,11 +69,11 @@ type DescribeChannelOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that contains information about the channel.
-	Channel *Channel `locationName:"channel" type:"structure"`
+	Channel *Channel `json:"iotanalytics:DescribeChannelOutput:Channel" locationName:"channel" type:"structure"`
 
 	// Statistics about the channel. Included if the 'includeStatistics' parameter
 	// is set to true in the request.
-	Statistics *ChannelStatistics `locationName:"statistics" type:"structure"`
+	Statistics *ChannelStatistics `json:"iotanalytics:DescribeChannelOutput:Statistics" locationName:"statistics" type:"structure"`
 }
 
 // String returns the string representation

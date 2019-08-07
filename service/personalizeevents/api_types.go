@@ -23,13 +23,13 @@ type Event struct {
 	// to the model. Amazon Personalize uses the event ID to distinquish unique
 	// events. Any subsequent events after the first with the same event ID are
 	// not used in model training.
-	EventId *string `locationName:"eventId" min:"1" type:"string"`
+	EventId *string `json:"personalize-events:Event:EventId" locationName:"eventId" min:"1" type:"string"`
 
 	// The type of event. This property corresponds to the EVENT_TYPE field of the
 	// Interactions schema.
 	//
 	// EventType is a required field
-	EventType *string `locationName:"eventType" min:"1" type:"string" required:"true"`
+	EventType *string `json:"personalize-events:Event:EventType" locationName:"eventType" min:"1" type:"string" required:"true"`
 
 	// A string map of event-specific data that you might choose to record. For
 	// example, if a user rates a movie on your site, you might send the movie ID
@@ -50,12 +50,12 @@ type Event struct {
 	// field defined in the Interactions schema.
 	//
 	// Properties is a required field
-	Properties aws.JSONValue `locationName:"properties" type:"jsonvalue" required:"true"`
+	Properties aws.JSONValue `json:"personalize-events:Event:Properties" locationName:"properties" type:"jsonvalue" required:"true"`
 
 	// The timestamp on the client side when the event occurred.
 	//
 	// SentAt is a required field
-	SentAt *time.Time `locationName:"sentAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	SentAt *time.Time `json:"personalize-events:Event:SentAt" locationName:"sentAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation

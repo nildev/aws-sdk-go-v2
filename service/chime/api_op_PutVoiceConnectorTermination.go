@@ -76,7 +76,7 @@ type PutVoiceConnectorTerminationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated termination setting details.
-	Termination *Termination `type:"structure"`
+	Termination *Termination `json:"chime:PutVoiceConnectorTerminationOutput:Termination" type:"structure"`
 }
 
 // String returns the string representation

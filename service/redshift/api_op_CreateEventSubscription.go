@@ -104,7 +104,7 @@ type CreateEventSubscriptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes event subscriptions.
-	EventSubscription *EventSubscription `type:"structure"`
+	EventSubscription *EventSubscription `json:"redshift:CreateEventSubscriptionOutput:EventSubscription" type:"structure"`
 }
 
 // String returns the string representation

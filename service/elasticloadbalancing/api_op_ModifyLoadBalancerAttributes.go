@@ -59,10 +59,10 @@ type ModifyLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the load balancer attributes.
-	LoadBalancerAttributes *LoadBalancerAttributes `type:"structure"`
+	LoadBalancerAttributes *LoadBalancerAttributes `json:"elasticloadbalancing:ModifyLoadBalancerAttributesOutput:LoadBalancerAttributes" type:"structure"`
 
 	// The name of the load balancer.
-	LoadBalancerName *string `type:"string"`
+	LoadBalancerName *string `json:"elasticloadbalancing:ModifyLoadBalancerAttributesOutput:LoadBalancerName" type:"string"`
 }
 
 // String returns the string representation

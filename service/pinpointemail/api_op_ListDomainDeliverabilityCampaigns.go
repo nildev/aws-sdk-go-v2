@@ -125,12 +125,12 @@ type ListDomainDeliverabilityCampaignsOutput struct {
 	// email during the specified time range.
 	//
 	// DomainDeliverabilityCampaigns is a required field
-	DomainDeliverabilityCampaigns []DomainDeliverabilityCampaign `type:"list" required:"true"`
+	DomainDeliverabilityCampaigns []DomainDeliverabilityCampaign `json:"email:ListDomainDeliverabilityCampaignsOutput:DomainDeliverabilityCampaigns" type:"list" required:"true"`
 
 	// A token that’s returned from a previous call to the ListDomainDeliverabilityCampaigns
 	// operation. This token indicates the position of the campaign in the list
 	// of campaigns.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"email:ListDomainDeliverabilityCampaignsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

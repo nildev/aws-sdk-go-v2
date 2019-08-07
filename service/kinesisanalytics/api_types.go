@@ -28,52 +28,52 @@ type ApplicationDetail struct {
 	// ARN of the application.
 	//
 	// ApplicationARN is a required field
-	ApplicationARN *string `min:"1" type:"string" required:"true"`
+	ApplicationARN *string `json:"kinesisanalytics:ApplicationDetail:ApplicationARN" min:"1" type:"string" required:"true"`
 
 	// Returns the application code that you provided to perform data analysis on
 	// any of the in-application streams in your application.
-	ApplicationCode *string `type:"string"`
+	ApplicationCode *string `json:"kinesisanalytics:ApplicationDetail:ApplicationCode" type:"string"`
 
 	// Description of the application.
-	ApplicationDescription *string `type:"string"`
+	ApplicationDescription *string `json:"kinesisanalytics:ApplicationDetail:ApplicationDescription" type:"string"`
 
 	// Name of the application.
 	//
 	// ApplicationName is a required field
-	ApplicationName *string `min:"1" type:"string" required:"true"`
+	ApplicationName *string `json:"kinesisanalytics:ApplicationDetail:ApplicationName" min:"1" type:"string" required:"true"`
 
 	// Status of the application.
 	//
 	// ApplicationStatus is a required field
-	ApplicationStatus ApplicationStatus `type:"string" required:"true" enum:"true"`
+	ApplicationStatus ApplicationStatus `json:"kinesisanalytics:ApplicationDetail:ApplicationStatus" type:"string" required:"true" enum:"true"`
 
 	// Provides the current application version.
 	//
 	// ApplicationVersionId is a required field
-	ApplicationVersionId *int64 `min:"1" type:"long" required:"true"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:ApplicationDetail:ApplicationVersionId" min:"1" type:"long" required:"true"`
 
 	// Describes the CloudWatch log streams that are configured to receive application
 	// messages. For more information about using CloudWatch log streams with Amazon
 	// Kinesis Analytics applications, see Working with Amazon CloudWatch Logs (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html).
-	CloudWatchLoggingOptionDescriptions []CloudWatchLoggingOptionDescription `type:"list"`
+	CloudWatchLoggingOptionDescriptions []CloudWatchLoggingOptionDescription `json:"kinesisanalytics:ApplicationDetail:CloudWatchLoggingOptionDescriptions" type:"list"`
 
 	// Time stamp when the application version was created.
-	CreateTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTimestamp *time.Time `json:"kinesisanalytics:ApplicationDetail:CreateTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// Describes the application input configuration. For more information, see
 	// Configuring Application Input (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html).
-	InputDescriptions []InputDescription `type:"list"`
+	InputDescriptions []InputDescription `json:"kinesisanalytics:ApplicationDetail:InputDescriptions" type:"list"`
 
 	// Time stamp when the application was last updated.
-	LastUpdateTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTimestamp *time.Time `json:"kinesisanalytics:ApplicationDetail:LastUpdateTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// Describes the application output configuration. For more information, see
 	// Configuring Application Output (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html).
-	OutputDescriptions []OutputDescription `type:"list"`
+	OutputDescriptions []OutputDescription `json:"kinesisanalytics:ApplicationDetail:OutputDescriptions" type:"list"`
 
 	// Describes reference data sources configured for the application. For more
 	// information, see Configuring Application Input (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html).
-	ReferenceDataSourceDescriptions []ReferenceDataSourceDescription `type:"list"`
+	ReferenceDataSourceDescriptions []ReferenceDataSourceDescription `json:"kinesisanalytics:ApplicationDetail:ReferenceDataSourceDescriptions" type:"list"`
 }
 
 // String returns the string representation
@@ -96,17 +96,17 @@ type ApplicationSummary struct {
 	// ARN of the application.
 	//
 	// ApplicationARN is a required field
-	ApplicationARN *string `min:"1" type:"string" required:"true"`
+	ApplicationARN *string `json:"kinesisanalytics:ApplicationSummary:ApplicationARN" min:"1" type:"string" required:"true"`
 
 	// Name of the application.
 	//
 	// ApplicationName is a required field
-	ApplicationName *string `min:"1" type:"string" required:"true"`
+	ApplicationName *string `json:"kinesisanalytics:ApplicationSummary:ApplicationName" min:"1" type:"string" required:"true"`
 
 	// Status of the application.
 	//
 	// ApplicationStatus is a required field
-	ApplicationStatus ApplicationStatus `type:"string" required:"true" enum:"true"`
+	ApplicationStatus ApplicationStatus `json:"kinesisanalytics:ApplicationSummary:ApplicationStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -120,19 +120,19 @@ type ApplicationUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Describes application code updates.
-	ApplicationCodeUpdate *string `type:"string"`
+	ApplicationCodeUpdate *string `json:"kinesisanalytics:ApplicationUpdate:ApplicationCodeUpdate" type:"string"`
 
 	// Describes application CloudWatch logging option updates.
-	CloudWatchLoggingOptionUpdates []CloudWatchLoggingOptionUpdate `type:"list"`
+	CloudWatchLoggingOptionUpdates []CloudWatchLoggingOptionUpdate `json:"kinesisanalytics:ApplicationUpdate:CloudWatchLoggingOptionUpdates" type:"list"`
 
 	// Describes application input configuration updates.
-	InputUpdates []InputUpdate `type:"list"`
+	InputUpdates []InputUpdate `json:"kinesisanalytics:ApplicationUpdate:InputUpdates" type:"list"`
 
 	// Describes application output configuration updates.
-	OutputUpdates []OutputUpdate `type:"list"`
+	OutputUpdates []OutputUpdate `json:"kinesisanalytics:ApplicationUpdate:OutputUpdates" type:"list"`
 
 	// Describes application reference data source updates.
-	ReferenceDataSourceUpdates []ReferenceDataSourceUpdate `type:"list"`
+	ReferenceDataSourceUpdates []ReferenceDataSourceUpdate `json:"kinesisanalytics:ApplicationUpdate:ReferenceDataSourceUpdates" type:"list"`
 }
 
 // String returns the string representation
@@ -194,12 +194,12 @@ type CSVMappingParameters struct {
 	// column delimiter.
 	//
 	// RecordColumnDelimiter is a required field
-	RecordColumnDelimiter *string `min:"1" type:"string" required:"true"`
+	RecordColumnDelimiter *string `json:"kinesisanalytics:CSVMappingParameters:RecordColumnDelimiter" min:"1" type:"string" required:"true"`
 
 	// Row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
 	//
 	// RecordRowDelimiter is a required field
-	RecordRowDelimiter *string `min:"1" type:"string" required:"true"`
+	RecordRowDelimiter *string `json:"kinesisanalytics:CSVMappingParameters:RecordRowDelimiter" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -240,14 +240,14 @@ type CloudWatchLoggingOption struct {
 	// ARN of the CloudWatch log to receive application messages.
 	//
 	// LogStreamARN is a required field
-	LogStreamARN *string `min:"1" type:"string" required:"true"`
+	LogStreamARN *string `json:"kinesisanalytics:CloudWatchLoggingOption:LogStreamARN" min:"1" type:"string" required:"true"`
 
 	// IAM ARN of the role to use to send application messages. Note: To write application
 	// messages to CloudWatch, the IAM role that is used must have the PutLogEvents
 	// policy action enabled.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:CloudWatchLoggingOption:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -285,19 +285,19 @@ type CloudWatchLoggingOptionDescription struct {
 	_ struct{} `type:"structure"`
 
 	// ID of the CloudWatch logging option description.
-	CloudWatchLoggingOptionId *string `min:"1" type:"string"`
+	CloudWatchLoggingOptionId *string `json:"kinesisanalytics:CloudWatchLoggingOptionDescription:CloudWatchLoggingOptionId" min:"1" type:"string"`
 
 	// ARN of the CloudWatch log to receive application messages.
 	//
 	// LogStreamARN is a required field
-	LogStreamARN *string `min:"1" type:"string" required:"true"`
+	LogStreamARN *string `json:"kinesisanalytics:CloudWatchLoggingOptionDescription:LogStreamARN" min:"1" type:"string" required:"true"`
 
 	// IAM ARN of the role to use to send application messages. Note: To write application
 	// messages to CloudWatch, the IAM role used must have the PutLogEvents policy
 	// action enabled.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:CloudWatchLoggingOptionDescription:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -313,15 +313,15 @@ type CloudWatchLoggingOptionUpdate struct {
 	// ID of the CloudWatch logging option to update
 	//
 	// CloudWatchLoggingOptionId is a required field
-	CloudWatchLoggingOptionId *string `min:"1" type:"string" required:"true"`
+	CloudWatchLoggingOptionId *string `json:"kinesisanalytics:CloudWatchLoggingOptionUpdate:CloudWatchLoggingOptionId" min:"1" type:"string" required:"true"`
 
 	// ARN of the CloudWatch log to receive application messages.
-	LogStreamARNUpdate *string `min:"1" type:"string"`
+	LogStreamARNUpdate *string `json:"kinesisanalytics:CloudWatchLoggingOptionUpdate:LogStreamARNUpdate" min:"1" type:"string"`
 
 	// IAM ARN of the role to use to send application messages. Note: To write application
 	// messages to CloudWatch, the IAM role used must have the PutLogEvents policy
 	// action enabled.
-	RoleARNUpdate *string `min:"1" type:"string"`
+	RoleARNUpdate *string `json:"kinesisanalytics:CloudWatchLoggingOptionUpdate:RoleARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -361,7 +361,7 @@ type DestinationSchema struct {
 	// Specifies the format of the records on the output stream.
 	//
 	// RecordFormatType is a required field
-	RecordFormatType RecordFormatType `type:"string" required:"true" enum:"true"`
+	RecordFormatType RecordFormatType `json:"kinesisanalytics:DestinationSchema:RecordFormatType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -394,13 +394,13 @@ type Input struct {
 	// Data from your source is routed to these in-application input streams.
 	//
 	// (see Configuring Application Input (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html).
-	InputParallelism *InputParallelism `type:"structure"`
+	InputParallelism *InputParallelism `json:"kinesisanalytics:Input:InputParallelism" type:"structure"`
 
 	// The InputProcessingConfiguration (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html)
 	// for the input. An input processor transforms records as they are received
 	// from the stream, before the application's SQL code executes. Currently, the
 	// only input processing configuration available is InputLambdaProcessor (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html).
-	InputProcessingConfiguration *InputProcessingConfiguration `type:"structure"`
+	InputProcessingConfiguration *InputProcessingConfiguration `json:"kinesisanalytics:Input:InputProcessingConfiguration" type:"structure"`
 
 	// Describes the format of the data in the streaming source, and how each data
 	// element maps to corresponding columns in the in-application stream that is
@@ -409,21 +409,21 @@ type Input struct {
 	// Also used to describe the format of the reference data source.
 	//
 	// InputSchema is a required field
-	InputSchema *SourceSchema `type:"structure" required:"true"`
+	InputSchema *SourceSchema `json:"kinesisanalytics:Input:InputSchema" type:"structure" required:"true"`
 
 	// If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies
 	// the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics
 	// to access the stream on your behalf.
 	//
 	// Note: Either KinesisStreamsInput or KinesisFirehoseInput is required.
-	KinesisFirehoseInput *KinesisFirehoseInput `type:"structure"`
+	KinesisFirehoseInput *KinesisFirehoseInput `json:"kinesisanalytics:Input:KinesisFirehoseInput" type:"structure"`
 
 	// If the streaming source is an Amazon Kinesis stream, identifies the stream's
 	// Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics
 	// to access the stream on your behalf.
 	//
 	// Note: Either KinesisStreamsInput or KinesisFirehoseInput is required.
-	KinesisStreamsInput *KinesisStreamsInput `type:"structure"`
+	KinesisStreamsInput *KinesisStreamsInput `json:"kinesisanalytics:Input:KinesisStreamsInput" type:"structure"`
 
 	// Name prefix to use when creating an in-application stream. Suppose that you
 	// specify a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates
@@ -432,7 +432,7 @@ type Input struct {
 	// and so on.
 	//
 	// NamePrefix is a required field
-	NamePrefix *string `min:"1" type:"string" required:"true"`
+	NamePrefix *string `json:"kinesisanalytics:Input:NamePrefix" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -497,13 +497,13 @@ type InputConfiguration struct {
 	// operation.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"kinesisanalytics:InputConfiguration:Id" min:"1" type:"string" required:"true"`
 
 	// Point at which you want the application to start processing records from
 	// the streaming source.
 	//
 	// InputStartingPositionConfiguration is a required field
-	InputStartingPositionConfiguration *InputStartingPositionConfiguration `type:"structure" required:"true"`
+	InputStartingPositionConfiguration *InputStartingPositionConfiguration `json:"kinesisanalytics:InputConfiguration:InputStartingPositionConfiguration" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -539,40 +539,40 @@ type InputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Returns the in-application stream names that are mapped to the stream source.
-	InAppStreamNames []string `type:"list"`
+	InAppStreamNames []string `json:"kinesisanalytics:InputDescription:InAppStreamNames" type:"list"`
 
 	// Input ID associated with the application input. This is the ID that Amazon
 	// Kinesis Analytics assigns to each input configuration you add to your application.
-	InputId *string `min:"1" type:"string"`
+	InputId *string `json:"kinesisanalytics:InputDescription:InputId" min:"1" type:"string"`
 
 	// Describes the configured parallelism (number of in-application streams mapped
 	// to the streaming source).
-	InputParallelism *InputParallelism `type:"structure"`
+	InputParallelism *InputParallelism `json:"kinesisanalytics:InputDescription:InputParallelism" type:"structure"`
 
 	// The description of the preprocessor that executes on records in this input
 	// before the application's code is run.
-	InputProcessingConfigurationDescription *InputProcessingConfigurationDescription `type:"structure"`
+	InputProcessingConfigurationDescription *InputProcessingConfigurationDescription `json:"kinesisanalytics:InputDescription:InputProcessingConfigurationDescription" type:"structure"`
 
 	// Describes the format of the data in the streaming source, and how each data
 	// element maps to corresponding columns in the in-application stream that is
 	// being created.
-	InputSchema *SourceSchema `type:"structure"`
+	InputSchema *SourceSchema `json:"kinesisanalytics:InputDescription:InputSchema" type:"structure"`
 
 	// Point at which the application is configured to read from the input stream.
-	InputStartingPositionConfiguration *InputStartingPositionConfiguration `type:"structure"`
+	InputStartingPositionConfiguration *InputStartingPositionConfiguration `json:"kinesisanalytics:InputDescription:InputStartingPositionConfiguration" type:"structure"`
 
 	// If an Amazon Kinesis Firehose delivery stream is configured as a streaming
 	// source, provides the delivery stream's ARN and an IAM role that enables Amazon
 	// Kinesis Analytics to access the stream on your behalf.
-	KinesisFirehoseInputDescription *KinesisFirehoseInputDescription `type:"structure"`
+	KinesisFirehoseInputDescription *KinesisFirehoseInputDescription `json:"kinesisanalytics:InputDescription:KinesisFirehoseInputDescription" type:"structure"`
 
 	// If an Amazon Kinesis stream is configured as streaming source, provides Amazon
 	// Kinesis stream's Amazon Resource Name (ARN) and an IAM role that enables
 	// Amazon Kinesis Analytics to access the stream on your behalf.
-	KinesisStreamsInputDescription *KinesisStreamsInputDescription `type:"structure"`
+	KinesisStreamsInputDescription *KinesisStreamsInputDescription `json:"kinesisanalytics:InputDescription:KinesisStreamsInputDescription" type:"structure"`
 
 	// In-application name prefix.
-	NamePrefix *string `min:"1" type:"string"`
+	NamePrefix *string `json:"kinesisanalytics:InputDescription:NamePrefix" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -596,12 +596,12 @@ type InputLambdaProcessor struct {
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:InputLambdaProcessor:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// The ARN of the IAM role that is used to access the AWS Lambda function.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:InputLambdaProcessor:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -643,10 +643,10 @@ type InputLambdaProcessorDescription struct {
 
 	// The ARN of the AWS Lambda (https://docs.aws.amazon.com/lambda/) function
 	// that is used to preprocess the records in the stream.
-	ResourceARN *string `min:"1" type:"string"`
+	ResourceARN *string `json:"kinesisanalytics:InputLambdaProcessorDescription:ResourceARN" min:"1" type:"string"`
 
 	// The ARN of the IAM role that is used to access the AWS Lambda function.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:InputLambdaProcessorDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -666,10 +666,10 @@ type InputLambdaProcessorUpdate struct {
 	// To specify an earlier version of the Lambda function than the latest, include
 	// the Lambda function version in the Lambda function ARN. For more information
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
-	ResourceARNUpdate *string `min:"1" type:"string"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:InputLambdaProcessorUpdate:ResourceARNUpdate" min:"1" type:"string"`
 
 	// The ARN of the new IAM role that is used to access the AWS Lambda function.
-	RoleARNUpdate *string `min:"1" type:"string"`
+	RoleARNUpdate *string `json:"kinesisanalytics:InputLambdaProcessorUpdate:RoleARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -702,7 +702,7 @@ type InputParallelism struct {
 
 	// Number of in-application streams to create. For more information, see Limits
 	// (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html).
-	Count *int64 `min:"1" type:"integer"`
+	Count *int64 `json:"kinesisanalytics:InputParallelism:Count" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -729,7 +729,7 @@ type InputParallelismUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Number of in-application streams to create for the specified streaming source.
-	CountUpdate *int64 `min:"1" type:"integer"`
+	CountUpdate *int64 `json:"kinesisanalytics:InputParallelismUpdate:CountUpdate" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -762,7 +762,7 @@ type InputProcessingConfiguration struct {
 	// by your application code.
 	//
 	// InputLambdaProcessor is a required field
-	InputLambdaProcessor *InputLambdaProcessor `type:"structure" required:"true"`
+	InputLambdaProcessor *InputLambdaProcessor `json:"kinesisanalytics:InputProcessingConfiguration:InputLambdaProcessor" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -797,7 +797,7 @@ type InputProcessingConfigurationDescription struct {
 
 	// Provides configuration information about the associated InputLambdaProcessorDescription
 	// (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html).
-	InputLambdaProcessorDescription *InputLambdaProcessorDescription `type:"structure"`
+	InputLambdaProcessorDescription *InputLambdaProcessorDescription `json:"kinesisanalytics:InputProcessingConfigurationDescription:InputLambdaProcessorDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -813,7 +813,7 @@ type InputProcessingConfigurationUpdate struct {
 	// Provides update information for an InputLambdaProcessor (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html).
 	//
 	// InputLambdaProcessorUpdate is a required field
-	InputLambdaProcessorUpdate *InputLambdaProcessorUpdate `type:"structure" required:"true"`
+	InputLambdaProcessorUpdate *InputLambdaProcessorUpdate `json:"kinesisanalytics:InputProcessingConfigurationUpdate:InputLambdaProcessorUpdate" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -848,14 +848,14 @@ type InputSchemaUpdate struct {
 	// A list of RecordColumn objects. Each object describes the mapping of the
 	// streaming source element to the corresponding column in the in-application
 	// stream.
-	RecordColumnUpdates []RecordColumn `min:"1" type:"list"`
+	RecordColumnUpdates []RecordColumn `json:"kinesisanalytics:InputSchemaUpdate:RecordColumnUpdates" min:"1" type:"list"`
 
 	// Specifies the encoding of the records in the streaming source. For example,
 	// UTF-8.
-	RecordEncodingUpdate *string `type:"string"`
+	RecordEncodingUpdate *string `json:"kinesisanalytics:InputSchemaUpdate:RecordEncodingUpdate" type:"string"`
 
 	// Specifies the format of the records on the streaming source.
-	RecordFormatUpdate *RecordFormat `type:"structure"`
+	RecordFormatUpdate *RecordFormat `json:"kinesisanalytics:InputSchemaUpdate:RecordFormatUpdate" type:"structure"`
 }
 
 // String returns the string representation
@@ -904,7 +904,7 @@ type InputStartingPositionConfiguration struct {
 	//
 	//    * LAST_STOPPED_POINT - Resume reading from where the application last
 	//    stopped reading.
-	InputStartingPosition InputStartingPosition `type:"string" enum:"true"`
+	InputStartingPosition InputStartingPosition `json:"kinesisanalytics:InputStartingPositionConfiguration:InputStartingPosition" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -921,31 +921,31 @@ type InputUpdate struct {
 	// Input ID of the application input to be updated.
 	//
 	// InputId is a required field
-	InputId *string `min:"1" type:"string" required:"true"`
+	InputId *string `json:"kinesisanalytics:InputUpdate:InputId" min:"1" type:"string" required:"true"`
 
 	// Describes the parallelism updates (the number in-application streams Amazon
 	// Kinesis Analytics creates for the specific streaming source).
-	InputParallelismUpdate *InputParallelismUpdate `type:"structure"`
+	InputParallelismUpdate *InputParallelismUpdate `json:"kinesisanalytics:InputUpdate:InputParallelismUpdate" type:"structure"`
 
 	// Describes updates for an input processing configuration.
-	InputProcessingConfigurationUpdate *InputProcessingConfigurationUpdate `type:"structure"`
+	InputProcessingConfigurationUpdate *InputProcessingConfigurationUpdate `json:"kinesisanalytics:InputUpdate:InputProcessingConfigurationUpdate" type:"structure"`
 
 	// Describes the data format on the streaming source, and how record elements
 	// on the streaming source map to columns of the in-application stream that
 	// is created.
-	InputSchemaUpdate *InputSchemaUpdate `type:"structure"`
+	InputSchemaUpdate *InputSchemaUpdate `json:"kinesisanalytics:InputUpdate:InputSchemaUpdate" type:"structure"`
 
 	// If an Amazon Kinesis Firehose delivery stream is the streaming source to
 	// be updated, provides an updated stream ARN and IAM role ARN.
-	KinesisFirehoseInputUpdate *KinesisFirehoseInputUpdate `type:"structure"`
+	KinesisFirehoseInputUpdate *KinesisFirehoseInputUpdate `json:"kinesisanalytics:InputUpdate:KinesisFirehoseInputUpdate" type:"structure"`
 
 	// If an Amazon Kinesis stream is the streaming source to be updated, provides
 	// an updated stream Amazon Resource Name (ARN) and IAM role ARN.
-	KinesisStreamsInputUpdate *KinesisStreamsInputUpdate `type:"structure"`
+	KinesisStreamsInputUpdate *KinesisStreamsInputUpdate `json:"kinesisanalytics:InputUpdate:KinesisStreamsInputUpdate" type:"structure"`
 
 	// Name prefix for in-application streams that Amazon Kinesis Analytics creates
 	// for the specific streaming source.
-	NamePrefixUpdate *string `min:"1" type:"string"`
+	NamePrefixUpdate *string `json:"kinesisanalytics:InputUpdate:NamePrefixUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1007,7 +1007,7 @@ type JSONMappingParameters struct {
 	// Path to the top-level parent that contains the records.
 	//
 	// RecordRowPath is a required field
-	RecordRowPath *string `min:"1" type:"string" required:"true"`
+	RecordRowPath *string `json:"kinesisanalytics:JSONMappingParameters:RecordRowPath" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1042,14 +1042,14 @@ type KinesisFirehoseInput struct {
 	// ARN of the input delivery stream.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisFirehoseInput:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream on your behalf. You need to make sure that the role has the necessary
 	// permissions to access the stream.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:KinesisFirehoseInput:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1088,10 +1088,10 @@ type KinesisFirehoseInputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
-	ResourceARN *string `min:"1" type:"string"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisFirehoseInputDescription:ResourceARN" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:KinesisFirehoseInputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1107,12 +1107,12 @@ type KinesisFirehoseInputUpdate struct {
 
 	// Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery
 	// stream to read.
-	ResourceARNUpdate *string `min:"1" type:"string"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:KinesisFirehoseInputUpdate:ResourceARNUpdate" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream on your behalf. You need to grant the necessary permissions to this
 	// role.
-	RoleARNUpdate *string `min:"1" type:"string"`
+	RoleARNUpdate *string `json:"kinesisanalytics:KinesisFirehoseInputUpdate:RoleARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1147,14 +1147,14 @@ type KinesisFirehoseOutput struct {
 	// ARN of the destination Amazon Kinesis Firehose delivery stream to write to.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisFirehoseOutput:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 	// the destination stream on your behalf. You need to grant the necessary permissions
 	// to this role.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:KinesisFirehoseOutput:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1193,11 +1193,11 @@ type KinesisFirehoseOutputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
-	ResourceARN *string `min:"1" type:"string"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisFirehoseOutputDescription:ResourceARN" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:KinesisFirehoseOutputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1214,12 +1214,12 @@ type KinesisFirehoseOutputUpdate struct {
 
 	// Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream
 	// to write to.
-	ResourceARNUpdate *string `min:"1" type:"string"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:KinesisFirehoseOutputUpdate:ResourceARNUpdate" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream on your behalf. You need to grant the necessary permissions to this
 	// role.
-	RoleARNUpdate *string `min:"1" type:"string"`
+	RoleARNUpdate *string `json:"kinesisanalytics:KinesisFirehoseOutputUpdate:RoleARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1253,14 +1253,14 @@ type KinesisStreamsInput struct {
 	// ARN of the input Amazon Kinesis stream to read.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisStreamsInput:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream on your behalf. You need to grant the necessary permissions to this
 	// role.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:KinesisStreamsInput:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1299,11 +1299,11 @@ type KinesisStreamsInputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon Resource Name (ARN) of the Amazon Kinesis stream.
-	ResourceARN *string `min:"1" type:"string"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisStreamsInputDescription:ResourceARN" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:KinesisStreamsInputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1318,12 +1318,12 @@ type KinesisStreamsInputUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon Resource Name (ARN) of the input Amazon Kinesis stream to read.
-	ResourceARNUpdate *string `min:"1" type:"string"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:KinesisStreamsInputUpdate:ResourceARNUpdate" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream on your behalf. You need to grant the necessary permissions to this
 	// role.
-	RoleARNUpdate *string `min:"1" type:"string"`
+	RoleARNUpdate *string `json:"kinesisanalytics:KinesisStreamsInputUpdate:RoleARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1358,14 +1358,14 @@ type KinesisStreamsOutput struct {
 	// ARN of the destination Amazon Kinesis stream to write to.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisStreamsOutput:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 	// the destination stream on your behalf. You need to grant the necessary permissions
 	// to this role.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:KinesisStreamsOutput:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1404,11 +1404,11 @@ type KinesisStreamsOutputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon Resource Name (ARN) of the Amazon Kinesis stream.
-	ResourceARN *string `min:"1" type:"string"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisStreamsOutputDescription:ResourceARN" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:KinesisStreamsOutputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1425,12 +1425,12 @@ type KinesisStreamsOutputUpdate struct {
 
 	// Amazon Resource Name (ARN) of the Amazon Kinesis stream where you want to
 	// write the output.
-	ResourceARNUpdate *string `min:"1" type:"string"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:KinesisStreamsOutputUpdate:ResourceARNUpdate" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 	// stream on your behalf. You need to grant the necessary permissions to this
 	// role.
-	RoleARNUpdate *string `min:"1" type:"string"`
+	RoleARNUpdate *string `json:"kinesisanalytics:KinesisStreamsOutputUpdate:RoleARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1469,14 +1469,14 @@ type LambdaOutput struct {
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:LambdaOutput:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 	// the destination function on your behalf. You need to grant the necessary
 	// permissions to this role.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:LambdaOutput:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1515,11 +1515,11 @@ type LambdaOutputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon Resource Name (ARN) of the destination Lambda function.
-	ResourceARN *string `min:"1" type:"string"`
+	ResourceARN *string `json:"kinesisanalytics:LambdaOutputDescription:ResourceARN" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 	// the destination function.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:LambdaOutputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1539,12 +1539,12 @@ type LambdaOutputUpdate struct {
 	// To specify an earlier version of the Lambda function than the latest, include
 	// the Lambda function version in the Lambda function ARN. For more information
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
-	ResourceARNUpdate *string `min:"1" type:"string"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:LambdaOutputUpdate:ResourceARNUpdate" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 	// the destination function on your behalf. You need to grant the necessary
 	// permissions to this role.
-	RoleARNUpdate *string `min:"1" type:"string"`
+	RoleARNUpdate *string `json:"kinesisanalytics:LambdaOutputUpdate:RoleARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1578,11 +1578,11 @@ type MappingParameters struct {
 
 	// Provides additional mapping information when the record format uses delimiters
 	// (for example, CSV).
-	CSVMappingParameters *CSVMappingParameters `type:"structure"`
+	CSVMappingParameters *CSVMappingParameters `json:"kinesisanalytics:MappingParameters:CSVMappingParameters" type:"structure"`
 
 	// Provides additional mapping information when JSON is the record format on
 	// the streaming source.
-	JSONMappingParameters *JSONMappingParameters `type:"structure"`
+	JSONMappingParameters *JSONMappingParameters `json:"kinesisanalytics:MappingParameters:JSONMappingParameters" type:"structure"`
 }
 
 // String returns the string representation
@@ -1625,21 +1625,21 @@ type Output struct {
 	// more information, see Configuring Application Output (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html).
 	//
 	// DestinationSchema is a required field
-	DestinationSchema *DestinationSchema `type:"structure" required:"true"`
+	DestinationSchema *DestinationSchema `json:"kinesisanalytics:Output:DestinationSchema" type:"structure" required:"true"`
 
 	// Identifies an Amazon Kinesis Firehose delivery stream as the destination.
-	KinesisFirehoseOutput *KinesisFirehoseOutput `type:"structure"`
+	KinesisFirehoseOutput *KinesisFirehoseOutput `json:"kinesisanalytics:Output:KinesisFirehoseOutput" type:"structure"`
 
 	// Identifies an Amazon Kinesis stream as the destination.
-	KinesisStreamsOutput *KinesisStreamsOutput `type:"structure"`
+	KinesisStreamsOutput *KinesisStreamsOutput `json:"kinesisanalytics:Output:KinesisStreamsOutput" type:"structure"`
 
 	// Identifies an AWS Lambda function as the destination.
-	LambdaOutput *LambdaOutput `type:"structure"`
+	LambdaOutput *LambdaOutput `json:"kinesisanalytics:Output:LambdaOutput" type:"structure"`
 
 	// Name of the in-application stream.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"kinesisanalytics:Output:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1696,25 +1696,25 @@ type OutputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Data format used for writing data to the destination.
-	DestinationSchema *DestinationSchema `type:"structure"`
+	DestinationSchema *DestinationSchema `json:"kinesisanalytics:OutputDescription:DestinationSchema" type:"structure"`
 
 	// Describes the Amazon Kinesis Firehose delivery stream configured as the destination
 	// where output is written.
-	KinesisFirehoseOutputDescription *KinesisFirehoseOutputDescription `type:"structure"`
+	KinesisFirehoseOutputDescription *KinesisFirehoseOutputDescription `json:"kinesisanalytics:OutputDescription:KinesisFirehoseOutputDescription" type:"structure"`
 
 	// Describes Amazon Kinesis stream configured as the destination where output
 	// is written.
-	KinesisStreamsOutputDescription *KinesisStreamsOutputDescription `type:"structure"`
+	KinesisStreamsOutputDescription *KinesisStreamsOutputDescription `json:"kinesisanalytics:OutputDescription:KinesisStreamsOutputDescription" type:"structure"`
 
 	// Describes the AWS Lambda function configured as the destination where output
 	// is written.
-	LambdaOutputDescription *LambdaOutputDescription `type:"structure"`
+	LambdaOutputDescription *LambdaOutputDescription `json:"kinesisanalytics:OutputDescription:LambdaOutputDescription" type:"structure"`
 
 	// Name of the in-application stream configured as output.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"kinesisanalytics:OutputDescription:Name" min:"1" type:"string"`
 
 	// A unique identifier for the output configuration.
-	OutputId *string `min:"1" type:"string"`
+	OutputId *string `json:"kinesisanalytics:OutputDescription:OutputId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1729,26 +1729,26 @@ type OutputUpdate struct {
 
 	// Describes the data format when records are written to the destination. For
 	// more information, see Configuring Application Output (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html).
-	DestinationSchemaUpdate *DestinationSchema `type:"structure"`
+	DestinationSchemaUpdate *DestinationSchema `json:"kinesisanalytics:OutputUpdate:DestinationSchemaUpdate" type:"structure"`
 
 	// Describes an Amazon Kinesis Firehose delivery stream as the destination for
 	// the output.
-	KinesisFirehoseOutputUpdate *KinesisFirehoseOutputUpdate `type:"structure"`
+	KinesisFirehoseOutputUpdate *KinesisFirehoseOutputUpdate `json:"kinesisanalytics:OutputUpdate:KinesisFirehoseOutputUpdate" type:"structure"`
 
 	// Describes an Amazon Kinesis stream as the destination for the output.
-	KinesisStreamsOutputUpdate *KinesisStreamsOutputUpdate `type:"structure"`
+	KinesisStreamsOutputUpdate *KinesisStreamsOutputUpdate `json:"kinesisanalytics:OutputUpdate:KinesisStreamsOutputUpdate" type:"structure"`
 
 	// Describes an AWS Lambda function as the destination for the output.
-	LambdaOutputUpdate *LambdaOutputUpdate `type:"structure"`
+	LambdaOutputUpdate *LambdaOutputUpdate `json:"kinesisanalytics:OutputUpdate:LambdaOutputUpdate" type:"structure"`
 
 	// If you want to specify a different in-application stream for this output
 	// configuration, use this field to specify the new in-application stream name.
-	NameUpdate *string `min:"1" type:"string"`
+	NameUpdate *string `json:"kinesisanalytics:OutputUpdate:NameUpdate" min:"1" type:"string"`
 
 	// Identifies the specific output configuration that you want to update.
 	//
 	// OutputId is a required field
-	OutputId *string `min:"1" type:"string" required:"true"`
+	OutputId *string `json:"kinesisanalytics:OutputUpdate:OutputId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1807,18 +1807,18 @@ type RecordColumn struct {
 	// Reference to the data element in the streaming input or the reference data
 	// source. This element is required if the RecordFormatType (https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel)
 	// is JSON.
-	Mapping *string `type:"string"`
+	Mapping *string `json:"kinesisanalytics:RecordColumn:Mapping" type:"string"`
 
 	// Name of the column created in the in-application input stream or reference
 	// table.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"kinesisanalytics:RecordColumn:Name" type:"string" required:"true"`
 
 	// Type of column created in the in-application input stream or reference table.
 	//
 	// SqlType is a required field
-	SqlType *string `min:"1" type:"string" required:"true"`
+	SqlType *string `json:"kinesisanalytics:RecordColumn:SqlType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1857,12 +1857,12 @@ type RecordFormat struct {
 	// application, provides additional mapping information specific to the record
 	// format (such as JSON, CSV, or record fields delimited by some delimiter)
 	// on the streaming source.
-	MappingParameters *MappingParameters `type:"structure"`
+	MappingParameters *MappingParameters `json:"kinesisanalytics:RecordFormat:MappingParameters" type:"structure"`
 
 	// The type of record format.
 	//
 	// RecordFormatType is a required field
-	RecordFormatType RecordFormatType `type:"string" required:"true" enum:"true"`
+	RecordFormatType RecordFormatType `json:"kinesisanalytics:RecordFormat:RecordFormatType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1900,19 +1900,19 @@ type ReferenceDataSource struct {
 	// element maps to corresponding columns created in the in-application stream.
 	//
 	// ReferenceSchema is a required field
-	ReferenceSchema *SourceSchema `type:"structure" required:"true"`
+	ReferenceSchema *SourceSchema `json:"kinesisanalytics:ReferenceDataSource:ReferenceSchema" type:"structure" required:"true"`
 
 	// Identifies the S3 bucket and object that contains the reference data. Also
 	// identifies the IAM role Amazon Kinesis Analytics can assume to read this
 	// object on your behalf. An Amazon Kinesis Analytics application loads reference
 	// data only once. If the data changes, you call the UpdateApplication operation
 	// to trigger reloading of data into your application.
-	S3ReferenceDataSource *S3ReferenceDataSource `type:"structure"`
+	S3ReferenceDataSource *S3ReferenceDataSource `json:"kinesisanalytics:ReferenceDataSource:S3ReferenceDataSource" type:"structure"`
 
 	// Name of the in-application table to create.
 	//
 	// TableName is a required field
-	TableName *string `min:"1" type:"string" required:"true"`
+	TableName *string `json:"kinesisanalytics:ReferenceDataSource:TableName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1962,11 +1962,11 @@ type ReferenceDataSourceDescription struct {
 	// operation.
 	//
 	// ReferenceId is a required field
-	ReferenceId *string `min:"1" type:"string" required:"true"`
+	ReferenceId *string `json:"kinesisanalytics:ReferenceDataSourceDescription:ReferenceId" min:"1" type:"string" required:"true"`
 
 	// Describes the format of the data in the streaming source, and how each data
 	// element maps to corresponding columns created in the in-application stream.
-	ReferenceSchema *SourceSchema `type:"structure"`
+	ReferenceSchema *SourceSchema `json:"kinesisanalytics:ReferenceDataSourceDescription:ReferenceSchema" type:"structure"`
 
 	// Provides the S3 bucket name, the object key name that contains the reference
 	// data. It also provides the Amazon Resource Name (ARN) of the IAM role that
@@ -1974,13 +1974,13 @@ type ReferenceDataSourceDescription struct {
 	// the in-application reference table.
 	//
 	// S3ReferenceDataSourceDescription is a required field
-	S3ReferenceDataSourceDescription *S3ReferenceDataSourceDescription `type:"structure" required:"true"`
+	S3ReferenceDataSourceDescription *S3ReferenceDataSourceDescription `json:"kinesisanalytics:ReferenceDataSourceDescription:S3ReferenceDataSourceDescription" type:"structure" required:"true"`
 
 	// The in-application table name created by the specific reference data source
 	// configuration.
 	//
 	// TableName is a required field
-	TableName *string `min:"1" type:"string" required:"true"`
+	TableName *string `json:"kinesisanalytics:ReferenceDataSourceDescription:TableName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2002,19 +2002,19 @@ type ReferenceDataSourceUpdate struct {
 	// operation to get this value.
 	//
 	// ReferenceId is a required field
-	ReferenceId *string `min:"1" type:"string" required:"true"`
+	ReferenceId *string `json:"kinesisanalytics:ReferenceDataSourceUpdate:ReferenceId" min:"1" type:"string" required:"true"`
 
 	// Describes the format of the data in the streaming source, and how each data
 	// element maps to corresponding columns created in the in-application stream.
-	ReferenceSchemaUpdate *SourceSchema `type:"structure"`
+	ReferenceSchemaUpdate *SourceSchema `json:"kinesisanalytics:ReferenceDataSourceUpdate:ReferenceSchemaUpdate" type:"structure"`
 
 	// Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis
 	// Analytics can assume to read the Amazon S3 object on your behalf and populate
 	// the in-application reference table.
-	S3ReferenceDataSourceUpdate *S3ReferenceDataSourceUpdate `type:"structure"`
+	S3ReferenceDataSourceUpdate *S3ReferenceDataSourceUpdate `json:"kinesisanalytics:ReferenceDataSourceUpdate:S3ReferenceDataSourceUpdate" type:"structure"`
 
 	// In-application table name that is created by this update.
-	TableNameUpdate *string `min:"1" type:"string"`
+	TableNameUpdate *string `json:"kinesisanalytics:ReferenceDataSourceUpdate:TableNameUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2063,17 +2063,17 @@ type S3Configuration struct {
 	// ARN of the S3 bucket that contains the data.
 	//
 	// BucketARN is a required field
-	BucketARN *string `min:"1" type:"string" required:"true"`
+	BucketARN *string `json:"kinesisanalytics:S3Configuration:BucketARN" min:"1" type:"string" required:"true"`
 
 	// The name of the object that contains the data.
 	//
 	// FileKey is a required field
-	FileKey *string `min:"1" type:"string" required:"true"`
+	FileKey *string `json:"kinesisanalytics:S3Configuration:FileKey" min:"1" type:"string" required:"true"`
 
 	// IAM ARN of the role used to access the data.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"1" type:"string" required:"true"`
+	RoleARN *string `json:"kinesisanalytics:S3Configuration:RoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2126,12 +2126,12 @@ type S3ReferenceDataSource struct {
 	// Amazon Resource Name (ARN) of the S3 bucket.
 	//
 	// BucketARN is a required field
-	BucketARN *string `min:"1" type:"string" required:"true"`
+	BucketARN *string `json:"kinesisanalytics:S3ReferenceDataSource:BucketARN" min:"1" type:"string" required:"true"`
 
 	// Object key name containing reference data.
 	//
 	// FileKey is a required field
-	FileKey *string `min:"1" type:"string" required:"true"`
+	FileKey *string `json:"kinesisanalytics:S3ReferenceDataSource:FileKey" min:"1" type:"string" required:"true"`
 
 	// ARN of the IAM role that the service can assume to read data on your behalf.
 	// This role must have permission for the s3:GetObject action on the object
@@ -2139,7 +2139,7 @@ type S3ReferenceDataSource struct {
 	// assume this role.
 	//
 	// ReferenceRoleARN is a required field
-	ReferenceRoleARN *string `min:"1" type:"string" required:"true"`
+	ReferenceRoleARN *string `json:"kinesisanalytics:S3ReferenceDataSource:ReferenceRoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2186,19 +2186,19 @@ type S3ReferenceDataSourceDescription struct {
 	// Amazon Resource Name (ARN) of the S3 bucket.
 	//
 	// BucketARN is a required field
-	BucketARN *string `min:"1" type:"string" required:"true"`
+	BucketARN *string `json:"kinesisanalytics:S3ReferenceDataSourceDescription:BucketARN" min:"1" type:"string" required:"true"`
 
 	// Amazon S3 object key name.
 	//
 	// FileKey is a required field
-	FileKey *string `min:"1" type:"string" required:"true"`
+	FileKey *string `json:"kinesisanalytics:S3ReferenceDataSourceDescription:FileKey" min:"1" type:"string" required:"true"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
 	// Amazon S3 object on your behalf to populate the in-application reference
 	// table.
 	//
 	// ReferenceRoleARN is a required field
-	ReferenceRoleARN *string `min:"1" type:"string" required:"true"`
+	ReferenceRoleARN *string `json:"kinesisanalytics:S3ReferenceDataSourceDescription:ReferenceRoleARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2214,14 +2214,14 @@ type S3ReferenceDataSourceUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon Resource Name (ARN) of the S3 bucket.
-	BucketARNUpdate *string `min:"1" type:"string"`
+	BucketARNUpdate *string `json:"kinesisanalytics:S3ReferenceDataSourceUpdate:BucketARNUpdate" min:"1" type:"string"`
 
 	// Object key name.
-	FileKeyUpdate *string `min:"1" type:"string"`
+	FileKeyUpdate *string `json:"kinesisanalytics:S3ReferenceDataSourceUpdate:FileKeyUpdate" min:"1" type:"string"`
 
 	// ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
 	// Amazon S3 object and populate the in-application.
-	ReferenceRoleARNUpdate *string `min:"1" type:"string"`
+	ReferenceRoleARNUpdate *string `json:"kinesisanalytics:S3ReferenceDataSourceUpdate:ReferenceRoleARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2257,16 +2257,16 @@ type SourceSchema struct {
 	// A list of RecordColumn objects.
 	//
 	// RecordColumns is a required field
-	RecordColumns []RecordColumn `min:"1" type:"list" required:"true"`
+	RecordColumns []RecordColumn `json:"kinesisanalytics:SourceSchema:RecordColumns" min:"1" type:"list" required:"true"`
 
 	// Specifies the encoding of the records in the streaming source. For example,
 	// UTF-8.
-	RecordEncoding *string `type:"string"`
+	RecordEncoding *string `json:"kinesisanalytics:SourceSchema:RecordEncoding" type:"string"`
 
 	// Specifies the format of the records on the streaming source.
 	//
 	// RecordFormat is a required field
-	RecordFormat *RecordFormat `type:"structure" required:"true"`
+	RecordFormat *RecordFormat `json:"kinesisanalytics:SourceSchema:RecordFormat" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2321,10 +2321,10 @@ type Tag struct {
 	// The key of the key-value tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"kinesisanalytics:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the key-value tag. The value is optional.
-	Value *string `type:"string"`
+	Value *string `json:"kinesisanalytics:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

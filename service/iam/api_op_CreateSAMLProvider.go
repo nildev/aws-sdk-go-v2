@@ -70,7 +70,7 @@ type CreateSAMLProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.
-	SAMLProviderArn *string `min:"20" type:"string"`
+	SAMLProviderArn *string `json:"iam:CreateSAMLProviderOutput:SAMLProviderArn" min:"20" type:"string"`
 }
 
 // String returns the string representation

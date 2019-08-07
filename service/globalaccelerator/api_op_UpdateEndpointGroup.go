@@ -88,7 +88,7 @@ type UpdateEndpointGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The information about the endpoint group that was updated.
-	EndpointGroup *EndpointGroup `type:"structure"`
+	EndpointGroup *EndpointGroup `json:"globalaccelerator:UpdateEndpointGroupOutput:EndpointGroup" type:"structure"`
 }
 
 // String returns the string representation

@@ -25,10 +25,10 @@ type GenerateCredentialReportOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the credential report.
-	Description *string `type:"string"`
+	Description *string `json:"iam:GenerateCredentialReportOutput:Description" type:"string"`
 
 	// Information about the state of the credential report.
-	State ReportStateType `type:"string" enum:"true"`
+	State ReportStateType `json:"iam:GenerateCredentialReportOutput:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -88,7 +88,7 @@ type GetMediaOutput struct {
 	_ struct{} `type:"structure" payload:"Payload"`
 
 	// The content type of the requested media.
-	ContentType *string `location:"header" locationName:"Content-Type" min:"1" type:"string"`
+	ContentType *string `json:"kinesisvideo:GetMediaOutput:ContentType" location:"header" locationName:"Content-Type" min:"1" type:"string"`
 
 	// The payload Kinesis Video Streams returns is a sequence of chunks from the
 	// specified stream. For information about the chunks, see . The chunks that
@@ -137,7 +137,7 @@ type GetMediaOutput struct {
 	//    * 4506 - Unable to find the KMS key specified in the stream
 	//
 	//    * 5000 - Internal error
-	Payload io.ReadCloser `type:"blob"`
+	Payload io.ReadCloser `json:"kinesisvideo:GetMediaOutput:Payload" type:"blob"`
 }
 
 // String returns the string representation

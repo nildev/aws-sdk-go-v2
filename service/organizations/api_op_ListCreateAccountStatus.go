@@ -60,14 +60,14 @@ type ListCreateAccountStatusOutput struct {
 	// A list of objects with details about the requests. Certain elements, such
 	// as the accountId number, are present in the output only after the account
 	// has been successfully created.
-	CreateAccountStatuses []CreateAccountStatus `type:"list"`
+	CreateAccountStatuses []CreateAccountStatus `json:"organizations:ListCreateAccountStatusOutput:CreateAccountStatuses" type:"list"`
 
 	// If present, this value indicates that there is more output available than
 	// is included in the current response. Use this value in the NextToken request
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListCreateAccountStatusOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

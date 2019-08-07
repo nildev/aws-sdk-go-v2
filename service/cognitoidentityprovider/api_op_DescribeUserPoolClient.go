@@ -61,7 +61,7 @@ type DescribeUserPoolClientOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user pool client from a server response to describe the user pool client.
-	UserPoolClient *UserPoolClientType `type:"structure"`
+	UserPoolClient *UserPoolClientType `json:"cognito-idp:DescribeUserPoolClientOutput:UserPoolClient" type:"structure"`
 }
 
 // String returns the string representation

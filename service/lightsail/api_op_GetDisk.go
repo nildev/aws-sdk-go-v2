@@ -43,7 +43,7 @@ type GetDiskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about the disk.
-	Disk *Disk `locationName:"disk" type:"structure"`
+	Disk *Disk `json:"lightsail:GetDiskOutput:Disk" locationName:"disk" type:"structure"`
 }
 
 // String returns the string representation

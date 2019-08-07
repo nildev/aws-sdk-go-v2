@@ -95,7 +95,7 @@ type GetPersonalizedRankingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of items in order of most likely interest to the user.
-	PersonalizedRanking []PredictedItem `locationName:"personalizedRanking" type:"list"`
+	PersonalizedRanking []PredictedItem `json:"personalize-runtime:GetPersonalizedRankingOutput:PersonalizedRanking" locationName:"personalizedRanking" type:"list"`
 }
 
 // String returns the string representation

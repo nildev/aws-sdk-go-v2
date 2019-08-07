@@ -72,7 +72,7 @@ type RegenerateSecurityTokenOutput struct {
 
 	// A resource that allows Enterprise account administrators to configure an
 	// interface to receive events from Amazon Chime.
-	Bot *Bot `type:"structure"`
+	Bot *Bot `json:"chime:RegenerateSecurityTokenOutput:Bot" type:"structure"`
 }
 
 // String returns the string representation

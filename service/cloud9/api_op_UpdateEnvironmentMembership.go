@@ -67,7 +67,7 @@ type UpdateEnvironmentMembershipOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the environment member whose settings were changed.
-	Membership *EnvironmentMember `locationName:"membership" type:"structure"`
+	Membership *EnvironmentMember `json:"cloud9:UpdateEnvironmentMembershipOutput:Membership" locationName:"membership" type:"structure"`
 }
 
 // String returns the string representation

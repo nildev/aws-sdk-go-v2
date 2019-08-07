@@ -46,7 +46,7 @@ type CreateApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Configuration ID of an application to be created.
-	ConfigurationId *string `locationName:"configurationId" type:"string"`
+	ConfigurationId *string `json:"discovery:CreateApplicationOutput:ConfigurationId" locationName:"configurationId" type:"string"`
 }
 
 // String returns the string representation

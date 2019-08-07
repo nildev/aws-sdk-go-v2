@@ -139,7 +139,7 @@ type CreateVirtualServiceOutput struct {
 	// The full description of your virtual service following the create call.
 	//
 	// VirtualService is a required field
-	VirtualService *VirtualServiceData `locationName:"virtualService" type:"structure" required:"true"`
+	VirtualService *VirtualServiceData `json:"appmesh:CreateVirtualServiceOutput:VirtualService" locationName:"virtualService" type:"structure" required:"true"`
 }
 
 // String returns the string representation

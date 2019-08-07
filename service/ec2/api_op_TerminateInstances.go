@@ -52,7 +52,7 @@ type TerminateInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the terminated instances.
-	TerminatingInstances []InstanceStateChange `locationName:"instancesSet" locationNameList:"item" type:"list"`
+	TerminatingInstances []InstanceStateChange `json:"ec2:TerminateInstancesOutput:TerminatingInstances" locationName:"instancesSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

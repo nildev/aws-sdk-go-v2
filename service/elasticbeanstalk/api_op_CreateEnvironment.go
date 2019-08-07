@@ -161,39 +161,39 @@ type CreateEnvironmentOutput struct {
 	// true: There is an update in progress.
 	//
 	// false: There are no updates currently in progress.
-	AbortableOperationInProgress *bool `type:"boolean"`
+	AbortableOperationInProgress *bool `json:"elasticbeanstalk:CreateEnvironmentOutput:AbortableOperationInProgress" type:"boolean"`
 
 	// The name of the application associated with this environment.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:CreateEnvironmentOutput:ApplicationName" min:"1" type:"string"`
 
 	// The URL to the CNAME for this environment.
-	CNAME *string `min:"1" type:"string"`
+	CNAME *string `json:"elasticbeanstalk:CreateEnvironmentOutput:CNAME" min:"1" type:"string"`
 
 	// The creation date for this environment.
-	DateCreated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateCreated *time.Time `json:"elasticbeanstalk:CreateEnvironmentOutput:DateCreated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The last modified date for this environment.
-	DateUpdated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateUpdated *time.Time `json:"elasticbeanstalk:CreateEnvironmentOutput:DateUpdated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Describes this environment.
-	Description *string `type:"string"`
+	Description *string `json:"elasticbeanstalk:CreateEnvironmentOutput:Description" type:"string"`
 
 	// For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 	// For single-instance environments, the IP address of the instance.
-	EndpointURL *string `type:"string"`
+	EndpointURL *string `json:"elasticbeanstalk:CreateEnvironmentOutput:EndpointURL" type:"string"`
 
 	// The environment's Amazon Resource Name (ARN), which can be used in other
 	// API requests that require an ARN.
-	EnvironmentArn *string `type:"string"`
+	EnvironmentArn *string `json:"elasticbeanstalk:CreateEnvironmentOutput:EnvironmentArn" type:"string"`
 
 	// The ID of this environment.
-	EnvironmentId *string `type:"string"`
+	EnvironmentId *string `json:"elasticbeanstalk:CreateEnvironmentOutput:EnvironmentId" type:"string"`
 
 	// A list of links to other environments in the same group.
-	EnvironmentLinks []EnvironmentLink `type:"list"`
+	EnvironmentLinks []EnvironmentLink `json:"elasticbeanstalk:CreateEnvironmentOutput:EnvironmentLinks" type:"list"`
 
 	// The name of this environment.
-	EnvironmentName *string `min:"4" type:"string"`
+	EnvironmentName *string `json:"elasticbeanstalk:CreateEnvironmentOutput:EnvironmentName" min:"4" type:"string"`
 
 	// Describes the health status of the environment. AWS Elastic Beanstalk indicates
 	// the failure levels for a running environment:
@@ -211,20 +211,20 @@ type CreateEnvironmentOutput struct {
 	//    during an UpdateEnvironment or RestartEnvironment request.
 	//
 	// Default: Grey
-	Health EnvironmentHealth `type:"string" enum:"true"`
+	Health EnvironmentHealth `json:"elasticbeanstalk:CreateEnvironmentOutput:Health" type:"string" enum:"true"`
 
 	// Returns the health status of the application running in your environment.
 	// For more information, see Health Colors and Statuses (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html).
-	HealthStatus EnvironmentHealthStatus `type:"string" enum:"true"`
+	HealthStatus EnvironmentHealthStatus `json:"elasticbeanstalk:CreateEnvironmentOutput:HealthStatus" type:"string" enum:"true"`
 
 	// The ARN of the platform.
-	PlatformArn *string `type:"string"`
+	PlatformArn *string `json:"elasticbeanstalk:CreateEnvironmentOutput:PlatformArn" type:"string"`
 
 	// The description of the AWS resources used by this environment.
-	Resources *EnvironmentResourcesDescription `type:"structure"`
+	Resources *EnvironmentResourcesDescription `json:"elasticbeanstalk:CreateEnvironmentOutput:Resources" type:"structure"`
 
 	// The name of the SolutionStack deployed with this environment.
-	SolutionStackName *string `type:"string"`
+	SolutionStackName *string `json:"elasticbeanstalk:CreateEnvironmentOutput:SolutionStackName" type:"string"`
 
 	// The current operational status of the environment:
 	//
@@ -239,16 +239,16 @@ type CreateEnvironmentOutput struct {
 	//    * Terminating: Environment is in the shut-down process.
 	//
 	//    * Terminated: Environment is not running.
-	Status EnvironmentStatus `type:"string" enum:"true"`
+	Status EnvironmentStatus `json:"elasticbeanstalk:CreateEnvironmentOutput:Status" type:"string" enum:"true"`
 
 	// The name of the configuration template used to originally launch this environment.
-	TemplateName *string `min:"1" type:"string"`
+	TemplateName *string `json:"elasticbeanstalk:CreateEnvironmentOutput:TemplateName" min:"1" type:"string"`
 
 	// Describes the current tier of this environment.
-	Tier *EnvironmentTier `type:"structure"`
+	Tier *EnvironmentTier `json:"elasticbeanstalk:CreateEnvironmentOutput:Tier" type:"structure"`
 
 	// The application version deployed in this environment.
-	VersionLabel *string `min:"1" type:"string"`
+	VersionLabel *string `json:"elasticbeanstalk:CreateEnvironmentOutput:VersionLabel" min:"1" type:"string"`
 }
 
 // String returns the string representation

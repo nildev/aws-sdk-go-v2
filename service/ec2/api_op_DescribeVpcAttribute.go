@@ -59,15 +59,15 @@ type DescribeVpcAttributeOutput struct {
 	// Indicates whether the instances launched in the VPC get DNS hostnames. If
 	// this attribute is true, instances in the VPC get DNS hostnames; otherwise,
 	// they do not.
-	EnableDnsHostnames *AttributeBooleanValue `locationName:"enableDnsHostnames" type:"structure"`
+	EnableDnsHostnames *AttributeBooleanValue `json:"ec2:DescribeVpcAttributeOutput:EnableDnsHostnames" locationName:"enableDnsHostnames" type:"structure"`
 
 	// Indicates whether DNS resolution is enabled for the VPC. If this attribute
 	// is true, the Amazon DNS server resolves DNS hostnames for your instances
 	// to their corresponding IP addresses; otherwise, it does not.
-	EnableDnsSupport *AttributeBooleanValue `locationName:"enableDnsSupport" type:"structure"`
+	EnableDnsSupport *AttributeBooleanValue `json:"ec2:DescribeVpcAttributeOutput:EnableDnsSupport" locationName:"enableDnsSupport" type:"structure"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:DescribeVpcAttributeOutput:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation

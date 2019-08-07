@@ -19,7 +19,7 @@ type Authentication struct {
 	_ struct{} `type:"structure"`
 
 	// Details for ClientAuthentication using TLS.
-	Tls *Tls `locationName:"tls" type:"structure"`
+	Tls *Tls `json:"kafka:Authentication:Tls" locationName:"tls" type:"structure"`
 }
 
 // String returns the string representation
@@ -48,12 +48,12 @@ type BrokerEBSVolumeInfo struct {
 	// The ID of the broker to update.
 	//
 	// KafkaBrokerNodeId is a required field
-	KafkaBrokerNodeId *string `locationName:"kafkaBrokerNodeId" type:"string" required:"true"`
+	KafkaBrokerNodeId *string `json:"kafka:BrokerEBSVolumeInfo:KafkaBrokerNodeId" locationName:"kafkaBrokerNodeId" type:"string" required:"true"`
 
 	// Size of the EBS volume to update.
 	//
 	// VolumeSizeGB is a required field
-	VolumeSizeGB *int64 `locationName:"volumeSizeGB" type:"integer" required:"true"`
+	VolumeSizeGB *int64 `json:"kafka:BrokerEBSVolumeInfo:VolumeSizeGB" locationName:"volumeSizeGB" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -102,7 +102,7 @@ type BrokerNodeGroupInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The distribution of broker nodes across Availability Zones.
-	BrokerAZDistribution BrokerAZDistribution `locationName:"brokerAZDistribution" type:"string" enum:"true"`
+	BrokerAZDistribution BrokerAZDistribution `json:"kafka:BrokerNodeGroupInfo:BrokerAZDistribution" locationName:"brokerAZDistribution" type:"string" enum:"true"`
 
 	// The list of subnets to connect to in the client virtual private cloud (VPC).
 	// AWS creates elastic network interfaces inside these subnets. Client applications
@@ -110,23 +110,23 @@ type BrokerNodeGroupInfo struct {
 	// can't be in Availability Zone us-east-1e.
 	//
 	// ClientSubnets is a required field
-	ClientSubnets []string `locationName:"clientSubnets" type:"list" required:"true"`
+	ClientSubnets []string `json:"kafka:BrokerNodeGroupInfo:ClientSubnets" locationName:"clientSubnets" type:"list" required:"true"`
 
 	// The type of Amazon EC2 instances to use for Kafka brokers. The following
 	// instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,kafka.m5.4xlarge,
 	// kafka.m5.12xlarge, and kafka.m5.24xlarge.
 	//
 	// InstanceType is a required field
-	InstanceType *string `locationName:"instanceType" min:"5" type:"string" required:"true"`
+	InstanceType *string `json:"kafka:BrokerNodeGroupInfo:InstanceType" locationName:"instanceType" min:"5" type:"string" required:"true"`
 
 	// The AWS security groups to associate with the elastic network interfaces
 	// in order to specify who can connect to and communicate with the Amazon MSK
 	// cluster. If you don't specify a security group, Amazon MSK uses the default
 	// security group associated with the VPC.
-	SecurityGroups []string `locationName:"securityGroups" type:"list"`
+	SecurityGroups []string `json:"kafka:BrokerNodeGroupInfo:SecurityGroups" locationName:"securityGroups" type:"list"`
 
 	// Contains information about storage volumes attached to MSK broker nodes.
-	StorageInfo *StorageInfo `locationName:"storageInfo" type:"structure"`
+	StorageInfo *StorageInfo `json:"kafka:BrokerNodeGroupInfo:StorageInfo" locationName:"storageInfo" type:"structure"`
 }
 
 // String returns the string representation
@@ -213,23 +213,23 @@ type BrokerNodeInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The attached elastic network interface of the broker.
-	AttachedENIId *string `locationName:"attachedENIId" type:"string"`
+	AttachedENIId *string `json:"kafka:BrokerNodeInfo:AttachedENIId" locationName:"attachedENIId" type:"string"`
 
 	// The ID of the broker.
-	BrokerId *float64 `locationName:"brokerId" type:"double"`
+	BrokerId *float64 `json:"kafka:BrokerNodeInfo:BrokerId" locationName:"brokerId" type:"double"`
 
 	// The client subnet to which this broker node belongs.
-	ClientSubnet *string `locationName:"clientSubnet" type:"string"`
+	ClientSubnet *string `json:"kafka:BrokerNodeInfo:ClientSubnet" locationName:"clientSubnet" type:"string"`
 
 	// The virtual private cloud (VPC) of the client.
-	ClientVpcIpAddress *string `locationName:"clientVpcIpAddress" type:"string"`
+	ClientVpcIpAddress *string `json:"kafka:BrokerNodeInfo:ClientVpcIpAddress" locationName:"clientVpcIpAddress" type:"string"`
 
 	// Information about the version of software currently deployed on the Kafka
 	// brokers in the cluster.
-	CurrentBrokerSoftwareInfo *BrokerSoftwareInfo `locationName:"currentBrokerSoftwareInfo" type:"structure"`
+	CurrentBrokerSoftwareInfo *BrokerSoftwareInfo `json:"kafka:BrokerNodeInfo:CurrentBrokerSoftwareInfo" locationName:"currentBrokerSoftwareInfo" type:"structure"`
 
 	// Endpoints for accessing the broker.
-	Endpoints []string `locationName:"endpoints" type:"list"`
+	Endpoints []string `json:"kafka:BrokerNodeInfo:Endpoints" locationName:"endpoints" type:"list"`
 }
 
 // String returns the string representation
@@ -291,14 +291,14 @@ type BrokerSoftwareInfo struct {
 
 	// The Amazon Resource Name (ARN) of the configuration used for the cluster.
 	// This field isn't visible in this preview release.
-	ConfigurationArn *string `locationName:"configurationArn" type:"string"`
+	ConfigurationArn *string `json:"kafka:BrokerSoftwareInfo:ConfigurationArn" locationName:"configurationArn" type:"string"`
 
 	// The revision of the configuration to use. This field isn't visible in this
 	// preview release.
-	ConfigurationRevision *int64 `locationName:"configurationRevision" type:"long"`
+	ConfigurationRevision *int64 `json:"kafka:BrokerSoftwareInfo:ConfigurationRevision" locationName:"configurationRevision" type:"long"`
 
 	// The version of Apache Kafka.
-	KafkaVersion *string `locationName:"kafkaVersion" type:"string"`
+	KafkaVersion *string `json:"kafka:BrokerSoftwareInfo:KafkaVersion" locationName:"kafkaVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -335,50 +335,50 @@ type ClusterInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Arn of active cluster operation.
-	ActiveOperationArn *string `locationName:"activeOperationArn" type:"string"`
+	ActiveOperationArn *string `json:"kafka:ClusterInfo:ActiveOperationArn" locationName:"activeOperationArn" type:"string"`
 
 	// Information about the broker nodes.
-	BrokerNodeGroupInfo *BrokerNodeGroupInfo `locationName:"brokerNodeGroupInfo" type:"structure"`
+	BrokerNodeGroupInfo *BrokerNodeGroupInfo `json:"kafka:ClusterInfo:BrokerNodeGroupInfo" locationName:"brokerNodeGroupInfo" type:"structure"`
 
 	// Includes all client authentication information.
-	ClientAuthentication *Authentication `locationName:"clientAuthentication" type:"structure"`
+	ClientAuthentication *Authentication `json:"kafka:ClusterInfo:ClientAuthentication" locationName:"clientAuthentication" type:"structure"`
 
 	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-	ClusterArn *string `locationName:"clusterArn" type:"string"`
+	ClusterArn *string `json:"kafka:ClusterInfo:ClusterArn" locationName:"clusterArn" type:"string"`
 
 	// The name of the cluster.
-	ClusterName *string `locationName:"clusterName" type:"string"`
+	ClusterName *string `json:"kafka:ClusterInfo:ClusterName" locationName:"clusterName" type:"string"`
 
 	// The time when the cluster was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"kafka:ClusterInfo:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the version of software currently deployed on the Kafka
 	// brokers in the cluster.
-	CurrentBrokerSoftwareInfo *BrokerSoftwareInfo `locationName:"currentBrokerSoftwareInfo" type:"structure"`
+	CurrentBrokerSoftwareInfo *BrokerSoftwareInfo `json:"kafka:ClusterInfo:CurrentBrokerSoftwareInfo" locationName:"currentBrokerSoftwareInfo" type:"structure"`
 
 	// The current version of the MSK cluster.
-	CurrentVersion *string `locationName:"currentVersion" type:"string"`
+	CurrentVersion *string `json:"kafka:ClusterInfo:CurrentVersion" locationName:"currentVersion" type:"string"`
 
 	// Includes all encryption-related information.
-	EncryptionInfo *EncryptionInfo `locationName:"encryptionInfo" type:"structure"`
+	EncryptionInfo *EncryptionInfo `json:"kafka:ClusterInfo:EncryptionInfo" locationName:"encryptionInfo" type:"structure"`
 
 	// Specifies which metrics are gathered for the MSK cluster. This property has
 	// three possible values: DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER. For
 	// a list of the metrics associated with each of these three levels of monitoring,
 	// see Monitoring (https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
-	EnhancedMonitoring EnhancedMonitoring `locationName:"enhancedMonitoring" type:"string" enum:"true"`
+	EnhancedMonitoring EnhancedMonitoring `json:"kafka:ClusterInfo:EnhancedMonitoring" locationName:"enhancedMonitoring" type:"string" enum:"true"`
 
 	// The number of broker nodes in the cluster.
-	NumberOfBrokerNodes *int64 `locationName:"numberOfBrokerNodes" type:"integer"`
+	NumberOfBrokerNodes *int64 `json:"kafka:ClusterInfo:NumberOfBrokerNodes" locationName:"numberOfBrokerNodes" type:"integer"`
 
 	// The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED.
-	State ClusterState `locationName:"state" type:"string" enum:"true"`
+	State ClusterState `json:"kafka:ClusterInfo:State" locationName:"state" type:"string" enum:"true"`
 
 	// Tags attached to the cluster.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"kafka:ClusterInfo:Tags" locationName:"tags" type:"map"`
 
 	// The connection string to use to connect to the Apache ZooKeeper cluster.
-	ZookeeperConnectString *string `locationName:"zookeeperConnectString" type:"string"`
+	ZookeeperConnectString *string `json:"kafka:ClusterInfo:ZookeeperConnectString" locationName:"zookeeperConnectString" type:"string"`
 }
 
 // String returns the string representation
@@ -487,34 +487,34 @@ type ClusterOperationInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the API request that triggered this operation.
-	ClientRequestId *string `locationName:"clientRequestId" type:"string"`
+	ClientRequestId *string `json:"kafka:ClusterOperationInfo:ClientRequestId" locationName:"clientRequestId" type:"string"`
 
 	// ARN of the cluster.
-	ClusterArn *string `locationName:"clusterArn" type:"string"`
+	ClusterArn *string `json:"kafka:ClusterOperationInfo:ClusterArn" locationName:"clusterArn" type:"string"`
 
 	// The time at which operation was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"kafka:ClusterOperationInfo:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time at which the operation finished.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"kafka:ClusterOperationInfo:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Describes the error if the operation fails.
-	ErrorInfo *ErrorInfo `locationName:"errorInfo" type:"structure"`
+	ErrorInfo *ErrorInfo `json:"kafka:ClusterOperationInfo:ErrorInfo" locationName:"errorInfo" type:"structure"`
 
 	// ARN of the cluster operation.
-	OperationArn *string `locationName:"operationArn" type:"string"`
+	OperationArn *string `json:"kafka:ClusterOperationInfo:OperationArn" locationName:"operationArn" type:"string"`
 
 	// State of the cluster operation.
-	OperationState *string `locationName:"operationState" type:"string"`
+	OperationState *string `json:"kafka:ClusterOperationInfo:OperationState" locationName:"operationState" type:"string"`
 
 	// Type of the cluster operation.
-	OperationType *string `locationName:"operationType" type:"string"`
+	OperationType *string `json:"kafka:ClusterOperationInfo:OperationType" locationName:"operationType" type:"string"`
 
 	// Information about cluster attributes before a cluster is updated.
-	SourceClusterInfo *MutableClusterInfo `locationName:"sourceClusterInfo" type:"structure"`
+	SourceClusterInfo *MutableClusterInfo `json:"kafka:ClusterOperationInfo:SourceClusterInfo" locationName:"sourceClusterInfo" type:"structure"`
 
 	// Information about cluster attributes after a cluster is updated.
-	TargetClusterInfo *MutableClusterInfo `locationName:"targetClusterInfo" type:"structure"`
+	TargetClusterInfo *MutableClusterInfo `json:"kafka:ClusterOperationInfo:TargetClusterInfo" locationName:"targetClusterInfo" type:"structure"`
 }
 
 // String returns the string representation
@@ -595,32 +595,32 @@ type Configuration struct {
 	// The Amazon Resource Name (ARN) of the configuration.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"kafka:Configuration:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// CreationTime is a required field
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"kafka:Configuration:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The description of the configuration.
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"kafka:Configuration:Description" locationName:"description" type:"string" required:"true"`
 
 	// An array of the versions of Apache Kafka with which you can use this MSK
 	// configuration. You can use this configuration for an MSK cluster only if
 	// the Apache Kafka version specified for the cluster appears in this array.
 	//
 	// KafkaVersions is a required field
-	KafkaVersions []string `locationName:"kafkaVersions" type:"list" required:"true"`
+	KafkaVersions []string `json:"kafka:Configuration:KafkaVersions" locationName:"kafkaVersions" type:"list" required:"true"`
 
 	// Latest revision of the configuration.
 	//
 	// LatestRevision is a required field
-	LatestRevision *ConfigurationRevision `locationName:"latestRevision" type:"structure" required:"true"`
+	LatestRevision *ConfigurationRevision `json:"kafka:Configuration:LatestRevision" locationName:"latestRevision" type:"structure" required:"true"`
 
 	// The name of the configuration.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"kafka:Configuration:Name" locationName:"name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -683,12 +683,12 @@ type ConfigurationInfo struct {
 	// ARN of the configuration to use.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"kafka:ConfigurationInfo:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The revision of the configuration to use.
 	//
 	// Revision is a required field
-	Revision *int64 `locationName:"revision" type:"long" required:"true"`
+	Revision *int64 `json:"kafka:ConfigurationInfo:Revision" locationName:"revision" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -739,15 +739,15 @@ type ConfigurationRevision struct {
 	// The time when the configuration revision was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"kafka:ConfigurationRevision:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The description of the configuration revision.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"kafka:ConfigurationRevision:Description" locationName:"description" type:"string"`
 
 	// The revision number.
 	//
 	// Revision is a required field
-	Revision *int64 `locationName:"revision" type:"long" required:"true"`
+	Revision *int64 `json:"kafka:ConfigurationRevision:Revision" locationName:"revision" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -785,7 +785,7 @@ type EBSStorageInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The size in GiB of the EBS volume for the data drive on each broker node.
-	VolumeSize *int64 `locationName:"volumeSize" min:"1" type:"integer"`
+	VolumeSize *int64 `json:"kafka:EBSStorageInfo:VolumeSize" locationName:"volumeSize" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -826,7 +826,7 @@ type EncryptionAtRest struct {
 	// a KMS key, MSK creates one for you and uses it.
 	//
 	// DataVolumeKMSKeyId is a required field
-	DataVolumeKMSKeyId *string `locationName:"dataVolumeKMSKeyId" type:"string" required:"true"`
+	DataVolumeKMSKeyId *string `json:"kafka:EncryptionAtRest:DataVolumeKMSKeyId" locationName:"dataVolumeKMSKeyId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -876,14 +876,14 @@ type EncryptionInTransit struct {
 	// only.
 	//
 	// The default value is TLS_PLAINTEXT.
-	ClientBroker Broker `locationName:"clientBroker" type:"string" enum:"true"`
+	ClientBroker Broker `json:"kafka:EncryptionInTransit:ClientBroker" locationName:"clientBroker" type:"string" enum:"true"`
 
 	// When set to true, it indicates that data communication among the broker nodes
 	// of the cluster is encrypted. When set to false, the communication happens
 	// in plaintext.
 	//
 	// The default value is true.
-	InCluster *bool `locationName:"inCluster" type:"boolean"`
+	InCluster *bool `json:"kafka:EncryptionInTransit:InCluster" locationName:"inCluster" type:"boolean"`
 }
 
 // String returns the string representation
@@ -916,10 +916,10 @@ type EncryptionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The data-volume encryption details.
-	EncryptionAtRest *EncryptionAtRest `locationName:"encryptionAtRest" type:"structure"`
+	EncryptionAtRest *EncryptionAtRest `json:"kafka:EncryptionInfo:EncryptionAtRest" locationName:"encryptionAtRest" type:"structure"`
 
 	// The details for encryption in transit.
-	EncryptionInTransit *EncryptionInTransit `locationName:"encryptionInTransit" type:"structure"`
+	EncryptionInTransit *EncryptionInTransit `json:"kafka:EncryptionInfo:EncryptionInTransit" locationName:"encryptionInTransit" type:"structure"`
 }
 
 // String returns the string representation
@@ -965,10 +965,10 @@ type ErrorInfo struct {
 	_ struct{} `type:"structure"`
 
 	// A number describing the error programmatically.
-	ErrorCode *string `locationName:"errorCode" type:"string"`
+	ErrorCode *string `json:"kafka:ErrorInfo:ErrorCode" locationName:"errorCode" type:"string"`
 
 	// An optional field to provide more details about the error.
-	ErrorString *string `locationName:"errorString" type:"string"`
+	ErrorString *string `json:"kafka:ErrorInfo:ErrorString" locationName:"errorString" type:"string"`
 }
 
 // String returns the string representation
@@ -999,13 +999,13 @@ type MutableClusterInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the size of the EBS volume and the ID of the associated broker.
-	BrokerEBSVolumeInfo []BrokerEBSVolumeInfo `locationName:"brokerEBSVolumeInfo" type:"list"`
+	BrokerEBSVolumeInfo []BrokerEBSVolumeInfo `json:"kafka:MutableClusterInfo:BrokerEBSVolumeInfo" locationName:"brokerEBSVolumeInfo" type:"list"`
 
 	// Information about the changes in the configuration of the brokers.
-	ConfigurationInfo *ConfigurationInfo `locationName:"configurationInfo" type:"structure"`
+	ConfigurationInfo *ConfigurationInfo `json:"kafka:MutableClusterInfo:ConfigurationInfo" locationName:"configurationInfo" type:"structure"`
 
 	// The number of broker nodes in the cluster.
-	NumberOfBrokerNodes *int64 `locationName:"numberOfBrokerNodes" type:"integer"`
+	NumberOfBrokerNodes *int64 `json:"kafka:MutableClusterInfo:NumberOfBrokerNodes" locationName:"numberOfBrokerNodes" type:"integer"`
 }
 
 // String returns the string representation
@@ -1048,22 +1048,22 @@ type NodeInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The start time.
-	AddedToClusterTime *string `locationName:"addedToClusterTime" type:"string"`
+	AddedToClusterTime *string `json:"kafka:NodeInfo:AddedToClusterTime" locationName:"addedToClusterTime" type:"string"`
 
 	// The broker node info.
-	BrokerNodeInfo *BrokerNodeInfo `locationName:"brokerNodeInfo" type:"structure"`
+	BrokerNodeInfo *BrokerNodeInfo `json:"kafka:NodeInfo:BrokerNodeInfo" locationName:"brokerNodeInfo" type:"structure"`
 
 	// The instance type.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"kafka:NodeInfo:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the node.
-	NodeARN *string `locationName:"nodeARN" type:"string"`
+	NodeARN *string `json:"kafka:NodeInfo:NodeARN" locationName:"nodeARN" type:"string"`
 
 	// The node type.
-	NodeType NodeType `locationName:"nodeType" type:"string" enum:"true"`
+	NodeType NodeType `json:"kafka:NodeInfo:NodeType" locationName:"nodeType" type:"string" enum:"true"`
 
 	// The ZookeeperNodeInfo.
-	ZookeeperNodeInfo *ZookeeperNodeInfo `locationName:"zookeeperNodeInfo" type:"structure"`
+	ZookeeperNodeInfo *ZookeeperNodeInfo `json:"kafka:NodeInfo:ZookeeperNodeInfo" locationName:"zookeeperNodeInfo" type:"structure"`
 }
 
 // String returns the string representation
@@ -1118,7 +1118,7 @@ type StorageInfo struct {
 	_ struct{} `type:"structure"`
 
 	// EBS volume information.
-	EbsStorageInfo *EBSStorageInfo `locationName:"ebsStorageInfo" type:"structure"`
+	EbsStorageInfo *EBSStorageInfo `json:"kafka:StorageInfo:EbsStorageInfo" locationName:"ebsStorageInfo" type:"structure"`
 }
 
 // String returns the string representation
@@ -1158,7 +1158,7 @@ type Tls struct {
 	_ struct{} `type:"structure"`
 
 	// List of ACM Certificate Authority ARNs.
-	CertificateAuthorityArnList []string `locationName:"certificateAuthorityArnList" type:"list"`
+	CertificateAuthorityArnList []string `json:"kafka:Tls:CertificateAuthorityArnList" locationName:"certificateAuthorityArnList" type:"list"`
 }
 
 // String returns the string representation
@@ -1189,19 +1189,19 @@ type ZookeeperNodeInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The attached elastic network interface of the broker.
-	AttachedENIId *string `locationName:"attachedENIId" type:"string"`
+	AttachedENIId *string `json:"kafka:ZookeeperNodeInfo:AttachedENIId" locationName:"attachedENIId" type:"string"`
 
 	// The virtual private cloud (VPC) IP address of the client.
-	ClientVpcIpAddress *string `locationName:"clientVpcIpAddress" type:"string"`
+	ClientVpcIpAddress *string `json:"kafka:ZookeeperNodeInfo:ClientVpcIpAddress" locationName:"clientVpcIpAddress" type:"string"`
 
 	// Endpoints for accessing the ZooKeeper.
-	Endpoints []string `locationName:"endpoints" type:"list"`
+	Endpoints []string `json:"kafka:ZookeeperNodeInfo:Endpoints" locationName:"endpoints" type:"list"`
 
 	// The role-specific ID for Zookeeper.
-	ZookeeperId *float64 `locationName:"zookeeperId" type:"double"`
+	ZookeeperId *float64 `json:"kafka:ZookeeperNodeInfo:ZookeeperId" locationName:"zookeeperId" type:"double"`
 
 	// The version of Zookeeper.
-	ZookeeperVersion *string `locationName:"zookeeperVersion" type:"string"`
+	ZookeeperVersion *string `json:"kafka:ZookeeperNodeInfo:ZookeeperVersion" locationName:"zookeeperVersion" type:"string"`
 }
 
 // String returns the string representation

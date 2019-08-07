@@ -55,13 +55,13 @@ type DescribeEnvironmentMembershipsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the environment members for the environment.
-	Memberships []EnvironmentMember `locationName:"memberships" type:"list"`
+	Memberships []EnvironmentMember `json:"cloud9:DescribeEnvironmentMembershipsOutput:Memberships" locationName:"memberships" type:"list"`
 
 	// If there are more than 25 items in the list, only the first 25 items are
 	// returned, along with a unique string called a next token. To get the next
 	// batch of items in the list, call this operation again, adding the next token
 	// to the call.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"cloud9:DescribeEnvironmentMembershipsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

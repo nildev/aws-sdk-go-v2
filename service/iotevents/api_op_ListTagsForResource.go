@@ -59,7 +59,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of tags assigned to the resource.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"iotevents:ListTagsForResourceOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

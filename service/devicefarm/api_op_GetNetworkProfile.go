@@ -47,7 +47,7 @@ type GetNetworkProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The network profile.
-	NetworkProfile *NetworkProfile `locationName:"networkProfile" type:"structure"`
+	NetworkProfile *NetworkProfile `json:"devicefarm:GetNetworkProfileOutput:NetworkProfile" locationName:"networkProfile" type:"structure"`
 }
 
 // String returns the string representation

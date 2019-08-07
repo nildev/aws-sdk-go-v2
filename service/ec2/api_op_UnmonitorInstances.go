@@ -49,7 +49,7 @@ type UnmonitorInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The monitoring information.
-	InstanceMonitorings []InstanceMonitoring `locationName:"instancesSet" locationNameList:"item" type:"list"`
+	InstanceMonitorings []InstanceMonitoring `json:"ec2:UnmonitorInstancesOutput:InstanceMonitorings" locationName:"instancesSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

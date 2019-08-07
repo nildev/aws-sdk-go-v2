@@ -77,7 +77,7 @@ type StartImportTaskOutput struct {
 	// An array of information related to the import task request including status
 	// information, times, IDs, the Amazon S3 Object URL for the import file, and
 	// more.
-	Task *ImportTask `locationName:"task" type:"structure"`
+	Task *ImportTask `json:"discovery:StartImportTaskOutput:Task" locationName:"task" type:"structure"`
 }
 
 // String returns the string representation

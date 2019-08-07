@@ -79,7 +79,7 @@ type UpdateGameSessionQueueOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that describes the newly updated game session queue.
-	GameSessionQueue *GameSessionQueue `type:"structure"`
+	GameSessionQueue *GameSessionQueue `json:"gamelift:UpdateGameSessionQueueOutput:GameSessionQueue" type:"structure"`
 }
 
 // String returns the string representation

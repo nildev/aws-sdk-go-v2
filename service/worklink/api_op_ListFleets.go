@@ -67,11 +67,11 @@ type ListFleetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The summary list of the fleets.
-	FleetSummaryList []FleetSummary `type:"list"`
+	FleetSummaryList []FleetSummary `json:"worklink:ListFleetsOutput:FleetSummaryList" type:"list"`
 
 	// The pagination token used to retrieve the next page of results for this operation.
 	// If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"worklink:ListFleetsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

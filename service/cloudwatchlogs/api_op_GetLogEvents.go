@@ -89,17 +89,17 @@ type GetLogEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The events.
-	Events []OutputLogEvent `locationName:"events" type:"list"`
+	Events []OutputLogEvent `json:"logs:GetLogEventsOutput:Events" locationName:"events" type:"list"`
 
 	// The token for the next set of items in the backward direction. The token
 	// expires after 24 hours. This token will never be null. If you have reached
 	// the end of the stream, it will return the same token you passed in.
-	NextBackwardToken *string `locationName:"nextBackwardToken" min:"1" type:"string"`
+	NextBackwardToken *string `json:"logs:GetLogEventsOutput:NextBackwardToken" locationName:"nextBackwardToken" min:"1" type:"string"`
 
 	// The token for the next set of items in the forward direction. The token expires
 	// after 24 hours. If you have reached the end of the stream, it will return
 	// the same token you passed in.
-	NextForwardToken *string `locationName:"nextForwardToken" min:"1" type:"string"`
+	NextForwardToken *string `json:"logs:GetLogEventsOutput:NextForwardToken" locationName:"nextForwardToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

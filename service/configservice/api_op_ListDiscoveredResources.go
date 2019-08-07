@@ -66,11 +66,11 @@ type ListDiscoveredResourcesOutput struct {
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"config:ListDiscoveredResourcesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The details that identify a resource that is discovered by AWS Config, including
 	// the resource type, ID, and (if available) the custom resource name.
-	ResourceIdentifiers []ResourceIdentifier `locationName:"resourceIdentifiers" type:"list"`
+	ResourceIdentifiers []ResourceIdentifier `json:"config:ListDiscoveredResourcesOutput:ResourceIdentifiers" locationName:"resourceIdentifiers" type:"list"`
 }
 
 // String returns the string representation

@@ -61,7 +61,7 @@ type GetConfigurationSetEventDestinationsOutput struct {
 
 	// An array that includes all of the events destinations that have been configured
 	// for the configuration set.
-	EventDestinations []EventDestination `type:"list"`
+	EventDestinations []EventDestination `json:"email:GetConfigurationSetEventDestinationsOutput:EventDestinations" type:"list"`
 }
 
 // String returns the string representation

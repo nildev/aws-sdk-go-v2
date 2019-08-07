@@ -107,7 +107,7 @@ type GetLinkAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes that are associated with the typed link.
-	Attributes []AttributeKeyAndValue `type:"list"`
+	Attributes []AttributeKeyAndValue `json:"clouddirectory:GetLinkAttributesOutput:Attributes" type:"list"`
 }
 
 // String returns the string representation

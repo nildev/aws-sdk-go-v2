@@ -19,59 +19,59 @@ type ReportDefinition struct {
 
 	// A list of manifests that you want Amazon Web Services to create for this
 	// report.
-	AdditionalArtifacts []AdditionalArtifact `type:"list"`
+	AdditionalArtifacts []AdditionalArtifact `json:"cur:ReportDefinition:AdditionalArtifacts" type:"list"`
 
 	// A list of strings that indicate additional content that Amazon Web Services
 	// includes in the report, such as individual resource IDs.
 	//
 	// AdditionalSchemaElements is a required field
-	AdditionalSchemaElements []SchemaElement `type:"list" required:"true"`
+	AdditionalSchemaElements []SchemaElement `json:"cur:ReportDefinition:AdditionalSchemaElements" type:"list" required:"true"`
 
 	// The compression format that AWS uses for the report.
 	//
 	// Compression is a required field
-	Compression CompressionFormat `type:"string" required:"true" enum:"true"`
+	Compression CompressionFormat `json:"cur:ReportDefinition:Compression" type:"string" required:"true" enum:"true"`
 
 	// The format that AWS saves the report in.
 	//
 	// Format is a required field
-	Format ReportFormat `type:"string" required:"true" enum:"true"`
+	Format ReportFormat `json:"cur:ReportDefinition:Format" type:"string" required:"true" enum:"true"`
 
 	// Whether you want Amazon Web Services to update your reports after they have
 	// been finalized if Amazon Web Services detects charges related to previous
 	// months. These charges can include refunds, credits, or support fees.
-	RefreshClosedReports *bool `type:"boolean"`
+	RefreshClosedReports *bool `json:"cur:ReportDefinition:RefreshClosedReports" type:"boolean"`
 
 	// The name of the report that you want to create. The name must be unique,
 	// is case sensitive, and can't include spaces.
 	//
 	// ReportName is a required field
-	ReportName *string `type:"string" required:"true"`
+	ReportName *string `json:"cur:ReportDefinition:ReportName" type:"string" required:"true"`
 
 	// Whether you want Amazon Web Services to overwrite the previous version of
 	// each report or to deliver the report in addition to the previous versions.
-	ReportVersioning ReportVersioning `type:"string" enum:"true"`
+	ReportVersioning ReportVersioning `json:"cur:ReportDefinition:ReportVersioning" type:"string" enum:"true"`
 
 	// The S3 bucket where AWS delivers the report.
 	//
 	// S3Bucket is a required field
-	S3Bucket *string `type:"string" required:"true"`
+	S3Bucket *string `json:"cur:ReportDefinition:S3Bucket" type:"string" required:"true"`
 
 	// The prefix that AWS adds to the report name when AWS delivers the report.
 	// Your prefix can't include spaces.
 	//
 	// S3Prefix is a required field
-	S3Prefix *string `type:"string" required:"true"`
+	S3Prefix *string `json:"cur:ReportDefinition:S3Prefix" type:"string" required:"true"`
 
 	// The region of the S3 bucket that AWS delivers the report into.
 	//
 	// S3Region is a required field
-	S3Region AWSRegion `type:"string" required:"true" enum:"true"`
+	S3Region AWSRegion `json:"cur:ReportDefinition:S3Region" type:"string" required:"true" enum:"true"`
 
 	// The length of time covered by the report.
 	//
 	// TimeUnit is a required field
-	TimeUnit TimeUnit `type:"string" required:"true" enum:"true"`
+	TimeUnit TimeUnit `json:"cur:ReportDefinition:TimeUnit" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

@@ -60,9 +60,9 @@ func (s ListApplicationsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListApplicationsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Applications []ApplicationSummary `locationName:"applications" type:"list"`
+	Applications []ApplicationSummary `json:"serverlessrepo:ListApplicationsOutput:Applications" locationName:"applications" type:"list"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"serverlessrepo:ListApplicationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

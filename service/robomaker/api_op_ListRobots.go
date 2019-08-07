@@ -109,10 +109,10 @@ type ListRobotsOutput struct {
 	// of a ListRobot request exceed maxResults, this value can be used to retrieve
 	// the next page of results. This value is null when there are no more results
 	// to return.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"robomaker:ListRobotsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// A list of robots that meet the criteria of the request.
-	Robots []Robot `locationName:"robots" type:"list"`
+	Robots []Robot `json:"robomaker:ListRobotsOutput:Robots" locationName:"robots" type:"list"`
 }
 
 // String returns the string representation

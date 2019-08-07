@@ -59,32 +59,32 @@ type DescribeThingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The thing attributes.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"iot:DescribeThingOutput:Attributes" locationName:"attributes" type:"map"`
 
 	// The name of the billing group the thing belongs to.
-	BillingGroupName *string `locationName:"billingGroupName" min:"1" type:"string"`
+	BillingGroupName *string `json:"iot:DescribeThingOutput:BillingGroupName" locationName:"billingGroupName" min:"1" type:"string"`
 
 	// The default client ID.
-	DefaultClientId *string `locationName:"defaultClientId" type:"string"`
+	DefaultClientId *string `json:"iot:DescribeThingOutput:DefaultClientId" locationName:"defaultClientId" type:"string"`
 
 	// The ARN of the thing to describe.
-	ThingArn *string `locationName:"thingArn" type:"string"`
+	ThingArn *string `json:"iot:DescribeThingOutput:ThingArn" locationName:"thingArn" type:"string"`
 
 	// The ID of the thing to describe.
-	ThingId *string `locationName:"thingId" type:"string"`
+	ThingId *string `json:"iot:DescribeThingOutput:ThingId" locationName:"thingId" type:"string"`
 
 	// The name of the thing.
-	ThingName *string `locationName:"thingName" min:"1" type:"string"`
+	ThingName *string `json:"iot:DescribeThingOutput:ThingName" locationName:"thingName" min:"1" type:"string"`
 
 	// The thing type name.
-	ThingTypeName *string `locationName:"thingTypeName" min:"1" type:"string"`
+	ThingTypeName *string `json:"iot:DescribeThingOutput:ThingTypeName" locationName:"thingTypeName" min:"1" type:"string"`
 
 	// The current version of the thing record in the registry.
 	//
 	// To avoid unintentional changes to the information in the registry, you can
 	// pass the version information in the expectedVersion parameter of the UpdateThing
 	// and DeleteThing calls.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"iot:DescribeThingOutput:Version" locationName:"version" type:"long"`
 }
 
 // String returns the string representation

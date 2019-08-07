@@ -19,13 +19,13 @@ type AddressBook struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the address book.
-	AddressBookArn *string `type:"string"`
+	AddressBookArn *string `json:"a4b:AddressBook:AddressBookArn" type:"string"`
 
 	// The description of the address book.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"a4b:AddressBook:Description" min:"1" type:"string"`
 
 	// The name of the address book.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"a4b:AddressBook:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -39,13 +39,13 @@ type AddressBookData struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the address book.
-	AddressBookArn *string `type:"string"`
+	AddressBookArn *string `json:"a4b:AddressBookData:AddressBookArn" type:"string"`
 
 	// The description of the address book.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"a4b:AddressBookData:Description" min:"1" type:"string"`
 
 	// The name of the address book.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"a4b:AddressBookData:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -70,14 +70,14 @@ type Audio struct {
 	// The locale of the audio message. Currently, en-US is supported.
 	//
 	// Locale is a required field
-	Locale Locale `type:"string" required:"true" enum:"true"`
+	Locale Locale `json:"a4b:Audio:Locale" type:"string" required:"true" enum:"true"`
 
 	// The location of the audio file. Currently, S3 URLs are supported. Only S3
 	// locations comprised of safe characters are valid. For more information, see
 	// Safe Characters (https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters).
 	//
 	// Location is a required field
-	Location *string `type:"string" required:"true"`
+	Location *string `json:"a4b:Audio:Location" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -108,19 +108,19 @@ type BusinessReport struct {
 	_ struct{} `type:"structure"`
 
 	// The time of report delivery.
-	DeliveryTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeliveryTime *time.Time `json:"a4b:BusinessReport:DeliveryTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The download link where a user can download the report.
-	DownloadUrl *string `type:"string"`
+	DownloadUrl *string `json:"a4b:BusinessReport:DownloadUrl" type:"string"`
 
 	// The failure code.
-	FailureCode BusinessReportFailureCode `type:"string" enum:"true"`
+	FailureCode BusinessReportFailureCode `json:"a4b:BusinessReport:FailureCode" type:"string" enum:"true"`
 
 	// The S3 location of the output reports.
-	S3Location *BusinessReportS3Location `type:"structure"`
+	S3Location *BusinessReportS3Location `json:"a4b:BusinessReport:S3Location" type:"structure"`
 
 	// The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
-	Status BusinessReportStatus `type:"string" enum:"true"`
+	Status BusinessReportStatus `json:"a4b:BusinessReport:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -134,7 +134,7 @@ type BusinessReportContentRange struct {
 	_ struct{} `type:"structure"`
 
 	// The interval of the content range.
-	Interval BusinessReportInterval `type:"string" enum:"true"`
+	Interval BusinessReportInterval `json:"a4b:BusinessReportContentRange:Interval" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -148,7 +148,7 @@ type BusinessReportRecurrence struct {
 	_ struct{} `type:"structure"`
 
 	// The start date.
-	StartDate *string `type:"string"`
+	StartDate *string `json:"a4b:BusinessReportRecurrence:StartDate" type:"string"`
 }
 
 // String returns the string representation
@@ -162,10 +162,10 @@ type BusinessReportS3Location struct {
 	_ struct{} `type:"structure"`
 
 	// The S3 bucket name of the output reports.
-	BucketName *string `type:"string"`
+	BucketName *string `json:"a4b:BusinessReportS3Location:BucketName" type:"string"`
 
 	// The path of the business report.
-	Path *string `type:"string"`
+	Path *string `json:"a4b:BusinessReportS3Location:Path" type:"string"`
 }
 
 // String returns the string representation
@@ -179,29 +179,29 @@ type BusinessReportSchedule struct {
 	_ struct{} `type:"structure"`
 
 	// The content range of the reports.
-	ContentRange *BusinessReportContentRange `type:"structure"`
+	ContentRange *BusinessReportContentRange `json:"a4b:BusinessReportSchedule:ContentRange" type:"structure"`
 
 	// The format of the generated report (individual CSV files or zipped files
 	// of individual files).
-	Format BusinessReportFormat `type:"string" enum:"true"`
+	Format BusinessReportFormat `json:"a4b:BusinessReportSchedule:Format" type:"string" enum:"true"`
 
 	// The details of the last business report delivery for a specified time interval.
-	LastBusinessReport *BusinessReport `type:"structure"`
+	LastBusinessReport *BusinessReport `json:"a4b:BusinessReportSchedule:LastBusinessReport" type:"structure"`
 
 	// The recurrence of the reports.
-	Recurrence *BusinessReportRecurrence `type:"structure"`
+	Recurrence *BusinessReportRecurrence `json:"a4b:BusinessReportSchedule:Recurrence" type:"structure"`
 
 	// The S3 bucket name of the output reports.
-	S3BucketName *string `type:"string"`
+	S3BucketName *string `json:"a4b:BusinessReportSchedule:S3BucketName" type:"string"`
 
 	// The S3 key where the report is delivered.
-	S3KeyPrefix *string `type:"string"`
+	S3KeyPrefix *string `json:"a4b:BusinessReportSchedule:S3KeyPrefix" type:"string"`
 
 	// The ARN of the business report schedule.
-	ScheduleArn *string `type:"string"`
+	ScheduleArn *string `json:"a4b:BusinessReportSchedule:ScheduleArn" type:"string"`
 
 	// The name identifier of the schedule.
-	ScheduleName *string `type:"string"`
+	ScheduleName *string `json:"a4b:BusinessReportSchedule:ScheduleName" type:"string"`
 }
 
 // String returns the string representation
@@ -216,10 +216,10 @@ type Category struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the skill store category.
-	CategoryId *int64 `min:"1" type:"long"`
+	CategoryId *int64 `json:"a4b:Category:CategoryId" min:"1" type:"long"`
 
 	// The name of the skill store category.
-	CategoryName *string `type:"string"`
+	CategoryName *string `json:"a4b:Category:CategoryName" type:"string"`
 }
 
 // String returns the string representation
@@ -234,7 +234,7 @@ type ConferencePreference struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the default conference provider.
-	DefaultConferenceProviderArn *string `type:"string"`
+	DefaultConferenceProviderArn *string `json:"a4b:ConferencePreference:DefaultConferenceProviderArn" type:"string"`
 }
 
 // String returns the string representation
@@ -251,22 +251,22 @@ type ConferenceProvider struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the newly created conference provider.
-	Arn *string `type:"string"`
+	Arn *string `json:"a4b:ConferenceProvider:Arn" type:"string"`
 
 	// The IP endpoint and protocol for calling.
-	IPDialIn *IPDialIn `type:"structure"`
+	IPDialIn *IPDialIn `json:"a4b:ConferenceProvider:IPDialIn" type:"structure"`
 
 	// The meeting settings for the conference provider.
-	MeetingSetting *MeetingSetting `type:"structure"`
+	MeetingSetting *MeetingSetting `json:"a4b:ConferenceProvider:MeetingSetting" type:"structure"`
 
 	// The name of the conference provider.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"a4b:ConferenceProvider:Name" min:"1" type:"string"`
 
 	// The information for PSTN conferencing.
-	PSTNDialIn *PSTNDialIn `type:"structure"`
+	PSTNDialIn *PSTNDialIn `json:"a4b:ConferenceProvider:PSTNDialIn" type:"structure"`
 
 	// The type of conference providers.
-	Type ConferenceProviderType `type:"string" enum:"true"`
+	Type ConferenceProviderType `json:"a4b:ConferenceProvider:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -280,28 +280,28 @@ type Contact struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the contact.
-	ContactArn *string `type:"string"`
+	ContactArn *string `json:"a4b:Contact:ContactArn" type:"string"`
 
 	// The name of the contact to display on the console.
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"a4b:Contact:DisplayName" min:"1" type:"string"`
 
 	// The first name of the contact, used to call the contact on the device.
-	FirstName *string `min:"1" type:"string"`
+	FirstName *string `json:"a4b:Contact:FirstName" min:"1" type:"string"`
 
 	// The last name of the contact, used to call the contact on the device.
-	LastName *string `min:"1" type:"string"`
+	LastName *string `json:"a4b:Contact:LastName" min:"1" type:"string"`
 
 	// The phone number of the contact. The phone number type defaults to WORK.
 	// You can either specify PhoneNumber or PhoneNumbers. We recommend that you
 	// use PhoneNumbers, which lets you specify the phone number type and multiple
 	// numbers.
-	PhoneNumber *string `type:"string"`
+	PhoneNumber *string `json:"a4b:Contact:PhoneNumber" type:"string"`
 
 	// The list of phone numbers for the contact.
-	PhoneNumbers []PhoneNumber `type:"list"`
+	PhoneNumbers []PhoneNumber `json:"a4b:Contact:PhoneNumbers" type:"list"`
 
 	// The list of SIP addresses for the contact.
-	SipAddresses []SipAddress `type:"list"`
+	SipAddresses []SipAddress `json:"a4b:Contact:SipAddresses" type:"list"`
 }
 
 // String returns the string representation
@@ -315,27 +315,27 @@ type ContactData struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the contact.
-	ContactArn *string `type:"string"`
+	ContactArn *string `json:"a4b:ContactData:ContactArn" type:"string"`
 
 	// The name of the contact to display on the console.
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"a4b:ContactData:DisplayName" min:"1" type:"string"`
 
 	// The first name of the contact, used to call the contact on the device.
-	FirstName *string `min:"1" type:"string"`
+	FirstName *string `json:"a4b:ContactData:FirstName" min:"1" type:"string"`
 
 	// The last name of the contact, used to call the contact on the device.
-	LastName *string `min:"1" type:"string"`
+	LastName *string `json:"a4b:ContactData:LastName" min:"1" type:"string"`
 
 	// The phone number of the contact. The phone number type defaults to WORK.
 	// You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers,
 	// which lets you specify the phone number type and multiple numbers.
-	PhoneNumber *string `type:"string"`
+	PhoneNumber *string `json:"a4b:ContactData:PhoneNumber" type:"string"`
 
 	// The list of phone numbers for the contact.
-	PhoneNumbers []PhoneNumber `type:"list"`
+	PhoneNumbers []PhoneNumber `json:"a4b:ContactData:PhoneNumbers" type:"list"`
 
 	// The list of SIP addresses for the contact.
-	SipAddresses []SipAddress `type:"list"`
+	SipAddresses []SipAddress `json:"a4b:ContactData:SipAddresses" type:"list"`
 }
 
 // String returns the string representation
@@ -350,13 +350,13 @@ type Content struct {
 	_ struct{} `type:"structure"`
 
 	// The list of audio messages.
-	AudioList []Audio `type:"list"`
+	AudioList []Audio `json:"a4b:Content:AudioList" type:"list"`
 
 	// The list of SSML messages.
-	SsmlList []Ssml `type:"list"`
+	SsmlList []Ssml `json:"a4b:Content:SsmlList" type:"list"`
 
 	// The list of text messages.
-	TextList []Text `type:"list"`
+	TextList []Text `json:"a4b:Content:TextList" type:"list"`
 }
 
 // String returns the string representation
@@ -401,16 +401,16 @@ type DeveloperInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the developer.
-	DeveloperName *string `type:"string"`
+	DeveloperName *string `json:"a4b:DeveloperInfo:DeveloperName" type:"string"`
 
 	// The email of the developer.
-	Email *string `min:"1" type:"string"`
+	Email *string `json:"a4b:DeveloperInfo:Email" min:"1" type:"string"`
 
 	// The URL of the privacy policy.
-	PrivacyPolicy *string `type:"string"`
+	PrivacyPolicy *string `json:"a4b:DeveloperInfo:PrivacyPolicy" type:"string"`
 
 	// The website of the developer.
-	Url *string `type:"string"`
+	Url *string `json:"a4b:DeveloperInfo:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -424,35 +424,35 @@ type Device struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of a device.
-	DeviceArn *string `type:"string"`
+	DeviceArn *string `json:"a4b:Device:DeviceArn" type:"string"`
 
 	// The name of a device.
-	DeviceName *string `min:"2" type:"string"`
+	DeviceName *string `json:"a4b:Device:DeviceName" min:"2" type:"string"`
 
 	// The serial number of a device.
-	DeviceSerialNumber *string `type:"string"`
+	DeviceSerialNumber *string `json:"a4b:Device:DeviceSerialNumber" type:"string"`
 
 	// The status of a device. If the status is not READY, check the DeviceStatusInfo
 	// value for details.
-	DeviceStatus DeviceStatus `type:"string" enum:"true"`
+	DeviceStatus DeviceStatus `json:"a4b:Device:DeviceStatus" type:"string" enum:"true"`
 
 	// Detailed information about a device's status.
-	DeviceStatusInfo *DeviceStatusInfo `type:"structure"`
+	DeviceStatusInfo *DeviceStatusInfo `json:"a4b:Device:DeviceStatusInfo" type:"structure"`
 
 	// The type of a device.
-	DeviceType *string `type:"string"`
+	DeviceType *string `json:"a4b:Device:DeviceType" type:"string"`
 
 	// The MAC address of a device.
-	MacAddress *string `type:"string"`
+	MacAddress *string `json:"a4b:Device:MacAddress" type:"string"`
 
 	// Detailed information about a device's network profile.
-	NetworkProfileInfo *DeviceNetworkProfileInfo `type:"structure"`
+	NetworkProfileInfo *DeviceNetworkProfileInfo `json:"a4b:Device:NetworkProfileInfo" type:"structure"`
 
 	// The room ARN of a device.
-	RoomArn *string `type:"string"`
+	RoomArn *string `json:"a4b:Device:RoomArn" type:"string"`
 
 	// The software version of a device.
-	SoftwareVersion *string `type:"string"`
+	SoftwareVersion *string `json:"a4b:Device:SoftwareVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -466,40 +466,40 @@ type DeviceData struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of a device.
-	DeviceArn *string `type:"string"`
+	DeviceArn *string `json:"a4b:DeviceData:DeviceArn" type:"string"`
 
 	// The name of a device.
-	DeviceName *string `min:"2" type:"string"`
+	DeviceName *string `json:"a4b:DeviceData:DeviceName" min:"2" type:"string"`
 
 	// The serial number of a device.
-	DeviceSerialNumber *string `type:"string"`
+	DeviceSerialNumber *string `json:"a4b:DeviceData:DeviceSerialNumber" type:"string"`
 
 	// The status of a device.
-	DeviceStatus DeviceStatus `type:"string" enum:"true"`
+	DeviceStatus DeviceStatus `json:"a4b:DeviceData:DeviceStatus" type:"string" enum:"true"`
 
 	// Detailed information about a device's status.
-	DeviceStatusInfo *DeviceStatusInfo `type:"structure"`
+	DeviceStatusInfo *DeviceStatusInfo `json:"a4b:DeviceData:DeviceStatusInfo" type:"structure"`
 
 	// The type of a device.
-	DeviceType *string `type:"string"`
+	DeviceType *string `json:"a4b:DeviceData:DeviceType" type:"string"`
 
 	// The MAC address of a device.
-	MacAddress *string `type:"string"`
+	MacAddress *string `json:"a4b:DeviceData:MacAddress" type:"string"`
 
 	// The ARN of the network profile associated with a device.
-	NetworkProfileArn *string `type:"string"`
+	NetworkProfileArn *string `json:"a4b:DeviceData:NetworkProfileArn" type:"string"`
 
 	// The name of the network profile associated with a device.
-	NetworkProfileName *string `min:"1" type:"string"`
+	NetworkProfileName *string `json:"a4b:DeviceData:NetworkProfileName" min:"1" type:"string"`
 
 	// The room ARN associated with a device.
-	RoomArn *string `type:"string"`
+	RoomArn *string `json:"a4b:DeviceData:RoomArn" type:"string"`
 
 	// The name of the room associated with a device.
-	RoomName *string `min:"1" type:"string"`
+	RoomName *string `json:"a4b:DeviceData:RoomName" min:"1" type:"string"`
 
 	// The software version of a device.
-	SoftwareVersion *string `type:"string"`
+	SoftwareVersion *string `json:"a4b:DeviceData:SoftwareVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -513,13 +513,13 @@ type DeviceEvent struct {
 	_ struct{} `type:"structure"`
 
 	// The time (in epoch) when the event occurred.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"a4b:DeviceEvent:Timestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The type of device event.
-	Type DeviceEventType `type:"string" enum:"true"`
+	Type DeviceEventType `json:"a4b:DeviceEvent:Type" type:"string" enum:"true"`
 
 	// The value of the event.
-	Value *string `type:"string"`
+	Value *string `json:"a4b:DeviceEvent:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -533,13 +533,13 @@ type DeviceNetworkProfileInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the certificate associated with a device.
-	CertificateArn *string `type:"string"`
+	CertificateArn *string `json:"a4b:DeviceNetworkProfileInfo:CertificateArn" type:"string"`
 
 	// The time (in epoch) when the certificate expires.
-	CertificateExpirationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CertificateExpirationTime *time.Time `json:"a4b:DeviceNetworkProfileInfo:CertificateExpirationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the network profile associated with a device.
-	NetworkProfileArn *string `type:"string"`
+	NetworkProfileArn *string `json:"a4b:DeviceNetworkProfileInfo:NetworkProfileArn" type:"string"`
 }
 
 // String returns the string representation
@@ -553,10 +553,10 @@ type DeviceStatusDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The device status detail code.
-	Code DeviceStatusDetailCode `type:"string" enum:"true"`
+	Code DeviceStatusDetailCode `json:"a4b:DeviceStatusDetail:Code" type:"string" enum:"true"`
 
 	// The list of available features on the device.
-	Feature Feature `type:"string" enum:"true"`
+	Feature Feature `json:"a4b:DeviceStatusDetail:Feature" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -570,10 +570,10 @@ type DeviceStatusInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The latest available information about the connection status of a device.
-	ConnectionStatus ConnectionStatus `type:"string" enum:"true"`
+	ConnectionStatus ConnectionStatus `json:"a4b:DeviceStatusInfo:ConnectionStatus" type:"string" enum:"true"`
 
 	// One or more device status detail descriptions.
-	DeviceStatusDetails []DeviceStatusDetail `type:"list"`
+	DeviceStatusDetails []DeviceStatusDetail `json:"a4b:DeviceStatusInfo:DeviceStatusDetails" type:"list"`
 }
 
 // String returns the string representation
@@ -590,12 +590,12 @@ type Filter struct {
 	// The key of a filter.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"a4b:Filter:Key" min:"1" type:"string" required:"true"`
 
 	// The values of a filter.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"a4b:Filter:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -630,20 +630,20 @@ type Gateway struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the gateway.
-	Arn *string `type:"string"`
+	Arn *string `json:"a4b:Gateway:Arn" type:"string"`
 
 	// The description of the gateway.
-	Description *string `type:"string"`
+	Description *string `json:"a4b:Gateway:Description" type:"string"`
 
 	// The ARN of the gateway group that the gateway is associated to.
-	GatewayGroupArn *string `type:"string"`
+	GatewayGroupArn *string `json:"a4b:Gateway:GatewayGroupArn" type:"string"`
 
 	// The name of the gateway.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"a4b:Gateway:Name" min:"1" type:"string"`
 
 	// The software version of the gateway. The gateway automatically updates its
 	// software version during normal operation.
-	SoftwareVersion *string `min:"1" type:"string"`
+	SoftwareVersion *string `json:"a4b:Gateway:SoftwareVersion" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -657,13 +657,13 @@ type GatewayGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the gateway group.
-	Arn *string `type:"string"`
+	Arn *string `json:"a4b:GatewayGroup:Arn" type:"string"`
 
 	// The description of the gateway group.
-	Description *string `type:"string"`
+	Description *string `json:"a4b:GatewayGroup:Description" type:"string"`
 
 	// The name of the gateway group.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"a4b:GatewayGroup:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -677,13 +677,13 @@ type GatewayGroupSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the gateway group.
-	Arn *string `type:"string"`
+	Arn *string `json:"a4b:GatewayGroupSummary:Arn" type:"string"`
 
 	// The description of the gateway group.
-	Description *string `type:"string"`
+	Description *string `json:"a4b:GatewayGroupSummary:Description" type:"string"`
 
 	// The name of the gateway group.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"a4b:GatewayGroupSummary:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -697,20 +697,20 @@ type GatewaySummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the gateway.
-	Arn *string `type:"string"`
+	Arn *string `json:"a4b:GatewaySummary:Arn" type:"string"`
 
 	// The description of the gateway.
-	Description *string `type:"string"`
+	Description *string `json:"a4b:GatewaySummary:Description" type:"string"`
 
 	// The ARN of the gateway group that the gateway is associated to.
-	GatewayGroupArn *string `type:"string"`
+	GatewayGroupArn *string `json:"a4b:GatewaySummary:GatewayGroupArn" type:"string"`
 
 	// The name of the gateway.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"a4b:GatewaySummary:Name" min:"1" type:"string"`
 
 	// The software version of the gateway. The gateway automatically updates its
 	// software version during normal operation.
-	SoftwareVersion *string `min:"1" type:"string"`
+	SoftwareVersion *string `json:"a4b:GatewaySummary:SoftwareVersion" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -726,12 +726,12 @@ type IPDialIn struct {
 	// The protocol, including SIP, SIPS, and H323.
 	//
 	// CommsProtocol is a required field
-	CommsProtocol CommsProtocol `type:"string" required:"true" enum:"true"`
+	CommsProtocol CommsProtocol `json:"a4b:IPDialIn:CommsProtocol" type:"string" required:"true" enum:"true"`
 
 	// The IP address.
 	//
 	// Endpoint is a required field
-	Endpoint *string `min:"1" type:"string" required:"true"`
+	Endpoint *string `json:"a4b:IPDialIn:Endpoint" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -775,7 +775,7 @@ type MeetingSetting struct {
 	// The values that indicate whether the pin is always required.
 	//
 	// RequirePin is a required field
-	RequirePin RequirePin `type:"string" required:"true" enum:"true"`
+	RequirePin RequirePin `json:"a4b:MeetingSetting:RequirePin" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -803,39 +803,39 @@ type NetworkProfile struct {
 
 	// The ARN of the Private Certificate Authority (PCA) created in AWS Certificate
 	// Manager (ACM). This is used to issue certificates to the devices.
-	CertificateAuthorityArn *string `type:"string"`
+	CertificateAuthorityArn *string `json:"a4b:NetworkProfile:CertificateAuthorityArn" type:"string"`
 
 	// The current password of the Wi-Fi network.
-	CurrentPassword *string `min:"5" type:"string"`
+	CurrentPassword *string `json:"a4b:NetworkProfile:CurrentPassword" min:"5" type:"string"`
 
 	// Detailed information about a device's network profile.
-	Description *string `type:"string"`
+	Description *string `json:"a4b:NetworkProfile:Description" type:"string"`
 
 	// The authentication standard that is used in the EAP framework. Currently,
 	// EAP_TLS is supported.
-	EapMethod NetworkEapMethod `type:"string" enum:"true"`
+	EapMethod NetworkEapMethod `json:"a4b:NetworkProfile:EapMethod" type:"string" enum:"true"`
 
 	// The ARN of the network profile associated with a device.
-	NetworkProfileArn *string `type:"string"`
+	NetworkProfileArn *string `json:"a4b:NetworkProfile:NetworkProfileArn" type:"string"`
 
 	// The name of the network profile associated with a device.
-	NetworkProfileName *string `min:"1" type:"string"`
+	NetworkProfileName *string `json:"a4b:NetworkProfile:NetworkProfileName" min:"1" type:"string"`
 
 	// The next, or subsequent, password of the Wi-Fi network. This password is
 	// asynchronously transmitted to the device and is used when the password of
 	// the network changes to NextPassword.
-	NextPassword *string `type:"string"`
+	NextPassword *string `json:"a4b:NetworkProfile:NextPassword" type:"string"`
 
 	// The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK,
 	// WPA_PSK, WEP, or OPEN.
-	SecurityType NetworkSecurityType `type:"string" enum:"true"`
+	SecurityType NetworkSecurityType `json:"a4b:NetworkProfile:SecurityType" type:"string" enum:"true"`
 
 	// The SSID of the Wi-Fi network.
-	Ssid *string `min:"1" type:"string"`
+	Ssid *string `json:"a4b:NetworkProfile:Ssid" min:"1" type:"string"`
 
 	// The root certificates of your authentication server, which is installed on
 	// your devices and used to trust your authentication server during EAP negotiation.
-	TrustAnchors []string `min:"1" type:"list"`
+	TrustAnchors []string `json:"a4b:NetworkProfile:TrustAnchors" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -850,27 +850,27 @@ type NetworkProfileData struct {
 
 	// The ARN of the Private Certificate Authority (PCA) created in AWS Certificate
 	// Manager (ACM). This is used to issue certificates to the devices.
-	CertificateAuthorityArn *string `type:"string"`
+	CertificateAuthorityArn *string `json:"a4b:NetworkProfileData:CertificateAuthorityArn" type:"string"`
 
 	// Detailed information about a device's network profile.
-	Description *string `type:"string"`
+	Description *string `json:"a4b:NetworkProfileData:Description" type:"string"`
 
 	// The authentication standard that is used in the EAP framework. Currently,
 	// EAP_TLS is supported.
-	EapMethod NetworkEapMethod `type:"string" enum:"true"`
+	EapMethod NetworkEapMethod `json:"a4b:NetworkProfileData:EapMethod" type:"string" enum:"true"`
 
 	// The ARN of the network profile associated with a device.
-	NetworkProfileArn *string `type:"string"`
+	NetworkProfileArn *string `json:"a4b:NetworkProfileData:NetworkProfileArn" type:"string"`
 
 	// The name of the network profile associated with a device.
-	NetworkProfileName *string `min:"1" type:"string"`
+	NetworkProfileName *string `json:"a4b:NetworkProfileData:NetworkProfileName" min:"1" type:"string"`
 
 	// The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK,
 	// WPA_PSK, WEP, or OPEN.
-	SecurityType NetworkSecurityType `type:"string" enum:"true"`
+	SecurityType NetworkSecurityType `json:"a4b:NetworkProfileData:SecurityType" type:"string" enum:"true"`
 
 	// The SSID of the Wi-Fi network.
-	Ssid *string `min:"1" type:"string"`
+	Ssid *string `json:"a4b:NetworkProfileData:Ssid" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -886,26 +886,26 @@ type PSTNDialIn struct {
 	// The zip code.
 	//
 	// CountryCode is a required field
-	CountryCode *string `type:"string" required:"true"`
+	CountryCode *string `json:"a4b:PSTNDialIn:CountryCode" type:"string" required:"true"`
 
 	// The delay duration before Alexa enters the conference ID with dual-tone multi-frequency
 	// (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is
 	// how we send data over the telephone network.
 	//
 	// OneClickIdDelay is a required field
-	OneClickIdDelay *string `min:"1" type:"string" required:"true"`
+	OneClickIdDelay *string `json:"a4b:PSTNDialIn:OneClickIdDelay" min:"1" type:"string" required:"true"`
 
 	// The delay duration before Alexa enters the conference pin with dual-tone
 	// multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF
 	// tone, which is how we send data over the telephone network.
 	//
 	// OneClickPinDelay is a required field
-	OneClickPinDelay *string `min:"1" type:"string" required:"true"`
+	OneClickPinDelay *string `json:"a4b:PSTNDialIn:OneClickPinDelay" min:"1" type:"string" required:"true"`
 
 	// The phone number to call to join the conference.
 	//
 	// PhoneNumber is a required field
-	PhoneNumber *string `type:"string" required:"true"`
+	PhoneNumber *string `json:"a4b:PSTNDialIn:PhoneNumber" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -954,12 +954,12 @@ type PhoneNumber struct {
 	// The raw value of the phone number.
 	//
 	// Number is a required field
-	Number *string `type:"string" required:"true"`
+	Number *string `json:"a4b:PhoneNumber:Number" type:"string" required:"true"`
 
 	// The type of the phone number.
 	//
 	// Type is a required field
-	Type PhoneNumberType `type:"string" required:"true" enum:"true"`
+	Type PhoneNumberType `json:"a4b:PhoneNumber:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -990,40 +990,40 @@ type Profile struct {
 	_ struct{} `type:"structure"`
 
 	// The address of a room profile.
-	Address *string `min:"1" type:"string"`
+	Address *string `json:"a4b:Profile:Address" min:"1" type:"string"`
 
 	// The ARN of the address book.
-	AddressBookArn *string `type:"string"`
+	AddressBookArn *string `json:"a4b:Profile:AddressBookArn" type:"string"`
 
 	// The distance unit of a room profile.
-	DistanceUnit DistanceUnit `type:"string" enum:"true"`
+	DistanceUnit DistanceUnit `json:"a4b:Profile:DistanceUnit" type:"string" enum:"true"`
 
 	// Retrieves if the profile is default or not.
-	IsDefault *bool `type:"boolean"`
+	IsDefault *bool `json:"a4b:Profile:IsDefault" type:"boolean"`
 
 	// The max volume limit of a room profile.
-	MaxVolumeLimit *int64 `type:"integer"`
+	MaxVolumeLimit *int64 `json:"a4b:Profile:MaxVolumeLimit" type:"integer"`
 
 	// The PSTN setting of a room profile.
-	PSTNEnabled *bool `type:"boolean"`
+	PSTNEnabled *bool `json:"a4b:Profile:PSTNEnabled" type:"boolean"`
 
 	// The ARN of a room profile.
-	ProfileArn *string `type:"string"`
+	ProfileArn *string `json:"a4b:Profile:ProfileArn" type:"string"`
 
 	// The name of a room profile.
-	ProfileName *string `min:"1" type:"string"`
+	ProfileName *string `json:"a4b:Profile:ProfileName" min:"1" type:"string"`
 
 	// The setup mode of a room profile.
-	SetupModeDisabled *bool `type:"boolean"`
+	SetupModeDisabled *bool `json:"a4b:Profile:SetupModeDisabled" type:"boolean"`
 
 	// The temperature unit of a room profile.
-	TemperatureUnit TemperatureUnit `type:"string" enum:"true"`
+	TemperatureUnit TemperatureUnit `json:"a4b:Profile:TemperatureUnit" type:"string" enum:"true"`
 
 	// The time zone of a room profile.
-	Timezone *string `min:"1" type:"string"`
+	Timezone *string `json:"a4b:Profile:Timezone" min:"1" type:"string"`
 
 	// The wake word of a room profile.
-	WakeWord WakeWord `type:"string" enum:"true"`
+	WakeWord WakeWord `json:"a4b:Profile:WakeWord" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1037,28 +1037,28 @@ type ProfileData struct {
 	_ struct{} `type:"structure"`
 
 	// The address of a room profile.
-	Address *string `min:"1" type:"string"`
+	Address *string `json:"a4b:ProfileData:Address" min:"1" type:"string"`
 
 	// The distance unit of a room profile.
-	DistanceUnit DistanceUnit `type:"string" enum:"true"`
+	DistanceUnit DistanceUnit `json:"a4b:ProfileData:DistanceUnit" type:"string" enum:"true"`
 
 	// Retrieves if the profile data is default or not.
-	IsDefault *bool `type:"boolean"`
+	IsDefault *bool `json:"a4b:ProfileData:IsDefault" type:"boolean"`
 
 	// The ARN of a room profile.
-	ProfileArn *string `type:"string"`
+	ProfileArn *string `json:"a4b:ProfileData:ProfileArn" type:"string"`
 
 	// The name of a room profile.
-	ProfileName *string `min:"1" type:"string"`
+	ProfileName *string `json:"a4b:ProfileData:ProfileName" min:"1" type:"string"`
 
 	// The temperature unit of a room profile.
-	TemperatureUnit TemperatureUnit `type:"string" enum:"true"`
+	TemperatureUnit TemperatureUnit `json:"a4b:ProfileData:TemperatureUnit" type:"string" enum:"true"`
 
 	// The timezone of a room profile.
-	Timezone *string `min:"1" type:"string"`
+	Timezone *string `json:"a4b:ProfileData:Timezone" min:"1" type:"string"`
 
 	// The wake word of a room profile.
-	WakeWord WakeWord `type:"string" enum:"true"`
+	WakeWord WakeWord `json:"a4b:ProfileData:WakeWord" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1072,19 +1072,19 @@ type Room struct {
 	_ struct{} `type:"structure"`
 
 	// The description of a room.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"a4b:Room:Description" min:"1" type:"string"`
 
 	// The profile ARN of a room.
-	ProfileArn *string `type:"string"`
+	ProfileArn *string `json:"a4b:Room:ProfileArn" type:"string"`
 
 	// The provider calendar ARN of a room.
-	ProviderCalendarId *string `type:"string"`
+	ProviderCalendarId *string `json:"a4b:Room:ProviderCalendarId" type:"string"`
 
 	// The ARN of a room.
-	RoomArn *string `type:"string"`
+	RoomArn *string `json:"a4b:Room:RoomArn" type:"string"`
 
 	// The name of a room.
-	RoomName *string `min:"1" type:"string"`
+	RoomName *string `json:"a4b:Room:RoomName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1098,22 +1098,22 @@ type RoomData struct {
 	_ struct{} `type:"structure"`
 
 	// The description of a room.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"a4b:RoomData:Description" min:"1" type:"string"`
 
 	// The profile ARN of a room.
-	ProfileArn *string `type:"string"`
+	ProfileArn *string `json:"a4b:RoomData:ProfileArn" type:"string"`
 
 	// The profile name of a room.
-	ProfileName *string `min:"1" type:"string"`
+	ProfileName *string `json:"a4b:RoomData:ProfileName" min:"1" type:"string"`
 
 	// The provider calendar ARN of a room.
-	ProviderCalendarId *string `type:"string"`
+	ProviderCalendarId *string `json:"a4b:RoomData:ProviderCalendarId" type:"string"`
 
 	// The ARN of a room.
-	RoomArn *string `type:"string"`
+	RoomArn *string `json:"a4b:RoomData:RoomArn" type:"string"`
 
 	// The name of a room.
-	RoomName *string `min:"1" type:"string"`
+	RoomName *string `json:"a4b:RoomData:RoomName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1130,12 +1130,12 @@ type RoomSkillParameter struct {
 	// type that only takes “DEFAULT” or “SCOPE” as valid values.
 	//
 	// ParameterKey is a required field
-	ParameterKey *string `min:"1" type:"string" required:"true"`
+	ParameterKey *string `json:"a4b:RoomSkillParameter:ParameterKey" min:"1" type:"string" required:"true"`
 
 	// The parameter value of a room skill parameter.
 	//
 	// ParameterValue is a required field
-	ParameterValue *string `min:"1" type:"string" required:"true"`
+	ParameterValue *string `json:"a4b:RoomSkillParameter:ParameterValue" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1175,12 +1175,12 @@ type SipAddress struct {
 	// The type of the SIP address.
 	//
 	// Type is a required field
-	Type SipType `type:"string" required:"true" enum:"true"`
+	Type SipType `json:"a4b:SipAddress:Type" type:"string" required:"true" enum:"true"`
 
 	// The URI for the SIP address.
 	//
 	// Uri is a required field
-	Uri *string `min:"1" type:"string" required:"true"`
+	Uri *string `json:"a4b:SipAddress:Uri" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1214,35 +1214,35 @@ type SkillDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The details about what the skill supports organized as bullet points.
-	BulletPoints []string `type:"list"`
+	BulletPoints []string `json:"a4b:SkillDetails:BulletPoints" type:"list"`
 
 	// The details about the developer that published the skill.
-	DeveloperInfo *DeveloperInfo `type:"structure"`
+	DeveloperInfo *DeveloperInfo `json:"a4b:SkillDetails:DeveloperInfo" type:"structure"`
 
 	// The URL of the end user license agreement.
-	EndUserLicenseAgreement *string `type:"string"`
+	EndUserLicenseAgreement *string `json:"a4b:SkillDetails:EndUserLicenseAgreement" type:"string"`
 
 	// The generic keywords associated with the skill that can be used to find a
 	// skill.
-	GenericKeywords []string `type:"list"`
+	GenericKeywords []string `json:"a4b:SkillDetails:GenericKeywords" type:"list"`
 
 	// The phrase used to trigger the skill.
-	InvocationPhrase *string `type:"string"`
+	InvocationPhrase *string `json:"a4b:SkillDetails:InvocationPhrase" type:"string"`
 
 	// The updates added in bullet points.
-	NewInThisVersionBulletPoints []string `type:"list"`
+	NewInThisVersionBulletPoints []string `json:"a4b:SkillDetails:NewInThisVersionBulletPoints" type:"list"`
 
 	// The description of the product.
-	ProductDescription *string `type:"string"`
+	ProductDescription *string `json:"a4b:SkillDetails:ProductDescription" type:"string"`
 
 	// The date when the skill was released.
-	ReleaseDate *string `type:"string"`
+	ReleaseDate *string `json:"a4b:SkillDetails:ReleaseDate" type:"string"`
 
 	// The list of reviews for the skill, including Key and Value pair.
-	Reviews map[string]string `type:"map"`
+	Reviews map[string]string `json:"a4b:SkillDetails:Reviews" type:"map"`
 
 	// The types of skills.
-	SkillTypes []string `type:"list"`
+	SkillTypes []string `json:"a4b:SkillDetails:SkillTypes" type:"list"`
 }
 
 // String returns the string representation
@@ -1256,13 +1256,13 @@ type SkillGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The description of a skill group.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"a4b:SkillGroup:Description" min:"1" type:"string"`
 
 	// The ARN of a skill group.
-	SkillGroupArn *string `type:"string"`
+	SkillGroupArn *string `json:"a4b:SkillGroup:SkillGroupArn" type:"string"`
 
 	// The name of a skill group.
-	SkillGroupName *string `min:"1" type:"string"`
+	SkillGroupName *string `json:"a4b:SkillGroup:SkillGroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1276,13 +1276,13 @@ type SkillGroupData struct {
 	_ struct{} `type:"structure"`
 
 	// The description of a skill group.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"a4b:SkillGroupData:Description" min:"1" type:"string"`
 
 	// The skill group ARN of a skill group.
-	SkillGroupArn *string `type:"string"`
+	SkillGroupArn *string `json:"a4b:SkillGroupData:SkillGroupArn" type:"string"`
 
 	// The skill group name of a skill group.
-	SkillGroupName *string `min:"1" type:"string"`
+	SkillGroupName *string `json:"a4b:SkillGroupData:SkillGroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1297,19 +1297,19 @@ type SkillSummary struct {
 
 	// Whether the skill is enabled under the user's account, or if it requires
 	// linking to be used.
-	EnablementType EnablementType `type:"string" enum:"true"`
+	EnablementType EnablementType `json:"a4b:SkillSummary:EnablementType" type:"string" enum:"true"`
 
 	// The ARN of the skill summary.
-	SkillId *string `type:"string"`
+	SkillId *string `json:"a4b:SkillSummary:SkillId" type:"string"`
 
 	// The name of the skill.
-	SkillName *string `min:"1" type:"string"`
+	SkillName *string `json:"a4b:SkillSummary:SkillName" min:"1" type:"string"`
 
 	// Whether the skill is publicly available or is a private skill.
-	SkillType SkillType `min:"1" type:"string" enum:"true"`
+	SkillType SkillType `json:"a4b:SkillSummary:SkillType" min:"1" type:"string" enum:"true"`
 
 	// Linking support for a skill.
-	SupportsLinking *bool `type:"boolean"`
+	SupportsLinking *bool `json:"a4b:SkillSummary:SupportsLinking" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1323,25 +1323,25 @@ type SkillsStoreSkill struct {
 	_ struct{} `type:"structure"`
 
 	// The URL where the skill icon resides.
-	IconUrl *string `type:"string"`
+	IconUrl *string `json:"a4b:SkillsStoreSkill:IconUrl" type:"string"`
 
 	// Sample utterances that interact with the skill.
-	SampleUtterances []string `type:"list"`
+	SampleUtterances []string `json:"a4b:SkillsStoreSkill:SampleUtterances" type:"list"`
 
 	// Short description about the skill.
-	ShortDescription *string `type:"string"`
+	ShortDescription *string `json:"a4b:SkillsStoreSkill:ShortDescription" type:"string"`
 
 	// Information about the skill.
-	SkillDetails *SkillDetails `type:"structure"`
+	SkillDetails *SkillDetails `json:"a4b:SkillsStoreSkill:SkillDetails" type:"structure"`
 
 	// The ARN of the skill.
-	SkillId *string `type:"string"`
+	SkillId *string `json:"a4b:SkillsStoreSkill:SkillId" type:"string"`
 
 	// The name of the skill.
-	SkillName *string `min:"1" type:"string"`
+	SkillName *string `json:"a4b:SkillsStoreSkill:SkillName" min:"1" type:"string"`
 
 	// Linking support for a skill.
-	SupportsLinking *bool `type:"boolean"`
+	SupportsLinking *bool `json:"a4b:SkillsStoreSkill:SupportsLinking" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1356,13 +1356,13 @@ type SmartHomeAppliance struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the smart home appliance.
-	Description *string `type:"string"`
+	Description *string `json:"a4b:SmartHomeAppliance:Description" type:"string"`
 
 	// The friendly name of the smart home appliance.
-	FriendlyName *string `type:"string"`
+	FriendlyName *string `json:"a4b:SmartHomeAppliance:FriendlyName" type:"string"`
 
 	// The name of the manufacturer of the smart home appliance.
-	ManufacturerName *string `type:"string"`
+	ManufacturerName *string `json:"a4b:SmartHomeAppliance:ManufacturerName" type:"string"`
 }
 
 // String returns the string representation
@@ -1378,12 +1378,12 @@ type Sort struct {
 	// The sort key of a sort object.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"a4b:Sort:Key" min:"1" type:"string" required:"true"`
 
 	// The sort value of a sort object.
 	//
 	// Value is a required field
-	Value SortValue `type:"string" required:"true" enum:"true"`
+	Value SortValue `json:"a4b:Sort:Value" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1419,13 +1419,13 @@ type Ssml struct {
 	// The locale of the SSML message. Currently, en-US is supported.
 	//
 	// Locale is a required field
-	Locale Locale `type:"string" required:"true" enum:"true"`
+	Locale Locale `json:"a4b:Ssml:Locale" type:"string" required:"true" enum:"true"`
 
 	// The value of the SSML message in the correct SSML format. The audio tag is
 	// not supported.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"a4b:Ssml:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1458,12 +1458,12 @@ type Tag struct {
 	// The key of a tag. Tag keys are case-sensitive.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"a4b:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of a tag. Tag values are case-sensitive and can be null.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"a4b:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1500,12 +1500,12 @@ type Text struct {
 	// The locale of the text message. Currently, en-US is supported.
 	//
 	// Locale is a required field
-	Locale Locale `type:"string" required:"true" enum:"true"`
+	Locale Locale `json:"a4b:Text:Locale" type:"string" required:"true" enum:"true"`
 
 	// The value of the text message.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"a4b:Text:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1536,22 +1536,22 @@ type UserData struct {
 	_ struct{} `type:"structure"`
 
 	// The email of a user.
-	Email *string `min:"1" type:"string"`
+	Email *string `json:"a4b:UserData:Email" min:"1" type:"string"`
 
 	// The enrollment ARN of a user.
-	EnrollmentId *string `type:"string"`
+	EnrollmentId *string `json:"a4b:UserData:EnrollmentId" type:"string"`
 
 	// The enrollment status of a user.
-	EnrollmentStatus EnrollmentStatus `type:"string" enum:"true"`
+	EnrollmentStatus EnrollmentStatus `json:"a4b:UserData:EnrollmentStatus" type:"string" enum:"true"`
 
 	// The first name of a user.
-	FirstName *string `type:"string"`
+	FirstName *string `json:"a4b:UserData:FirstName" type:"string"`
 
 	// The last name of a user.
-	LastName *string `type:"string"`
+	LastName *string `json:"a4b:UserData:LastName" type:"string"`
 
 	// The ARN of a user.
-	UserArn *string `type:"string"`
+	UserArn *string `json:"a4b:UserData:UserArn" type:"string"`
 }
 
 // String returns the string representation

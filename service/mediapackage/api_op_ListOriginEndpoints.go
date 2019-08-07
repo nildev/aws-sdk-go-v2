@@ -68,9 +68,9 @@ func (s ListOriginEndpointsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListOriginEndpointsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediapackage:ListOriginEndpointsOutput:NextToken" locationName:"nextToken" type:"string"`
 
-	OriginEndpoints []OriginEndpoint `locationName:"originEndpoints" type:"list"`
+	OriginEndpoints []OriginEndpoint `json:"mediapackage:ListOriginEndpointsOutput:OriginEndpoints" locationName:"originEndpoints" type:"list"`
 }
 
 // String returns the string representation

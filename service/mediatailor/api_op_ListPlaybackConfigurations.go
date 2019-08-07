@@ -63,11 +63,11 @@ type ListPlaybackConfigurationsOutput struct {
 	// Array of playback configurations. This might be all the available configurations
 	// or a subset, depending on the settings that you provide and the total number
 	// of configurations stored.
-	Items []PlaybackConfiguration `type:"list"`
+	Items []PlaybackConfiguration `json:"api.mediatailor:ListPlaybackConfigurationsOutput:Items" type:"list"`
 
 	// Pagination token returned by the GET list request when results exceed the
 	// maximum allowed. Use the token to fetch the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.mediatailor:ListPlaybackConfigurationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

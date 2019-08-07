@@ -43,7 +43,7 @@ type DescribeEntityRecognizerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes information associated with an entity recognizer.
-	EntityRecognizerProperties *EntityRecognizerProperties `type:"structure"`
+	EntityRecognizerProperties *EntityRecognizerProperties `json:"comprehend:DescribeEntityRecognizerOutput:EntityRecognizerProperties" type:"structure"`
 }
 
 // String returns the string representation

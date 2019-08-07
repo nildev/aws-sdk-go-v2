@@ -61,11 +61,11 @@ type DescribeAutomationExecutionsOutput struct {
 
 	// The list of details about each automation execution which has occurred which
 	// matches the filter specification, if any.
-	AutomationExecutionMetadataList []AutomationExecutionMetadata `type:"list"`
+	AutomationExecutionMetadataList []AutomationExecutionMetadata `json:"ssm:DescribeAutomationExecutionsOutput:AutomationExecutionMetadataList" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeAutomationExecutionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

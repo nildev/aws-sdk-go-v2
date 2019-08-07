@@ -60,7 +60,7 @@ type ConfirmSubscriptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the created subscription.
-	SubscriptionArn *string `type:"string"`
+	SubscriptionArn *string `json:"sns:ConfirmSubscriptionOutput:SubscriptionArn" type:"string"`
 }
 
 // String returns the string representation

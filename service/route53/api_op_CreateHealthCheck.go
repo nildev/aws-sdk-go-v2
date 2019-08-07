@@ -105,12 +105,12 @@ type CreateHealthCheckOutput struct {
 	// A complex type that contains identifying information about the health check.
 	//
 	// HealthCheck is a required field
-	HealthCheck *HealthCheck `type:"structure" required:"true"`
+	HealthCheck *HealthCheck `json:"route53:CreateHealthCheckOutput:HealthCheck" type:"structure" required:"true"`
 
 	// The unique URL representing the new health check.
 	//
 	// Location is a required field
-	Location *string `location:"header" locationName:"Location" type:"string" required:"true"`
+	Location *string `json:"route53:CreateHealthCheckOutput:Location" location:"header" locationName:"Location" type:"string" required:"true"`
 }
 
 // String returns the string representation

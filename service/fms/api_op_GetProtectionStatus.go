@@ -86,7 +86,7 @@ type GetProtectionStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the AWS Firewall administrator account for this policy.
-	AdminAccountId *string `min:"1" type:"string"`
+	AdminAccountId *string `json:"fms:GetProtectionStatusOutput:AdminAccountId" min:"1" type:"string"`
 
 	// Details about the attack, including the following:
 	//
@@ -102,7 +102,7 @@ type GetProtectionStatusOutput struct {
 	//
 	// The details are in JSON format. An example is shown in the Examples section
 	// below.
-	Data *string `type:"string"`
+	Data *string `json:"fms:GetProtectionStatusOutput:Data" type:"string"`
 
 	// If you have more objects than the number that you specified for MaxResults
 	// in the request, the response includes a NextToken value. To list more objects,
@@ -113,11 +113,11 @@ type GetProtectionStatusOutput struct {
 	// make subsequent request calls automatically on your behalf. However, this
 	// feature is not supported by GetProtectionStatus. You must submit subsequent
 	// requests with NextToken using your own processes.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"fms:GetProtectionStatusOutput:NextToken" min:"1" type:"string"`
 
 	// The service type that is protected by the policy. Currently, this is always
 	// SHIELD_ADVANCED.
-	ServiceType SecurityServiceType `type:"string" enum:"true"`
+	ServiceType SecurityServiceType `json:"fms:GetProtectionStatusOutput:ServiceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

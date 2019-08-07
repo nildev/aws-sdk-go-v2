@@ -64,11 +64,11 @@ type ListChannelsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of "ChannelSummary" objects.
-	ChannelSummaries []ChannelSummary `locationName:"channelSummaries" type:"list"`
+	ChannelSummaries []ChannelSummary `json:"iotanalytics:ListChannelsOutput:ChannelSummaries" locationName:"channelSummaries" type:"list"`
 
 	// The token to retrieve the next set of results, or null if there are no more
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotanalytics:ListChannelsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

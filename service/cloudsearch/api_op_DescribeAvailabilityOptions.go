@@ -55,7 +55,7 @@ type DescribeAvailabilityOptionsOutput struct {
 
 	// The availability options configured for the domain. Indicates whether Multi-AZ
 	// is enabled for the domain.
-	AvailabilityOptions *AvailabilityOptionsStatus `type:"structure"`
+	AvailabilityOptions *AvailabilityOptionsStatus `json:"cloudsearch:DescribeAvailabilityOptionsOutput:AvailabilityOptions" type:"structure"`
 }
 
 // String returns the string representation

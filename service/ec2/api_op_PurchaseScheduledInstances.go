@@ -66,7 +66,7 @@ type PurchaseScheduledInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Scheduled Instances.
-	ScheduledInstanceSet []ScheduledInstance `locationName:"scheduledInstanceSet" locationNameList:"item" type:"list"`
+	ScheduledInstanceSet []ScheduledInstance `json:"ec2:PurchaseScheduledInstancesOutput:ScheduledInstanceSet" locationName:"scheduledInstanceSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

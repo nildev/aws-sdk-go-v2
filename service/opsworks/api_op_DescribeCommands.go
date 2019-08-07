@@ -38,7 +38,7 @@ type DescribeCommandsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Command objects that describe each of the specified commands.
-	Commands []Command `type:"list"`
+	Commands []Command `json:"opsworks:DescribeCommandsOutput:Commands" type:"list"`
 }
 
 // String returns the string representation

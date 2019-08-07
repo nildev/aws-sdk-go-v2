@@ -52,13 +52,13 @@ type ResolveRoomOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the room from which the skill request was invoked.
-	RoomArn *string `type:"string"`
+	RoomArn *string `json:"a4b:ResolveRoomOutput:RoomArn" type:"string"`
 
 	// The name of the room from which the skill request was invoked.
-	RoomName *string `min:"1" type:"string"`
+	RoomName *string `json:"a4b:ResolveRoomOutput:RoomName" min:"1" type:"string"`
 
 	// Response to get the room profile request. Required.
-	RoomSkillParameters []RoomSkillParameter `type:"list"`
+	RoomSkillParameters []RoomSkillParameter `json:"a4b:ResolveRoomOutput:RoomSkillParameters" type:"list"`
 }
 
 // String returns the string representation

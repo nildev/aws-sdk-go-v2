@@ -304,7 +304,7 @@ type CreatePipelineOutput struct {
 
 	// A section of the response body that provides information about the pipeline
 	// that is created.
-	Pipeline *Pipeline `type:"structure"`
+	Pipeline *Pipeline `json:"elastictranscoder:CreatePipelineOutput:Pipeline" type:"structure"`
 
 	// Elastic Transcoder returns a warning if the resources used by your pipeline
 	// are not in the same region as the pipeline.
@@ -312,7 +312,7 @@ type CreatePipelineOutput struct {
 	// Using resources in the same region, such as your Amazon S3 buckets, Amazon
 	// SNS notification topics, and AWS KMS key, reduces processing time and prevents
 	// cross-regional charges.
-	Warnings []Warning `type:"list"`
+	Warnings []Warning `json:"elastictranscoder:CreatePipelineOutput:Warnings" type:"list"`
 }
 
 // String returns the string representation

@@ -40,7 +40,7 @@ type CreateOrganizationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains details about the newly created organization.
-	Organization *Organization `type:"structure"`
+	Organization *Organization `json:"organizations:CreateOrganizationOutput:Organization" type:"structure"`
 }
 
 // String returns the string representation

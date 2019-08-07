@@ -66,7 +66,7 @@ type CreatePlatformEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// EndpointArn returned from CreateEndpoint action.
-	EndpointArn *string `type:"string"`
+	EndpointArn *string `json:"sns:CreatePlatformEndpointOutput:EndpointArn" type:"string"`
 }
 
 // String returns the string representation

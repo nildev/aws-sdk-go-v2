@@ -124,12 +124,12 @@ type SearchGameSessionsOutput struct {
 
 	// Collection of objects containing game session properties for each session
 	// matching the request.
-	GameSessions []GameSession `type:"list"`
+	GameSessions []GameSession `json:"gamelift:SearchGameSessionsOutput:GameSessions" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:SearchGameSessionsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

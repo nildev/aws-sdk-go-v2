@@ -65,10 +65,10 @@ type DescribeStaleSecurityGroupsOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeStaleSecurityGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the stale security groups.
-	StaleSecurityGroupSet []StaleSecurityGroup `locationName:"staleSecurityGroupSet" locationNameList:"item" type:"list"`
+	StaleSecurityGroupSet []StaleSecurityGroup `json:"ec2:DescribeStaleSecurityGroupsOutput:StaleSecurityGroupSet" locationName:"staleSecurityGroupSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

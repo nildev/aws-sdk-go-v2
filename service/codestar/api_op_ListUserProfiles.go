@@ -48,12 +48,12 @@ type ListUserProfilesOutput struct {
 
 	// The continuation token to use when requesting the next set of results, if
 	// there are more results to be returned.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codestar:ListUserProfilesOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// All the user profiles configured in AWS CodeStar for an AWS account.
 	//
 	// UserProfiles is a required field
-	UserProfiles []UserProfileSummary `locationName:"userProfiles" type:"list" required:"true"`
+	UserProfiles []UserProfileSummary `json:"codestar:ListUserProfilesOutput:UserProfiles" locationName:"userProfiles" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -110,7 +110,7 @@ type CreateApplicationOutput struct {
 	// a response with details of the application it created.
 	//
 	// ApplicationDetail is a required field
-	ApplicationDetail *ApplicationDetail `type:"structure" required:"true"`
+	ApplicationDetail *ApplicationDetail `json:"kinesisanalytics:CreateApplicationOutput:ApplicationDetail" type:"structure" required:"true"`
 }
 
 // String returns the string representation

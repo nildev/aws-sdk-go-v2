@@ -55,7 +55,7 @@ type EnablePolicyTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that shows the root with the updated list of enabled policy types.
-	Root *Root `type:"structure"`
+	Root *Root `json:"organizations:EnablePolicyTypeOutput:Root" type:"structure"`
 }
 
 // String returns the string representation

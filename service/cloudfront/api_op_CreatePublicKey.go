@@ -61,14 +61,14 @@ type CreatePublicKeyOutput struct {
 	_ struct{} `type:"structure" payload:"PublicKey"`
 
 	// The current version of the public key. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:CreatePublicKeyOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// The fully qualified URI of the new public key resource just created. For
 	// example: https://cloudfront.amazonaws.com/2010-11-01/cloudfront-public-key/EDFDVBD632BHDS5.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"cloudfront:CreatePublicKeyOutput:Location" location:"header" locationName:"Location" type:"string"`
 
 	// Returned when you add a public key.
-	PublicKey *PublicKey `type:"structure"`
+	PublicKey *PublicKey `json:"cloudfront:CreatePublicKeyOutput:PublicKey" type:"structure"`
 }
 
 // String returns the string representation

@@ -20,24 +20,24 @@ type CSVInput struct {
 
 	// A single character used to indicate that a row should be ignored when the
 	// character is present at the start of that row.
-	Comments *string `type:"string"`
+	Comments *string `json:"glacier:CSVInput:Comments" type:"string"`
 
 	// A value used to separate individual fields from each other within a record.
-	FieldDelimiter *string `type:"string"`
+	FieldDelimiter *string `json:"glacier:CSVInput:FieldDelimiter" type:"string"`
 
 	// Describes the first line of input. Valid values are None, Ignore, and Use.
-	FileHeaderInfo FileHeaderInfo `type:"string" enum:"true"`
+	FileHeaderInfo FileHeaderInfo `json:"glacier:CSVInput:FileHeaderInfo" type:"string" enum:"true"`
 
 	// A value used as an escape character where the field delimiter is part of
 	// the value.
-	QuoteCharacter *string `type:"string"`
+	QuoteCharacter *string `json:"glacier:CSVInput:QuoteCharacter" type:"string"`
 
 	// A single character used for escaping the quotation-mark character inside
 	// an already escaped value.
-	QuoteEscapeCharacter *string `type:"string"`
+	QuoteEscapeCharacter *string `json:"glacier:CSVInput:QuoteEscapeCharacter" type:"string"`
 
 	// A value used to separate individual records from each other.
-	RecordDelimiter *string `type:"string"`
+	RecordDelimiter *string `json:"glacier:CSVInput:RecordDelimiter" type:"string"`
 }
 
 // String returns the string representation
@@ -92,22 +92,22 @@ type CSVOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A value used to separate individual fields from each other within a record.
-	FieldDelimiter *string `type:"string"`
+	FieldDelimiter *string `json:"glacier:CSVOutput:FieldDelimiter" type:"string"`
 
 	// A value used as an escape character where the field delimiter is part of
 	// the value.
-	QuoteCharacter *string `type:"string"`
+	QuoteCharacter *string `json:"glacier:CSVOutput:QuoteCharacter" type:"string"`
 
 	// A single character used for escaping the quotation-mark character inside
 	// an already escaped value.
-	QuoteEscapeCharacter *string `type:"string"`
+	QuoteEscapeCharacter *string `json:"glacier:CSVOutput:QuoteEscapeCharacter" type:"string"`
 
 	// A value that indicates whether all output fields should be contained within
 	// quotation marks.
-	QuoteFields QuoteFields `type:"string" enum:"true"`
+	QuoteFields QuoteFields `json:"glacier:CSVOutput:QuoteFields" type:"string" enum:"true"`
 
 	// A value used to separate individual records from each other.
-	RecordDelimiter *string `type:"string"`
+	RecordDelimiter *string `json:"glacier:CSVOutput:RecordDelimiter" type:"string"`
 }
 
 // String returns the string representation
@@ -156,7 +156,7 @@ type DataRetrievalPolicy struct {
 
 	// The policy rule. Although this is a list type, currently there must be only
 	// one rule, which contains a Strategy field and optionally a BytesPerHour field.
-	Rules []DataRetrievalRule `type:"list"`
+	Rules []DataRetrievalRule `json:"glacier:DataRetrievalPolicy:Rules" type:"list"`
 }
 
 // String returns the string representation
@@ -190,12 +190,12 @@ type DataRetrievalRule struct {
 	// This field is required only if the value of the Strategy field is BytesPerHour.
 	// Your PUT operation will be rejected if the Strategy field is not set to BytesPerHour
 	// and you set this field.
-	BytesPerHour *int64 `type:"long"`
+	BytesPerHour *int64 `json:"glacier:DataRetrievalRule:BytesPerHour" type:"long"`
 
 	// The type of data retrieval policy to set.
 	//
 	// Valid values: BytesPerHour|FreeTier|None
-	Strategy *string `type:"string"`
+	Strategy *string `json:"glacier:DataRetrievalRule:Strategy" type:"string"`
 }
 
 // String returns the string representation
@@ -227,16 +227,16 @@ type Encryption struct {
 
 	// The server-side encryption algorithm used when storing job results in Amazon
 	// S3, for example AES256 or aws:kms.
-	EncryptionType EncryptionType `type:"string" enum:"true"`
+	EncryptionType EncryptionType `json:"glacier:Encryption:EncryptionType" type:"string" enum:"true"`
 
 	// Optional. If the encryption type is aws:kms, you can use this value to specify
 	// the encryption context for the job results.
-	KMSContext *string `type:"string"`
+	KMSContext *string `json:"glacier:Encryption:KMSContext" type:"string"`
 
 	// The AWS KMS key ID to use for object encryption. All GET and PUT requests
 	// for an object protected by AWS KMS fail if not made by using Secure Sockets
 	// Layer (SSL) or Signature Version 4.
-	KMSKeyId *string `type:"string"`
+	KMSKeyId *string `json:"glacier:Encryption:KMSKeyId" type:"string"`
 }
 
 // String returns the string representation
@@ -273,59 +273,59 @@ type GlacierJobDescription struct {
 
 	// The job type. This value is either ArchiveRetrieval, InventoryRetrieval,
 	// or Select.
-	Action ActionCode `type:"string" enum:"true"`
+	Action ActionCode `json:"glacier:GlacierJobDescription:Action" type:"string" enum:"true"`
 
 	// The archive ID requested for a select job or archive retrieval. Otherwise,
 	// this field is null.
-	ArchiveId *string `type:"string"`
+	ArchiveId *string `json:"glacier:GlacierJobDescription:ArchiveId" type:"string"`
 
 	// The SHA256 tree hash of the entire archive for an archive retrieval. For
 	// inventory retrieval or select jobs, this field is null.
-	ArchiveSHA256TreeHash *string `type:"string"`
+	ArchiveSHA256TreeHash *string `json:"glacier:GlacierJobDescription:ArchiveSHA256TreeHash" type:"string"`
 
 	// For an archive retrieval job, this value is the size in bytes of the archive
 	// being requested for download. For an inventory retrieval or select job, this
 	// value is null.
-	ArchiveSizeInBytes *int64 `type:"long"`
+	ArchiveSizeInBytes *int64 `json:"glacier:GlacierJobDescription:ArchiveSizeInBytes" type:"long"`
 
 	// The job status. When a job is completed, you get the job's output using Get
 	// Job Output (GET output).
-	Completed *bool `type:"boolean"`
+	Completed *bool `json:"glacier:GlacierJobDescription:Completed" type:"boolean"`
 
 	// The UTC time that the job request completed. While the job is in progress,
 	// the value is null.
-	CompletionDate *string `type:"string"`
+	CompletionDate *string `json:"glacier:GlacierJobDescription:CompletionDate" type:"string"`
 
 	// The UTC date when the job was created. This value is a string representation
 	// of ISO 8601 date format, for example "2012-03-20T17:03:43.221Z".
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"glacier:GlacierJobDescription:CreationDate" type:"string"`
 
 	// Parameters used for range inventory retrieval.
-	InventoryRetrievalParameters *InventoryRetrievalJobDescription `type:"structure"`
+	InventoryRetrievalParameters *InventoryRetrievalJobDescription `json:"glacier:GlacierJobDescription:InventoryRetrievalParameters" type:"structure"`
 
 	// For an inventory retrieval job, this value is the size in bytes of the inventory
 	// requested for download. For an archive retrieval or select job, this value
 	// is null.
-	InventorySizeInBytes *int64 `type:"long"`
+	InventorySizeInBytes *int64 `json:"glacier:GlacierJobDescription:InventorySizeInBytes" type:"long"`
 
 	// The job description provided when initiating the job.
-	JobDescription *string `type:"string"`
+	JobDescription *string `json:"glacier:GlacierJobDescription:JobDescription" type:"string"`
 
 	// An opaque string that identifies an Amazon S3 Glacier job.
-	JobId *string `type:"string"`
+	JobId *string `json:"glacier:GlacierJobDescription:JobId" type:"string"`
 
 	// Contains the job output location.
-	JobOutputPath *string `type:"string"`
+	JobOutputPath *string `json:"glacier:GlacierJobDescription:JobOutputPath" type:"string"`
 
 	// Contains the location where the data from the select job is stored.
-	OutputLocation *OutputLocation `type:"structure"`
+	OutputLocation *OutputLocation `json:"glacier:GlacierJobDescription:OutputLocation" type:"structure"`
 
 	// The retrieved byte range for archive retrieval jobs in the form StartByteValue-EndByteValue.
 	// If no range was specified in the archive retrieval, then the whole archive
 	// is retrieved. In this case, StartByteValue equals 0 and EndByteValue equals
 	// the size of the archive minus 1. For inventory retrieval or select jobs,
 	// this field is null.
-	RetrievalByteRange *string `type:"string"`
+	RetrievalByteRange *string `json:"glacier:GlacierJobDescription:RetrievalByteRange" type:"string"`
 
 	// For an archive retrieval job, this value is the checksum of the archive.
 	// Otherwise, this value is null.
@@ -347,28 +347,28 @@ type GlacierJobDescription struct {
 	//    * Inventory jobs
 	//
 	//    * Select jobs
-	SHA256TreeHash *string `type:"string"`
+	SHA256TreeHash *string `json:"glacier:GlacierJobDescription:SHA256TreeHash" type:"string"`
 
 	// An Amazon SNS topic that receives notification.
-	SNSTopic *string `type:"string"`
+	SNSTopic *string `json:"glacier:GlacierJobDescription:SNSTopic" type:"string"`
 
 	// Contains the parameters used for a select.
-	SelectParameters *SelectParameters `type:"structure"`
+	SelectParameters *SelectParameters `json:"glacier:GlacierJobDescription:SelectParameters" type:"structure"`
 
 	// The status code can be InProgress, Succeeded, or Failed, and indicates the
 	// status of the job.
-	StatusCode StatusCode `type:"string" enum:"true"`
+	StatusCode StatusCode `json:"glacier:GlacierJobDescription:StatusCode" type:"string" enum:"true"`
 
 	// A friendly message that describes the job status.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"glacier:GlacierJobDescription:StatusMessage" type:"string"`
 
 	// The tier to use for a select or an archive retrieval. Valid values are Expedited,
 	// Standard, or Bulk. Standard is the default.
-	Tier *string `type:"string"`
+	Tier *string `json:"glacier:GlacierJobDescription:Tier" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the vault from which an archive retrieval
 	// was requested.
-	VaultARN *string `type:"string"`
+	VaultARN *string `json:"glacier:GlacierJobDescription:VaultARN" type:"string"`
 }
 
 // String returns the string representation
@@ -512,10 +512,10 @@ type Grant struct {
 	_ struct{} `type:"structure"`
 
 	// The grantee.
-	Grantee *Grantee `type:"structure"`
+	Grantee *Grantee `json:"glacier:Grant:Grantee" type:"structure"`
 
 	// Specifies the permission given to the grantee.
-	Permission Permission `type:"string" enum:"true"`
+	Permission Permission `json:"glacier:Grant:Permission" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -560,21 +560,21 @@ type Grantee struct {
 	_ struct{} `type:"structure"`
 
 	// Screen name of the grantee.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"glacier:Grantee:DisplayName" type:"string"`
 
 	// Email address of the grantee.
-	EmailAddress *string `type:"string"`
+	EmailAddress *string `json:"glacier:Grantee:EmailAddress" type:"string"`
 
 	// The canonical user ID of the grantee.
-	ID *string `type:"string"`
+	ID *string `json:"glacier:Grantee:ID" type:"string"`
 
 	// Type of grantee
 	//
 	// Type is a required field
-	Type Type `type:"string" required:"true" enum:"true"`
+	Type Type `json:"glacier:Grantee:Type" type:"string" required:"true" enum:"true"`
 
 	// URI of the grantee group.
-	URI *string `type:"string"`
+	URI *string `json:"glacier:Grantee:URI" type:"string"`
 }
 
 // String returns the string representation
@@ -635,7 +635,7 @@ type InputSerialization struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the serialization of a CSV-encoded object.
-	Csv *CSVInput `locationName:"csv" type:"structure"`
+	Csv *CSVInput `json:"glacier:InputSerialization:Csv" locationName:"csv" type:"structure"`
 }
 
 // String returns the string representation
@@ -661,28 +661,28 @@ type InventoryRetrievalJobDescription struct {
 	// The end of the date range in UTC for vault inventory retrieval that includes
 	// archives created before this date. This value should be a string in the ISO
 	// 8601 date format, for example 2013-03-20T17:03:43Z.
-	EndDate *string `type:"string"`
+	EndDate *string `json:"glacier:InventoryRetrievalJobDescription:EndDate" type:"string"`
 
 	// The output format for the vault inventory list, which is set by the InitiateJob
 	// request when initiating a job to retrieve a vault inventory. Valid values
 	// are CSV and JSON.
-	Format *string `type:"string"`
+	Format *string `json:"glacier:InventoryRetrievalJobDescription:Format" type:"string"`
 
 	// The maximum number of inventory items returned per vault inventory retrieval
 	// request. This limit is set when initiating the job with the a InitiateJob
 	// request.
-	Limit *string `type:"string"`
+	Limit *string `json:"glacier:InventoryRetrievalJobDescription:Limit" type:"string"`
 
 	// An opaque string that represents where to continue pagination of the vault
 	// inventory retrieval results. You use the marker in a new InitiateJob request
 	// to obtain additional inventory items. If there are no more inventory items,
 	// this value is null. For more information, see Range Inventory Retrieval (https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering).
-	Marker *string `type:"string"`
+	Marker *string `json:"glacier:InventoryRetrievalJobDescription:Marker" type:"string"`
 
 	// The start of the date range in Universal Coordinated Time (UTC) for vault
 	// inventory retrieval that includes archives created on or after this date.
 	// This value should be a string in the ISO 8601 date format, for example 2013-03-20T17:03:43Z.
-	StartDate *string `type:"string"`
+	StartDate *string `json:"glacier:InventoryRetrievalJobDescription:StartDate" type:"string"`
 }
 
 // String returns the string representation
@@ -732,22 +732,22 @@ type InventoryRetrievalJobInput struct {
 	// The end of the date range in UTC for vault inventory retrieval that includes
 	// archives created before this date. This value should be a string in the ISO
 	// 8601 date format, for example 2013-03-20T17:03:43Z.
-	EndDate *string `type:"string"`
+	EndDate *string `json:"glacier:InventoryRetrievalJobInput:EndDate" type:"string"`
 
 	// Specifies the maximum number of inventory items returned per vault inventory
 	// retrieval request. Valid values are greater than or equal to 1.
-	Limit *string `type:"string"`
+	Limit *string `json:"glacier:InventoryRetrievalJobInput:Limit" type:"string"`
 
 	// An opaque string that represents where to continue pagination of the vault
 	// inventory retrieval results. You use the marker in a new InitiateJob request
 	// to obtain additional inventory items. If there are no more inventory items,
 	// this value is null.
-	Marker *string `type:"string"`
+	Marker *string `json:"glacier:InventoryRetrievalJobInput:Marker" type:"string"`
 
 	// The start of the date range in UTC for vault inventory retrieval that includes
 	// archives created on or after this date. This value should be a string in
 	// the ISO 8601 date format, for example 2013-03-20T17:03:43Z.
-	StartDate *string `type:"string"`
+	StartDate *string `json:"glacier:InventoryRetrievalJobInput:StartDate" type:"string"`
 }
 
 // String returns the string representation
@@ -791,25 +791,25 @@ type JobParameters struct {
 	// The ID of the archive that you want to retrieve. This field is required only
 	// if Type is set to select or archive-retrievalcode>. An error occurs if you
 	// specify this request parameter for an inventory retrieval job request.
-	ArchiveId *string `type:"string"`
+	ArchiveId *string `json:"glacier:JobParameters:ArchiveId" type:"string"`
 
 	// The optional description for the job. The description must be less than or
 	// equal to 1,024 bytes. The allowable characters are 7-bit ASCII without control
 	// codes-specifically, ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.
-	Description *string `type:"string"`
+	Description *string `json:"glacier:JobParameters:Description" type:"string"`
 
 	// When initiating a job to retrieve a vault inventory, you can optionally add
 	// this parameter to your request to specify the output format. If you are initiating
 	// an inventory job and do not specify a Format field, JSON is the default format.
 	// Valid values are "CSV" and "JSON".
-	Format *string `type:"string"`
+	Format *string `json:"glacier:JobParameters:Format" type:"string"`
 
 	// Input parameters used for range inventory retrieval.
-	InventoryRetrievalParameters *InventoryRetrievalJobInput `type:"structure"`
+	InventoryRetrievalParameters *InventoryRetrievalJobInput `json:"glacier:JobParameters:InventoryRetrievalParameters" type:"structure"`
 
 	// Contains information about the location where the select job results are
 	// stored.
-	OutputLocation *OutputLocation `type:"structure"`
+	OutputLocation *OutputLocation `json:"glacier:JobParameters:OutputLocation" type:"structure"`
 
 	// The byte range to retrieve for an archive retrieval. in the form "StartByteValue-EndByteValue"
 	// If not specified, the whole archive is retrieved. If specified, the byte
@@ -821,25 +821,25 @@ type JobParameters struct {
 	//
 	// An error occurs if you specify this field for an inventory retrieval job
 	// request.
-	RetrievalByteRange *string `type:"string"`
+	RetrievalByteRange *string `json:"glacier:JobParameters:RetrievalByteRange" type:"string"`
 
 	// The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification
 	// when the job is completed and the output is ready for you to download. The
 	// specified topic publishes the notification to its subscribers. The SNS topic
 	// must exist.
-	SNSTopic *string `type:"string"`
+	SNSTopic *string `json:"glacier:JobParameters:SNSTopic" type:"string"`
 
 	// Contains the parameters that define a job.
-	SelectParameters *SelectParameters `type:"structure"`
+	SelectParameters *SelectParameters `json:"glacier:JobParameters:SelectParameters" type:"structure"`
 
 	// The tier to use for a select or an archive retrieval job. Valid values are
 	// Expedited, Standard, or Bulk. Standard is the default.
-	Tier *string `type:"string"`
+	Tier *string `json:"glacier:JobParameters:Tier" type:"string"`
 
 	// The job type. You can initiate a job to perform a select query on an archive,
 	// retrieve an archive, or get an inventory of a vault. Valid values are "select",
 	// "archive-retrieval" and "inventory-retrieval".
-	Type *string `type:"string"`
+	Type *string `json:"glacier:JobParameters:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -933,7 +933,7 @@ type OutputLocation struct {
 	_ struct{} `type:"structure"`
 
 	// Describes an S3 location that will receive the results of the job request.
-	S3 *S3Location `type:"structure"`
+	S3 *S3Location `json:"glacier:OutputLocation:S3" type:"structure"`
 }
 
 // String returns the string representation
@@ -972,7 +972,7 @@ type OutputSerialization struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the serialization of CSV-encoded query results.
-	Csv *CSVOutput `locationName:"csv" type:"structure"`
+	Csv *CSVOutput `json:"glacier:OutputSerialization:Csv" locationName:"csv" type:"structure"`
 }
 
 // String returns the string representation
@@ -996,11 +996,11 @@ type PartListElement struct {
 	_ struct{} `type:"structure"`
 
 	// The byte range of a part, inclusive of the upper value of the range.
-	RangeInBytes *string `type:"string"`
+	RangeInBytes *string `json:"glacier:PartListElement:RangeInBytes" type:"string"`
 
 	// The SHA256 tree hash value that Amazon S3 Glacier calculated for the part.
 	// This field is never null.
-	SHA256TreeHash *string `type:"string"`
+	SHA256TreeHash *string `json:"glacier:PartListElement:SHA256TreeHash" type:"string"`
 }
 
 // String returns the string representation
@@ -1030,15 +1030,15 @@ type ProvisionedCapacityDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The ID that identifies the provisioned capacity unit.
-	CapacityId *string `type:"string"`
+	CapacityId *string `json:"glacier:ProvisionedCapacityDescription:CapacityId" type:"string"`
 
 	// The date that the provisioned capacity unit expires, in Universal Coordinated
 	// Time (UTC).
-	ExpirationDate *string `type:"string"`
+	ExpirationDate *string `json:"glacier:ProvisionedCapacityDescription:ExpirationDate" type:"string"`
 
 	// The date that the provisioned capacity unit was purchased, in Universal Coordinated
 	// Time (UTC).
-	StartDate *string `type:"string"`
+	StartDate *string `json:"glacier:ProvisionedCapacityDescription:StartDate" type:"string"`
 }
 
 // String returns the string representation
@@ -1075,29 +1075,29 @@ type S3Location struct {
 	_ struct{} `type:"structure"`
 
 	// A list of grants that control access to the staged results.
-	AccessControlList []Grant `type:"list"`
+	AccessControlList []Grant `json:"glacier:S3Location:AccessControlList" type:"list"`
 
 	// The name of the Amazon S3 bucket where the job results are stored.
-	BucketName *string `type:"string"`
+	BucketName *string `json:"glacier:S3Location:BucketName" type:"string"`
 
 	// The canned access control list (ACL) to apply to the job results.
-	CannedACL CannedACL `type:"string" enum:"true"`
+	CannedACL CannedACL `json:"glacier:S3Location:CannedACL" type:"string" enum:"true"`
 
 	// Contains information about the encryption used to store the job results in
 	// Amazon S3.
-	Encryption *Encryption `type:"structure"`
+	Encryption *Encryption `json:"glacier:S3Location:Encryption" type:"structure"`
 
 	// The prefix that is prepended to the results for this request.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"glacier:S3Location:Prefix" type:"string"`
 
 	// The storage class used to store the job results.
-	StorageClass StorageClass `type:"string" enum:"true"`
+	StorageClass StorageClass `json:"glacier:S3Location:StorageClass" type:"string" enum:"true"`
 
 	// The tag-set that is applied to the job results.
-	Tagging map[string]string `type:"map"`
+	Tagging map[string]string `json:"glacier:S3Location:Tagging" type:"map"`
 
 	// A map of metadata to store with the job results in Amazon S3.
-	UserMetadata map[string]string `type:"map"`
+	UserMetadata map[string]string `json:"glacier:S3Location:UserMetadata" type:"map"`
 }
 
 // String returns the string representation
@@ -1198,16 +1198,16 @@ type SelectParameters struct {
 	_ struct{} `type:"structure"`
 
 	// The expression that is used to select the object.
-	Expression *string `type:"string"`
+	Expression *string `json:"glacier:SelectParameters:Expression" type:"string"`
 
 	// The type of the provided expression, for example SQL.
-	ExpressionType ExpressionType `type:"string" enum:"true"`
+	ExpressionType ExpressionType `json:"glacier:SelectParameters:ExpressionType" type:"string" enum:"true"`
 
 	// Describes the serialization format of the object.
-	InputSerialization *InputSerialization `type:"structure"`
+	InputSerialization *InputSerialization `json:"glacier:SelectParameters:InputSerialization" type:"structure"`
 
 	// Describes how the results of the select job are serialized.
-	OutputSerialization *OutputSerialization `type:"structure"`
+	OutputSerialization *OutputSerialization `json:"glacier:SelectParameters:OutputSerialization" type:"structure"`
 }
 
 // String returns the string representation
@@ -1250,21 +1250,21 @@ type UploadListElement struct {
 
 	// The description of the archive that was specified in the Initiate Multipart
 	// Upload request.
-	ArchiveDescription *string `type:"string"`
+	ArchiveDescription *string `json:"glacier:UploadListElement:ArchiveDescription" type:"string"`
 
 	// The UTC time at which the multipart upload was initiated.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"glacier:UploadListElement:CreationDate" type:"string"`
 
 	// The ID of a multipart upload.
-	MultipartUploadId *string `type:"string"`
+	MultipartUploadId *string `json:"glacier:UploadListElement:MultipartUploadId" type:"string"`
 
 	// The part size, in bytes, specified in the Initiate Multipart Upload request.
 	// This is the size of all the parts in the upload except the last part, which
 	// may be smaller than this size.
-	PartSizeInBytes *int64 `type:"long"`
+	PartSizeInBytes *int64 `json:"glacier:UploadListElement:PartSizeInBytes" type:"long"`
 
 	// The Amazon Resource Name (ARN) of the vault that contains the archive.
-	VaultARN *string `type:"string"`
+	VaultARN *string `json:"glacier:UploadListElement:VaultARN" type:"string"`
 }
 
 // String returns the string representation
@@ -1312,7 +1312,7 @@ type VaultAccessPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The vault access policy.
-	Policy *string `type:"string"`
+	Policy *string `json:"glacier:VaultAccessPolicy:Policy" type:"string"`
 }
 
 // String returns the string representation
@@ -1336,7 +1336,7 @@ type VaultLockPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The vault lock policy.
-	Policy *string `type:"string"`
+	Policy *string `json:"glacier:VaultLockPolicy:Policy" type:"string"`
 }
 
 // String returns the string representation
@@ -1361,11 +1361,11 @@ type VaultNotificationConfig struct {
 
 	// A list of one or more events for which Amazon S3 Glacier will send a notification
 	// to the specified Amazon SNS topic.
-	Events []string `type:"list"`
+	Events []string `json:"glacier:VaultNotificationConfig:Events" type:"list"`
 
 	// The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource
 	// Name (ARN).
-	SNSTopic *string `type:"string"`
+	SNSTopic *string `json:"glacier:VaultNotificationConfig:SNSTopic" type:"string"`
 }
 
 // String returns the string representation

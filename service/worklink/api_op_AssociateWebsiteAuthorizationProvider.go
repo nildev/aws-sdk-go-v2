@@ -87,7 +87,7 @@ type AssociateWebsiteAuthorizationProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier for the authorization provider.
-	AuthorizationProviderId *string `min:"1" type:"string"`
+	AuthorizationProviderId *string `json:"worklink:AssociateWebsiteAuthorizationProviderOutput:AuthorizationProviderId" min:"1" type:"string"`
 }
 
 // String returns the string representation

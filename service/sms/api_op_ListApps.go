@@ -34,11 +34,11 @@ type ListAppsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of application summaries.
-	Apps []AppSummary `locationName:"apps" type:"list"`
+	Apps []AppSummary `json:"sms:ListAppsOutput:Apps" locationName:"apps" type:"list"`
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"sms:ListAppsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -72,7 +72,7 @@ type CreateProtectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier (ID) for the Protection object that is created.
-	ProtectionId *string `min:"1" type:"string"`
+	ProtectionId *string `json:"shield:CreateProtectionOutput:ProtectionId" min:"1" type:"string"`
 }
 
 // String returns the string representation

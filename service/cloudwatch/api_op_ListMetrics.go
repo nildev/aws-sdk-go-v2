@@ -61,10 +61,10 @@ type ListMetricsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The metrics.
-	Metrics []Metric `type:"list"`
+	Metrics []Metric `json:"monitoring:ListMetricsOutput:Metrics" type:"list"`
 
 	// The token that marks the start of the next batch of returned results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"monitoring:ListMetricsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

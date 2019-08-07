@@ -30,7 +30,7 @@ type GenerateChangeSetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Location of the Amazon S3 object.
-	S3Location *S3Location `locationName:"s3Location" type:"structure"`
+	S3Location *S3Location `json:"sms:GenerateChangeSetOutput:S3Location" locationName:"s3Location" type:"structure"`
 }
 
 // String returns the string representation

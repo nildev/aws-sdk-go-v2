@@ -48,10 +48,10 @@ type ListInstanceGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of instance groups for the cluster and given filters.
-	InstanceGroups []InstanceGroup `type:"list"`
+	InstanceGroups []InstanceGroup `json:"elasticmapreduce:ListInstanceGroupsOutput:InstanceGroups" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticmapreduce:ListInstanceGroupsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

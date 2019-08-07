@@ -58,7 +58,7 @@ type GetWorkflowRunPropertiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The workflow run properties which were set during the specified run.
-	RunProperties map[string]string `type:"map"`
+	RunProperties map[string]string `json:"glue:GetWorkflowRunPropertiesOutput:RunProperties" type:"map"`
 }
 
 // String returns the string representation

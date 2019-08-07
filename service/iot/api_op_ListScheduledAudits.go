@@ -61,10 +61,10 @@ type ListScheduledAuditsOutput struct {
 
 	// A token that can be used to retrieve the next set of results, or null if
 	// there are no additional results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListScheduledAuditsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of scheduled audits.
-	ScheduledAudits []ScheduledAuditMetadata `locationName:"scheduledAudits" type:"list"`
+	ScheduledAudits []ScheduledAuditMetadata `json:"iot:ListScheduledAuditsOutput:ScheduledAudits" locationName:"scheduledAudits" type:"list"`
 }
 
 // String returns the string representation

@@ -48,7 +48,7 @@ type GetContainerPolicyOutput struct {
 	// The contents of the access policy.
 	//
 	// Policy is a required field
-	Policy *string `min:"1" type:"string" required:"true"`
+	Policy *string `json:"mediastore:GetContainerPolicyOutput:Policy" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

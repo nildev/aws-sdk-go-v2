@@ -60,15 +60,15 @@ func (s GetBucketWebsiteInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetBucketWebsiteOutput struct {
 	_ struct{} `type:"structure"`
 
-	ErrorDocument *ErrorDocument `type:"structure"`
+	ErrorDocument *ErrorDocument `json:"s3:GetBucketWebsiteOutput:ErrorDocument" type:"structure"`
 
-	IndexDocument *IndexDocument `type:"structure"`
+	IndexDocument *IndexDocument `json:"s3:GetBucketWebsiteOutput:IndexDocument" type:"structure"`
 
 	// Specifies the redirect behavior of all requests to a website endpoint of
 	// an Amazon S3 bucket.
-	RedirectAllRequestsTo *RedirectAllRequestsTo `type:"structure"`
+	RedirectAllRequestsTo *RedirectAllRequestsTo `json:"s3:GetBucketWebsiteOutput:RedirectAllRequestsTo" type:"structure"`
 
-	RoutingRules []RoutingRule `locationNameList:"RoutingRule" type:"list"`
+	RoutingRules []RoutingRule `json:"s3:GetBucketWebsiteOutput:RoutingRules" locationNameList:"RoutingRule" type:"list"`
 }
 
 // String returns the string representation

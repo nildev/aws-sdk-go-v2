@@ -87,11 +87,11 @@ type ListDomainAssociationsOutput struct {
 	// List of Domain Associations.
 	//
 	// DomainAssociations is a required field
-	DomainAssociations []DomainAssociation `locationName:"domainAssociations" type:"list" required:"true"`
+	DomainAssociations []DomainAssociation `json:"amplify:ListDomainAssociationsOutput:DomainAssociations" locationName:"domainAssociations" type:"list" required:"true"`
 
 	// Pagination token. If non-null pagination token is returned in a result, then
 	// pass its value in another request to fetch more entries.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"amplify:ListDomainAssociationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

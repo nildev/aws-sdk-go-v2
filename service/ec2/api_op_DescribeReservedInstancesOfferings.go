@@ -131,10 +131,10 @@ type DescribeReservedInstancesOfferingsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeReservedInstancesOfferingsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of Reserved Instances offerings.
-	ReservedInstancesOfferings []ReservedInstancesOffering `locationName:"reservedInstancesOfferingsSet" locationNameList:"item" type:"list"`
+	ReservedInstancesOfferings []ReservedInstancesOffering `json:"ec2:DescribeReservedInstancesOfferingsOutput:ReservedInstancesOfferings" locationName:"reservedInstancesOfferingsSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

@@ -68,10 +68,10 @@ type InitializeClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The cluster's state.
-	State ClusterState `type:"string" enum:"true"`
+	State ClusterState `json:"cloudhsmv2:InitializeClusterOutput:State" type:"string" enum:"true"`
 
 	// A description of the cluster's state.
-	StateMessage *string `type:"string"`
+	StateMessage *string `json:"cloudhsmv2:InitializeClusterOutput:StateMessage" type:"string"`
 }
 
 // String returns the string representation

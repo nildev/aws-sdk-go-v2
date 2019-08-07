@@ -85,11 +85,11 @@ type ListRecoveryPointsByResourceOutput struct {
 	// a request is made to return maxResults number of items, NextToken allows
 	// you to return more items in your list starting at the location pointed to
 	// by the next token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"backup:ListRecoveryPointsByResourceOutput:NextToken" type:"string"`
 
 	// An array of objects that contain detailed information about recovery points
 	// of the specified resource type.
-	RecoveryPoints []RecoveryPointByResource `type:"list"`
+	RecoveryPoints []RecoveryPointByResource `json:"backup:ListRecoveryPointsByResourceOutput:RecoveryPoints" type:"list"`
 }
 
 // String returns the string representation

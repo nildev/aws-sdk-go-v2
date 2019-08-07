@@ -71,7 +71,7 @@ type DescribeAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Elastic IP addresses.
-	Addresses []Address `locationName:"addressesSet" locationNameList:"item" type:"list"`
+	Addresses []Address `json:"ec2:DescribeAddressesOutput:Addresses" locationName:"addressesSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

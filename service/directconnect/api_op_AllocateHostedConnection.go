@@ -98,19 +98,19 @@ type AllocateHostedConnectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDevice *string `locationName:"awsDevice" deprecated:"true" type:"string"`
+	AwsDevice *string `json:"directconnect:AllocateHostedConnectionOutput:AwsDevice" locationName:"awsDevice" deprecated:"true" type:"string"`
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:AllocateHostedConnectionOutput:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The bandwidth of the connection.
-	Bandwidth *string `locationName:"bandwidth" type:"string"`
+	Bandwidth *string `json:"directconnect:AllocateHostedConnectionOutput:Bandwidth" locationName:"bandwidth" type:"string"`
 
 	// The ID of the connection.
-	ConnectionId *string `locationName:"connectionId" type:"string"`
+	ConnectionId *string `json:"directconnect:AllocateHostedConnectionOutput:ConnectionId" locationName:"connectionId" type:"string"`
 
 	// The name of the connection.
-	ConnectionName *string `locationName:"connectionName" type:"string"`
+	ConnectionName *string `json:"directconnect:AllocateHostedConnectionOutput:ConnectionName" locationName:"connectionName" type:"string"`
 
 	// The state of the connection. The following are the possible values:
 	//
@@ -136,38 +136,38 @@ type AllocateHostedConnectionOutput struct {
 	//    state if it is deleted by the customer.
 	//
 	//    * unknown: The state of the connection is not available.
-	ConnectionState ConnectionState `locationName:"connectionState" type:"string" enum:"true"`
+	ConnectionState ConnectionState `json:"directconnect:AllocateHostedConnectionOutput:ConnectionState" locationName:"connectionState" type:"string" enum:"true"`
 
 	// Indicates whether the connection supports a secondary BGP peer in the same
 	// address family (IPv4/IPv6).
-	HasLogicalRedundancy HasLogicalRedundancy `locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
+	HasLogicalRedundancy HasLogicalRedundancy `json:"directconnect:AllocateHostedConnectionOutput:HasLogicalRedundancy" locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
 
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `locationName:"jumboFrameCapable" type:"boolean"`
+	JumboFrameCapable *bool `json:"directconnect:AllocateHostedConnectionOutput:JumboFrameCapable" locationName:"jumboFrameCapable" type:"boolean"`
 
 	// The ID of the LAG.
-	LagId *string `locationName:"lagId" type:"string"`
+	LagId *string `json:"directconnect:AllocateHostedConnectionOutput:LagId" locationName:"lagId" type:"string"`
 
 	// The time of the most recent call to DescribeLoa for this connection.
-	LoaIssueTime *time.Time `locationName:"loaIssueTime" type:"timestamp" timestampFormat:"unix"`
+	LoaIssueTime *time.Time `json:"directconnect:AllocateHostedConnectionOutput:LoaIssueTime" locationName:"loaIssueTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The location of the connection.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"directconnect:AllocateHostedConnectionOutput:Location" locationName:"location" type:"string"`
 
 	// The ID of the AWS account that owns the connection.
-	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
+	OwnerAccount *string `json:"directconnect:AllocateHostedConnectionOutput:OwnerAccount" locationName:"ownerAccount" type:"string"`
 
 	// The name of the AWS Direct Connect service provider associated with the connection.
-	PartnerName *string `locationName:"partnerName" type:"string"`
+	PartnerName *string `json:"directconnect:AllocateHostedConnectionOutput:PartnerName" locationName:"partnerName" type:"string"`
 
 	// The AWS Region where the connection is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:AllocateHostedConnectionOutput:Region" locationName:"region" type:"string"`
 
 	// Any tags assigned to the connection.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:AllocateHostedConnectionOutput:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The ID of the VLAN.
-	Vlan *int64 `locationName:"vlan" type:"integer"`
+	Vlan *int64 `json:"directconnect:AllocateHostedConnectionOutput:Vlan" locationName:"vlan" type:"integer"`
 }
 
 // String returns the string representation

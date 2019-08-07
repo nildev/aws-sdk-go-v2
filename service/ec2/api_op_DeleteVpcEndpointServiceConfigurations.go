@@ -49,7 +49,7 @@ type DeleteVpcEndpointServiceConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the service configurations that were not deleted, if applicable.
-	Unsuccessful []UnsuccessfulItem `locationName:"unsuccessful" locationNameList:"item" type:"list"`
+	Unsuccessful []UnsuccessfulItem `json:"ec2:DeleteVpcEndpointServiceConfigurationsOutput:Unsuccessful" locationName:"unsuccessful" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

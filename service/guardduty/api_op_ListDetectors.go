@@ -69,11 +69,11 @@ type ListDetectorsOutput struct {
 	// A list of detector Ids.
 	//
 	// DetectorIds is a required field
-	DetectorIds []string `locationName:"detectorIds" type:"list" required:"true"`
+	DetectorIds []string `json:"guardduty:ListDetectorsOutput:DetectorIds" locationName:"detectorIds" type:"list" required:"true"`
 
 	// Pagination parameter to be used on the next list operation to retrieve more
 	// items.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"guardduty:ListDetectorsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

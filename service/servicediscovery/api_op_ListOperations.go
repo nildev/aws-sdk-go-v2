@@ -77,10 +77,10 @@ type ListOperationsOutput struct {
 	// specified criteria. It's possible that no operations in the first MaxResults
 	// operations matched the specified criteria but that subsequent groups of MaxResults
 	// operations do contain operations that match the criteria.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicediscovery:ListOperationsOutput:NextToken" type:"string"`
 
 	// Summary information about the operations that match the specified criteria.
-	Operations []OperationSummary `type:"list"`
+	Operations []OperationSummary `json:"servicediscovery:ListOperationsOutput:Operations" type:"list"`
 }
 
 // String returns the string representation

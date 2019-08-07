@@ -115,16 +115,16 @@ type ListGroupMembershipsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of the members of the group.
-	GroupMemberList []GroupMember `type:"list"`
+	GroupMemberList []GroupMember `json:"quicksight:ListGroupMembershipsOutput:GroupMemberList" type:"list"`
 
 	// A pagination token that can be used in a subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"quicksight:ListGroupMembershipsOutput:NextToken" type:"string"`
 
 	// The AWS request ID for this operation.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"quicksight:ListGroupMembershipsOutput:RequestId" type:"string"`
 
 	// The http status of the request.
-	Status *int64 `location:"statusCode" type:"integer"`
+	Status *int64 `json:"quicksight:ListGroupMembershipsOutput:Status" location:"statusCode" type:"integer"`
 }
 
 // String returns the string representation

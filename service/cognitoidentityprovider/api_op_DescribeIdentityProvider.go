@@ -60,7 +60,7 @@ type DescribeIdentityProviderOutput struct {
 	// The identity provider that was deleted.
 	//
 	// IdentityProvider is a required field
-	IdentityProvider *IdentityProviderType `type:"structure" required:"true"`
+	IdentityProvider *IdentityProviderType `json:"cognito-idp:DescribeIdentityProviderOutput:IdentityProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation

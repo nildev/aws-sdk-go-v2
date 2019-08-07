@@ -57,10 +57,10 @@ type DescribeJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An S3 link to the job document.
-	DocumentSource *string `locationName:"documentSource" min:"1" type:"string"`
+	DocumentSource *string `json:"iot:DescribeJobOutput:DocumentSource" locationName:"documentSource" min:"1" type:"string"`
 
 	// Information about the job.
-	Job *Job `locationName:"job" type:"structure"`
+	Job *Job `json:"iot:DescribeJobOutput:Job" locationName:"job" type:"structure"`
 }
 
 // String returns the string representation

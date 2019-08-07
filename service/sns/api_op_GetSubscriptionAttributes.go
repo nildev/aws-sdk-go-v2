@@ -72,7 +72,7 @@ type GetSubscriptionAttributesOutput struct {
 	//    * SubscriptionArn – The subscription's ARN.
 	//
 	//    * TopicArn – The topic ARN that the subscription is associated with.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"sns:GetSubscriptionAttributesOutput:Attributes" type:"map"`
 }
 
 // String returns the string representation

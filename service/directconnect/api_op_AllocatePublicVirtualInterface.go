@@ -67,70 +67,70 @@ type AllocatePublicVirtualInterfaceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:AllocatePublicVirtualInterfaceOutput:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system number (ASN) for the Amazon side of the connection.
-	AmazonSideAsn *int64 `locationName:"amazonSideAsn" type:"long"`
+	AmazonSideAsn *int64 `json:"directconnect:AllocatePublicVirtualInterfaceOutput:AmazonSideAsn" locationName:"amazonSideAsn" type:"long"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	Asn *int64 `locationName:"asn" type:"integer"`
+	Asn *int64 `json:"directconnect:AllocatePublicVirtualInterfaceOutput:Asn" locationName:"asn" type:"integer"`
 
 	// The authentication key for BGP configuration. This string has a minimum length
 	// of 6 characters and and a maximun lenth of 80 characters.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:AuthKey" locationName:"authKey" type:"string"`
 
 	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The BGP peers configured on this virtual interface.
-	BgpPeers []BGPPeer `locationName:"bgpPeers" type:"list"`
+	BgpPeers []BGPPeer `json:"directconnect:AllocatePublicVirtualInterfaceOutput:BgpPeers" locationName:"bgpPeers" type:"list"`
 
 	// The ID of the connection.
-	ConnectionId *string `locationName:"connectionId" type:"string"`
+	ConnectionId *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:ConnectionId" locationName:"connectionId" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:CustomerAddress" locationName:"customerAddress" type:"string"`
 
 	// The customer router configuration.
-	CustomerRouterConfig *string `locationName:"customerRouterConfig" type:"string"`
+	CustomerRouterConfig *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:CustomerRouterConfig" locationName:"customerRouterConfig" type:"string"`
 
 	// The ID of the Direct Connect gateway.
-	DirectConnectGatewayId *string `locationName:"directConnectGatewayId" type:"string"`
+	DirectConnectGatewayId *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:DirectConnectGatewayId" locationName:"directConnectGatewayId" type:"string"`
 
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `locationName:"jumboFrameCapable" type:"boolean"`
+	JumboFrameCapable *bool `json:"directconnect:AllocatePublicVirtualInterfaceOutput:JumboFrameCapable" locationName:"jumboFrameCapable" type:"boolean"`
 
 	// The location of the connection.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:Location" locationName:"location" type:"string"`
 
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500
 	// and 9001. The default value is 1500.
-	Mtu *int64 `locationName:"mtu" type:"integer"`
+	Mtu *int64 `json:"directconnect:AllocatePublicVirtualInterfaceOutput:Mtu" locationName:"mtu" type:"integer"`
 
 	// The ID of the AWS account that owns the virtual interface.
-	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
+	OwnerAccount *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:OwnerAccount" locationName:"ownerAccount" type:"string"`
 
 	// The AWS Region where the virtual interface is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:Region" locationName:"region" type:"string"`
 
 	// The routes to be advertised to the AWS network in this Region. Applies to
 	// public virtual interfaces.
-	RouteFilterPrefixes []RouteFilterPrefix `locationName:"routeFilterPrefixes" type:"list"`
+	RouteFilterPrefixes []RouteFilterPrefix `json:"directconnect:AllocatePublicVirtualInterfaceOutput:RouteFilterPrefixes" locationName:"routeFilterPrefixes" type:"list"`
 
 	// Any tags assigned to the virtual interface.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:AllocatePublicVirtualInterfaceOutput:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The ID of the virtual private gateway. Applies only to private virtual interfaces.
-	VirtualGatewayId *string `locationName:"virtualGatewayId" deprecated:"true" type:"string"`
+	VirtualGatewayId *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:VirtualGatewayId" locationName:"virtualGatewayId" deprecated:"true" type:"string"`
 
 	// The ID of the virtual interface.
-	VirtualInterfaceId *string `locationName:"virtualInterfaceId" type:"string"`
+	VirtualInterfaceId *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:VirtualInterfaceId" locationName:"virtualInterfaceId" type:"string"`
 
 	// The name of the virtual interface assigned by the customer network.
-	VirtualInterfaceName *string `locationName:"virtualInterfaceName" type:"string"`
+	VirtualInterfaceName *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:VirtualInterfaceName" locationName:"virtualInterfaceName" type:"string"`
 
 	// The state of the virtual interface. The following are the possible values:
 	//
@@ -162,13 +162,13 @@ type AllocatePublicVirtualInterfaceOutput struct {
 	//    state.
 	//
 	//    * unknown: The state of the virtual interface is not available.
-	VirtualInterfaceState VirtualInterfaceState `locationName:"virtualInterfaceState" type:"string" enum:"true"`
+	VirtualInterfaceState VirtualInterfaceState `json:"directconnect:AllocatePublicVirtualInterfaceOutput:VirtualInterfaceState" locationName:"virtualInterfaceState" type:"string" enum:"true"`
 
 	// The type of virtual interface. The possible values are private and public.
-	VirtualInterfaceType *string `locationName:"virtualInterfaceType" type:"string"`
+	VirtualInterfaceType *string `json:"directconnect:AllocatePublicVirtualInterfaceOutput:VirtualInterfaceType" locationName:"virtualInterfaceType" type:"string"`
 
 	// The ID of the VLAN.
-	Vlan *int64 `locationName:"vlan" type:"integer"`
+	Vlan *int64 `json:"directconnect:AllocatePublicVirtualInterfaceOutput:Vlan" locationName:"vlan" type:"integer"`
 }
 
 // String returns the string representation

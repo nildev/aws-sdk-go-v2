@@ -103,7 +103,7 @@ type CreateTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the task.
-	TaskArn *string `type:"string"`
+	TaskArn *string `json:"datasync:CreateTaskOutput:TaskArn" type:"string"`
 }
 
 // String returns the string representation

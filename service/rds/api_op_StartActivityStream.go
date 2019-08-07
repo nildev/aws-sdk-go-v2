@@ -68,21 +68,21 @@ type StartActivityStreamOutput struct {
 
 	// Indicates whether or not the database activity stream will start as soon
 	// as possible, regardless of the maintenance window for the database.
-	ApplyImmediately *bool `type:"boolean"`
+	ApplyImmediately *bool `json:"rds:StartActivityStreamOutput:ApplyImmediately" type:"boolean"`
 
 	// The name of the Amazon Kinesis data stream to be used for the database activity
 	// stream.
-	KinesisStreamName *string `type:"string"`
+	KinesisStreamName *string `json:"rds:StartActivityStreamOutput:KinesisStreamName" type:"string"`
 
 	// The AWS KMS key identifier for encryption of messages in the database activity
 	// stream.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"rds:StartActivityStreamOutput:KmsKeyId" type:"string"`
 
 	// The mode of the database activity stream.
-	Mode ActivityStreamMode `type:"string" enum:"true"`
+	Mode ActivityStreamMode `json:"rds:StartActivityStreamOutput:Mode" type:"string" enum:"true"`
 
 	// The status of the database activity stream.
-	Status ActivityStreamStatus `type:"string" enum:"true"`
+	Status ActivityStreamStatus `json:"rds:StartActivityStreamOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

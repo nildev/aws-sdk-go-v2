@@ -61,7 +61,7 @@ type UpdateSamplingRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated rule definition and metadata.
-	SamplingRuleRecord *SamplingRuleRecord `type:"structure"`
+	SamplingRuleRecord *SamplingRuleRecord `json:"xray:UpdateSamplingRuleOutput:SamplingRuleRecord" type:"structure"`
 }
 
 // String returns the string representation

@@ -48,10 +48,10 @@ type ListOrganizationsOutput struct {
 
 	// The token to use to retrieve the next page of results. The value is "null"
 	// when there are no more results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workmail:ListOrganizationsOutput:NextToken" min:"1" type:"string"`
 
 	// The overview of owned organizations presented as a list of organization summaries.
-	OrganizationSummaries []OrganizationSummary `type:"list"`
+	OrganizationSummaries []OrganizationSummary `json:"workmail:ListOrganizationsOutput:OrganizationSummaries" type:"list"`
 }
 
 // String returns the string representation

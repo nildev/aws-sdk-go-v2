@@ -58,10 +58,10 @@ type DisassociateClientVpnTargetNetworkOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the target network association.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:DisassociateClientVpnTargetNetworkOutput:AssociationId" locationName:"associationId" type:"string"`
 
 	// The current state of the target network association.
-	Status *AssociationStatus `locationName:"status" type:"structure"`
+	Status *AssociationStatus `json:"ec2:DisassociateClientVpnTargetNetworkOutput:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation

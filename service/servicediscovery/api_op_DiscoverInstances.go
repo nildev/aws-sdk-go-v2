@@ -71,7 +71,7 @@ type DiscoverInstancesOutput struct {
 
 	// A complex type that contains one HttpInstanceSummary for each registered
 	// instance.
-	Instances []HttpInstanceSummary `type:"list"`
+	Instances []HttpInstanceSummary `json:"servicediscovery:DiscoverInstancesOutput:Instances" type:"list"`
 }
 
 // String returns the string representation

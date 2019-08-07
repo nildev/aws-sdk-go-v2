@@ -24,7 +24,7 @@ type DescribeAdjustmentTypesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The policy adjustment types.
-	AdjustmentTypes []AdjustmentType `type:"list"`
+	AdjustmentTypes []AdjustmentType `json:"autoscaling:DescribeAdjustmentTypesOutput:AdjustmentTypes" type:"list"`
 }
 
 // String returns the string representation

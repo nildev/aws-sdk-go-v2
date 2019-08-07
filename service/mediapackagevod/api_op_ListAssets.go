@@ -68,9 +68,9 @@ func (s ListAssetsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListAssetsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Assets []AssetShallow `locationName:"assets" type:"list"`
+	Assets []AssetShallow `json:"mediapackage-vod:ListAssetsOutput:Assets" locationName:"assets" type:"list"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediapackage-vod:ListAssetsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

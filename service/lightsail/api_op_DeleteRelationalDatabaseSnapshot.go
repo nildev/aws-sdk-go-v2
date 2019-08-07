@@ -44,7 +44,7 @@ type DeleteRelationalDatabaseSnapshotOutput struct {
 
 	// An object describing the result of your delete relational database snapshot
 	// request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:DeleteRelationalDatabaseSnapshotOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

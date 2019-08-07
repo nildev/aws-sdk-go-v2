@@ -31,10 +31,10 @@ type GetAccountSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Limits that are related to concurrency and code storage.
-	AccountLimit *AccountLimit `type:"structure"`
+	AccountLimit *AccountLimit `json:"lambda:GetAccountSettingsOutput:AccountLimit" type:"structure"`
 
 	// The number of functions and amount of storage in use.
-	AccountUsage *AccountUsage `type:"structure"`
+	AccountUsage *AccountUsage `json:"lambda:GetAccountSettingsOutput:AccountUsage" type:"structure"`
 }
 
 // String returns the string representation

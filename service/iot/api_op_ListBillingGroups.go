@@ -72,11 +72,11 @@ type ListBillingGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of billing groups.
-	BillingGroups []GroupNameAndArn `locationName:"billingGroups" type:"list"`
+	BillingGroups []GroupNameAndArn `json:"iot:ListBillingGroupsOutput:BillingGroups" locationName:"billingGroups" type:"list"`
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListBillingGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

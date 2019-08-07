@@ -61,7 +61,7 @@ type CreateEventBusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the new event bus.
-	EventBusArn *string `type:"string"`
+	EventBusArn *string `json:"events:CreateEventBusOutput:EventBusArn" type:"string"`
 }
 
 // String returns the string representation

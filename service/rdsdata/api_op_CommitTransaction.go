@@ -89,7 +89,7 @@ type CommitTransactionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the commit operation.
-	TransactionStatus *string `locationName:"transactionStatus" type:"string"`
+	TransactionStatus *string `json:"rds-data:CommitTransactionOutput:TransactionStatus" locationName:"transactionStatus" type:"string"`
 }
 
 // String returns the string representation

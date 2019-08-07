@@ -49,10 +49,10 @@ type ListSubscriptionsByTopicOutput struct {
 
 	// Token to pass along to the next ListSubscriptionsByTopic request. This element
 	// is returned if there are more subscriptions to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"sns:ListSubscriptionsByTopicOutput:NextToken" type:"string"`
 
 	// A list of subscriptions.
-	Subscriptions []Subscription `type:"list"`
+	Subscriptions []Subscription `json:"sns:ListSubscriptionsByTopicOutput:Subscriptions" type:"list"`
 }
 
 // String returns the string representation

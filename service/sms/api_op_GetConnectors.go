@@ -32,11 +32,11 @@ type GetConnectorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the registered connectors.
-	ConnectorList []Connector `locationName:"connectorList" type:"list"`
+	ConnectorList []Connector `json:"sms:GetConnectorsOutput:ConnectorList" locationName:"connectorList" type:"list"`
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"sms:GetConnectorsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

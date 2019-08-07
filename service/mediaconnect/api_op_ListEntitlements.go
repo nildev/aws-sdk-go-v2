@@ -64,14 +64,14 @@ type ListEntitlementsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of entitlements that have been granted to you from other AWS accounts.
-	Entitlements []ListedEntitlement `locationName:"entitlements" type:"list"`
+	Entitlements []ListedEntitlement `json:"mediaconnect:ListEntitlementsOutput:Entitlements" locationName:"entitlements" type:"list"`
 
 	// The token that identifies which batch of results that you want to see. For
 	// example, you submit a ListEntitlements request with MaxResults set at 5.
 	// The service returns the first batch of results (up to 5) and a NextToken
 	// value. To see the next batch of results, you can submit the ListEntitlements
 	// request a second time and specify the NextToken value.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediaconnect:ListEntitlementsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

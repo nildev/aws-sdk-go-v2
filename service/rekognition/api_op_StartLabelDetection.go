@@ -83,7 +83,7 @@ type StartLabelDetectionOutput struct {
 
 	// The identifier for the label detection job. Use JobId to identify the job
 	// in a subsequent call to GetLabelDetection.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"rekognition:StartLabelDetectionOutput:JobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

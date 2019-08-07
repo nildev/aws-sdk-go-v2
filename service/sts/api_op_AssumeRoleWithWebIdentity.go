@@ -184,30 +184,30 @@ type AssumeRoleWithWebIdentityOutput struct {
 	// For example, you can reference these credentials as a principal in a resource-based
 	// policy by using the ARN or assumed role ID. The ARN and ID include the RoleSessionName
 	// that you specified when you called AssumeRole.
-	AssumedRoleUser *AssumedRoleUser `type:"structure"`
+	AssumedRoleUser *AssumedRoleUser `json:"sts:AssumeRoleWithWebIdentityOutput:AssumedRoleUser" type:"structure"`
 
 	// The intended audience (also known as client ID) of the web identity token.
 	// This is traditionally the client identifier issued to the application that
 	// requested the web identity token.
-	Audience *string `type:"string"`
+	Audience *string `json:"sts:AssumeRoleWithWebIdentityOutput:Audience" type:"string"`
 
 	// The temporary security credentials, which include an access key ID, a secret
 	// access key, and a security token.
 	//
 	// The size of the security token that STS API operations return is not fixed.
 	// We strongly recommend that you make no assumptions about the maximum size.
-	Credentials *Credentials `type:"structure"`
+	Credentials *Credentials `json:"sts:AssumeRoleWithWebIdentityOutput:Credentials" type:"structure"`
 
 	// A percentage value that indicates the size of the policy in packed form.
 	// The service rejects any policy with a packed size greater than 100 percent,
 	// which means the policy exceeded the allowed space.
-	PackedPolicySize *int64 `type:"integer"`
+	PackedPolicySize *int64 `json:"sts:AssumeRoleWithWebIdentityOutput:PackedPolicySize" type:"integer"`
 
 	// The issuing authority of the web identity token presented. For OpenID Connect
 	// ID tokens, this contains the value of the iss field. For OAuth 2.0 access
 	// tokens, this contains the value of the ProviderId parameter that was passed
 	// in the AssumeRoleWithWebIdentity request.
-	Provider *string `type:"string"`
+	Provider *string `json:"sts:AssumeRoleWithWebIdentityOutput:Provider" type:"string"`
 
 	// The unique user identifier that is returned by the identity provider. This
 	// identifier is associated with the WebIdentityToken that was submitted with
@@ -215,7 +215,7 @@ type AssumeRoleWithWebIdentityOutput struct {
 	// the user and the application that acquired the WebIdentityToken (pairwise
 	// identifier). For OpenID Connect ID tokens, this field contains the value
 	// returned by the identity provider as the token's sub (Subject) claim.
-	SubjectFromWebIdentityToken *string `min:"6" type:"string"`
+	SubjectFromWebIdentityToken *string `json:"sts:AssumeRoleWithWebIdentityOutput:SubjectFromWebIdentityToken" min:"6" type:"string"`
 }
 
 // String returns the string representation

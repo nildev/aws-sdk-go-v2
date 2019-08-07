@@ -59,10 +59,10 @@ type GetCloudFrontOriginAccessIdentityConfigOutput struct {
 	_ struct{} `type:"structure" payload:"CloudFrontOriginAccessIdentityConfig"`
 
 	// The origin access identity's configuration information.
-	CloudFrontOriginAccessIdentityConfig *CloudFrontOriginAccessIdentityConfig `type:"structure"`
+	CloudFrontOriginAccessIdentityConfig *CloudFrontOriginAccessIdentityConfig `json:"cloudfront:GetCloudFrontOriginAccessIdentityConfigOutput:CloudFrontOriginAccessIdentityConfig" type:"structure"`
 
 	// The current version of the configuration. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:GetCloudFrontOriginAccessIdentityConfigOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 }
 
 // String returns the string representation

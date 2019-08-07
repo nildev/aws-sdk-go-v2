@@ -44,7 +44,7 @@ type StopQueryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// This is true if the query was stopped by the StopQuery operation.
-	Success *bool `locationName:"success" type:"boolean"`
+	Success *bool `json:"logs:StopQueryOutput:Success" locationName:"success" type:"boolean"`
 }
 
 // String returns the string representation

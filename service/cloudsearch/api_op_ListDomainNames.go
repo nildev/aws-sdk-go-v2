@@ -24,7 +24,7 @@ type ListDomainNamesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The names of the search domains owned by an account.
-	DomainNames map[string]string `type:"map"`
+	DomainNames map[string]string `json:"cloudsearch:ListDomainNamesOutput:DomainNames" type:"map"`
 }
 
 // String returns the string representation

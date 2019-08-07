@@ -71,10 +71,10 @@ type RevokeFlowEntitlementOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the entitlement that was revoked.
-	EntitlementArn *string `locationName:"entitlementArn" type:"string"`
+	EntitlementArn *string `json:"mediaconnect:RevokeFlowEntitlementOutput:EntitlementArn" locationName:"entitlementArn" type:"string"`
 
 	// The ARN of the flow that the entitlement was revoked from.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:RevokeFlowEntitlementOutput:FlowArn" locationName:"flowArn" type:"string"`
 }
 
 // String returns the string representation

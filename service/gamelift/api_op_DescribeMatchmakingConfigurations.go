@@ -59,12 +59,12 @@ type DescribeMatchmakingConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Collection of requested matchmaking configuration objects.
-	Configurations []MatchmakingConfiguration `type:"list"`
+	Configurations []MatchmakingConfiguration `json:"gamelift:DescribeMatchmakingConfigurationsOutput:Configurations" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:DescribeMatchmakingConfigurationsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

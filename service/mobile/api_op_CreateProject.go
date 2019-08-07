@@ -72,7 +72,7 @@ type CreateProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about the created AWS Mobile Hub project.
-	Details *ProjectDetails `locationName:"details" type:"structure"`
+	Details *ProjectDetails `json:"mobile:CreateProjectOutput:Details" locationName:"details" type:"structure"`
 }
 
 // String returns the string representation

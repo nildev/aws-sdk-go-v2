@@ -143,10 +143,10 @@ type ListOutgoingTypedLinksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListOutgoingTypedLinksOutput:NextToken" type:"string"`
 
 	// Returns a typed link specifier as output.
-	TypedLinkSpecifiers []TypedLinkSpecifier `type:"list"`
+	TypedLinkSpecifiers []TypedLinkSpecifier `json:"clouddirectory:ListOutgoingTypedLinksOutput:TypedLinkSpecifiers" type:"list"`
 }
 
 // String returns the string representation

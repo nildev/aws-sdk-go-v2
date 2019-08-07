@@ -78,10 +78,10 @@ type RegisterRobotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the fleet that the robot will join.
-	Fleet *string `locationName:"fleet" min:"1" type:"string"`
+	Fleet *string `json:"robomaker:RegisterRobotOutput:Fleet" locationName:"fleet" min:"1" type:"string"`
 
 	// Information about the robot registration.
-	Robot *string `locationName:"robot" min:"1" type:"string"`
+	Robot *string `json:"robomaker:RegisterRobotOutput:Robot" locationName:"robot" min:"1" type:"string"`
 }
 
 // String returns the string representation

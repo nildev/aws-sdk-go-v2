@@ -24,10 +24,10 @@ type DescribeMetricCollectionTypesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The granularities for the metrics.
-	Granularities []MetricGranularityType `type:"list"`
+	Granularities []MetricGranularityType `json:"autoscaling:DescribeMetricCollectionTypesOutput:Granularities" type:"list"`
 
 	// One or more metrics.
-	Metrics []MetricCollectionType `type:"list"`
+	Metrics []MetricCollectionType `json:"autoscaling:DescribeMetricCollectionTypesOutput:Metrics" type:"list"`
 }
 
 // String returns the string representation

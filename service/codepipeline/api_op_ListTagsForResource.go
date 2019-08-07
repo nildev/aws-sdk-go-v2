@@ -60,10 +60,10 @@ type ListTagsForResourceOutput struct {
 	// is also returned and can be used in a subsequent API call to return the next
 	// page of the list. However, the ListTagsforResource call lists all available
 	// tags in one call and does not use pagination.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codepipeline:ListTagsForResourceOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// The tags for the resource.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"codepipeline:ListTagsForResourceOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

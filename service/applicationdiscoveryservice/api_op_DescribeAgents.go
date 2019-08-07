@@ -67,13 +67,13 @@ type DescribeAgentsOutput struct {
 	// output includes agent/Connector IDs, IP addresses, media access control (MAC)
 	// addresses, agent/Connector health, host name where the agent/Connector resides,
 	// and the version number of each agent/Connector.
-	AgentsInfo []AgentInfo `locationName:"agentsInfo" type:"list"`
+	AgentsInfo []AgentInfo `json:"discovery:DescribeAgentsOutput:AgentsInfo" locationName:"agentsInfo" type:"list"`
 
 	// Token to retrieve the next set of results. For example, if you specified
 	// 100 IDs for DescribeAgentsRequest$agentIds but set DescribeAgentsRequest$maxResults
 	// to 10, you received a set of 10 results along with this token. Use this token
 	// in the next query to retrieve the next set of 10.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"discovery:DescribeAgentsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

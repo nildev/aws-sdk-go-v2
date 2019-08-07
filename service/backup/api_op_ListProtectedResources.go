@@ -69,12 +69,12 @@ type ListProtectedResourcesOutput struct {
 	// a request is made to return maxResults number of items, NextToken allows
 	// you to return more items in your list starting at the location pointed to
 	// by the next token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"backup:ListProtectedResourcesOutput:NextToken" type:"string"`
 
 	// An array of resources successfully backed up by AWS Backup including the
 	// time the resource was saved, an Amazon Resource Name (ARN) of the resource,
 	// and a resource type.
-	Results []ProtectedResource `type:"list"`
+	Results []ProtectedResource `json:"backup:ListProtectedResourcesOutput:Results" type:"list"`
 }
 
 // String returns the string representation

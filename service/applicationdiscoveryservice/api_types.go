@@ -20,15 +20,15 @@ type AgentConfigurationStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The agent/connector ID.
-	AgentId *string `locationName:"agentId" type:"string"`
+	AgentId *string `json:"discovery:AgentConfigurationStatus:AgentId" locationName:"agentId" type:"string"`
 
 	// A description of the operation performed.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"discovery:AgentConfigurationStatus:Description" locationName:"description" type:"string"`
 
 	// Information about the status of the StartDataCollection and StopDataCollection
 	// operations. The system has recorded the data collection operation. The agent/connector
 	// receives this command the next time it polls for a new command.
-	OperationSucceeded *bool `locationName:"operationSucceeded" type:"boolean"`
+	OperationSucceeded *bool `json:"discovery:AgentConfigurationStatus:OperationSucceeded" locationName:"operationSucceeded" type:"boolean"`
 }
 
 // String returns the string representation
@@ -45,35 +45,35 @@ type AgentInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The agent or connector ID.
-	AgentId *string `locationName:"agentId" type:"string"`
+	AgentId *string `json:"discovery:AgentInfo:AgentId" locationName:"agentId" type:"string"`
 
 	// Network details about the host where the agent or connector resides.
-	AgentNetworkInfoList []AgentNetworkInfo `locationName:"agentNetworkInfoList" type:"list"`
+	AgentNetworkInfoList []AgentNetworkInfo `json:"discovery:AgentInfo:AgentNetworkInfoList" locationName:"agentNetworkInfoList" type:"list"`
 
 	// Type of agent.
-	AgentType *string `locationName:"agentType" type:"string"`
+	AgentType *string `json:"discovery:AgentInfo:AgentType" locationName:"agentType" type:"string"`
 
 	// Status of the collection process for an agent or connector.
-	CollectionStatus *string `locationName:"collectionStatus" type:"string"`
+	CollectionStatus *string `json:"discovery:AgentInfo:CollectionStatus" locationName:"collectionStatus" type:"string"`
 
 	// The ID of the connector.
-	ConnectorId *string `locationName:"connectorId" type:"string"`
+	ConnectorId *string `json:"discovery:AgentInfo:ConnectorId" locationName:"connectorId" type:"string"`
 
 	// The health of the agent or connector.
-	Health AgentStatus `locationName:"health" type:"string" enum:"true"`
+	Health AgentStatus `json:"discovery:AgentInfo:Health" locationName:"health" type:"string" enum:"true"`
 
 	// The name of the host where the agent or connector resides. The host can be
 	// a server or virtual machine.
-	HostName *string `locationName:"hostName" type:"string"`
+	HostName *string `json:"discovery:AgentInfo:HostName" locationName:"hostName" type:"string"`
 
 	// Time since agent or connector health was reported.
-	LastHealthPingTime *string `locationName:"lastHealthPingTime" type:"string"`
+	LastHealthPingTime *string `json:"discovery:AgentInfo:LastHealthPingTime" locationName:"lastHealthPingTime" type:"string"`
 
 	// Agent's first registration timestamp in UTC.
-	RegisteredTime *string `locationName:"registeredTime" type:"string"`
+	RegisteredTime *string `json:"discovery:AgentInfo:RegisteredTime" locationName:"registeredTime" type:"string"`
 
 	// The agent or connector version.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"discovery:AgentInfo:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -87,10 +87,10 @@ type AgentNetworkInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The IP address for the host where the agent/connector resides.
-	IpAddress *string `locationName:"ipAddress" type:"string"`
+	IpAddress *string `json:"discovery:AgentNetworkInfo:IpAddress" locationName:"ipAddress" type:"string"`
 
 	// The MAC address for the host where the agent/connector resides.
-	MacAddress *string `locationName:"macAddress" type:"string"`
+	MacAddress *string `json:"discovery:AgentNetworkInfo:MacAddress" locationName:"macAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -105,13 +105,13 @@ type BatchDeleteImportDataError struct {
 	_ struct{} `type:"structure"`
 
 	// The type of error that occurred for a specific import task.
-	ErrorCode BatchDeleteImportDataErrorCode `locationName:"errorCode" type:"string" enum:"true"`
+	ErrorCode BatchDeleteImportDataErrorCode `json:"discovery:BatchDeleteImportDataError:ErrorCode" locationName:"errorCode" type:"string" enum:"true"`
 
 	// The description of the error that occurred for a specific import task.
-	ErrorDescription *string `locationName:"errorDescription" type:"string"`
+	ErrorDescription *string `json:"discovery:BatchDeleteImportDataError:ErrorDescription" locationName:"errorDescription" type:"string"`
 
 	// The unique import ID associated with the error that occurred.
-	ImportTaskId *string `locationName:"importTaskId" type:"string"`
+	ImportTaskId *string `json:"discovery:BatchDeleteImportDataError:ImportTaskId" locationName:"importTaskId" type:"string"`
 }
 
 // String returns the string representation
@@ -127,21 +127,21 @@ type ConfigurationTag struct {
 
 	// The configuration ID for the item to tag. You can specify a list of keys
 	// and values.
-	ConfigurationId *string `locationName:"configurationId" type:"string"`
+	ConfigurationId *string `json:"discovery:ConfigurationTag:ConfigurationId" locationName:"configurationId" type:"string"`
 
 	// A type of IT asset to tag.
-	ConfigurationType ConfigurationItemType `locationName:"configurationType" type:"string" enum:"true"`
+	ConfigurationType ConfigurationItemType `json:"discovery:ConfigurationTag:ConfigurationType" locationName:"configurationType" type:"string" enum:"true"`
 
 	// A type of tag on which to filter. For example, serverType.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"discovery:ConfigurationTag:Key" locationName:"key" type:"string"`
 
 	// The time the configuration tag was created in Coordinated Universal Time
 	// (UTC).
-	TimeOfCreation *time.Time `locationName:"timeOfCreation" type:"timestamp" timestampFormat:"unix"`
+	TimeOfCreation *time.Time `json:"discovery:ConfigurationTag:TimeOfCreation" locationName:"timeOfCreation" type:"timestamp" timestampFormat:"unix"`
 
 	// A value on which to filter. For example key = serverType and value = web
 	// server.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"discovery:ConfigurationTag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -156,21 +156,21 @@ type ContinuousExportDescription struct {
 
 	// The type of data collector used to gather this data (currently only offered
 	// for AGENT).
-	DataSource DataSource `locationName:"dataSource" type:"string" enum:"true"`
+	DataSource DataSource `json:"discovery:ContinuousExportDescription:DataSource" locationName:"dataSource" type:"string" enum:"true"`
 
 	// The unique ID assigned to this export.
-	ExportId *string `locationName:"exportId" type:"string"`
+	ExportId *string `json:"discovery:ContinuousExportDescription:ExportId" locationName:"exportId" type:"string"`
 
 	// The name of the s3 bucket where the export data parquet files are stored.
-	S3Bucket *string `locationName:"s3Bucket" type:"string"`
+	S3Bucket *string `json:"discovery:ContinuousExportDescription:S3Bucket" locationName:"s3Bucket" type:"string"`
 
 	// An object which describes how the data is stored.
 	//
 	//    * databaseName - the name of the Glue database used to store the schema.
-	SchemaStorageConfig map[string]string `locationName:"schemaStorageConfig" type:"map"`
+	SchemaStorageConfig map[string]string `json:"discovery:ContinuousExportDescription:SchemaStorageConfig" locationName:"schemaStorageConfig" type:"map"`
 
 	// The timestamp representing when the continuous export was started.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"discovery:ContinuousExportDescription:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Describes the status of the export. Can be one of the following values:
 	//
@@ -191,7 +191,7 @@ type ContinuousExportDescription struct {
 	//
 	//    * INACTIVE - the continuous export has been stopped. Data is no longer
 	//    being exported to the customer bucket.
-	Status ContinuousExportStatus `locationName:"status" type:"string" enum:"true"`
+	Status ContinuousExportStatus `json:"discovery:ContinuousExportDescription:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Contains information about any errors that have occurred. This data type
 	// can have the following values:
@@ -231,10 +231,10 @@ type ContinuousExportDescription struct {
 	//    * S3_NOT_SIGNED_UP - Your account is not signed up for the Amazon S3 service.
 	//    You must sign up before you can use Amazon S3. You can sign up at the
 	//    following URL: https://aws.amazon.com/s3 (https://aws.amazon.com/s3).
-	StatusDetail *string `locationName:"statusDetail" min:"1" type:"string"`
+	StatusDetail *string `json:"discovery:ContinuousExportDescription:StatusDetail" locationName:"statusDetail" min:"1" type:"string"`
 
 	// The timestamp that represents when this continuous export was stopped.
-	StopTime *time.Time `locationName:"stopTime" type:"timestamp" timestampFormat:"unix"`
+	StopTime *time.Time `json:"discovery:ContinuousExportDescription:StopTime" locationName:"stopTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -250,37 +250,37 @@ type CustomerAgentInfo struct {
 	// Number of active discovery agents.
 	//
 	// ActiveAgents is a required field
-	ActiveAgents *int64 `locationName:"activeAgents" type:"integer" required:"true"`
+	ActiveAgents *int64 `json:"discovery:CustomerAgentInfo:ActiveAgents" locationName:"activeAgents" type:"integer" required:"true"`
 
 	// Number of blacklisted discovery agents.
 	//
 	// BlackListedAgents is a required field
-	BlackListedAgents *int64 `locationName:"blackListedAgents" type:"integer" required:"true"`
+	BlackListedAgents *int64 `json:"discovery:CustomerAgentInfo:BlackListedAgents" locationName:"blackListedAgents" type:"integer" required:"true"`
 
 	// Number of healthy discovery agents
 	//
 	// HealthyAgents is a required field
-	HealthyAgents *int64 `locationName:"healthyAgents" type:"integer" required:"true"`
+	HealthyAgents *int64 `json:"discovery:CustomerAgentInfo:HealthyAgents" locationName:"healthyAgents" type:"integer" required:"true"`
 
 	// Number of discovery agents with status SHUTDOWN.
 	//
 	// ShutdownAgents is a required field
-	ShutdownAgents *int64 `locationName:"shutdownAgents" type:"integer" required:"true"`
+	ShutdownAgents *int64 `json:"discovery:CustomerAgentInfo:ShutdownAgents" locationName:"shutdownAgents" type:"integer" required:"true"`
 
 	// Total number of discovery agents.
 	//
 	// TotalAgents is a required field
-	TotalAgents *int64 `locationName:"totalAgents" type:"integer" required:"true"`
+	TotalAgents *int64 `json:"discovery:CustomerAgentInfo:TotalAgents" locationName:"totalAgents" type:"integer" required:"true"`
 
 	// Number of unhealthy discovery agents.
 	//
 	// UnhealthyAgents is a required field
-	UnhealthyAgents *int64 `locationName:"unhealthyAgents" type:"integer" required:"true"`
+	UnhealthyAgents *int64 `json:"discovery:CustomerAgentInfo:UnhealthyAgents" locationName:"unhealthyAgents" type:"integer" required:"true"`
 
 	// Number of unknown discovery agents.
 	//
 	// UnknownAgents is a required field
-	UnknownAgents *int64 `locationName:"unknownAgents" type:"integer" required:"true"`
+	UnknownAgents *int64 `json:"discovery:CustomerAgentInfo:UnknownAgents" locationName:"unknownAgents" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -296,37 +296,37 @@ type CustomerConnectorInfo struct {
 	// Number of active discovery connectors.
 	//
 	// ActiveConnectors is a required field
-	ActiveConnectors *int64 `locationName:"activeConnectors" type:"integer" required:"true"`
+	ActiveConnectors *int64 `json:"discovery:CustomerConnectorInfo:ActiveConnectors" locationName:"activeConnectors" type:"integer" required:"true"`
 
 	// Number of blacklisted discovery connectors.
 	//
 	// BlackListedConnectors is a required field
-	BlackListedConnectors *int64 `locationName:"blackListedConnectors" type:"integer" required:"true"`
+	BlackListedConnectors *int64 `json:"discovery:CustomerConnectorInfo:BlackListedConnectors" locationName:"blackListedConnectors" type:"integer" required:"true"`
 
 	// Number of healthy discovery connectors.
 	//
 	// HealthyConnectors is a required field
-	HealthyConnectors *int64 `locationName:"healthyConnectors" type:"integer" required:"true"`
+	HealthyConnectors *int64 `json:"discovery:CustomerConnectorInfo:HealthyConnectors" locationName:"healthyConnectors" type:"integer" required:"true"`
 
 	// Number of discovery connectors with status SHUTDOWN,
 	//
 	// ShutdownConnectors is a required field
-	ShutdownConnectors *int64 `locationName:"shutdownConnectors" type:"integer" required:"true"`
+	ShutdownConnectors *int64 `json:"discovery:CustomerConnectorInfo:ShutdownConnectors" locationName:"shutdownConnectors" type:"integer" required:"true"`
 
 	// Total number of discovery connectors.
 	//
 	// TotalConnectors is a required field
-	TotalConnectors *int64 `locationName:"totalConnectors" type:"integer" required:"true"`
+	TotalConnectors *int64 `json:"discovery:CustomerConnectorInfo:TotalConnectors" locationName:"totalConnectors" type:"integer" required:"true"`
 
 	// Number of unhealthy discovery connectors.
 	//
 	// UnhealthyConnectors is a required field
-	UnhealthyConnectors *int64 `locationName:"unhealthyConnectors" type:"integer" required:"true"`
+	UnhealthyConnectors *int64 `json:"discovery:CustomerConnectorInfo:UnhealthyConnectors" locationName:"unhealthyConnectors" type:"integer" required:"true"`
 
 	// Number of unknown discovery connectors.
 	//
 	// UnknownConnectors is a required field
-	UnknownConnectors *int64 `locationName:"unknownConnectors" type:"integer" required:"true"`
+	UnknownConnectors *int64 `json:"discovery:CustomerConnectorInfo:UnknownConnectors" locationName:"unknownConnectors" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -344,19 +344,19 @@ type ExportFilter struct {
 	// Supported condition: EQUALS
 	//
 	// Condition is a required field
-	Condition *string `locationName:"condition" type:"string" required:"true"`
+	Condition *string `json:"discovery:ExportFilter:Condition" locationName:"condition" type:"string" required:"true"`
 
 	// A single ExportFilter name. Supported filters: agentId.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"discovery:ExportFilter:Name" locationName:"name" type:"string" required:"true"`
 
 	// A single agentId for a Discovery Agent. An agentId can be found using the
 	// DescribeAgents (http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html)
 	// action. Typically an ADS agentId is in the form o-0123456789abcdef0.
 	//
 	// Values is a required field
-	Values []string `locationName:"values" type:"list" required:"true"`
+	Values []string `json:"discovery:ExportFilter:Values" locationName:"values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -394,41 +394,41 @@ type ExportInfo struct {
 
 	// A URL for an Amazon S3 bucket where you can review the exported data. The
 	// URL is displayed only if the export succeeded.
-	ConfigurationsDownloadUrl *string `locationName:"configurationsDownloadUrl" type:"string"`
+	ConfigurationsDownloadUrl *string `json:"discovery:ExportInfo:ConfigurationsDownloadUrl" locationName:"configurationsDownloadUrl" type:"string"`
 
 	// A unique identifier used to query an export.
 	//
 	// ExportId is a required field
-	ExportId *string `locationName:"exportId" type:"string" required:"true"`
+	ExportId *string `json:"discovery:ExportInfo:ExportId" locationName:"exportId" type:"string" required:"true"`
 
 	// The time that the data export was initiated.
 	//
 	// ExportRequestTime is a required field
-	ExportRequestTime *time.Time `locationName:"exportRequestTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	ExportRequestTime *time.Time `json:"discovery:ExportInfo:ExportRequestTime" locationName:"exportRequestTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The status of the data export job.
 	//
 	// ExportStatus is a required field
-	ExportStatus ExportStatus `locationName:"exportStatus" type:"string" required:"true" enum:"true"`
+	ExportStatus ExportStatus `json:"discovery:ExportInfo:ExportStatus" locationName:"exportStatus" type:"string" required:"true" enum:"true"`
 
 	// If true, the export of agent information exceeded the size limit for a single
 	// export and the exported data is incomplete for the requested time range.
 	// To address this, select a smaller time range for the export by using startDate
 	// and endDate.
-	IsTruncated *bool `locationName:"isTruncated" type:"boolean"`
+	IsTruncated *bool `json:"discovery:ExportInfo:IsTruncated" locationName:"isTruncated" type:"boolean"`
 
 	// The endTime used in the StartExportTask request. If no endTime was requested,
 	// this result does not appear in ExportInfo.
-	RequestedEndTime *time.Time `locationName:"requestedEndTime" type:"timestamp" timestampFormat:"unix"`
+	RequestedEndTime *time.Time `json:"discovery:ExportInfo:RequestedEndTime" locationName:"requestedEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The value of startTime parameter in the StartExportTask request. If no startTime
 	// was requested, this result does not appear in ExportInfo.
-	RequestedStartTime *time.Time `locationName:"requestedStartTime" type:"timestamp" timestampFormat:"unix"`
+	RequestedStartTime *time.Time `json:"discovery:ExportInfo:RequestedStartTime" locationName:"requestedStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A status message provided for API callers.
 	//
 	// StatusMessage is a required field
-	StatusMessage *string `locationName:"statusMessage" type:"string" required:"true"`
+	StatusMessage *string `json:"discovery:ExportInfo:StatusMessage" locationName:"statusMessage" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -452,18 +452,18 @@ type Filter struct {
 	// matching configuration items.
 	//
 	// Condition is a required field
-	Condition *string `locationName:"condition" type:"string" required:"true"`
+	Condition *string `json:"discovery:Filter:Condition" locationName:"condition" type:"string" required:"true"`
 
 	// The name of the filter.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"discovery:Filter:Name" locationName:"name" type:"string" required:"true"`
 
 	// A string value on which to filter. For example, if you choose the destinationServer.osVersion
 	// filter name, you could specify Ubuntu for the value.
 	//
 	// Values is a required field
-	Values []string `locationName:"values" type:"list" required:"true"`
+	Values []string `json:"discovery:Filter:Values" locationName:"values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -502,16 +502,16 @@ type ImportTask struct {
 
 	// The total number of application records in the import file that failed to
 	// be imported.
-	ApplicationImportFailure *int64 `locationName:"applicationImportFailure" type:"integer"`
+	ApplicationImportFailure *int64 `json:"discovery:ImportTask:ApplicationImportFailure" locationName:"applicationImportFailure" type:"integer"`
 
 	// The total number of application records in the import file that were successfully
 	// imported.
-	ApplicationImportSuccess *int64 `locationName:"applicationImportSuccess" type:"integer"`
+	ApplicationImportSuccess *int64 `json:"discovery:ImportTask:ApplicationImportSuccess" locationName:"applicationImportSuccess" type:"integer"`
 
 	// A unique token used to prevent the same import request from occurring more
 	// than once. If you didn't provide a token, a token was automatically generated
 	// when the import task request was sent.
-	ClientRequestToken *string `locationName:"clientRequestToken" min:"1" type:"string"`
+	ClientRequestToken *string `json:"discovery:ImportTask:ClientRequestToken" locationName:"clientRequestToken" min:"1" type:"string"`
 
 	// A link to a compressed archive folder (in the ZIP format) that contains an
 	// error log and a file of failed records. You can use these two files to quickly
@@ -526,45 +526,45 @@ type ImportTask struct {
 	// in the failed entries file and then imports that failed entries file. This
 	// prevents you from having to correct and update the larger original file and
 	// attempt importing it again.
-	ErrorsAndFailedEntriesZip *string `locationName:"errorsAndFailedEntriesZip" type:"string"`
+	ErrorsAndFailedEntriesZip *string `json:"discovery:ImportTask:ErrorsAndFailedEntriesZip" locationName:"errorsAndFailedEntriesZip" type:"string"`
 
 	// The time that the import task request finished, presented in the Unix time
 	// stamp format.
-	ImportCompletionTime *time.Time `locationName:"importCompletionTime" type:"timestamp" timestampFormat:"unix"`
+	ImportCompletionTime *time.Time `json:"discovery:ImportTask:ImportCompletionTime" locationName:"importCompletionTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that the import task request was deleted, presented in the Unix
 	// time stamp format.
-	ImportDeletedTime *time.Time `locationName:"importDeletedTime" type:"timestamp" timestampFormat:"unix"`
+	ImportDeletedTime *time.Time `json:"discovery:ImportTask:ImportDeletedTime" locationName:"importDeletedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that the import task request was made, presented in the Unix time
 	// stamp format.
-	ImportRequestTime *time.Time `locationName:"importRequestTime" type:"timestamp" timestampFormat:"unix"`
+	ImportRequestTime *time.Time `json:"discovery:ImportTask:ImportRequestTime" locationName:"importRequestTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique ID for a specific import task. These IDs aren't globally unique,
 	// but they are unique within an AWS account.
-	ImportTaskId *string `locationName:"importTaskId" type:"string"`
+	ImportTaskId *string `json:"discovery:ImportTask:ImportTaskId" locationName:"importTaskId" type:"string"`
 
 	// The URL for your import file that you've uploaded to Amazon S3.
-	ImportUrl *string `locationName:"importUrl" min:"1" type:"string"`
+	ImportUrl *string `json:"discovery:ImportTask:ImportUrl" locationName:"importUrl" min:"1" type:"string"`
 
 	// A descriptive name for an import task. You can use this name to filter future
 	// requests related to this import task, such as identifying applications and
 	// servers that were included in this import task. We recommend that you use
 	// a meaningful name for each import task.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"discovery:ImportTask:Name" locationName:"name" min:"1" type:"string"`
 
 	// The total number of server records in the import file that failed to be imported.
-	ServerImportFailure *int64 `locationName:"serverImportFailure" type:"integer"`
+	ServerImportFailure *int64 `json:"discovery:ImportTask:ServerImportFailure" locationName:"serverImportFailure" type:"integer"`
 
 	// The total number of server records in the import file that were successfully
 	// imported.
-	ServerImportSuccess *int64 `locationName:"serverImportSuccess" type:"integer"`
+	ServerImportSuccess *int64 `json:"discovery:ImportTask:ServerImportSuccess" locationName:"serverImportSuccess" type:"integer"`
 
 	// The status of the import task. An import can have the status of IMPORT_COMPLETE
 	// and still have some records fail to import from the overall request. More
 	// information can be found in the downloadable archive defined in the errorsAndFailedEntriesZip
 	// field, or in the Migration Hub management console.
-	Status ImportStatus `locationName:"status" type:"string" enum:"true"`
+	Status ImportStatus `json:"discovery:ImportTask:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -581,11 +581,11 @@ type ImportTaskFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The name, status, or import task ID for a specific import task.
-	Name ImportTaskFilterName `locationName:"name" type:"string" enum:"true"`
+	Name ImportTaskFilterName `json:"discovery:ImportTaskFilter:Name" locationName:"name" type:"string" enum:"true"`
 
 	// An array of strings that you can provide to match against a specific name,
 	// status, or import task ID to filter the results for your import task queries.
-	Values []string `locationName:"values" min:"1" type:"list"`
+	Values []string `json:"discovery:ImportTaskFilter:Values" locationName:"values" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -614,23 +614,23 @@ type NeighborConnectionDetail struct {
 	// The number of open network connections with the neighboring server.
 	//
 	// ConnectionsCount is a required field
-	ConnectionsCount *int64 `locationName:"connectionsCount" type:"long" required:"true"`
+	ConnectionsCount *int64 `json:"discovery:NeighborConnectionDetail:ConnectionsCount" locationName:"connectionsCount" type:"long" required:"true"`
 
 	// The destination network port for the connection.
-	DestinationPort *int64 `locationName:"destinationPort" type:"integer"`
+	DestinationPort *int64 `json:"discovery:NeighborConnectionDetail:DestinationPort" locationName:"destinationPort" type:"integer"`
 
 	// The ID of the server that accepted the network connection.
 	//
 	// DestinationServerId is a required field
-	DestinationServerId *string `locationName:"destinationServerId" type:"string" required:"true"`
+	DestinationServerId *string `json:"discovery:NeighborConnectionDetail:DestinationServerId" locationName:"destinationServerId" type:"string" required:"true"`
 
 	// The ID of the server that opened the network connection.
 	//
 	// SourceServerId is a required field
-	SourceServerId *string `locationName:"sourceServerId" type:"string" required:"true"`
+	SourceServerId *string `json:"discovery:NeighborConnectionDetail:SourceServerId" locationName:"sourceServerId" type:"string" required:"true"`
 
 	// The network protocol used for the connection.
-	TransportProtocol *string `locationName:"transportProtocol" type:"string"`
+	TransportProtocol *string `json:"discovery:NeighborConnectionDetail:TransportProtocol" locationName:"transportProtocol" type:"string"`
 }
 
 // String returns the string representation
@@ -646,10 +646,10 @@ type OrderByElement struct {
 	// The field on which to order.
 	//
 	// FieldName is a required field
-	FieldName *string `locationName:"fieldName" type:"string" required:"true"`
+	FieldName *string `json:"discovery:OrderByElement:FieldName" locationName:"fieldName" type:"string" required:"true"`
 
 	// Ordering direction.
-	SortOrder OrderString `locationName:"sortOrder" type:"string" enum:"true"`
+	SortOrder OrderString `json:"discovery:OrderByElement:SortOrder" locationName:"sortOrder" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -679,12 +679,12 @@ type Tag struct {
 	// The type of tag on which to filter.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" type:"string" required:"true"`
+	Key *string `json:"discovery:Tag:Key" locationName:"key" type:"string" required:"true"`
 
 	// A value for a tag key on which to filter.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"discovery:Tag:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -718,12 +718,12 @@ type TagFilter struct {
 	// A name of the tag filter.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"discovery:TagFilter:Name" locationName:"name" type:"string" required:"true"`
 
 	// Values for the tag filter.
 	//
 	// Values is a required field
-	Values []string `locationName:"values" type:"list" required:"true"`
+	Values []string `json:"discovery:TagFilter:Values" locationName:"values" type:"list" required:"true"`
 }
 
 // String returns the string representation

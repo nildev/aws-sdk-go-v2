@@ -23,42 +23,42 @@ type Activity struct {
 	// The ID of the activity.
 	//
 	// ActivityId is a required field
-	ActivityId *string `type:"string" required:"true"`
+	ActivityId *string `json:"autoscaling:Activity:ActivityId" type:"string" required:"true"`
 
 	// The name of the Auto Scaling group.
 	//
 	// AutoScalingGroupName is a required field
-	AutoScalingGroupName *string `min:"1" type:"string" required:"true"`
+	AutoScalingGroupName *string `json:"autoscaling:Activity:AutoScalingGroupName" min:"1" type:"string" required:"true"`
 
 	// The reason the activity began.
 	//
 	// Cause is a required field
-	Cause *string `min:"1" type:"string" required:"true"`
+	Cause *string `json:"autoscaling:Activity:Cause" min:"1" type:"string" required:"true"`
 
 	// A friendly, more verbose description of the activity.
-	Description *string `type:"string"`
+	Description *string `json:"autoscaling:Activity:Description" type:"string"`
 
 	// The details about the activity.
-	Details *string `type:"string"`
+	Details *string `json:"autoscaling:Activity:Details" type:"string"`
 
 	// The end time of the activity.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EndTime *time.Time `json:"autoscaling:Activity:EndTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A value between 0 and 100 that indicates the progress of the activity.
-	Progress *int64 `type:"integer"`
+	Progress *int64 `json:"autoscaling:Activity:Progress" type:"integer"`
 
 	// The start time of the activity.
 	//
 	// StartTime is a required field
-	StartTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	StartTime *time.Time `json:"autoscaling:Activity:StartTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The current status of the activity.
 	//
 	// StatusCode is a required field
-	StatusCode ScalingActivityStatusCode `type:"string" required:"true" enum:"true"`
+	StatusCode ScalingActivityStatusCode `json:"autoscaling:Activity:StatusCode" type:"string" required:"true" enum:"true"`
 
 	// A friendly, more verbose description of the activity status.
-	StatusMessage *string `min:"1" type:"string"`
+	StatusMessage *string `json:"autoscaling:Activity:StatusMessage" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -73,7 +73,7 @@ type AdjustmentType struct {
 
 	// The policy adjustment type. The valid values are ChangeInCapacity, ExactCapacity,
 	// and PercentChangeInCapacity.
-	AdjustmentType *string `min:"1" type:"string"`
+	AdjustmentType *string `json:"autoscaling:AdjustmentType:AdjustmentType" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -87,10 +87,10 @@ type Alarm struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the alarm.
-	AlarmARN *string `min:"1" type:"string"`
+	AlarmARN *string `json:"autoscaling:Alarm:AlarmARN" min:"1" type:"string"`
 
 	// The name of the alarm.
-	AlarmName *string `min:"1" type:"string"`
+	AlarmName *string `json:"autoscaling:Alarm:AlarmName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -104,40 +104,40 @@ type AutoScalingGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the Auto Scaling group.
-	AutoScalingGroupARN *string `min:"1" type:"string"`
+	AutoScalingGroupARN *string `json:"autoscaling:AutoScalingGroup:AutoScalingGroupARN" min:"1" type:"string"`
 
 	// The name of the Auto Scaling group.
 	//
 	// AutoScalingGroupName is a required field
-	AutoScalingGroupName *string `min:"1" type:"string" required:"true"`
+	AutoScalingGroupName *string `json:"autoscaling:AutoScalingGroup:AutoScalingGroupName" min:"1" type:"string" required:"true"`
 
 	// One or more Availability Zones for the group.
 	//
 	// AvailabilityZones is a required field
-	AvailabilityZones []string `min:"1" type:"list" required:"true"`
+	AvailabilityZones []string `json:"autoscaling:AutoScalingGroup:AvailabilityZones" min:"1" type:"list" required:"true"`
 
 	// The date and time the group was created.
 	//
 	// CreatedTime is a required field
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreatedTime *time.Time `json:"autoscaling:AutoScalingGroup:CreatedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The amount of time, in seconds, after a scaling activity completes before
 	// another scaling activity can start.
 	//
 	// DefaultCooldown is a required field
-	DefaultCooldown *int64 `type:"integer" required:"true"`
+	DefaultCooldown *int64 `json:"autoscaling:AutoScalingGroup:DefaultCooldown" type:"integer" required:"true"`
 
 	// The desired size of the group.
 	//
 	// DesiredCapacity is a required field
-	DesiredCapacity *int64 `type:"integer" required:"true"`
+	DesiredCapacity *int64 `json:"autoscaling:AutoScalingGroup:DesiredCapacity" type:"integer" required:"true"`
 
 	// The metrics enabled for the group.
-	EnabledMetrics []EnabledMetric `type:"list"`
+	EnabledMetrics []EnabledMetric `json:"autoscaling:AutoScalingGroup:EnabledMetrics" type:"list"`
 
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before
 	// checking the health status of an EC2 instance that has come into service.
-	HealthCheckGracePeriod *int64 `type:"integer"`
+	HealthCheckGracePeriod *int64 `json:"autoscaling:AutoScalingGroup:HealthCheckGracePeriod" type:"integer"`
 
 	// The service to use for the health checks. The valid values are EC2 and ELB.
 	// If you configure an Auto Scaling group to use ELB health checks, it considers
@@ -145,61 +145,61 @@ type AutoScalingGroup struct {
 	// balancer health checks.
 	//
 	// HealthCheckType is a required field
-	HealthCheckType *string `min:"1" type:"string" required:"true"`
+	HealthCheckType *string `json:"autoscaling:AutoScalingGroup:HealthCheckType" min:"1" type:"string" required:"true"`
 
 	// The EC2 instances associated with the group.
-	Instances []Instance `type:"list"`
+	Instances []Instance `json:"autoscaling:AutoScalingGroup:Instances" type:"list"`
 
 	// The name of the associated launch configuration.
-	LaunchConfigurationName *string `min:"1" type:"string"`
+	LaunchConfigurationName *string `json:"autoscaling:AutoScalingGroup:LaunchConfigurationName" min:"1" type:"string"`
 
 	// The launch template for the group.
-	LaunchTemplate *LaunchTemplateSpecification `type:"structure"`
+	LaunchTemplate *LaunchTemplateSpecification `json:"autoscaling:AutoScalingGroup:LaunchTemplate" type:"structure"`
 
 	// One or more load balancers associated with the group.
-	LoadBalancerNames []string `type:"list"`
+	LoadBalancerNames []string `json:"autoscaling:AutoScalingGroup:LoadBalancerNames" type:"list"`
 
 	// The maximum size of the group.
 	//
 	// MaxSize is a required field
-	MaxSize *int64 `type:"integer" required:"true"`
+	MaxSize *int64 `json:"autoscaling:AutoScalingGroup:MaxSize" type:"integer" required:"true"`
 
 	// The minimum size of the group.
 	//
 	// MinSize is a required field
-	MinSize *int64 `type:"integer" required:"true"`
+	MinSize *int64 `json:"autoscaling:AutoScalingGroup:MinSize" type:"integer" required:"true"`
 
 	// The mixed instances policy for the group.
-	MixedInstancesPolicy *MixedInstancesPolicy `type:"structure"`
+	MixedInstancesPolicy *MixedInstancesPolicy `json:"autoscaling:AutoScalingGroup:MixedInstancesPolicy" type:"structure"`
 
 	// Indicates whether newly launched instances are protected from termination
 	// by Amazon EC2 Auto Scaling when scaling in.
-	NewInstancesProtectedFromScaleIn *bool `type:"boolean"`
+	NewInstancesProtectedFromScaleIn *bool `json:"autoscaling:AutoScalingGroup:NewInstancesProtectedFromScaleIn" type:"boolean"`
 
 	// The name of the placement group into which to launch your instances, if any.
-	PlacementGroup *string `min:"1" type:"string"`
+	PlacementGroup *string `json:"autoscaling:AutoScalingGroup:PlacementGroup" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling
 	// group uses to call other AWS services on your behalf.
-	ServiceLinkedRoleARN *string `min:"1" type:"string"`
+	ServiceLinkedRoleARN *string `json:"autoscaling:AutoScalingGroup:ServiceLinkedRoleARN" min:"1" type:"string"`
 
 	// The current state of the group when DeleteAutoScalingGroup is in progress.
-	Status *string `min:"1" type:"string"`
+	Status *string `json:"autoscaling:AutoScalingGroup:Status" min:"1" type:"string"`
 
 	// The suspended processes associated with the group.
-	SuspendedProcesses []SuspendedProcess `type:"list"`
+	SuspendedProcesses []SuspendedProcess `json:"autoscaling:AutoScalingGroup:SuspendedProcesses" type:"list"`
 
 	// The tags for the group.
-	Tags []TagDescription `type:"list"`
+	Tags []TagDescription `json:"autoscaling:AutoScalingGroup:Tags" type:"list"`
 
 	// The Amazon Resource Names (ARN) of the target groups for your load balancer.
-	TargetGroupARNs []string `type:"list"`
+	TargetGroupARNs []string `json:"autoscaling:AutoScalingGroup:TargetGroupARNs" type:"list"`
 
 	// The termination policies for the group.
-	TerminationPolicies []string `type:"list"`
+	TerminationPolicies []string `json:"autoscaling:AutoScalingGroup:TerminationPolicies" type:"list"`
 
 	// One or more subnet IDs, if applicable, separated by commas.
-	VPCZoneIdentifier *string `min:"1" type:"string"`
+	VPCZoneIdentifier *string `json:"autoscaling:AutoScalingGroup:VPCZoneIdentifier" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -215,12 +215,12 @@ type AutoScalingInstanceDetails struct {
 	// The name of the Auto Scaling group for the instance.
 	//
 	// AutoScalingGroupName is a required field
-	AutoScalingGroupName *string `min:"1" type:"string" required:"true"`
+	AutoScalingGroupName *string `json:"autoscaling:AutoScalingInstanceDetails:AutoScalingGroupName" min:"1" type:"string" required:"true"`
 
 	// The Availability Zone for the instance.
 	//
 	// AvailabilityZone is a required field
-	AvailabilityZone *string `min:"1" type:"string" required:"true"`
+	AvailabilityZone *string `json:"autoscaling:AutoScalingInstanceDetails:AvailabilityZone" min:"1" type:"string" required:"true"`
 
 	// The last reported health status of this instance. "Healthy" means that the
 	// instance is healthy and should remain in service. "Unhealthy" means that
@@ -228,30 +228,30 @@ type AutoScalingInstanceDetails struct {
 	// replace it.
 	//
 	// HealthStatus is a required field
-	HealthStatus *string `min:"1" type:"string" required:"true"`
+	HealthStatus *string `json:"autoscaling:AutoScalingInstanceDetails:HealthStatus" min:"1" type:"string" required:"true"`
 
 	// The ID of the instance.
 	//
 	// InstanceId is a required field
-	InstanceId *string `min:"1" type:"string" required:"true"`
+	InstanceId *string `json:"autoscaling:AutoScalingInstanceDetails:InstanceId" min:"1" type:"string" required:"true"`
 
 	// The launch configuration used to launch the instance. This value is not available
 	// if you attached the instance to the Auto Scaling group.
-	LaunchConfigurationName *string `min:"1" type:"string"`
+	LaunchConfigurationName *string `json:"autoscaling:AutoScalingInstanceDetails:LaunchConfigurationName" min:"1" type:"string"`
 
 	// The launch template for the instance.
-	LaunchTemplate *LaunchTemplateSpecification `type:"structure"`
+	LaunchTemplate *LaunchTemplateSpecification `json:"autoscaling:AutoScalingInstanceDetails:LaunchTemplate" type:"structure"`
 
 	// The lifecycle state for the instance.
 	//
 	// LifecycleState is a required field
-	LifecycleState *string `min:"1" type:"string" required:"true"`
+	LifecycleState *string `json:"autoscaling:AutoScalingInstanceDetails:LifecycleState" min:"1" type:"string" required:"true"`
 
 	// Indicates whether the instance is protected from termination by Amazon EC2
 	// Auto Scaling when scaling in.
 	//
 	// ProtectedFromScaleIn is a required field
-	ProtectedFromScaleIn *bool `type:"boolean" required:"true"`
+	ProtectedFromScaleIn *bool `json:"autoscaling:AutoScalingInstanceDetails:ProtectedFromScaleIn" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -269,20 +269,20 @@ type BlockDeviceMapping struct {
 	// in the Amazon EC2 User Guide for Linux Instances.
 	//
 	// DeviceName is a required field
-	DeviceName *string `min:"1" type:"string" required:"true"`
+	DeviceName *string `json:"autoscaling:BlockDeviceMapping:DeviceName" min:"1" type:"string" required:"true"`
 
 	// The information about the Amazon EBS volume.
-	Ebs *Ebs `type:"structure"`
+	Ebs *Ebs `json:"autoscaling:BlockDeviceMapping:Ebs" type:"structure"`
 
 	// Suppresses a device mapping.
 	//
 	// If this parameter is true for the root device, the instance might fail the
 	// EC2 health check. In that case, Amazon EC2 Auto Scaling launches a replacement
 	// instance.
-	NoDevice *bool `type:"boolean"`
+	NoDevice *bool `json:"autoscaling:BlockDeviceMapping:NoDevice" type:"boolean"`
 
 	// The name of the virtual device (for example, ephemeral0).
-	VirtualName *string `min:"1" type:"string"`
+	VirtualName *string `json:"autoscaling:BlockDeviceMapping:VirtualName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -340,25 +340,25 @@ type CustomizedMetricSpecification struct {
 	//
 	// Conditional: If you published your metric with dimensions, you must specify
 	// the same dimensions in your scaling policy.
-	Dimensions []MetricDimension `type:"list"`
+	Dimensions []MetricDimension `json:"autoscaling:CustomizedMetricSpecification:Dimensions" type:"list"`
 
 	// The name of the metric.
 	//
 	// MetricName is a required field
-	MetricName *string `type:"string" required:"true"`
+	MetricName *string `json:"autoscaling:CustomizedMetricSpecification:MetricName" type:"string" required:"true"`
 
 	// The namespace of the metric.
 	//
 	// Namespace is a required field
-	Namespace *string `type:"string" required:"true"`
+	Namespace *string `json:"autoscaling:CustomizedMetricSpecification:Namespace" type:"string" required:"true"`
 
 	// The statistic of the metric.
 	//
 	// Statistic is a required field
-	Statistic MetricStatistic `type:"string" required:"true" enum:"true"`
+	Statistic MetricStatistic `json:"autoscaling:CustomizedMetricSpecification:Statistic" type:"string" required:"true" enum:"true"`
 
 	// The unit of the metric.
-	Unit *string `type:"string"`
+	Unit *string `json:"autoscaling:CustomizedMetricSpecification:Unit" type:"string"`
 }
 
 // String returns the string representation
@@ -401,7 +401,7 @@ type Ebs struct {
 
 	// Indicates whether the volume is deleted on instance termination. For Amazon
 	// EC2 Auto Scaling, the default value is true.
-	DeleteOnTermination *bool `type:"boolean"`
+	DeleteOnTermination *bool `json:"autoscaling:Ebs:DeleteOnTermination" type:"boolean"`
 
 	// Specifies whether the volume should be encrypted. Encrypted EBS volumes can
 	// only be attached to instances that support Amazon EBS encryption. For more
@@ -426,7 +426,7 @@ type Ebs struct {
 	// in the Amazon EC2 User Guide for Linux Instances and Required CMK Key Policy
 	// for Use with Encrypted Volumes (https://docs.aws.amazon.com/autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.html)
 	// in the Amazon EC2 Auto Scaling User Guide.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"autoscaling:Ebs:Encrypted" type:"boolean"`
 
 	// The number of I/O operations per second (IOPS) to provision for the volume.
 	// The maximum ratio of IOPS to volume size (in GiB) is 50:1. For more information,
@@ -435,14 +435,14 @@ type Ebs struct {
 	//
 	// Conditional: This parameter is required when the volume type is io1. (Not
 	// used with standard, gp2, st1, or sc1 volumes.)
-	Iops *int64 `min:"100" type:"integer"`
+	Iops *int64 `json:"autoscaling:Ebs:Iops" min:"100" type:"integer"`
 
 	// The snapshot ID of the volume to use.
 	//
 	// Conditional: This parameter is optional if you specify a volume size. If
 	// you specify both SnapshotId and VolumeSize, VolumeSize must be equal or greater
 	// than the size of the snapshot.
-	SnapshotId *string `min:"1" type:"string"`
+	SnapshotId *string `json:"autoscaling:Ebs:SnapshotId" min:"1" type:"string"`
 
 	// The volume size, in Gibibytes (GiB).
 	//
@@ -454,7 +454,7 @@ type Ebs struct {
 	// size, the default is the snapshot size.
 	//
 	// At least one of VolumeSize or SnapshotId is required.
-	VolumeSize *int64 `min:"1" type:"integer"`
+	VolumeSize *int64 `json:"autoscaling:Ebs:VolumeSize" min:"1" type:"integer"`
 
 	// The volume type, which can be standard for Magnetic, io1 for Provisioned
 	// IOPS SSD, gp2 for General Purpose SSD, st1 for Throughput Optimized HDD,
@@ -462,7 +462,7 @@ type Ebs struct {
 	// in the Amazon EC2 User Guide for Linux Instances.
 	//
 	// Valid values: standard | io1 | gp2 | st1 | sc1
-	VolumeType *string `min:"1" type:"string"`
+	VolumeType *string `json:"autoscaling:Ebs:VolumeType" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -498,7 +498,7 @@ type EnabledMetric struct {
 	_ struct{} `type:"structure"`
 
 	// The granularity of the metric. The only valid value is 1Minute.
-	Granularity *string `min:"1" type:"string"`
+	Granularity *string `json:"autoscaling:EnabledMetric:Granularity" min:"1" type:"string"`
 
 	// One of the following metrics:
 	//
@@ -517,7 +517,7 @@ type EnabledMetric struct {
 	//    * GroupTerminatingInstances
 	//
 	//    * GroupTotalInstances
-	Metric *string `min:"1" type:"string"`
+	Metric *string `json:"autoscaling:EnabledMetric:Metric" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -531,15 +531,15 @@ type FailedScheduledUpdateGroupActionRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	ErrorCode *string `min:"1" type:"string"`
+	ErrorCode *string `json:"autoscaling:FailedScheduledUpdateGroupActionRequest:ErrorCode" min:"1" type:"string"`
 
 	// The error message accompanying the error code.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"autoscaling:FailedScheduledUpdateGroupActionRequest:ErrorMessage" type:"string"`
 
 	// The name of the scheduled action.
 	//
 	// ScheduledActionName is a required field
-	ScheduledActionName *string `min:"1" type:"string" required:"true"`
+	ScheduledActionName *string `json:"autoscaling:FailedScheduledUpdateGroupActionRequest:ScheduledActionName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -554,10 +554,10 @@ type Filter struct {
 
 	// The name of the filter. The valid values are: "auto-scaling-group", "key",
 	// "value", and "propagate-at-launch".
-	Name *string `type:"string"`
+	Name *string `json:"autoscaling:Filter:Name" type:"string"`
 
 	// The value of the filter.
-	Values []string `type:"list"`
+	Values []string `json:"autoscaling:Filter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -573,7 +573,7 @@ type Instance struct {
 	// The Availability Zone in which the instance is running.
 	//
 	// AvailabilityZone is a required field
-	AvailabilityZone *string `min:"1" type:"string" required:"true"`
+	AvailabilityZone *string `json:"autoscaling:Instance:AvailabilityZone" min:"1" type:"string" required:"true"`
 
 	// The last reported health status of the instance. "Healthy" means that the
 	// instance is healthy and should remain in service. "Unhealthy" means that
@@ -581,30 +581,30 @@ type Instance struct {
 	// and replace it.
 	//
 	// HealthStatus is a required field
-	HealthStatus *string `min:"1" type:"string" required:"true"`
+	HealthStatus *string `json:"autoscaling:Instance:HealthStatus" min:"1" type:"string" required:"true"`
 
 	// The ID of the instance.
 	//
 	// InstanceId is a required field
-	InstanceId *string `min:"1" type:"string" required:"true"`
+	InstanceId *string `json:"autoscaling:Instance:InstanceId" min:"1" type:"string" required:"true"`
 
 	// The launch configuration associated with the instance.
-	LaunchConfigurationName *string `min:"1" type:"string"`
+	LaunchConfigurationName *string `json:"autoscaling:Instance:LaunchConfigurationName" min:"1" type:"string"`
 
 	// The launch template for the instance.
-	LaunchTemplate *LaunchTemplateSpecification `type:"structure"`
+	LaunchTemplate *LaunchTemplateSpecification `json:"autoscaling:Instance:LaunchTemplate" type:"structure"`
 
 	// A description of the current lifecycle state. The Quarantined state is not
 	// used.
 	//
 	// LifecycleState is a required field
-	LifecycleState LifecycleState `type:"string" required:"true" enum:"true"`
+	LifecycleState LifecycleState `json:"autoscaling:Instance:LifecycleState" type:"string" required:"true" enum:"true"`
 
 	// Indicates whether the instance is protected from termination by Amazon EC2
 	// Auto Scaling when scaling in.
 	//
 	// ProtectedFromScaleIn is a required field
-	ProtectedFromScaleIn *bool `type:"boolean" required:"true"`
+	ProtectedFromScaleIn *bool `json:"autoscaling:Instance:ProtectedFromScaleIn" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -618,7 +618,7 @@ type InstanceMonitoring struct {
 	_ struct{} `type:"structure"`
 
 	// If true, detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"autoscaling:InstanceMonitoring:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -645,7 +645,7 @@ type InstancesDistribution struct {
 	// cannot be fulfilled using your highest priority instance, then the Auto Scaling
 	// groups launches the remaining capacity using the second priority instance
 	// type, and so on.
-	OnDemandAllocationStrategy *string `type:"string"`
+	OnDemandAllocationStrategy *string `json:"autoscaling:InstancesDistribution:OnDemandAllocationStrategy" type:"string"`
 
 	// The minimum amount of the Auto Scaling group's capacity that must be fulfilled
 	// by On-Demand Instances. This base portion is provisioned first as your group
@@ -654,28 +654,28 @@ type InstancesDistribution struct {
 	// The default value is 0. If you leave this parameter set to 0, On-Demand Instances
 	// are launched as a percentage of the Auto Scaling group's desired capacity,
 	// per the OnDemandPercentageAboveBaseCapacity setting.
-	OnDemandBaseCapacity *int64 `type:"integer"`
+	OnDemandBaseCapacity *int64 `json:"autoscaling:InstancesDistribution:OnDemandBaseCapacity" type:"integer"`
 
 	// Controls the percentages of On-Demand Instances and Spot Instances for your
 	// additional capacity beyond OnDemandBaseCapacity. The range is 0–100.
 	//
 	// The default value is 100. If you leave this parameter set to 100, the percentages
 	// are 100% for On-Demand Instances and 0% for Spot Instances.
-	OnDemandPercentageAboveBaseCapacity *int64 `type:"integer"`
+	OnDemandPercentageAboveBaseCapacity *int64 `json:"autoscaling:InstancesDistribution:OnDemandPercentageAboveBaseCapacity" type:"integer"`
 
 	// Indicates how to allocate Spot capacity across Spot pools.
 	//
 	// The only valid value is lowest-price, which is also the default value. The
 	// Auto Scaling group selects the cheapest Spot pools and evenly allocates your
 	// Spot capacity across the number of Spot pools that you specify.
-	SpotAllocationStrategy *string `type:"string"`
+	SpotAllocationStrategy *string `json:"autoscaling:InstancesDistribution:SpotAllocationStrategy" type:"string"`
 
 	// The number of Spot pools to use to allocate your Spot capacity. The Spot
 	// pools are determined from the different instance types in the Overrides array
 	// of LaunchTemplate. The range is 1–20.
 	//
 	// The default value is 2.
-	SpotInstancePools *int64 `type:"integer"`
+	SpotInstancePools *int64 `json:"autoscaling:InstancesDistribution:SpotInstancePools" type:"integer"`
 
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	// If you leave the value of this parameter blank (which is the default), the
@@ -683,7 +683,7 @@ type InstancesDistribution struct {
 	//
 	// To remove a value that you previously set, include the parameter but leave
 	// the value blank.
-	SpotMaxPrice *string `type:"string"`
+	SpotMaxPrice *string `json:"autoscaling:InstancesDistribution:SpotMaxPrice" type:"string"`
 }
 
 // String returns the string representation
@@ -697,10 +697,10 @@ type LaunchConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// [EC2-VPC] Indicates whether to assign a public IP address to each instance.
-	AssociatePublicIpAddress *bool `type:"boolean"`
+	AssociatePublicIpAddress *bool `json:"autoscaling:LaunchConfiguration:AssociatePublicIpAddress" type:"boolean"`
 
 	// A block device mapping, which specifies the block devices for the instance.
-	BlockDeviceMappings []BlockDeviceMapping `type:"list"`
+	BlockDeviceMappings []BlockDeviceMapping `json:"autoscaling:LaunchConfiguration:BlockDeviceMappings" type:"list"`
 
 	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
 	// This parameter can only be used if you are launching EC2-Classic instances.
@@ -708,7 +708,7 @@ type LaunchConfiguration struct {
 	// in the Amazon EC2 User Guide for Linux Instances and Linking EC2-Classic
 	// Instances to a VPC (https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink)
 	// in the Amazon EC2 Auto Scaling User Guide.
-	ClassicLinkVPCId *string `min:"1" type:"string"`
+	ClassicLinkVPCId *string `json:"autoscaling:LaunchConfiguration:ClassicLinkVPCId" min:"1" type:"string"`
 
 	// The IDs of one or more security groups for the VPC specified in ClassicLinkVPCId.
 	// For more information, see ClassicLink (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html)
@@ -718,64 +718,64 @@ type LaunchConfiguration struct {
 	//
 	// Conditional: This parameter is required if you specify a ClassicLink-enabled
 	// VPC, and cannot be used otherwise.
-	ClassicLinkVPCSecurityGroups []string `type:"list"`
+	ClassicLinkVPCSecurityGroups []string `json:"autoscaling:LaunchConfiguration:ClassicLinkVPCSecurityGroups" type:"list"`
 
 	// The creation date and time for the launch configuration.
 	//
 	// CreatedTime is a required field
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreatedTime *time.Time `json:"autoscaling:LaunchConfiguration:CreatedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// Controls whether the instance is optimized for EBS I/O (true) or not (false).
-	EbsOptimized *bool `type:"boolean"`
+	EbsOptimized *bool `json:"autoscaling:LaunchConfiguration:EbsOptimized" type:"boolean"`
 
 	// The name or Amazon Resource Name (ARN) of the instance profile associated
 	// with the IAM role for the instance.
-	IamInstanceProfile *string `min:"1" type:"string"`
+	IamInstanceProfile *string `json:"autoscaling:LaunchConfiguration:IamInstanceProfile" min:"1" type:"string"`
 
 	// The ID of the Amazon Machine Image (AMI).
 	//
 	// ImageId is a required field
-	ImageId *string `min:"1" type:"string" required:"true"`
+	ImageId *string `json:"autoscaling:LaunchConfiguration:ImageId" min:"1" type:"string" required:"true"`
 
 	// Controls whether instances in this group are launched with detailed (true)
 	// or basic (false) monitoring.
-	InstanceMonitoring *InstanceMonitoring `type:"structure"`
+	InstanceMonitoring *InstanceMonitoring `json:"autoscaling:LaunchConfiguration:InstanceMonitoring" type:"structure"`
 
 	// The instance type for the instances.
 	//
 	// InstanceType is a required field
-	InstanceType *string `min:"1" type:"string" required:"true"`
+	InstanceType *string `json:"autoscaling:LaunchConfiguration:InstanceType" min:"1" type:"string" required:"true"`
 
 	// The ID of the kernel associated with the AMI.
-	KernelId *string `min:"1" type:"string"`
+	KernelId *string `json:"autoscaling:LaunchConfiguration:KernelId" min:"1" type:"string"`
 
 	// The name of the key pair.
-	KeyName *string `min:"1" type:"string"`
+	KeyName *string `json:"autoscaling:LaunchConfiguration:KeyName" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the launch configuration.
-	LaunchConfigurationARN *string `min:"1" type:"string"`
+	LaunchConfigurationARN *string `json:"autoscaling:LaunchConfiguration:LaunchConfigurationARN" min:"1" type:"string"`
 
 	// The name of the launch configuration.
 	//
 	// LaunchConfigurationName is a required field
-	LaunchConfigurationName *string `min:"1" type:"string" required:"true"`
+	LaunchConfigurationName *string `json:"autoscaling:LaunchConfiguration:LaunchConfigurationName" min:"1" type:"string" required:"true"`
 
 	// The tenancy of the instance, either default or dedicated. An instance with
 	// dedicated tenancy runs in an isolated, single-tenant hardware and can only
 	// be launched into a VPC.
-	PlacementTenancy *string `min:"1" type:"string"`
+	PlacementTenancy *string `json:"autoscaling:LaunchConfiguration:PlacementTenancy" min:"1" type:"string"`
 
 	// The ID of the RAM disk associated with the AMI.
-	RamdiskId *string `min:"1" type:"string"`
+	RamdiskId *string `json:"autoscaling:LaunchConfiguration:RamdiskId" min:"1" type:"string"`
 
 	// The security groups to associate with the instances.
-	SecurityGroups []string `type:"list"`
+	SecurityGroups []string `json:"autoscaling:LaunchConfiguration:SecurityGroups" type:"list"`
 
 	// The price to bid when launching Spot Instances.
-	SpotPrice *string `min:"1" type:"string"`
+	SpotPrice *string `json:"autoscaling:LaunchConfiguration:SpotPrice" min:"1" type:"string"`
 
 	// The user data available to the instances.
-	UserData *string `type:"string"`
+	UserData *string `json:"autoscaling:LaunchConfiguration:UserData" type:"string"`
 }
 
 // String returns the string representation
@@ -794,12 +794,12 @@ type LaunchTemplate struct {
 
 	// The launch template to use. You must specify either the launch template ID
 	// or launch template name in the request.
-	LaunchTemplateSpecification *LaunchTemplateSpecification `type:"structure"`
+	LaunchTemplateSpecification *LaunchTemplateSpecification `json:"autoscaling:LaunchTemplate:LaunchTemplateSpecification" type:"structure"`
 
 	// Any parameters that you specify override the same parameters in the launch
 	// template. Currently, the only supported override is instance type. You must
 	// specify between 2 and 20 overrides.
-	Overrides []LaunchTemplateOverrides `type:"list"`
+	Overrides []LaunchTemplateOverrides `json:"autoscaling:LaunchTemplate:Overrides" type:"list"`
 }
 
 // String returns the string representation
@@ -839,7 +839,7 @@ type LaunchTemplateOverrides struct {
 	// For information about available instance types, see Available Instance Types
 	// (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes)
 	// in the Amazon Elastic Compute Cloud User Guide.
-	InstanceType *string `min:"1" type:"string"`
+	InstanceType *string `json:"autoscaling:LaunchTemplateOverrides:InstanceType" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -872,18 +872,18 @@ type LaunchTemplateSpecification struct {
 
 	// The ID of the launch template. You must specify either a template ID or a
 	// template name.
-	LaunchTemplateId *string `min:"1" type:"string"`
+	LaunchTemplateId *string `json:"autoscaling:LaunchTemplateSpecification:LaunchTemplateId" min:"1" type:"string"`
 
 	// The name of the launch template. You must specify either a template name
 	// or a template ID.
-	LaunchTemplateName *string `min:"3" type:"string"`
+	LaunchTemplateName *string `json:"autoscaling:LaunchTemplateSpecification:LaunchTemplateName" min:"3" type:"string"`
 
 	// The version number, $Latest, or $Default. If the value is $Latest, Amazon
 	// EC2 Auto Scaling selects the latest version of the launch template when launching
 	// instances. If the value is $Default, Amazon EC2 Auto Scaling selects the
 	// default version of the launch template when launching instances. The default
 	// value is $Default.
-	Version *string `min:"1" type:"string"`
+	Version *string `json:"autoscaling:LaunchTemplateSpecification:Version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -918,25 +918,25 @@ type LifecycleHook struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Auto Scaling group for the lifecycle hook.
-	AutoScalingGroupName *string `min:"1" type:"string"`
+	AutoScalingGroupName *string `json:"autoscaling:LifecycleHook:AutoScalingGroupName" min:"1" type:"string"`
 
 	// Defines the action the Auto Scaling group should take when the lifecycle
 	// hook timeout elapses or if an unexpected failure occurs. The possible values
 	// are CONTINUE and ABANDON.
-	DefaultResult *string `type:"string"`
+	DefaultResult *string `json:"autoscaling:LifecycleHook:DefaultResult" type:"string"`
 
 	// The maximum time, in seconds, that an instance can remain in a Pending:Wait
 	// or Terminating:Wait state. The maximum is 172800 seconds (48 hours) or 100
 	// times HeartbeatTimeout, whichever is smaller.
-	GlobalTimeout *int64 `type:"integer"`
+	GlobalTimeout *int64 `json:"autoscaling:LifecycleHook:GlobalTimeout" type:"integer"`
 
 	// The maximum time, in seconds, that can elapse before the lifecycle hook times
 	// out. If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the
 	// action that you specified in the DefaultResult parameter.
-	HeartbeatTimeout *int64 `type:"integer"`
+	HeartbeatTimeout *int64 `json:"autoscaling:LifecycleHook:HeartbeatTimeout" type:"integer"`
 
 	// The name of the lifecycle hook.
-	LifecycleHookName *string `min:"1" type:"string"`
+	LifecycleHookName *string `json:"autoscaling:LifecycleHook:LifecycleHookName" min:"1" type:"string"`
 
 	// The state of the EC2 instance to which to attach the lifecycle hook. The
 	// following are possible values:
@@ -944,20 +944,20 @@ type LifecycleHook struct {
 	//    * autoscaling:EC2_INSTANCE_LAUNCHING
 	//
 	//    * autoscaling:EC2_INSTANCE_TERMINATING
-	LifecycleTransition *string `type:"string"`
+	LifecycleTransition *string `json:"autoscaling:LifecycleHook:LifecycleTransition" type:"string"`
 
 	// Additional information that is included any time Amazon EC2 Auto Scaling
 	// sends a message to the notification target.
-	NotificationMetadata *string `min:"1" type:"string"`
+	NotificationMetadata *string `json:"autoscaling:LifecycleHook:NotificationMetadata" min:"1" type:"string"`
 
 	// The ARN of the target that Amazon EC2 Auto Scaling sends notifications to
 	// when an instance is in the transition state for the lifecycle hook. The notification
 	// target can be either an SQS queue or an SNS topic.
-	NotificationTargetARN *string `min:"1" type:"string"`
+	NotificationTargetARN *string `json:"autoscaling:LifecycleHook:NotificationTargetARN" min:"1" type:"string"`
 
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to
 	// the specified notification target.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"autoscaling:LifecycleHook:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1005,7 +1005,7 @@ type LifecycleHookSpecification struct {
 	// Defines the action the Auto Scaling group should take when the lifecycle
 	// hook timeout elapses or if an unexpected failure occurs. The valid values
 	// are CONTINUE and ABANDON. The default value is ABANDON.
-	DefaultResult *string `type:"string"`
+	DefaultResult *string `json:"autoscaling:LifecycleHookSpecification:DefaultResult" type:"string"`
 
 	// The maximum time, in seconds, that can elapse before the lifecycle hook times
 	// out.
@@ -1013,12 +1013,12 @@ type LifecycleHookSpecification struct {
 	// If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action
 	// that you specified in the DefaultResult parameter. You can prevent the lifecycle
 	// hook from timing out by calling RecordLifecycleActionHeartbeat.
-	HeartbeatTimeout *int64 `type:"integer"`
+	HeartbeatTimeout *int64 `json:"autoscaling:LifecycleHookSpecification:HeartbeatTimeout" type:"integer"`
 
 	// The name of the lifecycle hook.
 	//
 	// LifecycleHookName is a required field
-	LifecycleHookName *string `min:"1" type:"string" required:"true"`
+	LifecycleHookName *string `json:"autoscaling:LifecycleHookSpecification:LifecycleHookName" min:"1" type:"string" required:"true"`
 
 	// The state of the EC2 instance to which you want to attach the lifecycle hook.
 	// The valid values are:
@@ -1028,21 +1028,21 @@ type LifecycleHookSpecification struct {
 	//    * autoscaling:EC2_INSTANCE_TERMINATING
 	//
 	// LifecycleTransition is a required field
-	LifecycleTransition *string `type:"string" required:"true"`
+	LifecycleTransition *string `json:"autoscaling:LifecycleHookSpecification:LifecycleTransition" type:"string" required:"true"`
 
 	// Additional information that you want to include any time Amazon EC2 Auto
 	// Scaling sends a message to the notification target.
-	NotificationMetadata *string `min:"1" type:"string"`
+	NotificationMetadata *string `json:"autoscaling:LifecycleHookSpecification:NotificationMetadata" min:"1" type:"string"`
 
 	// The ARN of the target that Amazon EC2 Auto Scaling sends notifications to
 	// when an instance is in the transition state for the lifecycle hook. The notification
 	// target can be either an SQS queue or an SNS topic.
-	NotificationTargetARN *string `type:"string"`
+	NotificationTargetARN *string `json:"autoscaling:LifecycleHookSpecification:NotificationTargetARN" type:"string"`
 
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to
 	// the specified notification target, for example, an Amazon SNS topic or an
 	// Amazon SQS queue.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"autoscaling:LifecycleHookSpecification:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1094,7 +1094,7 @@ type LoadBalancerState struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the load balancer.
-	LoadBalancerName *string `min:"1" type:"string"`
+	LoadBalancerName *string `json:"autoscaling:LoadBalancerState:LoadBalancerName" min:"1" type:"string"`
 
 	// One of the following load balancer states:
 	//
@@ -1112,7 +1112,7 @@ type LoadBalancerState struct {
 	//
 	//    * Removed - All instances in the group are deregistered from the load
 	//    balancer.
-	State *string `min:"1" type:"string"`
+	State *string `json:"autoscaling:LoadBalancerState:State" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1133,7 +1133,7 @@ type LoadBalancerTargetGroupState struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the target group.
-	LoadBalancerTargetGroupARN *string `min:"1" type:"string"`
+	LoadBalancerTargetGroupARN *string `json:"autoscaling:LoadBalancerTargetGroupState:LoadBalancerTargetGroupARN" min:"1" type:"string"`
 
 	// The state of the target group.
 	//
@@ -1151,7 +1151,7 @@ type LoadBalancerTargetGroupState struct {
 	//
 	//    * Removed - All Auto Scaling instances are deregistered from the target
 	//    group.
-	State *string `min:"1" type:"string"`
+	State *string `json:"autoscaling:LoadBalancerTargetGroupState:State" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1181,7 +1181,7 @@ type MetricCollectionType struct {
 	//    * GroupTerminatingInstances
 	//
 	//    * GroupTotalInstances
-	Metric *string `min:"1" type:"string"`
+	Metric *string `json:"autoscaling:MetricCollectionType:Metric" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1197,12 +1197,12 @@ type MetricDimension struct {
 	// The name of the dimension.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"autoscaling:MetricDimension:Name" type:"string" required:"true"`
 
 	// The value of the dimension.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"autoscaling:MetricDimension:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1234,7 +1234,7 @@ type MetricGranularityType struct {
 	_ struct{} `type:"structure"`
 
 	// The granularity. The only valid value is 1Minute.
-	Granularity *string `min:"1" type:"string"`
+	Granularity *string `json:"autoscaling:MetricGranularityType:Granularity" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1261,12 +1261,12 @@ type MixedInstancesPolicy struct {
 	//
 	// If you leave this parameter unspecified when creating a mixed instances policy,
 	// the default values are used.
-	InstancesDistribution *InstancesDistribution `type:"structure"`
+	InstancesDistribution *InstancesDistribution `json:"autoscaling:MixedInstancesPolicy:InstancesDistribution" type:"structure"`
 
 	// The launch template and instance types (overrides).
 	//
 	// This parameter must be specified when creating a mixed instances policy.
-	LaunchTemplate *LaunchTemplate `type:"structure"`
+	LaunchTemplate *LaunchTemplate `json:"autoscaling:MixedInstancesPolicy:LaunchTemplate" type:"structure"`
 }
 
 // String returns the string representation
@@ -1295,7 +1295,7 @@ type NotificationConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Auto Scaling group.
-	AutoScalingGroupName *string `min:"1" type:"string"`
+	AutoScalingGroupName *string `json:"autoscaling:NotificationConfiguration:AutoScalingGroupName" min:"1" type:"string"`
 
 	// One of the following event notification types:
 	//
@@ -1308,11 +1308,11 @@ type NotificationConfiguration struct {
 	//    * autoscaling:EC2_INSTANCE_TERMINATE_ERROR
 	//
 	//    * autoscaling:TEST_NOTIFICATION
-	NotificationType *string `min:"1" type:"string"`
+	NotificationType *string `json:"autoscaling:NotificationConfiguration:NotificationType" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 	// (Amazon SNS) topic.
-	TopicARN *string `min:"1" type:"string"`
+	TopicARN *string `json:"autoscaling:NotificationConfiguration:TopicARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1329,7 +1329,7 @@ type PredefinedMetricSpecification struct {
 	// The metric type.
 	//
 	// PredefinedMetricType is a required field
-	PredefinedMetricType MetricType `type:"string" required:"true" enum:"true"`
+	PredefinedMetricType MetricType `json:"autoscaling:PredefinedMetricSpecification:PredefinedMetricType" type:"string" required:"true" enum:"true"`
 
 	// Identifies the resource associated with the metric type. The following predefined
 	// metrics are available:
@@ -1355,7 +1355,7 @@ type PredefinedMetricSpecification struct {
 	// load balancer ARN, and targetgroup/target-group-name/target-group-id is the
 	// final portion of the target group ARN. The target group must be attached
 	// to the Auto Scaling group.
-	ResourceLabel *string `min:"1" type:"string"`
+	ResourceLabel *string `json:"autoscaling:PredefinedMetricSpecification:ResourceLabel" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1406,7 +1406,7 @@ type ProcessType struct {
 	//    * ScheduledActions
 	//
 	// ProcessName is a required field
-	ProcessName *string `min:"1" type:"string" required:"true"`
+	ProcessName *string `json:"autoscaling:ProcessType:ProcessName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1421,55 +1421,55 @@ type ScalingPolicy struct {
 
 	// The adjustment type, which specifies how ScalingAdjustment is interpreted.
 	// The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
-	AdjustmentType *string `min:"1" type:"string"`
+	AdjustmentType *string `json:"autoscaling:ScalingPolicy:AdjustmentType" min:"1" type:"string"`
 
 	// The CloudWatch alarms related to the policy.
-	Alarms []Alarm `type:"list"`
+	Alarms []Alarm `json:"autoscaling:ScalingPolicy:Alarms" type:"list"`
 
 	// The name of the Auto Scaling group.
-	AutoScalingGroupName *string `min:"1" type:"string"`
+	AutoScalingGroupName *string `json:"autoscaling:ScalingPolicy:AutoScalingGroupName" min:"1" type:"string"`
 
 	// The amount of time, in seconds, after a scaling activity completes before
 	// any further dynamic scaling activities can start.
-	Cooldown *int64 `type:"integer"`
+	Cooldown *int64 `json:"autoscaling:ScalingPolicy:Cooldown" type:"integer"`
 
 	// The estimated time, in seconds, until a newly launched instance can contribute
 	// to the CloudWatch metrics.
-	EstimatedInstanceWarmup *int64 `type:"integer"`
+	EstimatedInstanceWarmup *int64 `json:"autoscaling:ScalingPolicy:EstimatedInstanceWarmup" type:"integer"`
 
 	// The aggregation type for the CloudWatch metrics. The valid values are Minimum,
 	// Maximum, and Average.
-	MetricAggregationType *string `min:"1" type:"string"`
+	MetricAggregationType *string `json:"autoscaling:ScalingPolicy:MetricAggregationType" min:"1" type:"string"`
 
 	// The minimum number of instances to scale. If the value of AdjustmentType
 	// is PercentChangeInCapacity, the scaling policy changes the DesiredCapacity
 	// of the Auto Scaling group by at least this many instances. Otherwise, the
 	// error is ValidationError.
-	MinAdjustmentMagnitude *int64 `type:"integer"`
+	MinAdjustmentMagnitude *int64 `json:"autoscaling:ScalingPolicy:MinAdjustmentMagnitude" type:"integer"`
 
 	// Available for backward compatibility. Use MinAdjustmentMagnitude instead.
-	MinAdjustmentStep *int64 `deprecated:"true" type:"integer"`
+	MinAdjustmentStep *int64 `json:"autoscaling:ScalingPolicy:MinAdjustmentStep" deprecated:"true" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the policy.
-	PolicyARN *string `min:"1" type:"string"`
+	PolicyARN *string `json:"autoscaling:ScalingPolicy:PolicyARN" min:"1" type:"string"`
 
 	// The name of the scaling policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"autoscaling:ScalingPolicy:PolicyName" min:"1" type:"string"`
 
 	// The policy type. The valid values are SimpleScaling, StepScaling, and TargetTrackingScaling.
-	PolicyType *string `min:"1" type:"string"`
+	PolicyType *string `json:"autoscaling:ScalingPolicy:PolicyType" min:"1" type:"string"`
 
 	// The amount by which to scale, based on the specified adjustment type. A positive
 	// value adds to the current capacity while a negative number removes from the
 	// current capacity.
-	ScalingAdjustment *int64 `type:"integer"`
+	ScalingAdjustment *int64 `json:"autoscaling:ScalingPolicy:ScalingAdjustment" type:"integer"`
 
 	// A set of adjustments that enable you to scale based on the size of the alarm
 	// breach.
-	StepAdjustments []StepAdjustment `type:"list"`
+	StepAdjustments []StepAdjustment `json:"autoscaling:ScalingPolicy:StepAdjustments" type:"list"`
 
 	// A target tracking scaling policy.
-	TargetTrackingConfiguration *TargetTrackingConfiguration `type:"structure"`
+	TargetTrackingConfiguration *TargetTrackingConfiguration `json:"autoscaling:ScalingPolicy:TargetTrackingConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -1483,38 +1483,38 @@ type ScheduledUpdateGroupAction struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Auto Scaling group.
-	AutoScalingGroupName *string `min:"1" type:"string"`
+	AutoScalingGroupName *string `json:"autoscaling:ScheduledUpdateGroupAction:AutoScalingGroupName" min:"1" type:"string"`
 
 	// The number of instances you prefer to maintain in the group.
-	DesiredCapacity *int64 `type:"integer"`
+	DesiredCapacity *int64 `json:"autoscaling:ScheduledUpdateGroupAction:DesiredCapacity" type:"integer"`
 
 	// The date and time in UTC for the recurring schedule to end. For example,
 	// "2019-06-01T00:00:00Z".
-	EndTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EndTime *time.Time `json:"autoscaling:ScheduledUpdateGroupAction:EndTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The maximum number of instances in the Auto Scaling group.
-	MaxSize *int64 `type:"integer"`
+	MaxSize *int64 `json:"autoscaling:ScheduledUpdateGroupAction:MaxSize" type:"integer"`
 
 	// The minimum number of instances in the Auto Scaling group.
-	MinSize *int64 `type:"integer"`
+	MinSize *int64 `json:"autoscaling:ScheduledUpdateGroupAction:MinSize" type:"integer"`
 
 	// The recurring schedule for the action, in Unix cron syntax format.
 	//
 	// When StartTime and EndTime are specified with Recurrence, they form the boundaries
 	// of when the recurring action starts and stops.
-	Recurrence *string `min:"1" type:"string"`
+	Recurrence *string `json:"autoscaling:ScheduledUpdateGroupAction:Recurrence" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the scheduled action.
-	ScheduledActionARN *string `min:"1" type:"string"`
+	ScheduledActionARN *string `json:"autoscaling:ScheduledUpdateGroupAction:ScheduledActionARN" min:"1" type:"string"`
 
 	// The name of the scheduled action.
-	ScheduledActionName *string `min:"1" type:"string"`
+	ScheduledActionName *string `json:"autoscaling:ScheduledUpdateGroupAction:ScheduledActionName" min:"1" type:"string"`
 
 	// The date and time in UTC for this action to start. For example, "2019-06-01T00:00:00Z".
-	StartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"autoscaling:ScheduledUpdateGroupAction:StartTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// This parameter is deprecated.
-	Time *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Time *time.Time `json:"autoscaling:ScheduledUpdateGroupAction:Time" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1532,17 +1532,17 @@ type ScheduledUpdateGroupActionRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The number of EC2 instances that should be running in the group.
-	DesiredCapacity *int64 `type:"integer"`
+	DesiredCapacity *int64 `json:"autoscaling:ScheduledUpdateGroupActionRequest:DesiredCapacity" type:"integer"`
 
 	// The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling
 	// does not perform the action after this time.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EndTime *time.Time `json:"autoscaling:ScheduledUpdateGroupActionRequest:EndTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The maximum number of instances in the Auto Scaling group.
-	MaxSize *int64 `type:"integer"`
+	MaxSize *int64 `json:"autoscaling:ScheduledUpdateGroupActionRequest:MaxSize" type:"integer"`
 
 	// The minimum number of instances in the Auto Scaling group.
-	MinSize *int64 `type:"integer"`
+	MinSize *int64 `json:"autoscaling:ScheduledUpdateGroupActionRequest:MinSize" type:"integer"`
 
 	// The recurring schedule for the action, in Unix cron syntax format. This format
 	// consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month]
@@ -1551,12 +1551,12 @@ type ScheduledUpdateGroupActionRequest struct {
 	//
 	// When StartTime and EndTime are specified with Recurrence, they form the boundaries
 	// of when the recurring action starts and stops.
-	Recurrence *string `min:"1" type:"string"`
+	Recurrence *string `json:"autoscaling:ScheduledUpdateGroupActionRequest:Recurrence" min:"1" type:"string"`
 
 	// The name of the scaling action.
 	//
 	// ScheduledActionName is a required field
-	ScheduledActionName *string `min:"1" type:"string" required:"true"`
+	ScheduledActionName *string `json:"autoscaling:ScheduledUpdateGroupActionRequest:ScheduledActionName" min:"1" type:"string" required:"true"`
 
 	// The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ format
 	// in UTC/GMT only and in quotes (for example, "2019-06-01T00:00:00Z").
@@ -1567,7 +1567,7 @@ type ScheduledUpdateGroupActionRequest struct {
 	//
 	// If you try to schedule the action in the past, Amazon EC2 Auto Scaling returns
 	// an error message.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"autoscaling:ScheduledUpdateGroupActionRequest:StartTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1633,7 +1633,7 @@ type StepAdjustment struct {
 	// the lower bound). Otherwise, it is exclusive (the metric must be greater
 	// than the threshold plus the lower bound). A null value indicates negative
 	// infinity.
-	MetricIntervalLowerBound *float64 `type:"double"`
+	MetricIntervalLowerBound *float64 `json:"autoscaling:StepAdjustment:MetricIntervalLowerBound" type:"double"`
 
 	// The upper bound for the difference between the alarm threshold and the CloudWatch
 	// metric. If the metric value is above the breach threshold, the upper bound
@@ -1642,14 +1642,14 @@ type StepAdjustment struct {
 	// threshold plus the upper bound). A null value indicates positive infinity.
 	//
 	// The upper bound must be greater than the lower bound.
-	MetricIntervalUpperBound *float64 `type:"double"`
+	MetricIntervalUpperBound *float64 `json:"autoscaling:StepAdjustment:MetricIntervalUpperBound" type:"double"`
 
 	// The amount by which to scale, based on the specified adjustment type. A positive
 	// value adds to the current capacity while a negative number removes from the
 	// current capacity.
 	//
 	// ScalingAdjustment is a required field
-	ScalingAdjustment *int64 `type:"integer" required:"true"`
+	ScalingAdjustment *int64 `json:"autoscaling:StepAdjustment:ScalingAdjustment" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1678,10 +1678,10 @@ type SuspendedProcess struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the suspended process.
-	ProcessName *string `min:"1" type:"string"`
+	ProcessName *string `json:"autoscaling:SuspendedProcess:ProcessName" min:"1" type:"string"`
 
 	// The reason that the process was suspended.
-	SuspensionReason *string `min:"1" type:"string"`
+	SuspensionReason *string `json:"autoscaling:SuspendedProcess:SuspensionReason" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1697,20 +1697,20 @@ type Tag struct {
 	// The tag key.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"autoscaling:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// Determines whether the tag is added to new instances as they are launched
 	// in the group.
-	PropagateAtLaunch *bool `type:"boolean"`
+	PropagateAtLaunch *bool `json:"autoscaling:Tag:PropagateAtLaunch" type:"boolean"`
 
 	// The name of the group.
-	ResourceId *string `type:"string"`
+	ResourceId *string `json:"autoscaling:Tag:ResourceId" type:"string"`
 
 	// The type of resource. The only supported value is auto-scaling-group.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"autoscaling:Tag:ResourceType" type:"string"`
 
 	// The tag value.
-	Value *string `type:"string"`
+	Value *string `json:"autoscaling:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1741,20 +1741,20 @@ type TagDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The tag key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"autoscaling:TagDescription:Key" min:"1" type:"string"`
 
 	// Determines whether the tag is added to new instances as they are launched
 	// in the group.
-	PropagateAtLaunch *bool `type:"boolean"`
+	PropagateAtLaunch *bool `json:"autoscaling:TagDescription:PropagateAtLaunch" type:"boolean"`
 
 	// The name of the group.
-	ResourceId *string `type:"string"`
+	ResourceId *string `json:"autoscaling:TagDescription:ResourceId" type:"string"`
 
 	// The type of resource. The only supported value is auto-scaling-group.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"autoscaling:TagDescription:ResourceType" type:"string"`
 
 	// The tag value.
-	Value *string `type:"string"`
+	Value *string `json:"autoscaling:TagDescription:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1770,22 +1770,22 @@ type TargetTrackingConfiguration struct {
 
 	// A customized metric. You must specify either a predefined metric or a customized
 	// metric.
-	CustomizedMetricSpecification *CustomizedMetricSpecification `type:"structure"`
+	CustomizedMetricSpecification *CustomizedMetricSpecification `json:"autoscaling:TargetTrackingConfiguration:CustomizedMetricSpecification" type:"structure"`
 
 	// Indicates whether scaling in by the target tracking scaling policy is disabled.
 	// If scaling in is disabled, the target tracking scaling policy doesn't remove
 	// instances from the Auto Scaling group. Otherwise, the target tracking scaling
 	// policy can remove instances from the Auto Scaling group. The default is false.
-	DisableScaleIn *bool `type:"boolean"`
+	DisableScaleIn *bool `json:"autoscaling:TargetTrackingConfiguration:DisableScaleIn" type:"boolean"`
 
 	// A predefined metric. You must specify either a predefined metric or a customized
 	// metric.
-	PredefinedMetricSpecification *PredefinedMetricSpecification `type:"structure"`
+	PredefinedMetricSpecification *PredefinedMetricSpecification `json:"autoscaling:TargetTrackingConfiguration:PredefinedMetricSpecification" type:"structure"`
 
 	// The target value for the metric.
 	//
 	// TargetValue is a required field
-	TargetValue *float64 `type:"double" required:"true"`
+	TargetValue *float64 `json:"autoscaling:TargetTrackingConfiguration:TargetValue" type:"double" required:"true"`
 }
 
 // String returns the string representation

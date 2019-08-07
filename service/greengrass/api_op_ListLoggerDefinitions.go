@@ -47,9 +47,9 @@ func (s ListLoggerDefinitionsInput) MarshalFields(e protocol.FieldEncoder) error
 type ListLoggerDefinitionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Definitions []DefinitionInformation `type:"list"`
+	Definitions []DefinitionInformation `json:"greengrass:ListLoggerDefinitionsOutput:Definitions" type:"list"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListLoggerDefinitionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

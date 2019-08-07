@@ -68,11 +68,11 @@ func (s DescribeBrokerEngineTypesInput) MarshalFields(e protocol.FieldEncoder) e
 type DescribeBrokerEngineTypesOutput struct {
 	_ struct{} `type:"structure"`
 
-	BrokerEngineTypes []BrokerEngineType `locationName:"brokerEngineTypes" type:"list"`
+	BrokerEngineTypes []BrokerEngineType `json:"mq:DescribeBrokerEngineTypesOutput:BrokerEngineTypes" locationName:"brokerEngineTypes" type:"list"`
 
-	MaxResults *int64 `locationName:"maxResults" min:"5" type:"integer"`
+	MaxResults *int64 `json:"mq:DescribeBrokerEngineTypesOutput:MaxResults" locationName:"maxResults" min:"5" type:"integer"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mq:DescribeBrokerEngineTypesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

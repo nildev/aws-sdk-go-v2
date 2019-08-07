@@ -50,7 +50,7 @@ type StartMaintenanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the response to a StartMaintenance request.
-	Server *Server `type:"structure"`
+	Server *Server `json:"opsworks-cm:StartMaintenanceOutput:Server" type:"structure"`
 }
 
 // String returns the string representation

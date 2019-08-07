@@ -104,10 +104,10 @@ type DescribeSubnetsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeSubnetsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about one or more subnets.
-	Subnets []Subnet `locationName:"subnetSet" locationNameList:"item" type:"list"`
+	Subnets []Subnet `json:"ec2:DescribeSubnetsOutput:Subnets" locationName:"subnetSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

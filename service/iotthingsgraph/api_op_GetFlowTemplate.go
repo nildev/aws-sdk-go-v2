@@ -50,7 +50,7 @@ type GetFlowTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The object that describes the specified workflow.
-	Description *FlowTemplateDescription `locationName:"description" type:"structure"`
+	Description *FlowTemplateDescription `json:"iotthingsgraph:GetFlowTemplateOutput:Description" locationName:"description" type:"structure"`
 }
 
 // String returns the string representation

@@ -95,15 +95,15 @@ type GetCostAndUsageOutput struct {
 
 	// The groups that are specified by the Filter or GroupBy parameters in the
 	// request.
-	GroupDefinitions []GroupDefinition `type:"list"`
+	GroupDefinitions []GroupDefinition `json:"ce:GetCostAndUsageOutput:GroupDefinitions" type:"list"`
 
 	// The token for the next set of retrievable results. AWS provides the token
 	// when the response from a previous call has more results than the maximum
 	// page size.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"ce:GetCostAndUsageOutput:NextPageToken" type:"string"`
 
 	// The time period that is covered by the results in the response.
-	ResultsByTime []ResultByTime `type:"list"`
+	ResultsByTime []ResultByTime `json:"ce:GetCostAndUsageOutput:ResultsByTime" type:"list"`
 }
 
 // String returns the string representation

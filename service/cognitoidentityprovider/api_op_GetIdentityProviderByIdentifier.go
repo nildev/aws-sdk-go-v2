@@ -60,7 +60,7 @@ type GetIdentityProviderByIdentifierOutput struct {
 	// The identity provider object.
 	//
 	// IdentityProvider is a required field
-	IdentityProvider *IdentityProviderType `type:"structure" required:"true"`
+	IdentityProvider *IdentityProviderType `json:"cognito-idp:GetIdentityProviderByIdentifierOutput:IdentityProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation

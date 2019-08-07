@@ -101,7 +101,7 @@ type UpdateObjectAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the updated object.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:UpdateObjectAttributesOutput:ObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation

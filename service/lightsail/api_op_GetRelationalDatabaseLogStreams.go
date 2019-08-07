@@ -44,7 +44,7 @@ type GetRelationalDatabaseLogStreamsOutput struct {
 
 	// An object describing the result of your get relational database log streams
 	// request.
-	LogStreams []string `locationName:"logStreams" type:"list"`
+	LogStreams []string `json:"lightsail:GetRelationalDatabaseLogStreamsOutput:LogStreams" locationName:"logStreams" type:"list"`
 }
 
 // String returns the string representation

@@ -54,7 +54,7 @@ type DetachLoadBalancerFromSubnetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the remaining subnets for the load balancer.
-	Subnets []string `type:"list"`
+	Subnets []string `json:"elasticloadbalancing:DetachLoadBalancerFromSubnetsOutput:Subnets" type:"list"`
 }
 
 // String returns the string representation

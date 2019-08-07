@@ -78,7 +78,7 @@ type EnableSnapshotCopyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes a cluster.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"redshift:EnableSnapshotCopyOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

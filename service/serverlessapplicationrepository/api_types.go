@@ -21,12 +21,12 @@ type ApplicationDependencySummary struct {
 	// The Amazon Resource Name (ARN) of the nested application.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `locationName:"applicationId" type:"string" required:"true"`
+	ApplicationId *string `json:"serverlessrepo:ApplicationDependencySummary:ApplicationId" locationName:"applicationId" type:"string" required:"true"`
 
 	// The semantic version of the nested application.
 	//
 	// SemanticVersion is a required field
-	SemanticVersion *string `locationName:"semanticVersion" type:"string" required:"true"`
+	SemanticVersion *string `json:"serverlessrepo:ApplicationDependencySummary:SemanticVersion" locationName:"semanticVersion" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -60,15 +60,15 @@ type ApplicationPolicyStatement struct {
 	// (https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions).
 	//
 	// Actions is a required field
-	Actions []string `locationName:"actions" type:"list" required:"true"`
+	Actions []string `json:"serverlessrepo:ApplicationPolicyStatement:Actions" locationName:"actions" type:"list" required:"true"`
 
 	// An array of AWS account IDs, or * to make the application public.
 	//
 	// Principals is a required field
-	Principals []string `locationName:"principals" type:"list" required:"true"`
+	Principals []string `json:"serverlessrepo:ApplicationPolicyStatement:Principals" locationName:"principals" type:"list" required:"true"`
 
 	// A unique ID for the statement.
-	StatementId *string `locationName:"statementId" type:"string"`
+	StatementId *string `json:"serverlessrepo:ApplicationPolicyStatement:StatementId" locationName:"statementId" type:"string"`
 }
 
 // String returns the string representation
@@ -137,7 +137,7 @@ type ApplicationSummary struct {
 	// The application Amazon Resource Name (ARN).
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `locationName:"applicationId" type:"string" required:"true"`
+	ApplicationId *string `json:"serverlessrepo:ApplicationSummary:ApplicationId" locationName:"applicationId" type:"string" required:"true"`
 
 	// The name of the author publishing the app.
 	//
@@ -146,28 +146,28 @@ type ApplicationSummary struct {
 	// Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 	//
 	// Author is a required field
-	Author *string `locationName:"author" type:"string" required:"true"`
+	Author *string `json:"serverlessrepo:ApplicationSummary:Author" locationName:"author" type:"string" required:"true"`
 
 	// The date and time this resource was created.
-	CreationTime *string `locationName:"creationTime" type:"string"`
+	CreationTime *string `json:"serverlessrepo:ApplicationSummary:CreationTime" locationName:"creationTime" type:"string"`
 
 	// The description of the application.
 	//
 	// Minimum length=1. Maximum length=256
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"serverlessrepo:ApplicationSummary:Description" locationName:"description" type:"string" required:"true"`
 
 	// A URL with more information about the application, for example the location
 	// of your GitHub repository for the application.
-	HomePageUrl *string `locationName:"homePageUrl" type:"string"`
+	HomePageUrl *string `json:"serverlessrepo:ApplicationSummary:HomePageUrl" locationName:"homePageUrl" type:"string"`
 
 	// Labels to improve discovery of apps in search results.
 	//
 	// Minimum length=1. Maximum length=127. Maximum number of labels: 10
 	//
 	// Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
-	Labels []string `locationName:"labels" type:"list"`
+	Labels []string `json:"serverlessrepo:ApplicationSummary:Labels" locationName:"labels" type:"list"`
 
 	// The name of the application.
 	//
@@ -176,10 +176,10 @@ type ApplicationSummary struct {
 	// Pattern: "[a-zA-Z0-9\\-]+";
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"serverlessrepo:ApplicationSummary:Name" locationName:"name" type:"string" required:"true"`
 
 	// A valid identifier from https://spdx.org/licenses/ (https://spdx.org/licenses/).
-	SpdxLicenseId *string `locationName:"spdxLicenseId" type:"string"`
+	SpdxLicenseId *string `json:"serverlessrepo:ApplicationSummary:SpdxLicenseId" locationName:"spdxLicenseId" type:"string"`
 }
 
 // String returns the string representation
@@ -252,10 +252,10 @@ type ParameterDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// A regular expression that represents the patterns to allow for String types.
-	AllowedPattern *string `locationName:"allowedPattern" type:"string"`
+	AllowedPattern *string `json:"serverlessrepo:ParameterDefinition:AllowedPattern" locationName:"allowedPattern" type:"string"`
 
 	// An array containing the list of values allowed for the parameter.
-	AllowedValues []string `locationName:"allowedValues" type:"list"`
+	AllowedValues []string `json:"serverlessrepo:ParameterDefinition:AllowedValues" locationName:"allowedValues" type:"list"`
 
 	// A string that explains a constraint when the constraint is violated. For
 	// example, without a constraint description, a parameter that has an allowed
@@ -270,46 +270,46 @@ type ParameterDefinition struct {
 	//
 	// Malformed input-Parameter MyParameter must contain only uppercase and lowercase
 	// letters and numbers.
-	ConstraintDescription *string `locationName:"constraintDescription" type:"string"`
+	ConstraintDescription *string `json:"serverlessrepo:ParameterDefinition:ConstraintDescription" locationName:"constraintDescription" type:"string"`
 
 	// A value of the appropriate type for the template to use if no value is specified
 	// when a stack is created. If you define constraints for the parameter, you
 	// must specify a value that adheres to those constraints.
-	DefaultValue *string `locationName:"defaultValue" type:"string"`
+	DefaultValue *string `json:"serverlessrepo:ParameterDefinition:DefaultValue" locationName:"defaultValue" type:"string"`
 
 	// A string of up to 4,000 characters that describes the parameter.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"serverlessrepo:ParameterDefinition:Description" locationName:"description" type:"string"`
 
 	// An integer value that determines the largest number of characters that you
 	// want to allow for String types.
-	MaxLength *int64 `locationName:"maxLength" type:"integer"`
+	MaxLength *int64 `json:"serverlessrepo:ParameterDefinition:MaxLength" locationName:"maxLength" type:"integer"`
 
 	// A numeric value that determines the largest numeric value that you want to
 	// allow for Number types.
-	MaxValue *int64 `locationName:"maxValue" type:"integer"`
+	MaxValue *int64 `json:"serverlessrepo:ParameterDefinition:MaxValue" locationName:"maxValue" type:"integer"`
 
 	// An integer value that determines the smallest number of characters that you
 	// want to allow for String types.
-	MinLength *int64 `locationName:"minLength" type:"integer"`
+	MinLength *int64 `json:"serverlessrepo:ParameterDefinition:MinLength" locationName:"minLength" type:"integer"`
 
 	// A numeric value that determines the smallest numeric value that you want
 	// to allow for Number types.
-	MinValue *int64 `locationName:"minValue" type:"integer"`
+	MinValue *int64 `json:"serverlessrepo:ParameterDefinition:MinValue" locationName:"minValue" type:"integer"`
 
 	// The name of the parameter.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"serverlessrepo:ParameterDefinition:Name" locationName:"name" type:"string" required:"true"`
 
 	// Whether to mask the parameter value whenever anyone makes a call that describes
 	// the stack. If you set the value to true, the parameter value is masked with
 	// asterisks (*****).
-	NoEcho *bool `locationName:"noEcho" type:"boolean"`
+	NoEcho *bool `json:"serverlessrepo:ParameterDefinition:NoEcho" locationName:"noEcho" type:"boolean"`
 
 	// A list of AWS SAM resources that use this parameter.
 	//
 	// ReferencedByResources is a required field
-	ReferencedByResources []string `locationName:"referencedByResources" type:"list" required:"true"`
+	ReferencedByResources []string `json:"serverlessrepo:ParameterDefinition:ReferencedByResources" locationName:"referencedByResources" type:"list" required:"true"`
 
 	// The type of the parameter.
 	//
@@ -339,7 +339,7 @@ type ParameterDefinition struct {
 	//
 	// For example, users might specify "test,dev,prod", and then Ref results in
 	// ["test","dev","prod"].
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"serverlessrepo:ParameterDefinition:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -452,12 +452,12 @@ type ParameterValue struct {
 	// is specified in your template.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"serverlessrepo:ParameterValue:Name" locationName:"name" type:"string" required:"true"`
 
 	// The input value associated with the parameter.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"serverlessrepo:ParameterValue:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -510,12 +510,12 @@ type RollbackConfiguration struct {
 	// This property corresponds to the content of the same name for the AWS CloudFormation
 	// RollbackConfiguration (https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration)
 	// Data Type.
-	MonitoringTimeInMinutes *int64 `locationName:"monitoringTimeInMinutes" type:"integer"`
+	MonitoringTimeInMinutes *int64 `json:"serverlessrepo:RollbackConfiguration:MonitoringTimeInMinutes" locationName:"monitoringTimeInMinutes" type:"integer"`
 
 	// This property corresponds to the content of the same name for the AWS CloudFormation
 	// RollbackConfiguration (https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration)
 	// Data Type.
-	RollbackTriggers []RollbackTrigger `locationName:"rollbackTriggers" type:"list"`
+	RollbackTriggers []RollbackTrigger `json:"serverlessrepo:RollbackConfiguration:RollbackTriggers" locationName:"rollbackTriggers" type:"list"`
 }
 
 // String returns the string representation
@@ -574,14 +574,14 @@ type RollbackTrigger struct {
 	// Data Type.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"serverlessrepo:RollbackTrigger:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// This property corresponds to the content of the same name for the AWS CloudFormation
 	// RollbackTrigger (https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger)
 	// Data Type.
 	//
 	// Type is a required field
-	Type *string `locationName:"type" type:"string" required:"true"`
+	Type *string `json:"serverlessrepo:RollbackTrigger:Type" locationName:"type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -635,14 +635,14 @@ type Tag struct {
 	// Data Type.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" type:"string" required:"true"`
+	Key *string `json:"serverlessrepo:Tag:Key" locationName:"key" type:"string" required:"true"`
 
 	// This property corresponds to the content of the same name for the AWS CloudFormation
 	// Tag (https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag)
 	// Data Type.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"serverlessrepo:Tag:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -693,17 +693,17 @@ type Version struct {
 	// The application Amazon Resource Name (ARN).
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `locationName:"applicationId" type:"string" required:"true"`
+	ApplicationId *string `json:"serverlessrepo:Version:ApplicationId" locationName:"applicationId" type:"string" required:"true"`
 
 	// The date and time this resource was created.
 	//
 	// CreationTime is a required field
-	CreationTime *string `locationName:"creationTime" type:"string" required:"true"`
+	CreationTime *string `json:"serverlessrepo:Version:CreationTime" locationName:"creationTime" type:"string" required:"true"`
 
 	// An array of parameter types supported by the application.
 	//
 	// ParameterDefinitions is a required field
-	ParameterDefinitions []ParameterDefinition `locationName:"parameterDefinitions" type:"list" required:"true"`
+	ParameterDefinitions []ParameterDefinition `json:"serverlessrepo:Version:ParameterDefinitions" locationName:"parameterDefinitions" type:"list" required:"true"`
 
 	// A list of values that you must specify before you can deploy certain applications.
 	// Some applications might include resources that can affect permissions in
@@ -740,35 +740,35 @@ type Version struct {
 	// the call will fail.
 	//
 	// RequiredCapabilities is a required field
-	RequiredCapabilities []Capability `locationName:"requiredCapabilities" type:"list" required:"true"`
+	RequiredCapabilities []Capability `json:"serverlessrepo:Version:RequiredCapabilities" locationName:"requiredCapabilities" type:"list" required:"true"`
 
 	// Whether all of the AWS resources contained in this application are supported
 	// in the region in which it is being retrieved.
 	//
 	// ResourcesSupported is a required field
-	ResourcesSupported *bool `locationName:"resourcesSupported" type:"boolean" required:"true"`
+	ResourcesSupported *bool `json:"serverlessrepo:Version:ResourcesSupported" locationName:"resourcesSupported" type:"boolean" required:"true"`
 
 	// The semantic version of the application:
 	//
 	// https://semver.org/ (https://semver.org/)
 	//
 	// SemanticVersion is a required field
-	SemanticVersion *string `locationName:"semanticVersion" type:"string" required:"true"`
+	SemanticVersion *string `json:"serverlessrepo:Version:SemanticVersion" locationName:"semanticVersion" type:"string" required:"true"`
 
 	// A link to the S3 object that contains the ZIP archive of the source code
 	// for this version of your application.
 	//
 	// Maximum size 50 MB
-	SourceCodeArchiveUrl *string `locationName:"sourceCodeArchiveUrl" type:"string"`
+	SourceCodeArchiveUrl *string `json:"serverlessrepo:Version:SourceCodeArchiveUrl" locationName:"sourceCodeArchiveUrl" type:"string"`
 
 	// A link to a public repository for the source code of your application, for
 	// example the URL of a specific GitHub commit.
-	SourceCodeUrl *string `locationName:"sourceCodeUrl" type:"string"`
+	SourceCodeUrl *string `json:"serverlessrepo:Version:SourceCodeUrl" locationName:"sourceCodeUrl" type:"string"`
 
 	// A link to the packaged AWS SAM template of your application.
 	//
 	// TemplateUrl is a required field
-	TemplateUrl *string `locationName:"templateUrl" type:"string" required:"true"`
+	TemplateUrl *string `json:"serverlessrepo:Version:TemplateUrl" locationName:"templateUrl" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -855,23 +855,23 @@ type VersionSummary struct {
 	// The application Amazon Resource Name (ARN).
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `locationName:"applicationId" type:"string" required:"true"`
+	ApplicationId *string `json:"serverlessrepo:VersionSummary:ApplicationId" locationName:"applicationId" type:"string" required:"true"`
 
 	// The date and time this resource was created.
 	//
 	// CreationTime is a required field
-	CreationTime *string `locationName:"creationTime" type:"string" required:"true"`
+	CreationTime *string `json:"serverlessrepo:VersionSummary:CreationTime" locationName:"creationTime" type:"string" required:"true"`
 
 	// The semantic version of the application:
 	//
 	// https://semver.org/ (https://semver.org/)
 	//
 	// SemanticVersion is a required field
-	SemanticVersion *string `locationName:"semanticVersion" type:"string" required:"true"`
+	SemanticVersion *string `json:"serverlessrepo:VersionSummary:SemanticVersion" locationName:"semanticVersion" type:"string" required:"true"`
 
 	// A link to a public repository for the source code of your application, for
 	// example the URL of a specific GitHub commit.
-	SourceCodeUrl *string `locationName:"sourceCodeUrl" type:"string"`
+	SourceCodeUrl *string `json:"serverlessrepo:VersionSummary:SourceCodeUrl" locationName:"sourceCodeUrl" type:"string"`
 }
 
 // String returns the string representation

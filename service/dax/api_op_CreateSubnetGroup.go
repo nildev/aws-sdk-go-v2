@@ -55,7 +55,7 @@ type CreateSubnetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the output of a CreateSubnetGroup operation.
-	SubnetGroup *SubnetGroup `type:"structure"`
+	SubnetGroup *SubnetGroup `json:"dax:CreateSubnetGroupOutput:SubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

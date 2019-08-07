@@ -43,7 +43,7 @@ type DescribeTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the tags.
-	TagDescriptions []TagDescription `type:"list"`
+	TagDescriptions []TagDescription `json:"elasticloadbalancing:DescribeTagsOutput:TagDescriptions" type:"list"`
 }
 
 // String returns the string representation

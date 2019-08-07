@@ -64,13 +64,13 @@ type DescribeExportTasksOutput struct {
 	// Contains one or more sets of export request details. When the status of a
 	// request is SUCCEEDED, the response includes a URL for an Amazon S3 bucket
 	// where you can view the data in a CSV file.
-	ExportsInfo []ExportInfo `locationName:"exportsInfo" type:"list"`
+	ExportsInfo []ExportInfo `json:"discovery:DescribeExportTasksOutput:ExportsInfo" locationName:"exportsInfo" type:"list"`
 
 	// The nextToken value to include in a future DescribeExportTasks request. When
 	// the results of a DescribeExportTasks request exceed maxResults, this value
 	// can be used to retrieve the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"discovery:DescribeExportTasksOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

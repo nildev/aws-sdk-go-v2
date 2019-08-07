@@ -47,11 +47,11 @@ type PutPartnerEventsOutput struct {
 
 	// The list of events from this operation that were successfully written to
 	// the partner event bus.
-	Entries []PutPartnerEventsResultEntry `type:"list"`
+	Entries []PutPartnerEventsResultEntry `json:"events:PutPartnerEventsOutput:Entries" type:"list"`
 
 	// The number of events from this operation that couldn't be written to the
 	// partner event bus.
-	FailedEntryCount *int64 `type:"integer"`
+	FailedEntryCount *int64 `json:"events:PutPartnerEventsOutput:FailedEntryCount" type:"integer"`
 }
 
 // String returns the string representation

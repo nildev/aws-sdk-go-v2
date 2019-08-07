@@ -86,7 +86,7 @@ type BatchWriteOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of all the responses for each batch write.
-	Responses []BatchWriteOperationResponse `type:"list"`
+	Responses []BatchWriteOperationResponse `json:"clouddirectory:BatchWriteOutput:Responses" type:"list"`
 }
 
 // String returns the string representation

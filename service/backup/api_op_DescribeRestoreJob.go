@@ -58,49 +58,49 @@ type DescribeRestoreJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The size, in bytes, of the restored resource.
-	BackupSizeInBytes *int64 `type:"long"`
+	BackupSizeInBytes *int64 `json:"backup:DescribeRestoreJobOutput:BackupSizeInBytes" type:"long"`
 
 	// The date and time that a job to restore a recovery point is completed, in
 	// Unix format and Coordinated Universal Time (UTC). The value of CompletionDate
 	// is accurate to milliseconds. For example, the value 1516925490.087 represents
 	// Friday, January 26, 2018 12:11:30.087 AM.
-	CompletionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletionDate *time.Time `json:"backup:DescribeRestoreJobOutput:CompletionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An Amazon Resource Name (ARN) that uniquely identifies a resource whose recovery
 	// point is being restored. The format of the ARN depends on the resource type
 	// of the backed-up resource.
-	CreatedResourceArn *string `type:"string"`
+	CreatedResourceArn *string `json:"backup:DescribeRestoreJobOutput:CreatedResourceArn" type:"string"`
 
 	// The date and time that a restore job is created, in Unix format and Coordinated
 	// Universal Time (UTC). The value of CreationDate is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"backup:DescribeRestoreJobOutput:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The amount of time in minutes that a job restoring a recovery point is expected
 	// to take.
-	ExpectedCompletionTimeMinutes *int64 `type:"long"`
+	ExpectedCompletionTimeMinutes *int64 `json:"backup:DescribeRestoreJobOutput:ExpectedCompletionTimeMinutes" type:"long"`
 
 	// Specifies the IAM role ARN used to create the target recovery point; for
 	// example, arn:aws:iam::123456789012:role/S3Access.
-	IamRoleArn *string `type:"string"`
+	IamRoleArn *string `json:"backup:DescribeRestoreJobOutput:IamRoleArn" type:"string"`
 
 	// Contains an estimated percentage that is complete of a job at the time the
 	// job status was queried.
-	PercentDone *string `type:"string"`
+	PercentDone *string `json:"backup:DescribeRestoreJobOutput:PercentDone" type:"string"`
 
 	// An ARN that uniquely identifies a recovery point; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-	RecoveryPointArn *string `type:"string"`
+	RecoveryPointArn *string `json:"backup:DescribeRestoreJobOutput:RecoveryPointArn" type:"string"`
 
 	// Uniquely identifies the job that restores a recovery point.
-	RestoreJobId *string `type:"string"`
+	RestoreJobId *string `json:"backup:DescribeRestoreJobOutput:RestoreJobId" type:"string"`
 
 	// Status code specifying the state of the job that is initiated by AWS Backup
 	// to restore a recovery point.
-	Status RestoreJobStatus `type:"string" enum:"true"`
+	Status RestoreJobStatus `json:"backup:DescribeRestoreJobOutput:Status" type:"string" enum:"true"`
 
 	// A detailed message explaining the status of a job to restore a recovery point.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"backup:DescribeRestoreJobOutput:StatusMessage" type:"string"`
 }
 
 // String returns the string representation

@@ -48,7 +48,7 @@ type DescribeDocumentClassificationJobOutput struct {
 
 	// An object that describes the properties associated with the document classification
 	// job.
-	DocumentClassificationJobProperties *DocumentClassificationJobProperties `type:"structure"`
+	DocumentClassificationJobProperties *DocumentClassificationJobProperties `json:"comprehend:DescribeDocumentClassificationJobOutput:DocumentClassificationJobProperties" type:"structure"`
 }
 
 // String returns the string representation

@@ -55,7 +55,7 @@ type CreateDirectConnectGatewayAssociationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The association to be created.
-	DirectConnectGatewayAssociation *DirectConnectGatewayAssociation `locationName:"directConnectGatewayAssociation" type:"structure"`
+	DirectConnectGatewayAssociation *DirectConnectGatewayAssociation `json:"directconnect:CreateDirectConnectGatewayAssociationOutput:DirectConnectGatewayAssociation" locationName:"directConnectGatewayAssociation" type:"structure"`
 }
 
 // String returns the string representation

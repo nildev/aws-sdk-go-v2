@@ -75,10 +75,10 @@ type ListDirectoriesOutput struct {
 	// fashion.
 	//
 	// Directories is a required field
-	Directories []Directory `type:"list" required:"true"`
+	Directories []Directory `json:"clouddirectory:ListDirectoriesOutput:Directories" type:"list" required:"true"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListDirectoriesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

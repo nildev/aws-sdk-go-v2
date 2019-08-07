@@ -143,10 +143,10 @@ type AddLayerVersionPermissionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier for the current revision of the policy.
-	RevisionId *string `type:"string"`
+	RevisionId *string `json:"lambda:AddLayerVersionPermissionOutput:RevisionId" type:"string"`
 
 	// The permission statement.
-	Statement *string `type:"string"`
+	Statement *string `json:"lambda:AddLayerVersionPermissionOutput:Statement" type:"string"`
 }
 
 // String returns the string representation

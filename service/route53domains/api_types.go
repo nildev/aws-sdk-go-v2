@@ -19,25 +19,25 @@ type BillingRecord struct {
 	_ struct{} `type:"structure"`
 
 	// The date that the operation was billed, in Unix format.
-	BillDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	BillDate *time.Time `json:"route53domains:BillingRecord:BillDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the domain that the billing record applies to. If the domain
 	// name contains characters other than a-z, 0-9, and - (hyphen), such as an
 	// internationalized domain name, then this value is in Punycode. For more information,
 	// see DNS Domain Name Format (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html)
 	// in the Amazon Route 53 Developer Guidezzz.
-	DomainName *string `type:"string"`
+	DomainName *string `json:"route53domains:BillingRecord:DomainName" type:"string"`
 
 	// The ID of the invoice that is associated with the billing record.
-	InvoiceId *string `type:"string"`
+	InvoiceId *string `json:"route53domains:BillingRecord:InvoiceId" type:"string"`
 
 	// The operation that you were charged for.
-	Operation OperationType `type:"string" enum:"true"`
+	Operation OperationType `json:"route53domains:BillingRecord:Operation" type:"string" enum:"true"`
 
 	// The price that you were charged for the operation, in US dollars.
 	//
 	// Example value: 12.0
-	Price *float64 `type:"double"`
+	Price *float64 `json:"route53domains:BillingRecord:Price" type:"double"`
 }
 
 // String returns the string representation
@@ -51,56 +51,56 @@ type ContactDetail struct {
 	_ struct{} `type:"structure"`
 
 	// First line of the contact's address.
-	AddressLine1 *string `type:"string"`
+	AddressLine1 *string `json:"route53domains:ContactDetail:AddressLine1" type:"string"`
 
 	// Second line of contact's address, if any.
-	AddressLine2 *string `type:"string"`
+	AddressLine2 *string `json:"route53domains:ContactDetail:AddressLine2" type:"string"`
 
 	// The city of the contact's address.
-	City *string `type:"string"`
+	City *string `json:"route53domains:ContactDetail:City" type:"string"`
 
 	// Indicates whether the contact is a person, company, association, or public
 	// organization. If you choose an option other than PERSON, you must enter an
 	// organization name, and you can't enable privacy protection for the contact.
-	ContactType ContactType `type:"string" enum:"true"`
+	ContactType ContactType `json:"route53domains:ContactDetail:ContactType" type:"string" enum:"true"`
 
 	// Code for the country of the contact's address.
-	CountryCode CountryCode `type:"string" enum:"true"`
+	CountryCode CountryCode `json:"route53domains:ContactDetail:CountryCode" type:"string" enum:"true"`
 
 	// Email address of the contact.
-	Email *string `type:"string"`
+	Email *string `json:"route53domains:ContactDetail:Email" type:"string"`
 
 	// A list of name-value pairs for parameters required by certain top-level domains.
-	ExtraParams []ExtraParam `type:"list"`
+	ExtraParams []ExtraParam `json:"route53domains:ContactDetail:ExtraParams" type:"list"`
 
 	// Fax number of the contact.
 	//
 	// Constraints: Phone number must be specified in the format "+[country dialing
 	// code].[number including any area code]". For example, a US phone number might
 	// appear as "+1.1234567890".
-	Fax *string `type:"string"`
+	Fax *string `json:"route53domains:ContactDetail:Fax" type:"string"`
 
 	// First name of contact.
-	FirstName *string `type:"string"`
+	FirstName *string `json:"route53domains:ContactDetail:FirstName" type:"string"`
 
 	// Last name of contact.
-	LastName *string `type:"string"`
+	LastName *string `json:"route53domains:ContactDetail:LastName" type:"string"`
 
 	// Name of the organization for contact types other than PERSON.
-	OrganizationName *string `type:"string"`
+	OrganizationName *string `json:"route53domains:ContactDetail:OrganizationName" type:"string"`
 
 	// The phone number of the contact.
 	//
 	// Constraints: Phone number must be specified in the format "+[country dialing
 	// code].[number including any area code>]". For example, a US phone number
 	// might appear as "+1.1234567890".
-	PhoneNumber *string `type:"string"`
+	PhoneNumber *string `json:"route53domains:ContactDetail:PhoneNumber" type:"string"`
 
 	// The state or province of the contact's city.
-	State *string `type:"string"`
+	State *string `json:"route53domains:ContactDetail:State" type:"string"`
 
 	// The zip or postal code of the contact's address.
-	ZipCode *string `type:"string"`
+	ZipCode *string `json:"route53domains:ContactDetail:ZipCode" type:"string"`
 }
 
 // String returns the string representation
@@ -176,10 +176,10 @@ type DomainSuggestion struct {
 	// UNAVAILABLE_RESTRICTED
 	//
 	// The domain name is forbidden.
-	Availability *string `type:"string"`
+	Availability *string `json:"route53domains:DomainSuggestion:Availability" type:"string"`
 
 	// A suggested domain name.
-	DomainName *string `type:"string"`
+	DomainName *string `json:"route53domains:DomainSuggestion:DomainName" type:"string"`
 }
 
 // String returns the string representation
@@ -193,19 +193,19 @@ type DomainSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the domain is automatically renewed upon expiration.
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `json:"route53domains:DomainSummary:AutoRenew" type:"boolean"`
 
 	// The name of the domain that the summary information applies to.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"route53domains:DomainSummary:DomainName" type:"string" required:"true"`
 
 	// Expiration date of the domain in Coordinated Universal Time (UTC).
-	Expiry *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Expiry *time.Time `json:"route53domains:DomainSummary:Expiry" type:"timestamp" timestampFormat:"unix"`
 
 	// Indicates whether a domain is locked from unauthorized transfer to another
 	// party.
-	TransferLock *bool `type:"boolean"`
+	TransferLock *bool `json:"route53domains:DomainSummary:TransferLock" type:"boolean"`
 }
 
 // String returns the string representation
@@ -236,7 +236,7 @@ type DomainTransferability struct {
 	// DONT_KNOW
 	//
 	// Reserved for future use.
-	Transferable Transferable `type:"string" enum:"true"`
+	Transferable Transferable `json:"route53domains:DomainTransferability:Transferable" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -278,13 +278,13 @@ type ExtraParam struct {
 	// In addition, many TLDs require VAT_NUMBER.
 	//
 	// Name is a required field
-	Name ExtraParamName `type:"string" required:"true" enum:"true"`
+	Name ExtraParamName `json:"route53domains:ExtraParam:Name" type:"string" required:"true" enum:"true"`
 
 	// Values corresponding to the additional parameter names required by some top-level
 	// domains.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"route53domains:ExtraParam:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -320,14 +320,14 @@ type Nameserver struct {
 	// you need to specify the IP address for ns.example.com.
 	//
 	// Constraints: The list can contain only one IPv4 and one IPv6 address.
-	GlueIps []string `type:"list"`
+	GlueIps []string `json:"route53domains:Nameserver:GlueIps" type:"list"`
 
 	// The fully qualified host name of the name server.
 	//
 	// Constraint: Maximum 255 characters
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"route53domains:Nameserver:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -357,22 +357,22 @@ type OperationSummary struct {
 	// Identifier returned to track the requested action.
 	//
 	// OperationId is a required field
-	OperationId *string `type:"string" required:"true"`
+	OperationId *string `json:"route53domains:OperationSummary:OperationId" type:"string" required:"true"`
 
 	// The current status of the requested operation in the system.
 	//
 	// Status is a required field
-	Status OperationStatus `type:"string" required:"true" enum:"true"`
+	Status OperationStatus `json:"route53domains:OperationSummary:Status" type:"string" required:"true" enum:"true"`
 
 	// The date when the request was submitted.
 	//
 	// SubmittedDate is a required field
-	SubmittedDate *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	SubmittedDate *time.Time `json:"route53domains:OperationSummary:SubmittedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Type of the action requested.
 	//
 	// Type is a required field
-	Type OperationType `type:"string" required:"true" enum:"true"`
+	Type OperationType `json:"route53domains:OperationSummary:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -390,14 +390,14 @@ type Tag struct {
 	// Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
 	//
 	// Constraints: Each key can be 1-128 characters long.
-	Key *string `type:"string"`
+	Key *string `json:"route53domains:Tag:Key" type:"string"`
 
 	// The value of a tag.
 	//
 	// Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
 	//
 	// Constraints: Each value can be 0-256 characters long.
-	Value *string `type:"string"`
+	Value *string `json:"route53domains:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

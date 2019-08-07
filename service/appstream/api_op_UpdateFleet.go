@@ -168,7 +168,7 @@ type UpdateFleetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the fleet.
-	Fleet *Fleet `type:"structure"`
+	Fleet *Fleet `json:"appstream2:UpdateFleetOutput:Fleet" type:"structure"`
 }
 
 // String returns the string representation

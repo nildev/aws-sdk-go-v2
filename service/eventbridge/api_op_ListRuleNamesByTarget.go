@@ -66,10 +66,10 @@ type ListRuleNamesByTargetOutput struct {
 
 	// Indicates whether there are additional results to retrieve. If there are
 	// no more results, the value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"events:ListRuleNamesByTargetOutput:NextToken" min:"1" type:"string"`
 
 	// The names of the rules that can invoke the given target.
-	RuleNames []string `type:"list"`
+	RuleNames []string `json:"events:ListRuleNamesByTargetOutput:RuleNames" type:"list"`
 }
 
 // String returns the string representation

@@ -73,10 +73,10 @@ type DescribeCasesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details for the cases that match the request.
-	Cases []CaseDetails `locationName:"cases" type:"list"`
+	Cases []CaseDetails `json:"support:DescribeCasesOutput:Cases" locationName:"cases" type:"list"`
 
 	// A resumption point for pagination.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"support:DescribeCasesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

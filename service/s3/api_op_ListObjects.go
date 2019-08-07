@@ -122,24 +122,24 @@ func (s ListObjectsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListObjectsOutput struct {
 	_ struct{} `type:"structure"`
 
-	CommonPrefixes []CommonPrefix `type:"list" flattened:"true"`
+	CommonPrefixes []CommonPrefix `json:"s3:ListObjectsOutput:CommonPrefixes" type:"list" flattened:"true"`
 
-	Contents []Object `type:"list" flattened:"true"`
+	Contents []Object `json:"s3:ListObjectsOutput:Contents" type:"list" flattened:"true"`
 
-	Delimiter *string `type:"string"`
+	Delimiter *string `json:"s3:ListObjectsOutput:Delimiter" type:"string"`
 
 	// Encoding type used by Amazon S3 to encode object keys in the response.
-	EncodingType EncodingType `type:"string" enum:"true"`
+	EncodingType EncodingType `json:"s3:ListObjectsOutput:EncodingType" type:"string" enum:"true"`
 
 	// A flag that indicates whether or not Amazon S3 returned all of the results
 	// that satisfied the search criteria.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"s3:ListObjectsOutput:IsTruncated" type:"boolean"`
 
-	Marker *string `type:"string"`
+	Marker *string `json:"s3:ListObjectsOutput:Marker" type:"string"`
 
-	MaxKeys *int64 `type:"integer"`
+	MaxKeys *int64 `json:"s3:ListObjectsOutput:MaxKeys" type:"integer"`
 
-	Name *string `type:"string"`
+	Name *string `json:"s3:ListObjectsOutput:Name" type:"string"`
 
 	// When response is truncated (the IsTruncated element value in the response
 	// is true), you can use the key name in this field as marker in the subsequent
@@ -148,9 +148,9 @@ type ListObjectsOutput struct {
 	// specified. If response does not include the NextMaker and it is truncated,
 	// you can use the value of the last Key in the response as the marker in the
 	// subsequent request to get the next set of object keys.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"s3:ListObjectsOutput:NextMarker" type:"string"`
 
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:ListObjectsOutput:Prefix" type:"string"`
 }
 
 // String returns the string representation

@@ -70,10 +70,10 @@ type RemoveFlowOutputOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the flow that is associated with the output you removed.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:RemoveFlowOutputOutput:FlowArn" locationName:"flowArn" type:"string"`
 
 	// The ARN of the output that was removed.
-	OutputArn *string `locationName:"outputArn" type:"string"`
+	OutputArn *string `json:"mediaconnect:RemoveFlowOutputOutput:OutputArn" locationName:"outputArn" type:"string"`
 }
 
 // String returns the string representation

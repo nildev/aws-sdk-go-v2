@@ -85,7 +85,7 @@ type GetMediaForFragmentListOutput struct {
 	_ struct{} `type:"structure" payload:"Payload"`
 
 	// The content type of the requested media.
-	ContentType *string `location:"header" locationName:"Content-Type" min:"1" type:"string"`
+	ContentType *string `json:"kinesisvideo:GetMediaForFragmentListOutput:ContentType" location:"header" locationName:"Content-Type" min:"1" type:"string"`
 
 	// The payload that Kinesis Video Streams returns is a sequence of chunks from
 	// the specified stream. For information about the chunks, see PutMedia (http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html).
@@ -108,7 +108,7 @@ type GetMediaForFragmentListOutput struct {
 	//    * AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the exception
 	//
 	//    * AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception
-	Payload io.ReadCloser `type:"blob"`
+	Payload io.ReadCloser `json:"kinesisvideo:GetMediaForFragmentListOutput:Payload" type:"blob"`
 }
 
 // String returns the string representation

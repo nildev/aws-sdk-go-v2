@@ -74,7 +74,7 @@ type UpdateDomainNameserversOutput struct {
 	// the operation status, use GetOperationDetail.
 	//
 	// OperationId is a required field
-	OperationId *string `type:"string" required:"true"`
+	OperationId *string `json:"route53domains:UpdateDomainNameserversOutput:OperationId" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -43,7 +43,7 @@ type GetContactOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the requested contact.
-	Contact *Contact `type:"structure"`
+	Contact *Contact `json:"a4b:GetContactOutput:Contact" type:"structure"`
 }
 
 // String returns the string representation

@@ -47,11 +47,11 @@ type ListDevEndpointsOutput struct {
 
 	// The names of all the DevEndpoints in the account, or the DevEndpoints with
 	// the specified tags.
-	DevEndpointNames []string `type:"list"`
+	DevEndpointNames []string `json:"glue:ListDevEndpointsOutput:DevEndpointNames" type:"list"`
 
 	// A continuation token, if the returned list does not contain the last metric
 	// available.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:ListDevEndpointsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

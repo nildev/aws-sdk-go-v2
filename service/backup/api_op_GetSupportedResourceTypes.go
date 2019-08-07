@@ -42,7 +42,7 @@ type GetSupportedResourceTypesOutput struct {
 	//    * DDB for Amazon DynamoDB
 	//
 	//    * EFS for Amazon Elastic File System
-	ResourceTypes []string `type:"list"`
+	ResourceTypes []string `json:"backup:GetSupportedResourceTypesOutput:ResourceTypes" type:"list"`
 }
 
 // String returns the string representation

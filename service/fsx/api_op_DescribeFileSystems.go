@@ -57,11 +57,11 @@ type DescribeFileSystemsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of file system descriptions.
-	FileSystems []FileSystem `type:"list"`
+	FileSystems []FileSystem `json:"fsx:DescribeFileSystemsOutput:FileSystems" type:"list"`
 
 	// Present if there are more file systems than returned in the response (String).
 	// You can use the NextToken value in the later request to fetch the descriptions.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"fsx:DescribeFileSystemsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

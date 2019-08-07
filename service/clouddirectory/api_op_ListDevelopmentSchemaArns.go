@@ -62,10 +62,10 @@ type ListDevelopmentSchemaArnsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListDevelopmentSchemaArnsOutput:NextToken" type:"string"`
 
 	// The ARNs of retrieved development schemas.
-	SchemaArns []string `type:"list"`
+	SchemaArns []string `json:"clouddirectory:ListDevelopmentSchemaArnsOutput:SchemaArns" type:"list"`
 }
 
 // String returns the string representation

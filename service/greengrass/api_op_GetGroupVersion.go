@@ -69,19 +69,19 @@ type GetGroupVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the group version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetGroupVersionOutput:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the group version was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetGroupVersionOutput:CreationTimestamp" type:"string"`
 
 	// Information about the group version definition.
-	Definition *GroupVersion `type:"structure"`
+	Definition *GroupVersion `json:"greengrass:GetGroupVersionOutput:Definition" type:"structure"`
 
 	// The ID of the group version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetGroupVersionOutput:Id" type:"string"`
 
 	// The unique ID for the version of the group.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:GetGroupVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

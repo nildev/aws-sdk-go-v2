@@ -63,57 +63,57 @@ type CreateSnapshotOutput struct {
 	// by volumes created from snapshots, and vice versa, if snapshots share the
 	// same data encryption key identifier, then they belong to the same volume/snapshot
 	// lineage. This parameter is only returned by DescribeSnapshots.
-	DataEncryptionKeyId *string `locationName:"dataEncryptionKeyId" type:"string"`
+	DataEncryptionKeyId *string `json:"ec2:CreateSnapshotOutput:DataEncryptionKeyId" locationName:"dataEncryptionKeyId" type:"string"`
 
 	// The description for the snapshot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:CreateSnapshotOutput:Description" locationName:"description" type:"string"`
 
 	// Indicates whether the snapshot is encrypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:CreateSnapshotOutput:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS)
 	// customer master key (CMK) that was used to protect the volume encryption
 	// key for the parent volume.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:CreateSnapshotOutput:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// Value from an Amazon-maintained list (amazon | self | all | aws-marketplace
 	// | microsoft) of snapshot owners. Not to be confused with the user-configured
 	// AWS account alias, which is set from the IAM console.
-	OwnerAlias *string `locationName:"ownerAlias" type:"string"`
+	OwnerAlias *string `json:"ec2:CreateSnapshotOutput:OwnerAlias" locationName:"ownerAlias" type:"string"`
 
 	// The AWS account ID of the EBS snapshot owner.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:CreateSnapshotOutput:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The progress of the snapshot, as a percentage.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"ec2:CreateSnapshotOutput:Progress" locationName:"progress" type:"string"`
 
 	// The ID of the snapshot. Each snapshot receives a unique identifier when it
 	// is created.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:CreateSnapshotOutput:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// The time stamp when the snapshot was initiated.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"ec2:CreateSnapshotOutput:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The snapshot state.
-	State SnapshotState `locationName:"status" type:"string" enum:"true"`
+	State SnapshotState `json:"ec2:CreateSnapshotOutput:State" locationName:"status" type:"string" enum:"true"`
 
 	// Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy
 	// operation fails (for example, if the proper AWS Key Management Service (AWS
 	// KMS) permissions are not obtained) this field displays error state details
 	// to help you diagnose why the error occurred. This parameter is only returned
 	// by DescribeSnapshots.
-	StateMessage *string `locationName:"statusMessage" type:"string"`
+	StateMessage *string `json:"ec2:CreateSnapshotOutput:StateMessage" locationName:"statusMessage" type:"string"`
 
 	// Any tags assigned to the snapshot.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:CreateSnapshotOutput:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the volume that was used to create the snapshot. Snapshots created
 	// by the CopySnapshot action have an arbitrary volume ID that should not be
 	// used for any purpose.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:CreateSnapshotOutput:VolumeId" locationName:"volumeId" type:"string"`
 
 	// The size of the volume, in GiB.
-	VolumeSize *int64 `locationName:"volumeSize" type:"integer"`
+	VolumeSize *int64 `json:"ec2:CreateSnapshotOutput:VolumeSize" locationName:"volumeSize" type:"integer"`
 }
 
 // String returns the string representation

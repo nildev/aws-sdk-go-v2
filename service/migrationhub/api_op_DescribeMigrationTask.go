@@ -58,7 +58,7 @@ type DescribeMigrationTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object encapsulating information about the migration task.
-	MigrationTask *MigrationTask `type:"structure"`
+	MigrationTask *MigrationTask `json:"mgh:DescribeMigrationTaskOutput:MigrationTask" type:"structure"`
 }
 
 // String returns the string representation

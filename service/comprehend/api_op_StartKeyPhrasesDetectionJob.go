@@ -122,7 +122,7 @@ type StartKeyPhrasesDetectionJobOutput struct {
 
 	// The identifier generated for the job. To get the status of a job, use this
 	// identifier with the operation.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:StartKeyPhrasesDetectionJobOutput:JobId" min:"1" type:"string"`
 
 	// The status of the job.
 	//
@@ -133,7 +133,7 @@ type StartKeyPhrasesDetectionJobOutput struct {
 	//    * COMPLETED - The job was successfully completed and the output is available.
 	//
 	//    * FAILED - The job did not complete. To get details, use the operation.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:StartKeyPhrasesDetectionJobOutput:JobStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

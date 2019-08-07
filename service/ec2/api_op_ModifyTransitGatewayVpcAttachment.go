@@ -59,7 +59,7 @@ type ModifyTransitGatewayVpcAttachmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the modified attachment.
-	TransitGatewayVpcAttachment *TransitGatewayVpcAttachment `locationName:"transitGatewayVpcAttachment" type:"structure"`
+	TransitGatewayVpcAttachment *TransitGatewayVpcAttachment `json:"ec2:ModifyTransitGatewayVpcAttachmentOutput:TransitGatewayVpcAttachment" locationName:"transitGatewayVpcAttachment" type:"structure"`
 }
 
 // String returns the string representation

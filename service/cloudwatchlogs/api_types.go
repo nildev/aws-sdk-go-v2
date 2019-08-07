@@ -17,24 +17,24 @@ type Destination struct {
 
 	// An IAM policy document that governs which AWS accounts can create subscription
 	// filters against this destination.
-	AccessPolicy *string `locationName:"accessPolicy" min:"1" type:"string"`
+	AccessPolicy *string `json:"logs:Destination:AccessPolicy" locationName:"accessPolicy" min:"1" type:"string"`
 
 	// The ARN of this destination.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"logs:Destination:Arn" locationName:"arn" type:"string"`
 
 	// The creation time of the destination, expressed as the number of milliseconds
 	// after Jan 1, 1970 00:00:00 UTC.
-	CreationTime *int64 `locationName:"creationTime" type:"long"`
+	CreationTime *int64 `json:"logs:Destination:CreationTime" locationName:"creationTime" type:"long"`
 
 	// The name of the destination.
-	DestinationName *string `locationName:"destinationName" min:"1" type:"string"`
+	DestinationName *string `json:"logs:Destination:DestinationName" locationName:"destinationName" min:"1" type:"string"`
 
 	// A role for impersonation, used when delivering log events to the target.
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string"`
+	RoleArn *string `json:"logs:Destination:RoleArn" locationName:"roleArn" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the physical target to where the log events
 	// are delivered (for example, a Kinesis stream).
-	TargetArn *string `locationName:"targetArn" min:"1" type:"string"`
+	TargetArn *string `json:"logs:Destination:TargetArn" locationName:"targetArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -48,33 +48,33 @@ type ExportTask struct {
 	_ struct{} `type:"structure"`
 
 	// The name of Amazon S3 bucket to which the log data was exported.
-	Destination *string `locationName:"destination" min:"1" type:"string"`
+	Destination *string `json:"logs:ExportTask:Destination" locationName:"destination" min:"1" type:"string"`
 
 	// The prefix that was used as the start of Amazon S3 key for every object exported.
-	DestinationPrefix *string `locationName:"destinationPrefix" type:"string"`
+	DestinationPrefix *string `json:"logs:ExportTask:DestinationPrefix" locationName:"destinationPrefix" type:"string"`
 
 	// Execution info about the export task.
-	ExecutionInfo *ExportTaskExecutionInfo `locationName:"executionInfo" type:"structure"`
+	ExecutionInfo *ExportTaskExecutionInfo `json:"logs:ExportTask:ExecutionInfo" locationName:"executionInfo" type:"structure"`
 
 	// The start time, expressed as the number of milliseconds after Jan 1, 1970
 	// 00:00:00 UTC. Events with a timestamp before this time are not exported.
-	From *int64 `locationName:"from" type:"long"`
+	From *int64 `json:"logs:ExportTask:From" locationName:"from" type:"long"`
 
 	// The name of the log group from which logs data was exported.
-	LogGroupName *string `locationName:"logGroupName" min:"1" type:"string"`
+	LogGroupName *string `json:"logs:ExportTask:LogGroupName" locationName:"logGroupName" min:"1" type:"string"`
 
 	// The status of the export task.
-	Status *ExportTaskStatus `locationName:"status" type:"structure"`
+	Status *ExportTaskStatus `json:"logs:ExportTask:Status" locationName:"status" type:"structure"`
 
 	// The ID of the export task.
-	TaskId *string `locationName:"taskId" min:"1" type:"string"`
+	TaskId *string `json:"logs:ExportTask:TaskId" locationName:"taskId" min:"1" type:"string"`
 
 	// The name of the export task.
-	TaskName *string `locationName:"taskName" min:"1" type:"string"`
+	TaskName *string `json:"logs:ExportTask:TaskName" locationName:"taskName" min:"1" type:"string"`
 
 	// The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00
 	// UTC. Events with a timestamp later than this time are not exported.
-	To *int64 `locationName:"to" type:"long"`
+	To *int64 `json:"logs:ExportTask:To" locationName:"to" type:"long"`
 }
 
 // String returns the string representation
@@ -89,11 +89,11 @@ type ExportTaskExecutionInfo struct {
 
 	// The completion time of the export task, expressed as the number of milliseconds
 	// after Jan 1, 1970 00:00:00 UTC.
-	CompletionTime *int64 `locationName:"completionTime" type:"long"`
+	CompletionTime *int64 `json:"logs:ExportTaskExecutionInfo:CompletionTime" locationName:"completionTime" type:"long"`
 
 	// The creation time of the export task, expressed as the number of milliseconds
 	// after Jan 1, 1970 00:00:00 UTC.
-	CreationTime *int64 `locationName:"creationTime" type:"long"`
+	CreationTime *int64 `json:"logs:ExportTaskExecutionInfo:CreationTime" locationName:"creationTime" type:"long"`
 }
 
 // String returns the string representation
@@ -107,10 +107,10 @@ type ExportTaskStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The status code of the export task.
-	Code ExportTaskStatusCode `locationName:"code" type:"string" enum:"true"`
+	Code ExportTaskStatusCode `json:"logs:ExportTaskStatus:Code" locationName:"code" type:"string" enum:"true"`
 
 	// The status message related to the status code.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"logs:ExportTaskStatus:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -124,21 +124,21 @@ type FilteredLogEvent struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the event.
-	EventId *string `locationName:"eventId" type:"string"`
+	EventId *string `json:"logs:FilteredLogEvent:EventId" locationName:"eventId" type:"string"`
 
 	// The time the event was ingested, expressed as the number of milliseconds
 	// after Jan 1, 1970 00:00:00 UTC.
-	IngestionTime *int64 `locationName:"ingestionTime" type:"long"`
+	IngestionTime *int64 `json:"logs:FilteredLogEvent:IngestionTime" locationName:"ingestionTime" type:"long"`
 
 	// The name of the log stream to which this event belongs.
-	LogStreamName *string `locationName:"logStreamName" min:"1" type:"string"`
+	LogStreamName *string `json:"logs:FilteredLogEvent:LogStreamName" locationName:"logStreamName" min:"1" type:"string"`
 
 	// The data contained in the log event.
-	Message *string `locationName:"message" min:"1" type:"string"`
+	Message *string `json:"logs:FilteredLogEvent:Message" locationName:"message" min:"1" type:"string"`
 
 	// The time the event occurred, expressed as the number of milliseconds after
 	// Jan 1, 1970 00:00:00 UTC.
-	Timestamp *int64 `locationName:"timestamp" type:"long"`
+	Timestamp *int64 `json:"logs:FilteredLogEvent:Timestamp" locationName:"timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -155,13 +155,13 @@ type InputLogEvent struct {
 	// The raw event message.
 	//
 	// Message is a required field
-	Message *string `locationName:"message" min:"1" type:"string" required:"true"`
+	Message *string `json:"logs:InputLogEvent:Message" locationName:"message" min:"1" type:"string" required:"true"`
 
 	// The time the event occurred, expressed as the number of milliseconds after
 	// Jan 1, 1970 00:00:00 UTC.
 	//
 	// Timestamp is a required field
-	Timestamp *int64 `locationName:"timestamp" type:"long" required:"true"`
+	Timestamp *int64 `json:"logs:InputLogEvent:Timestamp" locationName:"timestamp" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -196,28 +196,28 @@ type LogGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the log group.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"logs:LogGroup:Arn" locationName:"arn" type:"string"`
 
 	// The creation time of the log group, expressed as the number of milliseconds
 	// after Jan 1, 1970 00:00:00 UTC.
-	CreationTime *int64 `locationName:"creationTime" type:"long"`
+	CreationTime *int64 `json:"logs:LogGroup:CreationTime" locationName:"creationTime" type:"long"`
 
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"logs:LogGroup:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The name of the log group.
-	LogGroupName *string `locationName:"logGroupName" min:"1" type:"string"`
+	LogGroupName *string `json:"logs:LogGroup:LogGroupName" locationName:"logGroupName" min:"1" type:"string"`
 
 	// The number of metric filters.
-	MetricFilterCount *int64 `locationName:"metricFilterCount" type:"integer"`
+	MetricFilterCount *int64 `json:"logs:LogGroup:MetricFilterCount" locationName:"metricFilterCount" type:"integer"`
 
 	// The number of days to retain the log events in the specified log group. Possible
 	// values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731,
 	// 1827, and 3653.
-	RetentionInDays *int64 `locationName:"retentionInDays" type:"integer"`
+	RetentionInDays *int64 `json:"logs:LogGroup:RetentionInDays" locationName:"retentionInDays" type:"integer"`
 
 	// The number of bytes stored.
-	StoredBytes *int64 `locationName:"storedBytes" type:"long"`
+	StoredBytes *int64 `json:"logs:LogGroup:StoredBytes" locationName:"storedBytes" type:"long"`
 }
 
 // String returns the string representation
@@ -232,10 +232,10 @@ type LogGroupField struct {
 	_ struct{} `type:"structure"`
 
 	// The name of a log field.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"logs:LogGroupField:Name" locationName:"name" type:"string"`
 
 	// The percentage of log events queried that contained the field.
-	Percent *int64 `locationName:"percent" type:"integer"`
+	Percent *int64 `json:"logs:LogGroupField:Percent" locationName:"percent" type:"integer"`
 }
 
 // String returns the string representation
@@ -250,39 +250,39 @@ type LogStream struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the log stream.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"logs:LogStream:Arn" locationName:"arn" type:"string"`
 
 	// The creation time of the stream, expressed as the number of milliseconds
 	// after Jan 1, 1970 00:00:00 UTC.
-	CreationTime *int64 `locationName:"creationTime" type:"long"`
+	CreationTime *int64 `json:"logs:LogStream:CreationTime" locationName:"creationTime" type:"long"`
 
 	// The time of the first event, expressed as the number of milliseconds after
 	// Jan 1, 1970 00:00:00 UTC.
-	FirstEventTimestamp *int64 `locationName:"firstEventTimestamp" type:"long"`
+	FirstEventTimestamp *int64 `json:"logs:LogStream:FirstEventTimestamp" locationName:"firstEventTimestamp" type:"long"`
 
 	// The time of the most recent log event in the log stream in CloudWatch Logs.
 	// This number is expressed as the number of milliseconds after Jan 1, 1970
 	// 00:00:00 UTC. The lastEventTime value updates on an eventual consistency
 	// basis. It typically updates in less than an hour from ingestion, but may
 	// take longer in some rare situations.
-	LastEventTimestamp *int64 `locationName:"lastEventTimestamp" type:"long"`
+	LastEventTimestamp *int64 `json:"logs:LogStream:LastEventTimestamp" locationName:"lastEventTimestamp" type:"long"`
 
 	// The ingestion time, expressed as the number of milliseconds after Jan 1,
 	// 1970 00:00:00 UTC.
-	LastIngestionTime *int64 `locationName:"lastIngestionTime" type:"long"`
+	LastIngestionTime *int64 `json:"logs:LogStream:LastIngestionTime" locationName:"lastIngestionTime" type:"long"`
 
 	// The name of the log stream.
-	LogStreamName *string `locationName:"logStreamName" min:"1" type:"string"`
+	LogStreamName *string `json:"logs:LogStream:LogStreamName" locationName:"logStreamName" min:"1" type:"string"`
 
 	// The number of bytes stored.
 	//
 	// IMPORTANT: Starting on June 17, 2019, this parameter will be deprecated for
 	// log streams, and will be reported as zero. This change applies only to log
 	// streams. The storedBytes parameter for log groups is not affected.
-	StoredBytes *int64 `locationName:"storedBytes" type:"long"`
+	StoredBytes *int64 `json:"logs:LogStream:StoredBytes" locationName:"storedBytes" type:"long"`
 
 	// The sequence token.
-	UploadSequenceToken *string `locationName:"uploadSequenceToken" min:"1" type:"string"`
+	UploadSequenceToken *string `json:"logs:LogStream:UploadSequenceToken" locationName:"uploadSequenceToken" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -299,22 +299,22 @@ type MetricFilter struct {
 
 	// The creation time of the metric filter, expressed as the number of milliseconds
 	// after Jan 1, 1970 00:00:00 UTC.
-	CreationTime *int64 `locationName:"creationTime" type:"long"`
+	CreationTime *int64 `json:"logs:MetricFilter:CreationTime" locationName:"creationTime" type:"long"`
 
 	// The name of the metric filter.
-	FilterName *string `locationName:"filterName" min:"1" type:"string"`
+	FilterName *string `json:"logs:MetricFilter:FilterName" locationName:"filterName" min:"1" type:"string"`
 
 	// A symbolic description of how CloudWatch Logs should interpret the data in
 	// each log event. For example, a log event may contain timestamps, IP addresses,
 	// strings, and so on. You use the filter pattern to specify what to look for
 	// in the log event message.
-	FilterPattern *string `locationName:"filterPattern" type:"string"`
+	FilterPattern *string `json:"logs:MetricFilter:FilterPattern" locationName:"filterPattern" type:"string"`
 
 	// The name of the log group.
-	LogGroupName *string `locationName:"logGroupName" min:"1" type:"string"`
+	LogGroupName *string `json:"logs:MetricFilter:LogGroupName" locationName:"logGroupName" min:"1" type:"string"`
 
 	// The metric transformations.
-	MetricTransformations []MetricTransformation `locationName:"metricTransformations" min:"1" type:"list"`
+	MetricTransformations []MetricTransformation `json:"logs:MetricFilter:MetricTransformations" locationName:"metricTransformations" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -328,13 +328,13 @@ type MetricFilterMatchRecord struct {
 	_ struct{} `type:"structure"`
 
 	// The raw event data.
-	EventMessage *string `locationName:"eventMessage" min:"1" type:"string"`
+	EventMessage *string `json:"logs:MetricFilterMatchRecord:EventMessage" locationName:"eventMessage" min:"1" type:"string"`
 
 	// The event number.
-	EventNumber *int64 `locationName:"eventNumber" type:"long"`
+	EventNumber *int64 `json:"logs:MetricFilterMatchRecord:EventNumber" locationName:"eventNumber" type:"long"`
 
 	// The values extracted from the event data by the filter.
-	ExtractedValues map[string]string `locationName:"extractedValues" type:"map"`
+	ExtractedValues map[string]string `json:"logs:MetricFilterMatchRecord:ExtractedValues" locationName:"extractedValues" type:"map"`
 }
 
 // String returns the string representation
@@ -350,23 +350,23 @@ type MetricTransformation struct {
 
 	// (Optional) The value to emit when a filter pattern does not match a log event.
 	// This value can be null.
-	DefaultValue *float64 `locationName:"defaultValue" type:"double"`
+	DefaultValue *float64 `json:"logs:MetricTransformation:DefaultValue" locationName:"defaultValue" type:"double"`
 
 	// The name of the CloudWatch metric.
 	//
 	// MetricName is a required field
-	MetricName *string `locationName:"metricName" type:"string" required:"true"`
+	MetricName *string `json:"logs:MetricTransformation:MetricName" locationName:"metricName" type:"string" required:"true"`
 
 	// The namespace of the CloudWatch metric.
 	//
 	// MetricNamespace is a required field
-	MetricNamespace *string `locationName:"metricNamespace" type:"string" required:"true"`
+	MetricNamespace *string `json:"logs:MetricTransformation:MetricNamespace" locationName:"metricNamespace" type:"string" required:"true"`
 
 	// The value to publish to the CloudWatch metric when a filter pattern matches
 	// a log event.
 	//
 	// MetricValue is a required field
-	MetricValue *string `locationName:"metricValue" type:"string" required:"true"`
+	MetricValue *string `json:"logs:MetricTransformation:MetricValue" locationName:"metricValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -403,14 +403,14 @@ type OutputLogEvent struct {
 
 	// The time the event was ingested, expressed as the number of milliseconds
 	// after Jan 1, 1970 00:00:00 UTC.
-	IngestionTime *int64 `locationName:"ingestionTime" type:"long"`
+	IngestionTime *int64 `json:"logs:OutputLogEvent:IngestionTime" locationName:"ingestionTime" type:"long"`
 
 	// The data contained in the log event.
-	Message *string `locationName:"message" min:"1" type:"string"`
+	Message *string `json:"logs:OutputLogEvent:Message" locationName:"message" min:"1" type:"string"`
 
 	// The time the event occurred, expressed as the number of milliseconds after
 	// Jan 1, 1970 00:00:00 UTC.
-	Timestamp *int64 `locationName:"timestamp" type:"long"`
+	Timestamp *int64 `json:"logs:OutputLogEvent:Timestamp" locationName:"timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -424,10 +424,10 @@ type QueryCompileError struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved.
-	Location *QueryCompileErrorLocation `locationName:"location" type:"structure"`
+	Location *QueryCompileErrorLocation `json:"logs:QueryCompileError:Location" locationName:"location" type:"structure"`
 
 	// Reserved.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"logs:QueryCompileError:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -441,10 +441,10 @@ type QueryCompileErrorLocation struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved.
-	EndCharOffset *int64 `locationName:"endCharOffset" type:"integer"`
+	EndCharOffset *int64 `json:"logs:QueryCompileErrorLocation:EndCharOffset" locationName:"endCharOffset" type:"integer"`
 
 	// Reserved.
-	StartCharOffset *int64 `locationName:"startCharOffset" type:"integer"`
+	StartCharOffset *int64 `json:"logs:QueryCompileErrorLocation:StartCharOffset" locationName:"startCharOffset" type:"integer"`
 }
 
 // String returns the string representation
@@ -459,20 +459,20 @@ type QueryInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that this query was created.
-	CreateTime *int64 `locationName:"createTime" type:"long"`
+	CreateTime *int64 `json:"logs:QueryInfo:CreateTime" locationName:"createTime" type:"long"`
 
 	// The name of the log group scanned by this query.
-	LogGroupName *string `locationName:"logGroupName" min:"1" type:"string"`
+	LogGroupName *string `json:"logs:QueryInfo:LogGroupName" locationName:"logGroupName" min:"1" type:"string"`
 
 	// The unique ID number of this query.
-	QueryId *string `locationName:"queryId" type:"string"`
+	QueryId *string `json:"logs:QueryInfo:QueryId" locationName:"queryId" type:"string"`
 
 	// The query string used in this query.
-	QueryString *string `locationName:"queryString" type:"string"`
+	QueryString *string `json:"logs:QueryInfo:QueryString" locationName:"queryString" type:"string"`
 
 	// The status of this query. Possible values are Cancelled, Complete, Failed,
 	// Running, Scheduled, and Unknown.
-	Status QueryStatus `locationName:"status" type:"string" enum:"true"`
+	Status QueryStatus `json:"logs:QueryInfo:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -488,13 +488,13 @@ type QueryStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of bytes in the log events scanned during the query.
-	BytesScanned *float64 `locationName:"bytesScanned" type:"double"`
+	BytesScanned *float64 `json:"logs:QueryStatistics:BytesScanned" locationName:"bytesScanned" type:"double"`
 
 	// The number of log events that matched the query string.
-	RecordsMatched *float64 `locationName:"recordsMatched" type:"double"`
+	RecordsMatched *float64 `json:"logs:QueryStatistics:RecordsMatched" locationName:"recordsMatched" type:"double"`
 
 	// The total number of log events scanned during the query.
-	RecordsScanned *float64 `locationName:"recordsScanned" type:"double"`
+	RecordsScanned *float64 `json:"logs:QueryStatistics:RecordsScanned" locationName:"recordsScanned" type:"double"`
 }
 
 // String returns the string representation
@@ -508,13 +508,13 @@ type RejectedLogEventsInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The expired log events.
-	ExpiredLogEventEndIndex *int64 `locationName:"expiredLogEventEndIndex" type:"integer"`
+	ExpiredLogEventEndIndex *int64 `json:"logs:RejectedLogEventsInfo:ExpiredLogEventEndIndex" locationName:"expiredLogEventEndIndex" type:"integer"`
 
 	// The log events that are too new.
-	TooNewLogEventStartIndex *int64 `locationName:"tooNewLogEventStartIndex" type:"integer"`
+	TooNewLogEventStartIndex *int64 `json:"logs:RejectedLogEventsInfo:TooNewLogEventStartIndex" locationName:"tooNewLogEventStartIndex" type:"integer"`
 
 	// The log events that are too old.
-	TooOldLogEventEndIndex *int64 `locationName:"tooOldLogEventEndIndex" type:"integer"`
+	TooOldLogEventEndIndex *int64 `json:"logs:RejectedLogEventsInfo:TooOldLogEventEndIndex" locationName:"tooOldLogEventEndIndex" type:"integer"`
 }
 
 // String returns the string representation
@@ -530,13 +530,13 @@ type ResourcePolicy struct {
 
 	// Timestamp showing when this policy was last updated, expressed as the number
 	// of milliseconds after Jan 1, 1970 00:00:00 UTC.
-	LastUpdatedTime *int64 `locationName:"lastUpdatedTime" type:"long"`
+	LastUpdatedTime *int64 `json:"logs:ResourcePolicy:LastUpdatedTime" locationName:"lastUpdatedTime" type:"long"`
 
 	// The details of the policy.
-	PolicyDocument *string `locationName:"policyDocument" min:"1" type:"string"`
+	PolicyDocument *string `json:"logs:ResourcePolicy:PolicyDocument" locationName:"policyDocument" min:"1" type:"string"`
 
 	// The name of the resource policy.
-	PolicyName *string `locationName:"policyName" type:"string"`
+	PolicyName *string `json:"logs:ResourcePolicy:PolicyName" locationName:"policyName" type:"string"`
 }
 
 // String returns the string representation
@@ -551,10 +551,10 @@ type ResultField struct {
 	_ struct{} `type:"structure"`
 
 	// The log event field.
-	Field *string `locationName:"field" type:"string"`
+	Field *string `json:"logs:ResultField:Field" locationName:"field" type:"string"`
 
 	// The value of this field.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"logs:ResultField:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -568,10 +568,10 @@ type SearchedLogStream struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the log stream.
-	LogStreamName *string `locationName:"logStreamName" min:"1" type:"string"`
+	LogStreamName *string `json:"logs:SearchedLogStream:LogStreamName" locationName:"logStreamName" min:"1" type:"string"`
 
 	// Indicates whether all the events in this log stream were searched.
-	SearchedCompletely *bool `locationName:"searchedCompletely" type:"boolean"`
+	SearchedCompletely *bool `json:"logs:SearchedLogStream:SearchedCompletely" locationName:"searchedCompletely" type:"boolean"`
 }
 
 // String returns the string representation
@@ -586,28 +586,28 @@ type SubscriptionFilter struct {
 
 	// The creation time of the subscription filter, expressed as the number of
 	// milliseconds after Jan 1, 1970 00:00:00 UTC.
-	CreationTime *int64 `locationName:"creationTime" type:"long"`
+	CreationTime *int64 `json:"logs:SubscriptionFilter:CreationTime" locationName:"creationTime" type:"long"`
 
 	// The Amazon Resource Name (ARN) of the destination.
-	DestinationArn *string `locationName:"destinationArn" min:"1" type:"string"`
+	DestinationArn *string `json:"logs:SubscriptionFilter:DestinationArn" locationName:"destinationArn" min:"1" type:"string"`
 
 	// The method used to distribute log data to the destination, which can be either
 	// random or grouped by log stream.
-	Distribution Distribution `locationName:"distribution" type:"string" enum:"true"`
+	Distribution Distribution `json:"logs:SubscriptionFilter:Distribution" locationName:"distribution" type:"string" enum:"true"`
 
 	// The name of the subscription filter.
-	FilterName *string `locationName:"filterName" min:"1" type:"string"`
+	FilterName *string `json:"logs:SubscriptionFilter:FilterName" locationName:"filterName" min:"1" type:"string"`
 
 	// A symbolic description of how CloudWatch Logs should interpret the data in
 	// each log event. For example, a log event may contain timestamps, IP addresses,
 	// strings, and so on. You use the filter pattern to specify what to look for
 	// in the log event message.
-	FilterPattern *string `locationName:"filterPattern" type:"string"`
+	FilterPattern *string `json:"logs:SubscriptionFilter:FilterPattern" locationName:"filterPattern" type:"string"`
 
 	// The name of the log group.
-	LogGroupName *string `locationName:"logGroupName" min:"1" type:"string"`
+	LogGroupName *string `json:"logs:SubscriptionFilter:LogGroupName" locationName:"logGroupName" min:"1" type:"string"`
 
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string"`
+	RoleArn *string `json:"logs:SubscriptionFilter:RoleArn" locationName:"roleArn" min:"1" type:"string"`
 }
 
 // String returns the string representation

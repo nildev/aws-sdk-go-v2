@@ -70,10 +70,10 @@ type ListThingRegistrationTasksOutput struct {
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListThingRegistrationTasksOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of bulk thing provisioning task IDs.
-	TaskIds []string `locationName:"taskIds" type:"list"`
+	TaskIds []string `json:"iot:ListThingRegistrationTasksOutput:TaskIds" locationName:"taskIds" type:"list"`
 }
 
 // String returns the string representation

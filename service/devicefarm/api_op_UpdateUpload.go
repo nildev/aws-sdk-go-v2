@@ -57,7 +57,7 @@ type UpdateUploadOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A test spec uploaded to Device Farm.
-	Upload *Upload `locationName:"upload" type:"structure"`
+	Upload *Upload `json:"devicefarm:UpdateUploadOutput:Upload" locationName:"upload" type:"structure"`
 }
 
 // String returns the string representation

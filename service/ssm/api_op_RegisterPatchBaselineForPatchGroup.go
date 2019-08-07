@@ -58,10 +58,10 @@ type RegisterPatchBaselineForPatchGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the patch baseline the patch group was registered with.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:RegisterPatchBaselineForPatchGroupOutput:BaselineId" min:"20" type:"string"`
 
 	// The name of the patch group registered with the patch baseline.
-	PatchGroup *string `min:"1" type:"string"`
+	PatchGroup *string `json:"ssm:RegisterPatchBaselineForPatchGroupOutput:PatchGroup" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -107,7 +107,7 @@ type UpdateDetectorModelOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about how the detector model is configured.
-	DetectorModelConfiguration *DetectorModelConfiguration `locationName:"detectorModelConfiguration" type:"structure"`
+	DetectorModelConfiguration *DetectorModelConfiguration `json:"iotevents:UpdateDetectorModelOutput:DetectorModelConfiguration" locationName:"detectorModelConfiguration" type:"structure"`
 }
 
 // String returns the string representation

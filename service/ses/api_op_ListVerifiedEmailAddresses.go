@@ -26,7 +26,7 @@ type ListVerifiedEmailAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of email addresses that have been verified.
-	VerifiedEmailAddresses []string `type:"list"`
+	VerifiedEmailAddresses []string `json:"email:ListVerifiedEmailAddressesOutput:VerifiedEmailAddresses" type:"list"`
 }
 
 // String returns the string representation

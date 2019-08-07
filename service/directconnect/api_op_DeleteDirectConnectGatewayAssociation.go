@@ -33,7 +33,7 @@ type DeleteDirectConnectGatewayAssociationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the deleted association.
-	DirectConnectGatewayAssociation *DirectConnectGatewayAssociation `locationName:"directConnectGatewayAssociation" type:"structure"`
+	DirectConnectGatewayAssociation *DirectConnectGatewayAssociation `json:"directconnect:DeleteDirectConnectGatewayAssociationOutput:DirectConnectGatewayAssociation" locationName:"directConnectGatewayAssociation" type:"structure"`
 }
 
 // String returns the string representation

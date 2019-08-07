@@ -59,7 +59,7 @@ type DescribeStackResourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of StackResource structures.
-	StackResources []StackResource `type:"list"`
+	StackResources []StackResource `json:"cloudformation:DescribeStackResourcesOutput:StackResources" type:"list"`
 }
 
 // String returns the string representation

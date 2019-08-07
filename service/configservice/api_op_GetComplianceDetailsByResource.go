@@ -67,11 +67,11 @@ type GetComplianceDetailsByResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the specified AWS resource complies each AWS Config rule.
-	EvaluationResults []EvaluationResult `type:"list"`
+	EvaluationResults []EvaluationResult `json:"config:GetComplianceDetailsByResourceOutput:EvaluationResults" type:"list"`
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:GetComplianceDetailsByResourceOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

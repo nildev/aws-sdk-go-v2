@@ -94,7 +94,7 @@ type UpdatePipelineNotificationsOutput struct {
 
 	// A section of the response body that provides information about the pipeline
 	// associated with this notification.
-	Pipeline *Pipeline `type:"structure"`
+	Pipeline *Pipeline `json:"elastictranscoder:UpdatePipelineNotificationsOutput:Pipeline" type:"structure"`
 }
 
 // String returns the string representation

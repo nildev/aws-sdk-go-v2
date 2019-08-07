@@ -58,10 +58,10 @@ type BatchModifyClusterSnapshotsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of any errors returned.
-	Errors []SnapshotErrorMessage `locationNameList:"SnapshotErrorMessage" type:"list"`
+	Errors []SnapshotErrorMessage `json:"redshift:BatchModifyClusterSnapshotsOutput:Errors" locationNameList:"SnapshotErrorMessage" type:"list"`
 
 	// A list of the snapshots that were modified.
-	Resources []string `locationNameList:"String" type:"list"`
+	Resources []string `json:"redshift:BatchModifyClusterSnapshotsOutput:Resources" locationNameList:"String" type:"list"`
 }
 
 // String returns the string representation

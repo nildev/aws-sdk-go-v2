@@ -214,7 +214,7 @@ type UpdateProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the build project that was changed.
-	Project *Project `locationName:"project" type:"structure"`
+	Project *Project `json:"codebuild:UpdateProjectOutput:Project" locationName:"project" type:"structure"`
 }
 
 // String returns the string representation

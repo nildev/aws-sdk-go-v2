@@ -73,13 +73,13 @@ type SearchContactsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The contacts that meet the specified set of filter criteria, in sort order.
-	Contacts []ContactData `type:"list"`
+	Contacts []ContactData `json:"a4b:SearchContactsOutput:Contacts" type:"list"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:SearchContactsOutput:NextToken" min:"1" type:"string"`
 
 	// The total number of contacts returned.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"a4b:SearchContactsOutput:TotalCount" type:"integer"`
 }
 
 // String returns the string representation

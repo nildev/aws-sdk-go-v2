@@ -90,13 +90,13 @@ type ListThingRegistrationTaskReportsOutput struct {
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListThingRegistrationTaskReportsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The type of task report.
-	ReportType ReportType `locationName:"reportType" type:"string" enum:"true"`
+	ReportType ReportType `json:"iot:ListThingRegistrationTaskReportsOutput:ReportType" locationName:"reportType" type:"string" enum:"true"`
 
 	// Links to the task resources.
-	ResourceLinks []string `locationName:"resourceLinks" type:"list"`
+	ResourceLinks []string `json:"iot:ListThingRegistrationTaskReportsOutput:ResourceLinks" locationName:"resourceLinks" type:"list"`
 }
 
 // String returns the string representation

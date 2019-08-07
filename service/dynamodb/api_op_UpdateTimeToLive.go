@@ -62,7 +62,7 @@ type UpdateTimeToLiveOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the output of an UpdateTimeToLive operation.
-	TimeToLiveSpecification *TimeToLiveSpecification `type:"structure"`
+	TimeToLiveSpecification *TimeToLiveSpecification `json:"dynamodb:UpdateTimeToLiveOutput:TimeToLiveSpecification" type:"structure"`
 }
 
 // String returns the string representation

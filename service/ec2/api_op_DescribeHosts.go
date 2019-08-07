@@ -62,11 +62,11 @@ type DescribeHostsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Dedicated Hosts.
-	Hosts []Host `locationName:"hostSet" locationNameList:"item" type:"list"`
+	Hosts []Host `json:"ec2:DescribeHostsOutput:Hosts" locationName:"hostSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeHostsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

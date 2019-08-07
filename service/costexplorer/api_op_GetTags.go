@@ -64,22 +64,22 @@ type GetTagsOutput struct {
 	// The token for the next set of retrievable results. AWS provides the token
 	// when the response from a previous call has more results than the maximum
 	// page size.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"ce:GetTagsOutput:NextPageToken" type:"string"`
 
 	// The number of query results that AWS returns at a time.
 	//
 	// ReturnSize is a required field
-	ReturnSize *int64 `type:"integer" required:"true"`
+	ReturnSize *int64 `json:"ce:GetTagsOutput:ReturnSize" type:"integer" required:"true"`
 
 	// The tags that match your request.
 	//
 	// Tags is a required field
-	Tags []string `type:"list" required:"true"`
+	Tags []string `json:"ce:GetTagsOutput:Tags" type:"list" required:"true"`
 
 	// The total number of query results.
 	//
 	// TotalSize is a required field
-	TotalSize *int64 `type:"integer" required:"true"`
+	TotalSize *int64 `json:"ce:GetTagsOutput:TotalSize" type:"integer" required:"true"`
 }
 
 // String returns the string representation

@@ -146,7 +146,7 @@ type CreateQueueOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The URL of the created Amazon SQS queue.
-	QueueUrl *string `type:"string"`
+	QueueUrl *string `json:"sqs:CreateQueueOutput:QueueUrl" type:"string"`
 }
 
 // String returns the string representation

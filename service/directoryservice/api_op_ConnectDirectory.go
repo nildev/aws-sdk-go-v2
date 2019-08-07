@@ -97,7 +97,7 @@ type ConnectDirectoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the new directory.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:ConnectDirectoryOutput:DirectoryId" type:"string"`
 }
 
 // String returns the string representation

@@ -170,10 +170,10 @@ type GetPartitionsOutput struct {
 
 	// A continuation token, if the returned list of partitions does not does not
 	// include the last one.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetPartitionsOutput:NextToken" type:"string"`
 
 	// A list of requested partitions.
-	Partitions []Partition `type:"list"`
+	Partitions []Partition `json:"glue:GetPartitionsOutput:Partitions" type:"list"`
 }
 
 // String returns the string representation

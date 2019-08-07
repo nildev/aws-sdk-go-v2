@@ -59,10 +59,10 @@ type DetectSentimentOutput struct {
 
 	// The inferred sentiment that Amazon Comprehend has the highest level of confidence
 	// in.
-	Sentiment SentimentType `type:"string" enum:"true"`
+	Sentiment SentimentType `json:"comprehend:DetectSentimentOutput:Sentiment" type:"string" enum:"true"`
 
 	// An object that lists the sentiments, and their corresponding confidence levels.
-	SentimentScore *SentimentScore `type:"structure"`
+	SentimentScore *SentimentScore `json:"comprehend:DetectSentimentOutput:SentimentScore" type:"structure"`
 }
 
 // String returns the string representation

@@ -138,7 +138,7 @@ type StartJobRunOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID assigned to this job run.
-	JobRunId *string `min:"1" type:"string"`
+	JobRunId *string `json:"glue:StartJobRunOutput:JobRunId" min:"1" type:"string"`
 }
 
 // String returns the string representation

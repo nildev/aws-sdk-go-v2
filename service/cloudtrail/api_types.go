@@ -62,7 +62,7 @@ type DataResource struct {
 
 	// The resource type in which you want to log data events. You can specify AWS::S3::Object
 	// or AWS::Lambda::Function resources.
-	Type *string `type:"string"`
+	Type *string `json:"cloudtrail:DataResource:Type" type:"string"`
 
 	// An array of Amazon Resource Name (ARN) strings or partial ARN strings for
 	// the specified objects.
@@ -96,7 +96,7 @@ type DataResource struct {
 	//    For example, if you specify a function ARN arn:aws:lambda:us-west-2:111111111111:function:helloworld,
 	//    data events will only be logged for arn:aws:lambda:us-west-2:111111111111:function:helloworld.
 	//    They will not be logged for arn:aws:lambda:us-west-2:111111111111:function:helloworld2.
-	Values []string `type:"list"`
+	Values []string `json:"cloudtrail:DataResource:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -113,32 +113,32 @@ type Event struct {
 	// The AWS access key ID that was used to sign the request. If the request was
 	// made with temporary security credentials, this is the access key ID of the
 	// temporary credentials.
-	AccessKeyId *string `type:"string"`
+	AccessKeyId *string `json:"cloudtrail:Event:AccessKeyId" type:"string"`
 
 	// A JSON string that contains a representation of the event returned.
-	CloudTrailEvent *string `type:"string"`
+	CloudTrailEvent *string `json:"cloudtrail:Event:CloudTrailEvent" type:"string"`
 
 	// The CloudTrail ID of the event returned.
-	EventId *string `type:"string"`
+	EventId *string `json:"cloudtrail:Event:EventId" type:"string"`
 
 	// The name of the event returned.
-	EventName *string `type:"string"`
+	EventName *string `json:"cloudtrail:Event:EventName" type:"string"`
 
 	// The AWS service that the request was made to.
-	EventSource *string `type:"string"`
+	EventSource *string `json:"cloudtrail:Event:EventSource" type:"string"`
 
 	// The date and time of the event returned.
-	EventTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EventTime *time.Time `json:"cloudtrail:Event:EventTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about whether the event is a write event or a read event.
-	ReadOnly *string `type:"string"`
+	ReadOnly *string `json:"cloudtrail:Event:ReadOnly" type:"string"`
 
 	// A list of resources referenced by the event returned.
-	Resources []Resource `type:"list"`
+	Resources []Resource `json:"cloudtrail:Event:Resources" type:"list"`
 
 	// A user name or role name of the requester that called the API in the event
 	// returned.
-	Username *string `type:"string"`
+	Username *string `json:"cloudtrail:Event:Username" type:"string"`
 }
 
 // String returns the string representation
@@ -168,7 +168,7 @@ type EventSelector struct {
 	// For more information, see Data Events (http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events)
 	// and Limits in AWS CloudTrail (https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html)
 	// in the AWS CloudTrail User Guide.
-	DataResources []DataResource `type:"list"`
+	DataResources []DataResource `json:"cloudtrail:EventSelector:DataResources" type:"list"`
 
 	// Specify if you want your event selector to include management events for
 	// your trail.
@@ -177,14 +177,14 @@ type EventSelector struct {
 	// in the AWS CloudTrail User Guide.
 	//
 	// By default, the value is true.
-	IncludeManagementEvents *bool `type:"boolean"`
+	IncludeManagementEvents *bool `json:"cloudtrail:EventSelector:IncludeManagementEvents" type:"boolean"`
 
 	// Specify if you want your trail to log read-only events, write-only events,
 	// or all. For example, the EC2 GetConsoleOutput is a read-only API operation
 	// and RunInstances is a write-only API operation.
 	//
 	// By default, the value is All.
-	ReadWriteType ReadWriteType `type:"string" enum:"true"`
+	ReadWriteType ReadWriteType `json:"cloudtrail:EventSelector:ReadWriteType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -200,12 +200,12 @@ type LookupAttribute struct {
 	// Specifies an attribute on which to filter the events returned.
 	//
 	// AttributeKey is a required field
-	AttributeKey LookupAttributeKey `type:"string" required:"true" enum:"true"`
+	AttributeKey LookupAttributeKey `json:"cloudtrail:LookupAttribute:AttributeKey" type:"string" required:"true" enum:"true"`
 
 	// Specifies a value for the specified AttributeKey.
 	//
 	// AttributeValue is a required field
-	AttributeValue *string `type:"string" required:"true"`
+	AttributeValue *string `json:"cloudtrail:LookupAttribute:AttributeValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -236,18 +236,18 @@ type PublicKey struct {
 	_ struct{} `type:"structure"`
 
 	// The fingerprint of the public key.
-	Fingerprint *string `type:"string"`
+	Fingerprint *string `json:"cloudtrail:PublicKey:Fingerprint" type:"string"`
 
 	// The ending time of validity of the public key.
-	ValidityEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ValidityEndTime *time.Time `json:"cloudtrail:PublicKey:ValidityEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The starting time of validity of the public key.
-	ValidityStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ValidityStartTime *time.Time `json:"cloudtrail:PublicKey:ValidityStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The DER encoded public key value in PKCS#1 format.
 	//
 	// Value is automatically base64 encoded/decoded by the SDK.
-	Value []byte `type:"blob"`
+	Value []byte `json:"cloudtrail:PublicKey:Value" type:"blob"`
 }
 
 // String returns the string representation
@@ -264,14 +264,14 @@ type Resource struct {
 	// names whose values will depend on the environment. For example, the resource
 	// name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567"
 	// for an EC2 Instance.
-	ResourceName *string `type:"string"`
+	ResourceName *string `json:"cloudtrail:Resource:ResourceName" type:"string"`
 
 	// The type of a resource referenced by the event returned. When the resource
 	// type cannot be determined, null is returned. Some examples of resource types
 	// are: Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey
 	// for IAM. For a list of resource types supported for event lookup, see Resource
 	// Types Supported for Event Lookup (http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html).
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"cloudtrail:Resource:ResourceType" type:"string"`
 }
 
 // String returns the string representation
@@ -285,10 +285,10 @@ type ResourceTag struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the ARN of the resource.
-	ResourceId *string `type:"string"`
+	ResourceId *string `json:"cloudtrail:ResourceTag:ResourceId" type:"string"`
 
 	// A list of tags.
-	TagsList []Tag `type:"list"`
+	TagsList []Tag `json:"cloudtrail:ResourceTag:TagsList" type:"list"`
 }
 
 // String returns the string representation
@@ -305,11 +305,11 @@ type Tag struct {
 	// characters. The key must be unique for the resource to which it applies.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"cloudtrail:Tag:Key" type:"string" required:"true"`
 
 	// The value in a key-value pair of a tag. The value must be no longer than
 	// 256 Unicode characters.
-	Value *string `type:"string"`
+	Value *string `json:"cloudtrail:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -338,63 +338,63 @@ type Trail struct {
 
 	// Specifies an Amazon Resource Name (ARN), a unique identifier that represents
 	// the log group to which CloudTrail logs will be delivered.
-	CloudWatchLogsLogGroupArn *string `type:"string"`
+	CloudWatchLogsLogGroupArn *string `json:"cloudtrail:Trail:CloudWatchLogsLogGroupArn" type:"string"`
 
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to
 	// a user's log group.
-	CloudWatchLogsRoleArn *string `type:"string"`
+	CloudWatchLogsRoleArn *string `json:"cloudtrail:Trail:CloudWatchLogsRoleArn" type:"string"`
 
 	// Specifies if the trail has custom event selectors.
-	HasCustomEventSelectors *bool `type:"boolean"`
+	HasCustomEventSelectors *bool `json:"cloudtrail:Trail:HasCustomEventSelectors" type:"boolean"`
 
 	// The region in which the trail was created.
-	HomeRegion *string `type:"string"`
+	HomeRegion *string `json:"cloudtrail:Trail:HomeRegion" type:"string"`
 
 	// Set to True to include AWS API calls from AWS global services such as IAM.
 	// Otherwise, False.
-	IncludeGlobalServiceEvents *bool `type:"boolean"`
+	IncludeGlobalServiceEvents *bool `json:"cloudtrail:Trail:IncludeGlobalServiceEvents" type:"boolean"`
 
 	// Specifies whether the trail belongs only to one region or exists in all regions.
-	IsMultiRegionTrail *bool `type:"boolean"`
+	IsMultiRegionTrail *bool `json:"cloudtrail:Trail:IsMultiRegionTrail" type:"boolean"`
 
 	// Specifies whether the trail is an organization trail.
-	IsOrganizationTrail *bool `type:"boolean"`
+	IsOrganizationTrail *bool `json:"cloudtrail:Trail:IsOrganizationTrail" type:"boolean"`
 
 	// Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
 	// The value is a fully specified ARN to a KMS key in the format:
 	//
 	// arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"cloudtrail:Trail:KmsKeyId" type:"string"`
 
 	// Specifies whether log file validation is enabled.
-	LogFileValidationEnabled *bool `type:"boolean"`
+	LogFileValidationEnabled *bool `json:"cloudtrail:Trail:LogFileValidationEnabled" type:"boolean"`
 
 	// Name of the trail set by calling CreateTrail. The maximum length is 128 characters.
-	Name *string `type:"string"`
+	Name *string `json:"cloudtrail:Trail:Name" type:"string"`
 
 	// Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.
 	// See Amazon S3 Bucket Naming Requirements (http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html).
-	S3BucketName *string `type:"string"`
+	S3BucketName *string `json:"cloudtrail:Trail:S3BucketName" type:"string"`
 
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket
 	// you have designated for log file delivery. For more information, see Finding
 	// Your CloudTrail Log Files (http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html).The
 	// maximum length is 200 characters.
-	S3KeyPrefix *string `type:"string"`
+	S3KeyPrefix *string `json:"cloudtrail:Trail:S3KeyPrefix" type:"string"`
 
 	// Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications
 	// when log files are delivered. The format of a topic ARN is:
 	//
 	// arn:aws:sns:us-east-2:123456789012:MyTopic
-	SnsTopicARN *string `type:"string"`
+	SnsTopicARN *string `json:"cloudtrail:Trail:SnsTopicARN" type:"string"`
 
 	// This field is deprecated. Use SnsTopicARN.
-	SnsTopicName *string `deprecated:"true" type:"string"`
+	SnsTopicName *string `json:"cloudtrail:Trail:SnsTopicName" deprecated:"true" type:"string"`
 
 	// Specifies the ARN of the trail. The format of a trail ARN is:
 	//
 	// arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail
-	TrailARN *string `type:"string"`
+	TrailARN *string `json:"cloudtrail:Trail:TrailARN" type:"string"`
 }
 
 // String returns the string representation

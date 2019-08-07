@@ -32,13 +32,13 @@ type DeploySystemInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Greengrass deployment used to deploy the system instance.
-	GreengrassDeploymentId *string `locationName:"greengrassDeploymentId" type:"string"`
+	GreengrassDeploymentId *string `json:"iotthingsgraph:DeploySystemInstanceOutput:GreengrassDeploymentId" locationName:"greengrassDeploymentId" type:"string"`
 
 	// An object that contains summary information about a system instance that
 	// was deployed.
 	//
 	// Summary is a required field
-	Summary *SystemInstanceSummary `locationName:"summary" type:"structure" required:"true"`
+	Summary *SystemInstanceSummary `json:"iotthingsgraph:DeploySystemInstanceOutput:Summary" locationName:"summary" type:"structure" required:"true"`
 }
 
 // String returns the string representation

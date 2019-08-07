@@ -74,13 +74,13 @@ type DescribeWorkspacesOutput struct {
 
 	// The token to use to retrieve the next set of results, or null if no more
 	// results are available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workspaces:DescribeWorkspacesOutput:NextToken" min:"1" type:"string"`
 
 	// Information about the WorkSpaces.
 	//
 	// Because CreateWorkspaces is an asynchronous operation, some of the returned
 	// information could be incomplete.
-	Workspaces []Workspace `type:"list"`
+	Workspaces []Workspace `json:"workspaces:DescribeWorkspacesOutput:Workspaces" type:"list"`
 }
 
 // String returns the string representation

@@ -71,7 +71,7 @@ type CreateSubnetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the subnet.
-	Subnet *Subnet `locationName:"subnet" type:"structure"`
+	Subnet *Subnet `json:"ec2:CreateSubnetOutput:Subnet" locationName:"subnet" type:"structure"`
 }
 
 // String returns the string representation

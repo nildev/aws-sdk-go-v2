@@ -114,7 +114,7 @@ type CreateAlgorithmOutput struct {
 	// The Amazon Resource Name (ARN) of the new algorithm.
 	//
 	// AlgorithmArn is a required field
-	AlgorithmArn *string `min:"1" type:"string" required:"true"`
+	AlgorithmArn *string `json:"api.sagemaker:CreateAlgorithmOutput:AlgorithmArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -48,7 +48,7 @@ type GetDevicePoolOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about the requested device pool.
-	DevicePool *DevicePool `locationName:"devicePool" type:"structure"`
+	DevicePool *DevicePool `json:"devicefarm:GetDevicePoolOutput:DevicePool" locationName:"devicePool" type:"structure"`
 }
 
 // String returns the string representation

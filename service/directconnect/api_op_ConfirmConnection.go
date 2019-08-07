@@ -66,7 +66,7 @@ type ConfirmConnectionOutput struct {
 	//    state if it is deleted by the customer.
 	//
 	//    * unknown: The state of the connection is not available.
-	ConnectionState ConnectionState `locationName:"connectionState" type:"string" enum:"true"`
+	ConnectionState ConnectionState `json:"directconnect:ConfirmConnectionOutput:ConnectionState" locationName:"connectionState" type:"string" enum:"true"`
 }
 
 // String returns the string representation

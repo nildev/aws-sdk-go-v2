@@ -53,10 +53,10 @@ type ListComponentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of application components.
-	ApplicationComponentList []ApplicationComponent `type:"list"`
+	ApplicationComponentList []ApplicationComponent `json:"applicationinsights:ListComponentsOutput:ApplicationComponentList" type:"list"`
 
 	// The token to request the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"applicationinsights:ListComponentsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

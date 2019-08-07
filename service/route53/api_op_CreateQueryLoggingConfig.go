@@ -85,14 +85,14 @@ type CreateQueryLoggingConfigOutput struct {
 	// The unique URL representing the new query logging configuration.
 	//
 	// Location is a required field
-	Location *string `location:"header" locationName:"Location" type:"string" required:"true"`
+	Location *string `json:"route53:CreateQueryLoggingConfigOutput:Location" location:"header" locationName:"Location" type:"string" required:"true"`
 
 	// A complex type that contains the ID for a query logging configuration, the
 	// ID of the hosted zone that you want to log queries for, and the ARN for the
 	// log group that you want Amazon Route 53 to send query logs to.
 	//
 	// QueryLoggingConfig is a required field
-	QueryLoggingConfig *QueryLoggingConfig `type:"structure" required:"true"`
+	QueryLoggingConfig *QueryLoggingConfig `json:"route53:CreateQueryLoggingConfigOutput:QueryLoggingConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation

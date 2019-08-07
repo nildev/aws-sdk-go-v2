@@ -59,11 +59,11 @@ type DescribeFlowLogsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the flow logs.
-	FlowLogs []FlowLog `locationName:"flowLogSet" locationNameList:"item" type:"list"`
+	FlowLogs []FlowLog `json:"ec2:DescribeFlowLogsOutput:FlowLogs" locationName:"flowLogSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeFlowLogsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

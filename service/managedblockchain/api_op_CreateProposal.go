@@ -140,7 +140,7 @@ type CreateProposalOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the proposal.
-	ProposalId *string `min:"1" type:"string"`
+	ProposalId *string `json:"managedblockchain:CreateProposalOutput:ProposalId" min:"1" type:"string"`
 }
 
 // String returns the string representation

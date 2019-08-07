@@ -61,14 +61,14 @@ type DescribeEventSubscriptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event subscriptions.
-	EventSubscriptionsList []EventSubscription `locationNameList:"EventSubscription" type:"list"`
+	EventSubscriptionsList []EventSubscription `json:"redshift:DescribeEventSubscriptionsOutput:EventSubscriptionsList" locationNameList:"EventSubscription" type:"list"`
 
 	// A value that indicates the starting point for the next set of response records
 	// in a subsequent request. If a value is returned in a response, you can retrieve
 	// the next set of records by providing this returned marker value in the Marker
 	// parameter and retrying the command. If the Marker field is empty, all response
 	// records have been retrieved for the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeEventSubscriptionsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

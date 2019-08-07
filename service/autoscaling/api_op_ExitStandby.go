@@ -49,7 +49,7 @@ type ExitStandbyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The activities related to moving instances out of Standby mode.
-	Activities []Activity `type:"list"`
+	Activities []Activity `json:"autoscaling:ExitStandbyOutput:Activities" type:"list"`
 }
 
 // String returns the string representation

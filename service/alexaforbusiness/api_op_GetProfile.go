@@ -27,7 +27,7 @@ type GetProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the room profile requested. Required.
-	Profile *Profile `type:"structure"`
+	Profile *Profile `json:"a4b:GetProfileOutput:Profile" type:"structure"`
 }
 
 // String returns the string representation

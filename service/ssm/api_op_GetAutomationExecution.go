@@ -48,7 +48,7 @@ type GetAutomationExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about the current state of an automation execution.
-	AutomationExecution *AutomationExecution `type:"structure"`
+	AutomationExecution *AutomationExecution `json:"ssm:GetAutomationExecutionOutput:AutomationExecution" type:"structure"`
 }
 
 // String returns the string representation

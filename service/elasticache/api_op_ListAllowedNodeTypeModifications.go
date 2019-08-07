@@ -47,7 +47,7 @@ type ListAllowedNodeTypeModificationsOutput struct {
 	// When scaling up a Redis cluster or replication group using ModifyCacheCluster
 	// or ModifyReplicationGroup, use a value from this list for the CacheNodeType
 	// parameter.
-	ScaleUpModifications []string `type:"list"`
+	ScaleUpModifications []string `json:"elasticache:ListAllowedNodeTypeModificationsOutput:ScaleUpModifications" type:"list"`
 }
 
 // String returns the string representation

@@ -92,7 +92,7 @@ type SampleChannelDataOutput struct {
 
 	// The list of message samples. Each sample message is returned as a base64-encoded
 	// string.
-	Payloads [][]byte `locationName:"payloads" min:"1" type:"list"`
+	Payloads [][]byte `json:"iotanalytics:SampleChannelDataOutput:Payloads" locationName:"payloads" min:"1" type:"list"`
 }
 
 // String returns the string representation

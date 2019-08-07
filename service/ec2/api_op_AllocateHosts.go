@@ -89,7 +89,7 @@ type AllocateHostsOutput struct {
 
 	// The ID of the allocated Dedicated Host. This is used to launch an instance
 	// onto a specific host.
-	HostIds []string `locationName:"hostIdSet" locationNameList:"item" type:"list"`
+	HostIds []string `json:"ec2:AllocateHostsOutput:HostIds" locationName:"hostIdSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

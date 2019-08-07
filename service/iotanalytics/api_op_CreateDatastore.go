@@ -113,13 +113,13 @@ type CreateDatastoreOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the data store.
-	DatastoreArn *string `locationName:"datastoreArn" type:"string"`
+	DatastoreArn *string `json:"iotanalytics:CreateDatastoreOutput:DatastoreArn" locationName:"datastoreArn" type:"string"`
 
 	// The name of the data store.
-	DatastoreName *string `locationName:"datastoreName" min:"1" type:"string"`
+	DatastoreName *string `json:"iotanalytics:CreateDatastoreOutput:DatastoreName" locationName:"datastoreName" min:"1" type:"string"`
 
 	// How long, in days, message data is kept for the data store.
-	RetentionPeriod *RetentionPeriod `locationName:"retentionPeriod" type:"structure"`
+	RetentionPeriod *RetentionPeriod `json:"iotanalytics:CreateDatastoreOutput:RetentionPeriod" locationName:"retentionPeriod" type:"structure"`
 }
 
 // String returns the string representation

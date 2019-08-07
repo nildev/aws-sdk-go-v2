@@ -68,11 +68,11 @@ type ListConstraintsForPortfolioOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the constraints.
-	ConstraintDetails []ConstraintDetail `type:"list"`
+	ConstraintDetails []ConstraintDetail `json:"servicecatalog:ListConstraintsForPortfolioOutput:ConstraintDetails" type:"list"`
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListConstraintsForPortfolioOutput:NextPageToken" type:"string"`
 }
 
 // String returns the string representation

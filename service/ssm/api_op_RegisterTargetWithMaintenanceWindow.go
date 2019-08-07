@@ -130,7 +130,7 @@ type RegisterTargetWithMaintenanceWindowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the target definition in this maintenance window.
-	WindowTargetId *string `min:"36" type:"string"`
+	WindowTargetId *string `json:"ssm:RegisterTargetWithMaintenanceWindowOutput:WindowTargetId" min:"36" type:"string"`
 }
 
 // String returns the string representation

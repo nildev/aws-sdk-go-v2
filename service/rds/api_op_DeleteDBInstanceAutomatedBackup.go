@@ -47,7 +47,7 @@ type DeleteDBInstanceAutomatedBackupOutput struct {
 	// An automated backup of a DB instance. It it consists of system backups, transaction
 	// logs, and the database instance properties that existed at the time you deleted
 	// the source instance.
-	DBInstanceAutomatedBackup *DBInstanceAutomatedBackup `type:"structure"`
+	DBInstanceAutomatedBackup *DBInstanceAutomatedBackup `json:"rds:DeleteDBInstanceAutomatedBackupOutput:DBInstanceAutomatedBackup" type:"structure"`
 }
 
 // String returns the string representation

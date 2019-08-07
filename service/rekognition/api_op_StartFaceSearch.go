@@ -88,7 +88,7 @@ type StartFaceSearchOutput struct {
 
 	// The identifier for the search job. Use JobId to identify the job in a subsequent
 	// call to GetFaceSearch.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"rekognition:StartFaceSearchOutput:JobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

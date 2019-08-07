@@ -93,12 +93,12 @@ type ListVirtualRoutersOutput struct {
 	// the results of a ListVirtualRouters request exceed limit, you can use this
 	// value to retrieve the next page of results. This value is null when there
 	// are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appmesh:ListVirtualRoutersOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of existing virtual routers for the specified service mesh.
 	//
 	// VirtualRouters is a required field
-	VirtualRouters []VirtualRouterRef `locationName:"virtualRouters" type:"list" required:"true"`
+	VirtualRouters []VirtualRouterRef `json:"appmesh:ListVirtualRoutersOutput:VirtualRouters" locationName:"virtualRouters" type:"list" required:"true"`
 }
 
 // String returns the string representation

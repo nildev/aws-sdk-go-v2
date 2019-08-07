@@ -64,15 +64,15 @@ type DescribeRecordOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:DescribeRecordOutput:NextPageToken" type:"string"`
 
 	// Information about the product.
-	RecordDetail *RecordDetail `type:"structure"`
+	RecordDetail *RecordDetail `json:"servicecatalog:DescribeRecordOutput:RecordDetail" type:"structure"`
 
 	// Information about the product created as the result of a request. For example,
 	// the output for a CloudFormation-backed product that creates an S3 bucket
 	// would include the S3 bucket URL.
-	RecordOutputs []RecordOutput `type:"list"`
+	RecordOutputs []RecordOutput `json:"servicecatalog:DescribeRecordOutput:RecordOutputs" type:"list"`
 }
 
 // String returns the string representation

@@ -76,7 +76,7 @@ type ListHostedZonesOutput struct {
 	// A complex type that contains general information about the hosted zone.
 	//
 	// HostedZones is a required field
-	HostedZones []HostedZone `locationNameList:"HostedZone" type:"list" required:"true"`
+	HostedZones []HostedZone `json:"route53:ListHostedZonesOutput:HostedZones" locationNameList:"HostedZone" type:"list" required:"true"`
 
 	// A flag indicating whether there are more hosted zones to be listed. If the
 	// response was truncated, you can get more hosted zones by submitting another
@@ -84,27 +84,27 @@ type ListHostedZonesOutput struct {
 	// parameter.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListHostedZonesOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// For the second and subsequent calls to ListHostedZones, Marker is the value
 	// that you specified for the marker parameter in the request that produced
 	// the current response.
 	//
 	// Marker is a required field
-	Marker *string `type:"string" required:"true"`
+	Marker *string `json:"route53:ListHostedZonesOutput:Marker" type:"string" required:"true"`
 
 	// The value that you specified for the maxitems parameter in the call to ListHostedZones
 	// that produced the current response.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListHostedZonesOutput:MaxItems" type:"string" required:"true"`
 
 	// If IsTruncated is true, the value of NextMarker identifies the first hosted
 	// zone in the next group of hosted zones. Submit another ListHostedZones request,
 	// and specify the value of NextMarker from the response in the marker parameter.
 	//
 	// This element is present only if IsTruncated is true.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"route53:ListHostedZonesOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

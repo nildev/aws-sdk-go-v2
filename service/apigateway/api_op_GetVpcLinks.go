@@ -53,9 +53,9 @@ type GetVpcLinksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []VpcLink `locationName:"item" type:"list"`
+	Items []VpcLink `json:"apigateway:GetVpcLinksOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetVpcLinksOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

@@ -52,7 +52,7 @@ type DescribeEventCategoriesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event category maps.
-	EventCategoriesMapList []EventCategoriesMap `locationNameList:"EventCategoriesMap" type:"list"`
+	EventCategoriesMapList []EventCategoriesMap `json:"rds:DescribeEventCategoriesOutput:EventCategoriesMapList" locationNameList:"EventCategoriesMap" type:"list"`
 }
 
 // String returns the string representation

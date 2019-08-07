@@ -78,7 +78,7 @@ type SendUsersMessagesOutput struct {
 	// Provides information about which users and endpoints a message was sent to.
 	//
 	// SendUsersMessageResponse is a required field
-	SendUsersMessageResponse *SendUsersMessageResponse `type:"structure" required:"true"`
+	SendUsersMessageResponse *SendUsersMessageResponse `json:"pinpoint:SendUsersMessagesOutput:SendUsersMessageResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

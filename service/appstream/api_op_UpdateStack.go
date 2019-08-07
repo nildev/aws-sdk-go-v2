@@ -100,7 +100,7 @@ type UpdateStackOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the stack.
-	Stack *Stack `type:"structure"`
+	Stack *Stack `json:"appstream2:UpdateStackOutput:Stack" type:"structure"`
 }
 
 // String returns the string representation

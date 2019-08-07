@@ -81,10 +81,10 @@ type LookupDeveloperIdentityOutput struct {
 	// This is the list of developer user identifiers associated with an identity
 	// ID. Cognito supports the association of multiple developer user identifiers
 	// with an identity ID.
-	DeveloperUserIdentifierList []string `type:"list"`
+	DeveloperUserIdentifierList []string `json:"cognito-identity:LookupDeveloperIdentityOutput:DeveloperUserIdentifierList" type:"list"`
 
 	// A unique identifier in the format REGION:GUID.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-identity:LookupDeveloperIdentityOutput:IdentityId" min:"1" type:"string"`
 
 	// A pagination token. The first call you make will have NextToken set to null.
 	// After that the service will return NextToken values as needed. For example,
@@ -92,7 +92,7 @@ type LookupDeveloperIdentityOutput struct {
 	// matches in the database. The service will return a pagination token as a
 	// part of the response. This token can be used to call the API again and get
 	// results starting from the 11th match.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-identity:LookupDeveloperIdentityOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -56,16 +56,16 @@ type GetSdkTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of configuration properties of an SdkType.
-	ConfigurationProperties []SdkConfigurationProperty `locationName:"configurationProperties" type:"list"`
+	ConfigurationProperties []SdkConfigurationProperty `json:"apigateway:GetSdkTypeOutput:ConfigurationProperties" locationName:"configurationProperties" type:"list"`
 
 	// The description of an SdkType.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:GetSdkTypeOutput:Description" locationName:"description" type:"string"`
 
 	// The user-friendly name of an SdkType instance.
-	FriendlyName *string `locationName:"friendlyName" type:"string"`
+	FriendlyName *string `json:"apigateway:GetSdkTypeOutput:FriendlyName" locationName:"friendlyName" type:"string"`
 
 	// The identifier of an SdkType instance.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:GetSdkTypeOutput:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation

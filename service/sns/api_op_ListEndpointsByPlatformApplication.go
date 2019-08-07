@@ -50,11 +50,11 @@ type ListEndpointsByPlatformApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Endpoints returned for ListEndpointsByPlatformApplication action.
-	Endpoints []Endpoint `type:"list"`
+	Endpoints []Endpoint `json:"sns:ListEndpointsByPlatformApplicationOutput:Endpoints" type:"list"`
 
 	// NextToken string is returned when calling ListEndpointsByPlatformApplication
 	// action if additional records are available after the first page results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"sns:ListEndpointsByPlatformApplicationOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

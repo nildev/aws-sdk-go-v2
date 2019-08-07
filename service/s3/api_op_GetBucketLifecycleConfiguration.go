@@ -60,7 +60,7 @@ func (s GetBucketLifecycleConfigurationInput) MarshalFields(e protocol.FieldEnco
 type GetBucketLifecycleConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
-	Rules []LifecycleRule `locationName:"Rule" type:"list" flattened:"true"`
+	Rules []LifecycleRule `json:"s3:GetBucketLifecycleConfigurationOutput:Rules" locationName:"Rule" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

@@ -71,7 +71,7 @@ type GetSegmentOutput struct {
 	// for a segment.
 	//
 	// SegmentResponse is a required field
-	SegmentResponse *SegmentResponse `type:"structure" required:"true"`
+	SegmentResponse *SegmentResponse `json:"pinpoint:GetSegmentOutput:SegmentResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

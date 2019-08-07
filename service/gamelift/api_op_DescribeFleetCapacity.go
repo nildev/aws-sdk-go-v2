@@ -62,12 +62,12 @@ type DescribeFleetCapacityOutput struct {
 	// Collection of objects containing capacity information for each requested
 	// fleet ID. Leave this parameter empty to retrieve capacity information for
 	// all fleets.
-	FleetCapacity []FleetCapacity `type:"list"`
+	FleetCapacity []FleetCapacity `json:"gamelift:DescribeFleetCapacityOutput:FleetCapacity" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:DescribeFleetCapacityOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

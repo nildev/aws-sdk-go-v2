@@ -75,7 +75,7 @@ type DeleteDBClusterOutput struct {
 	// Contains the details of an Amazon Neptune DB cluster.
 	//
 	// This data type is used as a response element in the DescribeDBClusters action.
-	DBCluster *DBCluster `type:"structure"`
+	DBCluster *DBCluster `json:"rds:DeleteDBClusterOutput:DBCluster" type:"structure"`
 }
 
 // String returns the string representation

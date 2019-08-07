@@ -60,10 +60,10 @@ type ListResourcesOutput struct {
 
 	// The continuation token to use when requesting the next set of results, if
 	// there are more results to be returned.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codestar:ListResourcesOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// An array of resources associated with the project.
-	Resources []Resource `locationName:"resources" type:"list"`
+	Resources []Resource `json:"codestar:ListResourcesOutput:Resources" locationName:"resources" type:"list"`
 }
 
 // String returns the string representation

@@ -63,7 +63,7 @@ type UpdateReservationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved resources available to use
-	Reservation *Reservation `locationName:"reservation" type:"structure"`
+	Reservation *Reservation `json:"medialive:UpdateReservationOutput:Reservation" locationName:"reservation" type:"structure"`
 }
 
 // String returns the string representation

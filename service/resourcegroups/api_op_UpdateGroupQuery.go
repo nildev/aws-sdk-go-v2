@@ -80,7 +80,7 @@ type UpdateGroupQueryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The resource query associated with the resource group after the update.
-	GroupQuery *GroupQuery `type:"structure"`
+	GroupQuery *GroupQuery `json:"resource-groups:UpdateGroupQueryOutput:GroupQuery" type:"structure"`
 }
 
 // String returns the string representation

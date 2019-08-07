@@ -71,16 +71,16 @@ type DescribeElasticGpusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Elastic Graphics accelerators.
-	ElasticGpuSet []ElasticGpus `locationName:"elasticGpuSet" locationNameList:"item" type:"list"`
+	ElasticGpuSet []ElasticGpus `json:"ec2:DescribeElasticGpusOutput:ElasticGpuSet" locationName:"elasticGpuSet" locationNameList:"item" type:"list"`
 
 	// The total number of items to return. If the total number of items available
 	// is more than the value specified in max-items then a Next-Token will be provided
 	// in the output that you can use to resume pagination.
-	MaxResults *int64 `locationName:"maxResults" type:"integer"`
+	MaxResults *int64 `json:"ec2:DescribeElasticGpusOutput:MaxResults" locationName:"maxResults" type:"integer"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeElasticGpusOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -90,13 +90,13 @@ type PutPipelineDefinitionOutput struct {
 	// PutPipelineDefinition to commit the corrected pipeline.
 	//
 	// Errored is a required field
-	Errored *bool `locationName:"errored" type:"boolean" required:"true"`
+	Errored *bool `json:"datapipeline:PutPipelineDefinitionOutput:Errored" locationName:"errored" type:"boolean" required:"true"`
 
 	// The validation errors that are associated with the objects defined in pipelineObjects.
-	ValidationErrors []ValidationError `locationName:"validationErrors" type:"list"`
+	ValidationErrors []ValidationError `json:"datapipeline:PutPipelineDefinitionOutput:ValidationErrors" locationName:"validationErrors" type:"list"`
 
 	// The validation warnings that are associated with the objects defined in pipelineObjects.
-	ValidationWarnings []ValidationWarning `locationName:"validationWarnings" type:"list"`
+	ValidationWarnings []ValidationWarning `json:"datapipeline:PutPipelineDefinitionOutput:ValidationWarnings" locationName:"validationWarnings" type:"list"`
 }
 
 // String returns the string representation

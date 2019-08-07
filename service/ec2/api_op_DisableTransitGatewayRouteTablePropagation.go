@@ -58,7 +58,7 @@ type DisableTransitGatewayRouteTablePropagationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about route propagation.
-	Propagation *TransitGatewayPropagation `locationName:"propagation" type:"structure"`
+	Propagation *TransitGatewayPropagation `json:"ec2:DisableTransitGatewayRouteTablePropagationOutput:Propagation" locationName:"propagation" type:"structure"`
 }
 
 // String returns the string representation

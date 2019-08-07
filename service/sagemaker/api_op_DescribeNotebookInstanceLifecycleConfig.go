@@ -44,23 +44,23 @@ type DescribeNotebookInstanceLifecycleConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A timestamp that tells when the lifecycle configuration was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeNotebookInstanceLifecycleConfigOutput:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A timestamp that tells when the lifecycle configuration was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:DescribeNotebookInstanceLifecycleConfigOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the lifecycle configuration.
-	NotebookInstanceLifecycleConfigArn *string `type:"string"`
+	NotebookInstanceLifecycleConfigArn *string `json:"api.sagemaker:DescribeNotebookInstanceLifecycleConfigOutput:NotebookInstanceLifecycleConfigArn" type:"string"`
 
 	// The name of the lifecycle configuration.
-	NotebookInstanceLifecycleConfigName *string `type:"string"`
+	NotebookInstanceLifecycleConfigName *string `json:"api.sagemaker:DescribeNotebookInstanceLifecycleConfigOutput:NotebookInstanceLifecycleConfigName" type:"string"`
 
 	// The shell script that runs only once, when you create a notebook instance.
-	OnCreate []NotebookInstanceLifecycleHook `type:"list"`
+	OnCreate []NotebookInstanceLifecycleHook `json:"api.sagemaker:DescribeNotebookInstanceLifecycleConfigOutput:OnCreate" type:"list"`
 
 	// The shell script that runs every time you start a notebook instance, including
 	// when you create the notebook instance.
-	OnStart []NotebookInstanceLifecycleHook `type:"list"`
+	OnStart []NotebookInstanceLifecycleHook `json:"api.sagemaker:DescribeNotebookInstanceLifecycleConfigOutput:OnStart" type:"list"`
 }
 
 // String returns the string representation

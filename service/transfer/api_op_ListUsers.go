@@ -60,19 +60,19 @@ type ListUsersOutput struct {
 	// When you can get additional results from the ListUsers call, a NextToken
 	// parameter is returned in the output. You can then pass in a subsequent command
 	// the NextToken parameter to continue listing additional users.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"transfer:ListUsersOutput:NextToken" min:"1" type:"string"`
 
 	// A system-assigned unique identifier for an SFTP server that the users are
 	// assigned to.
 	//
 	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `json:"transfer:ListUsersOutput:ServerId" type:"string" required:"true"`
 
 	// Returns the user accounts and their properties for the ServerId value that
 	// you specify.
 	//
 	// Users is a required field
-	Users []ListedUser `type:"list" required:"true"`
+	Users []ListedUser `json:"transfer:ListUsersOutput:Users" type:"list" required:"true"`
 }
 
 // String returns the string representation

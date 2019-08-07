@@ -21,12 +21,12 @@ type DataPoint struct {
 	// The time, in epoch format, associated with a particular Value.
 	//
 	// Timestamp is a required field
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	Timestamp *time.Time `json:"pi:DataPoint:Timestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The actual value associated with a particular Timestamp.
 	//
 	// Value is a required field
-	Value *float64 `type:"double" required:"true"`
+	Value *float64 `json:"pi:DataPoint:Value" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -74,7 +74,7 @@ type DimensionGroup struct {
 	//    * db.wait_event.type
 	//
 	//    * db.wait_event_type.name
-	Dimensions []string `min:"1" type:"list"`
+	Dimensions []string `json:"pi:DimensionGroup:Dimensions" min:"1" type:"list"`
 
 	// The name of the dimension group. Valid values are:
 	//
@@ -91,10 +91,10 @@ type DimensionGroup struct {
 	//    * db.wait_event_type
 	//
 	// Group is a required field
-	Group *string `type:"string" required:"true"`
+	Group *string `json:"pi:DimensionGroup:Group" type:"string" required:"true"`
 
 	// The maximum number of items to fetch for this dimension group.
-	Limit *int64 `min:"1" type:"integer"`
+	Limit *int64 `json:"pi:DimensionGroup:Limit" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -129,15 +129,15 @@ type DimensionKeyDescription struct {
 	_ struct{} `type:"structure"`
 
 	// A map of name-value pairs for the dimensions in the group.
-	Dimensions map[string]string `type:"map"`
+	Dimensions map[string]string `json:"pi:DimensionKeyDescription:Dimensions" type:"map"`
 
 	// If PartitionBy was specified, PartitionKeys contains the dimensions that
 	// were.
-	Partitions []float64 `type:"list"`
+	Partitions []float64 `json:"pi:DimensionKeyDescription:Partitions" type:"list"`
 
 	// The aggregated metric value for the dimension(s), over the requested time
 	// range.
-	Total *float64 `type:"double"`
+	Total *float64 `json:"pi:DimensionKeyDescription:Total" type:"double"`
 }
 
 // String returns the string representation
@@ -153,10 +153,10 @@ type MetricKeyDataPoints struct {
 
 	// An array of timestamp-value pairs, representing measurements over a period
 	// of time.
-	DataPoints []DataPoint `type:"list"`
+	DataPoints []DataPoint `json:"pi:MetricKeyDataPoints:DataPoints" type:"list"`
 
 	// The dimension(s) to which the data points apply.
-	Key *ResponseResourceMetricKey `type:"structure"`
+	Key *ResponseResourceMetricKey `json:"pi:MetricKeyDataPoints:Key" type:"structure"`
 }
 
 // String returns the string representation
@@ -179,14 +179,14 @@ type MetricQuery struct {
 	//    parameter.
 	//
 	//    * A single filter for any other dimension in this dimension group.
-	Filter map[string]string `type:"map"`
+	Filter map[string]string `json:"pi:MetricQuery:Filter" type:"map"`
 
 	// A specification for how to aggregate the data points from a query result.
 	// You must specify a valid dimension group. Performance Insights will return
 	// all of the dimensions within that group, unless you provide the names of
 	// specific dimensions within that group. You can also request that Performance
 	// Insights return a limited number of values for a dimension.
-	GroupBy *DimensionGroup `type:"structure"`
+	GroupBy *DimensionGroup `json:"pi:MetricQuery:GroupBy" type:"structure"`
 
 	// The name of a Performance Insights metric to be measured.
 	//
@@ -199,7 +199,7 @@ type MetricQuery struct {
 	//    engine.
 	//
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `json:"pi:MetricQuery:Metric" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -235,7 +235,7 @@ type ResponsePartitionKey struct {
 	// A dimension map that contains the dimension(s) for this partition.
 	//
 	// Dimensions is a required field
-	Dimensions map[string]string `type:"map" required:"true"`
+	Dimensions map[string]string `json:"pi:ResponsePartitionKey:Dimensions" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -250,7 +250,7 @@ type ResponseResourceMetricKey struct {
 	_ struct{} `type:"structure"`
 
 	// The valid dimensions for the metric.
-	Dimensions map[string]string `type:"map"`
+	Dimensions map[string]string `json:"pi:ResponseResourceMetricKey:Dimensions" type:"map"`
 
 	// The name of a Performance Insights metric to be measured.
 	//
@@ -263,7 +263,7 @@ type ResponseResourceMetricKey struct {
 	//    engine.
 	//
 	// Metric is a required field
-	Metric *string `type:"string" required:"true"`
+	Metric *string `json:"pi:ResponseResourceMetricKey:Metric" type:"string" required:"true"`
 }
 
 // String returns the string representation

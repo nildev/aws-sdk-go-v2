@@ -65,7 +65,7 @@ type UpdateClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the DAX cluster, after it has been modified.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"dax:UpdateClusterOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

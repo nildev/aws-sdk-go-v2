@@ -53,12 +53,12 @@ type ListGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of GatewayInfo objects.
-	Gateways []GatewayInfo `type:"list"`
+	Gateways []GatewayInfo `json:"storagegateway:ListGatewaysOutput:Gateways" type:"list"`
 
 	// Use the marker in your next request to fetch the next set of gateways in
 	// the list. If there are no more gateways to list, this field does not appear
 	// in the response.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"storagegateway:ListGatewaysOutput:Marker" min:"1" type:"string"`
 }
 
 // String returns the string representation

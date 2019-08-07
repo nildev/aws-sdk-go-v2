@@ -204,7 +204,7 @@ type CreateJobOutput struct {
 
 	// The ID for this job. Amazon S3 generates this ID automatically and returns
 	// it after a successful Create Job request.
-	JobId *string `min:"5" type:"string"`
+	JobId *string `json:"s3-control:CreateJobOutput:JobId" min:"5" type:"string"`
 }
 
 // String returns the string representation

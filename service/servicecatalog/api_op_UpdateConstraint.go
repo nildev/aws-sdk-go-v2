@@ -106,13 +106,13 @@ type UpdateConstraintOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the constraint.
-	ConstraintDetail *ConstraintDetail `type:"structure"`
+	ConstraintDetail *ConstraintDetail `json:"servicecatalog:UpdateConstraintOutput:ConstraintDetail" type:"structure"`
 
 	// The constraint parameters.
-	ConstraintParameters *string `type:"string"`
+	ConstraintParameters *string `json:"servicecatalog:UpdateConstraintOutput:ConstraintParameters" type:"string"`
 
 	// The status of the current request.
-	Status Status `type:"string" enum:"true"`
+	Status Status `json:"servicecatalog:UpdateConstraintOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

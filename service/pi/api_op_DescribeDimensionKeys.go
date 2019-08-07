@@ -166,24 +166,24 @@ type DescribeDimensionKeysOutput struct {
 	// The end time for the returned dimension keys, after alignment to a granular
 	// boundary (as specified by PeriodInSeconds). AlignedEndTime will be greater
 	// than or equal to the value of the user-specified Endtime.
-	AlignedEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AlignedEndTime *time.Time `json:"pi:DescribeDimensionKeysOutput:AlignedEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The start time for the returned dimension keys, after alignment to a granular
 	// boundary (as specified by PeriodInSeconds). AlignedStartTime will be less
 	// than or equal to the value of the user-specified StartTime.
-	AlignedStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AlignedStartTime *time.Time `json:"pi:DescribeDimensionKeysOutput:AlignedStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The dimension keys that were requested.
-	Keys []DimensionKeyDescription `type:"list"`
+	Keys []DimensionKeyDescription `json:"pi:DescribeDimensionKeysOutput:Keys" type:"list"`
 
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the token, up to
 	// the value specified by MaxRecords.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pi:DescribeDimensionKeysOutput:NextToken" type:"string"`
 
 	// If PartitionBy was present in the request, PartitionKeys contains the breakdown
 	// of dimension keys by the specified partitions.
-	PartitionKeys []ResponsePartitionKey `type:"list"`
+	PartitionKeys []ResponsePartitionKey `json:"pi:DescribeDimensionKeysOutput:PartitionKeys" type:"list"`
 }
 
 // String returns the string representation

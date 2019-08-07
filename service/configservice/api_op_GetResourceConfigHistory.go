@@ -79,11 +79,11 @@ type GetResourceConfigHistoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list that contains the configuration history of one or more resources.
-	ConfigurationItems []ConfigurationItem `locationName:"configurationItems" type:"list"`
+	ConfigurationItems []ConfigurationItem `json:"config:GetResourceConfigHistoryOutput:ConfigurationItems" locationName:"configurationItems" type:"list"`
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"config:GetResourceConfigHistoryOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -58,12 +58,12 @@ type ListResourceServersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A pagination token.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-idp:ListResourceServersOutput:NextToken" min:"1" type:"string"`
 
 	// The resource servers.
 	//
 	// ResourceServers is a required field
-	ResourceServers []ResourceServerType `type:"list" required:"true"`
+	ResourceServers []ResourceServerType `json:"cognito-idp:ListResourceServersOutput:ResourceServers" type:"list" required:"true"`
 }
 
 // String returns the string representation

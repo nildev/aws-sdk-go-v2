@@ -43,7 +43,7 @@ type GetGatewayGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the gateway group.
-	GatewayGroup *GatewayGroup `type:"structure"`
+	GatewayGroup *GatewayGroup `json:"a4b:GetGatewayGroupOutput:GatewayGroup" type:"structure"`
 }
 
 // String returns the string representation

@@ -144,7 +144,7 @@ func (s UpdateChannelInput) MarshalFields(e protocol.FieldEncoder) error {
 type UpdateChannelOutput struct {
 	_ struct{} `type:"structure"`
 
-	Channel *Channel `locationName:"channel" type:"structure"`
+	Channel *Channel `json:"medialive:UpdateChannelOutput:Channel" locationName:"channel" type:"structure"`
 }
 
 // String returns the string representation

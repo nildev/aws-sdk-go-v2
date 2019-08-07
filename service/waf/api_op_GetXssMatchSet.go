@@ -57,7 +57,7 @@ type GetXssMatchSetOutput struct {
 	//    * XssMatchTuple: Each XssMatchTuple object contains FieldToMatch and TextTransformation
 	//
 	//    * FieldToMatch: Contains Data and Type
-	XssMatchSet *XssMatchSet `type:"structure"`
+	XssMatchSet *XssMatchSet `json:"waf:GetXssMatchSetOutput:XssMatchSet" type:"structure"`
 }
 
 // String returns the string representation

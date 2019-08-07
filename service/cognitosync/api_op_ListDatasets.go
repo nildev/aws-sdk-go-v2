@@ -100,13 +100,13 @@ type ListDatasetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Number of datasets returned.
-	Count *int64 `type:"integer"`
+	Count *int64 `json:"cognito-sync:ListDatasetsOutput:Count" type:"integer"`
 
 	// A set of datasets.
-	Datasets []Dataset `type:"list"`
+	Datasets []Dataset `json:"cognito-sync:ListDatasetsOutput:Datasets" type:"list"`
 
 	// A pagination token for obtaining the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cognito-sync:ListDatasetsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

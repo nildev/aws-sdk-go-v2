@@ -87,14 +87,14 @@ type DownloadDBLogFilePortionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Boolean value that if true, indicates there is more data to be downloaded.
-	AdditionalDataPending *bool `type:"boolean"`
+	AdditionalDataPending *bool `json:"rds:DownloadDBLogFilePortionOutput:AdditionalDataPending" type:"boolean"`
 
 	// Entries from the specified log file.
-	LogFileData *string `type:"string"`
+	LogFileData *string `json:"rds:DownloadDBLogFilePortionOutput:LogFileData" type:"string"`
 
 	// A pagination token that can be used in a subsequent DownloadDBLogFilePortion
 	// request.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DownloadDBLogFilePortionOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

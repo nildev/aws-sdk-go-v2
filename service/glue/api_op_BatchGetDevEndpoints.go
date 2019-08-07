@@ -47,10 +47,10 @@ type BatchGetDevEndpointsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of DevEndpoint definitions.
-	DevEndpoints []DevEndpoint `type:"list"`
+	DevEndpoints []DevEndpoint `json:"glue:BatchGetDevEndpointsOutput:DevEndpoints" type:"list"`
 
 	// A list of DevEndpoints not found.
-	DevEndpointsNotFound []string `min:"1" type:"list"`
+	DevEndpointsNotFound []string `json:"glue:BatchGetDevEndpointsOutput:DevEndpointsNotFound" min:"1" type:"list"`
 }
 
 // String returns the string representation

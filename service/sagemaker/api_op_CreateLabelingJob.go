@@ -193,7 +193,7 @@ type CreateLabelingJobOutput struct {
 	// the labeling job.
 	//
 	// LabelingJobArn is a required field
-	LabelingJobArn *string `type:"string" required:"true"`
+	LabelingJobArn *string `json:"api.sagemaker:CreateLabelingJobOutput:LabelingJobArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

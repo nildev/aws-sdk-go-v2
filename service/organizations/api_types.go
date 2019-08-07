@@ -22,35 +22,35 @@ type Account struct {
 	// For more information about ARNs in Organizations, see ARN Formats Supported
 	// by Organizations (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns)
 	// in the AWS Organizations User Guide.
-	Arn *string `type:"string"`
+	Arn *string `json:"organizations:Account:Arn" type:"string"`
 
 	// The email address associated with the AWS account.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for this parameter is
 	// a string of characters that represents a standard Internet email address.
-	Email *string `min:"6" type:"string"`
+	Email *string `json:"organizations:Account:Email" min:"6" type:"string"`
 
 	// The unique identifier (ID) of the account.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for an account ID string
 	// requires exactly 12 digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:Account:Id" type:"string"`
 
 	// The method by which the account joined the organization.
-	JoinedMethod AccountJoinedMethod `type:"string" enum:"true"`
+	JoinedMethod AccountJoinedMethod `json:"organizations:Account:JoinedMethod" type:"string" enum:"true"`
 
 	// The date the account became a part of the organization.
-	JoinedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	JoinedTimestamp *time.Time `json:"organizations:Account:JoinedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The friendly name of the account.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) that is used to validate
 	// this parameter is a string of any of the characters in the ASCII character
 	// range.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"organizations:Account:Name" min:"1" type:"string"`
 
 	// The status of the account in the organization.
-	Status AccountStatus `type:"string" enum:"true"`
+	Status AccountStatus `json:"organizations:Account:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -74,10 +74,10 @@ type Child struct {
 	//    from 4 to 32 lower-case letters or digits (the ID of the root that contains
 	//    the OU) followed by a second "-" dash and from 8 to 32 additional lower-case
 	//    letters or digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:Child:Id" type:"string"`
 
 	// The type of this child entity.
-	Type ChildType `type:"string" enum:"true"`
+	Type ChildType `json:"organizations:Child:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -96,13 +96,13 @@ type CreateAccountStatus struct {
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for an account ID string
 	// requires exactly 12 digits.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"organizations:CreateAccountStatus:AccountId" type:"string"`
 
 	// The account name given to the account when it was created.
-	AccountName *string `min:"1" type:"string"`
+	AccountName *string `json:"organizations:CreateAccountStatus:AccountName" min:"1" type:"string"`
 
 	// The date and time that the account was created and the request completed.
-	CompletedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletedTimestamp *time.Time `json:"organizations:CreateAccountStatus:CompletedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// If the request failed, a description of the reason for the failure.
 	//
@@ -120,11 +120,11 @@ type CreateAccountStatus struct {
 	//
 	//    * INTERNAL_FAILURE: The account could not be created because of an internal
 	//    failure. Try again later. If the problem persists, contact Customer Support.
-	FailureReason CreateAccountFailureReason `type:"string" enum:"true"`
+	FailureReason CreateAccountFailureReason `json:"organizations:CreateAccountStatus:FailureReason" type:"string" enum:"true"`
 
 	// If the account was created successfully, the unique identifier (ID) of the
 	// new account in the AWS GovCloud (US) Region.
-	GovCloudAccountId *string `type:"string"`
+	GovCloudAccountId *string `json:"organizations:CreateAccountStatus:GovCloudAccountId" type:"string"`
 
 	// The unique identifier (ID) that references this request. You get this value
 	// from the response of the initial CreateAccount request to create the account.
@@ -132,13 +132,13 @@ type CreateAccountStatus struct {
 	// The regex pattern (http://wikipedia.org/wiki/regex) for an create account
 	// request ID string requires "car-" followed by from 8 to 32 lower-case letters
 	// or digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:CreateAccountStatus:Id" type:"string"`
 
 	// The date and time that the request was made for the account creation.
-	RequestedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RequestedTimestamp *time.Time `json:"organizations:CreateAccountStatus:RequestedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the request.
-	State CreateAccountState `type:"string" enum:"true"`
+	State CreateAccountState `json:"organizations:CreateAccountStatus:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -154,11 +154,11 @@ type EnabledServicePrincipal struct {
 
 	// The date that the service principal was enabled for integration with AWS
 	// Organizations.
-	DateEnabled *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DateEnabled *time.Time `json:"organizations:EnabledServicePrincipal:DateEnabled" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the service principal. This is typically in the form of a URL,
 	// such as: servicename.amazonaws.com.
-	ServicePrincipal *string `min:"1" type:"string"`
+	ServicePrincipal *string `json:"organizations:EnabledServicePrincipal:ServicePrincipal" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -194,35 +194,35 @@ type Handshake struct {
 	//    service when all member accounts have approved the ENABLE_ALL_FEATURES
 	//    invitation. It is sent only to the master account and signals the master
 	//    that it can finalize the process to enable all features.
-	Action ActionType `type:"string" enum:"true"`
+	Action ActionType `json:"organizations:Handshake:Action" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of a handshake.
 	//
 	// For more information about ARNs in Organizations, see ARN Formats Supported
 	// by Organizations (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns)
 	// in the AWS Organizations User Guide.
-	Arn *string `type:"string"`
+	Arn *string `json:"organizations:Handshake:Arn" type:"string"`
 
 	// The date and time that the handshake expires. If the recipient of the handshake
 	// request fails to respond before the specified date and time, the handshake
 	// becomes inactive and is no longer valid.
-	ExpirationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationTimestamp *time.Time `json:"organizations:Handshake:ExpirationTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique identifier (ID) of a handshake. The originating account creates
 	// the ID when it initiates the handshake.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for handshake ID string
 	// requires "h-" followed by from 8 to 32 lower-case letters or digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:Handshake:Id" type:"string"`
 
 	// Information about the two accounts that are participating in the handshake.
-	Parties []HandshakeParty `type:"list"`
+	Parties []HandshakeParty `json:"organizations:Handshake:Parties" type:"list"`
 
 	// The date and time that the handshake request was made.
-	RequestedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RequestedTimestamp *time.Time `json:"organizations:Handshake:RequestedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// Additional information that is needed to process the handshake.
-	Resources []HandshakeResource `type:"list"`
+	Resources []HandshakeResource `json:"organizations:Handshake:Resources" type:"list"`
 
 	// The current state of the handshake. Use the state to trace the flow of the
 	// handshake through the process from its creation to its acceptance. The meaning
@@ -248,7 +248,7 @@ type Handshake struct {
 	//    * EXPIRED: This handshake is no longer active because the originator did
 	//    not receive a response of any kind from the recipient before the expiration
 	//    time (15 days).
-	State HandshakeState `type:"string" enum:"true"`
+	State HandshakeState `json:"organizations:Handshake:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -264,7 +264,7 @@ type HandshakeFilter struct {
 	// Specifies the type of handshake action.
 	//
 	// If you specify ActionType, you cannot also specify ParentHandshakeId.
-	ActionType ActionType `type:"string" enum:"true"`
+	ActionType ActionType `json:"organizations:HandshakeFilter:ActionType" type:"string" enum:"true"`
 
 	// Specifies the parent handshake. Only used for handshake types that are a
 	// child of another type.
@@ -273,7 +273,7 @@ type HandshakeFilter struct {
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for handshake ID string
 	// requires "h-" followed by from 8 to 32 lower-case letters or digits.
-	ParentHandshakeId *string `type:"string"`
+	ParentHandshakeId *string `json:"organizations:HandshakeFilter:ParentHandshakeId" type:"string"`
 }
 
 // String returns the string representation
@@ -292,12 +292,12 @@ type HandshakeParty struct {
 	// requires "h-" followed by from 8 to 32 lower-case letters or digits.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"organizations:HandshakeParty:Id" min:"1" type:"string" required:"true"`
 
 	// The type of party.
 	//
 	// Type is a required field
-	Type HandshakePartyType `type:"string" required:"true" enum:"true"`
+	Type HandshakePartyType `json:"organizations:HandshakeParty:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -331,7 +331,7 @@ type HandshakeResource struct {
 	_ struct{} `type:"structure"`
 
 	// When needed, contains an additional array of HandshakeResource objects.
-	Resources []HandshakeResource `type:"list"`
+	Resources []HandshakeResource `json:"organizations:HandshakeResource:Resources" type:"list"`
 
 	// The type of information being passed, specifying how the value is to be interpreted
 	// by the other party:
@@ -351,11 +351,11 @@ type HandshakeResource struct {
 	//
 	//    * NOTES - Additional text provided by the handshake initiator and intended
 	//    for the recipient to read.
-	Type HandshakeResourceType `type:"string" enum:"true"`
+	Type HandshakeResourceType `json:"organizations:HandshakeResource:Type" type:"string" enum:"true"`
 
 	// The information that is passed to the other party in the handshake. The format
 	// of the value string must match the requirements of the specified type.
-	Value *string `type:"string"`
+	Value *string `json:"organizations:HandshakeResource:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -376,7 +376,7 @@ type Organization struct {
 	// For more information about ARNs in Organizations, see ARN Formats Supported
 	// by Organizations (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns)
 	// in the AWS Organizations User Guide.
-	Arn *string `type:"string"`
+	Arn *string `json:"organizations:Organization:Arn" type:"string"`
 
 	// A list of policy types that are enabled for this organization. For example,
 	// if your organization has all features enabled, then service control policies
@@ -386,7 +386,7 @@ type Organization struct {
 	// separately enable and disable them at the root level by using EnablePolicyType
 	// and DisablePolicyType. Use ListRoots to see the status of a policy type in
 	// that root.
-	AvailablePolicyTypes []PolicyTypeSummary `type:"list"`
+	AvailablePolicyTypes []PolicyTypeSummary `json:"organizations:Organization:AvailablePolicyTypes" type:"list"`
 
 	// Specifies the functionality that currently is available to the organization.
 	// If set to "ALL", then all features are enabled and policies can be applied
@@ -394,13 +394,13 @@ type Organization struct {
 	// consolidated billing functionality is available. For more information, see
 	// Enabling All Features in Your Organization (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
 	// in the AWS Organizations User Guide.
-	FeatureSet OrganizationFeatureSet `type:"string" enum:"true"`
+	FeatureSet OrganizationFeatureSet `json:"organizations:Organization:FeatureSet" type:"string" enum:"true"`
 
 	// The unique identifier (ID) of an organization.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for an organization ID
 	// string requires "o-" followed by from 10 to 32 lower-case letters or digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:Organization:Id" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the account that is designated as the master
 	// account for the organization.
@@ -408,17 +408,17 @@ type Organization struct {
 	// For more information about ARNs in Organizations, see ARN Formats Supported
 	// by Organizations (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns)
 	// in the AWS Organizations User Guide.
-	MasterAccountArn *string `type:"string"`
+	MasterAccountArn *string `json:"organizations:Organization:MasterAccountArn" type:"string"`
 
 	// The email address that is associated with the AWS account that is designated
 	// as the master account for the organization.
-	MasterAccountEmail *string `min:"6" type:"string"`
+	MasterAccountEmail *string `json:"organizations:Organization:MasterAccountEmail" min:"6" type:"string"`
 
 	// The unique identifier (ID) of the master account of an organization.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for an account ID string
 	// requires exactly 12 digits.
-	MasterAccountId *string `type:"string"`
+	MasterAccountId *string `json:"organizations:Organization:MasterAccountId" type:"string"`
 }
 
 // String returns the string representation
@@ -438,7 +438,7 @@ type OrganizationalUnit struct {
 	// For more information about ARNs in Organizations, see ARN Formats Supported
 	// by Organizations (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns)
 	// in the AWS Organizations User Guide.
-	Arn *string `type:"string"`
+	Arn *string `json:"organizations:OrganizationalUnit:Arn" type:"string"`
 
 	// The unique identifier (ID) associated with this OU.
 	//
@@ -446,14 +446,14 @@ type OrganizationalUnit struct {
 	// unit ID string requires "ou-" followed by from 4 to 32 lower-case letters
 	// or digits (the ID of the root that contains the OU) followed by a second
 	// "-" dash and from 8 to 32 additional lower-case letters or digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:OrganizationalUnit:Id" type:"string"`
 
 	// The friendly name of this OU.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) that is used to validate
 	// this parameter is a string of any of the characters in the ASCII character
 	// range.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"organizations:OrganizationalUnit:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -479,10 +479,10 @@ type Parent struct {
 	//    from 4 to 32 lower-case letters or digits (the ID of the root that the
 	//    OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case
 	//    letters or digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:Parent:Id" type:"string"`
 
 	// The type of the parent entity.
-	Type ParentType `type:"string" enum:"true"`
+	Type ParentType `json:"organizations:Parent:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -498,10 +498,10 @@ type Policy struct {
 	_ struct{} `type:"structure"`
 
 	// The text content of the policy.
-	Content *string `min:"1" type:"string"`
+	Content *string `json:"organizations:Policy:Content" min:"1" type:"string"`
 
 	// A structure that contains additional details about the policy.
-	PolicySummary *PolicySummary `type:"structure"`
+	PolicySummary *PolicySummary `json:"organizations:Policy:PolicySummary" type:"structure"`
 }
 
 // String returns the string representation
@@ -520,31 +520,31 @@ type PolicySummary struct {
 	// For more information about ARNs in Organizations, see ARN Formats Supported
 	// by Organizations (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns)
 	// in the AWS Organizations User Guide.
-	Arn *string `type:"string"`
+	Arn *string `json:"organizations:PolicySummary:Arn" type:"string"`
 
 	// A boolean value that indicates whether the specified policy is an AWS managed
 	// policy. If true, then you can attach the policy to roots, OUs, or accounts,
 	// but you cannot edit it.
-	AwsManaged *bool `type:"boolean"`
+	AwsManaged *bool `json:"organizations:PolicySummary:AwsManaged" type:"boolean"`
 
 	// The description of the policy.
-	Description *string `type:"string"`
+	Description *string `json:"organizations:PolicySummary:Description" type:"string"`
 
 	// The unique identifier (ID) of the policy.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for a policy ID string
 	// requires "p-" followed by from 8 to 128 lower-case letters or digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:PolicySummary:Id" type:"string"`
 
 	// The friendly name of the policy.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) that is used to validate
 	// this parameter is a string of any of the characters in the ASCII character
 	// range.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"organizations:PolicySummary:Name" min:"1" type:"string"`
 
 	// The type of policy.
-	Type PolicyType `type:"string" enum:"true"`
+	Type PolicyType `json:"organizations:PolicySummary:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -563,14 +563,14 @@ type PolicyTargetSummary struct {
 	// For more information about ARNs in Organizations, see ARN Formats Supported
 	// by Organizations (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns)
 	// in the AWS Organizations User Guide.
-	Arn *string `type:"string"`
+	Arn *string `json:"organizations:PolicyTargetSummary:Arn" type:"string"`
 
 	// The friendly name of the policy target.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) that is used to validate
 	// this parameter is a string of any of the characters in the ASCII character
 	// range.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"organizations:PolicyTargetSummary:Name" min:"1" type:"string"`
 
 	// The unique identifier (ID) of the policy target.
 	//
@@ -586,10 +586,10 @@ type PolicyTargetSummary struct {
 	//    from 4 to 32 lower-case letters or digits (the ID of the root that the
 	//    OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case
 	//    letters or digits.
-	TargetId *string `type:"string"`
+	TargetId *string `json:"organizations:PolicyTargetSummary:TargetId" type:"string"`
 
 	// The type of the policy target.
-	Type TargetType `type:"string" enum:"true"`
+	Type TargetType `json:"organizations:PolicyTargetSummary:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -606,10 +606,10 @@ type PolicyTypeSummary struct {
 	// The status of the policy type as it relates to the associated root. To attach
 	// a policy of the specified type to a root or to an OU or account in that root,
 	// it must be available in the organization and enabled for that root.
-	Status PolicyTypeStatus `type:"string" enum:"true"`
+	Status PolicyTypeStatus `json:"organizations:PolicyTypeSummary:Status" type:"string" enum:"true"`
 
 	// The name of the policy type.
-	Type PolicyType `type:"string" enum:"true"`
+	Type PolicyType `json:"organizations:PolicyTypeSummary:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -631,20 +631,20 @@ type Root struct {
 	// For more information about ARNs in Organizations, see ARN Formats Supported
 	// by Organizations (https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns)
 	// in the AWS Organizations User Guide.
-	Arn *string `type:"string"`
+	Arn *string `json:"organizations:Root:Arn" type:"string"`
 
 	// The unique identifier (ID) for the root.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) for a root ID string
 	// requires "r-" followed by from 4 to 32 lower-case letters or digits.
-	Id *string `type:"string"`
+	Id *string `json:"organizations:Root:Id" type:"string"`
 
 	// The friendly name of the root.
 	//
 	// The regex pattern (http://wikipedia.org/wiki/regex) that is used to validate
 	// this parameter is a string of any of the characters in the ASCII character
 	// range.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"organizations:Root:Name" min:"1" type:"string"`
 
 	// The types of policies that are currently enabled for the root and therefore
 	// can be attached to the root or to its OUs or accounts.
@@ -653,7 +653,7 @@ type Root struct {
 	// separately enable and disable them at the root level by using EnablePolicyType
 	// and DisablePolicyType. Use DescribeOrganization to see the availability of
 	// the policy types in that organization.
-	PolicyTypes []PolicyTypeSummary `type:"list"`
+	PolicyTypes []PolicyTypeSummary `json:"organizations:Root:PolicyTypes" type:"list"`
 }
 
 // String returns the string representation
@@ -670,14 +670,14 @@ type Tag struct {
 	// The key identifier, or name, of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"organizations:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The string value that's associated with the key of the tag. You can set the
 	// value of a tag to an empty string, but you can't set the value of a tag to
 	// null.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"organizations:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation

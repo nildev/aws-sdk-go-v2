@@ -137,7 +137,7 @@ type IssueCertificateOutput struct {
 	// serial number. This is of the form:
 	//
 	// arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/286535153982981100925020015808220737245
-	CertificateArn *string `min:"5" type:"string"`
+	CertificateArn *string `json:"acm-pca:IssueCertificateOutput:CertificateArn" min:"5" type:"string"`
 }
 
 // String returns the string representation

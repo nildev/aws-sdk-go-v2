@@ -158,10 +158,10 @@ type UpdateFlowSourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the flow that you want to update.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:UpdateFlowSourceOutput:FlowArn" locationName:"flowArn" type:"string"`
 
 	// The settings for the source of the flow.
-	Source *Source `locationName:"source" type:"structure"`
+	Source *Source `json:"mediaconnect:UpdateFlowSourceOutput:Source" locationName:"source" type:"structure"`
 }
 
 // String returns the string representation

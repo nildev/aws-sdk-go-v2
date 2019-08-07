@@ -87,7 +87,7 @@ type AttachToIndexOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the object that was attached to the index.
-	AttachedObjectIdentifier *string `type:"string"`
+	AttachedObjectIdentifier *string `json:"clouddirectory:AttachToIndexOutput:AttachedObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation

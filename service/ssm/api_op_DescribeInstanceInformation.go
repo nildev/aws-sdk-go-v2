@@ -75,11 +75,11 @@ type DescribeInstanceInformationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The instance information list.
-	InstanceInformationList []InstanceInformation `type:"list"`
+	InstanceInformationList []InstanceInformation `json:"ssm:DescribeInstanceInformationOutput:InstanceInformationList" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeInstanceInformationOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -51,11 +51,11 @@ type ListCertificateAuthoritiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Summary information about each certificate authority you have created.
-	CertificateAuthorities []CertificateAuthority `type:"list"`
+	CertificateAuthorities []CertificateAuthority `json:"acm-pca:ListCertificateAuthoritiesOutput:CertificateAuthorities" type:"list"`
 
 	// When the list is truncated, this value is present and should be used for
 	// the NextToken parameter in a subsequent pagination request.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"acm-pca:ListCertificateAuthoritiesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

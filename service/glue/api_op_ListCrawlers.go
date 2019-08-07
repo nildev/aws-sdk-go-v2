@@ -47,11 +47,11 @@ type ListCrawlersOutput struct {
 
 	// The names of all crawlers in the account, or the crawlers with the specified
 	// tags.
-	CrawlerNames []string `type:"list"`
+	CrawlerNames []string `json:"glue:ListCrawlersOutput:CrawlerNames" type:"list"`
 
 	// A continuation token, if the returned list does not contain the last metric
 	// available.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:ListCrawlersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

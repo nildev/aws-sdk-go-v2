@@ -57,7 +57,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Tags assigned to a resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"groundstation:ListTagsForResourceOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

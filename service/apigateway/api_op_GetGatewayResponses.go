@@ -241,9 +241,9 @@ type GetGatewayResponsesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns the entire collection, because of no pagination support.
-	Items []GatewayResponse `locationName:"item" type:"list"`
+	Items []GatewayResponse `json:"apigateway:GetGatewayResponsesOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetGatewayResponsesOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

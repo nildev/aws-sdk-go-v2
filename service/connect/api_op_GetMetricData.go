@@ -377,7 +377,7 @@ type GetMetricDataOutput struct {
 	//
 	// If no Grouping is specified in the request, Collections includes summary
 	// data for the HistoricalMetrics.
-	MetricResults []HistoricalMetricResult `type:"list"`
+	MetricResults []HistoricalMetricResult `json:"connect:GetMetricDataOutput:MetricResults" type:"list"`
 
 	// A string returned in the response. Use the value returned in the response
 	// as the value of the NextToken in a subsequent request to retrieve the next
@@ -386,7 +386,7 @@ type GetMetricDataOutput struct {
 	// The token expires after 5 minutes from the time it is created. Subsequent
 	// requests that use the NextToken must use the same request parameters as the
 	// request that generated the token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"connect:GetMetricDataOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

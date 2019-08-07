@@ -86,12 +86,12 @@ type ListWebhooksOutput struct {
 
 	// Pagination token. If non-null pagination token is returned in a result, then
 	// pass its value in another request to fetch more entries.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"amplify:ListWebhooksOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// List of webhooks.
 	//
 	// Webhooks is a required field
-	Webhooks []Webhook `locationName:"webhooks" type:"list" required:"true"`
+	Webhooks []Webhook `json:"amplify:ListWebhooksOutput:Webhooks" locationName:"webhooks" type:"list" required:"true"`
 }
 
 // String returns the string representation

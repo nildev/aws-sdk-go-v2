@@ -57,11 +57,11 @@ type ListCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of ACM certificates.
-	CertificateSummaryList []CertificateSummary `json:"ACM:ListCertificatesOutput:CertificateSummaryList" type:"list"`
+	CertificateSummaryList []CertificateSummary `json:"acm:ListCertificatesOutput:CertificateSummaryList" type:"list"`
 
 	// When the list is truncated, this value is present and contains the value
 	// to use for the NextToken parameter in a subsequent pagination request.
-	NextToken *string `json:"ACM:ListCertificatesOutput:NextToken" min:"1" type:"string"`
+	NextToken *string `json:"acm:ListCertificatesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -76,7 +76,7 @@ type CreateClusterSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes a snapshot.
-	Snapshot *Snapshot `type:"structure"`
+	Snapshot *Snapshot `json:"redshift:CreateClusterSnapshotOutput:Snapshot" type:"structure"`
 }
 
 // String returns the string representation

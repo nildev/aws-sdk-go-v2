@@ -131,7 +131,7 @@ type CreateObjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier that is associated with the object.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:CreateObjectOutput:ObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation

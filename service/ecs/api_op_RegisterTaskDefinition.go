@@ -266,10 +266,10 @@ type RegisterTaskDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of tags associated with the task definition.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"ecs:RegisterTaskDefinitionOutput:Tags" locationName:"tags" type:"list"`
 
 	// The full description of the registered task definition.
-	TaskDefinition *TaskDefinition `locationName:"taskDefinition" type:"structure"`
+	TaskDefinition *TaskDefinition `json:"ecs:RegisterTaskDefinitionOutput:TaskDefinition" locationName:"taskDefinition" type:"structure"`
 }
 
 // String returns the string representation

@@ -87,7 +87,7 @@ type RemoveAttributesOutput struct {
 	// removed from all the endpoints that are associated with an application.
 	//
 	// AttributesResource is a required field
-	AttributesResource *AttributesResource `type:"structure" required:"true"`
+	AttributesResource *AttributesResource `json:"pinpoint:RemoveAttributesOutput:AttributesResource" type:"structure" required:"true"`
 }
 
 // String returns the string representation

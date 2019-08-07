@@ -60,10 +60,10 @@ type ListRulesOutput struct {
 
 	// Indicates whether there are additional results to retrieve. If there are
 	// no more results, the value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"events:ListRulesOutput:NextToken" min:"1" type:"string"`
 
 	// The rules that match the specified criteria.
-	Rules []Rule `type:"list"`
+	Rules []Rule `json:"events:ListRulesOutput:Rules" type:"list"`
 }
 
 // String returns the string representation

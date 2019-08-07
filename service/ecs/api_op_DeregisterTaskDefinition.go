@@ -44,7 +44,7 @@ type DeregisterTaskDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of the deregistered task.
-	TaskDefinition *TaskDefinition `locationName:"taskDefinition" type:"structure"`
+	TaskDefinition *TaskDefinition `json:"ecs:DeregisterTaskDefinitionOutput:TaskDefinition" locationName:"taskDefinition" type:"structure"`
 }
 
 // String returns the string representation

@@ -46,7 +46,7 @@ type GetCrawlerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The metadata for the specified crawler.
-	Crawler *Crawler `type:"structure"`
+	Crawler *Crawler `json:"glue:GetCrawlerOutput:Crawler" type:"structure"`
 }
 
 // String returns the string representation

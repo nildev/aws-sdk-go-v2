@@ -109,7 +109,7 @@ type CreateLocationNfsOutput struct {
 
 	// The Amazon Resource Name (ARN) of the source NFS file system location that
 	// is created.
-	LocationArn *string `type:"string"`
+	LocationArn *string `json:"datasync:CreateLocationNfsOutput:LocationArn" type:"string"`
 }
 
 // String returns the string representation

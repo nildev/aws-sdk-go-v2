@@ -78,7 +78,7 @@ type GetBucketInventoryConfigurationOutput struct {
 	_ struct{} `type:"structure" payload:"InventoryConfiguration"`
 
 	// Specifies the inventory configuration.
-	InventoryConfiguration *InventoryConfiguration `type:"structure"`
+	InventoryConfiguration *InventoryConfiguration `json:"s3:GetBucketInventoryConfigurationOutput:InventoryConfiguration" type:"structure"`
 }
 
 // String returns the string representation

@@ -46,10 +46,10 @@ type ListInstanceFleetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of instance fleets for the cluster and given filters.
-	InstanceFleets []InstanceFleet `type:"list"`
+	InstanceFleets []InstanceFleet `json:"elasticmapreduce:ListInstanceFleetsOutput:InstanceFleets" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticmapreduce:ListInstanceFleetsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

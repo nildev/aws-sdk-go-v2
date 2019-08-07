@@ -54,7 +54,7 @@ type ListPublicKeysOutput struct {
 
 	// Returns a list of all public keys that have been added to CloudFront for
 	// this account.
-	PublicKeyList *PublicKeyList `type:"structure"`
+	PublicKeyList *PublicKeyList `json:"cloudfront:ListPublicKeysOutput:PublicKeyList" type:"structure"`
 }
 
 // String returns the string representation

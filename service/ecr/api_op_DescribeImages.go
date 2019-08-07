@@ -80,13 +80,13 @@ type DescribeImagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of ImageDetail objects that contain data about the image.
-	ImageDetails []ImageDetail `locationName:"imageDetails" type:"list"`
+	ImageDetails []ImageDetail `json:"api.ecr:DescribeImagesOutput:ImageDetails" locationName:"imageDetails" type:"list"`
 
 	// The nextToken value to include in a future DescribeImages request. When the
 	// results of a DescribeImages request exceed maxResults, this value can be
 	// used to retrieve the next page of results. This value is null when there
 	// are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"api.ecr:DescribeImagesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

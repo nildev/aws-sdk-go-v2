@@ -69,10 +69,10 @@ type ListOTAUpdatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token to use to get the next set of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListOTAUpdatesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of OTA update jobs.
-	OtaUpdates []OTAUpdateSummary `locationName:"otaUpdates" type:"list"`
+	OtaUpdates []OTAUpdateSummary `json:"iot:ListOTAUpdatesOutput:OtaUpdates" locationName:"otaUpdates" type:"list"`
 }
 
 // String returns the string representation

@@ -46,7 +46,7 @@ type GetJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested job definition.
-	Job *Job `type:"structure"`
+	Job *Job `json:"glue:GetJobOutput:Job" type:"structure"`
 }
 
 // String returns the string representation

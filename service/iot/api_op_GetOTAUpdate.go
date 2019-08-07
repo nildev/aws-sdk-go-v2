@@ -57,7 +57,7 @@ type GetOTAUpdateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The OTA update info.
-	OtaUpdateInfo *OTAUpdateInfo `locationName:"otaUpdateInfo" type:"structure"`
+	OtaUpdateInfo *OTAUpdateInfo `json:"iot:GetOTAUpdateOutput:OtaUpdateInfo" locationName:"otaUpdateInfo" type:"structure"`
 }
 
 // String returns the string representation

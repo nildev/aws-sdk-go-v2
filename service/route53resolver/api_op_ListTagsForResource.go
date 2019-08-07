@@ -64,11 +64,11 @@ type ListTagsForResourceOutput struct {
 	// If more than MaxResults tags match the specified criteria, you can submit
 	// another ListTagsForResource request to get the next group of results. In
 	// the next request, specify the value of NextToken from the previous response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"route53resolver:ListTagsForResourceOutput:NextToken" type:"string"`
 
 	// The tags that are associated with the resource that you specified in the
 	// ListTagsForResource request.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"route53resolver:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

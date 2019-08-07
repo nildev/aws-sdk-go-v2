@@ -56,7 +56,7 @@ type RestorePhoneNumberOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The phone number details.
-	PhoneNumber *PhoneNumber `type:"structure"`
+	PhoneNumber *PhoneNumber `json:"chime:RestorePhoneNumberOutput:PhoneNumber" type:"structure"`
 }
 
 // String returns the string representation

@@ -79,7 +79,7 @@ type ModifyDBSnapshotAttributeOutput struct {
 	// Manual DB snapshot attributes are used to authorize other AWS accounts to
 	// copy or restore a manual DB snapshot. For more information, see the ModifyDBSnapshotAttribute
 	// API action.
-	DBSnapshotAttributesResult *DBSnapshotAttributesResult `type:"structure"`
+	DBSnapshotAttributesResult *DBSnapshotAttributesResult `json:"rds:ModifyDBSnapshotAttributeOutput:DBSnapshotAttributesResult" type:"structure"`
 }
 
 // String returns the string representation

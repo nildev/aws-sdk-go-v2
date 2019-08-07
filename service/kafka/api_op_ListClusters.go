@@ -71,12 +71,12 @@ type ListClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information on each of the MSK clusters in the response.
-	ClusterInfoList []ClusterInfo `locationName:"clusterInfoList" type:"list"`
+	ClusterInfoList []ClusterInfo `json:"kafka:ListClustersOutput:ClusterInfoList" locationName:"clusterInfoList" type:"list"`
 
 	// The paginated results marker. When the result of a ListClusters operation
 	// is truncated, the call returns NextToken in the response. To get another
 	// batch of clusters, provide this token in your next request.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"kafka:ListClustersOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

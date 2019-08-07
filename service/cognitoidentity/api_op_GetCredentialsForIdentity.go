@@ -69,10 +69,10 @@ type GetCredentialsForIdentityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Credentials for the provided identity ID.
-	Credentials *Credentials `type:"structure"`
+	Credentials *Credentials `json:"cognito-identity:GetCredentialsForIdentityOutput:Credentials" type:"structure"`
 
 	// A unique identifier in the format REGION:GUID.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-identity:GetCredentialsForIdentityOutput:IdentityId" min:"1" type:"string"`
 }
 
 // String returns the string representation

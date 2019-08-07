@@ -63,7 +63,7 @@ type CreateGroupCertificateAuthorityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the group certificate authority.
-	GroupCertificateAuthorityArn *string `type:"string"`
+	GroupCertificateAuthorityArn *string `json:"greengrass:CreateGroupCertificateAuthorityOutput:GroupCertificateAuthorityArn" type:"string"`
 }
 
 // String returns the string representation

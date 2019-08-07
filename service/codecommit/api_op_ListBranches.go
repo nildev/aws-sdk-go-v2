@@ -51,10 +51,10 @@ type ListBranchesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of branch names.
-	Branches []string `locationName:"branches" type:"list"`
+	Branches []string `json:"codecommit:ListBranchesOutput:Branches" locationName:"branches" type:"list"`
 
 	// An enumeration token that returns the batch of the results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:ListBranchesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

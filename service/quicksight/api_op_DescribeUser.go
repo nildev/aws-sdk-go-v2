@@ -94,13 +94,13 @@ type DescribeUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS request ID for this operation.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"quicksight:DescribeUserOutput:RequestId" type:"string"`
 
 	// The http status of the request.
-	Status *int64 `location:"statusCode" type:"integer"`
+	Status *int64 `json:"quicksight:DescribeUserOutput:Status" location:"statusCode" type:"integer"`
 
 	// The user name.
-	User *User `type:"structure"`
+	User *User `json:"quicksight:DescribeUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

@@ -163,7 +163,7 @@ type ReceiveMessageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of messages.
-	Messages []Message `locationNameList:"Message" type:"list" flattened:"true"`
+	Messages []Message `json:"sqs:ReceiveMessageOutput:Messages" locationNameList:"Message" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

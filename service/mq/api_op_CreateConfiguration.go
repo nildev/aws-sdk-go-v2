@@ -71,16 +71,16 @@ func (s CreateConfigurationInput) MarshalFields(e protocol.FieldEncoder) error {
 type CreateConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mq:CreateConfigurationOutput:Arn" locationName:"arn" type:"string"`
 
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"mq:CreateConfigurationOutput:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mq:CreateConfigurationOutput:Id" locationName:"id" type:"string"`
 
 	// Returns information about the specified configuration revision.
-	LatestRevision *ConfigurationRevision `locationName:"latestRevision" type:"structure"`
+	LatestRevision *ConfigurationRevision `json:"mq:CreateConfigurationOutput:LatestRevision" locationName:"latestRevision" type:"structure"`
 
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mq:CreateConfigurationOutput:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation

@@ -46,7 +46,7 @@ type StartWorkflowRunOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An Id for the new run.
-	RunId *string `min:"1" type:"string"`
+	RunId *string `json:"glue:StartWorkflowRunOutput:RunId" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -151,7 +151,7 @@ type CreateUploadOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The newly created upload.
-	Upload *Upload `locationName:"upload" type:"structure"`
+	Upload *Upload `json:"devicefarm:CreateUploadOutput:Upload" locationName:"upload" type:"structure"`
 }
 
 // String returns the string representation

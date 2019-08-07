@@ -89,7 +89,7 @@ type CreateActionTargetOutput struct {
 	// The ARN for the custom action target.
 	//
 	// ActionTargetArn is a required field
-	ActionTargetArn *string `type:"string" required:"true"`
+	ActionTargetArn *string `json:"securityhub:CreateActionTargetOutput:ActionTargetArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

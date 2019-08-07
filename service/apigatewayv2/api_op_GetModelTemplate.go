@@ -67,7 +67,7 @@ func (s GetModelTemplateInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetModelTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"apigateway:GetModelTemplateOutput:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation

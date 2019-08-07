@@ -124,48 +124,48 @@ type ListPartsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Date when multipart upload will become eligible for abort operation by lifecycle.
-	AbortDate *time.Time `location:"header" locationName:"x-amz-abort-date" type:"timestamp" timestampFormat:"rfc822"`
+	AbortDate *time.Time `json:"s3:ListPartsOutput:AbortDate" location:"header" locationName:"x-amz-abort-date" type:"timestamp" timestampFormat:"rfc822"`
 
 	// Id of the lifecycle rule that makes a multipart upload eligible for abort
 	// operation.
-	AbortRuleId *string `location:"header" locationName:"x-amz-abort-rule-id" type:"string"`
+	AbortRuleId *string `json:"s3:ListPartsOutput:AbortRuleId" location:"header" locationName:"x-amz-abort-rule-id" type:"string"`
 
 	// Name of the bucket to which the multipart upload was initiated.
-	Bucket *string `type:"string"`
+	Bucket *string `json:"s3:ListPartsOutput:Bucket" type:"string"`
 
 	// Identifies who initiated the multipart upload.
-	Initiator *Initiator `type:"structure"`
+	Initiator *Initiator `json:"s3:ListPartsOutput:Initiator" type:"structure"`
 
 	// Indicates whether the returned list of parts is truncated.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"s3:ListPartsOutput:IsTruncated" type:"boolean"`
 
 	// Object key for which the multipart upload was initiated.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"s3:ListPartsOutput:Key" min:"1" type:"string"`
 
 	// Maximum number of parts that were allowed in the response.
-	MaxParts *int64 `type:"integer"`
+	MaxParts *int64 `json:"s3:ListPartsOutput:MaxParts" type:"integer"`
 
 	// When a list is truncated, this element specifies the last part in the list,
 	// as well as the value to use for the part-number-marker request parameter
 	// in a subsequent request.
-	NextPartNumberMarker *int64 `type:"integer"`
+	NextPartNumberMarker *int64 `json:"s3:ListPartsOutput:NextPartNumberMarker" type:"integer"`
 
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:ListPartsOutput:Owner" type:"structure"`
 
 	// Part number after which listing begins.
-	PartNumberMarker *int64 `type:"integer"`
+	PartNumberMarker *int64 `json:"s3:ListPartsOutput:PartNumberMarker" type:"integer"`
 
-	Parts []Part `locationName:"Part" type:"list" flattened:"true"`
+	Parts []Part `json:"s3:ListPartsOutput:Parts" locationName:"Part" type:"list" flattened:"true"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:ListPartsOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// The class of storage used to store the object.
-	StorageClass StorageClass `type:"string" enum:"true"`
+	StorageClass StorageClass `json:"s3:ListPartsOutput:StorageClass" type:"string" enum:"true"`
 
 	// Upload ID identifying the multipart upload whose parts are being listed.
-	UploadId *string `type:"string"`
+	UploadId *string `json:"s3:ListPartsOutput:UploadId" type:"string"`
 }
 
 // String returns the string representation

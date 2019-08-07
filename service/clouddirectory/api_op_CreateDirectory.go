@@ -79,23 +79,23 @@ type CreateDirectoryOutput struct {
 	// schema ARN. For more information, see arns.
 	//
 	// AppliedSchemaArn is a required field
-	AppliedSchemaArn *string `type:"string" required:"true"`
+	AppliedSchemaArn *string `json:"clouddirectory:CreateDirectoryOutput:AppliedSchemaArn" type:"string" required:"true"`
 
 	// The ARN that is associated with the Directory. For more information, see
 	// arns.
 	//
 	// DirectoryArn is a required field
-	DirectoryArn *string `type:"string" required:"true"`
+	DirectoryArn *string `json:"clouddirectory:CreateDirectoryOutput:DirectoryArn" type:"string" required:"true"`
 
 	// The name of the Directory.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"clouddirectory:CreateDirectoryOutput:Name" min:"1" type:"string" required:"true"`
 
 	// The root object node of the created directory.
 	//
 	// ObjectIdentifier is a required field
-	ObjectIdentifier *string `type:"string" required:"true"`
+	ObjectIdentifier *string `json:"clouddirectory:CreateDirectoryOutput:ObjectIdentifier" type:"string" required:"true"`
 }
 
 // String returns the string representation

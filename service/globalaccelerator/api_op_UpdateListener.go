@@ -82,7 +82,7 @@ type UpdateListenerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information for the updated listener.
-	Listener *Listener `type:"structure"`
+	Listener *Listener `json:"globalaccelerator:UpdateListenerOutput:Listener" type:"structure"`
 }
 
 // String returns the string representation

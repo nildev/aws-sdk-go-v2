@@ -44,7 +44,7 @@ type AcceptSharedDirectoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The shared directory in the directory consumer account.
-	SharedDirectory *SharedDirectory `type:"structure"`
+	SharedDirectory *SharedDirectory `json:"ds:AcceptSharedDirectoryOutput:SharedDirectory" type:"structure"`
 }
 
 // String returns the string representation

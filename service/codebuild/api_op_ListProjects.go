@@ -70,11 +70,11 @@ type ListProjectsOutput struct {
 	// returned, along with a unique string called a next token. To get the next
 	// batch of items in the list, call this operation again, adding the next token
 	// to the call.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codebuild:ListProjectsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of build project names, with each build project name representing
 	// a single build project.
-	Projects []string `locationName:"projects" min:"1" type:"list"`
+	Projects []string `json:"codebuild:ListProjectsOutput:Projects" locationName:"projects" min:"1" type:"list"`
 }
 
 // String returns the string representation

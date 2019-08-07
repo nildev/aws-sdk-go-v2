@@ -45,10 +45,10 @@ type DescribeUsageReportSubscriptionsOutput struct {
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:DescribeUsageReportSubscriptionsOutput:NextToken" min:"1" type:"string"`
 
 	// Information about the usage report subscription.
-	UsageReportSubscriptions []UsageReportSubscription `type:"list"`
+	UsageReportSubscriptions []UsageReportSubscription `json:"appstream2:DescribeUsageReportSubscriptionsOutput:UsageReportSubscriptions" type:"list"`
 }
 
 // String returns the string representation

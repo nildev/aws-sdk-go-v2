@@ -156,7 +156,7 @@ type CreateResolverOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Resolver object.
-	Resolver *Resolver `locationName:"resolver" type:"structure"`
+	Resolver *Resolver `json:"appsync:CreateResolverOutput:Resolver" locationName:"resolver" type:"structure"`
 }
 
 // String returns the string representation

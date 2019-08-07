@@ -135,7 +135,7 @@ type CreateScheduledAuditOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the scheduled audit.
-	ScheduledAuditArn *string `locationName:"scheduledAuditArn" type:"string"`
+	ScheduledAuditArn *string `json:"iot:CreateScheduledAuditOutput:ScheduledAuditArn" locationName:"scheduledAuditArn" type:"string"`
 }
 
 // String returns the string representation

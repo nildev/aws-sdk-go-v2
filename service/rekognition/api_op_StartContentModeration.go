@@ -82,7 +82,7 @@ type StartContentModerationOutput struct {
 
 	// The identifier for the content moderation analysis job. Use JobId to identify
 	// the job in a subsequent call to GetContentModeration.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"rekognition:StartContentModerationOutput:JobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -60,11 +60,11 @@ type GetConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of requested connection definitions.
-	ConnectionList []Connection `type:"list"`
+	ConnectionList []Connection `json:"glue:GetConnectionsOutput:ConnectionList" type:"list"`
 
 	// A continuation token, if the list of connections returned does not include
 	// the last of the filtered connections.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetConnectionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -73,9 +73,9 @@ func (s ListApplicationVersionsInput) MarshalFields(e protocol.FieldEncoder) err
 type ListApplicationVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"serverlessrepo:ListApplicationVersionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
-	Versions []VersionSummary `locationName:"versions" type:"list"`
+	Versions []VersionSummary `json:"serverlessrepo:ListApplicationVersionsOutput:Versions" locationName:"versions" type:"list"`
 }
 
 // String returns the string representation

@@ -58,10 +58,10 @@ type GetStreamingDistributionConfigOutput struct {
 	_ struct{} `type:"structure" payload:"StreamingDistributionConfig"`
 
 	// The current version of the configuration. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:GetStreamingDistributionConfigOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// The streaming distribution's configuration information.
-	StreamingDistributionConfig *StreamingDistributionConfig `type:"structure"`
+	StreamingDistributionConfig *StreamingDistributionConfig `json:"cloudfront:GetStreamingDistributionConfigOutput:StreamingDistributionConfig" type:"structure"`
 }
 
 // String returns the string representation

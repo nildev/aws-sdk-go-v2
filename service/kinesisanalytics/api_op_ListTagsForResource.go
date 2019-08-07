@@ -46,7 +46,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The key-value tags assigned to the application.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"kinesisanalytics:ListTagsForResourceOutput:Tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

@@ -82,11 +82,11 @@ type BatchGetPartitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the requested partitions.
-	Partitions []Partition `type:"list"`
+	Partitions []Partition `json:"glue:BatchGetPartitionOutput:Partitions" type:"list"`
 
 	// A list of the partition values in the request for which partions were not
 	// returned.
-	UnprocessedKeys []PartitionValueList `type:"list"`
+	UnprocessedKeys []PartitionValueList `json:"glue:BatchGetPartitionOutput:UnprocessedKeys" type:"list"`
 }
 
 // String returns the string representation

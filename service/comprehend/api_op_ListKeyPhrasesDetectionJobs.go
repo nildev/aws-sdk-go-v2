@@ -56,10 +56,10 @@ type ListKeyPhrasesDetectionJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list containing the properties of each job that is returned.
-	KeyPhrasesDetectionJobPropertiesList []KeyPhrasesDetectionJobProperties `type:"list"`
+	KeyPhrasesDetectionJobPropertiesList []KeyPhrasesDetectionJobProperties `json:"comprehend:ListKeyPhrasesDetectionJobsOutput:KeyPhrasesDetectionJobPropertiesList" type:"list"`
 
 	// Identifies the next page of results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"comprehend:ListKeyPhrasesDetectionJobsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

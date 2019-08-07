@@ -64,7 +64,7 @@ type GetBucketEncryptionOutput struct {
 	_ struct{} `type:"structure" payload:"ServerSideEncryptionConfiguration"`
 
 	// Specifies the default server-side-encryption configuration.
-	ServerSideEncryptionConfiguration *ServerSideEncryptionConfiguration `type:"structure"`
+	ServerSideEncryptionConfiguration *ServerSideEncryptionConfiguration `json:"s3:GetBucketEncryptionOutput:ServerSideEncryptionConfiguration" type:"structure"`
 }
 
 // String returns the string representation

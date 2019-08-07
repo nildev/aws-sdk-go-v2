@@ -88,10 +88,10 @@ type SearchTransitGatewayRoutesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether there are additional routes available.
-	AdditionalRoutesAvailable *bool `locationName:"additionalRoutesAvailable" type:"boolean"`
+	AdditionalRoutesAvailable *bool `json:"ec2:SearchTransitGatewayRoutesOutput:AdditionalRoutesAvailable" locationName:"additionalRoutesAvailable" type:"boolean"`
 
 	// Information about the routes.
-	Routes []TransitGatewayRoute `locationName:"routeSet" locationNameList:"item" type:"list"`
+	Routes []TransitGatewayRoute `json:"ec2:SearchTransitGatewayRoutesOutput:Routes" locationName:"routeSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

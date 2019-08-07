@@ -81,13 +81,13 @@ type ListBackupPlanVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of version list items containing metadata about your backup plans.
-	BackupPlanVersionsList []BackupPlansListMember `type:"list"`
+	BackupPlanVersionsList []BackupPlansListMember `json:"backup:ListBackupPlanVersionsOutput:BackupPlanVersionsList" type:"list"`
 
 	// The next item following a partial list of returned items. For example, if
 	// a request is made to return maxResults number of items, NextToken allows
 	// you to return more items in your list starting at the location pointed to
 	// by the next token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"backup:ListBackupPlanVersionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -59,7 +59,7 @@ type ListPolicyVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The policy versions.
-	PolicyVersions []PolicyVersion `locationName:"policyVersions" type:"list"`
+	PolicyVersions []PolicyVersion `json:"iot:ListPolicyVersionsOutput:PolicyVersions" locationName:"policyVersions" type:"list"`
 }
 
 // String returns the string representation

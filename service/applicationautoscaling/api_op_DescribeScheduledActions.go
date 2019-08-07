@@ -136,10 +136,10 @@ type DescribeScheduledActionsOutput struct {
 
 	// The token required to get the next set of results. This value is null if
 	// there are no more results to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeScheduledActionsOutput:NextToken" type:"string"`
 
 	// Information about the scheduled actions.
-	ScheduledActions []ScheduledAction `type:"list"`
+	ScheduledActions []ScheduledAction `json:"autoscaling:DescribeScheduledActionsOutput:ScheduledActions" type:"list"`
 }
 
 // String returns the string representation

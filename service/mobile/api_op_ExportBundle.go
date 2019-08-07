@@ -82,7 +82,7 @@ type ExportBundleOutput struct {
 	// URL which contains the custom-generated SDK and tool packages used to integrate
 	// the client mobile app or web app with the AWS resources created by the AWS
 	// Mobile Hub project.
-	DownloadUrl *string `locationName:"downloadUrl" type:"string"`
+	DownloadUrl *string `json:"mobile:ExportBundleOutput:DownloadUrl" locationName:"downloadUrl" type:"string"`
 }
 
 // String returns the string representation

@@ -102,7 +102,7 @@ type GetObjectLegalHoldOutput struct {
 	_ struct{} `type:"structure" payload:"LegalHold"`
 
 	// The current Legal Hold status for the specified object.
-	LegalHold *ObjectLockLegalHold `type:"structure"`
+	LegalHold *ObjectLockLegalHold `json:"s3:GetObjectLegalHoldOutput:LegalHold" type:"structure"`
 }
 
 // String returns the string representation

@@ -47,27 +47,27 @@ type DescribeEventSourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the partner event source.
-	Arn *string `type:"string"`
+	Arn *string `json:"events:DescribeEventSourceOutput:Arn" type:"string"`
 
 	// The name of the SaaS partner that created the event source.
-	CreatedBy *string `type:"string"`
+	CreatedBy *string `json:"events:DescribeEventSourceOutput:CreatedBy" type:"string"`
 
 	// The date and time that the event source was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"events:DescribeEventSourceOutput:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time that the event source will expire if you don't create a
 	// matching event bus.
-	ExpirationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationTime *time.Time `json:"events:DescribeEventSourceOutput:ExpirationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the partner event source.
-	Name *string `type:"string"`
+	Name *string `json:"events:DescribeEventSourceOutput:Name" type:"string"`
 
 	// The state of the event source. If it's ACTIVE, you have already created a
 	// matching event bus for this event source, and that event bus is active. If
 	// it's PENDING, either you haven't yet created a matching event bus, or that
 	// event bus is deactivated. If it's DELETED, you have created a matching event
 	// bus, but the event source has since been deleted.
-	State EventSourceState `type:"string" enum:"true"`
+	State EventSourceState `json:"events:DescribeEventSourceOutput:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation

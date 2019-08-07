@@ -22,7 +22,7 @@ type AntennaDownlinkConfig struct {
 	// Object that describes a spectral Config.
 	//
 	// SpectrumConfig is a required field
-	SpectrumConfig *SpectrumConfig `locationName:"spectrumConfig" type:"structure" required:"true"`
+	SpectrumConfig *SpectrumConfig `json:"groundstation:AntennaDownlinkConfig:SpectrumConfig" locationName:"spectrumConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -69,17 +69,17 @@ type AntennaDownlinkDemodDecodeConfig struct {
 	// Information about the decode Config.
 	//
 	// DecodeConfig is a required field
-	DecodeConfig *DecodeConfig `locationName:"decodeConfig" type:"structure" required:"true"`
+	DecodeConfig *DecodeConfig `json:"groundstation:AntennaDownlinkDemodDecodeConfig:DecodeConfig" locationName:"decodeConfig" type:"structure" required:"true"`
 
 	// Information about the demodulation Config.
 	//
 	// DemodulationConfig is a required field
-	DemodulationConfig *DemodulationConfig `locationName:"demodulationConfig" type:"structure" required:"true"`
+	DemodulationConfig *DemodulationConfig `json:"groundstation:AntennaDownlinkDemodDecodeConfig:DemodulationConfig" locationName:"demodulationConfig" type:"structure" required:"true"`
 
 	// Information about the spectral Config.
 	//
 	// SpectrumConfig is a required field
-	SpectrumConfig *SpectrumConfig `locationName:"spectrumConfig" type:"structure" required:"true"`
+	SpectrumConfig *SpectrumConfig `json:"groundstation:AntennaDownlinkDemodDecodeConfig:SpectrumConfig" locationName:"spectrumConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -155,12 +155,12 @@ type AntennaUplinkConfig struct {
 	// Information about the uplink spectral Config.
 	//
 	// SpectrumConfig is a required field
-	SpectrumConfig *UplinkSpectrumConfig `locationName:"spectrumConfig" type:"structure" required:"true"`
+	SpectrumConfig *UplinkSpectrumConfig `json:"groundstation:AntennaUplinkConfig:SpectrumConfig" locationName:"spectrumConfig" type:"structure" required:"true"`
 
 	// EIRP of the target.
 	//
 	// TargetEirp is a required field
-	TargetEirp *Eirp `locationName:"targetEirp" type:"structure" required:"true"`
+	TargetEirp *Eirp `json:"groundstation:AntennaUplinkConfig:TargetEirp" locationName:"targetEirp" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -219,16 +219,16 @@ type ConfigListItem struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of a Config.
-	ConfigArn *string `locationName:"configArn" type:"string"`
+	ConfigArn *string `json:"groundstation:ConfigListItem:ConfigArn" locationName:"configArn" type:"string"`
 
 	// UUID of a Config.
-	ConfigId *string `locationName:"configId" type:"string"`
+	ConfigId *string `json:"groundstation:ConfigListItem:ConfigId" locationName:"configId" type:"string"`
 
 	// Type of a Config.
-	ConfigType ConfigCapabilityType `locationName:"configType" type:"string" enum:"true"`
+	ConfigType ConfigCapabilityType `json:"groundstation:ConfigListItem:ConfigType" locationName:"configType" type:"string" enum:"true"`
 
 	// Name of a Config.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"groundstation:ConfigListItem:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -274,28 +274,28 @@ type ConfigTypeData struct {
 
 	// Information about how AWS Ground Station should configure an antenna for
 	// downlink during a contact.
-	AntennaDownlinkConfig *AntennaDownlinkConfig `locationName:"antennaDownlinkConfig" type:"structure"`
+	AntennaDownlinkConfig *AntennaDownlinkConfig `json:"groundstation:ConfigTypeData:AntennaDownlinkConfig" locationName:"antennaDownlinkConfig" type:"structure"`
 
 	// Information about how AWS Ground Station should conﬁgure an antenna for
 	// downlink demod decode during a contact.
-	AntennaDownlinkDemodDecodeConfig *AntennaDownlinkDemodDecodeConfig `locationName:"antennaDownlinkDemodDecodeConfig" type:"structure"`
+	AntennaDownlinkDemodDecodeConfig *AntennaDownlinkDemodDecodeConfig `json:"groundstation:ConfigTypeData:AntennaDownlinkDemodDecodeConfig" locationName:"antennaDownlinkDemodDecodeConfig" type:"structure"`
 
 	// Information about how AWS Ground Station should conﬁgure an antenna for
 	// uplink during a contact.
-	AntennaUplinkConfig *AntennaUplinkConfig `locationName:"antennaUplinkConfig" type:"structure"`
+	AntennaUplinkConfig *AntennaUplinkConfig `json:"groundstation:ConfigTypeData:AntennaUplinkConfig" locationName:"antennaUplinkConfig" type:"structure"`
 
 	// Information about the dataflow endpoint Config.
-	DataflowEndpointConfig *DataflowEndpointConfig `locationName:"dataflowEndpointConfig" type:"structure"`
+	DataflowEndpointConfig *DataflowEndpointConfig `json:"groundstation:ConfigTypeData:DataflowEndpointConfig" locationName:"dataflowEndpointConfig" type:"structure"`
 
 	// Object that determines whether tracking should be used during a contact executed
 	// with this Config in the mission profile.
-	TrackingConfig *TrackingConfig `locationName:"trackingConfig" type:"structure"`
+	TrackingConfig *TrackingConfig `json:"groundstation:ConfigTypeData:TrackingConfig" locationName:"trackingConfig" type:"structure"`
 
 	// Information about an uplink echo Config.
 	//
 	// Parameters from the AntennaUplinkConfig, corresponding to the specified AntennaUplinkConfigArn,
 	// are used when this UplinkEchoConfig is used in a contact.
-	UplinkEchoConfig *UplinkEchoConfig `locationName:"uplinkEchoConfig" type:"structure"`
+	UplinkEchoConfig *UplinkEchoConfig `json:"groundstation:ConfigTypeData:UplinkEchoConfig" locationName:"uplinkEchoConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -390,42 +390,42 @@ type ContactData struct {
 	_ struct{} `type:"structure"`
 
 	// UUID of a contact.
-	ContactId *string `locationName:"contactId" type:"string"`
+	ContactId *string `json:"groundstation:ContactData:ContactId" locationName:"contactId" type:"string"`
 
 	// Status of a contact.
-	ContactStatus ContactStatus `locationName:"contactStatus" type:"string" enum:"true"`
+	ContactStatus ContactStatus `json:"groundstation:ContactData:ContactStatus" locationName:"contactStatus" type:"string" enum:"true"`
 
 	// End time of a contact.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"groundstation:ContactData:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Error message of a contact.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"groundstation:ContactData:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// Name of a ground station.
-	GroundStation *string `locationName:"groundStation" type:"string"`
+	GroundStation *string `json:"groundstation:ContactData:GroundStation" locationName:"groundStation" type:"string"`
 
 	// Maximum elevation angle of a contact.
-	MaximumElevation *Elevation `locationName:"maximumElevation" type:"structure"`
+	MaximumElevation *Elevation `json:"groundstation:ContactData:MaximumElevation" locationName:"maximumElevation" type:"structure"`
 
 	// ARN of a mission profile.
-	MissionProfileArn *string `locationName:"missionProfileArn" type:"string"`
+	MissionProfileArn *string `json:"groundstation:ContactData:MissionProfileArn" locationName:"missionProfileArn" type:"string"`
 
 	// Amount of time after a contact ends that you’d like to receive a CloudWatch
 	// event indicating the pass has finished.
-	PostPassEndTime *time.Time `locationName:"postPassEndTime" type:"timestamp" timestampFormat:"unix"`
+	PostPassEndTime *time.Time `json:"groundstation:ContactData:PostPassEndTime" locationName:"postPassEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Amount of time prior to contact start you’d like to receive a CloudWatch
 	// event indicating an upcoming pass.
-	PrePassStartTime *time.Time `locationName:"prePassStartTime" type:"timestamp" timestampFormat:"unix"`
+	PrePassStartTime *time.Time `json:"groundstation:ContactData:PrePassStartTime" locationName:"prePassStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ARN of a satellite.
-	SatelliteArn *string `locationName:"satelliteArn" type:"string"`
+	SatelliteArn *string `json:"groundstation:ContactData:SatelliteArn" locationName:"satelliteArn" type:"string"`
 
 	// Start time of a contact.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"groundstation:ContactData:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Tags assigned to a contact.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"groundstation:ContactData:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -522,13 +522,13 @@ type DataflowEndpoint struct {
 	_ struct{} `type:"structure"`
 
 	// Socket address of a dataflow endpoint.
-	Address *SocketAddress `locationName:"address" type:"structure"`
+	Address *SocketAddress `json:"groundstation:DataflowEndpoint:Address" locationName:"address" type:"structure"`
 
 	// Name of a dataflow endpoint.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"groundstation:DataflowEndpoint:Name" locationName:"name" min:"1" type:"string"`
 
 	// Status of a dataflow endpoint.
-	Status EndpointStatus `locationName:"status" type:"string" enum:"true"`
+	Status EndpointStatus `json:"groundstation:DataflowEndpoint:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -585,7 +585,7 @@ type DataflowEndpointConfig struct {
 	// Name of a dataflow endpoint.
 	//
 	// DataflowEndpointName is a required field
-	DataflowEndpointName *string `locationName:"dataflowEndpointName" type:"string" required:"true"`
+	DataflowEndpointName *string `json:"groundstation:DataflowEndpointConfig:DataflowEndpointName" locationName:"dataflowEndpointName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -624,10 +624,10 @@ type DataflowEndpointListItem struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of a dataflow endpoint group.
-	DataflowEndpointGroupArn *string `locationName:"dataflowEndpointGroupArn" type:"string"`
+	DataflowEndpointGroupArn *string `json:"groundstation:DataflowEndpointListItem:DataflowEndpointGroupArn" locationName:"dataflowEndpointGroupArn" type:"string"`
 
 	// UUID of a dataflow endpoint group.
-	DataflowEndpointGroupId *string `locationName:"dataflowEndpointGroupId" type:"string"`
+	DataflowEndpointGroupId *string `json:"groundstation:DataflowEndpointListItem:DataflowEndpointGroupId" locationName:"dataflowEndpointGroupId" type:"string"`
 }
 
 // String returns the string representation
@@ -660,7 +660,7 @@ type DecodeConfig struct {
 	// Unvalidated JSON of a decode Config.
 	//
 	// UnvalidatedJSON is a required field
-	UnvalidatedJSON *string `locationName:"unvalidatedJSON" min:"2" type:"string" required:"true"`
+	UnvalidatedJSON *string `json:"groundstation:DecodeConfig:UnvalidatedJSON" locationName:"unvalidatedJSON" min:"2" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -704,7 +704,7 @@ type DemodulationConfig struct {
 	// Unvalidated JSON of a demodulation Config.
 	//
 	// UnvalidatedJSON is a required field
-	UnvalidatedJSON *string `locationName:"unvalidatedJSON" min:"2" type:"string" required:"true"`
+	UnvalidatedJSON *string `json:"groundstation:DemodulationConfig:UnvalidatedJSON" locationName:"unvalidatedJSON" min:"2" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -748,12 +748,12 @@ type Eirp struct {
 	// Units of an EIRP.
 	//
 	// Units is a required field
-	Units EirpUnits `locationName:"units" type:"string" required:"true" enum:"true"`
+	Units EirpUnits `json:"groundstation:Eirp:Units" locationName:"units" type:"string" required:"true" enum:"true"`
 
 	// Value of an EIRP.
 	//
 	// Value is a required field
-	Value *float64 `locationName:"value" type:"double" required:"true"`
+	Value *float64 `json:"groundstation:Eirp:Value" locationName:"value" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -803,12 +803,12 @@ type Elevation struct {
 	// Elevation angle units.
 	//
 	// Unit is a required field
-	Unit AngleUnits `locationName:"unit" type:"string" required:"true" enum:"true"`
+	Unit AngleUnits `json:"groundstation:Elevation:Unit" locationName:"unit" type:"string" required:"true" enum:"true"`
 
 	// Elevation angle value.
 	//
 	// Value is a required field
-	Value *float64 `locationName:"value" type:"double" required:"true"`
+	Value *float64 `json:"groundstation:Elevation:Value" locationName:"value" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -839,10 +839,10 @@ type EndpointDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A dataflow endpoint.
-	Endpoint *DataflowEndpoint `locationName:"endpoint" type:"structure"`
+	Endpoint *DataflowEndpoint `json:"groundstation:EndpointDetails:Endpoint" locationName:"endpoint" type:"structure"`
 
 	// Endpoint security details.
-	SecurityDetails *SecurityDetails `locationName:"securityDetails" type:"structure"`
+	SecurityDetails *SecurityDetails `json:"groundstation:EndpointDetails:SecurityDetails" locationName:"securityDetails" type:"structure"`
 }
 
 // String returns the string representation
@@ -895,12 +895,12 @@ type Frequency struct {
 	// Frequency units.
 	//
 	// Units is a required field
-	Units FrequencyUnits `locationName:"units" type:"string" required:"true" enum:"true"`
+	Units FrequencyUnits `json:"groundstation:Frequency:Units" locationName:"units" type:"string" required:"true" enum:"true"`
 
 	// Frequency value.
 	//
 	// Value is a required field
-	Value *float64 `locationName:"value" type:"double" required:"true"`
+	Value *float64 `json:"groundstation:Frequency:Value" locationName:"value" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -950,12 +950,12 @@ type FrequencyBandwidth struct {
 	// Frequency bandwidth units.
 	//
 	// Units is a required field
-	Units BandwidthUnits `locationName:"units" type:"string" required:"true" enum:"true"`
+	Units BandwidthUnits `json:"groundstation:FrequencyBandwidth:Units" locationName:"units" type:"string" required:"true" enum:"true"`
 
 	// Frequency bandwidth value.
 	//
 	// Value is a required field
-	Value *float64 `locationName:"value" type:"double" required:"true"`
+	Value *float64 `json:"groundstation:FrequencyBandwidth:Value" locationName:"value" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -1003,13 +1003,13 @@ type GroundStationData struct {
 	_ struct{} `type:"structure"`
 
 	// ID of a ground station.
-	GroundStationId *string `locationName:"groundStationId" type:"string"`
+	GroundStationId *string `json:"groundstation:GroundStationData:GroundStationId" locationName:"groundStationId" type:"string"`
 
 	// Name of a ground station.
-	GroundStationName *string `locationName:"groundStationName" type:"string"`
+	GroundStationName *string `json:"groundstation:GroundStationData:GroundStationName" locationName:"groundStationName" type:"string"`
 
 	// Ground station Region.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"groundstation:GroundStationData:Region" locationName:"region" type:"string"`
 }
 
 // String returns the string representation
@@ -1046,16 +1046,16 @@ type MissionProfileListItem struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of a mission profile.
-	MissionProfileArn *string `locationName:"missionProfileArn" type:"string"`
+	MissionProfileArn *string `json:"groundstation:MissionProfileListItem:MissionProfileArn" locationName:"missionProfileArn" type:"string"`
 
 	// ID of a mission profile.
-	MissionProfileId *string `locationName:"missionProfileId" type:"string"`
+	MissionProfileId *string `json:"groundstation:MissionProfileListItem:MissionProfileId" locationName:"missionProfileId" type:"string"`
 
 	// Name of a mission profile.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"groundstation:MissionProfileListItem:Name" locationName:"name" type:"string"`
 
 	// Region of a mission profile.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"groundstation:MissionProfileListItem:Region" locationName:"region" type:"string"`
 }
 
 // String returns the string representation
@@ -1098,13 +1098,13 @@ type SatelliteListItem struct {
 	_ struct{} `type:"structure"`
 
 	// NORAD satellite ID number.
-	NoradSatelliteID *int64 `locationName:"noradSatelliteID" min:"1" type:"integer"`
+	NoradSatelliteID *int64 `json:"groundstation:SatelliteListItem:NoradSatelliteID" locationName:"noradSatelliteID" min:"1" type:"integer"`
 
 	// ARN of a satellite.
-	SatelliteArn *string `locationName:"satelliteArn" type:"string"`
+	SatelliteArn *string `json:"groundstation:SatelliteListItem:SatelliteArn" locationName:"satelliteArn" type:"string"`
 
 	// ID of a satellite.
-	SatelliteId *string `locationName:"satelliteId" min:"1" type:"string"`
+	SatelliteId *string `json:"groundstation:SatelliteListItem:SatelliteId" locationName:"satelliteId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1143,18 +1143,18 @@ type SecurityDetails struct {
 	// ARN to a role needed for connecting streams to your instances.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"groundstation:SecurityDetails:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The security groups to attach to the elastic network interfaces.
 	//
 	// SecurityGroupIds is a required field
-	SecurityGroupIds []string `locationName:"securityGroupIds" type:"list" required:"true"`
+	SecurityGroupIds []string `json:"groundstation:SecurityDetails:SecurityGroupIds" locationName:"securityGroupIds" type:"list" required:"true"`
 
 	// A list of subnets where AWS Ground Station places elastic network interfaces
 	// to send streams to your instances.
 	//
 	// SubnetIds is a required field
-	SubnetIds []string `locationName:"subnetIds" type:"list" required:"true"`
+	SubnetIds []string `json:"groundstation:SecurityDetails:SubnetIds" locationName:"subnetIds" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1227,12 +1227,12 @@ type SocketAddress struct {
 	// Name of a socket address.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"groundstation:SocketAddress:Name" locationName:"name" type:"string" required:"true"`
 
 	// Port of a socket address.
 	//
 	// Port is a required field
-	Port *int64 `locationName:"port" type:"integer" required:"true"`
+	Port *int64 `json:"groundstation:SocketAddress:Port" locationName:"port" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1283,15 +1283,15 @@ type SpectrumConfig struct {
 	// Bandwidth of a spectral Config.
 	//
 	// Bandwidth is a required field
-	Bandwidth *FrequencyBandwidth `locationName:"bandwidth" type:"structure" required:"true"`
+	Bandwidth *FrequencyBandwidth `json:"groundstation:SpectrumConfig:Bandwidth" locationName:"bandwidth" type:"structure" required:"true"`
 
 	// Center frequency of a spectral Config.
 	//
 	// CenterFrequency is a required field
-	CenterFrequency *Frequency `locationName:"centerFrequency" type:"structure" required:"true"`
+	CenterFrequency *Frequency `json:"groundstation:SpectrumConfig:CenterFrequency" locationName:"centerFrequency" type:"structure" required:"true"`
 
 	// Polarization of a spectral Config.
-	Polarization Polarization `locationName:"polarization" type:"string" enum:"true"`
+	Polarization Polarization `json:"groundstation:SpectrumConfig:Polarization" locationName:"polarization" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1359,7 +1359,7 @@ type TrackingConfig struct {
 	// Current setting for autotrack.
 	//
 	// Autotrack is a required field
-	Autotrack Criticality `locationName:"autotrack" type:"string" required:"true" enum:"true"`
+	Autotrack Criticality `json:"groundstation:TrackingConfig:Autotrack" locationName:"autotrack" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1402,12 +1402,12 @@ type UplinkEchoConfig struct {
 	// ARN of an uplink Config.
 	//
 	// AntennaUplinkConfigArn is a required field
-	AntennaUplinkConfigArn *string `locationName:"antennaUplinkConfigArn" type:"string" required:"true"`
+	AntennaUplinkConfigArn *string `json:"groundstation:UplinkEchoConfig:AntennaUplinkConfigArn" locationName:"antennaUplinkConfigArn" type:"string" required:"true"`
 
 	// Whether or not an uplink Config is enabled.
 	//
 	// Enabled is a required field
-	Enabled *bool `locationName:"enabled" type:"boolean" required:"true"`
+	Enabled *bool `json:"groundstation:UplinkEchoConfig:Enabled" locationName:"enabled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -1458,10 +1458,10 @@ type UplinkSpectrumConfig struct {
 	// Center frequency of an uplink spectral Config.
 	//
 	// CenterFrequency is a required field
-	CenterFrequency *Frequency `locationName:"centerFrequency" type:"structure" required:"true"`
+	CenterFrequency *Frequency `json:"groundstation:UplinkSpectrumConfig:CenterFrequency" locationName:"centerFrequency" type:"structure" required:"true"`
 
 	// Polarization of an uplink spectral Config.
-	Polarization Polarization `locationName:"polarization" type:"string" enum:"true"`
+	Polarization Polarization `json:"groundstation:UplinkSpectrumConfig:Polarization" locationName:"polarization" type:"string" enum:"true"`
 }
 
 // String returns the string representation

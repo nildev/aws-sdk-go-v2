@@ -50,7 +50,7 @@ type DeleteEvaluationOutput struct {
 
 	// A user-supplied ID that uniquely identifies the Evaluation. This value should
 	// be identical to the value of the EvaluationId in the request.
-	EvaluationId *string `min:"1" type:"string"`
+	EvaluationId *string `json:"machinelearning:DeleteEvaluationOutput:EvaluationId" min:"1" type:"string"`
 }
 
 // String returns the string representation

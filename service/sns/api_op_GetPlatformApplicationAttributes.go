@@ -58,7 +58,7 @@ type GetPlatformApplicationAttributesOutput struct {
 	//    * EventDeliveryFailure – Topic ARN to which DeliveryFailure event notifications
 	//    should be sent upon Direct Publish delivery failure (permanent) to one
 	//    of the application's endpoints.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"sns:GetPlatformApplicationAttributesOutput:Attributes" type:"map"`
 }
 
 // String returns the string representation

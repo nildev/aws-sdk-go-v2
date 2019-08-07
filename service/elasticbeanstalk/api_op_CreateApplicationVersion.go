@@ -126,7 +126,7 @@ type CreateApplicationVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ApplicationVersionDescription of the application version.
-	ApplicationVersion *ApplicationVersionDescription `type:"structure"`
+	ApplicationVersion *ApplicationVersionDescription `json:"elasticbeanstalk:CreateApplicationVersionOutput:ApplicationVersion" type:"structure"`
 }
 
 // String returns the string representation

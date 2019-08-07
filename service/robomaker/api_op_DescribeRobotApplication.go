@@ -73,29 +73,29 @@ type DescribeRobotApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the robot application.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:DescribeRobotApplicationOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the robot application was
 	// last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"robomaker:DescribeRobotApplicationOutput:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the robot application.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:DescribeRobotApplicationOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The revision id of the robot application.
-	RevisionId *string `locationName:"revisionId" min:"1" type:"string"`
+	RevisionId *string `json:"robomaker:DescribeRobotApplicationOutput:RevisionId" locationName:"revisionId" min:"1" type:"string"`
 
 	// The robot software suite used by the robot application.
-	RobotSoftwareSuite *RobotSoftwareSuite `locationName:"robotSoftwareSuite" type:"structure"`
+	RobotSoftwareSuite *RobotSoftwareSuite `json:"robomaker:DescribeRobotApplicationOutput:RobotSoftwareSuite" locationName:"robotSoftwareSuite" type:"structure"`
 
 	// The sources of the robot application.
-	Sources []Source `locationName:"sources" type:"list"`
+	Sources []Source `json:"robomaker:DescribeRobotApplicationOutput:Sources" locationName:"sources" type:"list"`
 
 	// The list of all tags added to the specified robot application.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:DescribeRobotApplicationOutput:Tags" locationName:"tags" type:"map"`
 
 	// The version of the robot application.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"robomaker:DescribeRobotApplicationOutput:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation

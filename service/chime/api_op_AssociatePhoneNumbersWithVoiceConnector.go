@@ -73,7 +73,7 @@ type AssociatePhoneNumbersWithVoiceConnectorOutput struct {
 	// If the action fails for one or more of the phone numbers in the request,
 	// a list of the phone numbers is returned, along with error codes and error
 	// messages.
-	PhoneNumberErrors []PhoneNumberError `type:"list"`
+	PhoneNumberErrors []PhoneNumberError `json:"chime:AssociatePhoneNumbersWithVoiceConnectorOutput:PhoneNumberErrors" type:"list"`
 }
 
 // String returns the string representation

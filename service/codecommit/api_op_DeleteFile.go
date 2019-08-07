@@ -104,25 +104,25 @@ type DeleteFileOutput struct {
 	// The blob ID removed from the tree as part of deleting the file.
 	//
 	// BlobId is a required field
-	BlobId *string `locationName:"blobId" type:"string" required:"true"`
+	BlobId *string `json:"codecommit:DeleteFileOutput:BlobId" locationName:"blobId" type:"string" required:"true"`
 
 	// The full commit ID of the commit that contains the change that deletes the
 	// file.
 	//
 	// CommitId is a required field
-	CommitId *string `locationName:"commitId" type:"string" required:"true"`
+	CommitId *string `json:"codecommit:DeleteFileOutput:CommitId" locationName:"commitId" type:"string" required:"true"`
 
 	// The fully-qualified path to the file that will be deleted, including the
 	// full name and extension of that file.
 	//
 	// FilePath is a required field
-	FilePath *string `locationName:"filePath" type:"string" required:"true"`
+	FilePath *string `json:"codecommit:DeleteFileOutput:FilePath" locationName:"filePath" type:"string" required:"true"`
 
 	// The full SHA-1 pointer of the tree information for the commit that contains
 	// the delete file change.
 	//
 	// TreeId is a required field
-	TreeId *string `locationName:"treeId" type:"string" required:"true"`
+	TreeId *string `json:"codecommit:DeleteFileOutput:TreeId" locationName:"treeId" type:"string" required:"true"`
 }
 
 // String returns the string representation

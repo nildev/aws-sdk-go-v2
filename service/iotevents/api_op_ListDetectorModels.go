@@ -62,11 +62,11 @@ type ListDetectorModelsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Summary information about the detector models.
-	DetectorModelSummaries []DetectorModelSummary `locationName:"detectorModelSummaries" type:"list"`
+	DetectorModelSummaries []DetectorModelSummary `json:"iotevents:ListDetectorModelsOutput:DetectorModelSummaries" locationName:"detectorModelSummaries" type:"list"`
 
 	// A token to retrieve the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotevents:ListDetectorModelsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

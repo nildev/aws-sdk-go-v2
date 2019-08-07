@@ -112,13 +112,13 @@ type CreateGroupMembershipOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The group member.
-	GroupMember *GroupMember `type:"structure"`
+	GroupMember *GroupMember `json:"quicksight:CreateGroupMembershipOutput:GroupMember" type:"structure"`
 
 	// The AWS request ID for this operation.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"quicksight:CreateGroupMembershipOutput:RequestId" type:"string"`
 
 	// The http status of the request.
-	Status *int64 `location:"statusCode" type:"integer"`
+	Status *int64 `json:"quicksight:CreateGroupMembershipOutput:Status" location:"statusCode" type:"integer"`
 }
 
 // String returns the string representation

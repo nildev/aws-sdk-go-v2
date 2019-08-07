@@ -39,7 +39,7 @@ type CreateTransitGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the transit gateway.
-	TransitGateway *TransitGateway `locationName:"transitGateway" type:"structure"`
+	TransitGateway *TransitGateway `json:"ec2:CreateTransitGatewayOutput:TransitGateway" locationName:"transitGateway" type:"structure"`
 }
 
 // String returns the string representation

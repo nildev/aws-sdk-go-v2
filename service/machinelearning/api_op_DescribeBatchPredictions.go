@@ -117,10 +117,10 @@ type DescribeBatchPredictionsOutput struct {
 
 	// The ID of the next page in the paginated results that indicates at least
 	// one more page follows.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"machinelearning:DescribeBatchPredictionsOutput:NextToken" type:"string"`
 
 	// A list of BatchPrediction objects that meet the search criteria.
-	Results []BatchPrediction `type:"list"`
+	Results []BatchPrediction `json:"machinelearning:DescribeBatchPredictionsOutput:Results" type:"list"`
 }
 
 // String returns the string representation

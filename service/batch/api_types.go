@@ -19,7 +19,7 @@ type ArrayProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The size of the array job.
-	Size *int64 `locationName:"size" type:"integer"`
+	Size *int64 `json:"batch:ArrayProperties:Size" locationName:"size" type:"integer"`
 }
 
 // String returns the string representation
@@ -45,14 +45,14 @@ type ArrayPropertiesDetail struct {
 
 	// The job index within the array that is associated with this job. This parameter
 	// is returned for array job children.
-	Index *int64 `locationName:"index" type:"integer"`
+	Index *int64 `json:"batch:ArrayPropertiesDetail:Index" locationName:"index" type:"integer"`
 
 	// The size of the array job. This parameter is returned for parent array jobs.
-	Size *int64 `locationName:"size" type:"integer"`
+	Size *int64 `json:"batch:ArrayPropertiesDetail:Size" locationName:"size" type:"integer"`
 
 	// A summary of the number of array job children in each available job status.
 	// This parameter is returned for parent array jobs.
-	StatusSummary map[string]int64 `locationName:"statusSummary" type:"map"`
+	StatusSummary map[string]int64 `json:"batch:ArrayPropertiesDetail:StatusSummary" locationName:"statusSummary" type:"map"`
 }
 
 // String returns the string representation
@@ -96,10 +96,10 @@ type ArrayPropertiesSummary struct {
 
 	// The job index within the array that is associated with this job. This parameter
 	// is returned for children of array jobs.
-	Index *int64 `locationName:"index" type:"integer"`
+	Index *int64 `json:"batch:ArrayPropertiesSummary:Index" locationName:"index" type:"integer"`
 
 	// The size of the array job. This parameter is returned for parent array jobs.
-	Size *int64 `locationName:"size" type:"integer"`
+	Size *int64 `json:"batch:ArrayPropertiesSummary:Size" locationName:"size" type:"integer"`
 }
 
 // String returns the string representation
@@ -131,27 +131,27 @@ type AttemptContainerDetail struct {
 
 	// The Amazon Resource Name (ARN) of the Amazon ECS container instance that
 	// hosts the job attempt.
-	ContainerInstanceArn *string `locationName:"containerInstanceArn" type:"string"`
+	ContainerInstanceArn *string `json:"batch:AttemptContainerDetail:ContainerInstanceArn" locationName:"containerInstanceArn" type:"string"`
 
 	// The exit code for the job attempt. A non-zero exit code is considered a failure.
-	ExitCode *int64 `locationName:"exitCode" type:"integer"`
+	ExitCode *int64 `json:"batch:AttemptContainerDetail:ExitCode" locationName:"exitCode" type:"integer"`
 
 	// The name of the CloudWatch Logs log stream associated with the container.
 	// The log group for AWS Batch jobs is /aws/batch/job. Each container attempt
 	// receives a log stream name when they reach the RUNNING status.
-	LogStreamName *string `locationName:"logStreamName" type:"string"`
+	LogStreamName *string `json:"batch:AttemptContainerDetail:LogStreamName" locationName:"logStreamName" type:"string"`
 
 	// The network interfaces associated with the job attempt.
-	NetworkInterfaces []NetworkInterface `locationName:"networkInterfaces" type:"list"`
+	NetworkInterfaces []NetworkInterface `json:"batch:AttemptContainerDetail:NetworkInterfaces" locationName:"networkInterfaces" type:"list"`
 
 	// A short (255 max characters) human-readable string to provide additional
 	// details about a running or stopped container.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"batch:AttemptContainerDetail:Reason" locationName:"reason" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon ECS task that is associated
 	// with the job attempt. Each container attempt receives a task ARN when they
 	// reach the STARTING status.
-	TaskArn *string `locationName:"taskArn" type:"string"`
+	TaskArn *string `json:"batch:AttemptContainerDetail:TaskArn" locationName:"taskArn" type:"string"`
 }
 
 // String returns the string representation
@@ -212,21 +212,21 @@ type AttemptDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Details about the container in this job attempt.
-	Container *AttemptContainerDetail `locationName:"container" type:"structure"`
+	Container *AttemptContainerDetail `json:"batch:AttemptDetail:Container" locationName:"container" type:"structure"`
 
 	// The Unix timestamp (in seconds and milliseconds) for when the attempt was
 	// started (when the attempt transitioned from the STARTING state to the RUNNING
 	// state).
-	StartedAt *int64 `locationName:"startedAt" type:"long"`
+	StartedAt *int64 `json:"batch:AttemptDetail:StartedAt" locationName:"startedAt" type:"long"`
 
 	// A short, human-readable string to provide additional details about the current
 	// status of the job attempt.
-	StatusReason *string `locationName:"statusReason" type:"string"`
+	StatusReason *string `json:"batch:AttemptDetail:StatusReason" locationName:"statusReason" type:"string"`
 
 	// The Unix timestamp (in seconds and milliseconds) for when the attempt was
 	// stopped (when the attempt transitioned from the RUNNING state to a terminal
 	// state, such as SUCCEEDED or FAILED).
-	StoppedAt *int64 `locationName:"stoppedAt" type:"long"`
+	StoppedAt *int64 `json:"batch:AttemptDetail:StoppedAt" locationName:"stoppedAt" type:"long"`
 }
 
 // String returns the string representation
@@ -271,25 +271,25 @@ type ComputeEnvironmentDetail struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
 	//
 	// ComputeEnvironmentArn is a required field
-	ComputeEnvironmentArn *string `locationName:"computeEnvironmentArn" type:"string" required:"true"`
+	ComputeEnvironmentArn *string `json:"batch:ComputeEnvironmentDetail:ComputeEnvironmentArn" locationName:"computeEnvironmentArn" type:"string" required:"true"`
 
 	// The name of the compute environment.
 	//
 	// ComputeEnvironmentName is a required field
-	ComputeEnvironmentName *string `locationName:"computeEnvironmentName" type:"string" required:"true"`
+	ComputeEnvironmentName *string `json:"batch:ComputeEnvironmentDetail:ComputeEnvironmentName" locationName:"computeEnvironmentName" type:"string" required:"true"`
 
 	// The compute resources defined for the compute environment.
-	ComputeResources *ComputeResource `locationName:"computeResources" type:"structure"`
+	ComputeResources *ComputeResource `json:"batch:ComputeEnvironmentDetail:ComputeResources" locationName:"computeResources" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used
 	// by the compute environment.
 	//
 	// EcsClusterArn is a required field
-	EcsClusterArn *string `locationName:"ecsClusterArn" type:"string" required:"true"`
+	EcsClusterArn *string `json:"batch:ComputeEnvironmentDetail:EcsClusterArn" locationName:"ecsClusterArn" type:"string" required:"true"`
 
 	// The service role associated with the compute environment that allows AWS
 	// Batch to make calls to AWS API operations on your behalf.
-	ServiceRole *string `locationName:"serviceRole" type:"string"`
+	ServiceRole *string `json:"batch:ComputeEnvironmentDetail:ServiceRole" locationName:"serviceRole" type:"string"`
 
 	// The state of the compute environment. The valid values are ENABLED or DISABLED.
 	//
@@ -303,17 +303,17 @@ type ComputeEnvironmentDetail struct {
 	// to progress normally. Managed compute environments in the DISABLED state
 	// do not scale out. However, they scale in to minvCpus value after instances
 	// become idle.
-	State CEState `locationName:"state" type:"string" enum:"true"`
+	State CEState `json:"batch:ComputeEnvironmentDetail:State" locationName:"state" type:"string" enum:"true"`
 
 	// The current status of the compute environment (for example, CREATING or VALID).
-	Status CEStatus `locationName:"status" type:"string" enum:"true"`
+	Status CEStatus `json:"batch:ComputeEnvironmentDetail:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A short, human-readable string to provide additional details about the current
 	// status of the compute environment.
-	StatusReason *string `locationName:"statusReason" type:"string"`
+	StatusReason *string `json:"batch:ComputeEnvironmentDetail:StatusReason" locationName:"statusReason" type:"string"`
 
 	// The type of the compute environment.
-	Type CEType `locationName:"type" type:"string" enum:"true"`
+	Type CEType `json:"batch:ComputeEnvironmentDetail:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -391,12 +391,12 @@ type ComputeEnvironmentOrder struct {
 	// The Amazon Resource Name (ARN) of the compute environment.
 	//
 	// ComputeEnvironment is a required field
-	ComputeEnvironment *string `locationName:"computeEnvironment" type:"string" required:"true"`
+	ComputeEnvironment *string `json:"batch:ComputeEnvironmentOrder:ComputeEnvironment" locationName:"computeEnvironment" type:"string" required:"true"`
 
 	// The order of the compute environment.
 	//
 	// Order is a required field
-	Order *int64 `locationName:"order" type:"integer" required:"true"`
+	Order *int64 `json:"batch:ComputeEnvironmentOrder:Order" locationName:"order" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -451,17 +451,17 @@ type ComputeResource struct {
 	// pay the lowest (market) price and never more than your maximum percentage.
 	// If you leave this field empty, the default value is 100% of the On-Demand
 	// price.
-	BidPercentage *int64 `locationName:"bidPercentage" type:"integer"`
+	BidPercentage *int64 `json:"batch:ComputeResource:BidPercentage" locationName:"bidPercentage" type:"integer"`
 
 	// The desired number of EC2 vCPUS in the compute environment.
-	DesiredvCpus *int64 `locationName:"desiredvCpus" type:"integer"`
+	DesiredvCpus *int64 `json:"batch:ComputeResource:DesiredvCpus" locationName:"desiredvCpus" type:"integer"`
 
 	// The EC2 key pair that is used for instances launched in the compute environment.
-	Ec2KeyPair *string `locationName:"ec2KeyPair" type:"string"`
+	Ec2KeyPair *string `json:"batch:ComputeResource:Ec2KeyPair" locationName:"ec2KeyPair" type:"string"`
 
 	// The Amazon Machine Image (AMI) ID used for instances launched in the compute
 	// environment.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"batch:ComputeResource:ImageId" locationName:"imageId" type:"string"`
 
 	// The Amazon ECS instance profile applied to Amazon EC2 instances in a compute
 	// environment. You can specify the short name or full Amazon Resource Name
@@ -470,7 +470,7 @@ type ComputeResource struct {
 	// in the AWS Batch User Guide.
 	//
 	// InstanceRole is a required field
-	InstanceRole *string `locationName:"instanceRole" type:"string" required:"true"`
+	InstanceRole *string `json:"batch:ComputeResource:InstanceRole" locationName:"instanceRole" type:"string" required:"true"`
 
 	// The instances types that may be launched. You can specify instance families
 	// to launch any instance type within those families (for example, c4 or p3),
@@ -479,7 +479,7 @@ type ComputeResource struct {
 	// families) on the fly that match the demand of your job queues.
 	//
 	// InstanceTypes is a required field
-	InstanceTypes []string `locationName:"instanceTypes" type:"list" required:"true"`
+	InstanceTypes []string `json:"batch:ComputeResource:InstanceTypes" locationName:"instanceTypes" type:"list" required:"true"`
 
 	// The launch template to use for your compute resources. Any other compute
 	// resource parameters that you specify in a CreateComputeEnvironment API operation
@@ -487,18 +487,18 @@ type ComputeResource struct {
 	// the launch template ID or launch template name in the request, but not both.
 	// For more information, see Launch Template Support (https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html)
 	// in the AWS Batch User Guide.
-	LaunchTemplate *LaunchTemplateSpecification `locationName:"launchTemplate" type:"structure"`
+	LaunchTemplate *LaunchTemplateSpecification `json:"batch:ComputeResource:LaunchTemplate" locationName:"launchTemplate" type:"structure"`
 
 	// The maximum number of EC2 vCPUs that an environment can reach.
 	//
 	// MaxvCpus is a required field
-	MaxvCpus *int64 `locationName:"maxvCpus" type:"integer" required:"true"`
+	MaxvCpus *int64 `json:"batch:ComputeResource:MaxvCpus" locationName:"maxvCpus" type:"integer" required:"true"`
 
 	// The minimum number of EC2 vCPUs that an environment should maintain (even
 	// if the compute environment is DISABLED).
 	//
 	// MinvCpus is a required field
-	MinvCpus *int64 `locationName:"minvCpus" type:"integer" required:"true"`
+	MinvCpus *int64 `json:"batch:ComputeResource:MinvCpus" locationName:"minvCpus" type:"integer" required:"true"`
 
 	// The Amazon EC2 placement group to associate with your compute resources.
 	// If you intend to submit multi-node parallel jobs to your compute environment,
@@ -507,33 +507,33 @@ type ComputeResource struct {
 	// grouping of instances within a single Availability Zone with high network
 	// flow potential. For more information, see Placement Groups (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
 	// in the Amazon EC2 User Guide for Linux Instances.
-	PlacementGroup *string `locationName:"placementGroup" type:"string"`
+	PlacementGroup *string `json:"batch:ComputeResource:PlacementGroup" locationName:"placementGroup" type:"string"`
 
 	// The EC2 security group that is associated with instances launched in the
 	// compute environment.
-	SecurityGroupIds []string `locationName:"securityGroupIds" type:"list"`
+	SecurityGroupIds []string `json:"batch:ComputeResource:SecurityGroupIds" locationName:"securityGroupIds" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
 	// to a SPOT compute environment. For more information, see Amazon EC2 Spot
 	// Fleet Role (https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html)
 	// in the AWS Batch User Guide.
-	SpotIamFleetRole *string `locationName:"spotIamFleetRole" type:"string"`
+	SpotIamFleetRole *string `json:"batch:ComputeResource:SpotIamFleetRole" locationName:"spotIamFleetRole" type:"string"`
 
 	// The VPC subnets into which the compute resources are launched.
 	//
 	// Subnets is a required field
-	Subnets []string `locationName:"subnets" type:"list" required:"true"`
+	Subnets []string `json:"batch:ComputeResource:Subnets" locationName:"subnets" type:"list" required:"true"`
 
 	// Key-value pair tags to be applied to resources that are launched in the compute
 	// environment. For AWS Batch, these take the form of "String1": "String2",
 	// where String1 is the tag key and String2 is the tag value—for example,
 	// { "Name": "AWS Batch Instance - C4OnDemand" }.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"batch:ComputeResource:Tags" locationName:"tags" type:"map"`
 
 	// The type of compute environment: EC2 or SPOT.
 	//
 	// Type is a required field
-	Type CRType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type CRType `json:"batch:ComputeResource:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -700,13 +700,13 @@ type ComputeResourceUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// The desired number of EC2 vCPUS in the compute environment.
-	DesiredvCpus *int64 `locationName:"desiredvCpus" type:"integer"`
+	DesiredvCpus *int64 `json:"batch:ComputeResourceUpdate:DesiredvCpus" locationName:"desiredvCpus" type:"integer"`
 
 	// The maximum number of EC2 vCPUs that an environment can reach.
-	MaxvCpus *int64 `locationName:"maxvCpus" type:"integer"`
+	MaxvCpus *int64 `json:"batch:ComputeResourceUpdate:MaxvCpus" locationName:"maxvCpus" type:"integer"`
 
 	// The minimum number of EC2 vCPUs that an environment should maintain.
-	MinvCpus *int64 `locationName:"minvCpus" type:"integer"`
+	MinvCpus *int64 `json:"batch:ComputeResourceUpdate:MinvCpus" locationName:"minvCpus" type:"integer"`
 }
 
 // String returns the string representation
@@ -743,77 +743,77 @@ type ContainerDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The command that is passed to the container.
-	Command []string `locationName:"command" type:"list"`
+	Command []string `json:"batch:ContainerDetail:Command" locationName:"command" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the container instance on which the container
 	// is running.
-	ContainerInstanceArn *string `locationName:"containerInstanceArn" type:"string"`
+	ContainerInstanceArn *string `json:"batch:ContainerDetail:ContainerInstanceArn" locationName:"containerInstanceArn" type:"string"`
 
 	// The environment variables to pass to a container.
 	//
 	// Environment variables must not start with AWS_BATCH; this naming convention
 	// is reserved for variables that are set by the AWS Batch service.
-	Environment []KeyValuePair `locationName:"environment" type:"list"`
+	Environment []KeyValuePair `json:"batch:ContainerDetail:Environment" locationName:"environment" type:"list"`
 
 	// The exit code to return upon completion.
-	ExitCode *int64 `locationName:"exitCode" type:"integer"`
+	ExitCode *int64 `json:"batch:ContainerDetail:ExitCode" locationName:"exitCode" type:"integer"`
 
 	// The image used to start the container.
-	Image *string `locationName:"image" type:"string"`
+	Image *string `json:"batch:ContainerDetail:Image" locationName:"image" type:"string"`
 
 	// The instance type of the underlying host infrastructure of a multi-node parallel
 	// job.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"batch:ContainerDetail:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The Amazon Resource Name (ARN) associated with the job upon execution.
-	JobRoleArn *string `locationName:"jobRoleArn" type:"string"`
+	JobRoleArn *string `json:"batch:ContainerDetail:JobRoleArn" locationName:"jobRoleArn" type:"string"`
 
 	// The name of the CloudWatch Logs log stream associated with the container.
 	// The log group for AWS Batch jobs is /aws/batch/job. Each container attempt
 	// receives a log stream name when they reach the RUNNING status.
-	LogStreamName *string `locationName:"logStreamName" type:"string"`
+	LogStreamName *string `json:"batch:ContainerDetail:LogStreamName" locationName:"logStreamName" type:"string"`
 
 	// The number of MiB of memory reserved for the job.
-	Memory *int64 `locationName:"memory" type:"integer"`
+	Memory *int64 `json:"batch:ContainerDetail:Memory" locationName:"memory" type:"integer"`
 
 	// The mount points for data volumes in your container.
-	MountPoints []MountPoint `locationName:"mountPoints" type:"list"`
+	MountPoints []MountPoint `json:"batch:ContainerDetail:MountPoints" locationName:"mountPoints" type:"list"`
 
 	// The network interfaces associated with the job.
-	NetworkInterfaces []NetworkInterface `locationName:"networkInterfaces" type:"list"`
+	NetworkInterfaces []NetworkInterface `json:"batch:ContainerDetail:NetworkInterfaces" locationName:"networkInterfaces" type:"list"`
 
 	// When this parameter is true, the container is given elevated privileges on
 	// the host container instance (similar to the root user).
-	Privileged *bool `locationName:"privileged" type:"boolean"`
+	Privileged *bool `json:"batch:ContainerDetail:Privileged" locationName:"privileged" type:"boolean"`
 
 	// When this parameter is true, the container is given read-only access to its
 	// root file system.
-	ReadonlyRootFilesystem *bool `locationName:"readonlyRootFilesystem" type:"boolean"`
+	ReadonlyRootFilesystem *bool `json:"batch:ContainerDetail:ReadonlyRootFilesystem" locationName:"readonlyRootFilesystem" type:"boolean"`
 
 	// A short (255 max characters) human-readable string to provide additional
 	// details about a running or stopped container.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"batch:ContainerDetail:Reason" locationName:"reason" type:"string"`
 
 	// The type and amount of a resource to assign to a container. Currently, the
 	// only supported resource is GPU.
-	ResourceRequirements []ResourceRequirement `locationName:"resourceRequirements" type:"list"`
+	ResourceRequirements []ResourceRequirement `json:"batch:ContainerDetail:ResourceRequirements" locationName:"resourceRequirements" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the Amazon ECS task that is associated
 	// with the container job. Each container attempt receives a task ARN when they
 	// reach the STARTING status.
-	TaskArn *string `locationName:"taskArn" type:"string"`
+	TaskArn *string `json:"batch:ContainerDetail:TaskArn" locationName:"taskArn" type:"string"`
 
 	// A list of ulimit values to set in the container.
-	Ulimits []Ulimit `locationName:"ulimits" type:"list"`
+	Ulimits []Ulimit `json:"batch:ContainerDetail:Ulimits" locationName:"ulimits" type:"list"`
 
 	// The user name to use inside the container.
-	User *string `locationName:"user" type:"string"`
+	User *string `json:"batch:ContainerDetail:User" locationName:"user" type:"string"`
 
 	// The number of VCPUs allocated for the job.
-	Vcpus *int64 `locationName:"vcpus" type:"integer"`
+	Vcpus *int64 `json:"batch:ContainerDetail:Vcpus" locationName:"vcpus" type:"integer"`
 
 	// A list of volumes associated with the job.
-	Volumes []Volume `locationName:"volumes" type:"list"`
+	Volumes []Volume `json:"batch:ContainerDetail:Volumes" locationName:"volumes" type:"list"`
 }
 
 // String returns the string representation
@@ -995,7 +995,7 @@ type ContainerOverrides struct {
 
 	// The command to send to the container that overrides the default command from
 	// the Docker image or the job definition.
-	Command []string `locationName:"command" type:"list"`
+	Command []string `json:"batch:ContainerOverrides:Command" locationName:"command" type:"list"`
 
 	// The environment variables to send to the container. You can add new environment
 	// variables, which are added to the container at launch, or you can override
@@ -1003,24 +1003,24 @@ type ContainerOverrides struct {
 	//
 	// Environment variables must not start with AWS_BATCH; this naming convention
 	// is reserved for variables that are set by the AWS Batch service.
-	Environment []KeyValuePair `locationName:"environment" type:"list"`
+	Environment []KeyValuePair `json:"batch:ContainerOverrides:Environment" locationName:"environment" type:"list"`
 
 	// The instance type to use for a multi-node parallel job. This parameter is
 	// not valid for single-node container jobs.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"batch:ContainerOverrides:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The number of MiB of memory reserved for the job. This value overrides the
 	// value set in the job definition.
-	Memory *int64 `locationName:"memory" type:"integer"`
+	Memory *int64 `json:"batch:ContainerOverrides:Memory" locationName:"memory" type:"integer"`
 
 	// The type and amount of a resource to assign to a container. This value overrides
 	// the value set in the job definition. Currently, the only supported resource
 	// is GPU.
-	ResourceRequirements []ResourceRequirement `locationName:"resourceRequirements" type:"list"`
+	ResourceRequirements []ResourceRequirement `json:"batch:ContainerOverrides:ResourceRequirements" locationName:"resourceRequirements" type:"list"`
 
 	// The number of vCPUs to reserve for the container. This value overrides the
 	// value set in the job definition.
-	Vcpus *int64 `locationName:"vcpus" type:"integer"`
+	Vcpus *int64 `json:"batch:ContainerOverrides:Vcpus" locationName:"vcpus" type:"integer"`
 }
 
 // String returns the string representation
@@ -1116,7 +1116,7 @@ type ContainerProperties struct {
 	// and the COMMAND parameter to docker run (https://docs.docker.com/engine/reference/run/).
 	// For more information, see https://docs.docker.com/engine/reference/builder/#cmd
 	// (https://docs.docker.com/engine/reference/builder/#cmd).
-	Command []string `locationName:"command" type:"list"`
+	Command []string `json:"batch:ContainerProperties:Command" locationName:"command" type:"list"`
 
 	// The environment variables to pass to a container. This parameter maps to
 	// Env in the Create a container (https://docs.docker.com/engine/api/v1.23/#create-a-container)
@@ -1128,7 +1128,7 @@ type ContainerProperties struct {
 	//
 	// Environment variables must not start with AWS_BATCH; this naming convention
 	// is reserved for variables that are set by the AWS Batch service.
-	Environment []KeyValuePair `locationName:"environment" type:"list"`
+	Environment []KeyValuePair `json:"batch:ContainerProperties:Environment" locationName:"environment" type:"list"`
 
 	// The image used to start a container. This string is passed directly to the
 	// Docker daemon. Images in the Docker Hub registry are available by default.
@@ -1150,16 +1150,16 @@ type ContainerProperties struct {
 	//
 	//    * Images in other online repositories are qualified further by a domain
 	//    name (for example, quay.io/assemblyline/ubuntu).
-	Image *string `locationName:"image" type:"string"`
+	Image *string `json:"batch:ContainerProperties:Image" locationName:"image" type:"string"`
 
 	// The instance type to use for a multi-node parallel job. Currently all node
 	// groups in a multi-node parallel job must use the same instance type. This
 	// parameter is not valid for single-node container jobs.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"batch:ContainerProperties:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role that the container can assume
 	// for AWS permissions.
-	JobRoleArn *string `locationName:"jobRoleArn" type:"string"`
+	JobRoleArn *string `json:"batch:ContainerProperties:JobRoleArn" locationName:"jobRoleArn" type:"string"`
 
 	// The hard limit (in MiB) of memory to present to the container. If your container
 	// attempts to exceed the memory specified here, the container is killed. This
@@ -1172,43 +1172,43 @@ type ContainerProperties struct {
 	// jobs as much memory as possible for a particular instance type, see Memory
 	// Management (https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html)
 	// in the AWS Batch User Guide.
-	Memory *int64 `locationName:"memory" type:"integer"`
+	Memory *int64 `json:"batch:ContainerProperties:Memory" locationName:"memory" type:"integer"`
 
 	// The mount points for data volumes in your container. This parameter maps
 	// to Volumes in the Create a container (https://docs.docker.com/engine/api/v1.23/#create-a-container)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.23/)
 	// and the --volume option to docker run (https://docs.docker.com/engine/reference/run/).
-	MountPoints []MountPoint `locationName:"mountPoints" type:"list"`
+	MountPoints []MountPoint `json:"batch:ContainerProperties:MountPoints" locationName:"mountPoints" type:"list"`
 
 	// When this parameter is true, the container is given elevated privileges on
 	// the host container instance (similar to the root user). This parameter maps
 	// to Privileged in the Create a container (https://docs.docker.com/engine/api/v1.23/#create-a-container)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.23/)
 	// and the --privileged option to docker run (https://docs.docker.com/engine/reference/run/).
-	Privileged *bool `locationName:"privileged" type:"boolean"`
+	Privileged *bool `json:"batch:ContainerProperties:Privileged" locationName:"privileged" type:"boolean"`
 
 	// When this parameter is true, the container is given read-only access to its
 	// root file system. This parameter maps to ReadonlyRootfs in the Create a container
 	// (https://docs.docker.com/engine/api/v1.23/#create-a-container) section of
 	// the Docker Remote API (https://docs.docker.com/engine/api/v1.23/) and the
 	// --read-only option to docker run.
-	ReadonlyRootFilesystem *bool `locationName:"readonlyRootFilesystem" type:"boolean"`
+	ReadonlyRootFilesystem *bool `json:"batch:ContainerProperties:ReadonlyRootFilesystem" locationName:"readonlyRootFilesystem" type:"boolean"`
 
 	// The type and amount of a resource to assign to a container. Currently, the
 	// only supported resource is GPU.
-	ResourceRequirements []ResourceRequirement `locationName:"resourceRequirements" type:"list"`
+	ResourceRequirements []ResourceRequirement `json:"batch:ContainerProperties:ResourceRequirements" locationName:"resourceRequirements" type:"list"`
 
 	// A list of ulimits to set in the container. This parameter maps to Ulimits
 	// in the Create a container (https://docs.docker.com/engine/api/v1.23/#create-a-container)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.23/)
 	// and the --ulimit option to docker run (https://docs.docker.com/engine/reference/run/).
-	Ulimits []Ulimit `locationName:"ulimits" type:"list"`
+	Ulimits []Ulimit `json:"batch:ContainerProperties:Ulimits" locationName:"ulimits" type:"list"`
 
 	// The user name to use inside the container. This parameter maps to User in
 	// the Create a container (https://docs.docker.com/engine/api/v1.23/#create-a-container)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.23/)
 	// and the --user option to docker run (https://docs.docker.com/engine/reference/run/).
-	User *string `locationName:"user" type:"string"`
+	User *string `json:"batch:ContainerProperties:User" locationName:"user" type:"string"`
 
 	// The number of vCPUs reserved for the container. This parameter maps to CpuShares
 	// in the Create a container (https://docs.docker.com/engine/api/v1.23/#create-a-container)
@@ -1216,10 +1216,10 @@ type ContainerProperties struct {
 	// and the --cpu-shares option to docker run (https://docs.docker.com/engine/reference/run/).
 	// Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
 	// vCPU.
-	Vcpus *int64 `locationName:"vcpus" type:"integer"`
+	Vcpus *int64 `json:"batch:ContainerProperties:Vcpus" locationName:"vcpus" type:"integer"`
 
 	// A list of data volumes used in a job.
-	Volumes []Volume `locationName:"volumes" type:"list"`
+	Volumes []Volume `json:"batch:ContainerProperties:Volumes" locationName:"volumes" type:"list"`
 }
 
 // String returns the string representation
@@ -1382,11 +1382,11 @@ type ContainerSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The exit code to return upon completion.
-	ExitCode *int64 `locationName:"exitCode" type:"integer"`
+	ExitCode *int64 `json:"batch:ContainerSummary:ExitCode" locationName:"exitCode" type:"integer"`
 
 	// A short (255 max characters) human-readable string to provide additional
 	// details about a running or stopped container.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"batch:ContainerSummary:Reason" locationName:"reason" type:"string"`
 }
 
 // String returns the string representation
@@ -1426,7 +1426,7 @@ type Host struct {
 	// delete it manually. If the source path location does not exist on the host
 	// container instance, the Docker daemon creates it. If the location does exist,
 	// the contents of the source path folder are exported.
-	SourcePath *string `locationName:"sourcePath" type:"string"`
+	SourcePath *string `json:"batch:Host:SourcePath" locationName:"sourcePath" type:"string"`
 }
 
 // String returns the string representation
@@ -1451,20 +1451,20 @@ type JobDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// An object with various properties specific to container-based jobs.
-	ContainerProperties *ContainerProperties `locationName:"containerProperties" type:"structure"`
+	ContainerProperties *ContainerProperties `json:"batch:JobDefinition:ContainerProperties" locationName:"containerProperties" type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the job definition.
 	//
 	// JobDefinitionArn is a required field
-	JobDefinitionArn *string `locationName:"jobDefinitionArn" type:"string" required:"true"`
+	JobDefinitionArn *string `json:"batch:JobDefinition:JobDefinitionArn" locationName:"jobDefinitionArn" type:"string" required:"true"`
 
 	// The name of the job definition.
 	//
 	// JobDefinitionName is a required field
-	JobDefinitionName *string `locationName:"jobDefinitionName" type:"string" required:"true"`
+	JobDefinitionName *string `json:"batch:JobDefinition:JobDefinitionName" locationName:"jobDefinitionName" type:"string" required:"true"`
 
 	// An object with various properties specific to multi-node parallel jobs.
-	NodeProperties *NodeProperties `locationName:"nodeProperties" type:"structure"`
+	NodeProperties *NodeProperties `json:"batch:JobDefinition:NodeProperties" locationName:"nodeProperties" type:"structure"`
 
 	// Default parameters or parameter substitution placeholders that are set in
 	// the job definition. Parameters are specified as a key-value pair mapping.
@@ -1472,29 +1472,29 @@ type JobDefinition struct {
 	// from the job definition. For more information about specifying parameters,
 	// see Job Definition Parameters (https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html)
 	// in the AWS Batch User Guide.
-	Parameters map[string]string `locationName:"parameters" type:"map"`
+	Parameters map[string]string `json:"batch:JobDefinition:Parameters" locationName:"parameters" type:"map"`
 
 	// The retry strategy to use for failed jobs that are submitted with this job
 	// definition.
-	RetryStrategy *RetryStrategy `locationName:"retryStrategy" type:"structure"`
+	RetryStrategy *RetryStrategy `json:"batch:JobDefinition:RetryStrategy" locationName:"retryStrategy" type:"structure"`
 
 	// The revision of the job definition.
 	//
 	// Revision is a required field
-	Revision *int64 `locationName:"revision" type:"integer" required:"true"`
+	Revision *int64 `json:"batch:JobDefinition:Revision" locationName:"revision" type:"integer" required:"true"`
 
 	// The status of the job definition.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"batch:JobDefinition:Status" locationName:"status" type:"string"`
 
 	// The timeout configuration for jobs that are submitted with this job definition.
 	// You can specify a timeout duration after which AWS Batch terminates your
 	// jobs if they have not finished.
-	Timeout *JobTimeout `locationName:"timeout" type:"structure"`
+	Timeout *JobTimeout `json:"batch:JobDefinition:Timeout" locationName:"timeout" type:"structure"`
 
 	// The type of job definition.
 	//
 	// Type is a required field
-	Type *string `locationName:"type" type:"string" required:"true"`
+	Type *string `json:"batch:JobDefinition:Type" locationName:"type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1579,10 +1579,10 @@ type JobDependency struct {
 	_ struct{} `type:"structure"`
 
 	// The job ID of the AWS Batch job associated with this dependency.
-	JobId *string `locationName:"jobId" type:"string"`
+	JobId *string `json:"batch:JobDependency:JobId" locationName:"jobId" type:"string"`
 
 	// The type of the job dependency.
-	Type ArrayJobDependency `locationName:"type" type:"string" enum:"true"`
+	Type ArrayJobDependency `json:"batch:JobDependency:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1613,65 +1613,65 @@ type JobDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The array properties of the job, if it is an array job.
-	ArrayProperties *ArrayPropertiesDetail `locationName:"arrayProperties" type:"structure"`
+	ArrayProperties *ArrayPropertiesDetail `json:"batch:JobDetail:ArrayProperties" locationName:"arrayProperties" type:"structure"`
 
 	// A list of job attempts associated with this job.
-	Attempts []AttemptDetail `locationName:"attempts" type:"list"`
+	Attempts []AttemptDetail `json:"batch:JobDetail:Attempts" locationName:"attempts" type:"list"`
 
 	// An object representing the details of the container that is associated with
 	// the job.
-	Container *ContainerDetail `locationName:"container" type:"structure"`
+	Container *ContainerDetail `json:"batch:JobDetail:Container" locationName:"container" type:"structure"`
 
 	// The Unix timestamp (in seconds and milliseconds) for when the job was created.
 	// For non-array jobs and parent array jobs, this is when the job entered the
 	// SUBMITTED state (at the time SubmitJob was called). For array child jobs,
 	// this is when the child job was spawned by its parent and entered the PENDING
 	// state.
-	CreatedAt *int64 `locationName:"createdAt" type:"long"`
+	CreatedAt *int64 `json:"batch:JobDetail:CreatedAt" locationName:"createdAt" type:"long"`
 
 	// A list of job names or IDs on which this job depends.
-	DependsOn []JobDependency `locationName:"dependsOn" type:"list"`
+	DependsOn []JobDependency `json:"batch:JobDetail:DependsOn" locationName:"dependsOn" type:"list"`
 
 	// The job definition that is used by this job.
 	//
 	// JobDefinition is a required field
-	JobDefinition *string `locationName:"jobDefinition" type:"string" required:"true"`
+	JobDefinition *string `json:"batch:JobDetail:JobDefinition" locationName:"jobDefinition" type:"string" required:"true"`
 
 	// The ID for the job.
 	//
 	// JobId is a required field
-	JobId *string `locationName:"jobId" type:"string" required:"true"`
+	JobId *string `json:"batch:JobDetail:JobId" locationName:"jobId" type:"string" required:"true"`
 
 	// The name of the job.
 	//
 	// JobName is a required field
-	JobName *string `locationName:"jobName" type:"string" required:"true"`
+	JobName *string `json:"batch:JobDetail:JobName" locationName:"jobName" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the job queue with which the job is associated.
 	//
 	// JobQueue is a required field
-	JobQueue *string `locationName:"jobQueue" type:"string" required:"true"`
+	JobQueue *string `json:"batch:JobDetail:JobQueue" locationName:"jobQueue" type:"string" required:"true"`
 
 	// An object representing the details of a node that is associated with a multi-node
 	// parallel job.
-	NodeDetails *NodeDetails `locationName:"nodeDetails" type:"structure"`
+	NodeDetails *NodeDetails `json:"batch:JobDetail:NodeDetails" locationName:"nodeDetails" type:"structure"`
 
 	// An object representing the node properties of a multi-node parallel job.
-	NodeProperties *NodeProperties `locationName:"nodeProperties" type:"structure"`
+	NodeProperties *NodeProperties `json:"batch:JobDetail:NodeProperties" locationName:"nodeProperties" type:"structure"`
 
 	// Additional parameters passed to the job that replace parameter substitution
 	// placeholders or override any corresponding parameter defaults from the job
 	// definition.
-	Parameters map[string]string `locationName:"parameters" type:"map"`
+	Parameters map[string]string `json:"batch:JobDetail:Parameters" locationName:"parameters" type:"map"`
 
 	// The retry strategy to use for this job if an attempt fails.
-	RetryStrategy *RetryStrategy `locationName:"retryStrategy" type:"structure"`
+	RetryStrategy *RetryStrategy `json:"batch:JobDetail:RetryStrategy" locationName:"retryStrategy" type:"structure"`
 
 	// The Unix timestamp (in seconds and milliseconds) for when the job was started
 	// (when the job transitioned from the STARTING state to the RUNNING state).
 	//
 	// StartedAt is a required field
-	StartedAt *int64 `locationName:"startedAt" type:"long" required:"true"`
+	StartedAt *int64 `json:"batch:JobDetail:StartedAt" locationName:"startedAt" type:"long" required:"true"`
 
 	// The current status for the job.
 	//
@@ -1680,19 +1680,19 @@ type JobDetail struct {
 	// in the troubleshooting section of the AWS Batch User Guide.
 	//
 	// Status is a required field
-	Status JobStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status JobStatus `json:"batch:JobDetail:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 
 	// A short, human-readable string to provide additional details about the current
 	// status of the job.
-	StatusReason *string `locationName:"statusReason" type:"string"`
+	StatusReason *string `json:"batch:JobDetail:StatusReason" locationName:"statusReason" type:"string"`
 
 	// The Unix timestamp (in seconds and milliseconds) for when the job was stopped
 	// (when the job transitioned from the RUNNING state to a terminal state, such
 	// as SUCCEEDED or FAILED).
-	StoppedAt *int64 `locationName:"stoppedAt" type:"long"`
+	StoppedAt *int64 `json:"batch:JobDetail:StoppedAt" locationName:"stoppedAt" type:"long"`
 
 	// The timeout configuration for the job.
-	Timeout *JobTimeout `locationName:"timeout" type:"structure"`
+	Timeout *JobTimeout `json:"batch:JobDetail:Timeout" locationName:"timeout" type:"structure"`
 }
 
 // String returns the string representation
@@ -1841,34 +1841,34 @@ type JobQueueDetail struct {
 	// job placement in ascending order.
 	//
 	// ComputeEnvironmentOrder is a required field
-	ComputeEnvironmentOrder []ComputeEnvironmentOrder `locationName:"computeEnvironmentOrder" type:"list" required:"true"`
+	ComputeEnvironmentOrder []ComputeEnvironmentOrder `json:"batch:JobQueueDetail:ComputeEnvironmentOrder" locationName:"computeEnvironmentOrder" type:"list" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the job queue.
 	//
 	// JobQueueArn is a required field
-	JobQueueArn *string `locationName:"jobQueueArn" type:"string" required:"true"`
+	JobQueueArn *string `json:"batch:JobQueueDetail:JobQueueArn" locationName:"jobQueueArn" type:"string" required:"true"`
 
 	// The name of the job queue.
 	//
 	// JobQueueName is a required field
-	JobQueueName *string `locationName:"jobQueueName" type:"string" required:"true"`
+	JobQueueName *string `json:"batch:JobQueueDetail:JobQueueName" locationName:"jobQueueName" type:"string" required:"true"`
 
 	// The priority of the job queue.
 	//
 	// Priority is a required field
-	Priority *int64 `locationName:"priority" type:"integer" required:"true"`
+	Priority *int64 `json:"batch:JobQueueDetail:Priority" locationName:"priority" type:"integer" required:"true"`
 
 	// Describes the ability of the queue to accept new jobs.
 	//
 	// State is a required field
-	State JQState `locationName:"state" type:"string" required:"true" enum:"true"`
+	State JQState `json:"batch:JobQueueDetail:State" locationName:"state" type:"string" required:"true" enum:"true"`
 
 	// The status of the job queue (for example, CREATING or VALID).
-	Status JQStatus `locationName:"status" type:"string" enum:"true"`
+	Status JQStatus `json:"batch:JobQueueDetail:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A short, human-readable string to provide additional details about the current
 	// status of the job queue.
-	StatusReason *string `locationName:"statusReason" type:"string"`
+	StatusReason *string `json:"batch:JobQueueDetail:StatusReason" locationName:"statusReason" type:"string"`
 }
 
 // String returns the string representation
@@ -1935,45 +1935,45 @@ type JobSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The array properties of the job, if it is an array job.
-	ArrayProperties *ArrayPropertiesSummary `locationName:"arrayProperties" type:"structure"`
+	ArrayProperties *ArrayPropertiesSummary `json:"batch:JobSummary:ArrayProperties" locationName:"arrayProperties" type:"structure"`
 
 	// An object representing the details of the container that is associated with
 	// the job.
-	Container *ContainerSummary `locationName:"container" type:"structure"`
+	Container *ContainerSummary `json:"batch:JobSummary:Container" locationName:"container" type:"structure"`
 
 	// The Unix timestamp for when the job was created. For non-array jobs and parent
 	// array jobs, this is when the job entered the SUBMITTED state (at the time
 	// SubmitJob was called). For array child jobs, this is when the child job was
 	// spawned by its parent and entered the PENDING state.
-	CreatedAt *int64 `locationName:"createdAt" type:"long"`
+	CreatedAt *int64 `json:"batch:JobSummary:CreatedAt" locationName:"createdAt" type:"long"`
 
 	// The ID of the job.
 	//
 	// JobId is a required field
-	JobId *string `locationName:"jobId" type:"string" required:"true"`
+	JobId *string `json:"batch:JobSummary:JobId" locationName:"jobId" type:"string" required:"true"`
 
 	// The name of the job.
 	//
 	// JobName is a required field
-	JobName *string `locationName:"jobName" type:"string" required:"true"`
+	JobName *string `json:"batch:JobSummary:JobName" locationName:"jobName" type:"string" required:"true"`
 
 	// The node properties for a single node in a job summary list.
-	NodeProperties *NodePropertiesSummary `locationName:"nodeProperties" type:"structure"`
+	NodeProperties *NodePropertiesSummary `json:"batch:JobSummary:NodeProperties" locationName:"nodeProperties" type:"structure"`
 
 	// The Unix timestamp for when the job was started (when the job transitioned
 	// from the STARTING state to the RUNNING state).
-	StartedAt *int64 `locationName:"startedAt" type:"long"`
+	StartedAt *int64 `json:"batch:JobSummary:StartedAt" locationName:"startedAt" type:"long"`
 
 	// The current status for the job.
-	Status JobStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobStatus `json:"batch:JobSummary:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A short, human-readable string to provide additional details about the current
 	// status of the job.
-	StatusReason *string `locationName:"statusReason" type:"string"`
+	StatusReason *string `json:"batch:JobSummary:StatusReason" locationName:"statusReason" type:"string"`
 
 	// The Unix timestamp for when the job was stopped (when the job transitioned
 	// from the RUNNING state to a terminal state, such as SUCCEEDED or FAILED).
-	StoppedAt *int64 `locationName:"stoppedAt" type:"long"`
+	StoppedAt *int64 `json:"batch:JobSummary:StoppedAt" locationName:"stoppedAt" type:"long"`
 }
 
 // String returns the string representation
@@ -2053,7 +2053,7 @@ type JobTimeout struct {
 
 	// The time duration in seconds (measured from the job attempt's startedAt timestamp)
 	// after which AWS Batch terminates your jobs if they have not finished.
-	AttemptDurationSeconds *int64 `locationName:"attemptDurationSeconds" type:"integer"`
+	AttemptDurationSeconds *int64 `json:"batch:JobTimeout:AttemptDurationSeconds" locationName:"attemptDurationSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -2079,11 +2079,11 @@ type KeyValuePair struct {
 
 	// The name of the key-value pair. For environment variables, this is the name
 	// of the environment variable.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"batch:KeyValuePair:Name" locationName:"name" type:"string"`
 
 	// The value of the key-value pair. For environment variables, this is the value
 	// of the environment variable.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"batch:KeyValuePair:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -2116,15 +2116,15 @@ type LaunchTemplateSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the launch template.
-	LaunchTemplateId *string `locationName:"launchTemplateId" type:"string"`
+	LaunchTemplateId *string `json:"batch:LaunchTemplateSpecification:LaunchTemplateId" locationName:"launchTemplateId" type:"string"`
 
 	// The name of the launch template.
-	LaunchTemplateName *string `locationName:"launchTemplateName" type:"string"`
+	LaunchTemplateName *string `json:"batch:LaunchTemplateSpecification:LaunchTemplateName" locationName:"launchTemplateName" type:"string"`
 
 	// The version number of the launch template.
 	//
 	// Default: The default version of the launch template.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"batch:LaunchTemplateSpecification:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -2163,14 +2163,14 @@ type MountPoint struct {
 	_ struct{} `type:"structure"`
 
 	// The path on the container at which to mount the host volume.
-	ContainerPath *string `locationName:"containerPath" type:"string"`
+	ContainerPath *string `json:"batch:MountPoint:ContainerPath" locationName:"containerPath" type:"string"`
 
 	// If this value is true, the container has read-only access to the volume;
 	// otherwise, the container can write to the volume. The default value is false.
-	ReadOnly *bool `locationName:"readOnly" type:"boolean"`
+	ReadOnly *bool `json:"batch:MountPoint:ReadOnly" locationName:"readOnly" type:"boolean"`
 
 	// The name of the volume to mount.
-	SourceVolume *string `locationName:"sourceVolume" type:"string"`
+	SourceVolume *string `json:"batch:MountPoint:SourceVolume" locationName:"sourceVolume" type:"string"`
 }
 
 // String returns the string representation
@@ -2208,13 +2208,13 @@ type NetworkInterface struct {
 	_ struct{} `type:"structure"`
 
 	// The attachment ID for the network interface.
-	AttachmentId *string `locationName:"attachmentId" type:"string"`
+	AttachmentId *string `json:"batch:NetworkInterface:AttachmentId" locationName:"attachmentId" type:"string"`
 
 	// The private IPv6 address for the network interface.
-	Ipv6Address *string `locationName:"ipv6Address" type:"string"`
+	Ipv6Address *string `json:"batch:NetworkInterface:Ipv6Address" locationName:"ipv6Address" type:"string"`
 
 	// The private IPv4 address for the network interface.
-	PrivateIpv4Address *string `locationName:"privateIpv4Address" type:"string"`
+	PrivateIpv4Address *string `json:"batch:NetworkInterface:PrivateIpv4Address" locationName:"privateIpv4Address" type:"string"`
 }
 
 // String returns the string representation
@@ -2252,12 +2252,12 @@ type NodeDetails struct {
 
 	// Specifies whether the current node is the main node for a multi-node parallel
 	// job.
-	IsMainNode *bool `locationName:"isMainNode" type:"boolean"`
+	IsMainNode *bool `json:"batch:NodeDetails:IsMainNode" locationName:"isMainNode" type:"boolean"`
 
 	// The node index for the node. Node index numbering begins at zero. This index
 	// is also available on the node with the AWS_BATCH_JOB_NODE_INDEX environment
 	// variable.
-	NodeIndex *int64 `locationName:"nodeIndex" type:"integer"`
+	NodeIndex *int64 `json:"batch:NodeDetails:NodeIndex" locationName:"nodeIndex" type:"integer"`
 }
 
 // String returns the string representation
@@ -2289,7 +2289,7 @@ type NodeOverrides struct {
 	_ struct{} `type:"structure"`
 
 	// The node property overrides for the job.
-	NodePropertyOverrides []NodePropertyOverride `locationName:"nodePropertyOverrides" type:"list"`
+	NodePropertyOverrides []NodePropertyOverride `json:"batch:NodeOverrides:NodePropertyOverrides" locationName:"nodePropertyOverrides" type:"list"`
 
 	// The number of nodes to use with a multi-node parallel job. This value overrides
 	// the number of nodes that are specified in the job definition. To use this
@@ -2303,7 +2303,7 @@ type NodeOverrides struct {
 	//
 	//    * The main node index specified in the job definition must be fewer than
 	//    the number of nodes specified in the override.
-	NumNodes *int64 `locationName:"numNodes" type:"integer"`
+	NumNodes *int64 `json:"batch:NodeOverrides:NumNodes" locationName:"numNodes" type:"integer"`
 }
 
 // String returns the string representation
@@ -2360,18 +2360,18 @@ type NodeProperties struct {
 	// This node index value must be fewer than the number of nodes.
 	//
 	// MainNode is a required field
-	MainNode *int64 `locationName:"mainNode" type:"integer" required:"true"`
+	MainNode *int64 `json:"batch:NodeProperties:MainNode" locationName:"mainNode" type:"integer" required:"true"`
 
 	// A list of node ranges and their properties associated with a multi-node parallel
 	// job.
 	//
 	// NodeRangeProperties is a required field
-	NodeRangeProperties []NodeRangeProperty `locationName:"nodeRangeProperties" type:"list" required:"true"`
+	NodeRangeProperties []NodeRangeProperty `json:"batch:NodeProperties:NodeRangeProperties" locationName:"nodeRangeProperties" type:"list" required:"true"`
 
 	// The number of nodes associated with a multi-node parallel job.
 	//
 	// NumNodes is a required field
-	NumNodes *int64 `locationName:"numNodes" type:"integer" required:"true"`
+	NumNodes *int64 `json:"batch:NodeProperties:NumNodes" locationName:"numNodes" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2445,15 +2445,15 @@ type NodePropertiesSummary struct {
 
 	// Specifies whether the current node is the main node for a multi-node parallel
 	// job.
-	IsMainNode *bool `locationName:"isMainNode" type:"boolean"`
+	IsMainNode *bool `json:"batch:NodePropertiesSummary:IsMainNode" locationName:"isMainNode" type:"boolean"`
 
 	// The node index for the node. Node index numbering begins at zero. This index
 	// is also available on the node with the AWS_BATCH_JOB_NODE_INDEX environment
 	// variable.
-	NodeIndex *int64 `locationName:"nodeIndex" type:"integer"`
+	NodeIndex *int64 `json:"batch:NodePropertiesSummary:NodeIndex" locationName:"nodeIndex" type:"integer"`
 
 	// The number of nodes associated with a multi-node parallel job.
-	NumNodes *int64 `locationName:"numNodes" type:"integer"`
+	NumNodes *int64 `json:"batch:NodePropertiesSummary:NumNodes" locationName:"numNodes" type:"integer"`
 }
 
 // String returns the string representation
@@ -2491,7 +2491,7 @@ type NodePropertyOverride struct {
 	_ struct{} `type:"structure"`
 
 	// The overrides that should be sent to a node range.
-	ContainerOverrides *ContainerOverrides `locationName:"containerOverrides" type:"structure"`
+	ContainerOverrides *ContainerOverrides `json:"batch:NodePropertyOverride:ContainerOverrides" locationName:"containerOverrides" type:"structure"`
 
 	// The range of nodes, using node index values, with which to override. A range
 	// of 0:3 indicates nodes with index values of 0 through 3. If the starting
@@ -2500,7 +2500,7 @@ type NodePropertyOverride struct {
 	// to end the range.
 	//
 	// TargetNodes is a required field
-	TargetNodes *string `locationName:"targetNodes" type:"string" required:"true"`
+	TargetNodes *string `json:"batch:NodePropertyOverride:TargetNodes" locationName:"targetNodes" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2551,7 +2551,7 @@ type NodeRangeProperty struct {
 	_ struct{} `type:"structure"`
 
 	// The container details for the node range.
-	Container *ContainerProperties `locationName:"container" type:"structure"`
+	Container *ContainerProperties `json:"batch:NodeRangeProperty:Container" locationName:"container" type:"structure"`
 
 	// The range of nodes, using node index values. A range of 0:3 indicates nodes
 	// with index values of 0 through 3. If the starting range value is omitted
@@ -2562,7 +2562,7 @@ type NodeRangeProperty struct {
 	// override the 0:10 properties.
 	//
 	// TargetNodes is a required field
-	TargetNodes *string `locationName:"targetNodes" type:"string" required:"true"`
+	TargetNodes *string `json:"batch:NodeRangeProperty:TargetNodes" locationName:"targetNodes" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2616,14 +2616,14 @@ type ResourceRequirement struct {
 	// resource type is GPU.
 	//
 	// Type is a required field
-	Type ResourceType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type ResourceType `json:"batch:ResourceRequirement:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 
 	// The number of physical GPUs to reserve for the container. The number of GPUs
 	// reserved for all containers in a job should not exceed the number of available
 	// GPUs on the compute resource that the job is launched on.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"batch:ResourceRequirement:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2673,7 +2673,7 @@ type RetryStrategy struct {
 	// The number of times to move a job to the RUNNABLE status. You may specify
 	// between 1 and 10 attempts. If the value of attempts is greater than one,
 	// the job is retried on failure the same number of attempts as the value.
-	Attempts *int64 `locationName:"attempts" type:"integer"`
+	Attempts *int64 `json:"batch:RetryStrategy:Attempts" locationName:"attempts" type:"integer"`
 }
 
 // String returns the string representation
@@ -2700,17 +2700,17 @@ type Ulimit struct {
 	// The hard limit for the ulimit type.
 	//
 	// HardLimit is a required field
-	HardLimit *int64 `locationName:"hardLimit" type:"integer" required:"true"`
+	HardLimit *int64 `json:"batch:Ulimit:HardLimit" locationName:"hardLimit" type:"integer" required:"true"`
 
 	// The type of the ulimit.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"batch:Ulimit:Name" locationName:"name" type:"string" required:"true"`
 
 	// The soft limit for the ulimit type.
 	//
 	// SoftLimit is a required field
-	SoftLimit *int64 `locationName:"softLimit" type:"integer" required:"true"`
+	SoftLimit *int64 `json:"batch:Ulimit:SoftLimit" locationName:"softLimit" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2773,12 +2773,12 @@ type Volume struct {
 	// is empty, then the Docker daemon assigns a host path for your data volume.
 	// However, the data is not guaranteed to persist after the containers associated
 	// with it stop running.
-	Host *Host `locationName:"host" type:"structure"`
+	Host *Host `json:"batch:Volume:Host" locationName:"host" type:"structure"`
 
 	// The name of the volume. Up to 255 letters (uppercase and lowercase), numbers,
 	// hyphens, and underscores are allowed. This name is referenced in the sourceVolume
 	// parameter of container definition mountPoints.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"batch:Volume:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation

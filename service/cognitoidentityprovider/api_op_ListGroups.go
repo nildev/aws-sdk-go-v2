@@ -56,11 +56,11 @@ type ListGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The group objects for the groups.
-	Groups []GroupType `type:"list"`
+	Groups []GroupType `json:"cognito-idp:ListGroupsOutput:Groups" type:"list"`
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-idp:ListGroupsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

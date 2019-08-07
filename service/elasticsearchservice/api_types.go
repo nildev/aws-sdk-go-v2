@@ -24,13 +24,13 @@ type AccessPoliciesStatus struct {
 	// more information.
 	//
 	// Options is a required field
-	Options *string `type:"string" required:"true"`
+	Options *string `json:"es:AccessPoliciesStatus:Options" type:"string" required:"true"`
 
 	// The status of the access policy for the Elasticsearch domain. See OptionStatus
 	// for the status information that's included.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:AccessPoliciesStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -65,10 +65,10 @@ type AdditionalLimit struct {
 	//    * MaximumNumberOfDataNodesSupported
 	//
 	//    * MaximumNumberOfDataNodesWithoutMasterNode
-	LimitName *string `type:"string"`
+	LimitName *string `json:"es:AdditionalLimit:LimitName" type:"string"`
 
 	// Value for given AdditionalLimit$LimitName .
-	LimitValues []string `type:"list"`
+	LimitValues []string `json:"es:AdditionalLimit:LimitValues" type:"list"`
 }
 
 // String returns the string representation
@@ -117,13 +117,13 @@ type AdvancedOptionsStatus struct {
 	// domain.
 	//
 	// Options is a required field
-	Options map[string]string `type:"map" required:"true"`
+	Options map[string]string `json:"es:AdvancedOptionsStatus:Options" type:"map" required:"true"`
 
 	// Specifies the status of OptionStatus for advanced options for the specified
 	// Elasticsearch domain.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:AdvancedOptionsStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -160,17 +160,17 @@ type CognitoOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the option to enable Cognito for Kibana authentication.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"es:CognitoOptions:Enabled" type:"boolean"`
 
 	// Specifies the Cognito identity pool ID for Kibana authentication.
-	IdentityPoolId *string `min:"1" type:"string"`
+	IdentityPoolId *string `json:"es:CognitoOptions:IdentityPoolId" min:"1" type:"string"`
 
 	// Specifies the role ARN that provides Elasticsearch permissions for accessing
 	// Cognito resources.
-	RoleArn *string `min:"20" type:"string"`
+	RoleArn *string `json:"es:CognitoOptions:RoleArn" min:"20" type:"string"`
 
 	// Specifies the Cognito user pool ID for Kibana authentication.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"es:CognitoOptions:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -233,13 +233,13 @@ type CognitoOptionsStatus struct {
 	// Specifies the Cognito options for the specified Elasticsearch domain.
 	//
 	// Options is a required field
-	Options *CognitoOptions `type:"structure" required:"true"`
+	Options *CognitoOptions `json:"es:CognitoOptionsStatus:Options" type:"structure" required:"true"`
 
 	// Specifies the status of the Cognito options for the specified Elasticsearch
 	// domain.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:CognitoOptionsStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -270,10 +270,10 @@ type CompatibleVersionsMap struct {
 	_ struct{} `type:"structure"`
 
 	// The current version of Elasticsearch on which a domain is.
-	SourceVersion *string `type:"string"`
+	SourceVersion *string `json:"es:CompatibleVersionsMap:SourceVersion" type:"string"`
 
 	// List of supported elastic search versions.
-	TargetVersions []string `type:"list"`
+	TargetVersions []string `json:"es:CompatibleVersionsMap:TargetVersions" type:"list"`
 }
 
 // String returns the string representation
@@ -308,7 +308,7 @@ type DomainInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the DomainName.
-	DomainName *string `min:"3" type:"string"`
+	DomainName *string `json:"es:DomainInfo:DomainName" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -333,16 +333,16 @@ type EBSOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether EBS-based storage is enabled.
-	EBSEnabled *bool `type:"boolean"`
+	EBSEnabled *bool `json:"es:EBSOptions:EBSEnabled" type:"boolean"`
 
 	// Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"es:EBSOptions:Iops" type:"integer"`
 
 	// Integer to specify the size of an EBS volume.
-	VolumeSize *int64 `type:"integer"`
+	VolumeSize *int64 `json:"es:EBSOptions:VolumeSize" type:"integer"`
 
 	// Specifies the volume type for EBS-based storage.
-	VolumeType VolumeType `type:"string" enum:"true"`
+	VolumeType VolumeType `json:"es:EBSOptions:VolumeType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -386,12 +386,12 @@ type EBSOptionsStatus struct {
 	// Specifies the EBS options for the specified Elasticsearch domain.
 	//
 	// Options is a required field
-	Options *EBSOptions `type:"structure" required:"true"`
+	Options *EBSOptions `json:"es:EBSOptionsStatus:Options" type:"structure" required:"true"`
 
 	// Specifies the status of the EBS options for the specified Elasticsearch domain.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:EBSOptionsStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -422,30 +422,30 @@ type ElasticsearchClusterConfig struct {
 	_ struct{} `type:"structure"`
 
 	// Total number of dedicated master nodes, active and on standby, for the cluster.
-	DedicatedMasterCount *int64 `type:"integer"`
+	DedicatedMasterCount *int64 `json:"es:ElasticsearchClusterConfig:DedicatedMasterCount" type:"integer"`
 
 	// A boolean value to indicate whether a dedicated master node is enabled. See
 	// About Dedicated Master Nodes (http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes)
 	// for more information.
-	DedicatedMasterEnabled *bool `type:"boolean"`
+	DedicatedMasterEnabled *bool `json:"es:ElasticsearchClusterConfig:DedicatedMasterEnabled" type:"boolean"`
 
 	// The instance type for a dedicated master node.
-	DedicatedMasterType ESPartitionInstanceType `type:"string" enum:"true"`
+	DedicatedMasterType ESPartitionInstanceType `json:"es:ElasticsearchClusterConfig:DedicatedMasterType" type:"string" enum:"true"`
 
 	// The number of instances in the specified domain cluster.
-	InstanceCount *int64 `type:"integer"`
+	InstanceCount *int64 `json:"es:ElasticsearchClusterConfig:InstanceCount" type:"integer"`
 
 	// The instance type for an Elasticsearch cluster.
-	InstanceType ESPartitionInstanceType `type:"string" enum:"true"`
+	InstanceType ESPartitionInstanceType `json:"es:ElasticsearchClusterConfig:InstanceType" type:"string" enum:"true"`
 
 	// Specifies the zone awareness configuration for a domain when zone awareness
 	// is enabled.
-	ZoneAwarenessConfig *ZoneAwarenessConfig `type:"structure"`
+	ZoneAwarenessConfig *ZoneAwarenessConfig `json:"es:ElasticsearchClusterConfig:ZoneAwarenessConfig" type:"structure"`
 
 	// A boolean value to indicate whether zone awareness is enabled. See About
 	// Zone Awareness (http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness)
 	// for more information.
-	ZoneAwarenessEnabled *bool `type:"boolean"`
+	ZoneAwarenessEnabled *bool `json:"es:ElasticsearchClusterConfig:ZoneAwarenessEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -507,13 +507,13 @@ type ElasticsearchClusterConfigStatus struct {
 	// Specifies the cluster configuration for the specified Elasticsearch domain.
 	//
 	// Options is a required field
-	Options *ElasticsearchClusterConfig `type:"structure" required:"true"`
+	Options *ElasticsearchClusterConfig `json:"es:ElasticsearchClusterConfigStatus:Options" type:"structure" required:"true"`
 
 	// Specifies the status of the configuration for the specified Elasticsearch
 	// domain.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:ElasticsearchClusterConfigStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -543,41 +543,41 @@ type ElasticsearchDomainConfig struct {
 	_ struct{} `type:"structure"`
 
 	// IAM access policy as a JSON-formatted string.
-	AccessPolicies *AccessPoliciesStatus `type:"structure"`
+	AccessPolicies *AccessPoliciesStatus `json:"es:ElasticsearchDomainConfig:AccessPolicies" type:"structure"`
 
 	// Specifies the AdvancedOptions for the domain. See Configuring Advanced Options
 	// (http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options)
 	// for more information.
-	AdvancedOptions *AdvancedOptionsStatus `type:"structure"`
+	AdvancedOptions *AdvancedOptionsStatus `json:"es:ElasticsearchDomainConfig:AdvancedOptions" type:"structure"`
 
 	// The CognitoOptions for the specified domain. For more information, see Amazon
 	// Cognito Authentication for Kibana (http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html).
-	CognitoOptions *CognitoOptionsStatus `type:"structure"`
+	CognitoOptions *CognitoOptionsStatus `json:"es:ElasticsearchDomainConfig:CognitoOptions" type:"structure"`
 
 	// Specifies the EBSOptions for the Elasticsearch domain.
-	EBSOptions *EBSOptionsStatus `type:"structure"`
+	EBSOptions *EBSOptionsStatus `json:"es:ElasticsearchDomainConfig:EBSOptions" type:"structure"`
 
 	// Specifies the ElasticsearchClusterConfig for the Elasticsearch domain.
-	ElasticsearchClusterConfig *ElasticsearchClusterConfigStatus `type:"structure"`
+	ElasticsearchClusterConfig *ElasticsearchClusterConfigStatus `json:"es:ElasticsearchDomainConfig:ElasticsearchClusterConfig" type:"structure"`
 
 	// String of format X.Y to specify version for the Elasticsearch domain.
-	ElasticsearchVersion *ElasticsearchVersionStatus `type:"structure"`
+	ElasticsearchVersion *ElasticsearchVersionStatus `json:"es:ElasticsearchDomainConfig:ElasticsearchVersion" type:"structure"`
 
 	// Specifies the EncryptionAtRestOptions for the Elasticsearch domain.
-	EncryptionAtRestOptions *EncryptionAtRestOptionsStatus `type:"structure"`
+	EncryptionAtRestOptions *EncryptionAtRestOptionsStatus `json:"es:ElasticsearchDomainConfig:EncryptionAtRestOptions" type:"structure"`
 
 	// Log publishing options for the given domain.
-	LogPublishingOptions *LogPublishingOptionsStatus `type:"structure"`
+	LogPublishingOptions *LogPublishingOptionsStatus `json:"es:ElasticsearchDomainConfig:LogPublishingOptions" type:"structure"`
 
 	// Specifies the NodeToNodeEncryptionOptions for the Elasticsearch domain.
-	NodeToNodeEncryptionOptions *NodeToNodeEncryptionOptionsStatus `type:"structure"`
+	NodeToNodeEncryptionOptions *NodeToNodeEncryptionOptionsStatus `json:"es:ElasticsearchDomainConfig:NodeToNodeEncryptionOptions" type:"structure"`
 
 	// Specifies the SnapshotOptions for the Elasticsearch domain.
-	SnapshotOptions *SnapshotOptionsStatus `type:"structure"`
+	SnapshotOptions *SnapshotOptionsStatus `json:"es:ElasticsearchDomainConfig:SnapshotOptions" type:"structure"`
 
 	// The VPCOptions for the specified domain. For more information, see VPC Endpoints
 	// for Amazon Elasticsearch Service Domains (http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html).
-	VPCOptions *VPCDerivedInfoStatus `type:"structure"`
+	VPCOptions *VPCDerivedInfoStatus `json:"es:ElasticsearchDomainConfig:VPCOptions" type:"structure"`
 }
 
 // String returns the string representation
@@ -665,32 +665,32 @@ type ElasticsearchDomainStatus struct {
 	// in Using AWS Identity and Access Management for more information.
 	//
 	// ARN is a required field
-	ARN *string `type:"string" required:"true"`
+	ARN *string `json:"es:ElasticsearchDomainStatus:ARN" type:"string" required:"true"`
 
 	// IAM access policy as a JSON-formatted string.
-	AccessPolicies *string `type:"string"`
+	AccessPolicies *string `json:"es:ElasticsearchDomainStatus:AccessPolicies" type:"string"`
 
 	// Specifies the status of the AdvancedOptions
-	AdvancedOptions map[string]string `type:"map"`
+	AdvancedOptions map[string]string `json:"es:ElasticsearchDomainStatus:AdvancedOptions" type:"map"`
 
 	// The CognitoOptions for the specified domain. For more information, see Amazon
 	// Cognito Authentication for Kibana (http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html).
-	CognitoOptions *CognitoOptions `type:"structure"`
+	CognitoOptions *CognitoOptions `json:"es:ElasticsearchDomainStatus:CognitoOptions" type:"structure"`
 
 	// The domain creation status. True if the creation of an Elasticsearch domain
 	// is complete. False if domain creation is still in progress.
-	Created *bool `type:"boolean"`
+	Created *bool `json:"es:ElasticsearchDomainStatus:Created" type:"boolean"`
 
 	// The domain deletion status. True if a delete request has been received for
 	// the domain but resource cleanup is still in progress. False if the domain
 	// has not been deleted. Once domain deletion is complete, the status of the
 	// domain is no longer returned.
-	Deleted *bool `type:"boolean"`
+	Deleted *bool `json:"es:ElasticsearchDomainStatus:Deleted" type:"boolean"`
 
 	// The unique identifier for the specified Elasticsearch domain.
 	//
 	// DomainId is a required field
-	DomainId *string `min:"1" type:"string" required:"true"`
+	DomainId *string `json:"es:ElasticsearchDomainStatus:DomainId" min:"1" type:"string" required:"true"`
 
 	// The name of an Elasticsearch domain. Domain names are unique across the domains
 	// owned by an account within an AWS region. Domain names start with a letter
@@ -698,55 +698,55 @@ type ElasticsearchDomainStatus struct {
 	// and - (hyphen).
 	//
 	// DomainName is a required field
-	DomainName *string `min:"3" type:"string" required:"true"`
+	DomainName *string `json:"es:ElasticsearchDomainStatus:DomainName" min:"3" type:"string" required:"true"`
 
 	// The EBSOptions for the specified domain. See Configuring EBS-based Storage
 	// (http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs)
 	// for more information.
-	EBSOptions *EBSOptions `type:"structure"`
+	EBSOptions *EBSOptions `json:"es:ElasticsearchDomainStatus:EBSOptions" type:"structure"`
 
 	// The type and number of instances in the domain cluster.
 	//
 	// ElasticsearchClusterConfig is a required field
-	ElasticsearchClusterConfig *ElasticsearchClusterConfig `type:"structure" required:"true"`
+	ElasticsearchClusterConfig *ElasticsearchClusterConfig `json:"es:ElasticsearchDomainStatus:ElasticsearchClusterConfig" type:"structure" required:"true"`
 
-	ElasticsearchVersion *string `type:"string"`
+	ElasticsearchVersion *string `json:"es:ElasticsearchDomainStatus:ElasticsearchVersion" type:"string"`
 
 	// Specifies the status of the EncryptionAtRestOptions.
-	EncryptionAtRestOptions *EncryptionAtRestOptions `type:"structure"`
+	EncryptionAtRestOptions *EncryptionAtRestOptions `json:"es:ElasticsearchDomainStatus:EncryptionAtRestOptions" type:"structure"`
 
 	// The Elasticsearch domain endpoint that you use to submit index and search
 	// requests.
-	Endpoint *string `type:"string"`
+	Endpoint *string `json:"es:ElasticsearchDomainStatus:Endpoint" type:"string"`
 
 	// Map containing the Elasticsearch domain endpoints used to submit index and
 	// search requests. Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'.
-	Endpoints map[string]string `type:"map"`
+	Endpoints map[string]string `json:"es:ElasticsearchDomainStatus:Endpoints" type:"map"`
 
 	// Log publishing options for the given domain.
-	LogPublishingOptions map[string]LogPublishingOption `type:"map"`
+	LogPublishingOptions map[string]LogPublishingOption `json:"es:ElasticsearchDomainStatus:LogPublishingOptions" type:"map"`
 
 	// Specifies the status of the NodeToNodeEncryptionOptions.
-	NodeToNodeEncryptionOptions *NodeToNodeEncryptionOptions `type:"structure"`
+	NodeToNodeEncryptionOptions *NodeToNodeEncryptionOptions `json:"es:ElasticsearchDomainStatus:NodeToNodeEncryptionOptions" type:"structure"`
 
 	// The status of the Elasticsearch domain configuration. True if Amazon Elasticsearch
 	// Service is processing configuration changes. False if the configuration is
 	// active.
-	Processing *bool `type:"boolean"`
+	Processing *bool `json:"es:ElasticsearchDomainStatus:Processing" type:"boolean"`
 
 	// The current status of the Elasticsearch domain's service software.
-	ServiceSoftwareOptions *ServiceSoftwareOptions `type:"structure"`
+	ServiceSoftwareOptions *ServiceSoftwareOptions `json:"es:ElasticsearchDomainStatus:ServiceSoftwareOptions" type:"structure"`
 
 	// Specifies the status of the SnapshotOptions
-	SnapshotOptions *SnapshotOptions `type:"structure"`
+	SnapshotOptions *SnapshotOptions `json:"es:ElasticsearchDomainStatus:SnapshotOptions" type:"structure"`
 
 	// The status of an Elasticsearch domain version upgrade. True if Amazon Elasticsearch
 	// Service is undergoing a version upgrade. False if the configuration is active.
-	UpgradeProcessing *bool `type:"boolean"`
+	UpgradeProcessing *bool `json:"es:ElasticsearchDomainStatus:UpgradeProcessing" type:"boolean"`
 
 	// The VPCOptions for the specified domain. For more information, see VPC Endpoints
 	// for Amazon Elasticsearch Service Domains (http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html).
-	VPCOptions *VPCDerivedInfo `type:"structure"`
+	VPCOptions *VPCDerivedInfo `json:"es:ElasticsearchDomainStatus:VPCOptions" type:"structure"`
 }
 
 // String returns the string representation
@@ -911,13 +911,13 @@ type ElasticsearchVersionStatus struct {
 	// Specifies the Elasticsearch version for the specified Elasticsearch domain.
 	//
 	// Options is a required field
-	Options *string `type:"string" required:"true"`
+	Options *string `json:"es:ElasticsearchVersionStatus:Options" type:"string" required:"true"`
 
 	// Specifies the status of the Elasticsearch version options for the specified
 	// Elasticsearch domain.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:ElasticsearchVersionStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -947,10 +947,10 @@ type EncryptionAtRestOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the option to enable Encryption At Rest.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"es:EncryptionAtRestOptions:Enabled" type:"boolean"`
 
 	// Specifies the KMS Key ID for Encryption At Rest options.
-	KmsKeyId *string `min:"1" type:"string"`
+	KmsKeyId *string `json:"es:EncryptionAtRestOptions:KmsKeyId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -997,13 +997,13 @@ type EncryptionAtRestOptionsStatus struct {
 	// domain.
 	//
 	// Options is a required field
-	Options *EncryptionAtRestOptions `type:"structure" required:"true"`
+	Options *EncryptionAtRestOptions `json:"es:EncryptionAtRestOptionsStatus:Options" type:"structure" required:"true"`
 
 	// Specifies the status of the Encryption At Rest options for the specified
 	// Elasticsearch domain.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:EncryptionAtRestOptionsStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1034,10 +1034,10 @@ type InstanceCountLimits struct {
 	_ struct{} `type:"structure"`
 
 	// Maximum number of Instances that can be instantiated for given InstanceType.
-	MaximumInstanceCount *int64 `type:"integer"`
+	MaximumInstanceCount *int64 `json:"es:InstanceCountLimits:MaximumInstanceCount" type:"integer"`
 
 	// Minimum number of Instances that can be instantiated for given InstanceType.
-	MinimumInstanceCount *int64 `type:"integer"`
+	MinimumInstanceCount *int64 `json:"es:InstanceCountLimits:MinimumInstanceCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -1069,7 +1069,7 @@ type InstanceLimits struct {
 
 	// InstanceCountLimits represents the limits on number of instances that be
 	// created in Amazon Elasticsearch for given InstanceType.
-	InstanceCountLimits *InstanceCountLimits `type:"structure"`
+	InstanceCountLimits *InstanceCountLimits `json:"es:InstanceLimits:InstanceCountLimits" type:"structure"`
 }
 
 // String returns the string representation
@@ -1095,15 +1095,15 @@ type Limits struct {
 
 	// List of additional limits that are specific to a given InstanceType and for
 	// each of it's InstanceRole .
-	AdditionalLimits []AdditionalLimit `type:"list"`
+	AdditionalLimits []AdditionalLimit `json:"es:Limits:AdditionalLimits" type:"list"`
 
 	// InstanceLimits represents the list of instance related attributes that are
 	// available for given InstanceType.
-	InstanceLimits *InstanceLimits `type:"structure"`
+	InstanceLimits *InstanceLimits `json:"es:Limits:InstanceLimits" type:"structure"`
 
 	// StorageType represents the list of storage related types and attributes that
 	// are available for given InstanceType.
-	StorageTypes []StorageType `type:"list"`
+	StorageTypes []StorageType `json:"es:Limits:StorageTypes" type:"list"`
 }
 
 // String returns the string representation
@@ -1157,10 +1157,10 @@ type LogPublishingOption struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of the Cloudwatch log group to which log needs to be published.
-	CloudWatchLogsLogGroupArn *string `type:"string"`
+	CloudWatchLogsLogGroupArn *string `json:"es:LogPublishingOption:CloudWatchLogsLogGroupArn" type:"string"`
 
 	// Specifies whether given log publishing option is enabled or not.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"es:LogPublishingOption:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1190,11 +1190,11 @@ type LogPublishingOptionsStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The log publishing options configured for the Elasticsearch domain.
-	Options map[string]LogPublishingOption `type:"map"`
+	Options map[string]LogPublishingOption `json:"es:LogPublishingOptionsStatus:Options" type:"map"`
 
 	// The status of the log publishing options for the Elasticsearch domain. See
 	// OptionStatus for the status information that's included.
-	Status *OptionStatus `type:"structure"`
+	Status *OptionStatus `json:"es:LogPublishingOptionsStatus:Status" type:"structure"`
 }
 
 // String returns the string representation
@@ -1230,7 +1230,7 @@ type NodeToNodeEncryptionOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Specify true to enable node-to-node encryption.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"es:NodeToNodeEncryptionOptions:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1258,13 +1258,13 @@ type NodeToNodeEncryptionOptionsStatus struct {
 	// domain.
 	//
 	// Options is a required field
-	Options *NodeToNodeEncryptionOptions `type:"structure" required:"true"`
+	Options *NodeToNodeEncryptionOptions `json:"es:NodeToNodeEncryptionOptionsStatus:Options" type:"structure" required:"true"`
 
 	// Specifies the status of the node-to-node encryption options for the specified
 	// Elasticsearch domain.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:NodeToNodeEncryptionOptionsStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1296,23 +1296,23 @@ type OptionStatus struct {
 	// Timestamp which tells the creation date for the entity.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"es:OptionStatus:CreationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Indicates whether the Elasticsearch domain is being deleted.
-	PendingDeletion *bool `type:"boolean"`
+	PendingDeletion *bool `json:"es:OptionStatus:PendingDeletion" type:"boolean"`
 
 	// Provides the OptionState for the Elasticsearch domain.
 	//
 	// State is a required field
-	State OptionState `type:"string" required:"true" enum:"true"`
+	State OptionState `json:"es:OptionStatus:State" type:"string" required:"true" enum:"true"`
 
 	// Timestamp which tells the last updated time for the entity.
 	//
 	// UpdateDate is a required field
-	UpdateDate *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdateDate *time.Time `json:"es:OptionStatus:UpdateDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Specifies the latest version for the entity.
-	UpdateVersion *int64 `type:"integer"`
+	UpdateVersion *int64 `json:"es:OptionStatus:UpdateVersion" type:"integer"`
 }
 
 // String returns the string representation
@@ -1361,10 +1361,10 @@ type RecurringCharge struct {
 	_ struct{} `type:"structure"`
 
 	// The monetary amount of the recurring charge.
-	RecurringChargeAmount *float64 `type:"double"`
+	RecurringChargeAmount *float64 `json:"es:RecurringCharge:RecurringChargeAmount" type:"double"`
 
 	// The frequency of the recurring charge.
-	RecurringChargeFrequency *string `type:"string"`
+	RecurringChargeFrequency *string `json:"es:RecurringCharge:RecurringChargeFrequency" type:"string"`
 }
 
 // String returns the string representation
@@ -1394,46 +1394,46 @@ type ReservedElasticsearchInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The currency code for the reserved Elasticsearch instance offering.
-	CurrencyCode *string `type:"string"`
+	CurrencyCode *string `json:"es:ReservedElasticsearchInstance:CurrencyCode" type:"string"`
 
 	// The duration, in seconds, for which the Elasticsearch instance is reserved.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"es:ReservedElasticsearchInstance:Duration" type:"integer"`
 
 	// The number of Elasticsearch instances that have been reserved.
-	ElasticsearchInstanceCount *int64 `type:"integer"`
+	ElasticsearchInstanceCount *int64 `json:"es:ReservedElasticsearchInstance:ElasticsearchInstanceCount" type:"integer"`
 
 	// The Elasticsearch instance type offered by the reserved instance offering.
-	ElasticsearchInstanceType ESPartitionInstanceType `type:"string" enum:"true"`
+	ElasticsearchInstanceType ESPartitionInstanceType `json:"es:ReservedElasticsearchInstance:ElasticsearchInstanceType" type:"string" enum:"true"`
 
 	// The upfront fixed charge you will paid to purchase the specific reserved
 	// Elasticsearch instance offering.
-	FixedPrice *float64 `type:"double"`
+	FixedPrice *float64 `json:"es:ReservedElasticsearchInstance:FixedPrice" type:"double"`
 
 	// The payment option as defined in the reserved Elasticsearch instance offering.
-	PaymentOption ReservedElasticsearchInstancePaymentOption `type:"string" enum:"true"`
+	PaymentOption ReservedElasticsearchInstancePaymentOption `json:"es:ReservedElasticsearchInstance:PaymentOption" type:"string" enum:"true"`
 
 	// The charge to your account regardless of whether you are creating any domains
 	// using the instance offering.
-	RecurringCharges []RecurringCharge `type:"list"`
+	RecurringCharges []RecurringCharge `json:"es:ReservedElasticsearchInstance:RecurringCharges" type:"list"`
 
 	// The customer-specified identifier to track this reservation.
-	ReservationName *string `min:"5" type:"string"`
+	ReservationName *string `json:"es:ReservedElasticsearchInstance:ReservationName" min:"5" type:"string"`
 
 	// The unique identifier for the reservation.
-	ReservedElasticsearchInstanceId *string `type:"string"`
+	ReservedElasticsearchInstanceId *string `json:"es:ReservedElasticsearchInstance:ReservedElasticsearchInstanceId" type:"string"`
 
 	// The offering identifier.
-	ReservedElasticsearchInstanceOfferingId *string `type:"string"`
+	ReservedElasticsearchInstanceOfferingId *string `json:"es:ReservedElasticsearchInstance:ReservedElasticsearchInstanceOfferingId" type:"string"`
 
 	// The time the reservation started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"es:ReservedElasticsearchInstance:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The state of the reserved Elasticsearch instance.
-	State *string `type:"string"`
+	State *string `json:"es:ReservedElasticsearchInstance:State" type:"string"`
 
 	// The rate you are charged for each hour for the domain that is using this
 	// reserved instance.
-	UsagePrice *float64 `type:"double"`
+	UsagePrice *float64 `json:"es:ReservedElasticsearchInstance:UsagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -1535,32 +1535,32 @@ type ReservedElasticsearchInstanceOffering struct {
 	_ struct{} `type:"structure"`
 
 	// The currency code for the reserved Elasticsearch instance offering.
-	CurrencyCode *string `type:"string"`
+	CurrencyCode *string `json:"es:ReservedElasticsearchInstanceOffering:CurrencyCode" type:"string"`
 
 	// The duration, in seconds, for which the offering will reserve the Elasticsearch
 	// instance.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"es:ReservedElasticsearchInstanceOffering:Duration" type:"integer"`
 
 	// The Elasticsearch instance type offered by the reserved instance offering.
-	ElasticsearchInstanceType ESPartitionInstanceType `type:"string" enum:"true"`
+	ElasticsearchInstanceType ESPartitionInstanceType `json:"es:ReservedElasticsearchInstanceOffering:ElasticsearchInstanceType" type:"string" enum:"true"`
 
 	// The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch
 	// instance offering.
-	FixedPrice *float64 `type:"double"`
+	FixedPrice *float64 `json:"es:ReservedElasticsearchInstanceOffering:FixedPrice" type:"double"`
 
 	// Payment option for the reserved Elasticsearch instance offering
-	PaymentOption ReservedElasticsearchInstancePaymentOption `type:"string" enum:"true"`
+	PaymentOption ReservedElasticsearchInstancePaymentOption `json:"es:ReservedElasticsearchInstanceOffering:PaymentOption" type:"string" enum:"true"`
 
 	// The charge to your account regardless of whether you are creating any domains
 	// using the instance offering.
-	RecurringCharges []RecurringCharge `type:"list"`
+	RecurringCharges []RecurringCharge `json:"es:ReservedElasticsearchInstanceOffering:RecurringCharges" type:"list"`
 
 	// The Elasticsearch reserved instance offering identifier.
-	ReservedElasticsearchInstanceOfferingId *string `type:"string"`
+	ReservedElasticsearchInstanceOfferingId *string `json:"es:ReservedElasticsearchInstanceOffering:ReservedElasticsearchInstanceOfferingId" type:"string"`
 
 	// The rate you are charged for each hour the domain that is using the offering
 	// is running.
-	UsagePrice *float64 `type:"double"`
+	UsagePrice *float64 `json:"es:ReservedElasticsearchInstanceOffering:UsagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -1633,28 +1633,28 @@ type ServiceSoftwareOptions struct {
 
 	// Timestamp, in Epoch time, until which you can manually request a service
 	// software update. After this date, we automatically update your service software.
-	AutomatedUpdateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AutomatedUpdateDate *time.Time `json:"es:ServiceSoftwareOptions:AutomatedUpdateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// True if you are able to cancel your service software version update. False
 	// if you are not able to cancel your service software version.
-	Cancellable *bool `type:"boolean"`
+	Cancellable *bool `json:"es:ServiceSoftwareOptions:Cancellable" type:"boolean"`
 
 	// The current service software version that is present on the domain.
-	CurrentVersion *string `type:"string"`
+	CurrentVersion *string `json:"es:ServiceSoftwareOptions:CurrentVersion" type:"string"`
 
 	// The description of the UpdateStatus.
-	Description *string `type:"string"`
+	Description *string `json:"es:ServiceSoftwareOptions:Description" type:"string"`
 
 	// The new service software version if one is available.
-	NewVersion *string `type:"string"`
+	NewVersion *string `json:"es:ServiceSoftwareOptions:NewVersion" type:"string"`
 
 	// True if you are able to update you service software version. False if you
 	// are not able to update your service software version.
-	UpdateAvailable *bool `type:"boolean"`
+	UpdateAvailable *bool `json:"es:ServiceSoftwareOptions:UpdateAvailable" type:"boolean"`
 
 	// The status of your service software update. This field can take the following
 	// values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
-	UpdateStatus DeploymentStatus `type:"string" enum:"true"`
+	UpdateStatus DeploymentStatus `json:"es:ServiceSoftwareOptions:UpdateStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1716,7 +1716,7 @@ type SnapshotOptions struct {
 
 	// Specifies the time, in UTC format, when the service takes a daily automated
 	// snapshot of the specified Elasticsearch domain. Default value is 0 hours.
-	AutomatedSnapshotStartHour *int64 `type:"integer"`
+	AutomatedSnapshotStartHour *int64 `json:"es:SnapshotOptions:AutomatedSnapshotStartHour" type:"integer"`
 }
 
 // String returns the string representation
@@ -1742,12 +1742,12 @@ type SnapshotOptionsStatus struct {
 	// Specifies the daily snapshot options specified for the Elasticsearch domain.
 	//
 	// Options is a required field
-	Options *SnapshotOptions `type:"structure" required:"true"`
+	Options *SnapshotOptions `json:"es:SnapshotOptionsStatus:Options" type:"structure" required:"true"`
 
 	// Specifies the status of a daily automated snapshot.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:SnapshotOptionsStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1781,15 +1781,15 @@ type StorageType struct {
 	// For "instance" storageType we wont have any storageSubType, in case of "ebs"
 	// storageType we will have following valid storageSubTypes standard gp2 io1
 	// Refer VolumeType for more information regarding above EBS storage options.
-	StorageSubTypeName *string `type:"string"`
+	StorageSubTypeName *string `json:"es:StorageType:StorageSubTypeName" type:"string"`
 
 	// List of limits that are applicable for given storage type.
-	StorageTypeLimits []StorageTypeLimit `type:"list"`
+	StorageTypeLimits []StorageTypeLimit `json:"es:StorageType:StorageTypeLimits" type:"list"`
 
 	// Type of the storage. List of available storage options: instance Inbuilt
 	// storage available for the given Instance ebs Elastic block storage that would
 	// be attached to the given Instance
-	StorageTypeName *string `type:"string"`
+	StorageTypeName *string `json:"es:StorageType:StorageTypeName" type:"string"`
 }
 
 // String returns the string representation
@@ -1839,10 +1839,10 @@ type StorageTypeLimit struct {
 	// storage type.It can be empty if it is not applicable. MinimumIops Minimum
 	// amount of Iops that is applicable for given storage type.It can be empty
 	// if it is not applicable.
-	LimitName *string `type:"string"`
+	LimitName *string `json:"es:StorageTypeLimit:LimitName" type:"string"`
 
 	// Values for the StorageTypeLimit$LimitName .
-	LimitValues []string `type:"list"`
+	LimitValues []string `json:"es:StorageTypeLimit:LimitValues" type:"list"`
 }
 
 // String returns the string representation
@@ -1881,7 +1881,7 @@ type Tag struct {
 	// Elasticsearch domain to which they are attached.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"es:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// Specifies the TagValue, the value assigned to the corresponding tag key.
 	// Tag values can be null and do not have to be unique in a tag set. For example,
@@ -1889,7 +1889,7 @@ type Tag struct {
 	// : Trinity
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"es:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1941,14 +1941,14 @@ type UpgradeHistory struct {
 
 	// UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ"
 	// format.
-	StartTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTimestamp *time.Time `json:"es:UpgradeHistory:StartTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of UpgradeStepItem s representing information about each step performed
 	// as pard of a specific Upgrade or Upgrade Eligibility Check.
-	StepsList []UpgradeStepItem `type:"list"`
+	StepsList []UpgradeStepItem `json:"es:UpgradeHistory:StepsList" type:"list"`
 
 	// A string that describes the update briefly
-	UpgradeName *string `type:"string"`
+	UpgradeName *string `json:"es:UpgradeHistory:UpgradeName" type:"string"`
 
 	// The overall status of the update. The status can take one of the following
 	// values:
@@ -1959,7 +1959,7 @@ type UpgradeHistory struct {
 	//    * Succeeded with Issues
 	//
 	//    * Failed
-	UpgradeStatus UpgradeStatus `type:"string" enum:"true"`
+	UpgradeStatus UpgradeStatus `json:"es:UpgradeHistory:UpgradeStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2008,11 +2008,11 @@ type UpgradeStepItem struct {
 
 	// A list of strings containing detailed information about the errors encountered
 	// in a particular step.
-	Issues []string `type:"list"`
+	Issues []string `json:"es:UpgradeStepItem:Issues" type:"list"`
 
 	// The Floating point value representing progress percentage of a particular
 	// step.
-	ProgressPercent *float64 `type:"double"`
+	ProgressPercent *float64 `json:"es:UpgradeStepItem:ProgressPercent" type:"double"`
 
 	// Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does
 	// through:
@@ -2021,7 +2021,7 @@ type UpgradeStepItem struct {
 	//    * Snapshot
 	//
 	//    * Upgrade
-	UpgradeStep UpgradeStep `type:"string" enum:"true"`
+	UpgradeStep UpgradeStep `json:"es:UpgradeStepItem:UpgradeStep" type:"string" enum:"true"`
 
 	// The status of a particular step during an upgrade. The status can take one
 	// of the following values:
@@ -2032,7 +2032,7 @@ type UpgradeStepItem struct {
 	//    * Succeeded with Issues
 	//
 	//    * Failed
-	UpgradeStepStatus UpgradeStatus `type:"string" enum:"true"`
+	UpgradeStepStatus UpgradeStatus `json:"es:UpgradeStepItem:UpgradeStepStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2083,17 +2083,17 @@ type VPCDerivedInfo struct {
 
 	// The availability zones for the Elasticsearch domain. Exists only if the domain
 	// was created with VPCOptions.
-	AvailabilityZones []string `type:"list"`
+	AvailabilityZones []string `json:"es:VPCDerivedInfo:AvailabilityZones" type:"list"`
 
 	// Specifies the security groups for VPC endpoint.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"es:VPCDerivedInfo:SecurityGroupIds" type:"list"`
 
 	// Specifies the subnets for VPC endpoint.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"es:VPCDerivedInfo:SubnetIds" type:"list"`
 
 	// The VPC Id for the Elasticsearch domain. Exists only if the domain was created
 	// with VPCOptions.
-	VPCId *string `type:"string"`
+	VPCId *string `json:"es:VPCDerivedInfo:VPCId" type:"string"`
 }
 
 // String returns the string representation
@@ -2155,12 +2155,12 @@ type VPCDerivedInfoStatus struct {
 	// Specifies the VPC options for the specified Elasticsearch domain.
 	//
 	// Options is a required field
-	Options *VPCDerivedInfo `type:"structure" required:"true"`
+	Options *VPCDerivedInfo `json:"es:VPCDerivedInfoStatus:Options" type:"structure" required:"true"`
 
 	// Specifies the status of the VPC options for the specified Elasticsearch domain.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"es:VPCDerivedInfoStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2192,10 +2192,10 @@ type VPCOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the security groups for VPC endpoint.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"es:VPCOptions:SecurityGroupIds" type:"list"`
 
 	// Specifies the subnets for VPC endpoint.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"es:VPCOptions:SubnetIds" type:"list"`
 }
 
 // String returns the string representation
@@ -2240,7 +2240,7 @@ type ZoneAwarenessConfig struct {
 	// An integer value to indicate the number of availability zones for a domain
 	// when zone awareness is enabled. This should be equal to number of subnets
 	// if VPC endpoints is enabled
-	AvailabilityZoneCount *int64 `type:"integer"`
+	AvailabilityZoneCount *int64 `json:"es:ZoneAwarenessConfig:AvailabilityZoneCount" type:"integer"`
 }
 
 // String returns the string representation

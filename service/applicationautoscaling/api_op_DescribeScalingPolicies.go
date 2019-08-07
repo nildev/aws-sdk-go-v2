@@ -136,10 +136,10 @@ type DescribeScalingPoliciesOutput struct {
 
 	// The token required to get the next set of results. This value is null if
 	// there are no more results to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeScalingPoliciesOutput:NextToken" type:"string"`
 
 	// Information about the scaling policies.
-	ScalingPolicies []ScalingPolicy `type:"list"`
+	ScalingPolicies []ScalingPolicy `json:"autoscaling:DescribeScalingPoliciesOutput:ScalingPolicies" type:"list"`
 }
 
 // String returns the string representation

@@ -26,7 +26,7 @@ type GetSubscriptionStateOutput struct {
 	// The status of the subscription.
 	//
 	// SubscriptionState is a required field
-	SubscriptionState SubscriptionState `type:"string" required:"true" enum:"true"`
+	SubscriptionState SubscriptionState `json:"shield:GetSubscriptionStateOutput:SubscriptionState" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

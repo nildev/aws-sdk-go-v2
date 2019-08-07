@@ -24,17 +24,17 @@ type AWSSessionCredentials struct {
 	// The access key for the session.
 	//
 	// AccessKeyId is a required field
-	AccessKeyId *string `locationName:"accessKeyId" type:"string" required:"true"`
+	AccessKeyId *string `json:"codepipeline:AWSSessionCredentials:AccessKeyId" locationName:"accessKeyId" type:"string" required:"true"`
 
 	// The secret access key for the session.
 	//
 	// SecretAccessKey is a required field
-	SecretAccessKey *string `locationName:"secretAccessKey" type:"string" required:"true"`
+	SecretAccessKey *string `json:"codepipeline:AWSSessionCredentials:SecretAccessKey" locationName:"secretAccessKey" type:"string" required:"true"`
 
 	// The token for the session.
 	//
 	// SessionToken is a required field
-	SessionToken *string `locationName:"sessionToken" type:"string" required:"true"`
+	SessionToken *string `json:"codepipeline:AWSSessionCredentials:SessionToken" locationName:"sessionToken" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -48,7 +48,7 @@ type ActionConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The configuration data for the action.
-	Configuration map[string]string `locationName:"configuration" type:"map"`
+	Configuration map[string]string `json:"codepipeline:ActionConfiguration:Configuration" locationName:"configuration" type:"map"`
 }
 
 // String returns the string representation
@@ -63,17 +63,17 @@ type ActionConfigurationProperty struct {
 
 	// The description of the action configuration property that will be displayed
 	// to users.
-	Description *string `locationName:"description" min:"1" type:"string"`
+	Description *string `json:"codepipeline:ActionConfigurationProperty:Description" locationName:"description" min:"1" type:"string"`
 
 	// Whether the configuration property is a key.
 	//
 	// Key is a required field
-	Key *bool `locationName:"key" type:"boolean" required:"true"`
+	Key *bool `json:"codepipeline:ActionConfigurationProperty:Key" locationName:"key" type:"boolean" required:"true"`
 
 	// The name of the action configuration property.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codepipeline:ActionConfigurationProperty:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// Indicates that the property will be used in conjunction with PollForJobs.
 	// When creating a custom action, an action can have up to one queryable property.
@@ -84,12 +84,12 @@ type ActionConfigurationProperty struct {
 	// is subject to additional restrictions. The value must be less than or equal
 	// to twenty (20) characters. The value can contain only alphanumeric characters,
 	// underscores, and hyphens.
-	Queryable *bool `locationName:"queryable" type:"boolean"`
+	Queryable *bool `json:"codepipeline:ActionConfigurationProperty:Queryable" locationName:"queryable" type:"boolean"`
 
 	// Whether the configuration property is a required value.
 	//
 	// Required is a required field
-	Required *bool `locationName:"required" type:"boolean" required:"true"`
+	Required *bool `json:"codepipeline:ActionConfigurationProperty:Required" locationName:"required" type:"boolean" required:"true"`
 
 	// Whether the configuration property is secret. Secrets are hidden from all
 	// calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and
@@ -99,10 +99,10 @@ type ActionConfigurationProperty struct {
 	// of the action will preserve the prior value of the secret.
 	//
 	// Secret is a required field
-	Secret *bool `locationName:"secret" type:"boolean" required:"true"`
+	Secret *bool `json:"codepipeline:ActionConfigurationProperty:Secret" locationName:"secret" type:"boolean" required:"true"`
 
 	// The type of the configuration property.
-	Type ActionConfigurationPropertyType `locationName:"type" type:"string" enum:"true"`
+	Type ActionConfigurationPropertyType `json:"codepipeline:ActionConfigurationProperty:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -149,10 +149,10 @@ type ActionContext struct {
 	_ struct{} `type:"structure"`
 
 	// The system-generated unique ID that corresponds to an action's execution.
-	ActionExecutionId *string `locationName:"actionExecutionId" type:"string"`
+	ActionExecutionId *string `json:"codepipeline:ActionContext:ActionExecutionId" locationName:"actionExecutionId" type:"string"`
 
 	// The name of the action within the context of a job.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"codepipeline:ActionContext:Name" locationName:"name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -168,33 +168,33 @@ type ActionDeclaration struct {
 	// The configuration information for the action type.
 	//
 	// ActionTypeId is a required field
-	ActionTypeId *ActionTypeId `locationName:"actionTypeId" type:"structure" required:"true"`
+	ActionTypeId *ActionTypeId `json:"codepipeline:ActionDeclaration:ActionTypeId" locationName:"actionTypeId" type:"structure" required:"true"`
 
 	// The action declaration's configuration.
-	Configuration map[string]string `locationName:"configuration" type:"map"`
+	Configuration map[string]string `json:"codepipeline:ActionDeclaration:Configuration" locationName:"configuration" type:"map"`
 
 	// The name or ID of the artifact consumed by the action, such as a test or
 	// build artifact.
-	InputArtifacts []InputArtifact `locationName:"inputArtifacts" type:"list"`
+	InputArtifacts []InputArtifact `json:"codepipeline:ActionDeclaration:InputArtifacts" locationName:"inputArtifacts" type:"list"`
 
 	// The action declaration's name.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codepipeline:ActionDeclaration:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The name or ID of the result of the action declaration, such as a test or
 	// build artifact.
-	OutputArtifacts []OutputArtifact `locationName:"outputArtifacts" type:"list"`
+	OutputArtifacts []OutputArtifact `json:"codepipeline:ActionDeclaration:OutputArtifacts" locationName:"outputArtifacts" type:"list"`
 
 	// The action declaration's AWS Region, such as us-east-1.
-	Region *string `locationName:"region" min:"4" type:"string"`
+	Region *string `json:"codepipeline:ActionDeclaration:Region" locationName:"region" min:"4" type:"string"`
 
 	// The ARN of the IAM service role that will perform the declared action. This
 	// is assumed through the roleArn for the pipeline.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"codepipeline:ActionDeclaration:RoleArn" locationName:"roleArn" type:"string"`
 
 	// The order in which actions are run.
-	RunOrder *int64 `locationName:"runOrder" min:"1" type:"integer"`
+	RunOrder *int64 `json:"codepipeline:ActionDeclaration:RunOrder" locationName:"runOrder" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -254,36 +254,36 @@ type ActionExecution struct {
 	_ struct{} `type:"structure"`
 
 	// The details of an error returned by a URL external to AWS.
-	ErrorDetails *ErrorDetails `locationName:"errorDetails" type:"structure"`
+	ErrorDetails *ErrorDetails `json:"codepipeline:ActionExecution:ErrorDetails" locationName:"errorDetails" type:"structure"`
 
 	// The external ID of the run of the action.
-	ExternalExecutionId *string `locationName:"externalExecutionId" min:"1" type:"string"`
+	ExternalExecutionId *string `json:"codepipeline:ActionExecution:ExternalExecutionId" locationName:"externalExecutionId" min:"1" type:"string"`
 
 	// The URL of a resource external to AWS that will be used when running the
 	// action, for example an external repository URL.
-	ExternalExecutionUrl *string `locationName:"externalExecutionUrl" min:"1" type:"string"`
+	ExternalExecutionUrl *string `json:"codepipeline:ActionExecution:ExternalExecutionUrl" locationName:"externalExecutionUrl" min:"1" type:"string"`
 
 	// The last status change of the action.
-	LastStatusChange *time.Time `locationName:"lastStatusChange" type:"timestamp" timestampFormat:"unix"`
+	LastStatusChange *time.Time `json:"codepipeline:ActionExecution:LastStatusChange" locationName:"lastStatusChange" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the user who last changed the pipeline.
-	LastUpdatedBy *string `locationName:"lastUpdatedBy" type:"string"`
+	LastUpdatedBy *string `json:"codepipeline:ActionExecution:LastUpdatedBy" locationName:"lastUpdatedBy" type:"string"`
 
 	// A percentage of completeness of the action as it runs.
-	PercentComplete *int64 `locationName:"percentComplete" type:"integer"`
+	PercentComplete *int64 `json:"codepipeline:ActionExecution:PercentComplete" locationName:"percentComplete" type:"integer"`
 
 	// The status of the action, or for a completed action, the last status of the
 	// action.
-	Status ActionExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status ActionExecutionStatus `json:"codepipeline:ActionExecution:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A summary of the run of the action.
-	Summary *string `locationName:"summary" min:"1" type:"string"`
+	Summary *string `json:"codepipeline:ActionExecution:Summary" locationName:"summary" min:"1" type:"string"`
 
 	// The system-generated token used to identify a unique approval request. The
 	// token for each open approval request can be obtained using the GetPipelineState
 	// command and is used to validate that the approval request corresponding to
 	// this token is still valid.
-	Token *string `locationName:"token" type:"string"`
+	Token *string `json:"codepipeline:ActionExecution:Token" locationName:"token" type:"string"`
 }
 
 // String returns the string representation
@@ -298,36 +298,36 @@ type ActionExecutionDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The action execution ID.
-	ActionExecutionId *string `locationName:"actionExecutionId" type:"string"`
+	ActionExecutionId *string `json:"codepipeline:ActionExecutionDetail:ActionExecutionId" locationName:"actionExecutionId" type:"string"`
 
 	// The name of the action.
-	ActionName *string `locationName:"actionName" min:"1" type:"string"`
+	ActionName *string `json:"codepipeline:ActionExecutionDetail:ActionName" locationName:"actionName" min:"1" type:"string"`
 
 	// Input details for the action execution, such as role ARN, Region, and input
 	// artifacts.
-	Input *ActionExecutionInput `locationName:"input" type:"structure"`
+	Input *ActionExecutionInput `json:"codepipeline:ActionExecutionDetail:Input" locationName:"input" type:"structure"`
 
 	// The last update time of the action execution.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"codepipeline:ActionExecutionDetail:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Output details for the action execution, such as the action execution result.
-	Output *ActionExecutionOutput `locationName:"output" type:"structure"`
+	Output *ActionExecutionOutput `json:"codepipeline:ActionExecutionDetail:Output" locationName:"output" type:"structure"`
 
 	// The pipeline execution ID for the action execution.
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+	PipelineExecutionId *string `json:"codepipeline:ActionExecutionDetail:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string"`
 
 	// The version of the pipeline where the action was run.
-	PipelineVersion *int64 `locationName:"pipelineVersion" min:"1" type:"integer"`
+	PipelineVersion *int64 `json:"codepipeline:ActionExecutionDetail:PipelineVersion" locationName:"pipelineVersion" min:"1" type:"integer"`
 
 	// The name of the stage that contains the action.
-	StageName *string `locationName:"stageName" min:"1" type:"string"`
+	StageName *string `json:"codepipeline:ActionExecutionDetail:StageName" locationName:"stageName" min:"1" type:"string"`
 
 	// The start time of the action execution.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"codepipeline:ActionExecutionDetail:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the action execution. Status categories are InProgress, Succeeded,
 	// and Failed.
-	Status ActionExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status ActionExecutionStatus `json:"codepipeline:ActionExecutionDetail:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -341,7 +341,7 @@ type ActionExecutionFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The pipeline execution ID used to filter action execution history.
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+	PipelineExecutionId *string `json:"codepipeline:ActionExecutionFilter:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string"`
 }
 
 // String returns the string representation
@@ -355,20 +355,20 @@ type ActionExecutionInput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents information about an action type.
-	ActionTypeId *ActionTypeId `locationName:"actionTypeId" type:"structure"`
+	ActionTypeId *ActionTypeId `json:"codepipeline:ActionExecutionInput:ActionTypeId" locationName:"actionTypeId" type:"structure"`
 
 	// Configuration data for an action execution.
-	Configuration map[string]string `locationName:"configuration" type:"map"`
+	Configuration map[string]string `json:"codepipeline:ActionExecutionInput:Configuration" locationName:"configuration" type:"map"`
 
 	// Details of input artifacts of the action that correspond to the action execution.
-	InputArtifacts []ArtifactDetail `locationName:"inputArtifacts" type:"list"`
+	InputArtifacts []ArtifactDetail `json:"codepipeline:ActionExecutionInput:InputArtifacts" locationName:"inputArtifacts" type:"list"`
 
 	// The AWS Region for the action, such as us-east-1.
-	Region *string `locationName:"region" min:"4" type:"string"`
+	Region *string `json:"codepipeline:ActionExecutionInput:Region" locationName:"region" min:"4" type:"string"`
 
 	// The ARN of the IAM service role that performs the declared action. This is
 	// assumed through the roleArn for the pipeline.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"codepipeline:ActionExecutionInput:RoleArn" locationName:"roleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -383,10 +383,10 @@ type ActionExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Execution result information listed in the output details for an action execution.
-	ExecutionResult *ActionExecutionResult `locationName:"executionResult" type:"structure"`
+	ExecutionResult *ActionExecutionResult `json:"codepipeline:ActionExecutionOutput:ExecutionResult" locationName:"executionResult" type:"structure"`
 
 	// Details of output artifacts of the action that correspond to the action execution.
-	OutputArtifacts []ArtifactDetail `locationName:"outputArtifacts" type:"list"`
+	OutputArtifacts []ArtifactDetail `json:"codepipeline:ActionExecutionOutput:OutputArtifacts" locationName:"outputArtifacts" type:"list"`
 }
 
 // String returns the string representation
@@ -400,14 +400,14 @@ type ActionExecutionResult struct {
 	_ struct{} `type:"structure"`
 
 	// The action provider's external ID for the action execution.
-	ExternalExecutionId *string `locationName:"externalExecutionId" type:"string"`
+	ExternalExecutionId *string `json:"codepipeline:ActionExecutionResult:ExternalExecutionId" locationName:"externalExecutionId" type:"string"`
 
 	// The action provider's summary for the action execution.
-	ExternalExecutionSummary *string `locationName:"externalExecutionSummary" type:"string"`
+	ExternalExecutionSummary *string `json:"codepipeline:ActionExecutionResult:ExternalExecutionSummary" locationName:"externalExecutionSummary" type:"string"`
 
 	// The deepest external link to the external resource (for example, a repository
 	// URL or deployment endpoint) that is used when running the action.
-	ExternalExecutionUrl *string `locationName:"externalExecutionUrl" min:"1" type:"string"`
+	ExternalExecutionUrl *string `json:"codepipeline:ActionExecutionResult:ExternalExecutionUrl" locationName:"externalExecutionUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -424,19 +424,19 @@ type ActionRevision struct {
 	// in timestamp format.
 	//
 	// Created is a required field
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix" required:"true"`
+	Created *time.Time `json:"codepipeline:ActionRevision:Created" locationName:"created" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The unique identifier of the change that set the state to this revision,
 	// for example a deployment ID or timestamp.
 	//
 	// RevisionChangeId is a required field
-	RevisionChangeId *string `locationName:"revisionChangeId" min:"1" type:"string" required:"true"`
+	RevisionChangeId *string `json:"codepipeline:ActionRevision:RevisionChangeId" locationName:"revisionChangeId" min:"1" type:"string" required:"true"`
 
 	// The system-generated unique ID that identifies the revision number of the
 	// action.
 	//
 	// RevisionId is a required field
-	RevisionId *string `locationName:"revisionId" min:"1" type:"string" required:"true"`
+	RevisionId *string `json:"codepipeline:ActionRevision:RevisionId" locationName:"revisionId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -478,21 +478,21 @@ type ActionState struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the action.
-	ActionName *string `locationName:"actionName" min:"1" type:"string"`
+	ActionName *string `json:"codepipeline:ActionState:ActionName" locationName:"actionName" min:"1" type:"string"`
 
 	// Represents information about the version (or revision) of an action.
-	CurrentRevision *ActionRevision `locationName:"currentRevision" type:"structure"`
+	CurrentRevision *ActionRevision `json:"codepipeline:ActionState:CurrentRevision" locationName:"currentRevision" type:"structure"`
 
 	// A URL link for more information about the state of the action, such as a
 	// deployment group details page.
-	EntityUrl *string `locationName:"entityUrl" min:"1" type:"string"`
+	EntityUrl *string `json:"codepipeline:ActionState:EntityUrl" locationName:"entityUrl" min:"1" type:"string"`
 
 	// Represents information about the run of an action.
-	LatestExecution *ActionExecution `locationName:"latestExecution" type:"structure"`
+	LatestExecution *ActionExecution `json:"codepipeline:ActionState:LatestExecution" locationName:"latestExecution" type:"structure"`
 
 	// A URL link for more information about the revision, such as a commit details
 	// page.
-	RevisionUrl *string `locationName:"revisionUrl" min:"1" type:"string"`
+	RevisionUrl *string `json:"codepipeline:ActionState:RevisionUrl" locationName:"revisionUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -506,25 +506,25 @@ type ActionType struct {
 	_ struct{} `type:"structure"`
 
 	// The configuration properties for the action type.
-	ActionConfigurationProperties []ActionConfigurationProperty `locationName:"actionConfigurationProperties" type:"list"`
+	ActionConfigurationProperties []ActionConfigurationProperty `json:"codepipeline:ActionType:ActionConfigurationProperties" locationName:"actionConfigurationProperties" type:"list"`
 
 	// Represents information about an action type.
 	//
 	// Id is a required field
-	Id *ActionTypeId `locationName:"id" type:"structure" required:"true"`
+	Id *ActionTypeId `json:"codepipeline:ActionType:Id" locationName:"id" type:"structure" required:"true"`
 
 	// The details of the input artifact for the action, such as its commit ID.
 	//
 	// InputArtifactDetails is a required field
-	InputArtifactDetails *ArtifactDetails `locationName:"inputArtifactDetails" type:"structure" required:"true"`
+	InputArtifactDetails *ArtifactDetails `json:"codepipeline:ActionType:InputArtifactDetails" locationName:"inputArtifactDetails" type:"structure" required:"true"`
 
 	// The details of the output artifact of the action, such as its commit ID.
 	//
 	// OutputArtifactDetails is a required field
-	OutputArtifactDetails *ArtifactDetails `locationName:"outputArtifactDetails" type:"structure" required:"true"`
+	OutputArtifactDetails *ArtifactDetails `json:"codepipeline:ActionType:OutputArtifactDetails" locationName:"outputArtifactDetails" type:"structure" required:"true"`
 
 	// The settings for the action type.
-	Settings *ActionTypeSettings `locationName:"settings" type:"structure"`
+	Settings *ActionTypeSettings `json:"codepipeline:ActionType:Settings" locationName:"settings" type:"structure"`
 }
 
 // String returns the string representation
@@ -542,12 +542,12 @@ type ActionTypeId struct {
 	// the values below.
 	//
 	// Category is a required field
-	Category ActionCategory `locationName:"category" type:"string" required:"true" enum:"true"`
+	Category ActionCategory `json:"codepipeline:ActionTypeId:Category" locationName:"category" type:"string" required:"true" enum:"true"`
 
 	// The creator of the action being called.
 	//
 	// Owner is a required field
-	Owner ActionOwner `locationName:"owner" type:"string" required:"true" enum:"true"`
+	Owner ActionOwner `json:"codepipeline:ActionTypeId:Owner" locationName:"owner" type:"string" required:"true" enum:"true"`
 
 	// The provider of the service being called by the action. Valid providers are
 	// determined by the action category. For example, an action in the Deploy category
@@ -556,12 +556,12 @@ type ActionTypeId struct {
 	// Action Types and Providers in CodePipeline (https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers).
 	//
 	// Provider is a required field
-	Provider *string `locationName:"provider" min:"1" type:"string" required:"true"`
+	Provider *string `json:"codepipeline:ActionTypeId:Provider" locationName:"provider" min:"1" type:"string" required:"true"`
 
 	// A string that describes the action version.
 	//
 	// Version is a required field
-	Version *string `locationName:"version" min:"1" type:"string" required:"true"`
+	Version *string `json:"codepipeline:ActionTypeId:Version" locationName:"version" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -608,23 +608,23 @@ type ActionTypeSettings struct {
 	// to the resources of the external system, such as the configuration page for
 	// an AWS CodeDeploy deployment group. This link is provided as part of the
 	// action display within the pipeline.
-	EntityUrlTemplate *string `locationName:"entityUrlTemplate" min:"1" type:"string"`
+	EntityUrlTemplate *string `json:"codepipeline:ActionTypeSettings:EntityUrlTemplate" locationName:"entityUrlTemplate" min:"1" type:"string"`
 
 	// The URL returned to the AWS CodePipeline console that contains a link to
 	// the top-level landing page for the external system, such as console page
 	// for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS
 	// CodePipeline console and provides a link to the execution entity of the external
 	// action.
-	ExecutionUrlTemplate *string `locationName:"executionUrlTemplate" min:"1" type:"string"`
+	ExecutionUrlTemplate *string `json:"codepipeline:ActionTypeSettings:ExecutionUrlTemplate" locationName:"executionUrlTemplate" min:"1" type:"string"`
 
 	// The URL returned to the AWS CodePipeline console that contains a link to
 	// the page where customers can update or change the configuration of the external
 	// action.
-	RevisionUrlTemplate *string `locationName:"revisionUrlTemplate" min:"1" type:"string"`
+	RevisionUrlTemplate *string `json:"codepipeline:ActionTypeSettings:RevisionUrlTemplate" locationName:"revisionUrlTemplate" min:"1" type:"string"`
 
 	// The URL of a sign-up page where users can sign up for an external service
 	// and perform initial configuration of the action provided by that service.
-	ThirdPartyConfigurationUrl *string `locationName:"thirdPartyConfigurationUrl" min:"1" type:"string"`
+	ThirdPartyConfigurationUrl *string `json:"codepipeline:ActionTypeSettings:ThirdPartyConfigurationUrl" locationName:"thirdPartyConfigurationUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -662,12 +662,12 @@ type ApprovalResult struct {
 	// The response submitted by a reviewer assigned to an approval action request.
 	//
 	// Status is a required field
-	Status ApprovalStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status ApprovalStatus `json:"codepipeline:ApprovalResult:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 
 	// The summary of the current status of the approval request.
 	//
 	// Summary is a required field
-	Summary *string `locationName:"summary" type:"string" required:"true"`
+	Summary *string `json:"codepipeline:ApprovalResult:Summary" locationName:"summary" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -699,14 +699,14 @@ type Artifact struct {
 	_ struct{} `type:"structure"`
 
 	// The location of an artifact.
-	Location *ArtifactLocation `locationName:"location" type:"structure"`
+	Location *ArtifactLocation `json:"codepipeline:Artifact:Location" locationName:"location" type:"structure"`
 
 	// The artifact's name.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"codepipeline:Artifact:Name" locationName:"name" min:"1" type:"string"`
 
 	// The artifact's revision ID. Depending on the type of object, this could be
 	// a commit ID (GitHub) or a revision ID (Amazon S3).
-	Revision *string `locationName:"revision" min:"1" type:"string"`
+	Revision *string `json:"codepipeline:Artifact:Revision" locationName:"revision" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -720,10 +720,10 @@ type ArtifactDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The artifact object name for the action execution.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"codepipeline:ArtifactDetail:Name" locationName:"name" min:"1" type:"string"`
 
 	// The Amazon S3 artifact location for the action execution.
-	S3location *S3Location `locationName:"s3location" type:"structure"`
+	S3location *S3Location `json:"codepipeline:ArtifactDetail:S3location" locationName:"s3location" type:"structure"`
 }
 
 // String returns the string representation
@@ -739,12 +739,12 @@ type ArtifactDetails struct {
 	// The maximum number of artifacts allowed for the action type.
 	//
 	// MaximumCount is a required field
-	MaximumCount *int64 `locationName:"maximumCount" type:"integer" required:"true"`
+	MaximumCount *int64 `json:"codepipeline:ArtifactDetails:MaximumCount" locationName:"maximumCount" type:"integer" required:"true"`
 
 	// The minimum number of artifacts allowed for the action type.
 	//
 	// MinimumCount is a required field
-	MinimumCount *int64 `locationName:"minimumCount" type:"integer" required:"true"`
+	MinimumCount *int64 `json:"codepipeline:ArtifactDetails:MinimumCount" locationName:"minimumCount" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -776,10 +776,10 @@ type ArtifactLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 bucket that contains the artifact.
-	S3Location *S3ArtifactLocation `locationName:"s3Location" type:"structure"`
+	S3Location *S3ArtifactLocation `json:"codepipeline:ArtifactLocation:S3Location" locationName:"s3Location" type:"structure"`
 
 	// The type of artifact in the location.
-	Type ArtifactLocationType `locationName:"type" type:"string" enum:"true"`
+	Type ArtifactLocationType `json:"codepipeline:ArtifactLocation:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -794,29 +794,29 @@ type ArtifactRevision struct {
 
 	// The date and time when the most recent revision of the artifact was created,
 	// in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"codepipeline:ArtifactRevision:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of an artifact. This name might be system-generated, such as "MyApp",
 	// or might be defined by the user when an action is created.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"codepipeline:ArtifactRevision:Name" locationName:"name" min:"1" type:"string"`
 
 	// An additional identifier for a revision, such as a commit date or, for artifacts
 	// stored in Amazon S3 buckets, the ETag value.
-	RevisionChangeIdentifier *string `locationName:"revisionChangeIdentifier" min:"1" type:"string"`
+	RevisionChangeIdentifier *string `json:"codepipeline:ArtifactRevision:RevisionChangeIdentifier" locationName:"revisionChangeIdentifier" min:"1" type:"string"`
 
 	// The revision ID of the artifact.
-	RevisionId *string `locationName:"revisionId" min:"1" type:"string"`
+	RevisionId *string `json:"codepipeline:ArtifactRevision:RevisionId" locationName:"revisionId" min:"1" type:"string"`
 
 	// Summary information about the most recent revision of the artifact. For GitHub
 	// and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets
 	// or actions, the user-provided content of a codepipeline-artifact-revision-summary
 	// key specified in the object metadata.
-	RevisionSummary *string `locationName:"revisionSummary" min:"1" type:"string"`
+	RevisionSummary *string `json:"codepipeline:ArtifactRevision:RevisionSummary" locationName:"revisionSummary" min:"1" type:"string"`
 
 	// The commit ID for the artifact revision. For artifacts stored in GitHub or
 	// AWS CodeCommit repositories, the commit ID is linked to a commit details
 	// page.
-	RevisionUrl *string `locationName:"revisionUrl" min:"1" type:"string"`
+	RevisionUrl *string `json:"codepipeline:ArtifactRevision:RevisionUrl" locationName:"revisionUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -832,7 +832,7 @@ type ArtifactStore struct {
 	// The encryption key used to encrypt the data in the artifact store, such as
 	// an AWS Key Management Service (AWS KMS) key. If this is undefined, the default
 	// key for Amazon S3 is used.
-	EncryptionKey *EncryptionKey `locationName:"encryptionKey" type:"structure"`
+	EncryptionKey *EncryptionKey `json:"codepipeline:ArtifactStore:EncryptionKey" locationName:"encryptionKey" type:"structure"`
 
 	// The Amazon S3 bucket used for storing the artifacts for a pipeline. You can
 	// specify the name of an S3 bucket but not a folder within the bucket. A folder
@@ -841,12 +841,12 @@ type ArtifactStore struct {
 	// the pipeline to store your pipeline artifacts.
 	//
 	// Location is a required field
-	Location *string `locationName:"location" min:"3" type:"string" required:"true"`
+	Location *string `json:"codepipeline:ArtifactStore:Location" locationName:"location" min:"3" type:"string" required:"true"`
 
 	// The type of the artifact store, such as S3.
 	//
 	// Type is a required field
-	Type ArtifactStoreType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type ArtifactStoreType `json:"codepipeline:ArtifactStore:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -887,12 +887,12 @@ type BlockerDeclaration struct {
 	// Reserved for future use.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codepipeline:BlockerDeclaration:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// Reserved for future use.
 	//
 	// Type is a required field
-	Type BlockerType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type BlockerType `json:"codepipeline:BlockerDeclaration:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -928,19 +928,19 @@ type CurrentRevision struct {
 	// The change identifier for the current revision.
 	//
 	// ChangeIdentifier is a required field
-	ChangeIdentifier *string `locationName:"changeIdentifier" min:"1" type:"string" required:"true"`
+	ChangeIdentifier *string `json:"codepipeline:CurrentRevision:ChangeIdentifier" locationName:"changeIdentifier" min:"1" type:"string" required:"true"`
 
 	// The date and time when the most recent revision of the artifact was created,
 	// in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"codepipeline:CurrentRevision:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The revision ID of the current version of an artifact.
 	//
 	// Revision is a required field
-	Revision *string `locationName:"revision" min:"1" type:"string" required:"true"`
+	Revision *string `json:"codepipeline:CurrentRevision:Revision" locationName:"revision" min:"1" type:"string" required:"true"`
 
 	// The summary of the most recent revision of the artifact.
-	RevisionSummary *string `locationName:"revisionSummary" min:"1" type:"string"`
+	RevisionSummary *string `json:"codepipeline:CurrentRevision:RevisionSummary" locationName:"revisionSummary" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -985,13 +985,13 @@ type EncryptionKey struct {
 	// key ARN.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"1" type:"string" required:"true"`
+	Id *string `json:"codepipeline:EncryptionKey:Id" locationName:"id" min:"1" type:"string" required:"true"`
 
 	// The type of encryption key, such as an AWS Key Management Service (AWS KMS)
 	// key. When creating or updating a pipeline, the value must be set to 'KMS'.
 	//
 	// Type is a required field
-	Type EncryptionKeyType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type EncryptionKeyType `json:"codepipeline:EncryptionKey:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1025,10 +1025,10 @@ type ErrorDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The system ID or error number code of the error.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"codepipeline:ErrorDetails:Code" locationName:"code" type:"string"`
 
 	// The text of the error message.
-	Message *string `locationName:"message" min:"1" type:"string"`
+	Message *string `json:"codepipeline:ErrorDetails:Message" locationName:"message" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1044,14 +1044,14 @@ type ExecutionDetails struct {
 
 	// The system-generated unique ID of this action used to identify this job worker
 	// in any external systems, such as AWS CodeDeploy.
-	ExternalExecutionId *string `locationName:"externalExecutionId" min:"1" type:"string"`
+	ExternalExecutionId *string `json:"codepipeline:ExecutionDetails:ExternalExecutionId" locationName:"externalExecutionId" min:"1" type:"string"`
 
 	// The percentage of work completed on the action, represented on a scale of
 	// zero to one hundred percent.
-	PercentComplete *int64 `locationName:"percentComplete" type:"integer"`
+	PercentComplete *int64 `json:"codepipeline:ExecutionDetails:PercentComplete" locationName:"percentComplete" type:"integer"`
 
 	// The summary of the current status of the actions.
-	Summary *string `locationName:"summary" min:"1" type:"string"`
+	Summary *string `json:"codepipeline:ExecutionDetails:Summary" locationName:"summary" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1081,17 +1081,17 @@ type FailureDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The external ID of the run of the action that failed.
-	ExternalExecutionId *string `locationName:"externalExecutionId" min:"1" type:"string"`
+	ExternalExecutionId *string `json:"codepipeline:FailureDetails:ExternalExecutionId" locationName:"externalExecutionId" min:"1" type:"string"`
 
 	// The message about the failure.
 	//
 	// Message is a required field
-	Message *string `locationName:"message" min:"1" type:"string" required:"true"`
+	Message *string `json:"codepipeline:FailureDetails:Message" locationName:"message" min:"1" type:"string" required:"true"`
 
 	// The type of the failure.
 	//
 	// Type is a required field
-	Type FailureType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type FailureType `json:"codepipeline:FailureDetails:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1137,7 +1137,7 @@ type InputArtifact struct {
 	// turn consumed by different following actions.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codepipeline:InputArtifact:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1168,18 +1168,18 @@ type Job struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the AWS account to use when performing the job.
-	AccountId *string `locationName:"accountId" type:"string"`
+	AccountId *string `json:"codepipeline:Job:AccountId" locationName:"accountId" type:"string"`
 
 	// Additional data about a job.
-	Data *JobData `locationName:"data" type:"structure"`
+	Data *JobData `json:"codepipeline:Job:Data" locationName:"data" type:"structure"`
 
 	// The unique system-generated ID of the job.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"codepipeline:Job:Id" locationName:"id" type:"string"`
 
 	// A system-generated random number that AWS CodePipeline uses to ensure that
 	// the job is being worked on by only one job worker. Use this number in an
 	// AcknowledgeJob request.
-	Nonce *string `locationName:"nonce" min:"1" type:"string"`
+	Nonce *string `json:"codepipeline:Job:Nonce" locationName:"nonce" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1194,35 +1194,35 @@ type JobData struct {
 	_ struct{} `type:"structure"`
 
 	// Represents information about an action configuration.
-	ActionConfiguration *ActionConfiguration `locationName:"actionConfiguration" type:"structure"`
+	ActionConfiguration *ActionConfiguration `json:"codepipeline:JobData:ActionConfiguration" locationName:"actionConfiguration" type:"structure"`
 
 	// Represents information about an action type.
-	ActionTypeId *ActionTypeId `locationName:"actionTypeId" type:"structure"`
+	ActionTypeId *ActionTypeId `json:"codepipeline:JobData:ActionTypeId" locationName:"actionTypeId" type:"structure"`
 
 	// Represents an AWS session credentials object. These credentials are temporary
 	// credentials that are issued by AWS Secure Token Service (STS). They can be
 	// used to access input and output artifacts in the Amazon S3 bucket used to
 	// store artifacts for the pipeline in AWS CodePipeline.
-	ArtifactCredentials *AWSSessionCredentials `locationName:"artifactCredentials" type:"structure"`
+	ArtifactCredentials *AWSSessionCredentials `json:"codepipeline:JobData:ArtifactCredentials" locationName:"artifactCredentials" type:"structure"`
 
 	// A system-generated token, such as a AWS CodeDeploy deployment ID, that a
 	// job requires in order to continue the job asynchronously.
-	ContinuationToken *string `locationName:"continuationToken" min:"1" type:"string"`
+	ContinuationToken *string `json:"codepipeline:JobData:ContinuationToken" locationName:"continuationToken" min:"1" type:"string"`
 
 	// Represents information about the key used to encrypt data in the artifact
 	// store, such as an AWS Key Management Service (AWS KMS) key.
-	EncryptionKey *EncryptionKey `locationName:"encryptionKey" type:"structure"`
+	EncryptionKey *EncryptionKey `json:"codepipeline:JobData:EncryptionKey" locationName:"encryptionKey" type:"structure"`
 
 	// The artifact supplied to the job.
-	InputArtifacts []Artifact `locationName:"inputArtifacts" type:"list"`
+	InputArtifacts []Artifact `json:"codepipeline:JobData:InputArtifacts" locationName:"inputArtifacts" type:"list"`
 
 	// The output of the job.
-	OutputArtifacts []Artifact `locationName:"outputArtifacts" type:"list"`
+	OutputArtifacts []Artifact `json:"codepipeline:JobData:OutputArtifacts" locationName:"outputArtifacts" type:"list"`
 
 	// Represents information about a pipeline to a job worker.
 	//
 	// Includes pipelineArn and pipelineExecutionId for Custom jobs.
-	PipelineContext *PipelineContext `locationName:"pipelineContext" type:"structure"`
+	PipelineContext *PipelineContext `json:"codepipeline:JobData:PipelineContext" locationName:"pipelineContext" type:"structure"`
 }
 
 // String returns the string representation
@@ -1236,14 +1236,14 @@ type JobDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID associated with the job.
-	AccountId *string `locationName:"accountId" type:"string"`
+	AccountId *string `json:"codepipeline:JobDetails:AccountId" locationName:"accountId" type:"string"`
 
 	// Represents additional information about a job required for a job worker to
 	// complete the job.
-	Data *JobData `locationName:"data" type:"structure"`
+	Data *JobData `json:"codepipeline:JobDetails:Data" locationName:"data" type:"structure"`
 
 	// The unique system-generated ID of the job.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"codepipeline:JobDetails:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation
@@ -1258,26 +1258,26 @@ type ListWebhookItem struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the webhook.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"codepipeline:ListWebhookItem:Arn" locationName:"arn" type:"string"`
 
 	// The detail returned for each webhook, such as the webhook authentication
 	// type and filter rules.
 	//
 	// Definition is a required field
-	Definition *WebhookDefinition `locationName:"definition" type:"structure" required:"true"`
+	Definition *WebhookDefinition `json:"codepipeline:ListWebhookItem:Definition" locationName:"definition" type:"structure" required:"true"`
 
 	// The number code of the error.
-	ErrorCode *string `locationName:"errorCode" type:"string"`
+	ErrorCode *string `json:"codepipeline:ListWebhookItem:ErrorCode" locationName:"errorCode" type:"string"`
 
 	// The text of the error message about the webhook.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"codepipeline:ListWebhookItem:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The date and time a webhook was last successfully triggered, in timestamp
 	// format.
-	LastTriggered *time.Time `locationName:"lastTriggered" type:"timestamp" timestampFormat:"unix"`
+	LastTriggered *time.Time `json:"codepipeline:ListWebhookItem:LastTriggered" locationName:"lastTriggered" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies the tags applied to the webhook.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"codepipeline:ListWebhookItem:Tags" locationName:"tags" type:"list"`
 
 	// A unique URL generated by CodePipeline. When a POST request is made to this
 	// URL, the defined pipeline is started as long as the body of the post request
@@ -1285,7 +1285,7 @@ type ListWebhookItem struct {
 	// re-creating a webhook will make the old URL invalid and generate a new URL.
 	//
 	// Url is a required field
-	Url *string `locationName:"url" min:"1" type:"string" required:"true"`
+	Url *string `json:"codepipeline:ListWebhookItem:Url" locationName:"url" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1309,7 +1309,7 @@ type OutputArtifact struct {
 	// Output artifact names must be unique within a pipeline.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codepipeline:OutputArtifact:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1344,20 +1344,20 @@ type PipelineContext struct {
 	_ struct{} `type:"structure"`
 
 	// The context of an action to a job worker within the stage of a pipeline.
-	Action *ActionContext `locationName:"action" type:"structure"`
+	Action *ActionContext `json:"codepipeline:PipelineContext:Action" locationName:"action" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the pipeline.
-	PipelineArn *string `locationName:"pipelineArn" type:"string"`
+	PipelineArn *string `json:"codepipeline:PipelineContext:PipelineArn" locationName:"pipelineArn" type:"string"`
 
 	// The execution ID of the pipeline.
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+	PipelineExecutionId *string `json:"codepipeline:PipelineContext:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string"`
 
 	// The name of the pipeline. This is a user-specified value. Pipeline names
 	// must be unique across all pipeline names under an Amazon Web Services account.
-	PipelineName *string `locationName:"pipelineName" min:"1" type:"string"`
+	PipelineName *string `json:"codepipeline:PipelineContext:PipelineName" locationName:"pipelineName" min:"1" type:"string"`
 
 	// The stage of the pipeline.
-	Stage *StageContext `locationName:"stage" type:"structure"`
+	Stage *StageContext `json:"codepipeline:PipelineContext:Stage" locationName:"stage" type:"structure"`
 }
 
 // String returns the string representation
@@ -1372,7 +1372,7 @@ type PipelineDeclaration struct {
 
 	// Represents information about the Amazon S3 bucket where artifacts are stored
 	// for the pipeline.
-	ArtifactStore *ArtifactStore `locationName:"artifactStore" type:"structure"`
+	ArtifactStore *ArtifactStore `json:"codepipeline:PipelineDeclaration:ArtifactStore" locationName:"artifactStore" type:"structure"`
 
 	// A mapping of artifactStore objects and their corresponding regions. There
 	// must be an artifact store for the pipeline region and for each cross-region
@@ -1380,28 +1380,28 @@ type PipelineDeclaration struct {
 	// not both.
 	//
 	// If you create a cross-region action in your pipeline, you must use artifactStores.
-	ArtifactStores map[string]ArtifactStore `locationName:"artifactStores" type:"map"`
+	ArtifactStores map[string]ArtifactStore `json:"codepipeline:PipelineDeclaration:ArtifactStores" locationName:"artifactStores" type:"map"`
 
 	// The name of the action to be performed.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codepipeline:PipelineDeclaration:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform
 	// actions with no actionRoleArn, or to use to assume roles for actions with
 	// an actionRoleArn.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"codepipeline:PipelineDeclaration:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The stage in which to perform the action.
 	//
 	// Stages is a required field
-	Stages []StageDeclaration `locationName:"stages" type:"list" required:"true"`
+	Stages []StageDeclaration `json:"codepipeline:PipelineDeclaration:Stages" locationName:"stages" type:"list" required:"true"`
 
 	// The version number of the pipeline. A new pipeline always has a version number
 	// of 1. This number is automatically incremented when a pipeline is updated.
-	Version *int64 `locationName:"version" min:"1" type:"integer"`
+	Version *int64 `json:"codepipeline:PipelineDeclaration:Version" locationName:"version" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -1462,16 +1462,16 @@ type PipelineExecution struct {
 	_ struct{} `type:"structure"`
 
 	// A list of ArtifactRevision objects included in a pipeline execution.
-	ArtifactRevisions []ArtifactRevision `locationName:"artifactRevisions" type:"list"`
+	ArtifactRevisions []ArtifactRevision `json:"codepipeline:PipelineExecution:ArtifactRevisions" locationName:"artifactRevisions" type:"list"`
 
 	// The ID of the pipeline execution.
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+	PipelineExecutionId *string `json:"codepipeline:PipelineExecution:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string"`
 
 	// The name of the pipeline that was executed.
-	PipelineName *string `locationName:"pipelineName" min:"1" type:"string"`
+	PipelineName *string `json:"codepipeline:PipelineExecution:PipelineName" locationName:"pipelineName" min:"1" type:"string"`
 
 	// The version number of the pipeline that was executed.
-	PipelineVersion *int64 `locationName:"pipelineVersion" min:"1" type:"integer"`
+	PipelineVersion *int64 `json:"codepipeline:PipelineExecution:PipelineVersion" locationName:"pipelineVersion" min:"1" type:"integer"`
 
 	// The status of the pipeline execution.
 	//
@@ -1484,7 +1484,7 @@ type PipelineExecution struct {
 	//    the pipeline instead.
 	//
 	//    * Failed: The pipeline execution was not completed successfully.
-	Status PipelineExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status PipelineExecutionStatus `json:"codepipeline:PipelineExecution:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1499,16 +1499,16 @@ type PipelineExecutionSummary struct {
 
 	// The date and time of the last change to the pipeline execution, in timestamp
 	// format.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"codepipeline:PipelineExecutionSummary:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the pipeline execution.
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+	PipelineExecutionId *string `json:"codepipeline:PipelineExecutionSummary:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string"`
 
 	// A list of the source artifact revisions that initiated a pipeline execution.
-	SourceRevisions []SourceRevision `locationName:"sourceRevisions" type:"list"`
+	SourceRevisions []SourceRevision `json:"codepipeline:PipelineExecutionSummary:SourceRevisions" locationName:"sourceRevisions" type:"list"`
 
 	// The date and time when the pipeline execution began, in timestamp format.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"codepipeline:PipelineExecutionSummary:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the pipeline execution.
 	//
@@ -1521,7 +1521,7 @@ type PipelineExecutionSummary struct {
 	//    the pipeline instead.
 	//
 	//    * Failed: The pipeline execution was not completed successfully.
-	Status PipelineExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status PipelineExecutionStatus `json:"codepipeline:PipelineExecutionSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1535,13 +1535,13 @@ type PipelineMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the pipeline was created, in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"codepipeline:PipelineMetadata:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the pipeline.
-	PipelineArn *string `locationName:"pipelineArn" type:"string"`
+	PipelineArn *string `json:"codepipeline:PipelineMetadata:PipelineArn" locationName:"pipelineArn" type:"string"`
 
 	// The date and time the pipeline was last updated, in timestamp format.
-	Updated *time.Time `locationName:"updated" type:"timestamp" timestampFormat:"unix"`
+	Updated *time.Time `json:"codepipeline:PipelineMetadata:Updated" locationName:"updated" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1555,16 +1555,16 @@ type PipelineSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the pipeline was created, in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"codepipeline:PipelineSummary:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the pipeline.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"codepipeline:PipelineSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// The date and time of the last update to the pipeline, in timestamp format.
-	Updated *time.Time `locationName:"updated" type:"timestamp" timestampFormat:"unix"`
+	Updated *time.Time `json:"codepipeline:PipelineSummary:Updated" locationName:"updated" type:"timestamp" timestampFormat:"unix"`
 
 	// The version number of the pipeline.
-	Version *int64 `locationName:"version" min:"1" type:"integer"`
+	Version *int64 `json:"codepipeline:PipelineSummary:Version" locationName:"version" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -1580,13 +1580,13 @@ type S3ArtifactLocation struct {
 	// The name of the Amazon S3 bucket.
 	//
 	// BucketName is a required field
-	BucketName *string `locationName:"bucketName" type:"string" required:"true"`
+	BucketName *string `json:"codepipeline:S3ArtifactLocation:BucketName" locationName:"bucketName" type:"string" required:"true"`
 
 	// The key of the object in the Amazon S3 bucket, which uniquely identifies
 	// the object in the bucket.
 	//
 	// ObjectKey is a required field
-	ObjectKey *string `locationName:"objectKey" type:"string" required:"true"`
+	ObjectKey *string `json:"codepipeline:S3ArtifactLocation:ObjectKey" locationName:"objectKey" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1600,10 +1600,10 @@ type S3Location struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 artifact bucket for an action's artifacts.
-	Bucket *string `locationName:"bucket" min:"3" type:"string"`
+	Bucket *string `json:"codepipeline:S3Location:Bucket" locationName:"bucket" min:"3" type:"string"`
 
 	// The artifact name.
-	Key *string `locationName:"key" min:"1" type:"string"`
+	Key *string `json:"codepipeline:S3Location:Key" locationName:"key" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1620,22 +1620,22 @@ type SourceRevision struct {
 	// The name of the action that processed the revision to the source artifact.
 	//
 	// ActionName is a required field
-	ActionName *string `locationName:"actionName" min:"1" type:"string" required:"true"`
+	ActionName *string `json:"codepipeline:SourceRevision:ActionName" locationName:"actionName" min:"1" type:"string" required:"true"`
 
 	// The system-generated unique ID that identifies the revision number of the
 	// artifact.
-	RevisionId *string `locationName:"revisionId" min:"1" type:"string"`
+	RevisionId *string `json:"codepipeline:SourceRevision:RevisionId" locationName:"revisionId" min:"1" type:"string"`
 
 	// Summary information about the most recent revision of the artifact. For GitHub
 	// and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets
 	// or actions, the user-provided content of a codepipeline-artifact-revision-summary
 	// key specified in the object metadata.
-	RevisionSummary *string `locationName:"revisionSummary" min:"1" type:"string"`
+	RevisionSummary *string `json:"codepipeline:SourceRevision:RevisionSummary" locationName:"revisionSummary" min:"1" type:"string"`
 
 	// The commit ID for the artifact revision. For artifacts stored in GitHub or
 	// AWS CodeCommit repositories, the commit ID is linked to a commit details
 	// page.
-	RevisionUrl *string `locationName:"revisionUrl" min:"1" type:"string"`
+	RevisionUrl *string `json:"codepipeline:SourceRevision:RevisionUrl" locationName:"revisionUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1649,7 +1649,7 @@ type StageContext struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the stage.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"codepipeline:StageContext:Name" locationName:"name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1665,15 +1665,15 @@ type StageDeclaration struct {
 	// The actions included in a stage.
 	//
 	// Actions is a required field
-	Actions []ActionDeclaration `locationName:"actions" type:"list" required:"true"`
+	Actions []ActionDeclaration `json:"codepipeline:StageDeclaration:Actions" locationName:"actions" type:"list" required:"true"`
 
 	// Reserved for future use.
-	Blockers []BlockerDeclaration `locationName:"blockers" type:"list"`
+	Blockers []BlockerDeclaration `json:"codepipeline:StageDeclaration:Blockers" locationName:"blockers" type:"list"`
 
 	// The name of the stage.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codepipeline:StageDeclaration:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1724,13 +1724,13 @@ type StageExecution struct {
 	// The ID of the pipeline execution associated with the stage.
 	//
 	// PipelineExecutionId is a required field
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string" required:"true"`
+	PipelineExecutionId *string `json:"codepipeline:StageExecution:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string" required:"true"`
 
 	// The status of the stage, or for a completed stage, the last status of the
 	// stage.
 	//
 	// Status is a required field
-	Status StageExecutionStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status StageExecutionStatus `json:"codepipeline:StageExecution:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1744,17 +1744,17 @@ type StageState struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the stage.
-	ActionStates []ActionState `locationName:"actionStates" type:"list"`
+	ActionStates []ActionState `json:"codepipeline:StageState:ActionStates" locationName:"actionStates" type:"list"`
 
 	// The state of the inbound transition, which is either enabled or disabled.
-	InboundTransitionState *TransitionState `locationName:"inboundTransitionState" type:"structure"`
+	InboundTransitionState *TransitionState `json:"codepipeline:StageState:InboundTransitionState" locationName:"inboundTransitionState" type:"structure"`
 
 	// Information about the latest execution in the stage, including its ID and
 	// status.
-	LatestExecution *StageExecution `locationName:"latestExecution" type:"structure"`
+	LatestExecution *StageExecution `json:"codepipeline:StageState:LatestExecution" locationName:"latestExecution" type:"structure"`
 
 	// The name of the stage.
-	StageName *string `locationName:"stageName" min:"1" type:"string"`
+	StageName *string `json:"codepipeline:StageState:StageName" locationName:"stageName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1770,12 +1770,12 @@ type Tag struct {
 	// The tag's key.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"codepipeline:Tag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The tag's value.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"codepipeline:Tag:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1812,10 +1812,10 @@ type ThirdPartyJob struct {
 
 	// The clientToken portion of the clientId and clientToken pair used to verify
 	// that the calling entity is allowed access to the job and its details.
-	ClientId *string `locationName:"clientId" type:"string"`
+	ClientId *string `json:"codepipeline:ThirdPartyJob:ClientId" locationName:"clientId" type:"string"`
 
 	// The identifier used to identify the job in AWS CodePipeline.
-	JobId *string `locationName:"jobId" type:"string"`
+	JobId *string `json:"codepipeline:ThirdPartyJob:JobId" locationName:"jobId" type:"string"`
 }
 
 // String returns the string representation
@@ -1829,42 +1829,42 @@ type ThirdPartyJobData struct {
 	_ struct{} `type:"structure"`
 
 	// Represents information about an action configuration.
-	ActionConfiguration *ActionConfiguration `locationName:"actionConfiguration" type:"structure"`
+	ActionConfiguration *ActionConfiguration `json:"codepipeline:ThirdPartyJobData:ActionConfiguration" locationName:"actionConfiguration" type:"structure"`
 
 	// Represents information about an action type.
-	ActionTypeId *ActionTypeId `locationName:"actionTypeId" type:"structure"`
+	ActionTypeId *ActionTypeId `json:"codepipeline:ThirdPartyJobData:ActionTypeId" locationName:"actionTypeId" type:"structure"`
 
 	// Represents an AWS session credentials object. These credentials are temporary
 	// credentials that are issued by AWS Secure Token Service (STS). They can be
 	// used to access input and output artifacts in the Amazon S3 bucket used to
 	// store artifact for the pipeline in AWS CodePipeline.
-	ArtifactCredentials *AWSSessionCredentials `locationName:"artifactCredentials" type:"structure"`
+	ArtifactCredentials *AWSSessionCredentials `json:"codepipeline:ThirdPartyJobData:ArtifactCredentials" locationName:"artifactCredentials" type:"structure"`
 
 	// A system-generated token, such as a AWS CodeDeploy deployment ID, that a
 	// job requires in order to continue the job asynchronously.
-	ContinuationToken *string `locationName:"continuationToken" min:"1" type:"string"`
+	ContinuationToken *string `json:"codepipeline:ThirdPartyJobData:ContinuationToken" locationName:"continuationToken" min:"1" type:"string"`
 
 	// The encryption key used to encrypt and decrypt data in the artifact store
 	// for the pipeline, such as an AWS Key Management Service (AWS KMS) key. This
 	// is optional and might not be present.
-	EncryptionKey *EncryptionKey `locationName:"encryptionKey" type:"structure"`
+	EncryptionKey *EncryptionKey `json:"codepipeline:ThirdPartyJobData:EncryptionKey" locationName:"encryptionKey" type:"structure"`
 
 	// The name of the artifact that will be worked upon by the action, if any.
 	// This name might be system-generated, such as "MyApp", or might be defined
 	// by the user when the action is created. The input artifact name must match
 	// the name of an output artifact generated by an action in an earlier action
 	// or stage of the pipeline.
-	InputArtifacts []Artifact `locationName:"inputArtifacts" type:"list"`
+	InputArtifacts []Artifact `json:"codepipeline:ThirdPartyJobData:InputArtifacts" locationName:"inputArtifacts" type:"list"`
 
 	// The name of the artifact that will be the result of the action, if any. This
 	// name might be system-generated, such as "MyBuiltApp", or might be defined
 	// by the user when the action is created.
-	OutputArtifacts []Artifact `locationName:"outputArtifacts" type:"list"`
+	OutputArtifacts []Artifact `json:"codepipeline:ThirdPartyJobData:OutputArtifacts" locationName:"outputArtifacts" type:"list"`
 
 	// Represents information about a pipeline to a job worker.
 	//
 	// Does not include pipelineArn and pipelineExecutionId for ThirdParty jobs.
-	PipelineContext *PipelineContext `locationName:"pipelineContext" type:"structure"`
+	PipelineContext *PipelineContext `json:"codepipeline:ThirdPartyJobData:PipelineContext" locationName:"pipelineContext" type:"structure"`
 }
 
 // String returns the string representation
@@ -1878,15 +1878,15 @@ type ThirdPartyJobDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The data to be returned by the third party job worker.
-	Data *ThirdPartyJobData `locationName:"data" type:"structure"`
+	Data *ThirdPartyJobData `json:"codepipeline:ThirdPartyJobDetails:Data" locationName:"data" type:"structure"`
 
 	// The identifier used to identify the job details in AWS CodePipeline.
-	Id *string `locationName:"id" min:"1" type:"string"`
+	Id *string `json:"codepipeline:ThirdPartyJobDetails:Id" locationName:"id" min:"1" type:"string"`
 
 	// A system-generated random number that AWS CodePipeline uses to ensure that
 	// the job is being worked on by only one job worker. Use this number in an
 	// AcknowledgeThirdPartyJob request.
-	Nonce *string `locationName:"nonce" min:"1" type:"string"`
+	Nonce *string `json:"codepipeline:ThirdPartyJobDetails:Nonce" locationName:"nonce" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1902,16 +1902,16 @@ type TransitionState struct {
 
 	// The user-specified reason why the transition between two stages of a pipeline
 	// was disabled.
-	DisabledReason *string `locationName:"disabledReason" min:"1" type:"string"`
+	DisabledReason *string `json:"codepipeline:TransitionState:DisabledReason" locationName:"disabledReason" min:"1" type:"string"`
 
 	// Whether the transition between stages is enabled (true) or disabled (false).
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"codepipeline:TransitionState:Enabled" locationName:"enabled" type:"boolean"`
 
 	// The timestamp when the transition state was last changed.
-	LastChangedAt *time.Time `locationName:"lastChangedAt" type:"timestamp" timestampFormat:"unix"`
+	LastChangedAt *time.Time `json:"codepipeline:TransitionState:LastChangedAt" locationName:"lastChangedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the user who last changed the transition state.
-	LastChangedBy *string `locationName:"lastChangedBy" type:"string"`
+	LastChangedBy *string `json:"codepipeline:TransitionState:LastChangedBy" locationName:"lastChangedBy" type:"string"`
 }
 
 // String returns the string representation
@@ -1927,11 +1927,11 @@ type WebhookAuthConfiguration struct {
 	// The property used to configure acceptance of webhooks within a specific IP
 	// range. For IP, only the AllowedIPRange property must be set, and this property
 	// must be set to a valid CIDR range.
-	AllowedIPRange *string `min:"1" type:"string"`
+	AllowedIPRange *string `json:"codepipeline:WebhookAuthConfiguration:AllowedIPRange" min:"1" type:"string"`
 
 	// The property used to configure GitHub authentication. For GITHUB_HMAC, only
 	// the SecretToken property must be set.
-	SecretToken *string `min:"1" type:"string"`
+	SecretToken *string `json:"codepipeline:WebhookAuthConfiguration:SecretToken" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1973,7 +1973,7 @@ type WebhookDefinition struct {
 	//    of origin.
 	//
 	// Authentication is a required field
-	Authentication WebhookAuthenticationType `locationName:"authentication" type:"string" required:"true" enum:"true"`
+	Authentication WebhookAuthenticationType `json:"codepipeline:WebhookDefinition:Authentication" locationName:"authentication" type:"string" required:"true" enum:"true"`
 
 	// Properties that configure the authentication applied to incoming webhook
 	// trigger requests. The required properties depend on the authentication type.
@@ -1982,30 +1982,30 @@ type WebhookDefinition struct {
 	// no properties can be set.
 	//
 	// AuthenticationConfiguration is a required field
-	AuthenticationConfiguration *WebhookAuthConfiguration `locationName:"authenticationConfiguration" type:"structure" required:"true"`
+	AuthenticationConfiguration *WebhookAuthConfiguration `json:"codepipeline:WebhookDefinition:AuthenticationConfiguration" locationName:"authenticationConfiguration" type:"structure" required:"true"`
 
 	// A list of rules applied to the body/payload sent in the POST request to a
 	// webhook URL. All defined rules must pass for the request to be accepted and
 	// the pipeline started.
 	//
 	// Filters is a required field
-	Filters []WebhookFilterRule `locationName:"filters" type:"list" required:"true"`
+	Filters []WebhookFilterRule `json:"codepipeline:WebhookDefinition:Filters" locationName:"filters" type:"list" required:"true"`
 
 	// The name of the webhook.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codepipeline:WebhookDefinition:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The name of the action in a pipeline you want to connect to the webhook.
 	// The action must be from the source (first) stage of the pipeline.
 	//
 	// TargetAction is a required field
-	TargetAction *string `locationName:"targetAction" min:"1" type:"string" required:"true"`
+	TargetAction *string `json:"codepipeline:WebhookDefinition:TargetAction" locationName:"targetAction" min:"1" type:"string" required:"true"`
 
 	// The name of the pipeline you want to connect to the webhook.
 	//
 	// TargetPipeline is a required field
-	TargetPipeline *string `locationName:"targetPipeline" min:"1" type:"string" required:"true"`
+	TargetPipeline *string `json:"codepipeline:WebhookDefinition:TargetPipeline" locationName:"targetPipeline" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2080,7 +2080,7 @@ type WebhookFilterRule struct {
 	// (https://github.com/json-path/JsonPath) in GitHub.
 	//
 	// JsonPath is a required field
-	JsonPath *string `locationName:"jsonPath" min:"1" type:"string" required:"true"`
+	JsonPath *string `json:"codepipeline:WebhookFilterRule:JsonPath" locationName:"jsonPath" min:"1" type:"string" required:"true"`
 
 	// The value selected by the JsonPath expression must match what is supplied
 	// in the MatchEquals field, otherwise the request will be ignored. Properties
@@ -2091,7 +2091,7 @@ type WebhookFilterRule struct {
 	// of "master", the MatchEquals value will be evaluated as "refs/heads/master".
 	// For a list of action configuration properties for built-in action types,
 	// see Pipeline Structure Reference Action Requirements (https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
-	MatchEquals *string `locationName:"matchEquals" min:"1" type:"string"`
+	MatchEquals *string `json:"codepipeline:WebhookFilterRule:MatchEquals" locationName:"matchEquals" min:"1" type:"string"`
 }
 
 // String returns the string representation

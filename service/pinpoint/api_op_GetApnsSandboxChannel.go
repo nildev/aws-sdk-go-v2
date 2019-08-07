@@ -58,7 +58,7 @@ type GetApnsSandboxChannelOutput struct {
 	// Notification service) sandbox channel for an application.
 	//
 	// APNSSandboxChannelResponse is a required field
-	APNSSandboxChannelResponse *APNSSandboxChannelResponse `type:"structure" required:"true"`
+	APNSSandboxChannelResponse *APNSSandboxChannelResponse `json:"pinpoint:GetApnsSandboxChannelOutput:APNSSandboxChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

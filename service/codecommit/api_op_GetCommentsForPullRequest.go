@@ -66,11 +66,11 @@ type GetCommentsForPullRequestOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of comment objects on the pull request.
-	CommentsForPullRequestData []CommentsForPullRequest `locationName:"commentsForPullRequestData" type:"list"`
+	CommentsForPullRequestData []CommentsForPullRequest `json:"codecommit:GetCommentsForPullRequestOutput:CommentsForPullRequestData" locationName:"commentsForPullRequestData" type:"list"`
 
 	// An enumeration token that can be used in a request to return the next batch
 	// of the results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:GetCommentsForPullRequestOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

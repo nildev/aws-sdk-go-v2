@@ -74,7 +74,7 @@ type CreateUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier for the new user.
-	UserId *string `min:"12" type:"string"`
+	UserId *string `json:"workmail:CreateUserOutput:UserId" min:"12" type:"string"`
 }
 
 // String returns the string representation

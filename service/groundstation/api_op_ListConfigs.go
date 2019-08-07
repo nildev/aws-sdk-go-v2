@@ -51,11 +51,11 @@ type ListConfigsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of Config items.
-	ConfigList []ConfigListItem `locationName:"configList" type:"list"`
+	ConfigList []ConfigListItem `json:"groundstation:ListConfigsOutput:ConfigList" locationName:"configList" type:"list"`
 
 	// Next token returned in the response of a previous ListConfigs call. Used
 	// to get the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"groundstation:ListConfigsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

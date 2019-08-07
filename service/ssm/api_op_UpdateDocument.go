@@ -82,7 +82,7 @@ type UpdateDocumentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the document that was updated.
-	DocumentDescription *DocumentDescription `type:"structure"`
+	DocumentDescription *DocumentDescription `json:"ssm:UpdateDocumentOutput:DocumentDescription" type:"structure"`
 }
 
 // String returns the string representation

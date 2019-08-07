@@ -43,10 +43,10 @@ type DescribeTableRestoreStatusOutput struct {
 
 	// A pagination token that can be used in a subsequent DescribeTableRestoreStatus
 	// request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeTableRestoreStatusOutput:Marker" type:"string"`
 
 	// A list of status details for one or more table restore requests.
-	TableRestoreStatusDetails []TableRestoreStatus `locationNameList:"TableRestoreStatus" type:"list"`
+	TableRestoreStatusDetails []TableRestoreStatus `json:"redshift:DescribeTableRestoreStatusOutput:TableRestoreStatusDetails" locationNameList:"TableRestoreStatus" type:"list"`
 }
 
 // String returns the string representation

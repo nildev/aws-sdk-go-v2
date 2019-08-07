@@ -90,15 +90,15 @@ type GetRelationalDatabaseLogEventsOutput struct {
 
 	// A token used for advancing to the previous page of results from your get
 	// relational database log events request.
-	NextBackwardToken *string `locationName:"nextBackwardToken" type:"string"`
+	NextBackwardToken *string `json:"lightsail:GetRelationalDatabaseLogEventsOutput:NextBackwardToken" locationName:"nextBackwardToken" type:"string"`
 
 	// A token used for advancing to the next page of results from your get relational
 	// database log events request.
-	NextForwardToken *string `locationName:"nextForwardToken" type:"string"`
+	NextForwardToken *string `json:"lightsail:GetRelationalDatabaseLogEventsOutput:NextForwardToken" locationName:"nextForwardToken" type:"string"`
 
 	// An object describing the result of your get relational database log events
 	// request.
-	ResourceLogEvents []LogEvent `locationName:"resourceLogEvents" type:"list"`
+	ResourceLogEvents []LogEvent `json:"lightsail:GetRelationalDatabaseLogEventsOutput:ResourceLogEvents" locationName:"resourceLogEvents" type:"list"`
 }
 
 // String returns the string representation

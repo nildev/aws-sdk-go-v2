@@ -71,13 +71,13 @@ type DeleteConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of a Config.
-	ConfigArn *string `locationName:"configArn" type:"string"`
+	ConfigArn *string `json:"groundstation:DeleteConfigOutput:ConfigArn" locationName:"configArn" type:"string"`
 
 	// UUID of a Config.
-	ConfigId *string `locationName:"configId" type:"string"`
+	ConfigId *string `json:"groundstation:DeleteConfigOutput:ConfigId" locationName:"configId" type:"string"`
 
 	// Type of a Config.
-	ConfigType ConfigCapabilityType `locationName:"configType" type:"string" enum:"true"`
+	ConfigType ConfigCapabilityType `json:"groundstation:DeleteConfigOutput:ConfigType" locationName:"configType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

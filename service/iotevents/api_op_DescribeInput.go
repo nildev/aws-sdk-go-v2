@@ -59,7 +59,7 @@ type DescribeInputOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the input.
-	Input *Input `locationName:"input" type:"structure"`
+	Input *Input `json:"iotevents:DescribeInputOutput:Input" locationName:"input" type:"structure"`
 }
 
 // String returns the string representation

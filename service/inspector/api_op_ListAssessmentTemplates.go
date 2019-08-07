@@ -66,13 +66,13 @@ type ListAssessmentTemplatesOutput struct {
 	// A list of ARNs that specifies the assessment templates returned by the action.
 	//
 	// AssessmentTemplateArns is a required field
-	AssessmentTemplateArns []string `locationName:"assessmentTemplateArns" type:"list" required:"true"`
+	AssessmentTemplateArns []string `json:"inspector:ListAssessmentTemplatesOutput:AssessmentTemplateArns" locationName:"assessmentTemplateArns" type:"list" required:"true"`
 
 	// When a response is generated, if there is more data to be listed, this parameter
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"inspector:ListAssessmentTemplatesOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

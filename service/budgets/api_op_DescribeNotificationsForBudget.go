@@ -71,10 +71,10 @@ type DescribeNotificationsForBudgetOutput struct {
 
 	// The pagination token in the service response that indicates the next set
 	// of results that you can retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"budgets:DescribeNotificationsForBudgetOutput:NextToken" type:"string"`
 
 	// A list of notifications that are associated with a budget.
-	Notifications []Notification `type:"list"`
+	Notifications []Notification `json:"budgets:DescribeNotificationsForBudgetOutput:Notifications" type:"list"`
 }
 
 // String returns the string representation

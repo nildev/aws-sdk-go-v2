@@ -127,7 +127,7 @@ type CreateMemberOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the member.
-	MemberId *string `min:"1" type:"string"`
+	MemberId *string `json:"managedblockchain:CreateMemberOutput:MemberId" min:"1" type:"string"`
 }
 
 // String returns the string representation

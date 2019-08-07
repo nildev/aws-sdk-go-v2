@@ -111,10 +111,10 @@ type DescribeEvaluationsOutput struct {
 
 	// The ID of the next page in the paginated results that indicates at least
 	// one more page follows.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"machinelearning:DescribeEvaluationsOutput:NextToken" type:"string"`
 
 	// A list of Evaluation that meet the search criteria.
-	Results []Evaluation `type:"list"`
+	Results []Evaluation `json:"machinelearning:DescribeEvaluationsOutput:Results" type:"list"`
 }
 
 // String returns the string representation

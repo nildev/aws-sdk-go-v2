@@ -48,7 +48,7 @@ type GetServiceSettingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The query result of the current service setting.
-	ServiceSetting *ServiceSetting `type:"structure"`
+	ServiceSetting *ServiceSetting `json:"ssm:GetServiceSettingOutput:ServiceSetting" type:"structure"`
 }
 
 // String returns the string representation

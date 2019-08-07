@@ -23,10 +23,10 @@ type DnsConfig struct {
 	// that you want AWS Cloud Map to create when you register an instance.
 	//
 	// DnsRecords is a required field
-	DnsRecords []DnsRecord `type:"list" required:"true"`
+	DnsRecords []DnsRecord `json:"servicediscovery:DnsConfig:DnsRecords" type:"list" required:"true"`
 
 	// The ID of the namespace to use for DNS configuration.
-	NamespaceId *string `deprecated:"true" type:"string"`
+	NamespaceId *string `json:"servicediscovery:DnsConfig:NamespaceId" deprecated:"true" type:"string"`
 
 	// The routing policy that you want to apply to all Route 53 DNS records that
 	// AWS Cloud Map creates when you register an instance and specify this service.
@@ -74,7 +74,7 @@ type DnsConfig struct {
 	// For more information about the weighted routing policy, see Weighted Routing
 	// (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted)
 	// in the Route 53 Developer Guide.
-	RoutingPolicy RoutingPolicy `type:"string" enum:"true"`
+	RoutingPolicy RoutingPolicy `json:"servicediscovery:DnsConfig:RoutingPolicy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -113,7 +113,7 @@ type DnsConfigChange struct {
 	// you want AWS Cloud Map to create when you register an instance.
 	//
 	// DnsRecords is a required field
-	DnsRecords []DnsRecord `type:"list" required:"true"`
+	DnsRecords []DnsRecord `json:"servicediscovery:DnsConfigChange:DnsRecords" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -150,7 +150,7 @@ type DnsProperties struct {
 
 	// The ID for the Route 53 hosted zone that AWS Cloud Map creates when you create
 	// a namespace.
-	HostedZoneId *string `type:"string"`
+	HostedZoneId *string `json:"servicediscovery:DnsProperties:HostedZoneId" type:"string"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ type DnsRecord struct {
 	// that create either alias or non-alias records.
 	//
 	// TTL is a required field
-	TTL *int64 `type:"long" required:"true"`
+	TTL *int64 `json:"servicediscovery:DnsRecord:TTL" type:"long" required:"true"`
 
 	// The type of the resource, which indicates the type of value that Route 53
 	// returns in response to DNS queries.
@@ -244,7 +244,7 @@ type DnsRecord struct {
 	// value of service-hostname in the SRV record. You can ignore these records.
 	//
 	// Type is a required field
-	Type RecordType `type:"string" required:"true" enum:"true"`
+	Type RecordType `json:"servicediscovery:DnsRecord:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -336,7 +336,7 @@ type HealthCheckConfig struct {
 	// to healthy or vice versa. For more information, see How Route 53 Determines
 	// Whether an Endpoint Is Healthy (http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html)
 	// in the Route 53 Developer Guide.
-	FailureThreshold *int64 `min:"1" type:"integer"`
+	FailureThreshold *int64 `json:"servicediscovery:HealthCheckConfig:FailureThreshold" min:"1" type:"integer"`
 
 	// The path that you want Route 53 to request when performing health checks.
 	// The path can be any value for which your endpoint will return an HTTP status
@@ -345,7 +345,7 @@ type HealthCheckConfig struct {
 	// a value for ResourcePath, the default value is /.
 	//
 	// If you specify TCP for Type, you must not specify a value for ResourcePath.
-	ResourcePath *string `type:"string"`
+	ResourcePath *string `json:"servicediscovery:HealthCheckConfig:ResourcePath" type:"string"`
 
 	// The type of health check that you want to create, which indicates how Route
 	// 53 determines whether an endpoint is healthy.
@@ -371,7 +371,7 @@ type HealthCheckConfig struct {
 	// in the Route 53 Developer Guide.
 	//
 	// Type is a required field
-	Type HealthCheckType `type:"string" required:"true" enum:"true"`
+	Type HealthCheckType `json:"servicediscovery:HealthCheckConfig:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -460,7 +460,7 @@ type HealthCheckCustomConfig struct {
 	// the same value before FailureThreshold x 30 seconds has passed doesn't accelerate
 	// the change. Cloud Map still waits FailureThreshold x 30 seconds after the
 	// first request to make the change.
-	FailureThreshold *int64 `min:"1" type:"integer"`
+	FailureThreshold *int64 `json:"servicediscovery:HealthCheckCustomConfig:FailureThreshold" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -490,20 +490,20 @@ type HttpInstanceSummary struct {
 
 	// If you included any attributes when you registered the instance, the values
 	// of those attributes.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"servicediscovery:HttpInstanceSummary:Attributes" type:"map"`
 
 	// If you configured health checking in the service, the current health status
 	// of the service instance.
-	HealthStatus HealthStatus `type:"string" enum:"true"`
+	HealthStatus HealthStatus `json:"servicediscovery:HttpInstanceSummary:HealthStatus" type:"string" enum:"true"`
 
 	// The ID of an instance that matches the values that you specified in the request.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"servicediscovery:HttpInstanceSummary:InstanceId" type:"string"`
 
 	// The name of the namespace that you specified when you registered the instance.
-	NamespaceName *string `type:"string"`
+	NamespaceName *string `json:"servicediscovery:HttpInstanceSummary:NamespaceName" type:"string"`
 
 	// The name of the service that you specified when you registered the instance.
-	ServiceName *string `type:"string"`
+	ServiceName *string `json:"servicediscovery:HttpInstanceSummary:ServiceName" type:"string"`
 }
 
 // String returns the string representation
@@ -517,7 +517,7 @@ type HttpProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The name of an HTTP namespace.
-	HttpName *string `type:"string"`
+	HttpName *string `json:"servicediscovery:HttpProperties:HttpName" type:"string"`
 }
 
 // String returns the string representation
@@ -601,7 +601,7 @@ type Instance struct {
 	//
 	// This value is required if you specified settings for an SRV record when you
 	// created the service.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"servicediscovery:Instance:Attributes" type:"map"`
 
 	// A unique string that identifies the request and that allows failed RegisterInstance
 	// requests to be retried without the risk of executing the operation twice.
@@ -609,7 +609,7 @@ type Instance struct {
 	// request if you're registering additional instances for the same namespace
 	// and service. CreatorRequestId can be any unique string, for example, a date/time
 	// stamp.
-	CreatorRequestId *string `type:"string"`
+	CreatorRequestId *string `json:"servicediscovery:Instance:CreatorRequestId" type:"string"`
 
 	// An identifier that you want to associate with the instance. Note the following:
 	//
@@ -629,7 +629,7 @@ type Instance struct {
 	//    you submit a ListHealthChecks request, for example.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"servicediscovery:Instance:Id" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -667,10 +667,10 @@ type InstanceSummary struct {
 	//    * AWS_INSTANCE_PORT: For an SRV record, the value that Route 53 returns
 	//    for the port. In addition, if the service includes HealthCheckConfig,
 	//    the port on the endpoint that Route 53 sends requests to.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"servicediscovery:InstanceSummary:Attributes" type:"map"`
 
 	// The ID for an instance that you created by using a specified service.
-	Id *string `type:"string"`
+	Id *string `json:"servicediscovery:InstanceSummary:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -685,36 +685,36 @@ type Namespace struct {
 
 	// The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace
 	// when you create it.
-	Arn *string `type:"string"`
+	Arn *string `json:"servicediscovery:Namespace:Arn" type:"string"`
 
 	// The date that the namespace was created, in Unix date/time format and Coordinated
 	// Universal Time (UTC). The value of CreateDate is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateDate *time.Time `json:"servicediscovery:Namespace:CreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A unique string that identifies the request and that allows failed requests
 	// to be retried without the risk of executing an operation twice.
-	CreatorRequestId *string `type:"string"`
+	CreatorRequestId *string `json:"servicediscovery:Namespace:CreatorRequestId" type:"string"`
 
 	// The description that you specify for the namespace when you create it.
-	Description *string `type:"string"`
+	Description *string `json:"servicediscovery:Namespace:Description" type:"string"`
 
 	// The ID of a namespace.
-	Id *string `type:"string"`
+	Id *string `json:"servicediscovery:Namespace:Id" type:"string"`
 
 	// The name of the namespace, such as example.com.
-	Name *string `type:"string"`
+	Name *string `json:"servicediscovery:Namespace:Name" type:"string"`
 
 	// A complex type that contains information that's specific to the type of the
 	// namespace.
-	Properties *NamespaceProperties `type:"structure"`
+	Properties *NamespaceProperties `json:"servicediscovery:Namespace:Properties" type:"structure"`
 
 	// The number of services that are associated with the namespace.
-	ServiceCount *int64 `type:"integer"`
+	ServiceCount *int64 `json:"servicediscovery:Namespace:ServiceCount" type:"integer"`
 
 	// The type of the namespace. Valid values are DNS_PUBLIC and DNS_PRIVATE.
-	Type NamespaceType `type:"string" enum:"true"`
+	Type NamespaceType `json:"servicediscovery:Namespace:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -739,12 +739,12 @@ type NamespaceFilter struct {
 	//    namespaces, private namespaces, or both.
 	//
 	//    * BETWEEN: Not applicable
-	Condition FilterCondition `type:"string" enum:"true"`
+	Condition FilterCondition `json:"servicediscovery:NamespaceFilter:Condition" type:"string" enum:"true"`
 
 	// Specify TYPE.
 	//
 	// Name is a required field
-	Name NamespaceFilterName `type:"string" required:"true" enum:"true"`
+	Name NamespaceFilterName `json:"servicediscovery:NamespaceFilter:Name" type:"string" required:"true" enum:"true"`
 
 	// If you specify EQ for Condition, specify either DNS_PUBLIC or DNS_PRIVATE.
 	//
@@ -752,7 +752,7 @@ type NamespaceFilter struct {
 	// or both.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"servicediscovery:NamespaceFilter:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -785,10 +785,10 @@ type NamespaceProperties struct {
 
 	// A complex type that contains the ID for the Route 53 hosted zone that AWS
 	// Cloud Map creates when you create a namespace.
-	DnsProperties *DnsProperties `type:"structure"`
+	DnsProperties *DnsProperties `json:"servicediscovery:NamespaceProperties:DnsProperties" type:"structure"`
 
 	// A complex type that contains the name of an HTTP namespace.
-	HttpProperties *HttpProperties `type:"structure"`
+	HttpProperties *HttpProperties `json:"servicediscovery:NamespaceProperties:HttpProperties" type:"structure"`
 }
 
 // String returns the string representation
@@ -803,30 +803,30 @@ type NamespaceSummary struct {
 
 	// The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace
 	// when you create it.
-	Arn *string `type:"string"`
+	Arn *string `json:"servicediscovery:NamespaceSummary:Arn" type:"string"`
 
 	// The date and time that the namespace was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateDate *time.Time `json:"servicediscovery:NamespaceSummary:CreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description for the namespace.
-	Description *string `type:"string"`
+	Description *string `json:"servicediscovery:NamespaceSummary:Description" type:"string"`
 
 	// The ID of the namespace.
-	Id *string `type:"string"`
+	Id *string `json:"servicediscovery:NamespaceSummary:Id" type:"string"`
 
 	// The name of the namespace. When you create a namespace, AWS Cloud Map automatically
 	// creates a Route 53 hosted zone that has the same name as the namespace.
-	Name *string `type:"string"`
+	Name *string `json:"servicediscovery:NamespaceSummary:Name" type:"string"`
 
 	// A complex type that contains information that is specific to the namespace
 	// type.
-	Properties *NamespaceProperties `type:"structure"`
+	Properties *NamespaceProperties `json:"servicediscovery:NamespaceSummary:Properties" type:"structure"`
 
 	// The number of services that were created using the namespace.
-	ServiceCount *int64 `type:"integer"`
+	ServiceCount *int64 `json:"servicediscovery:NamespaceSummary:ServiceCount" type:"integer"`
 
 	// The type of the namespace, either public or private.
-	Type NamespaceType `type:"string" enum:"true"`
+	Type NamespaceType `json:"servicediscovery:NamespaceSummary:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -843,7 +843,7 @@ type Operation struct {
 	// and Coordinated Universal Time (UTC). The value of CreateDate is accurate
 	// to milliseconds. For example, the value 1516925490.087 represents Friday,
 	// January 26, 2018 12:11:30.087 AM.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateDate *time.Time `json:"servicediscovery:Operation:CreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The code associated with ErrorMessage. Values for ErrorCode include the following:
 	//
@@ -860,13 +860,13 @@ type Operation struct {
 	//    * INVALID_CHANGE_BATCH
 	//
 	//    * THROTTLED_REQUEST
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"servicediscovery:Operation:ErrorCode" type:"string"`
 
 	// If the value of Status is FAIL, the reason that the operation failed.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"servicediscovery:Operation:ErrorMessage" type:"string"`
 
 	// The ID of the operation that you want to get information about.
-	Id *string `type:"string"`
+	Id *string `json:"servicediscovery:Operation:Id" type:"string"`
 
 	// The status of the operation. Values include the following:
 	//
@@ -878,7 +878,7 @@ type Operation struct {
 	//    * SUCCESS: The operation succeeded.
 	//
 	//    * FAIL: The operation failed. For the failure reason, see ErrorMessage.
-	Status OperationStatus `type:"string" enum:"true"`
+	Status OperationStatus `json:"servicediscovery:Operation:Status" type:"string" enum:"true"`
 
 	// The name of the target entity that is associated with the operation:
 	//
@@ -887,16 +887,16 @@ type Operation struct {
 	//    * SERVICE: The service ID is returned in the ResourceId property.
 	//
 	//    * INSTANCE: The instance ID is returned in the ResourceId property.
-	Targets map[string]string `type:"map"`
+	Targets map[string]string `json:"servicediscovery:Operation:Targets" type:"map"`
 
 	// The name of the operation that is associated with the specified ID.
-	Type OperationType `type:"string" enum:"true"`
+	Type OperationType `json:"servicediscovery:Operation:Type" type:"string" enum:"true"`
 
 	// The date and time that the value of Status changed to the current value,
 	// in Unix date/time format and Coordinated Universal Time (UTC). The value
 	// of UpdateDate is accurate to milliseconds. For example, the value 1516925490.087
 	// represents Friday, January 26, 2018 12:11:30.087 AM.
-	UpdateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdateDate *time.Time `json:"servicediscovery:Operation:UpdateDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -923,7 +923,7 @@ type OperationFilter struct {
 	//    * BETWEEN: Specify a start date and an end date in Unix date/time format
 	//    and Coordinated Universal Time (UTC). The start date must be the first
 	//    value. BETWEEN is supported for UPDATE_DATE.
-	Condition FilterCondition `type:"string" enum:"true"`
+	Condition FilterCondition `json:"servicediscovery:OperationFilter:Condition" type:"string" enum:"true"`
 
 	// Specify the operations that you want to get:
 	//
@@ -940,7 +940,7 @@ type OperationFilter struct {
 	//    date/time range.
 	//
 	// Name is a required field
-	Name OperationFilterName `type:"string" required:"true" enum:"true"`
+	Name OperationFilterName `json:"servicediscovery:OperationFilter:Name" type:"string" required:"true" enum:"true"`
 
 	// Specify values that are applicable to the value that you specify for Name:
 	//
@@ -959,7 +959,7 @@ type OperationFilter struct {
 	//    first value.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"servicediscovery:OperationFilter:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -991,7 +991,7 @@ type OperationSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for an operation.
-	Id *string `type:"string"`
+	Id *string `json:"servicediscovery:OperationSummary:Id" type:"string"`
 
 	// The status of the operation. Values include the following:
 	//
@@ -1003,7 +1003,7 @@ type OperationSummary struct {
 	//    * SUCCESS: The operation succeeded.
 	//
 	//    * FAIL: The operation failed. For the failure reason, see ErrorMessage.
-	Status OperationStatus `type:"string" enum:"true"`
+	Status OperationStatus `json:"servicediscovery:OperationSummary:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1018,25 +1018,25 @@ type Service struct {
 
 	// The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
 	// when you create it.
-	Arn *string `type:"string"`
+	Arn *string `json:"servicediscovery:Service:Arn" type:"string"`
 
 	// The date and time that the service was created, in Unix format and Coordinated
 	// Universal Time (UTC). The value of CreateDate is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateDate *time.Time `json:"servicediscovery:Service:CreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A unique string that identifies the request and that allows failed requests
 	// to be retried without the risk of executing the operation twice. CreatorRequestId
 	// can be any unique string, for example, a date/time stamp.
-	CreatorRequestId *string `type:"string"`
+	CreatorRequestId *string `json:"servicediscovery:Service:CreatorRequestId" type:"string"`
 
 	// The description of the service.
-	Description *string `type:"string"`
+	Description *string `json:"servicediscovery:Service:Description" type:"string"`
 
 	// A complex type that contains information about the Route 53 DNS records that
 	// you want AWS Cloud Map to create when you register an instance.
-	DnsConfig *DnsConfig `type:"structure"`
+	DnsConfig *DnsConfig `json:"servicediscovery:Service:DnsConfig" type:"structure"`
 
 	// Public DNS namespaces only. A complex type that contains settings for an
 	// optional health check. If you specify settings for a health check, AWS Cloud
@@ -1044,28 +1044,28 @@ type Service struct {
 	//
 	// For information about the charges for health checks, see Amazon Route 53
 	// Pricing (http://aws.amazon.com/route53/pricing/).
-	HealthCheckConfig *HealthCheckConfig `type:"structure"`
+	HealthCheckConfig *HealthCheckConfig `json:"servicediscovery:Service:HealthCheckConfig" type:"structure"`
 
 	// A complex type that contains information about an optional custom health
 	// check.
 	//
 	// If you specify a health check configuration, you can specify either HealthCheckCustomConfig
 	// or HealthCheckConfig but not both.
-	HealthCheckCustomConfig *HealthCheckCustomConfig `type:"structure"`
+	HealthCheckCustomConfig *HealthCheckCustomConfig `json:"servicediscovery:Service:HealthCheckCustomConfig" type:"structure"`
 
 	// The ID that AWS Cloud Map assigned to the service when you created it.
-	Id *string `type:"string"`
+	Id *string `json:"servicediscovery:Service:Id" type:"string"`
 
 	// The number of instances that are currently associated with the service. Instances
 	// that were previously associated with the service but that have been deleted
 	// are not included in the count.
-	InstanceCount *int64 `type:"integer"`
+	InstanceCount *int64 `json:"servicediscovery:Service:InstanceCount" type:"integer"`
 
 	// The name of the service.
-	Name *string `type:"string"`
+	Name *string `json:"servicediscovery:Service:Name" type:"string"`
 
 	// The ID of the namespace that was used to create the service.
-	NamespaceId *string `type:"string"`
+	NamespaceId *string `json:"servicediscovery:Service:NamespaceId" type:"string"`
 }
 
 // String returns the string representation
@@ -1079,13 +1079,13 @@ type ServiceChange struct {
 	_ struct{} `type:"structure"`
 
 	// A description for the service.
-	Description *string `type:"string"`
+	Description *string `json:"servicediscovery:ServiceChange:Description" type:"string"`
 
 	// A complex type that contains information about the Route 53 DNS records that
 	// you want AWS Cloud Map to create when you register an instance.
 	//
 	// DnsConfig is a required field
-	DnsConfig *DnsConfigChange `type:"structure" required:"true"`
+	DnsConfig *DnsConfigChange `json:"servicediscovery:ServiceChange:DnsConfig" type:"structure" required:"true"`
 
 	// Public DNS namespaces only. A complex type that contains settings for an
 	// optional health check. If you specify settings for a health check, AWS Cloud
@@ -1145,7 +1145,7 @@ type ServiceChange struct {
 	// Health checks are basic Route 53 health checks that monitor an AWS endpoint.
 	// For information about pricing for health checks, see Amazon Route 53 Pricing
 	// (http://aws.amazon.com/route53/pricing/).
-	HealthCheckConfig *HealthCheckConfig `type:"structure"`
+	HealthCheckConfig *HealthCheckConfig `json:"servicediscovery:ServiceChange:HealthCheckConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -1193,18 +1193,18 @@ type ServiceFilter struct {
 	//    that you want ListServices to return a list of services for.
 	//
 	//    * BETWEEN: Not applicable.
-	Condition FilterCondition `type:"string" enum:"true"`
+	Condition FilterCondition `json:"servicediscovery:ServiceFilter:Condition" type:"string" enum:"true"`
 
 	// Specify NAMESPACE_ID.
 	//
 	// Name is a required field
-	Name ServiceFilterName `type:"string" required:"true" enum:"true"`
+	Name ServiceFilterName `json:"servicediscovery:ServiceFilter:Name" type:"string" required:"true" enum:"true"`
 
 	// The values that are applicable to the value that you specify for Condition
 	// to filter the list of services.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"servicediscovery:ServiceFilter:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1236,17 +1236,17 @@ type ServiceSummary struct {
 
 	// The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
 	// when you create it.
-	Arn *string `type:"string"`
+	Arn *string `json:"servicediscovery:ServiceSummary:Arn" type:"string"`
 
 	// The date and time that the service was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateDate *time.Time `json:"servicediscovery:ServiceSummary:CreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description that you specify when you create the service.
-	Description *string `type:"string"`
+	Description *string `json:"servicediscovery:ServiceSummary:Description" type:"string"`
 
 	// A complex type that contains information about the Amazon Route 53 DNS records
 	// that you want AWS Cloud Map to create when you register an instance.
-	DnsConfig *DnsConfig `type:"structure"`
+	DnsConfig *DnsConfig `json:"servicediscovery:ServiceSummary:DnsConfig" type:"structure"`
 
 	// Public DNS namespaces only. A complex type that contains settings for an
 	// optional health check. If you specify settings for a health check, AWS Cloud
@@ -1306,7 +1306,7 @@ type ServiceSummary struct {
 	// Health checks are basic Route 53 health checks that monitor an AWS endpoint.
 	// For information about pricing for health checks, see Amazon Route 53 Pricing
 	// (http://aws.amazon.com/route53/pricing/).
-	HealthCheckConfig *HealthCheckConfig `type:"structure"`
+	HealthCheckConfig *HealthCheckConfig `json:"servicediscovery:ServiceSummary:HealthCheckConfig" type:"structure"`
 
 	// A complex type that contains information about an optional custom health
 	// check. A custom health check, which requires that you use a third-party health
@@ -1358,18 +1358,18 @@ type ServiceSummary struct {
 	// traffic to the resource.
 	//
 	// Note the following about configuring custom health checks.
-	HealthCheckCustomConfig *HealthCheckCustomConfig `type:"structure"`
+	HealthCheckCustomConfig *HealthCheckCustomConfig `json:"servicediscovery:ServiceSummary:HealthCheckCustomConfig" type:"structure"`
 
 	// The ID that AWS Cloud Map assigned to the service when you created it.
-	Id *string `type:"string"`
+	Id *string `json:"servicediscovery:ServiceSummary:Id" type:"string"`
 
 	// The number of instances that are currently associated with the service. Instances
 	// that were previously associated with the service but that have been deleted
 	// are not included in the count.
-	InstanceCount *int64 `type:"integer"`
+	InstanceCount *int64 `json:"servicediscovery:ServiceSummary:InstanceCount" type:"integer"`
 
 	// The name of the service.
-	Name *string `type:"string"`
+	Name *string `json:"servicediscovery:ServiceSummary:Name" type:"string"`
 }
 
 // String returns the string representation

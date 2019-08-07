@@ -127,7 +127,7 @@ type RequestSpotInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// One or more Spot Instance requests.
-	SpotInstanceRequests []SpotInstanceRequest `locationName:"spotInstanceRequestSet" locationNameList:"item" type:"list"`
+	SpotInstanceRequests []SpotInstanceRequest `json:"ec2:RequestSpotInstancesOutput:SpotInstanceRequests" locationName:"spotInstanceRequestSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

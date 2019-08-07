@@ -64,7 +64,7 @@ type GetAppOutput struct {
 	// and hosting.
 	//
 	// App is a required field
-	App *App `locationName:"app" type:"structure" required:"true"`
+	App *App `json:"amplify:GetAppOutput:App" locationName:"app" type:"structure" required:"true"`
 }
 
 // String returns the string representation

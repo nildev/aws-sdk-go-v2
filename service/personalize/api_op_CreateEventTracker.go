@@ -56,12 +56,12 @@ type CreateEventTrackerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the event tracker.
-	EventTrackerArn *string `locationName:"eventTrackerArn" type:"string"`
+	EventTrackerArn *string `json:"personalize:CreateEventTrackerOutput:EventTrackerArn" locationName:"eventTrackerArn" type:"string"`
 
 	// The ID of the event tracker. Include this ID in requests to the PutEvents
 	// (https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html)
 	// API.
-	TrackingId *string `locationName:"trackingId" type:"string"`
+	TrackingId *string `json:"personalize:CreateEventTrackerOutput:TrackingId" locationName:"trackingId" type:"string"`
 }
 
 // String returns the string representation

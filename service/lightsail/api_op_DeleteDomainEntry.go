@@ -53,7 +53,7 @@ type DeleteDomainEntryOutput struct {
 
 	// An array of key-value pairs containing information about the results of your
 	// delete domain entry request.
-	Operation *Operation `locationName:"operation" type:"structure"`
+	Operation *Operation `json:"lightsail:DeleteDomainEntryOutput:Operation" locationName:"operation" type:"structure"`
 }
 
 // String returns the string representation

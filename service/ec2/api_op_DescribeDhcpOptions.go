@@ -76,11 +76,11 @@ type DescribeDhcpOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about one or more DHCP options sets.
-	DhcpOptions []DhcpOptions `locationName:"dhcpOptionsSet" locationNameList:"item" type:"list"`
+	DhcpOptions []DhcpOptions `json:"ec2:DescribeDhcpOptionsOutput:DhcpOptions" locationName:"dhcpOptionsSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeDhcpOptionsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

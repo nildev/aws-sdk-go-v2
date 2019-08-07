@@ -58,10 +58,10 @@ type ListTagsForResourceOutput struct {
 
 	// The nextToken string returned on a previous page that you use to get the
 	// next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:ListTagsForResourceOutput:NextToken" type:"string"`
 
 	// The tags for the resource.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"config:ListTagsForResourceOutput:Tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

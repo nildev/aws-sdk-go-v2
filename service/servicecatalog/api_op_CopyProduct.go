@@ -86,7 +86,7 @@ type CopyProductOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token to use to track the progress of the operation.
-	CopyProductToken *string `min:"1" type:"string"`
+	CopyProductToken *string `json:"servicecatalog:CopyProductOutput:CopyProductToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

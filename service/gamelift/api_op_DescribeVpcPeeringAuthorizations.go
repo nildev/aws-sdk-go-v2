@@ -25,7 +25,7 @@ type DescribeVpcPeeringAuthorizationsOutput struct {
 
 	// Collection of objects that describe all valid VPC peering operations for
 	// the current AWS account.
-	VpcPeeringAuthorizations []VpcPeeringAuthorization `type:"list"`
+	VpcPeeringAuthorizations []VpcPeeringAuthorization `json:"gamelift:DescribeVpcPeeringAuthorizationsOutput:VpcPeeringAuthorizations" type:"list"`
 }
 
 // String returns the string representation

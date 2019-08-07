@@ -94,7 +94,7 @@ type CreateMicrosoftADOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the directory that was created.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:CreateMicrosoftADOutput:DirectoryId" type:"string"`
 }
 
 // String returns the string representation

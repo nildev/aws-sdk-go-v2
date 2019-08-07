@@ -78,10 +78,10 @@ type ListTargetsForPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A marker used to get the next set of results.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListTargetsForPolicyOutput:NextMarker" locationName:"nextMarker" type:"string"`
 
 	// The policy targets.
-	Targets []string `locationName:"targets" type:"list"`
+	Targets []string `json:"iot:ListTargetsForPolicyOutput:Targets" locationName:"targets" type:"list"`
 }
 
 // String returns the string representation

@@ -44,7 +44,7 @@ type DeleteParameterGroupOutput struct {
 
 	// A user-specified message for this action (i.e., a reason for deleting the
 	// parameter group).
-	DeletionMessage *string `type:"string"`
+	DeletionMessage *string `json:"dax:DeleteParameterGroupOutput:DeletionMessage" type:"string"`
 }
 
 // String returns the string representation

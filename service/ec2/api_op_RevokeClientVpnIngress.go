@@ -65,7 +65,7 @@ type RevokeClientVpnIngressOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the authorization rule.
-	Status *VpnAuthorizationRuleStatus `locationName:"status" type:"structure"`
+	Status *VpnAuthorizationRuleStatus `json:"ec2:RevokeClientVpnIngressOutput:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation

@@ -124,11 +124,11 @@ type StartTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any failures associated with the call.
-	Failures []Failure `locationName:"failures" type:"list"`
+	Failures []Failure `json:"ecs:StartTaskOutput:Failures" locationName:"failures" type:"list"`
 
 	// A full description of the tasks that were started. Each task that was successfully
 	// placed on your container instances is described.
-	Tasks []Task `locationName:"tasks" type:"list"`
+	Tasks []Task `json:"ecs:StartTaskOutput:Tasks" locationName:"tasks" type:"list"`
 }
 
 // String returns the string representation

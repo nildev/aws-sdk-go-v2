@@ -60,7 +60,7 @@ type ListTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of Tag for the requested Elasticsearch domain.
-	TagList []Tag `type:"list"`
+	TagList []Tag `json:"es:ListTagsOutput:TagList" type:"list"`
 }
 
 // String returns the string representation

@@ -98,16 +98,16 @@ type UpdateProvisionedProductPropertiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The provisioned product identifier.
-	ProvisionedProductId *string `min:"1" type:"string"`
+	ProvisionedProductId *string `json:"servicecatalog:UpdateProvisionedProductPropertiesOutput:ProvisionedProductId" min:"1" type:"string"`
 
 	// A map that contains the properties updated.
-	ProvisionedProductProperties map[string]string `min:"1" type:"map"`
+	ProvisionedProductProperties map[string]string `json:"servicecatalog:UpdateProvisionedProductPropertiesOutput:ProvisionedProductProperties" min:"1" type:"map"`
 
 	// The identifier of the record.
-	RecordId *string `min:"1" type:"string"`
+	RecordId *string `json:"servicecatalog:UpdateProvisionedProductPropertiesOutput:RecordId" min:"1" type:"string"`
 
 	// The status of the request.
-	Status RecordStatus `type:"string" enum:"true"`
+	Status RecordStatus `json:"servicecatalog:UpdateProvisionedProductPropertiesOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

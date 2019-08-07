@@ -58,38 +58,38 @@ type GetMissionProfileOutput struct {
 
 	// Amount of time after a contact ends that you’d like to receive a CloudWatch
 	// event indicating the pass has finished.
-	ContactPostPassDurationSeconds *int64 `locationName:"contactPostPassDurationSeconds" min:"1" type:"integer"`
+	ContactPostPassDurationSeconds *int64 `json:"groundstation:GetMissionProfileOutput:ContactPostPassDurationSeconds" locationName:"contactPostPassDurationSeconds" min:"1" type:"integer"`
 
 	// Amount of time prior to contact start you’d like to receive a CloudWatch
 	// event indicating an upcoming pass.
-	ContactPrePassDurationSeconds *int64 `locationName:"contactPrePassDurationSeconds" min:"1" type:"integer"`
+	ContactPrePassDurationSeconds *int64 `json:"groundstation:GetMissionProfileOutput:ContactPrePassDurationSeconds" locationName:"contactPrePassDurationSeconds" min:"1" type:"integer"`
 
 	// A list of lists of ARNs. Each list of ARNs is an edge, with a from Config
 	// and a to Config.
-	DataflowEdges [][]string `locationName:"dataflowEdges" type:"list"`
+	DataflowEdges [][]string `json:"groundstation:GetMissionProfileOutput:DataflowEdges" locationName:"dataflowEdges" type:"list"`
 
 	// Smallest amount of time in seconds that you’d like to see for an available
 	// contact. AWS Ground Station will not present you with contacts shorter than
 	// this duration.
-	MinimumViableContactDurationSeconds *int64 `locationName:"minimumViableContactDurationSeconds" min:"1" type:"integer"`
+	MinimumViableContactDurationSeconds *int64 `json:"groundstation:GetMissionProfileOutput:MinimumViableContactDurationSeconds" locationName:"minimumViableContactDurationSeconds" min:"1" type:"integer"`
 
 	// ARN of a mission profile.
-	MissionProfileArn *string `locationName:"missionProfileArn" type:"string"`
+	MissionProfileArn *string `json:"groundstation:GetMissionProfileOutput:MissionProfileArn" locationName:"missionProfileArn" type:"string"`
 
 	// ID of a mission profile.
-	MissionProfileId *string `locationName:"missionProfileId" type:"string"`
+	MissionProfileId *string `json:"groundstation:GetMissionProfileOutput:MissionProfileId" locationName:"missionProfileId" type:"string"`
 
 	// Name of a mission profile.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"groundstation:GetMissionProfileOutput:Name" locationName:"name" type:"string"`
 
 	// Region of a mission profile.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"groundstation:GetMissionProfileOutput:Region" locationName:"region" type:"string"`
 
 	// Tags assigned to a mission profile.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"groundstation:GetMissionProfileOutput:Tags" locationName:"tags" type:"map"`
 
 	// ARN of a tracking Config.
-	TrackingConfigArn *string `locationName:"trackingConfigArn" type:"string"`
+	TrackingConfigArn *string `json:"groundstation:GetMissionProfileOutput:TrackingConfigArn" locationName:"trackingConfigArn" type:"string"`
 }
 
 // String returns the string representation

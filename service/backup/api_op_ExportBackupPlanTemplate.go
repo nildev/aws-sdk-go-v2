@@ -60,7 +60,7 @@ type ExportBackupPlanTemplateOutput struct {
 	//
 	// This is a signed JSON document that cannot be modified before being passed
 	// to GetBackupPlanFromJSON.
-	BackupPlanTemplateJson *string `type:"string"`
+	BackupPlanTemplateJson *string `json:"backup:ExportBackupPlanTemplateOutput:BackupPlanTemplateJson" type:"string"`
 }
 
 // String returns the string representation

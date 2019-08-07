@@ -51,11 +51,11 @@ type DescribeLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the load balancers.
-	LoadBalancers []LoadBalancer `type:"list"`
+	LoadBalancers []LoadBalancer `json:"elasticloadbalancing:DescribeLoadBalancersOutput:LoadBalancers" type:"list"`
 
 	// If there are additional results, this is the marker for the next set of results.
 	// Otherwise, this is null.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"elasticloadbalancing:DescribeLoadBalancersOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

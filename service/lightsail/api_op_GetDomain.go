@@ -44,7 +44,7 @@ type GetDomainOutput struct {
 
 	// An array of key-value pairs containing information about your get domain
 	// request.
-	Domain *Domain `locationName:"domain" type:"structure"`
+	Domain *Domain `json:"lightsail:GetDomainOutput:Domain" locationName:"domain" type:"structure"`
 }
 
 // String returns the string representation

@@ -50,7 +50,7 @@ type DeprovisionByoipCidrOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the address range.
-	ByoipCidr *ByoipCidr `locationName:"byoipCidr" type:"structure"`
+	ByoipCidr *ByoipCidr `json:"ec2:DeprovisionByoipCidrOutput:ByoipCidr" locationName:"byoipCidr" type:"structure"`
 }
 
 // String returns the string representation

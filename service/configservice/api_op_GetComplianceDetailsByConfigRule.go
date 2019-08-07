@@ -61,11 +61,11 @@ type GetComplianceDetailsByConfigRuleOutput struct {
 
 	// Indicates whether the AWS resource complies with the specified AWS Config
 	// rule.
-	EvaluationResults []EvaluationResult `type:"list"`
+	EvaluationResults []EvaluationResult `json:"config:GetComplianceDetailsByConfigRuleOutput:EvaluationResults" type:"list"`
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:GetComplianceDetailsByConfigRuleOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

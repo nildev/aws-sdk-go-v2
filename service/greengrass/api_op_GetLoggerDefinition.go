@@ -54,21 +54,21 @@ func (s GetLoggerDefinitionInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetLoggerDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetLoggerDefinitionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetLoggerDefinitionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetLoggerDefinitionOutput:Id" type:"string"`
 
-	LastUpdatedTimestamp *string `type:"string"`
+	LastUpdatedTimestamp *string `json:"greengrass:GetLoggerDefinitionOutput:LastUpdatedTimestamp" type:"string"`
 
-	LatestVersion *string `type:"string"`
+	LatestVersion *string `json:"greengrass:GetLoggerDefinitionOutput:LatestVersion" type:"string"`
 
-	LatestVersionArn *string `type:"string"`
+	LatestVersionArn *string `json:"greengrass:GetLoggerDefinitionOutput:LatestVersionArn" type:"string"`
 
-	Name *string `type:"string"`
+	Name *string `json:"greengrass:GetLoggerDefinitionOutput:Name" type:"string"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"greengrass:GetLoggerDefinitionOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

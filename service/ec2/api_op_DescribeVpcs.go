@@ -102,10 +102,10 @@ type DescribeVpcsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVpcsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about one or more VPCs.
-	Vpcs []Vpc `locationName:"vpcSet" locationNameList:"item" type:"list"`
+	Vpcs []Vpc `json:"ec2:DescribeVpcsOutput:Vpcs" locationName:"vpcSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

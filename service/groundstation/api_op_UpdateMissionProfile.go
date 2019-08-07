@@ -139,7 +139,7 @@ type UpdateMissionProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ID of a mission profile.
-	MissionProfileId *string `locationName:"missionProfileId" type:"string"`
+	MissionProfileId *string `json:"groundstation:UpdateMissionProfileOutput:MissionProfileId" locationName:"missionProfileId" type:"string"`
 }
 
 // String returns the string representation

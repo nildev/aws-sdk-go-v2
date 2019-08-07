@@ -145,13 +145,13 @@ type GetDashboardEmbedUrlOutput struct {
 	// This URL is valid for 5 minutes, and the resulting session is valid for 10
 	// hours. The API provides the URL with an auth_code that enables a single-signon
 	// session.
-	EmbedUrl *string `type:"string"`
+	EmbedUrl *string `json:"quicksight:GetDashboardEmbedUrlOutput:EmbedUrl" type:"string"`
 
 	// The AWS request ID for this operation.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"quicksight:GetDashboardEmbedUrlOutput:RequestId" type:"string"`
 
 	// The http status of the request.
-	Status *int64 `location:"statusCode" type:"integer"`
+	Status *int64 `json:"quicksight:GetDashboardEmbedUrlOutput:Status" location:"statusCode" type:"integer"`
 }
 
 // String returns the string representation

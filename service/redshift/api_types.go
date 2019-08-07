@@ -18,10 +18,10 @@ type AccountAttribute struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the attribute.
-	AttributeName *string `type:"string"`
+	AttributeName *string `json:"redshift:AccountAttribute:AttributeName" type:"string"`
 
 	// A list of attribute values.
-	AttributeValues []AttributeValueTarget `locationNameList:"AttributeValueTarget" type:"list"`
+	AttributeValues []AttributeValueTarget `json:"redshift:AccountAttribute:AttributeValues" locationNameList:"AttributeValueTarget" type:"list"`
 }
 
 // String returns the string representation
@@ -36,10 +36,10 @@ type AccountWithRestoreAccess struct {
 
 	// The identifier of an AWS support account authorized to restore a snapshot.
 	// For AWS support, the identifier is amazon-redshift-support.
-	AccountAlias *string `type:"string"`
+	AccountAlias *string `json:"redshift:AccountWithRestoreAccess:AccountAlias" type:"string"`
 
 	// The identifier of an AWS customer account authorized to restore a snapshot.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"redshift:AccountWithRestoreAccess:AccountId" type:"string"`
 }
 
 // String returns the string representation
@@ -53,7 +53,7 @@ type AttributeValueTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The value of the attribute.
-	AttributeValue *string `type:"string"`
+	AttributeValue *string `json:"redshift:AttributeValueTarget:AttributeValue" type:"string"`
 }
 
 // String returns the string representation
@@ -67,9 +67,9 @@ type AvailabilityZone struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the availability zone.
-	Name *string `type:"string"`
+	Name *string `json:"redshift:AvailabilityZone:Name" type:"string"`
 
-	SupportedPlatforms []SupportedPlatform `locationNameList:"SupportedPlatform" type:"list"`
+	SupportedPlatforms []SupportedPlatform `json:"redshift:AvailabilityZone:SupportedPlatforms" locationNameList:"SupportedPlatform" type:"list"`
 }
 
 // String returns the string representation
@@ -84,13 +84,13 @@ type Cluster struct {
 
 	// A boolean value that, if true, indicates that major version upgrades will
 	// be applied automatically to the cluster during the maintenance window.
-	AllowVersionUpgrade *bool `type:"boolean"`
+	AllowVersionUpgrade *bool `json:"redshift:Cluster:AllowVersionUpgrade" type:"boolean"`
 
 	// The number of days that automatic cluster snapshots are retained.
-	AutomatedSnapshotRetentionPeriod *int64 `type:"integer"`
+	AutomatedSnapshotRetentionPeriod *int64 `json:"redshift:Cluster:AutomatedSnapshotRetentionPeriod" type:"integer"`
 
 	// The name of the Availability Zone in which the cluster is located.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"redshift:Cluster:AvailabilityZone" type:"string"`
 
 	// The availability status of the cluster for queries. Possible values are the
 	// following:
@@ -106,26 +106,26 @@ type Cluster struct {
 	//    to changes that modify the cluster.
 	//
 	//    * Failed - The cluster failed and is not available for queries.
-	ClusterAvailabilityStatus *string `type:"string"`
+	ClusterAvailabilityStatus *string `json:"redshift:Cluster:ClusterAvailabilityStatus" type:"string"`
 
 	// The date and time that the cluster was created.
-	ClusterCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ClusterCreateTime *time.Time `json:"redshift:Cluster:ClusterCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The unique identifier of the cluster.
-	ClusterIdentifier *string `type:"string"`
+	ClusterIdentifier *string `json:"redshift:Cluster:ClusterIdentifier" type:"string"`
 
 	// The nodes in the cluster.
-	ClusterNodes []ClusterNode `type:"list"`
+	ClusterNodes []ClusterNode `json:"redshift:Cluster:ClusterNodes" type:"list"`
 
 	// The list of cluster parameter groups that are associated with this cluster.
 	// Each parameter group in the list is returned with its status.
-	ClusterParameterGroups []ClusterParameterGroupStatus `locationNameList:"ClusterParameterGroup" type:"list"`
+	ClusterParameterGroups []ClusterParameterGroupStatus `json:"redshift:Cluster:ClusterParameterGroups" locationNameList:"ClusterParameterGroup" type:"list"`
 
 	// The public key for the cluster.
-	ClusterPublicKey *string `type:"string"`
+	ClusterPublicKey *string `json:"redshift:Cluster:ClusterPublicKey" type:"string"`
 
 	// The specific revision number of the database in the cluster.
-	ClusterRevisionNumber *string `type:"string"`
+	ClusterRevisionNumber *string `json:"redshift:Cluster:ClusterRevisionNumber" type:"string"`
 
 	// A list of cluster security group that are associated with the cluster. Each
 	// security group is represented by an element that contains ClusterSecurityGroup.Name
@@ -134,11 +134,11 @@ type Cluster struct {
 	// Cluster security groups are used when the cluster is not created in an Amazon
 	// Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security
 	// groups, which are listed by the VpcSecurityGroups parameter.
-	ClusterSecurityGroups []ClusterSecurityGroupMembership `locationNameList:"ClusterSecurityGroup" type:"list"`
+	ClusterSecurityGroups []ClusterSecurityGroupMembership `json:"redshift:Cluster:ClusterSecurityGroups" locationNameList:"ClusterSecurityGroup" type:"list"`
 
 	// A value that returns the destination region and retention period that are
 	// configured for cross-region snapshot copy.
-	ClusterSnapshotCopyStatus *ClusterSnapshotCopyStatus `type:"structure"`
+	ClusterSnapshotCopyStatus *ClusterSnapshotCopyStatus `json:"redshift:Cluster:ClusterSnapshotCopyStatus" type:"structure"`
 
 	// The current state of the cluster. Possible values are the following:
 	//
@@ -179,40 +179,40 @@ type Cluster struct {
 	//    * storage-full
 	//
 	//    * updating-hsm
-	ClusterStatus *string `type:"string"`
+	ClusterStatus *string `json:"redshift:Cluster:ClusterStatus" type:"string"`
 
 	// The name of the subnet group that is associated with the cluster. This parameter
 	// is valid only when the cluster is in a VPC.
-	ClusterSubnetGroupName *string `type:"string"`
+	ClusterSubnetGroupName *string `json:"redshift:Cluster:ClusterSubnetGroupName" type:"string"`
 
 	// The version ID of the Amazon Redshift engine that is running on the cluster.
-	ClusterVersion *string `type:"string"`
+	ClusterVersion *string `json:"redshift:Cluster:ClusterVersion" type:"string"`
 
 	// The name of the initial database that was created when the cluster was created.
 	// This same name is returned for the life of the cluster. If an initial database
 	// was not specified, a database named devdev was created by default.
-	DBName *string `type:"string"`
+	DBName *string `json:"redshift:Cluster:DBName" type:"string"`
 
 	// Describes the status of a cluster while it is in the process of resizing
 	// with an incremental resize.
-	DataTransferProgress *DataTransferProgress `type:"structure"`
+	DataTransferProgress *DataTransferProgress `json:"redshift:Cluster:DataTransferProgress" type:"structure"`
 
 	// Describes a group of DeferredMaintenanceWindow objects.
-	DeferredMaintenanceWindows []DeferredMaintenanceWindow `locationNameList:"DeferredMaintenanceWindow" type:"list"`
+	DeferredMaintenanceWindows []DeferredMaintenanceWindow `json:"redshift:Cluster:DeferredMaintenanceWindows" locationNameList:"DeferredMaintenanceWindow" type:"list"`
 
 	// The status of the elastic IP (EIP) address.
-	ElasticIpStatus *ElasticIpStatus `type:"structure"`
+	ElasticIpStatus *ElasticIpStatus `json:"redshift:Cluster:ElasticIpStatus" type:"structure"`
 
 	// The number of nodes that you can resize the cluster to with the elastic resize
 	// method.
-	ElasticResizeNumberOfNodeOptions *string `type:"string"`
+	ElasticResizeNumberOfNodeOptions *string `json:"redshift:Cluster:ElasticResizeNumberOfNodeOptions" type:"string"`
 
 	// A boolean value that, if true, indicates that data in the cluster is encrypted
 	// at rest.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"redshift:Cluster:Encrypted" type:"boolean"`
 
 	// The connection endpoint.
-	Endpoint *Endpoint `type:"structure"`
+	Endpoint *Endpoint `json:"redshift:Cluster:Endpoint" type:"structure"`
 
 	// An option that specifies whether to create the cluster with enhanced VPC
 	// routing enabled. To create a cluster that uses enhanced VPC routing, the
@@ -223,60 +223,60 @@ type Cluster struct {
 	// If this option is true, enhanced VPC routing is enabled.
 	//
 	// Default: false
-	EnhancedVpcRouting *bool `type:"boolean"`
+	EnhancedVpcRouting *bool `json:"redshift:Cluster:EnhancedVpcRouting" type:"boolean"`
 
 	// A value that reports whether the Amazon Redshift cluster has finished applying
 	// any hardware security module (HSM) settings changes specified in a modify
 	// cluster command.
 	//
 	// Values: active, applying
-	HsmStatus *HsmStatus `type:"structure"`
+	HsmStatus *HsmStatus `json:"redshift:Cluster:HsmStatus" type:"structure"`
 
 	// A list of AWS Identity and Access Management (IAM) roles that can be used
 	// by the cluster to access other AWS services.
-	IamRoles []ClusterIamRole `locationNameList:"ClusterIamRole" type:"list"`
+	IamRoles []ClusterIamRole `json:"redshift:Cluster:IamRoles" locationNameList:"ClusterIamRole" type:"list"`
 
 	// The AWS Key Management Service (AWS KMS) key ID of the encryption key used
 	// to encrypt data in the cluster.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"redshift:Cluster:KmsKeyId" type:"string"`
 
 	// The name of the maintenance track for the cluster.
-	MaintenanceTrackName *string `type:"string"`
+	MaintenanceTrackName *string `json:"redshift:Cluster:MaintenanceTrackName" type:"string"`
 
 	// The default number of days to retain a manual snapshot. If the value is -1,
 	// the snapshot is retained indefinitely. This setting doesn't change the retention
 	// period of existing snapshots.
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
-	ManualSnapshotRetentionPeriod *int64 `type:"integer"`
+	ManualSnapshotRetentionPeriod *int64 `json:"redshift:Cluster:ManualSnapshotRetentionPeriod" type:"integer"`
 
 	// The master user name for the cluster. This name is used to connect to the
 	// database that is specified in the DBName parameter.
-	MasterUsername *string `type:"string"`
+	MasterUsername *string `json:"redshift:Cluster:MasterUsername" type:"string"`
 
 	// The status of a modify operation, if any, initiated for the cluster.
-	ModifyStatus *string `type:"string"`
+	ModifyStatus *string `json:"redshift:Cluster:ModifyStatus" type:"string"`
 
 	// The node type for the nodes in the cluster.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"redshift:Cluster:NodeType" type:"string"`
 
 	// The number of compute nodes in the cluster.
-	NumberOfNodes *int64 `type:"integer"`
+	NumberOfNodes *int64 `json:"redshift:Cluster:NumberOfNodes" type:"integer"`
 
 	// Cluster operations that are waiting to be started.
-	PendingActions []string `type:"list"`
+	PendingActions []string `json:"redshift:Cluster:PendingActions" type:"list"`
 
 	// A value that, if present, indicates that changes to the cluster are pending.
 	// Specific pending changes are identified by subelements.
-	PendingModifiedValues *PendingModifiedValues `type:"structure"`
+	PendingModifiedValues *PendingModifiedValues `json:"redshift:Cluster:PendingModifiedValues" type:"structure"`
 
 	// The weekly time range, in Universal Coordinated Time (UTC), during which
 	// system maintenance can occur.
-	PreferredMaintenanceWindow *string `type:"string"`
+	PreferredMaintenanceWindow *string `json:"redshift:Cluster:PreferredMaintenanceWindow" type:"string"`
 
 	// A boolean value that, if true, indicates that the cluster can be accessed
 	// from a public network.
-	PubliclyAccessible *bool `type:"boolean"`
+	PubliclyAccessible *bool `json:"redshift:Cluster:PubliclyAccessible" type:"boolean"`
 
 	// Returns the following:
 	//
@@ -284,28 +284,28 @@ type Cluster struct {
 	//    can be cancelled.
 	//
 	//    * ResizeType: Returns ClassicResize
-	ResizeInfo *ResizeInfo `type:"structure"`
+	ResizeInfo *ResizeInfo `json:"redshift:Cluster:ResizeInfo" type:"structure"`
 
 	// A value that describes the status of a cluster restore action. This parameter
 	// returns null if the cluster was not created by restoring a snapshot.
-	RestoreStatus *RestoreStatus `type:"structure"`
+	RestoreStatus *RestoreStatus `json:"redshift:Cluster:RestoreStatus" type:"structure"`
 
 	// A unique identifier for the cluster snapshot schedule.
-	SnapshotScheduleIdentifier *string `type:"string"`
+	SnapshotScheduleIdentifier *string `json:"redshift:Cluster:SnapshotScheduleIdentifier" type:"string"`
 
 	// The current state of the cluster snapshot schedule.
-	SnapshotScheduleState ScheduleState `type:"string" enum:"true"`
+	SnapshotScheduleState ScheduleState `json:"redshift:Cluster:SnapshotScheduleState" type:"string" enum:"true"`
 
 	// The list of tags for the cluster.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:Cluster:Tags" locationNameList:"Tag" type:"list"`
 
 	// The identifier of the VPC the cluster is in, if the cluster is in a VPC.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"redshift:Cluster:VpcId" type:"string"`
 
 	// A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that
 	// are associated with the cluster. This parameter is returned only if the cluster
 	// is in a VPC.
-	VpcSecurityGroups []VpcSecurityGroupMembership `locationNameList:"VpcSecurityGroup" type:"list"`
+	VpcSecurityGroups []VpcSecurityGroupMembership `json:"redshift:Cluster:VpcSecurityGroups" locationNameList:"VpcSecurityGroup" type:"list"`
 }
 
 // String returns the string representation
@@ -317,9 +317,9 @@ func (s Cluster) String() string {
 type ClusterAssociatedToSchedule struct {
 	_ struct{} `type:"structure"`
 
-	ClusterIdentifier *string `type:"string"`
+	ClusterIdentifier *string `json:"redshift:ClusterAssociatedToSchedule:ClusterIdentifier" type:"string"`
 
-	ScheduleAssociationState ScheduleState `type:"string" enum:"true"`
+	ScheduleAssociationState ScheduleState `json:"redshift:ClusterAssociatedToSchedule:ScheduleAssociationState" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -333,17 +333,17 @@ type ClusterDbRevision struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the cluster.
-	ClusterIdentifier *string `type:"string"`
+	ClusterIdentifier *string `json:"redshift:ClusterDbRevision:ClusterIdentifier" type:"string"`
 
 	// A string representing the current cluster version.
-	CurrentDatabaseRevision *string `type:"string"`
+	CurrentDatabaseRevision *string `json:"redshift:ClusterDbRevision:CurrentDatabaseRevision" type:"string"`
 
 	// The date on which the database revision was released.
-	DatabaseRevisionReleaseDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DatabaseRevisionReleaseDate *time.Time `json:"redshift:ClusterDbRevision:DatabaseRevisionReleaseDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A list of RevisionTarget objects, where each object describes the database
 	// revision that a cluster can be updated to.
-	RevisionTargets []RevisionTarget `locationNameList:"RevisionTarget" type:"list"`
+	RevisionTargets []RevisionTarget `json:"redshift:ClusterDbRevision:RevisionTargets" locationNameList:"RevisionTarget" type:"list"`
 }
 
 // String returns the string representation
@@ -368,10 +368,10 @@ type ClusterIamRole struct {
 	//
 	//    * removing: The role is in the process of being disassociated with the
 	//    cluster.
-	ApplyStatus *string `type:"string"`
+	ApplyStatus *string `json:"redshift:ClusterIamRole:ApplyStatus" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role, for example, arn:aws:iam::123456789012:role/RedshiftCopyUnload.
-	IamRoleArn *string `type:"string"`
+	IamRoleArn *string `json:"redshift:ClusterIamRole:IamRoleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -385,13 +385,13 @@ type ClusterNode struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the node is a leader node or a compute node.
-	NodeRole *string `type:"string"`
+	NodeRole *string `json:"redshift:ClusterNode:NodeRole" type:"string"`
 
 	// The private IP address of a node within a cluster.
-	PrivateIPAddress *string `type:"string"`
+	PrivateIPAddress *string `json:"redshift:ClusterNode:PrivateIPAddress" type:"string"`
 
 	// The public IP address of a node within a cluster.
-	PublicIPAddress *string `type:"string"`
+	PublicIPAddress *string `json:"redshift:ClusterNode:PublicIPAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -405,17 +405,17 @@ type ClusterParameterGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the parameter group.
-	Description *string `type:"string"`
+	Description *string `json:"redshift:ClusterParameterGroup:Description" type:"string"`
 
 	// The name of the cluster parameter group family that this cluster parameter
 	// group is compatible with.
-	ParameterGroupFamily *string `type:"string"`
+	ParameterGroupFamily *string `json:"redshift:ClusterParameterGroup:ParameterGroupFamily" type:"string"`
 
 	// The name of the cluster parameter group.
-	ParameterGroupName *string `type:"string"`
+	ParameterGroupName *string `json:"redshift:ClusterParameterGroup:ParameterGroupName" type:"string"`
 
 	// The list of tags for the cluster parameter group.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:ClusterParameterGroup:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -433,13 +433,13 @@ type ClusterParameterGroupStatus struct {
 	// For more information about parameters and parameter groups, go to Amazon
 	// Redshift Parameter Groups (https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
 	// in the Amazon Redshift Cluster Management Guide.
-	ClusterParameterStatusList []ClusterParameterStatus `type:"list"`
+	ClusterParameterStatusList []ClusterParameterStatus `json:"redshift:ClusterParameterGroupStatus:ClusterParameterStatusList" type:"list"`
 
 	// The status of parameter updates.
-	ParameterApplyStatus *string `type:"string"`
+	ParameterApplyStatus *string `json:"redshift:ClusterParameterGroupStatus:ParameterApplyStatus" type:"string"`
 
 	// The name of the cluster parameter group.
-	ParameterGroupName *string `type:"string"`
+	ParameterGroupName *string `json:"redshift:ClusterParameterGroupStatus:ParameterGroupName" type:"string"`
 }
 
 // String returns the string representation
@@ -453,7 +453,7 @@ type ClusterParameterStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The error that prevented the parameter from being applied to the database.
-	ParameterApplyErrorDescription *string `type:"string"`
+	ParameterApplyErrorDescription *string `json:"redshift:ClusterParameterStatus:ParameterApplyErrorDescription" type:"string"`
 
 	// The status of the parameter that indicates whether the parameter is in sync
 	// with the database, waiting for a cluster reboot, or encountered an error
@@ -479,10 +479,10 @@ type ClusterParameterStatus struct {
 	//
 	//    * unknown-error: Cannot apply the parameter change right now. The change
 	//    will be applied after the cluster reboots.
-	ParameterApplyStatus *string `type:"string"`
+	ParameterApplyStatus *string `json:"redshift:ClusterParameterStatus:ParameterApplyStatus" type:"string"`
 
 	// The name of the parameter.
-	ParameterName *string `type:"string"`
+	ParameterName *string `json:"redshift:ClusterParameterStatus:ParameterName" type:"string"`
 }
 
 // String returns the string representation
@@ -496,21 +496,21 @@ type ClusterSecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cluster security group to which the operation was applied.
-	ClusterSecurityGroupName *string `type:"string"`
+	ClusterSecurityGroupName *string `json:"redshift:ClusterSecurityGroup:ClusterSecurityGroupName" type:"string"`
 
 	// A description of the security group.
-	Description *string `type:"string"`
+	Description *string `json:"redshift:ClusterSecurityGroup:Description" type:"string"`
 
 	// A list of EC2 security groups that are permitted to access clusters associated
 	// with this cluster security group.
-	EC2SecurityGroups []EC2SecurityGroup `locationNameList:"EC2SecurityGroup" type:"list"`
+	EC2SecurityGroups []EC2SecurityGroup `json:"redshift:ClusterSecurityGroup:EC2SecurityGroups" locationNameList:"EC2SecurityGroup" type:"list"`
 
 	// A list of IP ranges (CIDR blocks) that are permitted to access clusters associated
 	// with this cluster security group.
-	IPRanges []IPRange `locationNameList:"IPRange" type:"list"`
+	IPRanges []IPRange `json:"redshift:ClusterSecurityGroup:IPRanges" locationNameList:"IPRange" type:"list"`
 
 	// The list of tags for the cluster security group.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:ClusterSecurityGroup:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -524,10 +524,10 @@ type ClusterSecurityGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cluster security group.
-	ClusterSecurityGroupName *string `type:"string"`
+	ClusterSecurityGroupName *string `json:"redshift:ClusterSecurityGroupMembership:ClusterSecurityGroupName" type:"string"`
 
 	// The status of the cluster security group.
-	Status *string `type:"string"`
+	Status *string `json:"redshift:ClusterSecurityGroupMembership:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -543,21 +543,21 @@ type ClusterSnapshotCopyStatus struct {
 
 	// The destination region that snapshots are automatically copied to when cross-region
 	// snapshot copy is enabled.
-	DestinationRegion *string `type:"string"`
+	DestinationRegion *string `json:"redshift:ClusterSnapshotCopyStatus:DestinationRegion" type:"string"`
 
 	// The number of days that automated snapshots are retained in the destination
 	// region after they are copied from a source region. If the value is -1, the
 	// manual snapshot is retained indefinitely.
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
-	ManualSnapshotRetentionPeriod *int64 `type:"integer"`
+	ManualSnapshotRetentionPeriod *int64 `json:"redshift:ClusterSnapshotCopyStatus:ManualSnapshotRetentionPeriod" type:"integer"`
 
 	// The number of days that automated snapshots are retained in the destination
 	// region after they are copied from a source region.
-	RetentionPeriod *int64 `type:"long"`
+	RetentionPeriod *int64 `json:"redshift:ClusterSnapshotCopyStatus:RetentionPeriod" type:"long"`
 
 	// The name of the snapshot copy grant.
-	SnapshotCopyGrantName *string `type:"string"`
+	SnapshotCopyGrantName *string `json:"redshift:ClusterSnapshotCopyStatus:SnapshotCopyGrantName" type:"string"`
 }
 
 // String returns the string representation
@@ -571,23 +571,23 @@ type ClusterSubnetGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cluster subnet group.
-	ClusterSubnetGroupName *string `type:"string"`
+	ClusterSubnetGroupName *string `json:"redshift:ClusterSubnetGroup:ClusterSubnetGroupName" type:"string"`
 
 	// The description of the cluster subnet group.
-	Description *string `type:"string"`
+	Description *string `json:"redshift:ClusterSubnetGroup:Description" type:"string"`
 
 	// The status of the cluster subnet group. Possible values are Complete, Incomplete
 	// and Invalid.
-	SubnetGroupStatus *string `type:"string"`
+	SubnetGroupStatus *string `json:"redshift:ClusterSubnetGroup:SubnetGroupStatus" type:"string"`
 
 	// A list of the VPC Subnet elements.
-	Subnets []Subnet `locationNameList:"Subnet" type:"list"`
+	Subnets []Subnet `json:"redshift:ClusterSubnetGroup:Subnets" locationNameList:"Subnet" type:"list"`
 
 	// The list of tags for the cluster subnet group.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:ClusterSubnetGroup:Tags" locationNameList:"Tag" type:"list"`
 
 	// The VPC ID of the cluster subnet group.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"redshift:ClusterSubnetGroup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -602,13 +602,13 @@ type ClusterVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cluster parameter group family for the cluster.
-	ClusterParameterGroupFamily *string `type:"string"`
+	ClusterParameterGroupFamily *string `json:"redshift:ClusterVersion:ClusterParameterGroupFamily" type:"string"`
 
 	// The version number used by the cluster.
-	ClusterVersion *string `type:"string"`
+	ClusterVersion *string `json:"redshift:ClusterVersion:ClusterVersion" type:"string"`
 
 	// The description of the cluster version.
-	Description *string `type:"string"`
+	Description *string `json:"redshift:ClusterVersion:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -623,23 +623,23 @@ type DataTransferProgress struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the data transfer rate in MB's per second.
-	CurrentRateInMegaBytesPerSecond *float64 `type:"double"`
+	CurrentRateInMegaBytesPerSecond *float64 `json:"redshift:DataTransferProgress:CurrentRateInMegaBytesPerSecond" type:"double"`
 
 	// Describes the total amount of data that has been transfered in MB's.
-	DataTransferredInMegaBytes *int64 `type:"long"`
+	DataTransferredInMegaBytes *int64 `json:"redshift:DataTransferProgress:DataTransferredInMegaBytes" type:"long"`
 
 	// Describes the number of seconds that have elapsed during the data transfer.
-	ElapsedTimeInSeconds *int64 `type:"long"`
+	ElapsedTimeInSeconds *int64 `json:"redshift:DataTransferProgress:ElapsedTimeInSeconds" type:"long"`
 
 	// Describes the estimated number of seconds remaining to complete the transfer.
-	EstimatedTimeToCompletionInSeconds *int64 `type:"long"`
+	EstimatedTimeToCompletionInSeconds *int64 `json:"redshift:DataTransferProgress:EstimatedTimeToCompletionInSeconds" type:"long"`
 
 	// Describes the status of the cluster. While the transfer is in progress the
 	// status is transferringdata.
-	Status *string `type:"string"`
+	Status *string `json:"redshift:DataTransferProgress:Status" type:"string"`
 
 	// Describes the total amount of data to be transfered in megabytes.
-	TotalDataInMegaBytes *int64 `type:"long"`
+	TotalDataInMegaBytes *int64 `json:"redshift:DataTransferProgress:TotalDataInMegaBytes" type:"long"`
 }
 
 // String returns the string representation
@@ -657,14 +657,14 @@ type DefaultClusterParameters struct {
 	// the next set of records by providing this returned marker value in the Marker
 	// parameter and retrying the command. If the Marker field is empty, all response
 	// records have been retrieved for the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DefaultClusterParameters:Marker" type:"string"`
 
 	// The name of the cluster parameter group family to which the engine default
 	// parameters apply.
-	ParameterGroupFamily *string `type:"string"`
+	ParameterGroupFamily *string `json:"redshift:DefaultClusterParameters:ParameterGroupFamily" type:"string"`
 
 	// The list of cluster default parameters.
-	Parameters []Parameter `locationNameList:"Parameter" type:"list"`
+	Parameters []Parameter `json:"redshift:DefaultClusterParameters:Parameters" locationNameList:"Parameter" type:"list"`
 }
 
 // String returns the string representation
@@ -678,13 +678,13 @@ type DeferredMaintenanceWindow struct {
 	_ struct{} `type:"structure"`
 
 	// A timestamp for the end of the time period when we defer maintenance.
-	DeferMaintenanceEndTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DeferMaintenanceEndTime *time.Time `json:"redshift:DeferredMaintenanceWindow:DeferMaintenanceEndTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A unique identifier for the maintenance window.
-	DeferMaintenanceIdentifier *string `type:"string"`
+	DeferMaintenanceIdentifier *string `json:"redshift:DeferredMaintenanceWindow:DeferMaintenanceIdentifier" type:"string"`
 
 	// A timestamp for the beginning of the time period when we defer maintenance.
-	DeferMaintenanceStartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DeferMaintenanceStartTime *time.Time `json:"redshift:DeferredMaintenanceWindow:DeferMaintenanceStartTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -701,7 +701,7 @@ type DeleteClusterSnapshotMessage struct {
 	// resource element that specifies anything other than * for the cluster name.
 	//
 	// Constraints: Must be the name of valid cluster.
-	SnapshotClusterIdentifier *string `type:"string"`
+	SnapshotClusterIdentifier *string `json:"redshift:DeleteClusterSnapshotMessage:SnapshotClusterIdentifier" type:"string"`
 
 	// The unique identifier of the manual snapshot to be deleted.
 	//
@@ -709,7 +709,7 @@ type DeleteClusterSnapshotMessage struct {
 	// failed, or cancelled state.
 	//
 	// SnapshotIdentifier is a required field
-	SnapshotIdentifier *string `type:"string" required:"true"`
+	SnapshotIdentifier *string `json:"redshift:DeleteClusterSnapshotMessage:SnapshotIdentifier" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -737,17 +737,17 @@ type EC2SecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the EC2 Security Group.
-	EC2SecurityGroupName *string `type:"string"`
+	EC2SecurityGroupName *string `json:"redshift:EC2SecurityGroup:EC2SecurityGroupName" type:"string"`
 
 	// The AWS ID of the owner of the EC2 security group specified in the EC2SecurityGroupName
 	// field.
-	EC2SecurityGroupOwnerId *string `type:"string"`
+	EC2SecurityGroupOwnerId *string `json:"redshift:EC2SecurityGroup:EC2SecurityGroupOwnerId" type:"string"`
 
 	// The status of the EC2 security group.
-	Status *string `type:"string"`
+	Status *string `json:"redshift:EC2SecurityGroup:Status" type:"string"`
 
 	// The list of tags for the EC2 security group.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:EC2SecurityGroup:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -761,10 +761,10 @@ type ElasticIpStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The elastic IP (EIP) address for the cluster.
-	ElasticIp *string `type:"string"`
+	ElasticIp *string `json:"redshift:ElasticIpStatus:ElasticIp" type:"string"`
 
 	// The status of the elastic IP (EIP) address.
-	Status *string `type:"string"`
+	Status *string `json:"redshift:ElasticIpStatus:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -778,10 +778,10 @@ type Endpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The DNS address of the Cluster.
-	Address *string `type:"string"`
+	Address *string `json:"redshift:Endpoint:Address" type:"string"`
 
 	// The port that the database engine is listening on.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"redshift:Endpoint:Port" type:"integer"`
 }
 
 // String returns the string representation
@@ -795,29 +795,29 @@ type Event struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time of the event.
-	Date *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Date *time.Time `json:"redshift:Event:Date" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A list of the event categories.
 	//
 	// Values: Configuration, Management, Monitoring, Security
-	EventCategories []string `locationNameList:"EventCategory" type:"list"`
+	EventCategories []string `json:"redshift:Event:EventCategories" locationNameList:"EventCategory" type:"list"`
 
 	// The identifier of the event.
-	EventId *string `type:"string"`
+	EventId *string `json:"redshift:Event:EventId" type:"string"`
 
 	// The text of this event.
-	Message *string `type:"string"`
+	Message *string `json:"redshift:Event:Message" type:"string"`
 
 	// The severity of the event.
 	//
 	// Values: ERROR, INFO
-	Severity *string `type:"string"`
+	Severity *string `json:"redshift:Event:Severity" type:"string"`
 
 	// The identifier for the source of the event.
-	SourceIdentifier *string `type:"string"`
+	SourceIdentifier *string `json:"redshift:Event:SourceIdentifier" type:"string"`
 
 	// The source type for this event.
-	SourceType SourceType `type:"string" enum:"true"`
+	SourceType SourceType `json:"redshift:Event:SourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -831,11 +831,11 @@ type EventCategoriesMap struct {
 	_ struct{} `type:"structure"`
 
 	// The events in the event category.
-	Events []EventInfoMap `locationNameList:"EventInfoMap" type:"list"`
+	Events []EventInfoMap `json:"redshift:EventCategoriesMap:Events" locationNameList:"EventInfoMap" type:"list"`
 
 	// The source type, such as cluster or cluster-snapshot, that the returned categories
 	// belong to.
-	SourceType *string `type:"string"`
+	SourceType *string `json:"redshift:EventCategoriesMap:SourceType" type:"string"`
 }
 
 // String returns the string representation
@@ -849,18 +849,18 @@ type EventInfoMap struct {
 	_ struct{} `type:"structure"`
 
 	// The category of an Amazon Redshift event.
-	EventCategories []string `locationNameList:"EventCategory" type:"list"`
+	EventCategories []string `json:"redshift:EventInfoMap:EventCategories" locationNameList:"EventCategory" type:"list"`
 
 	// The description of an Amazon Redshift event.
-	EventDescription *string `type:"string"`
+	EventDescription *string `json:"redshift:EventInfoMap:EventDescription" type:"string"`
 
 	// The identifier of an Amazon Redshift event.
-	EventId *string `type:"string"`
+	EventId *string `json:"redshift:EventInfoMap:EventId" type:"string"`
 
 	// The severity of the event.
 	//
 	// Values: ERROR, INFO
-	Severity *string `type:"string"`
+	Severity *string `json:"redshift:EventInfoMap:Severity" type:"string"`
 }
 
 // String returns the string representation
@@ -874,38 +874,38 @@ type EventSubscription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Amazon Redshift event notification subscription.
-	CustSubscriptionId *string `type:"string"`
+	CustSubscriptionId *string `json:"redshift:EventSubscription:CustSubscriptionId" type:"string"`
 
 	// The AWS customer account associated with the Amazon Redshift event notification
 	// subscription.
-	CustomerAwsId *string `type:"string"`
+	CustomerAwsId *string `json:"redshift:EventSubscription:CustomerAwsId" type:"string"`
 
 	// A boolean value indicating whether the subscription is enabled; true indicates
 	// that the subscription is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"redshift:EventSubscription:Enabled" type:"boolean"`
 
 	// The list of Amazon Redshift event categories specified in the event notification
 	// subscription.
 	//
 	// Values: Configuration, Management, Monitoring, Security
-	EventCategoriesList []string `locationNameList:"EventCategory" type:"list"`
+	EventCategoriesList []string `json:"redshift:EventSubscription:EventCategoriesList" locationNameList:"EventCategory" type:"list"`
 
 	// The event severity specified in the Amazon Redshift event notification subscription.
 	//
 	// Values: ERROR, INFO
-	Severity *string `type:"string"`
+	Severity *string `json:"redshift:EventSubscription:Severity" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event
 	// notification subscription.
-	SnsTopicArn *string `type:"string"`
+	SnsTopicArn *string `json:"redshift:EventSubscription:SnsTopicArn" type:"string"`
 
 	// A list of the sources that publish events to the Amazon Redshift event notification
 	// subscription.
-	SourceIdsList []string `locationNameList:"SourceId" type:"list"`
+	SourceIdsList []string `json:"redshift:EventSubscription:SourceIdsList" locationNameList:"SourceId" type:"list"`
 
 	// The source type of the events returned the Amazon Redshift event notification,
 	// such as cluster, or cluster-snapshot.
-	SourceType *string `type:"string"`
+	SourceType *string `json:"redshift:EventSubscription:SourceType" type:"string"`
 
 	// The status of the Amazon Redshift event notification subscription.
 	//
@@ -916,14 +916,14 @@ type EventSubscription struct {
 	//    * The status "no-permission" indicates that Amazon Redshift no longer
 	//    has permission to post to the Amazon SNS topic. The status "topic-not-exist"
 	//    indicates that the topic was deleted after the subscription was created.
-	Status *string `type:"string"`
+	Status *string `json:"redshift:EventSubscription:Status" type:"string"`
 
 	// The date and time the Amazon Redshift event notification subscription was
 	// created.
-	SubscriptionCreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	SubscriptionCreationTime *time.Time `json:"redshift:EventSubscription:SubscriptionCreationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The list of tags for the event subscription.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:EventSubscription:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -939,14 +939,14 @@ type HsmClientCertificate struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the HSM client certificate.
-	HsmClientCertificateIdentifier *string `type:"string"`
+	HsmClientCertificateIdentifier *string `json:"redshift:HsmClientCertificate:HsmClientCertificateIdentifier" type:"string"`
 
 	// The public key that the Amazon Redshift cluster will use to connect to the
 	// HSM. You must register the public key in the HSM.
-	HsmClientCertificatePublicKey *string `type:"string"`
+	HsmClientCertificatePublicKey *string `json:"redshift:HsmClientCertificate:HsmClientCertificatePublicKey" type:"string"`
 
 	// The list of tags for the HSM client certificate.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:HsmClientCertificate:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -962,20 +962,20 @@ type HsmConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// A text description of the HSM configuration.
-	Description *string `type:"string"`
+	Description *string `json:"redshift:HsmConfiguration:Description" type:"string"`
 
 	// The name of the Amazon Redshift HSM configuration.
-	HsmConfigurationIdentifier *string `type:"string"`
+	HsmConfigurationIdentifier *string `json:"redshift:HsmConfiguration:HsmConfigurationIdentifier" type:"string"`
 
 	// The IP address that the Amazon Redshift cluster must use to access the HSM.
-	HsmIpAddress *string `type:"string"`
+	HsmIpAddress *string `json:"redshift:HsmConfiguration:HsmIpAddress" type:"string"`
 
 	// The name of the partition in the HSM where the Amazon Redshift clusters will
 	// store their database encryption keys.
-	HsmPartitionName *string `type:"string"`
+	HsmPartitionName *string `json:"redshift:HsmConfiguration:HsmPartitionName" type:"string"`
 
 	// The list of tags for the HSM configuration.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:HsmConfiguration:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -990,17 +990,17 @@ type HsmStatus struct {
 
 	// Specifies the name of the HSM client certificate the Amazon Redshift cluster
 	// uses to retrieve the data encryption keys stored in an HSM.
-	HsmClientCertificateIdentifier *string `type:"string"`
+	HsmClientCertificateIdentifier *string `json:"redshift:HsmStatus:HsmClientCertificateIdentifier" type:"string"`
 
 	// Specifies the name of the HSM configuration that contains the information
 	// the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-	HsmConfigurationIdentifier *string `type:"string"`
+	HsmConfigurationIdentifier *string `json:"redshift:HsmStatus:HsmConfigurationIdentifier" type:"string"`
 
 	// Reports whether the Amazon Redshift cluster has finished applying any HSM
 	// settings changes specified in a modify cluster command.
 	//
 	// Values: active, applying
-	Status *string `type:"string"`
+	Status *string `json:"redshift:HsmStatus:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -1014,13 +1014,13 @@ type IPRange struct {
 	_ struct{} `type:"structure"`
 
 	// The IP range in Classless Inter-Domain Routing (CIDR) notation.
-	CIDRIP *string `type:"string"`
+	CIDRIP *string `json:"redshift:IPRange:CIDRIP" type:"string"`
 
 	// The status of the IP range, for example, "authorized".
-	Status *string `type:"string"`
+	Status *string `json:"redshift:IPRange:Status" type:"string"`
 
 	// The list of tags for the IP range.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:IPRange:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -1038,13 +1038,13 @@ type MaintenanceTrack struct {
 	_ struct{} `type:"structure"`
 
 	// The version number for the cluster release.
-	DatabaseVersion *string `type:"string"`
+	DatabaseVersion *string `json:"redshift:MaintenanceTrack:DatabaseVersion" type:"string"`
 
 	// The name of the maintenance track. Possible values are current and trailing.
-	MaintenanceTrackName *string `type:"string"`
+	MaintenanceTrackName *string `json:"redshift:MaintenanceTrack:MaintenanceTrackName" type:"string"`
 
 	// An array of UpdateTarget objects to update with the maintenance track.
-	UpdateTargets []UpdateTarget `locationNameList:"UpdateTarget" type:"list"`
+	UpdateTargets []UpdateTarget `json:"redshift:MaintenanceTrack:UpdateTargets" locationNameList:"UpdateTarget" type:"list"`
 }
 
 // String returns the string representation
@@ -1058,16 +1058,16 @@ type OrderableClusterOption struct {
 	_ struct{} `type:"structure"`
 
 	// A list of availability zones for the orderable cluster.
-	AvailabilityZones []AvailabilityZone `locationNameList:"AvailabilityZone" type:"list"`
+	AvailabilityZones []AvailabilityZone `json:"redshift:OrderableClusterOption:AvailabilityZones" locationNameList:"AvailabilityZone" type:"list"`
 
 	// The cluster type, for example multi-node.
-	ClusterType *string `type:"string"`
+	ClusterType *string `json:"redshift:OrderableClusterOption:ClusterType" type:"string"`
 
 	// The version of the orderable cluster.
-	ClusterVersion *string `type:"string"`
+	ClusterVersion *string `json:"redshift:OrderableClusterOption:ClusterVersion" type:"string"`
 
 	// The node type for the orderable cluster.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"redshift:OrderableClusterOption:NodeType" type:"string"`
 }
 
 // String returns the string representation
@@ -1081,7 +1081,7 @@ type Parameter struct {
 	_ struct{} `type:"structure"`
 
 	// The valid range of values for the parameter.
-	AllowedValues *string `type:"string"`
+	AllowedValues *string `json:"redshift:Parameter:AllowedValues" type:"string"`
 
 	// Specifies how to apply the WLM configuration parameter. Some properties can
 	// be applied dynamically, while other properties require that any associated
@@ -1089,29 +1089,29 @@ type Parameter struct {
 	// information about parameters and parameter groups, go to Amazon Redshift
 	// Parameter Groups (https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
 	// in the Amazon Redshift Cluster Management Guide.
-	ApplyType ParameterApplyType `type:"string" enum:"true"`
+	ApplyType ParameterApplyType `json:"redshift:Parameter:ApplyType" type:"string" enum:"true"`
 
 	// The data type of the parameter.
-	DataType *string `type:"string"`
+	DataType *string `json:"redshift:Parameter:DataType" type:"string"`
 
 	// A description of the parameter.
-	Description *string `type:"string"`
+	Description *string `json:"redshift:Parameter:Description" type:"string"`
 
 	// If true, the parameter can be modified. Some parameters have security or
 	// operational implications that prevent them from being changed.
-	IsModifiable *bool `type:"boolean"`
+	IsModifiable *bool `json:"redshift:Parameter:IsModifiable" type:"boolean"`
 
 	// The earliest engine version to which the parameter can apply.
-	MinimumEngineVersion *string `type:"string"`
+	MinimumEngineVersion *string `json:"redshift:Parameter:MinimumEngineVersion" type:"string"`
 
 	// The name of the parameter.
-	ParameterName *string `type:"string"`
+	ParameterName *string `json:"redshift:Parameter:ParameterName" type:"string"`
 
 	// The value of the parameter.
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `json:"redshift:Parameter:ParameterValue" type:"string"`
 
 	// The source of the parameter value, such as "engine-default" or "user".
-	Source *string `type:"string"`
+	Source *string `json:"redshift:Parameter:Source" type:"string"`
 }
 
 // String returns the string representation
@@ -1126,20 +1126,20 @@ type PendingModifiedValues struct {
 	_ struct{} `type:"structure"`
 
 	// The pending or in-progress change of the automated snapshot retention period.
-	AutomatedSnapshotRetentionPeriod *int64 `type:"integer"`
+	AutomatedSnapshotRetentionPeriod *int64 `json:"redshift:PendingModifiedValues:AutomatedSnapshotRetentionPeriod" type:"integer"`
 
 	// The pending or in-progress change of the new identifier for the cluster.
-	ClusterIdentifier *string `type:"string"`
+	ClusterIdentifier *string `json:"redshift:PendingModifiedValues:ClusterIdentifier" type:"string"`
 
 	// The pending or in-progress change of the cluster type.
-	ClusterType *string `type:"string"`
+	ClusterType *string `json:"redshift:PendingModifiedValues:ClusterType" type:"string"`
 
 	// The pending or in-progress change of the service version.
-	ClusterVersion *string `type:"string"`
+	ClusterVersion *string `json:"redshift:PendingModifiedValues:ClusterVersion" type:"string"`
 
 	// The encryption type for a cluster. Possible values are: KMS and None. For
 	// the China region the possible values are None, and Legacy.
-	EncryptionType *string `type:"string"`
+	EncryptionType *string `json:"redshift:PendingModifiedValues:EncryptionType" type:"string"`
 
 	// An option that specifies whether to create the cluster with enhanced VPC
 	// routing enabled. To create a cluster that uses enhanced VPC routing, the
@@ -1150,24 +1150,24 @@ type PendingModifiedValues struct {
 	// If this option is true, enhanced VPC routing is enabled.
 	//
 	// Default: false
-	EnhancedVpcRouting *bool `type:"boolean"`
+	EnhancedVpcRouting *bool `json:"redshift:PendingModifiedValues:EnhancedVpcRouting" type:"boolean"`
 
 	// The name of the maintenance track that the cluster will change to during
 	// the next maintenance window.
-	MaintenanceTrackName *string `type:"string"`
+	MaintenanceTrackName *string `json:"redshift:PendingModifiedValues:MaintenanceTrackName" type:"string"`
 
 	// The pending or in-progress change of the master user password for the cluster.
-	MasterUserPassword *string `type:"string"`
+	MasterUserPassword *string `json:"redshift:PendingModifiedValues:MasterUserPassword" type:"string"`
 
 	// The pending or in-progress change of the cluster's node type.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"redshift:PendingModifiedValues:NodeType" type:"string"`
 
 	// The pending or in-progress change of the number of nodes in the cluster.
-	NumberOfNodes *int64 `type:"integer"`
+	NumberOfNodes *int64 `json:"redshift:PendingModifiedValues:NumberOfNodes" type:"integer"`
 
 	// The pending or in-progress change of the ability to connect to the cluster
 	// from the public network.
-	PubliclyAccessible *bool `type:"boolean"`
+	PubliclyAccessible *bool `json:"redshift:PendingModifiedValues:PubliclyAccessible" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1182,10 +1182,10 @@ type RecurringCharge struct {
 
 	// The amount charged per the period of time specified by the recurring charge
 	// frequency.
-	RecurringChargeAmount *float64 `type:"double"`
+	RecurringChargeAmount *float64 `json:"redshift:RecurringCharge:RecurringChargeAmount" type:"double"`
 
 	// The frequency at which the recurring charge amount is applied.
-	RecurringChargeFrequency *string `type:"string"`
+	RecurringChargeFrequency *string `json:"redshift:RecurringCharge:RecurringChargeFrequency" type:"string"`
 }
 
 // String returns the string representation
@@ -1200,38 +1200,38 @@ type ReservedNode struct {
 	_ struct{} `type:"structure"`
 
 	// The currency code for the reserved cluster.
-	CurrencyCode *string `type:"string"`
+	CurrencyCode *string `json:"redshift:ReservedNode:CurrencyCode" type:"string"`
 
 	// The duration of the node reservation in seconds.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"redshift:ReservedNode:Duration" type:"integer"`
 
 	// The fixed cost Amazon Redshift charges you for this reserved node.
-	FixedPrice *float64 `type:"double"`
+	FixedPrice *float64 `json:"redshift:ReservedNode:FixedPrice" type:"double"`
 
 	// The number of reserved compute nodes.
-	NodeCount *int64 `type:"integer"`
+	NodeCount *int64 `json:"redshift:ReservedNode:NodeCount" type:"integer"`
 
 	// The node type of the reserved node.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"redshift:ReservedNode:NodeType" type:"string"`
 
 	// The anticipated utilization of the reserved node, as defined in the reserved
 	// node offering.
-	OfferingType *string `type:"string"`
+	OfferingType *string `json:"redshift:ReservedNode:OfferingType" type:"string"`
 
 	// The recurring charges for the reserved node.
-	RecurringCharges []RecurringCharge `locationNameList:"RecurringCharge" type:"list"`
+	RecurringCharges []RecurringCharge `json:"redshift:ReservedNode:RecurringCharges" locationNameList:"RecurringCharge" type:"list"`
 
 	// The unique identifier for the reservation.
-	ReservedNodeId *string `type:"string"`
+	ReservedNodeId *string `json:"redshift:ReservedNode:ReservedNodeId" type:"string"`
 
 	// The identifier for the reserved node offering.
-	ReservedNodeOfferingId *string `type:"string"`
+	ReservedNodeOfferingId *string `json:"redshift:ReservedNode:ReservedNodeOfferingId" type:"string"`
 
-	ReservedNodeOfferingType ReservedNodeOfferingType `type:"string" enum:"true"`
+	ReservedNodeOfferingType ReservedNodeOfferingType `json:"redshift:ReservedNode:ReservedNodeOfferingType" type:"string" enum:"true"`
 
 	// The time the reservation started. You purchase a reserved node offering for
 	// a duration. This is the start time of that duration.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"redshift:ReservedNode:StartTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The state of the reserved compute node.
 	//
@@ -1249,10 +1249,10 @@ type ReservedNode struct {
 	//
 	//    * exchanging-The owner is exchanging the reserved node for another reserved
 	//    node.
-	State *string `type:"string"`
+	State *string `json:"redshift:ReservedNode:State" type:"string"`
 
 	// The hourly rate Amazon Redshift charges you for this reserved node.
-	UsagePrice *float64 `type:"double"`
+	UsagePrice *float64 `json:"redshift:ReservedNode:UsagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -1266,35 +1266,35 @@ type ReservedNodeOffering struct {
 	_ struct{} `type:"structure"`
 
 	// The currency code for the compute nodes offering.
-	CurrencyCode *string `type:"string"`
+	CurrencyCode *string `json:"redshift:ReservedNodeOffering:CurrencyCode" type:"string"`
 
 	// The duration, in seconds, for which the offering will reserve the node.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"redshift:ReservedNodeOffering:Duration" type:"integer"`
 
 	// The upfront fixed charge you will pay to purchase the specific reserved node
 	// offering.
-	FixedPrice *float64 `type:"double"`
+	FixedPrice *float64 `json:"redshift:ReservedNodeOffering:FixedPrice" type:"double"`
 
 	// The node type offered by the reserved node offering.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"redshift:ReservedNodeOffering:NodeType" type:"string"`
 
 	// The anticipated utilization of the reserved node, as defined in the reserved
 	// node offering.
-	OfferingType *string `type:"string"`
+	OfferingType *string `json:"redshift:ReservedNodeOffering:OfferingType" type:"string"`
 
 	// The charge to your account regardless of whether you are creating any clusters
 	// using the node offering. Recurring charges are only in effect for heavy-utilization
 	// reserved nodes.
-	RecurringCharges []RecurringCharge `locationNameList:"RecurringCharge" type:"list"`
+	RecurringCharges []RecurringCharge `json:"redshift:ReservedNodeOffering:RecurringCharges" locationNameList:"RecurringCharge" type:"list"`
 
 	// The offering identifier.
-	ReservedNodeOfferingId *string `type:"string"`
+	ReservedNodeOfferingId *string `json:"redshift:ReservedNodeOffering:ReservedNodeOfferingId" type:"string"`
 
-	ReservedNodeOfferingType ReservedNodeOfferingType `type:"string" enum:"true"`
+	ReservedNodeOfferingType ReservedNodeOfferingType `json:"redshift:ReservedNodeOffering:ReservedNodeOfferingType" type:"string" enum:"true"`
 
 	// The rate you are charged for each hour the cluster that is using the offering
 	// is running.
-	UsagePrice *float64 `type:"double"`
+	UsagePrice *float64 `json:"redshift:ReservedNodeOffering:UsagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -1308,10 +1308,10 @@ type ResizeInfo struct {
 	_ struct{} `type:"structure"`
 
 	// A boolean value indicating if the resize operation can be cancelled.
-	AllowCancelResize *bool `type:"boolean"`
+	AllowCancelResize *bool `json:"redshift:ResizeInfo:AllowCancelResize" type:"boolean"`
 
 	// Returns the value ClassicResize.
-	ResizeType *string `type:"string"`
+	ResizeType *string `json:"redshift:ResizeInfo:ResizeType" type:"string"`
 }
 
 // String returns the string representation
@@ -1327,25 +1327,25 @@ type RestoreStatus struct {
 
 	// The number of megabytes per second being transferred from the backup storage.
 	// Returns the average rate for a completed backup.
-	CurrentRestoreRateInMegaBytesPerSecond *float64 `type:"double"`
+	CurrentRestoreRateInMegaBytesPerSecond *float64 `json:"redshift:RestoreStatus:CurrentRestoreRateInMegaBytesPerSecond" type:"double"`
 
 	// The amount of time an in-progress restore has been running, or the amount
 	// of time it took a completed restore to finish.
-	ElapsedTimeInSeconds *int64 `type:"long"`
+	ElapsedTimeInSeconds *int64 `json:"redshift:RestoreStatus:ElapsedTimeInSeconds" type:"long"`
 
 	// The estimate of the time remaining before the restore will complete. Returns
 	// 0 for a completed restore.
-	EstimatedTimeToCompletionInSeconds *int64 `type:"long"`
+	EstimatedTimeToCompletionInSeconds *int64 `json:"redshift:RestoreStatus:EstimatedTimeToCompletionInSeconds" type:"long"`
 
 	// The number of megabytes that have been transferred from snapshot storage.
-	ProgressInMegaBytes *int64 `type:"long"`
+	ProgressInMegaBytes *int64 `json:"redshift:RestoreStatus:ProgressInMegaBytes" type:"long"`
 
 	// The size of the set of snapshot data used to restore the cluster.
-	SnapshotSizeInMegaBytes *int64 `type:"long"`
+	SnapshotSizeInMegaBytes *int64 `json:"redshift:RestoreStatus:SnapshotSizeInMegaBytes" type:"long"`
 
 	// The status of the restore action. Returns starting, restoring, completed,
 	// or failed.
-	Status *string `type:"string"`
+	Status *string `json:"redshift:RestoreStatus:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -1360,14 +1360,14 @@ type RevisionTarget struct {
 
 	// A unique string that identifies the version to update the cluster to. You
 	// can use this value in ModifyClusterDbRevision.
-	DatabaseRevision *string `type:"string"`
+	DatabaseRevision *string `json:"redshift:RevisionTarget:DatabaseRevision" type:"string"`
 
 	// The date on which the database revision was released.
-	DatabaseRevisionReleaseDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DatabaseRevisionReleaseDate *time.Time `json:"redshift:RevisionTarget:DatabaseRevisionReleaseDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A string that describes the changes and features that will be applied to
 	// the cluster when it is updated to the corresponding ClusterDbRevision.
-	Description *string `type:"string"`
+	Description *string `json:"redshift:RevisionTarget:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -1382,44 +1382,44 @@ type Snapshot struct {
 
 	// A list of the AWS customer accounts authorized to restore the snapshot. Returns
 	// null if no accounts are authorized. Visible only to the snapshot owner.
-	AccountsWithRestoreAccess []AccountWithRestoreAccess `locationNameList:"AccountWithRestoreAccess" type:"list"`
+	AccountsWithRestoreAccess []AccountWithRestoreAccess `json:"redshift:Snapshot:AccountsWithRestoreAccess" locationNameList:"AccountWithRestoreAccess" type:"list"`
 
 	// The size of the incremental backup.
-	ActualIncrementalBackupSizeInMegaBytes *float64 `type:"double"`
+	ActualIncrementalBackupSizeInMegaBytes *float64 `json:"redshift:Snapshot:ActualIncrementalBackupSizeInMegaBytes" type:"double"`
 
 	// The Availability Zone in which the cluster was created.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"redshift:Snapshot:AvailabilityZone" type:"string"`
 
 	// The number of megabytes that have been transferred to the snapshot backup.
-	BackupProgressInMegaBytes *float64 `type:"double"`
+	BackupProgressInMegaBytes *float64 `json:"redshift:Snapshot:BackupProgressInMegaBytes" type:"double"`
 
 	// The time (UTC) when the cluster was originally created.
-	ClusterCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ClusterCreateTime *time.Time `json:"redshift:Snapshot:ClusterCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The identifier of the cluster for which the snapshot was taken.
-	ClusterIdentifier *string `type:"string"`
+	ClusterIdentifier *string `json:"redshift:Snapshot:ClusterIdentifier" type:"string"`
 
 	// The version ID of the Amazon Redshift engine that is running on the cluster.
-	ClusterVersion *string `type:"string"`
+	ClusterVersion *string `json:"redshift:Snapshot:ClusterVersion" type:"string"`
 
 	// The number of megabytes per second being transferred to the snapshot backup.
 	// Returns 0 for a completed backup.
-	CurrentBackupRateInMegaBytesPerSecond *float64 `type:"double"`
+	CurrentBackupRateInMegaBytesPerSecond *float64 `json:"redshift:Snapshot:CurrentBackupRateInMegaBytesPerSecond" type:"double"`
 
 	// The name of the database that was created when the cluster was created.
-	DBName *string `type:"string"`
+	DBName *string `json:"redshift:Snapshot:DBName" type:"string"`
 
 	// The amount of time an in-progress snapshot backup has been running, or the
 	// amount of time it took a completed backup to finish.
-	ElapsedTimeInSeconds *int64 `type:"long"`
+	ElapsedTimeInSeconds *int64 `json:"redshift:Snapshot:ElapsedTimeInSeconds" type:"long"`
 
 	// If true, the data in the snapshot is encrypted at rest.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"redshift:Snapshot:Encrypted" type:"boolean"`
 
 	// A boolean that indicates whether the snapshot data is encrypted using the
 	// HSM keys of the source cluster. true indicates that the data is encrypted
 	// using HSM keys.
-	EncryptedWithHSM *bool `type:"boolean"`
+	EncryptedWithHSM *bool `json:"redshift:Snapshot:EncryptedWithHSM" type:"boolean"`
 
 	// An option that specifies whether to create the cluster with enhanced VPC
 	// routing enabled. To create a cluster that uses enhanced VPC routing, the
@@ -1430,64 +1430,64 @@ type Snapshot struct {
 	// If this option is true, enhanced VPC routing is enabled.
 	//
 	// Default: false
-	EnhancedVpcRouting *bool `type:"boolean"`
+	EnhancedVpcRouting *bool `json:"redshift:Snapshot:EnhancedVpcRouting" type:"boolean"`
 
 	// The estimate of the time remaining before the snapshot backup will complete.
 	// Returns 0 for a completed backup.
-	EstimatedSecondsToCompletion *int64 `type:"long"`
+	EstimatedSecondsToCompletion *int64 `json:"redshift:Snapshot:EstimatedSecondsToCompletion" type:"long"`
 
 	// The AWS Key Management Service (KMS) key ID of the encryption key that was
 	// used to encrypt data in the cluster from which the snapshot was taken.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"redshift:Snapshot:KmsKeyId" type:"string"`
 
 	// The name of the maintenance track for the snapshot.
-	MaintenanceTrackName *string `type:"string"`
+	MaintenanceTrackName *string `json:"redshift:Snapshot:MaintenanceTrackName" type:"string"`
 
 	// The number of days until a manual snapshot will pass its retention period.
-	ManualSnapshotRemainingDays *int64 `type:"integer"`
+	ManualSnapshotRemainingDays *int64 `json:"redshift:Snapshot:ManualSnapshotRemainingDays" type:"integer"`
 
 	// The number of days that a manual snapshot is retained. If the value is -1,
 	// the manual snapshot is retained indefinitely.
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
-	ManualSnapshotRetentionPeriod *int64 `type:"integer"`
+	ManualSnapshotRetentionPeriod *int64 `json:"redshift:Snapshot:ManualSnapshotRetentionPeriod" type:"integer"`
 
 	// The master user name for the cluster.
-	MasterUsername *string `type:"string"`
+	MasterUsername *string `json:"redshift:Snapshot:MasterUsername" type:"string"`
 
 	// The node type of the nodes in the cluster.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"redshift:Snapshot:NodeType" type:"string"`
 
 	// The number of nodes in the cluster.
-	NumberOfNodes *int64 `type:"integer"`
+	NumberOfNodes *int64 `json:"redshift:Snapshot:NumberOfNodes" type:"integer"`
 
 	// For manual snapshots, the AWS customer account used to create or copy the
 	// snapshot. For automatic snapshots, the owner of the cluster. The owner can
 	// perform all snapshot actions, such as sharing a manual snapshot.
-	OwnerAccount *string `type:"string"`
+	OwnerAccount *string `json:"redshift:Snapshot:OwnerAccount" type:"string"`
 
 	// The port that the cluster is listening on.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"redshift:Snapshot:Port" type:"integer"`
 
 	// The list of node types that this cluster snapshot is able to restore into.
-	RestorableNodeTypes []string `locationNameList:"NodeType" type:"list"`
+	RestorableNodeTypes []string `json:"redshift:Snapshot:RestorableNodeTypes" locationNameList:"NodeType" type:"list"`
 
 	// The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot
 	// contains a copy of the cluster data as of this exact time.
-	SnapshotCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	SnapshotCreateTime *time.Time `json:"redshift:Snapshot:SnapshotCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The snapshot identifier that is provided in the request.
-	SnapshotIdentifier *string `type:"string"`
+	SnapshotIdentifier *string `json:"redshift:Snapshot:SnapshotIdentifier" type:"string"`
 
 	// A timestamp representing the start of the retention period for the snapshot.
-	SnapshotRetentionStartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	SnapshotRetentionStartTime *time.Time `json:"redshift:Snapshot:SnapshotRetentionStartTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The snapshot type. Snapshots created using CreateClusterSnapshot and CopyClusterSnapshot
 	// are of type "manual".
-	SnapshotType *string `type:"string"`
+	SnapshotType *string `json:"redshift:Snapshot:SnapshotType" type:"string"`
 
 	// The source region from which the snapshot was copied.
-	SourceRegion *string `type:"string"`
+	SourceRegion *string `json:"redshift:Snapshot:SourceRegion" type:"string"`
 
 	// The snapshot status. The value of the status depends on the API operation
 	// used:
@@ -1498,18 +1498,18 @@ type Snapshot struct {
 	//    "final snapshot", or "failed".
 	//
 	//    * DeleteClusterSnapshot returns status as "deleted".
-	Status *string `type:"string"`
+	Status *string `json:"redshift:Snapshot:Status" type:"string"`
 
 	// The list of tags for the cluster snapshot.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:Snapshot:Tags" locationNameList:"Tag" type:"list"`
 
 	// The size of the complete set of backup data that would be used to restore
 	// the cluster.
-	TotalBackupSizeInMegaBytes *float64 `type:"double"`
+	TotalBackupSizeInMegaBytes *float64 `json:"redshift:Snapshot:TotalBackupSizeInMegaBytes" type:"double"`
 
 	// The VPC identifier of the cluster if the snapshot is from a cluster in a
 	// VPC. Otherwise, this field is not in the output.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"redshift:Snapshot:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1530,13 +1530,13 @@ type SnapshotCopyGrant struct {
 
 	// The unique identifier of the customer master key (CMK) in AWS KMS to which
 	// Amazon Redshift is granted permission.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"redshift:SnapshotCopyGrant:KmsKeyId" type:"string"`
 
 	// The name of the snapshot copy grant.
-	SnapshotCopyGrantName *string `type:"string"`
+	SnapshotCopyGrantName *string `json:"redshift:SnapshotCopyGrant:SnapshotCopyGrantName" type:"string"`
 
 	// A list of tag instances.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:SnapshotCopyGrant:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -1550,16 +1550,16 @@ type SnapshotErrorMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The failure code for the error.
-	FailureCode *string `type:"string"`
+	FailureCode *string `json:"redshift:SnapshotErrorMessage:FailureCode" type:"string"`
 
 	// The text message describing the error.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"redshift:SnapshotErrorMessage:FailureReason" type:"string"`
 
 	// A unique identifier for the cluster.
-	SnapshotClusterIdentifier *string `type:"string"`
+	SnapshotClusterIdentifier *string `json:"redshift:SnapshotErrorMessage:SnapshotClusterIdentifier" type:"string"`
 
 	// A unique identifier for the snapshot returning the error.
-	SnapshotIdentifier *string `type:"string"`
+	SnapshotIdentifier *string `json:"redshift:SnapshotErrorMessage:SnapshotIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -1574,25 +1574,25 @@ type SnapshotSchedule struct {
 	_ struct{} `type:"structure"`
 
 	// The number of clusters associated with the schedule.
-	AssociatedClusterCount *int64 `type:"integer"`
+	AssociatedClusterCount *int64 `json:"redshift:SnapshotSchedule:AssociatedClusterCount" type:"integer"`
 
 	// A list of clusters associated with the schedule. A maximum of 100 clusters
 	// is returned.
-	AssociatedClusters []ClusterAssociatedToSchedule `locationNameList:"ClusterAssociatedToSchedule" type:"list"`
+	AssociatedClusters []ClusterAssociatedToSchedule `json:"redshift:SnapshotSchedule:AssociatedClusters" locationNameList:"ClusterAssociatedToSchedule" type:"list"`
 
-	NextInvocations []time.Time `locationNameList:"SnapshotTime" type:"list"`
+	NextInvocations []time.Time `json:"redshift:SnapshotSchedule:NextInvocations" locationNameList:"SnapshotTime" type:"list"`
 
 	// A list of ScheduleDefinitions.
-	ScheduleDefinitions []string `locationNameList:"ScheduleDefinition" type:"list"`
+	ScheduleDefinitions []string `json:"redshift:SnapshotSchedule:ScheduleDefinitions" locationNameList:"ScheduleDefinition" type:"list"`
 
 	// The description of the schedule.
-	ScheduleDescription *string `type:"string"`
+	ScheduleDescription *string `json:"redshift:SnapshotSchedule:ScheduleDescription" type:"string"`
 
 	// A unique identifier for the schedule.
-	ScheduleIdentifier *string `type:"string"`
+	ScheduleIdentifier *string `json:"redshift:SnapshotSchedule:ScheduleIdentifier" type:"string"`
 
 	// An optional set of tags describing the schedule.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:SnapshotSchedule:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -1608,10 +1608,10 @@ type SnapshotSortingEntity struct {
 	// The category for sorting the snapshots.
 	//
 	// Attribute is a required field
-	Attribute SnapshotAttributeToSortBy `type:"string" required:"true" enum:"true"`
+	Attribute SnapshotAttributeToSortBy `json:"redshift:SnapshotSortingEntity:Attribute" type:"string" required:"true" enum:"true"`
 
 	// The order for listing the attributes.
-	SortOrder SortByOrder `type:"string" enum:"true"`
+	SortOrder SortByOrder `json:"redshift:SnapshotSortingEntity:SortOrder" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1638,13 +1638,13 @@ type Subnet struct {
 	_ struct{} `type:"structure"`
 
 	// Describes an availability zone.
-	SubnetAvailabilityZone *AvailabilityZone `type:"structure"`
+	SubnetAvailabilityZone *AvailabilityZone `json:"redshift:Subnet:SubnetAvailabilityZone" type:"structure"`
 
 	// The identifier of the subnet.
-	SubnetIdentifier *string `type:"string"`
+	SubnetIdentifier *string `json:"redshift:Subnet:SubnetIdentifier" type:"string"`
 
 	// The status of the subnet.
-	SubnetStatus *string `type:"string"`
+	SubnetStatus *string `json:"redshift:Subnet:SubnetStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -1658,7 +1658,7 @@ type SupportedOperation struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the supported operations.
-	OperationName *string `type:"string"`
+	OperationName *string `json:"redshift:SupportedOperation:OperationName" type:"string"`
 }
 
 // String returns the string representation
@@ -1671,7 +1671,7 @@ func (s SupportedOperation) String() string {
 type SupportedPlatform struct {
 	_ struct{} `type:"structure"`
 
-	Name *string `type:"string"`
+	Name *string `json:"redshift:SupportedPlatform:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1686,50 +1686,50 @@ type TableRestoreStatus struct {
 
 	// The identifier of the Amazon Redshift cluster that the table is being restored
 	// to.
-	ClusterIdentifier *string `type:"string"`
+	ClusterIdentifier *string `json:"redshift:TableRestoreStatus:ClusterIdentifier" type:"string"`
 
 	// A description of the status of the table restore request. Status values include
 	// SUCCEEDED, FAILED, CANCELED, PENDING, IN_PROGRESS.
-	Message *string `type:"string"`
+	Message *string `json:"redshift:TableRestoreStatus:Message" type:"string"`
 
 	// The name of the table to create as a result of the table restore request.
-	NewTableName *string `type:"string"`
+	NewTableName *string `json:"redshift:TableRestoreStatus:NewTableName" type:"string"`
 
 	// The amount of data restored to the new table so far, in megabytes (MB).
-	ProgressInMegaBytes *int64 `type:"long"`
+	ProgressInMegaBytes *int64 `json:"redshift:TableRestoreStatus:ProgressInMegaBytes" type:"long"`
 
 	// The time that the table restore request was made, in Universal Coordinated
 	// Time (UTC).
-	RequestTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	RequestTime *time.Time `json:"redshift:TableRestoreStatus:RequestTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The identifier of the snapshot that the table is being restored from.
-	SnapshotIdentifier *string `type:"string"`
+	SnapshotIdentifier *string `json:"redshift:TableRestoreStatus:SnapshotIdentifier" type:"string"`
 
 	// The name of the source database that contains the table being restored.
-	SourceDatabaseName *string `type:"string"`
+	SourceDatabaseName *string `json:"redshift:TableRestoreStatus:SourceDatabaseName" type:"string"`
 
 	// The name of the source schema that contains the table being restored.
-	SourceSchemaName *string `type:"string"`
+	SourceSchemaName *string `json:"redshift:TableRestoreStatus:SourceSchemaName" type:"string"`
 
 	// The name of the source table being restored.
-	SourceTableName *string `type:"string"`
+	SourceTableName *string `json:"redshift:TableRestoreStatus:SourceTableName" type:"string"`
 
 	// A value that describes the current state of the table restore request.
 	//
 	// Valid Values: SUCCEEDED, FAILED, CANCELED, PENDING, IN_PROGRESS
-	Status TableRestoreStatusType `type:"string" enum:"true"`
+	Status TableRestoreStatusType `json:"redshift:TableRestoreStatus:Status" type:"string" enum:"true"`
 
 	// The unique identifier for the table restore request.
-	TableRestoreRequestId *string `type:"string"`
+	TableRestoreRequestId *string `json:"redshift:TableRestoreStatus:TableRestoreRequestId" type:"string"`
 
 	// The name of the database to restore the table to.
-	TargetDatabaseName *string `type:"string"`
+	TargetDatabaseName *string `json:"redshift:TableRestoreStatus:TargetDatabaseName" type:"string"`
 
 	// The name of the schema to restore the table to.
-	TargetSchemaName *string `type:"string"`
+	TargetSchemaName *string `json:"redshift:TableRestoreStatus:TargetSchemaName" type:"string"`
 
 	// The total amount of data to restore to the new table, in megabytes (MB).
-	TotalDataInMegaBytes *int64 `type:"long"`
+	TotalDataInMegaBytes *int64 `json:"redshift:TableRestoreStatus:TotalDataInMegaBytes" type:"long"`
 }
 
 // String returns the string representation
@@ -1743,10 +1743,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The key, or name, for the resource tag.
-	Key *string `type:"string"`
+	Key *string `json:"redshift:Tag:Key" type:"string"`
 
 	// The value for the resource tag.
-	Value *string `type:"string"`
+	Value *string `json:"redshift:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1761,7 +1761,7 @@ type TaggedResource struct {
 
 	// The Amazon Resource Name (ARN) with which the tag is associated, for example:
 	// arn:aws:redshift:us-east-1:123456789:cluster:t1.
-	ResourceName *string `type:"string"`
+	ResourceName *string `json:"redshift:TaggedResource:ResourceName" type:"string"`
 
 	// The type of resource with which the tag is associated. Valid resource types
 	// are:
@@ -1787,10 +1787,10 @@ type TaggedResource struct {
 	// For more information about Amazon Redshift resource types and constructing
 	// ARNs, go to Constructing an Amazon Redshift Amazon Resource Name (ARN) (https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions)
 	// in the Amazon Redshift Cluster Management Guide.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"redshift:TaggedResource:ResourceType" type:"string"`
 
 	// The tag for the resource.
-	Tag *Tag `type:"structure"`
+	Tag *Tag `json:"redshift:TaggedResource:Tag" type:"structure"`
 }
 
 // String returns the string representation
@@ -1804,13 +1804,13 @@ type UpdateTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The cluster version for the new maintenance track.
-	DatabaseVersion *string `type:"string"`
+	DatabaseVersion *string `json:"redshift:UpdateTarget:DatabaseVersion" type:"string"`
 
 	// The name of the new maintenance track.
-	MaintenanceTrackName *string `type:"string"`
+	MaintenanceTrackName *string `json:"redshift:UpdateTarget:MaintenanceTrackName" type:"string"`
 
 	// A list of operations supported by the maintenance track.
-	SupportedOperations []SupportedOperation `locationNameList:"SupportedOperation" type:"list"`
+	SupportedOperations []SupportedOperation `json:"redshift:UpdateTarget:SupportedOperations" locationNameList:"SupportedOperation" type:"list"`
 }
 
 // String returns the string representation
@@ -1824,10 +1824,10 @@ type VpcSecurityGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the VPC security group.
-	Status *string `type:"string"`
+	Status *string `json:"redshift:VpcSecurityGroupMembership:Status" type:"string"`
 
 	// The identifier of the VPC security group.
-	VpcSecurityGroupId *string `type:"string"`
+	VpcSecurityGroupId *string `json:"redshift:VpcSecurityGroupMembership:VpcSecurityGroupId" type:"string"`
 }
 
 // String returns the string representation

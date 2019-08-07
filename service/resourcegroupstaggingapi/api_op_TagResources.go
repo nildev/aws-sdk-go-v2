@@ -64,7 +64,7 @@ type TagResourcesOutput struct {
 
 	// Details of resources that could not be tagged. An error code, status code,
 	// and error message are returned for each failed item.
-	FailedResourcesMap map[string]FailureInfo `type:"map"`
+	FailedResourcesMap map[string]FailureInfo `json:"tagging:TagResourcesOutput:FailedResourcesMap" type:"map"`
 }
 
 // String returns the string representation

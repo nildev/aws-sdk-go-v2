@@ -195,7 +195,7 @@ type CreateElasticsearchDomainOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the newly created Elasticsearch domain.
-	DomainStatus *ElasticsearchDomainStatus `type:"structure"`
+	DomainStatus *ElasticsearchDomainStatus `json:"es:CreateElasticsearchDomainOutput:DomainStatus" type:"structure"`
 }
 
 // String returns the string representation

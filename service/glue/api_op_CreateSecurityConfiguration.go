@@ -56,10 +56,10 @@ type CreateSecurityConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time at which the new security configuration was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"glue:CreateSecurityConfigurationOutput:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The name assigned to the new security configuration.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:CreateSecurityConfigurationOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

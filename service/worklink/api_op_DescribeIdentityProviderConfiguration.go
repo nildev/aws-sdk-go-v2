@@ -60,13 +60,13 @@ type DescribeIdentityProviderConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The SAML metadata document provided by the user’s identity provider.
-	IdentityProviderSamlMetadata *string `min:"1" type:"string"`
+	IdentityProviderSamlMetadata *string `json:"worklink:DescribeIdentityProviderConfigurationOutput:IdentityProviderSamlMetadata" min:"1" type:"string"`
 
 	// The type of identity provider.
-	IdentityProviderType IdentityProviderType `type:"string" enum:"true"`
+	IdentityProviderType IdentityProviderType `json:"worklink:DescribeIdentityProviderConfigurationOutput:IdentityProviderType" type:"string" enum:"true"`
 
 	// The SAML metadata document uploaded to the user’s identity provider.
-	ServiceProviderSamlMetadata *string `min:"1" type:"string"`
+	ServiceProviderSamlMetadata *string `json:"worklink:DescribeIdentityProviderConfigurationOutput:ServiceProviderSamlMetadata" min:"1" type:"string"`
 }
 
 // String returns the string representation

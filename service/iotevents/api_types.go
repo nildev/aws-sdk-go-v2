@@ -20,38 +20,38 @@ type Action struct {
 	_ struct{} `type:"structure"`
 
 	// Information needed to clear the timer.
-	ClearTimer *ClearTimerAction `locationName:"clearTimer" type:"structure"`
+	ClearTimer *ClearTimerAction `json:"iotevents:Action:ClearTimer" locationName:"clearTimer" type:"structure"`
 
 	// Sends information about the detector model instance and the event which triggered
 	// the action to a Kinesis Data Firehose stream.
-	Firehose *FirehoseAction `locationName:"firehose" type:"structure"`
+	Firehose *FirehoseAction `json:"iotevents:Action:Firehose" locationName:"firehose" type:"structure"`
 
 	// Sends an IoT Events input, passing in information about the detector model
 	// instance and the event which triggered the action.
-	IotEvents *IotEventsAction `locationName:"iotEvents" type:"structure"`
+	IotEvents *IotEventsAction `json:"iotevents:Action:IotEvents" locationName:"iotEvents" type:"structure"`
 
 	// Publishes an MQTT message with the given topic to the AWS IoT message broker.
-	IotTopicPublish *IotTopicPublishAction `locationName:"iotTopicPublish" type:"structure"`
+	IotTopicPublish *IotTopicPublishAction `json:"iotevents:Action:IotTopicPublish" locationName:"iotTopicPublish" type:"structure"`
 
 	// Calls a Lambda function, passing in information about the detector model
 	// instance and the event which triggered the action.
-	Lambda *LambdaAction `locationName:"lambda" type:"structure"`
+	Lambda *LambdaAction `json:"iotevents:Action:Lambda" locationName:"lambda" type:"structure"`
 
 	// Information needed to reset the timer.
-	ResetTimer *ResetTimerAction `locationName:"resetTimer" type:"structure"`
+	ResetTimer *ResetTimerAction `json:"iotevents:Action:ResetTimer" locationName:"resetTimer" type:"structure"`
 
 	// Information needed to set the timer.
-	SetTimer *SetTimerAction `locationName:"setTimer" type:"structure"`
+	SetTimer *SetTimerAction `json:"iotevents:Action:SetTimer" locationName:"setTimer" type:"structure"`
 
 	// Sets a variable to a specified value.
-	SetVariable *SetVariableAction `locationName:"setVariable" type:"structure"`
+	SetVariable *SetVariableAction `json:"iotevents:Action:SetVariable" locationName:"setVariable" type:"structure"`
 
 	// Sends an Amazon SNS message.
-	Sns *SNSTopicPublishAction `locationName:"sns" type:"structure"`
+	Sns *SNSTopicPublishAction `json:"iotevents:Action:Sns" locationName:"sns" type:"structure"`
 
 	// Sends information about the detector model instance and the event which triggered
 	// the action to an AWS SQS queue.
-	Sqs *SqsAction `locationName:"sqs" type:"structure"`
+	Sqs *SqsAction `json:"iotevents:Action:Sqs" locationName:"sqs" type:"structure"`
 }
 
 // String returns the string representation
@@ -203,7 +203,7 @@ type Attribute struct {
 	// Syntax: <field-name>.<field-name>...
 	//
 	// JsonPath is a required field
-	JsonPath *string `locationName:"jsonPath" min:"1" type:"string" required:"true"`
+	JsonPath *string `json:"iotevents:Attribute:JsonPath" locationName:"jsonPath" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -247,7 +247,7 @@ type ClearTimerAction struct {
 	// The name of the timer to clear.
 	//
 	// TimerName is a required field
-	TimerName *string `locationName:"timerName" min:"1" type:"string" required:"true"`
+	TimerName *string `json:"iotevents:ClearTimerAction:TimerName" locationName:"timerName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -292,11 +292,11 @@ type DetectorDebugOption struct {
 	// The name of the detector model.
 	//
 	// DetectorModelName is a required field
-	DetectorModelName *string `locationName:"detectorModelName" min:"1" type:"string" required:"true"`
+	DetectorModelName *string `json:"iotevents:DetectorDebugOption:DetectorModelName" locationName:"detectorModelName" min:"1" type:"string" required:"true"`
 
 	// The value of the input attribute key used to create the detector (the instance
 	// of the detector model).
-	KeyValue *string `locationName:"keyValue" min:"1" type:"string"`
+	KeyValue *string `json:"iotevents:DetectorDebugOption:KeyValue" locationName:"keyValue" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -347,10 +347,10 @@ type DetectorModel struct {
 	_ struct{} `type:"structure"`
 
 	// Information about how the detector is configured.
-	DetectorModelConfiguration *DetectorModelConfiguration `locationName:"detectorModelConfiguration" type:"structure"`
+	DetectorModelConfiguration *DetectorModelConfiguration `json:"iotevents:DetectorModel:DetectorModelConfiguration" locationName:"detectorModelConfiguration" type:"structure"`
 
 	// Information that defines how a detector operates.
-	DetectorModelDefinition *DetectorModelDefinition `locationName:"detectorModelDefinition" type:"structure"`
+	DetectorModelDefinition *DetectorModelDefinition `json:"iotevents:DetectorModel:DetectorModelDefinition" locationName:"detectorModelDefinition" type:"structure"`
 }
 
 // String returns the string representation
@@ -381,36 +381,36 @@ type DetectorModelConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The time the detector model was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotevents:DetectorModelConfiguration:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the detector model.
-	DetectorModelArn *string `locationName:"detectorModelArn" type:"string"`
+	DetectorModelArn *string `json:"iotevents:DetectorModelConfiguration:DetectorModelArn" locationName:"detectorModelArn" type:"string"`
 
 	// A brief description of the detector model.
-	DetectorModelDescription *string `locationName:"detectorModelDescription" type:"string"`
+	DetectorModelDescription *string `json:"iotevents:DetectorModelConfiguration:DetectorModelDescription" locationName:"detectorModelDescription" type:"string"`
 
 	// The name of the detector model.
-	DetectorModelName *string `locationName:"detectorModelName" min:"1" type:"string"`
+	DetectorModelName *string `json:"iotevents:DetectorModelConfiguration:DetectorModelName" locationName:"detectorModelName" min:"1" type:"string"`
 
 	// The version of the detector model.
-	DetectorModelVersion *string `locationName:"detectorModelVersion" min:"1" type:"string"`
+	DetectorModelVersion *string `json:"iotevents:DetectorModelConfiguration:DetectorModelVersion" locationName:"detectorModelVersion" min:"1" type:"string"`
 
 	// The input attribute key used to identify a device or system in order to create
 	// a detector (an instance of the detector model) and then to route each input
 	// received to the appropriate detector (instance). This parameter uses a JSON-path
 	// expression to specify the attribute-value pair in the message payload of
 	// each input that is used to identify the device associated with the input.
-	Key *string `locationName:"key" min:"1" type:"string"`
+	Key *string `json:"iotevents:DetectorModelConfiguration:Key" locationName:"key" min:"1" type:"string"`
 
 	// The time the detector model was last updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotevents:DetectorModelConfiguration:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the role that grants permission to AWS IoT Events to perform its
 	// operations.
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string"`
+	RoleArn *string `json:"iotevents:DetectorModelConfiguration:RoleArn" locationName:"roleArn" min:"1" type:"string"`
 
 	// The status of the detector model.
-	Status DetectorModelVersionStatus `locationName:"status" type:"string" enum:"true"`
+	Status DetectorModelVersionStatus `json:"iotevents:DetectorModelConfiguration:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -485,12 +485,12 @@ type DetectorModelDefinition struct {
 	// The state that is entered at the creation of each detector (instance).
 	//
 	// InitialStateName is a required field
-	InitialStateName *string `locationName:"initialStateName" min:"1" type:"string" required:"true"`
+	InitialStateName *string `json:"iotevents:DetectorModelDefinition:InitialStateName" locationName:"initialStateName" min:"1" type:"string" required:"true"`
 
 	// Information about the states of the detector.
 	//
 	// States is a required field
-	States []State `locationName:"states" min:"1" type:"list" required:"true"`
+	States []State `json:"iotevents:DetectorModelDefinition:States" locationName:"states" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -558,13 +558,13 @@ type DetectorModelSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time the detector model was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotevents:DetectorModelSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A brief description of the detector model.
-	DetectorModelDescription *string `locationName:"detectorModelDescription" type:"string"`
+	DetectorModelDescription *string `json:"iotevents:DetectorModelSummary:DetectorModelDescription" locationName:"detectorModelDescription" type:"string"`
 
 	// The name of the detector model.
-	DetectorModelName *string `locationName:"detectorModelName" min:"1" type:"string"`
+	DetectorModelName *string `json:"iotevents:DetectorModelSummary:DetectorModelName" locationName:"detectorModelName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -601,26 +601,26 @@ type DetectorModelVersionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time the detector model version was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotevents:DetectorModelVersionSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the detector model version.
-	DetectorModelArn *string `locationName:"detectorModelArn" type:"string"`
+	DetectorModelArn *string `json:"iotevents:DetectorModelVersionSummary:DetectorModelArn" locationName:"detectorModelArn" type:"string"`
 
 	// The name of the detector model.
-	DetectorModelName *string `locationName:"detectorModelName" min:"1" type:"string"`
+	DetectorModelName *string `json:"iotevents:DetectorModelVersionSummary:DetectorModelName" locationName:"detectorModelName" min:"1" type:"string"`
 
 	// The ID of the detector model version.
-	DetectorModelVersion *string `locationName:"detectorModelVersion" min:"1" type:"string"`
+	DetectorModelVersion *string `json:"iotevents:DetectorModelVersionSummary:DetectorModelVersion" locationName:"detectorModelVersion" min:"1" type:"string"`
 
 	// The last time the detector model version was updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotevents:DetectorModelVersionSummary:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the role that grants the detector model permission to perform
 	// its tasks.
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string"`
+	RoleArn *string `json:"iotevents:DetectorModelVersionSummary:RoleArn" locationName:"roleArn" min:"1" type:"string"`
 
 	// The status of the detector model version.
-	Status DetectorModelVersionStatus `locationName:"status" type:"string" enum:"true"`
+	Status DetectorModelVersionStatus `json:"iotevents:DetectorModelVersionSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -682,17 +682,17 @@ type Event struct {
 	_ struct{} `type:"structure"`
 
 	// The actions to be performed.
-	Actions []Action `locationName:"actions" type:"list"`
+	Actions []Action `json:"iotevents:Event:Actions" locationName:"actions" type:"list"`
 
 	// [Optional] The Boolean expression that when TRUE causes the "actions" to
 	// be performed. If not present, the actions are performed (=TRUE); if the expression
 	// result is not a Boolean value, the actions are NOT performed (=FALSE).
-	Condition *string `locationName:"condition" type:"string"`
+	Condition *string `json:"iotevents:Event:Condition" locationName:"condition" type:"string"`
 
 	// The name of the event.
 	//
 	// EventName is a required field
-	EventName *string `locationName:"eventName" type:"string" required:"true"`
+	EventName *string `json:"iotevents:Event:EventName" locationName:"eventName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -759,12 +759,12 @@ type FirehoseAction struct {
 	// The name of the Kinesis Data Firehose stream where the data is written.
 	//
 	// DeliveryStreamName is a required field
-	DeliveryStreamName *string `locationName:"deliveryStreamName" type:"string" required:"true"`
+	DeliveryStreamName *string `json:"iotevents:FirehoseAction:DeliveryStreamName" locationName:"deliveryStreamName" type:"string" required:"true"`
 
 	// A character separator that is used to separate records written to the Kinesis
 	// Data Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n'
 	// (Windows newline), ',' (comma).
-	Separator *string `locationName:"separator" type:"string"`
+	Separator *string `json:"iotevents:FirehoseAction:Separator" locationName:"separator" type:"string"`
 }
 
 // String returns the string representation
@@ -809,10 +809,10 @@ type Input struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the configuration of an input.
-	InputConfiguration *InputConfiguration `locationName:"inputConfiguration" type:"structure"`
+	InputConfiguration *InputConfiguration `json:"iotevents:Input:InputConfiguration" locationName:"inputConfiguration" type:"structure"`
 
 	// The definition of the input.
-	InputDefinition *InputDefinition `locationName:"inputDefinition" type:"structure"`
+	InputDefinition *InputDefinition `json:"iotevents:Input:InputDefinition" locationName:"inputDefinition" type:"structure"`
 }
 
 // String returns the string representation
@@ -845,30 +845,30 @@ type InputConfiguration struct {
 	// The time the input was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"iotevents:InputConfiguration:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The ARN of the input.
 	//
 	// InputArn is a required field
-	InputArn *string `locationName:"inputArn" type:"string" required:"true"`
+	InputArn *string `json:"iotevents:InputConfiguration:InputArn" locationName:"inputArn" type:"string" required:"true"`
 
 	// A brief description of the input.
-	InputDescription *string `locationName:"inputDescription" type:"string"`
+	InputDescription *string `json:"iotevents:InputConfiguration:InputDescription" locationName:"inputDescription" type:"string"`
 
 	// The name of the input.
 	//
 	// InputName is a required field
-	InputName *string `locationName:"inputName" min:"1" type:"string" required:"true"`
+	InputName *string `json:"iotevents:InputConfiguration:InputName" locationName:"inputName" min:"1" type:"string" required:"true"`
 
 	// The last time the input was updated.
 	//
 	// LastUpdateTime is a required field
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastUpdateTime *time.Time `json:"iotevents:InputConfiguration:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The status of the input.
 	//
 	// Status is a required field
-	Status InputStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status InputStatus `json:"iotevents:InputConfiguration:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -929,7 +929,7 @@ type InputDefinition struct {
 	// expressions used by detectors that monitor this input.
 	//
 	// Attributes is a required field
-	Attributes []Attribute `locationName:"attributes" min:"1" type:"list" required:"true"`
+	Attributes []Attribute `json:"iotevents:InputDefinition:Attributes" locationName:"attributes" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -984,22 +984,22 @@ type InputSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time the input was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotevents:InputSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the input.
-	InputArn *string `locationName:"inputArn" type:"string"`
+	InputArn *string `json:"iotevents:InputSummary:InputArn" locationName:"inputArn" type:"string"`
 
 	// A brief description of the input.
-	InputDescription *string `locationName:"inputDescription" type:"string"`
+	InputDescription *string `json:"iotevents:InputSummary:InputDescription" locationName:"inputDescription" type:"string"`
 
 	// The name of the input.
-	InputName *string `locationName:"inputName" min:"1" type:"string"`
+	InputName *string `json:"iotevents:InputSummary:InputName" locationName:"inputName" min:"1" type:"string"`
 
 	// The last time the input was updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotevents:InputSummary:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the input.
-	Status InputStatus `locationName:"status" type:"string" enum:"true"`
+	Status InputStatus `json:"iotevents:InputSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1057,7 +1057,7 @@ type IotEventsAction struct {
 	// The name of the AWS IoT Events input where the data is sent.
 	//
 	// InputName is a required field
-	InputName *string `locationName:"inputName" min:"1" type:"string" required:"true"`
+	InputName *string `json:"iotevents:IotEventsAction:InputName" locationName:"inputName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1102,7 +1102,7 @@ type IotTopicPublishAction struct {
 	// The MQTT topic of the message.
 	//
 	// MqttTopic is a required field
-	MqttTopic *string `locationName:"mqttTopic" min:"1" type:"string" required:"true"`
+	MqttTopic *string `json:"iotevents:IotTopicPublishAction:MqttTopic" locationName:"mqttTopic" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1147,7 +1147,7 @@ type LambdaAction struct {
 	// The ARN of the Lambda function which is executed.
 	//
 	// FunctionArn is a required field
-	FunctionArn *string `locationName:"functionArn" min:"1" type:"string" required:"true"`
+	FunctionArn *string `json:"iotevents:LambdaAction:FunctionArn" locationName:"functionArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1190,22 +1190,22 @@ type LoggingOptions struct {
 
 	// Information that identifies those detector models and their detectors (instances)
 	// for which the logging level is given.
-	DetectorDebugOptions []DetectorDebugOption `locationName:"detectorDebugOptions" min:"1" type:"list"`
+	DetectorDebugOptions []DetectorDebugOption `json:"iotevents:LoggingOptions:DetectorDebugOptions" locationName:"detectorDebugOptions" min:"1" type:"list"`
 
 	// If TRUE, logging is enabled for AWS IoT Events.
 	//
 	// Enabled is a required field
-	Enabled *bool `locationName:"enabled" type:"boolean" required:"true"`
+	Enabled *bool `json:"iotevents:LoggingOptions:Enabled" locationName:"enabled" type:"boolean" required:"true"`
 
 	// The logging level.
 	//
 	// Level is a required field
-	Level LoggingLevel `locationName:"level" type:"string" required:"true" enum:"true"`
+	Level LoggingLevel `json:"iotevents:LoggingOptions:Level" locationName:"level" type:"string" required:"true" enum:"true"`
 
 	// The ARN of the role that grants permission to AWS IoT Events to perform logging.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string" required:"true"`
+	RoleArn *string `json:"iotevents:LoggingOptions:RoleArn" locationName:"roleArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1289,7 +1289,7 @@ type OnEnterLifecycle struct {
 
 	// Specifies the actions that are performed when the state is entered and the
 	// "condition" is TRUE.
-	Events []Event `locationName:"events" type:"list"`
+	Events []Event `json:"iotevents:OnEnterLifecycle:Events" locationName:"events" type:"list"`
 }
 
 // String returns the string representation
@@ -1339,7 +1339,7 @@ type OnExitLifecycle struct {
 
 	// Specifies the "actions" that are performed when the state is exited and the
 	// "condition" is TRUE.
-	Events []Event `locationName:"events" type:"list"`
+	Events []Event `json:"iotevents:OnExitLifecycle:Events" locationName:"events" type:"list"`
 }
 
 // String returns the string representation
@@ -1387,11 +1387,11 @@ type OnInputLifecycle struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the actions performed when the "condition" evaluates to TRUE.
-	Events []Event `locationName:"events" type:"list"`
+	Events []Event `json:"iotevents:OnInputLifecycle:Events" locationName:"events" type:"list"`
 
 	// Specifies the actions performed, and the next state entered, when a "condition"
 	// evaluates to TRUE.
-	TransitionEvents []TransitionEvent `locationName:"transitionEvents" type:"list"`
+	TransitionEvents []TransitionEvent `json:"iotevents:OnInputLifecycle:TransitionEvents" locationName:"transitionEvents" type:"list"`
 }
 
 // String returns the string representation
@@ -1460,7 +1460,7 @@ type ResetTimerAction struct {
 	// The name of the timer to reset.
 	//
 	// TimerName is a required field
-	TimerName *string `locationName:"timerName" min:"1" type:"string" required:"true"`
+	TimerName *string `json:"iotevents:ResetTimerAction:TimerName" locationName:"timerName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1504,7 +1504,7 @@ type SNSTopicPublishAction struct {
 	// The ARN of the Amazon SNS target where the message is sent.
 	//
 	// TargetArn is a required field
-	TargetArn *string `locationName:"targetArn" min:"1" type:"string" required:"true"`
+	TargetArn *string `json:"iotevents:SNSTopicPublishAction:TargetArn" locationName:"targetArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1549,12 +1549,12 @@ type SetTimerAction struct {
 	// to ensure accuracy.
 	//
 	// Seconds is a required field
-	Seconds *int64 `locationName:"seconds" type:"integer" required:"true"`
+	Seconds *int64 `json:"iotevents:SetTimerAction:Seconds" locationName:"seconds" type:"integer" required:"true"`
 
 	// The name of the timer.
 	//
 	// TimerName is a required field
-	TimerName *string `locationName:"timerName" min:"1" type:"string" required:"true"`
+	TimerName *string `json:"iotevents:SetTimerAction:TimerName" locationName:"timerName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1608,12 +1608,12 @@ type SetVariableAction struct {
 	// The new value of the variable.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"iotevents:SetVariableAction:Value" locationName:"value" min:"1" type:"string" required:"true"`
 
 	// The name of the variable.
 	//
 	// VariableName is a required field
-	VariableName *string `locationName:"variableName" min:"1" type:"string" required:"true"`
+	VariableName *string `json:"iotevents:SetVariableAction:VariableName" locationName:"variableName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1671,11 +1671,11 @@ type SqsAction struct {
 	// The URL of the SQS queue where the data is written.
 	//
 	// QueueUrl is a required field
-	QueueUrl *string `locationName:"queueUrl" type:"string" required:"true"`
+	QueueUrl *string `json:"iotevents:SqsAction:QueueUrl" locationName:"queueUrl" type:"string" required:"true"`
 
 	// Set this to TRUE if you want the data to be Base-64 encoded before it is
 	// written to the queue. Otherwise, set this to FALSE.
-	UseBase64 *bool `locationName:"useBase64" type:"boolean"`
+	UseBase64 *bool `json:"iotevents:SqsAction:UseBase64" locationName:"useBase64" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1720,20 +1720,20 @@ type State struct {
 	_ struct{} `type:"structure"`
 
 	// When entering this state, perform these "actions" if the "condition" is TRUE.
-	OnEnter *OnEnterLifecycle `locationName:"onEnter" type:"structure"`
+	OnEnter *OnEnterLifecycle `json:"iotevents:State:OnEnter" locationName:"onEnter" type:"structure"`
 
 	// When exiting this state, perform these "actions" if the specified "condition"
 	// is TRUE.
-	OnExit *OnExitLifecycle `locationName:"onExit" type:"structure"`
+	OnExit *OnExitLifecycle `json:"iotevents:State:OnExit" locationName:"onExit" type:"structure"`
 
 	// When an input is received and the "condition" is TRUE, perform the specified
 	// "actions".
-	OnInput *OnInputLifecycle `locationName:"onInput" type:"structure"`
+	OnInput *OnInputLifecycle `json:"iotevents:State:OnInput" locationName:"onInput" type:"structure"`
 
 	// The name of the state.
 	//
 	// StateName is a required field
-	StateName *string `locationName:"stateName" min:"1" type:"string" required:"true"`
+	StateName *string `json:"iotevents:State:StateName" locationName:"stateName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1810,12 +1810,12 @@ type Tag struct {
 	// The tag's key.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"iotevents:Tag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The tag's value.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"iotevents:Tag:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1868,23 +1868,23 @@ type TransitionEvent struct {
 	_ struct{} `type:"structure"`
 
 	// The actions to be performed.
-	Actions []Action `locationName:"actions" type:"list"`
+	Actions []Action `json:"iotevents:TransitionEvent:Actions" locationName:"actions" type:"list"`
 
 	// [Required] A Boolean expression that when TRUE causes the actions to be performed
 	// and the "nextState" to be entered.
 	//
 	// Condition is a required field
-	Condition *string `locationName:"condition" type:"string" required:"true"`
+	Condition *string `json:"iotevents:TransitionEvent:Condition" locationName:"condition" type:"string" required:"true"`
 
 	// The name of the transition event.
 	//
 	// EventName is a required field
-	EventName *string `locationName:"eventName" type:"string" required:"true"`
+	EventName *string `json:"iotevents:TransitionEvent:EventName" locationName:"eventName" type:"string" required:"true"`
 
 	// The next state to enter.
 	//
 	// NextState is a required field
-	NextState *string `locationName:"nextState" min:"1" type:"string" required:"true"`
+	NextState *string `json:"iotevents:TransitionEvent:NextState" locationName:"nextState" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -54,7 +54,7 @@ type DeleteHsmOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier (ID) of the HSM that was deleted.
-	HsmId *string `type:"string"`
+	HsmId *string `json:"cloudhsmv2:DeleteHsmOutput:HsmId" type:"string"`
 }
 
 // String returns the string representation

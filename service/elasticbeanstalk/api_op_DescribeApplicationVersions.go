@@ -62,11 +62,11 @@ type DescribeApplicationVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of ApplicationVersionDescription objects sorted in order of creation.
-	ApplicationVersions []ApplicationVersionDescription `type:"list"`
+	ApplicationVersions []ApplicationVersionDescription `json:"elasticbeanstalk:DescribeApplicationVersionsOutput:ApplicationVersions" type:"list"`
 
 	// In a paginated request, the token that you can pass in a subsequent request
 	// to get the next response page.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"elasticbeanstalk:DescribeApplicationVersionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

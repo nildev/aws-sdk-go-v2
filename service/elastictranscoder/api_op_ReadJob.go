@@ -56,7 +56,7 @@ type ReadJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A section of the response body that provides information about the job.
-	Job *Job `type:"structure"`
+	Job *Job `json:"elastictranscoder:ReadJobOutput:Job" type:"structure"`
 }
 
 // String returns the string representation

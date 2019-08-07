@@ -40,10 +40,10 @@ type GetSamplingRulesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Pagination token. Not used.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"xray:GetSamplingRulesOutput:NextToken" type:"string"`
 
 	// Rule definitions and metadata.
-	SamplingRuleRecords []SamplingRuleRecord `type:"list"`
+	SamplingRuleRecords []SamplingRuleRecord `json:"xray:GetSamplingRulesOutput:SamplingRuleRecords" type:"list"`
 }
 
 // String returns the string representation

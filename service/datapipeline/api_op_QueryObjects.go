@@ -75,15 +75,15 @@ type QueryObjectsOutput struct {
 
 	// Indicates whether there are more results that can be obtained by a subsequent
 	// call.
-	HasMoreResults *bool `locationName:"hasMoreResults" type:"boolean"`
+	HasMoreResults *bool `json:"datapipeline:QueryObjectsOutput:HasMoreResults" locationName:"hasMoreResults" type:"boolean"`
 
 	// The identifiers that match the query selectors.
-	Ids []string `locationName:"ids" type:"list"`
+	Ids []string `json:"datapipeline:QueryObjectsOutput:Ids" locationName:"ids" type:"list"`
 
 	// The starting point for the next page of results. To view the next page of
 	// results, call QueryObjects again with this marker value. If the value is
 	// null, there are no more results.
-	Marker *string `locationName:"marker" type:"string"`
+	Marker *string `json:"datapipeline:QueryObjectsOutput:Marker" locationName:"marker" type:"string"`
 }
 
 // String returns the string representation

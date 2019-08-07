@@ -19,10 +19,10 @@ type AccountAttribute struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the account attribute.
-	AttributeName *string `locationName:"attributeName" type:"string"`
+	AttributeName *string `json:"ec2:AccountAttribute:AttributeName" locationName:"attributeName" type:"string"`
 
 	// The values for the account attribute.
-	AttributeValues []AccountAttributeValue `locationName:"attributeValueSet" locationNameList:"item" type:"list"`
+	AttributeValues []AccountAttributeValue `json:"ec2:AccountAttribute:AttributeValues" locationName:"attributeValueSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -36,7 +36,7 @@ type AccountAttributeValue struct {
 	_ struct{} `type:"structure"`
 
 	// The value of the attribute.
-	AttributeValue *string `locationName:"attributeValue" type:"string"`
+	AttributeValue *string `json:"ec2:AccountAttributeValue:AttributeValue" locationName:"attributeValue" type:"string"`
 }
 
 // String returns the string representation
@@ -52,16 +52,16 @@ type ActiveInstance struct {
 	// The health status of the instance. If the status of either the instance status
 	// check or the system status check is impaired, the health status of the instance
 	// is unhealthy. Otherwise, the health status is healthy.
-	InstanceHealth InstanceHealthStatus `locationName:"instanceHealth" type:"string" enum:"true"`
+	InstanceHealth InstanceHealthStatus `json:"ec2:ActiveInstance:InstanceHealth" locationName:"instanceHealth" type:"string" enum:"true"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:ActiveInstance:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The instance type.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"ec2:ActiveInstance:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The ID of the Spot Instance request.
-	SpotInstanceRequestId *string `locationName:"spotInstanceRequestId" type:"string"`
+	SpotInstanceRequestId *string `json:"ec2:ActiveInstance:SpotInstanceRequestId" locationName:"spotInstanceRequestId" type:"string"`
 }
 
 // String returns the string representation
@@ -75,36 +75,36 @@ type Address struct {
 	_ struct{} `type:"structure"`
 
 	// The ID representing the allocation of the address for use with EC2-VPC.
-	AllocationId *string `locationName:"allocationId" type:"string"`
+	AllocationId *string `json:"ec2:Address:AllocationId" locationName:"allocationId" type:"string"`
 
 	// The ID representing the association of the address with an instance in a
 	// VPC.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:Address:AssociationId" locationName:"associationId" type:"string"`
 
 	// Indicates whether this Elastic IP address is for use with instances in EC2-Classic
 	// (standard) or instances in a VPC (vpc).
-	Domain DomainType `locationName:"domain" type:"string" enum:"true"`
+	Domain DomainType `json:"ec2:Address:Domain" locationName:"domain" type:"string" enum:"true"`
 
 	// The ID of the instance that the address is associated with (if any).
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:Address:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:Address:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The ID of the AWS account that owns the network interface.
-	NetworkInterfaceOwnerId *string `locationName:"networkInterfaceOwnerId" type:"string"`
+	NetworkInterfaceOwnerId *string `json:"ec2:Address:NetworkInterfaceOwnerId" locationName:"networkInterfaceOwnerId" type:"string"`
 
 	// The private IP address associated with the Elastic IP address.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:Address:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// The Elastic IP address.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"ec2:Address:PublicIp" locationName:"publicIp" type:"string"`
 
 	// The ID of an address pool.
-	PublicIpv4Pool *string `locationName:"publicIpv4Pool" type:"string"`
+	PublicIpv4Pool *string `json:"ec2:Address:PublicIpv4Pool" locationName:"publicIpv4Pool" type:"string"`
 
 	// Any tags assigned to the Elastic IP address.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:Address:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -118,10 +118,10 @@ type AllowedPrincipal struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the principal.
-	Principal *string `locationName:"principal" type:"string"`
+	Principal *string `json:"ec2:AllowedPrincipal:Principal" locationName:"principal" type:"string"`
 
 	// The type of principal.
-	PrincipalType PrincipalType `locationName:"principalType" type:"string" enum:"true"`
+	PrincipalType PrincipalType `json:"ec2:AllowedPrincipal:PrincipalType" locationName:"principalType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -135,7 +135,7 @@ type AssignedPrivateIpAddress struct {
 	_ struct{} `type:"structure"`
 
 	// The private IP address assigned to the network interface.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:AssignedPrivateIpAddress:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -150,10 +150,10 @@ type AssociatedTargetNetwork struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the subnet.
-	NetworkId *string `locationName:"networkId" type:"string"`
+	NetworkId *string `json:"ec2:AssociatedTargetNetwork:NetworkId" locationName:"networkId" type:"string"`
 
 	// The target network type.
-	NetworkType AssociatedNetworkType `locationName:"networkType" type:"string" enum:"true"`
+	NetworkType AssociatedNetworkType `json:"ec2:AssociatedTargetNetwork:NetworkType" locationName:"networkType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -167,10 +167,10 @@ type AssociationStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the target network association.
-	Code AssociationStatusCode `locationName:"code" type:"string" enum:"true"`
+	Code AssociationStatusCode `json:"ec2:AssociationStatus:Code" locationName:"code" type:"string" enum:"true"`
 
 	// A message about the status of the target network association, if applicable.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:AssociationStatus:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -184,7 +184,7 @@ type AttributeBooleanValue struct {
 	_ struct{} `type:"structure"`
 
 	// The attribute value. The valid values are true or false.
-	Value *bool `locationName:"value" type:"boolean"`
+	Value *bool `json:"ec2:AttributeBooleanValue:Value" locationName:"value" type:"boolean"`
 }
 
 // String returns the string representation
@@ -198,7 +198,7 @@ type AttributeValue struct {
 	_ struct{} `type:"structure"`
 
 	// The attribute value. The value is case-sensitive.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ec2:AttributeValue:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -212,24 +212,24 @@ type AuthorizationRule struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the authorization rule grants access to all clients.
-	AccessAll *bool `locationName:"accessAll" type:"boolean"`
+	AccessAll *bool `json:"ec2:AuthorizationRule:AccessAll" locationName:"accessAll" type:"boolean"`
 
 	// The ID of the Client VPN endpoint with which the authorization rule is associated.
-	ClientVpnEndpointId *string `locationName:"clientVpnEndpointId" type:"string"`
+	ClientVpnEndpointId *string `json:"ec2:AuthorizationRule:ClientVpnEndpointId" locationName:"clientVpnEndpointId" type:"string"`
 
 	// A brief description of the authorization rule.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:AuthorizationRule:Description" locationName:"description" type:"string"`
 
 	// The IPv4 address range, in CIDR notation, of the network to which the authorization
 	// rule applies.
-	DestinationCidr *string `locationName:"destinationCidr" type:"string"`
+	DestinationCidr *string `json:"ec2:AuthorizationRule:DestinationCidr" locationName:"destinationCidr" type:"string"`
 
 	// The ID of the Active Directory group to which the authorization rule grants
 	// access.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"ec2:AuthorizationRule:GroupId" locationName:"groupId" type:"string"`
 
 	// The current state of the authorization rule.
-	Status *VpnAuthorizationRuleStatus `locationName:"status" type:"structure"`
+	Status *VpnAuthorizationRuleStatus `json:"ec2:AuthorizationRule:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation
@@ -243,19 +243,19 @@ type AvailabilityZone struct {
 	_ struct{} `type:"structure"`
 
 	// Any messages about the Availability Zone.
-	Messages []AvailabilityZoneMessage `locationName:"messageSet" locationNameList:"item" type:"list"`
+	Messages []AvailabilityZoneMessage `json:"ec2:AvailabilityZone:Messages" locationName:"messageSet" locationNameList:"item" type:"list"`
 
 	// The name of the Region.
-	RegionName *string `locationName:"regionName" type:"string"`
+	RegionName *string `json:"ec2:AvailabilityZone:RegionName" locationName:"regionName" type:"string"`
 
 	// The state of the Availability Zone.
-	State AvailabilityZoneState `locationName:"zoneState" type:"string" enum:"true"`
+	State AvailabilityZoneState `json:"ec2:AvailabilityZone:State" locationName:"zoneState" type:"string" enum:"true"`
 
 	// The ID of the Availability Zone.
-	ZoneId *string `locationName:"zoneId" type:"string"`
+	ZoneId *string `json:"ec2:AvailabilityZone:ZoneId" locationName:"zoneId" type:"string"`
 
 	// The name of the Availability Zone.
-	ZoneName *string `locationName:"zoneName" type:"string"`
+	ZoneName *string `json:"ec2:AvailabilityZone:ZoneName" locationName:"zoneName" type:"string"`
 }
 
 // String returns the string representation
@@ -269,7 +269,7 @@ type AvailabilityZoneMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The message about the Availability Zone.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:AvailabilityZoneMessage:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -283,10 +283,10 @@ type AvailableCapacity struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of instances supported by the Dedicated Host.
-	AvailableInstanceCapacity []InstanceCapacity `locationName:"availableInstanceCapacity" locationNameList:"item" type:"list"`
+	AvailableInstanceCapacity []InstanceCapacity `json:"ec2:AvailableCapacity:AvailableInstanceCapacity" locationName:"availableInstanceCapacity" locationNameList:"item" type:"list"`
 
 	// The number of vCPUs available on the Dedicated Host.
-	AvailableVCpus *int64 `locationName:"availableVCpus" type:"integer"`
+	AvailableVCpus *int64 `json:"ec2:AvailableCapacity:AvailableVCpus" locationName:"availableVCpus" type:"integer"`
 }
 
 // String returns the string representation
@@ -299,7 +299,7 @@ type BlobAttributeValue struct {
 	_ struct{} `type:"structure"`
 
 	// Value is automatically base64 encoded/decoded by the SDK.
-	Value []byte `locationName:"value" type:"blob"`
+	Value []byte `json:"ec2:BlobAttributeValue:Value" locationName:"value" type:"blob"`
 }
 
 // String returns the string representation
@@ -313,15 +313,15 @@ type BlockDeviceMapping struct {
 	_ struct{} `type:"structure"`
 
 	// The device name (for example, /dev/sdh or xvdh).
-	DeviceName *string `locationName:"deviceName" type:"string"`
+	DeviceName *string `json:"ec2:BlockDeviceMapping:DeviceName" locationName:"deviceName" type:"string"`
 
 	// Parameters used to automatically set up EBS volumes when the instance is
 	// launched.
-	Ebs *EbsBlockDevice `locationName:"ebs" type:"structure"`
+	Ebs *EbsBlockDevice `json:"ec2:BlockDeviceMapping:Ebs" locationName:"ebs" type:"structure"`
 
 	// Suppresses the specified device included in the block device mapping of the
 	// AMI.
-	NoDevice *string `locationName:"noDevice" type:"string"`
+	NoDevice *string `json:"ec2:BlockDeviceMapping:NoDevice" locationName:"noDevice" type:"string"`
 
 	// The virtual device name (ephemeralN). Instance store volumes are numbered
 	// starting from 0. An instance type with 2 available instance store volumes
@@ -336,7 +336,7 @@ type BlockDeviceMapping struct {
 	// the block device mapping for the instance. When you launch an M3 instance,
 	// we ignore any instance store volumes specified in the block device mapping
 	// for the AMI.
-	VirtualName *string `locationName:"virtualName" type:"string"`
+	VirtualName *string `json:"ec2:BlockDeviceMapping:VirtualName" locationName:"virtualName" type:"string"`
 }
 
 // String returns the string representation
@@ -350,28 +350,28 @@ type BundleTask struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the bundle task.
-	BundleId *string `locationName:"bundleId" type:"string"`
+	BundleId *string `json:"ec2:BundleTask:BundleId" locationName:"bundleId" type:"string"`
 
 	// If the task fails, a description of the error.
-	BundleTaskError *BundleTaskError `locationName:"error" type:"structure"`
+	BundleTaskError *BundleTaskError `json:"ec2:BundleTask:BundleTaskError" locationName:"error" type:"structure"`
 
 	// The ID of the instance associated with this bundle task.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:BundleTask:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The level of task completion, as a percent (for example, 20%).
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"ec2:BundleTask:Progress" locationName:"progress" type:"string"`
 
 	// The time this task started.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"ec2:BundleTask:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The state of the task.
-	State BundleTaskState `locationName:"state" type:"string" enum:"true"`
+	State BundleTaskState `json:"ec2:BundleTask:State" locationName:"state" type:"string" enum:"true"`
 
 	// The Amazon S3 storage locations.
-	Storage *Storage `locationName:"storage" type:"structure"`
+	Storage *Storage `json:"ec2:BundleTask:Storage" locationName:"storage" type:"structure"`
 
 	// The time of the most recent update for the task.
-	UpdateTime *time.Time `locationName:"updateTime" type:"timestamp" timestampFormat:"iso8601"`
+	UpdateTime *time.Time `json:"ec2:BundleTask:UpdateTime" locationName:"updateTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -385,10 +385,10 @@ type BundleTaskError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"ec2:BundleTaskError:Code" locationName:"code" type:"string"`
 
 	// The error message.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:BundleTaskError:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -403,17 +403,17 @@ type ByoipCidr struct {
 	_ struct{} `type:"structure"`
 
 	// The public IPv4 address range, in CIDR notation.
-	Cidr *string `locationName:"cidr" type:"string"`
+	Cidr *string `json:"ec2:ByoipCidr:Cidr" locationName:"cidr" type:"string"`
 
 	// The description of the address range.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ByoipCidr:Description" locationName:"description" type:"string"`
 
 	// The state of the address pool.
-	State ByoipCidrState `locationName:"state" type:"string" enum:"true"`
+	State ByoipCidrState `json:"ec2:ByoipCidr:State" locationName:"state" type:"string" enum:"true"`
 
 	// Upon success, contains the ID of the address pool. Otherwise, contains an
 	// error message.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:ByoipCidr:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -427,10 +427,10 @@ type CancelSpotFleetRequestsError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	Code CancelBatchErrorCode `locationName:"code" type:"string" enum:"true"`
+	Code CancelBatchErrorCode `json:"ec2:CancelSpotFleetRequestsError:Code" locationName:"code" type:"string" enum:"true"`
 
 	// The description for the error code.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:CancelSpotFleetRequestsError:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -444,10 +444,10 @@ type CancelSpotFleetRequestsErrorItem struct {
 	_ struct{} `type:"structure"`
 
 	// The error.
-	Error *CancelSpotFleetRequestsError `locationName:"error" type:"structure"`
+	Error *CancelSpotFleetRequestsError `json:"ec2:CancelSpotFleetRequestsErrorItem:Error" locationName:"error" type:"structure"`
 
 	// The ID of the Spot Fleet request.
-	SpotFleetRequestId *string `locationName:"spotFleetRequestId" type:"string"`
+	SpotFleetRequestId *string `json:"ec2:CancelSpotFleetRequestsErrorItem:SpotFleetRequestId" locationName:"spotFleetRequestId" type:"string"`
 }
 
 // String returns the string representation
@@ -461,13 +461,13 @@ type CancelSpotFleetRequestsSuccessItem struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the Spot Fleet request.
-	CurrentSpotFleetRequestState BatchState `locationName:"currentSpotFleetRequestState" type:"string" enum:"true"`
+	CurrentSpotFleetRequestState BatchState `json:"ec2:CancelSpotFleetRequestsSuccessItem:CurrentSpotFleetRequestState" locationName:"currentSpotFleetRequestState" type:"string" enum:"true"`
 
 	// The previous state of the Spot Fleet request.
-	PreviousSpotFleetRequestState BatchState `locationName:"previousSpotFleetRequestState" type:"string" enum:"true"`
+	PreviousSpotFleetRequestState BatchState `json:"ec2:CancelSpotFleetRequestsSuccessItem:PreviousSpotFleetRequestState" locationName:"previousSpotFleetRequestState" type:"string" enum:"true"`
 
 	// The ID of the Spot Fleet request.
-	SpotFleetRequestId *string `locationName:"spotFleetRequestId" type:"string"`
+	SpotFleetRequestId *string `json:"ec2:CancelSpotFleetRequestsSuccessItem:SpotFleetRequestId" locationName:"spotFleetRequestId" type:"string"`
 }
 
 // String returns the string representation
@@ -481,10 +481,10 @@ type CancelledSpotInstanceRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Spot Instance request.
-	SpotInstanceRequestId *string `locationName:"spotInstanceRequestId" type:"string"`
+	SpotInstanceRequestId *string `json:"ec2:CancelledSpotInstanceRequest:SpotInstanceRequestId" locationName:"spotInstanceRequestId" type:"string"`
 
 	// The state of the Spot Instance request.
-	State CancelSpotInstanceRequestState `locationName:"state" type:"string" enum:"true"`
+	State CancelSpotInstanceRequestState `json:"ec2:CancelledSpotInstanceRequest:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -498,30 +498,30 @@ type CapacityReservation struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in which the capacity is reserved.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:CapacityReservation:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The remaining capacity. Indicates the number of instances that can be launched
 	// in the Capacity Reservation.
-	AvailableInstanceCount *int64 `locationName:"availableInstanceCount" type:"integer"`
+	AvailableInstanceCount *int64 `json:"ec2:CapacityReservation:AvailableInstanceCount" locationName:"availableInstanceCount" type:"integer"`
 
 	// The ID of the Capacity Reservation.
-	CapacityReservationId *string `locationName:"capacityReservationId" type:"string"`
+	CapacityReservationId *string `json:"ec2:CapacityReservation:CapacityReservationId" locationName:"capacityReservationId" type:"string"`
 
 	// The date and time at which the Capacity Reservation was created.
-	CreateDate *time.Time `locationName:"createDate" type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"ec2:CapacityReservation:CreateDate" locationName:"createDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
 	// This optimization provides dedicated throughput to Amazon EBS and an optimized
 	// configuration stack to provide optimal I/O performance. This optimization
 	// isn't available with all instance types. Additional usage charges apply when
 	// using an EBS- optimized instance.
-	EbsOptimized *bool `locationName:"ebsOptimized" type:"boolean"`
+	EbsOptimized *bool `json:"ec2:CapacityReservation:EbsOptimized" locationName:"ebsOptimized" type:"boolean"`
 
 	// The date and time at which the Capacity Reservation expires. When a Capacity
 	// Reservation expires, the reserved capacity is released and you can no longer
 	// launch instances into it. The Capacity Reservation's state changes to expired
 	// when it reaches its end date and time.
-	EndDate *time.Time `locationName:"endDate" type:"timestamp" timestampFormat:"iso8601"`
+	EndDate *time.Time `json:"ec2:CapacityReservation:EndDate" locationName:"endDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation
 	// can have one of the following end types:
@@ -531,11 +531,11 @@ type CapacityReservation struct {
 	//
 	//    * limited - The Capacity Reservation expires automatically at a specified
 	//    date and time.
-	EndDateType EndDateType `locationName:"endDateType" type:"string" enum:"true"`
+	EndDateType EndDateType `json:"ec2:CapacityReservation:EndDateType" locationName:"endDateType" type:"string" enum:"true"`
 
 	// Indicates whether the Capacity Reservation supports instances with temporary,
 	// block-level storage.
-	EphemeralStorage *bool `locationName:"ephemeralStorage" type:"boolean"`
+	EphemeralStorage *bool `json:"ec2:CapacityReservation:EphemeralStorage" locationName:"ephemeralStorage" type:"boolean"`
 
 	// Indicates the type of instance launches that the Capacity Reservation accepts.
 	// The options include:
@@ -549,14 +549,14 @@ type CapacityReservation struct {
 	//    matching attributes (instance type, platform, and Availability Zone),
 	//    and explicitly target the Capacity Reservation. This ensures that only
 	//    permitted instances can use the reserved capacity.
-	InstanceMatchCriteria InstanceMatchCriteria `locationName:"instanceMatchCriteria" type:"string" enum:"true"`
+	InstanceMatchCriteria InstanceMatchCriteria `json:"ec2:CapacityReservation:InstanceMatchCriteria" locationName:"instanceMatchCriteria" type:"string" enum:"true"`
 
 	// The type of operating system for which the Capacity Reservation reserves
 	// capacity.
-	InstancePlatform CapacityReservationInstancePlatform `locationName:"instancePlatform" type:"string" enum:"true"`
+	InstancePlatform CapacityReservationInstancePlatform `json:"ec2:CapacityReservation:InstancePlatform" locationName:"instancePlatform" type:"string" enum:"true"`
 
 	// The type of instance for which the Capacity Reservation reserves capacity.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"ec2:CapacityReservation:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The current state of the Capacity Reservation. A Capacity Reservation can
 	// be in one of the following states:
@@ -577,10 +577,10 @@ type CapacityReservation struct {
 	//    * failed - The Capacity Reservation request has failed. A request might
 	//    fail due to invalid request parameters, capacity constraints, or instance
 	//    limit constraints. Failed requests are retained for 60 minutes.
-	State CapacityReservationState `locationName:"state" type:"string" enum:"true"`
+	State CapacityReservationState `json:"ec2:CapacityReservation:State" locationName:"state" type:"string" enum:"true"`
 
 	// Any tags assigned to the Capacity Reservation.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:CapacityReservation:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation
 	// can have one of the following tenancy settings:
@@ -590,10 +590,10 @@ type CapacityReservation struct {
 	//
 	//    * dedicated - The Capacity Reservation is created on single-tenant hardware
 	//    that is dedicated to a single AWS account.
-	Tenancy CapacityReservationTenancy `locationName:"tenancy" type:"string" enum:"true"`
+	Tenancy CapacityReservationTenancy `json:"ec2:CapacityReservation:Tenancy" locationName:"tenancy" type:"string" enum:"true"`
 
 	// The number of instances for which the Capacity Reservation reserves capacity.
-	TotalInstanceCount *int64 `locationName:"totalInstanceCount" type:"integer"`
+	TotalInstanceCount *int64 `json:"ec2:CapacityReservation:TotalInstanceCount" locationName:"totalInstanceCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -622,10 +622,10 @@ type CapacityReservationSpecification struct {
 	//
 	//    * none - The instance avoids running in a Capacity Reservation even if
 	//    one is available. The instance runs as an On-Demand Instance.
-	CapacityReservationPreference CapacityReservationPreference `type:"string" enum:"true"`
+	CapacityReservationPreference CapacityReservationPreference `json:"ec2:CapacityReservationSpecification:CapacityReservationPreference" type:"string" enum:"true"`
 
 	// Information about the target Capacity Reservation.
-	CapacityReservationTarget *CapacityReservationTarget `type:"structure"`
+	CapacityReservationTarget *CapacityReservationTarget `json:"ec2:CapacityReservationSpecification:CapacityReservationTarget" type:"structure"`
 }
 
 // String returns the string representation
@@ -651,10 +651,10 @@ type CapacityReservationSpecificationResponse struct {
 	//
 	//    * none - The instance avoids running in a Capacity Reservation even if
 	//    one is available. The instance runs in On-Demand capacity.
-	CapacityReservationPreference CapacityReservationPreference `locationName:"capacityReservationPreference" type:"string" enum:"true"`
+	CapacityReservationPreference CapacityReservationPreference `json:"ec2:CapacityReservationSpecificationResponse:CapacityReservationPreference" locationName:"capacityReservationPreference" type:"string" enum:"true"`
 
 	// Information about the targeted Capacity Reservation.
-	CapacityReservationTarget *CapacityReservationTargetResponse `locationName:"capacityReservationTarget" type:"structure"`
+	CapacityReservationTarget *CapacityReservationTargetResponse `json:"ec2:CapacityReservationSpecificationResponse:CapacityReservationTarget" locationName:"capacityReservationTarget" type:"structure"`
 }
 
 // String returns the string representation
@@ -668,7 +668,7 @@ type CapacityReservationTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Capacity Reservation.
-	CapacityReservationId *string `type:"string"`
+	CapacityReservationId *string `json:"ec2:CapacityReservationTarget:CapacityReservationId" type:"string"`
 }
 
 // String returns the string representation
@@ -682,7 +682,7 @@ type CapacityReservationTargetResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Capacity Reservation.
-	CapacityReservationId *string `locationName:"capacityReservationId" type:"string"`
+	CapacityReservationId *string `json:"ec2:CapacityReservationTargetResponse:CapacityReservationId" locationName:"capacityReservationId" type:"string"`
 }
 
 // String returns the string representation
@@ -696,7 +696,7 @@ type CertificateAuthentication struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the client certificate.
-	ClientRootCertificateChain *string `locationName:"clientRootCertificateChain" type:"string"`
+	ClientRootCertificateChain *string `json:"ec2:CertificateAuthentication:ClientRootCertificateChain" locationName:"clientRootCertificateChain" type:"string"`
 }
 
 // String returns the string representation
@@ -711,7 +711,7 @@ type CertificateAuthenticationRequest struct {
 
 	// The ARN of the client certificate. The certificate must be signed by a certificate
 	// authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
-	ClientRootCertificateChainArn *string `type:"string"`
+	ClientRootCertificateChainArn *string `json:"ec2:CertificateAuthenticationRequest:ClientRootCertificateChainArn" type:"string"`
 }
 
 // String returns the string representation
@@ -725,11 +725,11 @@ type CertificateRevocationListStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the client certificate revocation list.
-	Code CertificateRevocationListStatusCode `locationName:"code" type:"string" enum:"true"`
+	Code CertificateRevocationListStatusCode `json:"ec2:CertificateRevocationListStatus:Code" locationName:"code" type:"string" enum:"true"`
 
 	// A message about the status of the client certificate revocation list, if
 	// applicable.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:CertificateRevocationListStatus:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -749,12 +749,12 @@ type CidrAuthorizationContext struct {
 	// The plain-text authorization message for the prefix and account.
 	//
 	// Message is a required field
-	Message *string `type:"string" required:"true"`
+	Message *string `json:"ec2:CidrAuthorizationContext:Message" type:"string" required:"true"`
 
 	// The signed authorization message for the prefix and account.
 	//
 	// Signature is a required field
-	Signature *string `type:"string" required:"true"`
+	Signature *string `json:"ec2:CidrAuthorizationContext:Signature" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -786,7 +786,7 @@ type CidrBlock struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv4 CIDR block.
-	CidrBlock *string `locationName:"cidrBlock" type:"string"`
+	CidrBlock *string `json:"ec2:CidrBlock:CidrBlock" locationName:"cidrBlock" type:"string"`
 }
 
 // String returns the string representation
@@ -800,10 +800,10 @@ type ClassicLinkDnsSupport struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether ClassicLink DNS support is enabled for the VPC.
-	ClassicLinkDnsSupported *bool `locationName:"classicLinkDnsSupported" type:"boolean"`
+	ClassicLinkDnsSupported *bool `json:"ec2:ClassicLinkDnsSupport:ClassicLinkDnsSupported" locationName:"classicLinkDnsSupported" type:"boolean"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:ClassicLinkDnsSupport:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -817,16 +817,16 @@ type ClassicLinkInstance struct {
 	_ struct{} `type:"structure"`
 
 	// A list of security groups.
-	Groups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	Groups []GroupIdentifier `json:"ec2:ClassicLinkInstance:Groups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:ClassicLinkInstance:InstanceId" locationName:"instanceId" type:"string"`
 
 	// Any tags assigned to the instance.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:ClassicLinkInstance:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:ClassicLinkInstance:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -840,7 +840,7 @@ type ClassicLoadBalancer struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the load balancer.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ec2:ClassicLoadBalancer:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -855,7 +855,7 @@ type ClassicLoadBalancersConfig struct {
 	_ struct{} `type:"structure"`
 
 	// One or more Classic Load Balancers.
-	ClassicLoadBalancers []ClassicLoadBalancer `locationName:"classicLoadBalancers" locationNameList:"item" min:"1" type:"list"`
+	ClassicLoadBalancers []ClassicLoadBalancer `json:"ec2:ClassicLoadBalancersConfig:ClassicLoadBalancers" locationName:"classicLoadBalancers" locationNameList:"item" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -882,14 +882,14 @@ type ConnectionLogOptions struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the CloudWatch Logs log group.
-	CloudwatchLogGroup *string `type:"string"`
+	CloudwatchLogGroup *string `json:"ec2:ConnectionLogOptions:CloudwatchLogGroup" type:"string"`
 
 	// The name of the CloudWatch Logs log stream to which the connection data is
 	// published.
-	CloudwatchLogStream *string `type:"string"`
+	CloudwatchLogStream *string `json:"ec2:ConnectionLogOptions:CloudwatchLogStream" type:"string"`
 
 	// Indicates whether connection logging is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"ec2:ConnectionLogOptions:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -905,15 +905,15 @@ type ConnectionLogResponseOptions struct {
 
 	// The name of the Amazon CloudWatch Logs log group to which connection logging
 	// data is published.
-	CloudwatchLogGroup *string `type:"string"`
+	CloudwatchLogGroup *string `json:"ec2:ConnectionLogResponseOptions:CloudwatchLogGroup" type:"string"`
 
 	// The name of the Amazon CloudWatch Logs log stream to which connection logging
 	// data is published.
-	CloudwatchLogStream *string `type:"string"`
+	CloudwatchLogStream *string `json:"ec2:ConnectionLogResponseOptions:CloudwatchLogStream" type:"string"`
 
 	// Indicates whether client connection logging is enabled for the Client VPN
 	// endpoint.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"ec2:ConnectionLogResponseOptions:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -928,25 +928,25 @@ type ConnectionNotification struct {
 
 	// The events for the notification. Valid values are Accept, Connect, Delete,
 	// and Reject.
-	ConnectionEvents []string `locationName:"connectionEvents" locationNameList:"item" type:"list"`
+	ConnectionEvents []string `json:"ec2:ConnectionNotification:ConnectionEvents" locationName:"connectionEvents" locationNameList:"item" type:"list"`
 
 	// The ARN of the SNS topic for the notification.
-	ConnectionNotificationArn *string `locationName:"connectionNotificationArn" type:"string"`
+	ConnectionNotificationArn *string `json:"ec2:ConnectionNotification:ConnectionNotificationArn" locationName:"connectionNotificationArn" type:"string"`
 
 	// The ID of the notification.
-	ConnectionNotificationId *string `locationName:"connectionNotificationId" type:"string"`
+	ConnectionNotificationId *string `json:"ec2:ConnectionNotification:ConnectionNotificationId" locationName:"connectionNotificationId" type:"string"`
 
 	// The state of the notification.
-	ConnectionNotificationState ConnectionNotificationState `locationName:"connectionNotificationState" type:"string" enum:"true"`
+	ConnectionNotificationState ConnectionNotificationState `json:"ec2:ConnectionNotification:ConnectionNotificationState" locationName:"connectionNotificationState" type:"string" enum:"true"`
 
 	// The type of notification.
-	ConnectionNotificationType ConnectionNotificationType `locationName:"connectionNotificationType" type:"string" enum:"true"`
+	ConnectionNotificationType ConnectionNotificationType `json:"ec2:ConnectionNotification:ConnectionNotificationType" locationName:"connectionNotificationType" type:"string" enum:"true"`
 
 	// The ID of the endpoint service.
-	ServiceId *string `locationName:"serviceId" type:"string"`
+	ServiceId *string `json:"ec2:ConnectionNotification:ServiceId" locationName:"serviceId" type:"string"`
 
 	// The ID of the VPC endpoint.
-	VpcEndpointId *string `locationName:"vpcEndpointId" type:"string"`
+	VpcEndpointId *string `json:"ec2:ConnectionNotification:VpcEndpointId" locationName:"vpcEndpointId" type:"string"`
 }
 
 // String returns the string representation
@@ -960,28 +960,28 @@ type ConversionTask struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the conversion task.
-	ConversionTaskId *string `locationName:"conversionTaskId" type:"string"`
+	ConversionTaskId *string `json:"ec2:ConversionTask:ConversionTaskId" locationName:"conversionTaskId" type:"string"`
 
 	// The time when the task expires. If the upload isn't complete before the expiration
 	// time, we automatically cancel the task.
-	ExpirationTime *string `locationName:"expirationTime" type:"string"`
+	ExpirationTime *string `json:"ec2:ConversionTask:ExpirationTime" locationName:"expirationTime" type:"string"`
 
 	// If the task is for importing an instance, this contains information about
 	// the import instance task.
-	ImportInstance *ImportInstanceTaskDetails `locationName:"importInstance" type:"structure"`
+	ImportInstance *ImportInstanceTaskDetails `json:"ec2:ConversionTask:ImportInstance" locationName:"importInstance" type:"structure"`
 
 	// If the task is for importing a volume, this contains information about the
 	// import volume task.
-	ImportVolume *ImportVolumeTaskDetails `locationName:"importVolume" type:"structure"`
+	ImportVolume *ImportVolumeTaskDetails `json:"ec2:ConversionTask:ImportVolume" locationName:"importVolume" type:"structure"`
 
 	// The state of the conversion task.
-	State ConversionTaskState `locationName:"state" type:"string" enum:"true"`
+	State ConversionTaskState `json:"ec2:ConversionTask:State" locationName:"state" type:"string" enum:"true"`
 
 	// The status message related to the conversion task.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:ConversionTask:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// Any tags assigned to the task.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:ConversionTask:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -995,10 +995,10 @@ type CpuOptions struct {
 	_ struct{} `type:"structure"`
 
 	// The number of CPU cores for the instance.
-	CoreCount *int64 `locationName:"coreCount" type:"integer"`
+	CoreCount *int64 `json:"ec2:CpuOptions:CoreCount" locationName:"coreCount" type:"integer"`
 
 	// The number of threads per CPU core.
-	ThreadsPerCore *int64 `locationName:"threadsPerCore" type:"integer"`
+	ThreadsPerCore *int64 `json:"ec2:CpuOptions:ThreadsPerCore" locationName:"threadsPerCore" type:"integer"`
 }
 
 // String returns the string representation
@@ -1013,12 +1013,12 @@ type CpuOptionsRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The number of CPU cores for the instance.
-	CoreCount *int64 `type:"integer"`
+	CoreCount *int64 `json:"ec2:CpuOptionsRequest:CoreCount" type:"integer"`
 
 	// The number of threads per CPU core. To disable Intel Hyper-Threading Technology
 	// for the instance, specify a value of 1. Otherwise, specify the default value
 	// of 2.
-	ThreadsPerCore *int64 `type:"integer"`
+	ThreadsPerCore *int64 `json:"ec2:CpuOptionsRequest:ThreadsPerCore" type:"integer"`
 }
 
 // String returns the string representation
@@ -1033,20 +1033,20 @@ type CreateFleetError struct {
 
 	// The error code that indicates why the instance could not be launched. For
 	// more information about error codes, see Error Codes (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html).
-	ErrorCode *string `locationName:"errorCode" type:"string"`
+	ErrorCode *string `json:"ec2:CreateFleetError:ErrorCode" locationName:"errorCode" type:"string"`
 
 	// The error message that describes why the instance could not be launched.
 	// For more information about error messages, see ee Error Codes (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html).
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"ec2:CreateFleetError:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The launch templates and overrides that were used for launching the instances.
 	// Any parameters that you specify in the Overrides override the same parameters
 	// in the launch template.
-	LaunchTemplateAndOverrides *LaunchTemplateAndOverridesResponse `locationName:"launchTemplateAndOverrides" type:"structure"`
+	LaunchTemplateAndOverrides *LaunchTemplateAndOverridesResponse `json:"ec2:CreateFleetError:LaunchTemplateAndOverrides" locationName:"launchTemplateAndOverrides" type:"structure"`
 
 	// Indicates if the instance that could not be launched was a Spot Instance
 	// or On-Demand Instance.
-	Lifecycle InstanceLifecycle `locationName:"lifecycle" type:"string" enum:"true"`
+	Lifecycle InstanceLifecycle `json:"ec2:CreateFleetError:Lifecycle" locationName:"lifecycle" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1060,22 +1060,22 @@ type CreateFleetInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the instances.
-	InstanceIds []string `locationName:"instanceIds" locationNameList:"item" type:"list"`
+	InstanceIds []string `json:"ec2:CreateFleetInstance:InstanceIds" locationName:"instanceIds" locationNameList:"item" type:"list"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:CreateFleetInstance:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The launch templates and overrides that were used for launching the instances.
 	// Any parameters that you specify in the Overrides override the same parameters
 	// in the launch template.
-	LaunchTemplateAndOverrides *LaunchTemplateAndOverridesResponse `locationName:"launchTemplateAndOverrides" type:"structure"`
+	LaunchTemplateAndOverrides *LaunchTemplateAndOverridesResponse `json:"ec2:CreateFleetInstance:LaunchTemplateAndOverrides" locationName:"launchTemplateAndOverrides" type:"structure"`
 
 	// Indicates if the instance that was launched is a Spot Instance or On-Demand
 	// Instance.
-	Lifecycle InstanceLifecycle `locationName:"lifecycle" type:"string" enum:"true"`
+	Lifecycle InstanceLifecycle `json:"ec2:CreateFleetInstance:Lifecycle" locationName:"lifecycle" type:"string" enum:"true"`
 
 	// The value is Windows for Windows instances; otherwise blank.
-	Platform PlatformValues `locationName:"platform" type:"string" enum:"true"`
+	Platform PlatformValues `json:"ec2:CreateFleetInstance:Platform" locationName:"platform" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1089,10 +1089,10 @@ type CreateTransitGatewayVpcAttachmentRequestOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Enable or disable DNS support. The default is enable.
-	DnsSupport DnsSupportValue `type:"string" enum:"true"`
+	DnsSupport DnsSupportValue `json:"ec2:CreateTransitGatewayVpcAttachmentRequestOptions:DnsSupport" type:"string" enum:"true"`
 
 	// Enable or disable IPv6 support. The default is enable.
-	Ipv6Support Ipv6SupportValue `type:"string" enum:"true"`
+	Ipv6Support Ipv6SupportValue `json:"ec2:CreateTransitGatewayVpcAttachmentRequestOptions:Ipv6Support" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1107,10 +1107,10 @@ type CreateVolumePermission struct {
 	_ struct{} `type:"structure"`
 
 	// The group to be added or removed. The possible value is all.
-	Group PermissionGroup `locationName:"group" type:"string" enum:"true"`
+	Group PermissionGroup `json:"ec2:CreateVolumePermission:Group" locationName:"group" type:"string" enum:"true"`
 
 	// The AWS account ID to be added or removed.
-	UserId *string `locationName:"userId" type:"string"`
+	UserId *string `json:"ec2:CreateVolumePermission:UserId" locationName:"userId" type:"string"`
 }
 
 // String returns the string representation
@@ -1124,10 +1124,10 @@ type CreateVolumePermissionModifications struct {
 	_ struct{} `type:"structure"`
 
 	// Adds the specified AWS account ID or group to the list.
-	Add []CreateVolumePermission `locationNameList:"item" type:"list"`
+	Add []CreateVolumePermission `json:"ec2:CreateVolumePermissionModifications:Add" locationNameList:"item" type:"list"`
 
 	// Removes the specified AWS account ID or group from the list.
-	Remove []CreateVolumePermission `locationNameList:"item" type:"list"`
+	Remove []CreateVolumePermission `json:"ec2:CreateVolumePermissionModifications:Remove" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -1142,7 +1142,7 @@ type CreditSpecification struct {
 
 	// The credit option for CPU usage of a T2 or T3 instance. Valid values are
 	// standard and unlimited.
-	CpuCredits *string `locationName:"cpuCredits" type:"string"`
+	CpuCredits *string `json:"ec2:CreditSpecification:CpuCredits" locationName:"cpuCredits" type:"string"`
 }
 
 // String returns the string representation
@@ -1159,7 +1159,7 @@ type CreditSpecificationRequest struct {
 	// standard and unlimited.
 	//
 	// CpuCredits is a required field
-	CpuCredits *string `type:"string" required:"true"`
+	CpuCredits *string `json:"ec2:CreditSpecificationRequest:CpuCredits" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1188,23 +1188,23 @@ type CustomerGateway struct {
 
 	// The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number
 	// (ASN).
-	BgpAsn *string `locationName:"bgpAsn" type:"string"`
+	BgpAsn *string `json:"ec2:CustomerGateway:BgpAsn" locationName:"bgpAsn" type:"string"`
 
 	// The ID of the customer gateway.
-	CustomerGatewayId *string `locationName:"customerGatewayId" type:"string"`
+	CustomerGatewayId *string `json:"ec2:CustomerGateway:CustomerGatewayId" locationName:"customerGatewayId" type:"string"`
 
 	// The Internet-routable IP address of the customer gateway's outside interface.
-	IpAddress *string `locationName:"ipAddress" type:"string"`
+	IpAddress *string `json:"ec2:CustomerGateway:IpAddress" locationName:"ipAddress" type:"string"`
 
 	// The current state of the customer gateway (pending | available | deleting
 	// | deleted).
-	State *string `locationName:"state" type:"string"`
+	State *string `json:"ec2:CustomerGateway:State" locationName:"state" type:"string"`
 
 	// Any tags assigned to the customer gateway.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:CustomerGateway:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The type of VPN connection the customer gateway supports (ipsec.1).
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"ec2:CustomerGateway:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -1218,16 +1218,16 @@ type Data struct {
 	_ struct{} `type:"structure"`
 
 	// A user-defined comment about the disk upload.
-	Comment *string `type:"string"`
+	Comment *string `json:"ec2:Data:Comment" type:"string"`
 
 	// The time that the disk upload ends.
-	UploadEnd *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UploadEnd *time.Time `json:"ec2:Data:UploadEnd" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The size of the uploaded disk image, in GiB.
-	UploadSize *float64 `type:"double"`
+	UploadSize *float64 `json:"ec2:Data:UploadSize" type:"double"`
 
 	// The time that the disk upload starts.
-	UploadStart *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UploadStart *time.Time `json:"ec2:Data:UploadStart" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1241,10 +1241,10 @@ type DeleteFleetError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	Code DeleteFleetErrorCode `locationName:"code" type:"string" enum:"true"`
+	Code DeleteFleetErrorCode `json:"ec2:DeleteFleetError:Code" locationName:"code" type:"string" enum:"true"`
 
 	// The description for the error code.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:DeleteFleetError:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -1258,10 +1258,10 @@ type DeleteFleetErrorItem struct {
 	_ struct{} `type:"structure"`
 
 	// The error.
-	Error *DeleteFleetError `locationName:"error" type:"structure"`
+	Error *DeleteFleetError `json:"ec2:DeleteFleetErrorItem:Error" locationName:"error" type:"structure"`
 
 	// The ID of the EC2 Fleet.
-	FleetId *string `locationName:"fleetId" type:"string"`
+	FleetId *string `json:"ec2:DeleteFleetErrorItem:FleetId" locationName:"fleetId" type:"string"`
 }
 
 // String returns the string representation
@@ -1275,13 +1275,13 @@ type DeleteFleetSuccessItem struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the EC2 Fleet.
-	CurrentFleetState FleetStateCode `locationName:"currentFleetState" type:"string" enum:"true"`
+	CurrentFleetState FleetStateCode `json:"ec2:DeleteFleetSuccessItem:CurrentFleetState" locationName:"currentFleetState" type:"string" enum:"true"`
 
 	// The ID of the EC2 Fleet.
-	FleetId *string `locationName:"fleetId" type:"string"`
+	FleetId *string `json:"ec2:DeleteFleetSuccessItem:FleetId" locationName:"fleetId" type:"string"`
 
 	// The previous state of the EC2 Fleet.
-	PreviousFleetState FleetStateCode `locationName:"previousFleetState" type:"string" enum:"true"`
+	PreviousFleetState FleetStateCode `json:"ec2:DeleteFleetSuccessItem:PreviousFleetState" locationName:"previousFleetState" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1295,16 +1295,16 @@ type DeleteLaunchTemplateVersionsResponseErrorItem struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the launch template.
-	LaunchTemplateId *string `locationName:"launchTemplateId" type:"string"`
+	LaunchTemplateId *string `json:"ec2:DeleteLaunchTemplateVersionsResponseErrorItem:LaunchTemplateId" locationName:"launchTemplateId" type:"string"`
 
 	// The name of the launch template.
-	LaunchTemplateName *string `locationName:"launchTemplateName" type:"string"`
+	LaunchTemplateName *string `json:"ec2:DeleteLaunchTemplateVersionsResponseErrorItem:LaunchTemplateName" locationName:"launchTemplateName" type:"string"`
 
 	// Information about the error.
-	ResponseError *ResponseError `locationName:"responseError" type:"structure"`
+	ResponseError *ResponseError `json:"ec2:DeleteLaunchTemplateVersionsResponseErrorItem:ResponseError" locationName:"responseError" type:"structure"`
 
 	// The version number of the launch template.
-	VersionNumber *int64 `locationName:"versionNumber" type:"long"`
+	VersionNumber *int64 `json:"ec2:DeleteLaunchTemplateVersionsResponseErrorItem:VersionNumber" locationName:"versionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -1318,13 +1318,13 @@ type DeleteLaunchTemplateVersionsResponseSuccessItem struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the launch template.
-	LaunchTemplateId *string `locationName:"launchTemplateId" type:"string"`
+	LaunchTemplateId *string `json:"ec2:DeleteLaunchTemplateVersionsResponseSuccessItem:LaunchTemplateId" locationName:"launchTemplateId" type:"string"`
 
 	// The name of the launch template.
-	LaunchTemplateName *string `locationName:"launchTemplateName" type:"string"`
+	LaunchTemplateName *string `json:"ec2:DeleteLaunchTemplateVersionsResponseSuccessItem:LaunchTemplateName" locationName:"launchTemplateName" type:"string"`
 
 	// The version number of the launch template.
-	VersionNumber *int64 `locationName:"versionNumber" type:"long"`
+	VersionNumber *int64 `json:"ec2:DeleteLaunchTemplateVersionsResponseSuccessItem:VersionNumber" locationName:"versionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -1339,20 +1339,20 @@ type DescribeFleetError struct {
 
 	// The error code that indicates why the instance could not be launched. For
 	// more information about error codes, see Error Codes (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html).
-	ErrorCode *string `locationName:"errorCode" type:"string"`
+	ErrorCode *string `json:"ec2:DescribeFleetError:ErrorCode" locationName:"errorCode" type:"string"`
 
 	// The error message that describes why the instance could not be launched.
 	// For more information about error messages, see ee Error Codes (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html).
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"ec2:DescribeFleetError:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The launch templates and overrides that were used for launching the instances.
 	// Any parameters that you specify in the Overrides override the same parameters
 	// in the launch template.
-	LaunchTemplateAndOverrides *LaunchTemplateAndOverridesResponse `locationName:"launchTemplateAndOverrides" type:"structure"`
+	LaunchTemplateAndOverrides *LaunchTemplateAndOverridesResponse `json:"ec2:DescribeFleetError:LaunchTemplateAndOverrides" locationName:"launchTemplateAndOverrides" type:"structure"`
 
 	// Indicates if the instance that could not be launched was a Spot Instance
 	// or On-Demand Instance.
-	Lifecycle InstanceLifecycle `locationName:"lifecycle" type:"string" enum:"true"`
+	Lifecycle InstanceLifecycle `json:"ec2:DescribeFleetError:Lifecycle" locationName:"lifecycle" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1366,22 +1366,22 @@ type DescribeFleetsInstances struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the instances.
-	InstanceIds []string `locationName:"instanceIds" locationNameList:"item" type:"list"`
+	InstanceIds []string `json:"ec2:DescribeFleetsInstances:InstanceIds" locationName:"instanceIds" locationNameList:"item" type:"list"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:DescribeFleetsInstances:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The launch templates and overrides that were used for launching the instances.
 	// Any parameters that you specify in the Overrides override the same parameters
 	// in the launch template.
-	LaunchTemplateAndOverrides *LaunchTemplateAndOverridesResponse `locationName:"launchTemplateAndOverrides" type:"structure"`
+	LaunchTemplateAndOverrides *LaunchTemplateAndOverridesResponse `json:"ec2:DescribeFleetsInstances:LaunchTemplateAndOverrides" locationName:"launchTemplateAndOverrides" type:"structure"`
 
 	// Indicates if the instance that was launched is a Spot Instance or On-Demand
 	// Instance.
-	Lifecycle InstanceLifecycle `locationName:"lifecycle" type:"string" enum:"true"`
+	Lifecycle InstanceLifecycle `json:"ec2:DescribeFleetsInstances:Lifecycle" locationName:"lifecycle" type:"string" enum:"true"`
 
 	// The value is Windows for Windows instances; otherwise blank.
-	Platform PlatformValues `locationName:"platform" type:"string" enum:"true"`
+	Platform PlatformValues `json:"ec2:DescribeFleetsInstances:Platform" locationName:"platform" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1395,10 +1395,10 @@ type DhcpConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The name of a DHCP option.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"ec2:DhcpConfiguration:Key" locationName:"key" type:"string"`
 
 	// One or more values for the DHCP option.
-	Values []AttributeValue `locationName:"valueSet" locationNameList:"item" type:"list"`
+	Values []AttributeValue `json:"ec2:DhcpConfiguration:Values" locationName:"valueSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -1412,16 +1412,16 @@ type DhcpOptions struct {
 	_ struct{} `type:"structure"`
 
 	// One or more DHCP options in the set.
-	DhcpConfigurations []DhcpConfiguration `locationName:"dhcpConfigurationSet" locationNameList:"item" type:"list"`
+	DhcpConfigurations []DhcpConfiguration `json:"ec2:DhcpOptions:DhcpConfigurations" locationName:"dhcpConfigurationSet" locationNameList:"item" type:"list"`
 
 	// The ID of the set of DHCP options.
-	DhcpOptionsId *string `locationName:"dhcpOptionsId" type:"string"`
+	DhcpOptionsId *string `json:"ec2:DhcpOptions:DhcpOptionsId" locationName:"dhcpOptionsId" type:"string"`
 
 	// The ID of the AWS account that owns the DHCP options set.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:DhcpOptions:OwnerId" locationName:"ownerId" type:"string"`
 
 	// Any tags assigned to the DHCP options set.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:DhcpOptions:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -1435,7 +1435,7 @@ type DirectoryServiceAuthentication struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Active Directory used for authentication.
-	DirectoryId *string `locationName:"directoryId" type:"string"`
+	DirectoryId *string `json:"ec2:DirectoryServiceAuthentication:DirectoryId" locationName:"directoryId" type:"string"`
 }
 
 // String returns the string representation
@@ -1449,7 +1449,7 @@ type DirectoryServiceAuthenticationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Active Directory to be used for authentication.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ec2:DirectoryServiceAuthenticationRequest:DirectoryId" type:"string"`
 }
 
 // String returns the string representation
@@ -1463,13 +1463,13 @@ type DiskImage struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the disk image.
-	Description *string `type:"string"`
+	Description *string `json:"ec2:DiskImage:Description" type:"string"`
 
 	// Information about the disk image.
-	Image *DiskImageDetail `type:"structure"`
+	Image *DiskImageDetail `json:"ec2:DiskImage:Image" type:"structure"`
 
 	// Information about the volume.
-	Volume *VolumeDetail `type:"structure"`
+	Volume *VolumeDetail `json:"ec2:DiskImage:Volume" type:"structure"`
 }
 
 // String returns the string representation
@@ -1503,10 +1503,10 @@ type DiskImageDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The checksum computed for the disk image.
-	Checksum *string `locationName:"checksum" type:"string"`
+	Checksum *string `json:"ec2:DiskImageDescription:Checksum" locationName:"checksum" type:"string"`
 
 	// The disk image format.
-	Format DiskImageFormat `locationName:"format" type:"string" enum:"true"`
+	Format DiskImageFormat `json:"ec2:DiskImageDescription:Format" locationName:"format" type:"string" enum:"true"`
 
 	// A presigned URL for the import manifest stored in Amazon S3. For information
 	// about creating a presigned URL for an Amazon S3 object, read the "Query String
@@ -1516,10 +1516,10 @@ type DiskImageDescription struct {
 	//
 	// For information about the import manifest referenced by this API action,
 	// see VM Import Manifest (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html).
-	ImportManifestUrl *string `locationName:"importManifestUrl" type:"string"`
+	ImportManifestUrl *string `json:"ec2:DiskImageDescription:ImportManifestUrl" locationName:"importManifestUrl" type:"string"`
 
 	// The size of the disk image, in GiB.
-	Size *int64 `locationName:"size" type:"long"`
+	Size *int64 `json:"ec2:DiskImageDescription:Size" locationName:"size" type:"long"`
 }
 
 // String returns the string representation
@@ -1535,12 +1535,12 @@ type DiskImageDetail struct {
 	// The size of the disk image, in GiB.
 	//
 	// Bytes is a required field
-	Bytes *int64 `locationName:"bytes" type:"long" required:"true"`
+	Bytes *int64 `json:"ec2:DiskImageDetail:Bytes" locationName:"bytes" type:"long" required:"true"`
 
 	// The disk image format.
 	//
 	// Format is a required field
-	Format DiskImageFormat `locationName:"format" type:"string" required:"true" enum:"true"`
+	Format DiskImageFormat `json:"ec2:DiskImageDetail:Format" locationName:"format" type:"string" required:"true" enum:"true"`
 
 	// A presigned URL for the import manifest stored in Amazon S3 and presented
 	// here as an Amazon S3 presigned URL. For information about creating a presigned
@@ -1552,7 +1552,7 @@ type DiskImageDetail struct {
 	// see VM Import Manifest (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html).
 	//
 	// ImportManifestUrl is a required field
-	ImportManifestUrl *string `locationName:"importManifestUrl" type:"string" required:"true"`
+	ImportManifestUrl *string `json:"ec2:DiskImageDetail:ImportManifestUrl" locationName:"importManifestUrl" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1587,10 +1587,10 @@ type DiskImageVolumeDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The volume identifier.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"ec2:DiskImageVolumeDescription:Id" locationName:"id" type:"string"`
 
 	// The size of the volume, in GiB.
-	Size *int64 `locationName:"size" type:"long"`
+	Size *int64 `json:"ec2:DiskImageVolumeDescription:Size" locationName:"size" type:"long"`
 }
 
 // String returns the string representation
@@ -1604,10 +1604,10 @@ type DnsEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The DNS name.
-	DnsName *string `locationName:"dnsName" type:"string"`
+	DnsName *string `json:"ec2:DnsEntry:DnsName" locationName:"dnsName" type:"string"`
 
 	// The ID of the private hosted zone.
-	HostedZoneId *string `locationName:"hostedZoneId" type:"string"`
+	HostedZoneId *string `json:"ec2:DnsEntry:HostedZoneId" locationName:"hostedZoneId" type:"string"`
 }
 
 // String returns the string representation
@@ -1623,11 +1623,11 @@ type DnsServersOptionsModifyStructure struct {
 	// The IPv4 address range, in CIDR notation, of the DNS servers to be used.
 	// You can specify up to two DNS servers. Ensure that the DNS servers can be
 	// reached by the clients. The specified values overwrite the existing values.
-	CustomDnsServers []string `locationNameList:"item" type:"list"`
+	CustomDnsServers []string `json:"ec2:DnsServersOptionsModifyStructure:CustomDnsServers" locationNameList:"item" type:"list"`
 
 	// Indicates whether DNS servers should be used. Specify False to delete the
 	// existing DNS servers.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"ec2:DnsServersOptionsModifyStructure:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1641,7 +1641,7 @@ type EbsBlockDevice struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the EBS volume is deleted on instance termination.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:EbsBlockDevice:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// Indicates whether the encryption state of an EBS volume is changed while
 	// being restored from a backing snapshot. The effect of setting the encryption
@@ -1654,7 +1654,7 @@ type EbsBlockDevice struct {
 	//
 	// Encrypted volumes can only be attached to instances that support Amazon EBS
 	// encryption. For more information, see Supported Instance Types (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances).
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:EbsBlockDevice:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	// For io1 volumes, this represents the number of IOPS that are provisioned
@@ -1672,7 +1672,7 @@ type EbsBlockDevice struct {
 	//
 	// Condition: This parameter is required for requests to create io1 volumes;
 	// it is not used in requests to create gp2, st1, sc1, or standard volumes.
-	Iops *int64 `locationName:"iops" type:"integer"`
+	Iops *int64 `json:"ec2:EbsBlockDevice:Iops" locationName:"iops" type:"integer"`
 
 	// Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed
 	// CMK under which the EBS volume is encrypted.
@@ -1681,10 +1681,10 @@ type EbsBlockDevice struct {
 	// RunInstances (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html),
 	// RequestSpotFleet (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html),
 	// and RequestSpotInstances (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html).
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"ec2:EbsBlockDevice:KmsKeyId" type:"string"`
 
 	// The ID of the snapshot.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:EbsBlockDevice:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// The size of the volume, in GiB.
 	//
@@ -1696,12 +1696,12 @@ type EbsBlockDevice struct {
 	// Cold HDD (sc1), and 1-1024 for Magnetic (standard) volumes. If you specify
 	// a snapshot, the volume size must be equal to or larger than the snapshot
 	// size.
-	VolumeSize *int64 `locationName:"volumeSize" type:"integer"`
+	VolumeSize *int64 `json:"ec2:EbsBlockDevice:VolumeSize" locationName:"volumeSize" type:"integer"`
 
 	// The volume type. If you set the type to io1, you must also set the Iops property.
 	//
 	// Default: standard
-	VolumeType VolumeType `locationName:"volumeType" type:"string" enum:"true"`
+	VolumeType VolumeType `json:"ec2:EbsBlockDevice:VolumeType" locationName:"volumeType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1715,16 +1715,16 @@ type EbsInstanceBlockDevice struct {
 	_ struct{} `type:"structure"`
 
 	// The time stamp when the attachment initiated.
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
+	AttachTime *time.Time `json:"ec2:EbsInstanceBlockDevice:AttachTime" locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates whether the volume is deleted on instance termination.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:EbsInstanceBlockDevice:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// The attachment state.
-	Status AttachmentStatus `locationName:"status" type:"string" enum:"true"`
+	Status AttachmentStatus `json:"ec2:EbsInstanceBlockDevice:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The ID of the EBS volume.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:EbsInstanceBlockDevice:VolumeId" locationName:"volumeId" type:"string"`
 }
 
 // String returns the string representation
@@ -1739,10 +1739,10 @@ type EbsInstanceBlockDeviceSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the volume is deleted on instance termination.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:EbsInstanceBlockDeviceSpecification:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// The ID of the EBS volume.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:EbsInstanceBlockDeviceSpecification:VolumeId" locationName:"volumeId" type:"string"`
 }
 
 // String returns the string representation
@@ -1756,10 +1756,10 @@ type EgressOnlyInternetGateway struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the attachment of the egress-only internet gateway.
-	Attachments []InternetGatewayAttachment `locationName:"attachmentSet" locationNameList:"item" type:"list"`
+	Attachments []InternetGatewayAttachment `json:"ec2:EgressOnlyInternetGateway:Attachments" locationName:"attachmentSet" locationNameList:"item" type:"list"`
 
 	// The ID of the egress-only internet gateway.
-	EgressOnlyInternetGatewayId *string `locationName:"egressOnlyInternetGatewayId" type:"string"`
+	EgressOnlyInternetGatewayId *string `json:"ec2:EgressOnlyInternetGateway:EgressOnlyInternetGatewayId" locationName:"egressOnlyInternetGatewayId" type:"string"`
 }
 
 // String returns the string representation
@@ -1773,17 +1773,17 @@ type ElasticGpuAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the association.
-	ElasticGpuAssociationId *string `locationName:"elasticGpuAssociationId" type:"string"`
+	ElasticGpuAssociationId *string `json:"ec2:ElasticGpuAssociation:ElasticGpuAssociationId" locationName:"elasticGpuAssociationId" type:"string"`
 
 	// The state of the association between the instance and the Elastic Graphics
 	// accelerator.
-	ElasticGpuAssociationState *string `locationName:"elasticGpuAssociationState" type:"string"`
+	ElasticGpuAssociationState *string `json:"ec2:ElasticGpuAssociation:ElasticGpuAssociationState" locationName:"elasticGpuAssociationState" type:"string"`
 
 	// The time the Elastic Graphics accelerator was associated with the instance.
-	ElasticGpuAssociationTime *string `locationName:"elasticGpuAssociationTime" type:"string"`
+	ElasticGpuAssociationTime *string `json:"ec2:ElasticGpuAssociation:ElasticGpuAssociationTime" locationName:"elasticGpuAssociationTime" type:"string"`
 
 	// The ID of the Elastic Graphics accelerator.
-	ElasticGpuId *string `locationName:"elasticGpuId" type:"string"`
+	ElasticGpuId *string `json:"ec2:ElasticGpuAssociation:ElasticGpuId" locationName:"elasticGpuId" type:"string"`
 }
 
 // String returns the string representation
@@ -1797,7 +1797,7 @@ type ElasticGpuHealth struct {
 	_ struct{} `type:"structure"`
 
 	// The health status.
-	Status ElasticGpuStatus `locationName:"status" type:"string" enum:"true"`
+	Status ElasticGpuStatus `json:"ec2:ElasticGpuHealth:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1813,7 +1813,7 @@ type ElasticGpuSpecification struct {
 	// The type of Elastic Graphics accelerator.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"ec2:ElasticGpuSpecification:Type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1841,7 +1841,7 @@ type ElasticGpuSpecificationResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The elastic GPU type.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"ec2:ElasticGpuSpecificationResponse:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -1855,22 +1855,22 @@ type ElasticGpus struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in the which the Elastic Graphics accelerator resides.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:ElasticGpus:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The status of the Elastic Graphics accelerator.
-	ElasticGpuHealth *ElasticGpuHealth `locationName:"elasticGpuHealth" type:"structure"`
+	ElasticGpuHealth *ElasticGpuHealth `json:"ec2:ElasticGpus:ElasticGpuHealth" locationName:"elasticGpuHealth" type:"structure"`
 
 	// The ID of the Elastic Graphics accelerator.
-	ElasticGpuId *string `locationName:"elasticGpuId" type:"string"`
+	ElasticGpuId *string `json:"ec2:ElasticGpus:ElasticGpuId" locationName:"elasticGpuId" type:"string"`
 
 	// The state of the Elastic Graphics accelerator.
-	ElasticGpuState ElasticGpuState `locationName:"elasticGpuState" type:"string" enum:"true"`
+	ElasticGpuState ElasticGpuState `json:"ec2:ElasticGpus:ElasticGpuState" locationName:"elasticGpuState" type:"string" enum:"true"`
 
 	// The type of Elastic Graphics accelerator.
-	ElasticGpuType *string `locationName:"elasticGpuType" type:"string"`
+	ElasticGpuType *string `json:"ec2:ElasticGpus:ElasticGpuType" locationName:"elasticGpuType" type:"string"`
 
 	// The ID of the instance to which the Elastic Graphics accelerator is attached.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:ElasticGpus:InstanceId" locationName:"instanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -1887,7 +1887,7 @@ type ElasticInferenceAccelerator struct {
 	// eia1.medium, and eia1.large.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"ec2:ElasticInferenceAccelerator:Type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1915,17 +1915,17 @@ type ElasticInferenceAcceleratorAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the elastic inference accelerator.
-	ElasticInferenceAcceleratorArn *string `locationName:"elasticInferenceAcceleratorArn" type:"string"`
+	ElasticInferenceAcceleratorArn *string `json:"ec2:ElasticInferenceAcceleratorAssociation:ElasticInferenceAcceleratorArn" locationName:"elasticInferenceAcceleratorArn" type:"string"`
 
 	// The ID of the association.
-	ElasticInferenceAcceleratorAssociationId *string `locationName:"elasticInferenceAcceleratorAssociationId" type:"string"`
+	ElasticInferenceAcceleratorAssociationId *string `json:"ec2:ElasticInferenceAcceleratorAssociation:ElasticInferenceAcceleratorAssociationId" locationName:"elasticInferenceAcceleratorAssociationId" type:"string"`
 
 	// The state of the elastic inference accelerator.
-	ElasticInferenceAcceleratorAssociationState *string `locationName:"elasticInferenceAcceleratorAssociationState" type:"string"`
+	ElasticInferenceAcceleratorAssociationState *string `json:"ec2:ElasticInferenceAcceleratorAssociation:ElasticInferenceAcceleratorAssociationState" locationName:"elasticInferenceAcceleratorAssociationState" type:"string"`
 
 	// The time at which the elastic inference accelerator is associated with an
 	// instance.
-	ElasticInferenceAcceleratorAssociationTime *time.Time `locationName:"elasticInferenceAcceleratorAssociationTime" type:"timestamp" timestampFormat:"iso8601"`
+	ElasticInferenceAcceleratorAssociationTime *time.Time `json:"ec2:ElasticInferenceAcceleratorAssociation:ElasticInferenceAcceleratorAssociationTime" locationName:"elasticInferenceAcceleratorAssociationTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1939,7 +1939,7 @@ type EventInformation struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the event.
-	EventDescription *string `locationName:"eventDescription" type:"string"`
+	EventDescription *string `json:"ec2:EventInformation:EventDescription" locationName:"eventDescription" type:"string"`
 
 	// The event.
 	//
@@ -2004,11 +2004,11 @@ type EventInformation struct {
 	//
 	//    * fleetProgressHalted - The price in every launch specification is not
 	//    valid. A launch specification might become valid if the Spot price changes.
-	EventSubType *string `locationName:"eventSubType" type:"string"`
+	EventSubType *string `json:"ec2:EventInformation:EventSubType" locationName:"eventSubType" type:"string"`
 
 	// The ID of the instance. This information is available only for instanceChange
 	// events.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:EventInformation:InstanceId" locationName:"instanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -2022,22 +2022,22 @@ type ExportTask struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the resource being exported.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ExportTask:Description" locationName:"description" type:"string"`
 
 	// The ID of the export task.
-	ExportTaskId *string `locationName:"exportTaskId" type:"string"`
+	ExportTaskId *string `json:"ec2:ExportTask:ExportTaskId" locationName:"exportTaskId" type:"string"`
 
 	// Information about the export task.
-	ExportToS3Task *ExportToS3Task `locationName:"exportToS3" type:"structure"`
+	ExportToS3Task *ExportToS3Task `json:"ec2:ExportTask:ExportToS3Task" locationName:"exportToS3" type:"structure"`
 
 	// Information about the instance to export.
-	InstanceExportDetails *InstanceExportDetails `locationName:"instanceExport" type:"structure"`
+	InstanceExportDetails *InstanceExportDetails `json:"ec2:ExportTask:InstanceExportDetails" locationName:"instanceExport" type:"structure"`
 
 	// The state of the export task.
-	State ExportTaskState `locationName:"state" type:"string" enum:"true"`
+	State ExportTaskState `json:"ec2:ExportTask:State" locationName:"state" type:"string" enum:"true"`
 
 	// The status message related to the export task.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:ExportTask:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -2052,17 +2052,17 @@ type ExportToS3Task struct {
 
 	// The container format used to combine disk images with metadata (such as OVF).
 	// If absent, only the disk image is exported.
-	ContainerFormat ContainerFormat `locationName:"containerFormat" type:"string" enum:"true"`
+	ContainerFormat ContainerFormat `json:"ec2:ExportToS3Task:ContainerFormat" locationName:"containerFormat" type:"string" enum:"true"`
 
 	// The format for the exported image.
-	DiskImageFormat DiskImageFormat `locationName:"diskImageFormat" type:"string" enum:"true"`
+	DiskImageFormat DiskImageFormat `json:"ec2:ExportToS3Task:DiskImageFormat" locationName:"diskImageFormat" type:"string" enum:"true"`
 
 	// The S3 bucket for the destination image. The destination bucket must exist
 	// and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com.
-	S3Bucket *string `locationName:"s3Bucket" type:"string"`
+	S3Bucket *string `json:"ec2:ExportToS3Task:S3Bucket" locationName:"s3Bucket" type:"string"`
 
 	// The encryption key for your S3 bucket.
-	S3Key *string `locationName:"s3Key" type:"string"`
+	S3Key *string `json:"ec2:ExportToS3Task:S3Key" locationName:"s3Key" type:"string"`
 }
 
 // String returns the string representation
@@ -2077,18 +2077,18 @@ type ExportToS3TaskSpecification struct {
 
 	// The container format used to combine disk images with metadata (such as OVF).
 	// If absent, only the disk image is exported.
-	ContainerFormat ContainerFormat `locationName:"containerFormat" type:"string" enum:"true"`
+	ContainerFormat ContainerFormat `json:"ec2:ExportToS3TaskSpecification:ContainerFormat" locationName:"containerFormat" type:"string" enum:"true"`
 
 	// The format for the exported image.
-	DiskImageFormat DiskImageFormat `locationName:"diskImageFormat" type:"string" enum:"true"`
+	DiskImageFormat DiskImageFormat `json:"ec2:ExportToS3TaskSpecification:DiskImageFormat" locationName:"diskImageFormat" type:"string" enum:"true"`
 
 	// The S3 bucket for the destination image. The destination bucket must exist
 	// and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com.
-	S3Bucket *string `locationName:"s3Bucket" type:"string"`
+	S3Bucket *string `json:"ec2:ExportToS3TaskSpecification:S3Bucket" locationName:"s3Bucket" type:"string"`
 
 	// The image is written to a single object in the S3 bucket at the S3 key s3prefix
 	// + exportTaskId + '.' + diskImageFormat.
-	S3Prefix *string `locationName:"s3Prefix" type:"string"`
+	S3Prefix *string `json:"ec2:ExportToS3TaskSpecification:S3Prefix" locationName:"s3Prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -2126,10 +2126,10 @@ type Filter struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the filter. Filter names are case-sensitive.
-	Name *string `type:"string"`
+	Name *string `json:"ec2:Filter:Name" type:"string"`
 
 	// The filter values. Filter values are case-sensitive.
-	Values []string `locationName:"Value" locationNameList:"item" type:"list"`
+	Values []string `json:"ec2:Filter:Values" locationName:"Value" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -2147,68 +2147,68 @@ type FleetData struct {
 	// size of the EC2 Fleet is equal to or greater than its target capacity, the
 	// status is fulfilled. If the size of the EC2 Fleet is decreased, the status
 	// is pending_termination while instances are terminating.
-	ActivityStatus FleetActivityStatus `locationName:"activityStatus" type:"string" enum:"true"`
+	ActivityStatus FleetActivityStatus `json:"ec2:FleetData:ActivityStatus" locationName:"activityStatus" type:"string" enum:"true"`
 
 	// Unique, case-sensitive identifier you provide to ensure the idempotency of
 	// the request. For more information, see Ensuring Idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
 	//
 	// Constraints: Maximum 64 ASCII characters
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:FleetData:ClientToken" locationName:"clientToken" type:"string"`
 
 	// The creation date and time of the EC2 Fleet.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:FleetData:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Information about the instances that could not be launched by the fleet.
 	// Valid only when Type is set to instant.
-	Errors []DescribeFleetError `locationName:"errorSet" locationNameList:"item" type:"list"`
+	Errors []DescribeFleetError `json:"ec2:FleetData:Errors" locationName:"errorSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether running instances should be terminated if the target capacity
 	// of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
-	ExcessCapacityTerminationPolicy FleetExcessCapacityTerminationPolicy `locationName:"excessCapacityTerminationPolicy" type:"string" enum:"true"`
+	ExcessCapacityTerminationPolicy FleetExcessCapacityTerminationPolicy `json:"ec2:FleetData:ExcessCapacityTerminationPolicy" locationName:"excessCapacityTerminationPolicy" type:"string" enum:"true"`
 
 	// The ID of the EC2 Fleet.
-	FleetId *string `locationName:"fleetId" type:"string"`
+	FleetId *string `json:"ec2:FleetData:FleetId" locationName:"fleetId" type:"string"`
 
 	// The state of the EC2 Fleet.
-	FleetState FleetStateCode `locationName:"fleetState" type:"string" enum:"true"`
+	FleetState FleetStateCode `json:"ec2:FleetData:FleetState" locationName:"fleetState" type:"string" enum:"true"`
 
 	// The number of units fulfilled by this request compared to the set target
 	// capacity.
-	FulfilledCapacity *float64 `locationName:"fulfilledCapacity" type:"double"`
+	FulfilledCapacity *float64 `json:"ec2:FleetData:FulfilledCapacity" locationName:"fulfilledCapacity" type:"double"`
 
 	// The number of units fulfilled by this request compared to the set target
 	// On-Demand capacity.
-	FulfilledOnDemandCapacity *float64 `locationName:"fulfilledOnDemandCapacity" type:"double"`
+	FulfilledOnDemandCapacity *float64 `json:"ec2:FleetData:FulfilledOnDemandCapacity" locationName:"fulfilledOnDemandCapacity" type:"double"`
 
 	// Information about the instances that were launched by the fleet. Valid only
 	// when Type is set to instant.
-	Instances []DescribeFleetsInstances `locationName:"fleetInstanceSet" locationNameList:"item" type:"list"`
+	Instances []DescribeFleetsInstances `json:"ec2:FleetData:Instances" locationName:"fleetInstanceSet" locationNameList:"item" type:"list"`
 
 	// The launch template and overrides.
-	LaunchTemplateConfigs []FleetLaunchTemplateConfig `locationName:"launchTemplateConfigs" locationNameList:"item" type:"list"`
+	LaunchTemplateConfigs []FleetLaunchTemplateConfig `json:"ec2:FleetData:LaunchTemplateConfigs" locationName:"launchTemplateConfigs" locationNameList:"item" type:"list"`
 
 	// The allocation strategy of On-Demand Instances in an EC2 Fleet.
-	OnDemandOptions *OnDemandOptions `locationName:"onDemandOptions" type:"structure"`
+	OnDemandOptions *OnDemandOptions `json:"ec2:FleetData:OnDemandOptions" locationName:"onDemandOptions" type:"structure"`
 
 	// Indicates whether EC2 Fleet should replace unhealthy instances.
-	ReplaceUnhealthyInstances *bool `locationName:"replaceUnhealthyInstances" type:"boolean"`
+	ReplaceUnhealthyInstances *bool `json:"ec2:FleetData:ReplaceUnhealthyInstances" locationName:"replaceUnhealthyInstances" type:"boolean"`
 
 	// The configuration of Spot Instances in an EC2 Fleet.
-	SpotOptions *SpotOptions `locationName:"spotOptions" type:"structure"`
+	SpotOptions *SpotOptions `json:"ec2:FleetData:SpotOptions" locationName:"spotOptions" type:"structure"`
 
 	// The tags for an EC2 Fleet resource.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:FleetData:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The number of units to request. You can choose to set the target capacity
 	// in terms of instances or a performance characteristic that is important to
 	// your application workload, such as vCPUs, memory, or I/O. If the request
 	// type is maintain, you can specify a target capacity of 0 and add capacity
 	// later.
-	TargetCapacitySpecification *TargetCapacitySpecification `locationName:"targetCapacitySpecification" type:"structure"`
+	TargetCapacitySpecification *TargetCapacitySpecification `json:"ec2:FleetData:TargetCapacitySpecification" locationName:"targetCapacitySpecification" type:"structure"`
 
 	// Indicates whether running instances should be terminated when the EC2 Fleet
 	// expires.
-	TerminateInstancesWithExpiration *bool `locationName:"terminateInstancesWithExpiration" type:"boolean"`
+	TerminateInstancesWithExpiration *bool `json:"ec2:FleetData:TerminateInstancesWithExpiration" locationName:"terminateInstancesWithExpiration" type:"boolean"`
 
 	// The type of request. Indicates whether the EC2 Fleet only requests the target
 	// capacity, or also attempts to maintain it. If you request a certain target
@@ -2218,16 +2218,16 @@ type FleetData struct {
 	// target capacity, EC2 Fleet places the required requests to meet this target
 	// capacity. It also automatically replenishes any interrupted Spot Instances.
 	// Default: maintain.
-	Type FleetType `locationName:"type" type:"string" enum:"true"`
+	Type FleetType `json:"ec2:FleetData:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
 	// The default is to start fulfilling the request immediately.
-	ValidFrom *time.Time `locationName:"validFrom" type:"timestamp" timestampFormat:"iso8601"`
+	ValidFrom *time.Time `json:"ec2:FleetData:ValidFrom" locationName:"validFrom" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
 	// At this point, no new instance requests are placed or able to fulfill the
 	// request. The default end date is 7 days from the current date.
-	ValidUntil *time.Time `locationName:"validUntil" type:"timestamp" timestampFormat:"iso8601"`
+	ValidUntil *time.Time `json:"ec2:FleetData:ValidUntil" locationName:"validUntil" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -2241,11 +2241,11 @@ type FleetLaunchTemplateConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The launch template.
-	LaunchTemplateSpecification *FleetLaunchTemplateSpecification `locationName:"launchTemplateSpecification" type:"structure"`
+	LaunchTemplateSpecification *FleetLaunchTemplateSpecification `json:"ec2:FleetLaunchTemplateConfig:LaunchTemplateSpecification" locationName:"launchTemplateSpecification" type:"structure"`
 
 	// Any parameters that you specify override the same parameters in the launch
 	// template.
-	Overrides []FleetLaunchTemplateOverrides `locationName:"overrides" locationNameList:"item" type:"list"`
+	Overrides []FleetLaunchTemplateOverrides `json:"ec2:FleetLaunchTemplateConfig:Overrides" locationName:"overrides" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -2260,11 +2260,11 @@ type FleetLaunchTemplateConfigRequest struct {
 
 	// The launch template to use. You must specify either the launch template ID
 	// or launch template name in the request.
-	LaunchTemplateSpecification *FleetLaunchTemplateSpecificationRequest `type:"structure"`
+	LaunchTemplateSpecification *FleetLaunchTemplateSpecificationRequest `json:"ec2:FleetLaunchTemplateConfigRequest:LaunchTemplateSpecification" type:"structure"`
 
 	// Any parameters that you specify override the same parameters in the launch
 	// template.
-	Overrides []FleetLaunchTemplateOverridesRequest `locationNameList:"item" type:"list"`
+	Overrides []FleetLaunchTemplateOverridesRequest `json:"ec2:FleetLaunchTemplateConfigRequest:Overrides" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -2293,16 +2293,16 @@ type FleetLaunchTemplateOverrides struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:FleetLaunchTemplateOverrides:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:FleetLaunchTemplateOverrides:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
-	MaxPrice *string `locationName:"maxPrice" type:"string"`
+	MaxPrice *string `json:"ec2:FleetLaunchTemplateOverrides:MaxPrice" locationName:"maxPrice" type:"string"`
 
 	// The location where the instance launched, if applicable.
-	Placement *PlacementResponse `locationName:"placement" type:"structure"`
+	Placement *PlacementResponse `json:"ec2:FleetLaunchTemplateOverrides:Placement" locationName:"placement" type:"structure"`
 
 	// The priority for the launch template override. If AllocationStrategy is set
 	// to prioritized, EC2 Fleet uses priority to determine which launch template
@@ -2310,13 +2310,13 @@ type FleetLaunchTemplateOverrides struct {
 	// is launched first. Valid values are whole numbers starting at 0. The lower
 	// the number, the higher the priority. If no number is set, the override has
 	// the lowest priority.
-	Priority *float64 `locationName:"priority" type:"double"`
+	Priority *float64 `json:"ec2:FleetLaunchTemplateOverrides:Priority" locationName:"priority" type:"double"`
 
 	// The ID of the subnet in which to launch the instances.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:FleetLaunchTemplateOverrides:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The number of units provided by the specified instance type.
-	WeightedCapacity *float64 `locationName:"weightedCapacity" type:"double"`
+	WeightedCapacity *float64 `json:"ec2:FleetLaunchTemplateOverrides:WeightedCapacity" locationName:"weightedCapacity" type:"double"`
 }
 
 // String returns the string representation
@@ -2330,16 +2330,16 @@ type FleetLaunchTemplateOverridesRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"ec2:FleetLaunchTemplateOverridesRequest:AvailabilityZone" type:"string"`
 
 	// The instance type.
-	InstanceType InstanceType `type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:FleetLaunchTemplateOverridesRequest:InstanceType" type:"string" enum:"true"`
 
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
-	MaxPrice *string `type:"string"`
+	MaxPrice *string `json:"ec2:FleetLaunchTemplateOverridesRequest:MaxPrice" type:"string"`
 
 	// The location where the instance launched, if applicable.
-	Placement *Placement `type:"structure"`
+	Placement *Placement `json:"ec2:FleetLaunchTemplateOverridesRequest:Placement" type:"structure"`
 
 	// The priority for the launch template override. If AllocationStrategy is set
 	// to prioritized, EC2 Fleet uses priority to determine which launch template
@@ -2347,13 +2347,13 @@ type FleetLaunchTemplateOverridesRequest struct {
 	// is launched first. Valid values are whole numbers starting at 0. The lower
 	// the number, the higher the priority. If no number is set, the launch template
 	// override has the lowest priority.
-	Priority *float64 `type:"double"`
+	Priority *float64 `json:"ec2:FleetLaunchTemplateOverridesRequest:Priority" type:"double"`
 
 	// The ID of the subnet in which to launch the instances.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"ec2:FleetLaunchTemplateOverridesRequest:SubnetId" type:"string"`
 
 	// The number of units provided by the specified instance type.
-	WeightedCapacity *float64 `type:"double"`
+	WeightedCapacity *float64 `json:"ec2:FleetLaunchTemplateOverridesRequest:WeightedCapacity" type:"double"`
 }
 
 // String returns the string representation
@@ -2368,14 +2368,14 @@ type FleetLaunchTemplateSpecification struct {
 
 	// The ID of the launch template. You must specify either a template ID or a
 	// template name.
-	LaunchTemplateId *string `locationName:"launchTemplateId" type:"string"`
+	LaunchTemplateId *string `json:"ec2:FleetLaunchTemplateSpecification:LaunchTemplateId" locationName:"launchTemplateId" type:"string"`
 
 	// The name of the launch template. You must specify either a template name
 	// or a template ID.
-	LaunchTemplateName *string `locationName:"launchTemplateName" min:"3" type:"string"`
+	LaunchTemplateName *string `json:"ec2:FleetLaunchTemplateSpecification:LaunchTemplateName" locationName:"launchTemplateName" min:"3" type:"string"`
 
 	// The version number of the launch template. You must specify a version number.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"ec2:FleetLaunchTemplateSpecification:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -2403,14 +2403,14 @@ type FleetLaunchTemplateSpecificationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the launch template.
-	LaunchTemplateId *string `type:"string"`
+	LaunchTemplateId *string `json:"ec2:FleetLaunchTemplateSpecificationRequest:LaunchTemplateId" type:"string"`
 
 	// The name of the launch template.
-	LaunchTemplateName *string `min:"3" type:"string"`
+	LaunchTemplateName *string `json:"ec2:FleetLaunchTemplateSpecificationRequest:LaunchTemplateName" min:"3" type:"string"`
 
 	// The version number of the launch template. Note: This is a required parameter
 	// and will be updated soon.
-	Version *string `type:"string"`
+	Version *string `json:"ec2:FleetLaunchTemplateSpecificationRequest:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -2437,7 +2437,7 @@ type FlowLog struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the flow log was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"ec2:FlowLog:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Information about the error that occurred. Rate limited indicates that CloudWatch
 	// Logs throttling has been applied for one or more network interfaces, or that
@@ -2445,19 +2445,19 @@ type FlowLog struct {
 	// Access error indicates that the IAM role associated with the flow log does
 	// not have sufficient permissions to publish to CloudWatch Logs. Unknown error
 	// indicates an internal error.
-	DeliverLogsErrorMessage *string `locationName:"deliverLogsErrorMessage" type:"string"`
+	DeliverLogsErrorMessage *string `json:"ec2:FlowLog:DeliverLogsErrorMessage" locationName:"deliverLogsErrorMessage" type:"string"`
 
 	// The ARN of the IAM role that posts logs to CloudWatch Logs.
-	DeliverLogsPermissionArn *string `locationName:"deliverLogsPermissionArn" type:"string"`
+	DeliverLogsPermissionArn *string `json:"ec2:FlowLog:DeliverLogsPermissionArn" locationName:"deliverLogsPermissionArn" type:"string"`
 
 	// The status of the logs delivery (SUCCESS | FAILED).
-	DeliverLogsStatus *string `locationName:"deliverLogsStatus" type:"string"`
+	DeliverLogsStatus *string `json:"ec2:FlowLog:DeliverLogsStatus" locationName:"deliverLogsStatus" type:"string"`
 
 	// The flow log ID.
-	FlowLogId *string `locationName:"flowLogId" type:"string"`
+	FlowLogId *string `json:"ec2:FlowLog:FlowLogId" locationName:"flowLogId" type:"string"`
 
 	// The status of the flow log (ACTIVE).
-	FlowLogStatus *string `locationName:"flowLogStatus" type:"string"`
+	FlowLogStatus *string `json:"ec2:FlowLog:FlowLogStatus" locationName:"flowLogStatus" type:"string"`
 
 	// Specifies the destination to which the flow log data is published. Flow log
 	// data can be published to an CloudWatch Logs log group or an Amazon S3 bucket.
@@ -2465,20 +2465,20 @@ type FlowLog struct {
 	// Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the
 	// data is published. If the flow log publishes to Amazon S3, this element indicates
 	// the ARN of the Amazon S3 bucket to which the data is published.
-	LogDestination *string `locationName:"logDestination" type:"string"`
+	LogDestination *string `json:"ec2:FlowLog:LogDestination" locationName:"logDestination" type:"string"`
 
 	// Specifies the type of destination to which the flow log data is published.
 	// Flow log data can be published to CloudWatch Logs or Amazon S3.
-	LogDestinationType LogDestinationType `locationName:"logDestinationType" type:"string" enum:"true"`
+	LogDestinationType LogDestinationType `json:"ec2:FlowLog:LogDestinationType" locationName:"logDestinationType" type:"string" enum:"true"`
 
 	// The name of the flow log group.
-	LogGroupName *string `locationName:"logGroupName" type:"string"`
+	LogGroupName *string `json:"ec2:FlowLog:LogGroupName" locationName:"logGroupName" type:"string"`
 
 	// The ID of the resource on which the flow log was created.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:FlowLog:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The type of traffic captured for the flow log.
-	TrafficType TrafficType `locationName:"trafficType" type:"string" enum:"true"`
+	TrafficType TrafficType `json:"ec2:FlowLog:TrafficType" locationName:"trafficType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2492,49 +2492,49 @@ type FpgaImage struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the AFI was created.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:FpgaImage:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates whether data retention support is enabled for the AFI.
-	DataRetentionSupport *bool `locationName:"dataRetentionSupport" type:"boolean"`
+	DataRetentionSupport *bool `json:"ec2:FpgaImage:DataRetentionSupport" locationName:"dataRetentionSupport" type:"boolean"`
 
 	// The description of the AFI.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:FpgaImage:Description" locationName:"description" type:"string"`
 
 	// The global FPGA image identifier (AGFI ID).
-	FpgaImageGlobalId *string `locationName:"fpgaImageGlobalId" type:"string"`
+	FpgaImageGlobalId *string `json:"ec2:FpgaImage:FpgaImageGlobalId" locationName:"fpgaImageGlobalId" type:"string"`
 
 	// The FPGA image identifier (AFI ID).
-	FpgaImageId *string `locationName:"fpgaImageId" type:"string"`
+	FpgaImageId *string `json:"ec2:FpgaImage:FpgaImageId" locationName:"fpgaImageId" type:"string"`
 
 	// The name of the AFI.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ec2:FpgaImage:Name" locationName:"name" type:"string"`
 
 	// The alias of the AFI owner. Possible values include self, amazon, and aws-marketplace.
-	OwnerAlias *string `locationName:"ownerAlias" type:"string"`
+	OwnerAlias *string `json:"ec2:FpgaImage:OwnerAlias" locationName:"ownerAlias" type:"string"`
 
 	// The AWS account ID of the AFI owner.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:FpgaImage:OwnerId" locationName:"ownerId" type:"string"`
 
 	// Information about the PCI bus.
-	PciId *PciId `locationName:"pciId" type:"structure"`
+	PciId *PciId `json:"ec2:FpgaImage:PciId" locationName:"pciId" type:"structure"`
 
 	// The product codes for the AFI.
-	ProductCodes []ProductCode `locationName:"productCodes" locationNameList:"item" type:"list"`
+	ProductCodes []ProductCode `json:"ec2:FpgaImage:ProductCodes" locationName:"productCodes" locationNameList:"item" type:"list"`
 
 	// Indicates whether the AFI is public.
-	Public *bool `locationName:"public" type:"boolean"`
+	Public *bool `json:"ec2:FpgaImage:Public" locationName:"public" type:"boolean"`
 
 	// The version of the AWS Shell that was used to create the bitstream.
-	ShellVersion *string `locationName:"shellVersion" type:"string"`
+	ShellVersion *string `json:"ec2:FpgaImage:ShellVersion" locationName:"shellVersion" type:"string"`
 
 	// Information about the state of the AFI.
-	State *FpgaImageState `locationName:"state" type:"structure"`
+	State *FpgaImageState `json:"ec2:FpgaImage:State" locationName:"state" type:"structure"`
 
 	// Any tags assigned to the AFI.
-	Tags []Tag `locationName:"tags" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:FpgaImage:Tags" locationName:"tags" locationNameList:"item" type:"list"`
 
 	// The time of the most recent update to the AFI.
-	UpdateTime *time.Time `locationName:"updateTime" type:"timestamp" timestampFormat:"iso8601"`
+	UpdateTime *time.Time `json:"ec2:FpgaImage:UpdateTime" locationName:"updateTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -2548,19 +2548,19 @@ type FpgaImageAttribute struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the AFI.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:FpgaImageAttribute:Description" locationName:"description" type:"string"`
 
 	// The ID of the AFI.
-	FpgaImageId *string `locationName:"fpgaImageId" type:"string"`
+	FpgaImageId *string `json:"ec2:FpgaImageAttribute:FpgaImageId" locationName:"fpgaImageId" type:"string"`
 
 	// The load permissions.
-	LoadPermissions []LoadPermission `locationName:"loadPermissions" locationNameList:"item" type:"list"`
+	LoadPermissions []LoadPermission `json:"ec2:FpgaImageAttribute:LoadPermissions" locationName:"loadPermissions" locationNameList:"item" type:"list"`
 
 	// The name of the AFI.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ec2:FpgaImageAttribute:Name" locationName:"name" type:"string"`
 
 	// The product codes.
-	ProductCodes []ProductCode `locationName:"productCodes" locationNameList:"item" type:"list"`
+	ProductCodes []ProductCode `json:"ec2:FpgaImageAttribute:ProductCodes" locationName:"productCodes" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -2583,10 +2583,10 @@ type FpgaImageState struct {
 	//    * failed - AFI bitstream generation failed.
 	//
 	//    * unavailable - The AFI is no longer available for use.
-	Code FpgaImageStateCode `locationName:"code" type:"string" enum:"true"`
+	Code FpgaImageStateCode `json:"ec2:FpgaImageState:Code" locationName:"code" type:"string" enum:"true"`
 
 	// If the state is failed, this is the error message.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:FpgaImageState:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -2600,10 +2600,10 @@ type GroupIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the security group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"ec2:GroupIdentifier:GroupId" locationName:"groupId" type:"string"`
 
 	// The name of the security group.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:GroupIdentifier:GroupName" locationName:"groupName" type:"string"`
 }
 
 // String returns the string representation
@@ -2622,7 +2622,7 @@ type HibernationOptions struct {
 
 	// If this parameter is set to true, your instance is enabled for hibernation;
 	// otherwise, it is not enabled for hibernation.
-	Configured *bool `locationName:"configured" type:"boolean"`
+	Configured *bool `json:"ec2:HibernationOptions:Configured" locationName:"configured" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2642,7 +2642,7 @@ type HibernationOptionsRequest struct {
 	// If you set this parameter to true, your instance is enabled for hibernation.
 	//
 	// Default: false
-	Configured *bool `type:"boolean"`
+	Configured *bool `json:"ec2:HibernationOptionsRequest:Configured" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2656,7 +2656,7 @@ type HistoryRecord struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the event.
-	EventInformation *EventInformation `locationName:"eventInformation" type:"structure"`
+	EventInformation *EventInformation `json:"ec2:HistoryRecord:EventInformation" locationName:"eventInformation" type:"structure"`
 
 	// The event type.
 	//
@@ -2668,10 +2668,10 @@ type HistoryRecord struct {
 	//    * instanceChange - An instance was launched or terminated.
 	//
 	//    * Information - An informational event.
-	EventType EventType `locationName:"eventType" type:"string" enum:"true"`
+	EventType EventType `json:"ec2:HistoryRecord:EventType" locationName:"eventType" type:"string" enum:"true"`
 
 	// The date and time of the event, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"ec2:HistoryRecord:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -2685,13 +2685,13 @@ type HistoryRecordEntry struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the event.
-	EventInformation *EventInformation `locationName:"eventInformation" type:"structure"`
+	EventInformation *EventInformation `json:"ec2:HistoryRecordEntry:EventInformation" locationName:"eventInformation" type:"structure"`
 
 	// The event type.
-	EventType FleetEventType `locationName:"eventType" type:"string" enum:"true"`
+	EventType FleetEventType `json:"ec2:HistoryRecordEntry:EventType" locationName:"eventType" type:"string" enum:"true"`
 
 	// The date and time of the event, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"ec2:HistoryRecordEntry:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -2705,46 +2705,46 @@ type Host struct {
 	_ struct{} `type:"structure"`
 
 	// The time that the Dedicated Host was allocated.
-	AllocationTime *time.Time `locationName:"allocationTime" type:"timestamp" timestampFormat:"iso8601"`
+	AllocationTime *time.Time `json:"ec2:Host:AllocationTime" locationName:"allocationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Whether auto-placement is on or off.
-	AutoPlacement AutoPlacement `locationName:"autoPlacement" type:"string" enum:"true"`
+	AutoPlacement AutoPlacement `json:"ec2:Host:AutoPlacement" locationName:"autoPlacement" type:"string" enum:"true"`
 
 	// The Availability Zone of the Dedicated Host.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:Host:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The number of new instances that can be launched onto the Dedicated Host.
-	AvailableCapacity *AvailableCapacity `locationName:"availableCapacity" type:"structure"`
+	AvailableCapacity *AvailableCapacity `json:"ec2:Host:AvailableCapacity" locationName:"availableCapacity" type:"structure"`
 
 	// Unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request. For more information, see How to Ensure Idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:Host:ClientToken" locationName:"clientToken" type:"string"`
 
 	// The ID of the Dedicated Host.
-	HostId *string `locationName:"hostId" type:"string"`
+	HostId *string `json:"ec2:Host:HostId" locationName:"hostId" type:"string"`
 
 	// The hardware specifications of the Dedicated Host.
-	HostProperties *HostProperties `locationName:"hostProperties" type:"structure"`
+	HostProperties *HostProperties `json:"ec2:Host:HostProperties" locationName:"hostProperties" type:"structure"`
 
 	// Indicates whether host recovery is enabled or disabled for the Dedicated
 	// Host.
-	HostRecovery HostRecovery `locationName:"hostRecovery" type:"string" enum:"true"`
+	HostRecovery HostRecovery `json:"ec2:Host:HostRecovery" locationName:"hostRecovery" type:"string" enum:"true"`
 
 	// The reservation ID of the Dedicated Host. This returns a null response if
 	// the Dedicated Host doesn't have an associated reservation.
-	HostReservationId *string `locationName:"hostReservationId" type:"string"`
+	HostReservationId *string `json:"ec2:Host:HostReservationId" locationName:"hostReservationId" type:"string"`
 
 	// The IDs and instance type that are currently running on the Dedicated Host.
-	Instances []HostInstance `locationName:"instances" locationNameList:"item" type:"list"`
+	Instances []HostInstance `json:"ec2:Host:Instances" locationName:"instances" locationNameList:"item" type:"list"`
 
 	// The time that the Dedicated Host was released.
-	ReleaseTime *time.Time `locationName:"releaseTime" type:"timestamp" timestampFormat:"iso8601"`
+	ReleaseTime *time.Time `json:"ec2:Host:ReleaseTime" locationName:"releaseTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The Dedicated Host's state.
-	State AllocationState `locationName:"state" type:"string" enum:"true"`
+	State AllocationState `json:"ec2:Host:State" locationName:"state" type:"string" enum:"true"`
 
 	// Any tags assigned to the Dedicated Host.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:Host:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -2758,10 +2758,10 @@ type HostInstance struct {
 	_ struct{} `type:"structure"`
 
 	// the IDs of instances that are running on the Dedicated Host.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:HostInstance:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The instance type size (for example, m3.medium) of the running instance.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"ec2:HostInstance:InstanceType" locationName:"instanceType" type:"string"`
 }
 
 // String returns the string representation
@@ -2775,25 +2775,25 @@ type HostOffering struct {
 	_ struct{} `type:"structure"`
 
 	// The currency of the offering.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:HostOffering:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// The duration of the offering (in seconds).
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"ec2:HostOffering:Duration" locationName:"duration" type:"integer"`
 
 	// The hourly price of the offering.
-	HourlyPrice *string `locationName:"hourlyPrice" type:"string"`
+	HourlyPrice *string `json:"ec2:HostOffering:HourlyPrice" locationName:"hourlyPrice" type:"string"`
 
 	// The instance family of the offering.
-	InstanceFamily *string `locationName:"instanceFamily" type:"string"`
+	InstanceFamily *string `json:"ec2:HostOffering:InstanceFamily" locationName:"instanceFamily" type:"string"`
 
 	// The ID of the offering.
-	OfferingId *string `locationName:"offeringId" type:"string"`
+	OfferingId *string `json:"ec2:HostOffering:OfferingId" locationName:"offeringId" type:"string"`
 
 	// The available payment option.
-	PaymentOption PaymentOption `locationName:"paymentOption" type:"string" enum:"true"`
+	PaymentOption PaymentOption `json:"ec2:HostOffering:PaymentOption" locationName:"paymentOption" type:"string" enum:"true"`
 
 	// The upfront price of the offering. Does not apply to No Upfront offerings.
-	UpfrontPrice *string `locationName:"upfrontPrice" type:"string"`
+	UpfrontPrice *string `json:"ec2:HostOffering:UpfrontPrice" locationName:"upfrontPrice" type:"string"`
 }
 
 // String returns the string representation
@@ -2807,16 +2807,16 @@ type HostProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The number of cores on the Dedicated Host.
-	Cores *int64 `locationName:"cores" type:"integer"`
+	Cores *int64 `json:"ec2:HostProperties:Cores" locationName:"cores" type:"integer"`
 
 	// The instance type size that the Dedicated Host supports (for example, m3.medium).
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"ec2:HostProperties:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The number of sockets on the Dedicated Host.
-	Sockets *int64 `locationName:"sockets" type:"integer"`
+	Sockets *int64 `json:"ec2:HostProperties:Sockets" locationName:"sockets" type:"integer"`
 
 	// The number of vCPUs on the Dedicated Host.
-	TotalVCpus *int64 `locationName:"totalVCpus" type:"integer"`
+	TotalVCpus *int64 `json:"ec2:HostProperties:TotalVCpus" locationName:"totalVCpus" type:"integer"`
 }
 
 // String returns the string representation
@@ -2830,51 +2830,51 @@ type HostReservation struct {
 	_ struct{} `type:"structure"`
 
 	// The number of Dedicated Hosts the reservation is associated with.
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"ec2:HostReservation:Count" locationName:"count" type:"integer"`
 
 	// The currency in which the upfrontPrice and hourlyPrice amounts are specified.
 	// At this time, the only supported currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:HostReservation:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// The length of the reservation's term, specified in seconds. Can be 31536000
 	// (1 year) | 94608000 (3 years).
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"ec2:HostReservation:Duration" locationName:"duration" type:"integer"`
 
 	// The date and time that the reservation ends.
-	End *time.Time `locationName:"end" type:"timestamp" timestampFormat:"iso8601"`
+	End *time.Time `json:"ec2:HostReservation:End" locationName:"end" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The IDs of the Dedicated Hosts associated with the reservation.
-	HostIdSet []string `locationName:"hostIdSet" locationNameList:"item" type:"list"`
+	HostIdSet []string `json:"ec2:HostReservation:HostIdSet" locationName:"hostIdSet" locationNameList:"item" type:"list"`
 
 	// The ID of the reservation that specifies the associated Dedicated Hosts.
-	HostReservationId *string `locationName:"hostReservationId" type:"string"`
+	HostReservationId *string `json:"ec2:HostReservation:HostReservationId" locationName:"hostReservationId" type:"string"`
 
 	// The hourly price of the reservation.
-	HourlyPrice *string `locationName:"hourlyPrice" type:"string"`
+	HourlyPrice *string `json:"ec2:HostReservation:HourlyPrice" locationName:"hourlyPrice" type:"string"`
 
 	// The instance family of the Dedicated Host Reservation. The instance family
 	// on the Dedicated Host must be the same in order for it to benefit from the
 	// reservation.
-	InstanceFamily *string `locationName:"instanceFamily" type:"string"`
+	InstanceFamily *string `json:"ec2:HostReservation:InstanceFamily" locationName:"instanceFamily" type:"string"`
 
 	// The ID of the reservation. This remains the same regardless of which Dedicated
 	// Hosts are associated with it.
-	OfferingId *string `locationName:"offeringId" type:"string"`
+	OfferingId *string `json:"ec2:HostReservation:OfferingId" locationName:"offeringId" type:"string"`
 
 	// The payment option selected for this reservation.
-	PaymentOption PaymentOption `locationName:"paymentOption" type:"string" enum:"true"`
+	PaymentOption PaymentOption `json:"ec2:HostReservation:PaymentOption" locationName:"paymentOption" type:"string" enum:"true"`
 
 	// The date and time that the reservation started.
-	Start *time.Time `locationName:"start" type:"timestamp" timestampFormat:"iso8601"`
+	Start *time.Time `json:"ec2:HostReservation:Start" locationName:"start" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The state of the reservation.
-	State ReservationState `locationName:"state" type:"string" enum:"true"`
+	State ReservationState `json:"ec2:HostReservation:State" locationName:"state" type:"string" enum:"true"`
 
 	// Any tags assigned to the Dedicated Host Reservation.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:HostReservation:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The upfront price of the reservation.
-	UpfrontPrice *string `locationName:"upfrontPrice" type:"string"`
+	UpfrontPrice *string `json:"ec2:HostReservation:UpfrontPrice" locationName:"upfrontPrice" type:"string"`
 }
 
 // String returns the string representation
@@ -2888,10 +2888,10 @@ type IamInstanceProfile struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the instance profile.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"ec2:IamInstanceProfile:Arn" locationName:"arn" type:"string"`
 
 	// The ID of the instance profile.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"ec2:IamInstanceProfile:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation
@@ -2905,19 +2905,19 @@ type IamInstanceProfileAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the association.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:IamInstanceProfileAssociation:AssociationId" locationName:"associationId" type:"string"`
 
 	// The IAM instance profile.
-	IamInstanceProfile *IamInstanceProfile `locationName:"iamInstanceProfile" type:"structure"`
+	IamInstanceProfile *IamInstanceProfile `json:"ec2:IamInstanceProfileAssociation:IamInstanceProfile" locationName:"iamInstanceProfile" type:"structure"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:IamInstanceProfileAssociation:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The state of the association.
-	State IamInstanceProfileAssociationState `locationName:"state" type:"string" enum:"true"`
+	State IamInstanceProfileAssociationState `json:"ec2:IamInstanceProfileAssociation:State" locationName:"state" type:"string" enum:"true"`
 
 	// The time the IAM instance profile was associated with the instance.
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"ec2:IamInstanceProfileAssociation:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -2931,10 +2931,10 @@ type IamInstanceProfileSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the instance profile.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"ec2:IamInstanceProfileSpecification:Arn" locationName:"arn" type:"string"`
 
 	// The name of the instance profile.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ec2:IamInstanceProfileSpecification:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -2948,10 +2948,10 @@ type IcmpTypeCode struct {
 	_ struct{} `type:"structure"`
 
 	// The ICMP code. A value of -1 means all codes for the specified ICMP type.
-	Code *int64 `locationName:"code" type:"integer"`
+	Code *int64 `json:"ec2:IcmpTypeCode:Code" locationName:"code" type:"integer"`
 
 	// The ICMP type. A value of -1 means all types.
-	Type *int64 `locationName:"type" type:"integer"`
+	Type *int64 `json:"ec2:IcmpTypeCode:Type" locationName:"type" type:"integer"`
 }
 
 // String returns the string representation
@@ -2967,13 +2967,13 @@ type IdFormat struct {
 	// The date in UTC at which you are permanently switched over to using longer
 	// IDs. If a deadline is not yet available for this resource type, this field
 	// is not returned.
-	Deadline *time.Time `locationName:"deadline" type:"timestamp" timestampFormat:"iso8601"`
+	Deadline *time.Time `json:"ec2:IdFormat:Deadline" locationName:"deadline" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The type of resource.
-	Resource *string `locationName:"resource" type:"string"`
+	Resource *string `json:"ec2:IdFormat:Resource" locationName:"resource" type:"string"`
 
 	// Indicates whether longer IDs (17-character IDs) are enabled for the resource.
-	UseLongIds *bool `locationName:"useLongIds" type:"boolean"`
+	UseLongIds *bool `json:"ec2:IdFormat:UseLongIds" locationName:"useLongIds" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2987,84 +2987,84 @@ type Image struct {
 	_ struct{} `type:"structure"`
 
 	// The architecture of the image.
-	Architecture ArchitectureValues `locationName:"architecture" type:"string" enum:"true"`
+	Architecture ArchitectureValues `json:"ec2:Image:Architecture" locationName:"architecture" type:"string" enum:"true"`
 
 	// Any block device mapping entries.
-	BlockDeviceMappings []BlockDeviceMapping `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
+	BlockDeviceMappings []BlockDeviceMapping `json:"ec2:Image:BlockDeviceMappings" locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
 
 	// The date and time the image was created.
-	CreationDate *string `locationName:"creationDate" type:"string"`
+	CreationDate *string `json:"ec2:Image:CreationDate" locationName:"creationDate" type:"string"`
 
 	// The description of the AMI that was provided during image creation.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:Image:Description" locationName:"description" type:"string"`
 
 	// Specifies whether enhanced networking with ENA is enabled.
-	EnaSupport *bool `locationName:"enaSupport" type:"boolean"`
+	EnaSupport *bool `json:"ec2:Image:EnaSupport" locationName:"enaSupport" type:"boolean"`
 
 	// The hypervisor type of the image.
-	Hypervisor HypervisorType `locationName:"hypervisor" type:"string" enum:"true"`
+	Hypervisor HypervisorType `json:"ec2:Image:Hypervisor" locationName:"hypervisor" type:"string" enum:"true"`
 
 	// The ID of the AMI.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:Image:ImageId" locationName:"imageId" type:"string"`
 
 	// The location of the AMI.
-	ImageLocation *string `locationName:"imageLocation" type:"string"`
+	ImageLocation *string `json:"ec2:Image:ImageLocation" locationName:"imageLocation" type:"string"`
 
 	// The AWS account alias (for example, amazon, self) or the AWS account ID of
 	// the AMI owner.
-	ImageOwnerAlias *string `locationName:"imageOwnerAlias" type:"string"`
+	ImageOwnerAlias *string `json:"ec2:Image:ImageOwnerAlias" locationName:"imageOwnerAlias" type:"string"`
 
 	// The type of image.
-	ImageType ImageTypeValues `locationName:"imageType" type:"string" enum:"true"`
+	ImageType ImageTypeValues `json:"ec2:Image:ImageType" locationName:"imageType" type:"string" enum:"true"`
 
 	// The kernel associated with the image, if any. Only applicable for machine
 	// images.
-	KernelId *string `locationName:"kernelId" type:"string"`
+	KernelId *string `json:"ec2:Image:KernelId" locationName:"kernelId" type:"string"`
 
 	// The name of the AMI that was provided during image creation.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ec2:Image:Name" locationName:"name" type:"string"`
 
 	// The AWS account ID of the image owner.
-	OwnerId *string `locationName:"imageOwnerId" type:"string"`
+	OwnerId *string `json:"ec2:Image:OwnerId" locationName:"imageOwnerId" type:"string"`
 
 	// This value is set to windows for Windows AMIs; otherwise, it is blank.
-	Platform PlatformValues `locationName:"platform" type:"string" enum:"true"`
+	Platform PlatformValues `json:"ec2:Image:Platform" locationName:"platform" type:"string" enum:"true"`
 
 	// Any product codes associated with the AMI.
-	ProductCodes []ProductCode `locationName:"productCodes" locationNameList:"item" type:"list"`
+	ProductCodes []ProductCode `json:"ec2:Image:ProductCodes" locationName:"productCodes" locationNameList:"item" type:"list"`
 
 	// Indicates whether the image has public launch permissions. The value is true
 	// if this image has public launch permissions or false if it has only implicit
 	// and explicit launch permissions.
-	Public *bool `locationName:"isPublic" type:"boolean"`
+	Public *bool `json:"ec2:Image:Public" locationName:"isPublic" type:"boolean"`
 
 	// The RAM disk associated with the image, if any. Only applicable for machine
 	// images.
-	RamdiskId *string `locationName:"ramdiskId" type:"string"`
+	RamdiskId *string `json:"ec2:Image:RamdiskId" locationName:"ramdiskId" type:"string"`
 
 	// The device name of the root device volume (for example, /dev/sda1).
-	RootDeviceName *string `locationName:"rootDeviceName" type:"string"`
+	RootDeviceName *string `json:"ec2:Image:RootDeviceName" locationName:"rootDeviceName" type:"string"`
 
 	// The type of root device used by the AMI. The AMI can use an EBS volume or
 	// an instance store volume.
-	RootDeviceType DeviceType `locationName:"rootDeviceType" type:"string" enum:"true"`
+	RootDeviceType DeviceType `json:"ec2:Image:RootDeviceType" locationName:"rootDeviceType" type:"string" enum:"true"`
 
 	// Specifies whether enhanced networking with the Intel 82599 Virtual Function
 	// interface is enabled.
-	SriovNetSupport *string `locationName:"sriovNetSupport" type:"string"`
+	SriovNetSupport *string `json:"ec2:Image:SriovNetSupport" locationName:"sriovNetSupport" type:"string"`
 
 	// The current state of the AMI. If the state is available, the image is successfully
 	// registered and can be used to launch an instance.
-	State ImageState `locationName:"imageState" type:"string" enum:"true"`
+	State ImageState `json:"ec2:Image:State" locationName:"imageState" type:"string" enum:"true"`
 
 	// The reason for the state change.
-	StateReason *StateReason `locationName:"stateReason" type:"structure"`
+	StateReason *StateReason `json:"ec2:Image:StateReason" locationName:"stateReason" type:"structure"`
 
 	// Any tags assigned to the image.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:Image:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The type of virtualization of the AMI.
-	VirtualizationType VirtualizationType `locationName:"virtualizationType" type:"string" enum:"true"`
+	VirtualizationType VirtualizationType `json:"ec2:Image:VirtualizationType" locationName:"virtualizationType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3078,25 +3078,25 @@ type ImageDiskContainer struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the disk image.
-	Description *string `type:"string"`
+	Description *string `json:"ec2:ImageDiskContainer:Description" type:"string"`
 
 	// The block device mapping for the disk.
-	DeviceName *string `type:"string"`
+	DeviceName *string `json:"ec2:ImageDiskContainer:DeviceName" type:"string"`
 
 	// The format of the disk image being imported.
 	//
 	// Valid values: VHD | VMDK | OVA
-	Format *string `type:"string"`
+	Format *string `json:"ec2:ImageDiskContainer:Format" type:"string"`
 
 	// The ID of the EBS snapshot to be used for importing the snapshot.
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"ec2:ImageDiskContainer:SnapshotId" type:"string"`
 
 	// The URL to the Amazon S3-based disk image being imported. The URL can either
 	// be a https URL (https://..) or an Amazon S3 URL (s3://..)
-	Url *string `type:"string"`
+	Url *string `json:"ec2:ImageDiskContainer:Url" type:"string"`
 
 	// The S3 bucket for the disk image.
-	UserBucket *UserBucket `type:"structure"`
+	UserBucket *UserBucket `json:"ec2:ImageDiskContainer:UserBucket" type:"structure"`
 }
 
 // String returns the string representation
@@ -3112,46 +3112,46 @@ type ImportImageTask struct {
 	// The architecture of the virtual machine.
 	//
 	// Valid values: i386 | x86_64 | arm64
-	Architecture *string `locationName:"architecture" type:"string"`
+	Architecture *string `json:"ec2:ImportImageTask:Architecture" locationName:"architecture" type:"string"`
 
 	// A description of the import task.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ImportImageTask:Description" locationName:"description" type:"string"`
 
 	// Indicates whether the image is encrypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:ImportImageTask:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The target hypervisor for the import task.
 	//
 	// Valid values: xen
-	Hypervisor *string `locationName:"hypervisor" type:"string"`
+	Hypervisor *string `json:"ec2:ImportImageTask:Hypervisor" locationName:"hypervisor" type:"string"`
 
 	// The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:ImportImageTask:ImageId" locationName:"imageId" type:"string"`
 
 	// The ID of the import image task.
-	ImportTaskId *string `locationName:"importTaskId" type:"string"`
+	ImportTaskId *string `json:"ec2:ImportImageTask:ImportTaskId" locationName:"importTaskId" type:"string"`
 
 	// The identifier for the AWS Key Management Service (AWS KMS) customer master
 	// key (CMK) that was used to create the encrypted image.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:ImportImageTask:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The license type of the virtual machine.
-	LicenseType *string `locationName:"licenseType" type:"string"`
+	LicenseType *string `json:"ec2:ImportImageTask:LicenseType" locationName:"licenseType" type:"string"`
 
 	// The description string for the import image task.
-	Platform *string `locationName:"platform" type:"string"`
+	Platform *string `json:"ec2:ImportImageTask:Platform" locationName:"platform" type:"string"`
 
 	// The percentage of progress of the import image task.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"ec2:ImportImageTask:Progress" locationName:"progress" type:"string"`
 
 	// Information about the snapshots.
-	SnapshotDetails []SnapshotDetail `locationName:"snapshotDetailSet" locationNameList:"item" type:"list"`
+	SnapshotDetails []SnapshotDetail `json:"ec2:ImportImageTask:SnapshotDetails" locationName:"snapshotDetailSet" locationNameList:"item" type:"list"`
 
 	// A brief status for the import image task.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ec2:ImportImageTask:Status" locationName:"status" type:"string"`
 
 	// A descriptive status message for the import image task.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:ImportImageTask:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -3165,40 +3165,40 @@ type ImportInstanceLaunchSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved.
-	AdditionalInfo *string `locationName:"additionalInfo" type:"string"`
+	AdditionalInfo *string `json:"ec2:ImportInstanceLaunchSpecification:AdditionalInfo" locationName:"additionalInfo" type:"string"`
 
 	// The architecture of the instance.
-	Architecture ArchitectureValues `locationName:"architecture" type:"string" enum:"true"`
+	Architecture ArchitectureValues `json:"ec2:ImportInstanceLaunchSpecification:Architecture" locationName:"architecture" type:"string" enum:"true"`
 
 	// The security group IDs.
-	GroupIds []string `locationName:"GroupId" locationNameList:"SecurityGroupId" type:"list"`
+	GroupIds []string `json:"ec2:ImportInstanceLaunchSpecification:GroupIds" locationName:"GroupId" locationNameList:"SecurityGroupId" type:"list"`
 
 	// The security group names.
-	GroupNames []string `locationName:"GroupName" locationNameList:"SecurityGroup" type:"list"`
+	GroupNames []string `json:"ec2:ImportInstanceLaunchSpecification:GroupNames" locationName:"GroupName" locationNameList:"SecurityGroup" type:"list"`
 
 	// Indicates whether an instance stops or terminates when you initiate shutdown
 	// from the instance (using the operating system command for system shutdown).
-	InstanceInitiatedShutdownBehavior ShutdownBehavior `locationName:"instanceInitiatedShutdownBehavior" type:"string" enum:"true"`
+	InstanceInitiatedShutdownBehavior ShutdownBehavior `json:"ec2:ImportInstanceLaunchSpecification:InstanceInitiatedShutdownBehavior" locationName:"instanceInitiatedShutdownBehavior" type:"string" enum:"true"`
 
 	// The instance type. For more information about the instance types that you
 	// can import, see Instance Types (https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types)
 	// in the VM Import/Export User Guide.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:ImportInstanceLaunchSpecification:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// Indicates whether monitoring is enabled.
-	Monitoring *bool `locationName:"monitoring" type:"boolean"`
+	Monitoring *bool `json:"ec2:ImportInstanceLaunchSpecification:Monitoring" locationName:"monitoring" type:"boolean"`
 
 	// The placement information for the instance.
-	Placement *Placement `locationName:"placement" type:"structure"`
+	Placement *Placement `json:"ec2:ImportInstanceLaunchSpecification:Placement" locationName:"placement" type:"structure"`
 
 	// [EC2-VPC] An available IP address from the IP address range of the subnet.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:ImportInstanceLaunchSpecification:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// [EC2-VPC] The ID of the subnet in which to launch the instance.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:ImportInstanceLaunchSpecification:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The Base64-encoded user data to make available to the instance.
-	UserData *UserData `locationName:"userData" type:"structure"`
+	UserData *UserData `json:"ec2:ImportInstanceLaunchSpecification:UserData" locationName:"userData" type:"structure"`
 }
 
 // String returns the string representation
@@ -3212,16 +3212,16 @@ type ImportInstanceTaskDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the task.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ImportInstanceTaskDetails:Description" locationName:"description" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:ImportInstanceTaskDetails:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The instance operating system.
-	Platform PlatformValues `locationName:"platform" type:"string" enum:"true"`
+	Platform PlatformValues `json:"ec2:ImportInstanceTaskDetails:Platform" locationName:"platform" type:"string" enum:"true"`
 
 	// The volumes.
-	Volumes []ImportInstanceVolumeDetailItem `locationName:"volumes" locationNameList:"item" type:"list"`
+	Volumes []ImportInstanceVolumeDetailItem `json:"ec2:ImportInstanceTaskDetails:Volumes" locationName:"volumes" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -3235,25 +3235,25 @@ type ImportInstanceVolumeDetailItem struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone where the resulting instance will reside.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:ImportInstanceVolumeDetailItem:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The number of bytes converted so far.
-	BytesConverted *int64 `locationName:"bytesConverted" type:"long"`
+	BytesConverted *int64 `json:"ec2:ImportInstanceVolumeDetailItem:BytesConverted" locationName:"bytesConverted" type:"long"`
 
 	// A description of the task.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ImportInstanceVolumeDetailItem:Description" locationName:"description" type:"string"`
 
 	// The image.
-	Image *DiskImageDescription `locationName:"image" type:"structure"`
+	Image *DiskImageDescription `json:"ec2:ImportInstanceVolumeDetailItem:Image" locationName:"image" type:"structure"`
 
 	// The status of the import of this particular disk image.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ec2:ImportInstanceVolumeDetailItem:Status" locationName:"status" type:"string"`
 
 	// The status information or errors related to the disk image.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:ImportInstanceVolumeDetailItem:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The volume.
-	Volume *DiskImageVolumeDescription `locationName:"volume" type:"structure"`
+	Volume *DiskImageVolumeDescription `json:"ec2:ImportInstanceVolumeDetailItem:Volume" locationName:"volume" type:"structure"`
 }
 
 // String returns the string representation
@@ -3267,13 +3267,13 @@ type ImportSnapshotTask struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the import snapshot task.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ImportSnapshotTask:Description" locationName:"description" type:"string"`
 
 	// The ID of the import snapshot task.
-	ImportTaskId *string `locationName:"importTaskId" type:"string"`
+	ImportTaskId *string `json:"ec2:ImportSnapshotTask:ImportTaskId" locationName:"importTaskId" type:"string"`
 
 	// Describes an import snapshot task.
-	SnapshotTaskDetail *SnapshotTaskDetail `locationName:"snapshotTaskDetail" type:"structure"`
+	SnapshotTaskDetail *SnapshotTaskDetail `json:"ec2:ImportSnapshotTask:SnapshotTaskDetail" locationName:"snapshotTaskDetail" type:"structure"`
 }
 
 // String returns the string representation
@@ -3287,19 +3287,19 @@ type ImportVolumeTaskDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone where the resulting volume will reside.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:ImportVolumeTaskDetails:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The number of bytes converted so far.
-	BytesConverted *int64 `locationName:"bytesConverted" type:"long"`
+	BytesConverted *int64 `json:"ec2:ImportVolumeTaskDetails:BytesConverted" locationName:"bytesConverted" type:"long"`
 
 	// The description you provided when starting the import volume task.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ImportVolumeTaskDetails:Description" locationName:"description" type:"string"`
 
 	// The image.
-	Image *DiskImageDescription `locationName:"image" type:"structure"`
+	Image *DiskImageDescription `json:"ec2:ImportVolumeTaskDetails:Image" locationName:"image" type:"structure"`
 
 	// The volume.
-	Volume *DiskImageVolumeDescription `locationName:"volume" type:"structure"`
+	Volume *DiskImageVolumeDescription `json:"ec2:ImportVolumeTaskDetails:Volume" locationName:"volume" type:"structure"`
 }
 
 // String returns the string representation
@@ -3314,87 +3314,87 @@ type Instance struct {
 
 	// The AMI launch index, which can be used to find this instance in the launch
 	// group.
-	AmiLaunchIndex *int64 `locationName:"amiLaunchIndex" type:"integer"`
+	AmiLaunchIndex *int64 `json:"ec2:Instance:AmiLaunchIndex" locationName:"amiLaunchIndex" type:"integer"`
 
 	// The architecture of the image.
-	Architecture ArchitectureValues `locationName:"architecture" type:"string" enum:"true"`
+	Architecture ArchitectureValues `json:"ec2:Instance:Architecture" locationName:"architecture" type:"string" enum:"true"`
 
 	// Any block device mapping entries for the instance.
-	BlockDeviceMappings []InstanceBlockDeviceMapping `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
+	BlockDeviceMappings []InstanceBlockDeviceMapping `json:"ec2:Instance:BlockDeviceMappings" locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
 
 	// The ID of the Capacity Reservation.
-	CapacityReservationId *string `locationName:"capacityReservationId" type:"string"`
+	CapacityReservationId *string `json:"ec2:Instance:CapacityReservationId" locationName:"capacityReservationId" type:"string"`
 
 	// Information about the Capacity Reservation targeting option.
-	CapacityReservationSpecification *CapacityReservationSpecificationResponse `locationName:"capacityReservationSpecification" type:"structure"`
+	CapacityReservationSpecification *CapacityReservationSpecificationResponse `json:"ec2:Instance:CapacityReservationSpecification" locationName:"capacityReservationSpecification" type:"structure"`
 
 	// The idempotency token you provided when you launched the instance, if applicable.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:Instance:ClientToken" locationName:"clientToken" type:"string"`
 
 	// The CPU options for the instance.
-	CpuOptions *CpuOptions `locationName:"cpuOptions" type:"structure"`
+	CpuOptions *CpuOptions `json:"ec2:Instance:CpuOptions" locationName:"cpuOptions" type:"structure"`
 
 	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
 	// provides dedicated throughput to Amazon EBS and an optimized configuration
 	// stack to provide optimal I/O performance. This optimization isn't available
 	// with all instance types. Additional usage charges apply when using an EBS
 	// Optimized instance.
-	EbsOptimized *bool `locationName:"ebsOptimized" type:"boolean"`
+	EbsOptimized *bool `json:"ec2:Instance:EbsOptimized" locationName:"ebsOptimized" type:"boolean"`
 
 	// The Elastic GPU associated with the instance.
-	ElasticGpuAssociations []ElasticGpuAssociation `locationName:"elasticGpuAssociationSet" locationNameList:"item" type:"list"`
+	ElasticGpuAssociations []ElasticGpuAssociation `json:"ec2:Instance:ElasticGpuAssociations" locationName:"elasticGpuAssociationSet" locationNameList:"item" type:"list"`
 
 	// The elastic inference accelerator associated with the instance.
-	ElasticInferenceAcceleratorAssociations []ElasticInferenceAcceleratorAssociation `locationName:"elasticInferenceAcceleratorAssociationSet" locationNameList:"item" type:"list"`
+	ElasticInferenceAcceleratorAssociations []ElasticInferenceAcceleratorAssociation `json:"ec2:Instance:ElasticInferenceAcceleratorAssociations" locationName:"elasticInferenceAcceleratorAssociationSet" locationNameList:"item" type:"list"`
 
 	// Specifies whether enhanced networking with ENA is enabled.
-	EnaSupport *bool `locationName:"enaSupport" type:"boolean"`
+	EnaSupport *bool `json:"ec2:Instance:EnaSupport" locationName:"enaSupport" type:"boolean"`
 
 	// Indicates whether the instance is enabled for hibernation.
-	HibernationOptions *HibernationOptions `locationName:"hibernationOptions" type:"structure"`
+	HibernationOptions *HibernationOptions `json:"ec2:Instance:HibernationOptions" locationName:"hibernationOptions" type:"structure"`
 
 	// The hypervisor type of the instance.
-	Hypervisor HypervisorType `locationName:"hypervisor" type:"string" enum:"true"`
+	Hypervisor HypervisorType `json:"ec2:Instance:Hypervisor" locationName:"hypervisor" type:"string" enum:"true"`
 
 	// The IAM instance profile associated with the instance, if applicable.
-	IamInstanceProfile *IamInstanceProfile `locationName:"iamInstanceProfile" type:"structure"`
+	IamInstanceProfile *IamInstanceProfile `json:"ec2:Instance:IamInstanceProfile" locationName:"iamInstanceProfile" type:"structure"`
 
 	// The ID of the AMI used to launch the instance.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:Instance:ImageId" locationName:"imageId" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:Instance:InstanceId" locationName:"instanceId" type:"string"`
 
 	// Indicates whether this is a Spot Instance or a Scheduled Instance.
-	InstanceLifecycle InstanceLifecycleType `locationName:"instanceLifecycle" type:"string" enum:"true"`
+	InstanceLifecycle InstanceLifecycleType `json:"ec2:Instance:InstanceLifecycle" locationName:"instanceLifecycle" type:"string" enum:"true"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:Instance:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The kernel associated with this instance, if applicable.
-	KernelId *string `locationName:"kernelId" type:"string"`
+	KernelId *string `json:"ec2:Instance:KernelId" locationName:"kernelId" type:"string"`
 
 	// The name of the key pair, if this instance was launched with an associated
 	// key pair.
-	KeyName *string `locationName:"keyName" type:"string"`
+	KeyName *string `json:"ec2:Instance:KeyName" locationName:"keyName" type:"string"`
 
 	// The time the instance was launched.
-	LaunchTime *time.Time `locationName:"launchTime" type:"timestamp" timestampFormat:"iso8601"`
+	LaunchTime *time.Time `json:"ec2:Instance:LaunchTime" locationName:"launchTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The license configurations.
-	Licenses []LicenseConfiguration `locationName:"licenseSet" locationNameList:"item" type:"list"`
+	Licenses []LicenseConfiguration `json:"ec2:Instance:Licenses" locationName:"licenseSet" locationNameList:"item" type:"list"`
 
 	// The monitoring for the instance.
-	Monitoring *Monitoring `locationName:"monitoring" type:"structure"`
+	Monitoring *Monitoring `json:"ec2:Instance:Monitoring" locationName:"monitoring" type:"structure"`
 
 	// [EC2-VPC] The network interfaces for the instance.
-	NetworkInterfaces []InstanceNetworkInterface `locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
+	NetworkInterfaces []InstanceNetworkInterface `json:"ec2:Instance:NetworkInterfaces" locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
 
 	// The location where the instance launched, if applicable.
-	Placement *Placement `locationName:"placement" type:"structure"`
+	Placement *Placement `json:"ec2:Instance:Placement" locationName:"placement" type:"structure"`
 
 	// The value is Windows for Windows instances; otherwise blank.
-	Platform PlatformValues `locationName:"platform" type:"string" enum:"true"`
+	Platform PlatformValues `json:"ec2:Instance:Platform" locationName:"platform" type:"string" enum:"true"`
 
 	// (IPv4 only) The private DNS hostname name assigned to the instance. This
 	// DNS hostname can only be used inside the Amazon EC2 network. This name is
@@ -3404,34 +3404,34 @@ type Instance struct {
 	// DNS hostnames if you've enabled DNS resolution and DNS hostnames in your
 	// VPC. If you are not using the Amazon-provided DNS server in your VPC, your
 	// custom domain name servers must resolve the hostname as appropriate.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"ec2:Instance:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The private IPv4 address assigned to the instance.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:Instance:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// The product codes attached to this instance, if applicable.
-	ProductCodes []ProductCode `locationName:"productCodes" locationNameList:"item" type:"list"`
+	ProductCodes []ProductCode `json:"ec2:Instance:ProductCodes" locationName:"productCodes" locationNameList:"item" type:"list"`
 
 	// (IPv4 only) The public DNS name assigned to the instance. This name is not
 	// available until the instance enters the running state. For EC2-VPC, this
 	// name is only available if you've enabled DNS hostnames for your VPC.
-	PublicDnsName *string `locationName:"dnsName" type:"string"`
+	PublicDnsName *string `json:"ec2:Instance:PublicDnsName" locationName:"dnsName" type:"string"`
 
 	// The public IPv4 address assigned to the instance, if applicable.
-	PublicIpAddress *string `locationName:"ipAddress" type:"string"`
+	PublicIpAddress *string `json:"ec2:Instance:PublicIpAddress" locationName:"ipAddress" type:"string"`
 
 	// The RAM disk associated with this instance, if applicable.
-	RamdiskId *string `locationName:"ramdiskId" type:"string"`
+	RamdiskId *string `json:"ec2:Instance:RamdiskId" locationName:"ramdiskId" type:"string"`
 
 	// The device name of the root device volume (for example, /dev/sda1).
-	RootDeviceName *string `locationName:"rootDeviceName" type:"string"`
+	RootDeviceName *string `json:"ec2:Instance:RootDeviceName" locationName:"rootDeviceName" type:"string"`
 
 	// The root device type used by the AMI. The AMI can use an EBS volume or an
 	// instance store volume.
-	RootDeviceType DeviceType `locationName:"rootDeviceType" type:"string" enum:"true"`
+	RootDeviceType DeviceType `json:"ec2:Instance:RootDeviceType" locationName:"rootDeviceType" type:"string" enum:"true"`
 
 	// The security groups for the instance.
-	SecurityGroups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	SecurityGroups []GroupIdentifier `json:"ec2:Instance:SecurityGroups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// Specifies whether to enable an instance launched in a VPC to perform NAT.
 	// This controls whether source/destination checking is enabled on the instance.
@@ -3439,35 +3439,35 @@ type Instance struct {
 	// is disabled. The value must be false for the instance to perform NAT. For
 	// more information, see NAT Instances (https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html)
 	// in the Amazon Virtual Private Cloud User Guide.
-	SourceDestCheck *bool `locationName:"sourceDestCheck" type:"boolean"`
+	SourceDestCheck *bool `json:"ec2:Instance:SourceDestCheck" locationName:"sourceDestCheck" type:"boolean"`
 
 	// If the request is a Spot Instance request, the ID of the request.
-	SpotInstanceRequestId *string `locationName:"spotInstanceRequestId" type:"string"`
+	SpotInstanceRequestId *string `json:"ec2:Instance:SpotInstanceRequestId" locationName:"spotInstanceRequestId" type:"string"`
 
 	// Specifies whether enhanced networking with the Intel 82599 Virtual Function
 	// interface is enabled.
-	SriovNetSupport *string `locationName:"sriovNetSupport" type:"string"`
+	SriovNetSupport *string `json:"ec2:Instance:SriovNetSupport" locationName:"sriovNetSupport" type:"string"`
 
 	// The current state of the instance.
-	State *InstanceState `locationName:"instanceState" type:"structure"`
+	State *InstanceState `json:"ec2:Instance:State" locationName:"instanceState" type:"structure"`
 
 	// The reason for the most recent state transition.
-	StateReason *StateReason `locationName:"stateReason" type:"structure"`
+	StateReason *StateReason `json:"ec2:Instance:StateReason" locationName:"stateReason" type:"structure"`
 
 	// The reason for the most recent state transition. This might be an empty string.
-	StateTransitionReason *string `locationName:"reason" type:"string"`
+	StateTransitionReason *string `json:"ec2:Instance:StateTransitionReason" locationName:"reason" type:"string"`
 
 	// [EC2-VPC] The ID of the subnet in which the instance is running.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:Instance:SubnetId" locationName:"subnetId" type:"string"`
 
 	// Any tags assigned to the instance.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:Instance:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The virtualization type of the instance.
-	VirtualizationType VirtualizationType `locationName:"virtualizationType" type:"string" enum:"true"`
+	VirtualizationType VirtualizationType `json:"ec2:Instance:VirtualizationType" locationName:"virtualizationType" type:"string" enum:"true"`
 
 	// [EC2-VPC] The ID of the VPC in which the instance is running.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:Instance:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -3481,11 +3481,11 @@ type InstanceBlockDeviceMapping struct {
 	_ struct{} `type:"structure"`
 
 	// The device name (for example, /dev/sdh or xvdh).
-	DeviceName *string `locationName:"deviceName" type:"string"`
+	DeviceName *string `json:"ec2:InstanceBlockDeviceMapping:DeviceName" locationName:"deviceName" type:"string"`
 
 	// Parameters used to automatically set up EBS volumes when the instance is
 	// launched.
-	Ebs *EbsInstanceBlockDevice `locationName:"ebs" type:"structure"`
+	Ebs *EbsInstanceBlockDevice `json:"ec2:InstanceBlockDeviceMapping:Ebs" locationName:"ebs" type:"structure"`
 }
 
 // String returns the string representation
@@ -3499,17 +3499,17 @@ type InstanceBlockDeviceMappingSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The device name (for example, /dev/sdh or xvdh).
-	DeviceName *string `locationName:"deviceName" type:"string"`
+	DeviceName *string `json:"ec2:InstanceBlockDeviceMappingSpecification:DeviceName" locationName:"deviceName" type:"string"`
 
 	// Parameters used to automatically set up EBS volumes when the instance is
 	// launched.
-	Ebs *EbsInstanceBlockDeviceSpecification `locationName:"ebs" type:"structure"`
+	Ebs *EbsInstanceBlockDeviceSpecification `json:"ec2:InstanceBlockDeviceMappingSpecification:Ebs" locationName:"ebs" type:"structure"`
 
 	// suppress the specified device included in the block device mapping.
-	NoDevice *string `locationName:"noDevice" type:"string"`
+	NoDevice *string `json:"ec2:InstanceBlockDeviceMappingSpecification:NoDevice" locationName:"noDevice" type:"string"`
 
 	// The virtual device name.
-	VirtualName *string `locationName:"virtualName" type:"string"`
+	VirtualName *string `json:"ec2:InstanceBlockDeviceMappingSpecification:VirtualName" locationName:"virtualName" type:"string"`
 }
 
 // String returns the string representation
@@ -3523,13 +3523,13 @@ type InstanceCapacity struct {
 	_ struct{} `type:"structure"`
 
 	// The number of instances that can still be launched onto the Dedicated Host.
-	AvailableCapacity *int64 `locationName:"availableCapacity" type:"integer"`
+	AvailableCapacity *int64 `json:"ec2:InstanceCapacity:AvailableCapacity" locationName:"availableCapacity" type:"integer"`
 
 	// The instance type size supported by the Dedicated Host.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"ec2:InstanceCapacity:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The total number of instances that can be launched onto the Dedicated Host.
-	TotalCapacity *int64 `locationName:"totalCapacity" type:"integer"`
+	TotalCapacity *int64 `json:"ec2:InstanceCapacity:TotalCapacity" locationName:"totalCapacity" type:"integer"`
 }
 
 // String returns the string representation
@@ -3543,10 +3543,10 @@ type InstanceCount struct {
 	_ struct{} `type:"structure"`
 
 	// The number of listed Reserved Instances in the state specified by the state.
-	InstanceCount *int64 `locationName:"instanceCount" type:"integer"`
+	InstanceCount *int64 `json:"ec2:InstanceCount:InstanceCount" locationName:"instanceCount" type:"integer"`
 
 	// The states of the listed Reserved Instances.
-	State ListingState `locationName:"state" type:"string" enum:"true"`
+	State ListingState `json:"ec2:InstanceCount:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3561,10 +3561,10 @@ type InstanceCreditSpecification struct {
 
 	// The credit option for CPU usage of the instance. Valid values are standard
 	// and unlimited.
-	CpuCredits *string `locationName:"cpuCredits" type:"string"`
+	CpuCredits *string `json:"ec2:InstanceCreditSpecification:CpuCredits" locationName:"cpuCredits" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:InstanceCreditSpecification:InstanceId" locationName:"instanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -3579,10 +3579,10 @@ type InstanceCreditSpecificationRequest struct {
 
 	// The credit option for CPU usage of the instance. Valid values are standard
 	// and unlimited.
-	CpuCredits *string `type:"string"`
+	CpuCredits *string `json:"ec2:InstanceCreditSpecificationRequest:CpuCredits" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ec2:InstanceCreditSpecificationRequest:InstanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -3596,10 +3596,10 @@ type InstanceExportDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource being exported.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:InstanceExportDetails:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The target virtualization environment.
-	TargetEnvironment ExportEnvironment `locationName:"targetEnvironment" type:"string" enum:"true"`
+	TargetEnvironment ExportEnvironment `json:"ec2:InstanceExportDetails:TargetEnvironment" locationName:"targetEnvironment" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3613,7 +3613,7 @@ type InstanceIpv6Address struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv6 address.
-	Ipv6Address *string `locationName:"ipv6Address" type:"string"`
+	Ipv6Address *string `json:"ec2:InstanceIpv6Address:Ipv6Address" locationName:"ipv6Address" type:"string"`
 }
 
 // String returns the string representation
@@ -3627,7 +3627,7 @@ type InstanceIpv6AddressRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv6 address.
-	Ipv6Address *string `type:"string"`
+	Ipv6Address *string `json:"ec2:InstanceIpv6AddressRequest:Ipv6Address" type:"string"`
 }
 
 // String returns the string representation
@@ -3641,10 +3641,10 @@ type InstanceMarketOptionsRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The market type.
-	MarketType MarketType `type:"string" enum:"true"`
+	MarketType MarketType `json:"ec2:InstanceMarketOptionsRequest:MarketType" type:"string" enum:"true"`
 
 	// The options for Spot Instances.
-	SpotOptions *SpotMarketOptions `type:"structure"`
+	SpotOptions *SpotMarketOptions `json:"ec2:InstanceMarketOptionsRequest:SpotOptions" type:"structure"`
 }
 
 // String returns the string representation
@@ -3658,10 +3658,10 @@ type InstanceMonitoring struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:InstanceMonitoring:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The monitoring for the instance.
-	Monitoring *Monitoring `locationName:"monitoring" type:"structure"`
+	Monitoring *Monitoring `json:"ec2:InstanceMonitoring:Monitoring" locationName:"monitoring" type:"structure"`
 }
 
 // String returns the string representation
@@ -3676,54 +3676,54 @@ type InstanceNetworkInterface struct {
 
 	// The association information for an Elastic IPv4 associated with the network
 	// interface.
-	Association *InstanceNetworkInterfaceAssociation `locationName:"association" type:"structure"`
+	Association *InstanceNetworkInterfaceAssociation `json:"ec2:InstanceNetworkInterface:Association" locationName:"association" type:"structure"`
 
 	// The network interface attachment.
-	Attachment *InstanceNetworkInterfaceAttachment `locationName:"attachment" type:"structure"`
+	Attachment *InstanceNetworkInterfaceAttachment `json:"ec2:InstanceNetworkInterface:Attachment" locationName:"attachment" type:"structure"`
 
 	// The description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:InstanceNetworkInterface:Description" locationName:"description" type:"string"`
 
 	// One or more security groups.
-	Groups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	Groups []GroupIdentifier `json:"ec2:InstanceNetworkInterface:Groups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// Describes the type of network interface.
 	//
 	// Valid values: interface | efa
-	InterfaceType *string `locationName:"interfaceType" type:"string"`
+	InterfaceType *string `json:"ec2:InstanceNetworkInterface:InterfaceType" locationName:"interfaceType" type:"string"`
 
 	// One or more IPv6 addresses associated with the network interface.
-	Ipv6Addresses []InstanceIpv6Address `locationName:"ipv6AddressesSet" locationNameList:"item" type:"list"`
+	Ipv6Addresses []InstanceIpv6Address `json:"ec2:InstanceNetworkInterface:Ipv6Addresses" locationName:"ipv6AddressesSet" locationNameList:"item" type:"list"`
 
 	// The MAC address.
-	MacAddress *string `locationName:"macAddress" type:"string"`
+	MacAddress *string `json:"ec2:InstanceNetworkInterface:MacAddress" locationName:"macAddress" type:"string"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:InstanceNetworkInterface:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The ID of the AWS account that created the network interface.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:InstanceNetworkInterface:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The private DNS name.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"ec2:InstanceNetworkInterface:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The IPv4 address of the network interface within the subnet.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:InstanceNetworkInterface:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// One or more private IPv4 addresses associated with the network interface.
-	PrivateIpAddresses []InstancePrivateIpAddress `locationName:"privateIpAddressesSet" locationNameList:"item" type:"list"`
+	PrivateIpAddresses []InstancePrivateIpAddress `json:"ec2:InstanceNetworkInterface:PrivateIpAddresses" locationName:"privateIpAddressesSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether to validate network traffic to or from this network interface.
-	SourceDestCheck *bool `locationName:"sourceDestCheck" type:"boolean"`
+	SourceDestCheck *bool `json:"ec2:InstanceNetworkInterface:SourceDestCheck" locationName:"sourceDestCheck" type:"boolean"`
 
 	// The status of the network interface.
-	Status NetworkInterfaceStatus `locationName:"status" type:"string" enum:"true"`
+	Status NetworkInterfaceStatus `json:"ec2:InstanceNetworkInterface:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The ID of the subnet.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:InstanceNetworkInterface:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:InstanceNetworkInterface:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -3737,13 +3737,13 @@ type InstanceNetworkInterfaceAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the owner of the Elastic IP address.
-	IpOwnerId *string `locationName:"ipOwnerId" type:"string"`
+	IpOwnerId *string `json:"ec2:InstanceNetworkInterfaceAssociation:IpOwnerId" locationName:"ipOwnerId" type:"string"`
 
 	// The public DNS name.
-	PublicDnsName *string `locationName:"publicDnsName" type:"string"`
+	PublicDnsName *string `json:"ec2:InstanceNetworkInterfaceAssociation:PublicDnsName" locationName:"publicDnsName" type:"string"`
 
 	// The public IP address or Elastic IP address bound to the network interface.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"ec2:InstanceNetworkInterfaceAssociation:PublicIp" locationName:"publicIp" type:"string"`
 }
 
 // String returns the string representation
@@ -3757,19 +3757,19 @@ type InstanceNetworkInterfaceAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The time stamp when the attachment initiated.
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
+	AttachTime *time.Time `json:"ec2:InstanceNetworkInterfaceAttachment:AttachTime" locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The ID of the network interface attachment.
-	AttachmentId *string `locationName:"attachmentId" type:"string"`
+	AttachmentId *string `json:"ec2:InstanceNetworkInterfaceAttachment:AttachmentId" locationName:"attachmentId" type:"string"`
 
 	// Indicates whether the network interface is deleted when the instance is terminated.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:InstanceNetworkInterfaceAttachment:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// The index of the device on the instance for the network interface attachment.
-	DeviceIndex *int64 `locationName:"deviceIndex" type:"integer"`
+	DeviceIndex *int64 `json:"ec2:InstanceNetworkInterfaceAttachment:DeviceIndex" locationName:"deviceIndex" type:"integer"`
 
 	// The attachment state.
-	Status AttachmentStatus `locationName:"status" type:"string" enum:"true"`
+	Status AttachmentStatus `json:"ec2:InstanceNetworkInterfaceAttachment:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3787,27 +3787,27 @@ type InstanceNetworkInterfaceSpecification struct {
 	// for eth0, and can only be assigned to a new network interface, not an existing
 	// one. You cannot specify more than one network interface in the request. If
 	// launching into a default subnet, the default value is true.
-	AssociatePublicIpAddress *bool `locationName:"associatePublicIpAddress" type:"boolean"`
+	AssociatePublicIpAddress *bool `json:"ec2:InstanceNetworkInterfaceSpecification:AssociatePublicIpAddress" locationName:"associatePublicIpAddress" type:"boolean"`
 
 	// If set to true, the interface is deleted when the instance is terminated.
 	// You can specify true only if creating a new network interface when launching
 	// an instance.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:InstanceNetworkInterfaceSpecification:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// The description of the network interface. Applies only if creating a network
 	// interface when launching an instance.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:InstanceNetworkInterfaceSpecification:Description" locationName:"description" type:"string"`
 
 	// The position of the network interface in the attachment order. A primary
 	// network interface has a device index of 0.
 	//
 	// If you specify a network interface when launching an instance, you must specify
 	// the device index.
-	DeviceIndex *int64 `locationName:"deviceIndex" type:"integer"`
+	DeviceIndex *int64 `json:"ec2:InstanceNetworkInterfaceSpecification:DeviceIndex" locationName:"deviceIndex" type:"integer"`
 
 	// The IDs of the security groups for the network interface. Applies only if
 	// creating a network interface when launching an instance.
-	Groups []string `locationName:"SecurityGroupId" locationNameList:"SecurityGroupId" type:"list"`
+	Groups []string `json:"ec2:InstanceNetworkInterfaceSpecification:Groups" locationName:"SecurityGroupId" locationNameList:"SecurityGroupId" type:"list"`
 
 	// The type of network interface. To create an Elastic Fabric Adapter (EFA),
 	// specify efa. For more information, see Elastic Fabric Adapter (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html)
@@ -3816,47 +3816,47 @@ type InstanceNetworkInterfaceSpecification struct {
 	// If you are not creating an EFA, specify interface or omit this parameter.
 	//
 	// Valid values: interface | efa
-	InterfaceType *string `type:"string"`
+	InterfaceType *string `json:"ec2:InstanceNetworkInterfaceSpecification:InterfaceType" type:"string"`
 
 	// A number of IPv6 addresses to assign to the network interface. Amazon EC2
 	// chooses the IPv6 addresses from the range of the subnet. You cannot specify
 	// this option and the option to assign specific IPv6 addresses in the same
 	// request. You can specify this option if you've specified a minimum number
 	// of instances to launch.
-	Ipv6AddressCount *int64 `locationName:"ipv6AddressCount" type:"integer"`
+	Ipv6AddressCount *int64 `json:"ec2:InstanceNetworkInterfaceSpecification:Ipv6AddressCount" locationName:"ipv6AddressCount" type:"integer"`
 
 	// One or more IPv6 addresses to assign to the network interface. You cannot
 	// specify this option and the option to assign a number of IPv6 addresses in
 	// the same request. You cannot specify this option if you've specified a minimum
 	// number of instances to launch.
-	Ipv6Addresses []InstanceIpv6Address `locationName:"ipv6AddressesSet" queryName:"Ipv6Addresses" locationNameList:"item" type:"list"`
+	Ipv6Addresses []InstanceIpv6Address `json:"ec2:InstanceNetworkInterfaceSpecification:Ipv6Addresses" locationName:"ipv6AddressesSet" queryName:"Ipv6Addresses" locationNameList:"item" type:"list"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:InstanceNetworkInterfaceSpecification:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The private IPv4 address of the network interface. Applies only if creating
 	// a network interface when launching an instance. You cannot specify this option
 	// if you're launching more than one instance in a RunInstances (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html)
 	// request.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:InstanceNetworkInterfaceSpecification:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// One or more private IPv4 addresses to assign to the network interface. Only
 	// one private IPv4 address can be designated as primary. You cannot specify
 	// this option if you're launching more than one instance in a RunInstances
 	// (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html)
 	// request.
-	PrivateIpAddresses []PrivateIpAddressSpecification `locationName:"privateIpAddressesSet" queryName:"PrivateIpAddresses" locationNameList:"item" type:"list"`
+	PrivateIpAddresses []PrivateIpAddressSpecification `json:"ec2:InstanceNetworkInterfaceSpecification:PrivateIpAddresses" locationName:"privateIpAddressesSet" queryName:"PrivateIpAddresses" locationNameList:"item" type:"list"`
 
 	// The number of secondary private IPv4 addresses. You can't specify this option
 	// and specify more than one private IP address using the private IP addresses
 	// option. You cannot specify this option if you're launching more than one
 	// instance in a RunInstances (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html)
 	// request.
-	SecondaryPrivateIpAddressCount *int64 `locationName:"secondaryPrivateIpAddressCount" type:"integer"`
+	SecondaryPrivateIpAddressCount *int64 `json:"ec2:InstanceNetworkInterfaceSpecification:SecondaryPrivateIpAddressCount" locationName:"secondaryPrivateIpAddressCount" type:"integer"`
 
 	// The ID of the subnet associated with the network string. Applies only if
 	// creating a network interface when launching an instance.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:InstanceNetworkInterfaceSpecification:SubnetId" locationName:"subnetId" type:"string"`
 }
 
 // String returns the string representation
@@ -3870,17 +3870,17 @@ type InstancePrivateIpAddress struct {
 	_ struct{} `type:"structure"`
 
 	// The association information for an Elastic IP address for the network interface.
-	Association *InstanceNetworkInterfaceAssociation `locationName:"association" type:"structure"`
+	Association *InstanceNetworkInterfaceAssociation `json:"ec2:InstancePrivateIpAddress:Association" locationName:"association" type:"structure"`
 
 	// Indicates whether this IPv4 address is the primary private IP address of
 	// the network interface.
-	Primary *bool `locationName:"primary" type:"boolean"`
+	Primary *bool `json:"ec2:InstancePrivateIpAddress:Primary" locationName:"primary" type:"boolean"`
 
 	// The private IPv4 DNS name.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"ec2:InstancePrivateIpAddress:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The private IPv4 address of the network interface.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:InstancePrivateIpAddress:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -3894,10 +3894,10 @@ type InstanceSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// Excludes the root volume from being snapshotted.
-	ExcludeBootVolume *bool `type:"boolean"`
+	ExcludeBootVolume *bool `json:"ec2:InstanceSpecification:ExcludeBootVolume" type:"boolean"`
 
 	// The instance to specify which volumes should be snapshotted.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ec2:InstanceSpecification:InstanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -3936,10 +3936,10 @@ type InstanceState struct {
 	//
 	// You can ignore the high byte value by zeroing out all of the bits above 2^8
 	// or 256 in decimal.
-	Code *int64 `locationName:"code" type:"integer"`
+	Code *int64 `json:"ec2:InstanceState:Code" locationName:"code" type:"integer"`
 
 	// The current state of the instance.
-	Name InstanceStateName `locationName:"name" type:"string" enum:"true"`
+	Name InstanceStateName `json:"ec2:InstanceState:Name" locationName:"name" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3953,13 +3953,13 @@ type InstanceStateChange struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the instance.
-	CurrentState *InstanceState `locationName:"currentState" type:"structure"`
+	CurrentState *InstanceState `json:"ec2:InstanceStateChange:CurrentState" locationName:"currentState" type:"structure"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:InstanceStateChange:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The previous state of the instance.
-	PreviousState *InstanceState `locationName:"previousState" type:"structure"`
+	PreviousState *InstanceState `json:"ec2:InstanceStateChange:PreviousState" locationName:"previousState" type:"structure"`
 }
 
 // String returns the string representation
@@ -3973,26 +3973,26 @@ type InstanceStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone of the instance.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:InstanceStatus:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// Any scheduled events associated with the instance.
-	Events []InstanceStatusEvent `locationName:"eventsSet" locationNameList:"item" type:"list"`
+	Events []InstanceStatusEvent `json:"ec2:InstanceStatus:Events" locationName:"eventsSet" locationNameList:"item" type:"list"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:InstanceStatus:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The intended state of the instance. DescribeInstanceStatus requires that
 	// an instance be in the running state.
-	InstanceState *InstanceState `locationName:"instanceState" type:"structure"`
+	InstanceState *InstanceState `json:"ec2:InstanceStatus:InstanceState" locationName:"instanceState" type:"structure"`
 
 	// Reports impaired functionality that stems from issues internal to the instance,
 	// such as impaired reachability.
-	InstanceStatus *InstanceStatusSummary `locationName:"instanceStatus" type:"structure"`
+	InstanceStatus *InstanceStatusSummary `json:"ec2:InstanceStatus:InstanceStatus" locationName:"instanceStatus" type:"structure"`
 
 	// Reports impaired functionality that stems from issues related to the systems
 	// that support an instance, such as hardware failures and network connectivity
 	// problems.
-	SystemStatus *InstanceStatusSummary `locationName:"systemStatus" type:"structure"`
+	SystemStatus *InstanceStatusSummary `json:"ec2:InstanceStatus:SystemStatus" locationName:"systemStatus" type:"structure"`
 }
 
 // String returns the string representation
@@ -4007,13 +4007,13 @@ type InstanceStatusDetails struct {
 
 	// The time when a status check failed. For an instance that was launched and
 	// impaired, this is the time when the instance was launched.
-	ImpairedSince *time.Time `locationName:"impairedSince" type:"timestamp" timestampFormat:"iso8601"`
+	ImpairedSince *time.Time `json:"ec2:InstanceStatusDetails:ImpairedSince" locationName:"impairedSince" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The type of instance status.
-	Name StatusName `locationName:"name" type:"string" enum:"true"`
+	Name StatusName `json:"ec2:InstanceStatusDetails:Name" locationName:"name" type:"string" enum:"true"`
 
 	// The status.
-	Status StatusType `locationName:"status" type:"string" enum:"true"`
+	Status StatusType `json:"ec2:InstanceStatusDetails:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4027,26 +4027,26 @@ type InstanceStatusEvent struct {
 	_ struct{} `type:"structure"`
 
 	// The event code.
-	Code EventCode `locationName:"code" type:"string" enum:"true"`
+	Code EventCode `json:"ec2:InstanceStatusEvent:Code" locationName:"code" type:"string" enum:"true"`
 
 	// A description of the event.
 	//
 	// After a scheduled event is completed, it can still be described for up to
 	// a week. If the event has been completed, this description starts with the
 	// following text: [Completed].
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:InstanceStatusEvent:Description" locationName:"description" type:"string"`
 
 	// The ID of the event.
-	InstanceEventId *string `locationName:"instanceEventId" type:"string"`
+	InstanceEventId *string `json:"ec2:InstanceStatusEvent:InstanceEventId" locationName:"instanceEventId" type:"string"`
 
 	// The latest scheduled end time for the event.
-	NotAfter *time.Time `locationName:"notAfter" type:"timestamp" timestampFormat:"iso8601"`
+	NotAfter *time.Time `json:"ec2:InstanceStatusEvent:NotAfter" locationName:"notAfter" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The earliest scheduled start time for the event.
-	NotBefore *time.Time `locationName:"notBefore" type:"timestamp" timestampFormat:"iso8601"`
+	NotBefore *time.Time `json:"ec2:InstanceStatusEvent:NotBefore" locationName:"notBefore" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The deadline for starting the event.
-	NotBeforeDeadline *time.Time `locationName:"notBeforeDeadline" type:"timestamp" timestampFormat:"iso8601"`
+	NotBeforeDeadline *time.Time `json:"ec2:InstanceStatusEvent:NotBeforeDeadline" locationName:"notBeforeDeadline" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -4060,10 +4060,10 @@ type InstanceStatusSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The system instance health or application instance health.
-	Details []InstanceStatusDetails `locationName:"details" locationNameList:"item" type:"list"`
+	Details []InstanceStatusDetails `json:"ec2:InstanceStatusSummary:Details" locationName:"details" locationNameList:"item" type:"list"`
 
 	// The status.
-	Status SummaryStatus `locationName:"status" type:"string" enum:"true"`
+	Status SummaryStatus `json:"ec2:InstanceStatusSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4077,16 +4077,16 @@ type InternetGateway struct {
 	_ struct{} `type:"structure"`
 
 	// Any VPCs attached to the internet gateway.
-	Attachments []InternetGatewayAttachment `locationName:"attachmentSet" locationNameList:"item" type:"list"`
+	Attachments []InternetGatewayAttachment `json:"ec2:InternetGateway:Attachments" locationName:"attachmentSet" locationNameList:"item" type:"list"`
 
 	// The ID of the internet gateway.
-	InternetGatewayId *string `locationName:"internetGatewayId" type:"string"`
+	InternetGatewayId *string `json:"ec2:InternetGateway:InternetGatewayId" locationName:"internetGatewayId" type:"string"`
 
 	// The ID of the AWS account that owns the internet gateway.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:InternetGateway:OwnerId" locationName:"ownerId" type:"string"`
 
 	// Any tags assigned to the internet gateway.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:InternetGateway:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -4102,10 +4102,10 @@ type InternetGatewayAttachment struct {
 
 	// The current state of the attachment. For an internet gateway, the state is
 	// available when attached to a VPC; otherwise, this value is not returned.
-	State AttachmentStatus `locationName:"state" type:"string" enum:"true"`
+	State AttachmentStatus `json:"ec2:InternetGatewayAttachment:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:InternetGatewayAttachment:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -4121,7 +4121,7 @@ type IpPermission struct {
 	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6
 	// type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify
 	// all ICMP/ICMPv6 types, you must specify all codes.
-	FromPort *int64 `locationName:"fromPort" type:"integer"`
+	FromPort *int64 `json:"ec2:IpPermission:FromPort" locationName:"fromPort" type:"integer"`
 
 	// The IP protocol name (tcp, udp, icmp, icmpv6) or number (see Protocol Numbers
 	// (http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)).
@@ -4132,26 +4132,26 @@ type IpPermission struct {
 	// tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range
 	// is optional; if you omit the port range, traffic for all types and codes
 	// is allowed.
-	IpProtocol *string `locationName:"ipProtocol" type:"string"`
+	IpProtocol *string `json:"ec2:IpPermission:IpProtocol" locationName:"ipProtocol" type:"string"`
 
 	// The IPv4 ranges.
-	IpRanges []IpRange `locationName:"ipRanges" locationNameList:"item" type:"list"`
+	IpRanges []IpRange `json:"ec2:IpPermission:IpRanges" locationName:"ipRanges" locationNameList:"item" type:"list"`
 
 	// [VPC only] The IPv6 ranges.
-	Ipv6Ranges []Ipv6Range `locationName:"ipv6Ranges" locationNameList:"item" type:"list"`
+	Ipv6Ranges []Ipv6Range `json:"ec2:IpPermission:Ipv6Ranges" locationName:"ipv6Ranges" locationNameList:"item" type:"list"`
 
 	// [VPC only] The prefix list IDs for an AWS service. With outbound rules, this
 	// is the AWS service to access through a VPC endpoint from instances associated
 	// with the security group.
-	PrefixListIds []PrefixListId `locationName:"prefixListIds" locationNameList:"item" type:"list"`
+	PrefixListIds []PrefixListId `json:"ec2:IpPermission:PrefixListIds" locationName:"prefixListIds" locationNameList:"item" type:"list"`
 
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	// A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6
 	// types, you must specify all codes.
-	ToPort *int64 `locationName:"toPort" type:"integer"`
+	ToPort *int64 `json:"ec2:IpPermission:ToPort" locationName:"toPort" type:"integer"`
 
 	// The security group and AWS account ID pairs.
-	UserIdGroupPairs []UserIdGroupPair `locationName:"groups" locationNameList:"item" type:"list"`
+	UserIdGroupPairs []UserIdGroupPair `json:"ec2:IpPermission:UserIdGroupPairs" locationName:"groups" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -4166,14 +4166,14 @@ type IpRange struct {
 
 	// The IPv4 CIDR range. You can either specify a CIDR range or a source security
 	// group, not both. To specify a single IPv4 address, use the /32 prefix length.
-	CidrIp *string `locationName:"cidrIp" type:"string"`
+	CidrIp *string `json:"ec2:IpRange:CidrIp" locationName:"cidrIp" type:"string"`
 
 	// A description for the security group rule that references this IPv4 address
 	// range.
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z,
 	// A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:IpRange:Description" locationName:"description" type:"string"`
 }
 
 // String returns the string representation
@@ -4187,7 +4187,7 @@ type Ipv6CidrBlock struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv6 CIDR block.
-	Ipv6CidrBlock *string `locationName:"ipv6CidrBlock" type:"string"`
+	Ipv6CidrBlock *string `json:"ec2:Ipv6CidrBlock:Ipv6CidrBlock" locationName:"ipv6CidrBlock" type:"string"`
 }
 
 // String returns the string representation
@@ -4202,14 +4202,14 @@ type Ipv6Range struct {
 
 	// The IPv6 CIDR range. You can either specify a CIDR range or a source security
 	// group, not both. To specify a single IPv6 address, use the /128 prefix length.
-	CidrIpv6 *string `locationName:"cidrIpv6" type:"string"`
+	CidrIpv6 *string `json:"ec2:Ipv6Range:CidrIpv6" locationName:"cidrIpv6" type:"string"`
 
 	// A description for the security group rule that references this IPv6 address
 	// range.
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z,
 	// A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:Ipv6Range:Description" locationName:"description" type:"string"`
 }
 
 // String returns the string representation
@@ -4226,10 +4226,10 @@ type KeyPairInfo struct {
 	// of the DER encoded private key. If you used ImportKeyPair to provide AWS
 	// the public key, this is the MD5 public key fingerprint as specified in section
 	// 4 of RFC4716.
-	KeyFingerprint *string `locationName:"keyFingerprint" type:"string"`
+	KeyFingerprint *string `json:"ec2:KeyPairInfo:KeyFingerprint" locationName:"keyFingerprint" type:"string"`
 
 	// The name of the key pair.
-	KeyName *string `locationName:"keyName" type:"string"`
+	KeyName *string `json:"ec2:KeyPairInfo:KeyName" locationName:"keyName" type:"string"`
 }
 
 // String returns the string representation
@@ -4243,10 +4243,10 @@ type LaunchPermission struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the group.
-	Group PermissionGroup `locationName:"group" type:"string" enum:"true"`
+	Group PermissionGroup `json:"ec2:LaunchPermission:Group" locationName:"group" type:"string" enum:"true"`
 
 	// The AWS account ID.
-	UserId *string `locationName:"userId" type:"string"`
+	UserId *string `json:"ec2:LaunchPermission:UserId" locationName:"userId" type:"string"`
 }
 
 // String returns the string representation
@@ -4260,11 +4260,11 @@ type LaunchPermissionModifications struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID to add to the list of launch permissions for the AMI.
-	Add []LaunchPermission `locationNameList:"item" type:"list"`
+	Add []LaunchPermission `json:"ec2:LaunchPermissionModifications:Add" locationNameList:"item" type:"list"`
 
 	// The AWS account ID to remove from the list of launch permissions for the
 	// AMI.
-	Remove []LaunchPermission `locationNameList:"item" type:"list"`
+	Remove []LaunchPermission `json:"ec2:LaunchPermissionModifications:Remove" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -4278,10 +4278,10 @@ type LaunchSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// Deprecated.
-	AddressingType *string `locationName:"addressingType" type:"string"`
+	AddressingType *string `json:"ec2:LaunchSpecification:AddressingType" locationName:"addressingType" type:"string"`
 
 	// One or more block device mapping entries.
-	BlockDeviceMappings []BlockDeviceMapping `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
+	BlockDeviceMappings []BlockDeviceMapping `json:"ec2:LaunchSpecification:BlockDeviceMappings" locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
 
 	// Indicates whether the instance is optimized for EBS I/O. This optimization
 	// provides dedicated throughput to Amazon EBS and an optimized configuration
@@ -4290,46 +4290,46 @@ type LaunchSpecification struct {
 	// Optimized instance.
 	//
 	// Default: false
-	EbsOptimized *bool `locationName:"ebsOptimized" type:"boolean"`
+	EbsOptimized *bool `json:"ec2:LaunchSpecification:EbsOptimized" locationName:"ebsOptimized" type:"boolean"`
 
 	// The IAM instance profile.
-	IamInstanceProfile *IamInstanceProfileSpecification `locationName:"iamInstanceProfile" type:"structure"`
+	IamInstanceProfile *IamInstanceProfileSpecification `json:"ec2:LaunchSpecification:IamInstanceProfile" locationName:"iamInstanceProfile" type:"structure"`
 
 	// The ID of the AMI.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:LaunchSpecification:ImageId" locationName:"imageId" type:"string"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:LaunchSpecification:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The ID of the kernel.
-	KernelId *string `locationName:"kernelId" type:"string"`
+	KernelId *string `json:"ec2:LaunchSpecification:KernelId" locationName:"kernelId" type:"string"`
 
 	// The name of the key pair.
-	KeyName *string `locationName:"keyName" type:"string"`
+	KeyName *string `json:"ec2:LaunchSpecification:KeyName" locationName:"keyName" type:"string"`
 
 	// Describes the monitoring of an instance.
-	Monitoring *RunInstancesMonitoringEnabled `locationName:"monitoring" type:"structure"`
+	Monitoring *RunInstancesMonitoringEnabled `json:"ec2:LaunchSpecification:Monitoring" locationName:"monitoring" type:"structure"`
 
 	// One or more network interfaces. If you specify a network interface, you must
 	// specify subnet IDs and security group IDs using the network interface.
-	NetworkInterfaces []InstanceNetworkInterfaceSpecification `locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
+	NetworkInterfaces []InstanceNetworkInterfaceSpecification `json:"ec2:LaunchSpecification:NetworkInterfaces" locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
 
 	// The placement information for the instance.
-	Placement *SpotPlacement `locationName:"placement" type:"structure"`
+	Placement *SpotPlacement `json:"ec2:LaunchSpecification:Placement" locationName:"placement" type:"structure"`
 
 	// The ID of the RAM disk.
-	RamdiskId *string `locationName:"ramdiskId" type:"string"`
+	RamdiskId *string `json:"ec2:LaunchSpecification:RamdiskId" locationName:"ramdiskId" type:"string"`
 
 	// One or more security groups. When requesting instances in a VPC, you must
 	// specify the IDs of the security groups. When requesting instances in EC2-Classic,
 	// you can specify the names or the IDs of the security groups.
-	SecurityGroups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	SecurityGroups []GroupIdentifier `json:"ec2:LaunchSpecification:SecurityGroups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// The ID of the subnet in which to launch the instance.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:LaunchSpecification:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The Base64-encoded user data for the instance.
-	UserData *string `locationName:"userData" type:"string"`
+	UserData *string `json:"ec2:LaunchSpecification:UserData" locationName:"userData" type:"string"`
 }
 
 // String returns the string representation
@@ -4343,25 +4343,25 @@ type LaunchTemplate struct {
 	_ struct{} `type:"structure"`
 
 	// The time launch template was created.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:LaunchTemplate:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The principal that created the launch template.
-	CreatedBy *string `locationName:"createdBy" type:"string"`
+	CreatedBy *string `json:"ec2:LaunchTemplate:CreatedBy" locationName:"createdBy" type:"string"`
 
 	// The version number of the default version of the launch template.
-	DefaultVersionNumber *int64 `locationName:"defaultVersionNumber" type:"long"`
+	DefaultVersionNumber *int64 `json:"ec2:LaunchTemplate:DefaultVersionNumber" locationName:"defaultVersionNumber" type:"long"`
 
 	// The version number of the latest version of the launch template.
-	LatestVersionNumber *int64 `locationName:"latestVersionNumber" type:"long"`
+	LatestVersionNumber *int64 `json:"ec2:LaunchTemplate:LatestVersionNumber" locationName:"latestVersionNumber" type:"long"`
 
 	// The ID of the launch template.
-	LaunchTemplateId *string `locationName:"launchTemplateId" type:"string"`
+	LaunchTemplateId *string `json:"ec2:LaunchTemplate:LaunchTemplateId" locationName:"launchTemplateId" type:"string"`
 
 	// The name of the launch template.
-	LaunchTemplateName *string `locationName:"launchTemplateName" min:"3" type:"string"`
+	LaunchTemplateName *string `json:"ec2:LaunchTemplate:LaunchTemplateName" locationName:"launchTemplateName" min:"3" type:"string"`
 
 	// The tags for the launch template.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:LaunchTemplate:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -4375,11 +4375,11 @@ type LaunchTemplateAndOverridesResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The launch template.
-	LaunchTemplateSpecification *FleetLaunchTemplateSpecification `locationName:"launchTemplateSpecification" type:"structure"`
+	LaunchTemplateSpecification *FleetLaunchTemplateSpecification `json:"ec2:LaunchTemplateAndOverridesResponse:LaunchTemplateSpecification" locationName:"launchTemplateSpecification" type:"structure"`
 
 	// Any parameters that you specify override the same parameters in the launch
 	// template.
-	Overrides *FleetLaunchTemplateOverrides `locationName:"overrides" type:"structure"`
+	Overrides *FleetLaunchTemplateOverrides `json:"ec2:LaunchTemplateAndOverridesResponse:Overrides" locationName:"overrides" type:"structure"`
 }
 
 // String returns the string representation
@@ -4393,17 +4393,17 @@ type LaunchTemplateBlockDeviceMapping struct {
 	_ struct{} `type:"structure"`
 
 	// The device name.
-	DeviceName *string `locationName:"deviceName" type:"string"`
+	DeviceName *string `json:"ec2:LaunchTemplateBlockDeviceMapping:DeviceName" locationName:"deviceName" type:"string"`
 
 	// Information about the block device for an EBS volume.
-	Ebs *LaunchTemplateEbsBlockDevice `locationName:"ebs" type:"structure"`
+	Ebs *LaunchTemplateEbsBlockDevice `json:"ec2:LaunchTemplateBlockDeviceMapping:Ebs" locationName:"ebs" type:"structure"`
 
 	// Suppresses the specified device included in the block device mapping of the
 	// AMI.
-	NoDevice *string `locationName:"noDevice" type:"string"`
+	NoDevice *string `json:"ec2:LaunchTemplateBlockDeviceMapping:NoDevice" locationName:"noDevice" type:"string"`
 
 	// The virtual device name (ephemeralN).
-	VirtualName *string `locationName:"virtualName" type:"string"`
+	VirtualName *string `json:"ec2:LaunchTemplateBlockDeviceMapping:VirtualName" locationName:"virtualName" type:"string"`
 }
 
 // String returns the string representation
@@ -4417,22 +4417,22 @@ type LaunchTemplateBlockDeviceMappingRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The device name (for example, /dev/sdh or xvdh).
-	DeviceName *string `type:"string"`
+	DeviceName *string `json:"ec2:LaunchTemplateBlockDeviceMappingRequest:DeviceName" type:"string"`
 
 	// Parameters used to automatically set up EBS volumes when the instance is
 	// launched.
-	Ebs *LaunchTemplateEbsBlockDeviceRequest `type:"structure"`
+	Ebs *LaunchTemplateEbsBlockDeviceRequest `json:"ec2:LaunchTemplateBlockDeviceMappingRequest:Ebs" type:"structure"`
 
 	// Suppresses the specified device included in the block device mapping of the
 	// AMI.
-	NoDevice *string `type:"string"`
+	NoDevice *string `json:"ec2:LaunchTemplateBlockDeviceMappingRequest:NoDevice" type:"string"`
 
 	// The virtual device name (ephemeralN). Instance store volumes are numbered
 	// starting from 0. An instance type with 2 available instance store volumes
 	// can specify mappings for ephemeral0 and ephemeral1. The number of available
 	// instance store volumes depends on the instance type. After you connect to
 	// the instance, you must mount the volume.
-	VirtualName *string `type:"string"`
+	VirtualName *string `json:"ec2:LaunchTemplateBlockDeviceMappingRequest:VirtualName" type:"string"`
 }
 
 // String returns the string representation
@@ -4458,10 +4458,10 @@ type LaunchTemplateCapacityReservationSpecificationRequest struct {
 	//
 	//    * none - The instance avoids running in a Capacity Reservation even if
 	//    one is available. The instance runs in On-Demand capacity.
-	CapacityReservationPreference CapacityReservationPreference `type:"string" enum:"true"`
+	CapacityReservationPreference CapacityReservationPreference `json:"ec2:LaunchTemplateCapacityReservationSpecificationRequest:CapacityReservationPreference" type:"string" enum:"true"`
 
 	// Information about the target Capacity Reservation.
-	CapacityReservationTarget *CapacityReservationTarget `type:"structure"`
+	CapacityReservationTarget *CapacityReservationTarget `json:"ec2:LaunchTemplateCapacityReservationSpecificationRequest:CapacityReservationTarget" type:"structure"`
 }
 
 // String returns the string representation
@@ -4482,10 +4482,10 @@ type LaunchTemplateCapacityReservationSpecificationResponse struct {
 	//
 	//    * none - The instance avoids running in a Capacity Reservation even if
 	//    one is available. The instance runs in On-Demand capacity.
-	CapacityReservationPreference CapacityReservationPreference `locationName:"capacityReservationPreference" type:"string" enum:"true"`
+	CapacityReservationPreference CapacityReservationPreference `json:"ec2:LaunchTemplateCapacityReservationSpecificationResponse:CapacityReservationPreference" locationName:"capacityReservationPreference" type:"string" enum:"true"`
 
 	// Information about the target Capacity Reservation.
-	CapacityReservationTarget *CapacityReservationTargetResponse `locationName:"capacityReservationTarget" type:"structure"`
+	CapacityReservationTarget *CapacityReservationTargetResponse `json:"ec2:LaunchTemplateCapacityReservationSpecificationResponse:CapacityReservationTarget" locationName:"capacityReservationTarget" type:"structure"`
 }
 
 // String returns the string representation
@@ -4499,11 +4499,11 @@ type LaunchTemplateConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The launch template.
-	LaunchTemplateSpecification *FleetLaunchTemplateSpecification `locationName:"launchTemplateSpecification" type:"structure"`
+	LaunchTemplateSpecification *FleetLaunchTemplateSpecification `json:"ec2:LaunchTemplateConfig:LaunchTemplateSpecification" locationName:"launchTemplateSpecification" type:"structure"`
 
 	// Any parameters that you specify override the same parameters in the launch
 	// template.
-	Overrides []LaunchTemplateOverrides `locationName:"overrides" locationNameList:"item" type:"list"`
+	Overrides []LaunchTemplateOverrides `json:"ec2:LaunchTemplateConfig:Overrides" locationName:"overrides" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -4532,10 +4532,10 @@ type LaunchTemplateCpuOptions struct {
 	_ struct{} `type:"structure"`
 
 	// The number of CPU cores for the instance.
-	CoreCount *int64 `locationName:"coreCount" type:"integer"`
+	CoreCount *int64 `json:"ec2:LaunchTemplateCpuOptions:CoreCount" locationName:"coreCount" type:"integer"`
 
 	// The number of threads per CPU core.
-	ThreadsPerCore *int64 `locationName:"threadsPerCore" type:"integer"`
+	ThreadsPerCore *int64 `json:"ec2:LaunchTemplateCpuOptions:ThreadsPerCore" locationName:"threadsPerCore" type:"integer"`
 }
 
 // String returns the string representation
@@ -4550,12 +4550,12 @@ type LaunchTemplateCpuOptionsRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The number of CPU cores for the instance.
-	CoreCount *int64 `type:"integer"`
+	CoreCount *int64 `json:"ec2:LaunchTemplateCpuOptionsRequest:CoreCount" type:"integer"`
 
 	// The number of threads per CPU core. To disable Intel Hyper-Threading Technology
 	// for the instance, specify a value of 1. Otherwise, specify the default value
 	// of 2.
-	ThreadsPerCore *int64 `type:"integer"`
+	ThreadsPerCore *int64 `json:"ec2:LaunchTemplateCpuOptionsRequest:ThreadsPerCore" type:"integer"`
 }
 
 // String returns the string representation
@@ -4569,25 +4569,25 @@ type LaunchTemplateEbsBlockDevice struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the EBS volume is deleted on instance termination.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:LaunchTemplateEbsBlockDevice:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// Indicates whether the EBS volume is encrypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:LaunchTemplateEbsBlockDevice:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The number of I/O operations per second (IOPS) that the volume supports.
-	Iops *int64 `locationName:"iops" type:"integer"`
+	Iops *int64 `json:"ec2:LaunchTemplateEbsBlockDevice:Iops" locationName:"iops" type:"integer"`
 
 	// The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:LaunchTemplateEbsBlockDevice:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The ID of the snapshot.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:LaunchTemplateEbsBlockDevice:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// The size of the volume, in GiB.
-	VolumeSize *int64 `locationName:"volumeSize" type:"integer"`
+	VolumeSize *int64 `json:"ec2:LaunchTemplateEbsBlockDevice:VolumeSize" locationName:"volumeSize" type:"integer"`
 
 	// The volume type.
-	VolumeType VolumeType `locationName:"volumeType" type:"string" enum:"true"`
+	VolumeType VolumeType `json:"ec2:LaunchTemplateEbsBlockDevice:VolumeType" locationName:"volumeType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4601,12 +4601,12 @@ type LaunchTemplateEbsBlockDeviceRequest struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the EBS volume is deleted on instance termination.
-	DeleteOnTermination *bool `type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:LaunchTemplateEbsBlockDeviceRequest:DeleteOnTermination" type:"boolean"`
 
 	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only
 	// be attached to instances that support Amazon EBS encryption. If you are creating
 	// a volume from a snapshot, you can't specify an encryption value.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"ec2:LaunchTemplateEbsBlockDeviceRequest:Encrypted" type:"boolean"`
 
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	// For io1, this represents the number of IOPS that are provisioned for the
@@ -4618,22 +4618,22 @@ type LaunchTemplateEbsBlockDeviceRequest struct {
 	//
 	// Condition: This parameter is required for requests to create io1 volumes;
 	// it is not used in requests to create gp2, st1, sc1, or standard volumes.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"ec2:LaunchTemplateEbsBlockDeviceRequest:Iops" type:"integer"`
 
 	// The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"ec2:LaunchTemplateEbsBlockDeviceRequest:KmsKeyId" type:"string"`
 
 	// The ID of the snapshot.
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"ec2:LaunchTemplateEbsBlockDeviceRequest:SnapshotId" type:"string"`
 
 	// The size of the volume, in GiB.
 	//
 	// Default: If you're creating the volume from a snapshot and don't specify
 	// a volume size, the default is the snapshot size.
-	VolumeSize *int64 `type:"integer"`
+	VolumeSize *int64 `json:"ec2:LaunchTemplateEbsBlockDeviceRequest:VolumeSize" type:"integer"`
 
 	// The volume type.
-	VolumeType VolumeType `type:"string" enum:"true"`
+	VolumeType VolumeType `json:"ec2:LaunchTemplateEbsBlockDeviceRequest:VolumeType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4650,7 +4650,7 @@ type LaunchTemplateElasticInferenceAccelerator struct {
 	// eia1.large, and eia1.xlarge.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"ec2:LaunchTemplateElasticInferenceAccelerator:Type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4679,7 +4679,7 @@ type LaunchTemplateElasticInferenceAcceleratorResponse struct {
 
 	// The type of elastic inference accelerator. The possible values are eia1.medium,
 	// eia1.large, and eia1.xlarge.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"ec2:LaunchTemplateElasticInferenceAcceleratorResponse:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -4694,7 +4694,7 @@ type LaunchTemplateHibernationOptions struct {
 
 	// If this parameter is set to true, the instance is enabled for hibernation;
 	// otherwise, it is not enabled for hibernation.
-	Configured *bool `locationName:"configured" type:"boolean"`
+	Configured *bool `json:"ec2:LaunchTemplateHibernationOptions:Configured" locationName:"configured" type:"boolean"`
 }
 
 // String returns the string representation
@@ -4712,7 +4712,7 @@ type LaunchTemplateHibernationOptionsRequest struct {
 	// If you set this parameter to true, the instance is enabled for hibernation.
 	//
 	// Default: false
-	Configured *bool `type:"boolean"`
+	Configured *bool `json:"ec2:LaunchTemplateHibernationOptionsRequest:Configured" type:"boolean"`
 }
 
 // String returns the string representation
@@ -4726,10 +4726,10 @@ type LaunchTemplateIamInstanceProfileSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the instance profile.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"ec2:LaunchTemplateIamInstanceProfileSpecification:Arn" locationName:"arn" type:"string"`
 
 	// The name of the instance profile.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ec2:LaunchTemplateIamInstanceProfileSpecification:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -4743,10 +4743,10 @@ type LaunchTemplateIamInstanceProfileSpecificationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the instance profile.
-	Arn *string `type:"string"`
+	Arn *string `json:"ec2:LaunchTemplateIamInstanceProfileSpecificationRequest:Arn" type:"string"`
 
 	// The name of the instance profile.
-	Name *string `type:"string"`
+	Name *string `json:"ec2:LaunchTemplateIamInstanceProfileSpecificationRequest:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -4760,10 +4760,10 @@ type LaunchTemplateInstanceMarketOptions struct {
 	_ struct{} `type:"structure"`
 
 	// The market type.
-	MarketType MarketType `locationName:"marketType" type:"string" enum:"true"`
+	MarketType MarketType `json:"ec2:LaunchTemplateInstanceMarketOptions:MarketType" locationName:"marketType" type:"string" enum:"true"`
 
 	// The options for Spot Instances.
-	SpotOptions *LaunchTemplateSpotMarketOptions `locationName:"spotOptions" type:"structure"`
+	SpotOptions *LaunchTemplateSpotMarketOptions `json:"ec2:LaunchTemplateInstanceMarketOptions:SpotOptions" locationName:"spotOptions" type:"structure"`
 }
 
 // String returns the string representation
@@ -4777,10 +4777,10 @@ type LaunchTemplateInstanceMarketOptionsRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The market type.
-	MarketType MarketType `type:"string" enum:"true"`
+	MarketType MarketType `json:"ec2:LaunchTemplateInstanceMarketOptionsRequest:MarketType" type:"string" enum:"true"`
 
 	// The options for Spot Instances.
-	SpotOptions *LaunchTemplateSpotMarketOptionsRequest `type:"structure"`
+	SpotOptions *LaunchTemplateSpotMarketOptionsRequest `json:"ec2:LaunchTemplateInstanceMarketOptionsRequest:SpotOptions" type:"structure"`
 }
 
 // String returns the string representation
@@ -4795,43 +4795,43 @@ type LaunchTemplateInstanceNetworkInterfaceSpecification struct {
 
 	// Indicates whether to associate a public IPv4 address with eth0 for a new
 	// network interface.
-	AssociatePublicIpAddress *bool `locationName:"associatePublicIpAddress" type:"boolean"`
+	AssociatePublicIpAddress *bool `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:AssociatePublicIpAddress" locationName:"associatePublicIpAddress" type:"boolean"`
 
 	// Indicates whether the network interface is deleted when the instance is terminated.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// A description for the network interface.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:Description" locationName:"description" type:"string"`
 
 	// The device index for the network interface attachment.
-	DeviceIndex *int64 `locationName:"deviceIndex" type:"integer"`
+	DeviceIndex *int64 `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:DeviceIndex" locationName:"deviceIndex" type:"integer"`
 
 	// The IDs of one or more security groups.
-	Groups []string `locationName:"groupSet" locationNameList:"groupId" type:"list"`
+	Groups []string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:Groups" locationName:"groupSet" locationNameList:"groupId" type:"list"`
 
 	// The type of network interface.
-	InterfaceType *string `locationName:"interfaceType" type:"string"`
+	InterfaceType *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:InterfaceType" locationName:"interfaceType" type:"string"`
 
 	// The number of IPv6 addresses for the network interface.
-	Ipv6AddressCount *int64 `locationName:"ipv6AddressCount" type:"integer"`
+	Ipv6AddressCount *int64 `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:Ipv6AddressCount" locationName:"ipv6AddressCount" type:"integer"`
 
 	// The IPv6 addresses for the network interface.
-	Ipv6Addresses []InstanceIpv6Address `locationName:"ipv6AddressesSet" locationNameList:"item" type:"list"`
+	Ipv6Addresses []InstanceIpv6Address `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:Ipv6Addresses" locationName:"ipv6AddressesSet" locationNameList:"item" type:"list"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The primary private IPv4 address of the network interface.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// One or more private IPv4 addresses.
-	PrivateIpAddresses []PrivateIpAddressSpecification `locationName:"privateIpAddressesSet" locationNameList:"item" type:"list"`
+	PrivateIpAddresses []PrivateIpAddressSpecification `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:PrivateIpAddresses" locationName:"privateIpAddressesSet" locationNameList:"item" type:"list"`
 
 	// The number of secondary private IPv4 addresses for the network interface.
-	SecondaryPrivateIpAddressCount *int64 `locationName:"secondaryPrivateIpAddressCount" type:"integer"`
+	SecondaryPrivateIpAddressCount *int64 `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:SecondaryPrivateIpAddressCount" locationName:"secondaryPrivateIpAddressCount" type:"integer"`
 
 	// The ID of the subnet for the network interface.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecification:SubnetId" locationName:"subnetId" type:"string"`
 }
 
 // String returns the string representation
@@ -4845,19 +4845,19 @@ type LaunchTemplateInstanceNetworkInterfaceSpecificationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// Associates a public IPv4 address with eth0 for a new network interface.
-	AssociatePublicIpAddress *bool `type:"boolean"`
+	AssociatePublicIpAddress *bool `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:AssociatePublicIpAddress" type:"boolean"`
 
 	// Indicates whether the network interface is deleted when the instance is terminated.
-	DeleteOnTermination *bool `type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:DeleteOnTermination" type:"boolean"`
 
 	// A description for the network interface.
-	Description *string `type:"string"`
+	Description *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:Description" type:"string"`
 
 	// The device index for the network interface attachment.
-	DeviceIndex *int64 `type:"integer"`
+	DeviceIndex *int64 `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:DeviceIndex" type:"integer"`
 
 	// The IDs of one or more security groups.
-	Groups []string `locationName:"SecurityGroupId" locationNameList:"SecurityGroupId" type:"list"`
+	Groups []string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:Groups" locationName:"SecurityGroupId" locationNameList:"SecurityGroupId" type:"list"`
 
 	// The type of network interface. To create an Elastic Fabric Adapter (EFA),
 	// specify efa. For more information, see Elastic Fabric Adapter (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html)
@@ -4866,31 +4866,31 @@ type LaunchTemplateInstanceNetworkInterfaceSpecificationRequest struct {
 	// If you are not creating an EFA, specify interface or omit this parameter.
 	//
 	// Valid values: interface | efa
-	InterfaceType *string `type:"string"`
+	InterfaceType *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:InterfaceType" type:"string"`
 
 	// The number of IPv6 addresses to assign to a network interface. Amazon EC2
 	// automatically selects the IPv6 addresses from the subnet range. You can't
 	// use this option if specifying specific IPv6 addresses.
-	Ipv6AddressCount *int64 `type:"integer"`
+	Ipv6AddressCount *int64 `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:Ipv6AddressCount" type:"integer"`
 
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your
 	// subnet. You can't use this option if you're specifying a number of IPv6 addresses.
-	Ipv6Addresses []InstanceIpv6AddressRequest `locationNameList:"InstanceIpv6Address" type:"list"`
+	Ipv6Addresses []InstanceIpv6AddressRequest `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:Ipv6Addresses" locationNameList:"InstanceIpv6Address" type:"list"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `type:"string"`
+	NetworkInterfaceId *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:NetworkInterfaceId" type:"string"`
 
 	// The primary private IPv4 address of the network interface.
-	PrivateIpAddress *string `type:"string"`
+	PrivateIpAddress *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:PrivateIpAddress" type:"string"`
 
 	// One or more private IPv4 addresses.
-	PrivateIpAddresses []PrivateIpAddressSpecification `locationNameList:"item" type:"list"`
+	PrivateIpAddresses []PrivateIpAddressSpecification `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:PrivateIpAddresses" locationNameList:"item" type:"list"`
 
 	// The number of secondary private IPv4 addresses to assign to a network interface.
-	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
+	SecondaryPrivateIpAddressCount *int64 `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:SecondaryPrivateIpAddressCount" type:"integer"`
 
 	// The ID of the subnet for the network interface.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"ec2:LaunchTemplateInstanceNetworkInterfaceSpecificationRequest:SubnetId" type:"string"`
 }
 
 // String returns the string representation
@@ -4904,7 +4904,7 @@ type LaunchTemplateLicenseConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the license configuration.
-	LicenseConfigurationArn *string `locationName:"licenseConfigurationArn" type:"string"`
+	LicenseConfigurationArn *string `json:"ec2:LaunchTemplateLicenseConfiguration:LicenseConfigurationArn" locationName:"licenseConfigurationArn" type:"string"`
 }
 
 // String returns the string representation
@@ -4918,7 +4918,7 @@ type LaunchTemplateLicenseConfigurationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the license configuration.
-	LicenseConfigurationArn *string `type:"string"`
+	LicenseConfigurationArn *string `json:"ec2:LaunchTemplateLicenseConfigurationRequest:LicenseConfigurationArn" type:"string"`
 }
 
 // String returns the string representation
@@ -4932,10 +4932,10 @@ type LaunchTemplateOverrides struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in which to launch the instances.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:LaunchTemplateOverrides:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:LaunchTemplateOverrides:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The priority for the launch template override. If OnDemandAllocationStrategy
 	// is set to prioritized, Spot Fleet uses priority to determine which launch
@@ -4943,16 +4943,16 @@ type LaunchTemplateOverrides struct {
 	// priority is launched first. Valid values are whole numbers starting at 0.
 	// The lower the number, the higher the priority. If no number is set, the launch
 	// template override has the lowest priority.
-	Priority *float64 `locationName:"priority" type:"double"`
+	Priority *float64 `json:"ec2:LaunchTemplateOverrides:Priority" locationName:"priority" type:"double"`
 
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
-	SpotPrice *string `locationName:"spotPrice" type:"string"`
+	SpotPrice *string `json:"ec2:LaunchTemplateOverrides:SpotPrice" locationName:"spotPrice" type:"string"`
 
 	// The ID of the subnet in which to launch the instances.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:LaunchTemplateOverrides:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The number of units provided by the specified instance type.
-	WeightedCapacity *float64 `locationName:"weightedCapacity" type:"double"`
+	WeightedCapacity *float64 `json:"ec2:LaunchTemplateOverrides:WeightedCapacity" locationName:"weightedCapacity" type:"double"`
 }
 
 // String returns the string representation
@@ -4966,23 +4966,23 @@ type LaunchTemplatePlacement struct {
 	_ struct{} `type:"structure"`
 
 	// The affinity setting for the instance on the Dedicated Host.
-	Affinity *string `locationName:"affinity" type:"string"`
+	Affinity *string `json:"ec2:LaunchTemplatePlacement:Affinity" locationName:"affinity" type:"string"`
 
 	// The Availability Zone of the instance.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:LaunchTemplatePlacement:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The name of the placement group for the instance.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:LaunchTemplatePlacement:GroupName" locationName:"groupName" type:"string"`
 
 	// The ID of the Dedicated Host for the instance.
-	HostId *string `locationName:"hostId" type:"string"`
+	HostId *string `json:"ec2:LaunchTemplatePlacement:HostId" locationName:"hostId" type:"string"`
 
 	// Reserved for future use.
-	SpreadDomain *string `locationName:"spreadDomain" type:"string"`
+	SpreadDomain *string `json:"ec2:LaunchTemplatePlacement:SpreadDomain" locationName:"spreadDomain" type:"string"`
 
 	// The tenancy of the instance (if the instance is running in a VPC). An instance
 	// with a tenancy of dedicated runs on single-tenant hardware.
-	Tenancy Tenancy `locationName:"tenancy" type:"string" enum:"true"`
+	Tenancy Tenancy `json:"ec2:LaunchTemplatePlacement:Tenancy" locationName:"tenancy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4996,23 +4996,23 @@ type LaunchTemplatePlacementRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The affinity setting for an instance on a Dedicated Host.
-	Affinity *string `type:"string"`
+	Affinity *string `json:"ec2:LaunchTemplatePlacementRequest:Affinity" type:"string"`
 
 	// The Availability Zone for the instance.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"ec2:LaunchTemplatePlacementRequest:AvailabilityZone" type:"string"`
 
 	// The name of the placement group for the instance.
-	GroupName *string `type:"string"`
+	GroupName *string `json:"ec2:LaunchTemplatePlacementRequest:GroupName" type:"string"`
 
 	// The ID of the Dedicated Host for the instance.
-	HostId *string `type:"string"`
+	HostId *string `json:"ec2:LaunchTemplatePlacementRequest:HostId" type:"string"`
 
 	// Reserved for future use.
-	SpreadDomain *string `type:"string"`
+	SpreadDomain *string `json:"ec2:LaunchTemplatePlacementRequest:SpreadDomain" type:"string"`
 
 	// The tenancy of the instance (if the instance is running in a VPC). An instance
 	// with a tenancy of dedicated runs on single-tenant hardware.
-	Tenancy Tenancy `type:"string" enum:"true"`
+	Tenancy Tenancy `json:"ec2:LaunchTemplatePlacementRequest:Tenancy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5027,15 +5027,15 @@ type LaunchTemplateSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the launch template.
-	LaunchTemplateId *string `type:"string"`
+	LaunchTemplateId *string `json:"ec2:LaunchTemplateSpecification:LaunchTemplateId" type:"string"`
 
 	// The name of the launch template.
-	LaunchTemplateName *string `type:"string"`
+	LaunchTemplateName *string `json:"ec2:LaunchTemplateSpecification:LaunchTemplateName" type:"string"`
 
 	// The version number of the launch template.
 	//
 	// Default: The default version for the launch template.
-	Version *string `type:"string"`
+	Version *string `json:"ec2:LaunchTemplateSpecification:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -5051,22 +5051,22 @@ type LaunchTemplateSpotMarketOptions struct {
 	// The required duration for the Spot Instances (also known as Spot blocks),
 	// in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300,
 	// or 360).
-	BlockDurationMinutes *int64 `locationName:"blockDurationMinutes" type:"integer"`
+	BlockDurationMinutes *int64 `json:"ec2:LaunchTemplateSpotMarketOptions:BlockDurationMinutes" locationName:"blockDurationMinutes" type:"integer"`
 
 	// The behavior when a Spot Instance is interrupted.
-	InstanceInterruptionBehavior InstanceInterruptionBehavior `locationName:"instanceInterruptionBehavior" type:"string" enum:"true"`
+	InstanceInterruptionBehavior InstanceInterruptionBehavior `json:"ec2:LaunchTemplateSpotMarketOptions:InstanceInterruptionBehavior" locationName:"instanceInterruptionBehavior" type:"string" enum:"true"`
 
 	// The maximum hourly price you're willing to pay for the Spot Instances.
-	MaxPrice *string `locationName:"maxPrice" type:"string"`
+	MaxPrice *string `json:"ec2:LaunchTemplateSpotMarketOptions:MaxPrice" locationName:"maxPrice" type:"string"`
 
 	// The Spot Instance request type.
-	SpotInstanceType SpotInstanceType `locationName:"spotInstanceType" type:"string" enum:"true"`
+	SpotInstanceType SpotInstanceType `json:"ec2:LaunchTemplateSpotMarketOptions:SpotInstanceType" locationName:"spotInstanceType" type:"string" enum:"true"`
 
 	// The end date of the request. For a one-time request, the request remains
 	// active until all instances launch, the request is canceled, or this date
 	// is reached. If the request is persistent, it remains active until it is canceled
 	// or this date and time is reached.
-	ValidUntil *time.Time `locationName:"validUntil" type:"timestamp" timestampFormat:"iso8601"`
+	ValidUntil *time.Time `json:"ec2:LaunchTemplateSpotMarketOptions:ValidUntil" locationName:"validUntil" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -5082,23 +5082,23 @@ type LaunchTemplateSpotMarketOptionsRequest struct {
 	// The required duration for the Spot Instances (also known as Spot blocks),
 	// in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300,
 	// or 360).
-	BlockDurationMinutes *int64 `type:"integer"`
+	BlockDurationMinutes *int64 `json:"ec2:LaunchTemplateSpotMarketOptionsRequest:BlockDurationMinutes" type:"integer"`
 
 	// The behavior when a Spot Instance is interrupted. The default is terminate.
-	InstanceInterruptionBehavior InstanceInterruptionBehavior `type:"string" enum:"true"`
+	InstanceInterruptionBehavior InstanceInterruptionBehavior `json:"ec2:LaunchTemplateSpotMarketOptionsRequest:InstanceInterruptionBehavior" type:"string" enum:"true"`
 
 	// The maximum hourly price you're willing to pay for the Spot Instances.
-	MaxPrice *string `type:"string"`
+	MaxPrice *string `json:"ec2:LaunchTemplateSpotMarketOptionsRequest:MaxPrice" type:"string"`
 
 	// The Spot Instance request type.
-	SpotInstanceType SpotInstanceType `type:"string" enum:"true"`
+	SpotInstanceType SpotInstanceType `json:"ec2:LaunchTemplateSpotMarketOptionsRequest:SpotInstanceType" type:"string" enum:"true"`
 
 	// The end date of the request. For a one-time request, the request remains
 	// active until all instances launch, the request is canceled, or this date
 	// is reached. If the request is persistent, it remains active until it is canceled
 	// or this date and time is reached. The default end date is 7 days from the
 	// current date.
-	ValidUntil *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ValidUntil *time.Time `json:"ec2:LaunchTemplateSpotMarketOptionsRequest:ValidUntil" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -5112,10 +5112,10 @@ type LaunchTemplateTagSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The type of resource.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"ec2:LaunchTemplateTagSpecification:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The tags for the resource.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:LaunchTemplateTagSpecification:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -5131,10 +5131,10 @@ type LaunchTemplateTagSpecificationRequest struct {
 	// The type of resource to tag. Currently, the resource types that support tagging
 	// on creation are instance and volume. To tag a resource after it has been
 	// created, see CreateTags (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"ec2:LaunchTemplateTagSpecificationRequest:ResourceType" type:"string" enum:"true"`
 
 	// The tags to apply to the resource.
-	Tags []Tag `locationName:"Tag" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:LaunchTemplateTagSpecificationRequest:Tags" locationName:"Tag" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -5148,28 +5148,28 @@ type LaunchTemplateVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The time the version was created.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:LaunchTemplateVersion:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The principal that created the version.
-	CreatedBy *string `locationName:"createdBy" type:"string"`
+	CreatedBy *string `json:"ec2:LaunchTemplateVersion:CreatedBy" locationName:"createdBy" type:"string"`
 
 	// Indicates whether the version is the default version.
-	DefaultVersion *bool `locationName:"defaultVersion" type:"boolean"`
+	DefaultVersion *bool `json:"ec2:LaunchTemplateVersion:DefaultVersion" locationName:"defaultVersion" type:"boolean"`
 
 	// Information about the launch template.
-	LaunchTemplateData *ResponseLaunchTemplateData `locationName:"launchTemplateData" type:"structure"`
+	LaunchTemplateData *ResponseLaunchTemplateData `json:"ec2:LaunchTemplateVersion:LaunchTemplateData" locationName:"launchTemplateData" type:"structure"`
 
 	// The ID of the launch template.
-	LaunchTemplateId *string `locationName:"launchTemplateId" type:"string"`
+	LaunchTemplateId *string `json:"ec2:LaunchTemplateVersion:LaunchTemplateId" locationName:"launchTemplateId" type:"string"`
 
 	// The name of the launch template.
-	LaunchTemplateName *string `locationName:"launchTemplateName" min:"3" type:"string"`
+	LaunchTemplateName *string `json:"ec2:LaunchTemplateVersion:LaunchTemplateName" locationName:"launchTemplateName" min:"3" type:"string"`
 
 	// The description for the version.
-	VersionDescription *string `locationName:"versionDescription" type:"string"`
+	VersionDescription *string `json:"ec2:LaunchTemplateVersion:VersionDescription" locationName:"versionDescription" type:"string"`
 
 	// The version number.
-	VersionNumber *int64 `locationName:"versionNumber" type:"long"`
+	VersionNumber *int64 `json:"ec2:LaunchTemplateVersion:VersionNumber" locationName:"versionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -5184,7 +5184,7 @@ type LaunchTemplatesMonitoring struct {
 
 	// Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring
 	// is enabled.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"ec2:LaunchTemplatesMonitoring:Enabled" locationName:"enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5199,7 +5199,7 @@ type LaunchTemplatesMonitoringRequest struct {
 
 	// Specify true to enable detailed monitoring. Otherwise, basic monitoring is
 	// enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"ec2:LaunchTemplatesMonitoringRequest:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5213,7 +5213,7 @@ type LicenseConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the license configuration.
-	LicenseConfigurationArn *string `locationName:"licenseConfigurationArn" type:"string"`
+	LicenseConfigurationArn *string `json:"ec2:LicenseConfiguration:LicenseConfigurationArn" locationName:"licenseConfigurationArn" type:"string"`
 }
 
 // String returns the string representation
@@ -5227,7 +5227,7 @@ type LicenseConfigurationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the license configuration.
-	LicenseConfigurationArn *string `type:"string"`
+	LicenseConfigurationArn *string `json:"ec2:LicenseConfigurationRequest:LicenseConfigurationArn" type:"string"`
 }
 
 // String returns the string representation
@@ -5242,10 +5242,10 @@ type LoadBalancersConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The Classic Load Balancers.
-	ClassicLoadBalancersConfig *ClassicLoadBalancersConfig `locationName:"classicLoadBalancersConfig" type:"structure"`
+	ClassicLoadBalancersConfig *ClassicLoadBalancersConfig `json:"ec2:LoadBalancersConfig:ClassicLoadBalancersConfig" locationName:"classicLoadBalancersConfig" type:"structure"`
 
 	// The target groups.
-	TargetGroupsConfig *TargetGroupsConfig `locationName:"targetGroupsConfig" type:"structure"`
+	TargetGroupsConfig *TargetGroupsConfig `json:"ec2:LoadBalancersConfig:TargetGroupsConfig" locationName:"targetGroupsConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -5279,10 +5279,10 @@ type LoadPermission struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the group.
-	Group PermissionGroup `locationName:"group" type:"string" enum:"true"`
+	Group PermissionGroup `json:"ec2:LoadPermission:Group" locationName:"group" type:"string" enum:"true"`
 
 	// The AWS account ID.
-	UserId *string `locationName:"userId" type:"string"`
+	UserId *string `json:"ec2:LoadPermission:UserId" locationName:"userId" type:"string"`
 }
 
 // String returns the string representation
@@ -5296,10 +5296,10 @@ type LoadPermissionModifications struct {
 	_ struct{} `type:"structure"`
 
 	// The load permissions to add.
-	Add []LoadPermissionRequest `locationNameList:"item" type:"list"`
+	Add []LoadPermissionRequest `json:"ec2:LoadPermissionModifications:Add" locationNameList:"item" type:"list"`
 
 	// The load permissions to remove.
-	Remove []LoadPermissionRequest `locationNameList:"item" type:"list"`
+	Remove []LoadPermissionRequest `json:"ec2:LoadPermissionModifications:Remove" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -5313,10 +5313,10 @@ type LoadPermissionRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the group.
-	Group PermissionGroup `type:"string" enum:"true"`
+	Group PermissionGroup `json:"ec2:LoadPermissionRequest:Group" type:"string" enum:"true"`
 
 	// The AWS account ID.
-	UserId *string `type:"string"`
+	UserId *string `json:"ec2:LoadPermissionRequest:UserId" type:"string"`
 }
 
 // String returns the string representation
@@ -5330,10 +5330,10 @@ type ModifyTransitGatewayVpcAttachmentRequestOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Enable or disable DNS support. The default is enable.
-	DnsSupport DnsSupportValue `type:"string" enum:"true"`
+	DnsSupport DnsSupportValue `json:"ec2:ModifyTransitGatewayVpcAttachmentRequestOptions:DnsSupport" type:"string" enum:"true"`
 
 	// Enable or disable IPv6 support. The default is enable.
-	Ipv6Support Ipv6SupportValue `type:"string" enum:"true"`
+	Ipv6Support Ipv6SupportValue `json:"ec2:ModifyTransitGatewayVpcAttachmentRequestOptions:Ipv6Support" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5348,7 +5348,7 @@ type Monitoring struct {
 
 	// Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring
 	// is enabled.
-	State MonitoringState `locationName:"state" type:"string" enum:"true"`
+	State MonitoringState `json:"ec2:Monitoring:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5363,10 +5363,10 @@ type MovingAddressStatus struct {
 
 	// The status of the Elastic IP address that's being moved to the EC2-VPC platform,
 	// or restored to the EC2-Classic platform.
-	MoveStatus MoveStatus `locationName:"moveStatus" type:"string" enum:"true"`
+	MoveStatus MoveStatus `json:"ec2:MovingAddressStatus:MoveStatus" locationName:"moveStatus" type:"string" enum:"true"`
 
 	// The Elastic IP address.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"ec2:MovingAddressStatus:PublicIp" locationName:"publicIp" type:"string"`
 }
 
 // String returns the string representation
@@ -5380,15 +5380,15 @@ type NatGateway struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the NAT gateway was created.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:NatGateway:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The date and time the NAT gateway was deleted, if applicable.
-	DeleteTime *time.Time `locationName:"deleteTime" type:"timestamp" timestampFormat:"iso8601"`
+	DeleteTime *time.Time `json:"ec2:NatGateway:DeleteTime" locationName:"deleteTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// If the NAT gateway could not be created, specifies the error code for the
 	// failure. (InsufficientFreeAddressesInSubnet | Gateway.NotAttached | InvalidAllocationID.NotFound
 	// | Resource.AlreadyAssociated | InternalError | InvalidSubnetID.NotFound)
-	FailureCode *string `locationName:"failureCode" type:"string"`
+	FailureCode *string `json:"ec2:NatGateway:FailureCode" locationName:"failureCode" type:"string"`
 
 	// If the NAT gateway could not be created, specifies the error message for
 	// the failure, that corresponds to the error code.
@@ -5410,19 +5410,19 @@ type NatGateway struct {
 	//
 	//    * For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx
 	//    does not exist or could not be found."
-	FailureMessage *string `locationName:"failureMessage" type:"string"`
+	FailureMessage *string `json:"ec2:NatGateway:FailureMessage" locationName:"failureMessage" type:"string"`
 
 	// Information about the IP addresses and network interface associated with
 	// the NAT gateway.
-	NatGatewayAddresses []NatGatewayAddress `locationName:"natGatewayAddressSet" locationNameList:"item" type:"list"`
+	NatGatewayAddresses []NatGatewayAddress `json:"ec2:NatGateway:NatGatewayAddresses" locationName:"natGatewayAddressSet" locationNameList:"item" type:"list"`
 
 	// The ID of the NAT gateway.
-	NatGatewayId *string `locationName:"natGatewayId" type:"string"`
+	NatGatewayId *string `json:"ec2:NatGateway:NatGatewayId" locationName:"natGatewayId" type:"string"`
 
 	// Reserved. If you need to sustain traffic greater than the documented limits
 	// (https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html),
 	// contact us through the Support Center (https://console.aws.amazon.com/support/home?).
-	ProvisionedBandwidth *ProvisionedBandwidth `locationName:"provisionedBandwidth" type:"structure"`
+	ProvisionedBandwidth *ProvisionedBandwidth `json:"ec2:NatGateway:ProvisionedBandwidth" locationName:"provisionedBandwidth" type:"structure"`
 
 	// The state of the NAT gateway.
 	//
@@ -5441,16 +5441,16 @@ type NatGateway struct {
 	//
 	//    * deleted: The NAT gateway has been terminated and is no longer processing
 	//    traffic.
-	State NatGatewayState `locationName:"state" type:"string" enum:"true"`
+	State NatGatewayState `json:"ec2:NatGateway:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the subnet in which the NAT gateway is located.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:NatGateway:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The tags for the NAT gateway.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:NatGateway:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC in which the NAT gateway is located.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:NatGateway:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -5465,16 +5465,16 @@ type NatGatewayAddress struct {
 
 	// The allocation ID of the Elastic IP address that's associated with the NAT
 	// gateway.
-	AllocationId *string `locationName:"allocationId" type:"string"`
+	AllocationId *string `json:"ec2:NatGatewayAddress:AllocationId" locationName:"allocationId" type:"string"`
 
 	// The ID of the network interface associated with the NAT gateway.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:NatGatewayAddress:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The private IP address associated with the Elastic IP address.
-	PrivateIp *string `locationName:"privateIp" type:"string"`
+	PrivateIp *string `json:"ec2:NatGatewayAddress:PrivateIp" locationName:"privateIp" type:"string"`
 
 	// The Elastic IP address associated with the NAT gateway.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"ec2:NatGatewayAddress:PublicIp" locationName:"publicIp" type:"string"`
 }
 
 // String returns the string representation
@@ -5488,25 +5488,25 @@ type NetworkAcl struct {
 	_ struct{} `type:"structure"`
 
 	// Any associations between the network ACL and one or more subnets
-	Associations []NetworkAclAssociation `locationName:"associationSet" locationNameList:"item" type:"list"`
+	Associations []NetworkAclAssociation `json:"ec2:NetworkAcl:Associations" locationName:"associationSet" locationNameList:"item" type:"list"`
 
 	// One or more entries (rules) in the network ACL.
-	Entries []NetworkAclEntry `locationName:"entrySet" locationNameList:"item" type:"list"`
+	Entries []NetworkAclEntry `json:"ec2:NetworkAcl:Entries" locationName:"entrySet" locationNameList:"item" type:"list"`
 
 	// Indicates whether this is the default network ACL for the VPC.
-	IsDefault *bool `locationName:"default" type:"boolean"`
+	IsDefault *bool `json:"ec2:NetworkAcl:IsDefault" locationName:"default" type:"boolean"`
 
 	// The ID of the network ACL.
-	NetworkAclId *string `locationName:"networkAclId" type:"string"`
+	NetworkAclId *string `json:"ec2:NetworkAcl:NetworkAclId" locationName:"networkAclId" type:"string"`
 
 	// The ID of the AWS account that owns the network ACL.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:NetworkAcl:OwnerId" locationName:"ownerId" type:"string"`
 
 	// Any tags assigned to the network ACL.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:NetworkAcl:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC for the network ACL.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:NetworkAcl:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -5520,13 +5520,13 @@ type NetworkAclAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the association between a network ACL and a subnet.
-	NetworkAclAssociationId *string `locationName:"networkAclAssociationId" type:"string"`
+	NetworkAclAssociationId *string `json:"ec2:NetworkAclAssociation:NetworkAclAssociationId" locationName:"networkAclAssociationId" type:"string"`
 
 	// The ID of the network ACL.
-	NetworkAclId *string `locationName:"networkAclId" type:"string"`
+	NetworkAclId *string `json:"ec2:NetworkAclAssociation:NetworkAclId" locationName:"networkAclId" type:"string"`
 
 	// The ID of the subnet.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:NetworkAclAssociation:SubnetId" locationName:"subnetId" type:"string"`
 }
 
 // String returns the string representation
@@ -5540,30 +5540,30 @@ type NetworkAclEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv4 network range to allow or deny, in CIDR notation.
-	CidrBlock *string `locationName:"cidrBlock" type:"string"`
+	CidrBlock *string `json:"ec2:NetworkAclEntry:CidrBlock" locationName:"cidrBlock" type:"string"`
 
 	// Indicates whether the rule is an egress rule (applied to traffic leaving
 	// the subnet).
-	Egress *bool `locationName:"egress" type:"boolean"`
+	Egress *bool `json:"ec2:NetworkAclEntry:Egress" locationName:"egress" type:"boolean"`
 
 	// ICMP protocol: The ICMP type and code.
-	IcmpTypeCode *IcmpTypeCode `locationName:"icmpTypeCode" type:"structure"`
+	IcmpTypeCode *IcmpTypeCode `json:"ec2:NetworkAclEntry:IcmpTypeCode" locationName:"icmpTypeCode" type:"structure"`
 
 	// The IPv6 network range to allow or deny, in CIDR notation.
-	Ipv6CidrBlock *string `locationName:"ipv6CidrBlock" type:"string"`
+	Ipv6CidrBlock *string `json:"ec2:NetworkAclEntry:Ipv6CidrBlock" locationName:"ipv6CidrBlock" type:"string"`
 
 	// TCP or UDP protocols: The range of ports the rule applies to.
-	PortRange *PortRange `locationName:"portRange" type:"structure"`
+	PortRange *PortRange `json:"ec2:NetworkAclEntry:PortRange" locationName:"portRange" type:"structure"`
 
 	// The protocol number. A value of "-1" means all protocols.
-	Protocol *string `locationName:"protocol" type:"string"`
+	Protocol *string `json:"ec2:NetworkAclEntry:Protocol" locationName:"protocol" type:"string"`
 
 	// Indicates whether to allow or deny the traffic that matches the rule.
-	RuleAction RuleAction `locationName:"ruleAction" type:"string" enum:"true"`
+	RuleAction RuleAction `json:"ec2:NetworkAclEntry:RuleAction" locationName:"ruleAction" type:"string" enum:"true"`
 
 	// The rule number for the entry. ACL entries are processed in ascending order
 	// by rule number.
-	RuleNumber *int64 `locationName:"ruleNumber" type:"integer"`
+	RuleNumber *int64 `json:"ec2:NetworkAclEntry:RuleNumber" locationName:"ruleNumber" type:"integer"`
 }
 
 // String returns the string representation
@@ -5578,65 +5578,65 @@ type NetworkInterface struct {
 
 	// The association information for an Elastic IP address (IPv4) associated with
 	// the network interface.
-	Association *NetworkInterfaceAssociation `locationName:"association" type:"structure"`
+	Association *NetworkInterfaceAssociation `json:"ec2:NetworkInterface:Association" locationName:"association" type:"structure"`
 
 	// The network interface attachment.
-	Attachment *NetworkInterfaceAttachment `locationName:"attachment" type:"structure"`
+	Attachment *NetworkInterfaceAttachment `json:"ec2:NetworkInterface:Attachment" locationName:"attachment" type:"structure"`
 
 	// The Availability Zone.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:NetworkInterface:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// A description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:NetworkInterface:Description" locationName:"description" type:"string"`
 
 	// Any security groups for the network interface.
-	Groups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	Groups []GroupIdentifier `json:"ec2:NetworkInterface:Groups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// The type of network interface.
-	InterfaceType NetworkInterfaceType `locationName:"interfaceType" type:"string" enum:"true"`
+	InterfaceType NetworkInterfaceType `json:"ec2:NetworkInterface:InterfaceType" locationName:"interfaceType" type:"string" enum:"true"`
 
 	// The IPv6 addresses associated with the network interface.
-	Ipv6Addresses []NetworkInterfaceIpv6Address `locationName:"ipv6AddressesSet" locationNameList:"item" type:"list"`
+	Ipv6Addresses []NetworkInterfaceIpv6Address `json:"ec2:NetworkInterface:Ipv6Addresses" locationName:"ipv6AddressesSet" locationNameList:"item" type:"list"`
 
 	// The MAC address.
-	MacAddress *string `locationName:"macAddress" type:"string"`
+	MacAddress *string `json:"ec2:NetworkInterface:MacAddress" locationName:"macAddress" type:"string"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:NetworkInterface:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The AWS account ID of the owner of the network interface.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:NetworkInterface:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The private DNS name.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"ec2:NetworkInterface:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The IPv4 address of the network interface within the subnet.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:NetworkInterface:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// The private IPv4 addresses associated with the network interface.
-	PrivateIpAddresses []NetworkInterfacePrivateIpAddress `locationName:"privateIpAddressesSet" locationNameList:"item" type:"list"`
+	PrivateIpAddresses []NetworkInterfacePrivateIpAddress `json:"ec2:NetworkInterface:PrivateIpAddresses" locationName:"privateIpAddressesSet" locationNameList:"item" type:"list"`
 
 	// The ID of the entity that launched the instance on your behalf (for example,
 	// AWS Management Console or Auto Scaling).
-	RequesterId *string `locationName:"requesterId" type:"string"`
+	RequesterId *string `json:"ec2:NetworkInterface:RequesterId" locationName:"requesterId" type:"string"`
 
 	// Indicates whether the network interface is being managed by AWS.
-	RequesterManaged *bool `locationName:"requesterManaged" type:"boolean"`
+	RequesterManaged *bool `json:"ec2:NetworkInterface:RequesterManaged" locationName:"requesterManaged" type:"boolean"`
 
 	// Indicates whether traffic to or from the instance is validated.
-	SourceDestCheck *bool `locationName:"sourceDestCheck" type:"boolean"`
+	SourceDestCheck *bool `json:"ec2:NetworkInterface:SourceDestCheck" locationName:"sourceDestCheck" type:"boolean"`
 
 	// The status of the network interface.
-	Status NetworkInterfaceStatus `locationName:"status" type:"string" enum:"true"`
+	Status NetworkInterfaceStatus `json:"ec2:NetworkInterface:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The ID of the subnet.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:NetworkInterface:SubnetId" locationName:"subnetId" type:"string"`
 
 	// Any tags assigned to the network interface.
-	TagSet []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	TagSet []Tag `json:"ec2:NetworkInterface:TagSet" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:NetworkInterface:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -5650,19 +5650,19 @@ type NetworkInterfaceAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The allocation ID.
-	AllocationId *string `locationName:"allocationId" type:"string"`
+	AllocationId *string `json:"ec2:NetworkInterfaceAssociation:AllocationId" locationName:"allocationId" type:"string"`
 
 	// The association ID.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:NetworkInterfaceAssociation:AssociationId" locationName:"associationId" type:"string"`
 
 	// The ID of the Elastic IP address owner.
-	IpOwnerId *string `locationName:"ipOwnerId" type:"string"`
+	IpOwnerId *string `json:"ec2:NetworkInterfaceAssociation:IpOwnerId" locationName:"ipOwnerId" type:"string"`
 
 	// The public DNS name.
-	PublicDnsName *string `locationName:"publicDnsName" type:"string"`
+	PublicDnsName *string `json:"ec2:NetworkInterfaceAssociation:PublicDnsName" locationName:"publicDnsName" type:"string"`
 
 	// The address of the Elastic IP address bound to the network interface.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"ec2:NetworkInterfaceAssociation:PublicIp" locationName:"publicIp" type:"string"`
 }
 
 // String returns the string representation
@@ -5676,25 +5676,25 @@ type NetworkInterfaceAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp indicating when the attachment initiated.
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
+	AttachTime *time.Time `json:"ec2:NetworkInterfaceAttachment:AttachTime" locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The ID of the network interface attachment.
-	AttachmentId *string `locationName:"attachmentId" type:"string"`
+	AttachmentId *string `json:"ec2:NetworkInterfaceAttachment:AttachmentId" locationName:"attachmentId" type:"string"`
 
 	// Indicates whether the network interface is deleted when the instance is terminated.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:NetworkInterfaceAttachment:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// The device index of the network interface attachment on the instance.
-	DeviceIndex *int64 `locationName:"deviceIndex" type:"integer"`
+	DeviceIndex *int64 `json:"ec2:NetworkInterfaceAttachment:DeviceIndex" locationName:"deviceIndex" type:"integer"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:NetworkInterfaceAttachment:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The AWS account ID of the owner of the instance.
-	InstanceOwnerId *string `locationName:"instanceOwnerId" type:"string"`
+	InstanceOwnerId *string `json:"ec2:NetworkInterfaceAttachment:InstanceOwnerId" locationName:"instanceOwnerId" type:"string"`
 
 	// The attachment state.
-	Status AttachmentStatus `locationName:"status" type:"string" enum:"true"`
+	Status AttachmentStatus `json:"ec2:NetworkInterfaceAttachment:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5708,10 +5708,10 @@ type NetworkInterfaceAttachmentChanges struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the network interface attachment.
-	AttachmentId *string `locationName:"attachmentId" type:"string"`
+	AttachmentId *string `json:"ec2:NetworkInterfaceAttachmentChanges:AttachmentId" locationName:"attachmentId" type:"string"`
 
 	// Indicates whether the network interface is deleted when the instance is terminated.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:NetworkInterfaceAttachmentChanges:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5725,7 +5725,7 @@ type NetworkInterfaceIpv6Address struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv6 address.
-	Ipv6Address *string `locationName:"ipv6Address" type:"string"`
+	Ipv6Address *string `json:"ec2:NetworkInterfaceIpv6Address:Ipv6Address" locationName:"ipv6Address" type:"string"`
 }
 
 // String returns the string representation
@@ -5739,22 +5739,22 @@ type NetworkInterfacePermission struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID.
-	AwsAccountId *string `locationName:"awsAccountId" type:"string"`
+	AwsAccountId *string `json:"ec2:NetworkInterfacePermission:AwsAccountId" locationName:"awsAccountId" type:"string"`
 
 	// The AWS service.
-	AwsService *string `locationName:"awsService" type:"string"`
+	AwsService *string `json:"ec2:NetworkInterfacePermission:AwsService" locationName:"awsService" type:"string"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:NetworkInterfacePermission:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The ID of the network interface permission.
-	NetworkInterfacePermissionId *string `locationName:"networkInterfacePermissionId" type:"string"`
+	NetworkInterfacePermissionId *string `json:"ec2:NetworkInterfacePermission:NetworkInterfacePermissionId" locationName:"networkInterfacePermissionId" type:"string"`
 
 	// The type of permission.
-	Permission InterfacePermissionType `locationName:"permission" type:"string" enum:"true"`
+	Permission InterfacePermissionType `json:"ec2:NetworkInterfacePermission:Permission" locationName:"permission" type:"string" enum:"true"`
 
 	// Information about the state of the permission.
-	PermissionState *NetworkInterfacePermissionState `locationName:"permissionState" type:"structure"`
+	PermissionState *NetworkInterfacePermissionState `json:"ec2:NetworkInterfacePermission:PermissionState" locationName:"permissionState" type:"structure"`
 }
 
 // String returns the string representation
@@ -5768,10 +5768,10 @@ type NetworkInterfacePermissionState struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the permission.
-	State NetworkInterfacePermissionStateCode `locationName:"state" type:"string" enum:"true"`
+	State NetworkInterfacePermissionStateCode `json:"ec2:NetworkInterfacePermissionState:State" locationName:"state" type:"string" enum:"true"`
 
 	// A status message, if applicable.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:NetworkInterfacePermissionState:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -5786,17 +5786,17 @@ type NetworkInterfacePrivateIpAddress struct {
 
 	// The association information for an Elastic IP address (IPv4) associated with
 	// the network interface.
-	Association *NetworkInterfaceAssociation `locationName:"association" type:"structure"`
+	Association *NetworkInterfaceAssociation `json:"ec2:NetworkInterfacePrivateIpAddress:Association" locationName:"association" type:"structure"`
 
 	// Indicates whether this IPv4 address is the primary private IPv4 address of
 	// the network interface.
-	Primary *bool `locationName:"primary" type:"boolean"`
+	Primary *bool `json:"ec2:NetworkInterfacePrivateIpAddress:Primary" locationName:"primary" type:"boolean"`
 
 	// The private DNS name.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"ec2:NetworkInterfacePrivateIpAddress:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The private IPv4 address.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:NetworkInterfacePrivateIpAddress:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -5808,9 +5808,9 @@ func (s NetworkInterfacePrivateIpAddress) String() string {
 type NewDhcpConfiguration struct {
 	_ struct{} `type:"structure"`
 
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"ec2:NewDhcpConfiguration:Key" locationName:"key" type:"string"`
 
-	Values []string `locationName:"Value" locationNameList:"item" type:"list"`
+	Values []string `json:"ec2:NewDhcpConfiguration:Values" locationName:"Value" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -5829,23 +5829,23 @@ type OnDemandOptions struct {
 	// EC2 Fleet uses the priority that you assigned to each launch template override,
 	// launching the highest priority first. If you do not specify a value, EC2
 	// Fleet defaults to lowest-price.
-	AllocationStrategy FleetOnDemandAllocationStrategy `locationName:"allocationStrategy" type:"string" enum:"true"`
+	AllocationStrategy FleetOnDemandAllocationStrategy `json:"ec2:OnDemandOptions:AllocationStrategy" locationName:"allocationStrategy" type:"string" enum:"true"`
 
 	// The maximum amount per hour for On-Demand Instances that you're willing to
 	// pay.
-	MaxTotalPrice *string `locationName:"maxTotalPrice" type:"string"`
+	MaxTotalPrice *string `json:"ec2:OnDemandOptions:MaxTotalPrice" locationName:"maxTotalPrice" type:"string"`
 
 	// The minimum target capacity for On-Demand Instances in the fleet. If the
 	// minimum target capacity is not reached, the fleet launches no instances.
-	MinTargetCapacity *int64 `locationName:"minTargetCapacity" type:"integer"`
+	MinTargetCapacity *int64 `json:"ec2:OnDemandOptions:MinTargetCapacity" locationName:"minTargetCapacity" type:"integer"`
 
 	// Indicates that the fleet launches all On-Demand Instances into a single Availability
 	// Zone.
-	SingleAvailabilityZone *bool `locationName:"singleAvailabilityZone" type:"boolean"`
+	SingleAvailabilityZone *bool `json:"ec2:OnDemandOptions:SingleAvailabilityZone" locationName:"singleAvailabilityZone" type:"boolean"`
 
 	// Indicates that the fleet uses a single instance type to launch all On-Demand
 	// Instances in the fleet.
-	SingleInstanceType *bool `locationName:"singleInstanceType" type:"boolean"`
+	SingleInstanceType *bool `json:"ec2:OnDemandOptions:SingleInstanceType" locationName:"singleInstanceType" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5864,23 +5864,23 @@ type OnDemandOptionsRequest struct {
 	// EC2 Fleet uses the priority that you assigned to each launch template override,
 	// launching the highest priority first. If you do not specify a value, EC2
 	// Fleet defaults to lowest-price.
-	AllocationStrategy FleetOnDemandAllocationStrategy `type:"string" enum:"true"`
+	AllocationStrategy FleetOnDemandAllocationStrategy `json:"ec2:OnDemandOptionsRequest:AllocationStrategy" type:"string" enum:"true"`
 
 	// The maximum amount per hour for On-Demand Instances that you're willing to
 	// pay.
-	MaxTotalPrice *string `type:"string"`
+	MaxTotalPrice *string `json:"ec2:OnDemandOptionsRequest:MaxTotalPrice" type:"string"`
 
 	// The minimum target capacity for On-Demand Instances in the fleet. If the
 	// minimum target capacity is not reached, the fleet launches no instances.
-	MinTargetCapacity *int64 `type:"integer"`
+	MinTargetCapacity *int64 `json:"ec2:OnDemandOptionsRequest:MinTargetCapacity" type:"integer"`
 
 	// Indicates that the fleet launches all On-Demand Instances into a single Availability
 	// Zone.
-	SingleAvailabilityZone *bool `type:"boolean"`
+	SingleAvailabilityZone *bool `json:"ec2:OnDemandOptionsRequest:SingleAvailabilityZone" type:"boolean"`
 
 	// Indicates that the fleet uses a single instance type to launch all On-Demand
 	// Instances in the fleet.
-	SingleInstanceType *bool `type:"boolean"`
+	SingleInstanceType *bool `json:"ec2:OnDemandOptionsRequest:SingleInstanceType" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5895,16 +5895,16 @@ type PciId struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the device.
-	DeviceId *string `type:"string"`
+	DeviceId *string `json:"ec2:PciId:DeviceId" type:"string"`
 
 	// The ID of the subsystem.
-	SubsystemId *string `type:"string"`
+	SubsystemId *string `json:"ec2:PciId:SubsystemId" type:"string"`
 
 	// The ID of the vendor for the subsystem.
-	SubsystemVendorId *string `type:"string"`
+	SubsystemVendorId *string `json:"ec2:PciId:SubsystemVendorId" type:"string"`
 
 	// The ID of the vendor.
-	VendorId *string `type:"string"`
+	VendorId *string `json:"ec2:PciId:VendorId" type:"string"`
 }
 
 // String returns the string representation
@@ -5919,15 +5919,15 @@ type PeeringConnectionOptions struct {
 
 	// If true, the public DNS hostnames of instances in the specified VPC resolve
 	// to private IP addresses when queried from instances in the peer VPC.
-	AllowDnsResolutionFromRemoteVpc *bool `locationName:"allowDnsResolutionFromRemoteVpc" type:"boolean"`
+	AllowDnsResolutionFromRemoteVpc *bool `json:"ec2:PeeringConnectionOptions:AllowDnsResolutionFromRemoteVpc" locationName:"allowDnsResolutionFromRemoteVpc" type:"boolean"`
 
 	// If true, enables outbound communication from an EC2-Classic instance that's
 	// linked to a local VPC using ClassicLink to instances in a peer VPC.
-	AllowEgressFromLocalClassicLinkToRemoteVpc *bool `locationName:"allowEgressFromLocalClassicLinkToRemoteVpc" type:"boolean"`
+	AllowEgressFromLocalClassicLinkToRemoteVpc *bool `json:"ec2:PeeringConnectionOptions:AllowEgressFromLocalClassicLinkToRemoteVpc" locationName:"allowEgressFromLocalClassicLinkToRemoteVpc" type:"boolean"`
 
 	// If true, enables outbound communication from instances in a local VPC to
 	// an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
-	AllowEgressFromLocalVpcToRemoteClassicLink *bool `locationName:"allowEgressFromLocalVpcToRemoteClassicLink" type:"boolean"`
+	AllowEgressFromLocalVpcToRemoteClassicLink *bool `json:"ec2:PeeringConnectionOptions:AllowEgressFromLocalVpcToRemoteClassicLink" locationName:"allowEgressFromLocalVpcToRemoteClassicLink" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5942,15 +5942,15 @@ type PeeringConnectionOptionsRequest struct {
 
 	// If true, enables a local VPC to resolve public DNS hostnames to private IP
 	// addresses when queried from instances in the peer VPC.
-	AllowDnsResolutionFromRemoteVpc *bool `type:"boolean"`
+	AllowDnsResolutionFromRemoteVpc *bool `json:"ec2:PeeringConnectionOptionsRequest:AllowDnsResolutionFromRemoteVpc" type:"boolean"`
 
 	// If true, enables outbound communication from an EC2-Classic instance that's
 	// linked to a local VPC using ClassicLink to instances in a peer VPC.
-	AllowEgressFromLocalClassicLinkToRemoteVpc *bool `type:"boolean"`
+	AllowEgressFromLocalClassicLinkToRemoteVpc *bool `json:"ec2:PeeringConnectionOptionsRequest:AllowEgressFromLocalClassicLinkToRemoteVpc" type:"boolean"`
 
 	// If true, enables outbound communication from instances in a local VPC to
 	// an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
-	AllowEgressFromLocalVpcToRemoteClassicLink *bool `type:"boolean"`
+	AllowEgressFromLocalVpcToRemoteClassicLink *bool `json:"ec2:PeeringConnectionOptionsRequest:AllowEgressFromLocalVpcToRemoteClassicLink" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5965,32 +5965,32 @@ type Placement struct {
 
 	// The affinity setting for the instance on the Dedicated Host. This parameter
 	// is not supported for the ImportInstance command.
-	Affinity *string `locationName:"affinity" type:"string"`
+	Affinity *string `json:"ec2:Placement:Affinity" locationName:"affinity" type:"string"`
 
 	// The Availability Zone of the instance.
 	//
 	// If not specified, an Availability Zone will be automatically chosen for you
 	// based on the load balancing criteria for the Region.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:Placement:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The name of the placement group the instance is in.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:Placement:GroupName" locationName:"groupName" type:"string"`
 
 	// The ID of the Dedicated Host on which the instance resides. This parameter
 	// is not supported for the ImportInstance command.
-	HostId *string `locationName:"hostId" type:"string"`
+	HostId *string `json:"ec2:Placement:HostId" locationName:"hostId" type:"string"`
 
 	// The number of the partition the instance is in. Valid only if the placement
 	// group strategy is set to partition.
-	PartitionNumber *int64 `locationName:"partitionNumber" type:"integer"`
+	PartitionNumber *int64 `json:"ec2:Placement:PartitionNumber" locationName:"partitionNumber" type:"integer"`
 
 	// Reserved for future use.
-	SpreadDomain *string `locationName:"spreadDomain" type:"string"`
+	SpreadDomain *string `json:"ec2:Placement:SpreadDomain" locationName:"spreadDomain" type:"string"`
 
 	// The tenancy of the instance (if the instance is running in a VPC). An instance
 	// with a tenancy of dedicated runs on single-tenant hardware. The host tenancy
 	// is not supported for the ImportInstance command.
-	Tenancy Tenancy `locationName:"tenancy" type:"string" enum:"true"`
+	Tenancy Tenancy `json:"ec2:Placement:Tenancy" locationName:"tenancy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6004,16 +6004,16 @@ type PlacementGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the placement group.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:PlacementGroup:GroupName" locationName:"groupName" type:"string"`
 
 	// The number of partitions. Valid only if strategy is set to partition.
-	PartitionCount *int64 `locationName:"partitionCount" type:"integer"`
+	PartitionCount *int64 `json:"ec2:PlacementGroup:PartitionCount" locationName:"partitionCount" type:"integer"`
 
 	// The state of the placement group.
-	State PlacementGroupState `locationName:"state" type:"string" enum:"true"`
+	State PlacementGroupState `json:"ec2:PlacementGroup:State" locationName:"state" type:"string" enum:"true"`
 
 	// The placement strategy.
-	Strategy PlacementStrategy `locationName:"strategy" type:"string" enum:"true"`
+	Strategy PlacementStrategy `json:"ec2:PlacementGroup:Strategy" locationName:"strategy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6027,7 +6027,7 @@ type PlacementResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the placement group the instance is in.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:PlacementResponse:GroupName" locationName:"groupName" type:"string"`
 }
 
 // String returns the string representation
@@ -6041,10 +6041,10 @@ type PortRange struct {
 	_ struct{} `type:"structure"`
 
 	// The first port in the range.
-	From *int64 `locationName:"from" type:"integer"`
+	From *int64 `json:"ec2:PortRange:From" locationName:"from" type:"integer"`
 
 	// The last port in the range.
-	To *int64 `locationName:"to" type:"integer"`
+	To *int64 `json:"ec2:PortRange:To" locationName:"to" type:"integer"`
 }
 
 // String returns the string representation
@@ -6058,13 +6058,13 @@ type PrefixList struct {
 	_ struct{} `type:"structure"`
 
 	// The IP address range of the AWS service.
-	Cidrs []string `locationName:"cidrSet" locationNameList:"item" type:"list"`
+	Cidrs []string `json:"ec2:PrefixList:Cidrs" locationName:"cidrSet" locationNameList:"item" type:"list"`
 
 	// The ID of the prefix.
-	PrefixListId *string `locationName:"prefixListId" type:"string"`
+	PrefixListId *string `json:"ec2:PrefixList:PrefixListId" locationName:"prefixListId" type:"string"`
 
 	// The name of the prefix.
-	PrefixListName *string `locationName:"prefixListName" type:"string"`
+	PrefixListName *string `json:"ec2:PrefixList:PrefixListName" locationName:"prefixListName" type:"string"`
 }
 
 // String returns the string representation
@@ -6082,10 +6082,10 @@ type PrefixListId struct {
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z,
 	// A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:PrefixListId:Description" locationName:"description" type:"string"`
 
 	// The ID of the prefix.
-	PrefixListId *string `locationName:"prefixListId" type:"string"`
+	PrefixListId *string `json:"ec2:PrefixListId:PrefixListId" locationName:"prefixListId" type:"string"`
 }
 
 // String returns the string representation
@@ -6108,18 +6108,18 @@ type PriceSchedule struct {
 	// first three months of the remaining term, will be active during months 5,
 	// 4, and 3. Then schedule 2, covering the last two months of the term, will
 	// be active for months 2 and 1.
-	Active *bool `locationName:"active" type:"boolean"`
+	Active *bool `json:"ec2:PriceSchedule:Active" locationName:"active" type:"boolean"`
 
 	// The currency for transacting the Reserved Instance resale. At this time,
 	// the only supported currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:PriceSchedule:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// The fixed price for the term.
-	Price *float64 `locationName:"price" type:"double"`
+	Price *float64 `json:"ec2:PriceSchedule:Price" locationName:"price" type:"double"`
 
 	// The number of months remaining in the reservation. For example, 2 is the
 	// second to the last month before the capacity reservation expires.
-	Term *int64 `locationName:"term" type:"long"`
+	Term *int64 `json:"ec2:PriceSchedule:Term" locationName:"term" type:"long"`
 }
 
 // String returns the string representation
@@ -6134,14 +6134,14 @@ type PriceScheduleSpecification struct {
 
 	// The currency for transacting the Reserved Instance resale. At this time,
 	// the only supported currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:PriceScheduleSpecification:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// The fixed price for the term.
-	Price *float64 `locationName:"price" type:"double"`
+	Price *float64 `json:"ec2:PriceScheduleSpecification:Price" locationName:"price" type:"double"`
 
 	// The number of months remaining in the reservation. For example, 2 is the
 	// second to the last month before the capacity reservation expires.
-	Term *int64 `locationName:"term" type:"long"`
+	Term *int64 `json:"ec2:PriceScheduleSpecification:Term" locationName:"term" type:"long"`
 }
 
 // String returns the string representation
@@ -6155,10 +6155,10 @@ type PricingDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The number of reservations available for the price.
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"ec2:PricingDetail:Count" locationName:"count" type:"integer"`
 
 	// The price per instance.
-	Price *float64 `locationName:"price" type:"double"`
+	Price *float64 `json:"ec2:PricingDetail:Price" locationName:"price" type:"double"`
 }
 
 // String returns the string representation
@@ -6172,10 +6172,10 @@ type PrincipalIdFormat struct {
 	_ struct{} `type:"structure"`
 
 	// PrincipalIdFormatARN description
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"ec2:PrincipalIdFormat:Arn" locationName:"arn" type:"string"`
 
 	// PrincipalIdFormatStatuses description
-	Statuses []IdFormat `locationName:"statusSet" locationNameList:"item" type:"list"`
+	Statuses []IdFormat `json:"ec2:PrincipalIdFormat:Statuses" locationName:"statusSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -6190,10 +6190,10 @@ type PrivateIpAddressSpecification struct {
 
 	// Indicates whether the private IPv4 address is the primary private IPv4 address.
 	// Only one IPv4 address can be designated as primary.
-	Primary *bool `locationName:"primary" type:"boolean"`
+	Primary *bool `json:"ec2:PrivateIpAddressSpecification:Primary" locationName:"primary" type:"boolean"`
 
 	// The private IPv4 addresses.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"ec2:PrivateIpAddressSpecification:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -6207,10 +6207,10 @@ type ProductCode struct {
 	_ struct{} `type:"structure"`
 
 	// The product code.
-	ProductCodeId *string `locationName:"productCode" type:"string"`
+	ProductCodeId *string `json:"ec2:ProductCode:ProductCodeId" locationName:"productCode" type:"string"`
 
 	// The type of product code.
-	ProductCodeType ProductCodeValues `locationName:"type" type:"string" enum:"true"`
+	ProductCodeType ProductCodeValues `json:"ec2:ProductCode:ProductCodeType" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6224,7 +6224,7 @@ type PropagatingVgw struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the virtual private gateway.
-	GatewayId *string `locationName:"gatewayId" type:"string"`
+	GatewayId *string `json:"ec2:PropagatingVgw:GatewayId" locationName:"gatewayId" type:"string"`
 }
 
 // String returns the string representation
@@ -6242,27 +6242,27 @@ type ProvisionedBandwidth struct {
 	// Reserved. If you need to sustain traffic greater than the documented limits
 	// (https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html),
 	// contact us through the Support Center (https://console.aws.amazon.com/support/home?).
-	ProvisionTime *time.Time `locationName:"provisionTime" type:"timestamp" timestampFormat:"iso8601"`
+	ProvisionTime *time.Time `json:"ec2:ProvisionedBandwidth:ProvisionTime" locationName:"provisionTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Reserved. If you need to sustain traffic greater than the documented limits
 	// (https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html),
 	// contact us through the Support Center (https://console.aws.amazon.com/support/home?).
-	Provisioned *string `locationName:"provisioned" type:"string"`
+	Provisioned *string `json:"ec2:ProvisionedBandwidth:Provisioned" locationName:"provisioned" type:"string"`
 
 	// Reserved. If you need to sustain traffic greater than the documented limits
 	// (https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html),
 	// contact us through the Support Center (https://console.aws.amazon.com/support/home?).
-	RequestTime *time.Time `locationName:"requestTime" type:"timestamp" timestampFormat:"iso8601"`
+	RequestTime *time.Time `json:"ec2:ProvisionedBandwidth:RequestTime" locationName:"requestTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Reserved. If you need to sustain traffic greater than the documented limits
 	// (https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html),
 	// contact us through the Support Center (https://console.aws.amazon.com/support/home?).
-	Requested *string `locationName:"requested" type:"string"`
+	Requested *string `json:"ec2:ProvisionedBandwidth:Requested" locationName:"requested" type:"string"`
 
 	// Reserved. If you need to sustain traffic greater than the documented limits
 	// (https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html),
 	// contact us through the Support Center (https://console.aws.amazon.com/support/home?).
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ec2:ProvisionedBandwidth:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -6276,19 +6276,19 @@ type PublicIpv4Pool struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the address pool.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:PublicIpv4Pool:Description" locationName:"description" type:"string"`
 
 	// The address ranges.
-	PoolAddressRanges []PublicIpv4PoolRange `locationName:"poolAddressRangeSet" locationNameList:"item" type:"list"`
+	PoolAddressRanges []PublicIpv4PoolRange `json:"ec2:PublicIpv4Pool:PoolAddressRanges" locationName:"poolAddressRangeSet" locationNameList:"item" type:"list"`
 
 	// The ID of the IPv4 address pool.
-	PoolId *string `locationName:"poolId" type:"string"`
+	PoolId *string `json:"ec2:PublicIpv4Pool:PoolId" locationName:"poolId" type:"string"`
 
 	// The total number of addresses.
-	TotalAddressCount *int64 `locationName:"totalAddressCount" type:"integer"`
+	TotalAddressCount *int64 `json:"ec2:PublicIpv4Pool:TotalAddressCount" locationName:"totalAddressCount" type:"integer"`
 
 	// The total number of available addresses.
-	TotalAvailableAddressCount *int64 `locationName:"totalAvailableAddressCount" type:"integer"`
+	TotalAvailableAddressCount *int64 `json:"ec2:PublicIpv4Pool:TotalAvailableAddressCount" locationName:"totalAvailableAddressCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -6302,16 +6302,16 @@ type PublicIpv4PoolRange struct {
 	_ struct{} `type:"structure"`
 
 	// The number of addresses in the range.
-	AddressCount *int64 `locationName:"addressCount" type:"integer"`
+	AddressCount *int64 `json:"ec2:PublicIpv4PoolRange:AddressCount" locationName:"addressCount" type:"integer"`
 
 	// The number of available addresses in the range.
-	AvailableAddressCount *int64 `locationName:"availableAddressCount" type:"integer"`
+	AvailableAddressCount *int64 `json:"ec2:PublicIpv4PoolRange:AvailableAddressCount" locationName:"availableAddressCount" type:"integer"`
 
 	// The first IP address in the range.
-	FirstAddress *string `locationName:"firstAddress" type:"string"`
+	FirstAddress *string `json:"ec2:PublicIpv4PoolRange:FirstAddress" locationName:"firstAddress" type:"string"`
 
 	// The last IP address in the range.
-	LastAddress *string `locationName:"lastAddress" type:"string"`
+	LastAddress *string `json:"ec2:PublicIpv4PoolRange:LastAddress" locationName:"lastAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -6326,29 +6326,29 @@ type Purchase struct {
 
 	// The currency in which the UpfrontPrice and HourlyPrice amounts are specified.
 	// At this time, the only supported currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:Purchase:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// The duration of the reservation's term in seconds.
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"ec2:Purchase:Duration" locationName:"duration" type:"integer"`
 
 	// The IDs of the Dedicated Hosts associated with the reservation.
-	HostIdSet []string `locationName:"hostIdSet" locationNameList:"item" type:"list"`
+	HostIdSet []string `json:"ec2:Purchase:HostIdSet" locationName:"hostIdSet" locationNameList:"item" type:"list"`
 
 	// The ID of the reservation.
-	HostReservationId *string `locationName:"hostReservationId" type:"string"`
+	HostReservationId *string `json:"ec2:Purchase:HostReservationId" locationName:"hostReservationId" type:"string"`
 
 	// The hourly price of the reservation per hour.
-	HourlyPrice *string `locationName:"hourlyPrice" type:"string"`
+	HourlyPrice *string `json:"ec2:Purchase:HourlyPrice" locationName:"hourlyPrice" type:"string"`
 
 	// The instance family on the Dedicated Host that the reservation can be associated
 	// with.
-	InstanceFamily *string `locationName:"instanceFamily" type:"string"`
+	InstanceFamily *string `json:"ec2:Purchase:InstanceFamily" locationName:"instanceFamily" type:"string"`
 
 	// The payment option for the reservation.
-	PaymentOption PaymentOption `locationName:"paymentOption" type:"string" enum:"true"`
+	PaymentOption PaymentOption `json:"ec2:Purchase:PaymentOption" locationName:"paymentOption" type:"string" enum:"true"`
 
 	// The upfront price of the reservation.
-	UpfrontPrice *string `locationName:"upfrontPrice" type:"string"`
+	UpfrontPrice *string `json:"ec2:Purchase:UpfrontPrice" locationName:"upfrontPrice" type:"string"`
 }
 
 // String returns the string representation
@@ -6364,12 +6364,12 @@ type PurchaseRequest struct {
 	// The number of instances.
 	//
 	// InstanceCount is a required field
-	InstanceCount *int64 `type:"integer" required:"true"`
+	InstanceCount *int64 `json:"ec2:PurchaseRequest:InstanceCount" type:"integer" required:"true"`
 
 	// The purchase token.
 	//
 	// PurchaseToken is a required field
-	PurchaseToken *string `type:"string" required:"true"`
+	PurchaseToken *string `json:"ec2:PurchaseRequest:PurchaseToken" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -6401,10 +6401,10 @@ type RecurringCharge struct {
 	_ struct{} `type:"structure"`
 
 	// The amount of the recurring charge.
-	Amount *float64 `locationName:"amount" type:"double"`
+	Amount *float64 `json:"ec2:RecurringCharge:Amount" locationName:"amount" type:"double"`
 
 	// The frequency of the recurring charge.
-	Frequency RecurringChargeFrequency `locationName:"frequency" type:"string" enum:"true"`
+	Frequency RecurringChargeFrequency `json:"ec2:RecurringCharge:Frequency" locationName:"frequency" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6418,14 +6418,14 @@ type Region struct {
 	_ struct{} `type:"structure"`
 
 	// The Region service endpoint.
-	Endpoint *string `locationName:"regionEndpoint" type:"string"`
+	Endpoint *string `json:"ec2:Region:Endpoint" locationName:"regionEndpoint" type:"string"`
 
 	// The Region opt-in status. The possible values are opt-in-not-required, opted-in,
 	// and not-opted-in.
-	OptInStatus *string `locationName:"optInStatus" type:"string"`
+	OptInStatus *string `json:"ec2:Region:OptInStatus" locationName:"optInStatus" type:"string"`
 
 	// The name of the Region.
-	RegionName *string `locationName:"regionName" type:"string"`
+	RegionName *string `json:"ec2:Region:RegionName" locationName:"regionName" type:"string"`
 }
 
 // String returns the string representation
@@ -6445,125 +6445,125 @@ type RequestLaunchTemplateData struct {
 	// on start, and these are not created from a snapshot. If a snapshot is the
 	// basis for the volume, it contains data by definition and its encryption status
 	// cannot be changed using this action.
-	BlockDeviceMappings []LaunchTemplateBlockDeviceMappingRequest `locationName:"BlockDeviceMapping" locationNameList:"BlockDeviceMapping" type:"list"`
+	BlockDeviceMappings []LaunchTemplateBlockDeviceMappingRequest `json:"ec2:RequestLaunchTemplateData:BlockDeviceMappings" locationName:"BlockDeviceMapping" locationNameList:"BlockDeviceMapping" type:"list"`
 
 	// The Capacity Reservation targeting option. If you do not specify this parameter,
 	// the instance's Capacity Reservation preference defaults to open, which enables
 	// it to run in any open Capacity Reservation that has matching attributes (instance
 	// type, platform, Availability Zone).
-	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecificationRequest `type:"structure"`
+	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecificationRequest `json:"ec2:RequestLaunchTemplateData:CapacityReservationSpecification" type:"structure"`
 
 	// The CPU options for the instance. For more information, see Optimizing CPU
 	// Options (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html)
 	// in the Amazon Elastic Compute Cloud User Guide.
-	CpuOptions *LaunchTemplateCpuOptionsRequest `type:"structure"`
+	CpuOptions *LaunchTemplateCpuOptionsRequest `json:"ec2:RequestLaunchTemplateData:CpuOptions" type:"structure"`
 
 	// The credit option for CPU usage of the instance. Valid for T2 or T3 instances
 	// only.
-	CreditSpecification *CreditSpecificationRequest `type:"structure"`
+	CreditSpecification *CreditSpecificationRequest `json:"ec2:RequestLaunchTemplateData:CreditSpecification" type:"structure"`
 
 	// If you set this parameter to true, you can't terminate the instance using
 	// the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute
 	// after launch, use ModifyInstanceAttribute (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html).
 	// Alternatively, if you set InstanceInitiatedShutdownBehavior to terminate,
 	// you can terminate the instance by running the shutdown command from the instance.
-	DisableApiTermination *bool `type:"boolean"`
+	DisableApiTermination *bool `json:"ec2:RequestLaunchTemplateData:DisableApiTermination" type:"boolean"`
 
 	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
 	// provides dedicated throughput to Amazon EBS and an optimized configuration
 	// stack to provide optimal Amazon EBS I/O performance. This optimization isn't
 	// available with all instance types. Additional usage charges apply when using
 	// an EBS-optimized instance.
-	EbsOptimized *bool `type:"boolean"`
+	EbsOptimized *bool `json:"ec2:RequestLaunchTemplateData:EbsOptimized" type:"boolean"`
 
 	// An elastic GPU to associate with the instance.
-	ElasticGpuSpecifications []ElasticGpuSpecification `locationName:"ElasticGpuSpecification" locationNameList:"ElasticGpuSpecification" type:"list"`
+	ElasticGpuSpecifications []ElasticGpuSpecification `json:"ec2:RequestLaunchTemplateData:ElasticGpuSpecifications" locationName:"ElasticGpuSpecification" locationNameList:"ElasticGpuSpecification" type:"list"`
 
 	// The elastic inference accelerator for the instance.
-	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAccelerator `locationName:"ElasticInferenceAccelerator" locationNameList:"item" type:"list"`
+	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAccelerator `json:"ec2:RequestLaunchTemplateData:ElasticInferenceAccelerators" locationName:"ElasticInferenceAccelerator" locationNameList:"item" type:"list"`
 
 	// Indicates whether an instance is enabled for hibernation. This parameter
 	// is valid only if the instance meets the hibernation prerequisites (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites).
 	// Hibernation is currently supported only for Amazon Linux. For more information,
 	// see Hibernate Your Instance (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html)
 	// in the Amazon Elastic Compute Cloud User Guide.
-	HibernationOptions *LaunchTemplateHibernationOptionsRequest `type:"structure"`
+	HibernationOptions *LaunchTemplateHibernationOptionsRequest `json:"ec2:RequestLaunchTemplateData:HibernationOptions" type:"structure"`
 
 	// The IAM instance profile.
-	IamInstanceProfile *LaunchTemplateIamInstanceProfileSpecificationRequest `type:"structure"`
+	IamInstanceProfile *LaunchTemplateIamInstanceProfileSpecificationRequest `json:"ec2:RequestLaunchTemplateData:IamInstanceProfile" type:"structure"`
 
 	// The ID of the AMI.
-	ImageId *string `type:"string"`
+	ImageId *string `json:"ec2:RequestLaunchTemplateData:ImageId" type:"string"`
 
 	// Indicates whether an instance stops or terminates when you initiate shutdown
 	// from the instance (using the operating system command for system shutdown).
 	//
 	// Default: stop
-	InstanceInitiatedShutdownBehavior ShutdownBehavior `type:"string" enum:"true"`
+	InstanceInitiatedShutdownBehavior ShutdownBehavior `json:"ec2:RequestLaunchTemplateData:InstanceInitiatedShutdownBehavior" type:"string" enum:"true"`
 
 	// The market (purchasing) option for the instances.
-	InstanceMarketOptions *LaunchTemplateInstanceMarketOptionsRequest `type:"structure"`
+	InstanceMarketOptions *LaunchTemplateInstanceMarketOptionsRequest `json:"ec2:RequestLaunchTemplateData:InstanceMarketOptions" type:"structure"`
 
 	// The instance type. For more information, see Instance Types (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html)
 	// in the Amazon Elastic Compute Cloud User Guide.
-	InstanceType InstanceType `type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:RequestLaunchTemplateData:InstanceType" type:"string" enum:"true"`
 
 	// The ID of the kernel.
 	//
 	// We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
 	// information, see User Provided Kernels (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html)
 	// in the Amazon Elastic Compute Cloud User Guide.
-	KernelId *string `type:"string"`
+	KernelId *string `json:"ec2:RequestLaunchTemplateData:KernelId" type:"string"`
 
 	// The name of the key pair. You can create a key pair using CreateKeyPair (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html)
 	// or ImportKeyPair (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html).
 	//
 	// If you do not specify a key pair, you can't connect to the instance unless
 	// you choose an AMI that is configured to allow users another way to log in.
-	KeyName *string `type:"string"`
+	KeyName *string `json:"ec2:RequestLaunchTemplateData:KeyName" type:"string"`
 
 	// The license configurations.
-	LicenseSpecifications []LaunchTemplateLicenseConfigurationRequest `locationName:"LicenseSpecification" locationNameList:"item" type:"list"`
+	LicenseSpecifications []LaunchTemplateLicenseConfigurationRequest `json:"ec2:RequestLaunchTemplateData:LicenseSpecifications" locationName:"LicenseSpecification" locationNameList:"item" type:"list"`
 
 	// The monitoring for the instance.
-	Monitoring *LaunchTemplatesMonitoringRequest `type:"structure"`
+	Monitoring *LaunchTemplatesMonitoringRequest `json:"ec2:RequestLaunchTemplateData:Monitoring" type:"structure"`
 
 	// One or more network interfaces. If you specify a network interface, you must
 	// specify any security groups and subnets as part of the network interface.
-	NetworkInterfaces []LaunchTemplateInstanceNetworkInterfaceSpecificationRequest `locationName:"NetworkInterface" locationNameList:"InstanceNetworkInterfaceSpecification" type:"list"`
+	NetworkInterfaces []LaunchTemplateInstanceNetworkInterfaceSpecificationRequest `json:"ec2:RequestLaunchTemplateData:NetworkInterfaces" locationName:"NetworkInterface" locationNameList:"InstanceNetworkInterfaceSpecification" type:"list"`
 
 	// The placement for the instance.
-	Placement *LaunchTemplatePlacementRequest `type:"structure"`
+	Placement *LaunchTemplatePlacementRequest `json:"ec2:RequestLaunchTemplateData:Placement" type:"structure"`
 
 	// The ID of the RAM disk.
 	//
 	// We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
 	// information, see User Provided Kernels (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html)
 	// in the Amazon Elastic Compute Cloud User Guide.
-	RamDiskId *string `type:"string"`
+	RamDiskId *string `json:"ec2:RequestLaunchTemplateData:RamDiskId" type:"string"`
 
 	// One or more security group IDs. You can create a security group using CreateSecurityGroup
 	// (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html).
 	// You cannot specify both a security group ID and security name in the same
 	// request.
-	SecurityGroupIds []string `locationName:"SecurityGroupId" locationNameList:"SecurityGroupId" type:"list"`
+	SecurityGroupIds []string `json:"ec2:RequestLaunchTemplateData:SecurityGroupIds" locationName:"SecurityGroupId" locationNameList:"SecurityGroupId" type:"list"`
 
 	// [EC2-Classic, default VPC] One or more security group names. For a nondefault
 	// VPC, you must use security group IDs instead. You cannot specify both a security
 	// group ID and security name in the same request.
-	SecurityGroups []string `locationName:"SecurityGroup" locationNameList:"SecurityGroup" type:"list"`
+	SecurityGroups []string `json:"ec2:RequestLaunchTemplateData:SecurityGroups" locationName:"SecurityGroup" locationNameList:"SecurityGroup" type:"list"`
 
 	// The tags to apply to the resources during launch. You can only tag instances
 	// and volumes on launch. The specified tags are applied to all instances or
 	// volumes that are created during launch. To tag a resource after it has been
 	// created, see CreateTags (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
-	TagSpecifications []LaunchTemplateTagSpecificationRequest `locationName:"TagSpecification" locationNameList:"LaunchTemplateTagSpecificationRequest" type:"list"`
+	TagSpecifications []LaunchTemplateTagSpecificationRequest `json:"ec2:RequestLaunchTemplateData:TagSpecifications" locationName:"TagSpecification" locationNameList:"LaunchTemplateTagSpecificationRequest" type:"list"`
 
 	// The Base64-encoded user data to make available to the instance. For more
 	// information, see Running Commands on Your Linux Instance at Launch (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html)
 	// (Linux) and Adding User Data (https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data)
 	// (Windows).
-	UserData *string `type:"string"`
+	UserData *string `json:"ec2:RequestLaunchTemplateData:UserData" type:"string"`
 }
 
 // String returns the string representation
@@ -6606,13 +6606,13 @@ type RequestSpotLaunchSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// Deprecated.
-	AddressingType *string `locationName:"addressingType" type:"string"`
+	AddressingType *string `json:"ec2:RequestSpotLaunchSpecification:AddressingType" locationName:"addressingType" type:"string"`
 
 	// One or more block device mapping entries. You can't specify both a snapshot
 	// ID and an encryption value. This is because only blank volumes can be encrypted
 	// on creation. If a snapshot is the basis for a volume, it is not blank and
 	// its encryption status is used for the volume encryption status.
-	BlockDeviceMappings []BlockDeviceMapping `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
+	BlockDeviceMappings []BlockDeviceMapping `json:"ec2:RequestSpotLaunchSpecification:BlockDeviceMappings" locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
 
 	// Indicates whether the instance is optimized for EBS I/O. This optimization
 	// provides dedicated throughput to Amazon EBS and an optimized configuration
@@ -6621,52 +6621,52 @@ type RequestSpotLaunchSpecification struct {
 	// Optimized instance.
 	//
 	// Default: false
-	EbsOptimized *bool `locationName:"ebsOptimized" type:"boolean"`
+	EbsOptimized *bool `json:"ec2:RequestSpotLaunchSpecification:EbsOptimized" locationName:"ebsOptimized" type:"boolean"`
 
 	// The IAM instance profile.
-	IamInstanceProfile *IamInstanceProfileSpecification `locationName:"iamInstanceProfile" type:"structure"`
+	IamInstanceProfile *IamInstanceProfileSpecification `json:"ec2:RequestSpotLaunchSpecification:IamInstanceProfile" locationName:"iamInstanceProfile" type:"structure"`
 
 	// The ID of the AMI.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:RequestSpotLaunchSpecification:ImageId" locationName:"imageId" type:"string"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:RequestSpotLaunchSpecification:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The ID of the kernel.
-	KernelId *string `locationName:"kernelId" type:"string"`
+	KernelId *string `json:"ec2:RequestSpotLaunchSpecification:KernelId" locationName:"kernelId" type:"string"`
 
 	// The name of the key pair.
-	KeyName *string `locationName:"keyName" type:"string"`
+	KeyName *string `json:"ec2:RequestSpotLaunchSpecification:KeyName" locationName:"keyName" type:"string"`
 
 	// Indicates whether basic or detailed monitoring is enabled for the instance.
 	//
 	// Default: Disabled
-	Monitoring *RunInstancesMonitoringEnabled `locationName:"monitoring" type:"structure"`
+	Monitoring *RunInstancesMonitoringEnabled `json:"ec2:RequestSpotLaunchSpecification:Monitoring" locationName:"monitoring" type:"structure"`
 
 	// One or more network interfaces. If you specify a network interface, you must
 	// specify subnet IDs and security group IDs using the network interface.
-	NetworkInterfaces []InstanceNetworkInterfaceSpecification `locationName:"NetworkInterface" locationNameList:"item" type:"list"`
+	NetworkInterfaces []InstanceNetworkInterfaceSpecification `json:"ec2:RequestSpotLaunchSpecification:NetworkInterfaces" locationName:"NetworkInterface" locationNameList:"item" type:"list"`
 
 	// The placement information for the instance.
-	Placement *SpotPlacement `locationName:"placement" type:"structure"`
+	Placement *SpotPlacement `json:"ec2:RequestSpotLaunchSpecification:Placement" locationName:"placement" type:"structure"`
 
 	// The ID of the RAM disk.
-	RamdiskId *string `locationName:"ramdiskId" type:"string"`
+	RamdiskId *string `json:"ec2:RequestSpotLaunchSpecification:RamdiskId" locationName:"ramdiskId" type:"string"`
 
 	// One or more security group IDs.
-	SecurityGroupIds []string `locationName:"SecurityGroupId" locationNameList:"item" type:"list"`
+	SecurityGroupIds []string `json:"ec2:RequestSpotLaunchSpecification:SecurityGroupIds" locationName:"SecurityGroupId" locationNameList:"item" type:"list"`
 
 	// One or more security groups. When requesting instances in a VPC, you must
 	// specify the IDs of the security groups. When requesting instances in EC2-Classic,
 	// you can specify the names or the IDs of the security groups.
-	SecurityGroups []string `locationName:"SecurityGroup" locationNameList:"item" type:"list"`
+	SecurityGroups []string `json:"ec2:RequestSpotLaunchSpecification:SecurityGroups" locationName:"SecurityGroup" locationNameList:"item" type:"list"`
 
 	// The ID of the subnet in which to launch the instance.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:RequestSpotLaunchSpecification:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The Base64-encoded user data for the instance. User data is limited to 16
 	// KB.
-	UserData *string `locationName:"userData" type:"string"`
+	UserData *string `json:"ec2:RequestSpotLaunchSpecification:UserData" locationName:"userData" type:"string"`
 }
 
 // String returns the string representation
@@ -6695,20 +6695,20 @@ type Reservation struct {
 	_ struct{} `type:"structure"`
 
 	// [EC2-Classic only] The security groups.
-	Groups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	Groups []GroupIdentifier `json:"ec2:Reservation:Groups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// The instances.
-	Instances []Instance `locationName:"instancesSet" locationNameList:"item" type:"list"`
+	Instances []Instance `json:"ec2:Reservation:Instances" locationName:"instancesSet" locationNameList:"item" type:"list"`
 
 	// The ID of the AWS account that owns the reservation.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:Reservation:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The ID of the requester that launched the instances on your behalf (for example,
 	// AWS Management Console or Auto Scaling).
-	RequesterId *string `locationName:"requesterId" type:"string"`
+	RequesterId *string `json:"ec2:Reservation:RequesterId" locationName:"requesterId" type:"string"`
 
 	// The ID of the reservation.
-	ReservationId *string `locationName:"reservationId" type:"string"`
+	ReservationId *string `json:"ec2:Reservation:ReservationId" locationName:"reservationId" type:"string"`
 }
 
 // String returns the string representation
@@ -6722,14 +6722,14 @@ type ReservationValue struct {
 	_ struct{} `type:"structure"`
 
 	// The hourly rate of the reservation.
-	HourlyPrice *string `locationName:"hourlyPrice" type:"string"`
+	HourlyPrice *string `json:"ec2:ReservationValue:HourlyPrice" locationName:"hourlyPrice" type:"string"`
 
 	// The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice
 	// * number of hours remaining).
-	RemainingTotalValue *string `locationName:"remainingTotalValue" type:"string"`
+	RemainingTotalValue *string `json:"ec2:ReservationValue:RemainingTotalValue" locationName:"remainingTotalValue" type:"string"`
 
 	// The remaining upfront cost of the reservation.
-	RemainingUpfrontValue *string `locationName:"remainingUpfrontValue" type:"string"`
+	RemainingUpfrontValue *string `json:"ec2:ReservationValue:RemainingUpfrontValue" locationName:"remainingUpfrontValue" type:"string"`
 }
 
 // String returns the string representation
@@ -6744,11 +6744,11 @@ type ReservedInstanceLimitPrice struct {
 
 	// Used for Reserved Instance Marketplace offerings. Specifies the limit price
 	// on the total order (instanceCount * price).
-	Amount *float64 `locationName:"amount" type:"double"`
+	Amount *float64 `json:"ec2:ReservedInstanceLimitPrice:Amount" locationName:"amount" type:"double"`
 
 	// The currency in which the limitPrice amount is specified. At this time, the
 	// only supported currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:ReservedInstanceLimitPrice:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6762,10 +6762,10 @@ type ReservedInstanceReservationValue struct {
 	_ struct{} `type:"structure"`
 
 	// The total value of the Convertible Reserved Instance that you are exchanging.
-	ReservationValue *ReservationValue `locationName:"reservationValue" type:"structure"`
+	ReservationValue *ReservationValue `json:"ec2:ReservedInstanceReservationValue:ReservationValue" locationName:"reservationValue" type:"structure"`
 
 	// The ID of the Convertible Reserved Instance that you are exchanging.
-	ReservedInstanceId *string `locationName:"reservedInstanceId" type:"string"`
+	ReservedInstanceId *string `json:"ec2:ReservedInstanceReservationValue:ReservedInstanceId" locationName:"reservedInstanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -6779,59 +6779,59 @@ type ReservedInstances struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in which the Reserved Instance can be used.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:ReservedInstances:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The currency of the Reserved Instance. It's specified using ISO 4217 standard
 	// currency codes. At this time, the only supported currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:ReservedInstances:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// The duration of the Reserved Instance, in seconds.
-	Duration *int64 `locationName:"duration" type:"long"`
+	Duration *int64 `json:"ec2:ReservedInstances:Duration" locationName:"duration" type:"long"`
 
 	// The time when the Reserved Instance expires.
-	End *time.Time `locationName:"end" type:"timestamp" timestampFormat:"iso8601"`
+	End *time.Time `json:"ec2:ReservedInstances:End" locationName:"end" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The purchase price of the Reserved Instance.
-	FixedPrice *float64 `locationName:"fixedPrice" type:"float"`
+	FixedPrice *float64 `json:"ec2:ReservedInstances:FixedPrice" locationName:"fixedPrice" type:"float"`
 
 	// The number of reservations purchased.
-	InstanceCount *int64 `locationName:"instanceCount" type:"integer"`
+	InstanceCount *int64 `json:"ec2:ReservedInstances:InstanceCount" locationName:"instanceCount" type:"integer"`
 
 	// The tenancy of the instance.
-	InstanceTenancy Tenancy `locationName:"instanceTenancy" type:"string" enum:"true"`
+	InstanceTenancy Tenancy `json:"ec2:ReservedInstances:InstanceTenancy" locationName:"instanceTenancy" type:"string" enum:"true"`
 
 	// The instance type on which the Reserved Instance can be used.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:ReservedInstances:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The offering class of the Reserved Instance.
-	OfferingClass OfferingClassType `locationName:"offeringClass" type:"string" enum:"true"`
+	OfferingClass OfferingClassType `json:"ec2:ReservedInstances:OfferingClass" locationName:"offeringClass" type:"string" enum:"true"`
 
 	// The Reserved Instance offering type.
-	OfferingType OfferingTypeValues `locationName:"offeringType" type:"string" enum:"true"`
+	OfferingType OfferingTypeValues `json:"ec2:ReservedInstances:OfferingType" locationName:"offeringType" type:"string" enum:"true"`
 
 	// The Reserved Instance product platform description.
-	ProductDescription RIProductDescription `locationName:"productDescription" type:"string" enum:"true"`
+	ProductDescription RIProductDescription `json:"ec2:ReservedInstances:ProductDescription" locationName:"productDescription" type:"string" enum:"true"`
 
 	// The recurring charge tag assigned to the resource.
-	RecurringCharges []RecurringCharge `locationName:"recurringCharges" locationNameList:"item" type:"list"`
+	RecurringCharges []RecurringCharge `json:"ec2:ReservedInstances:RecurringCharges" locationName:"recurringCharges" locationNameList:"item" type:"list"`
 
 	// The ID of the Reserved Instance.
-	ReservedInstancesId *string `locationName:"reservedInstancesId" type:"string"`
+	ReservedInstancesId *string `json:"ec2:ReservedInstances:ReservedInstancesId" locationName:"reservedInstancesId" type:"string"`
 
 	// The scope of the Reserved Instance.
-	Scope Scope `locationName:"scope" type:"string" enum:"true"`
+	Scope Scope `json:"ec2:ReservedInstances:Scope" locationName:"scope" type:"string" enum:"true"`
 
 	// The date and time the Reserved Instance started.
-	Start *time.Time `locationName:"start" type:"timestamp" timestampFormat:"iso8601"`
+	Start *time.Time `json:"ec2:ReservedInstances:Start" locationName:"start" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The state of the Reserved Instance purchase.
-	State ReservedInstanceState `locationName:"state" type:"string" enum:"true"`
+	State ReservedInstanceState `json:"ec2:ReservedInstances:State" locationName:"state" type:"string" enum:"true"`
 
 	// Any tags assigned to the resource.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:ReservedInstances:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The usage price of the Reserved Instance, per hour.
-	UsagePrice *float64 `locationName:"usagePrice" type:"float"`
+	UsagePrice *float64 `json:"ec2:ReservedInstances:UsagePrice" locationName:"usagePrice" type:"float"`
 }
 
 // String returns the string representation
@@ -6845,23 +6845,23 @@ type ReservedInstancesConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone for the modified Reserved Instances.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:ReservedInstancesConfiguration:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The number of modified Reserved Instances.
 	//
 	// This is a required field for a request.
-	InstanceCount *int64 `locationName:"instanceCount" type:"integer"`
+	InstanceCount *int64 `json:"ec2:ReservedInstancesConfiguration:InstanceCount" locationName:"instanceCount" type:"integer"`
 
 	// The instance type for the modified Reserved Instances.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:ReservedInstancesConfiguration:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The network platform of the modified Reserved Instances, which is either
 	// EC2-Classic or EC2-VPC.
-	Platform *string `locationName:"platform" type:"string"`
+	Platform *string `json:"ec2:ReservedInstancesConfiguration:Platform" locationName:"platform" type:"string"`
 
 	// Whether the Reserved Instance is applied to instances in a Region or instances
 	// in a specific Availability Zone.
-	Scope Scope `locationName:"scope" type:"string" enum:"true"`
+	Scope Scope `json:"ec2:ReservedInstancesConfiguration:Scope" locationName:"scope" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6875,7 +6875,7 @@ type ReservedInstancesId struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Reserved Instance.
-	ReservedInstancesId *string `locationName:"reservedInstancesId" type:"string"`
+	ReservedInstancesId *string `json:"ec2:ReservedInstancesId:ReservedInstancesId" locationName:"reservedInstancesId" type:"string"`
 }
 
 // String returns the string representation
@@ -6890,35 +6890,35 @@ type ReservedInstancesListing struct {
 
 	// A unique, case-sensitive key supplied by the client to ensure that the request
 	// is idempotent. For more information, see Ensuring Idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:ReservedInstancesListing:ClientToken" locationName:"clientToken" type:"string"`
 
 	// The time the listing was created.
-	CreateDate *time.Time `locationName:"createDate" type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"ec2:ReservedInstancesListing:CreateDate" locationName:"createDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The number of instances in this state.
-	InstanceCounts []InstanceCount `locationName:"instanceCounts" locationNameList:"item" type:"list"`
+	InstanceCounts []InstanceCount `json:"ec2:ReservedInstancesListing:InstanceCounts" locationName:"instanceCounts" locationNameList:"item" type:"list"`
 
 	// The price of the Reserved Instance listing.
-	PriceSchedules []PriceSchedule `locationName:"priceSchedules" locationNameList:"item" type:"list"`
+	PriceSchedules []PriceSchedule `json:"ec2:ReservedInstancesListing:PriceSchedules" locationName:"priceSchedules" locationNameList:"item" type:"list"`
 
 	// The ID of the Reserved Instance.
-	ReservedInstancesId *string `locationName:"reservedInstancesId" type:"string"`
+	ReservedInstancesId *string `json:"ec2:ReservedInstancesListing:ReservedInstancesId" locationName:"reservedInstancesId" type:"string"`
 
 	// The ID of the Reserved Instance listing.
-	ReservedInstancesListingId *string `locationName:"reservedInstancesListingId" type:"string"`
+	ReservedInstancesListingId *string `json:"ec2:ReservedInstancesListing:ReservedInstancesListingId" locationName:"reservedInstancesListingId" type:"string"`
 
 	// The status of the Reserved Instance listing.
-	Status ListingStatus `locationName:"status" type:"string" enum:"true"`
+	Status ListingStatus `json:"ec2:ReservedInstancesListing:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The reason for the current status of the Reserved Instance listing. The response
 	// can be blank.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:ReservedInstancesListing:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// Any tags assigned to the resource.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:ReservedInstancesListing:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The last modified timestamp of the listing.
-	UpdateDate *time.Time `locationName:"updateDate" type:"timestamp" timestampFormat:"iso8601"`
+	UpdateDate *time.Time `json:"ec2:ReservedInstancesListing:UpdateDate" locationName:"updateDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -6933,32 +6933,32 @@ type ReservedInstancesModification struct {
 
 	// A unique, case-sensitive key supplied by the client to ensure that the request
 	// is idempotent. For more information, see Ensuring Idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:ReservedInstancesModification:ClientToken" locationName:"clientToken" type:"string"`
 
 	// The time when the modification request was created.
-	CreateDate *time.Time `locationName:"createDate" type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"ec2:ReservedInstancesModification:CreateDate" locationName:"createDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The time for the modification to become effective.
-	EffectiveDate *time.Time `locationName:"effectiveDate" type:"timestamp" timestampFormat:"iso8601"`
+	EffectiveDate *time.Time `json:"ec2:ReservedInstancesModification:EffectiveDate" locationName:"effectiveDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Contains target configurations along with their corresponding new Reserved
 	// Instance IDs.
-	ModificationResults []ReservedInstancesModificationResult `locationName:"modificationResultSet" locationNameList:"item" type:"list"`
+	ModificationResults []ReservedInstancesModificationResult `json:"ec2:ReservedInstancesModification:ModificationResults" locationName:"modificationResultSet" locationNameList:"item" type:"list"`
 
 	// The IDs of one or more Reserved Instances.
-	ReservedInstancesIds []ReservedInstancesId `locationName:"reservedInstancesSet" locationNameList:"item" type:"list"`
+	ReservedInstancesIds []ReservedInstancesId `json:"ec2:ReservedInstancesModification:ReservedInstancesIds" locationName:"reservedInstancesSet" locationNameList:"item" type:"list"`
 
 	// A unique ID for the Reserved Instance modification.
-	ReservedInstancesModificationId *string `locationName:"reservedInstancesModificationId" type:"string"`
+	ReservedInstancesModificationId *string `json:"ec2:ReservedInstancesModification:ReservedInstancesModificationId" locationName:"reservedInstancesModificationId" type:"string"`
 
 	// The status of the Reserved Instances modification request.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ec2:ReservedInstancesModification:Status" locationName:"status" type:"string"`
 
 	// The reason for the status.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:ReservedInstancesModification:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The time when the modification request was last updated.
-	UpdateDate *time.Time `locationName:"updateDate" type:"timestamp" timestampFormat:"iso8601"`
+	UpdateDate *time.Time `json:"ec2:ReservedInstancesModification:UpdateDate" locationName:"updateDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -6973,11 +6973,11 @@ type ReservedInstancesModificationResult struct {
 
 	// The ID for the Reserved Instances that were created as part of the modification
 	// request. This field is only available when the modification is fulfilled.
-	ReservedInstancesId *string `locationName:"reservedInstancesId" type:"string"`
+	ReservedInstancesId *string `json:"ec2:ReservedInstancesModificationResult:ReservedInstancesId" locationName:"reservedInstancesId" type:"string"`
 
 	// The target Reserved Instances configurations supplied as part of the modification
 	// request.
-	TargetConfiguration *ReservedInstancesConfiguration `locationName:"targetConfiguration" type:"structure"`
+	TargetConfiguration *ReservedInstancesConfiguration `json:"ec2:ReservedInstancesModificationResult:TargetConfiguration" locationName:"targetConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -6991,57 +6991,57 @@ type ReservedInstancesOffering struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in which the Reserved Instance can be used.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:ReservedInstancesOffering:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The currency of the Reserved Instance offering you are purchasing. It's specified
 	// using ISO 4217 standard currency codes. At this time, the only supported
 	// currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:ReservedInstancesOffering:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// The duration of the Reserved Instance, in seconds.
-	Duration *int64 `locationName:"duration" type:"long"`
+	Duration *int64 `json:"ec2:ReservedInstancesOffering:Duration" locationName:"duration" type:"long"`
 
 	// The purchase price of the Reserved Instance.
-	FixedPrice *float64 `locationName:"fixedPrice" type:"float"`
+	FixedPrice *float64 `json:"ec2:ReservedInstancesOffering:FixedPrice" locationName:"fixedPrice" type:"float"`
 
 	// The tenancy of the instance.
-	InstanceTenancy Tenancy `locationName:"instanceTenancy" type:"string" enum:"true"`
+	InstanceTenancy Tenancy `json:"ec2:ReservedInstancesOffering:InstanceTenancy" locationName:"instanceTenancy" type:"string" enum:"true"`
 
 	// The instance type on which the Reserved Instance can be used.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:ReservedInstancesOffering:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// Indicates whether the offering is available through the Reserved Instance
 	// Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering,
 	// this is true.
-	Marketplace *bool `locationName:"marketplace" type:"boolean"`
+	Marketplace *bool `json:"ec2:ReservedInstancesOffering:Marketplace" locationName:"marketplace" type:"boolean"`
 
 	// If convertible it can be exchanged for Reserved Instances of the same or
 	// higher monetary value, with different configurations. If standard, it is
 	// not possible to perform an exchange.
-	OfferingClass OfferingClassType `locationName:"offeringClass" type:"string" enum:"true"`
+	OfferingClass OfferingClassType `json:"ec2:ReservedInstancesOffering:OfferingClass" locationName:"offeringClass" type:"string" enum:"true"`
 
 	// The Reserved Instance offering type.
-	OfferingType OfferingTypeValues `locationName:"offeringType" type:"string" enum:"true"`
+	OfferingType OfferingTypeValues `json:"ec2:ReservedInstancesOffering:OfferingType" locationName:"offeringType" type:"string" enum:"true"`
 
 	// The pricing details of the Reserved Instance offering.
-	PricingDetails []PricingDetail `locationName:"pricingDetailsSet" locationNameList:"item" type:"list"`
+	PricingDetails []PricingDetail `json:"ec2:ReservedInstancesOffering:PricingDetails" locationName:"pricingDetailsSet" locationNameList:"item" type:"list"`
 
 	// The Reserved Instance product platform description.
-	ProductDescription RIProductDescription `locationName:"productDescription" type:"string" enum:"true"`
+	ProductDescription RIProductDescription `json:"ec2:ReservedInstancesOffering:ProductDescription" locationName:"productDescription" type:"string" enum:"true"`
 
 	// The recurring charge tag assigned to the resource.
-	RecurringCharges []RecurringCharge `locationName:"recurringCharges" locationNameList:"item" type:"list"`
+	RecurringCharges []RecurringCharge `json:"ec2:ReservedInstancesOffering:RecurringCharges" locationName:"recurringCharges" locationNameList:"item" type:"list"`
 
 	// The ID of the Reserved Instance offering. This is the offering ID used in
 	// GetReservedInstancesExchangeQuote to confirm that an exchange can be made.
-	ReservedInstancesOfferingId *string `locationName:"reservedInstancesOfferingId" type:"string"`
+	ReservedInstancesOfferingId *string `json:"ec2:ReservedInstancesOffering:ReservedInstancesOfferingId" locationName:"reservedInstancesOfferingId" type:"string"`
 
 	// Whether the Reserved Instance is applied to instances in a Region or an Availability
 	// Zone.
-	Scope Scope `locationName:"scope" type:"string" enum:"true"`
+	Scope Scope `json:"ec2:ReservedInstancesOffering:Scope" locationName:"scope" type:"string" enum:"true"`
 
 	// The usage price of the Reserved Instance, per hour.
-	UsagePrice *float64 `locationName:"usagePrice" type:"float"`
+	UsagePrice *float64 `json:"ec2:ReservedInstancesOffering:UsagePrice" locationName:"usagePrice" type:"float"`
 }
 
 // String returns the string representation
@@ -7056,10 +7056,10 @@ type ResponseError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	Code LaunchTemplateErrorCode `locationName:"code" type:"string" enum:"true"`
+	Code LaunchTemplateErrorCode `json:"ec2:ResponseError:Code" locationName:"code" type:"string" enum:"true"`
 
 	// The error message, if applicable.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:ResponseError:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -7073,85 +7073,85 @@ type ResponseLaunchTemplateData struct {
 	_ struct{} `type:"structure"`
 
 	// The block device mappings.
-	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `locationName:"blockDeviceMappingSet" locationNameList:"item" type:"list"`
+	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `json:"ec2:ResponseLaunchTemplateData:BlockDeviceMappings" locationName:"blockDeviceMappingSet" locationNameList:"item" type:"list"`
 
 	// Information about the Capacity Reservation targeting option.
-	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecificationResponse `locationName:"capacityReservationSpecification" type:"structure"`
+	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecificationResponse `json:"ec2:ResponseLaunchTemplateData:CapacityReservationSpecification" locationName:"capacityReservationSpecification" type:"structure"`
 
 	// The CPU options for the instance. For more information, see Optimizing CPU
 	// Options (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html)
 	// in the Amazon Elastic Compute Cloud User Guide.
-	CpuOptions *LaunchTemplateCpuOptions `locationName:"cpuOptions" type:"structure"`
+	CpuOptions *LaunchTemplateCpuOptions `json:"ec2:ResponseLaunchTemplateData:CpuOptions" locationName:"cpuOptions" type:"structure"`
 
 	// The credit option for CPU usage of the instance.
-	CreditSpecification *CreditSpecification `locationName:"creditSpecification" type:"structure"`
+	CreditSpecification *CreditSpecification `json:"ec2:ResponseLaunchTemplateData:CreditSpecification" locationName:"creditSpecification" type:"structure"`
 
 	// If set to true, indicates that the instance cannot be terminated using the
 	// Amazon EC2 console, command line tool, or API.
-	DisableApiTermination *bool `locationName:"disableApiTermination" type:"boolean"`
+	DisableApiTermination *bool `json:"ec2:ResponseLaunchTemplateData:DisableApiTermination" locationName:"disableApiTermination" type:"boolean"`
 
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
-	EbsOptimized *bool `locationName:"ebsOptimized" type:"boolean"`
+	EbsOptimized *bool `json:"ec2:ResponseLaunchTemplateData:EbsOptimized" locationName:"ebsOptimized" type:"boolean"`
 
 	// The elastic GPU specification.
-	ElasticGpuSpecifications []ElasticGpuSpecificationResponse `locationName:"elasticGpuSpecificationSet" locationNameList:"item" type:"list"`
+	ElasticGpuSpecifications []ElasticGpuSpecificationResponse `json:"ec2:ResponseLaunchTemplateData:ElasticGpuSpecifications" locationName:"elasticGpuSpecificationSet" locationNameList:"item" type:"list"`
 
 	// The elastic inference accelerator for the instance.
-	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAcceleratorResponse `locationName:"elasticInferenceAcceleratorSet" locationNameList:"item" type:"list"`
+	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAcceleratorResponse `json:"ec2:ResponseLaunchTemplateData:ElasticInferenceAccelerators" locationName:"elasticInferenceAcceleratorSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether an instance is configured for hibernation. For more information,
 	// see Hibernate Your Instance (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html)
 	// in the Amazon Elastic Compute Cloud User Guide.
-	HibernationOptions *LaunchTemplateHibernationOptions `locationName:"hibernationOptions" type:"structure"`
+	HibernationOptions *LaunchTemplateHibernationOptions `json:"ec2:ResponseLaunchTemplateData:HibernationOptions" locationName:"hibernationOptions" type:"structure"`
 
 	// The IAM instance profile.
-	IamInstanceProfile *LaunchTemplateIamInstanceProfileSpecification `locationName:"iamInstanceProfile" type:"structure"`
+	IamInstanceProfile *LaunchTemplateIamInstanceProfileSpecification `json:"ec2:ResponseLaunchTemplateData:IamInstanceProfile" locationName:"iamInstanceProfile" type:"structure"`
 
 	// The ID of the AMI that was used to launch the instance.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:ResponseLaunchTemplateData:ImageId" locationName:"imageId" type:"string"`
 
 	// Indicates whether an instance stops or terminates when you initiate shutdown
 	// from the instance (using the operating system command for system shutdown).
-	InstanceInitiatedShutdownBehavior ShutdownBehavior `locationName:"instanceInitiatedShutdownBehavior" type:"string" enum:"true"`
+	InstanceInitiatedShutdownBehavior ShutdownBehavior `json:"ec2:ResponseLaunchTemplateData:InstanceInitiatedShutdownBehavior" locationName:"instanceInitiatedShutdownBehavior" type:"string" enum:"true"`
 
 	// The market (purchasing) option for the instances.
-	InstanceMarketOptions *LaunchTemplateInstanceMarketOptions `locationName:"instanceMarketOptions" type:"structure"`
+	InstanceMarketOptions *LaunchTemplateInstanceMarketOptions `json:"ec2:ResponseLaunchTemplateData:InstanceMarketOptions" locationName:"instanceMarketOptions" type:"structure"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:ResponseLaunchTemplateData:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The ID of the kernel, if applicable.
-	KernelId *string `locationName:"kernelId" type:"string"`
+	KernelId *string `json:"ec2:ResponseLaunchTemplateData:KernelId" locationName:"kernelId" type:"string"`
 
 	// The name of the key pair.
-	KeyName *string `locationName:"keyName" type:"string"`
+	KeyName *string `json:"ec2:ResponseLaunchTemplateData:KeyName" locationName:"keyName" type:"string"`
 
 	// The license configurations.
-	LicenseSpecifications []LaunchTemplateLicenseConfiguration `locationName:"licenseSet" locationNameList:"item" type:"list"`
+	LicenseSpecifications []LaunchTemplateLicenseConfiguration `json:"ec2:ResponseLaunchTemplateData:LicenseSpecifications" locationName:"licenseSet" locationNameList:"item" type:"list"`
 
 	// The monitoring for the instance.
-	Monitoring *LaunchTemplatesMonitoring `locationName:"monitoring" type:"structure"`
+	Monitoring *LaunchTemplatesMonitoring `json:"ec2:ResponseLaunchTemplateData:Monitoring" locationName:"monitoring" type:"structure"`
 
 	// The network interfaces.
-	NetworkInterfaces []LaunchTemplateInstanceNetworkInterfaceSpecification `locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
+	NetworkInterfaces []LaunchTemplateInstanceNetworkInterfaceSpecification `json:"ec2:ResponseLaunchTemplateData:NetworkInterfaces" locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
 
 	// The placement of the instance.
-	Placement *LaunchTemplatePlacement `locationName:"placement" type:"structure"`
+	Placement *LaunchTemplatePlacement `json:"ec2:ResponseLaunchTemplateData:Placement" locationName:"placement" type:"structure"`
 
 	// The ID of the RAM disk, if applicable.
-	RamDiskId *string `locationName:"ramDiskId" type:"string"`
+	RamDiskId *string `json:"ec2:ResponseLaunchTemplateData:RamDiskId" locationName:"ramDiskId" type:"string"`
 
 	// The security group IDs.
-	SecurityGroupIds []string `locationName:"securityGroupIdSet" locationNameList:"item" type:"list"`
+	SecurityGroupIds []string `json:"ec2:ResponseLaunchTemplateData:SecurityGroupIds" locationName:"securityGroupIdSet" locationNameList:"item" type:"list"`
 
 	// The security group names.
-	SecurityGroups []string `locationName:"securityGroupSet" locationNameList:"item" type:"list"`
+	SecurityGroups []string `json:"ec2:ResponseLaunchTemplateData:SecurityGroups" locationName:"securityGroupSet" locationNameList:"item" type:"list"`
 
 	// The tags.
-	TagSpecifications []LaunchTemplateTagSpecification `locationName:"tagSpecificationSet" locationNameList:"item" type:"list"`
+	TagSpecifications []LaunchTemplateTagSpecification `json:"ec2:ResponseLaunchTemplateData:TagSpecifications" locationName:"tagSpecificationSet" locationNameList:"item" type:"list"`
 
 	// The user data for the instance.
-	UserData *string `locationName:"userData" type:"string"`
+	UserData *string `json:"ec2:ResponseLaunchTemplateData:UserData" locationName:"userData" type:"string"`
 }
 
 // String returns the string representation
@@ -7165,31 +7165,31 @@ type Route struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv4 CIDR block used for the destination match.
-	DestinationCidrBlock *string `locationName:"destinationCidrBlock" type:"string"`
+	DestinationCidrBlock *string `json:"ec2:Route:DestinationCidrBlock" locationName:"destinationCidrBlock" type:"string"`
 
 	// The IPv6 CIDR block used for the destination match.
-	DestinationIpv6CidrBlock *string `locationName:"destinationIpv6CidrBlock" type:"string"`
+	DestinationIpv6CidrBlock *string `json:"ec2:Route:DestinationIpv6CidrBlock" locationName:"destinationIpv6CidrBlock" type:"string"`
 
 	// The prefix of the AWS service.
-	DestinationPrefixListId *string `locationName:"destinationPrefixListId" type:"string"`
+	DestinationPrefixListId *string `json:"ec2:Route:DestinationPrefixListId" locationName:"destinationPrefixListId" type:"string"`
 
 	// The ID of the egress-only internet gateway.
-	EgressOnlyInternetGatewayId *string `locationName:"egressOnlyInternetGatewayId" type:"string"`
+	EgressOnlyInternetGatewayId *string `json:"ec2:Route:EgressOnlyInternetGatewayId" locationName:"egressOnlyInternetGatewayId" type:"string"`
 
 	// The ID of a gateway attached to your VPC.
-	GatewayId *string `locationName:"gatewayId" type:"string"`
+	GatewayId *string `json:"ec2:Route:GatewayId" locationName:"gatewayId" type:"string"`
 
 	// The ID of a NAT instance in your VPC.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:Route:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The AWS account ID of the owner of the instance.
-	InstanceOwnerId *string `locationName:"instanceOwnerId" type:"string"`
+	InstanceOwnerId *string `json:"ec2:Route:InstanceOwnerId" locationName:"instanceOwnerId" type:"string"`
 
 	// The ID of a NAT gateway.
-	NatGatewayId *string `locationName:"natGatewayId" type:"string"`
+	NatGatewayId *string `json:"ec2:Route:NatGatewayId" locationName:"natGatewayId" type:"string"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:Route:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// Describes how the route was created.
 	//
@@ -7199,18 +7199,18 @@ type Route struct {
 	//    * CreateRoute - The route was manually added to the route table.
 	//
 	//    * EnableVgwRoutePropagation - The route was propagated by route propagation.
-	Origin RouteOrigin `locationName:"origin" type:"string" enum:"true"`
+	Origin RouteOrigin `json:"ec2:Route:Origin" locationName:"origin" type:"string" enum:"true"`
 
 	// The state of the route. The blackhole state indicates that the route's target
 	// isn't available (for example, the specified gateway isn't attached to the
 	// VPC, or the specified NAT instance has been terminated).
-	State RouteState `locationName:"state" type:"string" enum:"true"`
+	State RouteState `json:"ec2:Route:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of a transit gateway.
-	TransitGatewayId *string `locationName:"transitGatewayId" type:"string"`
+	TransitGatewayId *string `json:"ec2:Route:TransitGatewayId" locationName:"transitGatewayId" type:"string"`
 
 	// The ID of a VPC peering connection.
-	VpcPeeringConnectionId *string `locationName:"vpcPeeringConnectionId" type:"string"`
+	VpcPeeringConnectionId *string `json:"ec2:Route:VpcPeeringConnectionId" locationName:"vpcPeeringConnectionId" type:"string"`
 }
 
 // String returns the string representation
@@ -7224,25 +7224,25 @@ type RouteTable struct {
 	_ struct{} `type:"structure"`
 
 	// The associations between the route table and one or more subnets.
-	Associations []RouteTableAssociation `locationName:"associationSet" locationNameList:"item" type:"list"`
+	Associations []RouteTableAssociation `json:"ec2:RouteTable:Associations" locationName:"associationSet" locationNameList:"item" type:"list"`
 
 	// The ID of the AWS account that owns the route table.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:RouteTable:OwnerId" locationName:"ownerId" type:"string"`
 
 	// Any virtual private gateway (VGW) propagating routes.
-	PropagatingVgws []PropagatingVgw `locationName:"propagatingVgwSet" locationNameList:"item" type:"list"`
+	PropagatingVgws []PropagatingVgw `json:"ec2:RouteTable:PropagatingVgws" locationName:"propagatingVgwSet" locationNameList:"item" type:"list"`
 
 	// The ID of the route table.
-	RouteTableId *string `locationName:"routeTableId" type:"string"`
+	RouteTableId *string `json:"ec2:RouteTable:RouteTableId" locationName:"routeTableId" type:"string"`
 
 	// The routes in the route table.
-	Routes []Route `locationName:"routeSet" locationNameList:"item" type:"list"`
+	Routes []Route `json:"ec2:RouteTable:Routes" locationName:"routeSet" locationNameList:"item" type:"list"`
 
 	// Any tags assigned to the route table.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:RouteTable:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:RouteTable:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -7256,16 +7256,16 @@ type RouteTableAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether this is the main route table.
-	Main *bool `locationName:"main" type:"boolean"`
+	Main *bool `json:"ec2:RouteTableAssociation:Main" locationName:"main" type:"boolean"`
 
 	// The ID of the association between a route table and a subnet.
-	RouteTableAssociationId *string `locationName:"routeTableAssociationId" type:"string"`
+	RouteTableAssociationId *string `json:"ec2:RouteTableAssociation:RouteTableAssociationId" locationName:"routeTableAssociationId" type:"string"`
 
 	// The ID of the route table.
-	RouteTableId *string `locationName:"routeTableId" type:"string"`
+	RouteTableId *string `json:"ec2:RouteTableAssociation:RouteTableId" locationName:"routeTableId" type:"string"`
 
 	// The ID of the subnet. A subnet ID is not returned for an implicit association.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:RouteTableAssociation:SubnetId" locationName:"subnetId" type:"string"`
 }
 
 // String returns the string representation
@@ -7282,7 +7282,7 @@ type RunInstancesMonitoringEnabled struct {
 	// is enabled.
 	//
 	// Enabled is a required field
-	Enabled *bool `locationName:"enabled" type:"boolean" required:"true"`
+	Enabled *bool `json:"ec2:RunInstancesMonitoringEnabled:Enabled" locationName:"enabled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -7313,24 +7313,24 @@ type S3Storage struct {
 	// The access key ID of the owner of the bucket. Before you specify a value
 	// for your access key ID, review and follow the guidance in Best Practices
 	// for Managing AWS Access Keys (https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html).
-	AWSAccessKeyId *string `type:"string"`
+	AWSAccessKeyId *string `json:"ec2:S3Storage:AWSAccessKeyId" type:"string"`
 
 	// The bucket in which to store the AMI. You can specify a bucket that you already
 	// own or a new bucket that Amazon EC2 creates on your behalf. If you specify
 	// a bucket that belongs to someone else, Amazon EC2 returns an error.
-	Bucket *string `locationName:"bucket" type:"string"`
+	Bucket *string `json:"ec2:S3Storage:Bucket" locationName:"bucket" type:"string"`
 
 	// The beginning of the file name of the AMI.
-	Prefix *string `locationName:"prefix" type:"string"`
+	Prefix *string `json:"ec2:S3Storage:Prefix" locationName:"prefix" type:"string"`
 
 	// An Amazon S3 upload policy that gives Amazon EC2 permission to upload items
 	// into Amazon S3 on your behalf.
 	//
 	// UploadPolicy is automatically base64 encoded/decoded by the SDK.
-	UploadPolicy []byte `locationName:"uploadPolicy" type:"blob"`
+	UploadPolicy []byte `json:"ec2:S3Storage:UploadPolicy" locationName:"uploadPolicy" type:"blob"`
 
 	// The signature of the JSON document.
-	UploadPolicySignature *string `locationName:"uploadPolicySignature" type:"string"`
+	UploadPolicySignature *string `json:"ec2:S3Storage:UploadPolicySignature" locationName:"uploadPolicySignature" type:"string"`
 }
 
 // String returns the string representation
@@ -7344,49 +7344,49 @@ type ScheduledInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:ScheduledInstance:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The date when the Scheduled Instance was purchased.
-	CreateDate *time.Time `locationName:"createDate" type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"ec2:ScheduledInstance:CreateDate" locationName:"createDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The hourly price for a single instance.
-	HourlyPrice *string `locationName:"hourlyPrice" type:"string"`
+	HourlyPrice *string `json:"ec2:ScheduledInstance:HourlyPrice" locationName:"hourlyPrice" type:"string"`
 
 	// The number of instances.
-	InstanceCount *int64 `locationName:"instanceCount" type:"integer"`
+	InstanceCount *int64 `json:"ec2:ScheduledInstance:InstanceCount" locationName:"instanceCount" type:"integer"`
 
 	// The instance type.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"ec2:ScheduledInstance:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The network platform (EC2-Classic or EC2-VPC).
-	NetworkPlatform *string `locationName:"networkPlatform" type:"string"`
+	NetworkPlatform *string `json:"ec2:ScheduledInstance:NetworkPlatform" locationName:"networkPlatform" type:"string"`
 
 	// The time for the next schedule to start.
-	NextSlotStartTime *time.Time `locationName:"nextSlotStartTime" type:"timestamp" timestampFormat:"iso8601"`
+	NextSlotStartTime *time.Time `json:"ec2:ScheduledInstance:NextSlotStartTime" locationName:"nextSlotStartTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The platform (Linux/UNIX or Windows).
-	Platform *string `locationName:"platform" type:"string"`
+	Platform *string `json:"ec2:ScheduledInstance:Platform" locationName:"platform" type:"string"`
 
 	// The time that the previous schedule ended or will end.
-	PreviousSlotEndTime *time.Time `locationName:"previousSlotEndTime" type:"timestamp" timestampFormat:"iso8601"`
+	PreviousSlotEndTime *time.Time `json:"ec2:ScheduledInstance:PreviousSlotEndTime" locationName:"previousSlotEndTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The schedule recurrence.
-	Recurrence *ScheduledInstanceRecurrence `locationName:"recurrence" type:"structure"`
+	Recurrence *ScheduledInstanceRecurrence `json:"ec2:ScheduledInstance:Recurrence" locationName:"recurrence" type:"structure"`
 
 	// The Scheduled Instance ID.
-	ScheduledInstanceId *string `locationName:"scheduledInstanceId" type:"string"`
+	ScheduledInstanceId *string `json:"ec2:ScheduledInstance:ScheduledInstanceId" locationName:"scheduledInstanceId" type:"string"`
 
 	// The number of hours in the schedule.
-	SlotDurationInHours *int64 `locationName:"slotDurationInHours" type:"integer"`
+	SlotDurationInHours *int64 `json:"ec2:ScheduledInstance:SlotDurationInHours" locationName:"slotDurationInHours" type:"integer"`
 
 	// The end date for the Scheduled Instance.
-	TermEndDate *time.Time `locationName:"termEndDate" type:"timestamp" timestampFormat:"iso8601"`
+	TermEndDate *time.Time `json:"ec2:ScheduledInstance:TermEndDate" locationName:"termEndDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The start date for the Scheduled Instance.
-	TermStartDate *time.Time `locationName:"termStartDate" type:"timestamp" timestampFormat:"iso8601"`
+	TermStartDate *time.Time `json:"ec2:ScheduledInstance:TermStartDate" locationName:"termStartDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The total number of hours for a single instance for the entire term.
-	TotalScheduledInstanceHours *int64 `locationName:"totalScheduledInstanceHours" type:"integer"`
+	TotalScheduledInstanceHours *int64 `json:"ec2:ScheduledInstance:TotalScheduledInstanceHours" locationName:"totalScheduledInstanceHours" type:"integer"`
 }
 
 // String returns the string representation
@@ -7400,44 +7400,44 @@ type ScheduledInstanceAvailability struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:ScheduledInstanceAvailability:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The number of available instances.
-	AvailableInstanceCount *int64 `locationName:"availableInstanceCount" type:"integer"`
+	AvailableInstanceCount *int64 `json:"ec2:ScheduledInstanceAvailability:AvailableInstanceCount" locationName:"availableInstanceCount" type:"integer"`
 
 	// The time period for the first schedule to start.
-	FirstSlotStartTime *time.Time `locationName:"firstSlotStartTime" type:"timestamp" timestampFormat:"iso8601"`
+	FirstSlotStartTime *time.Time `json:"ec2:ScheduledInstanceAvailability:FirstSlotStartTime" locationName:"firstSlotStartTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The hourly price for a single instance.
-	HourlyPrice *string `locationName:"hourlyPrice" type:"string"`
+	HourlyPrice *string `json:"ec2:ScheduledInstanceAvailability:HourlyPrice" locationName:"hourlyPrice" type:"string"`
 
 	// The instance type. You can specify one of the C3, C4, M4, or R3 instance
 	// types.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"ec2:ScheduledInstanceAvailability:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The maximum term. The only possible value is 365 days.
-	MaxTermDurationInDays *int64 `locationName:"maxTermDurationInDays" type:"integer"`
+	MaxTermDurationInDays *int64 `json:"ec2:ScheduledInstanceAvailability:MaxTermDurationInDays" locationName:"maxTermDurationInDays" type:"integer"`
 
 	// The minimum term. The only possible value is 365 days.
-	MinTermDurationInDays *int64 `locationName:"minTermDurationInDays" type:"integer"`
+	MinTermDurationInDays *int64 `json:"ec2:ScheduledInstanceAvailability:MinTermDurationInDays" locationName:"minTermDurationInDays" type:"integer"`
 
 	// The network platform (EC2-Classic or EC2-VPC).
-	NetworkPlatform *string `locationName:"networkPlatform" type:"string"`
+	NetworkPlatform *string `json:"ec2:ScheduledInstanceAvailability:NetworkPlatform" locationName:"networkPlatform" type:"string"`
 
 	// The platform (Linux/UNIX or Windows).
-	Platform *string `locationName:"platform" type:"string"`
+	Platform *string `json:"ec2:ScheduledInstanceAvailability:Platform" locationName:"platform" type:"string"`
 
 	// The purchase token. This token expires in two hours.
-	PurchaseToken *string `locationName:"purchaseToken" type:"string"`
+	PurchaseToken *string `json:"ec2:ScheduledInstanceAvailability:PurchaseToken" locationName:"purchaseToken" type:"string"`
 
 	// The schedule recurrence.
-	Recurrence *ScheduledInstanceRecurrence `locationName:"recurrence" type:"structure"`
+	Recurrence *ScheduledInstanceRecurrence `json:"ec2:ScheduledInstanceAvailability:Recurrence" locationName:"recurrence" type:"structure"`
 
 	// The number of hours in the schedule.
-	SlotDurationInHours *int64 `locationName:"slotDurationInHours" type:"integer"`
+	SlotDurationInHours *int64 `json:"ec2:ScheduledInstanceAvailability:SlotDurationInHours" locationName:"slotDurationInHours" type:"integer"`
 
 	// The total number of hours for a single instance for the entire term.
-	TotalScheduledInstanceHours *int64 `locationName:"totalScheduledInstanceHours" type:"integer"`
+	TotalScheduledInstanceHours *int64 `json:"ec2:ScheduledInstanceAvailability:TotalScheduledInstanceHours" locationName:"totalScheduledInstanceHours" type:"integer"`
 }
 
 // String returns the string representation
@@ -7451,23 +7451,23 @@ type ScheduledInstanceRecurrence struct {
 	_ struct{} `type:"structure"`
 
 	// The frequency (Daily, Weekly, or Monthly).
-	Frequency *string `locationName:"frequency" type:"string"`
+	Frequency *string `json:"ec2:ScheduledInstanceRecurrence:Frequency" locationName:"frequency" type:"string"`
 
 	// The interval quantity. The interval unit depends on the value of frequency.
 	// For example, every 2 weeks or every 2 months.
-	Interval *int64 `locationName:"interval" type:"integer"`
+	Interval *int64 `json:"ec2:ScheduledInstanceRecurrence:Interval" locationName:"interval" type:"integer"`
 
 	// The days. For a monthly schedule, this is one or more days of the month (1-31).
 	// For a weekly schedule, this is one or more days of the week (1-7, where 1
 	// is Sunday).
-	OccurrenceDaySet []int64 `locationName:"occurrenceDaySet" locationNameList:"item" type:"list"`
+	OccurrenceDaySet []int64 `json:"ec2:ScheduledInstanceRecurrence:OccurrenceDaySet" locationName:"occurrenceDaySet" locationNameList:"item" type:"list"`
 
 	// Indicates whether the occurrence is relative to the end of the specified
 	// week or month.
-	OccurrenceRelativeToEnd *bool `locationName:"occurrenceRelativeToEnd" type:"boolean"`
+	OccurrenceRelativeToEnd *bool `json:"ec2:ScheduledInstanceRecurrence:OccurrenceRelativeToEnd" locationName:"occurrenceRelativeToEnd" type:"boolean"`
 
 	// The unit for occurrenceDaySet (DayOfWeek or DayOfMonth).
-	OccurrenceUnit *string `locationName:"occurrenceUnit" type:"string"`
+	OccurrenceUnit *string `json:"ec2:ScheduledInstanceRecurrence:OccurrenceUnit" locationName:"occurrenceUnit" type:"string"`
 }
 
 // String returns the string representation
@@ -7481,26 +7481,26 @@ type ScheduledInstanceRecurrenceRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The frequency (Daily, Weekly, or Monthly).
-	Frequency *string `type:"string"`
+	Frequency *string `json:"ec2:ScheduledInstanceRecurrenceRequest:Frequency" type:"string"`
 
 	// The interval quantity. The interval unit depends on the value of Frequency.
 	// For example, every 2 weeks or every 2 months.
-	Interval *int64 `type:"integer"`
+	Interval *int64 `json:"ec2:ScheduledInstanceRecurrenceRequest:Interval" type:"integer"`
 
 	// The days. For a monthly schedule, this is one or more days of the month (1-31).
 	// For a weekly schedule, this is one or more days of the week (1-7, where 1
 	// is Sunday). You can't specify this value with a daily schedule. If the occurrence
 	// is relative to the end of the month, you can specify only a single day.
-	OccurrenceDays []int64 `locationName:"OccurrenceDay" locationNameList:"OccurenceDay" type:"list"`
+	OccurrenceDays []int64 `json:"ec2:ScheduledInstanceRecurrenceRequest:OccurrenceDays" locationName:"OccurrenceDay" locationNameList:"OccurenceDay" type:"list"`
 
 	// Indicates whether the occurrence is relative to the end of the specified
 	// week or month. You can't specify this value with a daily schedule.
-	OccurrenceRelativeToEnd *bool `type:"boolean"`
+	OccurrenceRelativeToEnd *bool `json:"ec2:ScheduledInstanceRecurrenceRequest:OccurrenceRelativeToEnd" type:"boolean"`
 
 	// The unit for OccurrenceDays (DayOfWeek or DayOfMonth). This value is required
 	// for a monthly schedule. You can't specify DayOfWeek with a weekly schedule.
 	// You can't specify this value with a daily schedule.
-	OccurrenceUnit *string `type:"string"`
+	OccurrenceUnit *string `json:"ec2:ScheduledInstanceRecurrenceRequest:OccurrenceUnit" type:"string"`
 }
 
 // String returns the string representation
@@ -7514,15 +7514,15 @@ type ScheduledInstancesBlockDeviceMapping struct {
 	_ struct{} `type:"structure"`
 
 	// The device name (for example, /dev/sdh or xvdh).
-	DeviceName *string `type:"string"`
+	DeviceName *string `json:"ec2:ScheduledInstancesBlockDeviceMapping:DeviceName" type:"string"`
 
 	// Parameters used to set up EBS volumes automatically when the instance is
 	// launched.
-	Ebs *ScheduledInstancesEbs `type:"structure"`
+	Ebs *ScheduledInstancesEbs `json:"ec2:ScheduledInstancesBlockDeviceMapping:Ebs" type:"structure"`
 
 	// Suppresses the specified device included in the block device mapping of the
 	// AMI.
-	NoDevice *string `type:"string"`
+	NoDevice *string `json:"ec2:ScheduledInstancesBlockDeviceMapping:NoDevice" type:"string"`
 
 	// The virtual device name (ephemeralN). Instance store volumes are numbered
 	// starting from 0. An instance type with two available instance store volumes
@@ -7534,7 +7534,7 @@ type ScheduledInstancesBlockDeviceMapping struct {
 	// the block device mapping for the instance. When you launch an M3 instance,
 	// we ignore any instance store volumes specified in the block device mapping
 	// for the AMI.
-	VirtualName *string `type:"string"`
+	VirtualName *string `json:"ec2:ScheduledInstancesBlockDeviceMapping:VirtualName" type:"string"`
 }
 
 // String returns the string representation
@@ -7548,11 +7548,11 @@ type ScheduledInstancesEbs struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the volume is deleted on instance termination.
-	DeleteOnTermination *bool `type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:ScheduledInstancesEbs:DeleteOnTermination" type:"boolean"`
 
 	// Indicates whether the volume is encrypted. You can attached encrypted volumes
 	// only to instances that support them.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"ec2:ScheduledInstancesEbs:Encrypted" type:"boolean"`
 
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	// For io1 volumes, this represents the number of IOPS that are provisioned
@@ -7567,22 +7567,22 @@ type ScheduledInstancesEbs struct {
 	//
 	// Condition: This parameter is required for requests to create io1volumes;
 	// it is not used in requests to create gp2, st1, sc1, or standard volumes.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"ec2:ScheduledInstancesEbs:Iops" type:"integer"`
 
 	// The ID of the snapshot.
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"ec2:ScheduledInstancesEbs:SnapshotId" type:"string"`
 
 	// The size of the volume, in GiB.
 	//
 	// Default: If you're creating the volume from a snapshot and don't specify
 	// a volume size, the default is the snapshot size.
-	VolumeSize *int64 `type:"integer"`
+	VolumeSize *int64 `json:"ec2:ScheduledInstancesEbs:VolumeSize" type:"integer"`
 
 	// The volume type. gp2 for General Purpose SSD, io1 for Provisioned IOPS SSD,
 	// Throughput Optimized HDD for st1, Cold HDD for sc1, or standard for Magnetic.
 	//
 	// Default: standard
-	VolumeType *string `type:"string"`
+	VolumeType *string `json:"ec2:ScheduledInstancesEbs:VolumeType" type:"string"`
 }
 
 // String returns the string representation
@@ -7596,10 +7596,10 @@ type ScheduledInstancesIamInstanceProfile struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN).
-	Arn *string `type:"string"`
+	Arn *string `json:"ec2:ScheduledInstancesIamInstanceProfile:Arn" type:"string"`
 
 	// The name.
-	Name *string `type:"string"`
+	Name *string `json:"ec2:ScheduledInstancesIamInstanceProfile:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -7613,7 +7613,7 @@ type ScheduledInstancesIpv6Address struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv6 address.
-	Ipv6Address *string `type:"string"`
+	Ipv6Address *string `json:"ec2:ScheduledInstancesIpv6Address:Ipv6Address" type:"string"`
 }
 
 // String returns the string representation
@@ -7631,7 +7631,7 @@ type ScheduledInstancesLaunchSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The block device mapping entries.
-	BlockDeviceMappings []ScheduledInstancesBlockDeviceMapping `locationName:"BlockDeviceMapping" locationNameList:"BlockDeviceMapping" type:"list"`
+	BlockDeviceMappings []ScheduledInstancesBlockDeviceMapping `json:"ec2:ScheduledInstancesLaunchSpecification:BlockDeviceMappings" locationName:"BlockDeviceMapping" locationNameList:"BlockDeviceMapping" type:"list"`
 
 	// Indicates whether the instances are optimized for EBS I/O. This optimization
 	// provides dedicated throughput to Amazon EBS and an optimized configuration
@@ -7640,45 +7640,45 @@ type ScheduledInstancesLaunchSpecification struct {
 	// instance.
 	//
 	// Default: false
-	EbsOptimized *bool `type:"boolean"`
+	EbsOptimized *bool `json:"ec2:ScheduledInstancesLaunchSpecification:EbsOptimized" type:"boolean"`
 
 	// The IAM instance profile.
-	IamInstanceProfile *ScheduledInstancesIamInstanceProfile `type:"structure"`
+	IamInstanceProfile *ScheduledInstancesIamInstanceProfile `json:"ec2:ScheduledInstancesLaunchSpecification:IamInstanceProfile" type:"structure"`
 
 	// The ID of the Amazon Machine Image (AMI).
 	//
 	// ImageId is a required field
-	ImageId *string `type:"string" required:"true"`
+	ImageId *string `json:"ec2:ScheduledInstancesLaunchSpecification:ImageId" type:"string" required:"true"`
 
 	// The instance type.
-	InstanceType *string `type:"string"`
+	InstanceType *string `json:"ec2:ScheduledInstancesLaunchSpecification:InstanceType" type:"string"`
 
 	// The ID of the kernel.
-	KernelId *string `type:"string"`
+	KernelId *string `json:"ec2:ScheduledInstancesLaunchSpecification:KernelId" type:"string"`
 
 	// The name of the key pair.
-	KeyName *string `type:"string"`
+	KeyName *string `json:"ec2:ScheduledInstancesLaunchSpecification:KeyName" type:"string"`
 
 	// Enable or disable monitoring for the instances.
-	Monitoring *ScheduledInstancesMonitoring `type:"structure"`
+	Monitoring *ScheduledInstancesMonitoring `json:"ec2:ScheduledInstancesLaunchSpecification:Monitoring" type:"structure"`
 
 	// The network interfaces.
-	NetworkInterfaces []ScheduledInstancesNetworkInterface `locationName:"NetworkInterface" locationNameList:"NetworkInterface" type:"list"`
+	NetworkInterfaces []ScheduledInstancesNetworkInterface `json:"ec2:ScheduledInstancesLaunchSpecification:NetworkInterfaces" locationName:"NetworkInterface" locationNameList:"NetworkInterface" type:"list"`
 
 	// The placement information.
-	Placement *ScheduledInstancesPlacement `type:"structure"`
+	Placement *ScheduledInstancesPlacement `json:"ec2:ScheduledInstancesLaunchSpecification:Placement" type:"structure"`
 
 	// The ID of the RAM disk.
-	RamdiskId *string `type:"string"`
+	RamdiskId *string `json:"ec2:ScheduledInstancesLaunchSpecification:RamdiskId" type:"string"`
 
 	// The IDs of the security groups.
-	SecurityGroupIds []string `locationName:"SecurityGroupId" locationNameList:"SecurityGroupId" type:"list"`
+	SecurityGroupIds []string `json:"ec2:ScheduledInstancesLaunchSpecification:SecurityGroupIds" locationName:"SecurityGroupId" locationNameList:"SecurityGroupId" type:"list"`
 
 	// The ID of the subnet in which to launch the instances.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"ec2:ScheduledInstancesLaunchSpecification:SubnetId" type:"string"`
 
 	// The base64-encoded MIME user data.
-	UserData *string `type:"string"`
+	UserData *string `json:"ec2:ScheduledInstancesLaunchSpecification:UserData" type:"string"`
 }
 
 // String returns the string representation
@@ -7706,7 +7706,7 @@ type ScheduledInstancesMonitoring struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether monitoring is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"ec2:ScheduledInstancesMonitoring:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -7724,41 +7724,41 @@ type ScheduledInstancesNetworkInterface struct {
 	// for eth0, and can only be assigned to a new network interface, not an existing
 	// one. You cannot specify more than one network interface in the request. If
 	// launching into a default subnet, the default value is true.
-	AssociatePublicIpAddress *bool `type:"boolean"`
+	AssociatePublicIpAddress *bool `json:"ec2:ScheduledInstancesNetworkInterface:AssociatePublicIpAddress" type:"boolean"`
 
 	// Indicates whether to delete the interface when the instance is terminated.
-	DeleteOnTermination *bool `type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:ScheduledInstancesNetworkInterface:DeleteOnTermination" type:"boolean"`
 
 	// The description.
-	Description *string `type:"string"`
+	Description *string `json:"ec2:ScheduledInstancesNetworkInterface:Description" type:"string"`
 
 	// The index of the device for the network interface attachment.
-	DeviceIndex *int64 `type:"integer"`
+	DeviceIndex *int64 `json:"ec2:ScheduledInstancesNetworkInterface:DeviceIndex" type:"integer"`
 
 	// The IDs of the security groups.
-	Groups []string `locationName:"Group" locationNameList:"SecurityGroupId" type:"list"`
+	Groups []string `json:"ec2:ScheduledInstancesNetworkInterface:Groups" locationName:"Group" locationNameList:"SecurityGroupId" type:"list"`
 
 	// The number of IPv6 addresses to assign to the network interface. The IPv6
 	// addresses are automatically selected from the subnet range.
-	Ipv6AddressCount *int64 `type:"integer"`
+	Ipv6AddressCount *int64 `json:"ec2:ScheduledInstancesNetworkInterface:Ipv6AddressCount" type:"integer"`
 
 	// The specific IPv6 addresses from the subnet range.
-	Ipv6Addresses []ScheduledInstancesIpv6Address `locationName:"Ipv6Address" locationNameList:"Ipv6Address" type:"list"`
+	Ipv6Addresses []ScheduledInstancesIpv6Address `json:"ec2:ScheduledInstancesNetworkInterface:Ipv6Addresses" locationName:"Ipv6Address" locationNameList:"Ipv6Address" type:"list"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `type:"string"`
+	NetworkInterfaceId *string `json:"ec2:ScheduledInstancesNetworkInterface:NetworkInterfaceId" type:"string"`
 
 	// The IPv4 address of the network interface within the subnet.
-	PrivateIpAddress *string `type:"string"`
+	PrivateIpAddress *string `json:"ec2:ScheduledInstancesNetworkInterface:PrivateIpAddress" type:"string"`
 
 	// The private IPv4 addresses.
-	PrivateIpAddressConfigs []ScheduledInstancesPrivateIpAddressConfig `locationName:"PrivateIpAddressConfig" locationNameList:"PrivateIpAddressConfigSet" type:"list"`
+	PrivateIpAddressConfigs []ScheduledInstancesPrivateIpAddressConfig `json:"ec2:ScheduledInstancesNetworkInterface:PrivateIpAddressConfigs" locationName:"PrivateIpAddressConfig" locationNameList:"PrivateIpAddressConfigSet" type:"list"`
 
 	// The number of secondary private IPv4 addresses.
-	SecondaryPrivateIpAddressCount *int64 `type:"integer"`
+	SecondaryPrivateIpAddressCount *int64 `json:"ec2:ScheduledInstancesNetworkInterface:SecondaryPrivateIpAddressCount" type:"integer"`
 
 	// The ID of the subnet.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"ec2:ScheduledInstancesNetworkInterface:SubnetId" type:"string"`
 }
 
 // String returns the string representation
@@ -7772,10 +7772,10 @@ type ScheduledInstancesPlacement struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"ec2:ScheduledInstancesPlacement:AvailabilityZone" type:"string"`
 
 	// The name of the placement group.
-	GroupName *string `type:"string"`
+	GroupName *string `json:"ec2:ScheduledInstancesPlacement:GroupName" type:"string"`
 }
 
 // String returns the string representation
@@ -7790,10 +7790,10 @@ type ScheduledInstancesPrivateIpAddressConfig struct {
 
 	// Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary
 	// IPv4 address.
-	Primary *bool `type:"boolean"`
+	Primary *bool `json:"ec2:ScheduledInstancesPrivateIpAddressConfig:Primary" type:"boolean"`
 
 	// The IPv4 address.
-	PrivateIpAddress *string `type:"string"`
+	PrivateIpAddress *string `json:"ec2:ScheduledInstancesPrivateIpAddressConfig:PrivateIpAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -7807,28 +7807,28 @@ type SecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the security group.
-	Description *string `locationName:"groupDescription" type:"string"`
+	Description *string `json:"ec2:SecurityGroup:Description" locationName:"groupDescription" type:"string"`
 
 	// The ID of the security group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"ec2:SecurityGroup:GroupId" locationName:"groupId" type:"string"`
 
 	// The name of the security group.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:SecurityGroup:GroupName" locationName:"groupName" type:"string"`
 
 	// The inbound rules associated with the security group.
-	IpPermissions []IpPermission `locationName:"ipPermissions" locationNameList:"item" type:"list"`
+	IpPermissions []IpPermission `json:"ec2:SecurityGroup:IpPermissions" locationName:"ipPermissions" locationNameList:"item" type:"list"`
 
 	// [VPC only] The outbound rules associated with the security group.
-	IpPermissionsEgress []IpPermission `locationName:"ipPermissionsEgress" locationNameList:"item" type:"list"`
+	IpPermissionsEgress []IpPermission `json:"ec2:SecurityGroup:IpPermissionsEgress" locationName:"ipPermissionsEgress" locationNameList:"item" type:"list"`
 
 	// The AWS account ID of the owner of the security group.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:SecurityGroup:OwnerId" locationName:"ownerId" type:"string"`
 
 	// Any tags assigned to the security group.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:SecurityGroup:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// [VPC only] The ID of the VPC for the security group.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:SecurityGroup:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -7842,10 +7842,10 @@ type SecurityGroupIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the security group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"ec2:SecurityGroupIdentifier:GroupId" locationName:"groupId" type:"string"`
 
 	// The name of the security group.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:SecurityGroupIdentifier:GroupName" locationName:"groupName" type:"string"`
 }
 
 // String returns the string representation
@@ -7859,13 +7859,13 @@ type SecurityGroupReference struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of your security group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"ec2:SecurityGroupReference:GroupId" locationName:"groupId" type:"string"`
 
 	// The ID of the VPC with the referencing security group.
-	ReferencingVpcId *string `locationName:"referencingVpcId" type:"string"`
+	ReferencingVpcId *string `json:"ec2:SecurityGroupReference:ReferencingVpcId" locationName:"referencingVpcId" type:"string"`
 
 	// The ID of the VPC peering connection.
-	VpcPeeringConnectionId *string `locationName:"vpcPeeringConnectionId" type:"string"`
+	VpcPeeringConnectionId *string `json:"ec2:SecurityGroupReference:VpcPeeringConnectionId" locationName:"vpcPeeringConnectionId" type:"string"`
 }
 
 // String returns the string representation
@@ -7880,38 +7880,38 @@ type ServiceConfiguration struct {
 
 	// Indicates whether requests from other AWS accounts to create an endpoint
 	// to the service must first be accepted.
-	AcceptanceRequired *bool `locationName:"acceptanceRequired" type:"boolean"`
+	AcceptanceRequired *bool `json:"ec2:ServiceConfiguration:AcceptanceRequired" locationName:"acceptanceRequired" type:"boolean"`
 
 	// In the Availability Zones in which the service is available.
-	AvailabilityZones []string `locationName:"availabilityZoneSet" locationNameList:"item" type:"list"`
+	AvailabilityZones []string `json:"ec2:ServiceConfiguration:AvailabilityZones" locationName:"availabilityZoneSet" locationNameList:"item" type:"list"`
 
 	// The DNS names for the service.
-	BaseEndpointDnsNames []string `locationName:"baseEndpointDnsNameSet" locationNameList:"item" type:"list"`
+	BaseEndpointDnsNames []string `json:"ec2:ServiceConfiguration:BaseEndpointDnsNames" locationName:"baseEndpointDnsNameSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether the service manages it's VPC endpoints. Management of the
 	// service VPC endpoints using the VPC endpoint API is restricted.
-	ManagesVpcEndpoints *bool `locationName:"managesVpcEndpoints" type:"boolean"`
+	ManagesVpcEndpoints *bool `json:"ec2:ServiceConfiguration:ManagesVpcEndpoints" locationName:"managesVpcEndpoints" type:"boolean"`
 
 	// The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.
-	NetworkLoadBalancerArns []string `locationName:"networkLoadBalancerArnSet" locationNameList:"item" type:"list"`
+	NetworkLoadBalancerArns []string `json:"ec2:ServiceConfiguration:NetworkLoadBalancerArns" locationName:"networkLoadBalancerArnSet" locationNameList:"item" type:"list"`
 
 	// The private DNS name for the service.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"ec2:ServiceConfiguration:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The ID of the service.
-	ServiceId *string `locationName:"serviceId" type:"string"`
+	ServiceId *string `json:"ec2:ServiceConfiguration:ServiceId" locationName:"serviceId" type:"string"`
 
 	// The name of the service.
-	ServiceName *string `locationName:"serviceName" type:"string"`
+	ServiceName *string `json:"ec2:ServiceConfiguration:ServiceName" locationName:"serviceName" type:"string"`
 
 	// The service state.
-	ServiceState ServiceState `locationName:"serviceState" type:"string" enum:"true"`
+	ServiceState ServiceState `json:"ec2:ServiceConfiguration:ServiceState" locationName:"serviceState" type:"string" enum:"true"`
 
 	// The type of service.
-	ServiceType []ServiceTypeDetail `locationName:"serviceType" locationNameList:"item" type:"list"`
+	ServiceType []ServiceTypeDetail `json:"ec2:ServiceConfiguration:ServiceType" locationName:"serviceType" locationNameList:"item" type:"list"`
 
 	// Any tags assigned to the service.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:ServiceConfiguration:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -7926,38 +7926,38 @@ type ServiceDetail struct {
 
 	// Indicates whether VPC endpoint connection requests to the service must be
 	// accepted by the service owner.
-	AcceptanceRequired *bool `locationName:"acceptanceRequired" type:"boolean"`
+	AcceptanceRequired *bool `json:"ec2:ServiceDetail:AcceptanceRequired" locationName:"acceptanceRequired" type:"boolean"`
 
 	// The Availability Zones in which the service is available.
-	AvailabilityZones []string `locationName:"availabilityZoneSet" locationNameList:"item" type:"list"`
+	AvailabilityZones []string `json:"ec2:ServiceDetail:AvailabilityZones" locationName:"availabilityZoneSet" locationNameList:"item" type:"list"`
 
 	// The DNS names for the service.
-	BaseEndpointDnsNames []string `locationName:"baseEndpointDnsNameSet" locationNameList:"item" type:"list"`
+	BaseEndpointDnsNames []string `json:"ec2:ServiceDetail:BaseEndpointDnsNames" locationName:"baseEndpointDnsNameSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether the service manages it's VPC endpoints. Management of the
 	// service VPC endpoints using the VPC endpoint API is restricted.
-	ManagesVpcEndpoints *bool `locationName:"managesVpcEndpoints" type:"boolean"`
+	ManagesVpcEndpoints *bool `json:"ec2:ServiceDetail:ManagesVpcEndpoints" locationName:"managesVpcEndpoints" type:"boolean"`
 
 	// The AWS account ID of the service owner.
-	Owner *string `locationName:"owner" type:"string"`
+	Owner *string `json:"ec2:ServiceDetail:Owner" locationName:"owner" type:"string"`
 
 	// The private DNS name for the service.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"ec2:ServiceDetail:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The ID of the endpoint service.
-	ServiceId *string `locationName:"serviceId" type:"string"`
+	ServiceId *string `json:"ec2:ServiceDetail:ServiceId" locationName:"serviceId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the service.
-	ServiceName *string `locationName:"serviceName" type:"string"`
+	ServiceName *string `json:"ec2:ServiceDetail:ServiceName" locationName:"serviceName" type:"string"`
 
 	// The type of service.
-	ServiceType []ServiceTypeDetail `locationName:"serviceType" locationNameList:"item" type:"list"`
+	ServiceType []ServiceTypeDetail `json:"ec2:ServiceDetail:ServiceType" locationName:"serviceType" locationNameList:"item" type:"list"`
 
 	// Any tags assigned to the service.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:ServiceDetail:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether the service supports endpoint policies.
-	VpcEndpointPolicySupported *bool `locationName:"vpcEndpointPolicySupported" type:"boolean"`
+	VpcEndpointPolicySupported *bool `json:"ec2:ServiceDetail:VpcEndpointPolicySupported" locationName:"vpcEndpointPolicySupported" type:"boolean"`
 }
 
 // String returns the string representation
@@ -7971,7 +7971,7 @@ type ServiceTypeDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The type of service.
-	ServiceType ServiceType `locationName:"serviceType" type:"string" enum:"true"`
+	ServiceType ServiceType `json:"ec2:ServiceTypeDetail:ServiceType" locationName:"serviceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -7988,14 +7988,14 @@ type SlotDateTimeRangeRequest struct {
 	// The earliest date and time, in UTC, for the Scheduled Instance to start.
 	//
 	// EarliestTime is a required field
-	EarliestTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	EarliestTime *time.Time `json:"ec2:SlotDateTimeRangeRequest:EarliestTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The latest date and time, in UTC, for the Scheduled Instance to start. This
 	// value must be later than or equal to the earliest date and at most three
 	// months in the future.
 	//
 	// LatestTime is a required field
-	LatestTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LatestTime *time.Time `json:"ec2:SlotDateTimeRangeRequest:LatestTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation
@@ -8027,10 +8027,10 @@ type SlotStartTimeRangeRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The earliest date and time, in UTC, for the Scheduled Instance to start.
-	EarliestTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EarliestTime *time.Time `json:"ec2:SlotStartTimeRangeRequest:EarliestTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The latest date and time, in UTC, for the Scheduled Instance to start.
-	LatestTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LatestTime *time.Time `json:"ec2:SlotStartTimeRangeRequest:LatestTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -8049,57 +8049,57 @@ type Snapshot struct {
 	// by volumes created from snapshots, and vice versa, if snapshots share the
 	// same data encryption key identifier, then they belong to the same volume/snapshot
 	// lineage. This parameter is only returned by DescribeSnapshots.
-	DataEncryptionKeyId *string `locationName:"dataEncryptionKeyId" type:"string"`
+	DataEncryptionKeyId *string `json:"ec2:Snapshot:DataEncryptionKeyId" locationName:"dataEncryptionKeyId" type:"string"`
 
 	// The description for the snapshot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:Snapshot:Description" locationName:"description" type:"string"`
 
 	// Indicates whether the snapshot is encrypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:Snapshot:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS)
 	// customer master key (CMK) that was used to protect the volume encryption
 	// key for the parent volume.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:Snapshot:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// Value from an Amazon-maintained list (amazon | self | all | aws-marketplace
 	// | microsoft) of snapshot owners. Not to be confused with the user-configured
 	// AWS account alias, which is set from the IAM console.
-	OwnerAlias *string `locationName:"ownerAlias" type:"string"`
+	OwnerAlias *string `json:"ec2:Snapshot:OwnerAlias" locationName:"ownerAlias" type:"string"`
 
 	// The AWS account ID of the EBS snapshot owner.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:Snapshot:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The progress of the snapshot, as a percentage.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"ec2:Snapshot:Progress" locationName:"progress" type:"string"`
 
 	// The ID of the snapshot. Each snapshot receives a unique identifier when it
 	// is created.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:Snapshot:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// The time stamp when the snapshot was initiated.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"ec2:Snapshot:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The snapshot state.
-	State SnapshotState `locationName:"status" type:"string" enum:"true"`
+	State SnapshotState `json:"ec2:Snapshot:State" locationName:"status" type:"string" enum:"true"`
 
 	// Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy
 	// operation fails (for example, if the proper AWS Key Management Service (AWS
 	// KMS) permissions are not obtained) this field displays error state details
 	// to help you diagnose why the error occurred. This parameter is only returned
 	// by DescribeSnapshots.
-	StateMessage *string `locationName:"statusMessage" type:"string"`
+	StateMessage *string `json:"ec2:Snapshot:StateMessage" locationName:"statusMessage" type:"string"`
 
 	// Any tags assigned to the snapshot.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:Snapshot:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the volume that was used to create the snapshot. Snapshots created
 	// by the CopySnapshot action have an arbitrary volume ID that should not be
 	// used for any purpose.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:Snapshot:VolumeId" locationName:"volumeId" type:"string"`
 
 	// The size of the volume, in GiB.
-	VolumeSize *int64 `locationName:"volumeSize" type:"integer"`
+	VolumeSize *int64 `json:"ec2:Snapshot:VolumeSize" locationName:"volumeSize" type:"integer"`
 }
 
 // String returns the string representation
@@ -8113,34 +8113,34 @@ type SnapshotDetail struct {
 	_ struct{} `type:"structure"`
 
 	// A description for the snapshot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:SnapshotDetail:Description" locationName:"description" type:"string"`
 
 	// The block device mapping for the snapshot.
-	DeviceName *string `locationName:"deviceName" type:"string"`
+	DeviceName *string `json:"ec2:SnapshotDetail:DeviceName" locationName:"deviceName" type:"string"`
 
 	// The size of the disk in the snapshot, in GiB.
-	DiskImageSize *float64 `locationName:"diskImageSize" type:"double"`
+	DiskImageSize *float64 `json:"ec2:SnapshotDetail:DiskImageSize" locationName:"diskImageSize" type:"double"`
 
 	// The format of the disk image from which the snapshot is created.
-	Format *string `locationName:"format" type:"string"`
+	Format *string `json:"ec2:SnapshotDetail:Format" locationName:"format" type:"string"`
 
 	// The percentage of progress for the task.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"ec2:SnapshotDetail:Progress" locationName:"progress" type:"string"`
 
 	// The snapshot ID of the disk being imported.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:SnapshotDetail:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// A brief status of the snapshot creation.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ec2:SnapshotDetail:Status" locationName:"status" type:"string"`
 
 	// A detailed status message for the snapshot creation.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:SnapshotDetail:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The URL used to access the disk image.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"ec2:SnapshotDetail:Url" locationName:"url" type:"string"`
 
 	// The S3 bucket for the disk image.
-	UserBucket *UserBucketDetails `locationName:"userBucket" type:"structure"`
+	UserBucket *UserBucketDetails `json:"ec2:SnapshotDetail:UserBucket" locationName:"userBucket" type:"structure"`
 }
 
 // String returns the string representation
@@ -8154,19 +8154,19 @@ type SnapshotDiskContainer struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the disk image being imported.
-	Description *string `type:"string"`
+	Description *string `json:"ec2:SnapshotDiskContainer:Description" type:"string"`
 
 	// The format of the disk image being imported.
 	//
 	// Valid values: VHD | VMDK
-	Format *string `type:"string"`
+	Format *string `json:"ec2:SnapshotDiskContainer:Format" type:"string"`
 
 	// The URL to the Amazon S3-based disk image being imported. It can either be
 	// a https URL (https://..) or an Amazon S3 URL (s3://..).
-	Url *string `type:"string"`
+	Url *string `json:"ec2:SnapshotDiskContainer:Url" type:"string"`
 
 	// The S3 bucket for the disk image.
-	UserBucket *UserBucket `type:"structure"`
+	UserBucket *UserBucket `json:"ec2:SnapshotDiskContainer:UserBucket" type:"structure"`
 }
 
 // String returns the string representation
@@ -8181,35 +8181,35 @@ type SnapshotInfo struct {
 
 	// Description specified by the CreateSnapshotRequest that has been applied
 	// to all snapshots.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:SnapshotInfo:Description" locationName:"description" type:"string"`
 
 	// Indicates whether the snapshot is encrypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:SnapshotInfo:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// Account id used when creating this snapshot.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:SnapshotInfo:OwnerId" locationName:"ownerId" type:"string"`
 
 	// Progress this snapshot has made towards completing.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"ec2:SnapshotInfo:Progress" locationName:"progress" type:"string"`
 
 	// Snapshot id that can be used to describe this snapshot.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:SnapshotInfo:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// Time this snapshot was started. This is the same for all snapshots initiated
 	// by the same request.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"ec2:SnapshotInfo:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Current state of the snapshot.
-	State SnapshotState `locationName:"state" type:"string" enum:"true"`
+	State SnapshotState `json:"ec2:SnapshotInfo:State" locationName:"state" type:"string" enum:"true"`
 
 	// Tags associated with this snapshot.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:SnapshotInfo:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// Source volume from which this snapshot was created.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:SnapshotInfo:VolumeId" locationName:"volumeId" type:"string"`
 
 	// Size of the volume from which this snapshot was created.
-	VolumeSize *int64 `locationName:"volumeSize" type:"integer"`
+	VolumeSize *int64 `json:"ec2:SnapshotInfo:VolumeSize" locationName:"volumeSize" type:"integer"`
 }
 
 // String returns the string representation
@@ -8223,38 +8223,38 @@ type SnapshotTaskDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the snapshot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:SnapshotTaskDetail:Description" locationName:"description" type:"string"`
 
 	// The size of the disk in the snapshot, in GiB.
-	DiskImageSize *float64 `locationName:"diskImageSize" type:"double"`
+	DiskImageSize *float64 `json:"ec2:SnapshotTaskDetail:DiskImageSize" locationName:"diskImageSize" type:"double"`
 
 	// Indicates whether the snapshot is encrypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:SnapshotTaskDetail:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The format of the disk image from which the snapshot is created.
-	Format *string `locationName:"format" type:"string"`
+	Format *string `json:"ec2:SnapshotTaskDetail:Format" locationName:"format" type:"string"`
 
 	// The identifier for the AWS Key Management Service (AWS KMS) customer master
 	// key (CMK) that was used to create the encrypted snapshot.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:SnapshotTaskDetail:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The percentage of completion for the import snapshot task.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"ec2:SnapshotTaskDetail:Progress" locationName:"progress" type:"string"`
 
 	// The snapshot ID of the disk being imported.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:SnapshotTaskDetail:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// A brief status for the import snapshot task.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ec2:SnapshotTaskDetail:Status" locationName:"status" type:"string"`
 
 	// A detailed status message for the import snapshot task.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:SnapshotTaskDetail:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The URL of the disk image from which the snapshot is created.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"ec2:SnapshotTaskDetail:Url" locationName:"url" type:"string"`
 
 	// The S3 bucket for the disk image.
-	UserBucket *UserBucketDetails `locationName:"userBucket" type:"structure"`
+	UserBucket *UserBucketDetails `json:"ec2:SnapshotTaskDetail:UserBucket" locationName:"userBucket" type:"structure"`
 }
 
 // String returns the string representation
@@ -8268,19 +8268,19 @@ type SpotDatafeedSubscription struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 bucket where the Spot Instance data feed is located.
-	Bucket *string `locationName:"bucket" type:"string"`
+	Bucket *string `json:"ec2:SpotDatafeedSubscription:Bucket" locationName:"bucket" type:"string"`
 
 	// The fault codes for the Spot Instance request, if any.
-	Fault *SpotInstanceStateFault `locationName:"fault" type:"structure"`
+	Fault *SpotInstanceStateFault `json:"ec2:SpotDatafeedSubscription:Fault" locationName:"fault" type:"structure"`
 
 	// The AWS account ID of the account.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:SpotDatafeedSubscription:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The prefix that is prepended to data feed files.
-	Prefix *string `locationName:"prefix" type:"string"`
+	Prefix *string `json:"ec2:SpotDatafeedSubscription:Prefix" locationName:"prefix" type:"string"`
 
 	// The state of the Spot Instance data feed subscription.
-	State DatafeedSubscriptionState `locationName:"state" type:"string" enum:"true"`
+	State DatafeedSubscriptionState `json:"ec2:SpotDatafeedSubscription:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -8296,14 +8296,14 @@ type SpotFleetLaunchSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// Deprecated.
-	AddressingType *string `locationName:"addressingType" type:"string"`
+	AddressingType *string `json:"ec2:SpotFleetLaunchSpecification:AddressingType" locationName:"addressingType" type:"string"`
 
 	// One or more block devices that are mapped to the Spot instances. You can't
 	// specify both a snapshot ID and an encryption value. This is because only
 	// blank volumes can be encrypted on creation. If a snapshot is the basis for
 	// a volume, it is not blank and its encryption status is used for the volume
 	// encryption status.
-	BlockDeviceMappings []BlockDeviceMapping `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
+	BlockDeviceMappings []BlockDeviceMapping `json:"ec2:SpotFleetLaunchSpecification:BlockDeviceMappings" locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
 
 	// Indicates whether the instances are optimized for EBS I/O. This optimization
 	// provides dedicated throughput to Amazon EBS and an optimized configuration
@@ -8312,59 +8312,59 @@ type SpotFleetLaunchSpecification struct {
 	// Optimized instance.
 	//
 	// Default: false
-	EbsOptimized *bool `locationName:"ebsOptimized" type:"boolean"`
+	EbsOptimized *bool `json:"ec2:SpotFleetLaunchSpecification:EbsOptimized" locationName:"ebsOptimized" type:"boolean"`
 
 	// The IAM instance profile.
-	IamInstanceProfile *IamInstanceProfileSpecification `locationName:"iamInstanceProfile" type:"structure"`
+	IamInstanceProfile *IamInstanceProfileSpecification `json:"ec2:SpotFleetLaunchSpecification:IamInstanceProfile" locationName:"iamInstanceProfile" type:"structure"`
 
 	// The ID of the AMI.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:SpotFleetLaunchSpecification:ImageId" locationName:"imageId" type:"string"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:SpotFleetLaunchSpecification:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// The ID of the kernel.
-	KernelId *string `locationName:"kernelId" type:"string"`
+	KernelId *string `json:"ec2:SpotFleetLaunchSpecification:KernelId" locationName:"kernelId" type:"string"`
 
 	// The name of the key pair.
-	KeyName *string `locationName:"keyName" type:"string"`
+	KeyName *string `json:"ec2:SpotFleetLaunchSpecification:KeyName" locationName:"keyName" type:"string"`
 
 	// Enable or disable monitoring for the instances.
-	Monitoring *SpotFleetMonitoring `locationName:"monitoring" type:"structure"`
+	Monitoring *SpotFleetMonitoring `json:"ec2:SpotFleetLaunchSpecification:Monitoring" locationName:"monitoring" type:"structure"`
 
 	// One or more network interfaces. If you specify a network interface, you must
 	// specify subnet IDs and security group IDs using the network interface.
-	NetworkInterfaces []InstanceNetworkInterfaceSpecification `locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
+	NetworkInterfaces []InstanceNetworkInterfaceSpecification `json:"ec2:SpotFleetLaunchSpecification:NetworkInterfaces" locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
 
 	// The placement information.
-	Placement *SpotPlacement `locationName:"placement" type:"structure"`
+	Placement *SpotPlacement `json:"ec2:SpotFleetLaunchSpecification:Placement" locationName:"placement" type:"structure"`
 
 	// The ID of the RAM disk. Some kernels require additional drivers at launch.
 	// Check the kernel requirements for information about whether you need to specify
 	// a RAM disk. To find kernel requirements, refer to the AWS Resource Center
 	// and search for the kernel ID.
-	RamdiskId *string `locationName:"ramdiskId" type:"string"`
+	RamdiskId *string `json:"ec2:SpotFleetLaunchSpecification:RamdiskId" locationName:"ramdiskId" type:"string"`
 
 	// One or more security groups. When requesting instances in a VPC, you must
 	// specify the IDs of the security groups. When requesting instances in EC2-Classic,
 	// you can specify the names or the IDs of the security groups.
-	SecurityGroups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	SecurityGroups []GroupIdentifier `json:"ec2:SpotFleetLaunchSpecification:SecurityGroups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	// If this value is not specified, the default is the Spot price specified for
 	// the fleet. To determine the Spot price per unit hour, divide the Spot price
 	// by the value of WeightedCapacity.
-	SpotPrice *string `locationName:"spotPrice" type:"string"`
+	SpotPrice *string `json:"ec2:SpotFleetLaunchSpecification:SpotPrice" locationName:"spotPrice" type:"string"`
 
 	// The ID of the subnet in which to launch the instances. To specify multiple
 	// subnets, separate them using commas; for example, "subnet-a61dafcf, subnet-65ea5f08".
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:SpotFleetLaunchSpecification:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The tags to apply during creation.
-	TagSpecifications []SpotFleetTagSpecification `locationName:"tagSpecificationSet" locationNameList:"item" type:"list"`
+	TagSpecifications []SpotFleetTagSpecification `json:"ec2:SpotFleetLaunchSpecification:TagSpecifications" locationName:"tagSpecificationSet" locationNameList:"item" type:"list"`
 
 	// The Base64-encoded user data that instances use when starting up.
-	UserData *string `locationName:"userData" type:"string"`
+	UserData *string `json:"ec2:SpotFleetLaunchSpecification:UserData" locationName:"userData" type:"string"`
 
 	// The number of units provided by the specified instance type. These are the
 	// same units that you chose to set the target capacity in terms of instances,
@@ -8373,7 +8373,7 @@ type SpotFleetLaunchSpecification struct {
 	// If the target capacity divided by this value is not a whole number, Amazon
 	// EC2 rounds the number of instances to the next whole number. If this value
 	// is not specified, the default is 1.
-	WeightedCapacity *float64 `locationName:"weightedCapacity" type:"double"`
+	WeightedCapacity *float64 `json:"ec2:SpotFleetLaunchSpecification:WeightedCapacity" locationName:"weightedCapacity" type:"double"`
 }
 
 // String returns the string representation
@@ -8389,7 +8389,7 @@ type SpotFleetMonitoring struct {
 	// Enables monitoring for the instance.
 	//
 	// Default: false
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"ec2:SpotFleetMonitoring:Enabled" locationName:"enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -8407,19 +8407,19 @@ type SpotFleetRequestConfig struct {
 	// If the size of the fleet is equal to or greater than its target capacity,
 	// the status is fulfilled. If the size of the fleet is decreased, the status
 	// is pending_termination while Spot Instances are terminating.
-	ActivityStatus ActivityStatus `locationName:"activityStatus" type:"string" enum:"true"`
+	ActivityStatus ActivityStatus `json:"ec2:SpotFleetRequestConfig:ActivityStatus" locationName:"activityStatus" type:"string" enum:"true"`
 
 	// The creation date and time of the request.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:SpotFleetRequestConfig:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The configuration of the Spot Fleet request.
-	SpotFleetRequestConfig *SpotFleetRequestConfigData `locationName:"spotFleetRequestConfig" type:"structure"`
+	SpotFleetRequestConfig *SpotFleetRequestConfigData `json:"ec2:SpotFleetRequestConfig:SpotFleetRequestConfig" locationName:"spotFleetRequestConfig" type:"structure"`
 
 	// The ID of the Spot Fleet request.
-	SpotFleetRequestId *string `locationName:"spotFleetRequestId" type:"string"`
+	SpotFleetRequestId *string `json:"ec2:SpotFleetRequestConfig:SpotFleetRequestId" locationName:"spotFleetRequestId" type:"string"`
 
 	// The state of the Spot Fleet request.
-	SpotFleetRequestState BatchState `locationName:"spotFleetRequestState" type:"string" enum:"true"`
+	SpotFleetRequestState BatchState `json:"ec2:SpotFleetRequestConfig:SpotFleetRequestState" locationName:"spotFleetRequestState" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -8434,21 +8434,21 @@ type SpotFleetRequestConfigData struct {
 
 	// Indicates how to allocate the target capacity across the Spot pools specified
 	// by the Spot Fleet request. The default is lowestPrice.
-	AllocationStrategy AllocationStrategy `locationName:"allocationStrategy" type:"string" enum:"true"`
+	AllocationStrategy AllocationStrategy `json:"ec2:SpotFleetRequestConfigData:AllocationStrategy" locationName:"allocationStrategy" type:"string" enum:"true"`
 
 	// A unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of your listings. This helps to avoid duplicate listings. For more information,
 	// see Ensuring Idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:SpotFleetRequestConfigData:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Indicates whether running Spot Instances should be terminated if you decrease
 	// the target capacity of the Spot Fleet request below the current size of the
 	// Spot Fleet.
-	ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy `locationName:"excessCapacityTerminationPolicy" type:"string" enum:"true"`
+	ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy `json:"ec2:SpotFleetRequestConfigData:ExcessCapacityTerminationPolicy" locationName:"excessCapacityTerminationPolicy" type:"string" enum:"true"`
 
 	// The number of units fulfilled by this request compared to the set target
 	// capacity. You cannot set this value.
-	FulfilledCapacity *float64 `locationName:"fulfilledCapacity" type:"double"`
+	FulfilledCapacity *float64 `json:"ec2:SpotFleetRequestConfigData:FulfilledCapacity" locationName:"fulfilledCapacity" type:"double"`
 
 	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
 	// role that grants the Spot Fleet the permission to request, launch, terminate,
@@ -8460,26 +8460,26 @@ type SpotFleetRequestConfigData struct {
 	// TerminateInstancesWithExpiration.
 	//
 	// IamFleetRole is a required field
-	IamFleetRole *string `locationName:"iamFleetRole" type:"string" required:"true"`
+	IamFleetRole *string `json:"ec2:SpotFleetRequestConfigData:IamFleetRole" locationName:"iamFleetRole" type:"string" required:"true"`
 
 	// The behavior when a Spot Instance is interrupted. The default is terminate.
-	InstanceInterruptionBehavior InstanceInterruptionBehavior `locationName:"instanceInterruptionBehavior" type:"string" enum:"true"`
+	InstanceInterruptionBehavior InstanceInterruptionBehavior `json:"ec2:SpotFleetRequestConfigData:InstanceInterruptionBehavior" locationName:"instanceInterruptionBehavior" type:"string" enum:"true"`
 
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when Spot AllocationStrategy is set to lowest-price. Spot Fleet
 	// selects the cheapest Spot pools and evenly allocates your target Spot capacity
 	// across the number of Spot pools that you specify.
-	InstancePoolsToUseCount *int64 `locationName:"instancePoolsToUseCount" type:"integer"`
+	InstancePoolsToUseCount *int64 `json:"ec2:SpotFleetRequestConfigData:InstancePoolsToUseCount" locationName:"instancePoolsToUseCount" type:"integer"`
 
 	// The launch specifications for the Spot Fleet request. If you specify LaunchSpecifications,
 	// you can't specify LaunchTemplateConfigs. If you include On-Demand capacity
 	// in your request, you must use LaunchTemplateConfigs.
-	LaunchSpecifications []SpotFleetLaunchSpecification `locationName:"launchSpecifications" locationNameList:"item" type:"list"`
+	LaunchSpecifications []SpotFleetLaunchSpecification `json:"ec2:SpotFleetRequestConfigData:LaunchSpecifications" locationName:"launchSpecifications" locationNameList:"item" type:"list"`
 
 	// The launch template and overrides. If you specify LaunchTemplateConfigs,
 	// you can't specify LaunchSpecifications. If you include On-Demand capacity
 	// in your request, you must use LaunchTemplateConfigs.
-	LaunchTemplateConfigs []LaunchTemplateConfig `locationName:"launchTemplateConfigs" locationNameList:"item" type:"list"`
+	LaunchTemplateConfigs []LaunchTemplateConfig `json:"ec2:SpotFleetRequestConfigData:LaunchTemplateConfigs" locationName:"launchTemplateConfigs" locationNameList:"item" type:"list"`
 
 	// One or more Classic Load Balancers and target groups to attach to the Spot
 	// Fleet request. Spot Fleet registers the running Spot Instances with the specified
@@ -8488,7 +8488,7 @@ type SpotFleetRequestConfigData struct {
 	// With Network Load Balancers, Spot Fleet cannot register instances that have
 	// the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1,
 	// HS1, M1, M2, M3, and T1.
-	LoadBalancersConfig *LoadBalancersConfig `locationName:"loadBalancersConfig" type:"structure"`
+	LoadBalancersConfig *LoadBalancersConfig `json:"ec2:SpotFleetRequestConfigData:LoadBalancersConfig" locationName:"loadBalancersConfig" type:"structure"`
 
 	// The order of the launch template overrides to use in fulfilling On-Demand
 	// capacity. If you specify lowestPrice, Spot Fleet uses price to determine
@@ -8496,11 +8496,11 @@ type SpotFleetRequestConfigData struct {
 	// Spot Fleet uses the priority that you assign to each Spot Fleet launch template
 	// override, launching the highest priority first. If you do not specify a value,
 	// Spot Fleet defaults to lowestPrice.
-	OnDemandAllocationStrategy OnDemandAllocationStrategy `locationName:"onDemandAllocationStrategy" type:"string" enum:"true"`
+	OnDemandAllocationStrategy OnDemandAllocationStrategy `json:"ec2:SpotFleetRequestConfigData:OnDemandAllocationStrategy" locationName:"onDemandAllocationStrategy" type:"string" enum:"true"`
 
 	// The number of On-Demand units fulfilled by this request compared to the set
 	// target On-Demand capacity.
-	OnDemandFulfilledCapacity *float64 `locationName:"onDemandFulfilledCapacity" type:"double"`
+	OnDemandFulfilledCapacity *float64 `json:"ec2:SpotFleetRequestConfigData:OnDemandFulfilledCapacity" locationName:"onDemandFulfilledCapacity" type:"double"`
 
 	// The maximum amount per hour for On-Demand Instances that you're willing to
 	// pay. You can use the onDemandMaxTotalPrice parameter, the spotMaxTotalPrice
@@ -8510,17 +8510,17 @@ type SpotFleetRequestConfigData struct {
 	// it reaches the maximum amount you're willing to pay. When the maximum amount
 	// you're willing to pay is reached, the fleet stops launching instances even
 	// if it hasn’t met the target capacity.
-	OnDemandMaxTotalPrice *string `locationName:"onDemandMaxTotalPrice" type:"string"`
+	OnDemandMaxTotalPrice *string `json:"ec2:SpotFleetRequestConfigData:OnDemandMaxTotalPrice" locationName:"onDemandMaxTotalPrice" type:"string"`
 
 	// The number of On-Demand units to request. You can choose to set the target
 	// capacity in terms of instances or a performance characteristic that is important
 	// to your application workload, such as vCPUs, memory, or I/O. If the request
 	// type is maintain, you can specify a target capacity of 0 and add capacity
 	// later.
-	OnDemandTargetCapacity *int64 `locationName:"onDemandTargetCapacity" type:"integer"`
+	OnDemandTargetCapacity *int64 `json:"ec2:SpotFleetRequestConfigData:OnDemandTargetCapacity" locationName:"onDemandTargetCapacity" type:"integer"`
 
 	// Indicates whether Spot Fleet should replace unhealthy instances.
-	ReplaceUnhealthyInstances *bool `locationName:"replaceUnhealthyInstances" type:"boolean"`
+	ReplaceUnhealthyInstances *bool `json:"ec2:SpotFleetRequestConfigData:ReplaceUnhealthyInstances" locationName:"replaceUnhealthyInstances" type:"boolean"`
 
 	// The maximum amount per hour for Spot Instances that you're willing to pay.
 	// You can use the spotdMaxTotalPrice parameter, the onDemandMaxTotalPrice parameter,
@@ -8530,11 +8530,11 @@ type SpotFleetRequestConfigData struct {
 	// the maximum amount you're willing to pay. When the maximum amount you're
 	// willing to pay is reached, the fleet stops launching instances even if it
 	// hasn’t met the target capacity.
-	SpotMaxTotalPrice *string `locationName:"spotMaxTotalPrice" type:"string"`
+	SpotMaxTotalPrice *string `json:"ec2:SpotFleetRequestConfigData:SpotMaxTotalPrice" locationName:"spotMaxTotalPrice" type:"string"`
 
 	// The maximum price per unit hour that you are willing to pay for a Spot Instance.
 	// The default is the On-Demand price.
-	SpotPrice *string `locationName:"spotPrice" type:"string"`
+	SpotPrice *string `json:"ec2:SpotFleetRequestConfigData:SpotPrice" locationName:"spotPrice" type:"string"`
 
 	// The number of units to request for the Spot Fleet. You can choose to set
 	// the target capacity in terms of instances or a performance characteristic
@@ -8543,11 +8543,11 @@ type SpotFleetRequestConfigData struct {
 	// 0 and add capacity later.
 	//
 	// TargetCapacity is a required field
-	TargetCapacity *int64 `locationName:"targetCapacity" type:"integer" required:"true"`
+	TargetCapacity *int64 `json:"ec2:SpotFleetRequestConfigData:TargetCapacity" locationName:"targetCapacity" type:"integer" required:"true"`
 
 	// Indicates whether running Spot Instances are terminated when the Spot Fleet
 	// request expires.
-	TerminateInstancesWithExpiration *bool `locationName:"terminateInstancesWithExpiration" type:"boolean"`
+	TerminateInstancesWithExpiration *bool `json:"ec2:SpotFleetRequestConfigData:TerminateInstancesWithExpiration" locationName:"terminateInstancesWithExpiration" type:"boolean"`
 
 	// The type of request. Indicates whether the Spot Fleet only requests the target
 	// capacity or also attempts to maintain it. When this value is request, the
@@ -8557,17 +8557,17 @@ type SpotFleetRequestConfigData struct {
 	// the Spot Fleet maintains the target capacity. The Spot Fleet places the required
 	// requests to meet capacity and automatically replenishes any interrupted instances.
 	// Default: maintain. instant is listed but is not used by Spot Fleet.
-	Type FleetType `locationName:"type" type:"string" enum:"true"`
+	Type FleetType `json:"ec2:SpotFleetRequestConfigData:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The start date and time of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ).
 	// By default, Amazon EC2 starts fulfilling the request immediately.
-	ValidFrom *time.Time `locationName:"validFrom" type:"timestamp" timestampFormat:"iso8601"`
+	ValidFrom *time.Time `json:"ec2:SpotFleetRequestConfigData:ValidFrom" locationName:"validFrom" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The end date and time of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ).
 	// After the end date and time, no new Spot Instance requests are placed or
 	// able to fulfill the request. If no value is specified, the Spot Fleet request
 	// remains until you cancel it.
-	ValidUntil *time.Time `locationName:"validUntil" type:"timestamp" timestampFormat:"iso8601"`
+	ValidUntil *time.Time `json:"ec2:SpotFleetRequestConfigData:ValidUntil" locationName:"validUntil" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -8612,10 +8612,10 @@ type SpotFleetTagSpecification struct {
 
 	// The type of resource. Currently, the only resource type that is supported
 	// is instance.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"ec2:SpotFleetTagSpecification:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The tags.
-	Tags []Tag `locationName:"tag" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:SpotFleetTagSpecification:Tags" locationName:"tag" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -8630,73 +8630,73 @@ type SpotInstanceRequest struct {
 
 	// If you specified a duration and your Spot Instance request was fulfilled,
 	// this is the fixed hourly price in effect for the Spot Instance while it runs.
-	ActualBlockHourlyPrice *string `locationName:"actualBlockHourlyPrice" type:"string"`
+	ActualBlockHourlyPrice *string `json:"ec2:SpotInstanceRequest:ActualBlockHourlyPrice" locationName:"actualBlockHourlyPrice" type:"string"`
 
 	// The Availability Zone group. If you specify the same Availability Zone group
 	// for all Spot Instance requests, all Spot Instances are launched in the same
 	// Availability Zone.
-	AvailabilityZoneGroup *string `locationName:"availabilityZoneGroup" type:"string"`
+	AvailabilityZoneGroup *string `json:"ec2:SpotInstanceRequest:AvailabilityZoneGroup" locationName:"availabilityZoneGroup" type:"string"`
 
 	// The duration for the Spot Instance, in minutes.
-	BlockDurationMinutes *int64 `locationName:"blockDurationMinutes" type:"integer"`
+	BlockDurationMinutes *int64 `json:"ec2:SpotInstanceRequest:BlockDurationMinutes" locationName:"blockDurationMinutes" type:"integer"`
 
 	// The date and time when the Spot Instance request was created, in UTC format
 	// (for example, YYYY-MM-DDTHH:MM:SSZ).
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:SpotInstanceRequest:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The fault codes for the Spot Instance request, if any.
-	Fault *SpotInstanceStateFault `locationName:"fault" type:"structure"`
+	Fault *SpotInstanceStateFault `json:"ec2:SpotInstanceRequest:Fault" locationName:"fault" type:"structure"`
 
 	// The instance ID, if an instance has been launched to fulfill the Spot Instance
 	// request.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:SpotInstanceRequest:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The behavior when a Spot Instance is interrupted.
-	InstanceInterruptionBehavior InstanceInterruptionBehavior `locationName:"instanceInterruptionBehavior" type:"string" enum:"true"`
+	InstanceInterruptionBehavior InstanceInterruptionBehavior `json:"ec2:SpotInstanceRequest:InstanceInterruptionBehavior" locationName:"instanceInterruptionBehavior" type:"string" enum:"true"`
 
 	// The instance launch group. Launch groups are Spot Instances that launch together
 	// and terminate together.
-	LaunchGroup *string `locationName:"launchGroup" type:"string"`
+	LaunchGroup *string `json:"ec2:SpotInstanceRequest:LaunchGroup" locationName:"launchGroup" type:"string"`
 
 	// Additional information for launching instances.
-	LaunchSpecification *LaunchSpecification `locationName:"launchSpecification" type:"structure"`
+	LaunchSpecification *LaunchSpecification `json:"ec2:SpotInstanceRequest:LaunchSpecification" locationName:"launchSpecification" type:"structure"`
 
 	// The Availability Zone in which the request is launched.
-	LaunchedAvailabilityZone *string `locationName:"launchedAvailabilityZone" type:"string"`
+	LaunchedAvailabilityZone *string `json:"ec2:SpotInstanceRequest:LaunchedAvailabilityZone" locationName:"launchedAvailabilityZone" type:"string"`
 
 	// The product description associated with the Spot Instance.
-	ProductDescription RIProductDescription `locationName:"productDescription" type:"string" enum:"true"`
+	ProductDescription RIProductDescription `json:"ec2:SpotInstanceRequest:ProductDescription" locationName:"productDescription" type:"string" enum:"true"`
 
 	// The ID of the Spot Instance request.
-	SpotInstanceRequestId *string `locationName:"spotInstanceRequestId" type:"string"`
+	SpotInstanceRequestId *string `json:"ec2:SpotInstanceRequest:SpotInstanceRequestId" locationName:"spotInstanceRequestId" type:"string"`
 
 	// The maximum price per hour that you are willing to pay for a Spot Instance.
-	SpotPrice *string `locationName:"spotPrice" type:"string"`
+	SpotPrice *string `json:"ec2:SpotInstanceRequest:SpotPrice" locationName:"spotPrice" type:"string"`
 
 	// The state of the Spot Instance request. Spot status information helps track
 	// your Spot Instance requests. For more information, see Spot Status (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 	// in the Amazon EC2 User Guide for Linux Instances.
-	State SpotInstanceState `locationName:"state" type:"string" enum:"true"`
+	State SpotInstanceState `json:"ec2:SpotInstanceRequest:State" locationName:"state" type:"string" enum:"true"`
 
 	// The status code and status message describing the Spot Instance request.
-	Status *SpotInstanceStatus `locationName:"status" type:"structure"`
+	Status *SpotInstanceStatus `json:"ec2:SpotInstanceRequest:Status" locationName:"status" type:"structure"`
 
 	// Any tags assigned to the resource.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:SpotInstanceRequest:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The Spot Instance request type.
-	Type SpotInstanceType `locationName:"type" type:"string" enum:"true"`
+	Type SpotInstanceType `json:"ec2:SpotInstanceRequest:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The start date of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
 	// The request becomes active at this date and time.
-	ValidFrom *time.Time `locationName:"validFrom" type:"timestamp" timestampFormat:"iso8601"`
+	ValidFrom *time.Time `json:"ec2:SpotInstanceRequest:ValidFrom" locationName:"validFrom" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The end date of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
 	// If this is a one-time request, it remains active until all instances launch,
 	// the request is canceled, or this date is reached. If the request is persistent,
 	// it remains active until it is canceled or this date is reached. The default
 	// end date is 7 days from the current date.
-	ValidUntil *time.Time `locationName:"validUntil" type:"timestamp" timestampFormat:"iso8601"`
+	ValidUntil *time.Time `json:"ec2:SpotInstanceRequest:ValidUntil" locationName:"validUntil" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -8710,10 +8710,10 @@ type SpotInstanceStateFault struct {
 	_ struct{} `type:"structure"`
 
 	// The reason code for the Spot Instance state change.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"ec2:SpotInstanceStateFault:Code" locationName:"code" type:"string"`
 
 	// The message for the Spot Instance state change.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:SpotInstanceStateFault:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -8728,14 +8728,14 @@ type SpotInstanceStatus struct {
 
 	// The status code. For a list of status codes, see Spot Status Codes (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand)
 	// in the Amazon EC2 User Guide for Linux Instances.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"ec2:SpotInstanceStatus:Code" locationName:"code" type:"string"`
 
 	// The description for the status code.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:SpotInstanceStatus:Message" locationName:"message" type:"string"`
 
 	// The date and time of the most recent status update, in UTC format (for example,
 	// YYYY-MM-DDTHH:MM:SSZ).
-	UpdateTime *time.Time `locationName:"updateTime" type:"timestamp" timestampFormat:"iso8601"`
+	UpdateTime *time.Time `json:"ec2:SpotInstanceStatus:UpdateTime" locationName:"updateTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -8751,26 +8751,26 @@ type SpotMarketOptions struct {
 	// The required duration for the Spot Instances (also known as Spot blocks),
 	// in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300,
 	// or 360).
-	BlockDurationMinutes *int64 `type:"integer"`
+	BlockDurationMinutes *int64 `json:"ec2:SpotMarketOptions:BlockDurationMinutes" type:"integer"`
 
 	// The behavior when a Spot Instance is interrupted. The default is terminate.
-	InstanceInterruptionBehavior InstanceInterruptionBehavior `type:"string" enum:"true"`
+	InstanceInterruptionBehavior InstanceInterruptionBehavior `json:"ec2:SpotMarketOptions:InstanceInterruptionBehavior" type:"string" enum:"true"`
 
 	// The maximum hourly price you're willing to pay for the Spot Instances. The
 	// default is the On-Demand price.
-	MaxPrice *string `type:"string"`
+	MaxPrice *string `json:"ec2:SpotMarketOptions:MaxPrice" type:"string"`
 
 	// The Spot Instance request type. For RunInstances, persistent Spot Instance
 	// requests are only supported when InstanceInterruptionBehavior is set to either
 	// hibernate or stop.
-	SpotInstanceType SpotInstanceType `type:"string" enum:"true"`
+	SpotInstanceType SpotInstanceType `json:"ec2:SpotMarketOptions:SpotInstanceType" type:"string" enum:"true"`
 
 	// The end date of the request. For a one-time request, the request remains
 	// active until all instances launch, the request is canceled, or this date
 	// is reached. If the request is persistent, it remains active until it is canceled
 	// or this date and time is reached. The default end date is 7 days from the
 	// current date.
-	ValidUntil *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ValidUntil *time.Time `json:"ec2:SpotMarketOptions:ValidUntil" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -8785,31 +8785,31 @@ type SpotOptions struct {
 
 	// Indicates how to allocate the target capacity across the Spot pools specified
 	// by the Spot Fleet request. The default is lowest-price.
-	AllocationStrategy SpotAllocationStrategy `locationName:"allocationStrategy" type:"string" enum:"true"`
+	AllocationStrategy SpotAllocationStrategy `json:"ec2:SpotOptions:AllocationStrategy" locationName:"allocationStrategy" type:"string" enum:"true"`
 
 	// The behavior when a Spot Instance is interrupted. The default is terminate.
-	InstanceInterruptionBehavior SpotInstanceInterruptionBehavior `locationName:"instanceInterruptionBehavior" type:"string" enum:"true"`
+	InstanceInterruptionBehavior SpotInstanceInterruptionBehavior `json:"ec2:SpotOptions:InstanceInterruptionBehavior" locationName:"instanceInterruptionBehavior" type:"string" enum:"true"`
 
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when AllocationStrategy is set to lowestPrice. EC2 Fleet selects
 	// the cheapest Spot pools and evenly allocates your target Spot capacity across
 	// the number of Spot pools that you specify.
-	InstancePoolsToUseCount *int64 `locationName:"instancePoolsToUseCount" type:"integer"`
+	InstancePoolsToUseCount *int64 `json:"ec2:SpotOptions:InstancePoolsToUseCount" locationName:"instancePoolsToUseCount" type:"integer"`
 
 	// The maximum amount per hour for Spot Instances that you're willing to pay.
-	MaxTotalPrice *string `locationName:"maxTotalPrice" type:"string"`
+	MaxTotalPrice *string `json:"ec2:SpotOptions:MaxTotalPrice" locationName:"maxTotalPrice" type:"string"`
 
 	// The minimum target capacity for Spot Instances in the fleet. If the minimum
 	// target capacity is not reached, the fleet launches no instances.
-	MinTargetCapacity *int64 `locationName:"minTargetCapacity" type:"integer"`
+	MinTargetCapacity *int64 `json:"ec2:SpotOptions:MinTargetCapacity" locationName:"minTargetCapacity" type:"integer"`
 
 	// Indicates that the fleet launches all Spot Instances into a single Availability
 	// Zone.
-	SingleAvailabilityZone *bool `locationName:"singleAvailabilityZone" type:"boolean"`
+	SingleAvailabilityZone *bool `json:"ec2:SpotOptions:SingleAvailabilityZone" locationName:"singleAvailabilityZone" type:"boolean"`
 
 	// Indicates that the fleet uses a single instance type to launch all Spot Instances
 	// in the fleet.
-	SingleInstanceType *bool `locationName:"singleInstanceType" type:"boolean"`
+	SingleInstanceType *bool `json:"ec2:SpotOptions:SingleInstanceType" locationName:"singleInstanceType" type:"boolean"`
 }
 
 // String returns the string representation
@@ -8824,31 +8824,31 @@ type SpotOptionsRequest struct {
 
 	// Indicates how to allocate the target capacity across the Spot pools specified
 	// by the Spot Fleet request. The default is lowestPrice.
-	AllocationStrategy SpotAllocationStrategy `type:"string" enum:"true"`
+	AllocationStrategy SpotAllocationStrategy `json:"ec2:SpotOptionsRequest:AllocationStrategy" type:"string" enum:"true"`
 
 	// The behavior when a Spot Instance is interrupted. The default is terminate.
-	InstanceInterruptionBehavior SpotInstanceInterruptionBehavior `type:"string" enum:"true"`
+	InstanceInterruptionBehavior SpotInstanceInterruptionBehavior `json:"ec2:SpotOptionsRequest:InstanceInterruptionBehavior" type:"string" enum:"true"`
 
 	// The number of Spot pools across which to allocate your target Spot capacity.
 	// Valid only when Spot AllocationStrategy is set to lowest-price. EC2 Fleet
 	// selects the cheapest Spot pools and evenly allocates your target Spot capacity
 	// across the number of Spot pools that you specify.
-	InstancePoolsToUseCount *int64 `type:"integer"`
+	InstancePoolsToUseCount *int64 `json:"ec2:SpotOptionsRequest:InstancePoolsToUseCount" type:"integer"`
 
 	// The maximum amount per hour for Spot Instances that you're willing to pay.
-	MaxTotalPrice *string `type:"string"`
+	MaxTotalPrice *string `json:"ec2:SpotOptionsRequest:MaxTotalPrice" type:"string"`
 
 	// The minimum target capacity for Spot Instances in the fleet. If the minimum
 	// target capacity is not reached, the fleet launches no instances.
-	MinTargetCapacity *int64 `type:"integer"`
+	MinTargetCapacity *int64 `json:"ec2:SpotOptionsRequest:MinTargetCapacity" type:"integer"`
 
 	// Indicates that the fleet launches all Spot Instances into a single Availability
 	// Zone.
-	SingleAvailabilityZone *bool `type:"boolean"`
+	SingleAvailabilityZone *bool `json:"ec2:SpotOptionsRequest:SingleAvailabilityZone" type:"boolean"`
 
 	// Indicates that the fleet uses a single instance type to launch all Spot Instances
 	// in the fleet.
-	SingleInstanceType *bool `type:"boolean"`
+	SingleInstanceType *bool `json:"ec2:SpotOptionsRequest:SingleInstanceType" type:"boolean"`
 }
 
 // String returns the string representation
@@ -8865,15 +8865,15 @@ type SpotPlacement struct {
 	//
 	// [Spot Fleet only] To specify multiple Availability Zones, separate them using
 	// commas; for example, "us-west-2a, us-west-2b".
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:SpotPlacement:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The name of the placement group.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:SpotPlacement:GroupName" locationName:"groupName" type:"string"`
 
 	// The tenancy of the instance (if the instance is running in a VPC). An instance
 	// with a tenancy of dedicated runs on single-tenant hardware. The host tenancy
 	// is not supported for Spot Instances.
-	Tenancy Tenancy `locationName:"tenancy" type:"string" enum:"true"`
+	Tenancy Tenancy `json:"ec2:SpotPlacement:Tenancy" locationName:"tenancy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -8888,19 +8888,19 @@ type SpotPrice struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:SpotPrice:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The instance type.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"ec2:SpotPrice:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// A general description of the AMI.
-	ProductDescription RIProductDescription `locationName:"productDescription" type:"string" enum:"true"`
+	ProductDescription RIProductDescription `json:"ec2:SpotPrice:ProductDescription" locationName:"productDescription" type:"string" enum:"true"`
 
 	// The maximum price per hour that you are willing to pay for a Spot Instance.
-	SpotPrice *string `locationName:"spotPrice" type:"string"`
+	SpotPrice *string `json:"ec2:SpotPrice:SpotPrice" locationName:"spotPrice" type:"string"`
 
 	// The date and time the request was created, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"ec2:SpotPrice:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -8915,26 +8915,26 @@ type StaleIpPermission struct {
 
 	// The start of the port range for the TCP and UDP protocols, or an ICMP type
 	// number. A value of -1 indicates all ICMP types.
-	FromPort *int64 `locationName:"fromPort" type:"integer"`
+	FromPort *int64 `json:"ec2:StaleIpPermission:FromPort" locationName:"fromPort" type:"integer"`
 
 	// The IP protocol name (for tcp, udp, and icmp) or number (see Protocol Numbers)
 	// (http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-	IpProtocol *string `locationName:"ipProtocol" type:"string"`
+	IpProtocol *string `json:"ec2:StaleIpPermission:IpProtocol" locationName:"ipProtocol" type:"string"`
 
 	// The IP ranges. Not applicable for stale security group rules.
-	IpRanges []string `locationName:"ipRanges" locationNameList:"item" type:"list"`
+	IpRanges []string `json:"ec2:StaleIpPermission:IpRanges" locationName:"ipRanges" locationNameList:"item" type:"list"`
 
 	// The prefix list IDs for an AWS service. Not applicable for stale security
 	// group rules.
-	PrefixListIds []string `locationName:"prefixListIds" locationNameList:"item" type:"list"`
+	PrefixListIds []string `json:"ec2:StaleIpPermission:PrefixListIds" locationName:"prefixListIds" locationNameList:"item" type:"list"`
 
 	// The end of the port range for the TCP and UDP protocols, or an ICMP type
 	// number. A value of -1 indicates all ICMP types.
-	ToPort *int64 `locationName:"toPort" type:"integer"`
+	ToPort *int64 `json:"ec2:StaleIpPermission:ToPort" locationName:"toPort" type:"integer"`
 
 	// The security group pairs. Returns the ID of the referenced security group
 	// and VPC, and the ID and status of the VPC peering connection.
-	UserIdGroupPairs []UserIdGroupPair `locationName:"groups" locationNameList:"item" type:"list"`
+	UserIdGroupPairs []UserIdGroupPair `json:"ec2:StaleIpPermission:UserIdGroupPairs" locationName:"groups" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -8948,22 +8948,22 @@ type StaleSecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the security group.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:StaleSecurityGroup:Description" locationName:"description" type:"string"`
 
 	// The ID of the security group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"ec2:StaleSecurityGroup:GroupId" locationName:"groupId" type:"string"`
 
 	// The name of the security group.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:StaleSecurityGroup:GroupName" locationName:"groupName" type:"string"`
 
 	// Information about the stale inbound rules in the security group.
-	StaleIpPermissions []StaleIpPermission `locationName:"staleIpPermissions" locationNameList:"item" type:"list"`
+	StaleIpPermissions []StaleIpPermission `json:"ec2:StaleSecurityGroup:StaleIpPermissions" locationName:"staleIpPermissions" locationNameList:"item" type:"list"`
 
 	// Information about the stale outbound rules in the security group.
-	StaleIpPermissionsEgress []StaleIpPermission `locationName:"staleIpPermissionsEgress" locationNameList:"item" type:"list"`
+	StaleIpPermissionsEgress []StaleIpPermission `json:"ec2:StaleSecurityGroup:StaleIpPermissionsEgress" locationName:"staleIpPermissionsEgress" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC for the security group.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:StaleSecurityGroup:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -8977,7 +8977,7 @@ type StateReason struct {
 	_ struct{} `type:"structure"`
 
 	// The reason code for the state change.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"ec2:StateReason:Code" locationName:"code" type:"string"`
 
 	// The message for the state change.
 	//
@@ -9018,7 +9018,7 @@ type StateReason struct {
 	//    * Client.VolumeLimitExceeded: The limit on the number of EBS volumes or
 	//    total storage was exceeded. Decrease usage or request an increase in your
 	//    account limits.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:StateReason:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -9032,7 +9032,7 @@ type Storage struct {
 	_ struct{} `type:"structure"`
 
 	// An Amazon S3 storage location.
-	S3 *S3Storage `type:"structure"`
+	S3 *S3Storage `json:"ec2:Storage:S3" type:"structure"`
 }
 
 // String returns the string representation
@@ -9046,10 +9046,10 @@ type StorageLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the S3 bucket.
-	Bucket *string `type:"string"`
+	Bucket *string `json:"ec2:StorageLocation:Bucket" type:"string"`
 
 	// The key.
-	Key *string `type:"string"`
+	Key *string `json:"ec2:StorageLocation:Key" type:"string"`
 }
 
 // String returns the string representation
@@ -9064,48 +9064,48 @@ type Subnet struct {
 
 	// Indicates whether a network interface created in this subnet (including a
 	// network interface created by RunInstances) receives an IPv6 address.
-	AssignIpv6AddressOnCreation *bool `locationName:"assignIpv6AddressOnCreation" type:"boolean"`
+	AssignIpv6AddressOnCreation *bool `json:"ec2:Subnet:AssignIpv6AddressOnCreation" locationName:"assignIpv6AddressOnCreation" type:"boolean"`
 
 	// The Availability Zone of the subnet.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:Subnet:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The AZ ID of the subnet.
-	AvailabilityZoneId *string `locationName:"availabilityZoneId" type:"string"`
+	AvailabilityZoneId *string `json:"ec2:Subnet:AvailabilityZoneId" locationName:"availabilityZoneId" type:"string"`
 
 	// The number of unused private IPv4 addresses in the subnet. The IPv4 addresses
 	// for any stopped instances are considered unavailable.
-	AvailableIpAddressCount *int64 `locationName:"availableIpAddressCount" type:"integer"`
+	AvailableIpAddressCount *int64 `json:"ec2:Subnet:AvailableIpAddressCount" locationName:"availableIpAddressCount" type:"integer"`
 
 	// The IPv4 CIDR block assigned to the subnet.
-	CidrBlock *string `locationName:"cidrBlock" type:"string"`
+	CidrBlock *string `json:"ec2:Subnet:CidrBlock" locationName:"cidrBlock" type:"string"`
 
 	// Indicates whether this is the default subnet for the Availability Zone.
-	DefaultForAz *bool `locationName:"defaultForAz" type:"boolean"`
+	DefaultForAz *bool `json:"ec2:Subnet:DefaultForAz" locationName:"defaultForAz" type:"boolean"`
 
 	// Information about the IPv6 CIDR blocks associated with the subnet.
-	Ipv6CidrBlockAssociationSet []SubnetIpv6CidrBlockAssociation `locationName:"ipv6CidrBlockAssociationSet" locationNameList:"item" type:"list"`
+	Ipv6CidrBlockAssociationSet []SubnetIpv6CidrBlockAssociation `json:"ec2:Subnet:Ipv6CidrBlockAssociationSet" locationName:"ipv6CidrBlockAssociationSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether instances launched in this subnet receive a public IPv4
 	// address.
-	MapPublicIpOnLaunch *bool `locationName:"mapPublicIpOnLaunch" type:"boolean"`
+	MapPublicIpOnLaunch *bool `json:"ec2:Subnet:MapPublicIpOnLaunch" locationName:"mapPublicIpOnLaunch" type:"boolean"`
 
 	// The ID of the AWS account that owns the subnet.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:Subnet:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The current state of the subnet.
-	State SubnetState `locationName:"state" type:"string" enum:"true"`
+	State SubnetState `json:"ec2:Subnet:State" locationName:"state" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the subnet.
-	SubnetArn *string `locationName:"subnetArn" type:"string"`
+	SubnetArn *string `json:"ec2:Subnet:SubnetArn" locationName:"subnetArn" type:"string"`
 
 	// The ID of the subnet.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:Subnet:SubnetId" locationName:"subnetId" type:"string"`
 
 	// Any tags assigned to the subnet.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:Subnet:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC the subnet is in.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:Subnet:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -9119,10 +9119,10 @@ type SubnetCidrBlockState struct {
 	_ struct{} `type:"structure"`
 
 	// The state of a CIDR block.
-	State SubnetCidrBlockStateCode `locationName:"state" type:"string" enum:"true"`
+	State SubnetCidrBlockStateCode `json:"ec2:SubnetCidrBlockState:State" locationName:"state" type:"string" enum:"true"`
 
 	// A message about the status of the CIDR block, if applicable.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:SubnetCidrBlockState:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -9136,13 +9136,13 @@ type SubnetIpv6CidrBlockAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The association ID for the CIDR block.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:SubnetIpv6CidrBlockAssociation:AssociationId" locationName:"associationId" type:"string"`
 
 	// The IPv6 CIDR block.
-	Ipv6CidrBlock *string `locationName:"ipv6CidrBlock" type:"string"`
+	Ipv6CidrBlock *string `json:"ec2:SubnetIpv6CidrBlockAssociation:Ipv6CidrBlock" locationName:"ipv6CidrBlock" type:"string"`
 
 	// Information about the state of the CIDR block.
-	Ipv6CidrBlockState *SubnetCidrBlockState `locationName:"ipv6CidrBlockState" type:"structure"`
+	Ipv6CidrBlockState *SubnetCidrBlockState `json:"ec2:SubnetIpv6CidrBlockAssociation:Ipv6CidrBlockState" locationName:"ipv6CidrBlockState" type:"structure"`
 }
 
 // String returns the string representation
@@ -9157,7 +9157,7 @@ type SuccessfulInstanceCreditSpecificationItem struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:SuccessfulInstanceCreditSpecificationItem:InstanceId" locationName:"instanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -9174,13 +9174,13 @@ type Tag struct {
 	//
 	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode
 	// characters. May not begin with aws:.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"ec2:Tag:Key" locationName:"key" type:"string"`
 
 	// The value of the tag.
 	//
 	// Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode
 	// characters.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ec2:Tag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -9194,16 +9194,16 @@ type TagDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The tag key.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"ec2:TagDescription:Key" locationName:"key" type:"string"`
 
 	// The ID of the resource.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:TagDescription:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The resource type.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"ec2:TagDescription:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The tag value.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ec2:TagDescription:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -9222,10 +9222,10 @@ type TagSpecification struct {
 	// | transit-gateway-route-table | volume.
 	//
 	// To tag a resource after it has been created, see CreateTags.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"ec2:TagSpecification:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The tags to apply to the resource.
-	Tags []Tag `locationName:"Tag" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:TagSpecification:Tags" locationName:"Tag" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -9252,18 +9252,18 @@ type TargetCapacitySpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The default TotalTargetCapacity, which is either Spot or On-Demand.
-	DefaultTargetCapacityType DefaultTargetCapacityType `locationName:"defaultTargetCapacityType" type:"string" enum:"true"`
+	DefaultTargetCapacityType DefaultTargetCapacityType `json:"ec2:TargetCapacitySpecification:DefaultTargetCapacityType" locationName:"defaultTargetCapacityType" type:"string" enum:"true"`
 
 	// The number of On-Demand units to request. If you specify a target capacity
 	// for Spot units, you cannot specify a target capacity for On-Demand units.
-	OnDemandTargetCapacity *int64 `locationName:"onDemandTargetCapacity" type:"integer"`
+	OnDemandTargetCapacity *int64 `json:"ec2:TargetCapacitySpecification:OnDemandTargetCapacity" locationName:"onDemandTargetCapacity" type:"integer"`
 
 	// The maximum number of Spot units to launch. If you specify a target capacity
 	// for On-Demand units, you cannot specify a target capacity for Spot units.
-	SpotTargetCapacity *int64 `locationName:"spotTargetCapacity" type:"integer"`
+	SpotTargetCapacity *int64 `json:"ec2:TargetCapacitySpecification:SpotTargetCapacity" locationName:"spotTargetCapacity" type:"integer"`
 
 	// The number of units to request, filled using DefaultTargetCapacityType.
-	TotalTargetCapacity *int64 `locationName:"totalTargetCapacity" type:"integer"`
+	TotalTargetCapacity *int64 `json:"ec2:TargetCapacitySpecification:TotalTargetCapacity" locationName:"totalTargetCapacity" type:"integer"`
 }
 
 // String returns the string representation
@@ -9290,18 +9290,18 @@ type TargetCapacitySpecificationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The default TotalTargetCapacity, which is either Spot or On-Demand.
-	DefaultTargetCapacityType DefaultTargetCapacityType `type:"string" enum:"true"`
+	DefaultTargetCapacityType DefaultTargetCapacityType `json:"ec2:TargetCapacitySpecificationRequest:DefaultTargetCapacityType" type:"string" enum:"true"`
 
 	// The number of On-Demand units to request.
-	OnDemandTargetCapacity *int64 `type:"integer"`
+	OnDemandTargetCapacity *int64 `json:"ec2:TargetCapacitySpecificationRequest:OnDemandTargetCapacity" type:"integer"`
 
 	// The number of Spot units to request.
-	SpotTargetCapacity *int64 `type:"integer"`
+	SpotTargetCapacity *int64 `json:"ec2:TargetCapacitySpecificationRequest:SpotTargetCapacity" type:"integer"`
 
 	// The number of units to request, filled using DefaultTargetCapacityType.
 	//
 	// TotalTargetCapacity is a required field
-	TotalTargetCapacity *int64 `type:"integer" required:"true"`
+	TotalTargetCapacity *int64 `json:"ec2:TargetCapacitySpecificationRequest:TotalTargetCapacity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -9330,10 +9330,10 @@ type TargetConfiguration struct {
 
 	// The number of instances the Convertible Reserved Instance offering can be
 	// applied to. This parameter is reserved and cannot be specified in a request
-	InstanceCount *int64 `locationName:"instanceCount" type:"integer"`
+	InstanceCount *int64 `json:"ec2:TargetConfiguration:InstanceCount" locationName:"instanceCount" type:"integer"`
 
 	// The ID of the Convertible Reserved Instance offering.
-	OfferingId *string `locationName:"offeringId" type:"string"`
+	OfferingId *string `json:"ec2:TargetConfiguration:OfferingId" locationName:"offeringId" type:"string"`
 }
 
 // String returns the string representation
@@ -9348,12 +9348,12 @@ type TargetConfigurationRequest struct {
 
 	// The number of instances the Covertible Reserved Instance offering can be
 	// applied to. This parameter is reserved and cannot be specified in a request
-	InstanceCount *int64 `type:"integer"`
+	InstanceCount *int64 `json:"ec2:TargetConfigurationRequest:InstanceCount" type:"integer"`
 
 	// The Convertible Reserved Instance offering ID.
 	//
 	// OfferingId is a required field
-	OfferingId *string `type:"string" required:"true"`
+	OfferingId *string `json:"ec2:TargetConfigurationRequest:OfferingId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -9381,7 +9381,7 @@ type TargetGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the target group.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"ec2:TargetGroup:Arn" locationName:"arn" type:"string"`
 }
 
 // String returns the string representation
@@ -9396,7 +9396,7 @@ type TargetGroupsConfig struct {
 	_ struct{} `type:"structure"`
 
 	// One or more target groups.
-	TargetGroups []TargetGroup `locationName:"targetGroups" locationNameList:"item" min:"1" type:"list"`
+	TargetGroups []TargetGroup `json:"ec2:TargetGroupsConfig:TargetGroups" locationName:"targetGroups" locationNameList:"item" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -9423,22 +9423,22 @@ type TargetNetwork struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the association.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:TargetNetwork:AssociationId" locationName:"associationId" type:"string"`
 
 	// The ID of the Client VPN endpoint with which the target network is associated.
-	ClientVpnEndpointId *string `locationName:"clientVpnEndpointId" type:"string"`
+	ClientVpnEndpointId *string `json:"ec2:TargetNetwork:ClientVpnEndpointId" locationName:"clientVpnEndpointId" type:"string"`
 
 	// The IDs of the security groups applied to the target network association.
-	SecurityGroups []string `locationName:"securityGroups" locationNameList:"item" type:"list"`
+	SecurityGroups []string `json:"ec2:TargetNetwork:SecurityGroups" locationName:"securityGroups" locationNameList:"item" type:"list"`
 
 	// The current state of the target network association.
-	Status *AssociationStatus `locationName:"status" type:"structure"`
+	Status *AssociationStatus `json:"ec2:TargetNetwork:Status" locationName:"status" type:"structure"`
 
 	// The ID of the subnet specified as the target network.
-	TargetNetworkId *string `locationName:"targetNetworkId" type:"string"`
+	TargetNetworkId *string `json:"ec2:TargetNetwork:TargetNetworkId" locationName:"targetNetworkId" type:"string"`
 
 	// The ID of the VPC in which the target network (subnet) is located.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:TargetNetwork:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -9454,11 +9454,11 @@ type TargetReservationValue struct {
 	// The total value of the Convertible Reserved Instances that make up the exchange.
 	// This is the sum of the list value, remaining upfront price, and additional
 	// upfront cost of the exchange.
-	ReservationValue *ReservationValue `locationName:"reservationValue" type:"structure"`
+	ReservationValue *ReservationValue `json:"ec2:TargetReservationValue:ReservationValue" locationName:"reservationValue" type:"structure"`
 
 	// The configuration of the Convertible Reserved Instances that make up the
 	// exchange.
-	TargetConfiguration *TargetConfiguration `locationName:"targetConfiguration" type:"structure"`
+	TargetConfiguration *TargetConfiguration `json:"ec2:TargetReservationValue:TargetConfiguration" locationName:"targetConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -9472,13 +9472,13 @@ type TerminateConnectionStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the client connection.
-	ConnectionId *string `locationName:"connectionId" type:"string"`
+	ConnectionId *string `json:"ec2:TerminateConnectionStatus:ConnectionId" locationName:"connectionId" type:"string"`
 
 	// A message about the status of the client connection, if applicable.
-	CurrentStatus *VpnConnectionStatus `locationName:"currentStatus" type:"structure"`
+	CurrentStatus *VpnConnectionStatus `json:"ec2:TerminateConnectionStatus:CurrentStatus" locationName:"currentStatus" type:"structure"`
 
 	// The state of the client connection.
-	PreviousStatus *VpnConnectionStatus `locationName:"previousStatus" type:"structure"`
+	PreviousStatus *VpnConnectionStatus `json:"ec2:TerminateConnectionStatus:PreviousStatus" locationName:"previousStatus" type:"structure"`
 }
 
 // String returns the string representation
@@ -9492,24 +9492,24 @@ type TrafficMirrorFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the Traffic Mirror filter.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:TrafficMirrorFilter:Description" locationName:"description" type:"string"`
 
 	// Information about the egress rules that are associated with the Traffic Mirror
 	// filter.
-	EgressFilterRules []TrafficMirrorFilterRule `locationName:"egressFilterRuleSet" locationNameList:"item" type:"list"`
+	EgressFilterRules []TrafficMirrorFilterRule `json:"ec2:TrafficMirrorFilter:EgressFilterRules" locationName:"egressFilterRuleSet" locationNameList:"item" type:"list"`
 
 	// Information about the ingress rules that are associated with the Traffic
 	// Mirror filter.
-	IngressFilterRules []TrafficMirrorFilterRule `locationName:"ingressFilterRuleSet" locationNameList:"item" type:"list"`
+	IngressFilterRules []TrafficMirrorFilterRule `json:"ec2:TrafficMirrorFilter:IngressFilterRules" locationName:"ingressFilterRuleSet" locationNameList:"item" type:"list"`
 
 	// The network service traffic that is associated with the Traffic Mirror filter.
-	NetworkServices []TrafficMirrorNetworkService `locationName:"networkServiceSet" locationNameList:"item" type:"list"`
+	NetworkServices []TrafficMirrorNetworkService `json:"ec2:TrafficMirrorFilter:NetworkServices" locationName:"networkServiceSet" locationNameList:"item" type:"list"`
 
 	// The tags assigned to the Traffic Mirror filter.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:TrafficMirrorFilter:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the Traffic Mirror filter.
-	TrafficMirrorFilterId *string `locationName:"trafficMirrorFilterId" type:"string"`
+	TrafficMirrorFilterId *string `json:"ec2:TrafficMirrorFilter:TrafficMirrorFilterId" locationName:"trafficMirrorFilterId" type:"string"`
 }
 
 // String returns the string representation
@@ -9523,37 +9523,37 @@ type TrafficMirrorFilterRule struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the Traffic Mirror rule.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:TrafficMirrorFilterRule:Description" locationName:"description" type:"string"`
 
 	// The destination CIDR block assigned to the Traffic Mirror rule.
-	DestinationCidrBlock *string `locationName:"destinationCidrBlock" type:"string"`
+	DestinationCidrBlock *string `json:"ec2:TrafficMirrorFilterRule:DestinationCidrBlock" locationName:"destinationCidrBlock" type:"string"`
 
 	// The destination port range assigned to the Traffic Mirror rule.
-	DestinationPortRange *TrafficMirrorPortRange `locationName:"destinationPortRange" type:"structure"`
+	DestinationPortRange *TrafficMirrorPortRange `json:"ec2:TrafficMirrorFilterRule:DestinationPortRange" locationName:"destinationPortRange" type:"structure"`
 
 	// The protocol assigned to the Traffic Mirror rule.
-	Protocol *int64 `locationName:"protocol" type:"integer"`
+	Protocol *int64 `json:"ec2:TrafficMirrorFilterRule:Protocol" locationName:"protocol" type:"integer"`
 
 	// The action assigned to the Traffic Mirror rule.
-	RuleAction TrafficMirrorRuleAction `locationName:"ruleAction" type:"string" enum:"true"`
+	RuleAction TrafficMirrorRuleAction `json:"ec2:TrafficMirrorFilterRule:RuleAction" locationName:"ruleAction" type:"string" enum:"true"`
 
 	// The rule number of the Traffic Mirror rule.
-	RuleNumber *int64 `locationName:"ruleNumber" type:"integer"`
+	RuleNumber *int64 `json:"ec2:TrafficMirrorFilterRule:RuleNumber" locationName:"ruleNumber" type:"integer"`
 
 	// The source CIDR block assigned to the Traffic Mirror rule.
-	SourceCidrBlock *string `locationName:"sourceCidrBlock" type:"string"`
+	SourceCidrBlock *string `json:"ec2:TrafficMirrorFilterRule:SourceCidrBlock" locationName:"sourceCidrBlock" type:"string"`
 
 	// The source port range assigned to the Traffic Mirror rule.
-	SourcePortRange *TrafficMirrorPortRange `locationName:"sourcePortRange" type:"structure"`
+	SourcePortRange *TrafficMirrorPortRange `json:"ec2:TrafficMirrorFilterRule:SourcePortRange" locationName:"sourcePortRange" type:"structure"`
 
 	// The traffic direction assigned to the Traffic Mirror rule.
-	TrafficDirection TrafficDirection `locationName:"trafficDirection" type:"string" enum:"true"`
+	TrafficDirection TrafficDirection `json:"ec2:TrafficMirrorFilterRule:TrafficDirection" locationName:"trafficDirection" type:"string" enum:"true"`
 
 	// The ID of the Traffic Mirror filter that the rule is associated with.
-	TrafficMirrorFilterId *string `locationName:"trafficMirrorFilterId" type:"string"`
+	TrafficMirrorFilterId *string `json:"ec2:TrafficMirrorFilterRule:TrafficMirrorFilterId" locationName:"trafficMirrorFilterId" type:"string"`
 
 	// The ID of the Traffic Mirror rule.
-	TrafficMirrorFilterRuleId *string `locationName:"trafficMirrorFilterRuleId" type:"string"`
+	TrafficMirrorFilterRuleId *string `json:"ec2:TrafficMirrorFilterRule:TrafficMirrorFilterRuleId" locationName:"trafficMirrorFilterRuleId" type:"string"`
 }
 
 // String returns the string representation
@@ -9568,11 +9568,11 @@ type TrafficMirrorPortRange struct {
 
 	// The start of the Traffic Mirror port range. This applies to the TCP and UDP
 	// protocols.
-	FromPort *int64 `locationName:"fromPort" type:"integer"`
+	FromPort *int64 `json:"ec2:TrafficMirrorPortRange:FromPort" locationName:"fromPort" type:"integer"`
 
 	// The end of the Traffic Mirror port range. This applies to the TCP and UDP
 	// protocols.
-	ToPort *int64 `locationName:"toPort" type:"integer"`
+	ToPort *int64 `json:"ec2:TrafficMirrorPortRange:ToPort" locationName:"toPort" type:"integer"`
 }
 
 // String returns the string representation
@@ -9587,11 +9587,11 @@ type TrafficMirrorPortRangeRequest struct {
 
 	// The first port in the Traffic Mirror port range. This applies to the TCP
 	// and UDP protocols.
-	FromPort *int64 `type:"integer"`
+	FromPort *int64 `json:"ec2:TrafficMirrorPortRangeRequest:FromPort" type:"integer"`
 
 	// The last port in the Traffic Mirror port range. This applies to the TCP and
 	// UDP protocols.
-	ToPort *int64 `type:"integer"`
+	ToPort *int64 `json:"ec2:TrafficMirrorPortRangeRequest:ToPort" type:"integer"`
 }
 
 // String returns the string representation
@@ -9605,42 +9605,42 @@ type TrafficMirrorSession struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the Traffic Mirror session.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:TrafficMirrorSession:Description" locationName:"description" type:"string"`
 
 	// The ID of the Traffic Mirror session's network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:TrafficMirrorSession:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The ID of the account that owns the Traffic Mirror session.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:TrafficMirrorSession:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The number of bytes in each packet to mirror. These are the bytes after the
 	// VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror.
 	// For example, if you set this value to 100, then the first 100 bytes that
 	// meet the filter criteria are copied to the target. Do not specify this parameter
 	// when you want to mirror the entire packet
-	PacketLength *int64 `locationName:"packetLength" type:"integer"`
+	PacketLength *int64 `json:"ec2:TrafficMirrorSession:PacketLength" locationName:"packetLength" type:"integer"`
 
 	// The session number determines the order in which sessions are evaluated when
 	// an interface is used by multiple sessions. The first session with a matching
 	// filter is the one that mirrors the packets.
 	//
 	// Valid values are 1-32766.
-	SessionNumber *int64 `locationName:"sessionNumber" type:"integer"`
+	SessionNumber *int64 `json:"ec2:TrafficMirrorSession:SessionNumber" locationName:"sessionNumber" type:"integer"`
 
 	// The tags assigned to the Traffic Mirror session.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:TrafficMirrorSession:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the Traffic Mirror filter.
-	TrafficMirrorFilterId *string `locationName:"trafficMirrorFilterId" type:"string"`
+	TrafficMirrorFilterId *string `json:"ec2:TrafficMirrorSession:TrafficMirrorFilterId" locationName:"trafficMirrorFilterId" type:"string"`
 
 	// The ID for the Traffic Mirror session.
-	TrafficMirrorSessionId *string `locationName:"trafficMirrorSessionId" type:"string"`
+	TrafficMirrorSessionId *string `json:"ec2:TrafficMirrorSession:TrafficMirrorSessionId" locationName:"trafficMirrorSessionId" type:"string"`
 
 	// The ID of the Traffic Mirror target.
-	TrafficMirrorTargetId *string `locationName:"trafficMirrorTargetId" type:"string"`
+	TrafficMirrorTargetId *string `json:"ec2:TrafficMirrorSession:TrafficMirrorTargetId" locationName:"trafficMirrorTargetId" type:"string"`
 
 	// The virtual network ID associated with the Traffic Mirror session.
-	VirtualNetworkId *int64 `locationName:"virtualNetworkId" type:"integer"`
+	VirtualNetworkId *int64 `json:"ec2:TrafficMirrorSession:VirtualNetworkId" locationName:"virtualNetworkId" type:"integer"`
 }
 
 // String returns the string representation
@@ -9654,25 +9654,25 @@ type TrafficMirrorTarget struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Traffic Mirror target.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:TrafficMirrorTarget:Description" locationName:"description" type:"string"`
 
 	// The network interface ID that is attached to the target.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:TrafficMirrorTarget:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Network Load Balancer.
-	NetworkLoadBalancerArn *string `locationName:"networkLoadBalancerArn" type:"string"`
+	NetworkLoadBalancerArn *string `json:"ec2:TrafficMirrorTarget:NetworkLoadBalancerArn" locationName:"networkLoadBalancerArn" type:"string"`
 
 	// The ID of the account that owns the Traffic Mirror target.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:TrafficMirrorTarget:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The tags assigned to the Traffic Mirror target.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:TrafficMirrorTarget:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the Traffic Mirror target.
-	TrafficMirrorTargetId *string `locationName:"trafficMirrorTargetId" type:"string"`
+	TrafficMirrorTargetId *string `json:"ec2:TrafficMirrorTarget:TrafficMirrorTargetId" locationName:"trafficMirrorTargetId" type:"string"`
 
 	// The type of Traffic Mirror target.
-	Type TrafficMirrorTargetType `locationName:"type" type:"string" enum:"true"`
+	Type TrafficMirrorTargetType `json:"ec2:TrafficMirrorTarget:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9686,28 +9686,28 @@ type TransitGateway struct {
 	_ struct{} `type:"structure"`
 
 	// The creation time.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"ec2:TransitGateway:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The description of the transit gateway.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:TransitGateway:Description" locationName:"description" type:"string"`
 
 	// The transit gateway options.
-	Options *TransitGatewayOptions `locationName:"options" type:"structure"`
+	Options *TransitGatewayOptions `json:"ec2:TransitGateway:Options" locationName:"options" type:"structure"`
 
 	// The ID of the AWS account ID that owns the transit gateway.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:TransitGateway:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The state of the transit gateway.
-	State TransitGatewayState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayState `json:"ec2:TransitGateway:State" locationName:"state" type:"string" enum:"true"`
 
 	// The tags for the transit gateway.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:TransitGateway:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the transit gateway.
-	TransitGatewayArn *string `locationName:"transitGatewayArn" type:"string"`
+	TransitGatewayArn *string `json:"ec2:TransitGateway:TransitGatewayArn" locationName:"transitGatewayArn" type:"string"`
 
 	// The ID of the transit gateway.
-	TransitGatewayId *string `locationName:"transitGatewayId" type:"string"`
+	TransitGatewayId *string `json:"ec2:TransitGateway:TransitGatewayId" locationName:"transitGatewayId" type:"string"`
 }
 
 // String returns the string representation
@@ -9722,19 +9722,19 @@ type TransitGatewayAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:TransitGatewayAssociation:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The resource type.
-	ResourceType TransitGatewayAttachmentResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType TransitGatewayAttachmentResourceType `json:"ec2:TransitGatewayAssociation:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The state of the association.
-	State TransitGatewayAssociationState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayAssociationState `json:"ec2:TransitGatewayAssociation:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `locationName:"transitGatewayAttachmentId" type:"string"`
+	TransitGatewayAttachmentId *string `json:"ec2:TransitGatewayAssociation:TransitGatewayAttachmentId" locationName:"transitGatewayAttachmentId" type:"string"`
 
 	// The ID of the transit gateway route table.
-	TransitGatewayRouteTableId *string `locationName:"transitGatewayRouteTableId" type:"string"`
+	TransitGatewayRouteTableId *string `json:"ec2:TransitGatewayAssociation:TransitGatewayRouteTableId" locationName:"transitGatewayRouteTableId" type:"string"`
 }
 
 // String returns the string representation
@@ -9748,34 +9748,34 @@ type TransitGatewayAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The association.
-	Association *TransitGatewayAttachmentAssociation `locationName:"association" type:"structure"`
+	Association *TransitGatewayAttachmentAssociation `json:"ec2:TransitGatewayAttachment:Association" locationName:"association" type:"structure"`
 
 	// The creation time.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"ec2:TransitGatewayAttachment:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The ID of the resource.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:TransitGatewayAttachment:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The ID of the AWS account that owns the resource.
-	ResourceOwnerId *string `locationName:"resourceOwnerId" type:"string"`
+	ResourceOwnerId *string `json:"ec2:TransitGatewayAttachment:ResourceOwnerId" locationName:"resourceOwnerId" type:"string"`
 
 	// The resource type.
-	ResourceType TransitGatewayAttachmentResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType TransitGatewayAttachmentResourceType `json:"ec2:TransitGatewayAttachment:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The attachment state.
-	State TransitGatewayAttachmentState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayAttachmentState `json:"ec2:TransitGatewayAttachment:State" locationName:"state" type:"string" enum:"true"`
 
 	// The tags for the attachment.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:TransitGatewayAttachment:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `locationName:"transitGatewayAttachmentId" type:"string"`
+	TransitGatewayAttachmentId *string `json:"ec2:TransitGatewayAttachment:TransitGatewayAttachmentId" locationName:"transitGatewayAttachmentId" type:"string"`
 
 	// The ID of the transit gateway.
-	TransitGatewayId *string `locationName:"transitGatewayId" type:"string"`
+	TransitGatewayId *string `json:"ec2:TransitGatewayAttachment:TransitGatewayId" locationName:"transitGatewayId" type:"string"`
 
 	// The ID of the AWS account that owns the transit gateway.
-	TransitGatewayOwnerId *string `locationName:"transitGatewayOwnerId" type:"string"`
+	TransitGatewayOwnerId *string `json:"ec2:TransitGatewayAttachment:TransitGatewayOwnerId" locationName:"transitGatewayOwnerId" type:"string"`
 }
 
 // String returns the string representation
@@ -9789,10 +9789,10 @@ type TransitGatewayAttachmentAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the association.
-	State TransitGatewayAssociationState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayAssociationState `json:"ec2:TransitGatewayAttachmentAssociation:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the route table for the transit gateway.
-	TransitGatewayRouteTableId *string `locationName:"transitGatewayRouteTableId" type:"string"`
+	TransitGatewayRouteTableId *string `json:"ec2:TransitGatewayAttachmentAssociation:TransitGatewayRouteTableId" locationName:"transitGatewayRouteTableId" type:"string"`
 }
 
 // String returns the string representation
@@ -9806,10 +9806,10 @@ type TransitGatewayAttachmentPropagation struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the propagation route table.
-	State TransitGatewayPropagationState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayPropagationState `json:"ec2:TransitGatewayAttachmentPropagation:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the propagation route table.
-	TransitGatewayRouteTableId *string `locationName:"transitGatewayRouteTableId" type:"string"`
+	TransitGatewayRouteTableId *string `json:"ec2:TransitGatewayAttachmentPropagation:TransitGatewayRouteTableId" locationName:"transitGatewayRouteTableId" type:"string"`
 }
 
 // String returns the string representation
@@ -9825,30 +9825,30 @@ type TransitGatewayOptions struct {
 	// A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	// The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294
 	// for 32-bit ASNs.
-	AmazonSideAsn *int64 `locationName:"amazonSideAsn" type:"long"`
+	AmazonSideAsn *int64 `json:"ec2:TransitGatewayOptions:AmazonSideAsn" locationName:"amazonSideAsn" type:"long"`
 
 	// The ID of the default association route table.
-	AssociationDefaultRouteTableId *string `locationName:"associationDefaultRouteTableId" type:"string"`
+	AssociationDefaultRouteTableId *string `json:"ec2:TransitGatewayOptions:AssociationDefaultRouteTableId" locationName:"associationDefaultRouteTableId" type:"string"`
 
 	// Indicates whether attachment requests are automatically accepted.
-	AutoAcceptSharedAttachments AutoAcceptSharedAttachmentsValue `locationName:"autoAcceptSharedAttachments" type:"string" enum:"true"`
+	AutoAcceptSharedAttachments AutoAcceptSharedAttachmentsValue `json:"ec2:TransitGatewayOptions:AutoAcceptSharedAttachments" locationName:"autoAcceptSharedAttachments" type:"string" enum:"true"`
 
 	// Indicates whether resource attachments are automatically associated with
 	// the default association route table.
-	DefaultRouteTableAssociation DefaultRouteTableAssociationValue `locationName:"defaultRouteTableAssociation" type:"string" enum:"true"`
+	DefaultRouteTableAssociation DefaultRouteTableAssociationValue `json:"ec2:TransitGatewayOptions:DefaultRouteTableAssociation" locationName:"defaultRouteTableAssociation" type:"string" enum:"true"`
 
 	// Indicates whether resource attachments automatically propagate routes to
 	// the default propagation route table.
-	DefaultRouteTablePropagation DefaultRouteTablePropagationValue `locationName:"defaultRouteTablePropagation" type:"string" enum:"true"`
+	DefaultRouteTablePropagation DefaultRouteTablePropagationValue `json:"ec2:TransitGatewayOptions:DefaultRouteTablePropagation" locationName:"defaultRouteTablePropagation" type:"string" enum:"true"`
 
 	// Indicates whether DNS support is enabled.
-	DnsSupport DnsSupportValue `locationName:"dnsSupport" type:"string" enum:"true"`
+	DnsSupport DnsSupportValue `json:"ec2:TransitGatewayOptions:DnsSupport" locationName:"dnsSupport" type:"string" enum:"true"`
 
 	// The ID of the default propagation route table.
-	PropagationDefaultRouteTableId *string `locationName:"propagationDefaultRouteTableId" type:"string"`
+	PropagationDefaultRouteTableId *string `json:"ec2:TransitGatewayOptions:PropagationDefaultRouteTableId" locationName:"propagationDefaultRouteTableId" type:"string"`
 
 	// Indicates whether Equal Cost Multipath Protocol support is enabled.
-	VpnEcmpSupport VpnEcmpSupportValue `locationName:"vpnEcmpSupport" type:"string" enum:"true"`
+	VpnEcmpSupport VpnEcmpSupportValue `json:"ec2:TransitGatewayOptions:VpnEcmpSupport" locationName:"vpnEcmpSupport" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9862,19 +9862,19 @@ type TransitGatewayPropagation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:TransitGatewayPropagation:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The resource type.
-	ResourceType TransitGatewayAttachmentResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType TransitGatewayAttachmentResourceType `json:"ec2:TransitGatewayPropagation:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The state.
-	State TransitGatewayPropagationState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayPropagationState `json:"ec2:TransitGatewayPropagation:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `locationName:"transitGatewayAttachmentId" type:"string"`
+	TransitGatewayAttachmentId *string `json:"ec2:TransitGatewayPropagation:TransitGatewayAttachmentId" locationName:"transitGatewayAttachmentId" type:"string"`
 
 	// The ID of the transit gateway route table.
-	TransitGatewayRouteTableId *string `locationName:"transitGatewayRouteTableId" type:"string"`
+	TransitGatewayRouteTableId *string `json:"ec2:TransitGatewayPropagation:TransitGatewayRouteTableId" locationName:"transitGatewayRouteTableId" type:"string"`
 }
 
 // String returns the string representation
@@ -9890,25 +9890,25 @@ type TransitGatewayRequestOptions struct {
 	// A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
 	// The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294
 	// for 32-bit ASNs.
-	AmazonSideAsn *int64 `type:"long"`
+	AmazonSideAsn *int64 `json:"ec2:TransitGatewayRequestOptions:AmazonSideAsn" type:"long"`
 
 	// Enable or disable automatic acceptance of attachment requests. The default
 	// is disable.
-	AutoAcceptSharedAttachments AutoAcceptSharedAttachmentsValue `type:"string" enum:"true"`
+	AutoAcceptSharedAttachments AutoAcceptSharedAttachmentsValue `json:"ec2:TransitGatewayRequestOptions:AutoAcceptSharedAttachments" type:"string" enum:"true"`
 
 	// Enable or disable automatic association with the default association route
 	// table. The default is enable.
-	DefaultRouteTableAssociation DefaultRouteTableAssociationValue `type:"string" enum:"true"`
+	DefaultRouteTableAssociation DefaultRouteTableAssociationValue `json:"ec2:TransitGatewayRequestOptions:DefaultRouteTableAssociation" type:"string" enum:"true"`
 
 	// Enable or disable automatic propagation of routes to the default propagation
 	// route table. The default is enable.
-	DefaultRouteTablePropagation DefaultRouteTablePropagationValue `type:"string" enum:"true"`
+	DefaultRouteTablePropagation DefaultRouteTablePropagationValue `json:"ec2:TransitGatewayRequestOptions:DefaultRouteTablePropagation" type:"string" enum:"true"`
 
 	// Enable or disable DNS support.
-	DnsSupport DnsSupportValue `type:"string" enum:"true"`
+	DnsSupport DnsSupportValue `json:"ec2:TransitGatewayRequestOptions:DnsSupport" type:"string" enum:"true"`
 
 	// Enable or disable Equal Cost Multipath Protocol support.
-	VpnEcmpSupport VpnEcmpSupportValue `type:"string" enum:"true"`
+	VpnEcmpSupport VpnEcmpSupportValue `json:"ec2:TransitGatewayRequestOptions:VpnEcmpSupport" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9922,16 +9922,16 @@ type TransitGatewayRoute struct {
 	_ struct{} `type:"structure"`
 
 	// The CIDR block used for destination matches.
-	DestinationCidrBlock *string `locationName:"destinationCidrBlock" type:"string"`
+	DestinationCidrBlock *string `json:"ec2:TransitGatewayRoute:DestinationCidrBlock" locationName:"destinationCidrBlock" type:"string"`
 
 	// The state of the route.
-	State TransitGatewayRouteState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayRouteState `json:"ec2:TransitGatewayRoute:State" locationName:"state" type:"string" enum:"true"`
 
 	// The attachments.
-	TransitGatewayAttachments []TransitGatewayRouteAttachment `locationName:"transitGatewayAttachments" locationNameList:"item" type:"list"`
+	TransitGatewayAttachments []TransitGatewayRouteAttachment `json:"ec2:TransitGatewayRoute:TransitGatewayAttachments" locationName:"transitGatewayAttachments" locationNameList:"item" type:"list"`
 
 	// The route type.
-	Type TransitGatewayRouteType `locationName:"type" type:"string" enum:"true"`
+	Type TransitGatewayRouteType `json:"ec2:TransitGatewayRoute:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9945,13 +9945,13 @@ type TransitGatewayRouteAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:TransitGatewayRouteAttachment:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The resource type.
-	ResourceType TransitGatewayAttachmentResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType TransitGatewayAttachmentResourceType `json:"ec2:TransitGatewayRouteAttachment:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `locationName:"transitGatewayAttachmentId" type:"string"`
+	TransitGatewayAttachmentId *string `json:"ec2:TransitGatewayRouteAttachment:TransitGatewayAttachmentId" locationName:"transitGatewayAttachmentId" type:"string"`
 }
 
 // String returns the string representation
@@ -9965,27 +9965,27 @@ type TransitGatewayRouteTable struct {
 	_ struct{} `type:"structure"`
 
 	// The creation time.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"ec2:TransitGatewayRouteTable:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates whether this is the default association route table for the transit
 	// gateway.
-	DefaultAssociationRouteTable *bool `locationName:"defaultAssociationRouteTable" type:"boolean"`
+	DefaultAssociationRouteTable *bool `json:"ec2:TransitGatewayRouteTable:DefaultAssociationRouteTable" locationName:"defaultAssociationRouteTable" type:"boolean"`
 
 	// Indicates whether this is the default propagation route table for the transit
 	// gateway.
-	DefaultPropagationRouteTable *bool `locationName:"defaultPropagationRouteTable" type:"boolean"`
+	DefaultPropagationRouteTable *bool `json:"ec2:TransitGatewayRouteTable:DefaultPropagationRouteTable" locationName:"defaultPropagationRouteTable" type:"boolean"`
 
 	// The state of the transit gateway route table.
-	State TransitGatewayRouteTableState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayRouteTableState `json:"ec2:TransitGatewayRouteTable:State" locationName:"state" type:"string" enum:"true"`
 
 	// Any tags assigned to the route table.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:TransitGatewayRouteTable:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the transit gateway.
-	TransitGatewayId *string `locationName:"transitGatewayId" type:"string"`
+	TransitGatewayId *string `json:"ec2:TransitGatewayRouteTable:TransitGatewayId" locationName:"transitGatewayId" type:"string"`
 
 	// The ID of the transit gateway route table.
-	TransitGatewayRouteTableId *string `locationName:"transitGatewayRouteTableId" type:"string"`
+	TransitGatewayRouteTableId *string `json:"ec2:TransitGatewayRouteTable:TransitGatewayRouteTableId" locationName:"transitGatewayRouteTableId" type:"string"`
 }
 
 // String returns the string representation
@@ -9999,16 +9999,16 @@ type TransitGatewayRouteTableAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:TransitGatewayRouteTableAssociation:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The resource type.
-	ResourceType TransitGatewayAttachmentResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType TransitGatewayAttachmentResourceType `json:"ec2:TransitGatewayRouteTableAssociation:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The state of the association.
-	State TransitGatewayAssociationState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayAssociationState `json:"ec2:TransitGatewayRouteTableAssociation:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `locationName:"transitGatewayAttachmentId" type:"string"`
+	TransitGatewayAttachmentId *string `json:"ec2:TransitGatewayRouteTableAssociation:TransitGatewayAttachmentId" locationName:"transitGatewayAttachmentId" type:"string"`
 }
 
 // String returns the string representation
@@ -10022,16 +10022,16 @@ type TransitGatewayRouteTablePropagation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:TransitGatewayRouteTablePropagation:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The type of resource.
-	ResourceType TransitGatewayAttachmentResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType TransitGatewayAttachmentResourceType `json:"ec2:TransitGatewayRouteTablePropagation:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The state of the resource.
-	State TransitGatewayPropagationState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayPropagationState `json:"ec2:TransitGatewayRouteTablePropagation:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `locationName:"transitGatewayAttachmentId" type:"string"`
+	TransitGatewayAttachmentId *string `json:"ec2:TransitGatewayRouteTablePropagation:TransitGatewayAttachmentId" locationName:"transitGatewayAttachmentId" type:"string"`
 }
 
 // String returns the string representation
@@ -10045,31 +10045,31 @@ type TransitGatewayVpcAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The creation time.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"ec2:TransitGatewayVpcAttachment:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The VPC attachment options.
-	Options *TransitGatewayVpcAttachmentOptions `locationName:"options" type:"structure"`
+	Options *TransitGatewayVpcAttachmentOptions `json:"ec2:TransitGatewayVpcAttachment:Options" locationName:"options" type:"structure"`
 
 	// The state of the VPC attachment.
-	State TransitGatewayAttachmentState `locationName:"state" type:"string" enum:"true"`
+	State TransitGatewayAttachmentState `json:"ec2:TransitGatewayVpcAttachment:State" locationName:"state" type:"string" enum:"true"`
 
 	// The IDs of the subnets.
-	SubnetIds []string `locationName:"subnetIds" locationNameList:"item" type:"list"`
+	SubnetIds []string `json:"ec2:TransitGatewayVpcAttachment:SubnetIds" locationName:"subnetIds" locationNameList:"item" type:"list"`
 
 	// The tags for the VPC attachment.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:TransitGatewayVpcAttachment:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the attachment.
-	TransitGatewayAttachmentId *string `locationName:"transitGatewayAttachmentId" type:"string"`
+	TransitGatewayAttachmentId *string `json:"ec2:TransitGatewayVpcAttachment:TransitGatewayAttachmentId" locationName:"transitGatewayAttachmentId" type:"string"`
 
 	// The ID of the transit gateway.
-	TransitGatewayId *string `locationName:"transitGatewayId" type:"string"`
+	TransitGatewayId *string `json:"ec2:TransitGatewayVpcAttachment:TransitGatewayId" locationName:"transitGatewayId" type:"string"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:TransitGatewayVpcAttachment:VpcId" locationName:"vpcId" type:"string"`
 
 	// The ID of the AWS account that owns the VPC.
-	VpcOwnerId *string `locationName:"vpcOwnerId" type:"string"`
+	VpcOwnerId *string `json:"ec2:TransitGatewayVpcAttachment:VpcOwnerId" locationName:"vpcOwnerId" type:"string"`
 }
 
 // String returns the string representation
@@ -10083,10 +10083,10 @@ type TransitGatewayVpcAttachmentOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether DNS support is enabled.
-	DnsSupport DnsSupportValue `locationName:"dnsSupport" type:"string" enum:"true"`
+	DnsSupport DnsSupportValue `json:"ec2:TransitGatewayVpcAttachmentOptions:DnsSupport" locationName:"dnsSupport" type:"string" enum:"true"`
 
 	// Indicates whether IPv6 support is enabled.
-	Ipv6Support Ipv6SupportValue `locationName:"ipv6Support" type:"string" enum:"true"`
+	Ipv6Support Ipv6SupportValue `json:"ec2:TransitGatewayVpcAttachmentOptions:Ipv6Support" locationName:"ipv6Support" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10102,10 +10102,10 @@ type UnsuccessfulInstanceCreditSpecificationItem struct {
 
 	// The applicable error for the T2 or T3 instance whose credit option for CPU
 	// usage was not modified.
-	Error *UnsuccessfulInstanceCreditSpecificationItemError `locationName:"error" type:"structure"`
+	Error *UnsuccessfulInstanceCreditSpecificationItemError `json:"ec2:UnsuccessfulInstanceCreditSpecificationItem:Error" locationName:"error" type:"structure"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:UnsuccessfulInstanceCreditSpecificationItem:InstanceId" locationName:"instanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -10120,10 +10120,10 @@ type UnsuccessfulInstanceCreditSpecificationItemError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	Code UnsuccessfulInstanceCreditSpecificationErrorCode `locationName:"code" type:"string" enum:"true"`
+	Code UnsuccessfulInstanceCreditSpecificationErrorCode `json:"ec2:UnsuccessfulInstanceCreditSpecificationItemError:Code" locationName:"code" type:"string" enum:"true"`
 
 	// The applicable error message.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:UnsuccessfulInstanceCreditSpecificationItemError:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -10137,10 +10137,10 @@ type UnsuccessfulItem struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the error.
-	Error *UnsuccessfulItemError `locationName:"error" type:"structure"`
+	Error *UnsuccessfulItemError `json:"ec2:UnsuccessfulItem:Error" locationName:"error" type:"structure"`
 
 	// The ID of the resource.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"ec2:UnsuccessfulItem:ResourceId" locationName:"resourceId" type:"string"`
 }
 
 // String returns the string representation
@@ -10155,10 +10155,10 @@ type UnsuccessfulItemError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"ec2:UnsuccessfulItemError:Code" locationName:"code" type:"string"`
 
 	// The error message accompanying the error code.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:UnsuccessfulItemError:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -10172,10 +10172,10 @@ type UserBucket struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the S3 bucket where the disk image is located.
-	S3Bucket *string `type:"string"`
+	S3Bucket *string `json:"ec2:UserBucket:S3Bucket" type:"string"`
 
 	// The file name of the disk image.
-	S3Key *string `type:"string"`
+	S3Key *string `json:"ec2:UserBucket:S3Key" type:"string"`
 }
 
 // String returns the string representation
@@ -10189,10 +10189,10 @@ type UserBucketDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The S3 bucket from which the disk image was created.
-	S3Bucket *string `locationName:"s3Bucket" type:"string"`
+	S3Bucket *string `json:"ec2:UserBucketDetails:S3Bucket" locationName:"s3Bucket" type:"string"`
 
 	// The file name of the disk image.
-	S3Key *string `locationName:"s3Key" type:"string"`
+	S3Key *string `json:"ec2:UserBucketDetails:S3Key" locationName:"s3Key" type:"string"`
 }
 
 // String returns the string representation
@@ -10208,7 +10208,7 @@ type UserData struct {
 	// The user data. If you are using an AWS SDK or command line tool, Base64-encoding
 	// is performed for you, and you can load the text from a file. Otherwise, you
 	// must provide Base64-encoded text.
-	Data *string `locationName:"data" type:"string"`
+	Data *string `json:"ec2:UserData:Data" locationName:"data" type:"string"`
 }
 
 // String returns the string representation
@@ -10226,10 +10226,10 @@ type UserIdGroupPair struct {
 	//
 	// Constraints: Up to 255 characters in length. Allowed characters are a-z,
 	// A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:UserIdGroupPair:Description" locationName:"description" type:"string"`
 
 	// The ID of the security group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"ec2:UserIdGroupPair:GroupId" locationName:"groupId" type:"string"`
 
 	// The name of the security group. In a request, use this parameter for a security
 	// group in EC2-Classic or a default VPC only. For a security group in a nondefault
@@ -10237,10 +10237,10 @@ type UserIdGroupPair struct {
 	//
 	// For a referenced security group in another VPC, this value is not returned
 	// if the referenced security group is deleted.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"ec2:UserIdGroupPair:GroupName" locationName:"groupName" type:"string"`
 
 	// The status of a VPC peering connection, if applicable.
-	PeeringStatus *string `locationName:"peeringStatus" type:"string"`
+	PeeringStatus *string `json:"ec2:UserIdGroupPair:PeeringStatus" locationName:"peeringStatus" type:"string"`
 
 	// The ID of an AWS account.
 	//
@@ -10250,13 +10250,13 @@ type UserIdGroupPair struct {
 	//
 	// [EC2-Classic] Required when adding or removing rules that reference a security
 	// group in another AWS account.
-	UserId *string `locationName:"userId" type:"string"`
+	UserId *string `json:"ec2:UserIdGroupPair:UserId" locationName:"userId" type:"string"`
 
 	// The ID of the VPC for the referenced security group, if applicable.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:UserIdGroupPair:VpcId" locationName:"vpcId" type:"string"`
 
 	// The ID of the VPC peering connection, if applicable.
-	VpcPeeringConnectionId *string `locationName:"vpcPeeringConnectionId" type:"string"`
+	VpcPeeringConnectionId *string `json:"ec2:UserIdGroupPair:VpcPeeringConnectionId" locationName:"vpcPeeringConnectionId" type:"string"`
 }
 
 // String returns the string representation
@@ -10270,20 +10270,20 @@ type VgwTelemetry struct {
 	_ struct{} `type:"structure"`
 
 	// The number of accepted routes.
-	AcceptedRouteCount *int64 `locationName:"acceptedRouteCount" type:"integer"`
+	AcceptedRouteCount *int64 `json:"ec2:VgwTelemetry:AcceptedRouteCount" locationName:"acceptedRouteCount" type:"integer"`
 
 	// The date and time of the last change in status.
-	LastStatusChange *time.Time `locationName:"lastStatusChange" type:"timestamp" timestampFormat:"iso8601"`
+	LastStatusChange *time.Time `json:"ec2:VgwTelemetry:LastStatusChange" locationName:"lastStatusChange" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The Internet-routable IP address of the virtual private gateway's outside
 	// interface.
-	OutsideIpAddress *string `locationName:"outsideIpAddress" type:"string"`
+	OutsideIpAddress *string `json:"ec2:VgwTelemetry:OutsideIpAddress" locationName:"outsideIpAddress" type:"string"`
 
 	// The status of the VPN tunnel.
-	Status TelemetryStatus `locationName:"status" type:"string" enum:"true"`
+	Status TelemetryStatus `json:"ec2:VgwTelemetry:Status" locationName:"status" type:"string" enum:"true"`
 
 	// If an error occurs, a description of the error.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:VgwTelemetry:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -10297,16 +10297,16 @@ type Volume struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the volume attachments.
-	Attachments []VolumeAttachment `locationName:"attachmentSet" locationNameList:"item" type:"list"`
+	Attachments []VolumeAttachment `json:"ec2:Volume:Attachments" locationName:"attachmentSet" locationNameList:"item" type:"list"`
 
 	// The Availability Zone for the volume.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:Volume:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The time stamp when volume creation was initiated.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:Volume:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates whether the volume is encrypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:Volume:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	// For Provisioned IOPS SSD volumes, this represents the number of IOPS that
@@ -10323,32 +10323,32 @@ type Volume struct {
 	//
 	// Condition: This parameter is required for requests to create io1 volumes;
 	// it is not used in requests to create gp2, st1, sc1, or standard volumes.
-	Iops *int64 `locationName:"iops" type:"integer"`
+	Iops *int64 `json:"ec2:Volume:Iops" locationName:"iops" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS)
 	// customer master key (CMK) that was used to protect the volume encryption
 	// key for the volume.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:Volume:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The size of the volume, in GiBs.
-	Size *int64 `locationName:"size" type:"integer"`
+	Size *int64 `json:"ec2:Volume:Size" locationName:"size" type:"integer"`
 
 	// The snapshot from which the volume was created, if applicable.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:Volume:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// The volume state.
-	State VolumeState `locationName:"status" type:"string" enum:"true"`
+	State VolumeState `json:"ec2:Volume:State" locationName:"status" type:"string" enum:"true"`
 
 	// Any tags assigned to the volume.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:Volume:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the volume.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:Volume:VolumeId" locationName:"volumeId" type:"string"`
 
 	// The volume type. This can be gp2 for General Purpose SSD, io1 for Provisioned
 	// IOPS SSD, st1 for Throughput Optimized HDD, sc1 for Cold HDD, or standard
 	// for Magnetic volumes.
-	VolumeType VolumeType `locationName:"volumeType" type:"string" enum:"true"`
+	VolumeType VolumeType `json:"ec2:Volume:VolumeType" locationName:"volumeType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10362,22 +10362,22 @@ type VolumeAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The time stamp when the attachment initiated.
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
+	AttachTime *time.Time `json:"ec2:VolumeAttachment:AttachTime" locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates whether the EBS volume is deleted on instance termination.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:VolumeAttachment:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// The device name.
-	Device *string `locationName:"device" type:"string"`
+	Device *string `json:"ec2:VolumeAttachment:Device" locationName:"device" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:VolumeAttachment:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The attachment state of the volume.
-	State VolumeAttachmentState `locationName:"status" type:"string" enum:"true"`
+	State VolumeAttachmentState `json:"ec2:VolumeAttachment:State" locationName:"status" type:"string" enum:"true"`
 
 	// The ID of the volume.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:VolumeAttachment:VolumeId" locationName:"volumeId" type:"string"`
 }
 
 // String returns the string representation
@@ -10393,7 +10393,7 @@ type VolumeDetail struct {
 	// The size of the volume, in GiB.
 	//
 	// Size is a required field
-	Size *int64 `locationName:"size" type:"long" required:"true"`
+	Size *int64 `json:"ec2:VolumeDetail:Size" locationName:"size" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -10423,41 +10423,41 @@ type VolumeModification struct {
 	_ struct{} `type:"structure"`
 
 	// The modification completion or failure time.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"iso8601"`
+	EndTime *time.Time `json:"ec2:VolumeModification:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The current modification state. The modification state is null for unmodified
 	// volumes.
-	ModificationState VolumeModificationState `locationName:"modificationState" type:"string" enum:"true"`
+	ModificationState VolumeModificationState `json:"ec2:VolumeModification:ModificationState" locationName:"modificationState" type:"string" enum:"true"`
 
 	// The original IOPS rate of the volume.
-	OriginalIops *int64 `locationName:"originalIops" type:"integer"`
+	OriginalIops *int64 `json:"ec2:VolumeModification:OriginalIops" locationName:"originalIops" type:"integer"`
 
 	// The original size of the volume.
-	OriginalSize *int64 `locationName:"originalSize" type:"integer"`
+	OriginalSize *int64 `json:"ec2:VolumeModification:OriginalSize" locationName:"originalSize" type:"integer"`
 
 	// The original EBS volume type of the volume.
-	OriginalVolumeType VolumeType `locationName:"originalVolumeType" type:"string" enum:"true"`
+	OriginalVolumeType VolumeType `json:"ec2:VolumeModification:OriginalVolumeType" locationName:"originalVolumeType" type:"string" enum:"true"`
 
 	// The modification progress, from 0 to 100 percent complete.
-	Progress *int64 `locationName:"progress" type:"long"`
+	Progress *int64 `json:"ec2:VolumeModification:Progress" locationName:"progress" type:"long"`
 
 	// The modification start time.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"ec2:VolumeModification:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A status message about the modification progress or failure.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:VolumeModification:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The target IOPS rate of the volume.
-	TargetIops *int64 `locationName:"targetIops" type:"integer"`
+	TargetIops *int64 `json:"ec2:VolumeModification:TargetIops" locationName:"targetIops" type:"integer"`
 
 	// The target size of the volume, in GiB.
-	TargetSize *int64 `locationName:"targetSize" type:"integer"`
+	TargetSize *int64 `json:"ec2:VolumeModification:TargetSize" locationName:"targetSize" type:"integer"`
 
 	// The target EBS volume type of the volume.
-	TargetVolumeType VolumeType `locationName:"targetVolumeType" type:"string" enum:"true"`
+	TargetVolumeType VolumeType `json:"ec2:VolumeModification:TargetVolumeType" locationName:"targetVolumeType" type:"string" enum:"true"`
 
 	// The ID of the volume.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:VolumeModification:VolumeId" locationName:"volumeId" type:"string"`
 }
 
 // String returns the string representation
@@ -10471,16 +10471,16 @@ type VolumeStatusAction struct {
 	_ struct{} `type:"structure"`
 
 	// The code identifying the operation, for example, enable-volume-io.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"ec2:VolumeStatusAction:Code" locationName:"code" type:"string"`
 
 	// A description of the operation.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:VolumeStatusAction:Description" locationName:"description" type:"string"`
 
 	// The ID of the event associated with this operation.
-	EventId *string `locationName:"eventId" type:"string"`
+	EventId *string `json:"ec2:VolumeStatusAction:EventId" locationName:"eventId" type:"string"`
 
 	// The event type associated with this operation.
-	EventType *string `locationName:"eventType" type:"string"`
+	EventType *string `json:"ec2:VolumeStatusAction:EventType" locationName:"eventType" type:"string"`
 }
 
 // String returns the string representation
@@ -10494,10 +10494,10 @@ type VolumeStatusDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the volume status.
-	Name VolumeStatusName `locationName:"name" type:"string" enum:"true"`
+	Name VolumeStatusName `json:"ec2:VolumeStatusDetails:Name" locationName:"name" type:"string" enum:"true"`
 
 	// The intended status of the volume status.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ec2:VolumeStatusDetails:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -10511,19 +10511,19 @@ type VolumeStatusEvent struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the event.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:VolumeStatusEvent:Description" locationName:"description" type:"string"`
 
 	// The ID of this event.
-	EventId *string `locationName:"eventId" type:"string"`
+	EventId *string `json:"ec2:VolumeStatusEvent:EventId" locationName:"eventId" type:"string"`
 
 	// The type of this event.
-	EventType *string `locationName:"eventType" type:"string"`
+	EventType *string `json:"ec2:VolumeStatusEvent:EventType" locationName:"eventType" type:"string"`
 
 	// The latest end time of the event.
-	NotAfter *time.Time `locationName:"notAfter" type:"timestamp" timestampFormat:"iso8601"`
+	NotAfter *time.Time `json:"ec2:VolumeStatusEvent:NotAfter" locationName:"notAfter" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The earliest start time of the event.
-	NotBefore *time.Time `locationName:"notBefore" type:"timestamp" timestampFormat:"iso8601"`
+	NotBefore *time.Time `json:"ec2:VolumeStatusEvent:NotBefore" locationName:"notBefore" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -10537,10 +10537,10 @@ type VolumeStatusInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the volume status.
-	Details []VolumeStatusDetails `locationName:"details" locationNameList:"item" type:"list"`
+	Details []VolumeStatusDetails `json:"ec2:VolumeStatusInfo:Details" locationName:"details" locationNameList:"item" type:"list"`
 
 	// The status of the volume.
-	Status VolumeStatusInfoStatus `locationName:"status" type:"string" enum:"true"`
+	Status VolumeStatusInfoStatus `json:"ec2:VolumeStatusInfo:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10554,19 +10554,19 @@ type VolumeStatusItem struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the operation.
-	Actions []VolumeStatusAction `locationName:"actionsSet" locationNameList:"item" type:"list"`
+	Actions []VolumeStatusAction `json:"ec2:VolumeStatusItem:Actions" locationName:"actionsSet" locationNameList:"item" type:"list"`
 
 	// The Availability Zone of the volume.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:VolumeStatusItem:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// A list of events associated with the volume.
-	Events []VolumeStatusEvent `locationName:"eventsSet" locationNameList:"item" type:"list"`
+	Events []VolumeStatusEvent `json:"ec2:VolumeStatusItem:Events" locationName:"eventsSet" locationNameList:"item" type:"list"`
 
 	// The volume ID.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:VolumeStatusItem:VolumeId" locationName:"volumeId" type:"string"`
 
 	// The volume status.
-	VolumeStatus *VolumeStatusInfo `locationName:"volumeStatus" type:"structure"`
+	VolumeStatus *VolumeStatusInfo `json:"ec2:VolumeStatusItem:VolumeStatus" locationName:"volumeStatus" type:"structure"`
 }
 
 // String returns the string representation
@@ -10580,35 +10580,35 @@ type Vpc struct {
 	_ struct{} `type:"structure"`
 
 	// The primary IPv4 CIDR block for the VPC.
-	CidrBlock *string `locationName:"cidrBlock" type:"string"`
+	CidrBlock *string `json:"ec2:Vpc:CidrBlock" locationName:"cidrBlock" type:"string"`
 
 	// Information about the IPv4 CIDR blocks associated with the VPC.
-	CidrBlockAssociationSet []VpcCidrBlockAssociation `locationName:"cidrBlockAssociationSet" locationNameList:"item" type:"list"`
+	CidrBlockAssociationSet []VpcCidrBlockAssociation `json:"ec2:Vpc:CidrBlockAssociationSet" locationName:"cidrBlockAssociationSet" locationNameList:"item" type:"list"`
 
 	// The ID of the set of DHCP options you've associated with the VPC (or default
 	// if the default options are associated with the VPC).
-	DhcpOptionsId *string `locationName:"dhcpOptionsId" type:"string"`
+	DhcpOptionsId *string `json:"ec2:Vpc:DhcpOptionsId" locationName:"dhcpOptionsId" type:"string"`
 
 	// The allowed tenancy of instances launched into the VPC.
-	InstanceTenancy Tenancy `locationName:"instanceTenancy" type:"string" enum:"true"`
+	InstanceTenancy Tenancy `json:"ec2:Vpc:InstanceTenancy" locationName:"instanceTenancy" type:"string" enum:"true"`
 
 	// Information about the IPv6 CIDR blocks associated with the VPC.
-	Ipv6CidrBlockAssociationSet []VpcIpv6CidrBlockAssociation `locationName:"ipv6CidrBlockAssociationSet" locationNameList:"item" type:"list"`
+	Ipv6CidrBlockAssociationSet []VpcIpv6CidrBlockAssociation `json:"ec2:Vpc:Ipv6CidrBlockAssociationSet" locationName:"ipv6CidrBlockAssociationSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether the VPC is the default VPC.
-	IsDefault *bool `locationName:"isDefault" type:"boolean"`
+	IsDefault *bool `json:"ec2:Vpc:IsDefault" locationName:"isDefault" type:"boolean"`
 
 	// The ID of the AWS account that owns the VPC.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:Vpc:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The current state of the VPC.
-	State VpcState `locationName:"state" type:"string" enum:"true"`
+	State VpcState `json:"ec2:Vpc:State" locationName:"state" type:"string" enum:"true"`
 
 	// Any tags assigned to the VPC.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:Vpc:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:Vpc:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -10622,10 +10622,10 @@ type VpcAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the attachment.
-	State AttachmentStatus `locationName:"state" type:"string" enum:"true"`
+	State AttachmentStatus `json:"ec2:VpcAttachment:State" locationName:"state" type:"string" enum:"true"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:VpcAttachment:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -10639,13 +10639,13 @@ type VpcCidrBlockAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The association ID for the IPv4 CIDR block.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:VpcCidrBlockAssociation:AssociationId" locationName:"associationId" type:"string"`
 
 	// The IPv4 CIDR block.
-	CidrBlock *string `locationName:"cidrBlock" type:"string"`
+	CidrBlock *string `json:"ec2:VpcCidrBlockAssociation:CidrBlock" locationName:"cidrBlock" type:"string"`
 
 	// Information about the state of the CIDR block.
-	CidrBlockState *VpcCidrBlockState `locationName:"cidrBlockState" type:"structure"`
+	CidrBlockState *VpcCidrBlockState `json:"ec2:VpcCidrBlockAssociation:CidrBlockState" locationName:"cidrBlockState" type:"structure"`
 }
 
 // String returns the string representation
@@ -10659,10 +10659,10 @@ type VpcCidrBlockState struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the CIDR block.
-	State VpcCidrBlockStateCode `locationName:"state" type:"string" enum:"true"`
+	State VpcCidrBlockStateCode `json:"ec2:VpcCidrBlockState:State" locationName:"state" type:"string" enum:"true"`
 
 	// A message about the status of the CIDR block, if applicable.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:VpcCidrBlockState:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -10676,13 +10676,13 @@ type VpcClassicLink struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the VPC is enabled for ClassicLink.
-	ClassicLinkEnabled *bool `locationName:"classicLinkEnabled" type:"boolean"`
+	ClassicLinkEnabled *bool `json:"ec2:VpcClassicLink:ClassicLinkEnabled" locationName:"classicLinkEnabled" type:"boolean"`
 
 	// Any tags assigned to the VPC.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:VpcClassicLink:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:VpcClassicLink:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -10696,54 +10696,54 @@ type VpcEndpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the VPC endpoint was created.
-	CreationTimestamp *time.Time `locationName:"creationTimestamp" type:"timestamp" timestampFormat:"iso8601"`
+	CreationTimestamp *time.Time `json:"ec2:VpcEndpoint:CreationTimestamp" locationName:"creationTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// (Interface endpoint) The DNS entries for the endpoint.
-	DnsEntries []DnsEntry `locationName:"dnsEntrySet" locationNameList:"item" type:"list"`
+	DnsEntries []DnsEntry `json:"ec2:VpcEndpoint:DnsEntries" locationName:"dnsEntrySet" locationNameList:"item" type:"list"`
 
 	// (Interface endpoint) Information about the security groups associated with
 	// the network interface.
-	Groups []SecurityGroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	Groups []SecurityGroupIdentifier `json:"ec2:VpcEndpoint:Groups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// (Interface endpoint) One or more network interfaces for the endpoint.
-	NetworkInterfaceIds []string `locationName:"networkInterfaceIdSet" locationNameList:"item" type:"list"`
+	NetworkInterfaceIds []string `json:"ec2:VpcEndpoint:NetworkInterfaceIds" locationName:"networkInterfaceIdSet" locationNameList:"item" type:"list"`
 
 	// The ID of the AWS account that owns the VPC endpoint.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:VpcEndpoint:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The policy document associated with the endpoint, if applicable.
-	PolicyDocument *string `locationName:"policyDocument" type:"string"`
+	PolicyDocument *string `json:"ec2:VpcEndpoint:PolicyDocument" locationName:"policyDocument" type:"string"`
 
 	// (Interface endpoint) Indicates whether the VPC is associated with a private
 	// hosted zone.
-	PrivateDnsEnabled *bool `locationName:"privateDnsEnabled" type:"boolean"`
+	PrivateDnsEnabled *bool `json:"ec2:VpcEndpoint:PrivateDnsEnabled" locationName:"privateDnsEnabled" type:"boolean"`
 
 	// Indicates whether the VPC endpoint is being managed by its service.
-	RequesterManaged *bool `locationName:"requesterManaged" type:"boolean"`
+	RequesterManaged *bool `json:"ec2:VpcEndpoint:RequesterManaged" locationName:"requesterManaged" type:"boolean"`
 
 	// (Gateway endpoint) One or more route tables associated with the endpoint.
-	RouteTableIds []string `locationName:"routeTableIdSet" locationNameList:"item" type:"list"`
+	RouteTableIds []string `json:"ec2:VpcEndpoint:RouteTableIds" locationName:"routeTableIdSet" locationNameList:"item" type:"list"`
 
 	// The name of the service to which the endpoint is associated.
-	ServiceName *string `locationName:"serviceName" type:"string"`
+	ServiceName *string `json:"ec2:VpcEndpoint:ServiceName" locationName:"serviceName" type:"string"`
 
 	// The state of the VPC endpoint.
-	State State `locationName:"state" type:"string" enum:"true"`
+	State State `json:"ec2:VpcEndpoint:State" locationName:"state" type:"string" enum:"true"`
 
 	// (Interface endpoint) One or more subnets in which the endpoint is located.
-	SubnetIds []string `locationName:"subnetIdSet" locationNameList:"item" type:"list"`
+	SubnetIds []string `json:"ec2:VpcEndpoint:SubnetIds" locationName:"subnetIdSet" locationNameList:"item" type:"list"`
 
 	// Any tags assigned to the VPC endpoint.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:VpcEndpoint:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC endpoint.
-	VpcEndpointId *string `locationName:"vpcEndpointId" type:"string"`
+	VpcEndpointId *string `json:"ec2:VpcEndpoint:VpcEndpointId" locationName:"vpcEndpointId" type:"string"`
 
 	// The type of endpoint.
-	VpcEndpointType VpcEndpointType `locationName:"vpcEndpointType" type:"string" enum:"true"`
+	VpcEndpointType VpcEndpointType `json:"ec2:VpcEndpoint:VpcEndpointType" locationName:"vpcEndpointType" type:"string" enum:"true"`
 
 	// The ID of the VPC to which the endpoint is associated.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:VpcEndpoint:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -10757,25 +10757,25 @@ type VpcEndpointConnection struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the VPC endpoint was created.
-	CreationTimestamp *time.Time `locationName:"creationTimestamp" type:"timestamp" timestampFormat:"iso8601"`
+	CreationTimestamp *time.Time `json:"ec2:VpcEndpointConnection:CreationTimestamp" locationName:"creationTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The DNS entries for the VPC endpoint.
-	DnsEntries []DnsEntry `locationName:"dnsEntrySet" locationNameList:"item" type:"list"`
+	DnsEntries []DnsEntry `json:"ec2:VpcEndpointConnection:DnsEntries" locationName:"dnsEntrySet" locationNameList:"item" type:"list"`
 
 	// The Amazon Resource Names (ARNs) of the network load balancers for the service.
-	NetworkLoadBalancerArns []string `locationName:"networkLoadBalancerArnSet" locationNameList:"item" type:"list"`
+	NetworkLoadBalancerArns []string `json:"ec2:VpcEndpointConnection:NetworkLoadBalancerArns" locationName:"networkLoadBalancerArnSet" locationNameList:"item" type:"list"`
 
 	// The ID of the service to which the endpoint is connected.
-	ServiceId *string `locationName:"serviceId" type:"string"`
+	ServiceId *string `json:"ec2:VpcEndpointConnection:ServiceId" locationName:"serviceId" type:"string"`
 
 	// The ID of the VPC endpoint.
-	VpcEndpointId *string `locationName:"vpcEndpointId" type:"string"`
+	VpcEndpointId *string `json:"ec2:VpcEndpointConnection:VpcEndpointId" locationName:"vpcEndpointId" type:"string"`
 
 	// The AWS account ID of the owner of the VPC endpoint.
-	VpcEndpointOwner *string `locationName:"vpcEndpointOwner" type:"string"`
+	VpcEndpointOwner *string `json:"ec2:VpcEndpointConnection:VpcEndpointOwner" locationName:"vpcEndpointOwner" type:"string"`
 
 	// The state of the VPC endpoint.
-	VpcEndpointState State `locationName:"vpcEndpointState" type:"string" enum:"true"`
+	VpcEndpointState State `json:"ec2:VpcEndpointConnection:VpcEndpointState" locationName:"vpcEndpointState" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10789,13 +10789,13 @@ type VpcIpv6CidrBlockAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The association ID for the IPv6 CIDR block.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:VpcIpv6CidrBlockAssociation:AssociationId" locationName:"associationId" type:"string"`
 
 	// The IPv6 CIDR block.
-	Ipv6CidrBlock *string `locationName:"ipv6CidrBlock" type:"string"`
+	Ipv6CidrBlock *string `json:"ec2:VpcIpv6CidrBlockAssociation:Ipv6CidrBlock" locationName:"ipv6CidrBlock" type:"string"`
 
 	// Information about the state of the CIDR block.
-	Ipv6CidrBlockState *VpcCidrBlockState `locationName:"ipv6CidrBlockState" type:"structure"`
+	Ipv6CidrBlockState *VpcCidrBlockState `json:"ec2:VpcIpv6CidrBlockAssociation:Ipv6CidrBlockState" locationName:"ipv6CidrBlockState" type:"structure"`
 }
 
 // String returns the string representation
@@ -10810,23 +10810,23 @@ type VpcPeeringConnection struct {
 
 	// Information about the accepter VPC. CIDR block information is only returned
 	// when describing an active VPC peering connection.
-	AccepterVpcInfo *VpcPeeringConnectionVpcInfo `locationName:"accepterVpcInfo" type:"structure"`
+	AccepterVpcInfo *VpcPeeringConnectionVpcInfo `json:"ec2:VpcPeeringConnection:AccepterVpcInfo" locationName:"accepterVpcInfo" type:"structure"`
 
 	// The time that an unaccepted VPC peering connection will expire.
-	ExpirationTime *time.Time `locationName:"expirationTime" type:"timestamp" timestampFormat:"iso8601"`
+	ExpirationTime *time.Time `json:"ec2:VpcPeeringConnection:ExpirationTime" locationName:"expirationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Information about the requester VPC. CIDR block information is only returned
 	// when describing an active VPC peering connection.
-	RequesterVpcInfo *VpcPeeringConnectionVpcInfo `locationName:"requesterVpcInfo" type:"structure"`
+	RequesterVpcInfo *VpcPeeringConnectionVpcInfo `json:"ec2:VpcPeeringConnection:RequesterVpcInfo" locationName:"requesterVpcInfo" type:"structure"`
 
 	// The status of the VPC peering connection.
-	Status *VpcPeeringConnectionStateReason `locationName:"status" type:"structure"`
+	Status *VpcPeeringConnectionStateReason `json:"ec2:VpcPeeringConnection:Status" locationName:"status" type:"structure"`
 
 	// Any tags assigned to the resource.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:VpcPeeringConnection:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the VPC peering connection.
-	VpcPeeringConnectionId *string `locationName:"vpcPeeringConnectionId" type:"string"`
+	VpcPeeringConnectionId *string `json:"ec2:VpcPeeringConnection:VpcPeeringConnectionId" locationName:"vpcPeeringConnectionId" type:"string"`
 }
 
 // String returns the string representation
@@ -10841,15 +10841,15 @@ type VpcPeeringConnectionOptionsDescription struct {
 
 	// Indicates whether a local VPC can resolve public DNS hostnames to private
 	// IP addresses when queried from instances in a peer VPC.
-	AllowDnsResolutionFromRemoteVpc *bool `locationName:"allowDnsResolutionFromRemoteVpc" type:"boolean"`
+	AllowDnsResolutionFromRemoteVpc *bool `json:"ec2:VpcPeeringConnectionOptionsDescription:AllowDnsResolutionFromRemoteVpc" locationName:"allowDnsResolutionFromRemoteVpc" type:"boolean"`
 
 	// Indicates whether a local ClassicLink connection can communicate with the
 	// peer VPC over the VPC peering connection.
-	AllowEgressFromLocalClassicLinkToRemoteVpc *bool `locationName:"allowEgressFromLocalClassicLinkToRemoteVpc" type:"boolean"`
+	AllowEgressFromLocalClassicLinkToRemoteVpc *bool `json:"ec2:VpcPeeringConnectionOptionsDescription:AllowEgressFromLocalClassicLinkToRemoteVpc" locationName:"allowEgressFromLocalClassicLinkToRemoteVpc" type:"boolean"`
 
 	// Indicates whether a local VPC can communicate with a ClassicLink connection
 	// in the peer VPC over the VPC peering connection.
-	AllowEgressFromLocalVpcToRemoteClassicLink *bool `locationName:"allowEgressFromLocalVpcToRemoteClassicLink" type:"boolean"`
+	AllowEgressFromLocalVpcToRemoteClassicLink *bool `json:"ec2:VpcPeeringConnectionOptionsDescription:AllowEgressFromLocalVpcToRemoteClassicLink" locationName:"allowEgressFromLocalVpcToRemoteClassicLink" type:"boolean"`
 }
 
 // String returns the string representation
@@ -10863,10 +10863,10 @@ type VpcPeeringConnectionStateReason struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the VPC peering connection.
-	Code VpcPeeringConnectionStateReasonCode `locationName:"code" type:"string" enum:"true"`
+	Code VpcPeeringConnectionStateReasonCode `json:"ec2:VpcPeeringConnectionStateReason:Code" locationName:"code" type:"string" enum:"true"`
 
 	// A message that provides more information about the status, if applicable.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:VpcPeeringConnectionStateReason:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -10880,26 +10880,26 @@ type VpcPeeringConnectionVpcInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv4 CIDR block for the VPC.
-	CidrBlock *string `locationName:"cidrBlock" type:"string"`
+	CidrBlock *string `json:"ec2:VpcPeeringConnectionVpcInfo:CidrBlock" locationName:"cidrBlock" type:"string"`
 
 	// Information about the IPv4 CIDR blocks for the VPC.
-	CidrBlockSet []CidrBlock `locationName:"cidrBlockSet" locationNameList:"item" type:"list"`
+	CidrBlockSet []CidrBlock `json:"ec2:VpcPeeringConnectionVpcInfo:CidrBlockSet" locationName:"cidrBlockSet" locationNameList:"item" type:"list"`
 
 	// The IPv6 CIDR block for the VPC.
-	Ipv6CidrBlockSet []Ipv6CidrBlock `locationName:"ipv6CidrBlockSet" locationNameList:"item" type:"list"`
+	Ipv6CidrBlockSet []Ipv6CidrBlock `json:"ec2:VpcPeeringConnectionVpcInfo:Ipv6CidrBlockSet" locationName:"ipv6CidrBlockSet" locationNameList:"item" type:"list"`
 
 	// The AWS account ID of the VPC owner.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:VpcPeeringConnectionVpcInfo:OwnerId" locationName:"ownerId" type:"string"`
 
 	// Information about the VPC peering connection options for the accepter or
 	// requester VPC.
-	PeeringOptions *VpcPeeringConnectionOptionsDescription `locationName:"peeringOptions" type:"structure"`
+	PeeringOptions *VpcPeeringConnectionOptionsDescription `json:"ec2:VpcPeeringConnectionVpcInfo:PeeringOptions" locationName:"peeringOptions" type:"structure"`
 
 	// The Region in which the VPC is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"ec2:VpcPeeringConnectionVpcInfo:Region" locationName:"region" type:"string"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:VpcPeeringConnectionVpcInfo:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -10916,13 +10916,13 @@ type VpnAuthentication struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Active Directory, if applicable.
-	ActiveDirectory *DirectoryServiceAuthentication `locationName:"activeDirectory" type:"structure"`
+	ActiveDirectory *DirectoryServiceAuthentication `json:"ec2:VpnAuthentication:ActiveDirectory" locationName:"activeDirectory" type:"structure"`
 
 	// Information about the authentication certificates, if applicable.
-	MutualAuthentication *CertificateAuthentication `locationName:"mutualAuthentication" type:"structure"`
+	MutualAuthentication *CertificateAuthentication `json:"ec2:VpnAuthentication:MutualAuthentication" locationName:"mutualAuthentication" type:"structure"`
 
 	// The authentication type used.
-	Type VpnAuthenticationType `locationName:"type" type:"string" enum:"true"`
+	Type VpnAuthenticationType `json:"ec2:VpnAuthentication:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10940,16 +10940,16 @@ type VpnAuthenticationRequest struct {
 
 	// Information about the Active Directory to be used, if applicable. You must
 	// provide this information if Type is directory-service-authentication.
-	ActiveDirectory *DirectoryServiceAuthenticationRequest `type:"structure"`
+	ActiveDirectory *DirectoryServiceAuthenticationRequest `json:"ec2:VpnAuthenticationRequest:ActiveDirectory" type:"structure"`
 
 	// Information about the authentication certificates to be used, if applicable.
 	// You must provide this information if Type is certificate-authentication.
-	MutualAuthentication *CertificateAuthenticationRequest `type:"structure"`
+	MutualAuthentication *CertificateAuthenticationRequest `json:"ec2:VpnAuthenticationRequest:MutualAuthentication" type:"structure"`
 
 	// The type of client authentication to be used. Specify certificate-authentication
 	// to use certificate-based authentication, or directory-service-authentication
 	// to use Active Directory authentication.
-	Type VpnAuthenticationType `type:"string" enum:"true"`
+	Type VpnAuthenticationType `json:"ec2:VpnAuthenticationRequest:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10963,10 +10963,10 @@ type VpnAuthorizationRuleStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the authorization rule.
-	Code VpnAuthorizationRuleStatusCode `locationName:"code" type:"string" enum:"true"`
+	Code VpnAuthorizationRuleStatusCode `json:"ec2:VpnAuthorizationRuleStatus:Code" locationName:"code" type:"string" enum:"true"`
 
 	// A message about the status of the authorization rule, if applicable.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:VpnAuthorizationRuleStatus:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -10980,45 +10980,45 @@ type VpnConnection struct {
 	_ struct{} `type:"structure"`
 
 	// The IP address of the client.
-	ClientIp *string `locationName:"clientIp" type:"string"`
+	ClientIp *string `json:"ec2:VpnConnection:ClientIp" locationName:"clientIp" type:"string"`
 
 	// The ID of the Client VPN endpoint to which the client is connected.
-	ClientVpnEndpointId *string `locationName:"clientVpnEndpointId" type:"string"`
+	ClientVpnEndpointId *string `json:"ec2:VpnConnection:ClientVpnEndpointId" locationName:"clientVpnEndpointId" type:"string"`
 
 	// The common name associated with the client. This is either the name of the
 	// client certificate, or the Active Directory user name.
-	CommonName *string `locationName:"commonName" type:"string"`
+	CommonName *string `json:"ec2:VpnConnection:CommonName" locationName:"commonName" type:"string"`
 
 	// The date and time the client connection was terminated.
-	ConnectionEndTime *string `locationName:"connectionEndTime" type:"string"`
+	ConnectionEndTime *string `json:"ec2:VpnConnection:ConnectionEndTime" locationName:"connectionEndTime" type:"string"`
 
 	// The date and time the client connection was established.
-	ConnectionEstablishedTime *string `locationName:"connectionEstablishedTime" type:"string"`
+	ConnectionEstablishedTime *string `json:"ec2:VpnConnection:ConnectionEstablishedTime" locationName:"connectionEstablishedTime" type:"string"`
 
 	// The ID of the client connection.
-	ConnectionId *string `locationName:"connectionId" type:"string"`
+	ConnectionId *string `json:"ec2:VpnConnection:ConnectionId" locationName:"connectionId" type:"string"`
 
 	// The number of bytes received by the client.
-	EgressBytes *string `locationName:"egressBytes" type:"string"`
+	EgressBytes *string `json:"ec2:VpnConnection:EgressBytes" locationName:"egressBytes" type:"string"`
 
 	// The number of packets received by the client.
-	EgressPackets *string `locationName:"egressPackets" type:"string"`
+	EgressPackets *string `json:"ec2:VpnConnection:EgressPackets" locationName:"egressPackets" type:"string"`
 
 	// The number of bytes sent by the client.
-	IngressBytes *string `locationName:"ingressBytes" type:"string"`
+	IngressBytes *string `json:"ec2:VpnConnection:IngressBytes" locationName:"ingressBytes" type:"string"`
 
 	// The number of packets sent by the client.
-	IngressPackets *string `locationName:"ingressPackets" type:"string"`
+	IngressPackets *string `json:"ec2:VpnConnection:IngressPackets" locationName:"ingressPackets" type:"string"`
 
 	// The current state of the client connection.
-	Status *VpnConnectionStatus `locationName:"status" type:"structure"`
+	Status *VpnConnectionStatus `json:"ec2:VpnConnection:Status" locationName:"status" type:"structure"`
 
 	// The current date and time.
-	Timestamp *string `locationName:"timestamp" type:"string"`
+	Timestamp *string `json:"ec2:VpnConnection:Timestamp" locationName:"timestamp" type:"string"`
 
 	// The username of the client who established the client connection. This information
 	// is only provided if Active Directory client authentication is used.
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"ec2:VpnConnection:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -11033,7 +11033,7 @@ type VpnConnectionOptions struct {
 
 	// Indicates whether the VPN connection uses static routes only. Static routes
 	// must be used for devices that don't support BGP.
-	StaticRoutesOnly *bool `locationName:"staticRoutesOnly" type:"boolean"`
+	StaticRoutesOnly *bool `json:"ec2:VpnConnectionOptions:StaticRoutesOnly" locationName:"staticRoutesOnly" type:"boolean"`
 }
 
 // String returns the string representation
@@ -11051,10 +11051,10 @@ type VpnConnectionOptionsSpecification struct {
 	// true. Use CreateVpnConnectionRoute to create a static route.
 	//
 	// Default: false
-	StaticRoutesOnly *bool `locationName:"staticRoutesOnly" type:"boolean"`
+	StaticRoutesOnly *bool `json:"ec2:VpnConnectionOptionsSpecification:StaticRoutesOnly" locationName:"staticRoutesOnly" type:"boolean"`
 
 	// The tunnel options for the VPN connection.
-	TunnelOptions []VpnTunnelOptionsSpecification `locationNameList:"item" type:"list"`
+	TunnelOptions []VpnTunnelOptionsSpecification `json:"ec2:VpnConnectionOptionsSpecification:TunnelOptions" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation
@@ -11068,10 +11068,10 @@ type VpnConnectionStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the client connection.
-	Code VpnConnectionStatusCode `locationName:"code" type:"string" enum:"true"`
+	Code VpnConnectionStatusCode `json:"ec2:VpnConnectionStatus:Code" locationName:"code" type:"string" enum:"true"`
 
 	// A message about the status of the client connection, if applicable.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:VpnConnectionStatus:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -11086,39 +11086,39 @@ type VpnEndpoint struct {
 
 	// Information about the associated target networks. A target network is a subnet
 	// in a VPC.
-	AssociatedTargetNetworks []AssociatedTargetNetwork `locationName:"associatedTargetNetwork" locationNameList:"item" deprecated:"true" type:"list"`
+	AssociatedTargetNetworks []AssociatedTargetNetwork `json:"ec2:VpnEndpoint:AssociatedTargetNetworks" locationName:"associatedTargetNetwork" locationNameList:"item" deprecated:"true" type:"list"`
 
 	// Information about the authentication method used by the Client VPN endpoint.
-	AuthenticationOptions []VpnAuthentication `locationName:"authenticationOptions" locationNameList:"item" type:"list"`
+	AuthenticationOptions []VpnAuthentication `json:"ec2:VpnEndpoint:AuthenticationOptions" locationName:"authenticationOptions" locationNameList:"item" type:"list"`
 
 	// The IPv4 address range, in CIDR notation, from which client IP addresses
 	// are assigned.
-	ClientCidrBlock *string `locationName:"clientCidrBlock" type:"string"`
+	ClientCidrBlock *string `json:"ec2:VpnEndpoint:ClientCidrBlock" locationName:"clientCidrBlock" type:"string"`
 
 	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId *string `locationName:"clientVpnEndpointId" type:"string"`
+	ClientVpnEndpointId *string `json:"ec2:VpnEndpoint:ClientVpnEndpointId" locationName:"clientVpnEndpointId" type:"string"`
 
 	// Information about the client connection logging options for the Client VPN
 	// endpoint.
-	ConnectionLogOptions *ConnectionLogResponseOptions `locationName:"connectionLogOptions" type:"structure"`
+	ConnectionLogOptions *ConnectionLogResponseOptions `json:"ec2:VpnEndpoint:ConnectionLogOptions" locationName:"connectionLogOptions" type:"structure"`
 
 	// The date and time the Client VPN endpoint was created.
-	CreationTime *string `locationName:"creationTime" type:"string"`
+	CreationTime *string `json:"ec2:VpnEndpoint:CreationTime" locationName:"creationTime" type:"string"`
 
 	// The date and time the Client VPN endpoint was deleted, if applicable.
-	DeletionTime *string `locationName:"deletionTime" type:"string"`
+	DeletionTime *string `json:"ec2:VpnEndpoint:DeletionTime" locationName:"deletionTime" type:"string"`
 
 	// A brief description of the endpoint.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:VpnEndpoint:Description" locationName:"description" type:"string"`
 
 	// The DNS name to be used by clients when connecting to the Client VPN endpoint.
-	DnsName *string `locationName:"dnsName" type:"string"`
+	DnsName *string `json:"ec2:VpnEndpoint:DnsName" locationName:"dnsName" type:"string"`
 
 	// Information about the DNS servers to be used for DNS resolution.
-	DnsServers []string `locationName:"dnsServer" locationNameList:"item" type:"list"`
+	DnsServers []string `json:"ec2:VpnEndpoint:DnsServers" locationName:"dnsServer" locationNameList:"item" type:"list"`
 
 	// The ARN of the server certificate.
-	ServerCertificateArn *string `locationName:"serverCertificateArn" type:"string"`
+	ServerCertificateArn *string `json:"ec2:VpnEndpoint:ServerCertificateArn" locationName:"serverCertificateArn" type:"string"`
 
 	// Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint
 	// endpoint.
@@ -11126,19 +11126,19 @@ type VpnEndpoint struct {
 	// For information about split-tunnel VPN endpoints, see Split-Tunnel AWS Client
 	// VPN Endpoint (https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html)
 	// in the AWS Client VPN Administrator Guide.
-	SplitTunnel *bool `locationName:"splitTunnel" type:"boolean"`
+	SplitTunnel *bool `json:"ec2:VpnEndpoint:SplitTunnel" locationName:"splitTunnel" type:"boolean"`
 
 	// The current state of the Client VPN endpoint.
-	Status *VpnEndpointStatus `locationName:"status" type:"structure"`
+	Status *VpnEndpointStatus `json:"ec2:VpnEndpoint:Status" locationName:"status" type:"structure"`
 
 	// Any tags assigned to the Client VPN endpoint.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:VpnEndpoint:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The transport protocol used by the Client VPN endpoint.
-	TransportProtocol TransportProtocol `locationName:"transportProtocol" type:"string" enum:"true"`
+	TransportProtocol TransportProtocol `json:"ec2:VpnEndpoint:TransportProtocol" locationName:"transportProtocol" type:"string" enum:"true"`
 
 	// The protocol used by the VPN session.
-	VpnProtocol VpnProtocol `locationName:"vpnProtocol" type:"string" enum:"true"`
+	VpnProtocol VpnProtocol `json:"ec2:VpnEndpoint:VpnProtocol" locationName:"vpnProtocol" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -11165,10 +11165,10 @@ type VpnEndpointStatus struct {
 	//
 	//    * deleted - The Client VPN endpoint has been deleted. The Client VPN endpoint
 	//    cannot accept connections.
-	Code VpnEndpointStatusCode `locationName:"code" type:"string" enum:"true"`
+	Code VpnEndpointStatusCode `json:"ec2:VpnEndpointStatus:Code" locationName:"code" type:"string" enum:"true"`
 
 	// A message about the status of the Client VPN endpoint.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:VpnEndpointStatus:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -11182,26 +11182,26 @@ type VpnGateway struct {
 	_ struct{} `type:"structure"`
 
 	// The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-	AmazonSideAsn *int64 `locationName:"amazonSideAsn" type:"long"`
+	AmazonSideAsn *int64 `json:"ec2:VpnGateway:AmazonSideAsn" locationName:"amazonSideAsn" type:"long"`
 
 	// The Availability Zone where the virtual private gateway was created, if applicable.
 	// This field may be empty or not returned.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:VpnGateway:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The current state of the virtual private gateway.
-	State VpnState `locationName:"state" type:"string" enum:"true"`
+	State VpnState `json:"ec2:VpnGateway:State" locationName:"state" type:"string" enum:"true"`
 
 	// Any tags assigned to the virtual private gateway.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:VpnGateway:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The type of VPN connection the virtual private gateway supports.
-	Type GatewayType `locationName:"type" type:"string" enum:"true"`
+	Type GatewayType `json:"ec2:VpnGateway:Type" locationName:"type" type:"string" enum:"true"`
 
 	// Any VPCs attached to the virtual private gateway.
-	VpcAttachments []VpcAttachment `locationName:"attachments" locationNameList:"item" type:"list"`
+	VpcAttachments []VpcAttachment `json:"ec2:VpnGateway:VpcAttachments" locationName:"attachments" locationNameList:"item" type:"list"`
 
 	// The ID of the virtual private gateway.
-	VpnGatewayId *string `locationName:"vpnGatewayId" type:"string"`
+	VpnGatewayId *string `json:"ec2:VpnGateway:VpnGatewayId" locationName:"vpnGatewayId" type:"string"`
 }
 
 // String returns the string representation
@@ -11215,28 +11215,28 @@ type VpnRoute struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Client VPN endpoint with which the route is associated.
-	ClientVpnEndpointId *string `locationName:"clientVpnEndpointId" type:"string"`
+	ClientVpnEndpointId *string `json:"ec2:VpnRoute:ClientVpnEndpointId" locationName:"clientVpnEndpointId" type:"string"`
 
 	// A brief description of the route.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:VpnRoute:Description" locationName:"description" type:"string"`
 
 	// The IPv4 address range, in CIDR notation, of the route destination.
-	DestinationCidr *string `locationName:"destinationCidr" type:"string"`
+	DestinationCidr *string `json:"ec2:VpnRoute:DestinationCidr" locationName:"destinationCidr" type:"string"`
 
 	// Indicates how the route was associated with the Client VPN endpoint. associate
 	// indicates that the route was automatically added when the target network
 	// was associated with the Client VPN endpoint. add-route indicates that the
 	// route was manually added using the CreateClientVpnRoute action.
-	Origin *string `locationName:"origin" type:"string"`
+	Origin *string `json:"ec2:VpnRoute:Origin" locationName:"origin" type:"string"`
 
 	// The current state of the route.
-	Status *VpnRouteStatus `locationName:"status" type:"structure"`
+	Status *VpnRouteStatus `json:"ec2:VpnRoute:Status" locationName:"status" type:"structure"`
 
 	// The ID of the subnet through which traffic is routed.
-	TargetSubnet *string `locationName:"targetSubnet" type:"string"`
+	TargetSubnet *string `json:"ec2:VpnRoute:TargetSubnet" locationName:"targetSubnet" type:"string"`
 
 	// The route type.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"ec2:VpnRoute:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -11250,10 +11250,10 @@ type VpnRouteStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the Client VPN endpoint route.
-	Code VpnRouteStatusCode `locationName:"code" type:"string" enum:"true"`
+	Code VpnRouteStatusCode `json:"ec2:VpnRouteStatus:Code" locationName:"code" type:"string" enum:"true"`
 
 	// A message about the status of the Client VPN endpoint route, if applicable.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ec2:VpnRouteStatus:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -11267,13 +11267,13 @@ type VpnStaticRoute struct {
 	_ struct{} `type:"structure"`
 
 	// The CIDR block associated with the local subnet of the customer data center.
-	DestinationCidrBlock *string `locationName:"destinationCidrBlock" type:"string"`
+	DestinationCidrBlock *string `json:"ec2:VpnStaticRoute:DestinationCidrBlock" locationName:"destinationCidrBlock" type:"string"`
 
 	// Indicates how the routes were provided.
-	Source VpnStaticRouteSource `locationName:"source" type:"string" enum:"true"`
+	Source VpnStaticRouteSource `json:"ec2:VpnStaticRoute:Source" locationName:"source" type:"string" enum:"true"`
 
 	// The current state of the static route.
-	State VpnState `locationName:"state" type:"string" enum:"true"`
+	State VpnState `json:"ec2:VpnStaticRoute:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -11291,7 +11291,7 @@ type VpnTunnelOptionsSpecification struct {
 	//
 	// Constraints: Allowed characters are alphanumeric characters and ._. Must
 	// be between 8 and 64 characters in length and cannot start with zero (0).
-	PreSharedKey *string `type:"string"`
+	PreSharedKey *string `json:"ec2:VpnTunnelOptionsSpecification:PreSharedKey" type:"string"`
 
 	// The range of inside IP addresses for the tunnel. Any specified CIDR blocks
 	// must be unique across all VPN connections that use the same virtual private
@@ -11313,7 +11313,7 @@ type VpnTunnelOptionsSpecification struct {
 	//    * 169.254.5.0/30
 	//
 	//    * 169.254.169.252/30
-	TunnelInsideCidr *string `type:"string"`
+	TunnelInsideCidr *string `json:"ec2:VpnTunnelOptionsSpecification:TunnelInsideCidr" type:"string"`
 }
 
 // String returns the string representation

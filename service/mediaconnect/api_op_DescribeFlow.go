@@ -56,10 +56,10 @@ type DescribeFlowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The settings for a flow, including its source, outputs, and entitlements.
-	Flow *Flow `locationName:"flow" type:"structure"`
+	Flow *Flow `json:"mediaconnect:DescribeFlowOutput:Flow" locationName:"flow" type:"structure"`
 
 	// Messages that provide the state of the flow.
-	Messages *Messages `locationName:"messages" type:"structure"`
+	Messages *Messages `json:"mediaconnect:DescribeFlowOutput:Messages" locationName:"messages" type:"structure"`
 }
 
 // String returns the string representation

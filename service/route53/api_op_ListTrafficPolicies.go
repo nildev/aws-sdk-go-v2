@@ -81,25 +81,25 @@ type ListTrafficPoliciesOutput struct {
 	// of TrafficPolicyIdMarker in the TrafficPolicyIdMarker request parameter.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListTrafficPoliciesOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// The value that you specified for the MaxItems parameter in the ListTrafficPolicies
 	// request that produced the current response.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListTrafficPoliciesOutput:MaxItems" type:"string" required:"true"`
 
 	// If the value of IsTruncated is true, TrafficPolicyIdMarker is the ID of the
 	// first traffic policy in the next group of MaxItems traffic policies.
 	//
 	// TrafficPolicyIdMarker is a required field
-	TrafficPolicyIdMarker *string `min:"1" type:"string" required:"true"`
+	TrafficPolicyIdMarker *string `json:"route53:ListTrafficPoliciesOutput:TrafficPolicyIdMarker" min:"1" type:"string" required:"true"`
 
 	// A list that contains one TrafficPolicySummary element for each traffic policy
 	// that was created by the current AWS account.
 	//
 	// TrafficPolicySummaries is a required field
-	TrafficPolicySummaries []TrafficPolicySummary `locationNameList:"TrafficPolicySummary" type:"list" required:"true"`
+	TrafficPolicySummaries []TrafficPolicySummary `json:"route53:ListTrafficPoliciesOutput:TrafficPolicySummaries" locationNameList:"TrafficPolicySummary" type:"list" required:"true"`
 }
 
 // String returns the string representation

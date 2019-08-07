@@ -145,10 +145,10 @@ type CreateSecurityProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the security profile.
-	SecurityProfileArn *string `locationName:"securityProfileArn" type:"string"`
+	SecurityProfileArn *string `json:"iot:CreateSecurityProfileOutput:SecurityProfileArn" locationName:"securityProfileArn" type:"string"`
 
 	// The name you gave to the security profile.
-	SecurityProfileName *string `locationName:"securityProfileName" min:"1" type:"string"`
+	SecurityProfileName *string `json:"iot:CreateSecurityProfileOutput:SecurityProfileName" locationName:"securityProfileName" min:"1" type:"string"`
 }
 
 // String returns the string representation

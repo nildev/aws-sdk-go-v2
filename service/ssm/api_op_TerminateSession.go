@@ -46,7 +46,7 @@ type TerminateSessionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the session that has been terminated.
-	SessionId *string `min:"1" type:"string"`
+	SessionId *string `json:"ssm:TerminateSessionOutput:SessionId" min:"1" type:"string"`
 }
 
 // String returns the string representation

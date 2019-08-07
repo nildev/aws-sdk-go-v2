@@ -27,19 +27,19 @@ type DescribeCrossAccountAccessRoleOutput struct {
 	// The date when the cross-account access role was registered.
 	//
 	// RegisteredAt is a required field
-	RegisteredAt *time.Time `locationName:"registeredAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	RegisteredAt *time.Time `json:"inspector:DescribeCrossAccountAccessRoleOutput:RegisteredAt" locationName:"registeredAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The ARN that specifies the IAM role that Amazon Inspector uses to access
 	// your AWS account.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string" required:"true"`
+	RoleArn *string `json:"inspector:DescribeCrossAccountAccessRoleOutput:RoleArn" locationName:"roleArn" min:"1" type:"string" required:"true"`
 
 	// A Boolean value that specifies whether the IAM role has the necessary policies
 	// attached to enable Amazon Inspector to access your AWS account.
 	//
 	// Valid is a required field
-	Valid *bool `locationName:"valid" type:"boolean" required:"true"`
+	Valid *bool `json:"inspector:DescribeCrossAccountAccessRoleOutput:Valid" locationName:"valid" type:"boolean" required:"true"`
 }
 
 // String returns the string representation

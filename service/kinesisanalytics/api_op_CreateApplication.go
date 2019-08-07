@@ -153,7 +153,7 @@ type CreateApplicationOutput struct {
 	// Amazon Resource Name (ARN), name, and status.
 	//
 	// ApplicationSummary is a required field
-	ApplicationSummary *ApplicationSummary `type:"structure" required:"true"`
+	ApplicationSummary *ApplicationSummary `json:"kinesisanalytics:CreateApplicationOutput:ApplicationSummary" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -148,7 +148,7 @@ type CreateMaintenanceWindowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the created maintenance window.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:CreateMaintenanceWindowOutput:WindowId" min:"20" type:"string"`
 }
 
 // String returns the string representation

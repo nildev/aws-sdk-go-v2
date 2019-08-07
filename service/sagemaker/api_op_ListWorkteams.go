@@ -59,12 +59,12 @@ type ListWorkteamsOutput struct {
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of work teams, use it in the subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListWorkteamsOutput:NextToken" type:"string"`
 
 	// An array of Workteam objects, each describing a work team.
 	//
 	// Workteams is a required field
-	Workteams []Workteam `type:"list" required:"true"`
+	Workteams []Workteam `json:"api.sagemaker:ListWorkteamsOutput:Workteams" type:"list" required:"true"`
 }
 
 // String returns the string representation

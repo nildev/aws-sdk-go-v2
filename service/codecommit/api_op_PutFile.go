@@ -110,18 +110,18 @@ type PutFileOutput struct {
 	// The ID of the blob, which is its SHA-1 pointer.
 	//
 	// BlobId is a required field
-	BlobId *string `locationName:"blobId" type:"string" required:"true"`
+	BlobId *string `json:"codecommit:PutFileOutput:BlobId" locationName:"blobId" type:"string" required:"true"`
 
 	// The full SHA of the commit that contains this file change.
 	//
 	// CommitId is a required field
-	CommitId *string `locationName:"commitId" type:"string" required:"true"`
+	CommitId *string `json:"codecommit:PutFileOutput:CommitId" locationName:"commitId" type:"string" required:"true"`
 
 	// The full SHA-1 pointer of the tree information for the commit that contains
 	// this file change.
 	//
 	// TreeId is a required field
-	TreeId *string `locationName:"treeId" type:"string" required:"true"`
+	TreeId *string `json:"codecommit:PutFileOutput:TreeId" locationName:"treeId" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -57,7 +57,7 @@ type GetAppliedSchemaVersionOutput struct {
 
 	// Current applied schema ARN, including the minor version in use if one was
 	// provided.
-	AppliedSchemaArn *string `type:"string"`
+	AppliedSchemaArn *string `json:"clouddirectory:GetAppliedSchemaVersionOutput:AppliedSchemaArn" type:"string"`
 }
 
 // String returns the string representation

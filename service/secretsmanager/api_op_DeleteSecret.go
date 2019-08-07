@@ -83,15 +83,15 @@ type DeleteSecretOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret that is now scheduled for deletion.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:DeleteSecretOutput:ARN" min:"20" type:"string"`
 
 	// The date and time after which this secret can be deleted by Secrets Manager
 	// and can no longer be restored. This value is the date and time of the delete
 	// request plus the number of days specified in RecoveryWindowInDays.
-	DeletionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeletionDate *time.Time `json:"secretsmanager:DeleteSecretOutput:DeletionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The friendly name of the secret that is now scheduled for deletion.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:DeleteSecretOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

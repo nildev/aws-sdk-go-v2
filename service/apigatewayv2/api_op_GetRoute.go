@@ -67,7 +67,7 @@ func (s GetRouteInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetRouteOutput struct {
 	_ struct{} `type:"structure"`
 
-	ApiKeyRequired *bool `locationName:"apiKeyRequired" type:"boolean"`
+	ApiKeyRequired *bool `json:"apigateway:GetRouteOutput:ApiKeyRequired" locationName:"apiKeyRequired" type:"boolean"`
 
 	// A list of authorization scopes configured on a route. The scopes are used
 	// with a COGNITO_USER_POOLS authorizer to authorize the method invocation.
@@ -77,46 +77,46 @@ type GetRouteOutput struct {
 	// the invocation is not authorized. When the route scope is configured, the
 	// client must provide an access token instead of an identity token for authorization
 	// purposes.
-	AuthorizationScopes []string `locationName:"authorizationScopes" type:"list"`
+	AuthorizationScopes []string `json:"apigateway:GetRouteOutput:AuthorizationScopes" locationName:"authorizationScopes" type:"list"`
 
 	// The authorization type. Valid values are NONE for open access, AWS_IAM for
 	// using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.
-	AuthorizationType AuthorizationType `locationName:"authorizationType" type:"string" enum:"true"`
+	AuthorizationType AuthorizationType `json:"apigateway:GetRouteOutput:AuthorizationType" locationName:"authorizationType" type:"string" enum:"true"`
 
 	// The identifier.
-	AuthorizerId *string `locationName:"authorizerId" type:"string"`
+	AuthorizerId *string `json:"apigateway:GetRouteOutput:AuthorizerId" locationName:"authorizerId" type:"string"`
 
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	ModelSelectionExpression *string `locationName:"modelSelectionExpression" type:"string"`
+	ModelSelectionExpression *string `json:"apigateway:GetRouteOutput:ModelSelectionExpression" locationName:"modelSelectionExpression" type:"string"`
 
 	// A string with a length between [1-64].
-	OperationName *string `locationName:"operationName" type:"string"`
+	OperationName *string `json:"apigateway:GetRouteOutput:OperationName" locationName:"operationName" type:"string"`
 
 	// The route models.
-	RequestModels map[string]string `locationName:"requestModels" type:"map"`
+	RequestModels map[string]string `json:"apigateway:GetRouteOutput:RequestModels" locationName:"requestModels" type:"map"`
 
 	// The route parameters.
-	RequestParameters map[string]ParameterConstraints `locationName:"requestParameters" type:"map"`
+	RequestParameters map[string]ParameterConstraints `json:"apigateway:GetRouteOutput:RequestParameters" locationName:"requestParameters" type:"map"`
 
 	// The identifier.
-	RouteId *string `locationName:"routeId" type:"string"`
+	RouteId *string `json:"apigateway:GetRouteOutput:RouteId" locationName:"routeId" type:"string"`
 
 	// After evaulating a selection expression, the result is compared against one
 	// or more selection keys to find a matching key. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for a list of expressions and each expression's associated selection key
 	// type.
-	RouteKey *string `locationName:"routeKey" type:"string"`
+	RouteKey *string `json:"apigateway:GetRouteOutput:RouteKey" locationName:"routeKey" type:"string"`
 
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	RouteResponseSelectionExpression *string `locationName:"routeResponseSelectionExpression" type:"string"`
+	RouteResponseSelectionExpression *string `json:"apigateway:GetRouteOutput:RouteResponseSelectionExpression" locationName:"routeResponseSelectionExpression" type:"string"`
 
 	// A string with a length between [1-128].
-	Target *string `locationName:"target" type:"string"`
+	Target *string `json:"apigateway:GetRouteOutput:Target" locationName:"target" type:"string"`
 }
 
 // String returns the string representation

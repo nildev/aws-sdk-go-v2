@@ -24,10 +24,10 @@ type AccessLevelFilter struct {
 	//    * Role - Filter results based on the federated role of the specified user.
 	//
 	//    * User - Filter results based on the specified user.
-	Key AccessLevelFilterKey `type:"string" enum:"true"`
+	Key AccessLevelFilterKey `json:"servicecatalog:AccessLevelFilter:Key" type:"string" enum:"true"`
 
 	// The user to which the access level applies. The only supported value is Self.
-	Value *string `type:"string"`
+	Value *string `json:"servicecatalog:AccessLevelFilter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -41,7 +41,7 @@ type BudgetDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the associated budget.
-	BudgetName *string `min:"1" type:"string"`
+	BudgetName *string `json:"servicecatalog:BudgetDetail:BudgetName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -55,7 +55,7 @@ type CloudWatchDashboard struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the CloudWatch dashboard.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:CloudWatchDashboard:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -69,13 +69,13 @@ type ConstraintDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the constraint.
-	ConstraintId *string `min:"1" type:"string"`
+	ConstraintId *string `json:"servicecatalog:ConstraintDetail:ConstraintId" min:"1" type:"string"`
 
 	// The description of the constraint.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ConstraintDetail:Description" type:"string"`
 
 	// The owner of the constraint.
-	Owner *string `type:"string"`
+	Owner *string `json:"servicecatalog:ConstraintDetail:Owner" type:"string"`
 
 	// The type of constraint.
 	//
@@ -86,7 +86,7 @@ type ConstraintDetail struct {
 	//    * STACKSET
 	//
 	//    * TEMPLATE
-	Type *string `min:"1" type:"string"`
+	Type *string `json:"servicecatalog:ConstraintDetail:Type" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -100,7 +100,7 @@ type ConstraintSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the constraint.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ConstraintSummary:Description" type:"string"`
 
 	// The type of constraint.
 	//
@@ -111,7 +111,7 @@ type ConstraintSummary struct {
 	//    * STACKSET
 	//
 	//    * TEMPLATE
-	Type *string `min:"1" type:"string"`
+	Type *string `json:"servicecatalog:ConstraintSummary:Type" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -123,11 +123,11 @@ func (s ConstraintSummary) String() string {
 type ExecutionParameter struct {
 	_ struct{} `type:"structure"`
 
-	DefaultValues []string `type:"list"`
+	DefaultValues []string `json:"servicecatalog:ExecutionParameter:DefaultValues" type:"list"`
 
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"servicecatalog:ExecutionParameter:Name" min:"1" type:"string"`
 
-	Type *string `min:"1" type:"string"`
+	Type *string `json:"servicecatalog:ExecutionParameter:Type" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -142,19 +142,19 @@ type FailedServiceActionAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The error code. Valid values are listed below.
-	ErrorCode ServiceActionAssociationErrorCode `type:"string" enum:"true"`
+	ErrorCode ServiceActionAssociationErrorCode `json:"servicecatalog:FailedServiceActionAssociation:ErrorCode" type:"string" enum:"true"`
 
 	// A text description of the error.
-	ErrorMessage *string `min:"1" type:"string"`
+	ErrorMessage *string `json:"servicecatalog:FailedServiceActionAssociation:ErrorMessage" min:"1" type:"string"`
 
 	// The product identifier. For example, prod-abcdzk7xy33qa.
-	ProductId *string `min:"1" type:"string"`
+	ProductId *string `json:"servicecatalog:FailedServiceActionAssociation:ProductId" min:"1" type:"string"`
 
 	// The identifier of the provisioning artifact. For example, pa-4abcdjnxjj6ne.
-	ProvisioningArtifactId *string `min:"1" type:"string"`
+	ProvisioningArtifactId *string `json:"servicecatalog:FailedServiceActionAssociation:ProvisioningArtifactId" min:"1" type:"string"`
 
 	// The self-service action identifier. For example, act-fs7abcd89wxyz.
-	ServiceActionId *string `min:"1" type:"string"`
+	ServiceActionId *string `json:"servicecatalog:FailedServiceActionAssociation:ServiceActionId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -168,16 +168,16 @@ type LaunchPathSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The constraints on the portfolio-product relationship.
-	ConstraintSummaries []ConstraintSummary `type:"list"`
+	ConstraintSummaries []ConstraintSummary `json:"servicecatalog:LaunchPathSummary:ConstraintSummaries" type:"list"`
 
 	// The identifier of the product path.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:LaunchPathSummary:Id" min:"1" type:"string"`
 
 	// The name of the portfolio to which the user was assigned.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:LaunchPathSummary:Name" type:"string"`
 
 	// The tags associated with this product path.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"servicecatalog:LaunchPathSummary:Tags" type:"list"`
 }
 
 // String returns the string representation
@@ -196,10 +196,10 @@ type ListRecordHistorySearchFilter struct {
 	//
 	//    * provisionedproduct - Filter results based on the provisioned product
 	//    identifier.
-	Key *string `type:"string"`
+	Key *string `json:"servicecatalog:ListRecordHistorySearchFilter:Key" type:"string"`
 
 	// The filter value.
-	Value *string `type:"string"`
+	Value *string `json:"servicecatalog:ListRecordHistorySearchFilter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -213,13 +213,13 @@ type ListTagOptionsFilters struct {
 	_ struct{} `type:"structure"`
 
 	// The active state.
-	Active *bool `type:"boolean"`
+	Active *bool `json:"servicecatalog:ListTagOptionsFilters:Active" type:"boolean"`
 
 	// The TagOption key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"servicecatalog:ListTagOptionsFilters:Key" min:"1" type:"string"`
 
 	// The TagOption value.
-	Value *string `min:"1" type:"string"`
+	Value *string `json:"servicecatalog:ListTagOptionsFilters:Value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -249,10 +249,10 @@ type OrganizationNode struct {
 	_ struct{} `type:"structure"`
 
 	// The organization node type.
-	Type OrganizationNodeType `type:"string" enum:"true"`
+	Type OrganizationNodeType `json:"servicecatalog:OrganizationNode:Type" type:"string" enum:"true"`
 
 	// The identifier of the organization node.
-	Value *string `type:"string"`
+	Value *string `json:"servicecatalog:OrganizationNode:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -266,7 +266,7 @@ type ParameterConstraints struct {
 	_ struct{} `type:"structure"`
 
 	// The values that the administrator has allowed for the parameter.
-	AllowedValues []string `type:"list"`
+	AllowedValues []string `json:"servicecatalog:ParameterConstraints:AllowedValues" type:"list"`
 }
 
 // String returns the string representation
@@ -280,22 +280,22 @@ type PortfolioDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN assigned to the portfolio.
-	ARN *string `min:"1" type:"string"`
+	ARN *string `json:"servicecatalog:PortfolioDetail:ARN" min:"1" type:"string"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:PortfolioDetail:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the portfolio.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:PortfolioDetail:Description" type:"string"`
 
 	// The name to use for display purposes.
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"servicecatalog:PortfolioDetail:DisplayName" min:"1" type:"string"`
 
 	// The portfolio identifier.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:PortfolioDetail:Id" min:"1" type:"string"`
 
 	// The name of the portfolio provider.
-	ProviderName *string `min:"1" type:"string"`
+	ProviderName *string `json:"servicecatalog:PortfolioDetail:ProviderName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -309,10 +309,10 @@ type Principal struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the principal (IAM user, role, or group).
-	PrincipalARN *string `min:"1" type:"string"`
+	PrincipalARN *string `json:"servicecatalog:Principal:PrincipalARN" min:"1" type:"string"`
 
 	// The principal type. The supported value is IAM.
-	PrincipalType PrincipalType `type:"string" enum:"true"`
+	PrincipalType PrincipalType `json:"servicecatalog:Principal:PrincipalType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -327,10 +327,10 @@ type ProductViewAggregationValue struct {
 	_ struct{} `type:"structure"`
 
 	// An approximate count of the products that match the value.
-	ApproximateCount *int64 `type:"integer"`
+	ApproximateCount *int64 `json:"servicecatalog:ProductViewAggregationValue:ApproximateCount" type:"integer"`
 
 	// The value of the product view aggregation.
-	Value *string `type:"string"`
+	Value *string `json:"servicecatalog:ProductViewAggregationValue:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -344,13 +344,13 @@ type ProductViewDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:ProductViewDetail:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the product.
-	ProductARN *string `min:"1" type:"string"`
+	ProductARN *string `json:"servicecatalog:ProductViewDetail:ProductARN" min:"1" type:"string"`
 
 	// Summary information about the product view.
-	ProductViewSummary *ProductViewSummary `type:"structure"`
+	ProductViewSummary *ProductViewSummary `json:"servicecatalog:ProductViewDetail:ProductViewSummary" type:"structure"`
 
 	// The status of the product.
 	//
@@ -360,7 +360,7 @@ type ProductViewDetail struct {
 	//    use.
 	//
 	//    * FAILED - An action failed.
-	Status Status `type:"string" enum:"true"`
+	Status Status `json:"servicecatalog:ProductViewDetail:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -375,43 +375,43 @@ type ProductViewSummary struct {
 
 	// The distributor of the product. Contact the product administrator for the
 	// significance of this value.
-	Distributor *string `type:"string"`
+	Distributor *string `json:"servicecatalog:ProductViewSummary:Distributor" type:"string"`
 
 	// Indicates whether the product has a default path. If the product does not
 	// have a default path, call ListLaunchPaths to disambiguate between paths.
 	// Otherwise, ListLaunchPaths is not required, and the output of ProductViewSummary
 	// can be used directly with DescribeProvisioningParameters.
-	HasDefaultPath *bool `type:"boolean"`
+	HasDefaultPath *bool `json:"servicecatalog:ProductViewSummary:HasDefaultPath" type:"boolean"`
 
 	// The product view identifier.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:ProductViewSummary:Id" min:"1" type:"string"`
 
 	// The name of the product.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:ProductViewSummary:Name" type:"string"`
 
 	// The owner of the product. Contact the product administrator for the significance
 	// of this value.
-	Owner *string `type:"string"`
+	Owner *string `json:"servicecatalog:ProductViewSummary:Owner" type:"string"`
 
 	// The product identifier.
-	ProductId *string `min:"1" type:"string"`
+	ProductId *string `json:"servicecatalog:ProductViewSummary:ProductId" min:"1" type:"string"`
 
 	// Short description of the product.
-	ShortDescription *string `type:"string"`
+	ShortDescription *string `json:"servicecatalog:ProductViewSummary:ShortDescription" type:"string"`
 
 	// The description of the support for this Product.
-	SupportDescription *string `type:"string"`
+	SupportDescription *string `json:"servicecatalog:ProductViewSummary:SupportDescription" type:"string"`
 
 	// The email contact information to obtain support for this Product.
-	SupportEmail *string `type:"string"`
+	SupportEmail *string `json:"servicecatalog:ProductViewSummary:SupportEmail" type:"string"`
 
 	// The URL information to obtain support for this Product.
-	SupportUrl *string `type:"string"`
+	SupportUrl *string `json:"servicecatalog:ProductViewSummary:SupportUrl" type:"string"`
 
 	// The product type. Contact the product administrator for the significance
 	// of this value. If this value is MARKETPLACE, the product was created by AWS
 	// Marketplace.
-	Type ProductType `type:"string" enum:"true"`
+	Type ProductType `json:"servicecatalog:ProductViewSummary:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -425,34 +425,34 @@ type ProvisionedProductAttribute struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the provisioned product.
-	Arn *string `min:"1" type:"string"`
+	Arn *string `json:"servicecatalog:ProvisionedProductAttribute:Arn" min:"1" type:"string"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:ProvisionedProductAttribute:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the provisioned product.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:ProvisionedProductAttribute:Id" min:"1" type:"string"`
 
 	// A unique identifier that you provide to ensure idempotency. If multiple requests
 	// differ only by the idempotency token, the same response is returned for each
 	// repeated request.
-	IdempotencyToken *string `min:"1" type:"string"`
+	IdempotencyToken *string `json:"servicecatalog:ProvisionedProductAttribute:IdempotencyToken" min:"1" type:"string"`
 
 	// The record identifier of the last request performed on this provisioned product.
-	LastRecordId *string `min:"1" type:"string"`
+	LastRecordId *string `json:"servicecatalog:ProvisionedProductAttribute:LastRecordId" min:"1" type:"string"`
 
 	// The user-friendly name of the provisioned product.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"servicecatalog:ProvisionedProductAttribute:Name" min:"1" type:"string"`
 
 	// The assigned identifier for the resource, such as an EC2 instance ID or an
 	// S3 bucket name.
-	PhysicalId *string `type:"string"`
+	PhysicalId *string `json:"servicecatalog:ProvisionedProductAttribute:PhysicalId" type:"string"`
 
 	// The product identifier.
-	ProductId *string `min:"1" type:"string"`
+	ProductId *string `json:"servicecatalog:ProvisionedProductAttribute:ProductId" min:"1" type:"string"`
 
 	// The identifier of the provisioning artifact.
-	ProvisioningArtifactId *string `min:"1" type:"string"`
+	ProvisioningArtifactId *string `json:"servicecatalog:ProvisionedProductAttribute:ProvisioningArtifactId" min:"1" type:"string"`
 
 	// The current status of the provisioned product.
 	//
@@ -475,23 +475,23 @@ type ProvisionedProductAttribute struct {
 	//    to provision a new product, but resources have not yet been created. After
 	//    reviewing the list of resources to be created, execute the plan. Wait
 	//    for an AVAILABLE status before performing operations.
-	Status ProvisionedProductStatus `type:"string" enum:"true"`
+	Status ProvisionedProductStatus `json:"servicecatalog:ProvisionedProductAttribute:Status" type:"string" enum:"true"`
 
 	// The current status message of the provisioned product.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"servicecatalog:ProvisionedProductAttribute:StatusMessage" type:"string"`
 
 	// One or more tags.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"servicecatalog:ProvisionedProductAttribute:Tags" type:"list"`
 
 	// The type of provisioned product. The supported values are CFN_STACK and CFN_STACKSET.
-	Type *string `type:"string"`
+	Type *string `json:"servicecatalog:ProvisionedProductAttribute:Type" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM user.
-	UserArn *string `type:"string"`
+	UserArn *string `json:"servicecatalog:ProvisionedProductAttribute:UserArn" type:"string"`
 
 	// The ARN of the IAM user in the session. This ARN might contain a session
 	// ID.
-	UserArnSession *string `type:"string"`
+	UserArnSession *string `json:"servicecatalog:ProvisionedProductAttribute:UserArnSession" type:"string"`
 }
 
 // String returns the string representation
@@ -505,30 +505,30 @@ type ProvisionedProductDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the provisioned product.
-	Arn *string `min:"1" type:"string"`
+	Arn *string `json:"servicecatalog:ProvisionedProductDetail:Arn" min:"1" type:"string"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:ProvisionedProductDetail:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the provisioned product.
-	Id *string `type:"string"`
+	Id *string `json:"servicecatalog:ProvisionedProductDetail:Id" type:"string"`
 
 	// A unique identifier that you provide to ensure idempotency. If multiple requests
 	// differ only by the idempotency token, the same response is returned for each
 	// repeated request.
-	IdempotencyToken *string `min:"1" type:"string"`
+	IdempotencyToken *string `json:"servicecatalog:ProvisionedProductDetail:IdempotencyToken" min:"1" type:"string"`
 
 	// The record identifier of the last request performed on this provisioned product.
-	LastRecordId *string `type:"string"`
+	LastRecordId *string `json:"servicecatalog:ProvisionedProductDetail:LastRecordId" type:"string"`
 
 	// The user-friendly name of the provisioned product.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"servicecatalog:ProvisionedProductDetail:Name" min:"1" type:"string"`
 
 	// The product identifier. For example, prod-abcdzk7xy33qa.
-	ProductId *string `min:"1" type:"string"`
+	ProductId *string `json:"servicecatalog:ProvisionedProductDetail:ProductId" min:"1" type:"string"`
 
 	// The identifier of the provisioning artifact. For example, pa-4abcdjnxjj6ne.
-	ProvisioningArtifactId *string `min:"1" type:"string"`
+	ProvisioningArtifactId *string `json:"servicecatalog:ProvisionedProductDetail:ProvisioningArtifactId" min:"1" type:"string"`
 
 	// The current status of the provisioned product.
 	//
@@ -551,13 +551,13 @@ type ProvisionedProductDetail struct {
 	//    to provision a new product, but resources have not yet been created. After
 	//    reviewing the list of resources to be created, execute the plan. Wait
 	//    for an AVAILABLE status before performing operations.
-	Status ProvisionedProductStatus `type:"string" enum:"true"`
+	Status ProvisionedProductStatus `json:"servicecatalog:ProvisionedProductDetail:Status" type:"string" enum:"true"`
 
 	// The current status message of the provisioned product.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"servicecatalog:ProvisionedProductDetail:StatusMessage" type:"string"`
 
 	// The type of provisioned product. The supported values are CFN_STACK and CFN_STACKSET.
-	Type *string `type:"string"`
+	Type *string `json:"servicecatalog:ProvisionedProductDetail:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -571,53 +571,53 @@ type ProvisionedProductPlanDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:ProvisionedProductPlanDetails:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
 	// events.
-	NotificationArns []string `type:"list"`
+	NotificationArns []string `json:"servicecatalog:ProvisionedProductPlanDetails:NotificationArns" type:"list"`
 
 	// The path identifier of the product. This value is optional if the product
 	// has a default path, and required if the product has more than one path. To
 	// list the paths for a product, use ListLaunchPaths.
-	PathId *string `min:"1" type:"string"`
+	PathId *string `json:"servicecatalog:ProvisionedProductPlanDetails:PathId" min:"1" type:"string"`
 
 	// The plan identifier.
-	PlanId *string `min:"1" type:"string"`
+	PlanId *string `json:"servicecatalog:ProvisionedProductPlanDetails:PlanId" min:"1" type:"string"`
 
 	// The name of the plan.
-	PlanName *string `type:"string"`
+	PlanName *string `json:"servicecatalog:ProvisionedProductPlanDetails:PlanName" type:"string"`
 
 	// The plan type.
-	PlanType ProvisionedProductPlanType `type:"string" enum:"true"`
+	PlanType ProvisionedProductPlanType `json:"servicecatalog:ProvisionedProductPlanDetails:PlanType" type:"string" enum:"true"`
 
 	// The product identifier.
-	ProductId *string `min:"1" type:"string"`
+	ProductId *string `json:"servicecatalog:ProvisionedProductPlanDetails:ProductId" min:"1" type:"string"`
 
 	// The product identifier.
-	ProvisionProductId *string `min:"1" type:"string"`
+	ProvisionProductId *string `json:"servicecatalog:ProvisionedProductPlanDetails:ProvisionProductId" min:"1" type:"string"`
 
 	// The user-friendly name of the provisioned product.
-	ProvisionProductName *string `min:"1" type:"string"`
+	ProvisionProductName *string `json:"servicecatalog:ProvisionedProductPlanDetails:ProvisionProductName" min:"1" type:"string"`
 
 	// The identifier of the provisioning artifact.
-	ProvisioningArtifactId *string `min:"1" type:"string"`
+	ProvisioningArtifactId *string `json:"servicecatalog:ProvisionedProductPlanDetails:ProvisioningArtifactId" min:"1" type:"string"`
 
 	// Parameters specified by the administrator that are required for provisioning
 	// the product.
-	ProvisioningParameters []UpdateProvisioningParameter `type:"list"`
+	ProvisioningParameters []UpdateProvisioningParameter `json:"servicecatalog:ProvisionedProductPlanDetails:ProvisioningParameters" type:"list"`
 
 	// The status.
-	Status ProvisionedProductPlanStatus `type:"string" enum:"true"`
+	Status ProvisionedProductPlanStatus `json:"servicecatalog:ProvisionedProductPlanDetails:Status" type:"string" enum:"true"`
 
 	// The status message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"servicecatalog:ProvisionedProductPlanDetails:StatusMessage" type:"string"`
 
 	// One or more tags.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"servicecatalog:ProvisionedProductPlanDetails:Tags" type:"list"`
 
 	// The time when the plan was last updated.
-	UpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdatedTime *time.Time `json:"servicecatalog:ProvisionedProductPlanDetails:UpdatedTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -631,22 +631,22 @@ type ProvisionedProductPlanSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The plan identifier.
-	PlanId *string `min:"1" type:"string"`
+	PlanId *string `json:"servicecatalog:ProvisionedProductPlanSummary:PlanId" min:"1" type:"string"`
 
 	// The name of the plan.
-	PlanName *string `type:"string"`
+	PlanName *string `json:"servicecatalog:ProvisionedProductPlanSummary:PlanName" type:"string"`
 
 	// The plan type.
-	PlanType ProvisionedProductPlanType `type:"string" enum:"true"`
+	PlanType ProvisionedProductPlanType `json:"servicecatalog:ProvisionedProductPlanSummary:PlanType" type:"string" enum:"true"`
 
 	// The product identifier.
-	ProvisionProductId *string `min:"1" type:"string"`
+	ProvisionProductId *string `json:"servicecatalog:ProvisionedProductPlanSummary:ProvisionProductId" min:"1" type:"string"`
 
 	// The user-friendly name of the provisioned product.
-	ProvisionProductName *string `min:"1" type:"string"`
+	ProvisionProductName *string `json:"servicecatalog:ProvisionedProductPlanSummary:ProvisionProductName" min:"1" type:"string"`
 
 	// The identifier of the provisioning artifact.
-	ProvisioningArtifactId *string `min:"1" type:"string"`
+	ProvisioningArtifactId *string `json:"servicecatalog:ProvisionedProductPlanSummary:ProvisioningArtifactId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -661,20 +661,20 @@ type ProvisioningArtifact struct {
 	_ struct{} `type:"structure"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:ProvisioningArtifact:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the provisioning artifact.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ProvisioningArtifact:Description" type:"string"`
 
 	// Information set by the administrator to provide guidance to end users about
 	// which provisioning artifacts to use.
-	Guidance ProvisioningArtifactGuidance `type:"string" enum:"true"`
+	Guidance ProvisioningArtifactGuidance `json:"servicecatalog:ProvisioningArtifact:Guidance" type:"string" enum:"true"`
 
 	// The identifier of the provisioning artifact.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:ProvisioningArtifact:Id" min:"1" type:"string"`
 
 	// The name of the provisioning artifact.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:ProvisioningArtifact:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -689,23 +689,23 @@ type ProvisioningArtifactDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the product version is active.
-	Active *bool `type:"boolean"`
+	Active *bool `json:"servicecatalog:ProvisioningArtifactDetail:Active" type:"boolean"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:ProvisioningArtifactDetail:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the provisioning artifact.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ProvisioningArtifactDetail:Description" type:"string"`
 
 	// Information set by the administrator to provide guidance to end users about
 	// which provisioning artifacts to use.
-	Guidance ProvisioningArtifactGuidance `type:"string" enum:"true"`
+	Guidance ProvisioningArtifactGuidance `json:"servicecatalog:ProvisioningArtifactDetail:Guidance" type:"string" enum:"true"`
 
 	// The identifier of the provisioning artifact.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:ProvisioningArtifactDetail:Id" min:"1" type:"string"`
 
 	// The name of the provisioning artifact.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:ProvisioningArtifactDetail:Name" type:"string"`
 
 	// The type of provisioning artifact.
 	//
@@ -714,7 +714,7 @@ type ProvisioningArtifactDetail struct {
 	//    * MARKETPLACE_AMI - AWS Marketplace AMI
 	//
 	//    * MARKETPLACE_CAR - AWS Marketplace Clusters and AWS Resources
-	Type ProvisioningArtifactType `type:"string" enum:"true"`
+	Type ProvisioningArtifactType `json:"servicecatalog:ProvisioningArtifactDetail:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -728,24 +728,24 @@ type ProvisioningArtifactParameter struct {
 	_ struct{} `type:"structure"`
 
 	// The default value.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"servicecatalog:ProvisioningArtifactParameter:DefaultValue" type:"string"`
 
 	// The description of the parameter.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ProvisioningArtifactParameter:Description" type:"string"`
 
 	// If this value is true, the value for this parameter is obfuscated from view
 	// when the parameter is retrieved. This parameter is used to hide sensitive
 	// information.
-	IsNoEcho *bool `type:"boolean"`
+	IsNoEcho *bool `json:"servicecatalog:ProvisioningArtifactParameter:IsNoEcho" type:"boolean"`
 
 	// Constraints that the administrator has put on a parameter.
-	ParameterConstraints *ParameterConstraints `type:"structure"`
+	ParameterConstraints *ParameterConstraints `json:"servicecatalog:ProvisioningArtifactParameter:ParameterConstraints" type:"structure"`
 
 	// The parameter key.
-	ParameterKey *string `min:"1" type:"string"`
+	ParameterKey *string `json:"servicecatalog:ProvisioningArtifactParameter:ParameterKey" min:"1" type:"string"`
 
 	// The parameter type.
-	ParameterType *string `type:"string"`
+	ParameterType *string `json:"servicecatalog:ProvisioningArtifactParameter:ParameterType" type:"string"`
 }
 
 // String returns the string representation
@@ -768,14 +768,14 @@ type ProvisioningArtifactPreferences struct {
 	// and UpdateProvisioningPreferences$StackSetAccounts.
 	//
 	// Applicable only to a CFN_STACKSET provisioned product type.
-	StackSetAccounts []string `type:"list"`
+	StackSetAccounts []string `json:"servicecatalog:ProvisioningArtifactPreferences:StackSetAccounts" type:"list"`
 
 	// One or more AWS Regions where stack instances are deployed from the stack
 	// set. These regions can be scoped in ProvisioningPreferences$StackSetRegions
 	// and UpdateProvisioningPreferences$StackSetRegions.
 	//
 	// Applicable only to a CFN_STACKSET provisioned product type.
-	StackSetRegions []string `type:"list"`
+	StackSetRegions []string `json:"servicecatalog:ProvisioningArtifactPreferences:StackSetRegions" type:"list"`
 }
 
 // String returns the string representation
@@ -791,11 +791,11 @@ type ProvisioningArtifactProperties struct {
 
 	// The description of the provisioning artifact, including how it differs from
 	// the previous provisioning artifact.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ProvisioningArtifactProperties:Description" type:"string"`
 
 	// If set to true, AWS Service Catalog stops validating the specified provisioning
 	// artifact even if it is invalid.
-	DisableTemplateValidation *bool `type:"boolean"`
+	DisableTemplateValidation *bool `json:"servicecatalog:ProvisioningArtifactProperties:DisableTemplateValidation" type:"boolean"`
 
 	// The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON
 	// format as follows:
@@ -803,11 +803,11 @@ type ProvisioningArtifactProperties struct {
 	// "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
 	//
 	// Info is a required field
-	Info map[string]string `min:"1" type:"map" required:"true"`
+	Info map[string]string `json:"servicecatalog:ProvisioningArtifactProperties:Info" min:"1" type:"map" required:"true"`
 
 	// The name of the provisioning artifact (for example, v1 v2beta). No spaces
 	// are allowed.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:ProvisioningArtifactProperties:Name" type:"string"`
 
 	// The type of provisioning artifact.
 	//
@@ -816,7 +816,7 @@ type ProvisioningArtifactProperties struct {
 	//    * MARKETPLACE_AMI - AWS Marketplace AMI
 	//
 	//    * MARKETPLACE_CAR - AWS Marketplace Clusters and AWS Resources
-	Type ProvisioningArtifactType `type:"string" enum:"true"`
+	Type ProvisioningArtifactType `json:"servicecatalog:ProvisioningArtifactProperties:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -848,20 +848,20 @@ type ProvisioningArtifactSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:ProvisioningArtifactSummary:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the provisioning artifact.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ProvisioningArtifactSummary:Description" type:"string"`
 
 	// The identifier of the provisioning artifact.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:ProvisioningArtifactSummary:Id" min:"1" type:"string"`
 
 	// The name of the provisioning artifact.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:ProvisioningArtifactSummary:Name" type:"string"`
 
 	// The metadata for the provisioning artifact. This is used with AWS Marketplace
 	// products.
-	ProvisioningArtifactMetadata map[string]string `min:"1" type:"map"`
+	ProvisioningArtifactMetadata map[string]string `json:"servicecatalog:ProvisioningArtifactSummary:ProvisioningArtifactMetadata" min:"1" type:"map"`
 }
 
 // String returns the string representation
@@ -876,11 +876,11 @@ type ProvisioningArtifactView struct {
 	_ struct{} `type:"structure"`
 
 	// Summary information about a product view.
-	ProductViewSummary *ProductViewSummary `type:"structure"`
+	ProductViewSummary *ProductViewSummary `json:"servicecatalog:ProvisioningArtifactView:ProductViewSummary" type:"structure"`
 
 	// Information about a provisioning artifact. A provisioning artifact is also
 	// known as a product version.
-	ProvisioningArtifact *ProvisioningArtifact `type:"structure"`
+	ProvisioningArtifact *ProvisioningArtifact `json:"servicecatalog:ProvisioningArtifactView:ProvisioningArtifact" type:"structure"`
 }
 
 // String returns the string representation
@@ -894,10 +894,10 @@ type ProvisioningParameter struct {
 	_ struct{} `type:"structure"`
 
 	// The parameter key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"servicecatalog:ProvisioningParameter:Key" min:"1" type:"string"`
 
 	// The parameter value.
-	Value *string `type:"string"`
+	Value *string `json:"servicecatalog:ProvisioningParameter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -934,7 +934,7 @@ type ProvisioningPreferences struct {
 	//
 	// If no values are specified, the default value is all accounts from the STACKSET
 	// constraint.
-	StackSetAccounts []string `type:"list"`
+	StackSetAccounts []string `json:"servicecatalog:ProvisioningPreferences:StackSetAccounts" type:"list"`
 
 	// The number of accounts, per region, for which this operation can fail before
 	// AWS Service Catalog stops the operation in that region. If the operation
@@ -947,7 +947,7 @@ type ProvisioningPreferences struct {
 	// but not both.
 	//
 	// The default value is 0 if no value is specified.
-	StackSetFailureToleranceCount *int64 `type:"integer"`
+	StackSetFailureToleranceCount *int64 `json:"servicecatalog:ProvisioningPreferences:StackSetFailureToleranceCount" type:"integer"`
 
 	// The percentage of accounts, per region, for which this stack operation can
 	// fail before AWS Service Catalog stops the operation in that region. If the
@@ -961,7 +961,7 @@ type ProvisioningPreferences struct {
 	//
 	// Conditional: You must specify either StackSetFailureToleranceCount or StackSetFailureTolerancePercentage,
 	// but not both.
-	StackSetFailureTolerancePercentage *int64 `type:"integer"`
+	StackSetFailureTolerancePercentage *int64 `json:"servicecatalog:ProvisioningPreferences:StackSetFailureTolerancePercentage" type:"integer"`
 
 	// The maximum number of accounts in which to perform this operation at one
 	// time. This is dependent on the value of StackSetFailureToleranceCount. StackSetMaxConcurrentCount
@@ -975,7 +975,7 @@ type ProvisioningPreferences struct {
 	//
 	// Conditional: You must specify either StackSetMaxConcurrentCount or StackSetMaxConcurrentPercentage,
 	// but not both.
-	StackSetMaxConcurrencyCount *int64 `min:"1" type:"integer"`
+	StackSetMaxConcurrencyCount *int64 `json:"servicecatalog:ProvisioningPreferences:StackSetMaxConcurrencyCount" min:"1" type:"integer"`
 
 	// The maximum percentage of accounts in which to perform this operation at
 	// one time.
@@ -993,7 +993,7 @@ type ProvisioningPreferences struct {
 	//
 	// Conditional: You must specify either StackSetMaxConcurrentCount or StackSetMaxConcurrentPercentage,
 	// but not both.
-	StackSetMaxConcurrencyPercentage *int64 `min:"1" type:"integer"`
+	StackSetMaxConcurrencyPercentage *int64 `json:"servicecatalog:ProvisioningPreferences:StackSetMaxConcurrencyPercentage" min:"1" type:"integer"`
 
 	// One or more AWS Regions where the provisioned product will be available.
 	//
@@ -1005,7 +1005,7 @@ type ProvisioningPreferences struct {
 	//
 	// If no values are specified, the default value is all regions from the STACKSET
 	// constraint.
-	StackSetRegions []string `type:"list"`
+	StackSetRegions []string `json:"servicecatalog:ProvisioningPreferences:StackSetRegions" type:"list"`
 }
 
 // String returns the string representation
@@ -1035,34 +1035,34 @@ type RecordDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The UTC time stamp of the creation time.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:RecordDetail:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The path identifier.
-	PathId *string `min:"1" type:"string"`
+	PathId *string `json:"servicecatalog:RecordDetail:PathId" min:"1" type:"string"`
 
 	// The product identifier.
-	ProductId *string `min:"1" type:"string"`
+	ProductId *string `json:"servicecatalog:RecordDetail:ProductId" min:"1" type:"string"`
 
 	// The identifier of the provisioned product.
-	ProvisionedProductId *string `min:"1" type:"string"`
+	ProvisionedProductId *string `json:"servicecatalog:RecordDetail:ProvisionedProductId" min:"1" type:"string"`
 
 	// The user-friendly name of the provisioned product.
-	ProvisionedProductName *string `min:"1" type:"string"`
+	ProvisionedProductName *string `json:"servicecatalog:RecordDetail:ProvisionedProductName" min:"1" type:"string"`
 
 	// The type of provisioned product. The supported values are CFN_STACK and CFN_STACKSET.
-	ProvisionedProductType *string `type:"string"`
+	ProvisionedProductType *string `json:"servicecatalog:RecordDetail:ProvisionedProductType" type:"string"`
 
 	// The identifier of the provisioning artifact.
-	ProvisioningArtifactId *string `min:"1" type:"string"`
+	ProvisioningArtifactId *string `json:"servicecatalog:RecordDetail:ProvisioningArtifactId" min:"1" type:"string"`
 
 	// The errors that occurred.
-	RecordErrors []RecordError `type:"list"`
+	RecordErrors []RecordError `json:"servicecatalog:RecordDetail:RecordErrors" type:"list"`
 
 	// The identifier of the record.
-	RecordId *string `min:"1" type:"string"`
+	RecordId *string `json:"servicecatalog:RecordDetail:RecordId" min:"1" type:"string"`
 
 	// One or more tags.
-	RecordTags []RecordTag `type:"list"`
+	RecordTags []RecordTag `json:"servicecatalog:RecordDetail:RecordTags" type:"list"`
 
 	// The record type.
 	//
@@ -1071,7 +1071,7 @@ type RecordDetail struct {
 	//    * UPDATE_PROVISIONED_PRODUCT
 	//
 	//    * TERMINATE_PROVISIONED_PRODUCT
-	RecordType *string `type:"string"`
+	RecordType *string `json:"servicecatalog:RecordDetail:RecordType" type:"string"`
 
 	// The status of the provisioned product.
 	//
@@ -1087,10 +1087,10 @@ type RecordDetail struct {
 	//
 	//    * FAILED - The requested operation has unsuccessfully completed. Investigate
 	//    using the error messages returned.
-	Status RecordStatus `type:"string" enum:"true"`
+	Status RecordStatus `json:"servicecatalog:RecordDetail:Status" type:"string" enum:"true"`
 
 	// The time when the record was last updated.
-	UpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdatedTime *time.Time `json:"servicecatalog:RecordDetail:UpdatedTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1104,10 +1104,10 @@ type RecordError struct {
 	_ struct{} `type:"structure"`
 
 	// The numeric value of the error.
-	Code *string `type:"string"`
+	Code *string `json:"servicecatalog:RecordError:Code" type:"string"`
 
 	// The description of the error.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:RecordError:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -1123,13 +1123,13 @@ type RecordOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the output.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:RecordOutput:Description" type:"string"`
 
 	// The output key.
-	OutputKey *string `type:"string"`
+	OutputKey *string `json:"servicecatalog:RecordOutput:OutputKey" type:"string"`
 
 	// The output value.
-	OutputValue *string `type:"string"`
+	OutputValue *string `json:"servicecatalog:RecordOutput:OutputValue" type:"string"`
 }
 
 // String returns the string representation
@@ -1143,10 +1143,10 @@ type RecordTag struct {
 	_ struct{} `type:"structure"`
 
 	// The key for this tag.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"servicecatalog:RecordTag:Key" min:"1" type:"string"`
 
 	// The value for this tag.
-	Value *string `min:"1" type:"string"`
+	Value *string `json:"servicecatalog:RecordTag:Value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1160,26 +1160,26 @@ type ResourceChange struct {
 	_ struct{} `type:"structure"`
 
 	// The change action.
-	Action ChangeAction `type:"string" enum:"true"`
+	Action ChangeAction `json:"servicecatalog:ResourceChange:Action" type:"string" enum:"true"`
 
 	// Information about the resource changes.
-	Details []ResourceChangeDetail `type:"list"`
+	Details []ResourceChangeDetail `json:"servicecatalog:ResourceChange:Details" type:"list"`
 
 	// The ID of the resource, as defined in the CloudFormation template.
-	LogicalResourceId *string `type:"string"`
+	LogicalResourceId *string `json:"servicecatalog:ResourceChange:LogicalResourceId" type:"string"`
 
 	// The ID of the resource, if it was already created.
-	PhysicalResourceId *string `type:"string"`
+	PhysicalResourceId *string `json:"servicecatalog:ResourceChange:PhysicalResourceId" type:"string"`
 
 	// If the change type is Modify, indicates whether the existing resource is
 	// deleted and replaced with a new one.
-	Replacement Replacement `type:"string" enum:"true"`
+	Replacement Replacement `json:"servicecatalog:ResourceChange:Replacement" type:"string" enum:"true"`
 
 	// The type of resource.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"servicecatalog:ResourceChange:ResourceType" min:"1" type:"string"`
 
 	// The change scope.
-	Scope []ResourceAttribute `type:"list"`
+	Scope []ResourceAttribute `json:"servicecatalog:ResourceChange:Scope" type:"list"`
 }
 
 // String returns the string representation
@@ -1193,15 +1193,15 @@ type ResourceChangeDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the entity that caused the change.
-	CausingEntity *string `type:"string"`
+	CausingEntity *string `json:"servicecatalog:ResourceChangeDetail:CausingEntity" type:"string"`
 
 	// For static evaluations, the value of the resource attribute will change and
 	// the new value is known. For dynamic evaluations, the value might change,
 	// and any new value will be determined when the plan is updated.
-	Evaluation EvaluationType `type:"string" enum:"true"`
+	Evaluation EvaluationType `json:"servicecatalog:ResourceChangeDetail:Evaluation" type:"string" enum:"true"`
 
 	// Information about the resource attribute to be modified.
-	Target *ResourceTargetDefinition `type:"structure"`
+	Target *ResourceTargetDefinition `json:"servicecatalog:ResourceChangeDetail:Target" type:"structure"`
 }
 
 // String returns the string representation
@@ -1215,19 +1215,19 @@ type ResourceDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the resource.
-	ARN *string `type:"string"`
+	ARN *string `json:"servicecatalog:ResourceDetail:ARN" type:"string"`
 
 	// The creation time of the resource.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"servicecatalog:ResourceDetail:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the resource.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ResourceDetail:Description" type:"string"`
 
 	// The identifier of the resource.
-	Id *string `type:"string"`
+	Id *string `json:"servicecatalog:ResourceDetail:Id" type:"string"`
 
 	// The name of the resource.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:ResourceDetail:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1241,15 +1241,15 @@ type ResourceTargetDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// The attribute to be changed.
-	Attribute ResourceAttribute `type:"string" enum:"true"`
+	Attribute ResourceAttribute `json:"servicecatalog:ResourceTargetDefinition:Attribute" type:"string" enum:"true"`
 
 	// If the attribute is Properties, the value is the name of the property. Otherwise,
 	// the value is null.
-	Name *string `type:"string"`
+	Name *string `json:"servicecatalog:ResourceTargetDefinition:Name" type:"string"`
 
 	// If the attribute is Properties, indicates whether a change to this property
 	// causes the resource to be re-created.
-	RequiresRecreation RequiresRecreation `type:"string" enum:"true"`
+	RequiresRecreation RequiresRecreation `json:"servicecatalog:ResourceTargetDefinition:RequiresRecreation" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1266,17 +1266,17 @@ type ServiceActionAssociation struct {
 	// The product identifier. For example, prod-abcdzk7xy33qa.
 	//
 	// ProductId is a required field
-	ProductId *string `min:"1" type:"string" required:"true"`
+	ProductId *string `json:"servicecatalog:ServiceActionAssociation:ProductId" min:"1" type:"string" required:"true"`
 
 	// The identifier of the provisioning artifact. For example, pa-4abcdjnxjj6ne.
 	//
 	// ProvisioningArtifactId is a required field
-	ProvisioningArtifactId *string `min:"1" type:"string" required:"true"`
+	ProvisioningArtifactId *string `json:"servicecatalog:ServiceActionAssociation:ProvisioningArtifactId" min:"1" type:"string" required:"true"`
 
 	// The self-service action identifier. For example, act-fs7abcd89wxyz.
 	//
 	// ServiceActionId is a required field
-	ServiceActionId *string `min:"1" type:"string" required:"true"`
+	ServiceActionId *string `json:"servicecatalog:ServiceActionAssociation:ServiceActionId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1321,10 +1321,10 @@ type ServiceActionDetail struct {
 	_ struct{} `type:"structure"`
 
 	// A map that defines the self-service action.
-	Definition map[string]string `min:"1" type:"map"`
+	Definition map[string]string `json:"servicecatalog:ServiceActionDetail:Definition" min:"1" type:"map"`
 
 	// Summary information about the self-service action.
-	ServiceActionSummary *ServiceActionSummary `type:"structure"`
+	ServiceActionSummary *ServiceActionSummary `json:"servicecatalog:ServiceActionDetail:ServiceActionSummary" type:"structure"`
 }
 
 // String returns the string representation
@@ -1338,16 +1338,16 @@ type ServiceActionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The self-service action definition type. For example, SSM_AUTOMATION.
-	DefinitionType ServiceActionDefinitionType `type:"string" enum:"true"`
+	DefinitionType ServiceActionDefinitionType `json:"servicecatalog:ServiceActionSummary:DefinitionType" type:"string" enum:"true"`
 
 	// The self-service action description.
-	Description *string `type:"string"`
+	Description *string `json:"servicecatalog:ServiceActionSummary:Description" type:"string"`
 
 	// The self-service action identifier.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:ServiceActionSummary:Id" min:"1" type:"string"`
 
 	// The self-service action name.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"servicecatalog:ServiceActionSummary:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1361,10 +1361,10 @@ type ShareDetails struct {
 	_ struct{} `type:"structure"`
 
 	// List of errors.
-	ShareErrors []ShareError `type:"list"`
+	ShareErrors []ShareError `json:"servicecatalog:ShareDetails:ShareErrors" type:"list"`
 
 	// List of accounts for whom the operation succeeded.
-	SuccessfulShares []string `type:"list"`
+	SuccessfulShares []string `json:"servicecatalog:ShareDetails:SuccessfulShares" type:"list"`
 }
 
 // String returns the string representation
@@ -1378,13 +1378,13 @@ type ShareError struct {
 	_ struct{} `type:"structure"`
 
 	// List of accounts impacted by the error.
-	Accounts []string `type:"list"`
+	Accounts []string `json:"servicecatalog:ShareError:Accounts" type:"list"`
 
 	// Error type that happened when processing the operation.
-	Error *string `type:"string"`
+	Error *string `json:"servicecatalog:ShareError:Error" type:"string"`
 
 	// Information about the error.
-	Message *string `type:"string"`
+	Message *string `json:"servicecatalog:ShareError:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -1404,10 +1404,10 @@ type StackInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the AWS account that the stack instance is associated with.
-	Account *string `type:"string"`
+	Account *string `json:"servicecatalog:StackInstance:Account" type:"string"`
 
 	// The name of the AWS region that the stack instance is associated with.
-	Region *string `type:"string"`
+	Region *string `json:"servicecatalog:StackInstance:Region" type:"string"`
 
 	// The status of the stack instance, in terms of its synchronization with its
 	// associated stack set.
@@ -1424,7 +1424,7 @@ type StackInstance struct {
 	//    operation that failed or was stopped before the stack was created or updated.
 	//
 	//    * CURRENT: The stack is currently up to date with the stack set.
-	StackInstanceStatus StackInstanceStatus `type:"string" enum:"true"`
+	StackInstanceStatus StackInstanceStatus `json:"servicecatalog:StackInstance:StackInstanceStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1441,12 +1441,12 @@ type Tag struct {
 	// The tag key.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"servicecatalog:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value for this key.
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"servicecatalog:Tag:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1484,16 +1484,16 @@ type TagOptionDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The TagOption active state.
-	Active *bool `type:"boolean"`
+	Active *bool `json:"servicecatalog:TagOptionDetail:Active" type:"boolean"`
 
 	// The TagOption identifier.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicecatalog:TagOptionDetail:Id" min:"1" type:"string"`
 
 	// The TagOption key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"servicecatalog:TagOptionDetail:Key" min:"1" type:"string"`
 
 	// The TagOption value.
-	Value *string `min:"1" type:"string"`
+	Value *string `json:"servicecatalog:TagOptionDetail:Value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1507,10 +1507,10 @@ type TagOptionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The TagOption key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"servicecatalog:TagOptionSummary:Key" min:"1" type:"string"`
 
 	// The TagOption value.
-	Values []string `type:"list"`
+	Values []string `json:"servicecatalog:TagOptionSummary:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -1524,13 +1524,13 @@ type UpdateProvisioningParameter struct {
 	_ struct{} `type:"structure"`
 
 	// The parameter key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"servicecatalog:UpdateProvisioningParameter:Key" min:"1" type:"string"`
 
 	// If set to true, Value is ignored and the previous parameter value is kept.
-	UsePreviousValue *bool `type:"boolean"`
+	UsePreviousValue *bool `json:"servicecatalog:UpdateProvisioningParameter:UsePreviousValue" type:"boolean"`
 
 	// The parameter value.
-	Value *string `type:"string"`
+	Value *string `json:"servicecatalog:UpdateProvisioningParameter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1567,7 +1567,7 @@ type UpdateProvisioningPreferences struct {
 	//
 	// If no values are specified, the default value is all accounts from the STACKSET
 	// constraint.
-	StackSetAccounts []string `type:"list"`
+	StackSetAccounts []string `json:"servicecatalog:UpdateProvisioningPreferences:StackSetAccounts" type:"list"`
 
 	// The number of accounts, per region, for which this operation can fail before
 	// AWS Service Catalog stops the operation in that region. If the operation
@@ -1580,7 +1580,7 @@ type UpdateProvisioningPreferences struct {
 	// but not both.
 	//
 	// The default value is 0 if no value is specified.
-	StackSetFailureToleranceCount *int64 `type:"integer"`
+	StackSetFailureToleranceCount *int64 `json:"servicecatalog:UpdateProvisioningPreferences:StackSetFailureToleranceCount" type:"integer"`
 
 	// The percentage of accounts, per region, for which this stack operation can
 	// fail before AWS Service Catalog stops the operation in that region. If the
@@ -1594,7 +1594,7 @@ type UpdateProvisioningPreferences struct {
 	//
 	// Conditional: You must specify either StackSetFailureToleranceCount or StackSetFailureTolerancePercentage,
 	// but not both.
-	StackSetFailureTolerancePercentage *int64 `type:"integer"`
+	StackSetFailureTolerancePercentage *int64 `json:"servicecatalog:UpdateProvisioningPreferences:StackSetFailureTolerancePercentage" type:"integer"`
 
 	// The maximum number of accounts in which to perform this operation at one
 	// time. This is dependent on the value of StackSetFailureToleranceCount. StackSetMaxConcurrentCount
@@ -1608,7 +1608,7 @@ type UpdateProvisioningPreferences struct {
 	//
 	// Conditional: You must specify either StackSetMaxConcurrentCount or StackSetMaxConcurrentPercentage,
 	// but not both.
-	StackSetMaxConcurrencyCount *int64 `min:"1" type:"integer"`
+	StackSetMaxConcurrencyCount *int64 `json:"servicecatalog:UpdateProvisioningPreferences:StackSetMaxConcurrencyCount" min:"1" type:"integer"`
 
 	// The maximum percentage of accounts in which to perform this operation at
 	// one time.
@@ -1626,7 +1626,7 @@ type UpdateProvisioningPreferences struct {
 	//
 	// Conditional: You must specify either StackSetMaxConcurrentCount or StackSetMaxConcurrentPercentage,
 	// but not both.
-	StackSetMaxConcurrencyPercentage *int64 `min:"1" type:"integer"`
+	StackSetMaxConcurrencyPercentage *int64 `json:"servicecatalog:UpdateProvisioningPreferences:StackSetMaxConcurrencyPercentage" min:"1" type:"integer"`
 
 	// Determines what action AWS Service Catalog performs to a stack set or a stack
 	// instance represented by the provisioned product. The default value is UPDATE
@@ -1650,7 +1650,7 @@ type UpdateProvisioningPreferences struct {
 	//
 	// Deletes a stack instance in the stack set represented by the provisioned
 	// product.
-	StackSetOperationType StackSetOperationType `type:"string" enum:"true"`
+	StackSetOperationType StackSetOperationType `json:"servicecatalog:UpdateProvisioningPreferences:StackSetOperationType" type:"string" enum:"true"`
 
 	// One or more AWS Regions where the provisioned product will be available.
 	//
@@ -1662,7 +1662,7 @@ type UpdateProvisioningPreferences struct {
 	//
 	// If no values are specified, the default value is all regions from the STACKSET
 	// constraint.
-	StackSetRegions []string `type:"list"`
+	StackSetRegions []string `json:"servicecatalog:UpdateProvisioningPreferences:StackSetRegions" type:"list"`
 }
 
 // String returns the string representation
@@ -1692,10 +1692,10 @@ type UsageInstruction struct {
 	_ struct{} `type:"structure"`
 
 	// The usage instruction type for the value.
-	Type *string `type:"string"`
+	Type *string `json:"servicecatalog:UsageInstruction:Type" type:"string"`
 
 	// The usage instruction value for this type.
-	Value *string `type:"string"`
+	Value *string `json:"servicecatalog:UsageInstruction:Value" type:"string"`
 }
 
 // String returns the string representation

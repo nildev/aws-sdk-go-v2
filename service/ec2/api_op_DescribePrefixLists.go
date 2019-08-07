@@ -48,10 +48,10 @@ type DescribePrefixListsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribePrefixListsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// All available prefix lists.
-	PrefixLists []PrefixList `locationName:"prefixListSet" locationNameList:"item" type:"list"`
+	PrefixLists []PrefixList `json:"ec2:DescribePrefixListsOutput:PrefixLists" locationName:"prefixListSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

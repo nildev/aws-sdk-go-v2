@@ -66,10 +66,10 @@ type BatchDescribeSimulationJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of simulation jobs.
-	Jobs []SimulationJob `locationName:"jobs" type:"list"`
+	Jobs []SimulationJob `json:"robomaker:BatchDescribeSimulationJobOutput:Jobs" locationName:"jobs" type:"list"`
 
 	// A list of unprocessed simulation job Amazon Resource Names (ARNs).
-	UnprocessedJobs []string `locationName:"unprocessedJobs" min:"1" type:"list"`
+	UnprocessedJobs []string `json:"robomaker:BatchDescribeSimulationJobOutput:UnprocessedJobs" locationName:"unprocessedJobs" min:"1" type:"list"`
 }
 
 // String returns the string representation

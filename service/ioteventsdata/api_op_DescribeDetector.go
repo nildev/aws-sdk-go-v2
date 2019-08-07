@@ -73,7 +73,7 @@ type DescribeDetectorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the detector (instance).
-	Detector *Detector `locationName:"detector" type:"structure"`
+	Detector *Detector `json:"data.iotevents:DescribeDetectorOutput:Detector" locationName:"detector" type:"structure"`
 }
 
 // String returns the string representation

@@ -94,7 +94,7 @@ type CreateNetworkInterfaceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the network interface.
-	NetworkInterface *NetworkInterface `locationName:"networkInterface" type:"structure"`
+	NetworkInterface *NetworkInterface `json:"ec2:CreateNetworkInterfaceOutput:NetworkInterface" locationName:"networkInterface" type:"structure"`
 }
 
 // String returns the string representation

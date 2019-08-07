@@ -57,7 +57,7 @@ type ListUniqueProblemsOutput struct {
 	// If the number of items that are returned is significantly large, this is
 	// an identifier that is also returned, which can be used in a subsequent call
 	// to this operation to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:ListUniqueProblemsOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 
 	// Information about the unique problems.
 	//
@@ -76,7 +76,7 @@ type ListUniqueProblemsOutput struct {
 	//    * ERRORED: An error condition.
 	//
 	//    * STOPPED: A stopped condition.
-	UniqueProblems map[string][]UniqueProblem `locationName:"uniqueProblems" type:"map"`
+	UniqueProblems map[string][]UniqueProblem `json:"devicefarm:ListUniqueProblemsOutput:UniqueProblems" locationName:"uniqueProblems" type:"map"`
 }
 
 // String returns the string representation

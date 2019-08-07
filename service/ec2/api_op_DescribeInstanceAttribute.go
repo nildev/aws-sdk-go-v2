@@ -60,54 +60,54 @@ type DescribeInstanceAttributeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The block device mapping of the instance.
-	BlockDeviceMappings []InstanceBlockDeviceMapping `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
+	BlockDeviceMappings []InstanceBlockDeviceMapping `json:"ec2:DescribeInstanceAttributeOutput:BlockDeviceMappings" locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
 
 	// If the value is true, you can't terminate the instance through the Amazon
 	// EC2 console, CLI, or API; otherwise, you can.
-	DisableApiTermination *AttributeBooleanValue `locationName:"disableApiTermination" type:"structure"`
+	DisableApiTermination *AttributeBooleanValue `json:"ec2:DescribeInstanceAttributeOutput:DisableApiTermination" locationName:"disableApiTermination" type:"structure"`
 
 	// Indicates whether the instance is optimized for Amazon EBS I/O.
-	EbsOptimized *AttributeBooleanValue `locationName:"ebsOptimized" type:"structure"`
+	EbsOptimized *AttributeBooleanValue `json:"ec2:DescribeInstanceAttributeOutput:EbsOptimized" locationName:"ebsOptimized" type:"structure"`
 
 	// Indicates whether enhanced networking with ENA is enabled.
-	EnaSupport *AttributeBooleanValue `locationName:"enaSupport" type:"structure"`
+	EnaSupport *AttributeBooleanValue `json:"ec2:DescribeInstanceAttributeOutput:EnaSupport" locationName:"enaSupport" type:"structure"`
 
 	// The security groups associated with the instance.
-	Groups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	Groups []GroupIdentifier `json:"ec2:DescribeInstanceAttributeOutput:Groups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:DescribeInstanceAttributeOutput:InstanceId" locationName:"instanceId" type:"string"`
 
 	// Indicates whether an instance stops or terminates when you initiate shutdown
 	// from the instance (using the operating system command for system shutdown).
-	InstanceInitiatedShutdownBehavior *AttributeValue `locationName:"instanceInitiatedShutdownBehavior" type:"structure"`
+	InstanceInitiatedShutdownBehavior *AttributeValue `json:"ec2:DescribeInstanceAttributeOutput:InstanceInitiatedShutdownBehavior" locationName:"instanceInitiatedShutdownBehavior" type:"structure"`
 
 	// The instance type.
-	InstanceType *AttributeValue `locationName:"instanceType" type:"structure"`
+	InstanceType *AttributeValue `json:"ec2:DescribeInstanceAttributeOutput:InstanceType" locationName:"instanceType" type:"structure"`
 
 	// The kernel ID.
-	KernelId *AttributeValue `locationName:"kernel" type:"structure"`
+	KernelId *AttributeValue `json:"ec2:DescribeInstanceAttributeOutput:KernelId" locationName:"kernel" type:"structure"`
 
 	// A list of product codes.
-	ProductCodes []ProductCode `locationName:"productCodes" locationNameList:"item" type:"list"`
+	ProductCodes []ProductCode `json:"ec2:DescribeInstanceAttributeOutput:ProductCodes" locationName:"productCodes" locationNameList:"item" type:"list"`
 
 	// The RAM disk ID.
-	RamdiskId *AttributeValue `locationName:"ramdisk" type:"structure"`
+	RamdiskId *AttributeValue `json:"ec2:DescribeInstanceAttributeOutput:RamdiskId" locationName:"ramdisk" type:"structure"`
 
 	// The device name of the root device volume (for example, /dev/sda1).
-	RootDeviceName *AttributeValue `locationName:"rootDeviceName" type:"structure"`
+	RootDeviceName *AttributeValue `json:"ec2:DescribeInstanceAttributeOutput:RootDeviceName" locationName:"rootDeviceName" type:"structure"`
 
 	// Indicates whether source/destination checking is enabled. A value of true
 	// means that checking is enabled, and false means that checking is disabled.
 	// This value must be false for a NAT instance to perform NAT.
-	SourceDestCheck *AttributeBooleanValue `locationName:"sourceDestCheck" type:"structure"`
+	SourceDestCheck *AttributeBooleanValue `json:"ec2:DescribeInstanceAttributeOutput:SourceDestCheck" locationName:"sourceDestCheck" type:"structure"`
 
 	// Indicates whether enhanced networking with the Intel 82599 Virtual Function
 	// interface is enabled.
-	SriovNetSupport *AttributeValue `locationName:"sriovNetSupport" type:"structure"`
+	SriovNetSupport *AttributeValue `json:"ec2:DescribeInstanceAttributeOutput:SriovNetSupport" locationName:"sriovNetSupport" type:"structure"`
 
 	// The user data.
-	UserData *AttributeValue `locationName:"userData" type:"structure"`
+	UserData *AttributeValue `json:"ec2:DescribeInstanceAttributeOutput:UserData" locationName:"userData" type:"structure"`
 }
 
 // String returns the string representation

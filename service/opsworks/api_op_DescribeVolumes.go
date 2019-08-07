@@ -41,7 +41,7 @@ type DescribeVolumesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of volume IDs.
-	Volumes []Volume `type:"list"`
+	Volumes []Volume `json:"opsworks:DescribeVolumesOutput:Volumes" type:"list"`
 }
 
 // String returns the string representation

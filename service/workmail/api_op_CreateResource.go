@@ -64,7 +64,7 @@ type CreateResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the new resource.
-	ResourceId *string `type:"string"`
+	ResourceId *string `json:"workmail:CreateResourceOutput:ResourceId" type:"string"`
 }
 
 // String returns the string representation

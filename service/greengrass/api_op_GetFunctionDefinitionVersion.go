@@ -77,24 +77,24 @@ type GetFunctionDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the function definition version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetFunctionDefinitionVersionOutput:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the function definition version
 	// was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetFunctionDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
 	// Information on the definition.
-	Definition *FunctionDefinitionVersion `type:"structure"`
+	Definition *FunctionDefinitionVersion `json:"greengrass:GetFunctionDefinitionVersionOutput:Definition" type:"structure"`
 
 	// The ID of the function definition version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetFunctionDefinitionVersionOutput:Id" type:"string"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:GetFunctionDefinitionVersionOutput:NextToken" type:"string"`
 
 	// The version of the function definition version.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:GetFunctionDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

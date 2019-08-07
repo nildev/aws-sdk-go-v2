@@ -79,31 +79,31 @@ type DescribeDeviceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date that the device first signed in to Amazon WorkLink.
-	FirstAccessedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FirstAccessedTime *time.Time `json:"worklink:DescribeDeviceOutput:FirstAccessedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date that the device last accessed Amazon WorkLink.
-	LastAccessedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAccessedTime *time.Time `json:"worklink:DescribeDeviceOutput:LastAccessedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The manufacturer of the device.
-	Manufacturer *string `min:"1" type:"string"`
+	Manufacturer *string `json:"worklink:DescribeDeviceOutput:Manufacturer" min:"1" type:"string"`
 
 	// The model of the device.
-	Model *string `min:"1" type:"string"`
+	Model *string `json:"worklink:DescribeDeviceOutput:Model" min:"1" type:"string"`
 
 	// The operating system of the device.
-	OperatingSystem *string `min:"1" type:"string"`
+	OperatingSystem *string `json:"worklink:DescribeDeviceOutput:OperatingSystem" min:"1" type:"string"`
 
 	// The operating system version of the device.
-	OperatingSystemVersion *string `min:"1" type:"string"`
+	OperatingSystemVersion *string `json:"worklink:DescribeDeviceOutput:OperatingSystemVersion" min:"1" type:"string"`
 
 	// The operating system patch level of the device.
-	PatchLevel *string `min:"1" type:"string"`
+	PatchLevel *string `json:"worklink:DescribeDeviceOutput:PatchLevel" min:"1" type:"string"`
 
 	// The current state of the device.
-	Status DeviceStatus `type:"string" enum:"true"`
+	Status DeviceStatus `json:"worklink:DescribeDeviceOutput:Status" type:"string" enum:"true"`
 
 	// The user name associated with the device.
-	Username *string `min:"1" type:"string"`
+	Username *string `json:"worklink:DescribeDeviceOutput:Username" min:"1" type:"string"`
 }
 
 // String returns the string representation

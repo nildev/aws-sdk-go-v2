@@ -61,7 +61,7 @@ type UpdateCodeRepositoryOutput struct {
 	// The ARN of the Git repository.
 	//
 	// CodeRepositoryArn is a required field
-	CodeRepositoryArn *string `min:"1" type:"string" required:"true"`
+	CodeRepositoryArn *string `json:"api.sagemaker:UpdateCodeRepositoryOutput:CodeRepositoryArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

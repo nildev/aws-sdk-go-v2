@@ -48,7 +48,7 @@ type DeleteMembersOutput struct {
 
 	// A list of account ID and email address pairs of the AWS accounts that weren't
 	// deleted.
-	UnprocessedAccounts []Result `type:"list"`
+	UnprocessedAccounts []Result `json:"securityhub:DeleteMembersOutput:UnprocessedAccounts" type:"list"`
 }
 
 // String returns the string representation

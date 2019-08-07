@@ -27,7 +27,7 @@ type DescribeAccountAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of attributes assigned to an account.
-	AccountAttributes []AccountAttribute `locationNameList:"AccountAttribute" type:"list"`
+	AccountAttributes []AccountAttribute `json:"redshift:DescribeAccountAttributesOutput:AccountAttributes" locationNameList:"AccountAttribute" type:"list"`
 }
 
 // String returns the string representation

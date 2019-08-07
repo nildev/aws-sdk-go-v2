@@ -166,7 +166,7 @@ func (s CreateInputInput) MarshalFields(e protocol.FieldEncoder) error {
 type CreateInputOutput struct {
 	_ struct{} `type:"structure"`
 
-	Input *Input `locationName:"input" type:"structure"`
+	Input *Input `json:"medialive:CreateInputOutput:Input" locationName:"input" type:"structure"`
 }
 
 // String returns the string representation

@@ -61,34 +61,34 @@ type DescribeRobotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The target architecture of the robot application.
-	Architecture Architecture `locationName:"architecture" type:"string" enum:"true"`
+	Architecture Architecture `json:"robomaker:DescribeRobotOutput:Architecture" locationName:"architecture" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the robot.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:DescribeRobotOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the robot was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:DescribeRobotOutput:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	FleetArn *string `locationName:"fleetArn" min:"1" type:"string"`
+	FleetArn *string `json:"robomaker:DescribeRobotOutput:FleetArn" locationName:"fleetArn" min:"1" type:"string"`
 
 	// The Greengrass group id.
-	GreengrassGroupId *string `locationName:"greengrassGroupId" min:"1" type:"string"`
+	GreengrassGroupId *string `json:"robomaker:DescribeRobotOutput:GreengrassGroupId" locationName:"greengrassGroupId" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the last deployment job.
-	LastDeploymentJob *string `locationName:"lastDeploymentJob" min:"1" type:"string"`
+	LastDeploymentJob *string `json:"robomaker:DescribeRobotOutput:LastDeploymentJob" locationName:"lastDeploymentJob" min:"1" type:"string"`
 
 	// The time of the last deployment job.
-	LastDeploymentTime *time.Time `locationName:"lastDeploymentTime" type:"timestamp" timestampFormat:"unix"`
+	LastDeploymentTime *time.Time `json:"robomaker:DescribeRobotOutput:LastDeploymentTime" locationName:"lastDeploymentTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the robot.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:DescribeRobotOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the fleet.
-	Status RobotStatus `locationName:"status" type:"string" enum:"true"`
+	Status RobotStatus `json:"robomaker:DescribeRobotOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The list of all tags added to the specified robot.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:DescribeRobotOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

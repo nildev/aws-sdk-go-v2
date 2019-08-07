@@ -60,7 +60,7 @@ type UnshareDirectoryOutput struct {
 
 	// Identifier of the directory stored in the directory consumer account that
 	// is to be unshared from the specified directory (DirectoryId).
-	SharedDirectoryId *string `type:"string"`
+	SharedDirectoryId *string `json:"ds:UnshareDirectoryOutput:SharedDirectoryId" type:"string"`
 }
 
 // String returns the string representation

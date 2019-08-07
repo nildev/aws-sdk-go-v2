@@ -53,7 +53,7 @@ type DescribeApplicationOutput struct {
 	// Resource Name (ARN), status, and latest version.
 	//
 	// ApplicationDetail is a required field
-	ApplicationDetail *ApplicationDetail `type:"structure" required:"true"`
+	ApplicationDetail *ApplicationDetail `json:"kinesisanalytics:DescribeApplicationOutput:ApplicationDetail" type:"structure" required:"true"`
 }
 
 // String returns the string representation

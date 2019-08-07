@@ -95,18 +95,18 @@ type UpdateRequestValidatorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of this RequestValidator.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:UpdateRequestValidatorOutput:Id" locationName:"id" type:"string"`
 
 	// The name of this RequestValidator
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:UpdateRequestValidatorOutput:Name" locationName:"name" type:"string"`
 
 	// A Boolean flag to indicate whether to validate a request body according to
 	// the configured Model schema.
-	ValidateRequestBody *bool `locationName:"validateRequestBody" type:"boolean"`
+	ValidateRequestBody *bool `json:"apigateway:UpdateRequestValidatorOutput:ValidateRequestBody" locationName:"validateRequestBody" type:"boolean"`
 
 	// A Boolean flag to indicate whether to validate request parameters (true)
 	// or not (false).
-	ValidateRequestParameters *bool `locationName:"validateRequestParameters" type:"boolean"`
+	ValidateRequestParameters *bool `json:"apigateway:UpdateRequestValidatorOutput:ValidateRequestParameters" locationName:"validateRequestParameters" type:"boolean"`
 }
 
 // String returns the string representation

@@ -60,7 +60,7 @@ type DeleteInterconnectOutput struct {
 	//    * deleted: The interconnect is deleted.
 	//
 	//    * unknown: The state of the interconnect is not available.
-	InterconnectState InterconnectState `locationName:"interconnectState" type:"string" enum:"true"`
+	InterconnectState InterconnectState `json:"directconnect:DeleteInterconnectOutput:InterconnectState" locationName:"interconnectState" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -184,7 +184,7 @@ type DeleteItemOutput struct {
 	// A map of attribute names to AttributeValue objects, representing the item
 	// as it appeared before the DeleteItem operation. This map appears in the response
 	// only if ReturnValues was specified as ALL_OLD in the request.
-	Attributes map[string]AttributeValue `type:"map"`
+	Attributes map[string]AttributeValue `json:"dynamodb:DeleteItemOutput:Attributes" type:"map"`
 
 	// The capacity units consumed by the DeleteItem operation. The data returned
 	// includes the total provisioned throughput consumed, along with statistics
@@ -192,7 +192,7 @@ type DeleteItemOutput struct {
 	// is only returned if the ReturnConsumedCapacity parameter was specified. For
 	// more information, see Provisioned Mode (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ConsumedCapacity *ConsumedCapacity `type:"structure"`
+	ConsumedCapacity *ConsumedCapacity `json:"dynamodb:DeleteItemOutput:ConsumedCapacity" type:"structure"`
 
 	// Information about item collections, if any, that were affected by the DeleteItem
 	// operation. ItemCollectionMetrics is only returned if the ReturnItemCollectionMetrics
@@ -212,7 +212,7 @@ type DeleteItemOutput struct {
 	//    a local secondary index is approaching its size limit. The estimate is
 	//    subject to change over time; therefore, do not rely on the precision or
 	//    accuracy of the estimate.
-	ItemCollectionMetrics *ItemCollectionMetrics `type:"structure"`
+	ItemCollectionMetrics *ItemCollectionMetrics `json:"dynamodb:DeleteItemOutput:ItemCollectionMetrics" type:"structure"`
 }
 
 // String returns the string representation

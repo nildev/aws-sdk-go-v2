@@ -59,7 +59,7 @@ type CreateClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of your new cluster.
-	Cluster *Cluster `locationName:"cluster" type:"structure"`
+	Cluster *Cluster `json:"ecs:CreateClusterOutput:Cluster" locationName:"cluster" type:"structure"`
 }
 
 // String returns the string representation

@@ -149,7 +149,7 @@ type CreateLayerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The layer ID.
-	LayerId *string `type:"string"`
+	LayerId *string `json:"opsworks:CreateLayerOutput:LayerId" type:"string"`
 }
 
 // String returns the string representation

@@ -52,7 +52,7 @@ type TestConnectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The connection tested.
-	Connection *Connection `type:"structure"`
+	Connection *Connection `json:"dms:TestConnectionOutput:Connection" type:"structure"`
 }
 
 // String returns the string representation

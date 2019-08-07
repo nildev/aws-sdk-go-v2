@@ -41,10 +41,10 @@ type ListS3ResourcesOutput struct {
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"macie:ListS3ResourcesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of the associated S3 resources returned by the action.
-	S3Resources []S3ResourceClassification `locationName:"s3Resources" type:"list"`
+	S3Resources []S3ResourceClassification `json:"macie:ListS3ResourcesOutput:S3Resources" locationName:"s3Resources" type:"list"`
 }
 
 // String returns the string representation

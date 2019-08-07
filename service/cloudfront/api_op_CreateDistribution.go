@@ -63,14 +63,14 @@ type CreateDistributionOutput struct {
 	_ struct{} `type:"structure" payload:"Distribution"`
 
 	// The distribution's information.
-	Distribution *Distribution `type:"structure"`
+	Distribution *Distribution `json:"cloudfront:CreateDistributionOutput:Distribution" type:"structure"`
 
 	// The current version of the distribution created.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:CreateDistributionOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// The fully qualified URI of the new distribution resource just created. For
 	// example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"cloudfront:CreateDistributionOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

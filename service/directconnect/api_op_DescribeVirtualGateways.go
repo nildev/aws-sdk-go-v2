@@ -24,7 +24,7 @@ type DescribeVirtualGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The virtual private gateways.
-	VirtualGateways []VirtualGateway `locationName:"virtualGateways" type:"list"`
+	VirtualGateways []VirtualGateway `json:"directconnect:DescribeVirtualGatewaysOutput:VirtualGateways" locationName:"virtualGateways" type:"list"`
 }
 
 // String returns the string representation

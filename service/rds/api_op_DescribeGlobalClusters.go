@@ -74,12 +74,12 @@ type DescribeGlobalClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of global clusters returned by this request.
-	GlobalClusters []GlobalCluster `locationNameList:"GlobalClusterMember" type:"list"`
+	GlobalClusters []GlobalCluster `json:"rds:DescribeGlobalClustersOutput:GlobalClusters" locationNameList:"GlobalClusterMember" type:"list"`
 
 	// An optional pagination token provided by a previous DescribeGlobalClusters
 	// request. If this parameter is specified, the response includes only records
 	// beyond the marker, up to the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeGlobalClustersOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

@@ -78,10 +78,10 @@ type ListParentsOutput struct {
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListParentsOutput:NextToken" type:"string"`
 
 	// A list of parents for the specified child account or OU.
-	Parents []Parent `type:"list"`
+	Parents []Parent `json:"organizations:ListParentsOutput:Parents" type:"list"`
 }
 
 // String returns the string representation

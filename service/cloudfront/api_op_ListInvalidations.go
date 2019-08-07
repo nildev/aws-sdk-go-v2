@@ -83,7 +83,7 @@ type ListInvalidationsOutput struct {
 	_ struct{} `type:"structure" payload:"InvalidationList"`
 
 	// Information about invalidation batches.
-	InvalidationList *InvalidationList `type:"structure"`
+	InvalidationList *InvalidationList `json:"cloudfront:ListInvalidationsOutput:InvalidationList" type:"structure"`
 }
 
 // String returns the string representation

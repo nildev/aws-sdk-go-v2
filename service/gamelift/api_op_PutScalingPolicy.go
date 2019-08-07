@@ -149,7 +149,7 @@ type PutScalingPolicyOutput struct {
 
 	// Descriptive label that is associated with a scaling policy. Policy names
 	// do not need to be unique.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"gamelift:PutScalingPolicyOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

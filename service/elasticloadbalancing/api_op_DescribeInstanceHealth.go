@@ -48,7 +48,7 @@ type DescribeInstanceHealthOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the health of the instances.
-	InstanceStates []InstanceState `type:"list"`
+	InstanceStates []InstanceState `json:"elasticloadbalancing:DescribeInstanceHealthOutput:InstanceStates" type:"list"`
 }
 
 // String returns the string representation

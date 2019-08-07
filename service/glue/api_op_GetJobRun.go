@@ -61,7 +61,7 @@ type GetJobRunOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested job-run metadata.
-	JobRun *JobRun `type:"structure"`
+	JobRun *JobRun `json:"glue:GetJobRunOutput:JobRun" type:"structure"`
 }
 
 // String returns the string representation

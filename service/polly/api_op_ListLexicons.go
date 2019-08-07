@@ -41,11 +41,11 @@ type ListLexiconsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of lexicon names and attributes.
-	Lexicons []LexiconDescription `type:"list"`
+	Lexicons []LexiconDescription `json:"polly:ListLexiconsOutput:Lexicons" type:"list"`
 
 	// The pagination token to use in the next request to continue the listing of
 	// lexicons. NextToken is returned only if the response is truncated.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"polly:ListLexiconsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -51,7 +51,7 @@ type DescribeAvailabilityZonesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Availability Zones.
-	AvailabilityZones []AvailabilityZone `locationName:"availabilityZoneInfo" locationNameList:"item" type:"list"`
+	AvailabilityZones []AvailabilityZone `json:"ec2:DescribeAvailabilityZonesOutput:AvailabilityZones" locationName:"availabilityZoneInfo" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

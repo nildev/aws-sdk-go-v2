@@ -57,7 +57,7 @@ type CreateTransitVirtualInterfaceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about a virtual interface.
-	VirtualInterface *VirtualInterface `locationName:"virtualInterface" type:"structure"`
+	VirtualInterface *VirtualInterface `json:"directconnect:CreateTransitVirtualInterfaceOutput:VirtualInterface" locationName:"virtualInterface" type:"structure"`
 }
 
 // String returns the string representation

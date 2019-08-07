@@ -54,13 +54,13 @@ type SelectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of items that match the select expression.
-	Items []Item `locationNameList:"Item" type:"list" flattened:"true"`
+	Items []Item `json:"sdb:SelectOutput:Items" locationNameList:"Item" type:"list" flattened:"true"`
 
 	// An opaque token indicating that more items than
 	//    MaxNumberOfItems
 	//  were matched, the response size exceeded 1 megabyte, or the execution time
 	//  exceeded 5 seconds.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"sdb:SelectOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

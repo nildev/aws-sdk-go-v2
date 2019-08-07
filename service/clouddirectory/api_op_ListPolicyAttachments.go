@@ -104,10 +104,10 @@ type ListPolicyAttachmentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListPolicyAttachmentsOutput:NextToken" type:"string"`
 
 	// A list of ObjectIdentifiers to which the policy is attached.
-	ObjectIdentifiers []string `type:"list"`
+	ObjectIdentifiers []string `json:"clouddirectory:ListPolicyAttachmentsOutput:ObjectIdentifiers" type:"list"`
 }
 
 // String returns the string representation

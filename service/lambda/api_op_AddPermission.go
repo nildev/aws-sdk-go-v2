@@ -180,7 +180,7 @@ type AddPermissionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The permission statement that's added to the function policy.
-	Statement *string `type:"string"`
+	Statement *string `json:"lambda:AddPermissionOutput:Statement" type:"string"`
 }
 
 // String returns the string representation

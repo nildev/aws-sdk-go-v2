@@ -66,10 +66,10 @@ type ListEnabledProductsForImportOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token that is required for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"securityhub:ListEnabledProductsForImportOutput:NextToken" type:"string"`
 
 	// A list of ARNs for the resources that represent your subscriptions to products.
-	ProductSubscriptions []string `type:"list"`
+	ProductSubscriptions []string `json:"securityhub:ListEnabledProductsForImportOutput:ProductSubscriptions" type:"list"`
 }
 
 // String returns the string representation

@@ -82,7 +82,7 @@ type BatchDeletePartitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Errors encountered when trying to delete the requested partitions.
-	Errors []PartitionError `type:"list"`
+	Errors []PartitionError `json:"glue:BatchDeletePartitionOutput:Errors" type:"list"`
 }
 
 // String returns the string representation

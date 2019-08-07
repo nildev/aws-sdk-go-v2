@@ -67,7 +67,7 @@ type GetStagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Item []Stage `locationName:"item" type:"list"`
+	Item []Stage `json:"apigateway:GetStagesOutput:Item" locationName:"item" type:"list"`
 }
 
 // String returns the string representation

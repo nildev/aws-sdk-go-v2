@@ -66,12 +66,12 @@ type GetEntitlementsOutput struct {
 	// The set of entitlements found through the GetEntitlements operation. If the
 	// result contains an empty set of entitlements, NextToken might still be present
 	// and should be used.
-	Entitlements []Entitlement `type:"list"`
+	Entitlements []Entitlement `json:"entitlement.marketplace:GetEntitlementsOutput:Entitlements" type:"list"`
 
 	// For paginated results, use NextToken in subsequent calls to GetEntitlements.
 	// If the result contains an empty set of entitlements, NextToken might still
 	// be present and should be used.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"entitlement.marketplace:GetEntitlementsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

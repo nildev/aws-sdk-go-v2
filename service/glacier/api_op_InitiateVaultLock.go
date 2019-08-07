@@ -85,7 +85,7 @@ type InitiateVaultLockOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The lock ID, which is used to complete the vault locking process.
-	LockId *string `location:"header" locationName:"x-amz-lock-id" type:"string"`
+	LockId *string `json:"glacier:InitiateVaultLockOutput:LockId" location:"header" locationName:"x-amz-lock-id" type:"string"`
 }
 
 // String returns the string representation

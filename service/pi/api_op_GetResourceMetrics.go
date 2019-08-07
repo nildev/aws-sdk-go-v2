@@ -135,28 +135,28 @@ type GetResourceMetricsOutput struct {
 	// The end time for the returned metrics, after alignment to a granular boundary
 	// (as specified by PeriodInSeconds). AlignedEndTime will be greater than or
 	// equal to the value of the user-specified Endtime.
-	AlignedEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AlignedEndTime *time.Time `json:"pi:GetResourceMetricsOutput:AlignedEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The start time for the returned metrics, after alignment to a granular boundary
 	// (as specified by PeriodInSeconds). AlignedStartTime will be less than or
 	// equal to the value of the user-specified StartTime.
-	AlignedStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AlignedStartTime *time.Time `json:"pi:GetResourceMetricsOutput:AlignedStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// An immutable, AWS Region-unique identifier for a data source. Performance
 	// Insights gathers metrics from this data source.
 	//
 	// To use an Amazon RDS instance as a data source, you specify its DbiResourceId
 	// value - for example: db-FAIHNTYBKTGAUSUZQYPDS2GW4A
-	Identifier *string `type:"string"`
+	Identifier *string `json:"pi:GetResourceMetricsOutput:Identifier" type:"string"`
 
 	// An array of metric results,, where each array element contains all of the
 	// data points for a particular dimension.
-	MetricList []MetricKeyDataPoints `type:"list"`
+	MetricList []MetricKeyDataPoints `json:"pi:GetResourceMetricsOutput:MetricList" type:"list"`
 
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the token, up to
 	// the value specified by MaxRecords.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pi:GetResourceMetricsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

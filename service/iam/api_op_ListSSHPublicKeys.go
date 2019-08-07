@@ -75,14 +75,14 @@ type ListSSHPublicKeysOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListSSHPublicKeysOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListSSHPublicKeysOutput:Marker" type:"string"`
 
 	// A list of the SSH public keys assigned to IAM user.
-	SSHPublicKeys []SSHPublicKeyMetadata `type:"list"`
+	SSHPublicKeys []SSHPublicKeyMetadata `json:"iam:ListSSHPublicKeysOutput:SSHPublicKeys" type:"list"`
 }
 
 // String returns the string representation

@@ -102,11 +102,11 @@ type ListEventSourceMappingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event source mappings.
-	EventSourceMappings []EventSourceMappingConfiguration `type:"list"`
+	EventSourceMappings []EventSourceMappingConfiguration `json:"lambda:ListEventSourceMappingsOutput:EventSourceMappings" type:"list"`
 
 	// A pagination token that's returned when the response doesn't contain all
 	// event source mappings.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"lambda:ListEventSourceMappingsOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

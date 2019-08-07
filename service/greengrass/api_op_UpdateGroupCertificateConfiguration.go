@@ -63,11 +63,11 @@ func (s UpdateGroupCertificateConfigurationInput) MarshalFields(e protocol.Field
 type UpdateGroupCertificateConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
-	CertificateAuthorityExpiryInMilliseconds *string `type:"string"`
+	CertificateAuthorityExpiryInMilliseconds *string `json:"greengrass:UpdateGroupCertificateConfigurationOutput:CertificateAuthorityExpiryInMilliseconds" type:"string"`
 
-	CertificateExpiryInMilliseconds *string `type:"string"`
+	CertificateExpiryInMilliseconds *string `json:"greengrass:UpdateGroupCertificateConfigurationOutput:CertificateExpiryInMilliseconds" type:"string"`
 
-	GroupId *string `type:"string"`
+	GroupId *string `json:"greengrass:UpdateGroupCertificateConfigurationOutput:GroupId" type:"string"`
 }
 
 // String returns the string representation

@@ -89,7 +89,7 @@ func (s *CopyOptionGroupInput) Validate() error {
 type CopyOptionGroupOutput struct {
 	_ struct{} `type:"structure"`
 
-	OptionGroup *OptionGroup `type:"structure"`
+	OptionGroup *OptionGroup `json:"rds:CopyOptionGroupOutput:OptionGroup" type:"structure"`
 }
 
 // String returns the string representation

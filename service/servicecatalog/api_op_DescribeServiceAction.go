@@ -55,7 +55,7 @@ type DescribeServiceActionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about the self-service action.
-	ServiceActionDetail *ServiceActionDetail `type:"structure"`
+	ServiceActionDetail *ServiceActionDetail `json:"servicecatalog:DescribeServiceActionOutput:ServiceActionDetail" type:"structure"`
 }
 
 // String returns the string representation

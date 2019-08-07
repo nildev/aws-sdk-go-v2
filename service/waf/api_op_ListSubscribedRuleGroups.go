@@ -54,10 +54,10 @@ type ListSubscribedRuleGroupsOutput struct {
 	// the request, the response includes a NextMarker value. To list more objects,
 	// submit another ListSubscribedRuleGroups request, and specify the NextMarker
 	// value from the response in the NextMarker value in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListSubscribedRuleGroupsOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of RuleGroup objects.
-	RuleGroups []SubscribedRuleGroupSummary `type:"list"`
+	RuleGroups []SubscribedRuleGroupSummary `json:"waf:ListSubscribedRuleGroupsOutput:RuleGroups" type:"list"`
 }
 
 // String returns the string representation

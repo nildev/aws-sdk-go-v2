@@ -71,11 +71,11 @@ type ListDeploymentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of deployments for the requested groups.
-	Deployments []Deployment `type:"list"`
+	Deployments []Deployment `json:"greengrass:ListDeploymentsOutput:Deployments" type:"list"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListDeploymentsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

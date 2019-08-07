@@ -92,7 +92,7 @@ type ListTagsForResourcesOutput struct {
 	// A list of ResourceTagSets containing tags associated with the specified resources.
 	//
 	// ResourceTagSets is a required field
-	ResourceTagSets []ResourceTagSet `locationNameList:"ResourceTagSet" type:"list" required:"true"`
+	ResourceTagSets []ResourceTagSet `json:"route53:ListTagsForResourcesOutput:ResourceTagSets" locationNameList:"ResourceTagSet" type:"list" required:"true"`
 }
 
 // String returns the string representation

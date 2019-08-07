@@ -90,15 +90,15 @@ type CreateEmailIdentityOutput struct {
 	// An object that contains information about the DKIM attributes for the identity.
 	// This object includes the tokens that you use to create the CNAME records
 	// that are required to complete the DKIM verification process.
-	DkimAttributes *DkimAttributes `type:"structure"`
+	DkimAttributes *DkimAttributes `json:"email:CreateEmailIdentityOutput:DkimAttributes" type:"structure"`
 
 	// The email identity type.
-	IdentityType IdentityType `type:"string" enum:"true"`
+	IdentityType IdentityType `json:"email:CreateEmailIdentityOutput:IdentityType" type:"string" enum:"true"`
 
 	// Specifies whether or not the identity is verified. In Amazon Pinpoint, you
 	// can only send email from verified email addresses or domains. For more information
 	// about verifying identities, see the Amazon Pinpoint User Guide (https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html).
-	VerifiedForSendingStatus *bool `type:"boolean"`
+	VerifiedForSendingStatus *bool `json:"email:CreateEmailIdentityOutput:VerifiedForSendingStatus" type:"boolean"`
 }
 
 // String returns the string representation

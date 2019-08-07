@@ -45,10 +45,10 @@ type DescribeDirectConnectGatewayAssociationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the associations.
-	DirectConnectGatewayAssociations []DirectConnectGatewayAssociation `locationName:"directConnectGatewayAssociations" type:"list"`
+	DirectConnectGatewayAssociations []DirectConnectGatewayAssociation `json:"directconnect:DescribeDirectConnectGatewayAssociationsOutput:DirectConnectGatewayAssociations" locationName:"directConnectGatewayAssociations" type:"list"`
 
 	// The token to retrieve the next page.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"directconnect:DescribeDirectConnectGatewayAssociationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

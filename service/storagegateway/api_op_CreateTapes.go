@@ -145,7 +145,7 @@ type CreateTapesOutput struct {
 
 	// A list of unique Amazon Resource Names (ARNs) that represents the virtual
 	// tapes that were created.
-	TapeARNs []string `type:"list"`
+	TapeARNs []string `json:"storagegateway:CreateTapesOutput:TapeARNs" type:"list"`
 }
 
 // String returns the string representation

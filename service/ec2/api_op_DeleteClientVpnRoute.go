@@ -61,7 +61,7 @@ type DeleteClientVpnRouteOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the route.
-	Status *VpnRouteStatus `locationName:"status" type:"structure"`
+	Status *VpnRouteStatus `json:"ec2:DeleteClientVpnRouteOutput:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation

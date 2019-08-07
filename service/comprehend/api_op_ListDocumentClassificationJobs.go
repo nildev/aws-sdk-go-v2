@@ -56,10 +56,10 @@ type ListDocumentClassificationJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list containing the properties of each job returned.
-	DocumentClassificationJobPropertiesList []DocumentClassificationJobProperties `type:"list"`
+	DocumentClassificationJobPropertiesList []DocumentClassificationJobProperties `json:"comprehend:ListDocumentClassificationJobsOutput:DocumentClassificationJobPropertiesList" type:"list"`
 
 	// Identifies the next page of results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"comprehend:ListDocumentClassificationJobsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

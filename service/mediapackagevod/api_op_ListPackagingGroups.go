@@ -60,9 +60,9 @@ func (s ListPackagingGroupsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListPackagingGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediapackage-vod:ListPackagingGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 
-	PackagingGroups []PackagingGroup `locationName:"packagingGroups" type:"list"`
+	PackagingGroups []PackagingGroup `json:"mediapackage-vod:ListPackagingGroupsOutput:PackagingGroups" locationName:"packagingGroups" type:"list"`
 }
 
 // String returns the string representation

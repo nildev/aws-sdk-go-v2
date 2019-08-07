@@ -49,7 +49,7 @@ type CreatePresignedNotebookInstanceUrlOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A JSON object that contains the URL string.
-	AuthorizedUrl *string `type:"string"`
+	AuthorizedUrl *string `json:"api.sagemaker:CreatePresignedNotebookInstanceUrlOutput:AuthorizedUrl" type:"string"`
 }
 
 // String returns the string representation

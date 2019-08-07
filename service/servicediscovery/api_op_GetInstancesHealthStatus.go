@@ -73,11 +73,11 @@ type GetInstancesHealthStatusOutput struct {
 	// If more than MaxResults instances match the specified criteria, you can submit
 	// another GetInstancesHealthStatus request to get the next group of results.
 	// Specify the value of NextToken from the previous response in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicediscovery:GetInstancesHealthStatusOutput:NextToken" type:"string"`
 
 	// A complex type that contains the IDs and the health status of the instances
 	// that you specified in the GetInstancesHealthStatus request.
-	Status map[string]HealthStatus `type:"map"`
+	Status map[string]HealthStatus `json:"servicediscovery:GetInstancesHealthStatusOutput:Status" type:"map"`
 }
 
 // String returns the string representation

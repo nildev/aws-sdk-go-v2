@@ -43,10 +43,10 @@ type GetJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of job definitions.
-	Jobs []Job `type:"list"`
+	Jobs []Job `json:"glue:GetJobsOutput:Jobs" type:"list"`
 
 	// A continuation token, if not all job definitions have yet been returned.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetJobsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

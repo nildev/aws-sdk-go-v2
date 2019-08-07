@@ -154,7 +154,7 @@ type CreateGraphqlApiOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The GraphqlApi.
-	GraphqlApi *GraphqlApi `locationName:"graphqlApi" type:"structure"`
+	GraphqlApi *GraphqlApi `json:"appsync:CreateGraphqlApiOutput:GraphqlApi" locationName:"graphqlApi" type:"structure"`
 }
 
 // String returns the string representation

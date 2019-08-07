@@ -104,7 +104,7 @@ type CreateResolverEndpointOutput struct {
 
 	// Information about the CreateResolverEndpoint request, including the status
 	// of the request.
-	ResolverEndpoint *ResolverEndpoint `type:"structure"`
+	ResolverEndpoint *ResolverEndpoint `json:"route53resolver:CreateResolverEndpointOutput:ResolverEndpoint" type:"structure"`
 }
 
 // String returns the string representation

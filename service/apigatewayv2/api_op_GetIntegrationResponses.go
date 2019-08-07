@@ -83,11 +83,11 @@ func (s GetIntegrationResponsesInput) MarshalFields(e protocol.FieldEncoder) err
 type GetIntegrationResponsesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Items []IntegrationResponse `locationName:"items" type:"list"`
+	Items []IntegrationResponse `json:"apigateway:GetIntegrationResponsesOutput:Items" locationName:"items" type:"list"`
 
 	// The next page of elements from this collection. Not valid for the last element
 	// of the collection.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"apigateway:GetIntegrationResponsesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

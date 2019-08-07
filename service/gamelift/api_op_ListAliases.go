@@ -72,12 +72,12 @@ type ListAliasesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Collection of alias records that match the list request.
-	Aliases []Alias `type:"list"`
+	Aliases []Alias `json:"gamelift:ListAliasesOutput:Aliases" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:ListAliasesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

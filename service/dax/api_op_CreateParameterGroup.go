@@ -47,7 +47,7 @@ type CreateParameterGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the output of a CreateParameterGroup action.
-	ParameterGroup *ParameterGroup `type:"structure"`
+	ParameterGroup *ParameterGroup `json:"dax:CreateParameterGroupOutput:ParameterGroup" type:"structure"`
 }
 
 // String returns the string representation

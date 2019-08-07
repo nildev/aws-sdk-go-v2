@@ -48,13 +48,13 @@ type DescribeAssessmentRunsOutput struct {
 	// Information about the assessment run.
 	//
 	// AssessmentRuns is a required field
-	AssessmentRuns []AssessmentRun `locationName:"assessmentRuns" type:"list" required:"true"`
+	AssessmentRuns []AssessmentRun `json:"inspector:DescribeAssessmentRunsOutput:AssessmentRuns" locationName:"assessmentRuns" type:"list" required:"true"`
 
 	// Assessment run details that cannot be described. An error code is provided
 	// for each failed item.
 	//
 	// FailedItems is a required field
-	FailedItems map[string]FailedItemDetails `locationName:"failedItems" type:"map" required:"true"`
+	FailedItems map[string]FailedItemDetails `json:"inspector:DescribeAssessmentRunsOutput:FailedItems" locationName:"failedItems" type:"map" required:"true"`
 }
 
 // String returns the string representation

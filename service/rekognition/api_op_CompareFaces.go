@@ -79,10 +79,10 @@ type CompareFacesOutput struct {
 	// CompareFacesMatch object provides the bounding box, the confidence level
 	// that the bounding box contains a face, and the similarity score for the face
 	// in the bounding box and the face in the source image.
-	FaceMatches []CompareFacesMatch `type:"list"`
+	FaceMatches []CompareFacesMatch `json:"rekognition:CompareFacesOutput:FaceMatches" type:"list"`
 
 	// The face in the source image that was used for comparison.
-	SourceImageFace *ComparedSourceImageFace `type:"structure"`
+	SourceImageFace *ComparedSourceImageFace `json:"rekognition:CompareFacesOutput:SourceImageFace" type:"structure"`
 
 	// The value of SourceImageOrientationCorrection is always null.
 	//
@@ -97,7 +97,7 @@ type CompareFacesOutput struct {
 	// format and .jpeg images without orientation information in the image Exif
 	// metadata. The bounding box coordinates aren't translated and represent the
 	// object locations before the image is rotated.
-	SourceImageOrientationCorrection OrientationCorrection `type:"string" enum:"true"`
+	SourceImageOrientationCorrection OrientationCorrection `json:"rekognition:CompareFacesOutput:SourceImageOrientationCorrection" type:"string" enum:"true"`
 
 	// The value of TargetImageOrientationCorrection is always null.
 	//
@@ -112,11 +112,11 @@ type CompareFacesOutput struct {
 	// format and .jpeg images without orientation information in the image Exif
 	// metadata. The bounding box coordinates aren't translated and represent the
 	// object locations before the image is rotated.
-	TargetImageOrientationCorrection OrientationCorrection `type:"string" enum:"true"`
+	TargetImageOrientationCorrection OrientationCorrection `json:"rekognition:CompareFacesOutput:TargetImageOrientationCorrection" type:"string" enum:"true"`
 
 	// An array of faces in the target image that did not match the source image
 	// face.
-	UnmatchedFaces []ComparedFace `type:"list"`
+	UnmatchedFaces []ComparedFace `json:"rekognition:CompareFacesOutput:UnmatchedFaces" type:"list"`
 }
 
 // String returns the string representation

@@ -56,7 +56,7 @@ type TerminateInstanceInAutoScalingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A scaling activity.
-	Activity *Activity `type:"structure"`
+	Activity *Activity `json:"autoscaling:TerminateInstanceInAutoScalingGroupOutput:Activity" type:"structure"`
 }
 
 // String returns the string representation

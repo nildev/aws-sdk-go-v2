@@ -82,7 +82,7 @@ type CreateDatasetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the dataset.
-	DatasetArn *string `locationName:"datasetArn" type:"string"`
+	DatasetArn *string `json:"personalize:CreateDatasetOutput:DatasetArn" locationName:"datasetArn" type:"string"`
 }
 
 // String returns the string representation

@@ -200,10 +200,10 @@ type PostTextOutput struct {
 	//    appropriate response to prompts from the service (you can configure how
 	//    many times Amazon Lex can prompt a user for specific information), or
 	//    the Lambda function failed to fulfill the intent.
-	DialogState DialogState `locationName:"dialogState" type:"string" enum:"true"`
+	DialogState DialogState `json:"runtime.lex:PostTextOutput:DialogState" locationName:"dialogState" type:"string" enum:"true"`
 
 	// The current user intent that Amazon Lex is aware of.
-	IntentName *string `locationName:"intentName" type:"string"`
+	IntentName *string `json:"runtime.lex:PostTextOutput:IntentName" locationName:"intentName" type:"string"`
 
 	// The message to convey to the user. The message can come from the bot's configuration
 	// or from a Lambda function.
@@ -223,7 +223,7 @@ type PostTextOutput struct {
 	//
 	// If the Lambda function returns a message, Amazon Lex passes it to the client
 	// in its response.
-	Message *string `locationName:"message" min:"1" type:"string"`
+	Message *string `json:"runtime.lex:PostTextOutput:Message" locationName:"message" min:"1" type:"string"`
 
 	// The format of the response message. One of the following values:
 	//
@@ -237,19 +237,19 @@ type PostTextOutput struct {
 	//    * Composite - The message contains an escaped JSON object containing one
 	//    or more messages from the groups that messages were assigned to when the
 	//    intent was created.
-	MessageFormat MessageFormatType `locationName:"messageFormat" type:"string" enum:"true"`
+	MessageFormat MessageFormatType `json:"runtime.lex:PostTextOutput:MessageFormat" locationName:"messageFormat" type:"string" enum:"true"`
 
 	// Represents the options that the user has to respond to the current prompt.
 	// Response Card can come from the bot configuration (in the Amazon Lex console,
 	// choose the settings button next to a slot) or from a code hook (Lambda function).
-	ResponseCard *ResponseCard `locationName:"responseCard" type:"structure"`
+	ResponseCard *ResponseCard `json:"runtime.lex:PostTextOutput:ResponseCard" locationName:"responseCard" type:"structure"`
 
 	// A map of key-value pairs representing the session-specific context information.
-	SessionAttributes map[string]string `locationName:"sessionAttributes" type:"map"`
+	SessionAttributes map[string]string `json:"runtime.lex:PostTextOutput:SessionAttributes" locationName:"sessionAttributes" type:"map"`
 
 	// If the dialogState value is ElicitSlot, returns the name of the slot for
 	// which Amazon Lex is eliciting a value.
-	SlotToElicit *string `locationName:"slotToElicit" type:"string"`
+	SlotToElicit *string `json:"runtime.lex:PostTextOutput:SlotToElicit" locationName:"slotToElicit" type:"string"`
 
 	// The intent slots that Amazon Lex detected from the user input in the conversation.
 	//
@@ -261,7 +261,7 @@ type PostTextOutput struct {
 	// TOP_RESOLUTION Amazon Lex returns the first value in the resolution list
 	// or, if there is no resolution list, null. If you don't specify a valueSelectionStrategy,
 	// the default is ORIGINAL_VALUE.
-	Slots map[string]string `locationName:"slots" type:"map"`
+	Slots map[string]string `json:"runtime.lex:PostTextOutput:Slots" locationName:"slots" type:"map"`
 }
 
 // String returns the string representation

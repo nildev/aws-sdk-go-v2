@@ -62,7 +62,7 @@ type PutTraceSegmentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Segments that failed processing.
-	UnprocessedTraceSegments []UnprocessedTraceSegment `type:"list"`
+	UnprocessedTraceSegments []UnprocessedTraceSegment `json:"xray:PutTraceSegmentsOutput:UnprocessedTraceSegments" type:"list"`
 }
 
 // String returns the string representation

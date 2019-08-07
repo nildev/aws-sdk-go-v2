@@ -33,11 +33,11 @@ type ListLocationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array that contains a list of locations.
-	Locations []LocationListEntry `type:"list"`
+	Locations []LocationListEntry `json:"datasync:ListLocationsOutput:Locations" type:"list"`
 
 	// An opaque string that indicates the position at which to begin returning
 	// the next list of locations.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"datasync:ListLocationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

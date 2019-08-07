@@ -20,14 +20,14 @@ type BatchPutMessageErrorEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The code associated with the error.
-	ErrorCode ErrorCode `locationName:"errorCode" type:"string" enum:"true"`
+	ErrorCode ErrorCode `json:"data.iotevents:BatchPutMessageErrorEntry:ErrorCode" locationName:"errorCode" type:"string" enum:"true"`
 
 	// More information about the error.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"data.iotevents:BatchPutMessageErrorEntry:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The ID of the message that caused the error. (See the value corresponding
 	// to the "messageId" key in the "message" object.)
-	MessageId *string `locationName:"messageId" min:"1" type:"string"`
+	MessageId *string `json:"data.iotevents:BatchPutMessageErrorEntry:MessageId" locationName:"messageId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -64,14 +64,14 @@ type BatchUpdateDetectorErrorEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The code of the error.
-	ErrorCode ErrorCode `locationName:"errorCode" type:"string" enum:"true"`
+	ErrorCode ErrorCode `json:"data.iotevents:BatchUpdateDetectorErrorEntry:ErrorCode" locationName:"errorCode" type:"string" enum:"true"`
 
 	// A message describing the error.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"data.iotevents:BatchUpdateDetectorErrorEntry:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The "messageId" of the update request that caused the error. (The value of
 	// the "messageId" in the update request "Detector" object.)
-	MessageId *string `locationName:"messageId" min:"1" type:"string"`
+	MessageId *string `json:"data.iotevents:BatchUpdateDetectorErrorEntry:MessageId" locationName:"messageId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -108,23 +108,23 @@ type Detector struct {
 	_ struct{} `type:"structure"`
 
 	// The time the detector (instance) was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"data.iotevents:Detector:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the detector model that created this detector (instance).
-	DetectorModelName *string `locationName:"detectorModelName" min:"1" type:"string"`
+	DetectorModelName *string `json:"data.iotevents:Detector:DetectorModelName" locationName:"detectorModelName" min:"1" type:"string"`
 
 	// The version of the detector model that created this detector (instance).
-	DetectorModelVersion *string `locationName:"detectorModelVersion" min:"1" type:"string"`
+	DetectorModelVersion *string `json:"data.iotevents:Detector:DetectorModelVersion" locationName:"detectorModelVersion" min:"1" type:"string"`
 
 	// The value of the key (identifying the device or system) that caused the creation
 	// of this detector (instance).
-	KeyValue *string `locationName:"keyValue" min:"1" type:"string"`
+	KeyValue *string `json:"data.iotevents:Detector:KeyValue" locationName:"keyValue" min:"1" type:"string"`
 
 	// The time the detector (instance) was last updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"data.iotevents:Detector:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The current state of the detector (instance).
-	State *DetectorState `locationName:"state" type:"structure"`
+	State *DetectorState `json:"data.iotevents:Detector:State" locationName:"state" type:"structure"`
 }
 
 // String returns the string representation
@@ -181,17 +181,17 @@ type DetectorState struct {
 	// The name of the state.
 	//
 	// StateName is a required field
-	StateName *string `locationName:"stateName" min:"1" type:"string" required:"true"`
+	StateName *string `json:"data.iotevents:DetectorState:StateName" locationName:"stateName" min:"1" type:"string" required:"true"`
 
 	// The current state of the detector's timers.
 	//
 	// Timers is a required field
-	Timers []Timer `locationName:"timers" type:"list" required:"true"`
+	Timers []Timer `json:"data.iotevents:DetectorState:Timers" locationName:"timers" type:"list" required:"true"`
 
 	// The current values of the detector's variables.
 	//
 	// Variables is a required field
-	Variables []Variable `locationName:"variables" type:"list" required:"true"`
+	Variables []Variable `json:"data.iotevents:DetectorState:Variables" locationName:"variables" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -242,19 +242,19 @@ type DetectorStateDefinition struct {
 	// The name of the new state of the detector (instance).
 	//
 	// StateName is a required field
-	StateName *string `locationName:"stateName" min:"1" type:"string" required:"true"`
+	StateName *string `json:"data.iotevents:DetectorStateDefinition:StateName" locationName:"stateName" min:"1" type:"string" required:"true"`
 
 	// The new values of the detector's timers. Any timer whose value isn't specified
 	// is cleared, and its timeout event won't occur.
 	//
 	// Timers is a required field
-	Timers []TimerDefinition `locationName:"timers" type:"list" required:"true"`
+	Timers []TimerDefinition `json:"data.iotevents:DetectorStateDefinition:Timers" locationName:"timers" type:"list" required:"true"`
 
 	// The new values of the detector's variables. Any variable whose value isn't
 	// specified is cleared.
 	//
 	// Variables is a required field
-	Variables []VariableDefinition `locationName:"variables" type:"list" required:"true"`
+	Variables []VariableDefinition `json:"data.iotevents:DetectorStateDefinition:Variables" locationName:"variables" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -342,7 +342,7 @@ type DetectorStateSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the state.
-	StateName *string `locationName:"stateName" min:"1" type:"string"`
+	StateName *string `json:"data.iotevents:DetectorStateSummary:StateName" locationName:"stateName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -367,23 +367,23 @@ type DetectorSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time the detector (instance) was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"data.iotevents:DetectorSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the detector model that created this detector (instance).
-	DetectorModelName *string `locationName:"detectorModelName" min:"1" type:"string"`
+	DetectorModelName *string `json:"data.iotevents:DetectorSummary:DetectorModelName" locationName:"detectorModelName" min:"1" type:"string"`
 
 	// The version of the detector model that created this detector (instance).
-	DetectorModelVersion *string `locationName:"detectorModelVersion" min:"1" type:"string"`
+	DetectorModelVersion *string `json:"data.iotevents:DetectorSummary:DetectorModelVersion" locationName:"detectorModelVersion" min:"1" type:"string"`
 
 	// The value of the key (identifying the device or system) that caused the creation
 	// of this detector (instance).
-	KeyValue *string `locationName:"keyValue" min:"1" type:"string"`
+	KeyValue *string `json:"data.iotevents:DetectorSummary:KeyValue" locationName:"keyValue" min:"1" type:"string"`
 
 	// The time the detector (instance) was last updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"data.iotevents:DetectorSummary:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The current state of the detector (instance).
-	State *DetectorStateSummary `locationName:"state" type:"structure"`
+	State *DetectorStateSummary `json:"data.iotevents:DetectorSummary:State" locationName:"state" type:"structure"`
 }
 
 // String returns the string representation
@@ -440,13 +440,13 @@ type Message struct {
 	// The name of the input into which the message payload is transformed.
 	//
 	// InputName is a required field
-	InputName *string `locationName:"inputName" min:"1" type:"string" required:"true"`
+	InputName *string `json:"data.iotevents:Message:InputName" locationName:"inputName" min:"1" type:"string" required:"true"`
 
 	// The ID to assign to the message. Within each batch sent, each "messageId"
 	// must be unique.
 	//
 	// MessageId is a required field
-	MessageId *string `locationName:"messageId" min:"1" type:"string" required:"true"`
+	MessageId *string `json:"data.iotevents:Message:MessageId" locationName:"messageId" min:"1" type:"string" required:"true"`
 
 	// The payload of the message. This can be a JSON string or a Base-64-encoded
 	// string representing binary data (in which case you must decode it).
@@ -454,7 +454,7 @@ type Message struct {
 	// Payload is automatically base64 encoded/decoded by the SDK.
 	//
 	// Payload is a required field
-	Payload []byte `locationName:"payload" type:"blob" required:"true"`
+	Payload []byte `json:"data.iotevents:Message:Payload" locationName:"payload" type:"blob" required:"true"`
 }
 
 // String returns the string representation
@@ -521,12 +521,12 @@ type Timer struct {
 	// The name of the timer.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"data.iotevents:Timer:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The number of seconds which have elapsed on the timer.
 	//
 	// Timestamp is a required field
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
+	Timestamp *time.Time `json:"data.iotevents:Timer:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -559,12 +559,12 @@ type TimerDefinition struct {
 	// The name of the timer.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"data.iotevents:TimerDefinition:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The new setting of the timer (the number of seconds before the timer elapses).
 	//
 	// Seconds is a required field
-	Seconds *int64 `locationName:"seconds" type:"integer" required:"true"`
+	Seconds *int64 `json:"data.iotevents:TimerDefinition:Seconds" locationName:"seconds" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -618,22 +618,22 @@ type UpdateDetectorRequest struct {
 	// The name of the detector model that created the detectors (instances).
 	//
 	// DetectorModelName is a required field
-	DetectorModelName *string `locationName:"detectorModelName" min:"1" type:"string" required:"true"`
+	DetectorModelName *string `json:"data.iotevents:UpdateDetectorRequest:DetectorModelName" locationName:"detectorModelName" min:"1" type:"string" required:"true"`
 
 	// The value of the input key attribute (identifying the device or system) that
 	// caused the creation of this detector (instance).
-	KeyValue *string `locationName:"keyValue" min:"1" type:"string"`
+	KeyValue *string `json:"data.iotevents:UpdateDetectorRequest:KeyValue" locationName:"keyValue" min:"1" type:"string"`
 
 	// The ID to assign to the detector update "message". Each "messageId" must
 	// be unique within each batch sent.
 	//
 	// MessageId is a required field
-	MessageId *string `locationName:"messageId" min:"1" type:"string" required:"true"`
+	MessageId *string `json:"data.iotevents:UpdateDetectorRequest:MessageId" locationName:"messageId" min:"1" type:"string" required:"true"`
 
 	// The new state, variable values, and timer settings of the detector (instance).
 	//
 	// State is a required field
-	State *DetectorStateDefinition `locationName:"state" type:"structure" required:"true"`
+	State *DetectorStateDefinition `json:"data.iotevents:UpdateDetectorRequest:State" locationName:"state" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -714,12 +714,12 @@ type Variable struct {
 	// The name of the variable.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"data.iotevents:Variable:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The current value of the variable.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"data.iotevents:Variable:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -752,12 +752,12 @@ type VariableDefinition struct {
 	// The name of the variable.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"data.iotevents:VariableDefinition:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The new value of the variable.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"data.iotevents:VariableDefinition:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

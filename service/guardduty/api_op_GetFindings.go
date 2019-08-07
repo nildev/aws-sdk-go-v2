@@ -93,7 +93,7 @@ type GetFindingsOutput struct {
 	// A list of findings.
 	//
 	// Findings is a required field
-	Findings []Finding `locationName:"findings" type:"list" required:"true"`
+	Findings []Finding `json:"guardduty:GetFindingsOutput:Findings" locationName:"findings" type:"list" required:"true"`
 }
 
 // String returns the string representation

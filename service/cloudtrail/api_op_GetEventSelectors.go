@@ -60,10 +60,10 @@ type GetEventSelectorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The event selectors that are configured for the trail.
-	EventSelectors []EventSelector `type:"list"`
+	EventSelectors []EventSelector `json:"cloudtrail:GetEventSelectorsOutput:EventSelectors" type:"list"`
 
 	// The specified trail ARN that has the event selectors.
-	TrailARN *string `type:"string"`
+	TrailARN *string `json:"cloudtrail:GetEventSelectorsOutput:TrailARN" type:"string"`
 }
 
 // String returns the string representation

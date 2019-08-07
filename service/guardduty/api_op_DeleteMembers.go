@@ -88,7 +88,7 @@ type DeleteMembersOutput struct {
 	// explaining why it was unprocessed.
 	//
 	// UnprocessedAccounts is a required field
-	UnprocessedAccounts []UnprocessedAccount `locationName:"unprocessedAccounts" type:"list" required:"true"`
+	UnprocessedAccounts []UnprocessedAccount `json:"guardduty:DeleteMembersOutput:UnprocessedAccounts" locationName:"unprocessedAccounts" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -43,10 +43,10 @@ type ListWorkflowsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A continuation token, if not all workflow names have been returned.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:ListWorkflowsOutput:NextToken" type:"string"`
 
 	// List of names of workflows in the account.
-	Workflows []string `min:"1" type:"list"`
+	Workflows []string `json:"glue:ListWorkflowsOutput:Workflows" min:"1" type:"list"`
 }
 
 // String returns the string representation

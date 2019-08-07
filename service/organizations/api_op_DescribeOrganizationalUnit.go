@@ -49,7 +49,7 @@ type DescribeOrganizationalUnitOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains details about the specified OU.
-	OrganizationalUnit *OrganizationalUnit `type:"structure"`
+	OrganizationalUnit *OrganizationalUnit `json:"organizations:DescribeOrganizationalUnitOutput:OrganizationalUnit" type:"structure"`
 }
 
 // String returns the string representation

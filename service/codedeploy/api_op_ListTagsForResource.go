@@ -53,11 +53,11 @@ type ListTagsForResourceOutput struct {
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent list application revisions call to return
 	// the next set of application revisions in the list.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"codedeploy:ListTagsForResourceOutput:NextToken" type:"string"`
 
 	// A list of tags returned by ListTagsForResource. The tags are associated with
 	// the resource identified by the input ResourceArn parameter.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"codedeploy:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

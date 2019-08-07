@@ -60,7 +60,7 @@ type PurchaseReservedCacheNodesOfferingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the output of a PurchaseReservedCacheNodesOffering operation.
-	ReservedCacheNode *ReservedCacheNode `type:"structure"`
+	ReservedCacheNode *ReservedCacheNode `json:"elasticache:PurchaseReservedCacheNodesOfferingOutput:ReservedCacheNode" type:"structure"`
 }
 
 // String returns the string representation

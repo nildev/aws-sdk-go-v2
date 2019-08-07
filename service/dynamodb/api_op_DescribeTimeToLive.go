@@ -46,7 +46,7 @@ type DescribeTimeToLiveOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the Time to Live (TTL) status on the specified table.
-	TimeToLiveDescription *TimeToLiveDescription `type:"structure"`
+	TimeToLiveDescription *TimeToLiveDescription `json:"dynamodb:DescribeTimeToLiveOutput:TimeToLiveDescription" type:"structure"`
 }
 
 // String returns the string representation

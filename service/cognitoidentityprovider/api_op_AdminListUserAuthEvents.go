@@ -68,10 +68,10 @@ type AdminListUserAuthEventsOutput struct {
 
 	// The response object. It includes the EventID, EventType, CreationDate, EventRisk,
 	// and EventResponse.
-	AuthEvents []AuthEventType `type:"list"`
+	AuthEvents []AuthEventType `json:"cognito-idp:AdminListUserAuthEventsOutput:AuthEvents" type:"list"`
 
 	// A pagination token.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-idp:AdminListUserAuthEventsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

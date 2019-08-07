@@ -56,10 +56,10 @@ type GetPublicKeyOutput struct {
 	_ struct{} `type:"structure" payload:"PublicKey"`
 
 	// The current version of the public key. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:GetPublicKeyOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// Return the public key.
-	PublicKey *PublicKey `type:"structure"`
+	PublicKey *PublicKey `json:"cloudfront:GetPublicKeyOutput:PublicKey" type:"structure"`
 }
 
 // String returns the string representation

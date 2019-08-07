@@ -71,10 +71,10 @@ type ListCACertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The CA certificates registered in your AWS account.
-	Certificates []CACertificate `locationName:"certificates" type:"list"`
+	Certificates []CACertificate `json:"iot:ListCACertificatesOutput:Certificates" locationName:"certificates" type:"list"`
 
 	// The current position within the list of CA certificates.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListCACertificatesOutput:NextMarker" locationName:"nextMarker" type:"string"`
 }
 
 // String returns the string representation

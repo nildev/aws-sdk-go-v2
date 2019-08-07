@@ -33,7 +33,7 @@ type DescribeServicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A JSON-formatted list of AWS services.
-	Services []Service `locationName:"services" type:"list"`
+	Services []Service `json:"support:DescribeServicesOutput:Services" locationName:"services" type:"list"`
 }
 
 // String returns the string representation

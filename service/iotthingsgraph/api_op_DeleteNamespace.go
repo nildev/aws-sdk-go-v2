@@ -24,10 +24,10 @@ type DeleteNamespaceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the namespace to be deleted.
-	NamespaceArn *string `locationName:"namespaceArn" type:"string"`
+	NamespaceArn *string `json:"iotthingsgraph:DeleteNamespaceOutput:NamespaceArn" locationName:"namespaceArn" type:"string"`
 
 	// The name of the namespace to be deleted.
-	NamespaceName *string `locationName:"namespaceName" type:"string"`
+	NamespaceName *string `json:"iotthingsgraph:DeleteNamespaceOutput:NamespaceName" locationName:"namespaceName" type:"string"`
 }
 
 // String returns the string representation

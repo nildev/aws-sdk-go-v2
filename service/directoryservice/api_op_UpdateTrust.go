@@ -46,10 +46,10 @@ type UpdateTrustOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS request identifier.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"ds:UpdateTrustOutput:RequestId" type:"string"`
 
 	// Identifier of the trust relationship.
-	TrustId *string `type:"string"`
+	TrustId *string `json:"ds:UpdateTrustOutput:TrustId" type:"string"`
 }
 
 // String returns the string representation

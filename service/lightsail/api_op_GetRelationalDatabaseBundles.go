@@ -28,11 +28,11 @@ type GetRelationalDatabaseBundlesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object describing the result of your get relational database bundles request.
-	Bundles []RelationalDatabaseBundle `locationName:"bundles" type:"list"`
+	Bundles []RelationalDatabaseBundle `json:"lightsail:GetRelationalDatabaseBundlesOutput:Bundles" locationName:"bundles" type:"list"`
 
 	// A token used for advancing to the next page of results of your get relational
 	// database bundles request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetRelationalDatabaseBundlesOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

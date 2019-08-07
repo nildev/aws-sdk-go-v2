@@ -91,10 +91,10 @@ type ListPolicyPrincipalsOutput struct {
 
 	// The marker for the next set of results, or null if there are no additional
 	// results.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListPolicyPrincipalsOutput:NextMarker" locationName:"nextMarker" type:"string"`
 
 	// The descriptions of the principals.
-	Principals []string `locationName:"principals" type:"list"`
+	Principals []string `json:"iot:ListPolicyPrincipalsOutput:Principals" locationName:"principals" type:"list"`
 }
 
 // String returns the string representation

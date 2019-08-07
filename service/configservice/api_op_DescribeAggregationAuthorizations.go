@@ -33,11 +33,11 @@ type DescribeAggregationAuthorizationsOutput struct {
 
 	// Returns a list of authorizations granted to various aggregator accounts and
 	// regions.
-	AggregationAuthorizations []AggregationAuthorization `type:"list"`
+	AggregationAuthorizations []AggregationAuthorization `json:"config:DescribeAggregationAuthorizationsOutput:AggregationAuthorizations" type:"list"`
 
 	// The nextToken string returned on a previous page that you use to get the
 	// next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:DescribeAggregationAuthorizationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

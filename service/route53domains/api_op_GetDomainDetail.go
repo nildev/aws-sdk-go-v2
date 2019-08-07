@@ -48,51 +48,51 @@ type GetDomainDetailOutput struct {
 	// Email address to contact to report incorrect contact information for a domain,
 	// to report that the domain is being used to send spam, to report that someone
 	// is cybersquatting on a domain name, or report some other type of abuse.
-	AbuseContactEmail *string `type:"string"`
+	AbuseContactEmail *string `json:"route53domains:GetDomainDetailOutput:AbuseContactEmail" type:"string"`
 
 	// Phone number for reporting abuse.
-	AbuseContactPhone *string `type:"string"`
+	AbuseContactPhone *string `json:"route53domains:GetDomainDetailOutput:AbuseContactPhone" type:"string"`
 
 	// Provides details about the domain administrative contact.
 	//
 	// AdminContact is a required field
-	AdminContact *ContactDetail `type:"structure" required:"true"`
+	AdminContact *ContactDetail `json:"route53domains:GetDomainDetailOutput:AdminContact" type:"structure" required:"true"`
 
 	// Specifies whether contact information is concealed from WHOIS queries. If
 	// the value is true, WHOIS ("who is") queries return contact information either
 	// for Amazon Registrar (for .com, .net, and .org domains) or for our registrar
 	// associate, Gandi (for all other TLDs). If the value is false, WHOIS queries
 	// return the information that you entered for the admin contact.
-	AdminPrivacy *bool `type:"boolean"`
+	AdminPrivacy *bool `json:"route53domains:GetDomainDetailOutput:AdminPrivacy" type:"boolean"`
 
 	// Specifies whether the domain registration is set to renew automatically.
-	AutoRenew *bool `type:"boolean"`
+	AutoRenew *bool `json:"route53domains:GetDomainDetailOutput:AutoRenew" type:"boolean"`
 
 	// The date when the domain was created as found in the response to a WHOIS
 	// query. The date and time is in Coordinated Universal time (UTC).
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"route53domains:GetDomainDetailOutput:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Reserved for future use.
-	DnsSec *string `type:"string"`
+	DnsSec *string `json:"route53domains:GetDomainDetailOutput:DnsSec" type:"string"`
 
 	// The name of a domain.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"route53domains:GetDomainDetailOutput:DomainName" type:"string" required:"true"`
 
 	// The date when the registration for the domain is set to expire. The date
 	// and time is in Coordinated Universal time (UTC).
-	ExpirationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationDate *time.Time `json:"route53domains:GetDomainDetailOutput:ExpirationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the domain.
 	//
 	// Nameservers is a required field
-	Nameservers []Nameserver `type:"list" required:"true"`
+	Nameservers []Nameserver `json:"route53domains:GetDomainDetailOutput:Nameservers" type:"list" required:"true"`
 
 	// Provides details about the domain registrant.
 	//
 	// RegistrantContact is a required field
-	RegistrantContact *ContactDetail `type:"structure" required:"true"`
+	RegistrantContact *ContactDetail `json:"route53domains:GetDomainDetailOutput:RegistrantContact" type:"structure" required:"true"`
 
 	// Specifies whether contact information is concealed from WHOIS queries. If
 	// the value is true, WHOIS ("who is") queries return contact information either
@@ -100,23 +100,23 @@ type GetDomainDetailOutput struct {
 	// associate, Gandi (for all other TLDs). If the value is false, WHOIS queries
 	// return the information that you entered for the registrant contact (domain
 	// owner).
-	RegistrantPrivacy *bool `type:"boolean"`
+	RegistrantPrivacy *bool `json:"route53domains:GetDomainDetailOutput:RegistrantPrivacy" type:"boolean"`
 
 	// Name of the registrar of the domain as identified in the registry. Domains
 	// with a .com, .net, or .org TLD are registered by Amazon Registrar. All other
 	// domains are registered by our registrar associate, Gandi. The value for domains
 	// that are registered by Gandi is "GANDI SAS".
-	RegistrarName *string `type:"string"`
+	RegistrarName *string `json:"route53domains:GetDomainDetailOutput:RegistrarName" type:"string"`
 
 	// Web address of the registrar.
-	RegistrarUrl *string `type:"string"`
+	RegistrarUrl *string `json:"route53domains:GetDomainDetailOutput:RegistrarUrl" type:"string"`
 
 	// Reserved for future use.
-	RegistryDomainId *string `type:"string"`
+	RegistryDomainId *string `json:"route53domains:GetDomainDetailOutput:RegistryDomainId" type:"string"`
 
 	// Reseller of the domain. Domains registered or transferred using Amazon Route
 	// 53 domains will have "Amazon" as the reseller.
-	Reseller *string `type:"string"`
+	Reseller *string `json:"route53domains:GetDomainDetailOutput:Reseller" type:"string"`
 
 	// An array of domain name status codes, also known as Extensible Provisioning
 	// Protocol (EPP) status codes.
@@ -132,27 +132,27 @@ type GetDomainDetailOutput struct {
 	// each code means, go to the ICANN website (https://www.icann.org/) and search
 	// for epp status codes. (Search on the ICANN website; web searches sometimes
 	// return an old version of the document.)
-	StatusList []string `type:"list"`
+	StatusList []string `json:"route53domains:GetDomainDetailOutput:StatusList" type:"list"`
 
 	// Provides details about the domain technical contact.
 	//
 	// TechContact is a required field
-	TechContact *ContactDetail `type:"structure" required:"true"`
+	TechContact *ContactDetail `json:"route53domains:GetDomainDetailOutput:TechContact" type:"structure" required:"true"`
 
 	// Specifies whether contact information is concealed from WHOIS queries. If
 	// the value is true, WHOIS ("who is") queries return contact information either
 	// for Amazon Registrar (for .com, .net, and .org domains) or for our registrar
 	// associate, Gandi (for all other TLDs). If the value is false, WHOIS queries
 	// return the information that you entered for the technical contact.
-	TechPrivacy *bool `type:"boolean"`
+	TechPrivacy *bool `json:"route53domains:GetDomainDetailOutput:TechPrivacy" type:"boolean"`
 
 	// The last updated date of the domain as found in the response to a WHOIS query.
 	// The date and time is in Coordinated Universal time (UTC).
-	UpdatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdatedDate *time.Time `json:"route53domains:GetDomainDetailOutput:UpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The fully qualified name of the WHOIS server that can answer the WHOIS query
 	// for the domain.
-	WhoIsServer *string `type:"string"`
+	WhoIsServer *string `json:"route53domains:GetDomainDetailOutput:WhoIsServer" type:"string"`
 }
 
 // String returns the string representation

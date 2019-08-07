@@ -91,10 +91,10 @@ type ListTypesOutput struct {
 
 	// An identifier to be passed in the next request to this operation to return
 	// the next set of items in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appsync:ListTypesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The Type objects.
-	Types []Type `locationName:"types" type:"list"`
+	Types []Type `json:"appsync:ListTypesOutput:Types" locationName:"types" type:"list"`
 }
 
 // String returns the string representation

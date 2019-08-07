@@ -77,10 +77,10 @@ type ListBotsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of bots and bot details.
-	Bots []Bot `type:"list"`
+	Bots []Bot `json:"chime:ListBotsOutput:Bots" type:"list"`
 
 	// The token to use to retrieve the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"chime:ListBotsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

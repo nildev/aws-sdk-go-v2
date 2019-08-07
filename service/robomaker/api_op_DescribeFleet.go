@@ -61,28 +61,28 @@ type DescribeFleetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:DescribeFleetOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the fleet was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:DescribeFleetOutput:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the last deployment job.
-	LastDeploymentJob *string `locationName:"lastDeploymentJob" min:"1" type:"string"`
+	LastDeploymentJob *string `json:"robomaker:DescribeFleetOutput:LastDeploymentJob" locationName:"lastDeploymentJob" min:"1" type:"string"`
 
 	// The status of the last deployment.
-	LastDeploymentStatus DeploymentStatus `locationName:"lastDeploymentStatus" type:"string" enum:"true"`
+	LastDeploymentStatus DeploymentStatus `json:"robomaker:DescribeFleetOutput:LastDeploymentStatus" locationName:"lastDeploymentStatus" type:"string" enum:"true"`
 
 	// The time of the last deployment.
-	LastDeploymentTime *time.Time `locationName:"lastDeploymentTime" type:"timestamp" timestampFormat:"unix"`
+	LastDeploymentTime *time.Time `json:"robomaker:DescribeFleetOutput:LastDeploymentTime" locationName:"lastDeploymentTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the fleet.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:DescribeFleetOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// A list of robots.
-	Robots []Robot `locationName:"robots" type:"list"`
+	Robots []Robot `json:"robomaker:DescribeFleetOutput:Robots" locationName:"robots" type:"list"`
 
 	// The list of all tags added to the specified fleet.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:DescribeFleetOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

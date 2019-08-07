@@ -124,29 +124,29 @@ type CreateUsagePlanOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The associated API stages of a usage plan.
-	ApiStages []ApiStage `locationName:"apiStages" type:"list"`
+	ApiStages []ApiStage `json:"apigateway:CreateUsagePlanOutput:ApiStages" locationName:"apiStages" type:"list"`
 
 	// The description of a usage plan.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:CreateUsagePlanOutput:Description" locationName:"description" type:"string"`
 
 	// The identifier of a UsagePlan resource.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:CreateUsagePlanOutput:Id" locationName:"id" type:"string"`
 
 	// The name of a usage plan.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:CreateUsagePlanOutput:Name" locationName:"name" type:"string"`
 
 	// The AWS Markeplace product identifier to associate with the usage plan as
 	// a SaaS product on AWS Marketplace.
-	ProductCode *string `locationName:"productCode" type:"string"`
+	ProductCode *string `json:"apigateway:CreateUsagePlanOutput:ProductCode" locationName:"productCode" type:"string"`
 
 	// The maximum number of permitted requests per a given unit time interval.
-	Quota *QuotaSettings `locationName:"quota" type:"structure"`
+	Quota *QuotaSettings `json:"apigateway:CreateUsagePlanOutput:Quota" locationName:"quota" type:"structure"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:CreateUsagePlanOutput:Tags" locationName:"tags" type:"map"`
 
 	// The request throttle limits of a usage plan.
-	Throttle *ThrottleSettings `locationName:"throttle" type:"structure"`
+	Throttle *ThrottleSettings `json:"apigateway:CreateUsagePlanOutput:Throttle" locationName:"throttle" type:"structure"`
 }
 
 // String returns the string representation

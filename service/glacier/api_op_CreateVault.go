@@ -76,7 +76,7 @@ type CreateVaultOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The URI of the vault that was created.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"glacier:CreateVaultOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

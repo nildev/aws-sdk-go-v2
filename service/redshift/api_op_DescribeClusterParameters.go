@@ -75,11 +75,11 @@ type DescribeClusterParametersOutput struct {
 	// the next set of records by providing this returned marker value in the Marker
 	// parameter and retrying the command. If the Marker field is empty, all response
 	// records have been retrieved for the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeClusterParametersOutput:Marker" type:"string"`
 
 	// A list of Parameter instances. Each instance lists the parameters of one
 	// cluster parameter group.
-	Parameters []Parameter `locationNameList:"Parameter" type:"list"`
+	Parameters []Parameter `json:"redshift:DescribeClusterParametersOutput:Parameters" locationNameList:"Parameter" type:"list"`
 }
 
 // String returns the string representation

@@ -130,57 +130,57 @@ type CreateTrailOutput struct {
 
 	// Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail
 	// logs will be delivered.
-	CloudWatchLogsLogGroupArn *string `type:"string"`
+	CloudWatchLogsLogGroupArn *string `json:"cloudtrail:CreateTrailOutput:CloudWatchLogsLogGroupArn" type:"string"`
 
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to
 	// a user's log group.
-	CloudWatchLogsRoleArn *string `type:"string"`
+	CloudWatchLogsRoleArn *string `json:"cloudtrail:CreateTrailOutput:CloudWatchLogsRoleArn" type:"string"`
 
 	// Specifies whether the trail is publishing events from global services such
 	// as IAM to the log files.
-	IncludeGlobalServiceEvents *bool `type:"boolean"`
+	IncludeGlobalServiceEvents *bool `json:"cloudtrail:CreateTrailOutput:IncludeGlobalServiceEvents" type:"boolean"`
 
 	// Specifies whether the trail exists in one region or in all regions.
-	IsMultiRegionTrail *bool `type:"boolean"`
+	IsMultiRegionTrail *bool `json:"cloudtrail:CreateTrailOutput:IsMultiRegionTrail" type:"boolean"`
 
 	// Specifies whether the trail is an organization trail.
-	IsOrganizationTrail *bool `type:"boolean"`
+	IsOrganizationTrail *bool `json:"cloudtrail:CreateTrailOutput:IsOrganizationTrail" type:"boolean"`
 
 	// Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
 	// The value is a fully specified ARN to a KMS key in the format:
 	//
 	// arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"cloudtrail:CreateTrailOutput:KmsKeyId" type:"string"`
 
 	// Specifies whether log file integrity validation is enabled.
-	LogFileValidationEnabled *bool `type:"boolean"`
+	LogFileValidationEnabled *bool `json:"cloudtrail:CreateTrailOutput:LogFileValidationEnabled" type:"boolean"`
 
 	// Specifies the name of the trail.
-	Name *string `type:"string"`
+	Name *string `json:"cloudtrail:CreateTrailOutput:Name" type:"string"`
 
 	// Specifies the name of the Amazon S3 bucket designated for publishing log
 	// files.
-	S3BucketName *string `type:"string"`
+	S3BucketName *string `json:"cloudtrail:CreateTrailOutput:S3BucketName" type:"string"`
 
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket
 	// you have designated for log file delivery. For more information, see Finding
 	// Your CloudTrail Log Files (http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html).
-	S3KeyPrefix *string `type:"string"`
+	S3KeyPrefix *string `json:"cloudtrail:CreateTrailOutput:S3KeyPrefix" type:"string"`
 
 	// Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications
 	// when log files are delivered. The format of a topic ARN is:
 	//
 	// arn:aws:sns:us-east-2:123456789012:MyTopic
-	SnsTopicARN *string `type:"string"`
+	SnsTopicARN *string `json:"cloudtrail:CreateTrailOutput:SnsTopicARN" type:"string"`
 
 	// This field is deprecated. Use SnsTopicARN.
-	SnsTopicName *string `deprecated:"true" type:"string"`
+	SnsTopicName *string `json:"cloudtrail:CreateTrailOutput:SnsTopicName" deprecated:"true" type:"string"`
 
 	// Specifies the ARN of the trail that was created. The format of a trail ARN
 	// is:
 	//
 	// arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail
-	TrailARN *string `type:"string"`
+	TrailARN *string `json:"cloudtrail:CreateTrailOutput:TrailARN" type:"string"`
 }
 
 // String returns the string representation

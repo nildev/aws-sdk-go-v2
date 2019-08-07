@@ -52,13 +52,13 @@ type DescribeExclusionsOutput struct {
 	// Information about the exclusions.
 	//
 	// Exclusions is a required field
-	Exclusions map[string]Exclusion `locationName:"exclusions" min:"1" type:"map" required:"true"`
+	Exclusions map[string]Exclusion `json:"inspector:DescribeExclusionsOutput:Exclusions" locationName:"exclusions" min:"1" type:"map" required:"true"`
 
 	// Exclusion details that cannot be described. An error code is provided for
 	// each failed item.
 	//
 	// FailedItems is a required field
-	FailedItems map[string]FailedItemDetails `locationName:"failedItems" type:"map" required:"true"`
+	FailedItems map[string]FailedItemDetails `json:"inspector:DescribeExclusionsOutput:FailedItems" locationName:"failedItems" type:"map" required:"true"`
 }
 
 // String returns the string representation

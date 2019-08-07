@@ -65,7 +65,7 @@ type CreateCacheSecurityGroupOutput struct {
 	//    * CreateCacheSecurityGroup
 	//
 	//    * RevokeCacheSecurityGroupIngress
-	CacheSecurityGroup *CacheSecurityGroup `type:"structure"`
+	CacheSecurityGroup *CacheSecurityGroup `json:"elasticache:CreateCacheSecurityGroupOutput:CacheSecurityGroup" type:"structure"`
 }
 
 // String returns the string representation

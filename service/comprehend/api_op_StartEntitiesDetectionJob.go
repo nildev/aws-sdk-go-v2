@@ -128,7 +128,7 @@ type StartEntitiesDetectionJobOutput struct {
 
 	// The identifier generated for the job. To get the status of job, use this
 	// identifier with the operation.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:StartEntitiesDetectionJobOutput:JobId" min:"1" type:"string"`
 
 	// The status of the job.
 	//
@@ -144,7 +144,7 @@ type StartEntitiesDetectionJobOutput struct {
 	//    job and is processing the request.
 	//
 	//    * STOPPED - The job was successfully stopped without completing.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:StartEntitiesDetectionJobOutput:JobStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -161,18 +161,18 @@ type SendMessageOutput struct {
 	// this attribute to verify that Amazon SQS received the message correctly.
 	// Amazon SQS URL-decodes the message before creating the MD5 digest. For information
 	// about MD5, see RFC1321 (https://www.ietf.org/rfc/rfc1321.txt).
-	MD5OfMessageAttributes *string `type:"string"`
+	MD5OfMessageAttributes *string `json:"sqs:SendMessageOutput:MD5OfMessageAttributes" type:"string"`
 
 	// An MD5 digest of the non-URL-encoded message attribute string. You can use
 	// this attribute to verify that Amazon SQS received the message correctly.
 	// Amazon SQS URL-decodes the message before creating the MD5 digest. For information
 	// about MD5, see RFC1321 (https://www.ietf.org/rfc/rfc1321.txt).
-	MD5OfMessageBody *string `type:"string"`
+	MD5OfMessageBody *string `json:"sqs:SendMessageOutput:MD5OfMessageBody" type:"string"`
 
 	// An attribute containing the MessageId of the message sent to the queue. For
 	// more information, see Queue and Message Identifiers (https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html)
 	// in the Amazon Simple Queue Service Developer Guide.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"sqs:SendMessageOutput:MessageId" type:"string"`
 
 	// This parameter applies only to FIFO (first-in-first-out) queues.
 	//
@@ -180,7 +180,7 @@ type SendMessageOutput struct {
 	//
 	// The length of SequenceNumber is 128 bits. SequenceNumber continues to increase
 	// for a particular MessageGroupId.
-	SequenceNumber *string `type:"string"`
+	SequenceNumber *string `json:"sqs:SendMessageOutput:SequenceNumber" type:"string"`
 }
 
 // String returns the string representation

@@ -82,23 +82,23 @@ type GetMergeOptionsOutput struct {
 	// The commit ID of the merge base.
 	//
 	// BaseCommitId is a required field
-	BaseCommitId *string `locationName:"baseCommitId" type:"string" required:"true"`
+	BaseCommitId *string `json:"codecommit:GetMergeOptionsOutput:BaseCommitId" locationName:"baseCommitId" type:"string" required:"true"`
 
 	// The commit ID of the destination commit specifier that was used in the merge
 	// evaluation.
 	//
 	// DestinationCommitId is a required field
-	DestinationCommitId *string `locationName:"destinationCommitId" type:"string" required:"true"`
+	DestinationCommitId *string `json:"codecommit:GetMergeOptionsOutput:DestinationCommitId" locationName:"destinationCommitId" type:"string" required:"true"`
 
 	// The merge option or strategy used to merge the code.
 	//
 	// MergeOptions is a required field
-	MergeOptions []MergeOptionTypeEnum `locationName:"mergeOptions" type:"list" required:"true"`
+	MergeOptions []MergeOptionTypeEnum `json:"codecommit:GetMergeOptionsOutput:MergeOptions" locationName:"mergeOptions" type:"list" required:"true"`
 
 	// The commit ID of the source commit specifier that was used in the merge evaluation.
 	//
 	// SourceCommitId is a required field
-	SourceCommitId *string `locationName:"sourceCommitId" type:"string" required:"true"`
+	SourceCommitId *string `json:"codecommit:GetMergeOptionsOutput:SourceCommitId" locationName:"sourceCommitId" type:"string" required:"true"`
 }
 
 // String returns the string representation

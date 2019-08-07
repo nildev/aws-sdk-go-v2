@@ -111,12 +111,12 @@ type ListRoutesOutput struct {
 	// of a ListRoutes request exceed limit, you can use this value to retrieve
 	// the next page of results. This value is null when there are no more results
 	// to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appmesh:ListRoutesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of existing routes for the specified service mesh and virtual router.
 	//
 	// Routes is a required field
-	Routes []RouteRef `locationName:"routes" type:"list" required:"true"`
+	Routes []RouteRef `json:"appmesh:ListRoutesOutput:Routes" locationName:"routes" type:"list" required:"true"`
 }
 
 // String returns the string representation

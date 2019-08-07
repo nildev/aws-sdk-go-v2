@@ -79,18 +79,18 @@ type ListPoliciesGrantingServiceAccessOutput struct {
 	// were truncated, you can make a subsequent pagination request using the Marker
 	// request parameter to retrieve more items. We recommend that you check IsTruncated
 	// after every call to ensure that you receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListPoliciesGrantingServiceAccessOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListPoliciesGrantingServiceAccessOutput:Marker" type:"string"`
 
 	// A ListPoliciesGrantingServiceAccess object that contains details about the
 	// permissions policies attached to the specified identity (user, group, or
 	// role).
 	//
 	// PoliciesGrantingServiceAccess is a required field
-	PoliciesGrantingServiceAccess []ListPoliciesGrantingServiceAccessEntry `type:"list" required:"true"`
+	PoliciesGrantingServiceAccess []ListPoliciesGrantingServiceAccessEntry `json:"iam:ListPoliciesGrantingServiceAccessOutput:PoliciesGrantingServiceAccess" type:"list" required:"true"`
 }
 
 // String returns the string representation

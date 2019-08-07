@@ -75,7 +75,7 @@ type CreateRoomOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the newly created room in the response.
-	RoomArn *string `type:"string"`
+	RoomArn *string `json:"a4b:CreateRoomOutput:RoomArn" type:"string"`
 }
 
 // String returns the string representation

@@ -47,7 +47,7 @@ type DeleteResolverEndpointOutput struct {
 
 	// Information about the DeleteResolverEndpoint request, including the status
 	// of the request.
-	ResolverEndpoint *ResolverEndpoint `type:"structure"`
+	ResolverEndpoint *ResolverEndpoint `json:"route53resolver:DeleteResolverEndpointOutput:ResolverEndpoint" type:"structure"`
 }
 
 // String returns the string representation

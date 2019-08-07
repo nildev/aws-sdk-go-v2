@@ -176,7 +176,7 @@ type CreateJobOutput struct {
 
 	// Each job converts an input file into an output file or files. For more information,
 	// see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-	Job *Job `locationName:"job" type:"structure"`
+	Job *Job `json:"mediaconvert:CreateJobOutput:Job" locationName:"job" type:"structure"`
 }
 
 // String returns the string representation

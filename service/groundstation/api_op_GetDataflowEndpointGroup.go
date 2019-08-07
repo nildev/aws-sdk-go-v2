@@ -57,16 +57,16 @@ type GetDataflowEndpointGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of a dataflow endpoint group.
-	DataflowEndpointGroupArn *string `locationName:"dataflowEndpointGroupArn" type:"string"`
+	DataflowEndpointGroupArn *string `json:"groundstation:GetDataflowEndpointGroupOutput:DataflowEndpointGroupArn" locationName:"dataflowEndpointGroupArn" type:"string"`
 
 	// UUID of a dataflow endpoint group.
-	DataflowEndpointGroupId *string `locationName:"dataflowEndpointGroupId" type:"string"`
+	DataflowEndpointGroupId *string `json:"groundstation:GetDataflowEndpointGroupOutput:DataflowEndpointGroupId" locationName:"dataflowEndpointGroupId" type:"string"`
 
 	// Details of a dataflow endpoint.
-	EndpointsDetails []EndpointDetails `locationName:"endpointsDetails" type:"list"`
+	EndpointsDetails []EndpointDetails `json:"groundstation:GetDataflowEndpointGroupOutput:EndpointsDetails" locationName:"endpointsDetails" type:"list"`
 
 	// Tags assigned to a dataflow endpoint group.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"groundstation:GetDataflowEndpointGroupOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

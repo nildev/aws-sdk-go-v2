@@ -87,7 +87,7 @@ type DescribeAlarmsForMetricOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The information for each alarm with the specified metric.
-	MetricAlarms []MetricAlarm `type:"list"`
+	MetricAlarms []MetricAlarm `json:"monitoring:DescribeAlarmsForMetricOutput:MetricAlarms" type:"list"`
 }
 
 // String returns the string representation

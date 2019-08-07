@@ -52,10 +52,10 @@ type ListRateBasedRulesOutput struct {
 	// request, the response includes a NextMarker value. To list more Rules, submit
 	// another ListRateBasedRules request, and specify the NextMarker value from
 	// the response in the NextMarker value in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListRateBasedRulesOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of RuleSummary objects.
-	Rules []RuleSummary `type:"list"`
+	Rules []RuleSummary `json:"waf:ListRateBasedRulesOutput:Rules" type:"list"`
 }
 
 // String returns the string representation

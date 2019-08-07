@@ -68,7 +68,7 @@ type ModifyInstanceEventStartTimeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes a scheduled event for an instance.
-	Event *InstanceStatusEvent `locationName:"event" type:"structure"`
+	Event *InstanceStatusEvent `json:"ec2:ModifyInstanceEventStartTimeOutput:Event" locationName:"event" type:"structure"`
 }
 
 // String returns the string representation

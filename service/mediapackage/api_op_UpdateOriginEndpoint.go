@@ -156,38 +156,38 @@ func (s UpdateOriginEndpointInput) MarshalFields(e protocol.FieldEncoder) error 
 type UpdateOriginEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage:UpdateOriginEndpointOutput:Arn" locationName:"arn" type:"string"`
 
-	ChannelId *string `locationName:"channelId" type:"string"`
+	ChannelId *string `json:"mediapackage:UpdateOriginEndpointOutput:ChannelId" locationName:"channelId" type:"string"`
 
 	// A Common Media Application Format (CMAF) packaging configuration.
-	CmafPackage *CmafPackage `locationName:"cmafPackage" type:"structure"`
+	CmafPackage *CmafPackage `json:"mediapackage:UpdateOriginEndpointOutput:CmafPackage" locationName:"cmafPackage" type:"structure"`
 
 	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-	DashPackage *DashPackage `locationName:"dashPackage" type:"structure"`
+	DashPackage *DashPackage `json:"mediapackage:UpdateOriginEndpointOutput:DashPackage" locationName:"dashPackage" type:"structure"`
 
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediapackage:UpdateOriginEndpointOutput:Description" locationName:"description" type:"string"`
 
 	// An HTTP Live Streaming (HLS) packaging configuration.
-	HlsPackage *HlsPackage `locationName:"hlsPackage" type:"structure"`
+	HlsPackage *HlsPackage `json:"mediapackage:UpdateOriginEndpointOutput:HlsPackage" locationName:"hlsPackage" type:"structure"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage:UpdateOriginEndpointOutput:Id" locationName:"id" type:"string"`
 
-	ManifestName *string `locationName:"manifestName" type:"string"`
+	ManifestName *string `json:"mediapackage:UpdateOriginEndpointOutput:ManifestName" locationName:"manifestName" type:"string"`
 
 	// A Microsoft Smooth Streaming (MSS) packaging configuration.
-	MssPackage *MssPackage `locationName:"mssPackage" type:"structure"`
+	MssPackage *MssPackage `json:"mediapackage:UpdateOriginEndpointOutput:MssPackage" locationName:"mssPackage" type:"structure"`
 
-	StartoverWindowSeconds *int64 `locationName:"startoverWindowSeconds" type:"integer"`
+	StartoverWindowSeconds *int64 `json:"mediapackage:UpdateOriginEndpointOutput:StartoverWindowSeconds" locationName:"startoverWindowSeconds" type:"integer"`
 
 	// A collection of tags associated with a resource
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mediapackage:UpdateOriginEndpointOutput:Tags" locationName:"tags" type:"map"`
 
-	TimeDelaySeconds *int64 `locationName:"timeDelaySeconds" type:"integer"`
+	TimeDelaySeconds *int64 `json:"mediapackage:UpdateOriginEndpointOutput:TimeDelaySeconds" locationName:"timeDelaySeconds" type:"integer"`
 
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediapackage:UpdateOriginEndpointOutput:Url" locationName:"url" type:"string"`
 
-	Whitelist []string `locationName:"whitelist" type:"list"`
+	Whitelist []string `json:"mediapackage:UpdateOriginEndpointOutput:Whitelist" locationName:"whitelist" type:"list"`
 }
 
 // String returns the string representation

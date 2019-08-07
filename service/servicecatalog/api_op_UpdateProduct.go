@@ -90,10 +90,10 @@ type UpdateProductOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the product view.
-	ProductViewDetail *ProductViewDetail `type:"structure"`
+	ProductViewDetail *ProductViewDetail `json:"servicecatalog:UpdateProductOutput:ProductViewDetail" type:"structure"`
 
 	// Information about the tags associated with the product.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"servicecatalog:UpdateProductOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

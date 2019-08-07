@@ -49,19 +49,19 @@ type DescribeTrainingJobOutput struct {
 	// Information about the algorithm used for training, and algorithm metadata.
 	//
 	// AlgorithmSpecification is a required field
-	AlgorithmSpecification *AlgorithmSpecification `type:"structure" required:"true"`
+	AlgorithmSpecification *AlgorithmSpecification `json:"api.sagemaker:DescribeTrainingJobOutput:AlgorithmSpecification" type:"structure" required:"true"`
 
 	// A timestamp that indicates when the training job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeTrainingJobOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// To encrypt all communications between ML compute instances in distributed
 	// training, choose True. Encryption provides greater security for distributed
 	// training, but training might take longer. How long it takes depends on the
 	// amount of communication between compute instances, especially if you use
 	// a deep learning algorithms in distributed training.
-	EnableInterContainerTrafficEncryption *bool `type:"boolean"`
+	EnableInterContainerTrafficEncryption *bool `json:"api.sagemaker:DescribeTrainingJobOutput:EnableInterContainerTrafficEncryption" type:"boolean"`
 
 	// If you want to allow inbound or outbound network calls, except for calls
 	// between peers within a training cluster for distributed training, choose
@@ -71,47 +71,47 @@ type DescribeTrainingJobOutput struct {
 	// have network access.
 	//
 	// The Semantic Segmentation built-in algorithm does not support network isolation.
-	EnableNetworkIsolation *bool `type:"boolean"`
+	EnableNetworkIsolation *bool `json:"api.sagemaker:DescribeTrainingJobOutput:EnableNetworkIsolation" type:"boolean"`
 
 	// If the training job failed, the reason it failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:DescribeTrainingJobOutput:FailureReason" type:"string"`
 
 	// A collection of MetricData objects that specify the names, values, and dates
 	// and times that the training algorithm emitted to Amazon CloudWatch.
-	FinalMetricDataList []MetricData `type:"list"`
+	FinalMetricDataList []MetricData `json:"api.sagemaker:DescribeTrainingJobOutput:FinalMetricDataList" type:"list"`
 
 	// Algorithm-specific parameters.
-	HyperParameters map[string]string `type:"map"`
+	HyperParameters map[string]string `json:"api.sagemaker:DescribeTrainingJobOutput:HyperParameters" type:"map"`
 
 	// An array of Channel objects that describes each data input channel.
-	InputDataConfig []Channel `min:"1" type:"list"`
+	InputDataConfig []Channel `json:"api.sagemaker:DescribeTrainingJobOutput:InputDataConfig" min:"1" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling
 	// job that created the transform or training job.
-	LabelingJobArn *string `type:"string"`
+	LabelingJobArn *string `json:"api.sagemaker:DescribeTrainingJobOutput:LabelingJobArn" type:"string"`
 
 	// A timestamp that indicates when the status of the training job was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:DescribeTrainingJobOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the Amazon S3 location that is configured for storing model
 	// artifacts.
 	//
 	// ModelArtifacts is a required field
-	ModelArtifacts *ModelArtifacts `type:"structure" required:"true"`
+	ModelArtifacts *ModelArtifacts `json:"api.sagemaker:DescribeTrainingJobOutput:ModelArtifacts" type:"structure" required:"true"`
 
 	// The S3 path where model artifacts that you configured when creating the job
 	// are stored. Amazon SageMaker creates subfolders for model artifacts.
-	OutputDataConfig *OutputDataConfig `type:"structure"`
+	OutputDataConfig *OutputDataConfig `json:"api.sagemaker:DescribeTrainingJobOutput:OutputDataConfig" type:"structure"`
 
 	// Resources, including ML compute instances and ML storage volumes, that are
 	// configured for model training.
 	//
 	// ResourceConfig is a required field
-	ResourceConfig *ResourceConfig `type:"structure" required:"true"`
+	ResourceConfig *ResourceConfig `json:"api.sagemaker:DescribeTrainingJobOutput:ResourceConfig" type:"structure" required:"true"`
 
 	// The AWS Identity and Access Management (IAM) role configured for the training
 	// job.
-	RoleArn *string `min:"20" type:"string"`
+	RoleArn *string `json:"api.sagemaker:DescribeTrainingJobOutput:RoleArn" min:"20" type:"string"`
 
 	// Provides detailed information about the state of the training job. For detailed
 	// information on the secondary status of the training job, see StatusMessage
@@ -164,11 +164,11 @@ type DescribeTrainingJobOutput struct {
 	//    * DownloadingTrainingImage
 	//
 	// SecondaryStatus is a required field
-	SecondaryStatus SecondaryStatus `type:"string" required:"true" enum:"true"`
+	SecondaryStatus SecondaryStatus `json:"api.sagemaker:DescribeTrainingJobOutput:SecondaryStatus" type:"string" required:"true" enum:"true"`
 
 	// A history of all of the secondary statuses that the training job has transitioned
 	// through.
-	SecondaryStatusTransitions []SecondaryStatusTransition `type:"list"`
+	SecondaryStatusTransitions []SecondaryStatusTransition `json:"api.sagemaker:DescribeTrainingJobOutput:SecondaryStatusTransitions" type:"list"`
 
 	// Specifies a limit to how long a model training job can run. When the job
 	// reaches the time limit, Amazon SageMaker ends the training job. Use this
@@ -179,24 +179,24 @@ type DescribeTrainingJobOutput struct {
 	// window to save the model artifacts, so the results of training are not lost.
 	//
 	// StoppingCondition is a required field
-	StoppingCondition *StoppingCondition `type:"structure" required:"true"`
+	StoppingCondition *StoppingCondition `json:"api.sagemaker:DescribeTrainingJobOutput:StoppingCondition" type:"structure" required:"true"`
 
 	// Indicates the time when the training job ends on training instances. You
 	// are billed for the time interval between the value of TrainingStartTime and
 	// this time. For successful jobs and stopped jobs, this is the time after model
 	// artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker
 	// detects a job failure.
-	TrainingEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingEndTime *time.Time `json:"api.sagemaker:DescribeTrainingJobOutput:TrainingEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the training job.
 	//
 	// TrainingJobArn is a required field
-	TrainingJobArn *string `type:"string" required:"true"`
+	TrainingJobArn *string `json:"api.sagemaker:DescribeTrainingJobOutput:TrainingJobArn" type:"string" required:"true"`
 
 	// Name of the model training job.
 	//
 	// TrainingJobName is a required field
-	TrainingJobName *string `min:"1" type:"string" required:"true"`
+	TrainingJobName *string `json:"api.sagemaker:DescribeTrainingJobOutput:TrainingJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the training job.
 	//
@@ -217,23 +217,23 @@ type DescribeTrainingJobOutput struct {
 	// For more detailed information, see SecondaryStatus.
 	//
 	// TrainingJobStatus is a required field
-	TrainingJobStatus TrainingJobStatus `type:"string" required:"true" enum:"true"`
+	TrainingJobStatus TrainingJobStatus `json:"api.sagemaker:DescribeTrainingJobOutput:TrainingJobStatus" type:"string" required:"true" enum:"true"`
 
 	// Indicates the time when the training job starts on training instances. You
 	// are billed for the time interval between this time and the value of TrainingEndTime.
 	// The start time in CloudWatch Logs might be later than this time. The difference
 	// is due to the time it takes to download the training data and to the size
 	// of the training container.
-	TrainingStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingStartTime *time.Time `json:"api.sagemaker:DescribeTrainingJobOutput:TrainingStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the associated hyperparameter tuning job
 	// if the training job was launched by a hyperparameter tuning job.
-	TuningJobArn *string `type:"string"`
+	TuningJobArn *string `json:"api.sagemaker:DescribeTrainingJobOutput:TuningJobArn" type:"string"`
 
 	// A VpcConfig object that specifies the VPC that this training job has access
 	// to. For more information, see Protect Training Jobs by Using an Amazon Virtual
 	// Private Cloud (https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"api.sagemaker:DescribeTrainingJobOutput:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation

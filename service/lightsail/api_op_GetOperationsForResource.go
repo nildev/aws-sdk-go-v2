@@ -50,15 +50,15 @@ type GetOperationsForResourceOutput struct {
 	//
 	// In releases prior to June 12, 2017, this parameter returned null by the API.
 	// It is now deprecated, and the API returns the next page token parameter instead.
-	NextPageCount *string `locationName:"nextPageCount" deprecated:"true" type:"string"`
+	NextPageCount *string `json:"lightsail:GetOperationsForResourceOutput:NextPageCount" locationName:"nextPageCount" deprecated:"true" type:"string"`
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetOperationsForResourceOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// An array of key-value pairs containing information about the results of your
 	// get operations for resource request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:GetOperationsForResourceOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

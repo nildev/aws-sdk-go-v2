@@ -86,10 +86,10 @@ type ListUsersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token to use to retrieve the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"chime:ListUsersOutput:NextToken" type:"string"`
 
 	// List of users and user details.
-	Users []User `type:"list"`
+	Users []User `json:"chime:ListUsersOutput:Users" type:"list"`
 }
 
 // String returns the string representation

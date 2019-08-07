@@ -62,10 +62,10 @@ type CreateRegexPatternSetOutput struct {
 	// The ChangeToken that you used to submit the CreateRegexPatternSet request.
 	// You can also use this value to query the status of the request. For more
 	// information, see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf-regional:CreateRegexPatternSetOutput:ChangeToken" min:"1" type:"string"`
 
 	// A RegexPatternSet that contains no objects.
-	RegexPatternSet *waf.RegexPatternSet `type:"structure"`
+	RegexPatternSet *waf.RegexPatternSet `json:"waf-regional:CreateRegexPatternSetOutput:RegexPatternSet" type:"structure"`
 }
 
 // String returns the string representation

@@ -45,11 +45,11 @@ type ListAcceleratorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of accelerators for a customer account.
-	Accelerators []Accelerator `type:"list"`
+	Accelerators []Accelerator `json:"globalaccelerator:ListAcceleratorsOutput:Accelerators" type:"list"`
 
 	// The token for the next set of results. You receive this token from a previous
 	// call.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"globalaccelerator:ListAcceleratorsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

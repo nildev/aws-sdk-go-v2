@@ -64,7 +64,7 @@ type DescribeUserHierarchyStructureOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A HierarchyStructure object.
-	HierarchyStructure *HierarchyStructure `type:"structure"`
+	HierarchyStructure *HierarchyStructure `json:"connect:DescribeUserHierarchyStructureOutput:HierarchyStructure" type:"structure"`
 }
 
 // String returns the string representation

@@ -108,10 +108,10 @@ type ListUsersOutput struct {
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	PaginationToken *string `min:"1" type:"string"`
+	PaginationToken *string `json:"cognito-idp:ListUsersOutput:PaginationToken" min:"1" type:"string"`
 
 	// The users returned in the request to list users.
-	Users []UserType `type:"list"`
+	Users []UserType `json:"cognito-idp:ListUsersOutput:Users" type:"list"`
 }
 
 // String returns the string representation

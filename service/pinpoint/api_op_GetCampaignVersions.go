@@ -87,7 +87,7 @@ type GetCampaignVersionsOutput struct {
 	// campaigns that are associated with an application.
 	//
 	// CampaignsResponse is a required field
-	CampaignsResponse *CampaignsResponse `type:"structure" required:"true"`
+	CampaignsResponse *CampaignsResponse `json:"pinpoint:GetCampaignVersionsOutput:CampaignsResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

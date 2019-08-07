@@ -57,10 +57,10 @@ type ListUsersOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is `null`
 	// when there are no more results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workmail:ListUsersOutput:NextToken" min:"1" type:"string"`
 
 	// The overview of users for an organization.
-	Users []User `type:"list"`
+	Users []User `json:"workmail:ListUsersOutput:Users" type:"list"`
 }
 
 // String returns the string representation

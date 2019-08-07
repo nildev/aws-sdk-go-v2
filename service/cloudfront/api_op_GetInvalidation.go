@@ -74,7 +74,7 @@ type GetInvalidationOutput struct {
 
 	// The invalidation's information. For more information, see Invalidation Complex
 	// Type (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html).
-	Invalidation *Invalidation `type:"structure"`
+	Invalidation *Invalidation `json:"cloudfront:GetInvalidationOutput:Invalidation" type:"structure"`
 }
 
 // String returns the string representation

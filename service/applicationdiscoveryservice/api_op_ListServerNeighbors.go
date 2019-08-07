@@ -60,18 +60,18 @@ type ListServerNeighborsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Count of distinct servers that are one hop away from the given server.
-	KnownDependencyCount *int64 `locationName:"knownDependencyCount" type:"long"`
+	KnownDependencyCount *int64 `json:"discovery:ListServerNeighborsOutput:KnownDependencyCount" locationName:"knownDependencyCount" type:"long"`
 
 	// List of distinct servers that are one hop away from the given server.
 	//
 	// Neighbors is a required field
-	Neighbors []NeighborConnectionDetail `locationName:"neighbors" type:"list" required:"true"`
+	Neighbors []NeighborConnectionDetail `json:"discovery:ListServerNeighborsOutput:Neighbors" locationName:"neighbors" type:"list" required:"true"`
 
 	// Token to retrieve the next set of results. For example, if you specified
 	// 100 IDs for ListServerNeighborsRequest$neighborConfigurationIds but set ListServerNeighborsRequest$maxResults
 	// to 10, you received a set of 10 results along with this token. Use this token
 	// in the next query to retrieve the next set of 10.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"discovery:ListServerNeighborsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

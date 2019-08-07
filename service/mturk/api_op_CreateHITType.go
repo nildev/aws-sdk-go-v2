@@ -105,7 +105,7 @@ type CreateHITTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the newly registered HIT type.
-	HITTypeId *string `min:"1" type:"string"`
+	HITTypeId *string `json:"mturk-requester:CreateHITTypeOutput:HITTypeId" min:"1" type:"string"`
 }
 
 // String returns the string representation

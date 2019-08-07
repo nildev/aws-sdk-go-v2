@@ -26,12 +26,12 @@ type DescribeLimitsOutput struct {
 	// The number of open shards.
 	//
 	// OpenShardCount is a required field
-	OpenShardCount *int64 `type:"integer" required:"true"`
+	OpenShardCount *int64 `json:"kinesis:DescribeLimitsOutput:OpenShardCount" type:"integer" required:"true"`
 
 	// The maximum number of shards.
 	//
 	// ShardLimit is a required field
-	ShardLimit *int64 `type:"integer" required:"true"`
+	ShardLimit *int64 `json:"kinesis:DescribeLimitsOutput:ShardLimit" type:"integer" required:"true"`
 }
 
 // String returns the string representation

@@ -53,7 +53,7 @@ type CreateDatasetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the new dataset group.
-	DatasetGroupArn *string `locationName:"datasetGroupArn" type:"string"`
+	DatasetGroupArn *string `json:"personalize:CreateDatasetGroupOutput:DatasetGroupArn" locationName:"datasetGroupArn" type:"string"`
 }
 
 // String returns the string representation

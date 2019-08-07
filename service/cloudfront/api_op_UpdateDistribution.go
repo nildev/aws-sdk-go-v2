@@ -88,10 +88,10 @@ type UpdateDistributionOutput struct {
 	_ struct{} `type:"structure" payload:"Distribution"`
 
 	// The distribution's information.
-	Distribution *Distribution `type:"structure"`
+	Distribution *Distribution `json:"cloudfront:UpdateDistributionOutput:Distribution" type:"structure"`
 
 	// The current version of the configuration. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:UpdateDistributionOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 }
 
 // String returns the string representation

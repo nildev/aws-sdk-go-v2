@@ -47,55 +47,55 @@ type GetPatchBaselineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A set of rules used to include patches in the baseline.
-	ApprovalRules *PatchRuleGroup `type:"structure"`
+	ApprovalRules *PatchRuleGroup `json:"ssm:GetPatchBaselineOutput:ApprovalRules" type:"structure"`
 
 	// A list of explicitly approved patches for the baseline.
-	ApprovedPatches []string `type:"list"`
+	ApprovedPatches []string `json:"ssm:GetPatchBaselineOutput:ApprovedPatches" type:"list"`
 
 	// Returns the specified compliance severity level for approved patches in the
 	// patch baseline.
-	ApprovedPatchesComplianceLevel PatchComplianceLevel `type:"string" enum:"true"`
+	ApprovedPatchesComplianceLevel PatchComplianceLevel `json:"ssm:GetPatchBaselineOutput:ApprovedPatchesComplianceLevel" type:"string" enum:"true"`
 
 	// Indicates whether the list of approved patches includes non-security updates
 	// that should be applied to the instances. The default value is 'false'. Applies
 	// to Linux instances only.
-	ApprovedPatchesEnableNonSecurity *bool `type:"boolean"`
+	ApprovedPatchesEnableNonSecurity *bool `json:"ssm:GetPatchBaselineOutput:ApprovedPatchesEnableNonSecurity" type:"boolean"`
 
 	// The ID of the retrieved patch baseline.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:GetPatchBaselineOutput:BaselineId" min:"20" type:"string"`
 
 	// The date the patch baseline was created.
-	CreatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"ssm:GetPatchBaselineOutput:CreatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the patch baseline.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:GetPatchBaselineOutput:Description" min:"1" type:"string"`
 
 	// A set of global filters used to exclude patches from the baseline.
-	GlobalFilters *PatchFilterGroup `type:"structure"`
+	GlobalFilters *PatchFilterGroup `json:"ssm:GetPatchBaselineOutput:GlobalFilters" type:"structure"`
 
 	// The date the patch baseline was last modified.
-	ModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ModifiedDate *time.Time `json:"ssm:GetPatchBaselineOutput:ModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the patch baseline.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:GetPatchBaselineOutput:Name" min:"3" type:"string"`
 
 	// Returns the operating system specified for the patch baseline.
-	OperatingSystem OperatingSystem `type:"string" enum:"true"`
+	OperatingSystem OperatingSystem `json:"ssm:GetPatchBaselineOutput:OperatingSystem" type:"string" enum:"true"`
 
 	// Patch groups included in the patch baseline.
-	PatchGroups []string `type:"list"`
+	PatchGroups []string `json:"ssm:GetPatchBaselineOutput:PatchGroups" type:"list"`
 
 	// A list of explicitly rejected patches for the baseline.
-	RejectedPatches []string `type:"list"`
+	RejectedPatches []string `json:"ssm:GetPatchBaselineOutput:RejectedPatches" type:"list"`
 
 	// The action specified to take on patches included in the RejectedPatches list.
 	// A patch can be allowed only if it is a dependency of another package, or
 	// blocked entirely along with packages that include it as a dependency.
-	RejectedPatchesAction PatchAction `type:"string" enum:"true"`
+	RejectedPatchesAction PatchAction `json:"ssm:GetPatchBaselineOutput:RejectedPatchesAction" type:"string" enum:"true"`
 
 	// Information about the patches to use to update the instances, including target
 	// operating systems and source repositories. Applies to Linux instances only.
-	Sources []PatchSource `type:"list"`
+	Sources []PatchSource `json:"ssm:GetPatchBaselineOutput:Sources" type:"list"`
 }
 
 // String returns the string representation

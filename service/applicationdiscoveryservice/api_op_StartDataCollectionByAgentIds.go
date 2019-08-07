@@ -51,7 +51,7 @@ type StartDataCollectionByAgentIdsOutput struct {
 	// Information about agents or the connector that were instructed to start collecting
 	// data. Information includes the agent/connector ID, a description of the operation
 	// performed, and whether the agent/connector configuration was updated.
-	AgentsConfigurationStatus []AgentConfigurationStatus `locationName:"agentsConfigurationStatus" type:"list"`
+	AgentsConfigurationStatus []AgentConfigurationStatus `json:"discovery:StartDataCollectionByAgentIdsOutput:AgentsConfigurationStatus" locationName:"agentsConfigurationStatus" type:"list"`
 }
 
 // String returns the string representation

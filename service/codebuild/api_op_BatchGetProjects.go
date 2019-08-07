@@ -46,10 +46,10 @@ type BatchGetProjectsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the requested build projects.
-	Projects []Project `locationName:"projects" type:"list"`
+	Projects []Project `json:"codebuild:BatchGetProjectsOutput:Projects" locationName:"projects" type:"list"`
 
 	// The names of build projects for which information could not be found.
-	ProjectsNotFound []string `locationName:"projectsNotFound" min:"1" type:"list"`
+	ProjectsNotFound []string `json:"codebuild:BatchGetProjectsOutput:ProjectsNotFound" locationName:"projectsNotFound" min:"1" type:"list"`
 }
 
 // String returns the string representation

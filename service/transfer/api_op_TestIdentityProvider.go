@@ -56,17 +56,17 @@ type TestIdentityProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The result of the authorization test as a message.
-	Message *string `type:"string"`
+	Message *string `json:"transfer:TestIdentityProviderOutput:Message" type:"string"`
 
 	// The HTTP status code that is the response from your API Gateway.
 	//
 	// StatusCode is a required field
-	StatusCode *int64 `type:"integer" required:"true"`
+	StatusCode *int64 `json:"transfer:TestIdentityProviderOutput:StatusCode" type:"integer" required:"true"`
 
 	// The endpoint of the service used to authenticate a user.
 	//
 	// Url is a required field
-	Url *string `type:"string" required:"true"`
+	Url *string `json:"transfer:TestIdentityProviderOutput:Url" type:"string" required:"true"`
 }
 
 // String returns the string representation

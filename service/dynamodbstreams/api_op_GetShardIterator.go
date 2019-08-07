@@ -92,7 +92,7 @@ type GetShardIteratorOutput struct {
 	// The position in the shard from which to start reading stream records sequentially.
 	// A shard iterator specifies this position using the sequence number of a stream
 	// record in a shard.
-	ShardIterator *string `min:"1" type:"string"`
+	ShardIterator *string `json:"streams.dynamodb:GetShardIteratorOutput:ShardIterator" min:"1" type:"string"`
 }
 
 // String returns the string representation

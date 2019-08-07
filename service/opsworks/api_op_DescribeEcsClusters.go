@@ -46,13 +46,13 @@ type DescribeEcsClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of EcsCluster objects containing the cluster descriptions.
-	EcsClusters []EcsCluster `type:"list"`
+	EcsClusters []EcsCluster `json:"opsworks:DescribeEcsClustersOutput:EcsClusters" type:"list"`
 
 	// If a paginated request does not return all of the remaining results, this
 	// parameter is set to a token that you can assign to the request object's NextToken
 	// parameter to retrieve the next set of results. If the previous paginated
 	// request returned all of the remaining results, this parameter is set to null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"opsworks:DescribeEcsClustersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

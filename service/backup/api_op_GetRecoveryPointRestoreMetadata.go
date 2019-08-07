@@ -76,14 +76,14 @@ type GetRecoveryPointRestoreMetadataOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An ARN that uniquely identifies a backup vault; for example, arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.
-	BackupVaultArn *string `type:"string"`
+	BackupVaultArn *string `json:"backup:GetRecoveryPointRestoreMetadataOutput:BackupVaultArn" type:"string"`
 
 	// An ARN that uniquely identifies a recovery point; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-	RecoveryPointArn *string `type:"string"`
+	RecoveryPointArn *string `json:"backup:GetRecoveryPointRestoreMetadataOutput:RecoveryPointArn" type:"string"`
 
 	// A set of metadata key-value pairs that lists the metadata key-value pairs
 	// that are required to restore the recovery point.
-	RestoreMetadata map[string]string `type:"map"`
+	RestoreMetadata map[string]string `json:"backup:GetRecoveryPointRestoreMetadataOutput:RestoreMetadata" type:"map"`
 }
 
 // String returns the string representation

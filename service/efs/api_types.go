@@ -21,51 +21,51 @@ type FileSystemDescription struct {
 	// The time that the file system was created, in seconds (since 1970-01-01T00:00:00Z).
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"elasticfilesystem:FileSystemDescription:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The opaque string specified in the request.
 	//
 	// CreationToken is a required field
-	CreationToken *string `min:"1" type:"string" required:"true"`
+	CreationToken *string `json:"elasticfilesystem:FileSystemDescription:CreationToken" min:"1" type:"string" required:"true"`
 
 	// A Boolean value that, if true, indicates that the file system is encrypted.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"elasticfilesystem:FileSystemDescription:Encrypted" type:"boolean"`
 
 	// The ID of the file system, assigned by Amazon EFS.
 	//
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `json:"elasticfilesystem:FileSystemDescription:FileSystemId" type:"string" required:"true"`
 
 	// The ID of an AWS Key Management Service (AWS KMS) customer master key (CMK)
 	// that was used to protect the encrypted file system.
-	KmsKeyId *string `min:"1" type:"string"`
+	KmsKeyId *string `json:"elasticfilesystem:FileSystemDescription:KmsKeyId" min:"1" type:"string"`
 
 	// The lifecycle phase of the file system.
 	//
 	// LifeCycleState is a required field
-	LifeCycleState LifeCycleState `type:"string" required:"true" enum:"true"`
+	LifeCycleState LifeCycleState `json:"elasticfilesystem:FileSystemDescription:LifeCycleState" type:"string" required:"true" enum:"true"`
 
 	// You can add tags to a file system, including a Name tag. For more information,
 	// see CreateFileSystem. If the file system has a Name tag, Amazon EFS returns
 	// the value in this field.
-	Name *string `type:"string"`
+	Name *string `json:"elasticfilesystem:FileSystemDescription:Name" type:"string"`
 
 	// The current number of mount targets that the file system has. For more information,
 	// see CreateMountTarget.
 	//
 	// NumberOfMountTargets is a required field
-	NumberOfMountTargets *int64 `type:"integer" required:"true"`
+	NumberOfMountTargets *int64 `json:"elasticfilesystem:FileSystemDescription:NumberOfMountTargets" type:"integer" required:"true"`
 
 	// The AWS account that created the file system. If the file system was created
 	// by an IAM user, the parent account to which the user belongs is the owner.
 	//
 	// OwnerId is a required field
-	OwnerId *string `type:"string" required:"true"`
+	OwnerId *string `json:"elasticfilesystem:FileSystemDescription:OwnerId" type:"string" required:"true"`
 
 	// The performance mode of the file system.
 	//
 	// PerformanceMode is a required field
-	PerformanceMode PerformanceMode `type:"string" required:"true" enum:"true"`
+	PerformanceMode PerformanceMode `json:"elasticfilesystem:FileSystemDescription:PerformanceMode" type:"string" required:"true" enum:"true"`
 
 	// The throughput, measured in MiB/s, that you want to provision for a file
 	// system. Valid values are 1-1024. Required if ThroughputMode is set to provisioned.
@@ -73,7 +73,7 @@ type FileSystemDescription struct {
 	// by contacting AWS Support. For more information, see Amazon EFS Limits That
 	// You Can Increase (https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits)
 	// in the Amazon EFS User Guide.
-	ProvisionedThroughputInMibps *float64 `min:"1" type:"double"`
+	ProvisionedThroughputInMibps *float64 `json:"elasticfilesystem:FileSystemDescription:ProvisionedThroughputInMibps" min:"1" type:"double"`
 
 	// The latest known metered size (in bytes) of data stored in the file system,
 	// in its Value field, and the time at which that size was determined in its
@@ -86,12 +86,12 @@ type FileSystemDescription struct {
 	// system was at any point in time.
 	//
 	// SizeInBytes is a required field
-	SizeInBytes *FileSystemSize `type:"structure" required:"true"`
+	SizeInBytes *FileSystemSize `json:"elasticfilesystem:FileSystemDescription:SizeInBytes" type:"structure" required:"true"`
 
 	// The tags associated with the file system, presented as an array of Tag objects.
 	//
 	// Tags is a required field
-	Tags []Tag `type:"list" required:"true"`
+	Tags []Tag `json:"elasticfilesystem:FileSystemDescription:Tags" type:"list" required:"true"`
 
 	// The throughput mode for a file system. There are two throughput modes to
 	// choose from for your file system: bursting and provisioned. If you set ThroughputMode
@@ -99,7 +99,7 @@ type FileSystemDescription struct {
 	// You can decrease your file system's throughput in Provisioned Throughput
 	// mode or change between the throughput modes as long as it’s been more than
 	// 24 hours since the last decrease or throughput mode change.
-	ThroughputMode ThroughputMode `type:"string" enum:"true"`
+	ThroughputMode ThroughputMode `json:"elasticfilesystem:FileSystemDescription:ThroughputMode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -216,20 +216,20 @@ type FileSystemSize struct {
 
 	// The time at which the size of data, returned in the Value field, was determined.
 	// The value is the integer number of seconds since 1970-01-01T00:00:00Z.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"elasticfilesystem:FileSystemSize:Timestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The latest known metered size (in bytes) of data stored in the file system.
 	//
 	// Value is a required field
-	Value *int64 `type:"long" required:"true"`
+	Value *int64 `json:"elasticfilesystem:FileSystemSize:Value" type:"long" required:"true"`
 
 	// The latest known metered size (in bytes) of data stored in the Infrequent
 	// Access storage class.
-	ValueInIA *int64 `type:"long"`
+	ValueInIA *int64 `json:"elasticfilesystem:FileSystemSize:ValueInIA" type:"long"`
 
 	// The latest known metered size (in bytes) of data stored in the Standard storage
 	// class.
-	ValueInStandard *int64 `type:"long"`
+	ValueInStandard *int64 `json:"elasticfilesystem:FileSystemSize:ValueInStandard" type:"long"`
 }
 
 // String returns the string representation
@@ -275,7 +275,7 @@ type LifecyclePolicy struct {
 	// A value that describes the period of time that a file is not accessed, after
 	// which it transitions to the IA storage class. Metadata operations such as
 	// listing the contents of a directory don't count as file access events.
-	TransitionToIA TransitionToIARules `type:"string" enum:"true"`
+	TransitionToIA TransitionToIARules `json:"elasticfilesystem:LifecyclePolicy:TransitionToIA" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -302,32 +302,32 @@ type MountTargetDescription struct {
 	// The ID of the file system for which the mount target is intended.
 	//
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `json:"elasticfilesystem:MountTargetDescription:FileSystemId" type:"string" required:"true"`
 
 	// Address at which the file system can be mounted by using the mount target.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"elasticfilesystem:MountTargetDescription:IpAddress" type:"string"`
 
 	// Lifecycle state of the mount target.
 	//
 	// LifeCycleState is a required field
-	LifeCycleState LifeCycleState `type:"string" required:"true" enum:"true"`
+	LifeCycleState LifeCycleState `json:"elasticfilesystem:MountTargetDescription:LifeCycleState" type:"string" required:"true" enum:"true"`
 
 	// System-assigned mount target ID.
 	//
 	// MountTargetId is a required field
-	MountTargetId *string `type:"string" required:"true"`
+	MountTargetId *string `json:"elasticfilesystem:MountTargetDescription:MountTargetId" type:"string" required:"true"`
 
 	// The ID of the network interface that Amazon EFS created when it created the
 	// mount target.
-	NetworkInterfaceId *string `type:"string"`
+	NetworkInterfaceId *string `json:"elasticfilesystem:MountTargetDescription:NetworkInterfaceId" type:"string"`
 
 	// AWS account ID that owns the resource.
-	OwnerId *string `type:"string"`
+	OwnerId *string `json:"elasticfilesystem:MountTargetDescription:OwnerId" type:"string"`
 
 	// The ID of the mount target's subnet.
 	//
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `json:"elasticfilesystem:MountTargetDescription:SubnetId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -392,12 +392,12 @@ type Tag struct {
 	// The tag key (String). The key can't start with aws:.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"elasticfilesystem:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag key.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"elasticfilesystem:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation

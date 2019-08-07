@@ -51,7 +51,7 @@ type DeleteSamplingRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The deleted rule definition and metadata.
-	SamplingRuleRecord *SamplingRuleRecord `type:"structure"`
+	SamplingRuleRecord *SamplingRuleRecord `json:"xray:DeleteSamplingRuleOutput:SamplingRuleRecord" type:"structure"`
 }
 
 // String returns the string representation

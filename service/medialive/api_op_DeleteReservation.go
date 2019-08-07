@@ -54,45 +54,45 @@ func (s DeleteReservationInput) MarshalFields(e protocol.FieldEncoder) error {
 type DeleteReservationOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:DeleteReservationOutput:Arn" locationName:"arn" type:"string"`
 
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"medialive:DeleteReservationOutput:Count" locationName:"count" type:"integer"`
 
-	CurrencyCode *string `locationName:"currencyCode" type:"string"`
+	CurrencyCode *string `json:"medialive:DeleteReservationOutput:CurrencyCode" locationName:"currencyCode" type:"string"`
 
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"medialive:DeleteReservationOutput:Duration" locationName:"duration" type:"integer"`
 
 	// Units for duration, e.g. 'MONTHS'
-	DurationUnits OfferingDurationUnits `locationName:"durationUnits" type:"string" enum:"true"`
+	DurationUnits OfferingDurationUnits `json:"medialive:DeleteReservationOutput:DurationUnits" locationName:"durationUnits" type:"string" enum:"true"`
 
-	End *string `locationName:"end" type:"string"`
+	End *string `json:"medialive:DeleteReservationOutput:End" locationName:"end" type:"string"`
 
-	FixedPrice *float64 `locationName:"fixedPrice" type:"double"`
+	FixedPrice *float64 `json:"medialive:DeleteReservationOutput:FixedPrice" locationName:"fixedPrice" type:"double"`
 
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"medialive:DeleteReservationOutput:Name" locationName:"name" type:"string"`
 
-	OfferingDescription *string `locationName:"offeringDescription" type:"string"`
+	OfferingDescription *string `json:"medialive:DeleteReservationOutput:OfferingDescription" locationName:"offeringDescription" type:"string"`
 
-	OfferingId *string `locationName:"offeringId" type:"string"`
+	OfferingId *string `json:"medialive:DeleteReservationOutput:OfferingId" locationName:"offeringId" type:"string"`
 
 	// Offering type, e.g. 'NO_UPFRONT'
-	OfferingType OfferingType `locationName:"offeringType" type:"string" enum:"true"`
+	OfferingType OfferingType `json:"medialive:DeleteReservationOutput:OfferingType" locationName:"offeringType" type:"string" enum:"true"`
 
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"medialive:DeleteReservationOutput:Region" locationName:"region" type:"string"`
 
-	ReservationId *string `locationName:"reservationId" type:"string"`
+	ReservationId *string `json:"medialive:DeleteReservationOutput:ReservationId" locationName:"reservationId" type:"string"`
 
 	// Resource configuration (codec, resolution, bitrate, ...)
-	ResourceSpecification *ReservationResourceSpecification `locationName:"resourceSpecification" type:"structure"`
+	ResourceSpecification *ReservationResourceSpecification `json:"medialive:DeleteReservationOutput:ResourceSpecification" locationName:"resourceSpecification" type:"structure"`
 
-	Start *string `locationName:"start" type:"string"`
+	Start *string `json:"medialive:DeleteReservationOutput:Start" locationName:"start" type:"string"`
 
 	// Current reservation state
-	State ReservationState `locationName:"state" type:"string" enum:"true"`
+	State ReservationState `json:"medialive:DeleteReservationOutput:State" locationName:"state" type:"string" enum:"true"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:DeleteReservationOutput:Tags" locationName:"tags" type:"map"`
 
-	UsagePrice *float64 `locationName:"usagePrice" type:"double"`
+	UsagePrice *float64 `json:"medialive:DeleteReservationOutput:UsagePrice" locationName:"usagePrice" type:"double"`
 }
 
 // String returns the string representation

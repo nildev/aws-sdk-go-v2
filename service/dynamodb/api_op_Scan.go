@@ -304,7 +304,7 @@ type ScanOutput struct {
 	// returned if the ReturnConsumedCapacity parameter was specified. For more
 	// information, see Provisioned Throughput (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ConsumedCapacity *ConsumedCapacity `type:"structure"`
+	ConsumedCapacity *ConsumedCapacity `json:"dynamodb:ScanOutput:ConsumedCapacity" type:"structure"`
 
 	// The number of items in the response.
 	//
@@ -313,11 +313,11 @@ type ScanOutput struct {
 	// items before the filter was applied.
 	//
 	// If you did not use a filter in the request, then Count is the same as ScannedCount.
-	Count *int64 `type:"integer"`
+	Count *int64 `json:"dynamodb:ScanOutput:Count" type:"integer"`
 
 	// An array of item attributes that match the scan criteria. Each element in
 	// this array consists of an attribute name and the value for that attribute.
-	Items []map[string]AttributeValue `type:"list"`
+	Items []map[string]AttributeValue `json:"dynamodb:ScanOutput:Items" type:"list"`
 
 	// The primary key of the item where the operation stopped, inclusive of the
 	// previous result set. Use this value to start a new operation, excluding this
@@ -329,7 +329,7 @@ type ScanOutput struct {
 	// If LastEvaluatedKey is not empty, it does not necessarily mean that there
 	// is more data in the result set. The only way to know when you have reached
 	// the end of the result set is when LastEvaluatedKey is empty.
-	LastEvaluatedKey map[string]AttributeValue `type:"map"`
+	LastEvaluatedKey map[string]AttributeValue `json:"dynamodb:ScanOutput:LastEvaluatedKey" type:"map"`
 
 	// The number of items evaluated, before any ScanFilter is applied. A high ScannedCount
 	// value with few, or no, Count results indicates an inefficient Scan operation.
@@ -338,7 +338,7 @@ type ScanOutput struct {
 	//
 	// If you did not use a filter in the request, then ScannedCount is the same
 	// as Count.
-	ScannedCount *int64 `type:"integer"`
+	ScannedCount *int64 `json:"dynamodb:ScanOutput:ScannedCount" type:"integer"`
 }
 
 // String returns the string representation

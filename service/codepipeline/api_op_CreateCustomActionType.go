@@ -135,10 +135,10 @@ type CreateCustomActionTypeOutput struct {
 	// Returns information about the details of an action type.
 	//
 	// ActionType is a required field
-	ActionType *ActionType `locationName:"actionType" type:"structure" required:"true"`
+	ActionType *ActionType `json:"codepipeline:CreateCustomActionTypeOutput:ActionType" locationName:"actionType" type:"structure" required:"true"`
 
 	// Specifies the tags applied to the custom action.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"codepipeline:CreateCustomActionTypeOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

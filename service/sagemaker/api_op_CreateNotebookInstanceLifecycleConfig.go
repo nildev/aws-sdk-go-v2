@@ -67,7 +67,7 @@ type CreateNotebookInstanceLifecycleConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the lifecycle configuration.
-	NotebookInstanceLifecycleConfigArn *string `type:"string"`
+	NotebookInstanceLifecycleConfigArn *string `json:"api.sagemaker:CreateNotebookInstanceLifecycleConfigOutput:NotebookInstanceLifecycleConfigArn" type:"string"`
 }
 
 // String returns the string representation

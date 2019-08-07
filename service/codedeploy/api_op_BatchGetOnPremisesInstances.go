@@ -46,7 +46,7 @@ type BatchGetOnPremisesInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the on-premises instances.
-	InstanceInfos []InstanceInfo `locationName:"instanceInfos" type:"list"`
+	InstanceInfos []InstanceInfo `json:"codedeploy:BatchGetOnPremisesInstancesOutput:InstanceInfos" locationName:"instanceInfos" type:"list"`
 }
 
 // String returns the string representation

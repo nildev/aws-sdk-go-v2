@@ -70,19 +70,19 @@ func (s CreateFunctionDefinitionInput) MarshalFields(e protocol.FieldEncoder) er
 type CreateFunctionDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:CreateFunctionDefinitionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:CreateFunctionDefinitionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:CreateFunctionDefinitionOutput:Id" type:"string"`
 
-	LastUpdatedTimestamp *string `type:"string"`
+	LastUpdatedTimestamp *string `json:"greengrass:CreateFunctionDefinitionOutput:LastUpdatedTimestamp" type:"string"`
 
-	LatestVersion *string `type:"string"`
+	LatestVersion *string `json:"greengrass:CreateFunctionDefinitionOutput:LatestVersion" type:"string"`
 
-	LatestVersionArn *string `type:"string"`
+	LatestVersionArn *string `json:"greengrass:CreateFunctionDefinitionOutput:LatestVersionArn" type:"string"`
 
-	Name *string `type:"string"`
+	Name *string `json:"greengrass:CreateFunctionDefinitionOutput:Name" type:"string"`
 }
 
 // String returns the string representation

@@ -80,23 +80,23 @@ type CreateInterconnectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDevice *string `locationName:"awsDevice" deprecated:"true" type:"string"`
+	AwsDevice *string `json:"directconnect:CreateInterconnectOutput:AwsDevice" locationName:"awsDevice" deprecated:"true" type:"string"`
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:CreateInterconnectOutput:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The bandwidth of the connection.
-	Bandwidth *string `locationName:"bandwidth" type:"string"`
+	Bandwidth *string `json:"directconnect:CreateInterconnectOutput:Bandwidth" locationName:"bandwidth" type:"string"`
 
 	// Indicates whether the interconnect supports a secondary BGP in the same address
 	// family (IPv4/IPv6).
-	HasLogicalRedundancy HasLogicalRedundancy `locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
+	HasLogicalRedundancy HasLogicalRedundancy `json:"directconnect:CreateInterconnectOutput:HasLogicalRedundancy" locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
 
 	// The ID of the interconnect.
-	InterconnectId *string `locationName:"interconnectId" type:"string"`
+	InterconnectId *string `json:"directconnect:CreateInterconnectOutput:InterconnectId" locationName:"interconnectId" type:"string"`
 
 	// The name of the interconnect.
-	InterconnectName *string `locationName:"interconnectName" type:"string"`
+	InterconnectName *string `json:"directconnect:CreateInterconnectOutput:InterconnectName" locationName:"interconnectName" type:"string"`
 
 	// The state of the interconnect. The following are the possible values:
 	//
@@ -116,25 +116,25 @@ type CreateInterconnectOutput struct {
 	//    * deleted: The interconnect is deleted.
 	//
 	//    * unknown: The state of the interconnect is not available.
-	InterconnectState InterconnectState `locationName:"interconnectState" type:"string" enum:"true"`
+	InterconnectState InterconnectState `json:"directconnect:CreateInterconnectOutput:InterconnectState" locationName:"interconnectState" type:"string" enum:"true"`
 
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `locationName:"jumboFrameCapable" type:"boolean"`
+	JumboFrameCapable *bool `json:"directconnect:CreateInterconnectOutput:JumboFrameCapable" locationName:"jumboFrameCapable" type:"boolean"`
 
 	// The ID of the LAG.
-	LagId *string `locationName:"lagId" type:"string"`
+	LagId *string `json:"directconnect:CreateInterconnectOutput:LagId" locationName:"lagId" type:"string"`
 
 	// The time of the most recent call to DescribeLoa for this connection.
-	LoaIssueTime *time.Time `locationName:"loaIssueTime" type:"timestamp" timestampFormat:"unix"`
+	LoaIssueTime *time.Time `json:"directconnect:CreateInterconnectOutput:LoaIssueTime" locationName:"loaIssueTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The location of the connection.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"directconnect:CreateInterconnectOutput:Location" locationName:"location" type:"string"`
 
 	// The AWS Region where the connection is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:CreateInterconnectOutput:Region" locationName:"region" type:"string"`
 
 	// Any tags assigned to the interconnect.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:CreateInterconnectOutput:Tags" locationName:"tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

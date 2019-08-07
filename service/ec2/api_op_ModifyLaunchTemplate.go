@@ -60,7 +60,7 @@ type ModifyLaunchTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the launch template.
-	LaunchTemplate *LaunchTemplate `locationName:"launchTemplate" type:"structure"`
+	LaunchTemplate *LaunchTemplate `json:"ec2:ModifyLaunchTemplateOutput:LaunchTemplate" locationName:"launchTemplate" type:"structure"`
 }
 
 // String returns the string representation

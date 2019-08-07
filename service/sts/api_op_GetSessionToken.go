@@ -80,7 +80,7 @@ type GetSessionTokenOutput struct {
 	//
 	// The size of the security token that STS API operations return is not fixed.
 	// We strongly recommend that you make no assumptions about the maximum size.
-	Credentials *Credentials `type:"structure"`
+	Credentials *Credentials `json:"sts:GetSessionTokenOutput:Credentials" type:"structure"`
 }
 
 // String returns the string representation

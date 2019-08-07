@@ -83,23 +83,23 @@ type GetRouteResponseOutput struct {
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	ModelSelectionExpression *string `locationName:"modelSelectionExpression" type:"string"`
+	ModelSelectionExpression *string `json:"apigateway:GetRouteResponseOutput:ModelSelectionExpression" locationName:"modelSelectionExpression" type:"string"`
 
 	// The route models.
-	ResponseModels map[string]string `locationName:"responseModels" type:"map"`
+	ResponseModels map[string]string `json:"apigateway:GetRouteResponseOutput:ResponseModels" locationName:"responseModels" type:"map"`
 
 	// The route parameters.
-	ResponseParameters map[string]ParameterConstraints `locationName:"responseParameters" type:"map"`
+	ResponseParameters map[string]ParameterConstraints `json:"apigateway:GetRouteResponseOutput:ResponseParameters" locationName:"responseParameters" type:"map"`
 
 	// The identifier.
-	RouteResponseId *string `locationName:"routeResponseId" type:"string"`
+	RouteResponseId *string `json:"apigateway:GetRouteResponseOutput:RouteResponseId" locationName:"routeResponseId" type:"string"`
 
 	// After evaulating a selection expression, the result is compared against one
 	// or more selection keys to find a matching key. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for a list of expressions and each expression's associated selection key
 	// type.
-	RouteResponseKey *string `locationName:"routeResponseKey" type:"string"`
+	RouteResponseKey *string `json:"apigateway:GetRouteResponseOutput:RouteResponseKey" locationName:"routeResponseKey" type:"string"`
 }
 
 // String returns the string representation

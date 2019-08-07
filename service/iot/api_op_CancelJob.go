@@ -91,13 +91,13 @@ type CancelJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A short text description of the job.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:CancelJobOutput:Description" locationName:"description" type:"string"`
 
 	// The job ARN.
-	JobArn *string `locationName:"jobArn" type:"string"`
+	JobArn *string `json:"iot:CancelJobOutput:JobArn" locationName:"jobArn" type:"string"`
 
 	// The unique identifier you assigned to this job when it was created.
-	JobId *string `locationName:"jobId" min:"1" type:"string"`
+	JobId *string `json:"iot:CancelJobOutput:JobId" locationName:"jobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

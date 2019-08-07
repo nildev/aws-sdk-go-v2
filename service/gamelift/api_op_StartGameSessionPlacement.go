@@ -125,7 +125,7 @@ type StartGameSessionPlacementOutput struct {
 	// Object that describes the newly created game session placement. This object
 	// includes all the information provided in the request, as well as start/end
 	// time stamps and placement status.
-	GameSessionPlacement *GameSessionPlacement `type:"structure"`
+	GameSessionPlacement *GameSessionPlacement `json:"gamelift:StartGameSessionPlacementOutput:GameSessionPlacement" type:"structure"`
 }
 
 // String returns the string representation

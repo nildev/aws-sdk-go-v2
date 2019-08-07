@@ -58,7 +58,7 @@ type DescribeLifecycleConfigurationOutput struct {
 
 	// An array of lifecycle management policies. Currently, EFS supports a maximum
 	// of one policy per file system.
-	LifecyclePolicies []LifecyclePolicy `type:"list"`
+	LifecyclePolicies []LifecyclePolicy `json:"elasticfilesystem:DescribeLifecycleConfigurationOutput:LifecyclePolicies" type:"list"`
 }
 
 // String returns the string representation

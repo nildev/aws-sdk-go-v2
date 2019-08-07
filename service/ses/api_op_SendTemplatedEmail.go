@@ -154,7 +154,7 @@ type SendTemplatedEmailOutput struct {
 	// The unique message identifier returned from the SendTemplatedEmail action.
 	//
 	// MessageId is a required field
-	MessageId *string `type:"string" required:"true"`
+	MessageId *string `json:"email:SendTemplatedEmailOutput:MessageId" type:"string" required:"true"`
 }
 
 // String returns the string representation

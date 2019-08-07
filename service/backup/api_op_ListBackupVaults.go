@@ -69,13 +69,13 @@ type ListBackupVaultsOutput struct {
 	// Amazon Resource Name (ARN), display name, creation date, number of saved
 	// recovery points, and encryption information if the resources saved in the
 	// backup vault are encrypted.
-	BackupVaultList []BackupVaultListMember `type:"list"`
+	BackupVaultList []BackupVaultListMember `json:"backup:ListBackupVaultsOutput:BackupVaultList" type:"list"`
 
 	// The next item following a partial list of returned items. For example, if
 	// a request is made to return maxResults number of items, NextToken allows
 	// you to return more items in your list starting at the location pointed to
 	// by the next token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"backup:ListBackupVaultsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

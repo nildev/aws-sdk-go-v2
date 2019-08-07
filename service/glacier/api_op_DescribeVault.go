@@ -76,28 +76,28 @@ type DescribeVaultOutput struct {
 
 	// The Universal Coordinated Time (UTC) date when the vault was created. This
 	// value should be a string in the ISO 8601 date format, for example 2012-03-20T17:03:43.221Z.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"glacier:DescribeVaultOutput:CreationDate" type:"string"`
 
 	// The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
 	// the last vault inventory. This value should be a string in the ISO 8601 date
 	// format, for example 2012-03-20T17:03:43.221Z.
-	LastInventoryDate *string `type:"string"`
+	LastInventoryDate *string `json:"glacier:DescribeVaultOutput:LastInventoryDate" type:"string"`
 
 	// The number of archives in the vault as of the last inventory date. This field
 	// will return null if an inventory has not yet run on the vault, for example
 	// if you just created the vault.
-	NumberOfArchives *int64 `type:"long"`
+	NumberOfArchives *int64 `json:"glacier:DescribeVaultOutput:NumberOfArchives" type:"long"`
 
 	// Total size, in bytes, of the archives in the vault as of the last inventory
 	// date. This field will return null if an inventory has not yet run on the
 	// vault, for example if you just created the vault.
-	SizeInBytes *int64 `type:"long"`
+	SizeInBytes *int64 `json:"glacier:DescribeVaultOutput:SizeInBytes" type:"long"`
 
 	// The Amazon Resource Name (ARN) of the vault.
-	VaultARN *string `type:"string"`
+	VaultARN *string `json:"glacier:DescribeVaultOutput:VaultARN" type:"string"`
 
 	// The name of the vault.
-	VaultName *string `type:"string"`
+	VaultName *string `json:"glacier:DescribeVaultOutput:VaultName" type:"string"`
 }
 
 // String returns the string representation

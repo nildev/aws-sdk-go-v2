@@ -50,23 +50,23 @@ type DescribeCompilationJobOutput struct {
 	// For a successful or stopped job, this is when the job's model artifacts have
 	// finished uploading. For a failed job, this is when Amazon SageMaker detected
 	// that the job failed.
-	CompilationEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompilationEndTime *time.Time `json:"api.sagemaker:DescribeCompilationJobOutput:CompilationEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes
 	// to perform the model compilation job.
 	//
 	// CompilationJobArn is a required field
-	CompilationJobArn *string `type:"string" required:"true"`
+	CompilationJobArn *string `json:"api.sagemaker:DescribeCompilationJobOutput:CompilationJobArn" type:"string" required:"true"`
 
 	// The name of the model compilation job.
 	//
 	// CompilationJobName is a required field
-	CompilationJobName *string `min:"1" type:"string" required:"true"`
+	CompilationJobName *string `json:"api.sagemaker:DescribeCompilationJobOutput:CompilationJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the model compilation job.
 	//
 	// CompilationJobStatus is a required field
-	CompilationJobStatus CompilationJobStatus `type:"string" required:"true" enum:"true"`
+	CompilationJobStatus CompilationJobStatus `json:"api.sagemaker:DescribeCompilationJobOutput:CompilationJobStatus" type:"string" required:"true" enum:"true"`
 
 	// The time when the model compilation job started the CompilationJob instances.
 	//
@@ -75,53 +75,53 @@ type DescribeCompilationJobOutput struct {
 	// Logs, the start time might be later than this time. That's because it takes
 	// time to download the compilation job, which depends on the size of the compilation
 	// job container.
-	CompilationStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompilationStartTime *time.Time `json:"api.sagemaker:DescribeCompilationJobOutput:CompilationStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that the model compilation job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeCompilationJobOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// If a model compilation job failed, the reason it failed.
 	//
 	// FailureReason is a required field
-	FailureReason *string `type:"string" required:"true"`
+	FailureReason *string `json:"api.sagemaker:DescribeCompilationJobOutput:FailureReason" type:"string" required:"true"`
 
 	// Information about the location in Amazon S3 of the input model artifacts,
 	// the name and shape of the expected data inputs, and the framework in which
 	// the model was trained.
 	//
 	// InputConfig is a required field
-	InputConfig *InputConfig `type:"structure" required:"true"`
+	InputConfig *InputConfig `json:"api.sagemaker:DescribeCompilationJobOutput:InputConfig" type:"structure" required:"true"`
 
 	// The time that the status of the model compilation job was last modified.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:DescribeCompilationJobOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Information about the location in Amazon S3 that has been configured for
 	// storing the model artifacts used in the compilation job.
 	//
 	// ModelArtifacts is a required field
-	ModelArtifacts *ModelArtifacts `type:"structure" required:"true"`
+	ModelArtifacts *ModelArtifacts `json:"api.sagemaker:DescribeCompilationJobOutput:ModelArtifacts" type:"structure" required:"true"`
 
 	// Information about the output location for the compiled model and the target
 	// device that the model runs on.
 	//
 	// OutputConfig is a required field
-	OutputConfig *OutputConfig `type:"structure" required:"true"`
+	OutputConfig *OutputConfig `json:"api.sagemaker:DescribeCompilationJobOutput:OutputConfig" type:"structure" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the model compilation job.
 	//
 	// RoleArn is a required field
-	RoleArn *string `min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"api.sagemaker:DescribeCompilationJobOutput:RoleArn" min:"20" type:"string" required:"true"`
 
 	// Specifies a limit to how long a model compilation job can run. When the job
 	// reaches the time limit, Amazon SageMaker ends the compilation job. Use this
 	// API to cap model training costs.
 	//
 	// StoppingCondition is a required field
-	StoppingCondition *StoppingCondition `type:"structure" required:"true"`
+	StoppingCondition *StoppingCondition `json:"api.sagemaker:DescribeCompilationJobOutput:StoppingCondition" type:"structure" required:"true"`
 }
 
 // String returns the string representation

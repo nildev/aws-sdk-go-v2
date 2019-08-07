@@ -74,7 +74,7 @@ type DeleteDBClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB cluster.
-	DBCluster *DBCluster `type:"structure"`
+	DBCluster *DBCluster `json:"rds:DeleteDBClusterOutput:DBCluster" type:"structure"`
 }
 
 // String returns the string representation

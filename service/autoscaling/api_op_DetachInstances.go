@@ -59,7 +59,7 @@ type DetachInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The activities related to detaching the instances from the Auto Scaling group.
-	Activities []Activity `type:"list"`
+	Activities []Activity `json:"autoscaling:DetachInstancesOutput:Activities" type:"list"`
 }
 
 // String returns the string representation

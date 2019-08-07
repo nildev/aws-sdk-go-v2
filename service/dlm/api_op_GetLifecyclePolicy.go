@@ -57,7 +57,7 @@ type GetLifecyclePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about the lifecycle policy.
-	Policy *LifecyclePolicy `type:"structure"`
+	Policy *LifecyclePolicy `json:"dlm:GetLifecyclePolicyOutput:Policy" type:"structure"`
 }
 
 // String returns the string representation

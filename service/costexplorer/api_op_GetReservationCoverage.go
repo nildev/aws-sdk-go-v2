@@ -133,15 +133,15 @@ type GetReservationCoverageOutput struct {
 	// The amount of time that your reservations covered.
 	//
 	// CoveragesByTime is a required field
-	CoveragesByTime []CoverageByTime `type:"list" required:"true"`
+	CoveragesByTime []CoverageByTime `json:"ce:GetReservationCoverageOutput:CoveragesByTime" type:"list" required:"true"`
 
 	// The token for the next set of retrievable results. AWS provides the token
 	// when the response from a previous call has more results than the maximum
 	// page size.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"ce:GetReservationCoverageOutput:NextPageToken" type:"string"`
 
 	// The total amount of instance usage that a reservation covered.
-	Total *Coverage `type:"structure"`
+	Total *Coverage `json:"ce:GetReservationCoverageOutput:Total" type:"structure"`
 }
 
 // String returns the string representation

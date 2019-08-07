@@ -77,11 +77,11 @@ type ListEndpointsOutput struct {
 	// An array or endpoint objects.
 	//
 	// Endpoints is a required field
-	Endpoints []EndpointSummary `type:"list" required:"true"`
+	Endpoints []EndpointSummary `json:"api.sagemaker:ListEndpointsOutput:Endpoints" type:"list" required:"true"`
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of training jobs, use it in the subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListEndpointsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

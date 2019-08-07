@@ -88,7 +88,7 @@ type MergeDeveloperIdentitiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier in the format REGION:GUID.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-identity:MergeDeveloperIdentitiesOutput:IdentityId" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -83,12 +83,12 @@ type ListActivityTypesOutput struct {
 	//
 	// The configured maximumPageSize determines how many results can be returned
 	// in a single call.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"swf:ListActivityTypesOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// List of activity type information.
 	//
 	// TypeInfos is a required field
-	TypeInfos []ActivityTypeInfo `locationName:"typeInfos" type:"list" required:"true"`
+	TypeInfos []ActivityTypeInfo `json:"swf:ListActivityTypesOutput:TypeInfos" locationName:"typeInfos" type:"list" required:"true"`
 }
 
 // String returns the string representation

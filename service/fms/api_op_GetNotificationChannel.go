@@ -24,10 +24,10 @@ type GetNotificationChannelOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IAM role that is used by AWS Firewall Manager to record activity to SNS.
-	SnsRoleName *string `min:"1" type:"string"`
+	SnsRoleName *string `json:"fms:GetNotificationChannelOutput:SnsRoleName" min:"1" type:"string"`
 
 	// The SNS topic that records AWS Firewall Manager activity.
-	SnsTopicArn *string `min:"1" type:"string"`
+	SnsTopicArn *string `json:"fms:GetNotificationChannelOutput:SnsTopicArn" min:"1" type:"string"`
 }
 
 // String returns the string representation

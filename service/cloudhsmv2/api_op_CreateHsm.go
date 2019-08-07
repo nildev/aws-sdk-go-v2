@@ -59,7 +59,7 @@ type CreateHsmOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the HSM that was created.
-	Hsm *Hsm `type:"structure"`
+	Hsm *Hsm `json:"cloudhsmv2:CreateHsmOutput:Hsm" type:"structure"`
 }
 
 // String returns the string representation

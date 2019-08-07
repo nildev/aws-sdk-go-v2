@@ -63,7 +63,7 @@ type StartOnDemandAuditTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the on-demand audit you started.
-	TaskId *string `locationName:"taskId" min:"1" type:"string"`
+	TaskId *string `json:"iot:StartOnDemandAuditTaskOutput:TaskId" locationName:"taskId" min:"1" type:"string"`
 }
 
 // String returns the string representation

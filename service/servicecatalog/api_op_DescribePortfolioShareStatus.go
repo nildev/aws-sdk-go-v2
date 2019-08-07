@@ -48,19 +48,19 @@ type DescribePortfolioShareStatusOutput struct {
 
 	// Organization node identifier. It can be either account id, organizational
 	// unit id or organization id.
-	OrganizationNodeValue *string `type:"string"`
+	OrganizationNodeValue *string `json:"servicecatalog:DescribePortfolioShareStatusOutput:OrganizationNodeValue" type:"string"`
 
 	// The portfolio identifier.
-	PortfolioId *string `min:"1" type:"string"`
+	PortfolioId *string `json:"servicecatalog:DescribePortfolioShareStatusOutput:PortfolioId" min:"1" type:"string"`
 
 	// The token for the portfolio share operation. For example, share-6v24abcdefghi.
-	PortfolioShareToken *string `min:"1" type:"string"`
+	PortfolioShareToken *string `json:"servicecatalog:DescribePortfolioShareStatusOutput:PortfolioShareToken" min:"1" type:"string"`
 
 	// Information about the portfolio share operation.
-	ShareDetails *ShareDetails `type:"structure"`
+	ShareDetails *ShareDetails `json:"servicecatalog:DescribePortfolioShareStatusOutput:ShareDetails" type:"structure"`
 
 	// Status of the portfolio share operation.
-	Status ShareStatus `type:"string" enum:"true"`
+	Status ShareStatus `json:"servicecatalog:DescribePortfolioShareStatusOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

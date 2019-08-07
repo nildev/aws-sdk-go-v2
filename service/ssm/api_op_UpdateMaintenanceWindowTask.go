@@ -162,7 +162,7 @@ type UpdateMaintenanceWindowTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated task description.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:UpdateMaintenanceWindowTaskOutput:Description" min:"1" type:"string"`
 
 	// The updated logging information in Amazon S3.
 	//
@@ -170,32 +170,32 @@ type UpdateMaintenanceWindowTaskOutput struct {
 	// instead use the OutputS3BucketName and OutputS3KeyPrefix options in the TaskInvocationParameters
 	// structure. For information about how Systems Manager handles these options
 	// for the supported maintenance window task types, see MaintenanceWindowTaskInvocationParameters.
-	LoggingInfo *LoggingInfo `type:"structure"`
+	LoggingInfo *LoggingInfo `json:"ssm:UpdateMaintenanceWindowTaskOutput:LoggingInfo" type:"structure"`
 
 	// The updated MaxConcurrency value.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:UpdateMaintenanceWindowTaskOutput:MaxConcurrency" min:"1" type:"string"`
 
 	// The updated MaxErrors value.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:UpdateMaintenanceWindowTaskOutput:MaxErrors" min:"1" type:"string"`
 
 	// The updated task name.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:UpdateMaintenanceWindowTaskOutput:Name" min:"3" type:"string"`
 
 	// The updated priority value.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"ssm:UpdateMaintenanceWindowTaskOutput:Priority" type:"integer"`
 
 	// The ARN of the IAM service role to use to publish Amazon Simple Notification
 	// Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-	ServiceRoleArn *string `type:"string"`
+	ServiceRoleArn *string `json:"ssm:UpdateMaintenanceWindowTaskOutput:ServiceRoleArn" type:"string"`
 
 	// The updated target values.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:UpdateMaintenanceWindowTaskOutput:Targets" type:"list"`
 
 	// The updated task ARN value.
-	TaskArn *string `min:"1" type:"string"`
+	TaskArn *string `json:"ssm:UpdateMaintenanceWindowTaskOutput:TaskArn" min:"1" type:"string"`
 
 	// The updated parameter values.
-	TaskInvocationParameters *MaintenanceWindowTaskInvocationParameters `type:"structure"`
+	TaskInvocationParameters *MaintenanceWindowTaskInvocationParameters `json:"ssm:UpdateMaintenanceWindowTaskOutput:TaskInvocationParameters" type:"structure"`
 
 	// The updated parameter values.
 	//
@@ -203,13 +203,13 @@ type UpdateMaintenanceWindowTaskOutput struct {
 	// when it runs, instead use the Parameters option in the TaskInvocationParameters
 	// structure. For information about how Systems Manager handles these options
 	// for the supported maintenance window task types, see MaintenanceWindowTaskInvocationParameters.
-	TaskParameters map[string]MaintenanceWindowTaskParameterValueExpression `type:"map"`
+	TaskParameters map[string]MaintenanceWindowTaskParameterValueExpression `json:"ssm:UpdateMaintenanceWindowTaskOutput:TaskParameters" type:"map"`
 
 	// The ID of the maintenance window that was updated.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:UpdateMaintenanceWindowTaskOutput:WindowId" min:"20" type:"string"`
 
 	// The task ID of the maintenance window that was updated.
-	WindowTaskId *string `min:"36" type:"string"`
+	WindowTaskId *string `json:"ssm:UpdateMaintenanceWindowTaskOutput:WindowTaskId" min:"36" type:"string"`
 }
 
 // String returns the string representation

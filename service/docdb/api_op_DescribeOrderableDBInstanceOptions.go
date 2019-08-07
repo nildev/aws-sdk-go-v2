@@ -88,10 +88,10 @@ type DescribeOrderableDBInstanceOptionsOutput struct {
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeOrderableDBInstanceOptionsOutput:Marker" type:"string"`
 
 	// The options that are available for a particular orderable DB instance.
-	OrderableDBInstanceOptions []OrderableDBInstanceOption `locationNameList:"OrderableDBInstanceOption" type:"list"`
+	OrderableDBInstanceOptions []OrderableDBInstanceOption `json:"rds:DescribeOrderableDBInstanceOptionsOutput:OrderableDBInstanceOptions" locationNameList:"OrderableDBInstanceOption" type:"list"`
 }
 
 // String returns the string representation

@@ -65,7 +65,7 @@ type StopInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the stopped instances.
-	StoppingInstances []InstanceStateChange `locationName:"instancesSet" locationNameList:"item" type:"list"`
+	StoppingInstances []InstanceStateChange `json:"ec2:StopInstancesOutput:StoppingInstances" locationName:"instancesSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

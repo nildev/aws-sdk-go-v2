@@ -175,7 +175,7 @@ type CreateEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint that was created.
-	Endpoint *Endpoint `type:"structure"`
+	Endpoint *Endpoint `json:"dms:CreateEndpointOutput:Endpoint" type:"structure"`
 }
 
 // String returns the string representation

@@ -64,11 +64,11 @@ type ListAlgorithmsOutput struct {
 	// >An array of AlgorithmSummary objects, each of which lists an algorithm.
 	//
 	// AlgorithmSummaryList is a required field
-	AlgorithmSummaryList []AlgorithmSummary `type:"list" required:"true"`
+	AlgorithmSummaryList []AlgorithmSummary `json:"api.sagemaker:ListAlgorithmsOutput:AlgorithmSummaryList" type:"list" required:"true"`
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of algorithms, use it in the subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListAlgorithmsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

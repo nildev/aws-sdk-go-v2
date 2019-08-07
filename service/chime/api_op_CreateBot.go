@@ -80,7 +80,7 @@ type CreateBotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The bot details.
-	Bot *Bot `type:"structure"`
+	Bot *Bot `json:"chime:CreateBotOutput:Bot" type:"structure"`
 }
 
 // String returns the string representation

@@ -55,7 +55,7 @@ type AcceptReservedNodeExchangeOutput struct {
 
 	// Describes a reserved node. You can call the DescribeReservedNodeOfferings
 	// API to obtain the available reserved node offerings.
-	ExchangedReservedNode *ReservedNode `type:"structure"`
+	ExchangedReservedNode *ReservedNode `json:"redshift:AcceptReservedNodeExchangeOutput:ExchangedReservedNode" type:"structure"`
 }
 
 // String returns the string representation

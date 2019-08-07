@@ -46,27 +46,27 @@ type DescribeEndpointConfigOutput struct {
 	// A timestamp that shows when the endpoint configuration was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeEndpointConfigOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the endpoint configuration.
 	//
 	// EndpointConfigArn is a required field
-	EndpointConfigArn *string `min:"20" type:"string" required:"true"`
+	EndpointConfigArn *string `json:"api.sagemaker:DescribeEndpointConfigOutput:EndpointConfigArn" min:"20" type:"string" required:"true"`
 
 	// Name of the Amazon SageMaker endpoint configuration.
 	//
 	// EndpointConfigName is a required field
-	EndpointConfigName *string `type:"string" required:"true"`
+	EndpointConfigName *string `json:"api.sagemaker:DescribeEndpointConfigOutput:EndpointConfigName" type:"string" required:"true"`
 
 	// AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the
 	// ML storage volume attached to the instance.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"api.sagemaker:DescribeEndpointConfigOutput:KmsKeyId" type:"string"`
 
 	// An array of ProductionVariant objects, one for each model that you want to
 	// host at this endpoint.
 	//
 	// ProductionVariants is a required field
-	ProductionVariants []ProductionVariant `min:"1" type:"list" required:"true"`
+	ProductionVariants []ProductionVariant `json:"api.sagemaker:DescribeEndpointConfigOutput:ProductionVariants" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation

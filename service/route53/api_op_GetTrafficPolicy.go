@@ -82,7 +82,7 @@ type GetTrafficPolicyOutput struct {
 	// A complex type that contains settings for the specified traffic policy.
 	//
 	// TrafficPolicy is a required field
-	TrafficPolicy *TrafficPolicy `type:"structure" required:"true"`
+	TrafficPolicy *TrafficPolicy `json:"route53:GetTrafficPolicyOutput:TrafficPolicy" type:"structure" required:"true"`
 }
 
 // String returns the string representation

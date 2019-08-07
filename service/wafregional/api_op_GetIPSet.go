@@ -54,7 +54,7 @@ type GetIPSetOutput struct {
 	//
 	//    * IPSetDescriptors: Contains an array of IPSetDescriptor objects. Each
 	//    IPSetDescriptor object contains Type and Value
-	IPSet *waf.IPSet `type:"structure"`
+	IPSet *waf.IPSet `json:"waf-regional:GetIPSetOutput:IPSet" type:"structure"`
 }
 
 // String returns the string representation

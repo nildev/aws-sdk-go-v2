@@ -185,7 +185,7 @@ type CreateJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique name that was provided for this job definition.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:CreateJobOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

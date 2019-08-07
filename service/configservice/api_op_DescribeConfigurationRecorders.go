@@ -29,7 +29,7 @@ type DescribeConfigurationRecordersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list that contains the descriptions of the specified configuration recorders.
-	ConfigurationRecorders []ConfigurationRecorder `type:"list"`
+	ConfigurationRecorders []ConfigurationRecorder `json:"config:DescribeConfigurationRecordersOutput:ConfigurationRecorders" type:"list"`
 }
 
 // String returns the string representation

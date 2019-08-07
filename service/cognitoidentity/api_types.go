@@ -19,10 +19,10 @@ type CognitoIdentityProvider struct {
 	_ struct{} `type:"structure"`
 
 	// The client ID for the Amazon Cognito user pool.
-	ClientId *string `min:"1" type:"string"`
+	ClientId *string `json:"cognito-identity:CognitoIdentityProvider:ClientId" min:"1" type:"string"`
 
 	// The provider name for an Amazon Cognito user pool. For example, cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789.
-	ProviderName *string `min:"1" type:"string"`
+	ProviderName *string `json:"cognito-identity:CognitoIdentityProvider:ProviderName" min:"1" type:"string"`
 
 	// TRUE if server-side token validation is enabled for the identity provider’s
 	// token.
@@ -34,7 +34,7 @@ type CognitoIdentityProvider struct {
 	//
 	// If the user is signed out or deleted, the identity pool will return a 400
 	// Not Authorized error.
-	ServerSideTokenCheck *bool `type:"boolean"`
+	ServerSideTokenCheck *bool `json:"cognito-identity:CognitoIdentityProvider:ServerSideTokenCheck" type:"boolean"`
 }
 
 // String returns the string representation
@@ -64,16 +64,16 @@ type Credentials struct {
 	_ struct{} `type:"structure"`
 
 	// The Access Key portion of the credentials.
-	AccessKeyId *string `type:"string"`
+	AccessKeyId *string `json:"cognito-identity:Credentials:AccessKeyId" type:"string"`
 
 	// The date at which these credentials will expire.
-	Expiration *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Expiration *time.Time `json:"cognito-identity:Credentials:Expiration" type:"timestamp" timestampFormat:"unix"`
 
 	// The Secret Access Key portion of the credentials
-	SecretKey *string `type:"string"`
+	SecretKey *string `json:"cognito-identity:Credentials:SecretKey" type:"string"`
 
 	// The Session Token portion of the credentials
-	SessionToken *string `type:"string"`
+	SessionToken *string `json:"cognito-identity:Credentials:SessionToken" type:"string"`
 }
 
 // String returns the string representation
@@ -87,16 +87,16 @@ type IdentityDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Date on which the identity was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-identity:IdentityDescription:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A unique identifier in the format REGION:GUID.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-identity:IdentityDescription:IdentityId" min:"1" type:"string"`
 
 	// Date on which the identity was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-identity:IdentityDescription:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The provider names.
-	Logins []string `type:"list"`
+	Logins []string `json:"cognito-identity:IdentityDescription:Logins" type:"list"`
 }
 
 // String returns the string representation
@@ -110,10 +110,10 @@ type IdentityPoolShortDescription struct {
 	_ struct{} `type:"structure"`
 
 	// An identity pool ID in the format REGION:GUID.
-	IdentityPoolId *string `min:"1" type:"string"`
+	IdentityPoolId *string `json:"cognito-identity:IdentityPoolShortDescription:IdentityPoolId" min:"1" type:"string"`
 
 	// A string that you provide.
-	IdentityPoolName *string `min:"1" type:"string"`
+	IdentityPoolName *string `json:"cognito-identity:IdentityPoolShortDescription:IdentityPoolName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -131,23 +131,23 @@ type MappingRule struct {
 	// or "paid".
 	//
 	// Claim is a required field
-	Claim *string `min:"1" type:"string" required:"true"`
+	Claim *string `json:"cognito-identity:MappingRule:Claim" min:"1" type:"string" required:"true"`
 
 	// The match condition that specifies how closely the claim value in the IdP
 	// token must match Value.
 	//
 	// MatchType is a required field
-	MatchType MappingRuleMatchType `type:"string" required:"true" enum:"true"`
+	MatchType MappingRuleMatchType `json:"cognito-identity:MappingRule:MatchType" type:"string" required:"true" enum:"true"`
 
 	// The role ARN.
 	//
 	// RoleARN is a required field
-	RoleARN *string `min:"20" type:"string" required:"true"`
+	RoleARN *string `json:"cognito-identity:MappingRule:RoleARN" min:"20" type:"string" required:"true"`
 
 	// A brief string that the claim must match, for example, "paid" or "yes".
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"cognito-identity:MappingRule:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -199,19 +199,19 @@ type RoleMapping struct {
 	// Specifies the action to be taken if either no rules match the claim value
 	// for the Rules type, or there is no cognito:preferred_role claim and there
 	// are multiple cognito:roles matches for the Token type.
-	AmbiguousRoleResolution AmbiguousRoleResolutionType `type:"string" enum:"true"`
+	AmbiguousRoleResolution AmbiguousRoleResolutionType `json:"cognito-identity:RoleMapping:AmbiguousRoleResolution" type:"string" enum:"true"`
 
 	// The rules to be used for mapping users to roles.
 	//
 	// If you specify Rules as the role mapping type, RulesConfiguration is required.
-	RulesConfiguration *RulesConfigurationType `type:"structure"`
+	RulesConfiguration *RulesConfigurationType `json:"cognito-identity:RoleMapping:RulesConfiguration" type:"structure"`
 
 	// The role mapping type. Token will use cognito:roles and cognito:preferred_role
 	// claims from the Cognito identity provider token to map groups to roles. Rules
 	// will attempt to match claims from the token to map to a role.
 	//
 	// Type is a required field
-	Type RoleMappingType `type:"string" required:"true" enum:"true"`
+	Type RoleMappingType `json:"cognito-identity:RoleMapping:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -247,7 +247,7 @@ type RulesConfigurationType struct {
 	// Rules are evaluated in order. The first one to match specifies the role.
 	//
 	// Rules is a required field
-	Rules []MappingRule `min:"1" type:"list" required:"true"`
+	Rules []MappingRule `json:"cognito-identity:RulesConfigurationType:Rules" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -286,10 +286,10 @@ type UnprocessedIdentityId struct {
 	_ struct{} `type:"structure"`
 
 	// The error code indicating the type of error that occurred.
-	ErrorCode ErrorCode `type:"string" enum:"true"`
+	ErrorCode ErrorCode `json:"cognito-identity:UnprocessedIdentityId:ErrorCode" type:"string" enum:"true"`
 
 	// A unique identifier in the format REGION:GUID.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-identity:UnprocessedIdentityId:IdentityId" min:"1" type:"string"`
 }
 
 // String returns the string representation

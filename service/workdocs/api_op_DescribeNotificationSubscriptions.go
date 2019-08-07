@@ -86,10 +86,10 @@ type DescribeNotificationSubscriptionsOutput struct {
 
 	// The marker to use when requesting the next set of results. If there are no
 	// additional results, the string is empty.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeNotificationSubscriptionsOutput:Marker" min:"1" type:"string"`
 
 	// The subscriptions.
-	Subscriptions []Subscription `type:"list"`
+	Subscriptions []Subscription `json:"workdocs:DescribeNotificationSubscriptionsOutput:Subscriptions" type:"list"`
 }
 
 // String returns the string representation

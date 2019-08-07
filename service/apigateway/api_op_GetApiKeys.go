@@ -81,13 +81,13 @@ type GetApiKeysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []ApiKey `locationName:"item" type:"list"`
+	Items []ApiKey `json:"apigateway:GetApiKeysOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetApiKeysOutput:Position" locationName:"position" type:"string"`
 
 	// A list of warning messages logged during the import of API keys when the
 	// failOnWarnings option is set to true.
-	Warnings []string `locationName:"warnings" type:"list"`
+	Warnings []string `json:"apigateway:GetApiKeysOutput:Warnings" locationName:"warnings" type:"list"`
 }
 
 // String returns the string representation

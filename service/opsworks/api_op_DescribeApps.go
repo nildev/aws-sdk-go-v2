@@ -34,7 +34,7 @@ type DescribeAppsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of App objects that describe the specified apps.
-	Apps []App `type:"list"`
+	Apps []App `json:"opsworks:DescribeAppsOutput:Apps" type:"list"`
 }
 
 // String returns the string representation

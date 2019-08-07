@@ -57,7 +57,7 @@ type DescribeRoleAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The role alias description.
-	RoleAliasDescription *RoleAliasDescription `locationName:"roleAliasDescription" type:"structure"`
+	RoleAliasDescription *RoleAliasDescription `json:"iot:DescribeRoleAliasOutput:RoleAliasDescription" locationName:"roleAliasDescription" type:"structure"`
 }
 
 // String returns the string representation

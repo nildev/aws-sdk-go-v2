@@ -71,7 +71,7 @@ type DeleteUserEndpointsOutput struct {
 	// ID.
 	//
 	// EndpointsResponse is a required field
-	EndpointsResponse *EndpointsResponse `type:"structure" required:"true"`
+	EndpointsResponse *EndpointsResponse `json:"pinpoint:DeleteUserEndpointsOutput:EndpointsResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

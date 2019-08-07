@@ -70,7 +70,7 @@ type DeleteEndpointOutput struct {
 	// Provides information about the channel type and other settings for an endpoint.
 	//
 	// EndpointResponse is a required field
-	EndpointResponse *EndpointResponse `type:"structure" required:"true"`
+	EndpointResponse *EndpointResponse `json:"pinpoint:DeleteEndpointOutput:EndpointResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -89,11 +89,11 @@ func (s GetObjectTorrentInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetObjectTorrentOutput struct {
 	_ struct{} `type:"structure" payload:"Body"`
 
-	Body io.ReadCloser `type:"blob"`
+	Body io.ReadCloser `json:"s3:GetObjectTorrentOutput:Body" type:"blob"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:GetObjectTorrentOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 }
 
 // String returns the string representation

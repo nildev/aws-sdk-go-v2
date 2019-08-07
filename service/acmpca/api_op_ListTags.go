@@ -67,10 +67,10 @@ type ListTagsOutput struct {
 
 	// When the list is truncated, this value is present and should be used for
 	// the NextToken parameter in a subsequent pagination request.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"acm-pca:ListTagsOutput:NextToken" min:"1" type:"string"`
 
 	// The tags associated with your private CA.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"acm-pca:ListTagsOutput:Tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

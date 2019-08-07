@@ -30,12 +30,12 @@ type ListDomainsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of domain names that match the expression.
-	DomainNames []string `locationNameList:"DomainName" type:"list" flattened:"true"`
+	DomainNames []string `json:"sdb:ListDomainsOutput:DomainNames" locationNameList:"DomainName" type:"list" flattened:"true"`
 
 	// An opaque token indicating that there are more domains than the specified
 	//    MaxNumberOfDomains
 	//  still available.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"sdb:ListDomainsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

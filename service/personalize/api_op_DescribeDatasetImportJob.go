@@ -53,7 +53,7 @@ type DescribeDatasetImportJobOutput struct {
 	//    * ACTIVE
 	//
 	//    * CREATE FAILED
-	DatasetImportJob *DatasetImportJob `locationName:"datasetImportJob" type:"structure"`
+	DatasetImportJob *DatasetImportJob `json:"personalize:DescribeDatasetImportJobOutput:DatasetImportJob" locationName:"datasetImportJob" type:"structure"`
 }
 
 // String returns the string representation

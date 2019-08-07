@@ -111,7 +111,7 @@ type CopyImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the new AMI.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:CopyImageOutput:ImageId" locationName:"imageId" type:"string"`
 }
 
 // String returns the string representation

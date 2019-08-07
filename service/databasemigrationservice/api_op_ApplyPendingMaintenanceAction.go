@@ -73,7 +73,7 @@ type ApplyPendingMaintenanceActionOutput struct {
 
 	// The AWS DMS resource that the pending maintenance action will be applied
 	// to.
-	ResourcePendingMaintenanceActions *ResourcePendingMaintenanceActions `type:"structure"`
+	ResourcePendingMaintenanceActions *ResourcePendingMaintenanceActions `json:"dms:ApplyPendingMaintenanceActionOutput:ResourcePendingMaintenanceActions" type:"structure"`
 }
 
 // String returns the string representation

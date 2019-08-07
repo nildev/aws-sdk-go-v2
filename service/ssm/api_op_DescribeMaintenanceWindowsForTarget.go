@@ -73,11 +73,11 @@ type DescribeMaintenanceWindowsForTargetOutput struct {
 
 	// The token for the next set of items to return. (You use this token in the
 	// next call.)
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeMaintenanceWindowsForTargetOutput:NextToken" type:"string"`
 
 	// Information about the maintenance window targets and tasks an instance is
 	// associated with.
-	WindowIdentities []MaintenanceWindowIdentityForTarget `type:"list"`
+	WindowIdentities []MaintenanceWindowIdentityForTarget `json:"ssm:DescribeMaintenanceWindowsForTargetOutput:WindowIdentities" type:"list"`
 }
 
 // String returns the string representation

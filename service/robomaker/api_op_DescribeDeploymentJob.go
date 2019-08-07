@@ -61,34 +61,34 @@ type DescribeDeploymentJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the deployment job.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:DescribeDeploymentJobOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the deployment job was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:DescribeDeploymentJobOutput:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The deployment application configuration.
-	DeploymentApplicationConfigs []DeploymentApplicationConfig `locationName:"deploymentApplicationConfigs" min:"1" type:"list"`
+	DeploymentApplicationConfigs []DeploymentApplicationConfig `json:"robomaker:DescribeDeploymentJobOutput:DeploymentApplicationConfigs" locationName:"deploymentApplicationConfigs" min:"1" type:"list"`
 
 	// The deployment configuration.
-	DeploymentConfig *DeploymentConfig `locationName:"deploymentConfig" type:"structure"`
+	DeploymentConfig *DeploymentConfig `json:"robomaker:DescribeDeploymentJobOutput:DeploymentConfig" locationName:"deploymentConfig" type:"structure"`
 
 	// The deployment job failure code.
-	FailureCode DeploymentJobErrorCode `locationName:"failureCode" type:"string" enum:"true"`
+	FailureCode DeploymentJobErrorCode `json:"robomaker:DescribeDeploymentJobOutput:FailureCode" locationName:"failureCode" type:"string" enum:"true"`
 
 	// A short description of the reason why the deployment job failed.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"robomaker:DescribeDeploymentJobOutput:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	Fleet *string `locationName:"fleet" min:"1" type:"string"`
+	Fleet *string `json:"robomaker:DescribeDeploymentJobOutput:Fleet" locationName:"fleet" min:"1" type:"string"`
 
 	// A list of robot deployment summaries.
-	RobotDeploymentSummary []RobotDeployment `locationName:"robotDeploymentSummary" type:"list"`
+	RobotDeploymentSummary []RobotDeployment `json:"robomaker:DescribeDeploymentJobOutput:RobotDeploymentSummary" locationName:"robotDeploymentSummary" type:"list"`
 
 	// The status of the deployment job.
-	Status DeploymentStatus `locationName:"status" type:"string" enum:"true"`
+	Status DeploymentStatus `json:"robomaker:DescribeDeploymentJobOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The list of all tags added to the specified deployment job.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:DescribeDeploymentJobOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

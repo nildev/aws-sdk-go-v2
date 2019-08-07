@@ -91,7 +91,7 @@ type CreateContactOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the newly created address book.
-	ContactArn *string `type:"string"`
+	ContactArn *string `json:"a4b:CreateContactOutput:ContactArn" type:"string"`
 }
 
 // String returns the string representation

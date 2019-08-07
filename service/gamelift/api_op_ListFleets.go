@@ -63,12 +63,12 @@ type ListFleetsOutput struct {
 	// Set of fleet IDs matching the list request. You can retrieve additional information
 	// about all returned fleets by passing this result set to a call to DescribeFleetAttributes,
 	// DescribeFleetCapacity, or DescribeFleetUtilization.
-	FleetIds []string `min:"1" type:"list"`
+	FleetIds []string `json:"gamelift:ListFleetsOutput:FleetIds" min:"1" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:ListFleetsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

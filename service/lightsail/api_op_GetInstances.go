@@ -28,11 +28,11 @@ type GetInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key-value pairs containing information about your instances.
-	Instances []Instance `locationName:"instances" type:"list"`
+	Instances []Instance `json:"lightsail:GetInstancesOutput:Instances" locationName:"instances" type:"list"`
 
 	// A token used for advancing to the next page of results from your get instances
 	// request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetInstancesOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

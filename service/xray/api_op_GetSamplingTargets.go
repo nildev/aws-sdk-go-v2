@@ -73,13 +73,13 @@ type GetSamplingTargetsOutput struct {
 	// The last time a user changed the sampling rule configuration. If the sampling
 	// rule configuration changed since the service last retrieved it, the service
 	// should call GetSamplingRules to get the latest version.
-	LastRuleModification *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastRuleModification *time.Time `json:"xray:GetSamplingTargetsOutput:LastRuleModification" type:"timestamp" timestampFormat:"unix"`
 
 	// Updated rules that the service should use to sample requests.
-	SamplingTargetDocuments []SamplingTargetDocument `type:"list"`
+	SamplingTargetDocuments []SamplingTargetDocument `json:"xray:GetSamplingTargetsOutput:SamplingTargetDocuments" type:"list"`
 
 	// Information about SamplingStatisticsDocument that X-Ray could not process.
-	UnprocessedStatistics []UnprocessedStatistics `type:"list"`
+	UnprocessedStatistics []UnprocessedStatistics `json:"xray:GetSamplingTargetsOutput:UnprocessedStatistics" type:"list"`
 }
 
 // String returns the string representation

@@ -70,11 +70,11 @@ func (s GetRoutesInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetRoutesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Items []Route `locationName:"items" type:"list"`
+	Items []Route `json:"apigateway:GetRoutesOutput:Items" locationName:"items" type:"list"`
 
 	// The next page of elements from this collection. Not valid for the last element
 	// of the collection.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"apigateway:GetRoutesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

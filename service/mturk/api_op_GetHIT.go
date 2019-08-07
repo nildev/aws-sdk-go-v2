@@ -46,7 +46,7 @@ type GetHITOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the requested HIT data.
-	HIT *HIT `type:"structure"`
+	HIT *HIT `json:"mturk-requester:GetHITOutput:HIT" type:"structure"`
 }
 
 // String returns the string representation

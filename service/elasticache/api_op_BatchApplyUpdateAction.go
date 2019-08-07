@@ -52,10 +52,10 @@ type BatchApplyUpdateActionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Update actions that have been processed successfully
-	ProcessedUpdateActions []ProcessedUpdateAction `locationNameList:"ProcessedUpdateAction" type:"list"`
+	ProcessedUpdateActions []ProcessedUpdateAction `json:"elasticache:BatchApplyUpdateActionOutput:ProcessedUpdateActions" locationNameList:"ProcessedUpdateAction" type:"list"`
 
 	// Update actions that haven't been processed successfully
-	UnprocessedUpdateActions []UnprocessedUpdateAction `locationNameList:"UnprocessedUpdateAction" type:"list"`
+	UnprocessedUpdateActions []UnprocessedUpdateAction `json:"elasticache:BatchApplyUpdateActionOutput:UnprocessedUpdateActions" locationNameList:"UnprocessedUpdateAction" type:"list"`
 }
 
 // String returns the string representation

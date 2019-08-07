@@ -62,7 +62,7 @@ type GetBucketReplicationOutput struct {
 
 	// A container for replication rules. You can add up to 1,000 rules. The maximum
 	// size of a replication configuration is 2 MB.
-	ReplicationConfiguration *ReplicationConfiguration `type:"structure"`
+	ReplicationConfiguration *ReplicationConfiguration `json:"s3:GetBucketReplicationOutput:ReplicationConfiguration" type:"structure"`
 }
 
 // String returns the string representation

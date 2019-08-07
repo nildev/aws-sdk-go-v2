@@ -62,7 +62,7 @@ type StartElasticsearchServiceSoftwareUpdateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current status of the Elasticsearch service software update.
-	ServiceSoftwareOptions *ServiceSoftwareOptions `type:"structure"`
+	ServiceSoftwareOptions *ServiceSoftwareOptions `json:"es:StartElasticsearchServiceSoftwareUpdateOutput:ServiceSoftwareOptions" type:"structure"`
 }
 
 // String returns the string representation

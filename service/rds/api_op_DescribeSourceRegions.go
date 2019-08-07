@@ -70,11 +70,11 @@ type DescribeSourceRegionsOutput struct {
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeSourceRegionsOutput:Marker" type:"string"`
 
 	// A list of SourceRegion instances that contains each source AWS Region that
 	// the current AWS Region can get a Read Replica or a DB snapshot from.
-	SourceRegions []SourceRegion `locationNameList:"SourceRegion" type:"list"`
+	SourceRegions []SourceRegion `json:"rds:DescribeSourceRegionsOutput:SourceRegions" locationNameList:"SourceRegion" type:"list"`
 }
 
 // String returns the string representation

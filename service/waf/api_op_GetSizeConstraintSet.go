@@ -57,7 +57,7 @@ type GetSizeConstraintSetOutput struct {
 	//    and Size
 	//
 	//    * FieldToMatch: Contains Data and Type
-	SizeConstraintSet *SizeConstraintSet `type:"structure"`
+	SizeConstraintSet *SizeConstraintSet `json:"waf:GetSizeConstraintSetOutput:SizeConstraintSet" type:"structure"`
 }
 
 // String returns the string representation

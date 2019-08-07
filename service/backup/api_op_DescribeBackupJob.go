@@ -58,67 +58,67 @@ type DescribeBackupJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Uniquely identifies a request to AWS Backup to back up a resource.
-	BackupJobId *string `type:"string"`
+	BackupJobId *string `json:"backup:DescribeBackupJobOutput:BackupJobId" type:"string"`
 
 	// The size, in bytes, of a backup.
-	BackupSizeInBytes *int64 `type:"long"`
+	BackupSizeInBytes *int64 `json:"backup:DescribeBackupJobOutput:BackupSizeInBytes" type:"long"`
 
 	// An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for
 	// example, arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.
-	BackupVaultArn *string `type:"string"`
+	BackupVaultArn *string `json:"backup:DescribeBackupJobOutput:BackupVaultArn" type:"string"`
 
 	// The name of a logical container where backups are stored. Backup vaults are
 	// identified by names that are unique to the account used to create them and
 	// the AWS Region where they are created. They consist of lowercase letters,
 	// numbers, and hyphens.
-	BackupVaultName *string `type:"string"`
+	BackupVaultName *string `json:"backup:DescribeBackupJobOutput:BackupVaultName" type:"string"`
 
 	// The size in bytes transferred to a backup vault at the time that the job
 	// status was queried.
-	BytesTransferred *int64 `type:"long"`
+	BytesTransferred *int64 `json:"backup:DescribeBackupJobOutput:BytesTransferred" type:"long"`
 
 	// The date and time that a job to create a backup job is completed, in Unix
 	// format and Coordinated Universal Time (UTC). The value of CreationDate is
 	// accurate to milliseconds. For example, the value 1516925490.087 represents
 	// Friday, January 26, 2018 12:11:30.087 AM.
-	CompletionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletionDate *time.Time `json:"backup:DescribeBackupJobOutput:CompletionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Contains identifying information about the creation of a backup job, including
 	// the BackupPlanArn, BackupPlanId, BackupPlanVersion, and BackupRuleId of the
 	// backup plan that is used to create it.
-	CreatedBy *RecoveryPointCreator `type:"structure"`
+	CreatedBy *RecoveryPointCreator `json:"backup:DescribeBackupJobOutput:CreatedBy" type:"structure"`
 
 	// The date and time that a backup job is created, in Unix format and Coordinated
 	// Universal Time (UTC). The value of CreationDate is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"backup:DescribeBackupJobOutput:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time that a job to back up resources is expected to be completed,
 	// in Unix format and Coordinated Universal Time (UTC). The value of ExpectedCompletionDate
 	// is accurate to milliseconds. For example, the value 1516925490.087 represents
 	// Friday, January 26, 2018 12:11:30.087 AM.
-	ExpectedCompletionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpectedCompletionDate *time.Time `json:"backup:DescribeBackupJobOutput:ExpectedCompletionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies the IAM role ARN used to create the target recovery point; for
 	// example, arn:aws:iam::123456789012:role/S3Access.
-	IamRoleArn *string `type:"string"`
+	IamRoleArn *string `json:"backup:DescribeBackupJobOutput:IamRoleArn" type:"string"`
 
 	// Contains an estimated percentage that is complete of a job at the time the
 	// job status was queried.
-	PercentDone *string `type:"string"`
+	PercentDone *string `json:"backup:DescribeBackupJobOutput:PercentDone" type:"string"`
 
 	// An ARN that uniquely identifies a recovery point; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-	RecoveryPointArn *string `type:"string"`
+	RecoveryPointArn *string `json:"backup:DescribeBackupJobOutput:RecoveryPointArn" type:"string"`
 
 	// An ARN that uniquely identifies a saved resource. The format of the ARN depends
 	// on the resource type.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"backup:DescribeBackupJobOutput:ResourceArn" type:"string"`
 
 	// The type of AWS resource to be backed-up; for example, an Amazon Elastic
 	// Block Store (Amazon EBS) volume or an Amazon Relational Database Service
 	// (Amazon RDS) database.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"backup:DescribeBackupJobOutput:ResourceType" type:"string"`
 
 	// Specifies the time in Unix format and Coordinated Universal Time (UTC) when
 	// a backup job must be started before it is canceled. The value is calculated
@@ -127,13 +127,13 @@ type DescribeBackupJobOutput struct {
 	// PM on the date specified. The value of StartBy is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	StartBy *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartBy *time.Time `json:"backup:DescribeBackupJobOutput:StartBy" type:"timestamp" timestampFormat:"unix"`
 
 	// The current state of a resource recovery point.
-	State BackupJobState `type:"string" enum:"true"`
+	State BackupJobState `json:"backup:DescribeBackupJobOutput:State" type:"string" enum:"true"`
 
 	// A detailed message explaining the status of the job to back up a resource.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"backup:DescribeBackupJobOutput:StatusMessage" type:"string"`
 }
 
 // String returns the string representation

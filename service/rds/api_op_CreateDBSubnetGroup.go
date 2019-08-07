@@ -72,7 +72,7 @@ type CreateDBSubnetGroupOutput struct {
 	//
 	// This data type is used as a response element in the DescribeDBSubnetGroups
 	// action.
-	DBSubnetGroup *DBSubnetGroup `type:"structure"`
+	DBSubnetGroup *DBSubnetGroup `json:"rds:CreateDBSubnetGroupOutput:DBSubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

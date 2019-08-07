@@ -63,12 +63,12 @@ type ListPullRequestsOutput struct {
 
 	// An enumeration token that when provided in a request, returns the next batch
 	// of the results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:ListPullRequestsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The system-generated IDs of the pull requests.
 	//
 	// PullRequestIds is a required field
-	PullRequestIds []string `locationName:"pullRequestIds" type:"list" required:"true"`
+	PullRequestIds []string `json:"codecommit:ListPullRequestsOutput:PullRequestIds" locationName:"pullRequestIds" type:"list" required:"true"`
 }
 
 // String returns the string representation

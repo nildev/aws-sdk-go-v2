@@ -54,7 +54,7 @@ type BatchAssociateUserStackOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of UserStackAssociationError objects.
-	Errors []UserStackAssociationError `locationName:"errors" type:"list"`
+	Errors []UserStackAssociationError `json:"appstream2:BatchAssociateUserStackOutput:Errors" locationName:"errors" type:"list"`
 }
 
 // String returns the string representation

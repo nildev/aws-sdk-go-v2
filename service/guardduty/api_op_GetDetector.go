@@ -60,26 +60,26 @@ type GetDetectorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detector creation timestamp.
-	CreatedAt *string `locationName:"createdAt" type:"string"`
+	CreatedAt *string `json:"guardduty:GetDetectorOutput:CreatedAt" locationName:"createdAt" type:"string"`
 
 	// Finding publishing frequency.
-	FindingPublishingFrequency FindingPublishingFrequency `locationName:"findingPublishingFrequency" type:"string" enum:"true"`
+	FindingPublishingFrequency FindingPublishingFrequency `json:"guardduty:GetDetectorOutput:FindingPublishingFrequency" locationName:"findingPublishingFrequency" type:"string" enum:"true"`
 
 	// The GuardDuty service role.
 	//
 	// ServiceRole is a required field
-	ServiceRole *string `locationName:"serviceRole" type:"string" required:"true"`
+	ServiceRole *string `json:"guardduty:GetDetectorOutput:ServiceRole" locationName:"serviceRole" type:"string" required:"true"`
 
 	// The detector status.
 	//
 	// Status is a required field
-	Status DetectorStatus `locationName:"status" min:"1" type:"string" required:"true" enum:"true"`
+	Status DetectorStatus `json:"guardduty:GetDetectorOutput:Status" locationName:"status" min:"1" type:"string" required:"true" enum:"true"`
 
 	// The tags of the detector resource.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"guardduty:GetDetectorOutput:Tags" locationName:"tags" min:"1" type:"map"`
 
 	// Detector last update timestamp.
-	UpdatedAt *string `locationName:"updatedAt" type:"string"`
+	UpdatedAt *string `json:"guardduty:GetDetectorOutput:UpdatedAt" locationName:"updatedAt" type:"string"`
 }
 
 // String returns the string representation

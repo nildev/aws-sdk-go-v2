@@ -61,10 +61,10 @@ type DescribePoliciesOutput struct {
 	// returned in a single response. To receive additional items, specify this
 	// string for the NextToken value when requesting the next set of items. This
 	// value is null when there are no more items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribePoliciesOutput:NextToken" type:"string"`
 
 	// The scaling policies.
-	ScalingPolicies []ScalingPolicy `type:"list"`
+	ScalingPolicies []ScalingPolicy `json:"autoscaling:DescribePoliciesOutput:ScalingPolicies" type:"list"`
 }
 
 // String returns the string representation

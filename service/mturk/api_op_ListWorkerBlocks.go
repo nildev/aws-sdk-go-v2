@@ -47,15 +47,15 @@ type ListWorkerBlocksOutput struct {
 	// If the previous response was incomplete (because there is more data to retrieve),
 	// Amazon Mechanical Turk returns a pagination token in the response. You can
 	// use this pagination token to retrieve the next set of results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"mturk-requester:ListWorkerBlocksOutput:NextToken" min:"1" type:"string"`
 
 	// The number of assignments on the page in the filtered results list, equivalent
 	// to the number of assignments returned by this call.
-	NumResults *int64 `type:"integer"`
+	NumResults *int64 `json:"mturk-requester:ListWorkerBlocksOutput:NumResults" type:"integer"`
 
 	// The list of WorkerBlocks, containing the collection of Worker IDs and reasons
 	// for blocking.
-	WorkerBlocks []WorkerBlock `type:"list"`
+	WorkerBlocks []WorkerBlock `json:"mturk-requester:ListWorkerBlocksOutput:WorkerBlocks" type:"list"`
 }
 
 // String returns the string representation

@@ -75,7 +75,7 @@ type GetImportJobsOutput struct {
 	// that imports endpoint definitions from one or more files.
 	//
 	// ImportJobsResponse is a required field
-	ImportJobsResponse *ImportJobsResponse `type:"structure" required:"true"`
+	ImportJobsResponse *ImportJobsResponse `json:"pinpoint:GetImportJobsOutput:ImportJobsResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

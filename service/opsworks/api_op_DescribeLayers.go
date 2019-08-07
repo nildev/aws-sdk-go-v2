@@ -33,7 +33,7 @@ type DescribeLayersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Layer objects that describe the layers.
-	Layers []Layer `type:"list"`
+	Layers []Layer `json:"opsworks:DescribeLayersOutput:Layers" type:"list"`
 }
 
 // String returns the string representation

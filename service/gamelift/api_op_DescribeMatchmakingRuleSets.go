@@ -61,12 +61,12 @@ type DescribeMatchmakingRuleSetsOutput struct {
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:DescribeMatchmakingRuleSetsOutput:NextToken" min:"1" type:"string"`
 
 	// Collection of requested matchmaking rule set objects.
 	//
 	// RuleSets is a required field
-	RuleSets []MatchmakingRuleSet `type:"list" required:"true"`
+	RuleSets []MatchmakingRuleSet `json:"gamelift:DescribeMatchmakingRuleSetsOutput:RuleSets" type:"list" required:"true"`
 }
 
 // String returns the string representation

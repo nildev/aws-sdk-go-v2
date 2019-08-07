@@ -58,7 +58,7 @@ type DeleteApnsVoipChannelOutput struct {
 	// Notification service) VoIP channel for an application.
 	//
 	// APNSVoipChannelResponse is a required field
-	APNSVoipChannelResponse *APNSVoipChannelResponse `type:"structure" required:"true"`
+	APNSVoipChannelResponse *APNSVoipChannelResponse `json:"pinpoint:DeleteApnsVoipChannelOutput:APNSVoipChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

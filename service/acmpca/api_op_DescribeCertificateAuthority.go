@@ -50,7 +50,7 @@ type DescribeCertificateAuthorityOutput struct {
 
 	// A CertificateAuthority structure that contains information about your private
 	// CA.
-	CertificateAuthority *CertificateAuthority `type:"structure"`
+	CertificateAuthority *CertificateAuthority `json:"acm-pca:DescribeCertificateAuthorityOutput:CertificateAuthority" type:"structure"`
 }
 
 // String returns the string representation

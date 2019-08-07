@@ -136,7 +136,7 @@ type RequestCertificateOutput struct {
 	// form:
 	//
 	// arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012
-	CertificateArn *string `json:"ACM:RequestCertificateOutput:CertificateArn" min:"20" type:"string"`
+	CertificateArn *string `json:"acm:RequestCertificateOutput:CertificateArn" min:"20" type:"string"`
 }
 
 // String returns the string representation

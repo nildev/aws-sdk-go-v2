@@ -48,12 +48,12 @@ type DescribeDomainOutput struct {
 	// period.
 	//
 	// Configuration is a required field
-	Configuration *DomainConfiguration `locationName:"configuration" type:"structure" required:"true"`
+	Configuration *DomainConfiguration `json:"swf:DescribeDomainOutput:Configuration" locationName:"configuration" type:"structure" required:"true"`
 
 	// The basic information about a domain, such as its name, status, and description.
 	//
 	// DomainInfo is a required field
-	DomainInfo *DomainInfo `locationName:"domainInfo" type:"structure" required:"true"`
+	DomainInfo *DomainInfo `json:"swf:DescribeDomainOutput:DomainInfo" locationName:"domainInfo" type:"structure" required:"true"`
 }
 
 // String returns the string representation

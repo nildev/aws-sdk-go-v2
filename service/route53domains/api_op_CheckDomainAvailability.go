@@ -99,7 +99,7 @@ type CheckDomainAvailabilityOutput struct {
 	// The domain name is forbidden.
 	//
 	// Availability is a required field
-	Availability DomainAvailability `type:"string" required:"true" enum:"true"`
+	Availability DomainAvailability `json:"route53domains:CheckDomainAvailabilityOutput:Availability" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

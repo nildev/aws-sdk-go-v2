@@ -70,15 +70,15 @@ type UpdateTeamMemberOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The project role granted to the user.
-	ProjectRole *string `locationName:"projectRole" type:"string"`
+	ProjectRole *string `json:"codestar:UpdateTeamMemberOutput:ProjectRole" locationName:"projectRole" type:"string"`
 
 	// Whether a team member is allowed to remotely access project resources using
 	// the SSH public key associated with the user's profile.
-	RemoteAccessAllowed *bool `locationName:"remoteAccessAllowed" type:"boolean"`
+	RemoteAccessAllowed *bool `json:"codestar:UpdateTeamMemberOutput:RemoteAccessAllowed" locationName:"remoteAccessAllowed" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) of the user whose team membership attributes
 	// were updated.
-	UserArn *string `locationName:"userArn" min:"32" type:"string"`
+	UserArn *string `json:"codestar:UpdateTeamMemberOutput:UserArn" locationName:"userArn" min:"32" type:"string"`
 }
 
 // String returns the string representation

@@ -30,9 +30,9 @@ func (s ListBucketsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListBucketsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Buckets []Bucket `locationNameList:"Bucket" type:"list"`
+	Buckets []Bucket `json:"s3:ListBucketsOutput:Buckets" locationNameList:"Bucket" type:"list"`
 
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:ListBucketsOutput:Owner" type:"structure"`
 }
 
 // String returns the string representation

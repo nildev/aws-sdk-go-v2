@@ -48,7 +48,7 @@ type GetJobUnlockCodeOutput struct {
 
 	// The UnlockCode value for the specified job. The UnlockCode value can be accessed
 	// for up to 90 days after the job has been created.
-	UnlockCode *string `min:"1" type:"string"`
+	UnlockCode *string `json:"snowball:GetJobUnlockCodeOutput:UnlockCode" min:"1" type:"string"`
 }
 
 // String returns the string representation

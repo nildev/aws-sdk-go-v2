@@ -49,11 +49,11 @@ type DescribeDirectoryConfigsOutput struct {
 	// Information about the directory configurations. Note that although the response
 	// syntax in this topic includes the account password, this password is not
 	// returned in the actual response.
-	DirectoryConfigs []DirectoryConfig `type:"list"`
+	DirectoryConfigs []DirectoryConfig `json:"appstream2:DescribeDirectoryConfigsOutput:DirectoryConfigs" type:"list"`
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:DescribeDirectoryConfigsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

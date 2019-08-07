@@ -63,7 +63,7 @@ type AddJobFlowStepsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifiers of the list of steps added to the job flow.
-	StepIds []string `type:"list"`
+	StepIds []string `json:"elasticmapreduce:AddJobFlowStepsOutput:StepIds" type:"list"`
 }
 
 // String returns the string representation

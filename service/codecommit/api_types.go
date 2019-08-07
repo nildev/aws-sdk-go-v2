@@ -21,17 +21,17 @@ type BatchDescribeMergeConflictsError struct {
 	// The name of the exception.
 	//
 	// ExceptionName is a required field
-	ExceptionName *string `locationName:"exceptionName" type:"string" required:"true"`
+	ExceptionName *string `json:"codecommit:BatchDescribeMergeConflictsError:ExceptionName" locationName:"exceptionName" type:"string" required:"true"`
 
 	// The path to the file.
 	//
 	// FilePath is a required field
-	FilePath *string `locationName:"filePath" type:"string" required:"true"`
+	FilePath *string `json:"codecommit:BatchDescribeMergeConflictsError:FilePath" locationName:"filePath" type:"string" required:"true"`
 
 	// The message provided by the exception.
 	//
 	// Message is a required field
-	Message *string `locationName:"message" type:"string" required:"true"`
+	Message *string `json:"codecommit:BatchDescribeMergeConflictsError:Message" locationName:"message" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -45,7 +45,7 @@ type BlobMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The full ID of the blob.
-	BlobId *string `locationName:"blobId" type:"string"`
+	BlobId *string `json:"codecommit:BlobMetadata:BlobId" locationName:"blobId" type:"string"`
 
 	// The file mode permissions of the blob. File mode permission codes include:
 	//
@@ -56,10 +56,10 @@ type BlobMetadata struct {
 	//    * 160000 indicates a submodule
 	//
 	//    * 120000 indicates a symlink
-	Mode *string `locationName:"mode" type:"string"`
+	Mode *string `json:"codecommit:BlobMetadata:Mode" locationName:"mode" type:"string"`
 
 	// The path to the blob and any associated file name, if any.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"codecommit:BlobMetadata:Path" locationName:"path" type:"string"`
 }
 
 // String returns the string representation
@@ -73,10 +73,10 @@ type BranchInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the branch.
-	BranchName *string `locationName:"branchName" min:"1" type:"string"`
+	BranchName *string `json:"codecommit:BranchInfo:BranchName" locationName:"branchName" min:"1" type:"string"`
 
 	// The ID of the last commit made to the branch.
-	CommitId *string `locationName:"commitId" type:"string"`
+	CommitId *string `json:"codecommit:BranchInfo:CommitId" locationName:"commitId" type:"string"`
 }
 
 // String returns the string representation
@@ -90,31 +90,31 @@ type Comment struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the person who posted the comment.
-	AuthorArn *string `locationName:"authorArn" type:"string"`
+	AuthorArn *string `json:"codecommit:Comment:AuthorArn" locationName:"authorArn" type:"string"`
 
 	// A unique, client-generated idempotency token that when provided in a request,
 	// ensures the request cannot be repeated with a changed parameter. If a request
 	// is received with the same parameters and a token is included, the request
 	// will return information about the initial request that used that token.
-	ClientRequestToken *string `locationName:"clientRequestToken" type:"string"`
+	ClientRequestToken *string `json:"codecommit:Comment:ClientRequestToken" locationName:"clientRequestToken" type:"string"`
 
 	// The system-generated comment ID.
-	CommentId *string `locationName:"commentId" type:"string"`
+	CommentId *string `json:"codecommit:Comment:CommentId" locationName:"commentId" type:"string"`
 
 	// The content of the comment.
-	Content *string `locationName:"content" type:"string"`
+	Content *string `json:"codecommit:Comment:Content" locationName:"content" type:"string"`
 
 	// The date and time the comment was created, in timestamp format.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"codecommit:Comment:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A Boolean value indicating whether the comment has been deleted.
-	Deleted *bool `locationName:"deleted" type:"boolean"`
+	Deleted *bool `json:"codecommit:Comment:Deleted" locationName:"deleted" type:"boolean"`
 
 	// The ID of the comment for which this comment is a reply, if any.
-	InReplyTo *string `locationName:"inReplyTo" type:"string"`
+	InReplyTo *string `json:"codecommit:Comment:InReplyTo" locationName:"inReplyTo" type:"string"`
 
 	// The date and time the comment was most recently modified, in timestamp format.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"codecommit:Comment:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -128,28 +128,28 @@ type CommentsForComparedCommit struct {
 	_ struct{} `type:"structure"`
 
 	// The full blob ID of the commit used to establish the 'after' of the comparison.
-	AfterBlobId *string `locationName:"afterBlobId" type:"string"`
+	AfterBlobId *string `json:"codecommit:CommentsForComparedCommit:AfterBlobId" locationName:"afterBlobId" type:"string"`
 
 	// The full commit ID of the commit used to establish the 'after' of the comparison.
-	AfterCommitId *string `locationName:"afterCommitId" type:"string"`
+	AfterCommitId *string `json:"codecommit:CommentsForComparedCommit:AfterCommitId" locationName:"afterCommitId" type:"string"`
 
 	// The full blob ID of the commit used to establish the 'before' of the comparison.
-	BeforeBlobId *string `locationName:"beforeBlobId" type:"string"`
+	BeforeBlobId *string `json:"codecommit:CommentsForComparedCommit:BeforeBlobId" locationName:"beforeBlobId" type:"string"`
 
 	// The full commit ID of the commit used to establish the 'before' of the comparison.
-	BeforeCommitId *string `locationName:"beforeCommitId" type:"string"`
+	BeforeCommitId *string `json:"codecommit:CommentsForComparedCommit:BeforeCommitId" locationName:"beforeCommitId" type:"string"`
 
 	// An array of comment objects. Each comment object contains information about
 	// a comment on the comparison between commits.
-	Comments []Comment `locationName:"comments" type:"list"`
+	Comments []Comment `json:"codecommit:CommentsForComparedCommit:Comments" locationName:"comments" type:"list"`
 
 	// Location information about the comment on the comparison, including the file
 	// name, line number, and whether the version of the file where the comment
 	// was made is 'BEFORE' or 'AFTER'.
-	Location *Location `locationName:"location" type:"structure"`
+	Location *Location `json:"codecommit:CommentsForComparedCommit:Location" locationName:"location" type:"structure"`
 
 	// The name of the repository that contains the compared commits.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:CommentsForComparedCommit:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -163,36 +163,36 @@ type CommentsForPullRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The full blob ID of the file on which you want to comment on the source commit.
-	AfterBlobId *string `locationName:"afterBlobId" type:"string"`
+	AfterBlobId *string `json:"codecommit:CommentsForPullRequest:AfterBlobId" locationName:"afterBlobId" type:"string"`
 
 	// he full commit ID of the commit that was the tip of the source branch at
 	// the time the comment was made.
-	AfterCommitId *string `locationName:"afterCommitId" type:"string"`
+	AfterCommitId *string `json:"codecommit:CommentsForPullRequest:AfterCommitId" locationName:"afterCommitId" type:"string"`
 
 	// The full blob ID of the file on which you want to comment on the destination
 	// commit.
-	BeforeBlobId *string `locationName:"beforeBlobId" type:"string"`
+	BeforeBlobId *string `json:"codecommit:CommentsForPullRequest:BeforeBlobId" locationName:"beforeBlobId" type:"string"`
 
 	// The full commit ID of the commit that was the tip of the destination branch
 	// when the pull request was created. This commit will be superceded by the
 	// after commit in the source branch when and if you merge the source branch
 	// into the destination branch.
-	BeforeCommitId *string `locationName:"beforeCommitId" type:"string"`
+	BeforeCommitId *string `json:"codecommit:CommentsForPullRequest:BeforeCommitId" locationName:"beforeCommitId" type:"string"`
 
 	// An array of comment objects. Each comment object contains information about
 	// a comment on the pull request.
-	Comments []Comment `locationName:"comments" type:"list"`
+	Comments []Comment `json:"codecommit:CommentsForPullRequest:Comments" locationName:"comments" type:"list"`
 
 	// Location information about the comment on the pull request, including the
 	// file name, line number, and whether the version of the file where the comment
 	// was made is 'BEFORE' (destination branch) or 'AFTER' (source branch).
-	Location *Location `locationName:"location" type:"structure"`
+	Location *Location `json:"codecommit:CommentsForPullRequest:Location" locationName:"location" type:"structure"`
 
 	// The system-generated ID of the pull request.
-	PullRequestId *string `locationName:"pullRequestId" type:"string"`
+	PullRequestId *string `json:"codecommit:CommentsForPullRequest:PullRequestId" locationName:"pullRequestId" type:"string"`
 
 	// The name of the repository that contains the pull request.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:CommentsForPullRequest:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -206,15 +206,15 @@ type Commit struct {
 	_ struct{} `type:"structure"`
 
 	// Any additional data associated with the specified commit.
-	AdditionalData *string `locationName:"additionalData" type:"string"`
+	AdditionalData *string `json:"codecommit:Commit:AdditionalData" locationName:"additionalData" type:"string"`
 
 	// Information about the author of the specified commit. Information includes
 	// the date in timestamp format with GMT offset, the name of the author, and
 	// the email address for the author, as configured in Git.
-	Author *UserInfo `locationName:"author" type:"structure"`
+	Author *UserInfo `json:"codecommit:Commit:Author" locationName:"author" type:"structure"`
 
 	// The full SHA of the specified commit.
-	CommitId *string `locationName:"commitId" type:"string"`
+	CommitId *string `json:"codecommit:Commit:CommitId" locationName:"commitId" type:"string"`
 
 	// Information about the person who committed the specified commit, also known
 	// as the committer. Information includes the date in timestamp format with
@@ -224,17 +224,17 @@ type Commit struct {
 	// For more information about the difference between an author and a committer
 	// in Git, see Viewing the Commit History (http://git-scm.com/book/ch2-3.html)
 	// in Pro Git by Scott Chacon and Ben Straub.
-	Committer *UserInfo `locationName:"committer" type:"structure"`
+	Committer *UserInfo `json:"codecommit:Commit:Committer" locationName:"committer" type:"structure"`
 
 	// The commit message associated with the specified commit.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"codecommit:Commit:Message" locationName:"message" type:"string"`
 
 	// A list of parent commits for the specified commit. Each parent commit ID
 	// is the full commit ID.
-	Parents []string `locationName:"parents" type:"list"`
+	Parents []string `json:"codecommit:Commit:Parents" locationName:"parents" type:"list"`
 
 	// Tree information for the specified commit.
-	TreeId *string `locationName:"treeId" type:"string"`
+	TreeId *string `json:"codecommit:Commit:TreeId" locationName:"treeId" type:"string"`
 }
 
 // String returns the string representation
@@ -248,11 +248,11 @@ type Conflict struct {
 	_ struct{} `type:"structure"`
 
 	// Metadata about a conflict in a merge operation.
-	ConflictMetadata *ConflictMetadata `locationName:"conflictMetadata" type:"structure"`
+	ConflictMetadata *ConflictMetadata `json:"codecommit:Conflict:ConflictMetadata" locationName:"conflictMetadata" type:"structure"`
 
 	// A list of hunks that contain the differences between files or lines causing
 	// the conflict.
-	MergeHunks []MergeHunk `locationName:"mergeHunks" type:"list"`
+	MergeHunks []MergeHunk `json:"codecommit:Conflict:MergeHunks" locationName:"mergeHunks" type:"list"`
 }
 
 // String returns the string representation
@@ -267,38 +267,38 @@ type ConflictMetadata struct {
 
 	// A boolean value indicating whether there are conflicts in the content of
 	// a file.
-	ContentConflict *bool `locationName:"contentConflict" type:"boolean"`
+	ContentConflict *bool `json:"codecommit:ConflictMetadata:ContentConflict" locationName:"contentConflict" type:"boolean"`
 
 	// A boolean value indicating whether there are conflicts in the file mode of
 	// a file.
-	FileModeConflict *bool `locationName:"fileModeConflict" type:"boolean"`
+	FileModeConflict *bool `json:"codecommit:ConflictMetadata:FileModeConflict" locationName:"fileModeConflict" type:"boolean"`
 
 	// The file modes of the file in the source, destination, and base of the merge.
-	FileModes *FileModes `locationName:"fileModes" type:"structure"`
+	FileModes *FileModes `json:"codecommit:ConflictMetadata:FileModes" locationName:"fileModes" type:"structure"`
 
 	// The path of the file that contains conflicts.
-	FilePath *string `locationName:"filePath" type:"string"`
+	FilePath *string `json:"codecommit:ConflictMetadata:FilePath" locationName:"filePath" type:"string"`
 
 	// The file sizes of the file in the source, destination, and base of the merge.
-	FileSizes *FileSizes `locationName:"fileSizes" type:"structure"`
+	FileSizes *FileSizes `json:"codecommit:ConflictMetadata:FileSizes" locationName:"fileSizes" type:"structure"`
 
 	// A boolean value (true or false) indicating whether the file is binary or
 	// textual in the source, destination, and base of the merge.
-	IsBinaryFile *IsBinaryFile `locationName:"isBinaryFile" type:"structure"`
+	IsBinaryFile *IsBinaryFile `json:"codecommit:ConflictMetadata:IsBinaryFile" locationName:"isBinaryFile" type:"structure"`
 
 	// Whether an add, modify, or delete operation caused the conflict between the
 	// source and destination of the merge.
-	MergeOperations *MergeOperations `locationName:"mergeOperations" type:"structure"`
+	MergeOperations *MergeOperations `json:"codecommit:ConflictMetadata:MergeOperations" locationName:"mergeOperations" type:"structure"`
 
 	// The number of conflicts, including both hunk conflicts and metadata conflicts.
-	NumberOfConflicts *int64 `locationName:"numberOfConflicts" type:"integer"`
+	NumberOfConflicts *int64 `json:"codecommit:ConflictMetadata:NumberOfConflicts" locationName:"numberOfConflicts" type:"integer"`
 
 	// A boolean value (true or false) indicating whether there are conflicts between
 	// the branches in the object type of a file, folder, or submodule.
-	ObjectTypeConflict *bool `locationName:"objectTypeConflict" type:"boolean"`
+	ObjectTypeConflict *bool `json:"codecommit:ConflictMetadata:ObjectTypeConflict" locationName:"objectTypeConflict" type:"boolean"`
 
 	// Information about any object type conflicts in a merge operation.
-	ObjectTypes *ObjectTypes `locationName:"objectTypes" type:"structure"`
+	ObjectTypes *ObjectTypes `json:"codecommit:ConflictMetadata:ObjectTypes" locationName:"objectTypes" type:"structure"`
 }
 
 // String returns the string representation
@@ -313,13 +313,13 @@ type ConflictResolution struct {
 	_ struct{} `type:"structure"`
 
 	// Files that will be deleted as part of the merge conflict resolution.
-	DeleteFiles []DeleteFileEntry `locationName:"deleteFiles" type:"list"`
+	DeleteFiles []DeleteFileEntry `json:"codecommit:ConflictResolution:DeleteFiles" locationName:"deleteFiles" type:"list"`
 
 	// Files that will have content replaced as part of the merge conflict resolution.
-	ReplaceContents []ReplaceContentEntry `locationName:"replaceContents" type:"list"`
+	ReplaceContents []ReplaceContentEntry `json:"codecommit:ConflictResolution:ReplaceContents" locationName:"replaceContents" type:"list"`
 
 	// File modes that will be set as part of the merge conflict resolution.
-	SetFileModes []SetFileModeEntry `locationName:"setFileModes" type:"list"`
+	SetFileModes []SetFileModeEntry `json:"codecommit:ConflictResolution:SetFileModes" locationName:"setFileModes" type:"list"`
 }
 
 // String returns the string representation
@@ -367,7 +367,7 @@ type DeleteFileEntry struct {
 	// file.
 	//
 	// FilePath is a required field
-	FilePath *string `locationName:"filePath" type:"string" required:"true"`
+	FilePath *string `json:"codecommit:DeleteFileEntry:FilePath" locationName:"filePath" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -396,15 +396,15 @@ type Difference struct {
 
 	// Information about an afterBlob data type object, including the ID, the file
 	// mode permission code, and the path.
-	AfterBlob *BlobMetadata `locationName:"afterBlob" type:"structure"`
+	AfterBlob *BlobMetadata `json:"codecommit:Difference:AfterBlob" locationName:"afterBlob" type:"structure"`
 
 	// Information about a beforeBlob data type object, including the ID, the file
 	// mode permission code, and the path.
-	BeforeBlob *BlobMetadata `locationName:"beforeBlob" type:"structure"`
+	BeforeBlob *BlobMetadata `json:"codecommit:Difference:BeforeBlob" locationName:"beforeBlob" type:"structure"`
 
 	// Whether the change type of the difference is an addition (A), deletion (D),
 	// or modification (M).
-	ChangeType ChangeTypeEnum `locationName:"changeType" type:"string" enum:"true"`
+	ChangeType ChangeTypeEnum `json:"codecommit:Difference:ChangeType" locationName:"changeType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -418,17 +418,17 @@ type File struct {
 	_ struct{} `type:"structure"`
 
 	// The fully-qualified path to the file in the repository.
-	AbsolutePath *string `locationName:"absolutePath" type:"string"`
+	AbsolutePath *string `json:"codecommit:File:AbsolutePath" locationName:"absolutePath" type:"string"`
 
 	// The blob ID that contains the file information.
-	BlobId *string `locationName:"blobId" type:"string"`
+	BlobId *string `json:"codecommit:File:BlobId" locationName:"blobId" type:"string"`
 
 	// The extrapolated file mode permissions for the file. Valid values include
 	// EXECUTABLE and NORMAL.
-	FileMode FileModeTypeEnum `locationName:"fileMode" type:"string" enum:"true"`
+	FileMode FileModeTypeEnum `json:"codecommit:File:FileMode" locationName:"fileMode" type:"string" enum:"true"`
 
 	// The relative path of the file from the folder where the query originated.
-	RelativePath *string `locationName:"relativePath" type:"string"`
+	RelativePath *string `json:"codecommit:File:RelativePath" locationName:"relativePath" type:"string"`
 }
 
 // String returns the string representation
@@ -443,14 +443,14 @@ type FileMetadata struct {
 
 	// The full path to the file that will be added or updated, including the name
 	// of the file.
-	AbsolutePath *string `locationName:"absolutePath" type:"string"`
+	AbsolutePath *string `json:"codecommit:FileMetadata:AbsolutePath" locationName:"absolutePath" type:"string"`
 
 	// The blob ID that contains the file information.
-	BlobId *string `locationName:"blobId" type:"string"`
+	BlobId *string `json:"codecommit:FileMetadata:BlobId" locationName:"blobId" type:"string"`
 
 	// The extrapolated file mode permissions for the file. Valid values include
 	// EXECUTABLE and NORMAL.
-	FileMode FileModeTypeEnum `locationName:"fileMode" type:"string" enum:"true"`
+	FileMode FileModeTypeEnum `json:"codecommit:FileMetadata:FileMode" locationName:"fileMode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -464,13 +464,13 @@ type FileModes struct {
 	_ struct{} `type:"structure"`
 
 	// The file mode of a file in the base of a merge or pull request.
-	Base FileModeTypeEnum `locationName:"base" type:"string" enum:"true"`
+	Base FileModeTypeEnum `json:"codecommit:FileModes:Base" locationName:"base" type:"string" enum:"true"`
 
 	// The file mode of a file in the destination of a merge or pull request.
-	Destination FileModeTypeEnum `locationName:"destination" type:"string" enum:"true"`
+	Destination FileModeTypeEnum `json:"codecommit:FileModes:Destination" locationName:"destination" type:"string" enum:"true"`
 
 	// The file mode of a file in the source of a merge or pull request.
-	Source FileModeTypeEnum `locationName:"source" type:"string" enum:"true"`
+	Source FileModeTypeEnum `json:"codecommit:FileModes:Source" locationName:"source" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -484,13 +484,13 @@ type FileSizes struct {
 	_ struct{} `type:"structure"`
 
 	// The size of a file in the base of a merge or pull request.
-	Base *int64 `locationName:"base" type:"long"`
+	Base *int64 `json:"codecommit:FileSizes:Base" locationName:"base" type:"long"`
 
 	// The size of a file in the destination of a merge or pull request.
-	Destination *int64 `locationName:"destination" type:"long"`
+	Destination *int64 `json:"codecommit:FileSizes:Destination" locationName:"destination" type:"long"`
 
 	// The size of a file in the source of a merge or pull request.
-	Source *int64 `locationName:"source" type:"long"`
+	Source *int64 `json:"codecommit:FileSizes:Source" locationName:"source" type:"long"`
 }
 
 // String returns the string representation
@@ -504,15 +504,15 @@ type Folder struct {
 	_ struct{} `type:"structure"`
 
 	// The fully-qualified path of the folder in the repository.
-	AbsolutePath *string `locationName:"absolutePath" type:"string"`
+	AbsolutePath *string `json:"codecommit:Folder:AbsolutePath" locationName:"absolutePath" type:"string"`
 
 	// The relative path of the specified folder from the folder where the query
 	// originated.
-	RelativePath *string `locationName:"relativePath" type:"string"`
+	RelativePath *string `json:"codecommit:Folder:RelativePath" locationName:"relativePath" type:"string"`
 
 	// The full SHA-1 pointer of the tree information for the commit that contains
 	// the folder.
-	TreeId *string `locationName:"treeId" type:"string"`
+	TreeId *string `json:"codecommit:Folder:TreeId" locationName:"treeId" type:"string"`
 }
 
 // String returns the string representation
@@ -528,15 +528,15 @@ type IsBinaryFile struct {
 
 	// The binary or non-binary status of a file in the base of a merge or pull
 	// request.
-	Base *bool `locationName:"base" type:"boolean"`
+	Base *bool `json:"codecommit:IsBinaryFile:Base" locationName:"base" type:"boolean"`
 
 	// The binary or non-binary status of a file in the destination of a merge or
 	// pull request.
-	Destination *bool `locationName:"destination" type:"boolean"`
+	Destination *bool `json:"codecommit:IsBinaryFile:Destination" locationName:"destination" type:"boolean"`
 
 	// The binary or non-binary status of file in the source of a merge or pull
 	// request.
-	Source *bool `locationName:"source" type:"boolean"`
+	Source *bool `json:"codecommit:IsBinaryFile:Source" locationName:"source" type:"boolean"`
 }
 
 // String returns the string representation
@@ -552,14 +552,14 @@ type Location struct {
 
 	// The name of the file being compared, including its extension and subdirectory,
 	// if any.
-	FilePath *string `locationName:"filePath" type:"string"`
+	FilePath *string `json:"codecommit:Location:FilePath" locationName:"filePath" type:"string"`
 
 	// The position of a change within a compared file, in line number format.
-	FilePosition *int64 `locationName:"filePosition" type:"long"`
+	FilePosition *int64 `json:"codecommit:Location:FilePosition" locationName:"filePosition" type:"long"`
 
 	// In a comparison of commits or a pull request, whether the change is in the
 	// 'before' or 'after' of that comparison.
-	RelativeFileVersion RelativeFileVersionEnum `locationName:"relativeFileVersion" type:"string" enum:"true"`
+	RelativeFileVersion RelativeFileVersionEnum `json:"codecommit:Location:RelativeFileVersion" locationName:"relativeFileVersion" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -573,10 +573,10 @@ type MergeHunk struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the merge hunk in the base of a merge or pull request.
-	Base *MergeHunkDetail `locationName:"base" type:"structure"`
+	Base *MergeHunkDetail `json:"codecommit:MergeHunk:Base" locationName:"base" type:"structure"`
 
 	// Information about the merge hunk in the destination of a merge or pull request.
-	Destination *MergeHunkDetail `locationName:"destination" type:"structure"`
+	Destination *MergeHunkDetail `json:"codecommit:MergeHunk:Destination" locationName:"destination" type:"structure"`
 
 	// A Boolean value indicating whether a combination of hunks contains a conflict.
 	// Conflicts occur when the same file or the same lines in a file were modified
@@ -584,10 +584,10 @@ type MergeHunk struct {
 	// include true, false, and null. This will be true when the hunk represents
 	// a conflict and one or more files contains a line conflict. File mode conflicts
 	// in a merge will not set this to be true.
-	IsConflict *bool `locationName:"isConflict" type:"boolean"`
+	IsConflict *bool `json:"codecommit:MergeHunk:IsConflict" locationName:"isConflict" type:"boolean"`
 
 	// Information about the merge hunk in the source of a merge or pull request.
-	Source *MergeHunkDetail `locationName:"source" type:"structure"`
+	Source *MergeHunkDetail `json:"codecommit:MergeHunk:Source" locationName:"source" type:"structure"`
 }
 
 // String returns the string representation
@@ -602,14 +602,14 @@ type MergeHunkDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The end position of the hunk in the merge result.
-	EndLine *int64 `locationName:"endLine" type:"integer"`
+	EndLine *int64 `json:"codecommit:MergeHunkDetail:EndLine" locationName:"endLine" type:"integer"`
 
 	// The base-64 encoded content of the hunk merged region that might or might
 	// not contain a conflict.
-	HunkContent *string `locationName:"hunkContent" type:"string"`
+	HunkContent *string `json:"codecommit:MergeHunkDetail:HunkContent" locationName:"hunkContent" type:"string"`
 
 	// The start position of the hunk in the merge result.
-	StartLine *int64 `locationName:"startLine" type:"integer"`
+	StartLine *int64 `json:"codecommit:MergeHunkDetail:StartLine" locationName:"startLine" type:"integer"`
 }
 
 // String returns the string representation
@@ -624,16 +624,16 @@ type MergeMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// A Boolean value indicating whether the merge has been made.
-	IsMerged *bool `locationName:"isMerged" type:"boolean"`
+	IsMerged *bool `json:"codecommit:MergeMetadata:IsMerged" locationName:"isMerged" type:"boolean"`
 
 	// The commit ID for the merge commit, if any.
-	MergeCommitId *string `locationName:"mergeCommitId" type:"string"`
+	MergeCommitId *string `json:"codecommit:MergeMetadata:MergeCommitId" locationName:"mergeCommitId" type:"string"`
 
 	// The merge strategy used in the merge.
-	MergeOption MergeOptionTypeEnum `locationName:"mergeOption" type:"string" enum:"true"`
+	MergeOption MergeOptionTypeEnum `json:"codecommit:MergeMetadata:MergeOption" locationName:"mergeOption" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the user who merged the branches.
-	MergedBy *string `locationName:"mergedBy" type:"string"`
+	MergedBy *string `json:"codecommit:MergeMetadata:MergedBy" locationName:"mergedBy" type:"string"`
 }
 
 // String returns the string representation
@@ -647,11 +647,11 @@ type MergeOperations struct {
 	_ struct{} `type:"structure"`
 
 	// The operation on a file in the destination of a merge or pull request.
-	Destination ChangeTypeEnum `locationName:"destination" type:"string" enum:"true"`
+	Destination ChangeTypeEnum `json:"codecommit:MergeOperations:Destination" locationName:"destination" type:"string" enum:"true"`
 
 	// The operation on a file (add, modify, or delete) of a file in the source
 	// of a merge or pull request.
-	Source ChangeTypeEnum `locationName:"source" type:"string" enum:"true"`
+	Source ChangeTypeEnum `json:"codecommit:MergeOperations:Source" locationName:"source" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -665,13 +665,13 @@ type ObjectTypes struct {
 	_ struct{} `type:"structure"`
 
 	// The type of the object in the base commit of the merge.
-	Base ObjectTypeEnum `locationName:"base" type:"string" enum:"true"`
+	Base ObjectTypeEnum `json:"codecommit:ObjectTypes:Base" locationName:"base" type:"string" enum:"true"`
 
 	// The type of the object in the destination branch.
-	Destination ObjectTypeEnum `locationName:"destination" type:"string" enum:"true"`
+	Destination ObjectTypeEnum `json:"codecommit:ObjectTypes:Destination" locationName:"destination" type:"string" enum:"true"`
 
 	// The type of the object in the source branch.
-	Source ObjectTypeEnum `locationName:"source" type:"string" enum:"true"`
+	Source ObjectTypeEnum `json:"codecommit:ObjectTypes:Source" locationName:"source" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -685,39 +685,39 @@ type PullRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the user who created the pull request.
-	AuthorArn *string `locationName:"authorArn" type:"string"`
+	AuthorArn *string `json:"codecommit:PullRequest:AuthorArn" locationName:"authorArn" type:"string"`
 
 	// A unique, client-generated idempotency token that when provided in a request,
 	// ensures the request cannot be repeated with a changed parameter. If a request
 	// is received with the same parameters and a token is included, the request
 	// will return information about the initial request that used that token.
-	ClientRequestToken *string `locationName:"clientRequestToken" type:"string"`
+	ClientRequestToken *string `json:"codecommit:PullRequest:ClientRequestToken" locationName:"clientRequestToken" type:"string"`
 
 	// The date and time the pull request was originally created, in timestamp format.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"codecommit:PullRequest:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The user-defined description of the pull request. This description can be
 	// used to clarify what should be reviewed and other details of the request.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"codecommit:PullRequest:Description" locationName:"description" type:"string"`
 
 	// The day and time of the last user or system activity on the pull request,
 	// in timestamp format.
-	LastActivityDate *time.Time `locationName:"lastActivityDate" type:"timestamp" timestampFormat:"unix"`
+	LastActivityDate *time.Time `json:"codecommit:PullRequest:LastActivityDate" locationName:"lastActivityDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The system-generated ID of the pull request.
-	PullRequestId *string `locationName:"pullRequestId" type:"string"`
+	PullRequestId *string `json:"codecommit:PullRequest:PullRequestId" locationName:"pullRequestId" type:"string"`
 
 	// The status of the pull request. Pull request status can only change from
 	// OPEN to CLOSED.
-	PullRequestStatus PullRequestStatusEnum `locationName:"pullRequestStatus" type:"string" enum:"true"`
+	PullRequestStatus PullRequestStatusEnum `json:"codecommit:PullRequest:PullRequestStatus" locationName:"pullRequestStatus" type:"string" enum:"true"`
 
 	// The targets of the pull request, including the source branch and destination
 	// branch for the pull request.
-	PullRequestTargets []PullRequestTarget `locationName:"pullRequestTargets" type:"list"`
+	PullRequestTargets []PullRequestTarget `json:"codecommit:PullRequest:PullRequestTargets" locationName:"pullRequestTargets" type:"list"`
 
 	// The user-defined title of the pull request. This title is displayed in the
 	// list of pull requests to other users of the repository.
-	Title *string `locationName:"title" type:"string"`
+	Title *string `json:"codecommit:PullRequest:Title" locationName:"title" type:"string"`
 }
 
 // String returns the string representation
@@ -733,17 +733,17 @@ type PullRequestCreatedEventMetadata struct {
 
 	// The commit ID of the tip of the branch specified as the destination branch
 	// when the pull request was created.
-	DestinationCommitId *string `locationName:"destinationCommitId" type:"string"`
+	DestinationCommitId *string `json:"codecommit:PullRequestCreatedEventMetadata:DestinationCommitId" locationName:"destinationCommitId" type:"string"`
 
 	// The commit ID of the most recent commit that the source branch and the destination
 	// branch have in common.
-	MergeBase *string `locationName:"mergeBase" type:"string"`
+	MergeBase *string `json:"codecommit:PullRequestCreatedEventMetadata:MergeBase" locationName:"mergeBase" type:"string"`
 
 	// The name of the repository where the pull request was created.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:PullRequestCreatedEventMetadata:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 
 	// The commit ID on the source branch used when the pull request was created.
-	SourceCommitId *string `locationName:"sourceCommitId" type:"string"`
+	SourceCommitId *string `json:"codecommit:PullRequestCreatedEventMetadata:SourceCommitId" locationName:"sourceCommitId" type:"string"`
 }
 
 // String returns the string representation
@@ -759,29 +759,29 @@ type PullRequestEvent struct {
 	// The Amazon Resource Name (ARN) of the user whose actions resulted in the
 	// event. Examples include updating the pull request with additional commits
 	// or changing the status of a pull request.
-	ActorArn *string `locationName:"actorArn" type:"string"`
+	ActorArn *string `json:"codecommit:PullRequestEvent:ActorArn" locationName:"actorArn" type:"string"`
 
 	// The day and time of the pull request event, in timestamp format.
-	EventDate *time.Time `locationName:"eventDate" type:"timestamp" timestampFormat:"unix"`
+	EventDate *time.Time `json:"codecommit:PullRequestEvent:EventDate" locationName:"eventDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the source and destination branches for the pull request.
-	PullRequestCreatedEventMetadata *PullRequestCreatedEventMetadata `locationName:"pullRequestCreatedEventMetadata" type:"structure"`
+	PullRequestCreatedEventMetadata *PullRequestCreatedEventMetadata `json:"codecommit:PullRequestEvent:PullRequestCreatedEventMetadata" locationName:"pullRequestCreatedEventMetadata" type:"structure"`
 
 	// The type of the pull request event, for example a status change event (PULL_REQUEST_STATUS_CHANGED)
 	// or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED).
-	PullRequestEventType PullRequestEventType `locationName:"pullRequestEventType" type:"string" enum:"true"`
+	PullRequestEventType PullRequestEventType `json:"codecommit:PullRequestEvent:PullRequestEventType" locationName:"pullRequestEventType" type:"string" enum:"true"`
 
 	// The system-generated ID of the pull request.
-	PullRequestId *string `locationName:"pullRequestId" type:"string"`
+	PullRequestId *string `json:"codecommit:PullRequestEvent:PullRequestId" locationName:"pullRequestId" type:"string"`
 
 	// Information about the change in mergability state for the pull request event.
-	PullRequestMergedStateChangedEventMetadata *PullRequestMergedStateChangedEventMetadata `locationName:"pullRequestMergedStateChangedEventMetadata" type:"structure"`
+	PullRequestMergedStateChangedEventMetadata *PullRequestMergedStateChangedEventMetadata `json:"codecommit:PullRequestEvent:PullRequestMergedStateChangedEventMetadata" locationName:"pullRequestMergedStateChangedEventMetadata" type:"structure"`
 
 	// Information about the updated source branch for the pull request event.
-	PullRequestSourceReferenceUpdatedEventMetadata *PullRequestSourceReferenceUpdatedEventMetadata `locationName:"pullRequestSourceReferenceUpdatedEventMetadata" type:"structure"`
+	PullRequestSourceReferenceUpdatedEventMetadata *PullRequestSourceReferenceUpdatedEventMetadata `json:"codecommit:PullRequestEvent:PullRequestSourceReferenceUpdatedEventMetadata" locationName:"pullRequestSourceReferenceUpdatedEventMetadata" type:"structure"`
 
 	// Information about the change in status for the pull request event.
-	PullRequestStatusChangedEventMetadata *PullRequestStatusChangedEventMetadata `locationName:"pullRequestStatusChangedEventMetadata" type:"structure"`
+	PullRequestStatusChangedEventMetadata *PullRequestStatusChangedEventMetadata `json:"codecommit:PullRequestEvent:PullRequestStatusChangedEventMetadata" locationName:"pullRequestStatusChangedEventMetadata" type:"structure"`
 }
 
 // String returns the string representation
@@ -796,13 +796,13 @@ type PullRequestMergedStateChangedEventMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the branch that the pull request will be merged into.
-	DestinationReference *string `locationName:"destinationReference" type:"string"`
+	DestinationReference *string `json:"codecommit:PullRequestMergedStateChangedEventMetadata:DestinationReference" locationName:"destinationReference" type:"string"`
 
 	// Information about the merge state change event.
-	MergeMetadata *MergeMetadata `locationName:"mergeMetadata" type:"structure"`
+	MergeMetadata *MergeMetadata `json:"codecommit:PullRequestMergedStateChangedEventMetadata:MergeMetadata" locationName:"mergeMetadata" type:"structure"`
 
 	// The name of the repository where the pull request was created.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:PullRequestMergedStateChangedEventMetadata:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -817,18 +817,18 @@ type PullRequestSourceReferenceUpdatedEventMetadata struct {
 
 	// The full commit ID of the commit in the source branch that was the tip of
 	// the branch at the time the pull request was updated.
-	AfterCommitId *string `locationName:"afterCommitId" type:"string"`
+	AfterCommitId *string `json:"codecommit:PullRequestSourceReferenceUpdatedEventMetadata:AfterCommitId" locationName:"afterCommitId" type:"string"`
 
 	// The full commit ID of the commit in the destination branch that was the tip
 	// of the branch at the time the pull request was updated.
-	BeforeCommitId *string `locationName:"beforeCommitId" type:"string"`
+	BeforeCommitId *string `json:"codecommit:PullRequestSourceReferenceUpdatedEventMetadata:BeforeCommitId" locationName:"beforeCommitId" type:"string"`
 
 	// The commit ID of the most recent commit that the source branch and the destination
 	// branch have in common.
-	MergeBase *string `locationName:"mergeBase" type:"string"`
+	MergeBase *string `json:"codecommit:PullRequestSourceReferenceUpdatedEventMetadata:MergeBase" locationName:"mergeBase" type:"string"`
 
 	// The name of the repository where the pull request was updated.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:PullRequestSourceReferenceUpdatedEventMetadata:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -842,7 +842,7 @@ type PullRequestStatusChangedEventMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The changed status of the pull request.
-	PullRequestStatus PullRequestStatusEnum `locationName:"pullRequestStatus" type:"string" enum:"true"`
+	PullRequestStatus PullRequestStatusEnum `json:"codecommit:PullRequestStatusChangedEventMetadata:PullRequestStatus" locationName:"pullRequestStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -857,32 +857,32 @@ type PullRequestTarget struct {
 
 	// The full commit ID that is the tip of the destination branch. This is the
 	// commit where the pull request was or will be merged.
-	DestinationCommit *string `locationName:"destinationCommit" type:"string"`
+	DestinationCommit *string `json:"codecommit:PullRequestTarget:DestinationCommit" locationName:"destinationCommit" type:"string"`
 
 	// The branch of the repository where the pull request changes will be merged
 	// into. Also known as the destination branch.
-	DestinationReference *string `locationName:"destinationReference" type:"string"`
+	DestinationReference *string `json:"codecommit:PullRequestTarget:DestinationReference" locationName:"destinationReference" type:"string"`
 
 	// The commit ID of the most recent commit that the source branch and the destination
 	// branch have in common.
-	MergeBase *string `locationName:"mergeBase" type:"string"`
+	MergeBase *string `json:"codecommit:PullRequestTarget:MergeBase" locationName:"mergeBase" type:"string"`
 
 	// Returns metadata about the state of the merge, including whether the merge
 	// has been made.
-	MergeMetadata *MergeMetadata `locationName:"mergeMetadata" type:"structure"`
+	MergeMetadata *MergeMetadata `json:"codecommit:PullRequestTarget:MergeMetadata" locationName:"mergeMetadata" type:"structure"`
 
 	// The name of the repository that contains the pull request source and destination
 	// branches.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:PullRequestTarget:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 
 	// The full commit ID of the tip of the source branch used to create the pull
 	// request. If the pull request branch is updated by a push while the pull request
 	// is open, the commit ID will change to reflect the new tip of the branch.
-	SourceCommit *string `locationName:"sourceCommit" type:"string"`
+	SourceCommit *string `json:"codecommit:PullRequestTarget:SourceCommit" locationName:"sourceCommit" type:"string"`
 
 	// The branch of the repository that contains the changes for the pull request.
 	// Also known as the source branch.
-	SourceReference *string `locationName:"sourceReference" type:"string"`
+	SourceReference *string `json:"codecommit:PullRequestTarget:SourceReference" locationName:"sourceReference" type:"string"`
 }
 
 // String returns the string representation
@@ -898,20 +898,20 @@ type PutFileEntry struct {
 	// The content of the file, if a source file is not specified.
 	//
 	// FileContent is automatically base64 encoded/decoded by the SDK.
-	FileContent []byte `locationName:"fileContent" type:"blob"`
+	FileContent []byte `json:"codecommit:PutFileEntry:FileContent" locationName:"fileContent" type:"blob"`
 
 	// The extrapolated file mode permissions for the file. Valid values include
 	// EXECUTABLE and NORMAL.
-	FileMode FileModeTypeEnum `locationName:"fileMode" type:"string" enum:"true"`
+	FileMode FileModeTypeEnum `json:"codecommit:PutFileEntry:FileMode" locationName:"fileMode" type:"string" enum:"true"`
 
 	// The full path to the file in the repository, including the name of the file.
 	//
 	// FilePath is a required field
-	FilePath *string `locationName:"filePath" type:"string" required:"true"`
+	FilePath *string `json:"codecommit:PutFileEntry:FilePath" locationName:"filePath" type:"string" required:"true"`
 
 	// The name and full path of the file that contains the changes you want to
 	// make as part of the commit, if you are not providing the file content directly.
-	SourceFile *SourceFileSpecifier `locationName:"sourceFile" type:"structure"`
+	SourceFile *SourceFileSpecifier `json:"codecommit:PutFileEntry:SourceFile" locationName:"sourceFile" type:"structure"`
 }
 
 // String returns the string representation
@@ -947,20 +947,20 @@ type ReplaceContentEntry struct {
 	// The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.
 	//
 	// Content is automatically base64 encoded/decoded by the SDK.
-	Content []byte `locationName:"content" type:"blob"`
+	Content []byte `json:"codecommit:ReplaceContentEntry:Content" locationName:"content" type:"blob"`
 
 	// The file mode to apply during conflict resoltion.
-	FileMode FileModeTypeEnum `locationName:"fileMode" type:"string" enum:"true"`
+	FileMode FileModeTypeEnum `json:"codecommit:ReplaceContentEntry:FileMode" locationName:"fileMode" type:"string" enum:"true"`
 
 	// The path of the conflicting file.
 	//
 	// FilePath is a required field
-	FilePath *string `locationName:"filePath" type:"string" required:"true"`
+	FilePath *string `json:"codecommit:ReplaceContentEntry:FilePath" locationName:"filePath" type:"string" required:"true"`
 
 	// The replacement type to use when determining how to resolve the conflict.
 	//
 	// ReplacementType is a required field
-	ReplacementType ReplacementTypeEnum `locationName:"replacementType" type:"string" required:"true" enum:"true"`
+	ReplacementType ReplacementTypeEnum `json:"codecommit:ReplaceContentEntry:ReplacementType" locationName:"replacementType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -991,34 +991,34 @@ type RepositoryMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the AWS account associated with the repository.
-	AccountId *string `locationName:"accountId" type:"string"`
+	AccountId *string `json:"codecommit:RepositoryMetadata:AccountId" locationName:"accountId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the repository.
-	Arn *string `type:"string"`
+	Arn *string `json:"codecommit:RepositoryMetadata:Arn" type:"string"`
 
 	// The URL to use for cloning the repository over HTTPS.
-	CloneUrlHttp *string `locationName:"cloneUrlHttp" type:"string"`
+	CloneUrlHttp *string `json:"codecommit:RepositoryMetadata:CloneUrlHttp" locationName:"cloneUrlHttp" type:"string"`
 
 	// The URL to use for cloning the repository over SSH.
-	CloneUrlSsh *string `locationName:"cloneUrlSsh" type:"string"`
+	CloneUrlSsh *string `json:"codecommit:RepositoryMetadata:CloneUrlSsh" locationName:"cloneUrlSsh" type:"string"`
 
 	// The date and time the repository was created, in timestamp format.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"codecommit:RepositoryMetadata:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The repository's default branch name.
-	DefaultBranch *string `locationName:"defaultBranch" min:"1" type:"string"`
+	DefaultBranch *string `json:"codecommit:RepositoryMetadata:DefaultBranch" locationName:"defaultBranch" min:"1" type:"string"`
 
 	// The date and time the repository was last modified, in timestamp format.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"codecommit:RepositoryMetadata:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A comment or description about the repository.
-	RepositoryDescription *string `locationName:"repositoryDescription" type:"string"`
+	RepositoryDescription *string `json:"codecommit:RepositoryMetadata:RepositoryDescription" locationName:"repositoryDescription" type:"string"`
 
 	// The ID of the repository.
-	RepositoryId *string `locationName:"repositoryId" type:"string"`
+	RepositoryId *string `json:"codecommit:RepositoryMetadata:RepositoryId" locationName:"repositoryId" type:"string"`
 
 	// The repository's name.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:RepositoryMetadata:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1032,10 +1032,10 @@ type RepositoryNameIdPair struct {
 	_ struct{} `type:"structure"`
 
 	// The ID associated with the repository.
-	RepositoryId *string `locationName:"repositoryId" type:"string"`
+	RepositoryId *string `json:"codecommit:RepositoryNameIdPair:RepositoryId" locationName:"repositoryId" type:"string"`
 
 	// The name associated with the repository.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:RepositoryNameIdPair:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1052,17 +1052,17 @@ type RepositoryTrigger struct {
 	// an empty array, the trigger will apply to all branches.
 	//
 	// While no content is required in the array, you must include the array itself.
-	Branches []string `locationName:"branches" type:"list"`
+	Branches []string `json:"codecommit:RepositoryTrigger:Branches" locationName:"branches" type:"list"`
 
 	// Any custom data associated with the trigger that will be included in the
 	// information sent to the target of the trigger.
-	CustomData *string `locationName:"customData" type:"string"`
+	CustomData *string `json:"codecommit:RepositoryTrigger:CustomData" locationName:"customData" type:"string"`
 
 	// The ARN of the resource that is the target for a trigger. For example, the
 	// ARN of a topic in Amazon Simple Notification Service (SNS).
 	//
 	// DestinationArn is a required field
-	DestinationArn *string `locationName:"destinationArn" type:"string" required:"true"`
+	DestinationArn *string `json:"codecommit:RepositoryTrigger:DestinationArn" locationName:"destinationArn" type:"string" required:"true"`
 
 	// The repository events that will cause the trigger to run actions in another
 	// service, such as sending a notification through Amazon Simple Notification
@@ -1071,12 +1071,12 @@ type RepositoryTrigger struct {
 	// The valid value "all" cannot be used with any other values.
 	//
 	// Events is a required field
-	Events []RepositoryTriggerEventEnum `locationName:"events" type:"list" required:"true"`
+	Events []RepositoryTriggerEventEnum `json:"codecommit:RepositoryTrigger:Events" locationName:"events" type:"list" required:"true"`
 
 	// The name of the trigger.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"codecommit:RepositoryTrigger:Name" locationName:"name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1112,10 +1112,10 @@ type RepositoryTriggerExecutionFailure struct {
 	_ struct{} `type:"structure"`
 
 	// Additional message information about the trigger that did not run.
-	FailureMessage *string `locationName:"failureMessage" type:"string"`
+	FailureMessage *string `json:"codecommit:RepositoryTriggerExecutionFailure:FailureMessage" locationName:"failureMessage" type:"string"`
 
 	// The name of the trigger that did not run.
-	Trigger *string `locationName:"trigger" type:"string"`
+	Trigger *string `json:"codecommit:RepositoryTriggerExecutionFailure:Trigger" locationName:"trigger" type:"string"`
 }
 
 // String returns the string representation
@@ -1131,12 +1131,12 @@ type SetFileModeEntry struct {
 	// The file mode for the file.
 	//
 	// FileMode is a required field
-	FileMode FileModeTypeEnum `locationName:"fileMode" type:"string" required:"true" enum:"true"`
+	FileMode FileModeTypeEnum `json:"codecommit:SetFileModeEntry:FileMode" locationName:"fileMode" type:"string" required:"true" enum:"true"`
 
 	// The full path to the file, including the name of the file.
 	//
 	// FilePath is a required field
-	FilePath *string `locationName:"filePath" type:"string" required:"true"`
+	FilePath *string `json:"codecommit:SetFileModeEntry:FilePath" locationName:"filePath" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1169,10 +1169,10 @@ type SourceFileSpecifier struct {
 	// The full path to the file, including the name of the file.
 	//
 	// FilePath is a required field
-	FilePath *string `locationName:"filePath" type:"string" required:"true"`
+	FilePath *string `json:"codecommit:SourceFileSpecifier:FilePath" locationName:"filePath" type:"string" required:"true"`
 
 	// Whether to remove the source file from the parent commit.
-	IsMove *bool `locationName:"isMove" type:"boolean"`
+	IsMove *bool `json:"codecommit:SourceFileSpecifier:IsMove" locationName:"isMove" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1201,13 +1201,13 @@ type SubModule struct {
 
 	// The fully qualified path to the folder that contains the reference to the
 	// submodule.
-	AbsolutePath *string `locationName:"absolutePath" type:"string"`
+	AbsolutePath *string `json:"codecommit:SubModule:AbsolutePath" locationName:"absolutePath" type:"string"`
 
 	// The commit ID that contains the reference to the submodule.
-	CommitId *string `locationName:"commitId" type:"string"`
+	CommitId *string `json:"codecommit:SubModule:CommitId" locationName:"commitId" type:"string"`
 
 	// The relative path of the submodule from the folder where the query originated.
-	RelativePath *string `locationName:"relativePath" type:"string"`
+	RelativePath *string `json:"codecommit:SubModule:RelativePath" locationName:"relativePath" type:"string"`
 }
 
 // String returns the string representation
@@ -1221,17 +1221,17 @@ type SymbolicLink struct {
 	_ struct{} `type:"structure"`
 
 	// The fully-qualified path to the folder that contains the symbolic link.
-	AbsolutePath *string `locationName:"absolutePath" type:"string"`
+	AbsolutePath *string `json:"codecommit:SymbolicLink:AbsolutePath" locationName:"absolutePath" type:"string"`
 
 	// The blob ID that contains the information about the symbolic link.
-	BlobId *string `locationName:"blobId" type:"string"`
+	BlobId *string `json:"codecommit:SymbolicLink:BlobId" locationName:"blobId" type:"string"`
 
 	// The file mode permissions of the blob that cotains information about the
 	// symbolic link.
-	FileMode FileModeTypeEnum `locationName:"fileMode" type:"string" enum:"true"`
+	FileMode FileModeTypeEnum `json:"codecommit:SymbolicLink:FileMode" locationName:"fileMode" type:"string" enum:"true"`
 
 	// The relative path of the symbolic link from the folder where the query originated.
-	RelativePath *string `locationName:"relativePath" type:"string"`
+	RelativePath *string `json:"codecommit:SymbolicLink:RelativePath" locationName:"relativePath" type:"string"`
 }
 
 // String returns the string representation
@@ -1246,18 +1246,18 @@ type Target struct {
 
 	// The branch of the repository where the pull request changes will be merged
 	// into. Also known as the destination branch.
-	DestinationReference *string `locationName:"destinationReference" type:"string"`
+	DestinationReference *string `json:"codecommit:Target:DestinationReference" locationName:"destinationReference" type:"string"`
 
 	// The name of the repository that contains the pull request.
 	//
 	// RepositoryName is a required field
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string" required:"true"`
+	RepositoryName *string `json:"codecommit:Target:RepositoryName" locationName:"repositoryName" min:"1" type:"string" required:"true"`
 
 	// The branch of the repository that contains the changes for the pull request.
 	// Also known as the source branch.
 	//
 	// SourceReference is a required field
-	SourceReference *string `locationName:"sourceReference" type:"string" required:"true"`
+	SourceReference *string `json:"codecommit:Target:SourceReference" locationName:"sourceReference" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1293,13 +1293,13 @@ type UserInfo struct {
 
 	// The date when the specified commit was commited, in timestamp format with
 	// GMT offset.
-	Date *string `locationName:"date" type:"string"`
+	Date *string `json:"codecommit:UserInfo:Date" locationName:"date" type:"string"`
 
 	// The email address associated with the user who made the commit, if any.
-	Email *string `locationName:"email" type:"string"`
+	Email *string `json:"codecommit:UserInfo:Email" locationName:"email" type:"string"`
 
 	// The name of the user who made the specified commit.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"codecommit:UserInfo:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation

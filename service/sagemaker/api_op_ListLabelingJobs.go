@@ -75,11 +75,11 @@ type ListLabelingJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of LabelingJobSummary objects, each describing a labeling job.
-	LabelingJobSummaryList []LabelingJobSummary `type:"list"`
+	LabelingJobSummaryList []LabelingJobSummary `json:"api.sagemaker:ListLabelingJobsOutput:LabelingJobSummaryList" type:"list"`
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of labeling jobs, use it in the subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListLabelingJobsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

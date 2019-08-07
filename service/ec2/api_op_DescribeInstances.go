@@ -284,10 +284,10 @@ type DescribeInstancesOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the reservations.
-	Reservations []Reservation `locationName:"reservationSet" locationNameList:"item" type:"list"`
+	Reservations []Reservation `json:"ec2:DescribeInstancesOutput:Reservations" locationName:"reservationSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

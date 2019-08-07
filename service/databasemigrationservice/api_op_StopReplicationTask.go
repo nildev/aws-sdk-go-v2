@@ -43,7 +43,7 @@ type StopReplicationTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The replication task stopped.
-	ReplicationTask *ReplicationTask `type:"structure"`
+	ReplicationTask *ReplicationTask `json:"dms:StopReplicationTaskOutput:ReplicationTask" type:"structure"`
 }
 
 // String returns the string representation

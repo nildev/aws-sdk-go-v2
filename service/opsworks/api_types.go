@@ -16,10 +16,10 @@ type AgentVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The configuration manager.
-	ConfigurationManager *StackConfigurationManager `type:"structure"`
+	ConfigurationManager *StackConfigurationManager `json:"opsworks:AgentVersion:ConfigurationManager" type:"structure"`
 
 	// The agent version.
-	Version *string `type:"string"`
+	Version *string `json:"opsworks:AgentVersion:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -33,29 +33,29 @@ type App struct {
 	_ struct{} `type:"structure"`
 
 	// The app ID.
-	AppId *string `type:"string"`
+	AppId *string `json:"opsworks:App:AppId" type:"string"`
 
 	// A Source object that describes the app repository.
-	AppSource *Source `type:"structure"`
+	AppSource *Source `json:"opsworks:App:AppSource" type:"structure"`
 
 	// The stack attributes.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"opsworks:App:Attributes" type:"map"`
 
 	// When the app was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"opsworks:App:CreatedAt" type:"string"`
 
 	// The app's data sources.
-	DataSources []DataSource `type:"list"`
+	DataSources []DataSource `json:"opsworks:App:DataSources" type:"list"`
 
 	// A description of the app.
-	Description *string `type:"string"`
+	Description *string `json:"opsworks:App:Description" type:"string"`
 
 	// The app vhost settings with multiple domains separated by commas. For example:
 	// 'www.example.com, example.com'
-	Domains []string `type:"list"`
+	Domains []string `json:"opsworks:App:Domains" type:"list"`
 
 	// Whether to enable SSL for the app.
-	EnableSsl *bool `type:"boolean"`
+	EnableSsl *bool `json:"opsworks:App:EnableSsl" type:"boolean"`
 
 	// An array of EnvironmentVariable objects that specify environment variables
 	// to be associated with the app. After you deploy the app, these variables
@@ -68,22 +68,22 @@ type App struct {
 	// accommodate most if not all use cases, but if you do exceed it, you will
 	// cause an exception (API) with an "Environment: is too large (maximum is 20
 	// KB)" message.
-	Environment []EnvironmentVariable `type:"list"`
+	Environment []EnvironmentVariable `json:"opsworks:App:Environment" type:"list"`
 
 	// The app name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:App:Name" type:"string"`
 
 	// The app's short name.
-	Shortname *string `type:"string"`
+	Shortname *string `json:"opsworks:App:Shortname" type:"string"`
 
 	// An SslConfiguration object with the SSL configuration.
-	SslConfiguration *SslConfiguration `type:"structure"`
+	SslConfiguration *SslConfiguration `json:"opsworks:App:SslConfiguration" type:"structure"`
 
 	// The app stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:App:StackId" type:"string"`
 
 	// The app type.
-	Type AppType `type:"string" enum:"true"`
+	Type AppType `json:"opsworks:App:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -105,11 +105,11 @@ type AutoScalingThresholds struct {
 	// You can either have AWS OpsWorks Stacks update the role for you when you
 	// first use this feature or you can edit the role manually. For more information,
 	// see Allowing AWS OpsWorks Stacks to Act on Your Behalf (https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html).
-	Alarms []string `type:"list"`
+	Alarms []string `json:"opsworks:AutoScalingThresholds:Alarms" type:"list"`
 
 	// The CPU utilization threshold, as a percent of the available CPU. A value
 	// of -1 disables the threshold.
-	CpuThreshold *float64 `type:"double"`
+	CpuThreshold *float64 `json:"opsworks:AutoScalingThresholds:CpuThreshold" type:"double"`
 
 	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks
 	// Stacks should ignore metrics and suppress additional scaling events. For
@@ -119,22 +119,22 @@ type AutoScalingThresholds struct {
 	// that operation, which typically takes several minutes. IgnoreMetricsTime
 	// allows you to direct AWS OpsWorks Stacks to suppress scaling events long
 	// enough to get the new instances online.
-	IgnoreMetricsTime *int64 `min:"1" type:"integer"`
+	IgnoreMetricsTime *int64 `json:"opsworks:AutoScalingThresholds:IgnoreMetricsTime" min:"1" type:"integer"`
 
 	// The number of instances to add or remove when the load exceeds a threshold.
-	InstanceCount *int64 `type:"integer"`
+	InstanceCount *int64 `json:"opsworks:AutoScalingThresholds:InstanceCount" type:"integer"`
 
 	// The load threshold. A value of -1 disables the threshold. For more information
 	// about how load is computed, see Load (computing) (http://en.wikipedia.org/wiki/Load_%28computing%29).
-	LoadThreshold *float64 `type:"double"`
+	LoadThreshold *float64 `json:"opsworks:AutoScalingThresholds:LoadThreshold" type:"double"`
 
 	// The memory utilization threshold, as a percent of the available memory. A
 	// value of -1 disables the threshold.
-	MemoryThreshold *float64 `type:"double"`
+	MemoryThreshold *float64 `json:"opsworks:AutoScalingThresholds:MemoryThreshold" type:"double"`
 
 	// The amount of time, in minutes, that the load must exceed a threshold before
 	// more instances are added or removed.
-	ThresholdsWaitTime *int64 `min:"1" type:"integer"`
+	ThresholdsWaitTime *int64 `json:"opsworks:AutoScalingThresholds:ThresholdsWaitTime" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -168,17 +168,17 @@ type BlockDeviceMapping struct {
 	// The device name that is exposed to the instance, such as /dev/sdh. For the
 	// root device, you can use the explicit device name or you can set this parameter
 	// to ROOT_DEVICE and AWS OpsWorks Stacks will provide the correct device name.
-	DeviceName *string `type:"string"`
+	DeviceName *string `json:"opsworks:BlockDeviceMapping:DeviceName" type:"string"`
 
 	// An EBSBlockDevice that defines how to configure an Amazon EBS volume when
 	// the instance is launched.
-	Ebs *EbsBlockDevice `type:"structure"`
+	Ebs *EbsBlockDevice `json:"opsworks:BlockDeviceMapping:Ebs" type:"structure"`
 
 	// Suppresses the specified device included in the AMI's block device mapping.
-	NoDevice *string `type:"string"`
+	NoDevice *string `json:"opsworks:BlockDeviceMapping:NoDevice" type:"string"`
 
 	// The virtual device name. For more information, see BlockDeviceMapping (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html).
-	VirtualName *string `type:"string"`
+	VirtualName *string `json:"opsworks:BlockDeviceMapping:VirtualName" type:"string"`
 }
 
 // String returns the string representation
@@ -192,10 +192,10 @@ type ChefConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The Berkshelf version.
-	BerkshelfVersion *string `type:"string"`
+	BerkshelfVersion *string `json:"opsworks:ChefConfiguration:BerkshelfVersion" type:"string"`
 
 	// Whether to enable Berkshelf.
-	ManageBerkshelf *bool `type:"boolean"`
+	ManageBerkshelf *bool `json:"opsworks:ChefConfiguration:ManageBerkshelf" type:"boolean"`
 }
 
 // String returns the string representation
@@ -209,10 +209,10 @@ type CloudWatchLogsConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Whether CloudWatch Logs is enabled for a layer.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"opsworks:CloudWatchLogsConfiguration:Enabled" type:"boolean"`
 
 	// A list of configuration options for CloudWatch Logs.
-	LogStreams []CloudWatchLogsLogStream `type:"list"`
+	LogStreams []CloudWatchLogsLogStream `json:"opsworks:CloudWatchLogsConfiguration:LogStreams" type:"list"`
 }
 
 // String returns the string representation
@@ -229,25 +229,25 @@ type CloudWatchLogsLogStream struct {
 
 	// Specifies the max number of log events in a batch, up to 10000. The default
 	// value is 1000.
-	BatchCount *int64 `type:"integer"`
+	BatchCount *int64 `json:"opsworks:CloudWatchLogsLogStream:BatchCount" type:"integer"`
 
 	// Specifies the maximum size of log events in a batch, in bytes, up to 1048576
 	// bytes. The default value is 32768 bytes. This size is calculated as the sum
 	// of all event messages in UTF-8, plus 26 bytes for each log event.
-	BatchSize *int64 `type:"integer"`
+	BatchSize *int64 `json:"opsworks:CloudWatchLogsLogStream:BatchSize" type:"integer"`
 
 	// Specifies the time duration for the batching of log events. The minimum value
 	// is 5000ms and default value is 5000ms.
-	BufferDuration *int64 `type:"integer"`
+	BufferDuration *int64 `json:"opsworks:CloudWatchLogsLogStream:BufferDuration" type:"integer"`
 
 	// Specifies how the time stamp is extracted from logs. For more information,
 	// see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
-	DatetimeFormat *string `type:"string"`
+	DatetimeFormat *string `json:"opsworks:CloudWatchLogsLogStream:DatetimeFormat" type:"string"`
 
 	// Specifies the encoding of the log file so that the file can be read correctly.
 	// The default is utf_8. Encodings supported by Python codecs.decode() can be
 	// used here.
-	Encoding CloudWatchLogsEncoding `type:"string" enum:"true"`
+	Encoding CloudWatchLogsEncoding `json:"opsworks:CloudWatchLogsLogStream:Encoding" type:"string" enum:"true"`
 
 	// Specifies log files that you want to push to CloudWatch Logs.
 	//
@@ -262,31 +262,31 @@ type CloudWatchLogsLogStream struct {
 	// stored in a different log group.
 	//
 	// Zipped files are not supported.
-	File *string `type:"string"`
+	File *string `json:"opsworks:CloudWatchLogsLogStream:File" type:"string"`
 
 	// Specifies the range of lines for identifying a file. The valid values are
 	// one number, or two dash-delimited numbers, such as '1', '2-5'. The default
 	// value is '1', meaning the first line is used to calculate the fingerprint.
 	// Fingerprint lines are not sent to CloudWatch Logs unless all specified lines
 	// are available.
-	FileFingerprintLines *string `type:"string"`
+	FileFingerprintLines *string `json:"opsworks:CloudWatchLogsLogStream:FileFingerprintLines" type:"string"`
 
 	// Specifies where to start to read data (start_of_file or end_of_file). The
 	// default is start_of_file. This setting is only used if there is no state
 	// persisted for that log stream.
-	InitialPosition CloudWatchLogsInitialPosition `type:"string" enum:"true"`
+	InitialPosition CloudWatchLogsInitialPosition `json:"opsworks:CloudWatchLogsLogStream:InitialPosition" type:"string" enum:"true"`
 
 	// Specifies the destination log group. A log group is created automatically
 	// if it doesn't already exist. Log group names can be between 1 and 512 characters
 	// long. Allowed characters include a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen),
 	// '/' (forward slash), and '.' (period).
-	LogGroupName *string `type:"string"`
+	LogGroupName *string `json:"opsworks:CloudWatchLogsLogStream:LogGroupName" type:"string"`
 
 	// Specifies the pattern for identifying the start of a log message.
-	MultiLineStartPattern *string `type:"string"`
+	MultiLineStartPattern *string `json:"opsworks:CloudWatchLogsLogStream:MultiLineStartPattern" type:"string"`
 
 	// Specifies the time zone of log event time stamps.
-	TimeZone CloudWatchLogsTimeZone `type:"string" enum:"true"`
+	TimeZone CloudWatchLogsTimeZone `json:"opsworks:CloudWatchLogsLogStream:TimeZone" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -300,28 +300,28 @@ type Command struct {
 	_ struct{} `type:"structure"`
 
 	// Date and time when the command was acknowledged.
-	AcknowledgedAt *string `type:"string"`
+	AcknowledgedAt *string `json:"opsworks:Command:AcknowledgedAt" type:"string"`
 
 	// The command ID.
-	CommandId *string `type:"string"`
+	CommandId *string `json:"opsworks:Command:CommandId" type:"string"`
 
 	// Date when the command completed.
-	CompletedAt *string `type:"string"`
+	CompletedAt *string `json:"opsworks:Command:CompletedAt" type:"string"`
 
 	// Date and time when the command was run.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"opsworks:Command:CreatedAt" type:"string"`
 
 	// The command deployment ID.
-	DeploymentId *string `type:"string"`
+	DeploymentId *string `json:"opsworks:Command:DeploymentId" type:"string"`
 
 	// The command exit code.
-	ExitCode *int64 `type:"integer"`
+	ExitCode *int64 `json:"opsworks:Command:ExitCode" type:"integer"`
 
 	// The ID of the instance where the command was executed.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:Command:InstanceId" type:"string"`
 
 	// The URL of the command log.
-	LogUrl *string `type:"string"`
+	LogUrl *string `json:"opsworks:Command:LogUrl" type:"string"`
 
 	// The command status:
 	//
@@ -332,7 +332,7 @@ type Command struct {
 	//    * skipped
 	//
 	//    * pending
-	Status *string `type:"string"`
+	Status *string `json:"opsworks:Command:Status" type:"string"`
 
 	// The command type:
 	//
@@ -359,7 +359,7 @@ type Command struct {
 	//    * update_custom_cookbooks
 	//
 	//    * update_dependencies
-	Type *string `type:"string"`
+	Type *string `json:"opsworks:Command:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -373,14 +373,14 @@ type DataSource struct {
 	_ struct{} `type:"structure"`
 
 	// The data source's ARN.
-	Arn *string `type:"string"`
+	Arn *string `json:"opsworks:DataSource:Arn" type:"string"`
 
 	// The database name.
-	DatabaseName *string `type:"string"`
+	DatabaseName *string `json:"opsworks:DataSource:DatabaseName" type:"string"`
 
 	// The data source's type, AutoSelectOpsworksMysqlInstance, OpsworksMysqlInstance,
 	// RdsDbInstance, or None.
-	Type *string `type:"string"`
+	Type *string `json:"opsworks:DataSource:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -394,19 +394,19 @@ type Deployment struct {
 	_ struct{} `type:"structure"`
 
 	// The app ID.
-	AppId *string `type:"string"`
+	AppId *string `json:"opsworks:Deployment:AppId" type:"string"`
 
 	// Used to specify a stack or deployment command.
-	Command *DeploymentCommand `type:"structure"`
+	Command *DeploymentCommand `json:"opsworks:Deployment:Command" type:"structure"`
 
 	// A user-defined comment.
-	Comment *string `type:"string"`
+	Comment *string `json:"opsworks:Deployment:Comment" type:"string"`
 
 	// Date when the deployment completed.
-	CompletedAt *string `type:"string"`
+	CompletedAt *string `json:"opsworks:Deployment:CompletedAt" type:"string"`
 
 	// Date when the deployment was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"opsworks:Deployment:CreatedAt" type:"string"`
 
 	// A string that contains user-defined custom JSON. It can be used to override
 	// the corresponding default stack configuration attribute values for stack
@@ -416,22 +416,22 @@ type Deployment struct {
 	//
 	// For more information on custom JSON, see Use Custom JSON to Modify the Stack
 	// Configuration Attributes (https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html).
-	CustomJson *string `type:"string"`
+	CustomJson *string `json:"opsworks:Deployment:CustomJson" type:"string"`
 
 	// The deployment ID.
-	DeploymentId *string `type:"string"`
+	DeploymentId *string `json:"opsworks:Deployment:DeploymentId" type:"string"`
 
 	// The deployment duration.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"opsworks:Deployment:Duration" type:"integer"`
 
 	// The user's IAM ARN.
-	IamUserArn *string `type:"string"`
+	IamUserArn *string `json:"opsworks:Deployment:IamUserArn" type:"string"`
 
 	// The IDs of the target instances.
-	InstanceIds []string `type:"list"`
+	InstanceIds []string `json:"opsworks:Deployment:InstanceIds" type:"list"`
 
 	// The stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:Deployment:StackId" type:"string"`
 
 	// The deployment status:
 	//
@@ -440,7 +440,7 @@ type Deployment struct {
 	//    * successful
 	//
 	//    * failed
-	Status *string `type:"string"`
+	Status *string `json:"opsworks:Deployment:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -473,7 +473,7 @@ type DeploymentCommand struct {
 	// the following.
 	//
 	// { "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] }
-	Args map[string][]string `type:"map"`
+	Args map[string][]string `json:"opsworks:DeploymentCommand:Args" type:"map"`
 
 	// Specifies the operation. You can specify only one command.
 	//
@@ -513,7 +513,7 @@ type DeploymentCommand struct {
 	//    * undeploy: Undeploy the app.
 	//
 	// Name is a required field
-	Name DeploymentCommandName `type:"string" required:"true" enum:"true"`
+	Name DeploymentCommandName `json:"opsworks:DeploymentCommand:Name" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -542,17 +542,17 @@ type EbsBlockDevice struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the volume is deleted on instance termination.
-	DeleteOnTermination *bool `type:"boolean"`
+	DeleteOnTermination *bool `json:"opsworks:EbsBlockDevice:DeleteOnTermination" type:"boolean"`
 
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	// For more information, see EbsBlockDevice (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html).
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"opsworks:EbsBlockDevice:Iops" type:"integer"`
 
 	// The snapshot ID.
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"opsworks:EbsBlockDevice:SnapshotId" type:"string"`
 
 	// The volume size, in GiB. For more information, see EbsBlockDevice (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html).
-	VolumeSize *int64 `type:"integer"`
+	VolumeSize *int64 `json:"opsworks:EbsBlockDevice:VolumeSize" type:"integer"`
 
 	// The volume type. gp2 for General Purpose (SSD) volumes, io1 for Provisioned
 	// IOPS (SSD) volumes, st1 for Throughput Optimized hard disk drives (HDD),
@@ -562,7 +562,7 @@ type EbsBlockDevice struct {
 	// Iops attribute. The maximum ratio of provisioned IOPS to requested volume
 	// size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified
 	// in the AMI attributes to set IOPS to 50 x (volume size).
-	VolumeType VolumeType `type:"string" enum:"true"`
+	VolumeType VolumeType `json:"opsworks:EbsBlockDevice:VolumeType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -576,16 +576,16 @@ type EcsCluster struct {
 	_ struct{} `type:"structure"`
 
 	// The cluster's ARN.
-	EcsClusterArn *string `type:"string"`
+	EcsClusterArn *string `json:"opsworks:EcsCluster:EcsClusterArn" type:"string"`
 
 	// The cluster name.
-	EcsClusterName *string `type:"string"`
+	EcsClusterName *string `json:"opsworks:EcsCluster:EcsClusterName" type:"string"`
 
 	// The time and date that the cluster was registered with the stack.
-	RegisteredAt *string `type:"string"`
+	RegisteredAt *string `json:"opsworks:EcsCluster:RegisteredAt" type:"string"`
 
 	// The stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:EcsCluster:StackId" type:"string"`
 }
 
 // String returns the string representation
@@ -599,19 +599,19 @@ type ElasticIp struct {
 	_ struct{} `type:"structure"`
 
 	// The domain.
-	Domain *string `type:"string"`
+	Domain *string `json:"opsworks:ElasticIp:Domain" type:"string"`
 
 	// The ID of the instance that the address is attached to.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:ElasticIp:InstanceId" type:"string"`
 
 	// The IP address.
-	Ip *string `type:"string"`
+	Ip *string `json:"opsworks:ElasticIp:Ip" type:"string"`
 
 	// The name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:ElasticIp:Name" type:"string"`
 
 	// The AWS region. For more information, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html).
-	Region *string `type:"string"`
+	Region *string `json:"opsworks:ElasticIp:Region" type:"string"`
 }
 
 // String returns the string representation
@@ -625,32 +625,32 @@ type ElasticLoadBalancer struct {
 	_ struct{} `type:"structure"`
 
 	// A list of Availability Zones.
-	AvailabilityZones []string `type:"list"`
+	AvailabilityZones []string `json:"opsworks:ElasticLoadBalancer:AvailabilityZones" type:"list"`
 
 	// The instance's public DNS name.
-	DnsName *string `type:"string"`
+	DnsName *string `json:"opsworks:ElasticLoadBalancer:DnsName" type:"string"`
 
 	// A list of the EC2 instances that the Elastic Load Balancing instance is managing
 	// traffic for.
-	Ec2InstanceIds []string `type:"list"`
+	Ec2InstanceIds []string `json:"opsworks:ElasticLoadBalancer:Ec2InstanceIds" type:"list"`
 
 	// The Elastic Load Balancing instance's name.
-	ElasticLoadBalancerName *string `type:"string"`
+	ElasticLoadBalancerName *string `json:"opsworks:ElasticLoadBalancer:ElasticLoadBalancerName" type:"string"`
 
 	// The ID of the layer that the instance is attached to.
-	LayerId *string `type:"string"`
+	LayerId *string `json:"opsworks:ElasticLoadBalancer:LayerId" type:"string"`
 
 	// The instance's AWS region.
-	Region *string `type:"string"`
+	Region *string `json:"opsworks:ElasticLoadBalancer:Region" type:"string"`
 
 	// The ID of the stack that the instance is associated with.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:ElasticLoadBalancer:StackId" type:"string"`
 
 	// A list of subnet IDs, if the stack is running in a VPC.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"opsworks:ElasticLoadBalancer:SubnetIds" type:"list"`
 
 	// The VPC ID.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"opsworks:ElasticLoadBalancer:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -669,20 +669,20 @@ type EnvironmentVariable struct {
 	// underscore.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"opsworks:EnvironmentVariable:Key" type:"string" required:"true"`
 
 	// (Optional) Whether the variable's value will be returned by the DescribeApps
 	// action. To conceal an environment variable's value, set Secure to true. DescribeApps
 	// then returns *****FILTERED***** instead of the actual value. The default
 	// value for Secure is false.
-	Secure *bool `type:"boolean"`
+	Secure *bool `json:"opsworks:EnvironmentVariable:Secure" type:"boolean"`
 
 	// (Optional) The environment variable's value, which can be left empty. If
 	// you specify a value, it can contain up to 256 characters, which must all
 	// be printable.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"opsworks:EnvironmentVariable:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -715,52 +715,52 @@ type Instance struct {
 
 	// The agent version. This parameter is set to INHERIT if the instance inherits
 	// the default stack setting or to a a version number for a fixed agent version.
-	AgentVersion *string `type:"string"`
+	AgentVersion *string `json:"opsworks:Instance:AgentVersion" type:"string"`
 
 	// A custom AMI ID to be used to create the instance. For more information,
 	// see Instances (https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html)
-	AmiId *string `type:"string"`
+	AmiId *string `json:"opsworks:Instance:AmiId" type:"string"`
 
 	// The instance architecture: "i386" or "x86_64".
-	Architecture Architecture `type:"string" enum:"true"`
+	Architecture Architecture `json:"opsworks:Instance:Architecture" type:"string" enum:"true"`
 
 	// The instance's Amazon Resource Number (ARN).
-	Arn *string `type:"string"`
+	Arn *string `json:"opsworks:Instance:Arn" type:"string"`
 
 	// For load-based or time-based instances, the type.
-	AutoScalingType AutoScalingType `type:"string" enum:"true"`
+	AutoScalingType AutoScalingType `json:"opsworks:Instance:AutoScalingType" type:"string" enum:"true"`
 
 	// The instance Availability Zone. For more information, see Regions and Endpoints
 	// (https://docs.aws.amazon.com/general/latest/gr/rande.html).
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"opsworks:Instance:AvailabilityZone" type:"string"`
 
 	// An array of BlockDeviceMapping objects that specify the instance's block
 	// device mappings.
-	BlockDeviceMappings []BlockDeviceMapping `type:"list"`
+	BlockDeviceMappings []BlockDeviceMapping `json:"opsworks:Instance:BlockDeviceMappings" type:"list"`
 
 	// The time that the instance was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"opsworks:Instance:CreatedAt" type:"string"`
 
 	// Whether this is an Amazon EBS-optimized instance.
-	EbsOptimized *bool `type:"boolean"`
+	EbsOptimized *bool `json:"opsworks:Instance:EbsOptimized" type:"boolean"`
 
 	// The ID of the associated Amazon EC2 instance.
-	Ec2InstanceId *string `type:"string"`
+	Ec2InstanceId *string `json:"opsworks:Instance:Ec2InstanceId" type:"string"`
 
 	// For container instances, the Amazon ECS cluster's ARN.
-	EcsClusterArn *string `type:"string"`
+	EcsClusterArn *string `json:"opsworks:Instance:EcsClusterArn" type:"string"`
 
 	// For container instances, the instance's ARN.
-	EcsContainerInstanceArn *string `type:"string"`
+	EcsContainerInstanceArn *string `json:"opsworks:Instance:EcsContainerInstanceArn" type:"string"`
 
 	// The instance Elastic IP address (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html).
-	ElasticIp *string `type:"string"`
+	ElasticIp *string `json:"opsworks:Instance:ElasticIp" type:"string"`
 
 	// The instance host name.
-	Hostname *string `type:"string"`
+	Hostname *string `json:"opsworks:Instance:Hostname" type:"string"`
 
 	// For registered instances, the infrastructure class: ec2 or on-premises.
-	InfrastructureClass *string `type:"string"`
+	InfrastructureClass *string `json:"opsworks:Instance:InfrastructureClass" type:"string"`
 
 	// Whether to install operating system and package updates when the instance
 	// boots. The default value is true. If this value is set to false, you must
@@ -770,72 +770,72 @@ type Instance struct {
 	//
 	// We strongly recommend using the default value of true, to ensure that your
 	// instances have the latest security updates.
-	InstallUpdatesOnBoot *bool `type:"boolean"`
+	InstallUpdatesOnBoot *bool `json:"opsworks:Instance:InstallUpdatesOnBoot" type:"boolean"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:Instance:InstanceId" type:"string"`
 
 	// The ARN of the instance's IAM profile. For more information about IAM ARNs,
 	// see Using Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html).
-	InstanceProfileArn *string `type:"string"`
+	InstanceProfileArn *string `json:"opsworks:Instance:InstanceProfileArn" type:"string"`
 
 	// The instance type, such as t2.micro.
-	InstanceType *string `type:"string"`
+	InstanceType *string `json:"opsworks:Instance:InstanceType" type:"string"`
 
 	// The ID of the last service error. For more information, call DescribeServiceErrors.
-	LastServiceErrorId *string `type:"string"`
+	LastServiceErrorId *string `json:"opsworks:Instance:LastServiceErrorId" type:"string"`
 
 	// An array containing the instance layer IDs.
-	LayerIds []string `type:"list"`
+	LayerIds []string `json:"opsworks:Instance:LayerIds" type:"list"`
 
 	// The instance's operating system.
-	Os *string `type:"string"`
+	Os *string `json:"opsworks:Instance:Os" type:"string"`
 
 	// The instance's platform.
-	Platform *string `type:"string"`
+	Platform *string `json:"opsworks:Instance:Platform" type:"string"`
 
 	// The instance's private DNS name.
-	PrivateDns *string `type:"string"`
+	PrivateDns *string `json:"opsworks:Instance:PrivateDns" type:"string"`
 
 	// The instance's private IP address.
-	PrivateIp *string `type:"string"`
+	PrivateIp *string `json:"opsworks:Instance:PrivateIp" type:"string"`
 
 	// The instance public DNS name.
-	PublicDns *string `type:"string"`
+	PublicDns *string `json:"opsworks:Instance:PublicDns" type:"string"`
 
 	// The instance public IP address.
-	PublicIp *string `type:"string"`
+	PublicIp *string `json:"opsworks:Instance:PublicIp" type:"string"`
 
 	// For registered instances, who performed the registration.
-	RegisteredBy *string `type:"string"`
+	RegisteredBy *string `json:"opsworks:Instance:RegisteredBy" type:"string"`
 
 	// The instance's reported AWS OpsWorks Stacks agent version.
-	ReportedAgentVersion *string `type:"string"`
+	ReportedAgentVersion *string `json:"opsworks:Instance:ReportedAgentVersion" type:"string"`
 
 	// For registered instances, the reported operating system.
-	ReportedOs *ReportedOs `type:"structure"`
+	ReportedOs *ReportedOs `json:"opsworks:Instance:ReportedOs" type:"structure"`
 
 	// The instance's root device type. For more information, see Storage for the
 	// Root Device (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device).
-	RootDeviceType RootDeviceType `type:"string" enum:"true"`
+	RootDeviceType RootDeviceType `json:"opsworks:Instance:RootDeviceType" type:"string" enum:"true"`
 
 	// The root device volume ID.
-	RootDeviceVolumeId *string `type:"string"`
+	RootDeviceVolumeId *string `json:"opsworks:Instance:RootDeviceVolumeId" type:"string"`
 
 	// An array containing the instance security group IDs.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"opsworks:Instance:SecurityGroupIds" type:"list"`
 
 	// The SSH key's Deep Security Agent (DSA) fingerprint.
-	SshHostDsaKeyFingerprint *string `type:"string"`
+	SshHostDsaKeyFingerprint *string `json:"opsworks:Instance:SshHostDsaKeyFingerprint" type:"string"`
 
 	// The SSH key's RSA fingerprint.
-	SshHostRsaKeyFingerprint *string `type:"string"`
+	SshHostRsaKeyFingerprint *string `json:"opsworks:Instance:SshHostRsaKeyFingerprint" type:"string"`
 
 	// The instance's Amazon EC2 key-pair name.
-	SshKeyName *string `type:"string"`
+	SshKeyName *string `json:"opsworks:Instance:SshKeyName" type:"string"`
 
 	// The stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:Instance:StackId" type:"string"`
 
 	// The instance status:
 	//
@@ -868,16 +868,16 @@ type Instance struct {
 	//    * terminated
 	//
 	//    * terminating
-	Status *string `type:"string"`
+	Status *string `json:"opsworks:Instance:Status" type:"string"`
 
 	// The instance's subnet ID; applicable only if the stack is running in a VPC.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"opsworks:Instance:SubnetId" type:"string"`
 
 	// The instance's tenancy option, such as dedicated or host.
-	Tenancy *string `type:"string"`
+	Tenancy *string `json:"opsworks:Instance:Tenancy" type:"string"`
 
 	// The instance's virtualization type: paravirtual or hvm.
-	VirtualizationType VirtualizationType `type:"string" enum:"true"`
+	VirtualizationType VirtualizationType `json:"opsworks:Instance:VirtualizationType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -892,10 +892,10 @@ type InstanceIdentity struct {
 	_ struct{} `type:"structure"`
 
 	// A JSON document that contains the metadata.
-	Document *string `type:"string"`
+	Document *string `json:"opsworks:InstanceIdentity:Document" type:"string"`
 
 	// A signature that can be used to verify the document's accuracy and authenticity.
-	Signature *string `type:"string"`
+	Signature *string `json:"opsworks:InstanceIdentity:Signature" type:"string"`
 }
 
 // String returns the string representation
@@ -909,64 +909,64 @@ type InstancesCount struct {
 	_ struct{} `type:"structure"`
 
 	// The number of instances in the Assigning state.
-	Assigning *int64 `type:"integer"`
+	Assigning *int64 `json:"opsworks:InstancesCount:Assigning" type:"integer"`
 
 	// The number of instances with booting status.
-	Booting *int64 `type:"integer"`
+	Booting *int64 `json:"opsworks:InstancesCount:Booting" type:"integer"`
 
 	// The number of instances with connection_lost status.
-	ConnectionLost *int64 `type:"integer"`
+	ConnectionLost *int64 `json:"opsworks:InstancesCount:ConnectionLost" type:"integer"`
 
 	// The number of instances in the Deregistering state.
-	Deregistering *int64 `type:"integer"`
+	Deregistering *int64 `json:"opsworks:InstancesCount:Deregistering" type:"integer"`
 
 	// The number of instances with online status.
-	Online *int64 `type:"integer"`
+	Online *int64 `json:"opsworks:InstancesCount:Online" type:"integer"`
 
 	// The number of instances with pending status.
-	Pending *int64 `type:"integer"`
+	Pending *int64 `json:"opsworks:InstancesCount:Pending" type:"integer"`
 
 	// The number of instances with rebooting status.
-	Rebooting *int64 `type:"integer"`
+	Rebooting *int64 `json:"opsworks:InstancesCount:Rebooting" type:"integer"`
 
 	// The number of instances in the Registered state.
-	Registered *int64 `type:"integer"`
+	Registered *int64 `json:"opsworks:InstancesCount:Registered" type:"integer"`
 
 	// The number of instances in the Registering state.
-	Registering *int64 `type:"integer"`
+	Registering *int64 `json:"opsworks:InstancesCount:Registering" type:"integer"`
 
 	// The number of instances with requested status.
-	Requested *int64 `type:"integer"`
+	Requested *int64 `json:"opsworks:InstancesCount:Requested" type:"integer"`
 
 	// The number of instances with running_setup status.
-	RunningSetup *int64 `type:"integer"`
+	RunningSetup *int64 `json:"opsworks:InstancesCount:RunningSetup" type:"integer"`
 
 	// The number of instances with setup_failed status.
-	SetupFailed *int64 `type:"integer"`
+	SetupFailed *int64 `json:"opsworks:InstancesCount:SetupFailed" type:"integer"`
 
 	// The number of instances with shutting_down status.
-	ShuttingDown *int64 `type:"integer"`
+	ShuttingDown *int64 `json:"opsworks:InstancesCount:ShuttingDown" type:"integer"`
 
 	// The number of instances with start_failed status.
-	StartFailed *int64 `type:"integer"`
+	StartFailed *int64 `json:"opsworks:InstancesCount:StartFailed" type:"integer"`
 
 	// The number of instances with stop_failed status.
-	StopFailed *int64 `type:"integer"`
+	StopFailed *int64 `json:"opsworks:InstancesCount:StopFailed" type:"integer"`
 
 	// The number of instances with stopped status.
-	Stopped *int64 `type:"integer"`
+	Stopped *int64 `json:"opsworks:InstancesCount:Stopped" type:"integer"`
 
 	// The number of instances with stopping status.
-	Stopping *int64 `type:"integer"`
+	Stopping *int64 `json:"opsworks:InstancesCount:Stopping" type:"integer"`
 
 	// The number of instances with terminated status.
-	Terminated *int64 `type:"integer"`
+	Terminated *int64 `json:"opsworks:InstancesCount:Terminated" type:"integer"`
 
 	// The number of instances with terminating status.
-	Terminating *int64 `type:"integer"`
+	Terminating *int64 `json:"opsworks:InstancesCount:Terminating" type:"integer"`
 
 	// The number of instances in the Unassigning state.
-	Unassigning *int64 `type:"integer"`
+	Unassigning *int64 `json:"opsworks:InstancesCount:Unassigning" type:"integer"`
 }
 
 // String returns the string representation
@@ -980,7 +980,7 @@ type Layer struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Number (ARN) of a layer.
-	Arn *string `type:"string"`
+	Arn *string `json:"opsworks:Layer:Arn" type:"string"`
 
 	// The layer attributes.
 	//
@@ -989,36 +989,36 @@ type Layer struct {
 	//
 	// For an ECS Cluster layer, AWS OpsWorks Stacks the EcsClusterArn attribute
 	// is set to the cluster's ARN.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"opsworks:Layer:Attributes" type:"map"`
 
 	// Whether to automatically assign an Elastic IP address (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
 	// to the layer's instances. For more information, see How to Edit a Layer (https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html).
-	AutoAssignElasticIps *bool `type:"boolean"`
+	AutoAssignElasticIps *bool `json:"opsworks:Layer:AutoAssignElasticIps" type:"boolean"`
 
 	// For stacks that are running in a VPC, whether to automatically assign a public
 	// IP address to the layer's instances. For more information, see How to Edit
 	// a Layer (https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html).
-	AutoAssignPublicIps *bool `type:"boolean"`
+	AutoAssignPublicIps *bool `json:"opsworks:Layer:AutoAssignPublicIps" type:"boolean"`
 
 	// The Amazon CloudWatch Logs configuration settings for the layer.
-	CloudWatchLogsConfiguration *CloudWatchLogsConfiguration `type:"structure"`
+	CloudWatchLogsConfiguration *CloudWatchLogsConfiguration `json:"opsworks:Layer:CloudWatchLogsConfiguration" type:"structure"`
 
 	// Date when the layer was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"opsworks:Layer:CreatedAt" type:"string"`
 
 	// The ARN of the default IAM profile to be used for the layer's EC2 instances.
 	// For more information about IAM ARNs, see Using Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html).
-	CustomInstanceProfileArn *string `type:"string"`
+	CustomInstanceProfileArn *string `json:"opsworks:Layer:CustomInstanceProfileArn" type:"string"`
 
 	// A JSON formatted string containing the layer's custom stack configuration
 	// and deployment attributes.
-	CustomJson *string `type:"string"`
+	CustomJson *string `json:"opsworks:Layer:CustomJson" type:"string"`
 
 	// A LayerCustomRecipes object that specifies the layer's custom recipes.
-	CustomRecipes *Recipes `type:"structure"`
+	CustomRecipes *Recipes `json:"opsworks:Layer:CustomRecipes" type:"structure"`
 
 	// An array containing the layer's custom security group IDs.
-	CustomSecurityGroupIds []string `type:"list"`
+	CustomSecurityGroupIds []string `json:"opsworks:Layer:CustomSecurityGroupIds" type:"list"`
 
 	// AWS OpsWorks Stacks supports five lifecycle events: setup, configuration,
 	// deploy, undeploy, and shutdown. For each layer, AWS OpsWorks Stacks runs
@@ -1031,13 +1031,13 @@ type Layer struct {
 	// followed by two colons and the recipe name, which is the recipe's file name
 	// without the .rb extension. For example: phpapp2::dbsetup specifies the dbsetup.rb
 	// recipe in the repository's phpapp2 folder.
-	DefaultRecipes *Recipes `type:"structure"`
+	DefaultRecipes *Recipes `json:"opsworks:Layer:DefaultRecipes" type:"structure"`
 
 	// An array containing the layer's security group names.
-	DefaultSecurityGroupNames []string `type:"list"`
+	DefaultSecurityGroupNames []string `json:"opsworks:Layer:DefaultSecurityGroupNames" type:"list"`
 
 	// Whether auto healing is disabled for the layer.
-	EnableAutoHealing *bool `type:"boolean"`
+	EnableAutoHealing *bool `json:"opsworks:Layer:EnableAutoHealing" type:"boolean"`
 
 	// Whether to install operating system and package updates when the instance
 	// boots. The default value is true. If this value is set to false, you must
@@ -1047,34 +1047,34 @@ type Layer struct {
 	//
 	// We strongly recommend using the default value of true, to ensure that your
 	// instances have the latest security updates.
-	InstallUpdatesOnBoot *bool `type:"boolean"`
+	InstallUpdatesOnBoot *bool `json:"opsworks:Layer:InstallUpdatesOnBoot" type:"boolean"`
 
 	// The layer ID.
-	LayerId *string `type:"string"`
+	LayerId *string `json:"opsworks:Layer:LayerId" type:"string"`
 
 	// A LifeCycleEventConfiguration object that specifies the Shutdown event configuration.
-	LifecycleEventConfiguration *LifecycleEventConfiguration `type:"structure"`
+	LifecycleEventConfiguration *LifecycleEventConfiguration `json:"opsworks:Layer:LifecycleEventConfiguration" type:"structure"`
 
 	// The layer name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:Layer:Name" type:"string"`
 
 	// An array of Package objects that describe the layer's packages.
-	Packages []string `type:"list"`
+	Packages []string `json:"opsworks:Layer:Packages" type:"list"`
 
 	// The layer short name.
-	Shortname *string `type:"string"`
+	Shortname *string `json:"opsworks:Layer:Shortname" type:"string"`
 
 	// The layer stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:Layer:StackId" type:"string"`
 
 	// The layer type.
-	Type LayerType `type:"string" enum:"true"`
+	Type LayerType `json:"opsworks:Layer:Type" type:"string" enum:"true"`
 
 	// Whether the layer uses Amazon EBS-optimized instances.
-	UseEbsOptimizedInstances *bool `type:"boolean"`
+	UseEbsOptimizedInstances *bool `json:"opsworks:Layer:UseEbsOptimizedInstances" type:"boolean"`
 
 	// A VolumeConfigurations object that describes the layer's Amazon EBS volumes.
-	VolumeConfigurations []VolumeConfiguration `type:"list"`
+	VolumeConfigurations []VolumeConfiguration `json:"opsworks:Layer:VolumeConfigurations" type:"list"`
 }
 
 // String returns the string representation
@@ -1088,7 +1088,7 @@ type LifecycleEventConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// A ShutdownEventConfiguration object that specifies the Shutdown event configuration.
-	Shutdown *ShutdownEventConfiguration `type:"structure"`
+	Shutdown *ShutdownEventConfiguration `json:"opsworks:LifecycleEventConfiguration:Shutdown" type:"structure"`
 }
 
 // String returns the string representation
@@ -1103,17 +1103,17 @@ type LoadBasedAutoScalingConfiguration struct {
 
 	// An AutoScalingThresholds object that describes the downscaling configuration,
 	// which defines how and when AWS OpsWorks Stacks reduces the number of instances.
-	DownScaling *AutoScalingThresholds `type:"structure"`
+	DownScaling *AutoScalingThresholds `json:"opsworks:LoadBasedAutoScalingConfiguration:DownScaling" type:"structure"`
 
 	// Whether load-based auto scaling is enabled for the layer.
-	Enable *bool `type:"boolean"`
+	Enable *bool `json:"opsworks:LoadBasedAutoScalingConfiguration:Enable" type:"boolean"`
 
 	// The layer ID.
-	LayerId *string `type:"string"`
+	LayerId *string `json:"opsworks:LoadBasedAutoScalingConfiguration:LayerId" type:"string"`
 
 	// An AutoScalingThresholds object that describes the upscaling configuration,
 	// which defines how and when AWS OpsWorks Stacks increases the number of instances.
-	UpScaling *AutoScalingThresholds `type:"structure"`
+	UpScaling *AutoScalingThresholds `json:"opsworks:LoadBasedAutoScalingConfiguration:UpScaling" type:"structure"`
 }
 
 // String returns the string representation
@@ -1128,26 +1128,26 @@ type OperatingSystem struct {
 
 	// Supported configuration manager name and versions for an AWS OpsWorks Stacks
 	// operating system.
-	ConfigurationManagers []OperatingSystemConfigurationManager `type:"list"`
+	ConfigurationManagers []OperatingSystemConfigurationManager `json:"opsworks:OperatingSystem:ConfigurationManagers" type:"list"`
 
 	// The ID of a supported operating system, such as Amazon Linux 2018.03.
-	Id *string `type:"string"`
+	Id *string `json:"opsworks:OperatingSystem:Id" type:"string"`
 
 	// The name of the operating system, such as Amazon Linux 2018.03.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:OperatingSystem:Name" type:"string"`
 
 	// A short name for the operating system manufacturer.
-	ReportedName *string `type:"string"`
+	ReportedName *string `json:"opsworks:OperatingSystem:ReportedName" type:"string"`
 
 	// The version of the operating system, including the release and edition, if
 	// applicable.
-	ReportedVersion *string `type:"string"`
+	ReportedVersion *string `json:"opsworks:OperatingSystem:ReportedVersion" type:"string"`
 
 	// Indicates that an operating system is not supported for new instances.
-	Supported *bool `type:"boolean"`
+	Supported *bool `json:"opsworks:OperatingSystem:Supported" type:"boolean"`
 
 	// The type of a supported operating system, either Linux or Windows.
-	Type *string `type:"string"`
+	Type *string `json:"opsworks:OperatingSystem:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -1163,11 +1163,11 @@ type OperatingSystemConfigurationManager struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the configuration manager, which is Chef.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:OperatingSystemConfigurationManager:Name" type:"string"`
 
 	// The versions of the configuration manager that are supported by an operating
 	// system.
-	Version *string `type:"string"`
+	Version *string `json:"opsworks:OperatingSystemConfigurationManager:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -1181,14 +1181,14 @@ type Permission struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the user can use SSH.
-	AllowSsh *bool `type:"boolean"`
+	AllowSsh *bool `json:"opsworks:Permission:AllowSsh" type:"boolean"`
 
 	// Whether the user can use sudo.
-	AllowSudo *bool `type:"boolean"`
+	AllowSudo *bool `json:"opsworks:Permission:AllowSudo" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) for an AWS Identity and Access Management
 	// (IAM) role. For more information about IAM ARNs, see Using Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html).
-	IamUserArn *string `type:"string"`
+	IamUserArn *string `json:"opsworks:Permission:IamUserArn" type:"string"`
 
 	// The user's permission level, which must be the following:
 	//
@@ -1204,10 +1204,10 @@ type Permission struct {
 	//
 	// For more information on the permissions associated with these levels, see
 	// Managing User Permissions (https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html)
-	Level *string `type:"string"`
+	Level *string `json:"opsworks:Permission:Level" type:"string"`
 
 	// A stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:Permission:StackId" type:"string"`
 }
 
 // String returns the string representation
@@ -1222,43 +1222,43 @@ type RaidArray struct {
 
 	// The array's Availability Zone. For more information, see Regions and Endpoints
 	// (https://docs.aws.amazon.com/general/latest/gr/rande.html).
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"opsworks:RaidArray:AvailabilityZone" type:"string"`
 
 	// When the RAID array was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"opsworks:RaidArray:CreatedAt" type:"string"`
 
 	// The array's Linux device. For example /dev/mdadm0.
-	Device *string `type:"string"`
+	Device *string `json:"opsworks:RaidArray:Device" type:"string"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:RaidArray:InstanceId" type:"string"`
 
 	// For PIOPS volumes, the IOPS per disk.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"opsworks:RaidArray:Iops" type:"integer"`
 
 	// The array's mount point.
-	MountPoint *string `type:"string"`
+	MountPoint *string `json:"opsworks:RaidArray:MountPoint" type:"string"`
 
 	// The array name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:RaidArray:Name" type:"string"`
 
 	// The number of disks in the array.
-	NumberOfDisks *int64 `type:"integer"`
+	NumberOfDisks *int64 `json:"opsworks:RaidArray:NumberOfDisks" type:"integer"`
 
 	// The array ID.
-	RaidArrayId *string `type:"string"`
+	RaidArrayId *string `json:"opsworks:RaidArray:RaidArrayId" type:"string"`
 
 	// The RAID level (http://en.wikipedia.org/wiki/Standard_RAID_levels).
-	RaidLevel *int64 `type:"integer"`
+	RaidLevel *int64 `json:"opsworks:RaidArray:RaidLevel" type:"integer"`
 
 	// The array's size.
-	Size *int64 `type:"integer"`
+	Size *int64 `json:"opsworks:RaidArray:Size" type:"integer"`
 
 	// The stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:RaidArray:StackId" type:"string"`
 
 	// The volume type, standard or PIOPS.
-	VolumeType *string `type:"string"`
+	VolumeType *string `json:"opsworks:RaidArray:VolumeType" type:"string"`
 }
 
 // String returns the string representation
@@ -1272,34 +1272,34 @@ type RdsDbInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The instance's address.
-	Address *string `type:"string"`
+	Address *string `json:"opsworks:RdsDbInstance:Address" type:"string"`
 
 	// The DB instance identifier.
-	DbInstanceIdentifier *string `type:"string"`
+	DbInstanceIdentifier *string `json:"opsworks:RdsDbInstance:DbInstanceIdentifier" type:"string"`
 
 	// AWS OpsWorks Stacks returns *****FILTERED***** instead of the actual value.
-	DbPassword *string `type:"string"`
+	DbPassword *string `json:"opsworks:RdsDbInstance:DbPassword" type:"string"`
 
 	// The master user name.
-	DbUser *string `type:"string"`
+	DbUser *string `json:"opsworks:RdsDbInstance:DbUser" type:"string"`
 
 	// The instance's database engine.
-	Engine *string `type:"string"`
+	Engine *string `json:"opsworks:RdsDbInstance:Engine" type:"string"`
 
 	// Set to true if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance.
 	// AWS OpsWorks Stacks attempts to discover the instance only once. If this
 	// value is set to true, you must deregister the instance, and then register
 	// it again.
-	MissingOnRds *bool `type:"boolean"`
+	MissingOnRds *bool `json:"opsworks:RdsDbInstance:MissingOnRds" type:"boolean"`
 
 	// The instance's ARN.
-	RdsDbInstanceArn *string `type:"string"`
+	RdsDbInstanceArn *string `json:"opsworks:RdsDbInstance:RdsDbInstanceArn" type:"string"`
 
 	// The instance's AWS region.
-	Region *string `type:"string"`
+	Region *string `json:"opsworks:RdsDbInstance:Region" type:"string"`
 
 	// The ID of the stack with which the instance is registered.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:RdsDbInstance:StackId" type:"string"`
 }
 
 // String returns the string representation
@@ -1324,19 +1324,19 @@ type Recipes struct {
 	_ struct{} `type:"structure"`
 
 	// An array of custom recipe names to be run following a configure event.
-	Configure []string `type:"list"`
+	Configure []string `json:"opsworks:Recipes:Configure" type:"list"`
 
 	// An array of custom recipe names to be run following a deploy event.
-	Deploy []string `type:"list"`
+	Deploy []string `json:"opsworks:Recipes:Deploy" type:"list"`
 
 	// An array of custom recipe names to be run following a setup event.
-	Setup []string `type:"list"`
+	Setup []string `json:"opsworks:Recipes:Setup" type:"list"`
 
 	// An array of custom recipe names to be run following a shutdown event.
-	Shutdown []string `type:"list"`
+	Shutdown []string `json:"opsworks:Recipes:Shutdown" type:"list"`
 
 	// An array of custom recipe names to be run following a undeploy event.
-	Undeploy []string `type:"list"`
+	Undeploy []string `json:"opsworks:Recipes:Undeploy" type:"list"`
 }
 
 // String returns the string representation
@@ -1350,13 +1350,13 @@ type ReportedOs struct {
 	_ struct{} `type:"structure"`
 
 	// The operating system family.
-	Family *string `type:"string"`
+	Family *string `json:"opsworks:ReportedOs:Family" type:"string"`
 
 	// The operating system name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:ReportedOs:Name" type:"string"`
 
 	// The operating system version.
-	Version *string `type:"string"`
+	Version *string `json:"opsworks:ReportedOs:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -1370,16 +1370,16 @@ type SelfUserProfile struct {
 	_ struct{} `type:"structure"`
 
 	// The user's IAM ARN.
-	IamUserArn *string `type:"string"`
+	IamUserArn *string `json:"opsworks:SelfUserProfile:IamUserArn" type:"string"`
 
 	// The user's name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:SelfUserProfile:Name" type:"string"`
 
 	// The user's SSH public key.
-	SshPublicKey *string `type:"string"`
+	SshPublicKey *string `json:"opsworks:SelfUserProfile:SshPublicKey" type:"string"`
 
 	// The user's SSH user name.
-	SshUsername *string `type:"string"`
+	SshUsername *string `json:"opsworks:SelfUserProfile:SshUsername" type:"string"`
 }
 
 // String returns the string representation
@@ -1393,22 +1393,22 @@ type ServiceError struct {
 	_ struct{} `type:"structure"`
 
 	// When the error occurred.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"opsworks:ServiceError:CreatedAt" type:"string"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:ServiceError:InstanceId" type:"string"`
 
 	// A message that describes the error.
-	Message *string `type:"string"`
+	Message *string `json:"opsworks:ServiceError:Message" type:"string"`
 
 	// The error ID.
-	ServiceErrorId *string `type:"string"`
+	ServiceErrorId *string `json:"opsworks:ServiceError:ServiceErrorId" type:"string"`
 
 	// The stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:ServiceError:StackId" type:"string"`
 
 	// The error type.
-	Type *string `type:"string"`
+	Type *string `json:"opsworks:ServiceError:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -1423,11 +1423,11 @@ type ShutdownEventConfiguration struct {
 
 	// Whether to enable Elastic Load Balancing connection draining. For more information,
 	// see Connection Draining (https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain)
-	DelayUntilElbConnectionsDrained *bool `type:"boolean"`
+	DelayUntilElbConnectionsDrained *bool `json:"opsworks:ShutdownEventConfiguration:DelayUntilElbConnectionsDrained" type:"boolean"`
 
 	// The time, in seconds, that AWS OpsWorks Stacks will wait after triggering
 	// a Shutdown event before shutting down an instance.
-	ExecutionTimeout *int64 `type:"integer"`
+	ExecutionTimeout *int64 `json:"opsworks:ShutdownEventConfiguration:ExecutionTimeout" type:"integer"`
 }
 
 // String returns the string representation
@@ -1454,25 +1454,25 @@ type Source struct {
 	//
 	// In responses, AWS OpsWorks Stacks returns *****FILTERED***** instead of the
 	// actual value.
-	Password *string `type:"string"`
+	Password *string `json:"opsworks:Source:Password" type:"string"`
 
 	// The application's version. AWS OpsWorks Stacks enables you to easily deploy
 	// new versions of an application. One of the simplest approaches is to have
 	// branches or revisions in your repository that represent different versions
 	// that can potentially be deployed.
-	Revision *string `type:"string"`
+	Revision *string `json:"opsworks:Source:Revision" type:"string"`
 
 	// In requests, the repository's SSH key.
 	//
 	// In responses, AWS OpsWorks Stacks returns *****FILTERED***** instead of the
 	// actual value.
-	SshKey *string `type:"string"`
+	SshKey *string `json:"opsworks:Source:SshKey" type:"string"`
 
 	// The repository type.
-	Type SourceType `type:"string" enum:"true"`
+	Type SourceType `json:"opsworks:Source:Type" type:"string" enum:"true"`
 
 	// The source URL. The following is an example of an Amazon S3 source URL: https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz.
-	Url *string `type:"string"`
+	Url *string `json:"opsworks:Source:Url" type:"string"`
 
 	// This parameter depends on the repository type.
 	//
@@ -1481,7 +1481,7 @@ type Source struct {
 	//
 	//    * For HTTP bundles, Git repositories, and Subversion repositories, set
 	//    Username to the user name.
-	Username *string `type:"string"`
+	Username *string `json:"opsworks:Source:Username" type:"string"`
 }
 
 // String returns the string representation
@@ -1497,16 +1497,16 @@ type SslConfiguration struct {
 	// The contents of the certificate's domain.crt file.
 	//
 	// Certificate is a required field
-	Certificate *string `type:"string" required:"true"`
+	Certificate *string `json:"opsworks:SslConfiguration:Certificate" type:"string" required:"true"`
 
 	// Optional. Can be used to specify an intermediate certificate authority key
 	// or client authentication.
-	Chain *string `type:"string"`
+	Chain *string `json:"opsworks:SslConfiguration:Chain" type:"string"`
 
 	// The private key; the contents of the certificate's domain.kex file.
 	//
 	// PrivateKey is a required field
-	PrivateKey *string `type:"string" required:"true"`
+	PrivateKey *string `json:"opsworks:SslConfiguration:PrivateKey" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1539,28 +1539,28 @@ type Stack struct {
 
 	// The agent version. This parameter is set to LATEST for auto-update. or a
 	// version number for a fixed agent version.
-	AgentVersion *string `type:"string"`
+	AgentVersion *string `json:"opsworks:Stack:AgentVersion" type:"string"`
 
 	// The stack's ARN.
-	Arn *string `type:"string"`
+	Arn *string `json:"opsworks:Stack:Arn" type:"string"`
 
 	// The stack's attributes.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"opsworks:Stack:Attributes" type:"map"`
 
 	// A ChefConfiguration object that specifies whether to enable Berkshelf and
 	// the Berkshelf version. For more information, see Create a New Stack (https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html).
-	ChefConfiguration *ChefConfiguration `type:"structure"`
+	ChefConfiguration *ChefConfiguration `json:"opsworks:Stack:ChefConfiguration" type:"structure"`
 
 	// The configuration manager.
-	ConfigurationManager *StackConfigurationManager `type:"structure"`
+	ConfigurationManager *StackConfigurationManager `json:"opsworks:Stack:ConfigurationManager" type:"structure"`
 
 	// The date when the stack was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"opsworks:Stack:CreatedAt" type:"string"`
 
 	// Contains the information required to retrieve an app or cookbook from a repository.
 	// For more information, see Adding Apps (https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html)
 	// or Cookbooks and Recipes (https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html).
-	CustomCookbooksSource *Source `type:"structure"`
+	CustomCookbooksSource *Source `json:"opsworks:Stack:CustomCookbooksSource" type:"structure"`
 
 	// A JSON object that contains user-defined attributes to be added to the stack
 	// configuration and deployment attributes. You can use custom JSON to override
@@ -1571,57 +1571,57 @@ type Stack struct {
 	//
 	// For more information on custom JSON, see Use Custom JSON to Modify the Stack
 	// Configuration Attributes (https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html).
-	CustomJson *string `type:"string"`
+	CustomJson *string `json:"opsworks:Stack:CustomJson" type:"string"`
 
 	// The stack's default Availability Zone. For more information, see Regions
 	// and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html).
-	DefaultAvailabilityZone *string `type:"string"`
+	DefaultAvailabilityZone *string `json:"opsworks:Stack:DefaultAvailabilityZone" type:"string"`
 
 	// The ARN of an IAM profile that is the default profile for all of the stack's
 	// EC2 instances. For more information about IAM ARNs, see Using Identifiers
 	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html).
-	DefaultInstanceProfileArn *string `type:"string"`
+	DefaultInstanceProfileArn *string `json:"opsworks:Stack:DefaultInstanceProfileArn" type:"string"`
 
 	// The stack's default operating system.
-	DefaultOs *string `type:"string"`
+	DefaultOs *string `json:"opsworks:Stack:DefaultOs" type:"string"`
 
 	// The default root device type. This value is used by default for all instances
 	// in the stack, but you can override it when you create an instance. For more
 	// information, see Storage for the Root Device (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device).
-	DefaultRootDeviceType RootDeviceType `type:"string" enum:"true"`
+	DefaultRootDeviceType RootDeviceType `json:"opsworks:Stack:DefaultRootDeviceType" type:"string" enum:"true"`
 
 	// A default Amazon EC2 key pair for the stack's instances. You can override
 	// this value when you create or update an instance.
-	DefaultSshKeyName *string `type:"string"`
+	DefaultSshKeyName *string `json:"opsworks:Stack:DefaultSshKeyName" type:"string"`
 
 	// The default subnet ID; applicable only if the stack is running in a VPC.
-	DefaultSubnetId *string `type:"string"`
+	DefaultSubnetId *string `json:"opsworks:Stack:DefaultSubnetId" type:"string"`
 
 	// The stack host name theme, with spaces replaced by underscores.
-	HostnameTheme *string `type:"string"`
+	HostnameTheme *string `json:"opsworks:Stack:HostnameTheme" type:"string"`
 
 	// The stack name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:Stack:Name" type:"string"`
 
 	// The stack AWS region, such as "ap-northeast-2". For more information about
 	// AWS regions, see Regions and Endpoints (https://docs.aws.amazon.com/general/latest/gr/rande.html).
-	Region *string `type:"string"`
+	Region *string `json:"opsworks:Stack:Region" type:"string"`
 
 	// The stack AWS Identity and Access Management (IAM) role.
-	ServiceRoleArn *string `type:"string"`
+	ServiceRoleArn *string `json:"opsworks:Stack:ServiceRoleArn" type:"string"`
 
 	// The stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:Stack:StackId" type:"string"`
 
 	// Whether the stack uses custom cookbooks.
-	UseCustomCookbooks *bool `type:"boolean"`
+	UseCustomCookbooks *bool `json:"opsworks:Stack:UseCustomCookbooks" type:"boolean"`
 
 	// Whether the stack automatically associates the AWS OpsWorks Stacks built-in
 	// security groups with the stack's layers.
-	UseOpsworksSecurityGroups *bool `type:"boolean"`
+	UseOpsworksSecurityGroups *bool `json:"opsworks:Stack:UseOpsworksSecurityGroups" type:"boolean"`
 
 	// The VPC ID; applicable only if the stack is running in a VPC.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"opsworks:Stack:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1635,12 +1635,12 @@ type StackConfigurationManager struct {
 	_ struct{} `type:"structure"`
 
 	// The name. This parameter must be set to "Chef".
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:StackConfigurationManager:Name" type:"string"`
 
 	// The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux
 	// stacks, and to 12.2 for Windows stacks. The default value for Linux stacks
 	// is 11.4.
-	Version *string `type:"string"`
+	Version *string `json:"opsworks:StackConfigurationManager:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -1654,22 +1654,22 @@ type StackSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The number of apps.
-	AppsCount *int64 `type:"integer"`
+	AppsCount *int64 `json:"opsworks:StackSummary:AppsCount" type:"integer"`
 
 	// The stack's ARN.
-	Arn *string `type:"string"`
+	Arn *string `json:"opsworks:StackSummary:Arn" type:"string"`
 
 	// An InstancesCount object with the number of instances in each status.
-	InstancesCount *InstancesCount `type:"structure"`
+	InstancesCount *InstancesCount `json:"opsworks:StackSummary:InstancesCount" type:"structure"`
 
 	// The number of layers.
-	LayersCount *int64 `type:"integer"`
+	LayersCount *int64 `json:"opsworks:StackSummary:LayersCount" type:"integer"`
 
 	// The stack name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:StackSummary:Name" type:"string"`
 
 	// The stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:StackSummary:StackId" type:"string"`
 }
 
 // String returns the string representation
@@ -1684,19 +1684,19 @@ type TemporaryCredential struct {
 	_ struct{} `type:"structure"`
 
 	// The instance's AWS OpsWorks Stacks ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:TemporaryCredential:InstanceId" type:"string"`
 
 	// The password.
-	Password *string `type:"string"`
+	Password *string `json:"opsworks:TemporaryCredential:Password" type:"string"`
 
 	// The user name.
-	Username *string `type:"string"`
+	Username *string `json:"opsworks:TemporaryCredential:Username" type:"string"`
 
 	// The length of time (in minutes) that the grant is valid. When the grant expires,
 	// at the end of this period, the user will no longer be able to use the credentials
 	// to log in. If they are logged in at the time, they will be automatically
 	// logged out.
-	ValidForInMinutes *int64 `type:"integer"`
+	ValidForInMinutes *int64 `json:"opsworks:TemporaryCredential:ValidForInMinutes" type:"integer"`
 }
 
 // String returns the string representation
@@ -1710,10 +1710,10 @@ type TimeBasedAutoScalingConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// A WeeklyAutoScalingSchedule object with the instance schedule.
-	AutoScalingSchedule *WeeklyAutoScalingSchedule `type:"structure"`
+	AutoScalingSchedule *WeeklyAutoScalingSchedule `json:"opsworks:TimeBasedAutoScalingConfiguration:AutoScalingSchedule" type:"structure"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:TimeBasedAutoScalingConfiguration:InstanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -1728,19 +1728,19 @@ type UserProfile struct {
 
 	// Whether users can specify their own SSH public key through the My Settings
 	// page. For more information, see Managing User Permissions (https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html).
-	AllowSelfManagement *bool `type:"boolean"`
+	AllowSelfManagement *bool `json:"opsworks:UserProfile:AllowSelfManagement" type:"boolean"`
 
 	// The user's IAM ARN.
-	IamUserArn *string `type:"string"`
+	IamUserArn *string `json:"opsworks:UserProfile:IamUserArn" type:"string"`
 
 	// The user's name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:UserProfile:Name" type:"string"`
 
 	// The user's SSH public key.
-	SshPublicKey *string `type:"string"`
+	SshPublicKey *string `json:"opsworks:UserProfile:SshPublicKey" type:"string"`
 
 	// The user's SSH user name.
-	SshUsername *string `type:"string"`
+	SshUsername *string `json:"opsworks:UserProfile:SshUsername" type:"string"`
 }
 
 // String returns the string representation
@@ -1755,45 +1755,45 @@ type Volume struct {
 
 	// The volume Availability Zone. For more information, see Regions and Endpoints
 	// (https://docs.aws.amazon.com/general/latest/gr/rande.html).
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"opsworks:Volume:AvailabilityZone" type:"string"`
 
 	// The device name.
-	Device *string `type:"string"`
+	Device *string `json:"opsworks:Volume:Device" type:"string"`
 
 	// The Amazon EC2 volume ID.
-	Ec2VolumeId *string `type:"string"`
+	Ec2VolumeId *string `json:"opsworks:Volume:Ec2VolumeId" type:"string"`
 
 	// Specifies whether an Amazon EBS volume is encrypted. For more information,
 	// see Amazon EBS Encryption (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"opsworks:Volume:Encrypted" type:"boolean"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:Volume:InstanceId" type:"string"`
 
 	// For PIOPS volumes, the IOPS per disk.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"opsworks:Volume:Iops" type:"integer"`
 
 	// The volume mount point. For example, "/mnt/disk1".
-	MountPoint *string `type:"string"`
+	MountPoint *string `json:"opsworks:Volume:MountPoint" type:"string"`
 
 	// The volume name.
-	Name *string `type:"string"`
+	Name *string `json:"opsworks:Volume:Name" type:"string"`
 
 	// The RAID array ID.
-	RaidArrayId *string `type:"string"`
+	RaidArrayId *string `json:"opsworks:Volume:RaidArrayId" type:"string"`
 
 	// The AWS region. For more information about AWS regions, see Regions and Endpoints
 	// (https://docs.aws.amazon.com/general/latest/gr/rande.html).
-	Region *string `type:"string"`
+	Region *string `json:"opsworks:Volume:Region" type:"string"`
 
 	// The volume size.
-	Size *int64 `type:"integer"`
+	Size *int64 `json:"opsworks:Volume:Size" type:"integer"`
 
 	// The value returned by DescribeVolumes (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html).
-	Status *string `type:"string"`
+	Status *string `json:"opsworks:Volume:Status" type:"string"`
 
 	// The volume ID.
-	VolumeId *string `type:"string"`
+	VolumeId *string `json:"opsworks:Volume:VolumeId" type:"string"`
 
 	// The volume type. For more information, see Amazon EBS Volume Types (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	//
@@ -1812,7 +1812,7 @@ type Volume struct {
 	//
 	//    * sc1 - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB
 	//    and a maximum size of 16384 GiB.
-	VolumeType *string `type:"string"`
+	VolumeType *string `json:"opsworks:Volume:VolumeType" type:"string"`
 }
 
 // String returns the string representation
@@ -1827,28 +1827,28 @@ type VolumeConfiguration struct {
 
 	// Specifies whether an Amazon EBS volume is encrypted. For more information,
 	// see Amazon EBS Encryption (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"opsworks:VolumeConfiguration:Encrypted" type:"boolean"`
 
 	// For PIOPS volumes, the IOPS per disk.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"opsworks:VolumeConfiguration:Iops" type:"integer"`
 
 	// The volume mount point. For example "/dev/sdh".
 	//
 	// MountPoint is a required field
-	MountPoint *string `type:"string" required:"true"`
+	MountPoint *string `json:"opsworks:VolumeConfiguration:MountPoint" type:"string" required:"true"`
 
 	// The number of disks in the volume.
 	//
 	// NumberOfDisks is a required field
-	NumberOfDisks *int64 `type:"integer" required:"true"`
+	NumberOfDisks *int64 `json:"opsworks:VolumeConfiguration:NumberOfDisks" type:"integer" required:"true"`
 
 	// The volume RAID level (http://en.wikipedia.org/wiki/Standard_RAID_levels).
-	RaidLevel *int64 `type:"integer"`
+	RaidLevel *int64 `json:"opsworks:VolumeConfiguration:RaidLevel" type:"integer"`
 
 	// The volume size.
 	//
 	// Size is a required field
-	Size *int64 `type:"integer" required:"true"`
+	Size *int64 `json:"opsworks:VolumeConfiguration:Size" type:"integer" required:"true"`
 
 	// The volume type. For more information, see Amazon EBS Volume Types (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	//
@@ -1867,7 +1867,7 @@ type VolumeConfiguration struct {
 	//
 	//    * sc1 - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB
 	//    and a maximum size of 16384 GiB.
-	VolumeType *string `type:"string"`
+	VolumeType *string `json:"opsworks:VolumeConfiguration:VolumeType" type:"string"`
 }
 
 // String returns the string representation
@@ -1920,25 +1920,25 @@ type WeeklyAutoScalingSchedule struct {
 	_ struct{} `type:"structure"`
 
 	// The schedule for Friday.
-	Friday map[string]string `type:"map"`
+	Friday map[string]string `json:"opsworks:WeeklyAutoScalingSchedule:Friday" type:"map"`
 
 	// The schedule for Monday.
-	Monday map[string]string `type:"map"`
+	Monday map[string]string `json:"opsworks:WeeklyAutoScalingSchedule:Monday" type:"map"`
 
 	// The schedule for Saturday.
-	Saturday map[string]string `type:"map"`
+	Saturday map[string]string `json:"opsworks:WeeklyAutoScalingSchedule:Saturday" type:"map"`
 
 	// The schedule for Sunday.
-	Sunday map[string]string `type:"map"`
+	Sunday map[string]string `json:"opsworks:WeeklyAutoScalingSchedule:Sunday" type:"map"`
 
 	// The schedule for Thursday.
-	Thursday map[string]string `type:"map"`
+	Thursday map[string]string `json:"opsworks:WeeklyAutoScalingSchedule:Thursday" type:"map"`
 
 	// The schedule for Tuesday.
-	Tuesday map[string]string `type:"map"`
+	Tuesday map[string]string `json:"opsworks:WeeklyAutoScalingSchedule:Tuesday" type:"map"`
 
 	// The schedule for Wednesday.
-	Wednesday map[string]string `type:"map"`
+	Wednesday map[string]string `json:"opsworks:WeeklyAutoScalingSchedule:Wednesday" type:"map"`
 }
 
 // String returns the string representation

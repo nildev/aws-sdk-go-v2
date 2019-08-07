@@ -94,10 +94,10 @@ type ListThingGroupsOutput struct {
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListThingGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The thing groups.
-	ThingGroups []GroupNameAndArn `locationName:"thingGroups" type:"list"`
+	ThingGroups []GroupNameAndArn `json:"iot:ListThingGroupsOutput:ThingGroups" locationName:"thingGroups" type:"list"`
 }
 
 // String returns the string representation

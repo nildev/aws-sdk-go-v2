@@ -48,7 +48,7 @@ type GetTestOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A test condition that is evaluated.
-	Test *Test `locationName:"test" type:"structure"`
+	Test *Test `json:"devicefarm:GetTestOutput:Test" locationName:"test" type:"structure"`
 }
 
 // String returns the string representation

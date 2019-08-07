@@ -251,7 +251,7 @@ type CreateServiceOutput struct {
 	// If the service is using the CODE_DEPLOY deployment controller, the deploymentController,
 	// taskSets and deployments parameters will be returned, however the deployments
 	// parameter will be an empty list.
-	Service *Service `locationName:"service" type:"structure"`
+	Service *Service `json:"ecs:CreateServiceOutput:Service" locationName:"service" type:"structure"`
 }
 
 // String returns the string representation

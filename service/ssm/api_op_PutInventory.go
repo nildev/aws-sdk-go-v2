@@ -63,7 +63,7 @@ type PutInventoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the request.
-	Message *string `type:"string"`
+	Message *string `json:"ssm:PutInventoryOutput:Message" type:"string"`
 }
 
 // String returns the string representation

@@ -47,46 +47,46 @@ type DescribeModelPackageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the model package is certified for listing on AWS Marketplace.
-	CertifyForMarketplace *bool `type:"boolean"`
+	CertifyForMarketplace *bool `json:"api.sagemaker:DescribeModelPackageOutput:CertifyForMarketplace" type:"boolean"`
 
 	// A timestamp specifying when the model package was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeModelPackageOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Details about inference jobs that can be run with models based on this model
 	// package.
-	InferenceSpecification *InferenceSpecification `type:"structure"`
+	InferenceSpecification *InferenceSpecification `json:"api.sagemaker:DescribeModelPackageOutput:InferenceSpecification" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the model package.
 	//
 	// ModelPackageArn is a required field
-	ModelPackageArn *string `min:"1" type:"string" required:"true"`
+	ModelPackageArn *string `json:"api.sagemaker:DescribeModelPackageOutput:ModelPackageArn" min:"1" type:"string" required:"true"`
 
 	// A brief summary of the model package.
-	ModelPackageDescription *string `type:"string"`
+	ModelPackageDescription *string `json:"api.sagemaker:DescribeModelPackageOutput:ModelPackageDescription" type:"string"`
 
 	// The name of the model package being described.
 	//
 	// ModelPackageName is a required field
-	ModelPackageName *string `min:"1" type:"string" required:"true"`
+	ModelPackageName *string `json:"api.sagemaker:DescribeModelPackageOutput:ModelPackageName" min:"1" type:"string" required:"true"`
 
 	// The current status of the model package.
 	//
 	// ModelPackageStatus is a required field
-	ModelPackageStatus ModelPackageStatus `type:"string" required:"true" enum:"true"`
+	ModelPackageStatus ModelPackageStatus `json:"api.sagemaker:DescribeModelPackageOutput:ModelPackageStatus" type:"string" required:"true" enum:"true"`
 
 	// Details about the current status of the model package.
 	//
 	// ModelPackageStatusDetails is a required field
-	ModelPackageStatusDetails *ModelPackageStatusDetails `type:"structure" required:"true"`
+	ModelPackageStatusDetails *ModelPackageStatusDetails `json:"api.sagemaker:DescribeModelPackageOutput:ModelPackageStatusDetails" type:"structure" required:"true"`
 
 	// Details about the algorithm that was used to create the model package.
-	SourceAlgorithmSpecification *SourceAlgorithmSpecification `type:"structure"`
+	SourceAlgorithmSpecification *SourceAlgorithmSpecification `json:"api.sagemaker:DescribeModelPackageOutput:SourceAlgorithmSpecification" type:"structure"`
 
 	// Configurations for one or more transform jobs that Amazon SageMaker runs
 	// to test the model package.
-	ValidationSpecification *ModelPackageValidationSpecification `type:"structure"`
+	ValidationSpecification *ModelPackageValidationSpecification `json:"api.sagemaker:DescribeModelPackageOutput:ValidationSpecification" type:"structure"`
 }
 
 // String returns the string representation

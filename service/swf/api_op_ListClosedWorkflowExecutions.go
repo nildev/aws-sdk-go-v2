@@ -141,7 +141,7 @@ type ListClosedWorkflowExecutionsOutput struct {
 	// The list of workflow information structures.
 	//
 	// ExecutionInfos is a required field
-	ExecutionInfos []WorkflowExecutionInfo `locationName:"executionInfos" type:"list" required:"true"`
+	ExecutionInfos []WorkflowExecutionInfo `json:"swf:ListClosedWorkflowExecutionsOutput:ExecutionInfos" locationName:"executionInfos" type:"list" required:"true"`
 
 	// If a NextPageToken was returned by a previous call, there are more results
 	// available. To retrieve the next page of results, make the call again using
@@ -149,7 +149,7 @@ type ListClosedWorkflowExecutionsOutput struct {
 	//
 	// The configured maximumPageSize determines how many results can be returned
 	// in a single call.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"swf:ListClosedWorkflowExecutionsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

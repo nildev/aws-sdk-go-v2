@@ -42,13 +42,13 @@ type UpdateAppOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Summary description of the application.
-	AppSummary *AppSummary `locationName:"appSummary" type:"structure"`
+	AppSummary *AppSummary `json:"sms:UpdateAppOutput:AppSummary" locationName:"appSummary" type:"structure"`
 
 	// List of updated server groups in the application.
-	ServerGroups []ServerGroup `locationName:"serverGroups" type:"list"`
+	ServerGroups []ServerGroup `json:"sms:UpdateAppOutput:ServerGroups" locationName:"serverGroups" type:"list"`
 
 	// List of tags associated with the application.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"sms:UpdateAppOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

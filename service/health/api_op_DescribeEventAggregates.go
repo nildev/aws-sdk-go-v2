@@ -63,14 +63,14 @@ type DescribeEventAggregatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of events in each category that meet the optional filter criteria.
-	EventAggregates []EventAggregate `locationName:"eventAggregates" type:"list"`
+	EventAggregates []EventAggregate `json:"health:DescribeEventAggregatesOutput:EventAggregates" locationName:"eventAggregates" type:"list"`
 
 	// If the results of a search are large, only a portion of the results are returned,
 	// and a nextToken pagination token is returned in the response. To retrieve
 	// the next batch of results, reissue the search request and include the returned
 	// token. When all results have been returned, the response does not contain
 	// a pagination token value.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"health:DescribeEventAggregatesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

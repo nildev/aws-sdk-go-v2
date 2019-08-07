@@ -48,7 +48,7 @@ type DescribeTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags.
-	TagList []Tag `type:"list"`
+	TagList []Tag `json:"workspaces:DescribeTagsOutput:TagList" type:"list"`
 }
 
 // String returns the string representation

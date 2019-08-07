@@ -17,7 +17,7 @@ type AttributeValue struct {
 	_ struct{} `type:"structure"`
 
 	// The specific value of an attributeName.
-	Value *string `type:"string"`
+	Value *string `json:"api.pricing:AttributeValue:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -42,7 +42,7 @@ type Filter struct {
 	// attribute name to get the prices for only Amazon EC2 volumes.
 	//
 	// Field is a required field
-	Field *string `type:"string" required:"true"`
+	Field *string `json:"api.pricing:Filter:Field" type:"string" required:"true"`
 
 	// The type of filter that you want to use.
 	//
@@ -50,7 +50,7 @@ type Filter struct {
 	// both the given filter field and the given value.
 	//
 	// Type is a required field
-	Type FilterType `type:"string" required:"true" enum:"true"`
+	Type FilterType `json:"api.pricing:Filter:Type" type:"string" required:"true" enum:"true"`
 
 	// The service code or attribute value that you want to filter by. If you are
 	// filtering by service code this is the actual service code, such as AmazonEC2.
@@ -58,7 +58,7 @@ type Filter struct {
 	// you want the returned products to match, such as a Provisioned IOPS volume.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"api.pricing:Filter:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -94,10 +94,10 @@ type Service struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes that are available for this service.
-	AttributeNames []string `type:"list"`
+	AttributeNames []string `json:"api.pricing:Service:AttributeNames" type:"list"`
 
 	// The code for the AWS service.
-	ServiceCode *string `type:"string"`
+	ServiceCode *string `json:"api.pricing:Service:ServiceCode" type:"string"`
 }
 
 // String returns the string representation

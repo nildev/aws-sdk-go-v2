@@ -49,7 +49,7 @@ type DescribeCreateAccountStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains the current status of an account creation request.
-	CreateAccountStatus *CreateAccountStatus `type:"structure"`
+	CreateAccountStatus *CreateAccountStatus `json:"organizations:DescribeCreateAccountStatusOutput:CreateAccountStatus" type:"structure"`
 }
 
 // String returns the string representation

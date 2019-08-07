@@ -29,10 +29,10 @@ type ListSecurityConfigurationsOutput struct {
 	// A pagination token that indicates the next set of results to retrieve. Include
 	// the marker in the next ListSecurityConfiguration call to retrieve the next
 	// page of results, if required.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticmapreduce:ListSecurityConfigurationsOutput:Marker" type:"string"`
 
 	// The creation date and time, and name, of each security configuration.
-	SecurityConfigurations []SecurityConfigurationSummary `type:"list"`
+	SecurityConfigurations []SecurityConfigurationSummary `json:"elasticmapreduce:ListSecurityConfigurationsOutput:SecurityConfigurations" type:"list"`
 }
 
 // String returns the string representation

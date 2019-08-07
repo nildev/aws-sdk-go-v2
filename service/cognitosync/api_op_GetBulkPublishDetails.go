@@ -65,10 +65,10 @@ type GetBulkPublishDetailsOutput struct {
 
 	// If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation
 	// completed.
-	BulkPublishCompleteTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	BulkPublishCompleteTime *time.Time `json:"cognito-sync:GetBulkPublishDetailsOutput:BulkPublishCompleteTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date/time at which the last bulk publish was initiated.
-	BulkPublishStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	BulkPublishStartTime *time.Time `json:"cognito-sync:GetBulkPublishDetailsOutput:BulkPublishStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Status of the last bulk publish operation, valid values are:
 	// NOT_STARTED - No bulk publish has been requested for this identity pool
@@ -80,15 +80,15 @@ type GetBulkPublishDetailsOutput struct {
 	//
 	// FAILED - Some portion of the data has failed to publish, check FailureMessage
 	// for the cause.
-	BulkPublishStatus BulkPublishStatus `type:"string" enum:"true"`
+	BulkPublishStatus BulkPublishStatus `json:"cognito-sync:GetBulkPublishDetailsOutput:BulkPublishStatus" type:"string" enum:"true"`
 
 	// If BulkPublishStatus is FAILED this field will contain the error message
 	// that caused the bulk publish to fail.
-	FailureMessage *string `type:"string"`
+	FailureMessage *string `json:"cognito-sync:GetBulkPublishDetailsOutput:FailureMessage" type:"string"`
 
 	// A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
 	// created by Amazon Cognito. GUID generation is unique within a region.
-	IdentityPoolId *string `min:"1" type:"string"`
+	IdentityPoolId *string `json:"cognito-sync:GetBulkPublishDetailsOutput:IdentityPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation

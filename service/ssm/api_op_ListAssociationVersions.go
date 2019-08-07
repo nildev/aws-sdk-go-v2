@@ -55,11 +55,11 @@ type ListAssociationVersionsOutput struct {
 
 	// Information about all versions of the association for the specified association
 	// ID.
-	AssociationVersions []AssociationVersionInfo `min:"1" type:"list"`
+	AssociationVersions []AssociationVersionInfo `json:"ssm:ListAssociationVersionsOutput:AssociationVersions" min:"1" type:"list"`
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListAssociationVersionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

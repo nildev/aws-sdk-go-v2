@@ -27,10 +27,10 @@ type GetDefaultPatchBaselineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the default patch baseline.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:GetDefaultPatchBaselineOutput:BaselineId" min:"20" type:"string"`
 
 	// The operating system for the returned patch baseline.
-	OperatingSystem OperatingSystem `type:"string" enum:"true"`
+	OperatingSystem OperatingSystem `json:"ssm:GetDefaultPatchBaselineOutput:OperatingSystem" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -60,11 +60,11 @@ type ListAssociationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The associations.
-	Associations []Association `type:"list"`
+	Associations []Association `json:"ssm:ListAssociationsOutput:Associations" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListAssociationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

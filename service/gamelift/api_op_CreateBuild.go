@@ -71,16 +71,16 @@ type CreateBuildOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The newly created build record, including a unique build ID and status.
-	Build *Build `type:"structure"`
+	Build *Build `json:"gamelift:CreateBuildOutput:Build" type:"structure"`
 
 	// Amazon S3 location for your game build file, including bucket name and key.
-	StorageLocation *S3Location `type:"structure"`
+	StorageLocation *S3Location `json:"gamelift:CreateBuildOutput:StorageLocation" type:"structure"`
 
 	// This element is returned only when the operation is called without a storage
 	// location. It contains credentials to use when you are uploading a build file
 	// to an Amazon S3 bucket that is owned by Amazon GameLift. Credentials have
 	// a limited life span. To refresh these credentials, call RequestUploadCredentials.
-	UploadCredentials *AwsCredentials `type:"structure"`
+	UploadCredentials *AwsCredentials `json:"gamelift:CreateBuildOutput:UploadCredentials" type:"structure"`
 }
 
 // String returns the string representation

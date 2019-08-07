@@ -43,7 +43,7 @@ type DescribeConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A key in the response map. The value is an array of data.
-	Configurations []map[string]string `locationName:"configurations" type:"list"`
+	Configurations []map[string]string `json:"discovery:DescribeConfigurationsOutput:Configurations" locationName:"configurations" type:"list"`
 }
 
 // String returns the string representation

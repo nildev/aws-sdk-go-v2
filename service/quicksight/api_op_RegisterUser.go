@@ -173,17 +173,17 @@ type RegisterUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS request ID for this operation.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"quicksight:RegisterUserOutput:RequestId" type:"string"`
 
 	// The http status of the request.
-	Status *int64 `location:"statusCode" type:"integer"`
+	Status *int64 `json:"quicksight:RegisterUserOutput:Status" location:"statusCode" type:"integer"`
 
 	// The user name.
-	User *User `type:"structure"`
+	User *User `json:"quicksight:RegisterUserOutput:User" type:"structure"`
 
 	// The URL the user visits to complete registration and provide a password.
 	// This is returned only for users with an identity type of QUICKSIGHT.
-	UserInvitationUrl *string `type:"string"`
+	UserInvitationUrl *string `json:"quicksight:RegisterUserOutput:UserInvitationUrl" type:"string"`
 }
 
 // String returns the string representation

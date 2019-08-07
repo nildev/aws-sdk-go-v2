@@ -61,10 +61,10 @@ type ListSkillsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:ListSkillsOutput:NextToken" min:"1" type:"string"`
 
 	// The list of enabled skills requested. Required.
-	SkillSummaries []SkillSummary `type:"list"`
+	SkillSummaries []SkillSummary `json:"a4b:ListSkillsOutput:SkillSummaries" type:"list"`
 }
 
 // String returns the string representation

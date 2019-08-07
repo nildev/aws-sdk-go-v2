@@ -207,19 +207,19 @@ type AssumeRoleOutput struct {
 	// For example, you can reference these credentials as a principal in a resource-based
 	// policy by using the ARN or assumed role ID. The ARN and ID include the RoleSessionName
 	// that you specified when you called AssumeRole.
-	AssumedRoleUser *AssumedRoleUser `type:"structure"`
+	AssumedRoleUser *AssumedRoleUser `json:"sts:AssumeRoleOutput:AssumedRoleUser" type:"structure"`
 
 	// The temporary security credentials, which include an access key ID, a secret
 	// access key, and a security (or session) token.
 	//
 	// The size of the security token that STS API operations return is not fixed.
 	// We strongly recommend that you make no assumptions about the maximum size.
-	Credentials *Credentials `type:"structure"`
+	Credentials *Credentials `json:"sts:AssumeRoleOutput:Credentials" type:"structure"`
 
 	// A percentage value that indicates the size of the policy in packed form.
 	// The service rejects any policy with a packed size greater than 100 percent,
 	// which means the policy exceeded the allowed space.
-	PackedPolicySize *int64 `type:"integer"`
+	PackedPolicySize *int64 `json:"sts:AssumeRoleOutput:PackedPolicySize" type:"integer"`
 }
 
 // String returns the string representation

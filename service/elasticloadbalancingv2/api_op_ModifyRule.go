@@ -77,7 +77,7 @@ type ModifyRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the modified rule.
-	Rules []Rule `type:"list"`
+	Rules []Rule `json:"elasticloadbalancing:ModifyRuleOutput:Rules" type:"list"`
 }
 
 // String returns the string representation

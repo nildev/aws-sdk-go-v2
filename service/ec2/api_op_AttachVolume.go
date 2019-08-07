@@ -71,22 +71,22 @@ type AttachVolumeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time stamp when the attachment initiated.
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
+	AttachTime *time.Time `json:"ec2:AttachVolumeOutput:AttachTime" locationName:"attachTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates whether the EBS volume is deleted on instance termination.
-	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
+	DeleteOnTermination *bool `json:"ec2:AttachVolumeOutput:DeleteOnTermination" locationName:"deleteOnTermination" type:"boolean"`
 
 	// The device name.
-	Device *string `locationName:"device" type:"string"`
+	Device *string `json:"ec2:AttachVolumeOutput:Device" locationName:"device" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:AttachVolumeOutput:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The attachment state of the volume.
-	State VolumeAttachmentState `locationName:"status" type:"string" enum:"true"`
+	State VolumeAttachmentState `json:"ec2:AttachVolumeOutput:State" locationName:"status" type:"string" enum:"true"`
 
 	// The ID of the volume.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:AttachVolumeOutput:VolumeId" locationName:"volumeId" type:"string"`
 }
 
 // String returns the string representation

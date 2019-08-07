@@ -45,7 +45,7 @@ type DescribeRegionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Regions.
-	Regions []Region `locationName:"regionInfo" locationNameList:"item" type:"list"`
+	Regions []Region `json:"ec2:DescribeRegionsOutput:Regions" locationName:"regionInfo" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

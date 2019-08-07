@@ -62,13 +62,13 @@ type ListTranscriptionJobsOutput struct {
 	// more jobs in the list than the page size, Amazon Transcribe returns the NextPage
 	// token. Include the token in the next request to the ListTranscriptionJobs
 	// operation to return in the next page of jobs.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"transcribe:ListTranscriptionJobsOutput:NextToken" type:"string"`
 
 	// The requested status of the jobs returned.
-	Status TranscriptionJobStatus `type:"string" enum:"true"`
+	Status TranscriptionJobStatus `json:"transcribe:ListTranscriptionJobsOutput:Status" type:"string" enum:"true"`
 
 	// A list of objects containing summary information for a transcription job.
-	TranscriptionJobSummaries []TranscriptionJobSummary `type:"list"`
+	TranscriptionJobSummaries []TranscriptionJobSummary `json:"transcribe:ListTranscriptionJobsOutput:TranscriptionJobSummaries" type:"list"`
 }
 
 // String returns the string representation

@@ -18,22 +18,22 @@ type Environment struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the environment.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"cloud9:Environment:Arn" locationName:"arn" type:"string"`
 
 	// The description for the environment.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"cloud9:Environment:Description" locationName:"description" type:"string"`
 
 	// The ID of the environment.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"cloud9:Environment:Id" locationName:"id" type:"string"`
 
 	// The state of the environment in its creation or deletion lifecycle.
-	Lifecycle *EnvironmentLifecycle `locationName:"lifecycle" type:"structure"`
+	Lifecycle *EnvironmentLifecycle `json:"cloud9:Environment:Lifecycle" locationName:"lifecycle" type:"structure"`
 
 	// The name of the environment.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"cloud9:Environment:Name" locationName:"name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the environment owner.
-	OwnerArn *string `locationName:"ownerArn" type:"string"`
+	OwnerArn *string `json:"cloud9:Environment:OwnerArn" locationName:"ownerArn" type:"string"`
 
 	// The type of environment. Valid values include the following:
 	//
@@ -41,7 +41,7 @@ type Environment struct {
 	//    to the environment.
 	//
 	//    * ssh: Your own server connects to the environment.
-	Type EnvironmentType `locationName:"type" type:"string" enum:"true"`
+	Type EnvironmentType `json:"cloud9:Environment:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -57,10 +57,10 @@ type EnvironmentLifecycle struct {
 
 	// If the environment failed to delete, the Amazon Resource Name (ARN) of the
 	// related AWS resource.
-	FailureResource *string `locationName:"failureResource" type:"string"`
+	FailureResource *string `json:"cloud9:EnvironmentLifecycle:FailureResource" locationName:"failureResource" type:"string"`
 
 	// Any informational message about the lifecycle state of the environment.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"cloud9:EnvironmentLifecycle:Reason" locationName:"reason" type:"string"`
 
 	// The current creation or deletion lifecycle state of the environment.
 	//
@@ -69,7 +69,7 @@ type EnvironmentLifecycle struct {
 	//    * DELETE_FAILED: The environment failed to delete.
 	//
 	//    * DELETING: The environment is in the process of being deleted.
-	Status EnvironmentLifecycleStatus `locationName:"status" type:"string" enum:"true"`
+	Status EnvironmentLifecycleStatus `json:"cloud9:EnvironmentLifecycle:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -83,11 +83,11 @@ type EnvironmentMember struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the environment for the environment member.
-	EnvironmentId *string `locationName:"environmentId" type:"string"`
+	EnvironmentId *string `json:"cloud9:EnvironmentMember:EnvironmentId" locationName:"environmentId" type:"string"`
 
 	// The time, expressed in epoch time format, when the environment member last
 	// opened the environment.
-	LastAccess *time.Time `locationName:"lastAccess" type:"timestamp" timestampFormat:"unix"`
+	LastAccess *time.Time `json:"cloud9:EnvironmentMember:LastAccess" locationName:"lastAccess" type:"timestamp" timestampFormat:"unix"`
 
 	// The type of environment member permissions associated with this environment
 	// member. Available values include:
@@ -97,14 +97,14 @@ type EnvironmentMember struct {
 	//    * read-only: Has read-only access to the environment.
 	//
 	//    * read-write: Has read-write access to the environment.
-	Permissions Permissions `locationName:"permissions" type:"string" enum:"true"`
+	Permissions Permissions `json:"cloud9:EnvironmentMember:Permissions" locationName:"permissions" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the environment member.
-	UserArn *string `locationName:"userArn" type:"string"`
+	UserArn *string `json:"cloud9:EnvironmentMember:UserArn" locationName:"userArn" type:"string"`
 
 	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment
 	// member.
-	UserId *string `locationName:"userId" type:"string"`
+	UserId *string `json:"cloud9:EnvironmentMember:UserId" locationName:"userId" type:"string"`
 }
 
 // String returns the string representation

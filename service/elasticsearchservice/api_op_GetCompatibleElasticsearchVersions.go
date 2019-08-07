@@ -57,7 +57,7 @@ type GetCompatibleElasticsearchVersionsOutput struct {
 
 	// A map of compatible Elasticsearch versions returned as part of the GetCompatibleElasticsearchVersions
 	// operation.
-	CompatibleElasticsearchVersions []CompatibleVersionsMap `type:"list"`
+	CompatibleElasticsearchVersions []CompatibleVersionsMap `json:"es:GetCompatibleElasticsearchVersionsOutput:CompatibleElasticsearchVersions" type:"list"`
 }
 
 // String returns the string representation

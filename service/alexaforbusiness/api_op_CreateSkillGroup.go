@@ -58,7 +58,7 @@ type CreateSkillGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the newly created skill group in the response.
-	SkillGroupArn *string `type:"string"`
+	SkillGroupArn *string `json:"a4b:CreateSkillGroupOutput:SkillGroupArn" type:"string"`
 }
 
 // String returns the string representation

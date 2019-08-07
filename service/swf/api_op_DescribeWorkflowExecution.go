@@ -63,28 +63,28 @@ type DescribeWorkflowExecutionOutput struct {
 	// values, tasklist etc.
 	//
 	// ExecutionConfiguration is a required field
-	ExecutionConfiguration *WorkflowExecutionConfiguration `locationName:"executionConfiguration" type:"structure" required:"true"`
+	ExecutionConfiguration *WorkflowExecutionConfiguration `json:"swf:DescribeWorkflowExecutionOutput:ExecutionConfiguration" locationName:"executionConfiguration" type:"structure" required:"true"`
 
 	// Information about the workflow execution.
 	//
 	// ExecutionInfo is a required field
-	ExecutionInfo *WorkflowExecutionInfo `locationName:"executionInfo" type:"structure" required:"true"`
+	ExecutionInfo *WorkflowExecutionInfo `json:"swf:DescribeWorkflowExecutionOutput:ExecutionInfo" locationName:"executionInfo" type:"structure" required:"true"`
 
 	// The time when the last activity task was scheduled for this workflow execution.
 	// You can use this information to determine if the workflow has not made progress
 	// for an unusually long period of time and might require a corrective action.
-	LatestActivityTaskTimestamp *time.Time `locationName:"latestActivityTaskTimestamp" type:"timestamp" timestampFormat:"unix"`
+	LatestActivityTaskTimestamp *time.Time `json:"swf:DescribeWorkflowExecutionOutput:LatestActivityTaskTimestamp" locationName:"latestActivityTaskTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The latest executionContext provided by the decider for this workflow execution.
 	// A decider can provide an executionContext (a free-form string) when closing
 	// a decision task using RespondDecisionTaskCompleted.
-	LatestExecutionContext *string `locationName:"latestExecutionContext" type:"string"`
+	LatestExecutionContext *string `json:"swf:DescribeWorkflowExecutionOutput:LatestExecutionContext" locationName:"latestExecutionContext" type:"string"`
 
 	// The number of tasks for this workflow execution. This includes open and closed
 	// tasks of all types.
 	//
 	// OpenCounts is a required field
-	OpenCounts *WorkflowExecutionOpenCounts `locationName:"openCounts" type:"structure" required:"true"`
+	OpenCounts *WorkflowExecutionOpenCounts `json:"swf:DescribeWorkflowExecutionOutput:OpenCounts" locationName:"openCounts" type:"structure" required:"true"`
 }
 
 // String returns the string representation

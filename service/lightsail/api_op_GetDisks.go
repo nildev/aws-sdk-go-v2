@@ -28,11 +28,11 @@ type GetDisksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of objects containing information about all block storage disks.
-	Disks []Disk `locationName:"disks" type:"list"`
+	Disks []Disk `json:"lightsail:GetDisksOutput:Disks" locationName:"disks" type:"list"`
 
 	// A token used for advancing to the next page of results from your GetDisks
 	// request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetDisksOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

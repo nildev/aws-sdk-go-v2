@@ -56,11 +56,11 @@ type ListGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The overview of groups for an organization.
-	Groups []Group `type:"list"`
+	Groups []Group `json:"workmail:ListGroupsOutput:Groups" type:"list"`
 
 	// The token to use to retrieve the next page of results. The value is "null"
 	// when there are no more results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workmail:ListGroupsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

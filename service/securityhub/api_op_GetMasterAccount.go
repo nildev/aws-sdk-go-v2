@@ -33,7 +33,7 @@ type GetMasterAccountOutput struct {
 
 	// A list of details about the Security Hub master account for the current member
 	// account.
-	Master *Invitation `type:"structure"`
+	Master *Invitation `json:"securityhub:GetMasterAccountOutput:Master" type:"structure"`
 }
 
 // String returns the string representation

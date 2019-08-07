@@ -78,10 +78,10 @@ type ListOrganizationPortfolioAccessOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListOrganizationPortfolioAccessOutput:NextPageToken" type:"string"`
 
 	// Displays information about the organization nodes.
-	OrganizationNodes []OrganizationNode `type:"list"`
+	OrganizationNodes []OrganizationNode `json:"servicecatalog:ListOrganizationPortfolioAccessOutput:OrganizationNodes" type:"list"`
 }
 
 // String returns the string representation

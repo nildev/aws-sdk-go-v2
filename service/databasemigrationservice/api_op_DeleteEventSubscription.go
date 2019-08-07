@@ -43,7 +43,7 @@ type DeleteEventSubscriptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The event subscription that was deleted.
-	EventSubscription *EventSubscription `type:"structure"`
+	EventSubscription *EventSubscription `json:"dms:DeleteEventSubscriptionOutput:EventSubscription" type:"structure"`
 }
 
 // String returns the string representation

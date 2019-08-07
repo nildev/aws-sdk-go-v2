@@ -66,7 +66,7 @@ type DeleteAnalysisSchemeOutput struct {
 	// The status of the analysis scheme being deleted.
 	//
 	// AnalysisScheme is a required field
-	AnalysisScheme *AnalysisSchemeStatus `type:"structure" required:"true"`
+	AnalysisScheme *AnalysisSchemeStatus `json:"cloudsearch:DeleteAnalysisSchemeOutput:AnalysisScheme" type:"structure" required:"true"`
 }
 
 // String returns the string representation

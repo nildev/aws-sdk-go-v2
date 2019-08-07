@@ -142,7 +142,7 @@ type CreateVirtualNodeOutput struct {
 	// The full description of your virtual node following the create call.
 	//
 	// VirtualNode is a required field
-	VirtualNode *VirtualNodeData `locationName:"virtualNode" type:"structure" required:"true"`
+	VirtualNode *VirtualNodeData `json:"appmesh:CreateVirtualNodeOutput:VirtualNode" locationName:"virtualNode" type:"structure" required:"true"`
 }
 
 // String returns the string representation

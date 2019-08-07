@@ -46,10 +46,10 @@ type BatchGetBuildsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the requested builds.
-	Builds []Build `locationName:"builds" type:"list"`
+	Builds []Build `json:"codebuild:BatchGetBuildsOutput:Builds" locationName:"builds" type:"list"`
 
 	// The IDs of builds for which information could not be found.
-	BuildsNotFound []string `locationName:"buildsNotFound" min:"1" type:"list"`
+	BuildsNotFound []string `json:"codebuild:BatchGetBuildsOutput:BuildsNotFound" locationName:"buildsNotFound" min:"1" type:"list"`
 }
 
 // String returns the string representation

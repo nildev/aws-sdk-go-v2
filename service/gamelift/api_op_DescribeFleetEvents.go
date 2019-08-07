@@ -72,12 +72,12 @@ type DescribeFleetEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Collection of objects containing event log entries for the specified fleet.
-	Events []Event `type:"list"`
+	Events []Event `json:"gamelift:DescribeFleetEventsOutput:Events" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:DescribeFleetEventsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

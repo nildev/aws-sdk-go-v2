@@ -52,10 +52,10 @@ type AssociateSubnetCidrBlockOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the IPv6 CIDR block association.
-	Ipv6CidrBlockAssociation *SubnetIpv6CidrBlockAssociation `locationName:"ipv6CidrBlockAssociation" type:"structure"`
+	Ipv6CidrBlockAssociation *SubnetIpv6CidrBlockAssociation `json:"ec2:AssociateSubnetCidrBlockOutput:Ipv6CidrBlockAssociation" locationName:"ipv6CidrBlockAssociation" type:"structure"`
 
 	// The ID of the subnet.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"ec2:AssociateSubnetCidrBlockOutput:SubnetId" locationName:"subnetId" type:"string"`
 }
 
 // String returns the string representation

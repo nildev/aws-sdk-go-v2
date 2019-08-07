@@ -47,11 +47,11 @@ func (s GetApisInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetApisOutput struct {
 	_ struct{} `type:"structure"`
 
-	Items []Api `locationName:"items" type:"list"`
+	Items []Api `json:"apigateway:GetApisOutput:Items" locationName:"items" type:"list"`
 
 	// The next page of elements from this collection. Not valid for the last element
 	// of the collection.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"apigateway:GetApisOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

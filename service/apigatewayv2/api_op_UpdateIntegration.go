@@ -213,39 +213,39 @@ type UpdateIntegrationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A string with a length between [1-1024].
-	ConnectionId *string `locationName:"connectionId" type:"string"`
+	ConnectionId *string `json:"apigateway:UpdateIntegrationOutput:ConnectionId" locationName:"connectionId" type:"string"`
 
 	// Represents a connection type.
-	ConnectionType ConnectionType `locationName:"connectionType" type:"string" enum:"true"`
+	ConnectionType ConnectionType `json:"apigateway:UpdateIntegrationOutput:ConnectionType" locationName:"connectionType" type:"string" enum:"true"`
 
 	// Specifies how to handle response payload content type conversions.
-	ContentHandlingStrategy ContentHandlingStrategy `locationName:"contentHandlingStrategy" type:"string" enum:"true"`
+	ContentHandlingStrategy ContentHandlingStrategy `json:"apigateway:UpdateIntegrationOutput:ContentHandlingStrategy" locationName:"contentHandlingStrategy" type:"string" enum:"true"`
 
 	// Represents an Amazon Resource Name (ARN).
-	CredentialsArn *string `locationName:"credentialsArn" type:"string"`
+	CredentialsArn *string `json:"apigateway:UpdateIntegrationOutput:CredentialsArn" locationName:"credentialsArn" type:"string"`
 
 	// A string with a length between [0-1024].
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:UpdateIntegrationOutput:Description" locationName:"description" type:"string"`
 
 	// The identifier.
-	IntegrationId *string `locationName:"integrationId" type:"string"`
+	IntegrationId *string `json:"apigateway:UpdateIntegrationOutput:IntegrationId" locationName:"integrationId" type:"string"`
 
 	// A string with a length between [1-64].
-	IntegrationMethod *string `locationName:"integrationMethod" type:"string"`
+	IntegrationMethod *string `json:"apigateway:UpdateIntegrationOutput:IntegrationMethod" locationName:"integrationMethod" type:"string"`
 
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	IntegrationResponseSelectionExpression *string `locationName:"integrationResponseSelectionExpression" type:"string"`
+	IntegrationResponseSelectionExpression *string `json:"apigateway:UpdateIntegrationOutput:IntegrationResponseSelectionExpression" locationName:"integrationResponseSelectionExpression" type:"string"`
 
 	// Represents an API method integration type.
-	IntegrationType IntegrationType `locationName:"integrationType" type:"string" enum:"true"`
+	IntegrationType IntegrationType `json:"apigateway:UpdateIntegrationOutput:IntegrationType" locationName:"integrationType" type:"string" enum:"true"`
 
 	// A string representation of a URI with a length between [1-2048].
-	IntegrationUri *string `locationName:"integrationUri" type:"string"`
+	IntegrationUri *string `json:"apigateway:UpdateIntegrationOutput:IntegrationUri" locationName:"integrationUri" type:"string"`
 
 	// Represents passthrough behavior for an integration response.
-	PassthroughBehavior PassthroughBehavior `locationName:"passthroughBehavior" type:"string" enum:"true"`
+	PassthroughBehavior PassthroughBehavior `json:"apigateway:UpdateIntegrationOutput:PassthroughBehavior" locationName:"passthroughBehavior" type:"string" enum:"true"`
 
 	// A key-value map specifying response parameters that are passed to the method
 	// response from the backend. The key is a method response header parameter
@@ -257,20 +257,20 @@ type UpdateIntegrationOutput struct {
 	// or integration.response.body.{JSON-expression}, where name is a valid and
 	// unique response header name and JSON-expression is a valid JSON expression
 	// without the $ prefix.
-	RequestParameters map[string]string `locationName:"requestParameters" type:"map"`
+	RequestParameters map[string]string `json:"apigateway:UpdateIntegrationOutput:RequestParameters" locationName:"requestParameters" type:"map"`
 
 	// A mapping of identifier keys to templates. The value is an actual template
 	// script. The key is typically a SelectionKey which is chosen based on evaluating
 	// a selection expression.
-	RequestTemplates map[string]string `locationName:"requestTemplates" type:"map"`
+	RequestTemplates map[string]string `json:"apigateway:UpdateIntegrationOutput:RequestTemplates" locationName:"requestTemplates" type:"map"`
 
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	TemplateSelectionExpression *string `locationName:"templateSelectionExpression" type:"string"`
+	TemplateSelectionExpression *string `json:"apigateway:UpdateIntegrationOutput:TemplateSelectionExpression" locationName:"templateSelectionExpression" type:"string"`
 
 	// An integer with a value between [50-29000].
-	TimeoutInMillis *int64 `locationName:"timeoutInMillis" min:"50" type:"integer"`
+	TimeoutInMillis *int64 `json:"apigateway:UpdateIntegrationOutput:TimeoutInMillis" locationName:"timeoutInMillis" min:"50" type:"integer"`
 }
 
 // String returns the string representation

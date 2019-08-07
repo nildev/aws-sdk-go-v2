@@ -57,10 +57,10 @@ type GetFlowTemplateRevisionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The string to specify as nextToken when you request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:GetFlowTemplateRevisionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of objects that provide summary data about each revision.
-	Summaries []FlowTemplateSummary `locationName:"summaries" type:"list"`
+	Summaries []FlowTemplateSummary `json:"iotthingsgraph:GetFlowTemplateRevisionsOutput:Summaries" locationName:"summaries" type:"list"`
 }
 
 // String returns the string representation

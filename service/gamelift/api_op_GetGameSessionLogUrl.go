@@ -51,7 +51,7 @@ type GetGameSessionLogUrlOutput struct {
 	// URL is valid for 15 minutes, after which S3 will reject any download request
 	// using this URL. You can request a new URL any time within the 14-day period
 	// that the logs are retained.
-	PreSignedUrl *string `min:"1" type:"string"`
+	PreSignedUrl *string `json:"gamelift:GetGameSessionLogUrlOutput:PreSignedUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation

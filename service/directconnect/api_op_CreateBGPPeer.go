@@ -30,7 +30,7 @@ type CreateBGPPeerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The virtual interface.
-	VirtualInterface *VirtualInterface `locationName:"virtualInterface" type:"structure"`
+	VirtualInterface *VirtualInterface `json:"directconnect:CreateBGPPeerOutput:VirtualInterface" locationName:"virtualInterface" type:"structure"`
 }
 
 // String returns the string representation

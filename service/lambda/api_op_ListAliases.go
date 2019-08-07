@@ -104,10 +104,10 @@ type ListAliasesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of aliases.
-	Aliases []AliasConfiguration `type:"list"`
+	Aliases []AliasConfiguration `json:"lambda:ListAliasesOutput:Aliases" type:"list"`
 
 	// The pagination token that's included if more results are available.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"lambda:ListAliasesOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

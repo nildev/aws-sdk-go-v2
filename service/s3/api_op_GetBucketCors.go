@@ -60,7 +60,7 @@ func (s GetBucketCorsInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetBucketCorsOutput struct {
 	_ struct{} `type:"structure"`
 
-	CORSRules []CORSRule `locationName:"CORSRule" type:"list" flattened:"true"`
+	CORSRules []CORSRule `json:"s3:GetBucketCorsOutput:CORSRules" locationName:"CORSRule" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

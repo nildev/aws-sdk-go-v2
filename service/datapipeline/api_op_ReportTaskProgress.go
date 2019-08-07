@@ -64,7 +64,7 @@ type ReportTaskProgressOutput struct {
 	// task runner does not need to call SetTaskStatus for canceled tasks.
 	//
 	// Canceled is a required field
-	Canceled *bool `locationName:"canceled" type:"boolean" required:"true"`
+	Canceled *bool `json:"datapipeline:ReportTaskProgressOutput:Canceled" locationName:"canceled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation

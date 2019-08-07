@@ -62,7 +62,7 @@ type CreateMatchmakingRuleSetOutput struct {
 	// Object that describes the newly created matchmaking rule set.
 	//
 	// RuleSet is a required field
-	RuleSet *MatchmakingRuleSet `type:"structure" required:"true"`
+	RuleSet *MatchmakingRuleSet `json:"gamelift:CreateMatchmakingRuleSetOutput:RuleSet" type:"structure" required:"true"`
 }
 
 // String returns the string representation

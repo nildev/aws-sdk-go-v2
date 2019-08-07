@@ -47,12 +47,12 @@ type ListOperationsOutput struct {
 	// If there are more operations than you specified for MaxItems in the request,
 	// submit another request and include the value of NextPageMarker in the value
 	// of Marker.
-	NextPageMarker *string `type:"string"`
+	NextPageMarker *string `json:"route53domains:ListOperationsOutput:NextPageMarker" type:"string"`
 
 	// Lists summaries of the operations.
 	//
 	// Operations is a required field
-	Operations []OperationSummary `type:"list" required:"true"`
+	Operations []OperationSummary `json:"route53domains:ListOperationsOutput:Operations" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -69,10 +69,10 @@ type ValidateSecurityProfileBehaviorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// True if the behaviors were valid.
-	Valid *bool `locationName:"valid" type:"boolean"`
+	Valid *bool `json:"iot:ValidateSecurityProfileBehaviorsOutput:Valid" locationName:"valid" type:"boolean"`
 
 	// The list of any errors found in the behaviors.
-	ValidationErrors []ValidationError `locationName:"validationErrors" type:"list"`
+	ValidationErrors []ValidationError `json:"iot:ValidateSecurityProfileBehaviorsOutput:ValidationErrors" locationName:"validationErrors" type:"list"`
 }
 
 // String returns the string representation

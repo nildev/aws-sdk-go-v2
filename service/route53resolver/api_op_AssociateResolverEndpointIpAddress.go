@@ -62,7 +62,7 @@ type AssociateResolverEndpointIpAddressOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The response to an AssociateResolverEndpointIpAddress request.
-	ResolverEndpoint *ResolverEndpoint `type:"structure"`
+	ResolverEndpoint *ResolverEndpoint `json:"route53resolver:AssociateResolverEndpointIpAddressOutput:ResolverEndpoint" type:"structure"`
 }
 
 // String returns the string representation

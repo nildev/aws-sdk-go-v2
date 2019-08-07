@@ -85,9 +85,9 @@ type GetObjectTaggingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// TagSet is a required field
-	TagSet []Tag `locationNameList:"Tag" type:"list" required:"true"`
+	TagSet []Tag `json:"s3:GetObjectTaggingOutput:TagSet" locationNameList:"Tag" type:"list" required:"true"`
 
-	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+	VersionId *string `json:"s3:GetObjectTaggingOutput:VersionId" location:"header" locationName:"x-amz-version-id" type:"string"`
 }
 
 // String returns the string representation

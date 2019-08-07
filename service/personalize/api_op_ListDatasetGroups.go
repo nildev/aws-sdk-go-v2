@@ -44,10 +44,10 @@ type ListDatasetGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of your dataset groups.
-	DatasetGroups []DatasetGroupSummary `locationName:"datasetGroups" type:"list"`
+	DatasetGroups []DatasetGroupSummary `json:"personalize:ListDatasetGroupsOutput:DatasetGroups" locationName:"datasetGroups" type:"list"`
 
 	// A token for getting the next set of dataset groups (if they exist).
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListDatasetGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

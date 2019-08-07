@@ -60,22 +60,22 @@ type GetFaceDetectionOutput struct {
 	// An array of faces detected in the video. Each element contains a detected
 	// face's details and the time, in milliseconds from the start of the video,
 	// the face was detected.
-	Faces []FaceDetection `type:"list"`
+	Faces []FaceDetection `json:"rekognition:GetFaceDetectionOutput:Faces" type:"list"`
 
 	// The current status of the face detection job.
-	JobStatus VideoJobStatus `type:"string" enum:"true"`
+	JobStatus VideoJobStatus `json:"rekognition:GetFaceDetectionOutput:JobStatus" type:"string" enum:"true"`
 
 	// If the response is truncated, Amazon Rekognition returns this token that
 	// you can use in the subsequent request to retrieve the next set of faces.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:GetFaceDetectionOutput:NextToken" type:"string"`
 
 	// If the job fails, StatusMessage provides a descriptive error message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"rekognition:GetFaceDetectionOutput:StatusMessage" type:"string"`
 
 	// Information about a video that Amazon Rekognition Video analyzed. Videometadata
 	// is returned in every page of paginated responses from a Amazon Rekognition
 	// video operation.
-	VideoMetadata *VideoMetadata `type:"structure"`
+	VideoMetadata *VideoMetadata `json:"rekognition:GetFaceDetectionOutput:VideoMetadata" type:"structure"`
 }
 
 // String returns the string representation

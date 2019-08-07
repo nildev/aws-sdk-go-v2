@@ -95,10 +95,10 @@ type GetResourcePoliciesOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ram:GetResourcePoliciesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A key policy document, in JSON format.
-	Policies []string `locationName:"policies" type:"list"`
+	Policies []string `json:"ram:GetResourcePoliciesOutput:Policies" locationName:"policies" type:"list"`
 }
 
 // String returns the string representation

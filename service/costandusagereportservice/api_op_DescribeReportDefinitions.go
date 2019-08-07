@@ -45,10 +45,10 @@ type DescribeReportDefinitionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A generic string.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cur:DescribeReportDefinitionsOutput:NextToken" type:"string"`
 
 	// A list of AWS Cost and Usage reports owned by the account.
-	ReportDefinitions []ReportDefinition `type:"list"`
+	ReportDefinitions []ReportDefinition `json:"cur:DescribeReportDefinitionsOutput:ReportDefinitions" type:"list"`
 }
 
 // String returns the string representation

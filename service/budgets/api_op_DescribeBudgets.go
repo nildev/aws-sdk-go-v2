@@ -58,11 +58,11 @@ type DescribeBudgetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of budgets.
-	Budgets []Budget `type:"list"`
+	Budgets []Budget `json:"budgets:DescribeBudgetsOutput:Budgets" type:"list"`
 
 	// The pagination token in the service response that indicates the next set
 	// of results that you can retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"budgets:DescribeBudgetsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -18,19 +18,19 @@ type AccountSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account number specified in the AccountSettings container.
-	AwsAccountNumber *string `locationName:"awsAccountNumber" min:"2" type:"string"`
+	AwsAccountNumber *string `json:"devicefarm:AccountSettings:AwsAccountNumber" locationName:"awsAccountNumber" min:"2" type:"string"`
 
 	// The default number of minutes (at the account level) a test run will execute
 	// before it times out. The default value is 150 minutes.
-	DefaultJobTimeoutMinutes *int64 `locationName:"defaultJobTimeoutMinutes" type:"integer"`
+	DefaultJobTimeoutMinutes *int64 `json:"devicefarm:AccountSettings:DefaultJobTimeoutMinutes" locationName:"defaultJobTimeoutMinutes" type:"integer"`
 
 	// The maximum number of minutes a test run will execute before it times out.
-	MaxJobTimeoutMinutes *int64 `locationName:"maxJobTimeoutMinutes" type:"integer"`
+	MaxJobTimeoutMinutes *int64 `json:"devicefarm:AccountSettings:MaxJobTimeoutMinutes" locationName:"maxJobTimeoutMinutes" type:"integer"`
 
 	// The maximum number of device slots that the AWS account can purchase. Each
 	// maximum is expressed as an offering-id:number pair, where the offering-id
 	// represents one of the IDs returned by the ListOfferings command.
-	MaxSlots map[string]int64 `locationName:"maxSlots" type:"map"`
+	MaxSlots map[string]int64 `json:"devicefarm:AccountSettings:MaxSlots" locationName:"maxSlots" type:"map"`
 
 	// When set to true, for private devices, Device Farm will not sign your app
 	// again. For public devices, Device Farm always signs your apps again and this
@@ -39,17 +39,17 @@ type AccountSettings struct {
 	// For more information about how Device Farm re-signs your app(s), see Do you
 	// modify my app? (https://aws.amazon.com/device-farm/faq/) in the AWS Device
 	// Farm FAQs.
-	SkipAppResign *bool `locationName:"skipAppResign" type:"boolean"`
+	SkipAppResign *bool `json:"devicefarm:AccountSettings:SkipAppResign" locationName:"skipAppResign" type:"boolean"`
 
 	// Information about an AWS account's usage of free trial device minutes.
-	TrialMinutes *TrialMinutes `locationName:"trialMinutes" type:"structure"`
+	TrialMinutes *TrialMinutes `json:"devicefarm:AccountSettings:TrialMinutes" locationName:"trialMinutes" type:"structure"`
 
 	// Returns the unmetered devices you have purchased or want to purchase.
-	UnmeteredDevices map[string]int64 `locationName:"unmeteredDevices" type:"map"`
+	UnmeteredDevices map[string]int64 `json:"devicefarm:AccountSettings:UnmeteredDevices" locationName:"unmeteredDevices" type:"map"`
 
 	// Returns the unmetered remote access devices you have purchased or want to
 	// purchase.
-	UnmeteredRemoteAccessDevices map[string]int64 `locationName:"unmeteredRemoteAccessDevices" type:"map"`
+	UnmeteredRemoteAccessDevices map[string]int64 `json:"devicefarm:AccountSettings:UnmeteredRemoteAccessDevices" locationName:"unmeteredRemoteAccessDevices" type:"map"`
 }
 
 // String returns the string representation
@@ -63,13 +63,13 @@ type Artifact struct {
 	_ struct{} `type:"structure"`
 
 	// The artifact's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Artifact:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The artifact's file extension.
-	Extension *string `locationName:"extension" type:"string"`
+	Extension *string `json:"devicefarm:Artifact:Extension" locationName:"extension" type:"string"`
 
 	// The artifact's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:Artifact:Name" locationName:"name" type:"string"`
 
 	// The artifact's type.
 	//
@@ -131,11 +131,11 @@ type Artifact struct {
 	//    * CUSTOMER_ARTIFACT_LOG: The Customer Artifact Log output type.
 	//
 	//    * TESTSPEC_OUTPUT: The Test Spec Output type.
-	Type ArtifactType `locationName:"type" type:"string" enum:"true"`
+	Type ArtifactType `json:"devicefarm:Artifact:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The pre-signed Amazon S3 URL that can be used with a corresponding GET request
 	// to download the artifact's file.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"devicefarm:Artifact:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -151,14 +151,14 @@ type CPU struct {
 	_ struct{} `type:"structure"`
 
 	// The CPU's architecture, for example x86 or ARM.
-	Architecture *string `locationName:"architecture" type:"string"`
+	Architecture *string `json:"devicefarm:CPU:Architecture" locationName:"architecture" type:"string"`
 
 	// The clock speed of the device's CPU, expressed in hertz (Hz). For example,
 	// a 1.2 GHz CPU is expressed as 1200000000.
-	Clock *float64 `locationName:"clock" type:"double"`
+	Clock *float64 `json:"devicefarm:CPU:Clock" locationName:"clock" type:"double"`
 
 	// The CPU's frequency.
-	Frequency *string `locationName:"frequency" type:"string"`
+	Frequency *string `json:"devicefarm:CPU:Frequency" locationName:"frequency" type:"string"`
 }
 
 // String returns the string representation
@@ -172,25 +172,25 @@ type Counters struct {
 	_ struct{} `type:"structure"`
 
 	// The number of errored entities.
-	Errored *int64 `locationName:"errored" type:"integer"`
+	Errored *int64 `json:"devicefarm:Counters:Errored" locationName:"errored" type:"integer"`
 
 	// The number of failed entities.
-	Failed *int64 `locationName:"failed" type:"integer"`
+	Failed *int64 `json:"devicefarm:Counters:Failed" locationName:"failed" type:"integer"`
 
 	// The number of passed entities.
-	Passed *int64 `locationName:"passed" type:"integer"`
+	Passed *int64 `json:"devicefarm:Counters:Passed" locationName:"passed" type:"integer"`
 
 	// The number of skipped entities.
-	Skipped *int64 `locationName:"skipped" type:"integer"`
+	Skipped *int64 `json:"devicefarm:Counters:Skipped" locationName:"skipped" type:"integer"`
 
 	// The number of stopped entities.
-	Stopped *int64 `locationName:"stopped" type:"integer"`
+	Stopped *int64 `json:"devicefarm:Counters:Stopped" locationName:"stopped" type:"integer"`
 
 	// The total number of entities.
-	Total *int64 `locationName:"total" type:"integer"`
+	Total *int64 `json:"devicefarm:Counters:Total" locationName:"total" type:"integer"`
 
 	// The number of warned entities.
-	Warned *int64 `locationName:"warned" type:"integer"`
+	Warned *int64 `json:"devicefarm:Counters:Warned" locationName:"warned" type:"integer"`
 }
 
 // String returns the string representation
@@ -204,10 +204,10 @@ type CreateRemoteAccessSessionConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The billing method for the remote access session.
-	BillingMethod BillingMethod `locationName:"billingMethod" type:"string" enum:"true"`
+	BillingMethod BillingMethod `json:"devicefarm:CreateRemoteAccessSessionConfiguration:BillingMethod" locationName:"billingMethod" type:"string" enum:"true"`
 
 	// An array of Amazon Resource Names (ARNs) included in the VPC endpoint configuration.
-	VpceConfigurationArns []string `locationName:"vpceConfigurationArns" type:"list"`
+	VpceConfigurationArns []string `json:"devicefarm:CreateRemoteAccessSessionConfiguration:VpceConfigurationArns" locationName:"vpceConfigurationArns" type:"list"`
 }
 
 // String returns the string representation
@@ -227,15 +227,15 @@ type CustomerArtifactPaths struct {
 
 	// Comma-separated list of paths on the Android device where the artifacts generated
 	// by the customer's tests will be pulled from.
-	AndroidPaths []string `locationName:"androidPaths" type:"list"`
+	AndroidPaths []string `json:"devicefarm:CustomerArtifactPaths:AndroidPaths" locationName:"androidPaths" type:"list"`
 
 	// Comma-separated list of paths in the test execution environment where the
 	// artifacts generated by the customer's tests will be pulled from.
-	DeviceHostPaths []string `locationName:"deviceHostPaths" type:"list"`
+	DeviceHostPaths []string `json:"devicefarm:CustomerArtifactPaths:DeviceHostPaths" locationName:"deviceHostPaths" type:"list"`
 
 	// Comma-separated list of paths on the iOS device where the artifacts generated
 	// by the customer's tests will be pulled from.
-	IosPaths []string `locationName:"iosPaths" type:"list"`
+	IosPaths []string `json:"devicefarm:CustomerArtifactPaths:IosPaths" locationName:"iosPaths" type:"list"`
 }
 
 // String returns the string representation
@@ -249,24 +249,24 @@ type Device struct {
 	_ struct{} `type:"structure"`
 
 	// The device's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Device:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// Reflects how likely a device will be available for a test run. It is currently
 	// available in the ListDevices and GetDevice API methods.
-	Availability DeviceAvailability `locationName:"availability" type:"string" enum:"true"`
+	Availability DeviceAvailability `json:"devicefarm:Device:Availability" locationName:"availability" type:"string" enum:"true"`
 
 	// The device's carrier.
-	Carrier *string `locationName:"carrier" type:"string"`
+	Carrier *string `json:"devicefarm:Device:Carrier" locationName:"carrier" type:"string"`
 
 	// Information about the device's CPU.
-	Cpu *CPU `locationName:"cpu" type:"structure"`
+	Cpu *CPU `json:"devicefarm:Device:Cpu" locationName:"cpu" type:"structure"`
 
 	// The name of the fleet to which this device belongs.
-	FleetName *string `locationName:"fleetName" type:"string"`
+	FleetName *string `json:"devicefarm:Device:FleetName" locationName:"fleetName" type:"string"`
 
 	// The type of fleet to which this device belongs. Possible values for fleet
 	// type are PRIVATE and PUBLIC.
-	FleetType *string `locationName:"fleetType" type:"string"`
+	FleetType *string `json:"devicefarm:Device:FleetType" locationName:"fleetType" type:"string"`
 
 	// The device's form factor.
 	//
@@ -275,34 +275,34 @@ type Device struct {
 	//    * PHONE: The phone form factor.
 	//
 	//    * TABLET: The tablet form factor.
-	FormFactor DeviceFormFactor `locationName:"formFactor" type:"string" enum:"true"`
+	FormFactor DeviceFormFactor `json:"devicefarm:Device:FormFactor" locationName:"formFactor" type:"string" enum:"true"`
 
 	// The device's heap size, expressed in bytes.
-	HeapSize *int64 `locationName:"heapSize" type:"long"`
+	HeapSize *int64 `json:"devicefarm:Device:HeapSize" locationName:"heapSize" type:"long"`
 
 	// The device's image name.
-	Image *string `locationName:"image" type:"string"`
+	Image *string `json:"devicefarm:Device:Image" locationName:"image" type:"string"`
 
 	// The instances belonging to this device.
-	Instances []DeviceInstance `locationName:"instances" type:"list"`
+	Instances []DeviceInstance `json:"devicefarm:Device:Instances" locationName:"instances" type:"list"`
 
 	// The device's manufacturer name.
-	Manufacturer *string `locationName:"manufacturer" type:"string"`
+	Manufacturer *string `json:"devicefarm:Device:Manufacturer" locationName:"manufacturer" type:"string"`
 
 	// The device's total memory size, expressed in bytes.
-	Memory *int64 `locationName:"memory" type:"long"`
+	Memory *int64 `json:"devicefarm:Device:Memory" locationName:"memory" type:"long"`
 
 	// The device's model name.
-	Model *string `locationName:"model" type:"string"`
+	Model *string `json:"devicefarm:Device:Model" locationName:"model" type:"string"`
 
 	// The device's model ID.
-	ModelId *string `locationName:"modelId" type:"string"`
+	ModelId *string `json:"devicefarm:Device:ModelId" locationName:"modelId" type:"string"`
 
 	// The device's display name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:Device:Name" locationName:"name" type:"string"`
 
 	// The device's operating system type.
-	Os *string `locationName:"os" type:"string"`
+	Os *string `json:"devicefarm:Device:Os" locationName:"os" type:"string"`
 
 	// The device's platform.
 	//
@@ -311,19 +311,19 @@ type Device struct {
 	//    * ANDROID: The Android platform.
 	//
 	//    * IOS: The iOS platform.
-	Platform DevicePlatform `locationName:"platform" type:"string" enum:"true"`
+	Platform DevicePlatform `json:"devicefarm:Device:Platform" locationName:"platform" type:"string" enum:"true"`
 
 	// The device's radio.
-	Radio *string `locationName:"radio" type:"string"`
+	Radio *string `json:"devicefarm:Device:Radio" locationName:"radio" type:"string"`
 
 	// Specifies whether remote access has been enabled for the specified device.
-	RemoteAccessEnabled *bool `locationName:"remoteAccessEnabled" type:"boolean"`
+	RemoteAccessEnabled *bool `json:"devicefarm:Device:RemoteAccessEnabled" locationName:"remoteAccessEnabled" type:"boolean"`
 
 	// This flag is set to true if remote debugging is enabled for the device.
-	RemoteDebugEnabled *bool `locationName:"remoteDebugEnabled" type:"boolean"`
+	RemoteDebugEnabled *bool `json:"devicefarm:Device:RemoteDebugEnabled" locationName:"remoteDebugEnabled" type:"boolean"`
 
 	// The resolution of the device.
-	Resolution *Resolution `locationName:"resolution" type:"structure"`
+	Resolution *Resolution `json:"devicefarm:Device:Resolution" locationName:"resolution" type:"structure"`
 }
 
 // String returns the string representation
@@ -423,11 +423,11 @@ type DeviceFilter struct {
 	// The fleet type. Valid values are "PUBLIC" or "PRIVATE".
 	//
 	// Supported operators: EQUALS
-	Attribute DeviceFilterAttribute `locationName:"attribute" type:"string" enum:"true"`
+	Attribute DeviceFilterAttribute `json:"devicefarm:DeviceFilter:Attribute" locationName:"attribute" type:"string" enum:"true"`
 
 	// Specifies how Device Farm compares the filter's attribute to the value. For
 	// the operators that are supported by each attribute, see the attribute descriptions.
-	Operator RuleOperator `locationName:"operator" type:"string" enum:"true"`
+	Operator RuleOperator `json:"devicefarm:DeviceFilter:Operator" locationName:"operator" type:"string" enum:"true"`
 
 	// An array of one or more filter values used in a device filter.
 	//
@@ -448,7 +448,7 @@ type DeviceFilter struct {
 	//    * The FORM_FACTOR attribute can be set to "PHONE" or "TABLET".
 	//
 	//    * The FLEET_TYPE attribute can be set to "PUBLIC" or "PRIVATE".
-	Values []string `locationName:"values" type:"list"`
+	Values []string `json:"devicefarm:DeviceFilter:Values" locationName:"values" type:"list"`
 }
 
 // String returns the string representation
@@ -462,22 +462,22 @@ type DeviceInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the device instance.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:DeviceInstance:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the device.
-	DeviceArn *string `locationName:"deviceArn" min:"32" type:"string"`
+	DeviceArn *string `json:"devicefarm:DeviceInstance:DeviceArn" locationName:"deviceArn" min:"32" type:"string"`
 
 	// A object containing information about the instance profile.
-	InstanceProfile *InstanceProfile `locationName:"instanceProfile" type:"structure"`
+	InstanceProfile *InstanceProfile `json:"devicefarm:DeviceInstance:InstanceProfile" locationName:"instanceProfile" type:"structure"`
 
 	// An array of strings describing the device instance.
-	Labels []string `locationName:"labels" type:"list"`
+	Labels []string `json:"devicefarm:DeviceInstance:Labels" locationName:"labels" type:"list"`
 
 	// The status of the device instance. Valid values are listed below.
-	Status InstanceStatus `locationName:"status" type:"string" enum:"true"`
+	Status InstanceStatus `json:"devicefarm:DeviceInstance:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Unique device identifier for the device instance.
-	Udid *string `locationName:"udid" type:"string"`
+	Udid *string `json:"devicefarm:DeviceInstance:Udid" locationName:"udid" type:"string"`
 }
 
 // String returns the string representation
@@ -493,15 +493,15 @@ type DeviceMinutes struct {
 
 	// When specified, represents only the sum of metered minutes used by the resource
 	// to run tests.
-	Metered *float64 `locationName:"metered" type:"double"`
+	Metered *float64 `json:"devicefarm:DeviceMinutes:Metered" locationName:"metered" type:"double"`
 
 	// When specified, represents the total minutes used by the resource to run
 	// tests.
-	Total *float64 `locationName:"total" type:"double"`
+	Total *float64 `json:"devicefarm:DeviceMinutes:Total" locationName:"total" type:"double"`
 
 	// When specified, represents only the sum of unmetered minutes used by the
 	// resource to run tests.
-	Unmetered *float64 `locationName:"unmetered" type:"double"`
+	Unmetered *float64 `json:"devicefarm:DeviceMinutes:Unmetered" locationName:"unmetered" type:"double"`
 }
 
 // String returns the string representation
@@ -515,10 +515,10 @@ type DevicePool struct {
 	_ struct{} `type:"structure"`
 
 	// The device pool's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:DevicePool:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The device pool's description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"devicefarm:DevicePool:Description" locationName:"description" type:"string"`
 
 	// The number of devices that Device Farm can add to your device pool. Device
 	// Farm adds devices that are available and that meet the criteria that you
@@ -528,13 +528,13 @@ type DevicePool struct {
 	//
 	// By specifying the maximum number of devices, you can control the costs that
 	// you incur by running tests.
-	MaxDevices *int64 `locationName:"maxDevices" type:"integer"`
+	MaxDevices *int64 `json:"devicefarm:DevicePool:MaxDevices" locationName:"maxDevices" type:"integer"`
 
 	// The device pool's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:DevicePool:Name" locationName:"name" type:"string"`
 
 	// Information about the device pool's rules.
-	Rules []Rule `locationName:"rules" type:"list"`
+	Rules []Rule `json:"devicefarm:DevicePool:Rules" locationName:"rules" type:"list"`
 
 	// The device pool's type.
 	//
@@ -544,7 +544,7 @@ type DevicePool struct {
 	//
 	//    * PRIVATE: A device pool that is created and managed by the device pool
 	//    developer.
-	Type DevicePoolType `locationName:"type" type:"string" enum:"true"`
+	Type DevicePoolType `json:"devicefarm:DevicePool:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -558,13 +558,13 @@ type DevicePoolCompatibilityResult struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the result was compatible with the device pool.
-	Compatible *bool `locationName:"compatible" type:"boolean"`
+	Compatible *bool `json:"devicefarm:DevicePoolCompatibilityResult:Compatible" locationName:"compatible" type:"boolean"`
 
 	// The device (phone or tablet) that you wish to return information about.
-	Device *Device `locationName:"device" type:"structure"`
+	Device *Device `json:"devicefarm:DevicePoolCompatibilityResult:Device" locationName:"device" type:"structure"`
 
 	// Information about the compatibility.
-	IncompatibilityMessages []IncompatibilityMessage `locationName:"incompatibilityMessages" type:"list"`
+	IncompatibilityMessages []IncompatibilityMessage `json:"devicefarm:DevicePoolCompatibilityResult:IncompatibilityMessages" locationName:"incompatibilityMessages" type:"list"`
 }
 
 // String returns the string representation
@@ -614,12 +614,12 @@ type DeviceSelectionConfiguration struct {
 	//    attribute can be set to "PUBLIC" or "PRIVATE".
 	//
 	// Filters is a required field
-	Filters []DeviceFilter `locationName:"filters" type:"list" required:"true"`
+	Filters []DeviceFilter `json:"devicefarm:DeviceSelectionConfiguration:Filters" locationName:"filters" type:"list" required:"true"`
 
 	// The maximum number of devices to be included in a test run.
 	//
 	// MaxDevices is a required field
-	MaxDevices *int64 `locationName:"maxDevices" type:"integer" required:"true"`
+	MaxDevices *int64 `json:"devicefarm:DeviceSelectionConfiguration:MaxDevices" locationName:"maxDevices" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -653,14 +653,14 @@ type DeviceSelectionResult struct {
 	_ struct{} `type:"structure"`
 
 	// The filters in a device selection result.
-	Filters []DeviceFilter `locationName:"filters" type:"list"`
+	Filters []DeviceFilter `json:"devicefarm:DeviceSelectionResult:Filters" locationName:"filters" type:"list"`
 
 	// The number of devices that matched the device filter selection criteria.
-	MatchedDevicesCount *int64 `locationName:"matchedDevicesCount" type:"integer"`
+	MatchedDevicesCount *int64 `json:"devicefarm:DeviceSelectionResult:MatchedDevicesCount" locationName:"matchedDevicesCount" type:"integer"`
 
 	// The maximum number of devices to be selected by a device filter and included
 	// in a test run.
-	MaxDevices *int64 `locationName:"maxDevices" type:"integer"`
+	MaxDevices *int64 `json:"devicefarm:DeviceSelectionResult:MaxDevices" locationName:"maxDevices" type:"integer"`
 }
 
 // String returns the string representation
@@ -676,14 +676,14 @@ type ExecutionConfiguration struct {
 
 	// True if account cleanup is enabled at the beginning of the test; otherwise,
 	// false.
-	AccountsCleanup *bool `locationName:"accountsCleanup" type:"boolean"`
+	AccountsCleanup *bool `json:"devicefarm:ExecutionConfiguration:AccountsCleanup" locationName:"accountsCleanup" type:"boolean"`
 
 	// True if app package cleanup is enabled at the beginning of the test; otherwise,
 	// false.
-	AppPackagesCleanup *bool `locationName:"appPackagesCleanup" type:"boolean"`
+	AppPackagesCleanup *bool `json:"devicefarm:ExecutionConfiguration:AppPackagesCleanup" locationName:"appPackagesCleanup" type:"boolean"`
 
 	// The number of minutes a test run will execute before it times out.
-	JobTimeoutMinutes *int64 `locationName:"jobTimeoutMinutes" type:"integer"`
+	JobTimeoutMinutes *int64 `json:"devicefarm:ExecutionConfiguration:JobTimeoutMinutes" locationName:"jobTimeoutMinutes" type:"integer"`
 
 	// When set to true, for private devices, Device Farm will not sign your app
 	// again. For public devices, Device Farm always signs your apps again and this
@@ -692,11 +692,11 @@ type ExecutionConfiguration struct {
 	// For more information about how Device Farm re-signs your app(s), see Do you
 	// modify my app? (https://aws.amazon.com/device-farm/faq/) in the AWS Device
 	// Farm FAQs.
-	SkipAppResign *bool `locationName:"skipAppResign" type:"boolean"`
+	SkipAppResign *bool `json:"devicefarm:ExecutionConfiguration:SkipAppResign" locationName:"skipAppResign" type:"boolean"`
 
 	// Set to true to enable video capture; otherwise, set to false. The default
 	// is true.
-	VideoCapture *bool `locationName:"videoCapture" type:"boolean"`
+	VideoCapture *bool `json:"devicefarm:ExecutionConfiguration:VideoCapture" locationName:"videoCapture" type:"boolean"`
 }
 
 // String returns the string representation
@@ -710,7 +710,7 @@ type IncompatibilityMessage struct {
 	_ struct{} `type:"structure"`
 
 	// A message about the incompatibility.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:IncompatibilityMessage:Message" locationName:"message" type:"string"`
 
 	// The type of incompatibility.
 	//
@@ -727,7 +727,7 @@ type IncompatibilityMessage struct {
 	//    * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.
 	//
 	//    * APPIUM_VERSION: The Appium version for the test.
-	Type DeviceAttribute `locationName:"type" type:"string" enum:"true"`
+	Type DeviceAttribute `json:"devicefarm:IncompatibilityMessage:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -741,27 +741,27 @@ type InstanceProfile struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the instance profile.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:InstanceProfile:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The description of the instance profile.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"devicefarm:InstanceProfile:Description" locationName:"description" type:"string"`
 
 	// An array of strings specifying the list of app packages that should not be
 	// cleaned up from the device after a test run is over.
 	//
 	// The list of packages is only considered if you set packageCleanup to true.
-	ExcludeAppPackagesFromCleanup []string `locationName:"excludeAppPackagesFromCleanup" type:"list"`
+	ExcludeAppPackagesFromCleanup []string `json:"devicefarm:InstanceProfile:ExcludeAppPackagesFromCleanup" locationName:"excludeAppPackagesFromCleanup" type:"list"`
 
 	// The name of the instance profile.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:InstanceProfile:Name" locationName:"name" type:"string"`
 
 	// When set to true, Device Farm will remove app packages after a test run.
 	// The default value is false for private devices.
-	PackageCleanup *bool `locationName:"packageCleanup" type:"boolean"`
+	PackageCleanup *bool `json:"devicefarm:InstanceProfile:PackageCleanup" locationName:"packageCleanup" type:"boolean"`
 
 	// When set to true, Device Farm will reboot the instance after a test run.
 	// The default value is true.
-	RebootAfterUse *bool `locationName:"rebootAfterUse" type:"boolean"`
+	RebootAfterUse *bool `json:"devicefarm:InstanceProfile:RebootAfterUse" locationName:"rebootAfterUse" type:"boolean"`
 }
 
 // String returns the string representation
@@ -775,28 +775,28 @@ type Job struct {
 	_ struct{} `type:"structure"`
 
 	// The job's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Job:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The job's result counters.
-	Counters *Counters `locationName:"counters" type:"structure"`
+	Counters *Counters `json:"devicefarm:Job:Counters" locationName:"counters" type:"structure"`
 
 	// When the job was created.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"devicefarm:Job:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The device (phone or tablet).
-	Device *Device `locationName:"device" type:"structure"`
+	Device *Device `json:"devicefarm:Job:Device" locationName:"device" type:"structure"`
 
 	// Represents the total (metered or unmetered) minutes used by the job.
-	DeviceMinutes *DeviceMinutes `locationName:"deviceMinutes" type:"structure"`
+	DeviceMinutes *DeviceMinutes `json:"devicefarm:Job:DeviceMinutes" locationName:"deviceMinutes" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn *string `locationName:"instanceArn" min:"32" type:"string"`
+	InstanceArn *string `json:"devicefarm:Job:InstanceArn" locationName:"instanceArn" min:"32" type:"string"`
 
 	// A message about the job's result.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:Job:Message" locationName:"message" type:"string"`
 
 	// The job's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:Job:Name" locationName:"name" type:"string"`
 
 	// The job's result.
 	//
@@ -815,10 +815,10 @@ type Job struct {
 	//    * ERRORED: An error condition.
 	//
 	//    * STOPPED: A stopped condition.
-	Result ExecutionResult `locationName:"result" type:"string" enum:"true"`
+	Result ExecutionResult `json:"devicefarm:Job:Result" locationName:"result" type:"string" enum:"true"`
 
 	// The job's start time.
-	Started *time.Time `locationName:"started" type:"timestamp" timestampFormat:"unix"`
+	Started *time.Time `json:"devicefarm:Job:Started" locationName:"started" type:"timestamp" timestampFormat:"unix"`
 
 	// The job's status.
 	//
@@ -841,10 +841,10 @@ type Job struct {
 	//    * COMPLETED: A completed status.
 	//
 	//    * STOPPING: A stopping status.
-	Status ExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status ExecutionStatus `json:"devicefarm:Job:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The job's stop time.
-	Stopped *time.Time `locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
+	Stopped *time.Time `json:"devicefarm:Job:Stopped" locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
 
 	// The job's type.
 	//
@@ -887,14 +887,14 @@ type Job struct {
 	//    * XCTEST: The Xcode test type.
 	//
 	//    * XCTEST_UI: The Xcode UI test type.
-	Type TestType `locationName:"type" type:"string" enum:"true"`
+	Type TestType `json:"devicefarm:Job:Type" locationName:"type" type:"string" enum:"true"`
 
 	// This value is set to true if video capture is enabled; otherwise, it is set
 	// to false.
-	VideoCapture *bool `locationName:"videoCapture" type:"boolean"`
+	VideoCapture *bool `json:"devicefarm:Job:VideoCapture" locationName:"videoCapture" type:"boolean"`
 
 	// The endpoint for streaming device video.
-	VideoEndpoint *string `locationName:"videoEndpoint" type:"string"`
+	VideoEndpoint *string `json:"devicefarm:Job:VideoEndpoint" locationName:"videoEndpoint" type:"string"`
 }
 
 // String returns the string representation
@@ -913,12 +913,12 @@ type Location struct {
 	// The latitude.
 	//
 	// Latitude is a required field
-	Latitude *float64 `locationName:"latitude" type:"double" required:"true"`
+	Latitude *float64 `json:"devicefarm:Location:Latitude" locationName:"latitude" type:"double" required:"true"`
 
 	// The longitude.
 	//
 	// Longitude is a required field
-	Longitude *float64 `locationName:"longitude" type:"double" required:"true"`
+	Longitude *float64 `json:"devicefarm:Location:Longitude" locationName:"longitude" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -950,10 +950,10 @@ type MonetaryAmount struct {
 	_ struct{} `type:"structure"`
 
 	// The numerical amount of an offering or transaction.
-	Amount *float64 `locationName:"amount" type:"double"`
+	Amount *float64 `json:"devicefarm:MonetaryAmount:Amount" locationName:"amount" type:"double"`
 
 	// The currency code of a monetary amount. For example, USD means "U.S. dollars."
-	CurrencyCode CurrencyCode `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCode `json:"devicefarm:MonetaryAmount:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -967,44 +967,44 @@ type NetworkProfile struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the network profile.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:NetworkProfile:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The description of the network profile.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"devicefarm:NetworkProfile:Description" locationName:"description" type:"string"`
 
 	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
-	DownlinkBandwidthBits *int64 `locationName:"downlinkBandwidthBits" type:"long"`
+	DownlinkBandwidthBits *int64 `json:"devicefarm:NetworkProfile:DownlinkBandwidthBits" locationName:"downlinkBandwidthBits" type:"long"`
 
 	// Delay time for all packets to destination in milliseconds as an integer from
 	// 0 to 2000.
-	DownlinkDelayMs *int64 `locationName:"downlinkDelayMs" type:"long"`
+	DownlinkDelayMs *int64 `json:"devicefarm:NetworkProfile:DownlinkDelayMs" locationName:"downlinkDelayMs" type:"long"`
 
 	// Time variation in the delay of received packets in milliseconds as an integer
 	// from 0 to 2000.
-	DownlinkJitterMs *int64 `locationName:"downlinkJitterMs" type:"long"`
+	DownlinkJitterMs *int64 `json:"devicefarm:NetworkProfile:DownlinkJitterMs" locationName:"downlinkJitterMs" type:"long"`
 
 	// Proportion of received packets that fail to arrive from 0 to 100 percent.
-	DownlinkLossPercent *int64 `locationName:"downlinkLossPercent" type:"integer"`
+	DownlinkLossPercent *int64 `json:"devicefarm:NetworkProfile:DownlinkLossPercent" locationName:"downlinkLossPercent" type:"integer"`
 
 	// The name of the network profile.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:NetworkProfile:Name" locationName:"name" type:"string"`
 
 	// The type of network profile. Valid values are listed below.
-	Type NetworkProfileType `locationName:"type" type:"string" enum:"true"`
+	Type NetworkProfileType `json:"devicefarm:NetworkProfile:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
-	UplinkBandwidthBits *int64 `locationName:"uplinkBandwidthBits" type:"long"`
+	UplinkBandwidthBits *int64 `json:"devicefarm:NetworkProfile:UplinkBandwidthBits" locationName:"uplinkBandwidthBits" type:"long"`
 
 	// Delay time for all packets to destination in milliseconds as an integer from
 	// 0 to 2000.
-	UplinkDelayMs *int64 `locationName:"uplinkDelayMs" type:"long"`
+	UplinkDelayMs *int64 `json:"devicefarm:NetworkProfile:UplinkDelayMs" locationName:"uplinkDelayMs" type:"long"`
 
 	// Time variation in the delay of received packets in milliseconds as an integer
 	// from 0 to 2000.
-	UplinkJitterMs *int64 `locationName:"uplinkJitterMs" type:"long"`
+	UplinkJitterMs *int64 `json:"devicefarm:NetworkProfile:UplinkJitterMs" locationName:"uplinkJitterMs" type:"long"`
 
 	// Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
-	UplinkLossPercent *int64 `locationName:"uplinkLossPercent" type:"integer"`
+	UplinkLossPercent *int64 `json:"devicefarm:NetworkProfile:UplinkLossPercent" locationName:"uplinkLossPercent" type:"integer"`
 }
 
 // String returns the string representation
@@ -1018,19 +1018,19 @@ type Offering struct {
 	_ struct{} `type:"structure"`
 
 	// A string describing the offering.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"devicefarm:Offering:Description" locationName:"description" type:"string"`
 
 	// The ID that corresponds to a device offering.
-	Id *string `locationName:"id" min:"32" type:"string"`
+	Id *string `json:"devicefarm:Offering:Id" locationName:"id" min:"32" type:"string"`
 
 	// The platform of the device (e.g., ANDROID or IOS).
-	Platform DevicePlatform `locationName:"platform" type:"string" enum:"true"`
+	Platform DevicePlatform `json:"devicefarm:Offering:Platform" locationName:"platform" type:"string" enum:"true"`
 
 	// Specifies whether there are recurring charges for the offering.
-	RecurringCharges []RecurringCharge `locationName:"recurringCharges" type:"list"`
+	RecurringCharges []RecurringCharge `json:"devicefarm:Offering:RecurringCharges" locationName:"recurringCharges" type:"list"`
 
 	// The type of offering (e.g., "RECURRING") for a device.
-	Type OfferingType `locationName:"type" type:"string" enum:"true"`
+	Type OfferingType `json:"devicefarm:Offering:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1044,10 +1044,10 @@ type OfferingPromotion struct {
 	_ struct{} `type:"structure"`
 
 	// A string describing the offering promotion.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"devicefarm:OfferingPromotion:Description" locationName:"description" type:"string"`
 
 	// The ID of the offering promotion.
-	Id *string `locationName:"id" min:"4" type:"string"`
+	Id *string `json:"devicefarm:OfferingPromotion:Id" locationName:"id" min:"4" type:"string"`
 }
 
 // String returns the string representation
@@ -1061,16 +1061,16 @@ type OfferingStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The date on which the offering is effective.
-	EffectiveOn *time.Time `locationName:"effectiveOn" type:"timestamp" timestampFormat:"unix"`
+	EffectiveOn *time.Time `json:"devicefarm:OfferingStatus:EffectiveOn" locationName:"effectiveOn" type:"timestamp" timestampFormat:"unix"`
 
 	// Represents the metadata of an offering status.
-	Offering *Offering `locationName:"offering" type:"structure"`
+	Offering *Offering `json:"devicefarm:OfferingStatus:Offering" locationName:"offering" type:"structure"`
 
 	// The number of available devices in the offering.
-	Quantity *int64 `locationName:"quantity" type:"integer"`
+	Quantity *int64 `json:"devicefarm:OfferingStatus:Quantity" locationName:"quantity" type:"integer"`
 
 	// The type specified for the offering status.
-	Type OfferingTransactionType `locationName:"type" type:"string" enum:"true"`
+	Type OfferingTransactionType `json:"devicefarm:OfferingStatus:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1084,19 +1084,19 @@ type OfferingTransaction struct {
 	_ struct{} `type:"structure"`
 
 	// The cost of an offering transaction.
-	Cost *MonetaryAmount `locationName:"cost" type:"structure"`
+	Cost *MonetaryAmount `json:"devicefarm:OfferingTransaction:Cost" locationName:"cost" type:"structure"`
 
 	// The date on which an offering transaction was created.
-	CreatedOn *time.Time `locationName:"createdOn" type:"timestamp" timestampFormat:"unix"`
+	CreatedOn *time.Time `json:"devicefarm:OfferingTransaction:CreatedOn" locationName:"createdOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID that corresponds to a device offering promotion.
-	OfferingPromotionId *string `locationName:"offeringPromotionId" min:"4" type:"string"`
+	OfferingPromotionId *string `json:"devicefarm:OfferingTransaction:OfferingPromotionId" locationName:"offeringPromotionId" min:"4" type:"string"`
 
 	// The status of an offering transaction.
-	OfferingStatus *OfferingStatus `locationName:"offeringStatus" type:"structure"`
+	OfferingStatus *OfferingStatus `json:"devicefarm:OfferingTransaction:OfferingStatus" locationName:"offeringStatus" type:"structure"`
 
 	// The transaction ID of the offering transaction.
-	TransactionId *string `locationName:"transactionId" min:"32" type:"string"`
+	TransactionId *string `json:"devicefarm:OfferingTransaction:TransactionId" locationName:"transactionId" min:"32" type:"string"`
 }
 
 // String returns the string representation
@@ -1110,13 +1110,13 @@ type Problem struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the associated device.
-	Device *Device `locationName:"device" type:"structure"`
+	Device *Device `json:"devicefarm:Problem:Device" locationName:"device" type:"structure"`
 
 	// Information about the associated job.
-	Job *ProblemDetail `locationName:"job" type:"structure"`
+	Job *ProblemDetail `json:"devicefarm:Problem:Job" locationName:"job" type:"structure"`
 
 	// A message about the problem's result.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:Problem:Message" locationName:"message" type:"string"`
 
 	// The problem's result.
 	//
@@ -1135,16 +1135,16 @@ type Problem struct {
 	//    * ERRORED: An error condition.
 	//
 	//    * STOPPED: A stopped condition.
-	Result ExecutionResult `locationName:"result" type:"string" enum:"true"`
+	Result ExecutionResult `json:"devicefarm:Problem:Result" locationName:"result" type:"string" enum:"true"`
 
 	// Information about the associated run.
-	Run *ProblemDetail `locationName:"run" type:"structure"`
+	Run *ProblemDetail `json:"devicefarm:Problem:Run" locationName:"run" type:"structure"`
 
 	// Information about the associated suite.
-	Suite *ProblemDetail `locationName:"suite" type:"structure"`
+	Suite *ProblemDetail `json:"devicefarm:Problem:Suite" locationName:"suite" type:"structure"`
 
 	// Information about the associated test.
-	Test *ProblemDetail `locationName:"test" type:"structure"`
+	Test *ProblemDetail `json:"devicefarm:Problem:Test" locationName:"test" type:"structure"`
 }
 
 // String returns the string representation
@@ -1158,10 +1158,10 @@ type ProblemDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The problem detail's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:ProblemDetail:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The problem detail's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:ProblemDetail:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -1176,17 +1176,17 @@ type Project struct {
 	_ struct{} `type:"structure"`
 
 	// The project's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Project:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// When the project was created.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"devicefarm:Project:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The default number of minutes (at the project level) a test run will execute
 	// before it times out. The default value is 150 minutes.
-	DefaultJobTimeoutMinutes *int64 `locationName:"defaultJobTimeoutMinutes" type:"integer"`
+	DefaultJobTimeoutMinutes *int64 `json:"devicefarm:Project:DefaultJobTimeoutMinutes" locationName:"defaultJobTimeoutMinutes" type:"integer"`
 
 	// The project's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:Project:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -1201,16 +1201,16 @@ type Radios struct {
 	_ struct{} `type:"structure"`
 
 	// True if Bluetooth is enabled at the beginning of the test; otherwise, false.
-	Bluetooth *bool `locationName:"bluetooth" type:"boolean"`
+	Bluetooth *bool `json:"devicefarm:Radios:Bluetooth" locationName:"bluetooth" type:"boolean"`
 
 	// True if GPS is enabled at the beginning of the test; otherwise, false.
-	Gps *bool `locationName:"gps" type:"boolean"`
+	Gps *bool `json:"devicefarm:Radios:Gps" locationName:"gps" type:"boolean"`
 
 	// True if NFC is enabled at the beginning of the test; otherwise, false.
-	Nfc *bool `locationName:"nfc" type:"boolean"`
+	Nfc *bool `json:"devicefarm:Radios:Nfc" locationName:"nfc" type:"boolean"`
 
 	// True if Wi-Fi is enabled at the beginning of the test; otherwise, false.
-	Wifi *bool `locationName:"wifi" type:"boolean"`
+	Wifi *bool `json:"devicefarm:Radios:Wifi" locationName:"wifi" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1224,10 +1224,10 @@ type RecurringCharge struct {
 	_ struct{} `type:"structure"`
 
 	// The cost of the recurring charge.
-	Cost *MonetaryAmount `locationName:"cost" type:"structure"`
+	Cost *MonetaryAmount `json:"devicefarm:RecurringCharge:Cost" locationName:"cost" type:"structure"`
 
 	// The frequency in which charges will recur.
-	Frequency RecurringChargeFrequency `locationName:"frequency" type:"string" enum:"true"`
+	Frequency RecurringChargeFrequency `json:"devicefarm:RecurringCharge:Frequency" locationName:"frequency" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1241,40 +1241,40 @@ type RemoteAccessSession struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the remote access session.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:RemoteAccessSession:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The billing method of the remote access session. Possible values include
 	// METERED or UNMETERED. For more information about metered devices, see AWS
 	// Device Farm terminology (https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology)."
-	BillingMethod BillingMethod `locationName:"billingMethod" type:"string" enum:"true"`
+	BillingMethod BillingMethod `json:"devicefarm:RemoteAccessSession:BillingMethod" locationName:"billingMethod" type:"string" enum:"true"`
 
 	// Unique identifier of your client for the remote access session. Only returned
 	// if remote debugging is enabled for the remote access session.
-	ClientId *string `locationName:"clientId" type:"string"`
+	ClientId *string `json:"devicefarm:RemoteAccessSession:ClientId" locationName:"clientId" type:"string"`
 
 	// The date and time the remote access session was created.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"devicefarm:RemoteAccessSession:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The device (phone or tablet) used in the remote access session.
-	Device *Device `locationName:"device" type:"structure"`
+	Device *Device `json:"devicefarm:RemoteAccessSession:Device" locationName:"device" type:"structure"`
 
 	// The number of minutes a device is used in a remote access session (including
 	// setup and teardown minutes).
-	DeviceMinutes *DeviceMinutes `locationName:"deviceMinutes" type:"structure"`
+	DeviceMinutes *DeviceMinutes `json:"devicefarm:RemoteAccessSession:DeviceMinutes" locationName:"deviceMinutes" type:"structure"`
 
 	// Unique device identifier for the remote device. Only returned if remote debugging
 	// is enabled for the remote access session.
-	DeviceUdid *string `locationName:"deviceUdid" type:"string"`
+	DeviceUdid *string `json:"devicefarm:RemoteAccessSession:DeviceUdid" locationName:"deviceUdid" type:"string"`
 
 	// The endpoint for the remote access sesssion.
-	Endpoint *string `locationName:"endpoint" type:"string"`
+	Endpoint *string `json:"devicefarm:RemoteAccessSession:Endpoint" locationName:"endpoint" type:"string"`
 
 	// IP address of the EC2 host where you need to connect to remotely debug devices.
 	// Only returned if remote debugging is enabled for the remote access session.
-	HostAddress *string `locationName:"hostAddress" type:"string"`
+	HostAddress *string `json:"devicefarm:RemoteAccessSession:HostAddress" locationName:"hostAddress" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn *string `locationName:"instanceArn" min:"32" type:"string"`
+	InstanceArn *string `json:"devicefarm:RemoteAccessSession:InstanceArn" locationName:"instanceArn" min:"32" type:"string"`
 
 	// The interaction mode of the remote access session. Valid values are:
 	//
@@ -1288,25 +1288,25 @@ type RemoteAccessSession struct {
 	//
 	//    * VIDEO_ONLY: You can view the screen but cannot touch or rotate it. You
 	//    can run XCUITest framework-based tests and watch the screen in this mode.
-	InteractionMode InteractionMode `locationName:"interactionMode" type:"string" enum:"true"`
+	InteractionMode InteractionMode `json:"devicefarm:RemoteAccessSession:InteractionMode" locationName:"interactionMode" type:"string" enum:"true"`
 
 	// A message about the remote access session.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:RemoteAccessSession:Message" locationName:"message" type:"string"`
 
 	// The name of the remote access session.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:RemoteAccessSession:Name" locationName:"name" type:"string"`
 
 	// This flag is set to true if remote debugging is enabled for the remote access
 	// session.
-	RemoteDebugEnabled *bool `locationName:"remoteDebugEnabled" type:"boolean"`
+	RemoteDebugEnabled *bool `json:"devicefarm:RemoteAccessSession:RemoteDebugEnabled" locationName:"remoteDebugEnabled" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) for the app to be recorded in the remote access
 	// session.
-	RemoteRecordAppArn *string `locationName:"remoteRecordAppArn" min:"32" type:"string"`
+	RemoteRecordAppArn *string `json:"devicefarm:RemoteAccessSession:RemoteRecordAppArn" locationName:"remoteRecordAppArn" min:"32" type:"string"`
 
 	// This flag is set to true if remote recording is enabled for the remote access
 	// session.
-	RemoteRecordEnabled *bool `locationName:"remoteRecordEnabled" type:"boolean"`
+	RemoteRecordEnabled *bool `json:"devicefarm:RemoteAccessSession:RemoteRecordEnabled" locationName:"remoteRecordEnabled" type:"boolean"`
 
 	// The result of the remote access session. Can be any of the following:
 	//
@@ -1323,7 +1323,7 @@ type RemoteAccessSession struct {
 	//    * ERRORED: An error condition.
 	//
 	//    * STOPPED: A stopped condition.
-	Result ExecutionResult `locationName:"result" type:"string" enum:"true"`
+	Result ExecutionResult `json:"devicefarm:RemoteAccessSession:Result" locationName:"result" type:"string" enum:"true"`
 
 	// When set to true, for private devices, Device Farm will not sign your app
 	// again. For public devices, Device Farm always signs your apps again and this
@@ -1332,10 +1332,10 @@ type RemoteAccessSession struct {
 	// For more information about how Device Farm re-signs your app(s), see Do you
 	// modify my app? (https://aws.amazon.com/device-farm/faq/) in the AWS Device
 	// Farm FAQs.
-	SkipAppResign *bool `locationName:"skipAppResign" type:"boolean"`
+	SkipAppResign *bool `json:"devicefarm:RemoteAccessSession:SkipAppResign" locationName:"skipAppResign" type:"boolean"`
 
 	// The date and time the remote access session was started.
-	Started *time.Time `locationName:"started" type:"timestamp" timestampFormat:"unix"`
+	Started *time.Time `json:"devicefarm:RemoteAccessSession:Started" locationName:"started" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the remote access session. Can be any of the following:
 	//
@@ -1356,10 +1356,10 @@ type RemoteAccessSession struct {
 	//    * COMPLETED: A completed status.
 	//
 	//    * STOPPING: A stopping status.
-	Status ExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status ExecutionStatus `json:"devicefarm:RemoteAccessSession:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The date and time the remote access session was stopped.
-	Stopped *time.Time `locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
+	Stopped *time.Time `json:"devicefarm:RemoteAccessSession:Stopped" locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1374,10 +1374,10 @@ type Resolution struct {
 	_ struct{} `type:"structure"`
 
 	// The screen resolution's height, expressed in pixels.
-	Height *int64 `locationName:"height" type:"integer"`
+	Height *int64 `json:"devicefarm:Resolution:Height" locationName:"height" type:"integer"`
 
 	// The screen resolution's width, expressed in pixels.
-	Width *int64 `locationName:"width" type:"integer"`
+	Width *int64 `json:"devicefarm:Resolution:Width" locationName:"width" type:"integer"`
 }
 
 // String returns the string representation
@@ -1476,14 +1476,14 @@ type Rule struct {
 	// or "FALSE".
 	//
 	// Supported operators: EQUALS
-	Attribute DeviceAttribute `locationName:"attribute" type:"string" enum:"true"`
+	Attribute DeviceAttribute `json:"devicefarm:Rule:Attribute" locationName:"attribute" type:"string" enum:"true"`
 
 	// Specifies how Device Farm compares the rule's attribute to the value. For
 	// the operators that are supported by each attribute, see the attribute descriptions.
-	Operator RuleOperator `locationName:"operator" type:"string" enum:"true"`
+	Operator RuleOperator `json:"devicefarm:Rule:Operator" locationName:"operator" type:"string" enum:"true"`
 
 	// The rule's value.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"devicefarm:Rule:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -1498,62 +1498,62 @@ type Run struct {
 	_ struct{} `type:"structure"`
 
 	// An app to upload or that has been uploaded.
-	AppUpload *string `locationName:"appUpload" min:"32" type:"string"`
+	AppUpload *string `json:"devicefarm:Run:AppUpload" locationName:"appUpload" min:"32" type:"string"`
 
 	// The run's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Run:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// Specifies the billing method for a test run: metered or unmetered. If the
 	// parameter is not specified, the default value is metered.
-	BillingMethod BillingMethod `locationName:"billingMethod" type:"string" enum:"true"`
+	BillingMethod BillingMethod `json:"devicefarm:Run:BillingMethod" locationName:"billingMethod" type:"string" enum:"true"`
 
 	// The total number of completed jobs.
-	CompletedJobs *int64 `locationName:"completedJobs" type:"integer"`
+	CompletedJobs *int64 `json:"devicefarm:Run:CompletedJobs" locationName:"completedJobs" type:"integer"`
 
 	// The run's result counters.
-	Counters *Counters `locationName:"counters" type:"structure"`
+	Counters *Counters `json:"devicefarm:Run:Counters" locationName:"counters" type:"structure"`
 
 	// When the run was created.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"devicefarm:Run:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// Output CustomerArtifactPaths object for the test run.
-	CustomerArtifactPaths *CustomerArtifactPaths `locationName:"customerArtifactPaths" type:"structure"`
+	CustomerArtifactPaths *CustomerArtifactPaths `json:"devicefarm:Run:CustomerArtifactPaths" locationName:"customerArtifactPaths" type:"structure"`
 
 	// Represents the total (metered or unmetered) minutes used by the test run.
-	DeviceMinutes *DeviceMinutes `locationName:"deviceMinutes" type:"structure"`
+	DeviceMinutes *DeviceMinutes `json:"devicefarm:Run:DeviceMinutes" locationName:"deviceMinutes" type:"structure"`
 
 	// The ARN of the device pool for the run.
-	DevicePoolArn *string `locationName:"devicePoolArn" min:"32" type:"string"`
+	DevicePoolArn *string `json:"devicefarm:Run:DevicePoolArn" locationName:"devicePoolArn" min:"32" type:"string"`
 
 	// The results of a device filter used to select the devices for a test run.
-	DeviceSelectionResult *DeviceSelectionResult `locationName:"deviceSelectionResult" type:"structure"`
+	DeviceSelectionResult *DeviceSelectionResult `json:"devicefarm:Run:DeviceSelectionResult" locationName:"deviceSelectionResult" type:"structure"`
 
 	// For fuzz tests, this is the number of events, between 1 and 10000, that the
 	// UI fuzz test should perform.
-	EventCount *int64 `locationName:"eventCount" type:"integer"`
+	EventCount *int64 `json:"devicefarm:Run:EventCount" locationName:"eventCount" type:"integer"`
 
 	// The number of minutes the job will execute before it times out.
-	JobTimeoutMinutes *int64 `locationName:"jobTimeoutMinutes" type:"integer"`
+	JobTimeoutMinutes *int64 `json:"devicefarm:Run:JobTimeoutMinutes" locationName:"jobTimeoutMinutes" type:"integer"`
 
 	// Information about the locale that is used for the run.
-	Locale *string `locationName:"locale" type:"string"`
+	Locale *string `json:"devicefarm:Run:Locale" locationName:"locale" type:"string"`
 
 	// Information about the location that is used for the run.
-	Location *Location `locationName:"location" type:"structure"`
+	Location *Location `json:"devicefarm:Run:Location" locationName:"location" type:"structure"`
 
 	// A message about the run's result.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:Run:Message" locationName:"message" type:"string"`
 
 	// The run's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:Run:Name" locationName:"name" type:"string"`
 
 	// The network profile being used for a test run.
-	NetworkProfile *NetworkProfile `locationName:"networkProfile" type:"structure"`
+	NetworkProfile *NetworkProfile `json:"devicefarm:Run:NetworkProfile" locationName:"networkProfile" type:"structure"`
 
 	// Read-only URL for an object in S3 bucket where you can get the parsing results
 	// of the test package. If the test package doesn't parse, the reason why it
 	// doesn't parse appears in the file that this URL points to.
-	ParsingResultUrl *string `locationName:"parsingResultUrl" type:"string"`
+	ParsingResultUrl *string `json:"devicefarm:Run:ParsingResultUrl" locationName:"parsingResultUrl" type:"string"`
 
 	// The run's platform.
 	//
@@ -1562,10 +1562,10 @@ type Run struct {
 	//    * ANDROID: The Android platform.
 	//
 	//    * IOS: The iOS platform.
-	Platform DevicePlatform `locationName:"platform" type:"string" enum:"true"`
+	Platform DevicePlatform `json:"devicefarm:Run:Platform" locationName:"platform" type:"string" enum:"true"`
 
 	// Information about the radio states for the run.
-	Radios *Radios `locationName:"radios" type:"structure"`
+	Radios *Radios `json:"devicefarm:Run:Radios" locationName:"radios" type:"structure"`
 
 	// The run's result.
 	//
@@ -1584,15 +1584,15 @@ type Run struct {
 	//    * ERRORED: An error condition.
 	//
 	//    * STOPPED: A stopped condition.
-	Result ExecutionResult `locationName:"result" type:"string" enum:"true"`
+	Result ExecutionResult `json:"devicefarm:Run:Result" locationName:"result" type:"string" enum:"true"`
 
 	// Supporting field for the result field. Set only if result is SKIPPED. PARSING_FAILED
 	// if the result is skipped because of test package parsing failure.
-	ResultCode ExecutionResultCode `locationName:"resultCode" type:"string" enum:"true"`
+	ResultCode ExecutionResultCode `json:"devicefarm:Run:ResultCode" locationName:"resultCode" type:"string" enum:"true"`
 
 	// For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using
 	// the same seed value between tests ensures identical event sequences.
-	Seed *int64 `locationName:"seed" type:"integer"`
+	Seed *int64 `json:"devicefarm:Run:Seed" locationName:"seed" type:"integer"`
 
 	// When set to true, for private devices, Device Farm will not sign your app
 	// again. For public devices, Device Farm always signs your apps again and this
@@ -1601,10 +1601,10 @@ type Run struct {
 	// For more information about how Device Farm re-signs your app(s), see Do you
 	// modify my app? (https://aws.amazon.com/device-farm/faq/) in the AWS Device
 	// Farm FAQs.
-	SkipAppResign *bool `locationName:"skipAppResign" type:"boolean"`
+	SkipAppResign *bool `json:"devicefarm:Run:SkipAppResign" locationName:"skipAppResign" type:"boolean"`
 
 	// The run's start time.
-	Started *time.Time `locationName:"started" type:"timestamp" timestampFormat:"unix"`
+	Started *time.Time `json:"devicefarm:Run:Started" locationName:"started" type:"timestamp" timestampFormat:"unix"`
 
 	// The run's status.
 	//
@@ -1627,16 +1627,16 @@ type Run struct {
 	//    * COMPLETED: A completed status.
 	//
 	//    * STOPPING: A stopping status.
-	Status ExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status ExecutionStatus `json:"devicefarm:Run:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The run's stop time.
-	Stopped *time.Time `locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
+	Stopped *time.Time `json:"devicefarm:Run:Stopped" locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the YAML-formatted test specification for the run.
-	TestSpecArn *string `locationName:"testSpecArn" min:"32" type:"string"`
+	TestSpecArn *string `json:"devicefarm:Run:TestSpecArn" locationName:"testSpecArn" min:"32" type:"string"`
 
 	// The total number of jobs for the run.
-	TotalJobs *int64 `locationName:"totalJobs" type:"integer"`
+	TotalJobs *int64 `json:"devicefarm:Run:TotalJobs" locationName:"totalJobs" type:"integer"`
 
 	// The run's type.
 	//
@@ -1679,10 +1679,10 @@ type Run struct {
 	//    * XCTEST: The Xcode test type.
 	//
 	//    * XCTEST_UI: The Xcode UI test type.
-	Type TestType `locationName:"type" type:"string" enum:"true"`
+	Type TestType `json:"devicefarm:Run:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The Device Farm console URL for the recording of the run.
-	WebUrl *string `locationName:"webUrl" type:"string"`
+	WebUrl *string `json:"devicefarm:Run:WebUrl" locationName:"webUrl" type:"string"`
 }
 
 // String returns the string representation
@@ -1696,7 +1696,7 @@ type Sample struct {
 	_ struct{} `type:"structure"`
 
 	// The sample's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Sample:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The sample's type.
 	//
@@ -1740,11 +1740,11 @@ type Sample struct {
 	//
 	//    * TX_RATE: The total number of bytes per second (TCP and UDP) that are
 	//    received, by app process.
-	Type SampleType `locationName:"type" type:"string" enum:"true"`
+	Type SampleType `json:"devicefarm:Sample:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The pre-signed Amazon S3 URL that can be used with a corresponding GET request
 	// to download the sample's file.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"devicefarm:Sample:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -1759,34 +1759,34 @@ type ScheduleRunConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// A list of auxiliary apps for the run.
-	AuxiliaryApps []string `locationName:"auxiliaryApps" type:"list"`
+	AuxiliaryApps []string `json:"devicefarm:ScheduleRunConfiguration:AuxiliaryApps" locationName:"auxiliaryApps" type:"list"`
 
 	// Specifies the billing method for a test run: metered or unmetered. If the
 	// parameter is not specified, the default value is metered.
-	BillingMethod BillingMethod `locationName:"billingMethod" type:"string" enum:"true"`
+	BillingMethod BillingMethod `json:"devicefarm:ScheduleRunConfiguration:BillingMethod" locationName:"billingMethod" type:"string" enum:"true"`
 
 	// Input CustomerArtifactPaths object for the scheduled run configuration.
-	CustomerArtifactPaths *CustomerArtifactPaths `locationName:"customerArtifactPaths" type:"structure"`
+	CustomerArtifactPaths *CustomerArtifactPaths `json:"devicefarm:ScheduleRunConfiguration:CustomerArtifactPaths" locationName:"customerArtifactPaths" type:"structure"`
 
 	// The ARN of the extra data for the run. The extra data is a .zip file that
 	// AWS Device Farm will extract to external data for Android or the app's sandbox
 	// for iOS.
-	ExtraDataPackageArn *string `locationName:"extraDataPackageArn" min:"32" type:"string"`
+	ExtraDataPackageArn *string `json:"devicefarm:ScheduleRunConfiguration:ExtraDataPackageArn" locationName:"extraDataPackageArn" min:"32" type:"string"`
 
 	// Information about the locale that is used for the run.
-	Locale *string `locationName:"locale" type:"string"`
+	Locale *string `json:"devicefarm:ScheduleRunConfiguration:Locale" locationName:"locale" type:"string"`
 
 	// Information about the location that is used for the run.
-	Location *Location `locationName:"location" type:"structure"`
+	Location *Location `json:"devicefarm:ScheduleRunConfiguration:Location" locationName:"location" type:"structure"`
 
 	// Reserved for internal use.
-	NetworkProfileArn *string `locationName:"networkProfileArn" min:"32" type:"string"`
+	NetworkProfileArn *string `json:"devicefarm:ScheduleRunConfiguration:NetworkProfileArn" locationName:"networkProfileArn" min:"32" type:"string"`
 
 	// Information about the radio states for the run.
-	Radios *Radios `locationName:"radios" type:"structure"`
+	Radios *Radios `json:"devicefarm:ScheduleRunConfiguration:Radios" locationName:"radios" type:"structure"`
 
 	// An array of Amazon Resource Names (ARNs) for your VPC endpoint configurations.
-	VpceConfigurationArns []string `locationName:"vpceConfigurationArns" type:"list"`
+	VpceConfigurationArns []string `json:"devicefarm:ScheduleRunConfiguration:VpceConfigurationArns" locationName:"vpceConfigurationArns" type:"list"`
 }
 
 // String returns the string representation
@@ -1823,7 +1823,7 @@ type ScheduleRunTest struct {
 	_ struct{} `type:"structure"`
 
 	// The test's filter.
-	Filter *string `locationName:"filter" type:"string"`
+	Filter *string `json:"devicefarm:ScheduleRunTest:Filter" locationName:"filter" type:"string"`
 
 	// The test's parameters, such as test framework parameters and fixture settings.
 	// Parameters are represented by name-value pairs of strings.
@@ -1886,13 +1886,13 @@ type ScheduleRunTest struct {
 	//    * filter: A test filter string. Examples: Running a single test case:
 	//    "com.android.abc.Test1" Running a single test: "com.android.abc.Test1#smoke"
 	//    Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2"
-	Parameters map[string]string `locationName:"parameters" type:"map"`
+	Parameters map[string]string `json:"devicefarm:ScheduleRunTest:Parameters" locationName:"parameters" type:"map"`
 
 	// The ARN of the uploaded test that will be run.
-	TestPackageArn *string `locationName:"testPackageArn" min:"32" type:"string"`
+	TestPackageArn *string `json:"devicefarm:ScheduleRunTest:TestPackageArn" locationName:"testPackageArn" min:"32" type:"string"`
 
 	// The ARN of the YAML-formatted test specification.
-	TestSpecArn *string `locationName:"testSpecArn" min:"32" type:"string"`
+	TestSpecArn *string `json:"devicefarm:ScheduleRunTest:TestSpecArn" locationName:"testSpecArn" min:"32" type:"string"`
 
 	// The test's type.
 	//
@@ -1937,7 +1937,7 @@ type ScheduleRunTest struct {
 	//    * XCTEST_UI: The Xcode UI test type.
 	//
 	// Type is a required field
-	Type TestType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type TestType `json:"devicefarm:ScheduleRunTest:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1970,22 +1970,22 @@ type Suite struct {
 	_ struct{} `type:"structure"`
 
 	// The suite's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Suite:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The suite's result counters.
-	Counters *Counters `locationName:"counters" type:"structure"`
+	Counters *Counters `json:"devicefarm:Suite:Counters" locationName:"counters" type:"structure"`
 
 	// When the suite was created.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"devicefarm:Suite:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// Represents the total (metered or unmetered) minutes used by the test suite.
-	DeviceMinutes *DeviceMinutes `locationName:"deviceMinutes" type:"structure"`
+	DeviceMinutes *DeviceMinutes `json:"devicefarm:Suite:DeviceMinutes" locationName:"deviceMinutes" type:"structure"`
 
 	// A message about the suite's result.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:Suite:Message" locationName:"message" type:"string"`
 
 	// The suite's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:Suite:Name" locationName:"name" type:"string"`
 
 	// The suite's result.
 	//
@@ -2004,10 +2004,10 @@ type Suite struct {
 	//    * ERRORED: An error condition.
 	//
 	//    * STOPPED: A stopped condition.
-	Result ExecutionResult `locationName:"result" type:"string" enum:"true"`
+	Result ExecutionResult `json:"devicefarm:Suite:Result" locationName:"result" type:"string" enum:"true"`
 
 	// The suite's start time.
-	Started *time.Time `locationName:"started" type:"timestamp" timestampFormat:"unix"`
+	Started *time.Time `json:"devicefarm:Suite:Started" locationName:"started" type:"timestamp" timestampFormat:"unix"`
 
 	// The suite's status.
 	//
@@ -2030,10 +2030,10 @@ type Suite struct {
 	//    * COMPLETED: A completed status.
 	//
 	//    * STOPPING: A stopping status.
-	Status ExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status ExecutionStatus `json:"devicefarm:Suite:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The suite's stop time.
-	Stopped *time.Time `locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
+	Stopped *time.Time `json:"devicefarm:Suite:Stopped" locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
 
 	// The suite's type.
 	//
@@ -2076,7 +2076,7 @@ type Suite struct {
 	//    * XCTEST: The Xcode test type.
 	//
 	//    * XCTEST_UI: The Xcode UI test type.
-	Type TestType `locationName:"type" type:"string" enum:"true"`
+	Type TestType `json:"devicefarm:Suite:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2096,13 +2096,13 @@ type Tag struct {
 	// that acts like a category for more specific tag values.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"devicefarm:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The optional part of a key-value pair that make up a tag. A value acts as
 	// a descriptor within a tag category (key).
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"devicefarm:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2137,22 +2137,22 @@ type Test struct {
 	_ struct{} `type:"structure"`
 
 	// The test's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Test:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The test's result counters.
-	Counters *Counters `locationName:"counters" type:"structure"`
+	Counters *Counters `json:"devicefarm:Test:Counters" locationName:"counters" type:"structure"`
 
 	// When the test was created.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"devicefarm:Test:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// Represents the total (metered or unmetered) minutes used by the test.
-	DeviceMinutes *DeviceMinutes `locationName:"deviceMinutes" type:"structure"`
+	DeviceMinutes *DeviceMinutes `json:"devicefarm:Test:DeviceMinutes" locationName:"deviceMinutes" type:"structure"`
 
 	// A message about the test's result.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:Test:Message" locationName:"message" type:"string"`
 
 	// The test's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:Test:Name" locationName:"name" type:"string"`
 
 	// The test's result.
 	//
@@ -2171,10 +2171,10 @@ type Test struct {
 	//    * ERRORED: An error condition.
 	//
 	//    * STOPPED: A stopped condition.
-	Result ExecutionResult `locationName:"result" type:"string" enum:"true"`
+	Result ExecutionResult `json:"devicefarm:Test:Result" locationName:"result" type:"string" enum:"true"`
 
 	// The test's start time.
-	Started *time.Time `locationName:"started" type:"timestamp" timestampFormat:"unix"`
+	Started *time.Time `json:"devicefarm:Test:Started" locationName:"started" type:"timestamp" timestampFormat:"unix"`
 
 	// The test's status.
 	//
@@ -2197,10 +2197,10 @@ type Test struct {
 	//    * COMPLETED: A completed status.
 	//
 	//    * STOPPING: A stopping status.
-	Status ExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status ExecutionStatus `json:"devicefarm:Test:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The test's stop time.
-	Stopped *time.Time `locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
+	Stopped *time.Time `json:"devicefarm:Test:Stopped" locationName:"stopped" type:"timestamp" timestampFormat:"unix"`
 
 	// The test's type.
 	//
@@ -2243,7 +2243,7 @@ type Test struct {
 	//    * XCTEST: The Xcode test type.
 	//
 	//    * XCTEST_UI: The Xcode UI test type.
-	Type TestType `locationName:"type" type:"string" enum:"true"`
+	Type TestType `json:"devicefarm:Test:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2257,10 +2257,10 @@ type TrialMinutes struct {
 	_ struct{} `type:"structure"`
 
 	// The number of free trial minutes remaining in the account.
-	Remaining *float64 `locationName:"remaining" type:"double"`
+	Remaining *float64 `json:"devicefarm:TrialMinutes:Remaining" locationName:"remaining" type:"double"`
 
 	// The total number of free trial minutes that the account started with.
-	Total *float64 `locationName:"total" type:"double"`
+	Total *float64 `json:"devicefarm:TrialMinutes:Total" locationName:"total" type:"double"`
 }
 
 // String returns the string representation
@@ -2274,10 +2274,10 @@ type UniqueProblem struct {
 	_ struct{} `type:"structure"`
 
 	// A message about the unique problems' result.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:UniqueProblem:Message" locationName:"message" type:"string"`
 
 	// Information about the problems.
-	Problems []Problem `locationName:"problems" type:"list"`
+	Problems []Problem `json:"devicefarm:UniqueProblem:Problems" locationName:"problems" type:"list"`
 }
 
 // String returns the string representation
@@ -2291,31 +2291,31 @@ type Upload struct {
 	_ struct{} `type:"structure"`
 
 	// The upload's ARN.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:Upload:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The upload's category. Allowed values include:
 	//
 	//    * CURATED: An upload managed by AWS Device Farm.
 	//
 	//    * PRIVATE: An upload managed by the AWS Device Farm customer.
-	Category UploadCategory `locationName:"category" type:"string" enum:"true"`
+	Category UploadCategory `json:"devicefarm:Upload:Category" locationName:"category" type:"string" enum:"true"`
 
 	// The upload's content type (for example, "application/octet-stream").
-	ContentType *string `locationName:"contentType" type:"string"`
+	ContentType *string `json:"devicefarm:Upload:ContentType" locationName:"contentType" type:"string"`
 
 	// When the upload was created.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"devicefarm:Upload:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// A message about the upload's result.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"devicefarm:Upload:Message" locationName:"message" type:"string"`
 
 	// The upload's metadata. For example, for Android, this contains information
 	// that is parsed from the manifest and is displayed in the AWS Device Farm
 	// console after the associated app is uploaded.
-	Metadata *string `locationName:"metadata" type:"string"`
+	Metadata *string `json:"devicefarm:Upload:Metadata" locationName:"metadata" type:"string"`
 
 	// The upload's file name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"devicefarm:Upload:Name" locationName:"name" type:"string"`
 
 	// The upload's status.
 	//
@@ -2328,7 +2328,7 @@ type Upload struct {
 	//    * PROCESSING: A processing status.
 	//
 	//    * SUCCEEDED: A succeeded status.
-	Status UploadStatus `locationName:"status" type:"string" enum:"true"`
+	Status UploadStatus `json:"devicefarm:Upload:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The upload's type.
 	//
@@ -2408,11 +2408,11 @@ type Upload struct {
 	//    * INSTRUMENTATION_TEST_SPEC: An instrumentation test spec upload.
 	//
 	//    * XCTEST_UI_TEST_SPEC: An Xcode UI test spec upload.
-	Type UploadType `locationName:"type" type:"string" enum:"true"`
+	Type UploadType `json:"devicefarm:Upload:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The pre-signed Amazon S3 URL that was used to store a file through a corresponding
 	// PUT request.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"devicefarm:Upload:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -2426,22 +2426,22 @@ type VPCEConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the VPC endpoint configuration.
-	Arn *string `locationName:"arn" min:"32" type:"string"`
+	Arn *string `json:"devicefarm:VPCEConfiguration:Arn" locationName:"arn" min:"32" type:"string"`
 
 	// The DNS name that maps to the private IP address of the service you want
 	// to access.
-	ServiceDnsName *string `locationName:"serviceDnsName" type:"string"`
+	ServiceDnsName *string `json:"devicefarm:VPCEConfiguration:ServiceDnsName" locationName:"serviceDnsName" type:"string"`
 
 	// An optional description, providing more details about your VPC endpoint configuration.
-	VpceConfigurationDescription *string `locationName:"vpceConfigurationDescription" type:"string"`
+	VpceConfigurationDescription *string `json:"devicefarm:VPCEConfiguration:VpceConfigurationDescription" locationName:"vpceConfigurationDescription" type:"string"`
 
 	// The friendly name you give to your VPC endpoint configuration, to manage
 	// your configurations more easily.
-	VpceConfigurationName *string `locationName:"vpceConfigurationName" type:"string"`
+	VpceConfigurationName *string `json:"devicefarm:VPCEConfiguration:VpceConfigurationName" locationName:"vpceConfigurationName" type:"string"`
 
 	// The name of the VPC endpoint service running inside your AWS account that
 	// you want Device Farm to test.
-	VpceServiceName *string `locationName:"vpceServiceName" type:"string"`
+	VpceServiceName *string `json:"devicefarm:VPCEConfiguration:VpceServiceName" locationName:"vpceServiceName" type:"string"`
 }
 
 // String returns the string representation

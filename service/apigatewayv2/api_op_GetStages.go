@@ -70,11 +70,11 @@ func (s GetStagesInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetStagesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Items []Stage `locationName:"items" type:"list"`
+	Items []Stage `json:"apigateway:GetStagesOutput:Items" locationName:"items" type:"list"`
 
 	// The next page of elements from this collection. Not valid for the last element
 	// of the collection.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"apigateway:GetStagesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

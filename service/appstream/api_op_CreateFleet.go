@@ -209,7 +209,7 @@ type CreateFleetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the fleet.
-	Fleet *Fleet `type:"structure"`
+	Fleet *Fleet `json:"appstream2:CreateFleetOutput:Fleet" type:"structure"`
 }
 
 // String returns the string representation

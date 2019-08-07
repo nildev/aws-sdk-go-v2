@@ -45,32 +45,32 @@ type DescribeHapgOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the high-availability partition group.
-	HapgArn *string `type:"string"`
+	HapgArn *string `json:"cloudhsm:DescribeHapgOutput:HapgArn" type:"string"`
 
 	// The serial number of the high-availability partition group.
-	HapgSerial *string `type:"string"`
+	HapgSerial *string `json:"cloudhsm:DescribeHapgOutput:HapgSerial" type:"string"`
 
 	// Contains a list of ARNs that identify the HSMs.
-	HsmsLastActionFailed []string `type:"list"`
+	HsmsLastActionFailed []string `json:"cloudhsm:DescribeHapgOutput:HsmsLastActionFailed" type:"list"`
 
 	// Contains a list of ARNs that identify the HSMs.
-	HsmsPendingDeletion []string `type:"list"`
+	HsmsPendingDeletion []string `json:"cloudhsm:DescribeHapgOutput:HsmsPendingDeletion" type:"list"`
 
 	// Contains a list of ARNs that identify the HSMs.
-	HsmsPendingRegistration []string `type:"list"`
+	HsmsPendingRegistration []string `json:"cloudhsm:DescribeHapgOutput:HsmsPendingRegistration" type:"list"`
 
 	// The label for the high-availability partition group.
-	Label *string `type:"string"`
+	Label *string `json:"cloudhsm:DescribeHapgOutput:Label" type:"string"`
 
 	// The date and time the high-availability partition group was last modified.
-	LastModifiedTimestamp *string `type:"string"`
+	LastModifiedTimestamp *string `json:"cloudhsm:DescribeHapgOutput:LastModifiedTimestamp" type:"string"`
 
 	// The list of partition serial numbers that belong to the high-availability
 	// partition group.
-	PartitionSerialList []string `type:"list"`
+	PartitionSerialList []string `json:"cloudhsm:DescribeHapgOutput:PartitionSerialList" type:"list"`
 
 	// The state of the high-availability partition group.
-	State CloudHsmObjectState `type:"string" enum:"true"`
+	State CloudHsmObjectState `json:"cloudhsm:DescribeHapgOutput:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation

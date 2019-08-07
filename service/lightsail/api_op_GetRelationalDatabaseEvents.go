@@ -56,10 +56,10 @@ type GetRelationalDatabaseEventsOutput struct {
 
 	// A token used for advancing to the next page of results from your get relational
 	// database events request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetRelationalDatabaseEventsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// An object describing the result of your get relational database events request.
-	RelationalDatabaseEvents []RelationalDatabaseEvent `locationName:"relationalDatabaseEvents" type:"list"`
+	RelationalDatabaseEvents []RelationalDatabaseEvent `json:"lightsail:GetRelationalDatabaseEventsOutput:RelationalDatabaseEvents" locationName:"relationalDatabaseEvents" type:"list"`
 }
 
 // String returns the string representation

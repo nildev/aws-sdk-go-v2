@@ -48,7 +48,7 @@ type DescribeDBClusterSnapshotAttributesOutput struct {
 	// Manual DB cluster snapshot attributes are used to authorize other AWS accounts
 	// to copy or restore a manual DB cluster snapshot. For more information, see
 	// the ModifyDBClusterSnapshotAttribute API action.
-	DBClusterSnapshotAttributesResult *DBClusterSnapshotAttributesResult `type:"structure"`
+	DBClusterSnapshotAttributesResult *DBClusterSnapshotAttributesResult `json:"rds:DescribeDBClusterSnapshotAttributesOutput:DBClusterSnapshotAttributesResult" type:"structure"`
 }
 
 // String returns the string representation

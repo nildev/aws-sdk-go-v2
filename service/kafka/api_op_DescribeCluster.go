@@ -56,7 +56,7 @@ type DescribeClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The cluster information.
-	ClusterInfo *ClusterInfo `locationName:"clusterInfo" type:"structure"`
+	ClusterInfo *ClusterInfo `json:"kafka:DescribeClusterOutput:ClusterInfo" locationName:"clusterInfo" type:"structure"`
 }
 
 // String returns the string representation

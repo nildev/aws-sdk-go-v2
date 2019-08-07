@@ -60,10 +60,10 @@ type GetTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the tagged resource group.
-	Arn *string `min:"12" type:"string"`
+	Arn *string `json:"resource-groups:GetTagsOutput:Arn" min:"12" type:"string"`
 
 	// The tags associated with the specified resource group.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"resource-groups:GetTagsOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

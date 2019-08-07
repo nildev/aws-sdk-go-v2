@@ -34,10 +34,10 @@ type ListTasksOutput struct {
 
 	// An opaque string that indicates the position at which to begin returning
 	// the next list of tasks.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"datasync:ListTasksOutput:NextToken" type:"string"`
 
 	// A list of all the tasks that are returned.
-	Tasks []TaskListEntry `type:"list"`
+	Tasks []TaskListEntry `json:"datasync:ListTasksOutput:Tasks" type:"list"`
 }
 
 // String returns the string representation

@@ -76,12 +76,12 @@ type ListJobsByPipelineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Job objects that are in the specified pipeline.
-	Jobs []Job `type:"list"`
+	Jobs []Job `json:"elastictranscoder:ListJobsByPipelineOutput:Jobs" type:"list"`
 
 	// A value that you use to access the second and subsequent pages of results,
 	// if any. When the jobs in the specified pipeline fit on one page or when you've
 	// reached the last page of results, the value of NextPageToken is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"elastictranscoder:ListJobsByPipelineOutput:NextPageToken" type:"string"`
 }
 
 // String returns the string representation

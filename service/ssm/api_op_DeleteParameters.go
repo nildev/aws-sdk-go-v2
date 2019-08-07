@@ -46,11 +46,11 @@ type DeleteParametersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The names of the deleted parameters.
-	DeletedParameters []string `min:"1" type:"list"`
+	DeletedParameters []string `json:"ssm:DeleteParametersOutput:DeletedParameters" min:"1" type:"list"`
 
 	// The names of parameters that weren't deleted because the parameters are not
 	// valid.
-	InvalidParameters []string `min:"1" type:"list"`
+	InvalidParameters []string `json:"ssm:DeleteParametersOutput:InvalidParameters" min:"1" type:"list"`
 }
 
 // String returns the string representation

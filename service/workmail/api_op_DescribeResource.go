@@ -54,31 +54,31 @@ type DescribeResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The booking options for the described resource.
-	BookingOptions *BookingOptions `type:"structure"`
+	BookingOptions *BookingOptions `json:"workmail:DescribeResourceOutput:BookingOptions" type:"structure"`
 
 	// The date and time when a resource was disabled from WorkMail, in UNIX epoch
 	// time format.
-	DisabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DisabledDate *time.Time `json:"workmail:DescribeResourceOutput:DisabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The email of the described resource.
-	Email *string `min:"1" type:"string"`
+	Email *string `json:"workmail:DescribeResourceOutput:Email" min:"1" type:"string"`
 
 	// The date and time when a resource was enabled for WorkMail, in UNIX epoch
 	// time format.
-	EnabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EnabledDate *time.Time `json:"workmail:DescribeResourceOutput:EnabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the described resource.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workmail:DescribeResourceOutput:Name" min:"1" type:"string"`
 
 	// The identifier of the described resource.
-	ResourceId *string `type:"string"`
+	ResourceId *string `json:"workmail:DescribeResourceOutput:ResourceId" type:"string"`
 
 	// The state of the resource: enabled (registered to Amazon WorkMail) or disabled
 	// (deregistered or never registered to WorkMail).
-	State EntityState `type:"string" enum:"true"`
+	State EntityState `json:"workmail:DescribeResourceOutput:State" type:"string" enum:"true"`
 
 	// The type of the described resource.
-	Type ResourceType `type:"string" enum:"true"`
+	Type ResourceType `json:"workmail:DescribeResourceOutput:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -130,13 +130,13 @@ type GetTimeSeriesServiceStatisticsOutput struct {
 	// A flag indicating whether or not a group's filter expression has been consistent,
 	// or if a returned aggregation may show statistics from an older version of
 	// the group's filter expression.
-	ContainsOldGroupVersions *bool `type:"boolean"`
+	ContainsOldGroupVersions *bool `json:"xray:GetTimeSeriesServiceStatisticsOutput:ContainsOldGroupVersions" type:"boolean"`
 
 	// Pagination token. Not used.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"xray:GetTimeSeriesServiceStatisticsOutput:NextToken" type:"string"`
 
 	// The collection of statistics.
-	TimeSeriesServiceStatistics []TimeSeriesServiceStatistics `type:"list"`
+	TimeSeriesServiceStatistics []TimeSeriesServiceStatistics `json:"xray:GetTimeSeriesServiceStatisticsOutput:TimeSeriesServiceStatistics" type:"list"`
 }
 
 // String returns the string representation

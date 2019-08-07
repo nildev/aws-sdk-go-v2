@@ -91,7 +91,7 @@ type UpdateQualificationTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains a QualificationType data structure.
-	QualificationType *QualificationType `type:"structure"`
+	QualificationType *QualificationType `json:"mturk-requester:UpdateQualificationTypeOutput:QualificationType" type:"structure"`
 }
 
 // String returns the string representation

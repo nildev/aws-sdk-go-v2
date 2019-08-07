@@ -48,7 +48,7 @@ type RetrieveDomainAuthCodeOutput struct {
 	// The authorization code for the domain.
 	//
 	// AuthCode is a required field
-	AuthCode *string `type:"string" required:"true"`
+	AuthCode *string `json:"route53domains:RetrieveDomainAuthCodeOutput:AuthCode" type:"string" required:"true"`
 }
 
 // String returns the string representation

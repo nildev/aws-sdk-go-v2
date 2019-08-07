@@ -40,17 +40,17 @@ type CreateKeysAndCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the certificate.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:CreateKeysAndCertificateOutput:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The ID of the certificate. AWS IoT issues a default subject name for the
 	// certificate (for example, AWS IoT Certificate).
-	CertificateId *string `locationName:"certificateId" min:"64" type:"string"`
+	CertificateId *string `json:"iot:CreateKeysAndCertificateOutput:CertificateId" locationName:"certificateId" min:"64" type:"string"`
 
 	// The certificate data, in PEM format.
-	CertificatePem *string `locationName:"certificatePem" min:"1" type:"string"`
+	CertificatePem *string `json:"iot:CreateKeysAndCertificateOutput:CertificatePem" locationName:"certificatePem" min:"1" type:"string"`
 
 	// The generated key pair.
-	KeyPair *KeyPair `locationName:"keyPair" type:"structure"`
+	KeyPair *KeyPair `json:"iot:CreateKeysAndCertificateOutput:KeyPair" locationName:"keyPair" type:"structure"`
 }
 
 // String returns the string representation

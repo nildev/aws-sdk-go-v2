@@ -17,13 +17,13 @@ type AdditionalAuthenticationProvider struct {
 	_ struct{} `type:"structure"`
 
 	// The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
-	AuthenticationType AuthenticationType `locationName:"authenticationType" type:"string" enum:"true"`
+	AuthenticationType AuthenticationType `json:"appsync:AdditionalAuthenticationProvider:AuthenticationType" locationName:"authenticationType" type:"string" enum:"true"`
 
 	// The OpenID Connect configuration.
-	OpenIDConnectConfig *OpenIDConnectConfig `locationName:"openIDConnectConfig" type:"structure"`
+	OpenIDConnectConfig *OpenIDConnectConfig `json:"appsync:AdditionalAuthenticationProvider:OpenIDConnectConfig" locationName:"openIDConnectConfig" type:"structure"`
 
 	// The Amazon Cognito user pool configuration.
-	UserPoolConfig *CognitoUserPoolConfig `locationName:"userPoolConfig" type:"structure"`
+	UserPoolConfig *CognitoUserPoolConfig `json:"appsync:AdditionalAuthenticationProvider:UserPoolConfig" locationName:"userPoolConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -117,14 +117,14 @@ type ApiKey struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the purpose of the API key.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"appsync:ApiKey:Description" locationName:"description" type:"string"`
 
 	// The time after which the API key expires. The date is represented as seconds
 	// since the epoch, rounded down to the nearest hour.
-	Expires *int64 `locationName:"expires" type:"long"`
+	Expires *int64 `json:"appsync:ApiKey:Expires" locationName:"expires" type:"long"`
 
 	// The API key ID.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"appsync:ApiKey:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation
@@ -165,10 +165,10 @@ type AuthorizationConfig struct {
 	//    * AWS_IAM: The authorization type is Sigv4.
 	//
 	// AuthorizationType is a required field
-	AuthorizationType AuthorizationType `locationName:"authorizationType" type:"string" required:"true" enum:"true"`
+	AuthorizationType AuthorizationType `json:"appsync:AuthorizationConfig:AuthorizationType" locationName:"authorizationType" type:"string" required:"true" enum:"true"`
 
 	// The AWS IAM settings.
-	AwsIamConfig *AwsIamConfig `locationName:"awsIamConfig" type:"structure"`
+	AwsIamConfig *AwsIamConfig `json:"appsync:AuthorizationConfig:AwsIamConfig" locationName:"awsIamConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -212,10 +212,10 @@ type AwsIamConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The signing region for AWS IAM authorization.
-	SigningRegion *string `locationName:"signingRegion" type:"string"`
+	SigningRegion *string `json:"appsync:AwsIamConfig:SigningRegion" locationName:"signingRegion" type:"string"`
 
 	// The signing service name for AWS IAM authorization.
-	SigningServiceName *string `locationName:"signingServiceName" type:"string"`
+	SigningServiceName *string `json:"appsync:AwsIamConfig:SigningServiceName" locationName:"signingServiceName" type:"string"`
 }
 
 // String returns the string representation
@@ -247,17 +247,17 @@ type CognitoUserPoolConfig struct {
 
 	// A regular expression for validating the incoming Amazon Cognito user pool
 	// app client ID.
-	AppIdClientRegex *string `locationName:"appIdClientRegex" type:"string"`
+	AppIdClientRegex *string `json:"appsync:CognitoUserPoolConfig:AppIdClientRegex" locationName:"appIdClientRegex" type:"string"`
 
 	// The AWS Region in which the user pool was created.
 	//
 	// AwsRegion is a required field
-	AwsRegion *string `locationName:"awsRegion" type:"string" required:"true"`
+	AwsRegion *string `json:"appsync:CognitoUserPoolConfig:AwsRegion" locationName:"awsRegion" type:"string" required:"true"`
 
 	// The user pool ID.
 	//
 	// UserPoolId is a required field
-	UserPoolId *string `locationName:"userPoolId" type:"string" required:"true"`
+	UserPoolId *string `json:"appsync:CognitoUserPoolConfig:UserPoolId" locationName:"userPoolId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -312,32 +312,32 @@ type DataSource struct {
 	_ struct{} `type:"structure"`
 
 	// The data source ARN.
-	DataSourceArn *string `locationName:"dataSourceArn" type:"string"`
+	DataSourceArn *string `json:"appsync:DataSource:DataSourceArn" locationName:"dataSourceArn" type:"string"`
 
 	// The description of the data source.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"appsync:DataSource:Description" locationName:"description" type:"string"`
 
 	// Amazon DynamoDB settings.
-	DynamodbConfig *DynamodbDataSourceConfig `locationName:"dynamodbConfig" type:"structure"`
+	DynamodbConfig *DynamodbDataSourceConfig `json:"appsync:DataSource:DynamodbConfig" locationName:"dynamodbConfig" type:"structure"`
 
 	// Amazon Elasticsearch Service settings.
-	ElasticsearchConfig *ElasticsearchDataSourceConfig `locationName:"elasticsearchConfig" type:"structure"`
+	ElasticsearchConfig *ElasticsearchDataSourceConfig `json:"appsync:DataSource:ElasticsearchConfig" locationName:"elasticsearchConfig" type:"structure"`
 
 	// HTTP endpoint settings.
-	HttpConfig *HttpDataSourceConfig `locationName:"httpConfig" type:"structure"`
+	HttpConfig *HttpDataSourceConfig `json:"appsync:DataSource:HttpConfig" locationName:"httpConfig" type:"structure"`
 
 	// AWS Lambda settings.
-	LambdaConfig *LambdaDataSourceConfig `locationName:"lambdaConfig" type:"structure"`
+	LambdaConfig *LambdaDataSourceConfig `json:"appsync:DataSource:LambdaConfig" locationName:"lambdaConfig" type:"structure"`
 
 	// The name of the data source.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"appsync:DataSource:Name" locationName:"name" type:"string"`
 
 	// Relational database settings.
-	RelationalDatabaseConfig *RelationalDatabaseDataSourceConfig `locationName:"relationalDatabaseConfig" type:"structure"`
+	RelationalDatabaseConfig *RelationalDatabaseDataSourceConfig `json:"appsync:DataSource:RelationalDatabaseConfig" locationName:"relationalDatabaseConfig" type:"structure"`
 
 	// The AWS IAM service role ARN for the data source. The system assumes this
 	// role when accessing the data source.
-	ServiceRoleArn *string `locationName:"serviceRoleArn" type:"string"`
+	ServiceRoleArn *string `json:"appsync:DataSource:ServiceRoleArn" locationName:"serviceRoleArn" type:"string"`
 
 	// The type of the data source.
 	//
@@ -356,7 +356,7 @@ type DataSource struct {
 	//    * HTTP: The data source is an HTTP endpoint.
 	//
 	//    * RELATIONAL_DATABASE: The data source is a relational database.
-	Type DataSourceType `locationName:"type" type:"string" enum:"true"`
+	Type DataSourceType `json:"appsync:DataSource:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -437,15 +437,15 @@ type DynamodbDataSourceConfig struct {
 	// The AWS Region.
 	//
 	// AwsRegion is a required field
-	AwsRegion *string `locationName:"awsRegion" type:"string" required:"true"`
+	AwsRegion *string `json:"appsync:DynamodbDataSourceConfig:AwsRegion" locationName:"awsRegion" type:"string" required:"true"`
 
 	// The table name.
 	//
 	// TableName is a required field
-	TableName *string `locationName:"tableName" type:"string" required:"true"`
+	TableName *string `json:"appsync:DynamodbDataSourceConfig:TableName" locationName:"tableName" type:"string" required:"true"`
 
 	// Set to TRUE to use Amazon Cognito credentials with this data source.
-	UseCallerCredentials *bool `locationName:"useCallerCredentials" type:"boolean"`
+	UseCallerCredentials *bool `json:"appsync:DynamodbDataSourceConfig:UseCallerCredentials" locationName:"useCallerCredentials" type:"boolean"`
 }
 
 // String returns the string representation
@@ -502,12 +502,12 @@ type ElasticsearchDataSourceConfig struct {
 	// The AWS Region.
 	//
 	// AwsRegion is a required field
-	AwsRegion *string `locationName:"awsRegion" type:"string" required:"true"`
+	AwsRegion *string `json:"appsync:ElasticsearchDataSourceConfig:AwsRegion" locationName:"awsRegion" type:"string" required:"true"`
 
 	// The endpoint.
 	//
 	// Endpoint is a required field
-	Endpoint *string `locationName:"endpoint" type:"string" required:"true"`
+	Endpoint *string `json:"appsync:ElasticsearchDataSourceConfig:Endpoint" locationName:"endpoint" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -557,30 +557,30 @@ type FunctionConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the DataSource.
-	DataSourceName *string `locationName:"dataSourceName" type:"string"`
+	DataSourceName *string `json:"appsync:FunctionConfiguration:DataSourceName" locationName:"dataSourceName" type:"string"`
 
 	// The Function description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"appsync:FunctionConfiguration:Description" locationName:"description" type:"string"`
 
 	// The ARN of the Function object.
-	FunctionArn *string `locationName:"functionArn" type:"string"`
+	FunctionArn *string `json:"appsync:FunctionConfiguration:FunctionArn" locationName:"functionArn" type:"string"`
 
 	// A unique ID representing the Function object.
-	FunctionId *string `locationName:"functionId" type:"string"`
+	FunctionId *string `json:"appsync:FunctionConfiguration:FunctionId" locationName:"functionId" type:"string"`
 
 	// The version of the request mapping template. Currently only the 2018-05-29
 	// version of the template is supported.
-	FunctionVersion *string `locationName:"functionVersion" type:"string"`
+	FunctionVersion *string `json:"appsync:FunctionConfiguration:FunctionVersion" locationName:"functionVersion" type:"string"`
 
 	// The name of the Function object.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"appsync:FunctionConfiguration:Name" locationName:"name" type:"string"`
 
 	// The Function request mapping template. Functions support only the 2018-05-29
 	// version of the request mapping template.
-	RequestMappingTemplate *string `locationName:"requestMappingTemplate" min:"1" type:"string"`
+	RequestMappingTemplate *string `json:"appsync:FunctionConfiguration:RequestMappingTemplate" locationName:"requestMappingTemplate" min:"1" type:"string"`
 
 	// The Function response mapping template.
-	ResponseMappingTemplate *string `locationName:"responseMappingTemplate" min:"1" type:"string"`
+	ResponseMappingTemplate *string `json:"appsync:FunctionConfiguration:ResponseMappingTemplate" locationName:"responseMappingTemplate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -647,34 +647,34 @@ type GraphqlApi struct {
 	_ struct{} `type:"structure"`
 
 	// A list of additional authentication providers for the GraphqlApi API.
-	AdditionalAuthenticationProviders []AdditionalAuthenticationProvider `locationName:"additionalAuthenticationProviders" type:"list"`
+	AdditionalAuthenticationProviders []AdditionalAuthenticationProvider `json:"appsync:GraphqlApi:AdditionalAuthenticationProviders" locationName:"additionalAuthenticationProviders" type:"list"`
 
 	// The API ID.
-	ApiId *string `locationName:"apiId" type:"string"`
+	ApiId *string `json:"appsync:GraphqlApi:ApiId" locationName:"apiId" type:"string"`
 
 	// The ARN.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"appsync:GraphqlApi:Arn" locationName:"arn" type:"string"`
 
 	// The authentication type.
-	AuthenticationType AuthenticationType `locationName:"authenticationType" type:"string" enum:"true"`
+	AuthenticationType AuthenticationType `json:"appsync:GraphqlApi:AuthenticationType" locationName:"authenticationType" type:"string" enum:"true"`
 
 	// The Amazon CloudWatch Logs configuration.
-	LogConfig *LogConfig `locationName:"logConfig" type:"structure"`
+	LogConfig *LogConfig `json:"appsync:GraphqlApi:LogConfig" locationName:"logConfig" type:"structure"`
 
 	// The API name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"appsync:GraphqlApi:Name" locationName:"name" type:"string"`
 
 	// The OpenID Connect configuration.
-	OpenIDConnectConfig *OpenIDConnectConfig `locationName:"openIDConnectConfig" type:"structure"`
+	OpenIDConnectConfig *OpenIDConnectConfig `json:"appsync:GraphqlApi:OpenIDConnectConfig" locationName:"openIDConnectConfig" type:"structure"`
 
 	// The tags.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"appsync:GraphqlApi:Tags" locationName:"tags" min:"1" type:"map"`
 
 	// The URIs.
-	Uris map[string]string `locationName:"uris" type:"map"`
+	Uris map[string]string `json:"appsync:GraphqlApi:Uris" locationName:"uris" type:"map"`
 
 	// The Amazon Cognito user pool configuration.
-	UserPoolConfig *UserPoolConfig `locationName:"userPoolConfig" type:"structure"`
+	UserPoolConfig *UserPoolConfig `json:"appsync:GraphqlApi:UserPoolConfig" locationName:"userPoolConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -771,13 +771,13 @@ type HttpDataSourceConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The authorization config in case the HTTP endpoint requires authorization.
-	AuthorizationConfig *AuthorizationConfig `locationName:"authorizationConfig" type:"structure"`
+	AuthorizationConfig *AuthorizationConfig `json:"appsync:HttpDataSourceConfig:AuthorizationConfig" locationName:"authorizationConfig" type:"structure"`
 
 	// The HTTP URL endpoint. You can either specify the domain name or IP, and
 	// port combination, and the URL scheme must be HTTP or HTTPS. If the port is
 	// not specified, AWS AppSync uses the default port 80 for the HTTP endpoint
 	// and port 443 for HTTPS endpoints.
-	Endpoint *string `locationName:"endpoint" type:"string"`
+	Endpoint *string `json:"appsync:HttpDataSourceConfig:Endpoint" locationName:"endpoint" type:"string"`
 }
 
 // String returns the string representation
@@ -825,7 +825,7 @@ type LambdaDataSourceConfig struct {
 	// The ARN for the Lambda function.
 	//
 	// LambdaFunctionArn is a required field
-	LambdaFunctionArn *string `locationName:"lambdaFunctionArn" type:"string" required:"true"`
+	LambdaFunctionArn *string `json:"appsync:LambdaDataSourceConfig:LambdaFunctionArn" locationName:"lambdaFunctionArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -867,7 +867,7 @@ type LogConfig struct {
 	// logs in your account.
 	//
 	// CloudWatchLogsRoleArn is a required field
-	CloudWatchLogsRoleArn *string `locationName:"cloudWatchLogsRoleArn" type:"string" required:"true"`
+	CloudWatchLogsRoleArn *string `json:"appsync:LogConfig:CloudWatchLogsRoleArn" locationName:"cloudWatchLogsRoleArn" type:"string" required:"true"`
 
 	// The field logging level. Values can be NONE, ERROR, or ALL.
 	//
@@ -882,7 +882,7 @@ type LogConfig struct {
 	//    that got resolved for each field.
 	//
 	// FieldLogLevel is a required field
-	FieldLogLevel FieldLogLevel `locationName:"fieldLogLevel" type:"string" required:"true" enum:"true"`
+	FieldLogLevel FieldLogLevel `json:"appsync:LogConfig:FieldLogLevel" locationName:"fieldLogLevel" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -930,22 +930,22 @@ type OpenIDConnectConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The number of milliseconds a token is valid after being authenticated.
-	AuthTTL *int64 `locationName:"authTTL" type:"long"`
+	AuthTTL *int64 `json:"appsync:OpenIDConnectConfig:AuthTTL" locationName:"authTTL" type:"long"`
 
 	// The client identifier of the Relying party at the OpenID identity provider.
 	// This identifier is typically obtained when the Relying party is registered
 	// with the OpenID identity provider. You can specify a regular expression so
 	// the AWS AppSync can validate against multiple client identifiers at a time.
-	ClientId *string `locationName:"clientId" type:"string"`
+	ClientId *string `json:"appsync:OpenIDConnectConfig:ClientId" locationName:"clientId" type:"string"`
 
 	// The number of milliseconds a token is valid after being issued to a user.
-	IatTTL *int64 `locationName:"iatTTL" type:"long"`
+	IatTTL *int64 `json:"appsync:OpenIDConnectConfig:IatTTL" locationName:"iatTTL" type:"long"`
 
 	// The issuer for the OpenID Connect configuration. The issuer returned by discovery
 	// must exactly match the value of iss in the ID token.
 	//
 	// Issuer is a required field
-	Issuer *string `locationName:"issuer" type:"string" required:"true"`
+	Issuer *string `json:"appsync:OpenIDConnectConfig:Issuer" locationName:"issuer" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1002,7 +1002,7 @@ type PipelineConfig struct {
 	_ struct{} `type:"structure"`
 
 	// A list of Function objects.
-	Functions []string `locationName:"functions" type:"list"`
+	Functions []string `json:"appsync:PipelineConfig:Functions" locationName:"functions" type:"list"`
 }
 
 // String returns the string representation
@@ -1033,19 +1033,19 @@ type RdsHttpEndpointConfig struct {
 	_ struct{} `type:"structure"`
 
 	// AWS Region for RDS HTTP endpoint.
-	AwsRegion *string `locationName:"awsRegion" type:"string"`
+	AwsRegion *string `json:"appsync:RdsHttpEndpointConfig:AwsRegion" locationName:"awsRegion" type:"string"`
 
 	// AWS secret store ARN for database credentials.
-	AwsSecretStoreArn *string `locationName:"awsSecretStoreArn" type:"string"`
+	AwsSecretStoreArn *string `json:"appsync:RdsHttpEndpointConfig:AwsSecretStoreArn" locationName:"awsSecretStoreArn" type:"string"`
 
 	// Logical database name.
-	DatabaseName *string `locationName:"databaseName" type:"string"`
+	DatabaseName *string `json:"appsync:RdsHttpEndpointConfig:DatabaseName" locationName:"databaseName" type:"string"`
 
 	// Amazon RDS cluster identifier.
-	DbClusterIdentifier *string `locationName:"dbClusterIdentifier" type:"string"`
+	DbClusterIdentifier *string `json:"appsync:RdsHttpEndpointConfig:DbClusterIdentifier" locationName:"dbClusterIdentifier" type:"string"`
 
 	// Logical schema name.
-	Schema *string `locationName:"schema" type:"string"`
+	Schema *string `json:"appsync:RdsHttpEndpointConfig:Schema" locationName:"schema" type:"string"`
 }
 
 // String returns the string representation
@@ -1094,13 +1094,13 @@ type RelationalDatabaseDataSourceConfig struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon RDS HTTP endpoint settings.
-	RdsHttpEndpointConfig *RdsHttpEndpointConfig `locationName:"rdsHttpEndpointConfig" type:"structure"`
+	RdsHttpEndpointConfig *RdsHttpEndpointConfig `json:"appsync:RelationalDatabaseDataSourceConfig:RdsHttpEndpointConfig" locationName:"rdsHttpEndpointConfig" type:"structure"`
 
 	// Source type for the relational database.
 	//
 	//    * RDS_HTTP_ENDPOINT: The relational database source type is an Amazon
 	//    RDS HTTP endpoint.
-	RelationalDatabaseSourceType RelationalDatabaseSourceType `locationName:"relationalDatabaseSourceType" type:"string" enum:"true"`
+	RelationalDatabaseSourceType RelationalDatabaseSourceType `json:"appsync:RelationalDatabaseDataSourceConfig:RelationalDatabaseSourceType" locationName:"relationalDatabaseSourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1131,10 +1131,10 @@ type Resolver struct {
 	_ struct{} `type:"structure"`
 
 	// The resolver data source name.
-	DataSourceName *string `locationName:"dataSourceName" type:"string"`
+	DataSourceName *string `json:"appsync:Resolver:DataSourceName" locationName:"dataSourceName" type:"string"`
 
 	// The resolver field name.
-	FieldName *string `locationName:"fieldName" type:"string"`
+	FieldName *string `json:"appsync:Resolver:FieldName" locationName:"fieldName" type:"string"`
 
 	// The resolver type.
 	//
@@ -1145,22 +1145,22 @@ type Resolver struct {
 	//    * PIPELINE: A PIPELINE resolver type. A PIPELINE resolver enables you
 	//    to execute a series of Function in a serial manner. You can use a pipeline
 	//    resolver to execute a GraphQL query against multiple data sources.
-	Kind ResolverKind `locationName:"kind" type:"string" enum:"true"`
+	Kind ResolverKind `json:"appsync:Resolver:Kind" locationName:"kind" type:"string" enum:"true"`
 
 	// The PipelineConfig.
-	PipelineConfig *PipelineConfig `locationName:"pipelineConfig" type:"structure"`
+	PipelineConfig *PipelineConfig `json:"appsync:Resolver:PipelineConfig" locationName:"pipelineConfig" type:"structure"`
 
 	// The request mapping template.
-	RequestMappingTemplate *string `locationName:"requestMappingTemplate" min:"1" type:"string"`
+	RequestMappingTemplate *string `json:"appsync:Resolver:RequestMappingTemplate" locationName:"requestMappingTemplate" min:"1" type:"string"`
 
 	// The resolver ARN.
-	ResolverArn *string `locationName:"resolverArn" type:"string"`
+	ResolverArn *string `json:"appsync:Resolver:ResolverArn" locationName:"resolverArn" type:"string"`
 
 	// The response mapping template.
-	ResponseMappingTemplate *string `locationName:"responseMappingTemplate" min:"1" type:"string"`
+	ResponseMappingTemplate *string `json:"appsync:Resolver:ResponseMappingTemplate" locationName:"responseMappingTemplate" min:"1" type:"string"`
 
 	// The resolver type name.
-	TypeName *string `locationName:"typeName" type:"string"`
+	TypeName *string `json:"appsync:Resolver:TypeName" locationName:"typeName" type:"string"`
 }
 
 // String returns the string representation
@@ -1227,19 +1227,19 @@ type Type struct {
 	_ struct{} `type:"structure"`
 
 	// The type ARN.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"appsync:Type:Arn" locationName:"arn" type:"string"`
 
 	// The type definition.
-	Definition *string `locationName:"definition" type:"string"`
+	Definition *string `json:"appsync:Type:Definition" locationName:"definition" type:"string"`
 
 	// The type description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"appsync:Type:Description" locationName:"description" type:"string"`
 
 	// The type format: SDL or JSON.
-	Format TypeDefinitionFormat `locationName:"format" type:"string" enum:"true"`
+	Format TypeDefinitionFormat `json:"appsync:Type:Format" locationName:"format" type:"string" enum:"true"`
 
 	// The type name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"appsync:Type:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -1289,24 +1289,24 @@ type UserPoolConfig struct {
 
 	// A regular expression for validating the incoming Amazon Cognito user pool
 	// app client ID.
-	AppIdClientRegex *string `locationName:"appIdClientRegex" type:"string"`
+	AppIdClientRegex *string `json:"appsync:UserPoolConfig:AppIdClientRegex" locationName:"appIdClientRegex" type:"string"`
 
 	// The AWS Region in which the user pool was created.
 	//
 	// AwsRegion is a required field
-	AwsRegion *string `locationName:"awsRegion" type:"string" required:"true"`
+	AwsRegion *string `json:"appsync:UserPoolConfig:AwsRegion" locationName:"awsRegion" type:"string" required:"true"`
 
 	// The action that you want your GraphQL API to take when a request that uses
 	// Amazon Cognito user pool authentication doesn't match the Amazon Cognito
 	// user pool configuration.
 	//
 	// DefaultAction is a required field
-	DefaultAction DefaultAction `locationName:"defaultAction" type:"string" required:"true" enum:"true"`
+	DefaultAction DefaultAction `json:"appsync:UserPoolConfig:DefaultAction" locationName:"defaultAction" type:"string" required:"true" enum:"true"`
 
 	// The user pool ID.
 	//
 	// UserPoolId is a required field
-	UserPoolId *string `locationName:"userPoolId" type:"string" required:"true"`
+	UserPoolId *string `json:"appsync:UserPoolConfig:UserPoolId" locationName:"userPoolId" type:"string" required:"true"`
 }
 
 // String returns the string representation

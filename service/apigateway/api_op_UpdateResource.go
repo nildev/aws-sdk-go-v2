@@ -89,16 +89,16 @@ type UpdateResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The resource's identifier.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:UpdateResourceOutput:Id" locationName:"id" type:"string"`
 
 	// The parent resource's identifier.
-	ParentId *string `locationName:"parentId" type:"string"`
+	ParentId *string `json:"apigateway:UpdateResourceOutput:ParentId" locationName:"parentId" type:"string"`
 
 	// The full path for this resource.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"apigateway:UpdateResourceOutput:Path" locationName:"path" type:"string"`
 
 	// The last path segment for this resource.
-	PathPart *string `locationName:"pathPart" type:"string"`
+	PathPart *string `json:"apigateway:UpdateResourceOutput:PathPart" locationName:"pathPart" type:"string"`
 
 	// Gets an API resource's method of a given HTTP verb.
 	//
@@ -156,7 +156,7 @@ type UpdateResourceOutput struct {
 	// If the OPTIONS is enabled on the resource, you can follow the example here
 	// to get that method. Just replace the GET of the last path segment in the
 	// request URL with OPTIONS.
-	ResourceMethods map[string]Method `locationName:"resourceMethods" type:"map"`
+	ResourceMethods map[string]Method `json:"apigateway:UpdateResourceOutput:ResourceMethods" locationName:"resourceMethods" type:"map"`
 }
 
 // String returns the string representation

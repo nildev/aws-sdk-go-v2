@@ -54,10 +54,10 @@ type DescribeEventDetailsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Error messages for any events that could not be retrieved.
-	FailedSet []EventDetailsErrorItem `locationName:"failedSet" type:"list"`
+	FailedSet []EventDetailsErrorItem `json:"health:DescribeEventDetailsOutput:FailedSet" locationName:"failedSet" type:"list"`
 
 	// Information about the events that could be retrieved.
-	SuccessfulSet []EventDetails `locationName:"successfulSet" type:"list"`
+	SuccessfulSet []EventDetails `json:"health:DescribeEventDetailsOutput:SuccessfulSet" locationName:"successfulSet" type:"list"`
 }
 
 // String returns the string representation

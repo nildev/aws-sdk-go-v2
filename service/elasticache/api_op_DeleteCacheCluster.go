@@ -50,7 +50,7 @@ type DeleteCacheClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains all of the attributes of a specific cluster.
-	CacheCluster *CacheCluster `type:"structure"`
+	CacheCluster *CacheCluster `json:"elasticache:DeleteCacheClusterOutput:CacheCluster" type:"structure"`
 }
 
 // String returns the string representation

@@ -48,16 +48,16 @@ type GetIdentityPoolRolesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An identity pool ID in the format REGION:GUID.
-	IdentityPoolId *string `min:"1" type:"string"`
+	IdentityPoolId *string `json:"cognito-identity:GetIdentityPoolRolesOutput:IdentityPoolId" min:"1" type:"string"`
 
 	// How users for a specific identity provider are to mapped to roles. This is
 	// a String-to-RoleMapping object map. The string identifies the identity provider,
 	// for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-	RoleMappings map[string]RoleMapping `type:"map"`
+	RoleMappings map[string]RoleMapping `json:"cognito-identity:GetIdentityPoolRolesOutput:RoleMappings" type:"map"`
 
 	// The map of roles associated with this pool. Currently only authenticated
 	// and unauthenticated roles are supported.
-	Roles map[string]string `type:"map"`
+	Roles map[string]string `json:"cognito-identity:GetIdentityPoolRolesOutput:Roles" type:"map"`
 }
 
 // String returns the string representation

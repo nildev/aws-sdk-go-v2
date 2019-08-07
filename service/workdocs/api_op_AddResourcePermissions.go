@@ -111,7 +111,7 @@ type AddResourcePermissionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The share results.
-	ShareResults []ShareResult `type:"list"`
+	ShareResults []ShareResult `json:"workdocs:AddResourcePermissionsOutput:ShareResults" type:"list"`
 }
 
 // String returns the string representation

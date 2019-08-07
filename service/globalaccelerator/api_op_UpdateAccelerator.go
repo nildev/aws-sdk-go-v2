@@ -58,7 +58,7 @@ type UpdateAcceleratorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the updated accelerator.
-	Accelerator *Accelerator `type:"structure"`
+	Accelerator *Accelerator `json:"globalaccelerator:UpdateAcceleratorOutput:Accelerator" type:"structure"`
 }
 
 // String returns the string representation

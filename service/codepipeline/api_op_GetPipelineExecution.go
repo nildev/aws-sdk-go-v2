@@ -57,7 +57,7 @@ type GetPipelineExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents information about the execution of a pipeline.
-	PipelineExecution *PipelineExecution `locationName:"pipelineExecution" type:"structure"`
+	PipelineExecution *PipelineExecution `json:"codepipeline:GetPipelineExecutionOutput:PipelineExecution" locationName:"pipelineExecution" type:"structure"`
 }
 
 // String returns the string representation

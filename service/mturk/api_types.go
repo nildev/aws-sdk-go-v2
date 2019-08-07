@@ -21,25 +21,25 @@ type Assignment struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the Worker accepted the assignment.
-	AcceptTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AcceptTime *time.Time `json:"mturk-requester:Assignment:AcceptTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Worker's answers submitted for the HIT contained in a QuestionFormAnswers
 	// document, if the Worker provides an answer. If the Worker does not provide
 	// any answers, Answer may contain a QuestionFormAnswers document, or Answer
 	// may be empty.
-	Answer *string `type:"string"`
+	Answer *string `json:"mturk-requester:Assignment:Answer" type:"string"`
 
 	// If the Worker has submitted results and the Requester has approved the results,
 	// ApprovalTime is the date and time the Requester approved the results. This
 	// value is omitted from the assignment if the Requester has not yet approved
 	// the results.
-	ApprovalTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ApprovalTime *time.Time `json:"mturk-requester:Assignment:ApprovalTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A unique identifier for the assignment.
-	AssignmentId *string `min:"1" type:"string"`
+	AssignmentId *string `json:"mturk-requester:Assignment:AssignmentId" min:"1" type:"string"`
 
 	// The status of the assignment.
-	AssignmentStatus AssignmentStatus `type:"string" enum:"true"`
+	AssignmentStatus AssignmentStatus `json:"mturk-requester:Assignment:AssignmentStatus" type:"string" enum:"true"`
 
 	// If results have been submitted, AutoApprovalTime is the date and time the
 	// results of the assignment results are considered Approved automatically if
@@ -47,32 +47,32 @@ type Assignment struct {
 	// This value is derived from the auto-approval delay specified by the Requester
 	// in the HIT. This value is omitted from the assignment if the Worker has not
 	// yet submitted results.
-	AutoApprovalTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AutoApprovalTime *time.Time `json:"mturk-requester:Assignment:AutoApprovalTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time of the deadline for the assignment. This value is derived
 	// from the deadline specification for the HIT and the date and time the Worker
 	// accepted the HIT.
-	Deadline *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Deadline *time.Time `json:"mturk-requester:Assignment:Deadline" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the HIT.
-	HITId *string `min:"1" type:"string"`
+	HITId *string `json:"mturk-requester:Assignment:HITId" min:"1" type:"string"`
 
 	// If the Worker has submitted results and the Requester has rejected the results,
 	// RejectionTime is the date and time the Requester rejected the results.
-	RejectionTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RejectionTime *time.Time `json:"mturk-requester:Assignment:RejectionTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The feedback string included with the call to the ApproveAssignment operation
 	// or the RejectAssignment operation, if the Requester approved or rejected
 	// the assignment and specified feedback.
-	RequesterFeedback *string `type:"string"`
+	RequesterFeedback *string `json:"mturk-requester:Assignment:RequesterFeedback" type:"string"`
 
 	// If the Worker has submitted results, SubmitTime is the date and time the
 	// assignment was submitted. This value is omitted from the assignment if the
 	// Worker has not yet submitted results.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"mturk-requester:Assignment:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the Worker who accepted the HIT.
-	WorkerId *string `min:"1" type:"string"`
+	WorkerId *string `json:"mturk-requester:Assignment:WorkerId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -86,19 +86,19 @@ type BonusPayment struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the assignment associated with this bonus payment.
-	AssignmentId *string `min:"1" type:"string"`
+	AssignmentId *string `json:"mturk-requester:BonusPayment:AssignmentId" min:"1" type:"string"`
 
 	// A string representing a currency amount.
-	BonusAmount *string `type:"string"`
+	BonusAmount *string `json:"mturk-requester:BonusPayment:BonusAmount" type:"string"`
 
 	// The date and time of when the bonus was granted.
-	GrantTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	GrantTime *time.Time `json:"mturk-requester:BonusPayment:GrantTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Reason text given when the bonus was granted, if any.
-	Reason *string `type:"string"`
+	Reason *string `json:"mturk-requester:BonusPayment:Reason" type:"string"`
 
 	// The ID of the Worker to whom the bonus was paid.
-	WorkerId *string `min:"1" type:"string"`
+	WorkerId *string `json:"mturk-requester:BonusPayment:WorkerId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -114,84 +114,84 @@ type HIT struct {
 
 	// The length of time, in seconds, that a Worker has to complete the HIT after
 	// accepting it.
-	AssignmentDurationInSeconds *int64 `type:"long"`
+	AssignmentDurationInSeconds *int64 `json:"mturk-requester:HIT:AssignmentDurationInSeconds" type:"long"`
 
 	// The amount of time, in seconds, after the Worker submits an assignment for
 	// the HIT that the results are automatically approved by Amazon Mechanical
 	// Turk. This is the amount of time the Requester has to reject an assignment
 	// submitted by a Worker before the assignment is auto-approved and the Worker
 	// is paid.
-	AutoApprovalDelayInSeconds *int64 `type:"long"`
+	AutoApprovalDelayInSeconds *int64 `json:"mturk-requester:HIT:AutoApprovalDelayInSeconds" type:"long"`
 
 	// The date and time the HIT was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"mturk-requester:HIT:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A general description of the HIT.
-	Description *string `type:"string"`
+	Description *string `json:"mturk-requester:HIT:Description" type:"string"`
 
 	// The date and time the HIT expires.
-	Expiration *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Expiration *time.Time `json:"mturk-requester:HIT:Expiration" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the HIT Group of this HIT.
-	HITGroupId *string `min:"1" type:"string"`
+	HITGroupId *string `json:"mturk-requester:HIT:HITGroupId" min:"1" type:"string"`
 
 	// A unique identifier for the HIT.
-	HITId *string `min:"1" type:"string"`
+	HITId *string `json:"mturk-requester:HIT:HITId" min:"1" type:"string"`
 
 	// The ID of the HIT Layout of this HIT.
-	HITLayoutId *string `min:"1" type:"string"`
+	HITLayoutId *string `json:"mturk-requester:HIT:HITLayoutId" min:"1" type:"string"`
 
 	// Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview
 	// | ReviewedAppropriate | ReviewedInappropriate.
-	HITReviewStatus HITReviewStatus `type:"string" enum:"true"`
+	HITReviewStatus HITReviewStatus `json:"mturk-requester:HIT:HITReviewStatus" type:"string" enum:"true"`
 
 	// The status of the HIT and its assignments. Valid Values are Assignable |
 	// Unassignable | Reviewable | Reviewing | Disposed.
-	HITStatus HITStatus `type:"string" enum:"true"`
+	HITStatus HITStatus `json:"mturk-requester:HIT:HITStatus" type:"string" enum:"true"`
 
 	// The ID of the HIT type of this HIT
-	HITTypeId *string `min:"1" type:"string"`
+	HITTypeId *string `json:"mturk-requester:HIT:HITTypeId" min:"1" type:"string"`
 
 	// One or more words or phrases that describe the HIT, separated by commas.
 	// Search terms similar to the keywords of a HIT are more likely to have the
 	// HIT in the search results.
-	Keywords *string `type:"string"`
+	Keywords *string `json:"mturk-requester:HIT:Keywords" type:"string"`
 
 	// The number of times the HIT can be accepted and completed before the HIT
 	// becomes unavailable.
-	MaxAssignments *int64 `type:"integer"`
+	MaxAssignments *int64 `json:"mturk-requester:HIT:MaxAssignments" type:"integer"`
 
 	// The number of assignments for this HIT that are available for Workers to
 	// accept.
-	NumberOfAssignmentsAvailable *int64 `type:"integer"`
+	NumberOfAssignmentsAvailable *int64 `json:"mturk-requester:HIT:NumberOfAssignmentsAvailable" type:"integer"`
 
 	// The number of assignments for this HIT that have been approved or rejected.
-	NumberOfAssignmentsCompleted *int64 `type:"integer"`
+	NumberOfAssignmentsCompleted *int64 `json:"mturk-requester:HIT:NumberOfAssignmentsCompleted" type:"integer"`
 
 	// The number of assignments for this HIT that are being previewed or have been
 	// accepted by Workers, but have not yet been submitted, returned, or abandoned.
-	NumberOfAssignmentsPending *int64 `type:"integer"`
+	NumberOfAssignmentsPending *int64 `json:"mturk-requester:HIT:NumberOfAssignmentsPending" type:"integer"`
 
 	// Conditions that a Worker's Qualifications must meet in order to accept the
 	// HIT. A HIT can have between zero and ten Qualification requirements. All
 	// requirements must be met in order for a Worker to accept the HIT. Additionally,
 	// other actions can be restricted using the ActionsGuarded field on each QualificationRequirement
 	// structure.
-	QualificationRequirements []QualificationRequirement `type:"list"`
+	QualificationRequirements []QualificationRequirement `json:"mturk-requester:HIT:QualificationRequirements" type:"list"`
 
 	// The data the Worker completing the HIT uses produce the results. This is
 	// either either a QuestionForm, HTMLQuestion or an ExternalQuestion data structure.
-	Question *string `type:"string"`
+	Question *string `json:"mturk-requester:HIT:Question" type:"string"`
 
 	// An arbitrary data field the Requester who created the HIT can use. This field
 	// is visible only to the creator of the HIT.
-	RequesterAnnotation *string `type:"string"`
+	RequesterAnnotation *string `json:"mturk-requester:HIT:RequesterAnnotation" type:"string"`
 
 	// A string representing a currency amount.
-	Reward *string `type:"string"`
+	Reward *string `json:"mturk-requester:HIT:Reward" type:"string"`
 
 	// The title of the HIT.
-	Title *string `type:"string"`
+	Title *string `json:"mturk-requester:HIT:Title" type:"string"`
 }
 
 // String returns the string representation
@@ -209,12 +209,12 @@ type HITLayoutParameter struct {
 	// The name of the parameter in the HITLayout.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"mturk-requester:HITLayoutParameter:Name" type:"string" required:"true"`
 
 	// The value substituted for the parameter referenced in the HITLayout.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"mturk-requester:HITLayoutParameter:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -249,11 +249,11 @@ type Locale struct {
 	// the code US refers to the United States of America.
 	//
 	// Country is a required field
-	Country *string `min:"2" type:"string" required:"true"`
+	Country *string `json:"mturk-requester:Locale:Country" min:"2" type:"string" required:"true"`
 
 	// The state or subdivision of the locale. A valid ISO 3166-2 subdivision code.
 	// For example, the code WA refers to the state of Washington.
-	Subdivision *string `min:"2" type:"string"`
+	Subdivision *string `json:"mturk-requester:Locale:Subdivision" min:"2" type:"string"`
 }
 
 // String returns the string representation
@@ -297,7 +297,7 @@ type NotificationSpecification struct {
 	//    * When Transport is SNS, the Destination is the ARN of your topic.
 	//
 	// Destination is a required field
-	Destination *string `type:"string" required:"true"`
+	Destination *string `json:"mturk-requester:NotificationSpecification:Destination" type:"string" required:"true"`
 
 	// The list of events that should cause notifications to be sent. Valid Values:
 	// AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted
@@ -306,18 +306,18 @@ type NotificationSpecification struct {
 	// SendTestEventNotification operation.
 	//
 	// EventTypes is a required field
-	EventTypes []EventType `type:"list" required:"true"`
+	EventTypes []EventType `json:"mturk-requester:NotificationSpecification:EventTypes" type:"list" required:"true"`
 
 	// The method Amazon Mechanical Turk uses to send the notification. Valid Values:
 	// Email | SQS | SNS.
 	//
 	// Transport is a required field
-	Transport NotificationTransport `type:"string" required:"true" enum:"true"`
+	Transport NotificationTransport `json:"mturk-requester:NotificationSpecification:Transport" type:"string" required:"true" enum:"true"`
 
 	// The version of the Notification API to use. Valid value is 2006-05-05.
 	//
 	// Version is a required field
-	Version *string `type:"string" required:"true"`
+	Version *string `json:"mturk-requester:NotificationSpecification:Version" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -357,13 +357,13 @@ type NotifyWorkersFailureStatus struct {
 	_ struct{} `type:"structure"`
 
 	// Encoded value for the failure type.
-	NotifyWorkersFailureCode NotifyWorkersFailureCode `type:"string" enum:"true"`
+	NotifyWorkersFailureCode NotifyWorkersFailureCode `json:"mturk-requester:NotifyWorkersFailureStatus:NotifyWorkersFailureCode" type:"string" enum:"true"`
 
 	// A message detailing the reason the Worker could not be notified.
-	NotifyWorkersFailureMessage *string `type:"string"`
+	NotifyWorkersFailureMessage *string `json:"mturk-requester:NotifyWorkersFailureStatus:NotifyWorkersFailureMessage" type:"string"`
 
 	// The ID of the Worker.
-	WorkerId *string `min:"1" type:"string"`
+	WorkerId *string `json:"mturk-requester:NotifyWorkersFailureStatus:WorkerId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -380,11 +380,11 @@ type ParameterMapEntry struct {
 	// The QuestionID from the HIT that is used to identify which question requires
 	// Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review
 	// Policy.
-	Key *string `type:"string"`
+	Key *string `json:"mturk-requester:ParameterMapEntry:Key" type:"string"`
 
 	// The list of answers to the question specified in the MapEntry Key element.
 	// The Worker must match all values in order for the answer to be scored correctly.
-	Values []string `type:"list"`
+	Values []string `json:"mturk-requester:ParameterMapEntry:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -398,13 +398,13 @@ type PolicyParameter struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the parameter from the list of Review Polices.
-	Key *string `type:"string"`
+	Key *string `json:"mturk-requester:PolicyParameter:Key" type:"string"`
 
 	// List of ParameterMapEntry objects.
-	MapEntries []ParameterMapEntry `type:"list"`
+	MapEntries []ParameterMapEntry `json:"mturk-requester:PolicyParameter:MapEntries" type:"list"`
 
 	// The list of values of the Parameter
-	Values []string `type:"list"`
+	Values []string `json:"mturk-requester:PolicyParameter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -422,23 +422,23 @@ type Qualification struct {
 	// Qualification was revoked, and then re-granted based on a new Qualification
 	// request, GrantTime is the date and time of the last call to the AcceptQualificationRequest
 	// operation.
-	GrantTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	GrantTime *time.Time `json:"mturk-requester:Qualification:GrantTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The value (score) of the Qualification, if the Qualification has an integer
 	// value.
-	IntegerValue *int64 `type:"integer"`
+	IntegerValue *int64 `json:"mturk-requester:Qualification:IntegerValue" type:"integer"`
 
 	// The Locale data structure represents a geographical region or location.
-	LocaleValue *Locale `type:"structure"`
+	LocaleValue *Locale `json:"mturk-requester:Qualification:LocaleValue" type:"structure"`
 
 	// The ID of the Qualification type for the Qualification.
-	QualificationTypeId *string `min:"1" type:"string"`
+	QualificationTypeId *string `json:"mturk-requester:Qualification:QualificationTypeId" min:"1" type:"string"`
 
 	// The status of the Qualification. Valid values are Granted | Revoked.
-	Status QualificationStatus `type:"string" enum:"true"`
+	Status QualificationStatus `json:"mturk-requester:Qualification:Status" type:"string" enum:"true"`
 
 	// The ID of the Worker who possesses the Qualification.
-	WorkerId *string `min:"1" type:"string"`
+	WorkerId *string `json:"mturk-requester:Qualification:WorkerId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -455,30 +455,30 @@ type QualificationRequest struct {
 	// The Worker's answers for the Qualification type's test contained in a QuestionFormAnswers
 	// document, if the type has a test and the Worker has submitted answers. If
 	// the Worker does not provide any answers, Answer may be empty.
-	Answer *string `type:"string"`
+	Answer *string `json:"mturk-requester:QualificationRequest:Answer" type:"string"`
 
 	// The ID of the Qualification request, a unique identifier generated when the
 	// request was submitted.
-	QualificationRequestId *string `type:"string"`
+	QualificationRequestId *string `json:"mturk-requester:QualificationRequest:QualificationRequestId" type:"string"`
 
 	// The ID of the Qualification type the Worker is requesting, as returned by
 	// the CreateQualificationType operation.
-	QualificationTypeId *string `min:"1" type:"string"`
+	QualificationTypeId *string `json:"mturk-requester:QualificationRequest:QualificationTypeId" min:"1" type:"string"`
 
 	// The date and time the Qualification request had a status of Submitted. This
 	// is either the time the Worker submitted answers for a Qualification test,
 	// or the time the Worker requested the Qualification if the Qualification type
 	// does not have a test.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"mturk-requester:QualificationRequest:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The contents of the Qualification test that was presented to the Worker,
 	// if the type has a test and the Worker has submitted answers. This value is
 	// identical to the QuestionForm associated with the Qualification type at the
 	// time the Worker requests the Qualification.
-	Test *string `type:"string"`
+	Test *string `json:"mturk-requester:QualificationRequest:Test" type:"string"`
 
 	// The ID of the Worker requesting the Qualification.
-	WorkerId *string `min:"1" type:"string"`
+	WorkerId *string `json:"mturk-requester:QualificationRequest:WorkerId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -511,7 +511,7 @@ type QualificationRequirement struct {
 	// the HIT in their search result, but will not be able to Preview or Accept
 	// the HIT. ActionsGuarded should not be used in combination with the RequiredToPreview
 	// field.
-	ActionsGuarded HITAccessActions `type:"string" enum:"true"`
+	ActionsGuarded HITAccessActions `json:"mturk-requester:QualificationRequirement:ActionsGuarded" type:"string" enum:"true"`
 
 	// The kind of comparison to make against a Qualification's value. You can compare
 	// a Qualification's value to an IntegerValue to see if it is LessThan, LessThanOrEqualTo,
@@ -523,7 +523,7 @@ type QualificationRequirement struct {
 	// regardless of its value.
 	//
 	// Comparator is a required field
-	Comparator Comparator `type:"string" required:"true" enum:"true"`
+	Comparator Comparator `json:"mturk-requester:QualificationRequirement:Comparator" type:"string" required:"true" enum:"true"`
 
 	// The integer value to compare against the Qualification's value. IntegerValue
 	// must not be present if Comparator is Exists or DoesNotExist. IntegerValue
@@ -531,7 +531,7 @@ type QualificationRequirement struct {
 	// be used with the Worker_Locale QualificationType ID. When performing a set
 	// comparison by using the In or the NotIn comparator, you can use up to 15
 	// IntegerValue elements in a QualificationRequirement data structure.
-	IntegerValues []int64 `type:"list"`
+	IntegerValues []int64 `json:"mturk-requester:QualificationRequirement:IntegerValues" type:"list"`
 
 	// The locale value to compare against the Qualification's value. The local
 	// value must be a valid ISO 3166 country code or supports ISO 3166-2 subdivisions.
@@ -541,12 +541,12 @@ type QualificationRequirement struct {
 	// NotEqualTo comparators. When performing a set comparison by using the In
 	// or the NotIn comparator, you can use up to 30 LocaleValue elements in a QualificationRequirement
 	// data structure.
-	LocaleValues []Locale `type:"list"`
+	LocaleValues []Locale `json:"mturk-requester:QualificationRequirement:LocaleValues" type:"list"`
 
 	// The ID of the Qualification type for the requirement.
 	//
 	// QualificationTypeId is a required field
-	QualificationTypeId *string `type:"string" required:"true"`
+	QualificationTypeId *string `json:"mturk-requester:QualificationRequirement:QualificationTypeId" type:"string" required:"true"`
 
 	// DEPRECATED: Use the ActionsGuarded field instead. If RequiredToPreview is
 	// true, the question data for the HIT will not be shown when a Worker whose
@@ -558,7 +558,7 @@ type QualificationRequirement struct {
 	// HIT, the Worker will be allowed to preview the HIT's question data, but will
 	// not be allowed to accept and complete the HIT. The default is false. This
 	// should not be used in combination with the ActionsGuarded field.
-	RequiredToPreview *bool `deprecated:"true" type:"boolean"`
+	RequiredToPreview *bool `json:"mturk-requester:QualificationRequirement:RequiredToPreview" deprecated:"true" type:"boolean"`
 }
 
 // String returns the string representation
@@ -600,46 +600,46 @@ type QualificationType struct {
 	_ struct{} `type:"structure"`
 
 	// The answers to the Qualification test specified in the Test parameter.
-	AnswerKey *string `type:"string"`
+	AnswerKey *string `json:"mturk-requester:QualificationType:AnswerKey" type:"string"`
 
 	// Specifies that requests for the Qualification type are granted immediately,
 	// without prompting the Worker with a Qualification test. Valid values are
 	// True | False.
-	AutoGranted *bool `type:"boolean"`
+	AutoGranted *bool `json:"mturk-requester:QualificationType:AutoGranted" type:"boolean"`
 
 	// The Qualification integer value to use for automatically granted Qualifications,
 	// if AutoGranted is true. This is 1 by default.
-	AutoGrantedValue *int64 `type:"integer"`
+	AutoGrantedValue *int64 `json:"mturk-requester:QualificationType:AutoGrantedValue" type:"integer"`
 
 	// The date and time the Qualification type was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"mturk-requester:QualificationType:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A long description for the Qualification type.
-	Description *string `type:"string"`
+	Description *string `json:"mturk-requester:QualificationType:Description" type:"string"`
 
 	// Specifies whether the Qualification type is one that a user can request through
 	// the Amazon Mechanical Turk web site, such as by taking a Qualification test.
 	// This value is False for Qualifications assigned automatically by the system.
 	// Valid values are True | False.
-	IsRequestable *bool `type:"boolean"`
+	IsRequestable *bool `json:"mturk-requester:QualificationType:IsRequestable" type:"boolean"`
 
 	// One or more words or phrases that describe theQualification type, separated
 	// by commas. The Keywords make the type easier to find using a search.
-	Keywords *string `type:"string"`
+	Keywords *string `json:"mturk-requester:QualificationType:Keywords" type:"string"`
 
 	// The name of the Qualification type. The type name is used to identify the
 	// type, and to find the type using a Qualification type search.
-	Name *string `type:"string"`
+	Name *string `json:"mturk-requester:QualificationType:Name" type:"string"`
 
 	// A unique identifier for the Qualification type. A Qualification type is given
 	// a Qualification type ID when you call the CreateQualificationType operation.
-	QualificationTypeId *string `min:"1" type:"string"`
+	QualificationTypeId *string `json:"mturk-requester:QualificationType:QualificationTypeId" min:"1" type:"string"`
 
 	// The status of the Qualification type. A Qualification type's status determines
 	// if users can apply to receive a Qualification of this type, and if HITs can
 	// be created with requirements based on this type. Valid values are Active
 	// | Inactive.
-	QualificationTypeStatus QualificationTypeStatus `type:"string" enum:"true"`
+	QualificationTypeStatus QualificationTypeStatus `json:"mturk-requester:QualificationType:QualificationTypeStatus" type:"string" enum:"true"`
 
 	// The amount of time, in seconds, Workers must wait after taking the Qualification
 	// test before they can take it again. Workers can take a Qualification test
@@ -647,17 +647,17 @@ type QualificationType struct {
 	// attempt, or if the test offers a gradient score and they want a better score.
 	// If not specified, retries are disabled and Workers can request a Qualification
 	// only once.
-	RetryDelayInSeconds *int64 `type:"long"`
+	RetryDelayInSeconds *int64 `json:"mturk-requester:QualificationType:RetryDelayInSeconds" type:"long"`
 
 	// The questions for a Qualification test associated with this Qualification
 	// type that a user can take to obtain a Qualification of this type. This parameter
 	// must be specified if AnswerKey is present. A Qualification type cannot have
 	// both a specified Test parameter and an AutoGranted value of true.
-	Test *string `type:"string"`
+	Test *string `json:"mturk-requester:QualificationType:Test" type:"string"`
 
 	// The amount of time, in seconds, given to a Worker to complete the Qualification
 	// test, beginning from the time the Worker requests the Qualification.
-	TestDurationInSeconds *int64 `type:"long"`
+	TestDurationInSeconds *int64 `json:"mturk-requester:QualificationType:TestDurationInSeconds" type:"long"`
 }
 
 // String returns the string representation
@@ -673,30 +673,30 @@ type ReviewActionDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for the action.
-	ActionId *string `min:"1" type:"string"`
+	ActionId *string `json:"mturk-requester:ReviewActionDetail:ActionId" min:"1" type:"string"`
 
 	// The nature of the action itself. The Review Policy is responsible for examining
 	// the HIT and Assignments, emitting results, and deciding which other actions
 	// will be necessary.
-	ActionName *string `type:"string"`
+	ActionName *string `json:"mturk-requester:ReviewActionDetail:ActionName" type:"string"`
 
 	// The date when the action was completed.
-	CompleteTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompleteTime *time.Time `json:"mturk-requester:ReviewActionDetail:CompleteTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Present only when the Results have a FAILED Status.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"mturk-requester:ReviewActionDetail:ErrorCode" type:"string"`
 
 	// A description of the outcome of the review.
-	Result *string `type:"string"`
+	Result *string `json:"mturk-requester:ReviewActionDetail:Result" type:"string"`
 
 	// The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED.
-	Status ReviewActionStatus `type:"string" enum:"true"`
+	Status ReviewActionStatus `json:"mturk-requester:ReviewActionDetail:Status" type:"string" enum:"true"`
 
 	// The specific HITId or AssignmentID targeted by the action.
-	TargetId *string `min:"1" type:"string"`
+	TargetId *string `json:"mturk-requester:ReviewActionDetail:TargetId" min:"1" type:"string"`
 
 	// The type of object in TargetId.
-	TargetType *string `type:"string"`
+	TargetType *string `json:"mturk-requester:ReviewActionDetail:TargetType" type:"string"`
 }
 
 // String returns the string representation
@@ -711,12 +711,12 @@ type ReviewPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the parameter from the Review policy.
-	Parameters []PolicyParameter `type:"list"`
+	Parameters []PolicyParameter `json:"mturk-requester:ReviewPolicy:Parameters" type:"list"`
 
 	// Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
 	//
 	// PolicyName is a required field
-	PolicyName *string `type:"string" required:"true"`
+	PolicyName *string `json:"mturk-requester:ReviewPolicy:PolicyName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -744,10 +744,10 @@ type ReviewReport struct {
 	_ struct{} `type:"structure"`
 
 	// A list of ReviewAction objects for each action specified in the Review Policy.
-	ReviewActions []ReviewActionDetail `type:"list"`
+	ReviewActions []ReviewActionDetail `json:"mturk-requester:ReviewReport:ReviewActions" type:"list"`
 
 	// A list of ReviewResults objects for each action specified in the Review Policy.
-	ReviewResults []ReviewResultDetail `type:"list"`
+	ReviewResults []ReviewResultDetail `json:"mturk-requester:ReviewReport:ReviewResults" type:"list"`
 }
 
 // String returns the string representation
@@ -762,10 +762,10 @@ type ReviewResultDetail struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier of the Review action result.
-	ActionId *string `min:"1" type:"string"`
+	ActionId *string `json:"mturk-requester:ReviewResultDetail:ActionId" min:"1" type:"string"`
 
 	// Key identifies the particular piece of reviewed information.
-	Key *string `type:"string"`
+	Key *string `json:"mturk-requester:ReviewResultDetail:Key" type:"string"`
 
 	// Specifies the QuestionId the result is describing. Depending on whether the
 	// TargetType is a HIT or Assignment this results could specify multiple values.
@@ -773,19 +773,19 @@ type ReviewResultDetail struct {
 	// results of the HIT, including the HIT agreement score. If ObjectType is Assignment
 	// and QuestionId is absent, then the result describes the Worker's performance
 	// on the HIT.
-	QuestionId *string `min:"1" type:"string"`
+	QuestionId *string `json:"mturk-requester:ReviewResultDetail:QuestionId" min:"1" type:"string"`
 
 	// The HITID or AssignmentId about which this result was taken. Note that HIT-level
 	// Review Policies will often emit results about both the HIT itself and its
 	// Assignments, while Assignment-level review policies generally only emit results
 	// about the Assignment itself.
-	SubjectId *string `min:"1" type:"string"`
+	SubjectId *string `json:"mturk-requester:ReviewResultDetail:SubjectId" min:"1" type:"string"`
 
 	// The type of the object from the SubjectId field.
-	SubjectType *string `type:"string"`
+	SubjectType *string `json:"mturk-requester:ReviewResultDetail:SubjectType" type:"string"`
 
 	// The values of Key provided by the review policies you have selected.
-	Value *string `type:"string"`
+	Value *string `json:"mturk-requester:ReviewResultDetail:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -800,10 +800,10 @@ type WorkerBlock struct {
 	_ struct{} `type:"structure"`
 
 	// A message explaining the reason the Worker was blocked.
-	Reason *string `type:"string"`
+	Reason *string `json:"mturk-requester:WorkerBlock:Reason" type:"string"`
 
 	// The ID of the Worker who accepted the HIT.
-	WorkerId *string `min:"1" type:"string"`
+	WorkerId *string `json:"mturk-requester:WorkerBlock:WorkerId" min:"1" type:"string"`
 }
 
 // String returns the string representation

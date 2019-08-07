@@ -132,7 +132,7 @@ type InvokeOutput struct {
 
 	// The version of the function that executed. When you invoke a function with
 	// an alias, this indicates which version the alias resolved to.
-	ExecutedVersion *string `location:"header" locationName:"X-Amz-Executed-Version" min:"1" type:"string"`
+	ExecutedVersion *string `json:"lambda:InvokeOutput:ExecutedVersion" location:"header" locationName:"X-Amz-Executed-Version" min:"1" type:"string"`
 
 	// If present, indicates that an error occurred during function execution. Details
 	// about the error are included in the response payload.
@@ -142,19 +142,19 @@ type InvokeOutput struct {
 	//
 	//    * Unhandled - The runtime didn't handle the error. For example, the function
 	//    ran out of memory or timed out.
-	FunctionError *string `location:"header" locationName:"X-Amz-Function-Error" type:"string"`
+	FunctionError *string `json:"lambda:InvokeOutput:FunctionError" location:"header" locationName:"X-Amz-Function-Error" type:"string"`
 
 	// The last 4 KB of the execution log, which is base64 encoded.
-	LogResult *string `location:"header" locationName:"X-Amz-Log-Result" type:"string"`
+	LogResult *string `json:"lambda:InvokeOutput:LogResult" location:"header" locationName:"X-Amz-Log-Result" type:"string"`
 
 	// The response from the function, or an error object.
-	Payload []byte `type:"blob"`
+	Payload []byte `json:"lambda:InvokeOutput:Payload" type:"blob"`
 
 	// The HTTP status code is in the 200 range for a successful request. For the
 	// RequestResponse invocation type, this status code is 200. For the Event invocation
 	// type, this status code is 202. For the DryRun invocation type, the status
 	// code is 204.
-	StatusCode *int64 `location:"statusCode" type:"integer"`
+	StatusCode *int64 `json:"lambda:InvokeOutput:StatusCode" location:"statusCode" type:"integer"`
 }
 
 // String returns the string representation

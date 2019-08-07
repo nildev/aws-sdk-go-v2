@@ -29,7 +29,7 @@ type ListReceiptFiltersOutput struct {
 
 	// A list of IP address filter data structures, which each consist of a name,
 	// an IP address range, and whether to allow or block mail from it.
-	Filters []ReceiptFilter `type:"list"`
+	Filters []ReceiptFilter `json:"email:ListReceiptFiltersOutput:Filters" type:"list"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type DeleteIndexFieldOutput struct {
 	// The status of the index field being deleted.
 	//
 	// IndexField is a required field
-	IndexField *IndexFieldStatus `type:"structure" required:"true"`
+	IndexField *IndexFieldStatus `json:"cloudsearch:DeleteIndexFieldOutput:IndexField" type:"structure" required:"true"`
 }
 
 // String returns the string representation

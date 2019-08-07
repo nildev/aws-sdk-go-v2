@@ -25,7 +25,7 @@ type CreateStorageLocationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Amazon S3 bucket created.
-	S3Bucket *string `type:"string"`
+	S3Bucket *string `json:"elasticbeanstalk:CreateStorageLocationOutput:S3Bucket" type:"string"`
 }
 
 // String returns the string representation

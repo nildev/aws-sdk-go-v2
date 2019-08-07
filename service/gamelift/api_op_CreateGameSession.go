@@ -114,7 +114,7 @@ type CreateGameSessionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that describes the newly created game session record.
-	GameSession *GameSession `type:"structure"`
+	GameSession *GameSession `json:"gamelift:CreateGameSessionOutput:GameSession" type:"structure"`
 }
 
 // String returns the string representation

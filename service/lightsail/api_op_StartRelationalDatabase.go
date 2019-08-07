@@ -43,7 +43,7 @@ type StartRelationalDatabaseOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object describing the result of your start relational database request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:StartRelationalDatabaseOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

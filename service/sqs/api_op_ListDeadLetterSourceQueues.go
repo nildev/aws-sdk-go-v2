@@ -49,7 +49,7 @@ type ListDeadLetterSourceQueuesOutput struct {
 	// with a dead-letter queue.
 	//
 	// QueueUrls is a required field
-	QueueUrls []string `locationName:"queueUrls" locationNameList:"QueueUrl" type:"list" flattened:"true" required:"true"`
+	QueueUrls []string `json:"sqs:ListDeadLetterSourceQueuesOutput:QueueUrls" locationName:"queueUrls" locationNameList:"QueueUrl" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation

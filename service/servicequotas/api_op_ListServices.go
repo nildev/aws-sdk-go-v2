@@ -58,10 +58,10 @@ type ListServicesOutput struct {
 	// a subsequent call to the operation to continue processing and get the next
 	// part of the output. You should repeat this until the NextToken response element
 	// comes back empty (as null).
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicequotas:ListServicesOutput:NextToken" type:"string"`
 
 	// Returns a list of services.
-	Services []ServiceInfo `type:"list"`
+	Services []ServiceInfo `json:"servicequotas:ListServicesOutput:Services" type:"list"`
 }
 
 // String returns the string representation

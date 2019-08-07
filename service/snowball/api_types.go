@@ -23,48 +23,48 @@ type Address struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID for an address.
-	AddressId *string `min:"40" type:"string"`
+	AddressId *string `json:"snowball:Address:AddressId" min:"40" type:"string"`
 
 	// The city in an address that a Snowball is to be delivered to.
-	City *string `min:"1" type:"string"`
+	City *string `json:"snowball:Address:City" min:"1" type:"string"`
 
 	// The name of the company to receive a Snowball at an address.
-	Company *string `min:"1" type:"string"`
+	Company *string `json:"snowball:Address:Company" min:"1" type:"string"`
 
 	// The country in an address that a Snowball is to be delivered to.
-	Country *string `min:"1" type:"string"`
+	Country *string `json:"snowball:Address:Country" min:"1" type:"string"`
 
 	// If the address you are creating is a primary address, then set this option
 	// to true. This field is not supported in most regions.
-	IsRestricted *bool `type:"boolean"`
+	IsRestricted *bool `json:"snowball:Address:IsRestricted" type:"boolean"`
 
 	// This field is no longer used and the value is ignored.
-	Landmark *string `min:"1" type:"string"`
+	Landmark *string `json:"snowball:Address:Landmark" min:"1" type:"string"`
 
 	// The name of a person to receive a Snowball at an address.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"snowball:Address:Name" min:"1" type:"string"`
 
 	// The phone number associated with an address that a Snowball is to be delivered
 	// to.
-	PhoneNumber *string `min:"1" type:"string"`
+	PhoneNumber *string `json:"snowball:Address:PhoneNumber" min:"1" type:"string"`
 
 	// The postal code in an address that a Snowball is to be delivered to.
-	PostalCode *string `min:"1" type:"string"`
+	PostalCode *string `json:"snowball:Address:PostalCode" min:"1" type:"string"`
 
 	// This field is no longer used and the value is ignored.
-	PrefectureOrDistrict *string `min:"1" type:"string"`
+	PrefectureOrDistrict *string `json:"snowball:Address:PrefectureOrDistrict" min:"1" type:"string"`
 
 	// The state or province in an address that a Snowball is to be delivered to.
-	StateOrProvince *string `min:"1" type:"string"`
+	StateOrProvince *string `json:"snowball:Address:StateOrProvince" min:"1" type:"string"`
 
 	// The first line in a street address that a Snowball is to be delivered to.
-	Street1 *string `min:"1" type:"string"`
+	Street1 *string `json:"snowball:Address:Street1" min:"1" type:"string"`
 
 	// The second line in a street address that a Snowball is to be delivered to.
-	Street2 *string `min:"1" type:"string"`
+	Street2 *string `json:"snowball:Address:Street2" min:"1" type:"string"`
 
 	// The third line in a street address that a Snowball is to be delivered to.
-	Street3 *string `min:"1" type:"string"`
+	Street3 *string `json:"snowball:Address:Street3" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -127,18 +127,18 @@ type ClusterListEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The 39-character ID for the cluster that you want to list, for example CID123e4567-e89b-12d3-a456-426655440000.
-	ClusterId *string `min:"1" type:"string"`
+	ClusterId *string `json:"snowball:ClusterListEntry:ClusterId" min:"1" type:"string"`
 
 	// The current state of this cluster. For information about the state of a specific
 	// node, see JobListEntry$JobState.
-	ClusterState ClusterState `type:"string" enum:"true"`
+	ClusterState ClusterState `json:"snowball:ClusterListEntry:ClusterState" type:"string" enum:"true"`
 
 	// The creation date for this cluster.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"snowball:ClusterListEntry:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Defines an optional description of the cluster, for example Environmental
 	// Data Cluster-01.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"snowball:ClusterListEntry:Description" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -152,45 +152,45 @@ type ClusterMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The automatically generated ID for a specific address.
-	AddressId *string `min:"40" type:"string"`
+	AddressId *string `json:"snowball:ClusterMetadata:AddressId" min:"40" type:"string"`
 
 	// The automatically generated ID for a cluster.
-	ClusterId *string `min:"1" type:"string"`
+	ClusterId *string `json:"snowball:ClusterMetadata:ClusterId" min:"1" type:"string"`
 
 	// The current status of the cluster.
-	ClusterState ClusterState `type:"string" enum:"true"`
+	ClusterState ClusterState `json:"snowball:ClusterMetadata:ClusterState" type:"string" enum:"true"`
 
 	// The creation date for this cluster.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"snowball:ClusterMetadata:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The optional description of the cluster.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"snowball:ClusterMetadata:Description" min:"1" type:"string"`
 
 	// The ID of the address that you want a cluster shipped to, after it will be
 	// shipped to its primary address. This field is not supported in most regions.
-	ForwardingAddressId *string `min:"40" type:"string"`
+	ForwardingAddressId *string `json:"snowball:ClusterMetadata:ForwardingAddressId" min:"40" type:"string"`
 
 	// The type of job for this cluster. Currently, the only job type supported
 	// for clusters is LOCAL_USE.
-	JobType JobType `type:"string" enum:"true"`
+	JobType JobType `json:"snowball:ClusterMetadata:JobType" type:"string" enum:"true"`
 
 	// The KmsKeyARN Amazon Resource Name (ARN) associated with this cluster. This
 	// ARN was created using the CreateKey (http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
 	// API action in AWS Key Management Service (AWS KMS).
-	KmsKeyARN *string `type:"string"`
+	KmsKeyARN *string `json:"snowball:ClusterMetadata:KmsKeyARN" type:"string"`
 
 	// The Amazon Simple Notification Service (Amazon SNS) notification settings
 	// for this cluster.
-	Notification *Notification `type:"structure"`
+	Notification *Notification `json:"snowball:ClusterMetadata:Notification" type:"structure"`
 
 	// The arrays of JobResource objects that can include updated S3Resource objects
 	// or LambdaResource objects.
-	Resources *JobResource `type:"structure"`
+	Resources *JobResource `json:"snowball:ClusterMetadata:Resources" type:"structure"`
 
 	// The role ARN associated with this cluster. This ARN was created using the
 	// CreateRole (http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
 	// API action in AWS Identity and Access Management (IAM).
-	RoleARN *string `type:"string"`
+	RoleARN *string `json:"snowball:ClusterMetadata:RoleARN" type:"string"`
 
 	// The shipping speed for each node in this cluster. This speed doesn't dictate
 	// how soon you'll get each device, rather it represents how quickly each device
@@ -208,11 +208,11 @@ type ClusterMetadata struct {
 	//    * In India, devices are delivered in one to seven days.
 	//
 	//    * In the US, you have access to one-day shipping and two-day shipping.
-	ShippingOption ShippingOption `type:"string" enum:"true"`
+	ShippingOption ShippingOption `json:"snowball:ClusterMetadata:ShippingOption" type:"string" enum:"true"`
 
 	// The type of AWS Snowball device to use for this cluster. The only supported
 	// device types for cluster jobs are EDGE, EDGE_C, and EDGE_CG.
-	SnowballType SnowballType `type:"string" enum:"true"`
+	SnowballType SnowballType `json:"snowball:ClusterMetadata:SnowballType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -229,10 +229,10 @@ type CompatibleImage struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for an individual Snowball Edge AMI.
-	AmiId *string `min:"1" type:"string"`
+	AmiId *string `json:"snowball:CompatibleImage:AmiId" min:"1" type:"string"`
 
 	// The optional name of a compatible image.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"snowball:CompatibleImage:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -248,20 +248,20 @@ type DataTransfer struct {
 	_ struct{} `type:"structure"`
 
 	// The number of bytes transferred between a Snowball and Amazon S3.
-	BytesTransferred *int64 `type:"long"`
+	BytesTransferred *int64 `json:"snowball:DataTransfer:BytesTransferred" type:"long"`
 
 	// The number of objects transferred between a Snowball and Amazon S3.
-	ObjectsTransferred *int64 `type:"long"`
+	ObjectsTransferred *int64 `json:"snowball:DataTransfer:ObjectsTransferred" type:"long"`
 
 	// The total bytes of data for a transfer between a Snowball and Amazon S3.
 	// This value is set to 0 (zero) until all the keys that will be transferred
 	// have been listed.
-	TotalBytes *int64 `type:"long"`
+	TotalBytes *int64 `json:"snowball:DataTransfer:TotalBytes" type:"long"`
 
 	// The total number of objects for a transfer between a Snowball and Amazon
 	// S3. This value is set to 0 (zero) until all the keys that will be transferred
 	// have been listed.
-	TotalObjects *int64 `type:"long"`
+	TotalObjects *int64 `json:"snowball:DataTransfer:TotalObjects" type:"long"`
 }
 
 // String returns the string representation
@@ -280,10 +280,10 @@ type Ec2AmiResource struct {
 	// The ID of the AMI in Amazon EC2.
 	//
 	// AmiId is a required field
-	AmiId *string `min:"12" type:"string" required:"true"`
+	AmiId *string `json:"snowball:Ec2AmiResource:AmiId" min:"12" type:"string" required:"true"`
 
 	// The ID of the AMI on the supported device.
-	SnowballAmiId *string `min:"1" type:"string"`
+	SnowballAmiId *string `json:"snowball:Ec2AmiResource:SnowballAmiId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -318,7 +318,7 @@ type EventTriggerDefinition struct {
 
 	// The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an
 	// AWS Lambda function's event trigger associated with this job.
-	EventResourceARN *string `type:"string"`
+	EventResourceARN *string `json:"snowball:EventTriggerDefinition:EventResourceARN" type:"string"`
 }
 
 // String returns the string representation
@@ -333,11 +333,11 @@ type JobListEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date for this job.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"snowball:JobListEntry:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The optional description of this specific job, for example Important Photos
 	// 2016-08-11.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"snowball:JobListEntry:Description" min:"1" type:"string"`
 
 	// A value that indicates that this job is a master job. A master job represents
 	// a successful request to create an export job. Master jobs aren't associated
@@ -345,19 +345,19 @@ type JobListEntry struct {
 	// and each job part is associated with a Snowball. It might take some time
 	// before the job parts associated with a particular master job are listed,
 	// because they are created after the master job is created.
-	IsMaster *bool `type:"boolean"`
+	IsMaster *bool `json:"snowball:JobListEntry:IsMaster" type:"boolean"`
 
 	// The automatically generated ID for a job, for example JID123e4567-e89b-12d3-a456-426655440000.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"snowball:JobListEntry:JobId" min:"1" type:"string"`
 
 	// The current state of this job.
-	JobState JobState `type:"string" enum:"true"`
+	JobState JobState `json:"snowball:JobListEntry:JobState" type:"string" enum:"true"`
 
 	// The type of job.
-	JobType JobType `type:"string" enum:"true"`
+	JobType JobType `json:"snowball:JobListEntry:JobType" type:"string" enum:"true"`
 
 	// The type of device used with this job.
-	SnowballType SnowballType `type:"string" enum:"true"`
+	SnowballType SnowballType `json:"snowball:JobListEntry:SnowballType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -390,13 +390,13 @@ type JobLogs struct {
 	_ struct{} `type:"structure"`
 
 	// A link to an Amazon S3 presigned URL where the job completion report is located.
-	JobCompletionReportURI *string `min:"1" type:"string"`
+	JobCompletionReportURI *string `json:"snowball:JobLogs:JobCompletionReportURI" min:"1" type:"string"`
 
 	// A link to an Amazon S3 presigned URL where the job failure log is located.
-	JobFailureLogURI *string `min:"1" type:"string"`
+	JobFailureLogURI *string `json:"snowball:JobLogs:JobFailureLogURI" min:"1" type:"string"`
 
 	// A link to an Amazon S3 presigned URL where the job success log is located.
-	JobSuccessLogURI *string `min:"1" type:"string"`
+	JobSuccessLogURI *string `json:"snowball:JobLogs:JobSuccessLogURI" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -412,72 +412,72 @@ type JobMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for the address that you want the Snowball shipped to.
-	AddressId *string `min:"40" type:"string"`
+	AddressId *string `json:"snowball:JobMetadata:AddressId" min:"40" type:"string"`
 
 	// The 39-character ID for the cluster, for example CID123e4567-e89b-12d3-a456-426655440000.
-	ClusterId *string `min:"1" type:"string"`
+	ClusterId *string `json:"snowball:JobMetadata:ClusterId" min:"1" type:"string"`
 
 	// The creation date for this job.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"snowball:JobMetadata:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A value that defines the real-time status of a Snowball's data transfer while
 	// the device is at AWS. This data is only available while a job has a JobState
 	// value of InProgress, for both import and export jobs.
-	DataTransferProgress *DataTransfer `type:"structure"`
+	DataTransferProgress *DataTransfer `json:"snowball:JobMetadata:DataTransferProgress" type:"structure"`
 
 	// The description of the job, provided at job creation.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"snowball:JobMetadata:Description" min:"1" type:"string"`
 
 	// The ID of the address that you want a job shipped to, after it will be shipped
 	// to its primary address. This field is not supported in most regions.
-	ForwardingAddressId *string `min:"40" type:"string"`
+	ForwardingAddressId *string `json:"snowball:JobMetadata:ForwardingAddressId" min:"40" type:"string"`
 
 	// The automatically generated ID for a job, for example JID123e4567-e89b-12d3-a456-426655440000.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"snowball:JobMetadata:JobId" min:"1" type:"string"`
 
 	// Links to Amazon S3 presigned URLs for the job report and logs. For import
 	// jobs, the PDF job report becomes available at the end of the import process.
 	// For export jobs, your job report typically becomes available while the Snowball
 	// for your job part is being delivered to you.
-	JobLogInfo *JobLogs `type:"structure"`
+	JobLogInfo *JobLogs `json:"snowball:JobMetadata:JobLogInfo" type:"structure"`
 
 	// The current status of the jobs.
-	JobState JobState `type:"string" enum:"true"`
+	JobState JobState `json:"snowball:JobMetadata:JobState" type:"string" enum:"true"`
 
 	// The type of job.
-	JobType JobType `type:"string" enum:"true"`
+	JobType JobType `json:"snowball:JobMetadata:JobType" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
 	// key associated with this job. This ARN was created using the CreateKey (http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
 	// API action in AWS KMS.
-	KmsKeyARN *string `type:"string"`
+	KmsKeyARN *string `json:"snowball:JobMetadata:KmsKeyARN" type:"string"`
 
 	// The Amazon Simple Notification Service (Amazon SNS) notification settings
 	// associated with a specific job. The Notification object is returned as a
 	// part of the response syntax of the DescribeJob action in the JobMetadata
 	// data type.
-	Notification *Notification `type:"structure"`
+	Notification *Notification `json:"snowball:JobMetadata:Notification" type:"structure"`
 
 	// An array of S3Resource objects. Each S3Resource object represents an Amazon
 	// S3 bucket that your transferred data will be exported from or imported into.
-	Resources *JobResource `type:"structure"`
+	Resources *JobResource `json:"snowball:JobMetadata:Resources" type:"structure"`
 
 	// The role ARN associated with this job. This ARN was created using the CreateRole
 	// (http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
 	// API action in AWS Identity and Access Management (IAM).
-	RoleARN *string `type:"string"`
+	RoleARN *string `json:"snowball:JobMetadata:RoleARN" type:"string"`
 
 	// A job's shipping information, including inbound and outbound tracking numbers
 	// and shipping speed options.
-	ShippingDetails *ShippingDetails `type:"structure"`
+	ShippingDetails *ShippingDetails `json:"snowball:JobMetadata:ShippingDetails" type:"structure"`
 
 	// The Snowball capacity preference for this job, specified at job creation.
 	// In US regions, you can choose between 50 TB and 80 TB Snowballs. All other
 	// regions use 80 TB capacity Snowballs.
-	SnowballCapacityPreference SnowballCapacity `type:"string" enum:"true"`
+	SnowballCapacityPreference SnowballCapacity `json:"snowball:JobMetadata:SnowballCapacityPreference" type:"string" enum:"true"`
 
 	// The type of device used with this job.
-	SnowballType SnowballType `type:"string" enum:"true"`
+	SnowballType SnowballType `json:"snowball:JobMetadata:SnowballType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -493,13 +493,13 @@ type JobResource struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Machine Images (AMIs) associated with this job.
-	Ec2AmiResources []Ec2AmiResource `type:"list"`
+	Ec2AmiResources []Ec2AmiResource `json:"snowball:JobResource:Ec2AmiResources" type:"list"`
 
 	// The Python-language Lambda functions for this job.
-	LambdaResources []LambdaResource `type:"list"`
+	LambdaResources []LambdaResource `json:"snowball:JobResource:LambdaResources" type:"list"`
 
 	// An array of S3Resource objects.
-	S3Resources []S3Resource `type:"list"`
+	S3Resources []S3Resource `json:"snowball:JobResource:S3Resources" type:"list"`
 }
 
 // String returns the string representation
@@ -541,11 +541,11 @@ type KeyRange struct {
 
 	// The key that starts an optional key range for an export job. Ranges are inclusive
 	// and UTF-8 binary sorted.
-	BeginMarker *string `min:"1" type:"string"`
+	BeginMarker *string `json:"snowball:KeyRange:BeginMarker" min:"1" type:"string"`
 
 	// The key that ends an optional key range for an export job. Ranges are inclusive
 	// and UTF-8 binary sorted.
-	EndMarker *string `min:"1" type:"string"`
+	EndMarker *string `json:"snowball:KeyRange:EndMarker" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -576,11 +576,11 @@ type LambdaResource struct {
 
 	// The array of ARNs for S3Resource objects to trigger the LambdaResource objects
 	// associated with this job.
-	EventTriggers []EventTriggerDefinition `type:"list"`
+	EventTriggers []EventTriggerDefinition `json:"snowball:LambdaResource:EventTriggers" type:"list"`
 
 	// An Amazon Resource Name (ARN) that represents an AWS Lambda function to be
 	// triggered by PUT object actions on the associated local Amazon S3 resource.
-	LambdaArn *string `type:"string"`
+	LambdaArn *string `json:"snowball:LambdaResource:LambdaArn" type:"string"`
 }
 
 // String returns the string representation
@@ -602,10 +602,10 @@ type Notification struct {
 	_ struct{} `type:"structure"`
 
 	// The list of job states that will trigger a notification for this job.
-	JobStatesToNotify []JobState `type:"list"`
+	JobStatesToNotify []JobState `json:"snowball:Notification:JobStatesToNotify" type:"list"`
 
 	// Any change in job state will trigger a notification for this job.
-	NotifyAll *bool `type:"boolean"`
+	NotifyAll *bool `json:"snowball:Notification:NotifyAll" type:"boolean"`
 
 	// The new SNS TopicArn that you want to associate with this job. You can create
 	// Amazon Resource Names (ARNs) for topics by using the CreateTopic (http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html)
@@ -614,7 +614,7 @@ type Notification struct {
 	// You can subscribe email addresses to an Amazon SNS topic through the AWS
 	// Management Console, or by using the Subscribe (http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)
 	// AWS Simple Notification Service (SNS) API action.
-	SnsTopicARN *string `type:"string"`
+	SnsTopicARN *string `json:"snowball:Notification:SnsTopicARN" type:"string"`
 }
 
 // String returns the string representation
@@ -632,13 +632,13 @@ type S3Resource struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of an Amazon S3 bucket.
-	BucketArn *string `type:"string"`
+	BucketArn *string `json:"snowball:S3Resource:BucketArn" type:"string"`
 
 	// For export jobs, you can provide an optional KeyRange within a specific Amazon
 	// S3 bucket. The length of the range is defined at job creation, and has either
 	// an inclusive BeginMarker, an inclusive EndMarker, or both. Ranges are UTF-8
 	// binary sorted.
-	KeyRange *KeyRange `type:"structure"`
+	KeyRange *KeyRange `json:"snowball:S3Resource:KeyRange" type:"structure"`
 }
 
 // String returns the string representation
@@ -667,14 +667,14 @@ type Shipment struct {
 	_ struct{} `type:"structure"`
 
 	// Status information for a shipment.
-	Status *string `min:"1" type:"string"`
+	Status *string `json:"snowball:Shipment:Status" min:"1" type:"string"`
 
 	// The tracking number for this job. Using this tracking number with your region's
 	// carrier's website, you can track a Snowball as the carrier transports it.
 	//
 	// For India, the carrier is Amazon Logistics. For all other regions, UPS is
 	// the carrier.
-	TrackingNumber *string `min:"1" type:"string"`
+	TrackingNumber *string `json:"snowball:Shipment:TrackingNumber" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -690,11 +690,11 @@ type ShippingDetails struct {
 
 	// The Status and TrackingNumber values for a Snowball being returned to AWS
 	// for a particular job.
-	InboundShipment *Shipment `type:"structure"`
+	InboundShipment *Shipment `json:"snowball:ShippingDetails:InboundShipment" type:"structure"`
 
 	// The Status and TrackingNumber values for a Snowball being delivered to the
 	// address that you specified for a particular job.
-	OutboundShipment *Shipment `type:"structure"`
+	OutboundShipment *Shipment `json:"snowball:ShippingDetails:OutboundShipment" type:"structure"`
 
 	// The shipping speed for a particular job. This speed doesn't dictate how soon
 	// you'll get the Snowball from the job's creation date. This speed represents
@@ -713,7 +713,7 @@ type ShippingDetails struct {
 	//
 	//    * In the United States of America (US), you have access to one-day shipping
 	//    and two-day shipping.
-	ShippingOption ShippingOption `type:"string" enum:"true"`
+	ShippingOption ShippingOption `json:"snowball:ShippingDetails:ShippingOption" type:"string" enum:"true"`
 }
 
 // String returns the string representation

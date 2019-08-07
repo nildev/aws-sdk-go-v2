@@ -65,7 +65,7 @@ type DescribeStreamOutput struct {
 	// more shards available.
 	//
 	// StreamDescription is a required field
-	StreamDescription *StreamDescription `type:"structure" required:"true"`
+	StreamDescription *StreamDescription `json:"kinesis:DescribeStreamOutput:StreamDescription" type:"structure" required:"true"`
 }
 
 // String returns the string representation

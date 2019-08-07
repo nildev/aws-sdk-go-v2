@@ -49,7 +49,7 @@ type GenerateServiceLastAccessedDetailsOutput struct {
 
 	// The job ID that you can use in the GetServiceLastAccessedDetails or GetServiceLastAccessedDetailsWithEntities
 	// operations.
-	JobId *string `min:"36" type:"string"`
+	JobId *string `json:"iam:GenerateServiceLastAccessedDetailsOutput:JobId" min:"36" type:"string"`
 }
 
 // String returns the string representation

@@ -43,10 +43,10 @@ type GetSecurityConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A continuation token, if there are more security configurations to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetSecurityConfigurationsOutput:NextToken" type:"string"`
 
 	// A list of security configurations.
-	SecurityConfigurations []SecurityConfiguration `type:"list"`
+	SecurityConfigurations []SecurityConfiguration `json:"glue:GetSecurityConfigurationsOutput:SecurityConfigurations" type:"list"`
 }
 
 // String returns the string representation

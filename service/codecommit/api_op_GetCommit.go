@@ -59,7 +59,7 @@ type GetCommitOutput struct {
 	// A commit data type object that contains information about the specified commit.
 	//
 	// Commit is a required field
-	Commit *Commit `locationName:"commit" type:"structure" required:"true"`
+	Commit *Commit `json:"codecommit:GetCommitOutput:Commit" locationName:"commit" type:"structure" required:"true"`
 }
 
 // String returns the string representation

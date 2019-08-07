@@ -121,7 +121,7 @@ type UploadMultipartPartOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.
-	Checksum *string `location:"header" locationName:"x-amz-sha256-tree-hash" type:"string"`
+	Checksum *string `json:"glacier:UploadMultipartPartOutput:Checksum" location:"header" locationName:"x-amz-sha256-tree-hash" type:"string"`
 }
 
 // String returns the string representation

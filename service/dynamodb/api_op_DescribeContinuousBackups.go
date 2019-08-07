@@ -48,7 +48,7 @@ type DescribeContinuousBackupsOutput struct {
 
 	// Represents the continuous backups and point in time recovery settings on
 	// the table.
-	ContinuousBackupsDescription *ContinuousBackupsDescription `type:"structure"`
+	ContinuousBackupsDescription *ContinuousBackupsDescription `json:"dynamodb:DescribeContinuousBackupsOutput:ContinuousBackupsDescription" type:"structure"`
 }
 
 // String returns the string representation

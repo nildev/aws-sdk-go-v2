@@ -43,7 +43,7 @@ type DescribeTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the tags.
-	ResourceTags []ResourceTag `locationName:"resourceTags" type:"list"`
+	ResourceTags []ResourceTag `json:"directconnect:DescribeTagsOutput:ResourceTags" locationName:"resourceTags" type:"list"`
 }
 
 // String returns the string representation

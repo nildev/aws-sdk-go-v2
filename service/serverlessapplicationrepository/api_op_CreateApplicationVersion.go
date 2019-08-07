@@ -99,23 +99,23 @@ func (s CreateApplicationVersionInput) MarshalFields(e protocol.FieldEncoder) er
 type CreateApplicationVersionOutput struct {
 	_ struct{} `type:"structure"`
 
-	ApplicationId *string `locationName:"applicationId" type:"string"`
+	ApplicationId *string `json:"serverlessrepo:CreateApplicationVersionOutput:ApplicationId" locationName:"applicationId" type:"string"`
 
-	CreationTime *string `locationName:"creationTime" type:"string"`
+	CreationTime *string `json:"serverlessrepo:CreateApplicationVersionOutput:CreationTime" locationName:"creationTime" type:"string"`
 
-	ParameterDefinitions []ParameterDefinition `locationName:"parameterDefinitions" type:"list"`
+	ParameterDefinitions []ParameterDefinition `json:"serverlessrepo:CreateApplicationVersionOutput:ParameterDefinitions" locationName:"parameterDefinitions" type:"list"`
 
-	RequiredCapabilities []Capability `locationName:"requiredCapabilities" type:"list"`
+	RequiredCapabilities []Capability `json:"serverlessrepo:CreateApplicationVersionOutput:RequiredCapabilities" locationName:"requiredCapabilities" type:"list"`
 
-	ResourcesSupported *bool `locationName:"resourcesSupported" type:"boolean"`
+	ResourcesSupported *bool `json:"serverlessrepo:CreateApplicationVersionOutput:ResourcesSupported" locationName:"resourcesSupported" type:"boolean"`
 
-	SemanticVersion *string `locationName:"semanticVersion" type:"string"`
+	SemanticVersion *string `json:"serverlessrepo:CreateApplicationVersionOutput:SemanticVersion" locationName:"semanticVersion" type:"string"`
 
-	SourceCodeArchiveUrl *string `locationName:"sourceCodeArchiveUrl" type:"string"`
+	SourceCodeArchiveUrl *string `json:"serverlessrepo:CreateApplicationVersionOutput:SourceCodeArchiveUrl" locationName:"sourceCodeArchiveUrl" type:"string"`
 
-	SourceCodeUrl *string `locationName:"sourceCodeUrl" type:"string"`
+	SourceCodeUrl *string `json:"serverlessrepo:CreateApplicationVersionOutput:SourceCodeUrl" locationName:"sourceCodeUrl" type:"string"`
 
-	TemplateUrl *string `locationName:"templateUrl" type:"string"`
+	TemplateUrl *string `json:"serverlessrepo:CreateApplicationVersionOutput:TemplateUrl" locationName:"templateUrl" type:"string"`
 }
 
 // String returns the string representation

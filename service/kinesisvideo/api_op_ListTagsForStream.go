@@ -78,10 +78,10 @@ type ListTagsForStreamOutput struct {
 	// If you specify this parameter and the result of a ListTags call is truncated,
 	// the response includes a token that you can use in the next request to fetch
 	// the next set of tags.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"kinesisvideo:ListTagsForStreamOutput:NextToken" type:"string"`
 
 	// A map of tag keys and values associated with the specified stream.
-	Tags map[string]string `min:"1" type:"map"`
+	Tags map[string]string `json:"kinesisvideo:ListTagsForStreamOutput:Tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

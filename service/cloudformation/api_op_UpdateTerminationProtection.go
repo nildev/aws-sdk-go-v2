@@ -56,7 +56,7 @@ type UpdateTerminationProtectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of the stack.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:UpdateTerminationProtectionOutput:StackId" type:"string"`
 }
 
 // String returns the string representation

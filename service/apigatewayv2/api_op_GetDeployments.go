@@ -70,11 +70,11 @@ func (s GetDeploymentsInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetDeploymentsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Items []Deployment `locationName:"items" type:"list"`
+	Items []Deployment `json:"apigateway:GetDeploymentsOutput:Items" locationName:"items" type:"list"`
 
 	// The next page of elements from this collection. Not valid for the last element
 	// of the collection.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"apigateway:GetDeploymentsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

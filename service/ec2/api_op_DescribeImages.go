@@ -127,7 +127,7 @@ type DescribeImagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the images.
-	Images []Image `locationName:"imagesSet" locationNameList:"item" type:"list"`
+	Images []Image `json:"ec2:DescribeImagesOutput:Images" locationName:"imagesSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

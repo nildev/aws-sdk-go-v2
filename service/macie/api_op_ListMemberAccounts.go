@@ -35,13 +35,13 @@ type ListMemberAccountsOutput struct {
 
 	// A list of the Amazon Macie member accounts returned by the action. The current
 	// master account is also included in this list.
-	MemberAccounts []MemberAccount `locationName:"memberAccounts" type:"list"`
+	MemberAccounts []MemberAccount `json:"macie:ListMemberAccountsOutput:MemberAccounts" locationName:"memberAccounts" type:"list"`
 
 	// When a response is generated, if there is more data to be listed, this parameter
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"macie:ListMemberAccountsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

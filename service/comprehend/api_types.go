@@ -20,11 +20,11 @@ type BatchDetectDominantLanguageItemResult struct {
 	_ struct{} `type:"structure"`
 
 	// The zero-based index of the document in the input list.
-	Index *int64 `type:"integer"`
+	Index *int64 `json:"comprehend:BatchDetectDominantLanguageItemResult:Index" type:"integer"`
 
 	// One or more DominantLanguage objects describing the dominant languages in
 	// the document.
-	Languages []DominantLanguage `type:"list"`
+	Languages []DominantLanguage `json:"comprehend:BatchDetectDominantLanguageItemResult:Languages" type:"list"`
 }
 
 // String returns the string representation
@@ -39,10 +39,10 @@ type BatchDetectEntitiesItemResult struct {
 	_ struct{} `type:"structure"`
 
 	// One or more Entity objects, one for each entity detected in the document.
-	Entities []Entity `type:"list"`
+	Entities []Entity `json:"comprehend:BatchDetectEntitiesItemResult:Entities" type:"list"`
 
 	// The zero-based index of the document in the input list.
-	Index *int64 `type:"integer"`
+	Index *int64 `json:"comprehend:BatchDetectEntitiesItemResult:Index" type:"integer"`
 }
 
 // String returns the string representation
@@ -57,10 +57,10 @@ type BatchDetectKeyPhrasesItemResult struct {
 	_ struct{} `type:"structure"`
 
 	// The zero-based index of the document in the input list.
-	Index *int64 `type:"integer"`
+	Index *int64 `json:"comprehend:BatchDetectKeyPhrasesItemResult:Index" type:"integer"`
 
 	// One or more KeyPhrase objects, one for each key phrase detected in the document.
-	KeyPhrases []KeyPhrase `type:"list"`
+	KeyPhrases []KeyPhrase `json:"comprehend:BatchDetectKeyPhrasesItemResult:KeyPhrases" type:"list"`
 }
 
 // String returns the string representation
@@ -75,14 +75,14 @@ type BatchDetectSentimentItemResult struct {
 	_ struct{} `type:"structure"`
 
 	// The zero-based index of the document in the input list.
-	Index *int64 `type:"integer"`
+	Index *int64 `json:"comprehend:BatchDetectSentimentItemResult:Index" type:"integer"`
 
 	// The sentiment detected in the document.
-	Sentiment SentimentType `type:"string" enum:"true"`
+	Sentiment SentimentType `json:"comprehend:BatchDetectSentimentItemResult:Sentiment" type:"string" enum:"true"`
 
 	// The level of confidence that Amazon Comprehend has in the accuracy of its
 	// sentiment detection.
-	SentimentScore *SentimentScore `type:"structure"`
+	SentimentScore *SentimentScore `json:"comprehend:BatchDetectSentimentItemResult:SentimentScore" type:"structure"`
 }
 
 // String returns the string representation
@@ -97,10 +97,10 @@ type BatchDetectSyntaxItemResult struct {
 	_ struct{} `type:"structure"`
 
 	// The zero-based index of the document in the input list.
-	Index *int64 `type:"integer"`
+	Index *int64 `json:"comprehend:BatchDetectSyntaxItemResult:Index" type:"integer"`
 
 	// The syntax tokens for the words in the document, one token for each word.
-	SyntaxTokens []SyntaxToken `type:"list"`
+	SyntaxTokens []SyntaxToken `json:"comprehend:BatchDetectSyntaxItemResult:SyntaxTokens" type:"list"`
 }
 
 // String returns the string representation
@@ -116,13 +116,13 @@ type BatchItemError struct {
 	_ struct{} `type:"structure"`
 
 	// The numeric error code of the error.
-	ErrorCode *string `min:"1" type:"string"`
+	ErrorCode *string `json:"comprehend:BatchItemError:ErrorCode" min:"1" type:"string"`
 
 	// A text description of the error.
-	ErrorMessage *string `min:"1" type:"string"`
+	ErrorMessage *string `json:"comprehend:BatchItemError:ErrorMessage" min:"1" type:"string"`
 
 	// The zero-based index of the document in the input list.
-	Index *int64 `type:"integer"`
+	Index *int64 `json:"comprehend:BatchItemError:Index" type:"integer"`
 }
 
 // String returns the string representation
@@ -139,22 +139,22 @@ type ClassifierEvaluationMetrics struct {
 	// The fraction of the labels that were correct recognized. It is computed by
 	// dividing the number of labels in the test documents that were correctly recognized
 	// by the total number of labels in the test documents.
-	Accuracy *float64 `type:"double"`
+	Accuracy *float64 `json:"comprehend:ClassifierEvaluationMetrics:Accuracy" type:"double"`
 
 	// A measure of how accurate the classifier results are for the test data. It
 	// is derived from the Precision and Recall values. The F1Score is the harmonic
 	// average of the two scores. The highest score is 1, and the worst score is
 	// 0.
-	F1Score *float64 `type:"double"`
+	F1Score *float64 `json:"comprehend:ClassifierEvaluationMetrics:F1Score" type:"double"`
 
 	// A measure of the usefulness of the classifier results in the test data. High
 	// precision means that the classifier returned substantially more relevant
 	// results than irrelevant ones.
-	Precision *float64 `type:"double"`
+	Precision *float64 `json:"comprehend:ClassifierEvaluationMetrics:Precision" type:"double"`
 
 	// A measure of how complete the classifier results are for the test data. High
 	// recall means that the classifier returned most of the relevant results.
-	Recall *float64 `type:"double"`
+	Recall *float64 `json:"comprehend:ClassifierEvaluationMetrics:Recall" type:"double"`
 }
 
 // String returns the string representation
@@ -169,18 +169,18 @@ type ClassifierMetadata struct {
 
 	// Describes the result metrics for the test data associated with an documentation
 	// classifier.
-	EvaluationMetrics *ClassifierEvaluationMetrics `type:"structure"`
+	EvaluationMetrics *ClassifierEvaluationMetrics `json:"comprehend:ClassifierMetadata:EvaluationMetrics" type:"structure"`
 
 	// The number of labels in the input data.
-	NumberOfLabels *int64 `type:"integer"`
+	NumberOfLabels *int64 `json:"comprehend:ClassifierMetadata:NumberOfLabels" type:"integer"`
 
 	// The number of documents in the input data that were used to test the classifier.
 	// Typically this is 10 to 20 percent of the input documents.
-	NumberOfTestDocuments *int64 `type:"integer"`
+	NumberOfTestDocuments *int64 `json:"comprehend:ClassifierMetadata:NumberOfTestDocuments" type:"integer"`
 
 	// The number of documents in the input data that were used to train the classifier.
 	// Typically this is 80 to 90 percent of the input documents.
-	NumberOfTrainedDocuments *int64 `type:"integer"`
+	NumberOfTrainedDocuments *int64 `json:"comprehend:ClassifierMetadata:NumberOfTrainedDocuments" type:"integer"`
 }
 
 // String returns the string representation
@@ -196,21 +196,21 @@ type DocumentClassificationJobFilter struct {
 	_ struct{} `type:"structure"`
 
 	// Filters on the name of the job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:DocumentClassificationJobFilter:JobName" min:"1" type:"string"`
 
 	// Filters the list based on job status. Returns only jobs with the specified
 	// status.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:DocumentClassificationJobFilter:JobStatus" type:"string" enum:"true"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted before the specified time. Jobs are
 	// returned in descending order, newest to oldest.
-	SubmitTimeAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeAfter *time.Time `json:"comprehend:DocumentClassificationJobFilter:SubmitTimeAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted after the specified time. Jobs are
 	// returned in ascending order, oldest to newest.
-	SubmitTimeBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeBefore *time.Time `json:"comprehend:DocumentClassificationJobFilter:SubmitTimeBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -238,37 +238,37 @@ type DocumentClassificationJobProperties struct {
 
 	// The Amazon Resource Name (ARN) of the AWS identity and Access Management
 	// (IAM) role that grants Amazon Comprehend read access to your input data.
-	DataAccessRoleArn *string `min:"20" type:"string"`
+	DataAccessRoleArn *string `json:"comprehend:DocumentClassificationJobProperties:DataAccessRoleArn" min:"20" type:"string"`
 
 	// The Amazon Resource Name (ARN) that identifies the document classifier.
-	DocumentClassifierArn *string `type:"string"`
+	DocumentClassifierArn *string `json:"comprehend:DocumentClassificationJobProperties:DocumentClassifierArn" type:"string"`
 
 	// The time that the document classification job completed.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"comprehend:DocumentClassificationJobProperties:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The input data configuration that you supplied when you created the document
 	// classification job.
-	InputDataConfig *InputDataConfig `type:"structure"`
+	InputDataConfig *InputDataConfig `json:"comprehend:DocumentClassificationJobProperties:InputDataConfig" type:"structure"`
 
 	// The identifier assigned to the document classification job.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:DocumentClassificationJobProperties:JobId" min:"1" type:"string"`
 
 	// The name that you assigned to the document classification job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:DocumentClassificationJobProperties:JobName" min:"1" type:"string"`
 
 	// The current status of the document classification job. If the status is FAILED,
 	// the Message field shows the reason for the failure.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:DocumentClassificationJobProperties:JobStatus" type:"string" enum:"true"`
 
 	// A description of the status of the job.
-	Message *string `type:"string"`
+	Message *string `json:"comprehend:DocumentClassificationJobProperties:Message" type:"string"`
 
 	// The output data configuration that you supplied when you created the document
 	// classification job.
-	OutputDataConfig *OutputDataConfig `type:"structure"`
+	OutputDataConfig *OutputDataConfig `json:"comprehend:DocumentClassificationJobProperties:OutputDataConfig" type:"structure"`
 
 	// The time that the document classification job was submitted for processing.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"comprehend:DocumentClassificationJobProperties:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
 	// to encrypt data on the storage volume attached to the ML compute instance(s)
@@ -278,12 +278,12 @@ type DocumentClassificationJobProperties struct {
 	//    * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"comprehend:DocumentClassificationJobProperties:VolumeKmsKeyId" type:"string"`
 
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing
 	// the resources you are using for your document classification job. For more
 	// information, see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"comprehend:DocumentClassificationJobProperties:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -299,17 +299,17 @@ type DocumentClassifierFilter struct {
 	_ struct{} `type:"structure"`
 
 	// Filters the list of classifiers based on status.
-	Status ModelStatus `type:"string" enum:"true"`
+	Status ModelStatus `json:"comprehend:DocumentClassifierFilter:Status" type:"string" enum:"true"`
 
 	// Filters the list of classifiers based on the time that the classifier was
 	// submitted for processing. Returns only classifiers submitted after the specified
 	// time. Classifiers are returned in descending order, newest to oldest.
-	SubmitTimeAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeAfter *time.Time `json:"comprehend:DocumentClassifierFilter:SubmitTimeAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Filters the list of classifiers based on the time that the classifier was
 	// submitted for processing. Returns only classifiers submitted before the specified
 	// time. Classifiers are returned in ascending order, oldest to newest.
-	SubmitTimeBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeBefore *time.Time `json:"comprehend:DocumentClassifierFilter:SubmitTimeBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -333,7 +333,7 @@ type DocumentClassifierInputDataConfig struct {
 	// file begins with the prefix, Amazon Comprehend uses all of them as input.
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"comprehend:DocumentClassifierInputDataConfig:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -371,7 +371,7 @@ type DocumentClassifierOutputDataConfig struct {
 	//    * KMS Key Alias: "alias/ExampleAlias"
 	//
 	//    * ARN of a KMS Key Alias: "arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"comprehend:DocumentClassifierOutputDataConfig:KmsKeyId" type:"string"`
 
 	// When you use the OutputDataConfig object while creating a custom classifier,
 	// you specify the Amazon S3 location where you want to write the confusion
@@ -383,7 +383,7 @@ type DocumentClassifierOutputDataConfig struct {
 	// file in a directory specific to the job. The S3Uri field contains the location
 	// of the output file, called output.tar.gz. It is a compressed archive that
 	// contains the confusion matrix.
-	S3Uri *string `type:"string"`
+	S3Uri *string `json:"comprehend:DocumentClassifierOutputDataConfig:S3Uri" type:"string"`
 }
 
 // String returns the string representation
@@ -399,48 +399,48 @@ type DocumentClassifierProperties struct {
 	// Information about the document classifier, including the number of documents
 	// used for training the classifier, the number of documents used for test the
 	// classifier, and an accuracy rating.
-	ClassifierMetadata *ClassifierMetadata `type:"structure"`
+	ClassifierMetadata *ClassifierMetadata `json:"comprehend:DocumentClassifierProperties:ClassifierMetadata" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role
 	// that grants Amazon Comprehend read access to your input data.
-	DataAccessRoleArn *string `min:"20" type:"string"`
+	DataAccessRoleArn *string `json:"comprehend:DocumentClassifierProperties:DataAccessRoleArn" min:"20" type:"string"`
 
 	// The Amazon Resource Name (ARN) that identifies the document classifier.
-	DocumentClassifierArn *string `type:"string"`
+	DocumentClassifierArn *string `json:"comprehend:DocumentClassifierProperties:DocumentClassifierArn" type:"string"`
 
 	// The time that training the document classifier completed.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"comprehend:DocumentClassifierProperties:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The input data configuration that you supplied when you created the document
 	// classifier for training.
-	InputDataConfig *DocumentClassifierInputDataConfig `type:"structure"`
+	InputDataConfig *DocumentClassifierInputDataConfig `json:"comprehend:DocumentClassifierProperties:InputDataConfig" type:"structure"`
 
 	// The language code for the language of the documents that the classifier was
 	// trained on.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"comprehend:DocumentClassifierProperties:LanguageCode" type:"string" enum:"true"`
 
 	// Additional information about the status of the classifier.
-	Message *string `type:"string"`
+	Message *string `json:"comprehend:DocumentClassifierProperties:Message" type:"string"`
 
 	// Provides output results configuration parameters for custom classifier jobs.
-	OutputDataConfig *DocumentClassifierOutputDataConfig `type:"structure"`
+	OutputDataConfig *DocumentClassifierOutputDataConfig `json:"comprehend:DocumentClassifierProperties:OutputDataConfig" type:"structure"`
 
 	// The status of the document classifier. If the status is TRAINED the classifier
 	// is ready to use. If the status is FAILED you can see additional information
 	// about why the classifier wasn't trained in the Message field.
-	Status ModelStatus `type:"string" enum:"true"`
+	Status ModelStatus `json:"comprehend:DocumentClassifierProperties:Status" type:"string" enum:"true"`
 
 	// The time that the document classifier was submitted for training.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"comprehend:DocumentClassifierProperties:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that training of the document classifier was completed. Indicates
 	// the time when the training completes on documentation classifiers. You are
 	// billed for the time interval between this time and the value of TrainingStartTime.
-	TrainingEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingEndTime *time.Time `json:"comprehend:DocumentClassifierProperties:TrainingEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Indicates the time when the training starts on documentation classifiers.
 	// You are billed for the time interval between this time and the value of TrainingEndTime.
-	TrainingStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingStartTime *time.Time `json:"comprehend:DocumentClassifierProperties:TrainingStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
 	// to encrypt data on the storage volume attached to the ML compute instance(s)
@@ -450,12 +450,12 @@ type DocumentClassifierProperties struct {
 	//    * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"comprehend:DocumentClassifierProperties:VolumeKmsKeyId" type:"string"`
 
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing
 	// the resources you are using for your custom classifier. For more information,
 	// see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"comprehend:DocumentClassifierProperties:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -472,11 +472,11 @@ type DominantLanguage struct {
 	// The RFC 5646 language code for the dominant language. For more information
 	// about RFC 5646, see Tags for Identifying Languages (https://tools.ietf.org/html/rfc5646)
 	// on the IETF Tools web site.
-	LanguageCode *string `min:"1" type:"string"`
+	LanguageCode *string `json:"comprehend:DominantLanguage:LanguageCode" min:"1" type:"string"`
 
 	// The level of confidence that Amazon Comprehend has in the accuracy of the
 	// detection.
-	Score *float64 `type:"float"`
+	Score *float64 `json:"comprehend:DominantLanguage:Score" type:"float"`
 }
 
 // String returns the string representation
@@ -491,21 +491,21 @@ type DominantLanguageDetectionJobFilter struct {
 	_ struct{} `type:"structure"`
 
 	// Filters on the name of the job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:DominantLanguageDetectionJobFilter:JobName" min:"1" type:"string"`
 
 	// Filters the list of jobs based on job status. Returns only jobs with the
 	// specified status.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:DominantLanguageDetectionJobFilter:JobStatus" type:"string" enum:"true"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted after the specified time. Jobs are
 	// returned in descending order, newest to oldest.
-	SubmitTimeAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeAfter *time.Time `json:"comprehend:DominantLanguageDetectionJobFilter:SubmitTimeAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted before the specified time. Jobs are
 	// returned in ascending order, oldest to newest.
-	SubmitTimeBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeBefore *time.Time `json:"comprehend:DominantLanguageDetectionJobFilter:SubmitTimeBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -533,34 +533,34 @@ type DominantLanguageDetectionJobProperties struct {
 
 	// The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to
 	// your input data.
-	DataAccessRoleArn *string `min:"20" type:"string"`
+	DataAccessRoleArn *string `json:"comprehend:DominantLanguageDetectionJobProperties:DataAccessRoleArn" min:"20" type:"string"`
 
 	// The time that the dominant language detection job completed.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"comprehend:DominantLanguageDetectionJobProperties:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The input data configuration that you supplied when you created the dominant
 	// language detection job.
-	InputDataConfig *InputDataConfig `type:"structure"`
+	InputDataConfig *InputDataConfig `json:"comprehend:DominantLanguageDetectionJobProperties:InputDataConfig" type:"structure"`
 
 	// The identifier assigned to the dominant language detection job.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:DominantLanguageDetectionJobProperties:JobId" min:"1" type:"string"`
 
 	// The name that you assigned to the dominant language detection job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:DominantLanguageDetectionJobProperties:JobName" min:"1" type:"string"`
 
 	// The current status of the dominant language detection job. If the status
 	// is FAILED, the Message field shows the reason for the failure.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:DominantLanguageDetectionJobProperties:JobStatus" type:"string" enum:"true"`
 
 	// A description for the status of a job.
-	Message *string `type:"string"`
+	Message *string `json:"comprehend:DominantLanguageDetectionJobProperties:Message" type:"string"`
 
 	// The output data configuration that you supplied when you created the dominant
 	// language detection job.
-	OutputDataConfig *OutputDataConfig `type:"structure"`
+	OutputDataConfig *OutputDataConfig `json:"comprehend:DominantLanguageDetectionJobProperties:OutputDataConfig" type:"structure"`
 
 	// The time that the dominant language detection job was submitted for processing.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"comprehend:DominantLanguageDetectionJobProperties:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
 	// to encrypt data on the storage volume attached to the ML compute instance(s)
@@ -570,12 +570,12 @@ type DominantLanguageDetectionJobProperties struct {
 	//    * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"comprehend:DominantLanguageDetectionJobProperties:VolumeKmsKeyId" type:"string"`
 
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing
 	// the resources you are using for your dominant language detection job. For
 	// more information, see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"comprehend:DominantLanguageDetectionJobProperties:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -590,21 +590,21 @@ type EntitiesDetectionJobFilter struct {
 	_ struct{} `type:"structure"`
 
 	// Filters on the name of the job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:EntitiesDetectionJobFilter:JobName" min:"1" type:"string"`
 
 	// Filters the list of jobs based on job status. Returns only jobs with the
 	// specified status.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:EntitiesDetectionJobFilter:JobStatus" type:"string" enum:"true"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted after the specified time. Jobs are
 	// returned in descending order, newest to oldest.
-	SubmitTimeAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeAfter *time.Time `json:"comprehend:EntitiesDetectionJobFilter:SubmitTimeAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted before the specified time. Jobs are
 	// returned in ascending order, oldest to newest.
-	SubmitTimeBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeBefore *time.Time `json:"comprehend:EntitiesDetectionJobFilter:SubmitTimeBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -632,40 +632,40 @@ type EntitiesDetectionJobProperties struct {
 
 	// The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to
 	// your input data.
-	DataAccessRoleArn *string `min:"20" type:"string"`
+	DataAccessRoleArn *string `json:"comprehend:EntitiesDetectionJobProperties:DataAccessRoleArn" min:"20" type:"string"`
 
 	// The time that the entities detection job completed
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"comprehend:EntitiesDetectionJobProperties:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) that identifies the entity recognizer.
-	EntityRecognizerArn *string `type:"string"`
+	EntityRecognizerArn *string `json:"comprehend:EntitiesDetectionJobProperties:EntityRecognizerArn" type:"string"`
 
 	// The input data configuration that you supplied when you created the entities
 	// detection job.
-	InputDataConfig *InputDataConfig `type:"structure"`
+	InputDataConfig *InputDataConfig `json:"comprehend:EntitiesDetectionJobProperties:InputDataConfig" type:"structure"`
 
 	// The identifier assigned to the entities detection job.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:EntitiesDetectionJobProperties:JobId" min:"1" type:"string"`
 
 	// The name that you assigned the entities detection job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:EntitiesDetectionJobProperties:JobName" min:"1" type:"string"`
 
 	// The current status of the entities detection job. If the status is FAILED,
 	// the Message field shows the reason for the failure.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:EntitiesDetectionJobProperties:JobStatus" type:"string" enum:"true"`
 
 	// The language code of the input documents.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"comprehend:EntitiesDetectionJobProperties:LanguageCode" type:"string" enum:"true"`
 
 	// A description of the status of a job.
-	Message *string `type:"string"`
+	Message *string `json:"comprehend:EntitiesDetectionJobProperties:Message" type:"string"`
 
 	// The output data configuration that you supplied when you created the entities
 	// detection job.
-	OutputDataConfig *OutputDataConfig `type:"structure"`
+	OutputDataConfig *OutputDataConfig `json:"comprehend:EntitiesDetectionJobProperties:OutputDataConfig" type:"structure"`
 
 	// The time that the entities detection job was submitted for processing.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"comprehend:EntitiesDetectionJobProperties:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
 	// to encrypt data on the storage volume attached to the ML compute instance(s)
@@ -675,12 +675,12 @@ type EntitiesDetectionJobProperties struct {
 	//    * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"comprehend:EntitiesDetectionJobProperties:VolumeKmsKeyId" type:"string"`
 
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing
 	// the resources you are using for your entity detection job. For more information,
 	// see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"comprehend:EntitiesDetectionJobProperties:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -698,23 +698,23 @@ type Entity struct {
 	// UTF-8 code point in the string. A code point is the abstract character from
 	// a particular graphical representation. For example, a multi-byte UTF-8 character
 	// maps to a single code point.
-	BeginOffset *int64 `type:"integer"`
+	BeginOffset *int64 `json:"comprehend:Entity:BeginOffset" type:"integer"`
 
 	// A character offset in the input text that shows where the entity ends. The
 	// offset returns the position of each UTF-8 code point in the string. A code
 	// point is the abstract character from a particular graphical representation.
 	// For example, a multi-byte UTF-8 character maps to a single code point.
-	EndOffset *int64 `type:"integer"`
+	EndOffset *int64 `json:"comprehend:Entity:EndOffset" type:"integer"`
 
 	// The level of confidence that Amazon Comprehend has in the accuracy of the
 	// detection.
-	Score *float64 `type:"float"`
+	Score *float64 `json:"comprehend:Entity:Score" type:"float"`
 
 	// The text of the entity.
-	Text *string `min:"1" type:"string"`
+	Text *string `json:"comprehend:Entity:Text" min:"1" type:"string"`
 
 	// The entity's type.
-	Type EntityType `type:"string" enum:"true"`
+	Type EntityType `json:"comprehend:Entity:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -732,7 +732,7 @@ type EntityRecognizerAnnotations struct {
 	// you are calling.
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"comprehend:EntityRecognizerAnnotations:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -764,7 +764,7 @@ type EntityRecognizerDocuments struct {
 	// that you are calling.
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"comprehend:EntityRecognizerDocuments:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -795,7 +795,7 @@ type EntityRecognizerEntityList struct {
 	// must be in the same region as the API endpoint that you are calling.
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"comprehend:EntityRecognizerEntityList:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -826,16 +826,16 @@ type EntityRecognizerEvaluationMetrics struct {
 	// is derived from the Precision and Recall values. The F1Score is the harmonic
 	// average of the two scores. The highest score is 1, and the worst score is
 	// 0.
-	F1Score *float64 `type:"double"`
+	F1Score *float64 `json:"comprehend:EntityRecognizerEvaluationMetrics:F1Score" type:"double"`
 
 	// A measure of the usefulness of the recognizer results in the test data. High
 	// precision means that the recognizer returned substantially more relevant
 	// results than irrelevant ones.
-	Precision *float64 `type:"double"`
+	Precision *float64 `json:"comprehend:EntityRecognizerEvaluationMetrics:Precision" type:"double"`
 
 	// A measure of how complete the recognizer results are for the test data. High
 	// recall means that the recognizer returned most of the relevant results.
-	Recall *float64 `type:"double"`
+	Recall *float64 `json:"comprehend:EntityRecognizerEvaluationMetrics:Recall" type:"double"`
 }
 
 // String returns the string representation
@@ -851,17 +851,17 @@ type EntityRecognizerFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The status of an entity recognizer.
-	Status ModelStatus `type:"string" enum:"true"`
+	Status ModelStatus `json:"comprehend:EntityRecognizerFilter:Status" type:"string" enum:"true"`
 
 	// Filters the list of entities based on the time that the list was submitted
 	// for processing. Returns only jobs submitted after the specified time. Jobs
 	// are returned in ascending order, oldest to newest.
-	SubmitTimeAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeAfter *time.Time `json:"comprehend:EntityRecognizerFilter:SubmitTimeAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Filters the list of entities based on the time that the list was submitted
 	// for processing. Returns only jobs submitted before the specified time. Jobs
 	// are returned in descending order, newest to oldest.
-	SubmitTimeBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeBefore *time.Time `json:"comprehend:EntityRecognizerFilter:SubmitTimeBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -875,21 +875,21 @@ type EntityRecognizerInputDataConfig struct {
 	_ struct{} `type:"structure"`
 
 	// S3 location of the annotations file for an entity recognizer.
-	Annotations *EntityRecognizerAnnotations `type:"structure"`
+	Annotations *EntityRecognizerAnnotations `json:"comprehend:EntityRecognizerInputDataConfig:Annotations" type:"structure"`
 
 	// S3 location of the documents folder for an entity recognizer
 	//
 	// Documents is a required field
-	Documents *EntityRecognizerDocuments `type:"structure" required:"true"`
+	Documents *EntityRecognizerDocuments `json:"comprehend:EntityRecognizerInputDataConfig:Documents" type:"structure" required:"true"`
 
 	// S3 location of the entity list for an entity recognizer.
-	EntityList *EntityRecognizerEntityList `type:"structure"`
+	EntityList *EntityRecognizerEntityList `json:"comprehend:EntityRecognizerInputDataConfig:EntityList" type:"structure"`
 
 	// The entity types in the input data for an entity recognizer. A maximum of
 	// 12 entity types can be used at one time to train an entity recognizer.
 	//
 	// EntityTypes is a required field
-	EntityTypes []EntityTypesListItem `type:"list" required:"true"`
+	EntityTypes []EntityTypesListItem `json:"comprehend:EntityRecognizerInputDataConfig:EntityTypes" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -943,18 +943,18 @@ type EntityRecognizerMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// Entity types from the metadata of an entity recognizer.
-	EntityTypes []EntityRecognizerMetadataEntityTypesListItem `type:"list"`
+	EntityTypes []EntityRecognizerMetadataEntityTypesListItem `json:"comprehend:EntityRecognizerMetadata:EntityTypes" type:"list"`
 
 	// Detailed information about the accuracy of an entity recognizer.
-	EvaluationMetrics *EntityRecognizerEvaluationMetrics `type:"structure"`
+	EvaluationMetrics *EntityRecognizerEvaluationMetrics `json:"comprehend:EntityRecognizerMetadata:EvaluationMetrics" type:"structure"`
 
 	// The number of documents in the input data that were used to test the entity
 	// recognizer. Typically this is 10 to 20 percent of the input documents.
-	NumberOfTestDocuments *int64 `type:"integer"`
+	NumberOfTestDocuments *int64 `json:"comprehend:EntityRecognizerMetadata:NumberOfTestDocuments" type:"integer"`
 
 	// The number of documents in the input data that were used to train the entity
 	// recognizer. Typically this is 80 to 90 percent of the input documents.
-	NumberOfTrainedDocuments *int64 `type:"integer"`
+	NumberOfTrainedDocuments *int64 `json:"comprehend:EntityRecognizerMetadata:NumberOfTrainedDocuments" type:"integer"`
 }
 
 // String returns the string representation
@@ -970,15 +970,15 @@ type EntityRecognizerMetadataEntityTypesListItem struct {
 
 	// Detailed information about the accuracy of the entity recognizer for a specific
 	// item on the list of entity types.
-	EvaluationMetrics *EntityTypesEvaluationMetrics `type:"structure"`
+	EvaluationMetrics *EntityTypesEvaluationMetrics `json:"comprehend:EntityRecognizerMetadataEntityTypesListItem:EvaluationMetrics" type:"structure"`
 
 	// indicates the number of times the given entity name was seen in the training
 	// data.
-	NumberOfTrainMentions *int64 `type:"integer"`
+	NumberOfTrainMentions *int64 `json:"comprehend:EntityRecognizerMetadataEntityTypesListItem:NumberOfTrainMentions" type:"integer"`
 
 	// Type of entity from the list of entity types in the metadata of an entity
 	// recognizer.
-	Type *string `type:"string"`
+	Type *string `json:"comprehend:EntityRecognizerMetadataEntityTypesListItem:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -993,38 +993,38 @@ type EntityRecognizerProperties struct {
 
 	// The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role
 	// that grants Amazon Comprehend read access to your input data.
-	DataAccessRoleArn *string `min:"20" type:"string"`
+	DataAccessRoleArn *string `json:"comprehend:EntityRecognizerProperties:DataAccessRoleArn" min:"20" type:"string"`
 
 	// The time that the recognizer creation completed.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"comprehend:EntityRecognizerProperties:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) that identifies the entity recognizer.
-	EntityRecognizerArn *string `type:"string"`
+	EntityRecognizerArn *string `json:"comprehend:EntityRecognizerProperties:EntityRecognizerArn" type:"string"`
 
 	// The input data properties of an entity recognizer.
-	InputDataConfig *EntityRecognizerInputDataConfig `type:"structure"`
+	InputDataConfig *EntityRecognizerInputDataConfig `json:"comprehend:EntityRecognizerProperties:InputDataConfig" type:"structure"`
 
 	// The language of the input documents. All documents must be in the same language.
 	// Only English ("en") is currently supported.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"comprehend:EntityRecognizerProperties:LanguageCode" type:"string" enum:"true"`
 
 	// A description of the status of the recognizer.
-	Message *string `type:"string"`
+	Message *string `json:"comprehend:EntityRecognizerProperties:Message" type:"string"`
 
 	// Provides information about an entity recognizer.
-	RecognizerMetadata *EntityRecognizerMetadata `type:"structure"`
+	RecognizerMetadata *EntityRecognizerMetadata `json:"comprehend:EntityRecognizerProperties:RecognizerMetadata" type:"structure"`
 
 	// Provides the status of the entity recognizer.
-	Status ModelStatus `type:"string" enum:"true"`
+	Status ModelStatus `json:"comprehend:EntityRecognizerProperties:Status" type:"string" enum:"true"`
 
 	// The time that the recognizer was submitted for processing.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"comprehend:EntityRecognizerProperties:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that training of the entity recognizer was completed.
-	TrainingEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingEndTime *time.Time `json:"comprehend:EntityRecognizerProperties:TrainingEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that training of the entity recognizer started.
-	TrainingStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingStartTime *time.Time `json:"comprehend:EntityRecognizerProperties:TrainingStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
 	// to encrypt data on the storage volume attached to the ML compute instance(s)
@@ -1034,12 +1034,12 @@ type EntityRecognizerProperties struct {
 	//    * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"comprehend:EntityRecognizerProperties:VolumeKmsKeyId" type:"string"`
 
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing
 	// the resources you are using for your custom entity recognizer. For more information,
 	// see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"comprehend:EntityRecognizerProperties:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -1057,17 +1057,17 @@ type EntityTypesEvaluationMetrics struct {
 	// type in the test data. It is derived from the Precision and Recall values.
 	// The F1Score is the harmonic average of the two scores. The highest score
 	// is 1, and the worst score is 0.
-	F1Score *float64 `type:"double"`
+	F1Score *float64 `json:"comprehend:EntityTypesEvaluationMetrics:F1Score" type:"double"`
 
 	// A measure of the usefulness of the recognizer results for a specific entity
 	// type in the test data. High precision means that the recognizer returned
 	// substantially more relevant results than irrelevant ones.
-	Precision *float64 `type:"double"`
+	Precision *float64 `json:"comprehend:EntityTypesEvaluationMetrics:Precision" type:"double"`
 
 	// A measure of how complete the recognizer results are for a specific entity
 	// type in the test data. High recall means that the recognizer returned most
 	// of the relevant results.
-	Recall *float64 `type:"double"`
+	Recall *float64 `json:"comprehend:EntityTypesEvaluationMetrics:Recall" type:"double"`
 }
 
 // String returns the string representation
@@ -1083,7 +1083,7 @@ type EntityTypesListItem struct {
 	// Entity type of an item on an entity type list.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"comprehend:EntityTypesListItem:Type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1119,7 +1119,7 @@ type InputDataConfig struct {
 	//    * ONE_DOC_PER_LINE - Each line in a file is considered a separate document.
 	//    Use this option when you are processing many short documents, such as
 	//    text messages.
-	InputFormat InputFormat `type:"string" enum:"true"`
+	InputFormat InputFormat `json:"comprehend:InputDataConfig:InputFormat" type:"string" enum:"true"`
 
 	// The Amazon S3 URI for the input data. The URI must be in same region as the
 	// API endpoint that you are calling. The URI can point to a single input file
@@ -1130,7 +1130,7 @@ type InputDataConfig struct {
 	// file begins with the prefix, Amazon Comprehend uses all of them as input.
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"comprehend:InputDataConfig:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1162,20 +1162,20 @@ type KeyPhrase struct {
 	// each UTF-8 code point in the string. A code point is the abstract character
 	// from a particular graphical representation. For example, a multi-byte UTF-8
 	// character maps to a single code point.
-	BeginOffset *int64 `type:"integer"`
+	BeginOffset *int64 `json:"comprehend:KeyPhrase:BeginOffset" type:"integer"`
 
 	// A character offset in the input text where the key phrase ends. The offset
 	// returns the position of each UTF-8 code point in the string. A code point
 	// is the abstract character from a particular graphical representation. For
 	// example, a multi-byte UTF-8 character maps to a single code point.
-	EndOffset *int64 `type:"integer"`
+	EndOffset *int64 `json:"comprehend:KeyPhrase:EndOffset" type:"integer"`
 
 	// The level of confidence that Amazon Comprehend has in the accuracy of the
 	// detection.
-	Score *float64 `type:"float"`
+	Score *float64 `json:"comprehend:KeyPhrase:Score" type:"float"`
 
 	// The text of a key noun phrase.
-	Text *string `min:"1" type:"string"`
+	Text *string `json:"comprehend:KeyPhrase:Text" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1190,21 +1190,21 @@ type KeyPhrasesDetectionJobFilter struct {
 	_ struct{} `type:"structure"`
 
 	// Filters on the name of the job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:KeyPhrasesDetectionJobFilter:JobName" min:"1" type:"string"`
 
 	// Filters the list of jobs based on job status. Returns only jobs with the
 	// specified status.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:KeyPhrasesDetectionJobFilter:JobStatus" type:"string" enum:"true"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted after the specified time. Jobs are
 	// returned in descending order, newest to oldest.
-	SubmitTimeAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeAfter *time.Time `json:"comprehend:KeyPhrasesDetectionJobFilter:SubmitTimeAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted before the specified time. Jobs are
 	// returned in ascending order, oldest to newest.
-	SubmitTimeBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeBefore *time.Time `json:"comprehend:KeyPhrasesDetectionJobFilter:SubmitTimeBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1232,37 +1232,37 @@ type KeyPhrasesDetectionJobProperties struct {
 
 	// The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to
 	// your input data.
-	DataAccessRoleArn *string `min:"20" type:"string"`
+	DataAccessRoleArn *string `json:"comprehend:KeyPhrasesDetectionJobProperties:DataAccessRoleArn" min:"20" type:"string"`
 
 	// The time that the key phrases detection job completed.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"comprehend:KeyPhrasesDetectionJobProperties:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The input data configuration that you supplied when you created the key phrases
 	// detection job.
-	InputDataConfig *InputDataConfig `type:"structure"`
+	InputDataConfig *InputDataConfig `json:"comprehend:KeyPhrasesDetectionJobProperties:InputDataConfig" type:"structure"`
 
 	// The identifier assigned to the key phrases detection job.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:KeyPhrasesDetectionJobProperties:JobId" min:"1" type:"string"`
 
 	// The name that you assigned the key phrases detection job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:KeyPhrasesDetectionJobProperties:JobName" min:"1" type:"string"`
 
 	// The current status of the key phrases detection job. If the status is FAILED,
 	// the Message field shows the reason for the failure.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:KeyPhrasesDetectionJobProperties:JobStatus" type:"string" enum:"true"`
 
 	// The language code of the input documents.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"comprehend:KeyPhrasesDetectionJobProperties:LanguageCode" type:"string" enum:"true"`
 
 	// A description of the status of a job.
-	Message *string `type:"string"`
+	Message *string `json:"comprehend:KeyPhrasesDetectionJobProperties:Message" type:"string"`
 
 	// The output data configuration that you supplied when you created the key
 	// phrases detection job.
-	OutputDataConfig *OutputDataConfig `type:"structure"`
+	OutputDataConfig *OutputDataConfig `json:"comprehend:KeyPhrasesDetectionJobProperties:OutputDataConfig" type:"structure"`
 
 	// The time that the key phrases detection job was submitted for processing.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"comprehend:KeyPhrasesDetectionJobProperties:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
 	// to encrypt data on the storage volume attached to the ML compute instance(s)
@@ -1272,12 +1272,12 @@ type KeyPhrasesDetectionJobProperties struct {
 	//    * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"comprehend:KeyPhrasesDetectionJobProperties:VolumeKmsKeyId" type:"string"`
 
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing
 	// the resources you are using for your key phrases detection job. For more
 	// information, see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"comprehend:KeyPhrasesDetectionJobProperties:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -1301,7 +1301,7 @@ type OutputDataConfig struct {
 	//    * KMS Key Alias: "alias/ExampleAlias"
 	//
 	//    * ARN of a KMS Key Alias: "arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"comprehend:OutputDataConfig:KmsKeyId" type:"string"`
 
 	// When you use the OutputDataConfig object with asynchronous operations, you
 	// specify the Amazon S3 location where you want to write the output data. The
@@ -1315,7 +1315,7 @@ type OutputDataConfig struct {
 	// contains the ouput of the operation.
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"comprehend:OutputDataConfig:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1347,10 +1347,10 @@ type PartOfSpeechTag struct {
 
 	// The confidence that Amazon Comprehend has that the part of speech was correctly
 	// identified.
-	Score *float64 `type:"float"`
+	Score *float64 `json:"comprehend:PartOfSpeechTag:Score" type:"float"`
 
 	// Identifies the part of speech that the token represents.
-	Tag PartOfSpeechTagType `type:"string" enum:"true"`
+	Tag PartOfSpeechTagType `json:"comprehend:PartOfSpeechTag:Tag" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1365,21 +1365,21 @@ type SentimentDetectionJobFilter struct {
 	_ struct{} `type:"structure"`
 
 	// Filters on the name of the job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:SentimentDetectionJobFilter:JobName" min:"1" type:"string"`
 
 	// Filters the list of jobs based on job status. Returns only jobs with the
 	// specified status.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:SentimentDetectionJobFilter:JobStatus" type:"string" enum:"true"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted after the specified time. Jobs are
 	// returned in descending order, newest to oldest.
-	SubmitTimeAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeAfter *time.Time `json:"comprehend:SentimentDetectionJobFilter:SubmitTimeAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Returns only jobs submitted before the specified time. Jobs are
 	// returned in ascending order, oldest to newest.
-	SubmitTimeBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeBefore *time.Time `json:"comprehend:SentimentDetectionJobFilter:SubmitTimeBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1407,37 +1407,37 @@ type SentimentDetectionJobProperties struct {
 
 	// The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to
 	// your input data.
-	DataAccessRoleArn *string `min:"20" type:"string"`
+	DataAccessRoleArn *string `json:"comprehend:SentimentDetectionJobProperties:DataAccessRoleArn" min:"20" type:"string"`
 
 	// The time that the sentiment detection job ended.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"comprehend:SentimentDetectionJobProperties:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The input data configuration that you supplied when you created the sentiment
 	// detection job.
-	InputDataConfig *InputDataConfig `type:"structure"`
+	InputDataConfig *InputDataConfig `json:"comprehend:SentimentDetectionJobProperties:InputDataConfig" type:"structure"`
 
 	// The identifier assigned to the sentiment detection job.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:SentimentDetectionJobProperties:JobId" min:"1" type:"string"`
 
 	// The name that you assigned to the sentiment detection job
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:SentimentDetectionJobProperties:JobName" min:"1" type:"string"`
 
 	// The current status of the sentiment detection job. If the status is FAILED,
 	// the Messages field shows the reason for the failure.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:SentimentDetectionJobProperties:JobStatus" type:"string" enum:"true"`
 
 	// The language code of the input documents.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"comprehend:SentimentDetectionJobProperties:LanguageCode" type:"string" enum:"true"`
 
 	// A description of the status of a job.
-	Message *string `type:"string"`
+	Message *string `json:"comprehend:SentimentDetectionJobProperties:Message" type:"string"`
 
 	// The output data configuration that you supplied when you created the sentiment
 	// detection job.
-	OutputDataConfig *OutputDataConfig `type:"structure"`
+	OutputDataConfig *OutputDataConfig `json:"comprehend:SentimentDetectionJobProperties:OutputDataConfig" type:"structure"`
 
 	// The time that the sentiment detection job was submitted for processing.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"comprehend:SentimentDetectionJobProperties:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
 	// to encrypt data on the storage volume attached to the ML compute instance(s)
@@ -1447,12 +1447,12 @@ type SentimentDetectionJobProperties struct {
 	//    * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"comprehend:SentimentDetectionJobProperties:VolumeKmsKeyId" type:"string"`
 
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing
 	// the resources you are using for your sentiment detection job. For more information,
 	// see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"comprehend:SentimentDetectionJobProperties:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -1468,19 +1468,19 @@ type SentimentScore struct {
 
 	// The level of confidence that Amazon Comprehend has in the accuracy of its
 	// detection of the MIXED sentiment.
-	Mixed *float64 `type:"float"`
+	Mixed *float64 `json:"comprehend:SentimentScore:Mixed" type:"float"`
 
 	// The level of confidence that Amazon Comprehend has in the accuracy of its
 	// detection of the NEGATIVE sentiment.
-	Negative *float64 `type:"float"`
+	Negative *float64 `json:"comprehend:SentimentScore:Negative" type:"float"`
 
 	// The level of confidence that Amazon Comprehend has in the accuracy of its
 	// detection of the NEUTRAL sentiment.
-	Neutral *float64 `type:"float"`
+	Neutral *float64 `json:"comprehend:SentimentScore:Neutral" type:"float"`
 
 	// The level of confidence that Amazon Comprehend has in the accuracy of its
 	// detection of the POSITIVE sentiment.
-	Positive *float64 `type:"float"`
+	Positive *float64 `json:"comprehend:SentimentScore:Positive" type:"float"`
 }
 
 // String returns the string representation
@@ -1496,22 +1496,22 @@ type SyntaxToken struct {
 
 	// The zero-based offset from the beginning of the source text to the first
 	// character in the word.
-	BeginOffset *int64 `type:"integer"`
+	BeginOffset *int64 `json:"comprehend:SyntaxToken:BeginOffset" type:"integer"`
 
 	// The zero-based offset from the beginning of the source text to the last character
 	// in the word.
-	EndOffset *int64 `type:"integer"`
+	EndOffset *int64 `json:"comprehend:SyntaxToken:EndOffset" type:"integer"`
 
 	// Provides the part of speech label and the confidence level that Amazon Comprehend
 	// has that the part of speech was correctly identified. For more information,
 	// see how-syntax.
-	PartOfSpeech *PartOfSpeechTag `type:"structure"`
+	PartOfSpeech *PartOfSpeechTag `json:"comprehend:SyntaxToken:PartOfSpeech" type:"structure"`
 
 	// The word that was recognized in the source text.
-	Text *string `min:"1" type:"string"`
+	Text *string `json:"comprehend:SyntaxToken:Text" min:"1" type:"string"`
 
 	// A unique identifier for a token.
-	TokenId *int64 `type:"integer"`
+	TokenId *int64 `json:"comprehend:SyntaxToken:TokenId" type:"integer"`
 }
 
 // String returns the string representation
@@ -1532,13 +1532,13 @@ type Tag struct {
 	// with multiple possible values such as “sales,” “legal,” and “administration.”
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"comprehend:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The second part of a key-value pair that forms a tag associated with a given
 	// resource. For instance, if you want to show which resources are used by which
 	// departments, you might use “Department” as the initial (key) portion
 	// of the pair, with a value of “sales” to indicate the sales department.
-	Value *string `type:"string"`
+	Value *string `json:"comprehend:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1569,21 +1569,21 @@ func (s *Tag) Validate() error {
 type TopicsDetectionJobFilter struct {
 	_ struct{} `type:"structure"`
 
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:TopicsDetectionJobFilter:JobName" min:"1" type:"string"`
 
 	// Filters the list of topic detection jobs based on job status. Returns only
 	// jobs with the specified status.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:TopicsDetectionJobFilter:JobStatus" type:"string" enum:"true"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Only returns jobs submitted after the specified time. Jobs are
 	// returned in ascending order, oldest to newest.
-	SubmitTimeAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeAfter *time.Time `json:"comprehend:TopicsDetectionJobFilter:SubmitTimeAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Filters the list of jobs based on the time that the job was submitted for
 	// processing. Only returns jobs submitted before the specified time. Jobs are
 	// returned in descending order, newest to oldest.
-	SubmitTimeBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTimeBefore *time.Time `json:"comprehend:TopicsDetectionJobFilter:SubmitTimeBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1611,38 +1611,38 @@ type TopicsDetectionJobProperties struct {
 
 	// The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role
 	// that grants Amazon Comprehend read access to your job data.
-	DataAccessRoleArn *string `min:"20" type:"string"`
+	DataAccessRoleArn *string `json:"comprehend:TopicsDetectionJobProperties:DataAccessRoleArn" min:"20" type:"string"`
 
 	// The time that the topic detection job was completed.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"comprehend:TopicsDetectionJobProperties:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The input data configuration supplied when you created the topic detection
 	// job.
-	InputDataConfig *InputDataConfig `type:"structure"`
+	InputDataConfig *InputDataConfig `json:"comprehend:TopicsDetectionJobProperties:InputDataConfig" type:"structure"`
 
 	// The identifier assigned to the topic detection job.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:TopicsDetectionJobProperties:JobId" min:"1" type:"string"`
 
 	// The name of the topic detection job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"comprehend:TopicsDetectionJobProperties:JobName" min:"1" type:"string"`
 
 	// The current status of the topic detection job. If the status is Failed, the
 	// reason for the failure is shown in the Message field.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:TopicsDetectionJobProperties:JobStatus" type:"string" enum:"true"`
 
 	// A description for the status of a job.
-	Message *string `type:"string"`
+	Message *string `json:"comprehend:TopicsDetectionJobProperties:Message" type:"string"`
 
 	// The number of topics to detect supplied when you created the topic detection
 	// job. The default is 10.
-	NumberOfTopics *int64 `type:"integer"`
+	NumberOfTopics *int64 `json:"comprehend:TopicsDetectionJobProperties:NumberOfTopics" type:"integer"`
 
 	// The output data configuration supplied when you created the topic detection
 	// job.
-	OutputDataConfig *OutputDataConfig `type:"structure"`
+	OutputDataConfig *OutputDataConfig `json:"comprehend:TopicsDetectionJobProperties:OutputDataConfig" type:"structure"`
 
 	// The time that the topic detection job was submitted for processing.
-	SubmitTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"comprehend:TopicsDetectionJobProperties:SubmitTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
 	// to encrypt data on the storage volume attached to the ML compute instance(s)
@@ -1652,12 +1652,12 @@ type TopicsDetectionJobProperties struct {
 	//    * KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"comprehend:TopicsDetectionJobProperties:VolumeKmsKeyId" type:"string"`
 
 	// Configuration parameters for a private Virtual Private Cloud (VPC) containing
 	// the resources you are using for your topic detection job. For more information,
 	// see Amazon VPC (https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"comprehend:TopicsDetectionJobProperties:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -1680,7 +1680,7 @@ type VpcConfig struct {
 	// VPC (https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html).
 	//
 	// SecurityGroupIds is a required field
-	SecurityGroupIds []string `min:"1" type:"list" required:"true"`
+	SecurityGroupIds []string `json:"comprehend:VpcConfig:SecurityGroupIds" min:"1" type:"list" required:"true"`
 
 	// The ID for each subnet being used in your private VPC. This subnet is a subset
 	// of the a range of IPv4 addresses used by the VPC and is specific to a given
@@ -1689,7 +1689,7 @@ type VpcConfig struct {
 	// and Subnets (https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html).
 	//
 	// Subnets is a required field
-	Subnets []string `min:"1" type:"list" required:"true"`
+	Subnets []string `json:"comprehend:VpcConfig:Subnets" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation

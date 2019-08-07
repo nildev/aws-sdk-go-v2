@@ -50,7 +50,7 @@ type GetParameterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about a parameter.
-	Parameter *Parameter `type:"structure"`
+	Parameter *Parameter `json:"ssm:GetParameterOutput:Parameter" type:"structure"`
 }
 
 // String returns the string representation

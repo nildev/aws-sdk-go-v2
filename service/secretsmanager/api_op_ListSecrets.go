@@ -63,10 +63,10 @@ type ListSecretsOutput struct {
 	// in a subsequent call to the operation to continue processing and get the
 	// next part of the output. You should repeat this until the NextToken response
 	// element comes back empty (as null).
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"secretsmanager:ListSecretsOutput:NextToken" min:"1" type:"string"`
 
 	// A list of the secrets in the account.
-	SecretList []SecretListEntry `type:"list"`
+	SecretList []SecretListEntry `json:"secretsmanager:ListSecretsOutput:SecretList" type:"list"`
 }
 
 // String returns the string representation

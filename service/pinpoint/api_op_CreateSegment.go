@@ -80,7 +80,7 @@ type CreateSegmentOutput struct {
 	// for a segment.
 	//
 	// SegmentResponse is a required field
-	SegmentResponse *SegmentResponse `type:"structure" required:"true"`
+	SegmentResponse *SegmentResponse `json:"pinpoint:CreateSegmentOutput:SegmentResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

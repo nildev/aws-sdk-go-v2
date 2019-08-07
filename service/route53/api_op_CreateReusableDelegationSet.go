@@ -78,12 +78,12 @@ type CreateReusableDelegationSetOutput struct {
 	// A complex type that contains name server information.
 	//
 	// DelegationSet is a required field
-	DelegationSet *DelegationSet `type:"structure" required:"true"`
+	DelegationSet *DelegationSet `json:"route53:CreateReusableDelegationSetOutput:DelegationSet" type:"structure" required:"true"`
 
 	// The unique URL representing the new reusable delegation set.
 	//
 	// Location is a required field
-	Location *string `location:"header" locationName:"Location" type:"string" required:"true"`
+	Location *string `json:"route53:CreateReusableDelegationSetOutput:Location" location:"header" locationName:"Location" type:"string" required:"true"`
 }
 
 // String returns the string representation

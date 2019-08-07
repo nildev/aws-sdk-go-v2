@@ -26,21 +26,21 @@ type StartContinuousExportOutput struct {
 
 	// The type of data collector used to gather this data (currently only offered
 	// for AGENT).
-	DataSource DataSource `locationName:"dataSource" type:"string" enum:"true"`
+	DataSource DataSource `json:"discovery:StartContinuousExportOutput:DataSource" locationName:"dataSource" type:"string" enum:"true"`
 
 	// The unique ID assigned to this export.
-	ExportId *string `locationName:"exportId" type:"string"`
+	ExportId *string `json:"discovery:StartContinuousExportOutput:ExportId" locationName:"exportId" type:"string"`
 
 	// The name of the s3 bucket where the export data parquet files are stored.
-	S3Bucket *string `locationName:"s3Bucket" type:"string"`
+	S3Bucket *string `json:"discovery:StartContinuousExportOutput:S3Bucket" locationName:"s3Bucket" type:"string"`
 
 	// A dictionary which describes how the data is stored.
 	//
 	//    * databaseName - the name of the Glue database used to store the schema.
-	SchemaStorageConfig map[string]string `locationName:"schemaStorageConfig" type:"map"`
+	SchemaStorageConfig map[string]string `json:"discovery:StartContinuousExportOutput:SchemaStorageConfig" locationName:"schemaStorageConfig" type:"map"`
 
 	// The timestamp representing when the continuous export was started.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"discovery:StartContinuousExportOutput:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

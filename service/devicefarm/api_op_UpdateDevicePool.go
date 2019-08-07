@@ -83,7 +83,7 @@ type UpdateDevicePoolOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The device pool you just updated.
-	DevicePool *DevicePool `locationName:"devicePool" type:"structure"`
+	DevicePool *DevicePool `json:"devicefarm:UpdateDevicePoolOutput:DevicePool" locationName:"devicePool" type:"structure"`
 }
 
 // String returns the string representation

@@ -47,7 +47,7 @@ type RegisterVolumeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The volume ID.
-	VolumeId *string `type:"string"`
+	VolumeId *string `json:"opsworks:RegisterVolumeOutput:VolumeId" type:"string"`
 }
 
 // String returns the string representation

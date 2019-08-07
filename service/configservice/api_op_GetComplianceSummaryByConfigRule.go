@@ -25,7 +25,7 @@ type GetComplianceSummaryByConfigRuleOutput struct {
 
 	// The number of AWS Config rules that are compliant and the number that are
 	// noncompliant, up to a maximum of 25 for each.
-	ComplianceSummary *ComplianceSummary `type:"structure"`
+	ComplianceSummary *ComplianceSummary `json:"config:GetComplianceSummaryByConfigRuleOutput:ComplianceSummary" type:"structure"`
 }
 
 // String returns the string representation

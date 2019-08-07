@@ -76,7 +76,7 @@ type CreateImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the new AMI.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:CreateImageOutput:ImageId" locationName:"imageId" type:"string"`
 }
 
 // String returns the string representation

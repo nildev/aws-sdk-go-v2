@@ -78,10 +78,10 @@ type ListAuthorizersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The authorizers.
-	Authorizers []AuthorizerSummary `locationName:"authorizers" type:"list"`
+	Authorizers []AuthorizerSummary `json:"iot:ListAuthorizersOutput:Authorizers" locationName:"authorizers" type:"list"`
 
 	// A marker used to get the next set of results.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListAuthorizersOutput:NextMarker" locationName:"nextMarker" type:"string"`
 }
 
 // String returns the string representation

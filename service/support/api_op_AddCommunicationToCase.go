@@ -60,7 +60,7 @@ type AddCommunicationToCaseOutput struct {
 	_ struct{} `type:"structure"`
 
 	// True if AddCommunicationToCase succeeds. Otherwise, returns an error.
-	Result *bool `locationName:"result" type:"boolean"`
+	Result *bool `json:"support:AddCommunicationToCaseOutput:Result" locationName:"result" type:"boolean"`
 }
 
 // String returns the string representation

@@ -69,7 +69,7 @@ type UpdateIdentityProviderOutput struct {
 	// The identity provider object.
 	//
 	// IdentityProvider is a required field
-	IdentityProvider *IdentityProviderType `type:"structure" required:"true"`
+	IdentityProvider *IdentityProviderType `json:"cognito-idp:UpdateIdentityProviderOutput:IdentityProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation

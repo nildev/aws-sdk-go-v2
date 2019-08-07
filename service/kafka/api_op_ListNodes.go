@@ -77,10 +77,10 @@ type ListNodesOutput struct {
 	// The paginated results marker. When the result of a ListNodes operation is
 	// truncated, the call returns NextToken in the response. To get another batch
 	// of nodes, provide this token in your next request.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"kafka:ListNodesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// List containing a NodeInfo object.
-	NodeInfoList []NodeInfo `locationName:"nodeInfoList" type:"list"`
+	NodeInfoList []NodeInfo `json:"kafka:ListNodesOutput:NodeInfoList" locationName:"nodeInfoList" type:"list"`
 }
 
 // String returns the string representation

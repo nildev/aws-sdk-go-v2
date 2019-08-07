@@ -51,13 +51,13 @@ type DescribeClusterDbRevisionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of revisions.
-	ClusterDbRevisions []ClusterDbRevision `locationNameList:"ClusterDbRevision" type:"list"`
+	ClusterDbRevisions []ClusterDbRevision `json:"redshift:DescribeClusterDbRevisionsOutput:ClusterDbRevisions" locationNameList:"ClusterDbRevision" type:"list"`
 
 	// A string representing the starting point for the next set of revisions. If
 	// a value is returned in a response, you can retrieve the next set of revisions
 	// by providing the value in the marker parameter and retrying the command.
 	// If the marker field is empty, all revisions have already been returned.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeClusterDbRevisionsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

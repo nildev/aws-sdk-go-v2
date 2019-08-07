@@ -80,12 +80,12 @@ type GetObjectInformationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the specified object.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:GetObjectInformationOutput:ObjectIdentifier" type:"string"`
 
 	// The facets attached to the specified object. Although the response does not
 	// include minor version information, the most recently applied minor version
 	// of each Facet is in effect. See GetAppliedSchemaVersion for details.
-	SchemaFacets []SchemaFacet `type:"list"`
+	SchemaFacets []SchemaFacet `json:"clouddirectory:GetObjectInformationOutput:SchemaFacets" type:"list"`
 }
 
 // String returns the string representation

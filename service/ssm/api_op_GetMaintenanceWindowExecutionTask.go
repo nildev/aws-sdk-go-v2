@@ -60,36 +60,36 @@ type GetMaintenanceWindowExecutionTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time the task execution completed.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The defined maximum number of task executions that could be run in parallel.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:MaxConcurrency" min:"1" type:"string"`
 
 	// The defined maximum number of task execution errors allowed before scheduling
 	// of the task execution would have been stopped.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:MaxErrors" min:"1" type:"string"`
 
 	// The priority of the task.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:Priority" type:"integer"`
 
 	// The role that was assumed when running the task.
-	ServiceRole *string `type:"string"`
+	ServiceRole *string `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:ServiceRole" type:"string"`
 
 	// The time the task execution started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the task.
-	Status MaintenanceWindowExecutionStatus `type:"string" enum:"true"`
+	Status MaintenanceWindowExecutionStatus `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:Status" type:"string" enum:"true"`
 
 	// The details explaining the Status. Only available for certain status values.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:StatusDetails" type:"string"`
 
 	// The ARN of the task that ran.
-	TaskArn *string `min:"1" type:"string"`
+	TaskArn *string `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:TaskArn" min:"1" type:"string"`
 
 	// The ID of the specific task execution in the maintenance window task that
 	// was retrieved.
-	TaskExecutionId *string `min:"36" type:"string"`
+	TaskExecutionId *string `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:TaskExecutionId" min:"36" type:"string"`
 
 	// The parameters passed to the task when it was run.
 	//
@@ -103,13 +103,13 @@ type GetMaintenanceWindowExecutionTaskOutput struct {
 	// Key: string, between 1 and 255 characters
 	//
 	// Value: an array of strings, each string is between 1 and 255 characters
-	TaskParameters []map[string]MaintenanceWindowTaskParameterValueExpression `type:"list"`
+	TaskParameters []map[string]MaintenanceWindowTaskParameterValueExpression `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:TaskParameters" type:"list"`
 
 	// The type of task that was run.
-	Type MaintenanceWindowTaskType `type:"string" enum:"true"`
+	Type MaintenanceWindowTaskType `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:Type" type:"string" enum:"true"`
 
 	// The ID of the maintenance window execution that includes the task.
-	WindowExecutionId *string `min:"36" type:"string"`
+	WindowExecutionId *string `json:"ssm:GetMaintenanceWindowExecutionTaskOutput:WindowExecutionId" min:"36" type:"string"`
 }
 
 // String returns the string representation

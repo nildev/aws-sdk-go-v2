@@ -47,33 +47,33 @@ type DescribeProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the project.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"codestar:DescribeProjectOutput:Arn" locationName:"arn" type:"string"`
 
 	// A user- or system-generated token that identifies the entity that requested
 	// project creation.
-	ClientRequestToken *string `locationName:"clientRequestToken" min:"1" type:"string"`
+	ClientRequestToken *string `json:"codestar:DescribeProjectOutput:ClientRequestToken" locationName:"clientRequestToken" min:"1" type:"string"`
 
 	// The date and time the project was created, in timestamp format.
-	CreatedTimeStamp *time.Time `locationName:"createdTimeStamp" type:"timestamp" timestampFormat:"unix"`
+	CreatedTimeStamp *time.Time `json:"codestar:DescribeProjectOutput:CreatedTimeStamp" locationName:"createdTimeStamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the project, if any.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"codestar:DescribeProjectOutput:Description" locationName:"description" type:"string"`
 
 	// The ID of the project.
-	Id *string `locationName:"id" min:"2" type:"string"`
+	Id *string `json:"codestar:DescribeProjectOutput:Id" locationName:"id" min:"2" type:"string"`
 
 	// The display name for the project.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"codestar:DescribeProjectOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The ID for the AWS CodeStar project template used to create the project.
-	ProjectTemplateId *string `locationName:"projectTemplateId" min:"1" type:"string"`
+	ProjectTemplateId *string `json:"codestar:DescribeProjectOutput:ProjectTemplateId" locationName:"projectTemplateId" min:"1" type:"string"`
 
 	// The ID of the primary stack in AWS CloudFormation used to generate resources
 	// for the project.
-	StackId *string `locationName:"stackId" type:"string"`
+	StackId *string `json:"codestar:DescribeProjectOutput:StackId" locationName:"stackId" type:"string"`
 
 	// The project creation or deletion status.
-	Status *ProjectStatus `locationName:"status" type:"structure"`
+	Status *ProjectStatus `json:"codestar:DescribeProjectOutput:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation

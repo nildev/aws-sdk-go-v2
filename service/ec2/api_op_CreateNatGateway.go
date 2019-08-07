@@ -61,10 +61,10 @@ type CreateNatGatewayOutput struct {
 
 	// Unique, case-sensitive identifier to ensure the idempotency of the request.
 	// Only returned if a client token was provided in the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:CreateNatGatewayOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the NAT gateway.
-	NatGateway *NatGateway `locationName:"natGateway" type:"structure"`
+	NatGateway *NatGateway `json:"ec2:CreateNatGatewayOutput:NatGateway" locationName:"natGateway" type:"structure"`
 }
 
 // String returns the string representation

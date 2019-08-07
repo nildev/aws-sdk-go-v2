@@ -52,11 +52,11 @@ type GetDatabasesOutput struct {
 	// A list of Database objects from the specified catalog.
 	//
 	// DatabaseList is a required field
-	DatabaseList []Database `type:"list" required:"true"`
+	DatabaseList []Database `json:"glue:GetDatabasesOutput:DatabaseList" type:"list" required:"true"`
 
 	// A continuation token for paginating the returned list of tokens, returned
 	// if the current segment of the list is not the last.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetDatabasesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -68,11 +68,11 @@ type GetCommentsForComparedCommitOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of comment objects on the compared commit.
-	CommentsForComparedCommitData []CommentsForComparedCommit `locationName:"commentsForComparedCommitData" type:"list"`
+	CommentsForComparedCommitData []CommentsForComparedCommit `json:"codecommit:GetCommentsForComparedCommitOutput:CommentsForComparedCommitData" locationName:"commentsForComparedCommitData" type:"list"`
 
 	// An enumeration token that can be used in a request to return the next batch
 	// of the results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:GetCommentsForComparedCommitOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -192,15 +192,15 @@ type PutGatewayResponseOutput struct {
 	// A Boolean flag to indicate whether this GatewayResponse is the default gateway
 	// response (true) or not (false). A default gateway response is one generated
 	// by API Gateway without any customization by an API developer.
-	DefaultResponse *bool `locationName:"defaultResponse" type:"boolean"`
+	DefaultResponse *bool `json:"apigateway:PutGatewayResponseOutput:DefaultResponse" locationName:"defaultResponse" type:"boolean"`
 
 	// Response parameters (paths, query strings and headers) of the GatewayResponse
 	// as a string-to-string map of key-value pairs.
-	ResponseParameters map[string]string `locationName:"responseParameters" type:"map"`
+	ResponseParameters map[string]string `json:"apigateway:PutGatewayResponseOutput:ResponseParameters" locationName:"responseParameters" type:"map"`
 
 	// Response templates of the GatewayResponse as a string-to-string map of key-value
 	// pairs.
-	ResponseTemplates map[string]string `locationName:"responseTemplates" type:"map"`
+	ResponseTemplates map[string]string `json:"apigateway:PutGatewayResponseOutput:ResponseTemplates" locationName:"responseTemplates" type:"map"`
 
 	// The response type of the associated GatewayResponse. Valid values are
 	//    * ACCESS_DENIED
@@ -242,10 +242,10 @@ type PutGatewayResponseOutput struct {
 	//    * UNAUTHORIZED
 	//
 	//    * UNSUPPORTED_MEDIA_TYPE
-	ResponseType GatewayResponseType `locationName:"responseType" type:"string" enum:"true"`
+	ResponseType GatewayResponseType `json:"apigateway:PutGatewayResponseOutput:ResponseType" locationName:"responseType" type:"string" enum:"true"`
 
 	// The HTTP status code for this GatewayResponse.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"apigateway:PutGatewayResponseOutput:StatusCode" locationName:"statusCode" type:"string"`
 }
 
 // String returns the string representation

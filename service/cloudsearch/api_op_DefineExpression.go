@@ -70,7 +70,7 @@ type DefineExpressionOutput struct {
 	// The value of an Expression and its current status.
 	//
 	// Expression is a required field
-	Expression *ExpressionStatus `type:"structure" required:"true"`
+	Expression *ExpressionStatus `json:"cloudsearch:DefineExpressionOutput:Expression" type:"structure" required:"true"`
 }
 
 // String returns the string representation

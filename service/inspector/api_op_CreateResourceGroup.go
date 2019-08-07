@@ -58,7 +58,7 @@ type CreateResourceGroupOutput struct {
 	// The ARN that specifies the resource group that is created.
 	//
 	// ResourceGroupArn is a required field
-	ResourceGroupArn *string `locationName:"resourceGroupArn" min:"1" type:"string" required:"true"`
+	ResourceGroupArn *string `json:"inspector:CreateResourceGroupOutput:ResourceGroupArn" locationName:"resourceGroupArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

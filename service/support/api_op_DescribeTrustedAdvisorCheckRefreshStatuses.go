@@ -49,7 +49,7 @@ type DescribeTrustedAdvisorCheckRefreshStatusesOutput struct {
 	// The refresh status of the specified Trusted Advisor checks.
 	//
 	// Statuses is a required field
-	Statuses []TrustedAdvisorCheckRefreshStatus `locationName:"statuses" type:"list" required:"true"`
+	Statuses []TrustedAdvisorCheckRefreshStatus `json:"support:DescribeTrustedAdvisorCheckRefreshStatusesOutput:Statuses" locationName:"statuses" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -53,15 +53,15 @@ type ListDeploymentGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The application name.
-	ApplicationName *string `locationName:"applicationName" min:"1" type:"string"`
+	ApplicationName *string `json:"codedeploy:ListDeploymentGroupsOutput:ApplicationName" locationName:"applicationName" min:"1" type:"string"`
 
 	// A list of deployment group names.
-	DeploymentGroups []string `locationName:"deploymentGroups" type:"list"`
+	DeploymentGroups []string `json:"codedeploy:ListDeploymentGroupsOutput:DeploymentGroups" locationName:"deploymentGroups" type:"list"`
 
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent list deployment groups call to return the
 	// next set of deployment groups in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListDeploymentGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

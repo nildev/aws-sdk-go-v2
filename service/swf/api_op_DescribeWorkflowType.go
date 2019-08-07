@@ -61,7 +61,7 @@ type DescribeWorkflowTypeOutput struct {
 	// Configuration settings of the workflow type registered through RegisterWorkflowType
 	//
 	// Configuration is a required field
-	Configuration *WorkflowTypeConfiguration `locationName:"configuration" type:"structure" required:"true"`
+	Configuration *WorkflowTypeConfiguration `json:"swf:DescribeWorkflowTypeOutput:Configuration" locationName:"configuration" type:"structure" required:"true"`
 
 	// General information about the workflow type.
 	//
@@ -76,7 +76,7 @@ type DescribeWorkflowTypeOutput struct {
 	//    You cannot create new workflow executions of this type.
 	//
 	// TypeInfo is a required field
-	TypeInfo *WorkflowTypeInfo `locationName:"typeInfo" type:"structure" required:"true"`
+	TypeInfo *WorkflowTypeInfo `json:"swf:DescribeWorkflowTypeOutput:TypeInfo" locationName:"typeInfo" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -98,10 +98,10 @@ type DescribeVolumesOutput struct {
 	// the results of a DescribeVolumes request exceed MaxResults, this value can
 	// be used to retrieve the next page of results. This value is null when there
 	// are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVolumesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the volumes.
-	Volumes []Volume `locationName:"volumeSet" locationNameList:"item" type:"list"`
+	Volumes []Volume `json:"ec2:DescribeVolumesOutput:Volumes" locationName:"volumeSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

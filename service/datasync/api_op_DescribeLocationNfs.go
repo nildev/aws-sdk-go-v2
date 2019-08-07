@@ -46,20 +46,20 @@ type DescribeLocationNfsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time that the NFS location was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"datasync:DescribeLocationNfsOutput:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon resource Name (ARN) of the NFS location that was described.
-	LocationArn *string `type:"string"`
+	LocationArn *string `json:"datasync:DescribeLocationNfsOutput:LocationArn" type:"string"`
 
 	// The URL of the source NFS location that was described.
-	LocationUri *string `type:"string"`
+	LocationUri *string `json:"datasync:DescribeLocationNfsOutput:LocationUri" type:"string"`
 
 	// The NFS mount options that DataSync used to mount your NFS share.
-	MountOptions *NfsMountOptions `type:"structure"`
+	MountOptions *NfsMountOptions `json:"datasync:DescribeLocationNfsOutput:MountOptions" type:"structure"`
 
 	// A list of Amazon Resource Names (ARNs) of agents to use for a Network File
 	// System (NFS) location.
-	OnPremConfig *OnPremConfig `type:"structure"`
+	OnPremConfig *OnPremConfig `json:"datasync:DescribeLocationNfsOutput:OnPremConfig" type:"structure"`
 }
 
 // String returns the string representation

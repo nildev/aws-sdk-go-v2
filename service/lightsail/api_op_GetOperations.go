@@ -29,11 +29,11 @@ type GetOperationsOutput struct {
 
 	// A token used for advancing to the next page of results from your get operations
 	// request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetOperationsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// An array of key-value pairs containing information about the results of your
 	// get operations request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:GetOperationsOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

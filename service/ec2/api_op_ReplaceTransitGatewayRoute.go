@@ -65,7 +65,7 @@ type ReplaceTransitGatewayRouteOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the modified route.
-	Route *TransitGatewayRoute `locationName:"route" type:"structure"`
+	Route *TransitGatewayRoute `json:"ec2:ReplaceTransitGatewayRouteOutput:Route" locationName:"route" type:"structure"`
 }
 
 // String returns the string representation

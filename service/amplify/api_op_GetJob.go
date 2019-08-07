@@ -96,7 +96,7 @@ type GetJobOutput struct {
 	// Structure for an execution job for an Amplify App.
 	//
 	// Job is a required field
-	Job *Job `locationName:"job" type:"structure" required:"true"`
+	Job *Job `json:"amplify:GetJobOutput:Job" locationName:"job" type:"structure" required:"true"`
 }
 
 // String returns the string representation

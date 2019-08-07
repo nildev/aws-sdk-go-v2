@@ -113,17 +113,17 @@ type SignUpOutput struct {
 
 	// The code delivery details returned by the server response to the user registration
 	// request.
-	CodeDeliveryDetails *CodeDeliveryDetailsType `type:"structure"`
+	CodeDeliveryDetails *CodeDeliveryDetailsType `json:"cognito-idp:SignUpOutput:CodeDeliveryDetails" type:"structure"`
 
 	// A response from the server indicating that a user registration has been confirmed.
 	//
 	// UserConfirmed is a required field
-	UserConfirmed *bool `type:"boolean" required:"true"`
+	UserConfirmed *bool `json:"cognito-idp:SignUpOutput:UserConfirmed" type:"boolean" required:"true"`
 
 	// The UUID of the authenticated user. This is not the same as username.
 	//
 	// UserSub is a required field
-	UserSub *string `type:"string" required:"true"`
+	UserSub *string `json:"cognito-idp:SignUpOutput:UserSub" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -56,11 +56,11 @@ type DescribeEffectivePatchesForPatchBaselineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of patches and patch status.
-	EffectivePatches []EffectivePatch `type:"list"`
+	EffectivePatches []EffectivePatch `json:"ssm:DescribeEffectivePatchesForPatchBaselineOutput:EffectivePatches" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeEffectivePatchesForPatchBaselineOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

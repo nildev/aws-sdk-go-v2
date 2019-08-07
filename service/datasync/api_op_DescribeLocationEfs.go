@@ -46,19 +46,19 @@ type DescribeLocationEfsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time that the EFS location was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"datasync:DescribeLocationEfsOutput:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The subnet and the security group that DataSync uses to access target EFS
 	// file system. The subnet must have at least one mount target for that file
 	// system. The security group that you provide needs to be able to communicate
 	// with the security group on the mount target in the subnet specified.
-	Ec2Config *Ec2Config `type:"structure"`
+	Ec2Config *Ec2Config `json:"datasync:DescribeLocationEfsOutput:Ec2Config" type:"structure"`
 
 	// The Amazon resource Name (ARN) of the EFS location that was described.
-	LocationArn *string `type:"string"`
+	LocationArn *string `json:"datasync:DescribeLocationEfsOutput:LocationArn" type:"string"`
 
 	// The URL of the EFS location that was described.
-	LocationUri *string `type:"string"`
+	LocationUri *string `json:"datasync:DescribeLocationEfsOutput:LocationUri" type:"string"`
 }
 
 // String returns the string representation

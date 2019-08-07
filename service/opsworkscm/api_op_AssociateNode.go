@@ -78,7 +78,7 @@ type AssociateNodeOutput struct {
 
 	// Contains a token which can be passed to the DescribeNodeAssociationStatus
 	// API call to get the status of the association request.
-	NodeAssociationStatusToken *string `type:"string"`
+	NodeAssociationStatusToken *string `json:"opsworks-cm:AssociateNodeOutput:NodeAssociationStatusToken" type:"string"`
 }
 
 // String returns the string representation

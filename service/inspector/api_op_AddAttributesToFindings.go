@@ -66,7 +66,7 @@ type AddAttributesToFindingsOutput struct {
 	// each failed item.
 	//
 	// FailedItems is a required field
-	FailedItems map[string]FailedItemDetails `locationName:"failedItems" type:"map" required:"true"`
+	FailedItems map[string]FailedItemDetails `json:"inspector:AddAttributesToFindingsOutput:FailedItems" locationName:"failedItems" type:"map" required:"true"`
 }
 
 // String returns the string representation

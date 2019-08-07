@@ -60,13 +60,13 @@ type DescribeCompanyNetworkConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The security groups associated with access to the provided subnets.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"worklink:DescribeCompanyNetworkConfigurationOutput:SecurityGroupIds" type:"list"`
 
 	// The subnets used for X-ENI connections from Amazon WorkLink rendering containers.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"worklink:DescribeCompanyNetworkConfigurationOutput:SubnetIds" type:"list"`
 
 	// The VPC with connectivity to associated websites.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"worklink:DescribeCompanyNetworkConfigurationOutput:VpcId" type:"string"`
 }
 
 // String returns the string representation

@@ -58,7 +58,7 @@ type PutResolverRulePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the PutResolverRulePolicy request was successful.
-	ReturnValue *bool `type:"boolean"`
+	ReturnValue *bool `json:"route53resolver:PutResolverRulePolicyOutput:ReturnValue" type:"boolean"`
 }
 
 // String returns the string representation

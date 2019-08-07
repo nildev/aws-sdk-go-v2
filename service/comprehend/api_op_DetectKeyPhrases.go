@@ -61,7 +61,7 @@ type DetectKeyPhrasesOutput struct {
 	// text. For each key phrase, the response provides the text of the key phrase,
 	// where the key phrase begins and ends, and the level of confidence that Amazon
 	// Comprehend has in the accuracy of the detection.
-	KeyPhrases []KeyPhrase `type:"list"`
+	KeyPhrases []KeyPhrase `json:"comprehend:DetectKeyPhrasesOutput:KeyPhrases" type:"list"`
 }
 
 // String returns the string representation

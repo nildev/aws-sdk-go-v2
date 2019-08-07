@@ -76,7 +76,7 @@ type ModifyFpgaImageAttributeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the attribute.
-	FpgaImageAttribute *FpgaImageAttribute `locationName:"fpgaImageAttribute" type:"structure"`
+	FpgaImageAttribute *FpgaImageAttribute `json:"ec2:ModifyFpgaImageAttributeOutput:FpgaImageAttribute" locationName:"fpgaImageAttribute" type:"structure"`
 }
 
 // String returns the string representation

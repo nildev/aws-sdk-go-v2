@@ -157,7 +157,7 @@ type CreateNotebookInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the notebook instance.
-	NotebookInstanceArn *string `type:"string"`
+	NotebookInstanceArn *string `json:"api.sagemaker:CreateNotebookInstanceOutput:NotebookInstanceArn" type:"string"`
 }
 
 // String returns the string representation

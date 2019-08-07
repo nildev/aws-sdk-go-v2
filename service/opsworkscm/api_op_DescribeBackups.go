@@ -52,10 +52,10 @@ type DescribeBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the response to a DescribeBackups request.
-	Backups []Backup `type:"list"`
+	Backups []Backup `json:"opsworks-cm:DescribeBackupsOutput:Backups" type:"list"`
 
 	// This is not currently implemented for DescribeBackups requests.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"opsworks-cm:DescribeBackupsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -74,13 +74,13 @@ type DescribeConfigurationOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of ConfigurationOptionDescription.
-	Options []ConfigurationOptionDescription `type:"list"`
+	Options []ConfigurationOptionDescription `json:"elasticbeanstalk:DescribeConfigurationOptionsOutput:Options" type:"list"`
 
 	// The ARN of the platform.
-	PlatformArn *string `type:"string"`
+	PlatformArn *string `json:"elasticbeanstalk:DescribeConfigurationOptionsOutput:PlatformArn" type:"string"`
 
 	// The name of the solution stack these configuration options belong to.
-	SolutionStackName *string `type:"string"`
+	SolutionStackName *string `json:"elasticbeanstalk:DescribeConfigurationOptionsOutput:SolutionStackName" type:"string"`
 }
 
 // String returns the string representation

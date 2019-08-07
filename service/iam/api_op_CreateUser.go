@@ -93,7 +93,7 @@ type CreateUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure with details about the new IAM user.
-	User *User `type:"structure"`
+	User *User `json:"iam:CreateUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

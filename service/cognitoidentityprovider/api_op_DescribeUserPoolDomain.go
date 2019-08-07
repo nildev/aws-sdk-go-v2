@@ -46,7 +46,7 @@ type DescribeUserPoolDomainOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A domain description object containing information about the domain.
-	DomainDescription *DomainDescriptionType `type:"structure"`
+	DomainDescription *DomainDescriptionType `json:"cognito-idp:DescribeUserPoolDomainOutput:DomainDescription" type:"structure"`
 }
 
 // String returns the string representation

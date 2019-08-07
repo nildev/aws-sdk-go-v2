@@ -54,7 +54,7 @@ func (s GetApplicationPolicyInput) MarshalFields(e protocol.FieldEncoder) error 
 type GetApplicationPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
-	Statements []ApplicationPolicyStatement `locationName:"statements" type:"list"`
+	Statements []ApplicationPolicyStatement `json:"serverlessrepo:GetApplicationPolicyOutput:Statements" locationName:"statements" type:"list"`
 }
 
 // String returns the string representation

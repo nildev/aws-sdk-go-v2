@@ -63,10 +63,10 @@ type DeregisterTargetFromMaintenanceWindowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the maintenance window the target was removed from.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:DeregisterTargetFromMaintenanceWindowOutput:WindowId" min:"20" type:"string"`
 
 	// The ID of the removed target definition.
-	WindowTargetId *string `min:"36" type:"string"`
+	WindowTargetId *string `json:"ssm:DeregisterTargetFromMaintenanceWindowOutput:WindowTargetId" min:"36" type:"string"`
 }
 
 // String returns the string representation

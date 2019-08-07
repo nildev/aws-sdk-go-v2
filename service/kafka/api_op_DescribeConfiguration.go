@@ -57,22 +57,22 @@ type DescribeConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the configuration.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"kafka:DescribeConfigurationOutput:Arn" locationName:"arn" type:"string"`
 
 	// The time when the configuration was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"kafka:DescribeConfigurationOutput:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the configuration.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"kafka:DescribeConfigurationOutput:Description" locationName:"description" type:"string"`
 
 	// The versions of Apache Kafka with which you can use this MSK configuration.
-	KafkaVersions []string `locationName:"kafkaVersions" type:"list"`
+	KafkaVersions []string `json:"kafka:DescribeConfigurationOutput:KafkaVersions" locationName:"kafkaVersions" type:"list"`
 
 	// Latest revision of the configuration.
-	LatestRevision *ConfigurationRevision `locationName:"latestRevision" type:"structure"`
+	LatestRevision *ConfigurationRevision `json:"kafka:DescribeConfigurationOutput:LatestRevision" locationName:"latestRevision" type:"structure"`
 
 	// The name of the configuration.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"kafka:DescribeConfigurationOutput:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation

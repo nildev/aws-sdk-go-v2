@@ -62,7 +62,7 @@ type DescribeProjectOutput struct {
 	// An object describing the project.
 	//
 	// Project is a required field
-	Project *ProjectDescription `locationName:"project" type:"structure" required:"true"`
+	Project *ProjectDescription `json:"projects.iot1click:DescribeProjectOutput:Project" locationName:"project" type:"structure" required:"true"`
 }
 
 // String returns the string representation

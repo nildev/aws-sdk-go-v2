@@ -70,11 +70,11 @@ func (s GetApiMappingsInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetApiMappingsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Items []ApiMapping `locationName:"items" type:"list"`
+	Items []ApiMapping `json:"apigateway:GetApiMappingsOutput:Items" locationName:"items" type:"list"`
 
 	// The next page of elements from this collection. Not valid for the last element
 	// of the collection.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"apigateway:GetApiMappingsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

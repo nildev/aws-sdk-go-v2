@@ -64,7 +64,7 @@ type EstimateTemplateCostOutput struct {
 
 	// An AWS Simple Monthly Calculator URL with a query string that describes the
 	// resources required to run the template.
-	Url *string `type:"string"`
+	Url *string `json:"cloudformation:EstimateTemplateCostOutput:Url" type:"string"`
 }
 
 // String returns the string representation

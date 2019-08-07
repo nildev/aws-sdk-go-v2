@@ -81,13 +81,13 @@ type ListConfigurationsOutput struct {
 
 	// Returns configuration details, including the configuration ID, attribute
 	// names, and attribute values.
-	Configurations []map[string]string `locationName:"configurations" type:"list"`
+	Configurations []map[string]string `json:"discovery:ListConfigurationsOutput:Configurations" locationName:"configurations" type:"list"`
 
 	// Token to retrieve the next set of results. For example, if your call to ListConfigurations
 	// returned 100 items, but you set ListConfigurationsRequest$maxResults to 10,
 	// you received a set of 10 results along with this token. Use this token in
 	// the next query to retrieve the next set of 10.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"discovery:ListConfigurationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

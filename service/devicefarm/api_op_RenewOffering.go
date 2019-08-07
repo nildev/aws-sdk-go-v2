@@ -45,7 +45,7 @@ type RenewOfferingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the status of the offering transaction for the renewal.
-	OfferingTransaction *OfferingTransaction `locationName:"offeringTransaction" type:"structure"`
+	OfferingTransaction *OfferingTransaction `json:"devicefarm:RenewOfferingOutput:OfferingTransaction" locationName:"offeringTransaction" type:"structure"`
 }
 
 // String returns the string representation

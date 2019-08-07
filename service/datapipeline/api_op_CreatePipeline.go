@@ -92,7 +92,7 @@ type CreatePipelineOutput struct {
 	// df-06372391ZG65EXAMPLE.
 	//
 	// PipelineId is a required field
-	PipelineId *string `locationName:"pipelineId" min:"1" type:"string" required:"true"`
+	PipelineId *string `json:"datapipeline:CreatePipelineOutput:PipelineId" locationName:"pipelineId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

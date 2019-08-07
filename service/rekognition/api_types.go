@@ -20,10 +20,10 @@ type AgeRange struct {
 	_ struct{} `type:"structure"`
 
 	// The highest estimated age.
-	High *int64 `type:"integer"`
+	High *int64 `json:"rekognition:AgeRange:High" type:"integer"`
 
 	// The lowest estimated age.
-	Low *int64 `type:"integer"`
+	Low *int64 `json:"rekognition:AgeRange:Low" type:"integer"`
 }
 
 // String returns the string representation
@@ -37,10 +37,10 @@ type Beard struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Beard:Confidence" type:"float"`
 
 	// Boolean value that indicates whether the face has beard or not.
-	Value *bool `type:"boolean"`
+	Value *bool `json:"rekognition:Beard:Value" type:"boolean"`
 }
 
 // String returns the string representation
@@ -72,16 +72,16 @@ type BoundingBox struct {
 	_ struct{} `type:"structure"`
 
 	// Height of the bounding box as a ratio of the overall image height.
-	Height *float64 `type:"float"`
+	Height *float64 `json:"rekognition:BoundingBox:Height" type:"float"`
 
 	// Left coordinate of the bounding box as a ratio of overall image width.
-	Left *float64 `type:"float"`
+	Left *float64 `json:"rekognition:BoundingBox:Left" type:"float"`
 
 	// Top coordinate of the bounding box as a ratio of overall image height.
-	Top *float64 `type:"float"`
+	Top *float64 `json:"rekognition:BoundingBox:Top" type:"float"`
 
 	// Width of the bounding box as a ratio of the overall image width.
-	Width *float64 `type:"float"`
+	Width *float64 `json:"rekognition:BoundingBox:Width" type:"float"`
 }
 
 // String returns the string representation
@@ -96,21 +96,21 @@ type Celebrity struct {
 
 	// Provides information about the celebrity's face, such as its location on
 	// the image.
-	Face *ComparedFace `type:"structure"`
+	Face *ComparedFace `json:"rekognition:Celebrity:Face" type:"structure"`
 
 	// A unique identifier for the celebrity.
-	Id *string `type:"string"`
+	Id *string `json:"rekognition:Celebrity:Id" type:"string"`
 
 	// The confidence, in percentage, that Amazon Rekognition has that the recognized
 	// face is the celebrity.
-	MatchConfidence *float64 `type:"float"`
+	MatchConfidence *float64 `json:"rekognition:Celebrity:MatchConfidence" type:"float"`
 
 	// The name of the celebrity.
-	Name *string `type:"string"`
+	Name *string `json:"rekognition:Celebrity:Name" type:"string"`
 
 	// An array of URLs pointing to additional information about the celebrity.
 	// If there is no additional information about the celebrity, this list is empty.
-	Urls []string `type:"list"`
+	Urls []string `json:"rekognition:Celebrity:Urls" type:"list"`
 }
 
 // String returns the string representation
@@ -123,23 +123,23 @@ type CelebrityDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Bounding box around the body of a celebrity.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"rekognition:CelebrityDetail:BoundingBox" type:"structure"`
 
 	// The confidence, in percentage, that Amazon Rekognition has that the recognized
 	// face is the celebrity.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:CelebrityDetail:Confidence" type:"float"`
 
 	// Face details for the recognized celebrity.
-	Face *FaceDetail `type:"structure"`
+	Face *FaceDetail `json:"rekognition:CelebrityDetail:Face" type:"structure"`
 
 	// The unique identifier for the celebrity.
-	Id *string `type:"string"`
+	Id *string `json:"rekognition:CelebrityDetail:Id" type:"string"`
 
 	// The name of the celebrity.
-	Name *string `type:"string"`
+	Name *string `json:"rekognition:CelebrityDetail:Name" type:"string"`
 
 	// An array of URLs pointing to additional celebrity information.
-	Urls []string `type:"list"`
+	Urls []string `json:"rekognition:CelebrityDetail:Urls" type:"list"`
 }
 
 // String returns the string representation
@@ -154,11 +154,11 @@ type CelebrityRecognition struct {
 	_ struct{} `type:"structure"`
 
 	// Information about a recognized celebrity.
-	Celebrity *CelebrityDetail `type:"structure"`
+	Celebrity *CelebrityDetail `json:"rekognition:CelebrityRecognition:Celebrity" type:"structure"`
 
 	// The time, in milliseconds from the start of the video, that the celebrity
 	// was recognized.
-	Timestamp *int64 `type:"long"`
+	Timestamp *int64 `json:"rekognition:CelebrityRecognition:Timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -175,10 +175,10 @@ type CompareFacesMatch struct {
 
 	// Provides face metadata (bounding box and confidence that the bounding box
 	// actually contains a face).
-	Face *ComparedFace `type:"structure"`
+	Face *ComparedFace `json:"rekognition:CompareFacesMatch:Face" type:"structure"`
 
 	// Level of confidence that the faces match.
-	Similarity *float64 `type:"float"`
+	Similarity *float64 `json:"rekognition:CompareFacesMatch:Similarity" type:"float"`
 }
 
 // String returns the string representation
@@ -192,19 +192,19 @@ type ComparedFace struct {
 	_ struct{} `type:"structure"`
 
 	// Bounding box of the face.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"rekognition:ComparedFace:BoundingBox" type:"structure"`
 
 	// Level of confidence that what the bounding box contains is a face.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:ComparedFace:Confidence" type:"float"`
 
 	// An array of facial landmarks.
-	Landmarks []Landmark `type:"list"`
+	Landmarks []Landmark `json:"rekognition:ComparedFace:Landmarks" type:"list"`
 
 	// Indicates the pose of the face as determined by its pitch, roll, and yaw.
-	Pose *Pose `type:"structure"`
+	Pose *Pose `json:"rekognition:ComparedFace:Pose" type:"structure"`
 
 	// Identifies face image brightness and sharpness.
-	Quality *ImageQuality `type:"structure"`
+	Quality *ImageQuality `json:"rekognition:ComparedFace:Quality" type:"structure"`
 }
 
 // String returns the string representation
@@ -220,10 +220,10 @@ type ComparedSourceImageFace struct {
 	_ struct{} `type:"structure"`
 
 	// Bounding box of the face.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"rekognition:ComparedSourceImageFace:BoundingBox" type:"structure"`
 
 	// Confidence level that the selected bounding box contains a face.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:ComparedSourceImageFace:Confidence" type:"float"`
 }
 
 // String returns the string representation
@@ -236,11 +236,11 @@ type ContentModerationDetection struct {
 	_ struct{} `type:"structure"`
 
 	// The moderation label detected by in the stored video.
-	ModerationLabel *ModerationLabel `type:"structure"`
+	ModerationLabel *ModerationLabel `json:"rekognition:ContentModerationDetection:ModerationLabel" type:"structure"`
 
 	// Time, in milliseconds from the beginning of the video, that the moderation
 	// label was detected.
-	Timestamp *int64 `type:"long"`
+	Timestamp *int64 `json:"rekognition:ContentModerationDetection:Timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -254,10 +254,10 @@ type Emotion struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Emotion:Confidence" type:"float"`
 
 	// Type of emotion detected.
-	Type EmotionName `type:"string" enum:"true"`
+	Type EmotionName `json:"rekognition:Emotion:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -271,10 +271,10 @@ type EyeOpen struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:EyeOpen:Confidence" type:"float"`
 
 	// Boolean value that indicates whether the eyes on the face are open.
-	Value *bool `type:"boolean"`
+	Value *bool `json:"rekognition:EyeOpen:Value" type:"boolean"`
 }
 
 // String returns the string representation
@@ -288,10 +288,10 @@ type Eyeglasses struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Eyeglasses:Confidence" type:"float"`
 
 	// Boolean value that indicates whether the face is wearing eye glasses or not.
-	Value *bool `type:"boolean"`
+	Value *bool `json:"rekognition:Eyeglasses:Value" type:"boolean"`
 }
 
 // String returns the string representation
@@ -305,20 +305,20 @@ type Face struct {
 	_ struct{} `type:"structure"`
 
 	// Bounding box of the face.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"rekognition:Face:BoundingBox" type:"structure"`
 
 	// Confidence level that the bounding box contains a face (and not a different
 	// object such as a tree).
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Face:Confidence" type:"float"`
 
 	// Identifier that you assign to all the faces in the input image.
-	ExternalImageId *string `min:"1" type:"string"`
+	ExternalImageId *string `json:"rekognition:Face:ExternalImageId" min:"1" type:"string"`
 
 	// Unique identifier that Amazon Rekognition assigns to the face.
-	FaceId *string `type:"string"`
+	FaceId *string `json:"rekognition:Face:FaceId" type:"string"`
 
 	// Unique identifier that Amazon Rekognition assigns to the input image.
-	ImageId *string `type:"string"`
+	ImageId *string `json:"rekognition:Face:ImageId" type:"string"`
 }
 
 // String returns the string representation
@@ -354,59 +354,59 @@ type FaceDetail struct {
 
 	// The estimated age range, in years, for the face. Low represents the lowest
 	// estimated age and High represents the highest estimated age.
-	AgeRange *AgeRange `type:"structure"`
+	AgeRange *AgeRange `json:"rekognition:FaceDetail:AgeRange" type:"structure"`
 
 	// Indicates whether or not the face has a beard, and the confidence level in
 	// the determination.
-	Beard *Beard `type:"structure"`
+	Beard *Beard `json:"rekognition:FaceDetail:Beard" type:"structure"`
 
 	// Bounding box of the face. Default attribute.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"rekognition:FaceDetail:BoundingBox" type:"structure"`
 
 	// Confidence level that the bounding box contains a face (and not a different
 	// object such as a tree). Default attribute.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:FaceDetail:Confidence" type:"float"`
 
 	// The emotions detected on the face, and the confidence level in the determination.
 	// For example, HAPPY, SAD, and ANGRY.
-	Emotions []Emotion `type:"list"`
+	Emotions []Emotion `json:"rekognition:FaceDetail:Emotions" type:"list"`
 
 	// Indicates whether or not the face is wearing eye glasses, and the confidence
 	// level in the determination.
-	Eyeglasses *Eyeglasses `type:"structure"`
+	Eyeglasses *Eyeglasses `json:"rekognition:FaceDetail:Eyeglasses" type:"structure"`
 
 	// Indicates whether or not the eyes on the face are open, and the confidence
 	// level in the determination.
-	EyesOpen *EyeOpen `type:"structure"`
+	EyesOpen *EyeOpen `json:"rekognition:FaceDetail:EyesOpen" type:"structure"`
 
 	// Gender of the face and the confidence level in the determination.
-	Gender *Gender `type:"structure"`
+	Gender *Gender `json:"rekognition:FaceDetail:Gender" type:"structure"`
 
 	// Indicates the location of landmarks on the face. Default attribute.
-	Landmarks []Landmark `type:"list"`
+	Landmarks []Landmark `json:"rekognition:FaceDetail:Landmarks" type:"list"`
 
 	// Indicates whether or not the mouth on the face is open, and the confidence
 	// level in the determination.
-	MouthOpen *MouthOpen `type:"structure"`
+	MouthOpen *MouthOpen `json:"rekognition:FaceDetail:MouthOpen" type:"structure"`
 
 	// Indicates whether or not the face has a mustache, and the confidence level
 	// in the determination.
-	Mustache *Mustache `type:"structure"`
+	Mustache *Mustache `json:"rekognition:FaceDetail:Mustache" type:"structure"`
 
 	// Indicates the pose of the face as determined by its pitch, roll, and yaw.
 	// Default attribute.
-	Pose *Pose `type:"structure"`
+	Pose *Pose `json:"rekognition:FaceDetail:Pose" type:"structure"`
 
 	// Identifies image brightness and sharpness. Default attribute.
-	Quality *ImageQuality `type:"structure"`
+	Quality *ImageQuality `json:"rekognition:FaceDetail:Quality" type:"structure"`
 
 	// Indicates whether or not the face is smiling, and the confidence level in
 	// the determination.
-	Smile *Smile `type:"structure"`
+	Smile *Smile `json:"rekognition:FaceDetail:Smile" type:"structure"`
 
 	// Indicates whether or not the face is wearing sunglasses, and the confidence
 	// level in the determination.
-	Sunglasses *Sunglasses `type:"structure"`
+	Sunglasses *Sunglasses `json:"rekognition:FaceDetail:Sunglasses" type:"structure"`
 }
 
 // String returns the string representation
@@ -420,10 +420,10 @@ type FaceDetection struct {
 	_ struct{} `type:"structure"`
 
 	// The face properties for the detected face.
-	Face *FaceDetail `type:"structure"`
+	Face *FaceDetail `json:"rekognition:FaceDetection:Face" type:"structure"`
 
 	// Time, in milliseconds from the start of the video, that the face was detected.
-	Timestamp *int64 `type:"long"`
+	Timestamp *int64 `json:"rekognition:FaceDetection:Timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -438,10 +438,10 @@ type FaceMatch struct {
 
 	// Describes the face properties such as the bounding box, face ID, image ID
 	// of the source image, and external image ID that you assigned.
-	Face *Face `type:"structure"`
+	Face *Face `json:"rekognition:FaceMatch:Face" type:"structure"`
 
 	// Confidence in the match of this face with the input face.
-	Similarity *float64 `type:"float"`
+	Similarity *float64 `json:"rekognition:FaceMatch:Similarity" type:"float"`
 }
 
 // String returns the string representation
@@ -456,10 +456,10 @@ type FaceRecord struct {
 
 	// Describes the face properties such as the bounding box, face ID, image ID
 	// of the input image, and external image ID that you assigned.
-	Face *Face `type:"structure"`
+	Face *Face `json:"rekognition:FaceRecord:Face" type:"structure"`
 
 	// Structure containing attributes of the face that the algorithm detected.
-	FaceDetail *FaceDetail `type:"structure"`
+	FaceDetail *FaceDetail `json:"rekognition:FaceRecord:FaceDetail" type:"structure"`
 }
 
 // String returns the string representation
@@ -473,12 +473,12 @@ type FaceSearchSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of a collection that contains faces that you want to search for.
-	CollectionId *string `min:"1" type:"string"`
+	CollectionId *string `json:"rekognition:FaceSearchSettings:CollectionId" min:"1" type:"string"`
 
 	// Minimum face match confidence score that must be met to return a result for
 	// a recognized face. Default is 70. 0 is the lowest confidence. 100 is the
 	// highest confidence.
-	FaceMatchThreshold *float64 `type:"float"`
+	FaceMatchThreshold *float64 `json:"rekognition:FaceSearchSettings:FaceMatchThreshold" type:"float"`
 }
 
 // String returns the string representation
@@ -504,10 +504,10 @@ type Gender struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Gender:Confidence" type:"float"`
 
 	// Gender of the face.
-	Value GenderType `type:"string" enum:"true"`
+	Value GenderType `json:"rekognition:Gender:Value" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -522,10 +522,10 @@ type Geometry struct {
 
 	// An axis-aligned coarse representation of the detected text's location on
 	// the image.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"rekognition:Geometry:BoundingBox" type:"structure"`
 
 	// Within the bounding box, a fine-grained polygon around the detected text.
-	Polygon []Point `type:"list"`
+	Polygon []Point `json:"rekognition:Geometry:Polygon" type:"list"`
 }
 
 // String returns the string representation
@@ -565,10 +565,10 @@ type Image struct {
 	// Blob of image bytes up to 5 MBs.
 	//
 	// Bytes is automatically base64 encoded/decoded by the SDK.
-	Bytes []byte `min:"1" type:"blob"`
+	Bytes []byte `json:"rekognition:Image:Bytes" min:"1" type:"blob"`
 
 	// Identifies an S3 object as the image source.
-	S3Object *S3Object `type:"structure"`
+	S3Object *S3Object `json:"rekognition:Image:S3Object" type:"structure"`
 }
 
 // String returns the string representation
@@ -600,11 +600,11 @@ type ImageQuality struct {
 
 	// Value representing brightness of the face. The service returns a value between
 	// 0 and 100 (inclusive). A higher value indicates a brighter face image.
-	Brightness *float64 `type:"float"`
+	Brightness *float64 `json:"rekognition:ImageQuality:Brightness" type:"float"`
 
 	// Value representing sharpness of the face. The service returns a value between
 	// 0 and 100 (inclusive). A higher value indicates a sharper face image.
-	Sharpness *float64 `type:"float"`
+	Sharpness *float64 `json:"rekognition:ImageQuality:Sharpness" type:"float"`
 }
 
 // String returns the string representation
@@ -618,11 +618,11 @@ type Instance struct {
 	_ struct{} `type:"structure"`
 
 	// The position of the label instance on the image.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"rekognition:Instance:BoundingBox" type:"structure"`
 
 	// The confidence that Amazon Rekognition has in the accuracy of the bounding
 	// box.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Instance:Confidence" type:"float"`
 }
 
 // String returns the string representation
@@ -637,7 +637,7 @@ type KinesisDataStream struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of the output Amazon Kinesis Data Streams stream.
-	Arn *string `type:"string"`
+	Arn *string `json:"rekognition:KinesisDataStream:Arn" type:"string"`
 }
 
 // String returns the string representation
@@ -652,7 +652,7 @@ type KinesisVideoStream struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of the Kinesis video stream stream that streams the source video.
-	Arn *string `type:"string"`
+	Arn *string `json:"rekognition:KinesisVideoStream:Arn" type:"string"`
 }
 
 // String returns the string representation
@@ -666,18 +666,18 @@ type Label struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Label:Confidence" type:"float"`
 
 	// If Label represents an object, Instances contains the bounding boxes for
 	// each instance of the detected object. Bounding boxes are returned for common
 	// object labels such as people, cars, furniture, apparel or pets.
-	Instances []Instance `type:"list"`
+	Instances []Instance `json:"rekognition:Label:Instances" type:"list"`
 
 	// The name (label) of the object or scene.
-	Name *string `type:"string"`
+	Name *string `json:"rekognition:Label:Name" type:"string"`
 
 	// The parent labels for a label. The response includes all ancestor labels.
-	Parents []Parent `type:"list"`
+	Parents []Parent `json:"rekognition:Label:Parents" type:"list"`
 }
 
 // String returns the string representation
@@ -691,10 +691,10 @@ type LabelDetection struct {
 	_ struct{} `type:"structure"`
 
 	// Details about the detected label.
-	Label *Label `type:"structure"`
+	Label *Label `json:"rekognition:LabelDetection:Label" type:"structure"`
 
 	// Time, in milliseconds from the start of the video, that the label was detected.
-	Timestamp *int64 `type:"long"`
+	Timestamp *int64 `json:"rekognition:LabelDetection:Timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -707,17 +707,17 @@ type Landmark struct {
 	_ struct{} `type:"structure"`
 
 	// Type of landmark.
-	Type LandmarkType `type:"string" enum:"true"`
+	Type LandmarkType `json:"rekognition:Landmark:Type" type:"string" enum:"true"`
 
 	// The x-coordinate from the top left of the landmark expressed as the ratio
 	// of the width of the image. For example, if the image is 700 x 200 and the
 	// x-coordinate of the landmark is at 350 pixels, this value is 0.5.
-	X *float64 `type:"float"`
+	X *float64 `json:"rekognition:Landmark:X" type:"float"`
 
 	// The y-coordinate from the top left of the landmark expressed as the ratio
 	// of the height of the image. For example, if the image is 700 x 200 and the
 	// y-coordinate of the landmark is at 100 pixels, this value is 0.5.
-	Y *float64 `type:"float"`
+	Y *float64 `json:"rekognition:Landmark:Y" type:"float"`
 }
 
 // String returns the string representation
@@ -738,14 +738,14 @@ type ModerationLabel struct {
 	// If you don't specify the MinConfidence parameter in the call to DetectModerationLabels,
 	// the operation returns labels with a confidence value greater than or equal
 	// to 50 percent.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:ModerationLabel:Confidence" type:"float"`
 
 	// The label name for the type of content detected in the image.
-	Name *string `type:"string"`
+	Name *string `json:"rekognition:ModerationLabel:Name" type:"string"`
 
 	// The name for the parent label. Labels at the top level of the hierarchy have
 	// the parent label "".
-	ParentName *string `type:"string"`
+	ParentName *string `json:"rekognition:ModerationLabel:ParentName" type:"string"`
 }
 
 // String returns the string representation
@@ -759,10 +759,10 @@ type MouthOpen struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:MouthOpen:Confidence" type:"float"`
 
 	// Boolean value that indicates whether the mouth on the face is open or not.
-	Value *bool `type:"boolean"`
+	Value *bool `json:"rekognition:MouthOpen:Value" type:"boolean"`
 }
 
 // String returns the string representation
@@ -776,10 +776,10 @@ type Mustache struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Mustache:Confidence" type:"float"`
 
 	// Boolean value that indicates whether the face has mustache or not.
-	Value *bool `type:"boolean"`
+	Value *bool `json:"rekognition:Mustache:Value" type:"boolean"`
 }
 
 // String returns the string representation
@@ -797,13 +797,13 @@ type NotificationChannel struct {
 	// to the Amazon SNS topic.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"rekognition:NotificationChannel:RoleArn" type:"string" required:"true"`
 
 	// The Amazon SNS topic to which Amazon Rekognition to posts the completion
 	// status.
 	//
 	// SNSTopicArn is a required field
-	SNSTopicArn *string `type:"string" required:"true"`
+	SNSTopicArn *string `json:"rekognition:NotificationChannel:SNSTopicArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -834,7 +834,7 @@ type Parent struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the parent label.
-	Name *string `type:"string"`
+	Name *string `json:"rekognition:Parent:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -847,15 +847,15 @@ type PersonDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Bounding box around the detected person.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"rekognition:PersonDetail:BoundingBox" type:"structure"`
 
 	// Face details for the detected person.
-	Face *FaceDetail `type:"structure"`
+	Face *FaceDetail `json:"rekognition:PersonDetail:Face" type:"structure"`
 
 	// Identifier for the person detected person within a video. Use to keep track
 	// of the person throughout the video. The identifier is not stored by Amazon
 	// Rekognition.
-	Index *int64 `type:"long"`
+	Index *int64 `json:"rekognition:PersonDetail:Index" type:"long"`
 }
 
 // String returns the string representation
@@ -874,11 +874,11 @@ type PersonDetection struct {
 	_ struct{} `type:"structure"`
 
 	// Details about a person whose path was tracked in a video.
-	Person *PersonDetail `type:"structure"`
+	Person *PersonDetail `json:"rekognition:PersonDetection:Person" type:"structure"`
 
 	// The time, in milliseconds from the start of the video, that the person's
 	// path was tracked.
-	Timestamp *int64 `type:"long"`
+	Timestamp *int64 `json:"rekognition:PersonDetection:Timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -896,14 +896,14 @@ type PersonMatch struct {
 
 	// Information about the faces in the input collection that match the face of
 	// a person in the video.
-	FaceMatches []FaceMatch `type:"list"`
+	FaceMatches []FaceMatch `json:"rekognition:PersonMatch:FaceMatches" type:"list"`
 
 	// Information about the matched person.
-	Person *PersonDetail `type:"structure"`
+	Person *PersonDetail `json:"rekognition:PersonMatch:Person" type:"structure"`
 
 	// The time, in milliseconds from the beginning of the video, that the person
 	// was matched in the video.
-	Timestamp *int64 `type:"long"`
+	Timestamp *int64 `json:"rekognition:PersonMatch:Timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -923,10 +923,10 @@ type Point struct {
 	_ struct{} `type:"structure"`
 
 	// The value of the X coordinate for a point on a Polygon.
-	X *float64 `type:"float"`
+	X *float64 `json:"rekognition:Point:X" type:"float"`
 
 	// The value of the Y coordinate for a point on a Polygon.
-	Y *float64 `type:"float"`
+	Y *float64 `json:"rekognition:Point:Y" type:"float"`
 }
 
 // String returns the string representation
@@ -939,13 +939,13 @@ type Pose struct {
 	_ struct{} `type:"structure"`
 
 	// Value representing the face rotation on the pitch axis.
-	Pitch *float64 `type:"float"`
+	Pitch *float64 `json:"rekognition:Pose:Pitch" type:"float"`
 
 	// Value representing the face rotation on the roll axis.
-	Roll *float64 `type:"float"`
+	Roll *float64 `json:"rekognition:Pose:Roll" type:"float"`
 
 	// Value representing the face rotation on the yaw axis.
-	Yaw *float64 `type:"float"`
+	Yaw *float64 `json:"rekognition:Pose:Yaw" type:"float"`
 }
 
 // String returns the string representation
@@ -965,13 +965,13 @@ type S3Object struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the S3 bucket.
-	Bucket *string `min:"3" type:"string"`
+	Bucket *string `json:"rekognition:S3Object:Bucket" min:"3" type:"string"`
 
 	// S3 object key name.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"rekognition:S3Object:Name" min:"1" type:"string"`
 
 	// If the bucket is versioning enabled, you can specify the object version.
-	Version *string `min:"1" type:"string"`
+	Version *string `json:"rekognition:S3Object:Version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1004,10 +1004,10 @@ type Smile struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Smile:Confidence" type:"float"`
 
 	// Boolean value that indicates whether the face is smiling or not.
-	Value *bool `type:"boolean"`
+	Value *bool `json:"rekognition:Smile:Value" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1024,10 +1024,10 @@ type StreamProcessor struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the Amazon Rekognition stream processor.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"rekognition:StreamProcessor:Name" min:"1" type:"string"`
 
 	// Current status of the Amazon Rekognition stream processor.
-	Status StreamProcessorStatus `type:"string" enum:"true"`
+	Status StreamProcessorStatus `json:"rekognition:StreamProcessor:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1040,7 +1040,7 @@ type StreamProcessorInput struct {
 	_ struct{} `type:"structure"`
 
 	// The Kinesis video stream input stream for the source streaming video.
-	KinesisVideoStream *KinesisVideoStream `type:"structure"`
+	KinesisVideoStream *KinesisVideoStream `json:"rekognition:StreamProcessorInput:KinesisVideoStream" type:"structure"`
 }
 
 // String returns the string representation
@@ -1057,7 +1057,7 @@ type StreamProcessorOutput struct {
 
 	// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream
 	// processor streams the analysis results.
-	KinesisDataStream *KinesisDataStream `type:"structure"`
+	KinesisDataStream *KinesisDataStream `json:"rekognition:StreamProcessorOutput:KinesisDataStream" type:"structure"`
 }
 
 // String returns the string representation
@@ -1071,7 +1071,7 @@ type StreamProcessorSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Face search settings to use on a streaming video.
-	FaceSearch *FaceSearchSettings `type:"structure"`
+	FaceSearch *FaceSearchSettings `json:"rekognition:StreamProcessorSettings:FaceSearch" type:"structure"`
 }
 
 // String returns the string representation
@@ -1100,10 +1100,10 @@ type Sunglasses struct {
 	_ struct{} `type:"structure"`
 
 	// Level of confidence in the determination.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:Sunglasses:Confidence" type:"float"`
 
 	// Boolean value that indicates whether the face is wearing sunglasses or not.
-	Value *bool `type:"boolean"`
+	Value *bool `json:"rekognition:Sunglasses:Value" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1128,26 +1128,26 @@ type TextDetection struct {
 
 	// The confidence that Amazon Rekognition has in the accuracy of the detected
 	// text and the accuracy of the geometry points around the detected text.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"rekognition:TextDetection:Confidence" type:"float"`
 
 	// The word or line of text recognized by Amazon Rekognition.
-	DetectedText *string `type:"string"`
+	DetectedText *string `json:"rekognition:TextDetection:DetectedText" type:"string"`
 
 	// The location of the detected text on the image. Includes an axis aligned
 	// coarse bounding box surrounding the text and a finer grain polygon for more
 	// accurate spatial information.
-	Geometry *Geometry `type:"structure"`
+	Geometry *Geometry `json:"rekognition:TextDetection:Geometry" type:"structure"`
 
 	// The identifier for the detected text. The identifier is only unique for a
 	// single call to DetectText.
-	Id *int64 `type:"integer"`
+	Id *int64 `json:"rekognition:TextDetection:Id" type:"integer"`
 
 	// The Parent identifier for the detected text identified by the value of ID.
 	// If the type of detected text is LINE, the value of ParentId is Null.
-	ParentId *int64 `type:"integer"`
+	ParentId *int64 `json:"rekognition:TextDetection:ParentId" type:"integer"`
 
 	// The type of text that was detected.
-	Type TextTypes `type:"string" enum:"true"`
+	Type TextTypes `json:"rekognition:TextDetection:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1162,7 +1162,7 @@ type UnindexedFace struct {
 
 	// The structure that contains attributes of a face that IndexFacesdetected,
 	// but didn't index.
-	FaceDetail *FaceDetail `type:"structure"`
+	FaceDetail *FaceDetail `json:"rekognition:UnindexedFace:FaceDetail" type:"structure"`
 
 	// An array of reasons that specify why a face wasn't indexed.
 	//
@@ -1179,7 +1179,7 @@ type UnindexedFace struct {
 	//    * LOW_CONFIDENCE - The face was detected with a low confidence.
 	//
 	//    * SMALL_BOUNDING_BOX - The bounding box around the face is too small.
-	Reasons []Reason `type:"list"`
+	Reasons []Reason `json:"rekognition:UnindexedFace:Reasons" type:"list"`
 }
 
 // String returns the string representation
@@ -1194,7 +1194,7 @@ type Video struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 bucket name and file name for the video.
-	S3Object *S3Object `type:"structure"`
+	S3Object *S3Object `json:"rekognition:Video:S3Object" type:"structure"`
 }
 
 // String returns the string representation
@@ -1224,22 +1224,22 @@ type VideoMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// Type of compression used in the analyzed video.
-	Codec *string `type:"string"`
+	Codec *string `json:"rekognition:VideoMetadata:Codec" type:"string"`
 
 	// Length of the video in milliseconds.
-	DurationMillis *int64 `type:"long"`
+	DurationMillis *int64 `json:"rekognition:VideoMetadata:DurationMillis" type:"long"`
 
 	// Format of the analyzed video. Possible values are MP4, MOV and AVI.
-	Format *string `type:"string"`
+	Format *string `json:"rekognition:VideoMetadata:Format" type:"string"`
 
 	// Vertical pixel dimension of the video.
-	FrameHeight *int64 `type:"long"`
+	FrameHeight *int64 `json:"rekognition:VideoMetadata:FrameHeight" type:"long"`
 
 	// Number of frames per second in the video.
-	FrameRate *float64 `type:"float"`
+	FrameRate *float64 `json:"rekognition:VideoMetadata:FrameRate" type:"float"`
 
 	// Horizontal pixel dimension of the video.
-	FrameWidth *int64 `type:"long"`
+	FrameWidth *int64 `json:"rekognition:VideoMetadata:FrameWidth" type:"long"`
 }
 
 // String returns the string representation

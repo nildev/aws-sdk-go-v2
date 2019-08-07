@@ -53,17 +53,17 @@ type GetHostReservationPurchasePreviewOutput struct {
 
 	// The currency in which the totalUpfrontPrice and totalHourlyPrice amounts
 	// are specified. At this time, the only supported currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:GetHostReservationPurchasePreviewOutput:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// The purchase information of the Dedicated Host reservation and the Dedicated
 	// Hosts associated with it.
-	Purchase []Purchase `locationName:"purchase" locationNameList:"item" type:"list"`
+	Purchase []Purchase `json:"ec2:GetHostReservationPurchasePreviewOutput:Purchase" locationName:"purchase" locationNameList:"item" type:"list"`
 
 	// The potential total hourly price of the reservation per hour.
-	TotalHourlyPrice *string `locationName:"totalHourlyPrice" type:"string"`
+	TotalHourlyPrice *string `json:"ec2:GetHostReservationPurchasePreviewOutput:TotalHourlyPrice" locationName:"totalHourlyPrice" type:"string"`
 
 	// The potential total upfront price. This is billed immediately.
-	TotalUpfrontPrice *string `locationName:"totalUpfrontPrice" type:"string"`
+	TotalUpfrontPrice *string `json:"ec2:GetHostReservationPurchasePreviewOutput:TotalUpfrontPrice" locationName:"totalUpfrontPrice" type:"string"`
 }
 
 // String returns the string representation

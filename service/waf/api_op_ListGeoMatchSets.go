@@ -50,14 +50,14 @@ type ListGeoMatchSetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of GeoMatchSetSummary objects.
-	GeoMatchSets []GeoMatchSetSummary `type:"list"`
+	GeoMatchSets []GeoMatchSetSummary `json:"waf:ListGeoMatchSetsOutput:GeoMatchSets" type:"list"`
 
 	// If you have more GeoMatchSet objects than the number that you specified for
 	// Limit in the request, the response includes a NextMarker value. To list more
 	// GeoMatchSet objects, submit another ListGeoMatchSets request, and specify
 	// the NextMarker value from the response in the NextMarker value in the next
 	// request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListGeoMatchSetsOutput:NextMarker" min:"1" type:"string"`
 }
 
 // String returns the string representation

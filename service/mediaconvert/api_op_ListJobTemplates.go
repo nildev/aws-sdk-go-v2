@@ -103,10 +103,10 @@ type ListJobTemplatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of Job templates.
-	JobTemplates []JobTemplate `locationName:"jobTemplates" type:"list"`
+	JobTemplates []JobTemplate `json:"mediaconvert:ListJobTemplatesOutput:JobTemplates" locationName:"jobTemplates" type:"list"`
 
 	// Use this string to request the next batch of job templates.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediaconvert:ListJobTemplatesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

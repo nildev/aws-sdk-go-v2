@@ -88,7 +88,7 @@ type InvokeAsyncOutput struct {
 	_ struct{} `deprecated:"true" type:"structure"`
 
 	// The status code.
-	Status *int64 `location:"statusCode" type:"integer"`
+	Status *int64 `json:"lambda:InvokeAsyncOutput:Status" location:"statusCode" type:"integer"`
 }
 
 // String returns the string representation

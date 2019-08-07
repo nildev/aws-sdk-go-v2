@@ -82,13 +82,13 @@ type UpdateUserOutput struct {
 	// user account is assigned to.
 	//
 	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `json:"transfer:UpdateUserOutput:ServerId" type:"string" required:"true"`
 
 	// The unique identifier for a user that is assigned to the SFTP server instance
 	// that was specified in the request.
 	//
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `json:"transfer:UpdateUserOutput:UserName" type:"string" required:"true"`
 }
 
 // String returns the string representation

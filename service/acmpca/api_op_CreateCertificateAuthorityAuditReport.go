@@ -65,10 +65,10 @@ type CreateCertificateAuthorityAuditReportOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An alphanumeric string that contains a report identifier.
-	AuditReportId *string `min:"36" type:"string"`
+	AuditReportId *string `json:"acm-pca:CreateCertificateAuthorityAuditReportOutput:AuditReportId" min:"36" type:"string"`
 
 	// The key that uniquely identifies the report file in your S3 bucket.
-	S3Key *string `type:"string"`
+	S3Key *string `json:"acm-pca:CreateCertificateAuthorityAuditReportOutput:S3Key" type:"string"`
 }
 
 // String returns the string representation

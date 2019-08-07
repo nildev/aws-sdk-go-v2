@@ -33,7 +33,7 @@ type GetInvitationsCountOutput struct {
 
 	// The number of all membership invitations sent to this Security Hub member
 	// account, not including the currently accepted invitation.
-	InvitationsCount *int64 `type:"integer"`
+	InvitationsCount *int64 `json:"securityhub:GetInvitationsCountOutput:InvitationsCount" type:"integer"`
 }
 
 // String returns the string representation

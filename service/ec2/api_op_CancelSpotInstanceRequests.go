@@ -51,7 +51,7 @@ type CancelSpotInstanceRequestsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// One or more Spot Instance requests.
-	CancelledSpotInstanceRequests []CancelledSpotInstanceRequest `locationName:"spotInstanceRequestSet" locationNameList:"item" type:"list"`
+	CancelledSpotInstanceRequests []CancelledSpotInstanceRequest `json:"ec2:CancelSpotInstanceRequestsOutput:CancelledSpotInstanceRequests" locationName:"spotInstanceRequestSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

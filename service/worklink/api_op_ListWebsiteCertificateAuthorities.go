@@ -86,10 +86,10 @@ type ListWebsiteCertificateAuthoritiesOutput struct {
 
 	// The pagination token used to retrieve the next page of results for this operation.
 	// If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"worklink:ListWebsiteCertificateAuthoritiesOutput:NextToken" min:"1" type:"string"`
 
 	// Information about the certificates.
-	WebsiteCertificateAuthorities []WebsiteCaSummary `type:"list"`
+	WebsiteCertificateAuthorities []WebsiteCaSummary `json:"worklink:ListWebsiteCertificateAuthoritiesOutput:WebsiteCertificateAuthorities" type:"list"`
 }
 
 // String returns the string representation

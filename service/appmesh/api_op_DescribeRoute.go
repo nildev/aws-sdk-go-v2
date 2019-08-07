@@ -98,7 +98,7 @@ type DescribeRouteOutput struct {
 	// The full description of your route.
 	//
 	// Route is a required field
-	Route *RouteData `locationName:"route" type:"structure" required:"true"`
+	Route *RouteData `json:"appmesh:DescribeRouteOutput:Route" locationName:"route" type:"structure" required:"true"`
 }
 
 // String returns the string representation

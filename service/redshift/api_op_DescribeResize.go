@@ -50,77 +50,77 @@ type DescribeResizeOutput struct {
 	// The average rate of the resize operation over the last few minutes, measured
 	// in megabytes per second. After the resize operation completes, this value
 	// shows the average rate of the entire resize operation.
-	AvgResizeRateInMegaBytesPerSecond *float64 `type:"double"`
+	AvgResizeRateInMegaBytesPerSecond *float64 `json:"redshift:DescribeResizeOutput:AvgResizeRateInMegaBytesPerSecond" type:"double"`
 
 	// The percent of data transferred from source cluster to target cluster.
-	DataTransferProgressPercent *float64 `type:"double"`
+	DataTransferProgressPercent *float64 `json:"redshift:DescribeResizeOutput:DataTransferProgressPercent" type:"double"`
 
 	// The amount of seconds that have elapsed since the resize operation began.
 	// After the resize operation completes, this value shows the total actual time,
 	// in seconds, for the resize operation.
-	ElapsedTimeInSeconds *int64 `type:"long"`
+	ElapsedTimeInSeconds *int64 `json:"redshift:DescribeResizeOutput:ElapsedTimeInSeconds" type:"long"`
 
 	// The estimated time remaining, in seconds, until the resize operation is complete.
 	// This value is calculated based on the average resize rate and the estimated
 	// amount of data remaining to be processed. Once the resize operation is complete,
 	// this value will be 0.
-	EstimatedTimeToCompletionInSeconds *int64 `type:"long"`
+	EstimatedTimeToCompletionInSeconds *int64 `json:"redshift:DescribeResizeOutput:EstimatedTimeToCompletionInSeconds" type:"long"`
 
 	// The names of tables that have been completely imported .
 	//
 	// Valid Values: List of table names.
-	ImportTablesCompleted []string `type:"list"`
+	ImportTablesCompleted []string `json:"redshift:DescribeResizeOutput:ImportTablesCompleted" type:"list"`
 
 	// The names of tables that are being currently imported.
 	//
 	// Valid Values: List of table names.
-	ImportTablesInProgress []string `type:"list"`
+	ImportTablesInProgress []string `json:"redshift:DescribeResizeOutput:ImportTablesInProgress" type:"list"`
 
 	// The names of tables that have not been yet imported.
 	//
 	// Valid Values: List of table names
-	ImportTablesNotStarted []string `type:"list"`
+	ImportTablesNotStarted []string `json:"redshift:DescribeResizeOutput:ImportTablesNotStarted" type:"list"`
 
 	// An optional string to provide additional details about the resize action.
-	Message *string `type:"string"`
+	Message *string `json:"redshift:DescribeResizeOutput:Message" type:"string"`
 
 	// While the resize operation is in progress, this value shows the current amount
 	// of data, in megabytes, that has been processed so far. When the resize operation
 	// is complete, this value shows the total amount of data, in megabytes, on
 	// the cluster, which may be more or less than TotalResizeDataInMegaBytes (the
 	// estimated total amount of data before resize).
-	ProgressInMegaBytes *int64 `type:"long"`
+	ProgressInMegaBytes *int64 `json:"redshift:DescribeResizeOutput:ProgressInMegaBytes" type:"long"`
 
 	// An enum with possible values of ClassicResize and ElasticResize. These values
 	// describe the type of resize operation being performed.
-	ResizeType *string `type:"string"`
+	ResizeType *string `json:"redshift:DescribeResizeOutput:ResizeType" type:"string"`
 
 	// The status of the resize operation.
 	//
 	// Valid Values: NONE | IN_PROGRESS | FAILED | SUCCEEDED | CANCELLING
-	Status *string `type:"string"`
+	Status *string `json:"redshift:DescribeResizeOutput:Status" type:"string"`
 
 	// The cluster type after the resize operation is complete.
 	//
 	// Valid Values: multi-node | single-node
-	TargetClusterType *string `type:"string"`
+	TargetClusterType *string `json:"redshift:DescribeResizeOutput:TargetClusterType" type:"string"`
 
 	// The type of encryption for the cluster after the resize is complete.
 	//
 	// Possible values are KMS and None. In the China region possible values are:
 	// Legacy and None.
-	TargetEncryptionType *string `type:"string"`
+	TargetEncryptionType *string `json:"redshift:DescribeResizeOutput:TargetEncryptionType" type:"string"`
 
 	// The node type that the cluster will have after the resize operation is complete.
-	TargetNodeType *string `type:"string"`
+	TargetNodeType *string `json:"redshift:DescribeResizeOutput:TargetNodeType" type:"string"`
 
 	// The number of nodes that the cluster will have after the resize operation
 	// is complete.
-	TargetNumberOfNodes *int64 `type:"integer"`
+	TargetNumberOfNodes *int64 `json:"redshift:DescribeResizeOutput:TargetNumberOfNodes" type:"integer"`
 
 	// The estimated total amount of data, in megabytes, on the cluster before the
 	// resize operation began.
-	TotalResizeDataInMegaBytes *int64 `type:"long"`
+	TotalResizeDataInMegaBytes *int64 `json:"redshift:DescribeResizeOutput:TotalResizeDataInMegaBytes" type:"long"`
 }
 
 // String returns the string representation

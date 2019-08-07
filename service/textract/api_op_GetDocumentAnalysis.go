@@ -63,26 +63,26 @@ type GetDocumentAnalysisOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The results of the text analysis operation.
-	Blocks []Block `type:"list"`
+	Blocks []Block `json:"textract:GetDocumentAnalysisOutput:Blocks" type:"list"`
 
 	// Information about a document that Amazon Textract processed. DocumentMetadata
 	// is returned in every page of paginated responses from an Amazon Textract
 	// video operation.
-	DocumentMetadata *DocumentMetadata `type:"structure"`
+	DocumentMetadata *DocumentMetadata `json:"textract:GetDocumentAnalysisOutput:DocumentMetadata" type:"structure"`
 
 	// The current status of the text detection job.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"textract:GetDocumentAnalysisOutput:JobStatus" type:"string" enum:"true"`
 
 	// If the response is truncated, Amazon Textract returns this token. You can
 	// use this token in the subsequent request to retrieve the next set of text
 	// detection results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"textract:GetDocumentAnalysisOutput:NextToken" min:"1" type:"string"`
 
 	// The current status of an asynchronous document analysis operation.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"textract:GetDocumentAnalysisOutput:StatusMessage" type:"string"`
 
 	// A list of warnings that occurred during the document analysis operation.
-	Warnings []Warning `type:"list"`
+	Warnings []Warning `json:"textract:GetDocumentAnalysisOutput:Warnings" type:"list"`
 }
 
 // String returns the string representation

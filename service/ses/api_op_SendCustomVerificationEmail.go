@@ -59,7 +59,7 @@ type SendCustomVerificationEmailOutput struct {
 
 	// The unique message identifier returned from the SendCustomVerificationEmail
 	// operation.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"email:SendCustomVerificationEmailOutput:MessageId" type:"string"`
 }
 
 // String returns the string representation

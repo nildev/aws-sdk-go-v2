@@ -225,10 +225,10 @@ type CreateChangeSetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the change set.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"cloudformation:CreateChangeSetOutput:Id" min:"1" type:"string"`
 
 	// The unique ID of the stack.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:CreateChangeSetOutput:StackId" type:"string"`
 }
 
 // String returns the string representation

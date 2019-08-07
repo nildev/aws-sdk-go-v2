@@ -30,13 +30,13 @@ type DescribeEventConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date of the event configuration.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:DescribeEventConfigurationsOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The event configurations.
-	EventConfigurations map[string]Configuration `locationName:"eventConfigurations" type:"map"`
+	EventConfigurations map[string]Configuration `json:"iot:DescribeEventConfigurationsOutput:EventConfigurations" locationName:"eventConfigurations" type:"map"`
 
 	// The date the event configurations were last modified.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:DescribeEventConfigurationsOutput:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

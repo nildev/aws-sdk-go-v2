@@ -48,10 +48,10 @@ type ListDatasetImportJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of dataset import jobs.
-	DatasetImportJobs []DatasetImportJobSummary `locationName:"datasetImportJobs" type:"list"`
+	DatasetImportJobs []DatasetImportJobSummary `json:"personalize:ListDatasetImportJobsOutput:DatasetImportJobs" locationName:"datasetImportJobs" type:"list"`
 
 	// A token for getting the next set of dataset import jobs (if they exist).
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListDatasetImportJobsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

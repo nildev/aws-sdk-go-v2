@@ -68,7 +68,7 @@ type GetHealthCheckLastFailureReasonOutput struct {
 	// checker that is reporting a last failure reason.
 	//
 	// HealthCheckObservations is a required field
-	HealthCheckObservations []HealthCheckObservation `locationNameList:"HealthCheckObservation" type:"list" required:"true"`
+	HealthCheckObservations []HealthCheckObservation `json:"route53:GetHealthCheckLastFailureReasonOutput:HealthCheckObservations" locationNameList:"HealthCheckObservation" type:"list" required:"true"`
 }
 
 // String returns the string representation

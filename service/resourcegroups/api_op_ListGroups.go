@@ -94,14 +94,14 @@ type ListGroupsOutput struct {
 
 	// A list of GroupIdentifier objects. Each identifier is an object that contains
 	// both the GroupName and the GroupArn.
-	GroupIdentifiers []GroupIdentifier `type:"list"`
+	GroupIdentifiers []GroupIdentifier `json:"resource-groups:ListGroupsOutput:GroupIdentifiers" type:"list"`
 
 	// A list of resource groups.
-	Groups []Group `deprecated:"true" type:"list"`
+	Groups []Group `json:"resource-groups:ListGroupsOutput:Groups" deprecated:"true" type:"list"`
 
 	// The NextToken value to include in a subsequent ListGroups request, to get
 	// more results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"resource-groups:ListGroupsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

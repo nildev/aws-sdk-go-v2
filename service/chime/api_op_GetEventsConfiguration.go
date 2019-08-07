@@ -71,7 +71,7 @@ type GetEventsConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The events configuration details.
-	EventsConfiguration *EventsConfiguration `type:"structure"`
+	EventsConfiguration *EventsConfiguration `json:"chime:GetEventsConfigurationOutput:EventsConfiguration" type:"structure"`
 }
 
 // String returns the string representation

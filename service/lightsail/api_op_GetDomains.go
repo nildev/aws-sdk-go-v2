@@ -29,11 +29,11 @@ type GetDomainsOutput struct {
 
 	// An array of key-value pairs containing information about each of the domain
 	// entries in the user's account.
-	Domains []Domain `locationName:"domains" type:"list"`
+	Domains []Domain `json:"lightsail:GetDomainsOutput:Domains" locationName:"domains" type:"list"`
 
 	// A token used for advancing to the next page of results from your get active
 	// names request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetDomainsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

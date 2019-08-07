@@ -81,11 +81,11 @@ type GetBotsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of botMetadata objects, with one entry for each bot.
-	Bots []BotMetadata `locationName:"bots" type:"list"`
+	Bots []BotMetadata `json:"models.lex:GetBotsOutput:Bots" locationName:"bots" type:"list"`
 
 	// If the response is truncated, it includes a pagination token that you can
 	// specify in your next request to fetch the next page of bots.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetBotsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

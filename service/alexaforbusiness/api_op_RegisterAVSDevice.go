@@ -87,7 +87,7 @@ type RegisterAVSDeviceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the device.
-	DeviceArn *string `type:"string"`
+	DeviceArn *string `json:"a4b:RegisterAVSDeviceOutput:DeviceArn" type:"string"`
 }
 
 // String returns the string representation

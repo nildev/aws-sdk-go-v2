@@ -39,10 +39,10 @@ type DescribeDirectConnectGatewayAttachmentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attachments.
-	DirectConnectGatewayAttachments []DirectConnectGatewayAttachment `locationName:"directConnectGatewayAttachments" type:"list"`
+	DirectConnectGatewayAttachments []DirectConnectGatewayAttachment `json:"directconnect:DescribeDirectConnectGatewayAttachmentsOutput:DirectConnectGatewayAttachments" locationName:"directConnectGatewayAttachments" type:"list"`
 
 	// The token to retrieve the next page.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"directconnect:DescribeDirectConnectGatewayAttachmentsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

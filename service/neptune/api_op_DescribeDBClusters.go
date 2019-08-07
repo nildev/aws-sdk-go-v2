@@ -74,10 +74,10 @@ type DescribeDBClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains a list of DB clusters for the user.
-	DBClusters []DBCluster `locationNameList:"DBCluster" type:"list"`
+	DBClusters []DBCluster `json:"rds:DescribeDBClustersOutput:DBClusters" locationNameList:"DBCluster" type:"list"`
 
 	// A pagination token that can be used in a subsequent DescribeDBClusters request.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeDBClustersOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

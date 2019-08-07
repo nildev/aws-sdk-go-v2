@@ -59,15 +59,15 @@ type ListFileSharesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of information about the file gateway's file shares.
-	FileShareInfoList []FileShareInfo `type:"list"`
+	FileShareInfoList []FileShareInfo `json:"storagegateway:ListFileSharesOutput:FileShareInfoList" type:"list"`
 
 	// If the request includes Marker, the response returns that value in this field.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"storagegateway:ListFileSharesOutput:Marker" min:"1" type:"string"`
 
 	// If a value is present, there are more file shares to return. In a subsequent
 	// request, use NextMarker as the value for Marker to retrieve the next set
 	// of file shares.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"storagegateway:ListFileSharesOutput:NextMarker" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -127,10 +127,10 @@ type GetResourceSharesOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ram:GetResourceSharesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the resource shares.
-	ResourceShares []ResourceShare `locationName:"resourceShares" type:"list"`
+	ResourceShares []ResourceShare `json:"ram:GetResourceSharesOutput:ResourceShares" locationName:"resourceShares" type:"list"`
 }
 
 // String returns the string representation

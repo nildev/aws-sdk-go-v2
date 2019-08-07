@@ -57,7 +57,7 @@ type CreateAssessmentTargetOutput struct {
 	// The ARN that specifies the assessment target that is created.
 	//
 	// AssessmentTargetArn is a required field
-	AssessmentTargetArn *string `locationName:"assessmentTargetArn" min:"1" type:"string" required:"true"`
+	AssessmentTargetArn *string `json:"inspector:CreateAssessmentTargetOutput:AssessmentTargetArn" locationName:"assessmentTargetArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

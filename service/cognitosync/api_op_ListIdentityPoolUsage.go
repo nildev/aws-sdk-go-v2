@@ -52,16 +52,16 @@ type ListIdentityPoolUsageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Total number of identities for the identity pool.
-	Count *int64 `type:"integer"`
+	Count *int64 `json:"cognito-sync:ListIdentityPoolUsageOutput:Count" type:"integer"`
 
 	// Usage information for the identity pools.
-	IdentityPoolUsages []IdentityPoolUsage `type:"list"`
+	IdentityPoolUsages []IdentityPoolUsage `json:"cognito-sync:ListIdentityPoolUsageOutput:IdentityPoolUsages" type:"list"`
 
 	// The maximum number of results to be returned.
-	MaxResults *int64 `type:"integer"`
+	MaxResults *int64 `json:"cognito-sync:ListIdentityPoolUsageOutput:MaxResults" type:"integer"`
 
 	// A pagination token for obtaining the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cognito-sync:ListIdentityPoolUsageOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

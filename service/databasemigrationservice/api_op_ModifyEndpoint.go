@@ -151,7 +151,7 @@ type ModifyEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The modified endpoint.
-	Endpoint *Endpoint `type:"structure"`
+	Endpoint *Endpoint `json:"dms:ModifyEndpointOutput:Endpoint" type:"structure"`
 }
 
 // String returns the string representation

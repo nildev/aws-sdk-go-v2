@@ -100,7 +100,7 @@ type ScheduleRunOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the scheduled run.
-	Run *Run `locationName:"run" type:"structure"`
+	Run *Run `json:"devicefarm:ScheduleRunOutput:Run" locationName:"run" type:"structure"`
 }
 
 // String returns the string representation

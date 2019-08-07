@@ -61,11 +61,11 @@ type ListIndicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The index names.
-	IndexNames []string `locationName:"indexNames" type:"list"`
+	IndexNames []string `json:"iot:ListIndicesOutput:IndexNames" locationName:"indexNames" type:"list"`
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListIndicesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

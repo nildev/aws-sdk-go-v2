@@ -29,7 +29,7 @@ type DescribeVpcPeeringConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Collection of VPC peering connection records that match the request.
-	VpcPeeringConnections []VpcPeeringConnection `type:"list"`
+	VpcPeeringConnections []VpcPeeringConnection `json:"gamelift:DescribeVpcPeeringConnectionsOutput:VpcPeeringConnections" type:"list"`
 }
 
 // String returns the string representation

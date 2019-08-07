@@ -121,19 +121,19 @@ type GetTraceSummariesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The start time of this page of results.
-	ApproximateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ApproximateTime *time.Time `json:"xray:GetTraceSummariesOutput:ApproximateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If the requested time frame contained more than one page of results, you
 	// can use this token to retrieve the next page. The first page contains the
 	// most most recent results, closest to the end of the time frame.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"xray:GetTraceSummariesOutput:NextToken" type:"string"`
 
 	// Trace IDs and metadata for traces that were found in the specified time frame.
-	TraceSummaries []TraceSummary `type:"list"`
+	TraceSummaries []TraceSummary `json:"xray:GetTraceSummariesOutput:TraceSummaries" type:"list"`
 
 	// The total number of traces processed, including traces that did not match
 	// the specified filter expression.
-	TracesProcessedCount *int64 `type:"long"`
+	TracesProcessedCount *int64 `json:"xray:GetTraceSummariesOutput:TracesProcessedCount" type:"long"`
 }
 
 // String returns the string representation

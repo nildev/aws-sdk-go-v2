@@ -49,7 +49,7 @@ type DeleteMLModelOutput struct {
 
 	// A user-supplied ID that uniquely identifies the MLModel. This value should
 	// be identical to the value of the MLModelID in the request.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:DeleteMLModelOutput:MLModelId" min:"1" type:"string"`
 }
 
 // String returns the string representation

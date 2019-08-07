@@ -70,7 +70,7 @@ type CreateLicenseConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of the license configuration object after its creation.
-	LicenseConfigurationArn *string `type:"string"`
+	LicenseConfigurationArn *string `json:"license-manager:CreateLicenseConfigurationOutput:LicenseConfigurationArn" type:"string"`
 }
 
 // String returns the string representation

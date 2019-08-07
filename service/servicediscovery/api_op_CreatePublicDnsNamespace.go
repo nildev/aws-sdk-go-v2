@@ -52,7 +52,7 @@ type CreatePublicDnsNamespaceOutput struct {
 
 	// A value that you can use to determine whether the request completed successfully.
 	// To get the status of the operation, see GetOperation.
-	OperationId *string `type:"string"`
+	OperationId *string `json:"servicediscovery:CreatePublicDnsNamespaceOutput:OperationId" type:"string"`
 }
 
 // String returns the string representation

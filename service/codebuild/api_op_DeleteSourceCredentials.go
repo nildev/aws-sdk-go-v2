@@ -46,7 +46,7 @@ type DeleteSourceCredentialsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the token.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"codebuild:DeleteSourceCredentialsOutput:Arn" locationName:"arn" min:"1" type:"string"`
 }
 
 // String returns the string representation

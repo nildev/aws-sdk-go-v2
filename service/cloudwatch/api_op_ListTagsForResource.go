@@ -48,7 +48,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of tag keys and values associated with the resource you specified.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"monitoring:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

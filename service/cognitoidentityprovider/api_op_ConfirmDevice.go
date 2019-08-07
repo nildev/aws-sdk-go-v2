@@ -67,7 +67,7 @@ type ConfirmDeviceOutput struct {
 
 	// Indicates whether the user confirmation is necessary to confirm the device
 	// response.
-	UserConfirmationNecessary *bool `type:"boolean"`
+	UserConfirmationNecessary *bool `json:"cognito-idp:ConfirmDeviceOutput:UserConfirmationNecessary" type:"boolean"`
 }
 
 // String returns the string representation

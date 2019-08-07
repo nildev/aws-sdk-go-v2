@@ -45,10 +45,10 @@ type DescribeStacksOutput struct {
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:DescribeStacksOutput:NextToken" min:"1" type:"string"`
 
 	// Information about the stacks.
-	Stacks []Stack `type:"list"`
+	Stacks []Stack `json:"appstream2:DescribeStacksOutput:Stacks" type:"list"`
 }
 
 // String returns the string representation

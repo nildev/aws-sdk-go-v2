@@ -17,22 +17,22 @@ type AssetShallow struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the Asset.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage-vod:AssetShallow:Arn" locationName:"arn" type:"string"`
 
 	// The unique identifier for the Asset.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage-vod:AssetShallow:Id" locationName:"id" type:"string"`
 
 	// The ID of the PackagingGroup for the Asset.
-	PackagingGroupId *string `locationName:"packagingGroupId" type:"string"`
+	PackagingGroupId *string `json:"mediapackage-vod:AssetShallow:PackagingGroupId" locationName:"packagingGroupId" type:"string"`
 
 	// The resource ID to include in SPEKE key requests.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"mediapackage-vod:AssetShallow:ResourceId" locationName:"resourceId" type:"string"`
 
 	// ARN of the source object in S3.
-	SourceArn *string `locationName:"sourceArn" type:"string"`
+	SourceArn *string `json:"mediapackage-vod:AssetShallow:SourceArn" locationName:"sourceArn" type:"string"`
 
 	// The IAM role ARN used to access the source S3 bucket.
-	SourceRoleArn *string `locationName:"sourceRoleArn" type:"string"`
+	SourceRoleArn *string `json:"mediapackage-vod:AssetShallow:SourceRoleArn" locationName:"sourceRoleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -90,7 +90,7 @@ type CmafEncryption struct {
 	// Exchange (SPEKE) service that will provide encryption keys.
 	//
 	// SpekeKeyProvider is a required field
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure" required:"true"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediapackage-vod:CmafEncryption:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -134,16 +134,16 @@ type CmafPackage struct {
 	_ struct{} `type:"structure"`
 
 	// A CMAF encryption configuration.
-	Encryption *CmafEncryption `locationName:"encryption" type:"structure"`
+	Encryption *CmafEncryption `json:"mediapackage-vod:CmafPackage:Encryption" locationName:"encryption" type:"structure"`
 
 	// A list of HLS manifest configurations.
 	//
 	// HlsManifests is a required field
-	HlsManifests []HlsManifest `locationName:"hlsManifests" type:"list" required:"true"`
+	HlsManifests []HlsManifest `json:"mediapackage-vod:CmafPackage:HlsManifests" locationName:"hlsManifests" type:"list" required:"true"`
 
 	// Duration (in seconds) of each fragment. Actual fragments will berounded to
 	// the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage-vod:CmafPackage:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -208,7 +208,7 @@ type DashEncryption struct {
 	// Exchange (SPEKE) service that will provide encryption keys.
 	//
 	// SpekeKeyProvider is a required field
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure" required:"true"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediapackage-vod:DashEncryption:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -252,18 +252,18 @@ type DashManifest struct {
 	_ struct{} `type:"structure"`
 
 	// An optional string to include in the name of the manifest.
-	ManifestName *string `locationName:"manifestName" type:"string"`
+	ManifestName *string `json:"mediapackage-vod:DashManifest:ManifestName" locationName:"manifestName" type:"string"`
 
 	// Minimum duration (in seconds) that a player will buffer media before starting
 	// the presentation.
-	MinBufferTimeSeconds *int64 `locationName:"minBufferTimeSeconds" type:"integer"`
+	MinBufferTimeSeconds *int64 `json:"mediapackage-vod:DashManifest:MinBufferTimeSeconds" locationName:"minBufferTimeSeconds" type:"integer"`
 
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to
 	// "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-	Profile Profile `locationName:"profile" type:"string" enum:"true"`
+	Profile Profile `json:"mediapackage-vod:DashManifest:Profile" locationName:"profile" type:"string" enum:"true"`
 
 	// A StreamSelection configuration.
-	StreamSelection *StreamSelection `locationName:"streamSelection" type:"structure"`
+	StreamSelection *StreamSelection `json:"mediapackage-vod:DashManifest:StreamSelection" locationName:"streamSelection" type:"structure"`
 }
 
 // String returns the string representation
@@ -308,14 +308,14 @@ type DashPackage struct {
 	// A list of DASH manifest configurations.
 	//
 	// DashManifests is a required field
-	DashManifests []DashManifest `locationName:"dashManifests" type:"list" required:"true"`
+	DashManifests []DashManifest `json:"mediapackage-vod:DashPackage:DashManifests" locationName:"dashManifests" type:"list" required:"true"`
 
 	// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
-	Encryption *DashEncryption `locationName:"encryption" type:"structure"`
+	Encryption *DashEncryption `json:"mediapackage-vod:DashPackage:Encryption" locationName:"encryption" type:"structure"`
 
 	// Duration (in seconds) of each segment. Actual segments will berounded to
 	// the nearest multiple of the source segment duration.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage-vod:DashPackage:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -377,10 +377,10 @@ type EgressEndpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the PackagingConfiguration being applied to the Asset.
-	PackagingConfigurationId *string `locationName:"packagingConfigurationId" type:"string"`
+	PackagingConfigurationId *string `json:"mediapackage-vod:EgressEndpoint:PackagingConfigurationId" locationName:"packagingConfigurationId" type:"string"`
 
 	// The URL of the parent manifest for the repackaged Asset.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediapackage-vod:EgressEndpoint:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -411,13 +411,13 @@ type HlsEncryption struct {
 	_ struct{} `type:"structure"`
 
 	// The encryption method to use.
-	EncryptionMethod EncryptionMethod `locationName:"encryptionMethod" type:"string" enum:"true"`
+	EncryptionMethod EncryptionMethod `json:"mediapackage-vod:HlsEncryption:EncryptionMethod" locationName:"encryptionMethod" type:"string" enum:"true"`
 
 	// A configuration for accessing an external Secure Packager and Encoder Key
 	// Exchange (SPEKE) service that will provide encryption keys.
 	//
 	// SpekeKeyProvider is a required field
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure" required:"true"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediapackage-vod:HlsEncryption:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -471,13 +471,13 @@ type HlsManifest struct {
 	// manifest to contain a copy of the SCTE-35 admarkers (comments) taken directly
 	// from the input HTTP Live Streaming (HLS) manifest."SCTE35_ENHANCED" generates
 	// ad markers and blackout tags based on SCTE-35messages in the input source.
-	AdMarkers AdMarkers `locationName:"adMarkers" type:"string" enum:"true"`
+	AdMarkers AdMarkers `json:"mediapackage-vod:HlsManifest:AdMarkers" locationName:"adMarkers" type:"string" enum:"true"`
 
 	// When enabled, an I-Frame only stream will be included in the output.
-	IncludeIframeOnlyStream *bool `locationName:"includeIframeOnlyStream" type:"boolean"`
+	IncludeIframeOnlyStream *bool `json:"mediapackage-vod:HlsManifest:IncludeIframeOnlyStream" locationName:"includeIframeOnlyStream" type:"boolean"`
 
 	// An optional string to include in the name of the manifest.
-	ManifestName *string `locationName:"manifestName" type:"string"`
+	ManifestName *string `json:"mediapackage-vod:HlsManifest:ManifestName" locationName:"manifestName" type:"string"`
 
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME taginserted
 	// into manifests. Additionally, when an interval is specifiedID3Timed Metadata
@@ -487,13 +487,13 @@ type HlsManifest struct {
 	// be generated. Note that irrespectiveof this parameter, if any ID3 Timed Metadata
 	// is found in HTTP Live Streaming (HLS) input,it will be passed through to
 	// HLS output.
-	ProgramDateTimeIntervalSeconds *int64 `locationName:"programDateTimeIntervalSeconds" type:"integer"`
+	ProgramDateTimeIntervalSeconds *int64 `json:"mediapackage-vod:HlsManifest:ProgramDateTimeIntervalSeconds" locationName:"programDateTimeIntervalSeconds" type:"integer"`
 
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-	RepeatExtXKey *bool `locationName:"repeatExtXKey" type:"boolean"`
+	RepeatExtXKey *bool `json:"mediapackage-vod:HlsManifest:RepeatExtXKey" locationName:"repeatExtXKey" type:"boolean"`
 
 	// A StreamSelection configuration.
-	StreamSelection *StreamSelection `locationName:"streamSelection" type:"structure"`
+	StreamSelection *StreamSelection `json:"mediapackage-vod:HlsManifest:StreamSelection" locationName:"streamSelection" type:"structure"`
 }
 
 // String returns the string representation
@@ -548,19 +548,19 @@ type HlsPackage struct {
 	_ struct{} `type:"structure"`
 
 	// An HTTP Live Streaming (HLS) encryption configuration.
-	Encryption *HlsEncryption `locationName:"encryption" type:"structure"`
+	Encryption *HlsEncryption `json:"mediapackage-vod:HlsPackage:Encryption" locationName:"encryption" type:"structure"`
 
 	// A list of HLS manifest configurations.
 	//
 	// HlsManifests is a required field
-	HlsManifests []HlsManifest `locationName:"hlsManifests" type:"list" required:"true"`
+	HlsManifests []HlsManifest `json:"mediapackage-vod:HlsPackage:HlsManifests" locationName:"hlsManifests" type:"list" required:"true"`
 
 	// Duration (in seconds) of each fragment. Actual fragments will berounded to
 	// the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage-vod:HlsPackage:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 
 	// When enabled, audio streams will be placed in rendition groups in the output.
-	UseAudioRenditionGroup *bool `locationName:"useAudioRenditionGroup" type:"boolean"`
+	UseAudioRenditionGroup *bool `json:"mediapackage-vod:HlsPackage:UseAudioRenditionGroup" locationName:"useAudioRenditionGroup" type:"boolean"`
 }
 
 // String returns the string representation
@@ -631,7 +631,7 @@ type MssEncryption struct {
 	// Exchange (SPEKE) service that will provide encryption keys.
 	//
 	// SpekeKeyProvider is a required field
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure" required:"true"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediapackage-vod:MssEncryption:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -675,10 +675,10 @@ type MssManifest struct {
 	_ struct{} `type:"structure"`
 
 	// An optional string to include in the name of the manifest.
-	ManifestName *string `locationName:"manifestName" type:"string"`
+	ManifestName *string `json:"mediapackage-vod:MssManifest:ManifestName" locationName:"manifestName" type:"string"`
 
 	// A StreamSelection configuration.
-	StreamSelection *StreamSelection `locationName:"streamSelection" type:"structure"`
+	StreamSelection *StreamSelection `json:"mediapackage-vod:MssManifest:StreamSelection" locationName:"streamSelection" type:"structure"`
 }
 
 // String returns the string representation
@@ -709,15 +709,15 @@ type MssPackage struct {
 	_ struct{} `type:"structure"`
 
 	// A Microsoft Smooth Streaming (MSS) encryption configuration.
-	Encryption *MssEncryption `locationName:"encryption" type:"structure"`
+	Encryption *MssEncryption `json:"mediapackage-vod:MssPackage:Encryption" locationName:"encryption" type:"structure"`
 
 	// A list of MSS manifest configurations.
 	//
 	// MssManifests is a required field
-	MssManifests []MssManifest `locationName:"mssManifests" type:"list" required:"true"`
+	MssManifests []MssManifest `json:"mediapackage-vod:MssPackage:MssManifests" locationName:"mssManifests" type:"list" required:"true"`
 
 	// The duration (in seconds) of each segment.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage-vod:MssPackage:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -779,25 +779,25 @@ type PackagingConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the PackagingConfiguration.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage-vod:PackagingConfiguration:Arn" locationName:"arn" type:"string"`
 
 	// A CMAF packaging configuration.
-	CmafPackage *CmafPackage `locationName:"cmafPackage" type:"structure"`
+	CmafPackage *CmafPackage `json:"mediapackage-vod:PackagingConfiguration:CmafPackage" locationName:"cmafPackage" type:"structure"`
 
 	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-	DashPackage *DashPackage `locationName:"dashPackage" type:"structure"`
+	DashPackage *DashPackage `json:"mediapackage-vod:PackagingConfiguration:DashPackage" locationName:"dashPackage" type:"structure"`
 
 	// An HTTP Live Streaming (HLS) packaging configuration.
-	HlsPackage *HlsPackage `locationName:"hlsPackage" type:"structure"`
+	HlsPackage *HlsPackage `json:"mediapackage-vod:PackagingConfiguration:HlsPackage" locationName:"hlsPackage" type:"structure"`
 
 	// The ID of the PackagingConfiguration.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage-vod:PackagingConfiguration:Id" locationName:"id" type:"string"`
 
 	// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
-	MssPackage *MssPackage `locationName:"mssPackage" type:"structure"`
+	MssPackage *MssPackage `json:"mediapackage-vod:PackagingConfiguration:MssPackage" locationName:"mssPackage" type:"structure"`
 
 	// The ID of a PackagingGroup.
-	PackagingGroupId *string `locationName:"packagingGroupId" type:"string"`
+	PackagingGroupId *string `json:"mediapackage-vod:PackagingConfiguration:PackagingGroupId" locationName:"packagingGroupId" type:"string"`
 }
 
 // String returns the string representation
@@ -858,10 +858,10 @@ type PackagingGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the PackagingGroup.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage-vod:PackagingGroup:Arn" locationName:"arn" type:"string"`
 
 	// The ID of the PackagingGroup.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage-vod:PackagingGroup:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation
@@ -896,17 +896,17 @@ type SpekeKeyProvider struct {
 	// will assume when accessing the key provider service.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"mediapackage-vod:SpekeKeyProvider:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The system IDs to include in key requests.
 	//
 	// SystemIds is a required field
-	SystemIds []string `locationName:"systemIds" type:"list" required:"true"`
+	SystemIds []string `json:"mediapackage-vod:SpekeKeyProvider:SystemIds" locationName:"systemIds" type:"list" required:"true"`
 
 	// The URL of the external key provider service.
 	//
 	// Url is a required field
-	Url *string `locationName:"url" type:"string" required:"true"`
+	Url *string `json:"mediapackage-vod:SpekeKeyProvider:Url" locationName:"url" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -971,13 +971,13 @@ type StreamSelection struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum video bitrate (bps) to include in output.
-	MaxVideoBitsPerSecond *int64 `locationName:"maxVideoBitsPerSecond" type:"integer"`
+	MaxVideoBitsPerSecond *int64 `json:"mediapackage-vod:StreamSelection:MaxVideoBitsPerSecond" locationName:"maxVideoBitsPerSecond" type:"integer"`
 
 	// The minimum video bitrate (bps) to include in output.
-	MinVideoBitsPerSecond *int64 `locationName:"minVideoBitsPerSecond" type:"integer"`
+	MinVideoBitsPerSecond *int64 `json:"mediapackage-vod:StreamSelection:MinVideoBitsPerSecond" locationName:"minVideoBitsPerSecond" type:"integer"`
 
 	// A directive that determines the order of streams in the output.
-	StreamOrder StreamOrder `locationName:"streamOrder" type:"string" enum:"true"`
+	StreamOrder StreamOrder `json:"mediapackage-vod:StreamSelection:StreamOrder" locationName:"streamOrder" type:"string" enum:"true"`
 }
 
 // String returns the string representation

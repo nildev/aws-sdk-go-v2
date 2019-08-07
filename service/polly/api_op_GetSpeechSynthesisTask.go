@@ -57,7 +57,7 @@ type GetSpeechSynthesisTaskOutput struct {
 
 	// SynthesisTask object that provides information from the requested task, including
 	// output format, creation time, task status, and so on.
-	SynthesisTask *SynthesisTask `type:"structure"`
+	SynthesisTask *SynthesisTask `json:"polly:GetSpeechSynthesisTaskOutput:SynthesisTask" type:"structure"`
 }
 
 // String returns the string representation

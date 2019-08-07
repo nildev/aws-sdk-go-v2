@@ -62,12 +62,12 @@ type DescribeBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of backups.
-	Backups []Backup `type:"list"`
+	Backups []Backup `json:"cloudhsmv2:DescribeBackupsOutput:Backups" type:"list"`
 
 	// An opaque string that indicates that the response contains only a subset
 	// of backups. Use this value in a subsequent DescribeBackups request to get
 	// more backups.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudhsmv2:DescribeBackupsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

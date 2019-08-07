@@ -48,10 +48,10 @@ type DescribeReservedNodesOutput struct {
 	// the next set of records by providing this returned marker value in the Marker
 	// parameter and retrying the command. If the Marker field is empty, all response
 	// records have been retrieved for the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeReservedNodesOutput:Marker" type:"string"`
 
 	// The list of ReservedNode objects.
-	ReservedNodes []ReservedNode `locationNameList:"ReservedNode" type:"list"`
+	ReservedNodes []ReservedNode `json:"redshift:DescribeReservedNodesOutput:ReservedNodes" locationNameList:"ReservedNode" type:"list"`
 }
 
 // String returns the string representation

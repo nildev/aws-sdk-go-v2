@@ -107,7 +107,7 @@ type CreateLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the load balancer.
-	LoadBalancers []LoadBalancer `type:"list"`
+	LoadBalancers []LoadBalancer `json:"elasticloadbalancing:CreateLoadBalancerOutput:LoadBalancers" type:"list"`
 }
 
 // String returns the string representation

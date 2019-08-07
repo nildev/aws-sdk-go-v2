@@ -128,7 +128,7 @@ type CreateFileSystemOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The configuration of the file system that was created.
-	FileSystem *FileSystem `type:"structure"`
+	FileSystem *FileSystem `json:"fsx:CreateFileSystemOutput:FileSystem" type:"structure"`
 }
 
 // String returns the string representation

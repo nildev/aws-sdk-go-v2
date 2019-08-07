@@ -91,7 +91,7 @@ type DetachObjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier that was detached from the object.
-	DetachedObjectIdentifier *string `type:"string"`
+	DetachedObjectIdentifier *string `json:"clouddirectory:DetachObjectOutput:DetachedObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation

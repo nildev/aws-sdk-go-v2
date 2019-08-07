@@ -78,9 +78,9 @@ type GetAuthorizersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []Authorizer `locationName:"item" type:"list"`
+	Items []Authorizer `json:"apigateway:GetAuthorizersOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetAuthorizersOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

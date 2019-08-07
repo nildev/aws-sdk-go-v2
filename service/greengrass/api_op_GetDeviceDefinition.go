@@ -54,21 +54,21 @@ func (s GetDeviceDefinitionInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetDeviceDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetDeviceDefinitionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetDeviceDefinitionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetDeviceDefinitionOutput:Id" type:"string"`
 
-	LastUpdatedTimestamp *string `type:"string"`
+	LastUpdatedTimestamp *string `json:"greengrass:GetDeviceDefinitionOutput:LastUpdatedTimestamp" type:"string"`
 
-	LatestVersion *string `type:"string"`
+	LatestVersion *string `json:"greengrass:GetDeviceDefinitionOutput:LatestVersion" type:"string"`
 
-	LatestVersionArn *string `type:"string"`
+	LatestVersionArn *string `json:"greengrass:GetDeviceDefinitionOutput:LatestVersionArn" type:"string"`
 
-	Name *string `type:"string"`
+	Name *string `json:"greengrass:GetDeviceDefinitionOutput:Name" type:"string"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"greengrass:GetDeviceDefinitionOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

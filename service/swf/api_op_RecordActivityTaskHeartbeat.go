@@ -54,7 +54,7 @@ type RecordActivityTaskHeartbeatOutput struct {
 	// Set to true if cancellation of the task is requested.
 	//
 	// CancelRequested is a required field
-	CancelRequested *bool `locationName:"cancelRequested" type:"boolean" required:"true"`
+	CancelRequested *bool `json:"swf:RecordActivityTaskHeartbeatOutput:CancelRequested" locationName:"cancelRequested" type:"boolean" required:"true"`
 }
 
 // String returns the string representation

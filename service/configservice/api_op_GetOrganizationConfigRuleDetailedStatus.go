@@ -49,9 +49,9 @@ func (s *GetOrganizationConfigRuleDetailedStatusInput) Validate() error {
 type GetOrganizationConfigRuleDetailedStatusOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:GetOrganizationConfigRuleDetailedStatusOutput:NextToken" type:"string"`
 
-	OrganizationConfigRuleDetailedStatus []MemberAccountStatus `type:"list"`
+	OrganizationConfigRuleDetailedStatus []MemberAccountStatus `json:"config:GetOrganizationConfigRuleDetailedStatusOutput:OrganizationConfigRuleDetailedStatus" type:"list"`
 }
 
 // String returns the string representation

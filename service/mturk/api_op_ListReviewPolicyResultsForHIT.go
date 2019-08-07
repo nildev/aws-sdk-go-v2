@@ -72,25 +72,25 @@ type ListReviewPolicyResultsForHITOutput struct {
 
 	// The name of the Assignment-level Review Policy. This contains only the PolicyName
 	// element.
-	AssignmentReviewPolicy *ReviewPolicy `type:"structure"`
+	AssignmentReviewPolicy *ReviewPolicy `json:"mturk-requester:ListReviewPolicyResultsForHITOutput:AssignmentReviewPolicy" type:"structure"`
 
 	// Contains both ReviewResult and ReviewAction elements for an Assignment.
-	AssignmentReviewReport *ReviewReport `type:"structure"`
+	AssignmentReviewReport *ReviewReport `json:"mturk-requester:ListReviewPolicyResultsForHITOutput:AssignmentReviewReport" type:"structure"`
 
 	// The HITId of the HIT for which results have been returned.
-	HITId *string `min:"1" type:"string"`
+	HITId *string `json:"mturk-requester:ListReviewPolicyResultsForHITOutput:HITId" min:"1" type:"string"`
 
 	// The name of the HIT-level Review Policy. This contains only the PolicyName
 	// element.
-	HITReviewPolicy *ReviewPolicy `type:"structure"`
+	HITReviewPolicy *ReviewPolicy `json:"mturk-requester:ListReviewPolicyResultsForHITOutput:HITReviewPolicy" type:"structure"`
 
 	// Contains both ReviewResult and ReviewAction elements for a particular HIT.
-	HITReviewReport *ReviewReport `type:"structure"`
+	HITReviewReport *ReviewReport `json:"mturk-requester:ListReviewPolicyResultsForHITOutput:HITReviewReport" type:"structure"`
 
 	// If the previous response was incomplete (because there is more data to retrieve),
 	// Amazon Mechanical Turk returns a pagination token in the response. You can
 	// use this pagination token to retrieve the next set of results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"mturk-requester:ListReviewPolicyResultsForHITOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -61,12 +61,12 @@ type ListDeliveryStreamsOutput struct {
 	// The names of the delivery streams.
 	//
 	// DeliveryStreamNames is a required field
-	DeliveryStreamNames []string `type:"list" required:"true"`
+	DeliveryStreamNames []string `json:"firehose:ListDeliveryStreamsOutput:DeliveryStreamNames" type:"list" required:"true"`
 
 	// Indicates whether there are more delivery streams available to list.
 	//
 	// HasMoreDeliveryStreams is a required field
-	HasMoreDeliveryStreams *bool `type:"boolean" required:"true"`
+	HasMoreDeliveryStreams *bool `json:"firehose:ListDeliveryStreamsOutput:HasMoreDeliveryStreams" type:"boolean" required:"true"`
 }
 
 // String returns the string representation

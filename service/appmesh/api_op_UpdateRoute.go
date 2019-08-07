@@ -134,7 +134,7 @@ type UpdateRouteOutput struct {
 	// A full description of the route that was updated.
 	//
 	// Route is a required field
-	Route *RouteData `locationName:"route" type:"structure" required:"true"`
+	Route *RouteData `json:"appmesh:UpdateRouteOutput:Route" locationName:"route" type:"structure" required:"true"`
 }
 
 // String returns the string representation

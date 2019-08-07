@@ -66,13 +66,13 @@ type ListTagsForDeliveryStreamOutput struct {
 	// ListTagsForDeliveryStream again.
 	//
 	// HasMoreTags is a required field
-	HasMoreTags *bool `type:"boolean" required:"true"`
+	HasMoreTags *bool `json:"firehose:ListTagsForDeliveryStreamOutput:HasMoreTags" type:"boolean" required:"true"`
 
 	// A list of tags associated with DeliveryStreamName, starting with the first
 	// tag after ExclusiveStartTagKey and up to the specified Limit.
 	//
 	// Tags is a required field
-	Tags []Tag `type:"list" required:"true"`
+	Tags []Tag `json:"firehose:ListTagsForDeliveryStreamOutput:Tags" type:"list" required:"true"`
 }
 
 // String returns the string representation

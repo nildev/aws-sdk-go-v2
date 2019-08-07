@@ -43,7 +43,7 @@ type DescribeHostedConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The connections.
-	Connections []Connection `locationName:"connections" type:"list"`
+	Connections []Connection `json:"directconnect:DescribeHostedConnectionsOutput:Connections" locationName:"connections" type:"list"`
 }
 
 // String returns the string representation

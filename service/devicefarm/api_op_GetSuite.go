@@ -48,7 +48,7 @@ type GetSuiteOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A collection of one or more tests.
-	Suite *Suite `locationName:"suite" type:"structure"`
+	Suite *Suite `json:"devicefarm:GetSuiteOutput:Suite" locationName:"suite" type:"structure"`
 }
 
 // String returns the string representation

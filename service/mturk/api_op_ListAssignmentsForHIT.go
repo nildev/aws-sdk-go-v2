@@ -60,16 +60,16 @@ type ListAssignmentsForHITOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The collection of Assignment data structures returned by this call.
-	Assignments []Assignment `type:"list"`
+	Assignments []Assignment `json:"mturk-requester:ListAssignmentsForHITOutput:Assignments" type:"list"`
 
 	// If the previous response was incomplete (because there is more data to retrieve),
 	// Amazon Mechanical Turk returns a pagination token in the response. You can
 	// use this pagination token to retrieve the next set of results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"mturk-requester:ListAssignmentsForHITOutput:NextToken" min:"1" type:"string"`
 
 	// The number of assignments on the page in the filtered results list, equivalent
 	// to the number of assignments returned by this call.
-	NumResults *int64 `type:"integer"`
+	NumResults *int64 `json:"mturk-requester:ListAssignmentsForHITOutput:NumResults" type:"integer"`
 }
 
 // String returns the string representation

@@ -27,7 +27,7 @@ type GetAppReplicationConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Replication configurations associated with server groups in this application.
-	ServerGroupReplicationConfigurations []ServerGroupReplicationConfiguration `locationName:"serverGroupReplicationConfigurations" type:"list"`
+	ServerGroupReplicationConfigurations []ServerGroupReplicationConfiguration `json:"sms:GetAppReplicationConfigurationOutput:ServerGroupReplicationConfigurations" locationName:"serverGroupReplicationConfigurations" type:"list"`
 }
 
 // String returns the string representation

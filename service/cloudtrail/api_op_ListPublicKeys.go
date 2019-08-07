@@ -40,12 +40,12 @@ type ListPublicKeysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved for future use.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudtrail:ListPublicKeysOutput:NextToken" type:"string"`
 
 	// Contains an array of PublicKey objects.
 	//
 	// The returned public keys may have validity time ranges that overlap.
-	PublicKeyList []PublicKey `type:"list"`
+	PublicKeyList []PublicKey `json:"cloudtrail:ListPublicKeysOutput:PublicKeyList" type:"list"`
 }
 
 // String returns the string representation

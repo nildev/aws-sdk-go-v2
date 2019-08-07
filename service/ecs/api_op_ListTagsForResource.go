@@ -45,7 +45,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags for the resource.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"ecs:ListTagsForResourceOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

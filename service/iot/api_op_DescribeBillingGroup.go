@@ -57,22 +57,22 @@ type DescribeBillingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the billing group.
-	BillingGroupArn *string `locationName:"billingGroupArn" type:"string"`
+	BillingGroupArn *string `json:"iot:DescribeBillingGroupOutput:BillingGroupArn" locationName:"billingGroupArn" type:"string"`
 
 	// The ID of the billing group.
-	BillingGroupId *string `locationName:"billingGroupId" min:"1" type:"string"`
+	BillingGroupId *string `json:"iot:DescribeBillingGroupOutput:BillingGroupId" locationName:"billingGroupId" min:"1" type:"string"`
 
 	// Additional information about the billing group.
-	BillingGroupMetadata *BillingGroupMetadata `locationName:"billingGroupMetadata" type:"structure"`
+	BillingGroupMetadata *BillingGroupMetadata `json:"iot:DescribeBillingGroupOutput:BillingGroupMetadata" locationName:"billingGroupMetadata" type:"structure"`
 
 	// The name of the billing group.
-	BillingGroupName *string `locationName:"billingGroupName" min:"1" type:"string"`
+	BillingGroupName *string `json:"iot:DescribeBillingGroupOutput:BillingGroupName" locationName:"billingGroupName" min:"1" type:"string"`
 
 	// The properties of the billing group.
-	BillingGroupProperties *BillingGroupProperties `locationName:"billingGroupProperties" type:"structure"`
+	BillingGroupProperties *BillingGroupProperties `json:"iot:DescribeBillingGroupOutput:BillingGroupProperties" locationName:"billingGroupProperties" type:"structure"`
 
 	// The version of the billing group.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"iot:DescribeBillingGroupOutput:Version" locationName:"version" type:"long"`
 }
 
 // String returns the string representation

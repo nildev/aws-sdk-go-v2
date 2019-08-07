@@ -51,7 +51,7 @@ type GetSearchSuggestionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of property names for a Resource that match a SuggestionQuery.
-	PropertyNameSuggestions []PropertyNameSuggestion `type:"list"`
+	PropertyNameSuggestions []PropertyNameSuggestion `json:"api.sagemaker:GetSearchSuggestionsOutput:PropertyNameSuggestions" type:"list"`
 }
 
 // String returns the string representation

@@ -91,7 +91,7 @@ type RollbackTransactionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the rollback operation.
-	TransactionStatus *string `locationName:"transactionStatus" type:"string"`
+	TransactionStatus *string `json:"rds-data:RollbackTransactionOutput:TransactionStatus" locationName:"transactionStatus" type:"string"`
 }
 
 // String returns the string representation

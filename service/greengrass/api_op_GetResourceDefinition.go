@@ -54,21 +54,21 @@ func (s GetResourceDefinitionInput) MarshalFields(e protocol.FieldEncoder) error
 type GetResourceDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetResourceDefinitionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetResourceDefinitionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetResourceDefinitionOutput:Id" type:"string"`
 
-	LastUpdatedTimestamp *string `type:"string"`
+	LastUpdatedTimestamp *string `json:"greengrass:GetResourceDefinitionOutput:LastUpdatedTimestamp" type:"string"`
 
-	LatestVersion *string `type:"string"`
+	LatestVersion *string `json:"greengrass:GetResourceDefinitionOutput:LatestVersion" type:"string"`
 
-	LatestVersionArn *string `type:"string"`
+	LatestVersionArn *string `json:"greengrass:GetResourceDefinitionOutput:LatestVersionArn" type:"string"`
 
-	Name *string `type:"string"`
+	Name *string `json:"greengrass:GetResourceDefinitionOutput:Name" type:"string"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"greengrass:GetResourceDefinitionOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

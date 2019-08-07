@@ -29,16 +29,16 @@ type Application struct {
 
 	// This option is for advanced users only. This is meta information about third-party
 	// applications that third-party vendors use for testing purposes.
-	AdditionalInfo map[string]string `type:"map"`
+	AdditionalInfo map[string]string `json:"elasticmapreduce:Application:AdditionalInfo" type:"map"`
 
 	// Arguments for Amazon EMR to pass to the application.
-	Args []string `type:"list"`
+	Args []string `json:"elasticmapreduce:Application:Args" type:"list"`
 
 	// The name of the application.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:Application:Name" type:"string"`
 
 	// The version of the application.
-	Version *string `type:"string"`
+	Version *string `json:"elasticmapreduce:Application:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -59,12 +59,12 @@ type AutoScalingPolicy struct {
 	// or below these limits.
 	//
 	// Constraints is a required field
-	Constraints *ScalingConstraints `type:"structure" required:"true"`
+	Constraints *ScalingConstraints `json:"elasticmapreduce:AutoScalingPolicy:Constraints" type:"structure" required:"true"`
 
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
 	//
 	// Rules is a required field
-	Rules []ScalingRule `type:"list" required:"true"`
+	Rules []ScalingRule `json:"elasticmapreduce:AutoScalingPolicy:Rules" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -113,13 +113,13 @@ type AutoScalingPolicyDescription struct {
 	// The upper and lower EC2 instance limits for an automatic scaling policy.
 	// Automatic scaling activity will not cause an instance group to grow above
 	// or below these limits.
-	Constraints *ScalingConstraints `type:"structure"`
+	Constraints *ScalingConstraints `json:"elasticmapreduce:AutoScalingPolicyDescription:Constraints" type:"structure"`
 
 	// The scale-in and scale-out rules that comprise the automatic scaling policy.
-	Rules []ScalingRule `type:"list"`
+	Rules []ScalingRule `json:"elasticmapreduce:AutoScalingPolicyDescription:Rules" type:"list"`
 
 	// The status of an automatic scaling policy.
-	Status *AutoScalingPolicyStatus `type:"structure"`
+	Status *AutoScalingPolicyStatus `json:"elasticmapreduce:AutoScalingPolicyDescription:Status" type:"structure"`
 }
 
 // String returns the string representation
@@ -136,11 +136,11 @@ type AutoScalingPolicyStateChangeReason struct {
 	// that the scaling policy status was changed by a user. PROVISION_FAILURE indicates
 	// that the status change was because the policy failed to provision. CLEANUP_FAILURE
 	// indicates an error.
-	Code AutoScalingPolicyStateChangeReasonCode `type:"string" enum:"true"`
+	Code AutoScalingPolicyStateChangeReasonCode `json:"elasticmapreduce:AutoScalingPolicyStateChangeReason:Code" type:"string" enum:"true"`
 
 	// A friendly, more verbose message that accompanies an automatic scaling policy
 	// state change.
-	Message *string `type:"string"`
+	Message *string `json:"elasticmapreduce:AutoScalingPolicyStateChangeReason:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -154,10 +154,10 @@ type AutoScalingPolicyStatus struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates the status of the automatic scaling policy.
-	State AutoScalingPolicyState `type:"string" enum:"true"`
+	State AutoScalingPolicyState `json:"elasticmapreduce:AutoScalingPolicyStatus:State" type:"string" enum:"true"`
 
 	// The reason for a change in status.
-	StateChangeReason *AutoScalingPolicyStateChangeReason `type:"structure"`
+	StateChangeReason *AutoScalingPolicyStateChangeReason `json:"elasticmapreduce:AutoScalingPolicyStatus:StateChangeReason" type:"structure"`
 }
 
 // String returns the string representation
@@ -173,12 +173,12 @@ type BootstrapActionConfig struct {
 	// The name of the bootstrap action.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"elasticmapreduce:BootstrapActionConfig:Name" type:"string" required:"true"`
 
 	// The script run by the bootstrap action.
 	//
 	// ScriptBootstrapAction is a required field
-	ScriptBootstrapAction *ScriptBootstrapActionConfig `type:"structure" required:"true"`
+	ScriptBootstrapAction *ScriptBootstrapActionConfig `json:"elasticmapreduce:BootstrapActionConfig:ScriptBootstrapAction" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -215,7 +215,7 @@ type BootstrapActionDetail struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the bootstrap action.
-	BootstrapActionConfig *BootstrapActionConfig `type:"structure"`
+	BootstrapActionConfig *BootstrapActionConfig `json:"elasticmapreduce:BootstrapActionDetail:BootstrapActionConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -230,13 +230,13 @@ type CancelStepsInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The reason for the failure if the CancelSteps request fails.
-	Reason *string `type:"string"`
+	Reason *string `json:"elasticmapreduce:CancelStepsInfo:Reason" type:"string"`
 
 	// The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
-	Status CancelStepsRequestStatus `type:"string" enum:"true"`
+	Status CancelStepsRequestStatus `json:"elasticmapreduce:CancelStepsInfo:Status" type:"string" enum:"true"`
 
 	// The encrypted StepId of a step.
-	StepId *string `type:"string"`
+	StepId *string `json:"elasticmapreduce:CancelStepsInfo:StepId" type:"string"`
 }
 
 // String returns the string representation
@@ -255,44 +255,44 @@ type CloudWatchAlarmDefinition struct {
 	// specified by Threshold.
 	//
 	// ComparisonOperator is a required field
-	ComparisonOperator ComparisonOperator `type:"string" required:"true" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"elasticmapreduce:CloudWatchAlarmDefinition:ComparisonOperator" type:"string" required:"true" enum:"true"`
 
 	// A CloudWatch metric dimension.
-	Dimensions []MetricDimension `type:"list"`
+	Dimensions []MetricDimension `json:"elasticmapreduce:CloudWatchAlarmDefinition:Dimensions" type:"list"`
 
 	// The number of periods, expressed in seconds using Period, during which the
 	// alarm condition must exist before the alarm triggers automatic scaling activity.
 	// The default value is 1.
-	EvaluationPeriods *int64 `type:"integer"`
+	EvaluationPeriods *int64 `json:"elasticmapreduce:CloudWatchAlarmDefinition:EvaluationPeriods" type:"integer"`
 
 	// The name of the CloudWatch metric that is watched to determine an alarm condition.
 	//
 	// MetricName is a required field
-	MetricName *string `type:"string" required:"true"`
+	MetricName *string `json:"elasticmapreduce:CloudWatchAlarmDefinition:MetricName" type:"string" required:"true"`
 
 	// The namespace for the CloudWatch metric. The default is AWS/ElasticMapReduce.
-	Namespace *string `type:"string"`
+	Namespace *string `json:"elasticmapreduce:CloudWatchAlarmDefinition:Namespace" type:"string"`
 
 	// The period, in seconds, over which the statistic is applied. EMR CloudWatch
 	// metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch
 	// metric is specified, specify 300.
 	//
 	// Period is a required field
-	Period *int64 `type:"integer" required:"true"`
+	Period *int64 `json:"elasticmapreduce:CloudWatchAlarmDefinition:Period" type:"integer" required:"true"`
 
 	// The statistic to apply to the metric associated with the alarm. The default
 	// is AVERAGE.
-	Statistic Statistic `type:"string" enum:"true"`
+	Statistic Statistic `json:"elasticmapreduce:CloudWatchAlarmDefinition:Statistic" type:"string" enum:"true"`
 
 	// The value against which the specified statistic is compared.
 	//
 	// Threshold is a required field
-	Threshold *float64 `type:"double" required:"true"`
+	Threshold *float64 `json:"elasticmapreduce:CloudWatchAlarmDefinition:Threshold" type:"double" required:"true"`
 
 	// The unit of measure associated with the CloudWatch metric being watched.
 	// The value specified for Unit must correspond to the units specified in the
 	// CloudWatch metric.
-	Unit Unit `type:"string" enum:"true"`
+	Unit Unit `json:"elasticmapreduce:CloudWatchAlarmDefinition:Unit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -331,34 +331,34 @@ type Cluster struct {
 	_ struct{} `type:"structure"`
 
 	// The applications installed on this cluster.
-	Applications []Application `type:"list"`
+	Applications []Application `json:"elasticmapreduce:Cluster:Applications" type:"list"`
 
 	// An IAM role for automatic scaling policies. The default role is EMR_AutoScaling_DefaultRole.
 	// The IAM role provides permissions that the automatic scaling feature requires
 	// to launch and terminate EC2 instances in an instance group.
-	AutoScalingRole *string `type:"string"`
+	AutoScalingRole *string `json:"elasticmapreduce:Cluster:AutoScalingRole" type:"string"`
 
 	// Specifies whether the cluster should terminate after completing all steps.
-	AutoTerminate *bool `type:"boolean"`
+	AutoTerminate *bool `json:"elasticmapreduce:Cluster:AutoTerminate" type:"boolean"`
 
 	// Applies only to Amazon EMR releases 4.x and later. The list of Configurations
 	// supplied to the EMR cluster.
-	Configurations []Configuration `type:"list"`
+	Configurations []Configuration `json:"elasticmapreduce:Cluster:Configurations" type:"list"`
 
 	// Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
 	// Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
-	CustomAmiId *string `type:"string"`
+	CustomAmiId *string `json:"elasticmapreduce:Cluster:CustomAmiId" type:"string"`
 
 	// The size, in GiB, of the EBS root device volume of the Linux AMI that is
 	// used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-	EbsRootVolumeSize *int64 `type:"integer"`
+	EbsRootVolumeSize *int64 `json:"elasticmapreduce:Cluster:EbsRootVolumeSize" type:"integer"`
 
 	// Provides information about the EC2 instances in a cluster grouped by category.
 	// For example, key name, subnet ID, IAM instance profile, and so on.
-	Ec2InstanceAttributes *Ec2InstanceAttributes `type:"structure"`
+	Ec2InstanceAttributes *Ec2InstanceAttributes `json:"elasticmapreduce:Cluster:Ec2InstanceAttributes" type:"structure"`
 
 	// The unique identifier for the cluster.
-	Id *string `type:"string"`
+	Id *string `json:"elasticmapreduce:Cluster:Id" type:"string"`
 
 	//
 	// The instance fleet configuration is available only in Amazon EMR versions
@@ -367,23 +367,23 @@ type Cluster struct {
 	// The instance group configuration of the cluster. A value of INSTANCE_GROUP
 	// indicates a uniform instance group configuration. A value of INSTANCE_FLEET
 	// indicates an instance fleets configuration.
-	InstanceCollectionType InstanceCollectionType `type:"string" enum:"true"`
+	InstanceCollectionType InstanceCollectionType `json:"elasticmapreduce:Cluster:InstanceCollectionType" type:"string" enum:"true"`
 
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled
 	// using a security configuration. For more information see Use Kerberos Authentication
 	// (https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html)
 	// in the EMR Management Guide.
-	KerberosAttributes *KerberosAttributes `type:"structure"`
+	KerberosAttributes *KerberosAttributes `json:"elasticmapreduce:Cluster:KerberosAttributes" type:"structure"`
 
 	// The path to the Amazon S3 location where logs for this cluster are stored.
-	LogUri *string `type:"string"`
+	LogUri *string `json:"elasticmapreduce:Cluster:LogUri" type:"string"`
 
 	// The DNS name of the master node. If the cluster is on a private subnet, this
 	// is the private DNS name. On a public subnet, this is the public DNS name.
-	MasterPublicDnsName *string `type:"string"`
+	MasterPublicDnsName *string `json:"elasticmapreduce:Cluster:MasterPublicDnsName" type:"string"`
 
 	// The name of the cluster.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:Cluster:Name" type:"string"`
 
 	// An approximation of the cost of the cluster, represented in m1.small/hours.
 	// This value is incremented one time for every hour an m1.small instance runs.
@@ -391,7 +391,7 @@ type Cluster struct {
 	// times more expensive would result in the normalized instance hours being
 	// incremented by four. This result is only an approximation and does not reflect
 	// the actual billing rate.
-	NormalizedInstanceHours *int64 `type:"integer"`
+	NormalizedInstanceHours *int64 `json:"elasticmapreduce:Cluster:NormalizedInstanceHours" type:"integer"`
 
 	// The Amazon EMR release label, which determines the version of open-source
 	// application packages installed on the cluster. Release labels are in the
@@ -401,18 +401,18 @@ type Cluster struct {
 	// (https://docs.aws.amazon.com/emr/latest/ReleaseGuide/). The release label
 	// applies only to Amazon EMR releases versions 4.x and later. Earlier versions
 	// use AmiVersion.
-	ReleaseLabel *string `type:"string"`
+	ReleaseLabel *string `json:"elasticmapreduce:Cluster:ReleaseLabel" type:"string"`
 
 	// Applies only when CustomAmiID is used. Specifies the type of updates that
 	// are applied from the Amazon Linux AMI package repositories when an instance
 	// boots using the AMI.
-	RepoUpgradeOnBoot RepoUpgradeOnBoot `type:"string" enum:"true"`
+	RepoUpgradeOnBoot RepoUpgradeOnBoot `json:"elasticmapreduce:Cluster:RepoUpgradeOnBoot" type:"string" enum:"true"`
 
 	// The AMI version requested for this cluster.
-	RequestedAmiVersion *string `type:"string"`
+	RequestedAmiVersion *string `json:"elasticmapreduce:Cluster:RequestedAmiVersion" type:"string"`
 
 	// The AMI version running on this cluster.
-	RunningAmiVersion *string `type:"string"`
+	RunningAmiVersion *string `json:"elasticmapreduce:Cluster:RunningAmiVersion" type:"string"`
 
 	// The way that individual Amazon EC2 instances terminate when an automatic
 	// scale-in activity occurs or an instance group is resized. TERMINATE_AT_INSTANCE_HOUR
@@ -426,25 +426,25 @@ type Cluster struct {
 	// instance termination if it could lead to HDFS corruption. TERMINATE_AT_TASK_COMPLETION
 	// is available only in Amazon EMR version 4.1.0 and later, and is the default
 	// for versions of Amazon EMR earlier than 5.1.0.
-	ScaleDownBehavior ScaleDownBehavior `type:"string" enum:"true"`
+	ScaleDownBehavior ScaleDownBehavior `json:"elasticmapreduce:Cluster:ScaleDownBehavior" type:"string" enum:"true"`
 
 	// The name of the security configuration applied to the cluster.
-	SecurityConfiguration *string `type:"string"`
+	SecurityConfiguration *string `json:"elasticmapreduce:Cluster:SecurityConfiguration" type:"string"`
 
 	// The IAM role that will be assumed by the Amazon EMR service to access AWS
 	// resources on your behalf.
-	ServiceRole *string `type:"string"`
+	ServiceRole *string `json:"elasticmapreduce:Cluster:ServiceRole" type:"string"`
 
 	// The current status details about the cluster.
-	Status *ClusterStatus `type:"structure"`
+	Status *ClusterStatus `json:"elasticmapreduce:Cluster:Status" type:"structure"`
 
 	// A list of tags associated with a cluster.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"elasticmapreduce:Cluster:Tags" type:"list"`
 
 	// Indicates whether Amazon EMR will lock the cluster to prevent the EC2 instances
 	// from being terminated by an API call or user intervention, or in the event
 	// of a cluster error.
-	TerminationProtected *bool `type:"boolean"`
+	TerminationProtected *bool `json:"elasticmapreduce:Cluster:TerminationProtected" type:"boolean"`
 
 	// Indicates whether the cluster is visible to all IAM users of the AWS account
 	// associated with the cluster. If this value is set to true, all IAM users
@@ -452,7 +452,7 @@ type Cluster struct {
 	// policy permissions set. If this value is false, only the IAM user that created
 	// the cluster can view and manage it. This value can be changed using the SetVisibleToAllUsers
 	// action.
-	VisibleToAllUsers *bool `type:"boolean"`
+	VisibleToAllUsers *bool `json:"elasticmapreduce:Cluster:VisibleToAllUsers" type:"boolean"`
 }
 
 // String returns the string representation
@@ -466,10 +466,10 @@ type ClusterStateChangeReason struct {
 	_ struct{} `type:"structure"`
 
 	// The programmatic code for the state change reason.
-	Code ClusterStateChangeReasonCode `type:"string" enum:"true"`
+	Code ClusterStateChangeReasonCode `json:"elasticmapreduce:ClusterStateChangeReason:Code" type:"string" enum:"true"`
 
 	// The descriptive message for the state change reason.
-	Message *string `type:"string"`
+	Message *string `json:"elasticmapreduce:ClusterStateChangeReason:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -483,14 +483,14 @@ type ClusterStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the cluster.
-	State ClusterState `type:"string" enum:"true"`
+	State ClusterState `json:"elasticmapreduce:ClusterStatus:State" type:"string" enum:"true"`
 
 	// The reason for the cluster status change.
-	StateChangeReason *ClusterStateChangeReason `type:"structure"`
+	StateChangeReason *ClusterStateChangeReason `json:"elasticmapreduce:ClusterStatus:StateChangeReason" type:"structure"`
 
 	// A timeline that represents the status of a cluster over the lifetime of the
 	// cluster.
-	Timeline *ClusterTimeline `type:"structure"`
+	Timeline *ClusterTimeline `json:"elasticmapreduce:ClusterStatus:Timeline" type:"structure"`
 }
 
 // String returns the string representation
@@ -504,10 +504,10 @@ type ClusterSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for the cluster.
-	Id *string `type:"string"`
+	Id *string `json:"elasticmapreduce:ClusterSummary:Id" type:"string"`
 
 	// The name of the cluster.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:ClusterSummary:Name" type:"string"`
 
 	// An approximation of the cost of the cluster, represented in m1.small/hours.
 	// This value is incremented one time for every hour an m1.small instance runs.
@@ -515,10 +515,10 @@ type ClusterSummary struct {
 	// times more expensive would result in the normalized instance hours being
 	// incremented by four. This result is only an approximation and does not reflect
 	// the actual billing rate.
-	NormalizedInstanceHours *int64 `type:"integer"`
+	NormalizedInstanceHours *int64 `json:"elasticmapreduce:ClusterSummary:NormalizedInstanceHours" type:"integer"`
 
 	// The details about the current status of the cluster.
-	Status *ClusterStatus `type:"structure"`
+	Status *ClusterStatus `json:"elasticmapreduce:ClusterSummary:Status" type:"structure"`
 }
 
 // String returns the string representation
@@ -532,13 +532,13 @@ type ClusterTimeline struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date and time of the cluster.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:ClusterTimeline:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the cluster was terminated.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"elasticmapreduce:ClusterTimeline:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the cluster was ready to execute steps.
-	ReadyDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReadyDateTime *time.Time `json:"elasticmapreduce:ClusterTimeline:ReadyDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -552,13 +552,13 @@ type Command struct {
 	_ struct{} `type:"structure"`
 
 	// Arguments for Amazon EMR to pass to the command for execution.
-	Args []string `type:"list"`
+	Args []string `json:"elasticmapreduce:Command:Args" type:"list"`
 
 	// The name of the command.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:Command:Name" type:"string"`
 
 	// The Amazon S3 location of the command script.
-	ScriptPath *string `type:"string"`
+	ScriptPath *string `json:"elasticmapreduce:Command:ScriptPath" type:"string"`
 }
 
 // String returns the string representation
@@ -580,13 +580,13 @@ type Configuration struct {
 	_ struct{} `type:"structure"`
 
 	// The classification within a configuration.
-	Classification *string `type:"string"`
+	Classification *string `json:"elasticmapreduce:Configuration:Classification" type:"string"`
 
 	// A list of additional configurations to apply within a configuration object.
-	Configurations []Configuration `type:"list"`
+	Configurations []Configuration `json:"elasticmapreduce:Configuration:Configurations" type:"list"`
 
 	// A set of properties specified within a configuration classification.
-	Properties map[string]string `type:"map"`
+	Properties map[string]string `json:"elasticmapreduce:Configuration:Properties" type:"map"`
 }
 
 // String returns the string representation
@@ -601,11 +601,11 @@ type EbsBlockDevice struct {
 	_ struct{} `type:"structure"`
 
 	// The device name that is exposed to the instance, such as /dev/sdh.
-	Device *string `type:"string"`
+	Device *string `json:"elasticmapreduce:EbsBlockDevice:Device" type:"string"`
 
 	// EBS volume specifications such as volume type, IOPS, and size (GiB) that
 	// will be requested for the EBS volume attached to an EC2 instance in the cluster.
-	VolumeSpecification *VolumeSpecification `type:"structure"`
+	VolumeSpecification *VolumeSpecification `json:"elasticmapreduce:EbsBlockDevice:VolumeSpecification" type:"structure"`
 }
 
 // String returns the string representation
@@ -623,11 +623,11 @@ type EbsBlockDeviceConfig struct {
 	// will be requested for the EBS volume attached to an EC2 instance in the cluster.
 	//
 	// VolumeSpecification is a required field
-	VolumeSpecification *VolumeSpecification `type:"structure" required:"true"`
+	VolumeSpecification *VolumeSpecification `json:"elasticmapreduce:EbsBlockDeviceConfig:VolumeSpecification" type:"structure" required:"true"`
 
 	// Number of EBS volumes with a specific volume configuration that will be associated
 	// with every instance in the instance group
-	VolumesPerInstance *int64 `type:"integer"`
+	VolumesPerInstance *int64 `json:"elasticmapreduce:EbsBlockDeviceConfig:VolumesPerInstance" type:"integer"`
 }
 
 // String returns the string representation
@@ -660,10 +660,10 @@ type EbsConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Amazon EBS volume specifications attached to a cluster instance.
-	EbsBlockDeviceConfigs []EbsBlockDeviceConfig `type:"list"`
+	EbsBlockDeviceConfigs []EbsBlockDeviceConfig `json:"elasticmapreduce:EbsConfiguration:EbsBlockDeviceConfigs" type:"list"`
 
 	// Indicates whether an Amazon EBS volume is EBS-optimized.
-	EbsOptimized *bool `type:"boolean"`
+	EbsOptimized *bool `json:"elasticmapreduce:EbsConfiguration:EbsOptimized" type:"boolean"`
 }
 
 // String returns the string representation
@@ -694,10 +694,10 @@ type EbsVolume struct {
 	_ struct{} `type:"structure"`
 
 	// The device name that is exposed to the instance, such as /dev/sdh.
-	Device *string `type:"string"`
+	Device *string `json:"elasticmapreduce:EbsVolume:Device" type:"string"`
 
 	// The volume identifier of the EBS volume.
-	VolumeId *string `type:"string"`
+	VolumeId *string `json:"elasticmapreduce:EbsVolume:VolumeId" type:"string"`
 }
 
 // String returns the string representation
@@ -712,18 +712,18 @@ type Ec2InstanceAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// A list of additional Amazon EC2 security group IDs for the master node.
-	AdditionalMasterSecurityGroups []string `type:"list"`
+	AdditionalMasterSecurityGroups []string `json:"elasticmapreduce:Ec2InstanceAttributes:AdditionalMasterSecurityGroups" type:"list"`
 
 	// A list of additional Amazon EC2 security group IDs for the core and task
 	// nodes.
-	AdditionalSlaveSecurityGroups []string `type:"list"`
+	AdditionalSlaveSecurityGroups []string `json:"elasticmapreduce:Ec2InstanceAttributes:AdditionalSlaveSecurityGroups" type:"list"`
 
 	// The Availability Zone in which the cluster will run.
-	Ec2AvailabilityZone *string `type:"string"`
+	Ec2AvailabilityZone *string `json:"elasticmapreduce:Ec2InstanceAttributes:Ec2AvailabilityZone" type:"string"`
 
 	// The name of the Amazon EC2 key pair to use when connecting with SSH into
 	// the master node as a user named "hadoop".
-	Ec2KeyName *string `type:"string"`
+	Ec2KeyName *string `json:"elasticmapreduce:Ec2InstanceAttributes:Ec2KeyName" type:"string"`
 
 	// To launch the cluster in Amazon VPC, set this parameter to the identifier
 	// of the Amazon VPC subnet where you want the cluster to launch. If you do
@@ -733,17 +733,17 @@ type Ec2InstanceAttributes struct {
 	// Amazon VPC currently does not support cluster compute quadruple extra large
 	// (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance
 	// type for nodes of a cluster launched in a VPC.
-	Ec2SubnetId *string `type:"string"`
+	Ec2SubnetId *string `json:"elasticmapreduce:Ec2InstanceAttributes:Ec2SubnetId" type:"string"`
 
 	// The identifier of the Amazon EC2 security group for the master node.
-	EmrManagedMasterSecurityGroup *string `type:"string"`
+	EmrManagedMasterSecurityGroup *string `json:"elasticmapreduce:Ec2InstanceAttributes:EmrManagedMasterSecurityGroup" type:"string"`
 
 	// The identifier of the Amazon EC2 security group for the core and task nodes.
-	EmrManagedSlaveSecurityGroup *string `type:"string"`
+	EmrManagedSlaveSecurityGroup *string `json:"elasticmapreduce:Ec2InstanceAttributes:EmrManagedSlaveSecurityGroup" type:"string"`
 
 	// The IAM role that was specified when the cluster was launched. The EC2 instances
 	// of the cluster assume this role.
-	IamInstanceProfile *string `type:"string"`
+	IamInstanceProfile *string `json:"elasticmapreduce:Ec2InstanceAttributes:IamInstanceProfile" type:"string"`
 
 	// Applies to clusters configured with the instance fleets option. Specifies
 	// one or more Availability Zones in which to launch EC2 cluster instances when
@@ -753,7 +753,7 @@ type Ec2InstanceAttributes struct {
 	// you do not specify this value, Amazon EMR chooses the Availability Zone for
 	// you. RequestedEc2SubnetIDs and RequestedEc2AvailabilityZones cannot be specified
 	// together.
-	RequestedEc2AvailabilityZones []string `type:"list"`
+	RequestedEc2AvailabilityZones []string `json:"elasticmapreduce:Ec2InstanceAttributes:RequestedEc2AvailabilityZones" type:"list"`
 
 	// Applies to clusters configured with the instance fleets option. Specifies
 	// the unique identifier of one or more Amazon EC2 subnets in which to launch
@@ -765,11 +765,11 @@ type Ec2InstanceAttributes struct {
 	// instead of this setting. If EC2-Classic is not supported, and no Subnet is
 	// specified, Amazon EMR chooses the subnet for you. RequestedEc2SubnetIDs and
 	// RequestedEc2AvailabilityZones cannot be specified together.
-	RequestedEc2SubnetIds []string `type:"list"`
+	RequestedEc2SubnetIds []string `json:"elasticmapreduce:Ec2InstanceAttributes:RequestedEc2SubnetIds" type:"list"`
 
 	// The identifier of the Amazon EC2 security group for the Amazon EMR service
 	// to access clusters in VPC private subnets.
-	ServiceAccessSecurityGroup *string `type:"string"`
+	ServiceAccessSecurityGroup *string `json:"elasticmapreduce:Ec2InstanceAttributes:ServiceAccessSecurityGroup" type:"string"`
 }
 
 // String returns the string representation
@@ -785,17 +785,17 @@ type FailureDetails struct {
 
 	// The path to the log file where the step failure root cause was originally
 	// recorded.
-	LogFile *string `type:"string"`
+	LogFile *string `json:"elasticmapreduce:FailureDetails:LogFile" type:"string"`
 
 	// The descriptive message including the error the EMR service has identified
 	// as the cause of step failure. This is text from an error log that describes
 	// the root cause of the failure.
-	Message *string `type:"string"`
+	Message *string `json:"elasticmapreduce:FailureDetails:Message" type:"string"`
 
 	// The reason for the step failure. In the case where the service cannot successfully
 	// determine the root cause of the failure, it returns "Unknown Error" as a
 	// reason.
-	Reason *string `type:"string"`
+	Reason *string `json:"elasticmapreduce:FailureDetails:Reason" type:"string"`
 }
 
 // String returns the string representation
@@ -812,20 +812,20 @@ type HadoopJarStepConfig struct {
 
 	// A list of command line arguments passed to the JAR file's main function when
 	// executed.
-	Args []string `type:"list"`
+	Args []string `json:"elasticmapreduce:HadoopJarStepConfig:Args" type:"list"`
 
 	// A path to a JAR file run during the step.
 	//
 	// Jar is a required field
-	Jar *string `type:"string" required:"true"`
+	Jar *string `json:"elasticmapreduce:HadoopJarStepConfig:Jar" type:"string" required:"true"`
 
 	// The name of the main class in the specified Java file. If not specified,
 	// the JAR file should specify a Main-Class in its manifest file.
-	MainClass *string `type:"string"`
+	MainClass *string `json:"elasticmapreduce:HadoopJarStepConfig:MainClass" type:"string"`
 
 	// A list of Java properties that are set when the step runs. You can use these
 	// properties to pass key value pairs to your main function.
-	Properties []KeyValue `type:"list"`
+	Properties []KeyValue `json:"elasticmapreduce:HadoopJarStepConfig:Properties" type:"list"`
 }
 
 // String returns the string representation
@@ -856,18 +856,18 @@ type HadoopStepConfig struct {
 
 	// The list of command line arguments to pass to the JAR file's main function
 	// for execution.
-	Args []string `type:"list"`
+	Args []string `json:"elasticmapreduce:HadoopStepConfig:Args" type:"list"`
 
 	// The path to the JAR file that runs during the step.
-	Jar *string `type:"string"`
+	Jar *string `json:"elasticmapreduce:HadoopStepConfig:Jar" type:"string"`
 
 	// The name of the main class in the specified Java file. If not specified,
 	// the JAR file should specify a main class in its manifest file.
-	MainClass *string `type:"string"`
+	MainClass *string `json:"elasticmapreduce:HadoopStepConfig:MainClass" type:"string"`
 
 	// The list of Java properties that are set when the step runs. You can use
 	// these properties to pass key value pairs to your main function.
-	Properties map[string]string `type:"map"`
+	Properties map[string]string `json:"elasticmapreduce:HadoopStepConfig:Properties" type:"map"`
 }
 
 // String returns the string representation
@@ -881,40 +881,40 @@ type Instance struct {
 	_ struct{} `type:"structure"`
 
 	// The list of EBS volumes that are attached to this instance.
-	EbsVolumes []EbsVolume `type:"list"`
+	EbsVolumes []EbsVolume `json:"elasticmapreduce:Instance:EbsVolumes" type:"list"`
 
 	// The unique identifier of the instance in Amazon EC2.
-	Ec2InstanceId *string `type:"string"`
+	Ec2InstanceId *string `json:"elasticmapreduce:Instance:Ec2InstanceId" type:"string"`
 
 	// The unique identifier for the instance in Amazon EMR.
-	Id *string `type:"string"`
+	Id *string `json:"elasticmapreduce:Instance:Id" type:"string"`
 
 	// The unique identifier of the instance fleet to which an EC2 instance belongs.
-	InstanceFleetId *string `type:"string"`
+	InstanceFleetId *string `json:"elasticmapreduce:Instance:InstanceFleetId" type:"string"`
 
 	// The identifier of the instance group to which this instance belongs.
-	InstanceGroupId *string `type:"string"`
+	InstanceGroupId *string `json:"elasticmapreduce:Instance:InstanceGroupId" type:"string"`
 
 	// The EC2 instance type, for example m3.xlarge.
-	InstanceType *string `min:"1" type:"string"`
+	InstanceType *string `json:"elasticmapreduce:Instance:InstanceType" min:"1" type:"string"`
 
 	// The instance purchasing option. Valid values are ON_DEMAND or SPOT.
-	Market MarketType `type:"string" enum:"true"`
+	Market MarketType `json:"elasticmapreduce:Instance:Market" type:"string" enum:"true"`
 
 	// The private DNS name of the instance.
-	PrivateDnsName *string `type:"string"`
+	PrivateDnsName *string `json:"elasticmapreduce:Instance:PrivateDnsName" type:"string"`
 
 	// The private IP address of the instance.
-	PrivateIpAddress *string `type:"string"`
+	PrivateIpAddress *string `json:"elasticmapreduce:Instance:PrivateIpAddress" type:"string"`
 
 	// The public DNS name of the instance.
-	PublicDnsName *string `type:"string"`
+	PublicDnsName *string `json:"elasticmapreduce:Instance:PublicDnsName" type:"string"`
 
 	// The public IP address of the instance.
-	PublicIpAddress *string `type:"string"`
+	PublicIpAddress *string `json:"elasticmapreduce:Instance:PublicIpAddress" type:"string"`
 
 	// The current status of the instance.
-	Status *InstanceStatus `type:"structure"`
+	Status *InstanceStatus `json:"elasticmapreduce:Instance:Status" type:"structure"`
 }
 
 // String returns the string representation
@@ -934,35 +934,35 @@ type InstanceFleet struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the instance fleet.
-	Id *string `type:"string"`
+	Id *string `json:"elasticmapreduce:InstanceFleet:Id" type:"string"`
 
 	// The node type that the instance fleet hosts. Valid values are MASTER, CORE,
 	// or TASK.
-	InstanceFleetType InstanceFleetType `type:"string" enum:"true"`
+	InstanceFleetType InstanceFleetType `json:"elasticmapreduce:InstanceFleet:InstanceFleetType" type:"string" enum:"true"`
 
 	// The specification for the instance types that comprise an instance fleet.
 	// Up to five unique instance specifications may be defined for each instance
 	// fleet.
-	InstanceTypeSpecifications []InstanceTypeSpecification `type:"list"`
+	InstanceTypeSpecifications []InstanceTypeSpecification `json:"elasticmapreduce:InstanceFleet:InstanceTypeSpecifications" type:"list"`
 
 	// Describes the launch specification for an instance fleet.
-	LaunchSpecifications *InstanceFleetProvisioningSpecifications `type:"structure"`
+	LaunchSpecifications *InstanceFleetProvisioningSpecifications `json:"elasticmapreduce:InstanceFleet:LaunchSpecifications" type:"structure"`
 
 	// A friendly name for the instance fleet.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:InstanceFleet:Name" type:"string"`
 
 	// The number of On-Demand units that have been provisioned for the instance
 	// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might
 	// be less than or greater than TargetOnDemandCapacity.
-	ProvisionedOnDemandCapacity *int64 `type:"integer"`
+	ProvisionedOnDemandCapacity *int64 `json:"elasticmapreduce:InstanceFleet:ProvisionedOnDemandCapacity" type:"integer"`
 
 	// The number of Spot units that have been provisioned for this instance fleet
 	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than
 	// or greater than TargetSpotCapacity.
-	ProvisionedSpotCapacity *int64 `type:"integer"`
+	ProvisionedSpotCapacity *int64 `json:"elasticmapreduce:InstanceFleet:ProvisionedSpotCapacity" type:"integer"`
 
 	// The current status of the instance fleet.
-	Status *InstanceFleetStatus `type:"structure"`
+	Status *InstanceFleetStatus `json:"elasticmapreduce:InstanceFleet:Status" type:"structure"`
 
 	// The target capacity of On-Demand units for the instance fleet, which determines
 	// how many On-Demand instances to provision. When the instance fleet launches,
@@ -982,7 +982,7 @@ type InstanceFleet struct {
 	// and TargetOnDemandCapacity should be greater than 0. For a master instance
 	// fleet, only one of TargetSpotCapacity and TargetOnDemandCapacity can be specified,
 	// and its value must be 1.
-	TargetOnDemandCapacity *int64 `type:"integer"`
+	TargetOnDemandCapacity *int64 `json:"elasticmapreduce:InstanceFleet:TargetOnDemandCapacity" type:"integer"`
 
 	// The target capacity of Spot units for the instance fleet, which determines
 	// how many Spot instances to provision. When the instance fleet launches, Amazon
@@ -1001,7 +1001,7 @@ type InstanceFleet struct {
 	// the instance fleet. At least one of TargetSpotCapacity and TargetOnDemandCapacity
 	// should be greater than 0. For a master instance fleet, only one of TargetSpotCapacity
 	// and TargetOnDemandCapacity can be specified, and its value must be 1.
-	TargetSpotCapacity *int64 `type:"integer"`
+	TargetSpotCapacity *int64 `json:"elasticmapreduce:InstanceFleet:TargetSpotCapacity" type:"integer"`
 }
 
 // String returns the string representation
@@ -1021,17 +1021,17 @@ type InstanceFleetConfig struct {
 	// TASK.
 	//
 	// InstanceFleetType is a required field
-	InstanceFleetType InstanceFleetType `type:"string" required:"true" enum:"true"`
+	InstanceFleetType InstanceFleetType `json:"elasticmapreduce:InstanceFleetConfig:InstanceFleetType" type:"string" required:"true" enum:"true"`
 
 	// The instance type configurations that define the EC2 instances in the instance
 	// fleet.
-	InstanceTypeConfigs []InstanceTypeConfig `type:"list"`
+	InstanceTypeConfigs []InstanceTypeConfig `json:"elasticmapreduce:InstanceFleetConfig:InstanceTypeConfigs" type:"list"`
 
 	// The launch specification for the instance fleet.
-	LaunchSpecifications *InstanceFleetProvisioningSpecifications `type:"structure"`
+	LaunchSpecifications *InstanceFleetProvisioningSpecifications `json:"elasticmapreduce:InstanceFleetConfig:LaunchSpecifications" type:"structure"`
 
 	// The friendly name of the instance fleet.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:InstanceFleetConfig:Name" type:"string"`
 
 	// The target capacity of On-Demand units for the instance fleet, which determines
 	// how many On-Demand instances to provision. When the instance fleet launches,
@@ -1049,7 +1049,7 @@ type InstanceFleetConfig struct {
 	// and TargetOnDemandCapacity should be greater than 0. For a master instance
 	// fleet, only one of TargetSpotCapacity and TargetOnDemandCapacity can be specified,
 	// and its value must be 1.
-	TargetOnDemandCapacity *int64 `type:"integer"`
+	TargetOnDemandCapacity *int64 `json:"elasticmapreduce:InstanceFleetConfig:TargetOnDemandCapacity" type:"integer"`
 
 	// The target capacity of Spot units for the instance fleet, which determines
 	// how many Spot instances to provision. When the instance fleet launches, Amazon
@@ -1066,7 +1066,7 @@ type InstanceFleetConfig struct {
 	// the instance fleet. At least one of TargetSpotCapacity and TargetOnDemandCapacity
 	// should be greater than 0. For a master instance fleet, only one of TargetSpotCapacity
 	// and TargetOnDemandCapacity can be specified, and its value must be 1.
-	TargetSpotCapacity *int64 `type:"integer"`
+	TargetSpotCapacity *int64 `json:"elasticmapreduce:InstanceFleetConfig:TargetSpotCapacity" type:"integer"`
 }
 
 // String returns the string representation
@@ -1110,15 +1110,15 @@ type InstanceFleetModifyConfig struct {
 	// A unique identifier for the instance fleet.
 	//
 	// InstanceFleetId is a required field
-	InstanceFleetId *string `type:"string" required:"true"`
+	InstanceFleetId *string `json:"elasticmapreduce:InstanceFleetModifyConfig:InstanceFleetId" type:"string" required:"true"`
 
 	// The target capacity of On-Demand units for the instance fleet. For more information
 	// see InstanceFleetConfig$TargetOnDemandCapacity.
-	TargetOnDemandCapacity *int64 `type:"integer"`
+	TargetOnDemandCapacity *int64 `json:"elasticmapreduce:InstanceFleetModifyConfig:TargetOnDemandCapacity" type:"integer"`
 
 	// The target capacity of Spot units for the instance fleet. For more information,
 	// see InstanceFleetConfig$TargetSpotCapacity.
-	TargetSpotCapacity *int64 `type:"integer"`
+	TargetSpotCapacity *int64 `json:"elasticmapreduce:InstanceFleetModifyConfig:TargetSpotCapacity" type:"integer"`
 }
 
 // String returns the string representation
@@ -1153,7 +1153,7 @@ type InstanceFleetProvisioningSpecifications struct {
 	// the defined duration and provisioning timeout behavior.
 	//
 	// SpotSpecification is a required field
-	SpotSpecification *SpotProvisioningSpecification `type:"structure" required:"true"`
+	SpotSpecification *SpotProvisioningSpecification `json:"elasticmapreduce:InstanceFleetProvisioningSpecifications:SpotSpecification" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1189,10 +1189,10 @@ type InstanceFleetStateChangeReason struct {
 	_ struct{} `type:"structure"`
 
 	// A code corresponding to the reason the state change occurred.
-	Code InstanceFleetStateChangeReasonCode `type:"string" enum:"true"`
+	Code InstanceFleetStateChangeReasonCode `json:"elasticmapreduce:InstanceFleetStateChangeReason:Code" type:"string" enum:"true"`
 
 	// An explanatory message.
-	Message *string `type:"string"`
+	Message *string `json:"elasticmapreduce:InstanceFleetStateChangeReason:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -1229,14 +1229,14 @@ type InstanceFleetStatus struct {
 	//
 	//    * TERMINATED—The instance fleet is no longer active, and all EC2 instances
 	//    have been terminated.
-	State InstanceFleetState `type:"string" enum:"true"`
+	State InstanceFleetState `json:"elasticmapreduce:InstanceFleetStatus:State" type:"string" enum:"true"`
 
 	// Provides status change reason details for the instance fleet.
-	StateChangeReason *InstanceFleetStateChangeReason `type:"structure"`
+	StateChangeReason *InstanceFleetStateChangeReason `json:"elasticmapreduce:InstanceFleetStatus:StateChangeReason" type:"structure"`
 
 	// Provides historical timestamps for the instance fleet, including the time
 	// of creation, the time it became ready to run jobs, and the time of termination.
-	Timeline *InstanceFleetTimeline `type:"structure"`
+	Timeline *InstanceFleetTimeline `json:"elasticmapreduce:InstanceFleetStatus:Timeline" type:"structure"`
 }
 
 // String returns the string representation
@@ -1254,13 +1254,13 @@ type InstanceFleetTimeline struct {
 	_ struct{} `type:"structure"`
 
 	// The time and date the instance fleet was created.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:InstanceFleetTimeline:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time and date the instance fleet terminated.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"elasticmapreduce:InstanceFleetTimeline:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time and date the instance fleet was ready to run jobs.
-	ReadyDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReadyDateTime *time.Time `json:"elasticmapreduce:InstanceFleetTimeline:ReadyDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1278,7 +1278,7 @@ type InstanceGroup struct {
 	// in an Amazon EMR cluster. The automatic scaling policy defines how an instance
 	// group dynamically adds and terminates EC2 instances in response to the value
 	// of a CloudWatch metric. See PutAutoScalingPolicy.
-	AutoScalingPolicy *AutoScalingPolicyDescription `type:"structure"`
+	AutoScalingPolicy *AutoScalingPolicyDescription `json:"elasticmapreduce:InstanceGroup:AutoScalingPolicy" type:"structure"`
 
 	// The maximum Spot price your are willing to pay for EC2 instances.
 	//
@@ -1286,7 +1286,7 @@ type InstanceGroup struct {
 	// group is specified as SPOT. Specify the maximum spot price in USD. If the
 	// value is NULL and SPOT is specified, the maximum Spot price is set equal
 	// to the On-Demand price.
-	BidPrice *string `type:"string"`
+	BidPrice *string `json:"elasticmapreduce:InstanceGroup:BidPrice" type:"string"`
 
 	//
 	// Amazon EMR releases 4.x or later.
@@ -1294,55 +1294,55 @@ type InstanceGroup struct {
 	// The list of configurations supplied for an EMR cluster instance group. You
 	// can specify a separate configuration for each instance group (master, core,
 	// and task).
-	Configurations []Configuration `type:"list"`
+	Configurations []Configuration `json:"elasticmapreduce:InstanceGroup:Configurations" type:"list"`
 
 	// The version number of the requested configuration specification for this
 	// instance group.
-	ConfigurationsVersion *int64 `type:"long"`
+	ConfigurationsVersion *int64 `json:"elasticmapreduce:InstanceGroup:ConfigurationsVersion" type:"long"`
 
 	// The EBS block devices that are mapped to this instance group.
-	EbsBlockDevices []EbsBlockDevice `type:"list"`
+	EbsBlockDevices []EbsBlockDevice `json:"elasticmapreduce:InstanceGroup:EbsBlockDevices" type:"list"`
 
 	// If the instance group is EBS-optimized. An Amazon EBS-optimized instance
 	// uses an optimized configuration stack and provides additional, dedicated
 	// capacity for Amazon EBS I/O.
-	EbsOptimized *bool `type:"boolean"`
+	EbsOptimized *bool `json:"elasticmapreduce:InstanceGroup:EbsOptimized" type:"boolean"`
 
 	// The identifier of the instance group.
-	Id *string `type:"string"`
+	Id *string `json:"elasticmapreduce:InstanceGroup:Id" type:"string"`
 
 	// The type of the instance group. Valid values are MASTER, CORE or TASK.
-	InstanceGroupType InstanceGroupType `type:"string" enum:"true"`
+	InstanceGroupType InstanceGroupType `json:"elasticmapreduce:InstanceGroup:InstanceGroupType" type:"string" enum:"true"`
 
 	// The EC2 instance type for all instances in the instance group.
-	InstanceType *string `min:"1" type:"string"`
+	InstanceType *string `json:"elasticmapreduce:InstanceGroup:InstanceType" min:"1" type:"string"`
 
 	// A list of configurations that were successfully applied for an instance group
 	// last time.
-	LastSuccessfullyAppliedConfigurations []Configuration `type:"list"`
+	LastSuccessfullyAppliedConfigurations []Configuration `json:"elasticmapreduce:InstanceGroup:LastSuccessfullyAppliedConfigurations" type:"list"`
 
 	// The version number of a configuration specification that was successfully
 	// applied for an instance group last time.
-	LastSuccessfullyAppliedConfigurationsVersion *int64 `type:"long"`
+	LastSuccessfullyAppliedConfigurationsVersion *int64 `json:"elasticmapreduce:InstanceGroup:LastSuccessfullyAppliedConfigurationsVersion" type:"long"`
 
 	// The marketplace to provision instances for this group. Valid values are ON_DEMAND
 	// or SPOT.
-	Market MarketType `type:"string" enum:"true"`
+	Market MarketType `json:"elasticmapreduce:InstanceGroup:Market" type:"string" enum:"true"`
 
 	// The name of the instance group.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:InstanceGroup:Name" type:"string"`
 
 	// The target number of instances for the instance group.
-	RequestedInstanceCount *int64 `type:"integer"`
+	RequestedInstanceCount *int64 `json:"elasticmapreduce:InstanceGroup:RequestedInstanceCount" type:"integer"`
 
 	// The number of instances currently running in this instance group.
-	RunningInstanceCount *int64 `type:"integer"`
+	RunningInstanceCount *int64 `json:"elasticmapreduce:InstanceGroup:RunningInstanceCount" type:"integer"`
 
 	// Policy for customizing shrink operations.
-	ShrinkPolicy *ShrinkPolicy `type:"structure"`
+	ShrinkPolicy *ShrinkPolicy `json:"elasticmapreduce:InstanceGroup:ShrinkPolicy" type:"structure"`
 
 	// The current status of the instance group.
-	Status *InstanceGroupStatus `type:"structure"`
+	Status *InstanceGroupStatus `json:"elasticmapreduce:InstanceGroup:Status" type:"structure"`
 }
 
 // String returns the string representation
@@ -1359,7 +1359,7 @@ type InstanceGroupConfig struct {
 	// in an Amazon EMR cluster. The automatic scaling policy defines how an instance
 	// group dynamically adds and terminates EC2 instances in response to the value
 	// of a CloudWatch metric. See PutAutoScalingPolicy.
-	AutoScalingPolicy *AutoScalingPolicy `type:"structure"`
+	AutoScalingPolicy *AutoScalingPolicy `json:"elasticmapreduce:InstanceGroupConfig:AutoScalingPolicy" type:"structure"`
 
 	// The maximum Spot price your are willing to pay for EC2 instances.
 	//
@@ -1367,7 +1367,7 @@ type InstanceGroupConfig struct {
 	// group is specified as SPOT. Specify the maximum spot price in USD. If the
 	// value is NULL and SPOT is specified, the maximum Spot price is set equal
 	// to the On-Demand price.
-	BidPrice *string `type:"string"`
+	BidPrice *string `json:"elasticmapreduce:InstanceGroupConfig:BidPrice" type:"string"`
 
 	//
 	// Amazon EMR releases 4.x or later.
@@ -1375,32 +1375,32 @@ type InstanceGroupConfig struct {
 	// The list of configurations supplied for an EMR cluster instance group. You
 	// can specify a separate configuration for each instance group (master, core,
 	// and task).
-	Configurations []Configuration `type:"list"`
+	Configurations []Configuration `json:"elasticmapreduce:InstanceGroupConfig:Configurations" type:"list"`
 
 	// EBS configurations that will be attached to each EC2 instance in the instance
 	// group.
-	EbsConfiguration *EbsConfiguration `type:"structure"`
+	EbsConfiguration *EbsConfiguration `json:"elasticmapreduce:InstanceGroupConfig:EbsConfiguration" type:"structure"`
 
 	// Target number of instances for the instance group.
 	//
 	// InstanceCount is a required field
-	InstanceCount *int64 `type:"integer" required:"true"`
+	InstanceCount *int64 `json:"elasticmapreduce:InstanceGroupConfig:InstanceCount" type:"integer" required:"true"`
 
 	// The role of the instance group in the cluster.
 	//
 	// InstanceRole is a required field
-	InstanceRole InstanceRoleType `type:"string" required:"true" enum:"true"`
+	InstanceRole InstanceRoleType `json:"elasticmapreduce:InstanceGroupConfig:InstanceRole" type:"string" required:"true" enum:"true"`
 
 	// The EC2 instance type for all instances in the instance group.
 	//
 	// InstanceType is a required field
-	InstanceType *string `min:"1" type:"string" required:"true"`
+	InstanceType *string `json:"elasticmapreduce:InstanceGroupConfig:InstanceType" min:"1" type:"string" required:"true"`
 
 	// Market type of the EC2 instances used to create a cluster node.
-	Market MarketType `type:"string" enum:"true"`
+	Market MarketType `json:"elasticmapreduce:InstanceGroupConfig:Market" type:"string" enum:"true"`
 
 	// Friendly name given to the instance group.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:InstanceGroupConfig:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1452,61 +1452,61 @@ type InstanceGroupDetail struct {
 	// An optional, nullable field that applies if the MarketType for the instance
 	// group is specified as SPOT. Specified in USD. If the value is NULL and SPOT
 	// is specified, the maximum Spot price is set equal to the On-Demand price.
-	BidPrice *string `type:"string"`
+	BidPrice *string `json:"elasticmapreduce:InstanceGroupDetail:BidPrice" type:"string"`
 
 	// The date/time the instance group was created.
 	//
 	// CreationDateTime is a required field
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:InstanceGroupDetail:CreationDateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The date/time the instance group was terminated.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"elasticmapreduce:InstanceGroupDetail:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Unique identifier for the instance group.
-	InstanceGroupId *string `type:"string"`
+	InstanceGroupId *string `json:"elasticmapreduce:InstanceGroupDetail:InstanceGroupId" type:"string"`
 
 	// Target number of instances to run in the instance group.
 	//
 	// InstanceRequestCount is a required field
-	InstanceRequestCount *int64 `type:"integer" required:"true"`
+	InstanceRequestCount *int64 `json:"elasticmapreduce:InstanceGroupDetail:InstanceRequestCount" type:"integer" required:"true"`
 
 	// Instance group role in the cluster
 	//
 	// InstanceRole is a required field
-	InstanceRole InstanceRoleType `type:"string" required:"true" enum:"true"`
+	InstanceRole InstanceRoleType `json:"elasticmapreduce:InstanceGroupDetail:InstanceRole" type:"string" required:"true" enum:"true"`
 
 	// Actual count of running instances.
 	//
 	// InstanceRunningCount is a required field
-	InstanceRunningCount *int64 `type:"integer" required:"true"`
+	InstanceRunningCount *int64 `json:"elasticmapreduce:InstanceGroupDetail:InstanceRunningCount" type:"integer" required:"true"`
 
 	// EC2 instance type.
 	//
 	// InstanceType is a required field
-	InstanceType *string `min:"1" type:"string" required:"true"`
+	InstanceType *string `json:"elasticmapreduce:InstanceGroupDetail:InstanceType" min:"1" type:"string" required:"true"`
 
 	// Details regarding the state of the instance group.
-	LastStateChangeReason *string `type:"string"`
+	LastStateChangeReason *string `json:"elasticmapreduce:InstanceGroupDetail:LastStateChangeReason" type:"string"`
 
 	// Market type of the EC2 instances used to create a cluster node.
 	//
 	// Market is a required field
-	Market MarketType `type:"string" required:"true" enum:"true"`
+	Market MarketType `json:"elasticmapreduce:InstanceGroupDetail:Market" type:"string" required:"true" enum:"true"`
 
 	// Friendly name for the instance group.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:InstanceGroupDetail:Name" type:"string"`
 
 	// The date/time the instance group was available to the cluster.
-	ReadyDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReadyDateTime *time.Time `json:"elasticmapreduce:InstanceGroupDetail:ReadyDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date/time the instance group was started.
-	StartDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartDateTime *time.Time `json:"elasticmapreduce:InstanceGroupDetail:StartDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// State of instance group. The following values are deprecated: STARTING, TERMINATED,
 	// and FAILED.
 	//
 	// State is a required field
-	State InstanceGroupState `type:"string" required:"true" enum:"true"`
+	State InstanceGroupState `json:"elasticmapreduce:InstanceGroupDetail:State" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1520,22 +1520,22 @@ type InstanceGroupModifyConfig struct {
 	_ struct{} `type:"structure"`
 
 	// A list of new or modified configurations to apply for an instance group.
-	Configurations []Configuration `type:"list"`
+	Configurations []Configuration `json:"elasticmapreduce:InstanceGroupModifyConfig:Configurations" type:"list"`
 
 	// The EC2 InstanceIds to terminate. After you terminate the instances, the
 	// instance group will not return to its original requested size.
-	EC2InstanceIdsToTerminate []string `type:"list"`
+	EC2InstanceIdsToTerminate []string `json:"elasticmapreduce:InstanceGroupModifyConfig:EC2InstanceIdsToTerminate" type:"list"`
 
 	// Target size for the instance group.
-	InstanceCount *int64 `type:"integer"`
+	InstanceCount *int64 `json:"elasticmapreduce:InstanceGroupModifyConfig:InstanceCount" type:"integer"`
 
 	// Unique ID of the instance group to expand or shrink.
 	//
 	// InstanceGroupId is a required field
-	InstanceGroupId *string `type:"string" required:"true"`
+	InstanceGroupId *string `json:"elasticmapreduce:InstanceGroupModifyConfig:InstanceGroupId" type:"string" required:"true"`
 
 	// Policy for customizing shrink operations.
-	ShrinkPolicy *ShrinkPolicy `type:"structure"`
+	ShrinkPolicy *ShrinkPolicy `json:"elasticmapreduce:InstanceGroupModifyConfig:ShrinkPolicy" type:"structure"`
 }
 
 // String returns the string representation
@@ -1563,10 +1563,10 @@ type InstanceGroupStateChangeReason struct {
 	_ struct{} `type:"structure"`
 
 	// The programmable code for the state change reason.
-	Code InstanceGroupStateChangeReasonCode `type:"string" enum:"true"`
+	Code InstanceGroupStateChangeReasonCode `json:"elasticmapreduce:InstanceGroupStateChangeReason:Code" type:"string" enum:"true"`
 
 	// The status change reason description.
-	Message *string `type:"string"`
+	Message *string `json:"elasticmapreduce:InstanceGroupStateChangeReason:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -1580,13 +1580,13 @@ type InstanceGroupStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the instance group.
-	State InstanceGroupState `type:"string" enum:"true"`
+	State InstanceGroupState `json:"elasticmapreduce:InstanceGroupStatus:State" type:"string" enum:"true"`
 
 	// The status change reason details for the instance group.
-	StateChangeReason *InstanceGroupStateChangeReason `type:"structure"`
+	StateChangeReason *InstanceGroupStateChangeReason `json:"elasticmapreduce:InstanceGroupStatus:StateChangeReason" type:"structure"`
 
 	// The timeline of the instance group status over time.
-	Timeline *InstanceGroupTimeline `type:"structure"`
+	Timeline *InstanceGroupTimeline `json:"elasticmapreduce:InstanceGroupStatus:Timeline" type:"structure"`
 }
 
 // String returns the string representation
@@ -1600,13 +1600,13 @@ type InstanceGroupTimeline struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date and time of the instance group.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:InstanceGroupTimeline:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the instance group terminated.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"elasticmapreduce:InstanceGroupTimeline:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the instance group became ready to perform tasks.
-	ReadyDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReadyDateTime *time.Time `json:"elasticmapreduce:InstanceGroupTimeline:ReadyDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1622,13 +1622,13 @@ type InstanceResizePolicy struct {
 
 	// Decommissioning timeout override for the specific list of instances to be
 	// terminated.
-	InstanceTerminationTimeout *int64 `type:"integer"`
+	InstanceTerminationTimeout *int64 `json:"elasticmapreduce:InstanceResizePolicy:InstanceTerminationTimeout" type:"integer"`
 
 	// Specific list of instances to be protected when shrinking an instance group.
-	InstancesToProtect []string `type:"list"`
+	InstancesToProtect []string `json:"elasticmapreduce:InstanceResizePolicy:InstancesToProtect" type:"list"`
 
 	// Specific list of instances to be terminated when shrinking an instance group.
-	InstancesToTerminate []string `type:"list"`
+	InstancesToTerminate []string `json:"elasticmapreduce:InstanceResizePolicy:InstancesToTerminate" type:"list"`
 }
 
 // String returns the string representation
@@ -1642,10 +1642,10 @@ type InstanceStateChangeReason struct {
 	_ struct{} `type:"structure"`
 
 	// The programmable code for the state change reason.
-	Code InstanceStateChangeReasonCode `type:"string" enum:"true"`
+	Code InstanceStateChangeReasonCode `json:"elasticmapreduce:InstanceStateChangeReason:Code" type:"string" enum:"true"`
 
 	// The status change reason description.
-	Message *string `type:"string"`
+	Message *string `json:"elasticmapreduce:InstanceStateChangeReason:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -1659,13 +1659,13 @@ type InstanceStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the instance.
-	State InstanceState `type:"string" enum:"true"`
+	State InstanceState `json:"elasticmapreduce:InstanceStatus:State" type:"string" enum:"true"`
 
 	// The details of the status change reason for the instance.
-	StateChangeReason *InstanceStateChangeReason `type:"structure"`
+	StateChangeReason *InstanceStateChangeReason `json:"elasticmapreduce:InstanceStatus:StateChangeReason" type:"structure"`
 
 	// The timeline of the instance status over time.
-	Timeline *InstanceTimeline `type:"structure"`
+	Timeline *InstanceTimeline `json:"elasticmapreduce:InstanceStatus:Timeline" type:"structure"`
 }
 
 // String returns the string representation
@@ -1679,13 +1679,13 @@ type InstanceTimeline struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date and time of the instance.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:InstanceTimeline:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the instance was terminated.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"elasticmapreduce:InstanceTimeline:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the instance was ready to perform tasks.
-	ReadyDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReadyDateTime *time.Time `json:"elasticmapreduce:InstanceTimeline:ReadyDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1707,33 +1707,33 @@ type InstanceTypeConfig struct {
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	// Expressed in USD. If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice
 	// is provided, BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
-	BidPrice *string `type:"string"`
+	BidPrice *string `json:"elasticmapreduce:InstanceTypeConfig:BidPrice" type:"string"`
 
 	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance
 	// as defined by InstanceType. Expressed as a number (for example, 20 specifies
 	// 20%). If neither BidPrice nor BidPriceAsPercentageOfOnDemandPrice is provided,
 	// BidPriceAsPercentageOfOnDemandPrice defaults to 100%.
-	BidPriceAsPercentageOfOnDemandPrice *float64 `type:"double"`
+	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"elasticmapreduce:InstanceTypeConfig:BidPriceAsPercentageOfOnDemandPrice" type:"double"`
 
 	// A configuration classification that applies when provisioning cluster instances,
 	// which can include configurations for applications and software that run on
 	// the cluster.
-	Configurations []Configuration `type:"list"`
+	Configurations []Configuration `json:"elasticmapreduce:InstanceTypeConfig:Configurations" type:"list"`
 
 	// The configuration of Amazon Elastic Block Storage (EBS) attached to each
 	// instance as defined by InstanceType.
-	EbsConfiguration *EbsConfiguration `type:"structure"`
+	EbsConfiguration *EbsConfiguration `json:"elasticmapreduce:InstanceTypeConfig:EbsConfiguration" type:"structure"`
 
 	// An EC2 instance type, such as m3.xlarge.
 	//
 	// InstanceType is a required field
-	InstanceType *string `min:"1" type:"string" required:"true"`
+	InstanceType *string `json:"elasticmapreduce:InstanceTypeConfig:InstanceType" min:"1" type:"string" required:"true"`
 
 	// The number of units that a provisioned instance of this type provides toward
 	// fulfilling the target capacities defined in InstanceFleetConfig. This value
 	// is 1 for a master instance fleet, and must be 1 or greater for core and task
 	// instance fleets. Defaults to 1 if not specified.
-	WeightedCapacity *int64 `type:"integer"`
+	WeightedCapacity *int64 `json:"elasticmapreduce:InstanceTypeConfig:WeightedCapacity" type:"integer"`
 }
 
 // String returns the string representation
@@ -1773,33 +1773,33 @@ type InstanceTypeSpecification struct {
 
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	// Expressed in USD.
-	BidPrice *string `type:"string"`
+	BidPrice *string `json:"elasticmapreduce:InstanceTypeSpecification:BidPrice" type:"string"`
 
 	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance
 	// as defined by InstanceType. Expressed as a number (for example, 20 specifies
 	// 20%).
-	BidPriceAsPercentageOfOnDemandPrice *float64 `type:"double"`
+	BidPriceAsPercentageOfOnDemandPrice *float64 `json:"elasticmapreduce:InstanceTypeSpecification:BidPriceAsPercentageOfOnDemandPrice" type:"double"`
 
 	// A configuration classification that applies when provisioning cluster instances,
 	// which can include configurations for applications and software bundled with
 	// Amazon EMR.
-	Configurations []Configuration `type:"list"`
+	Configurations []Configuration `json:"elasticmapreduce:InstanceTypeSpecification:Configurations" type:"list"`
 
 	// The configuration of Amazon Elastic Block Storage (EBS) attached to each
 	// instance as defined by InstanceType.
-	EbsBlockDevices []EbsBlockDevice `type:"list"`
+	EbsBlockDevices []EbsBlockDevice `json:"elasticmapreduce:InstanceTypeSpecification:EbsBlockDevices" type:"list"`
 
 	// Evaluates to TRUE when the specified InstanceType is EBS-optimized.
-	EbsOptimized *bool `type:"boolean"`
+	EbsOptimized *bool `json:"elasticmapreduce:InstanceTypeSpecification:EbsOptimized" type:"boolean"`
 
 	// The EC2 instance type, for example m3.xlarge.
-	InstanceType *string `min:"1" type:"string"`
+	InstanceType *string `json:"elasticmapreduce:InstanceTypeSpecification:InstanceType" min:"1" type:"string"`
 
 	// The number of units that a provisioned instance of this type provides toward
 	// fulfilling the target capacities defined in InstanceFleetConfig. Capacity
 	// values represent performance characteristics such as vCPUs, memory, or I/O.
 	// If not specified, the default value is 1.
-	WeightedCapacity *int64 `type:"integer"`
+	WeightedCapacity *int64 `json:"elasticmapreduce:InstanceTypeSpecification:WeightedCapacity" type:"integer"`
 }
 
 // String returns the string representation
@@ -1814,43 +1814,43 @@ type JobFlowDetail struct {
 
 	// Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases
 	// 4.0 and later, ReleaseLabel is used. To specify a custom AMI, use CustomAmiID.
-	AmiVersion *string `type:"string"`
+	AmiVersion *string `json:"elasticmapreduce:JobFlowDetail:AmiVersion" type:"string"`
 
 	// An IAM role for automatic scaling policies. The default role is EMR_AutoScaling_DefaultRole.
 	// The IAM role provides a way for the automatic scaling feature to get the
 	// required permissions it needs to launch and terminate EC2 instances in an
 	// instance group.
-	AutoScalingRole *string `type:"string"`
+	AutoScalingRole *string `json:"elasticmapreduce:JobFlowDetail:AutoScalingRole" type:"string"`
 
 	// A list of the bootstrap actions run by the job flow.
-	BootstrapActions []BootstrapActionDetail `type:"list"`
+	BootstrapActions []BootstrapActionDetail `json:"elasticmapreduce:JobFlowDetail:BootstrapActions" type:"list"`
 
 	// Describes the execution status of the job flow.
 	//
 	// ExecutionStatusDetail is a required field
-	ExecutionStatusDetail *JobFlowExecutionStatusDetail `type:"structure" required:"true"`
+	ExecutionStatusDetail *JobFlowExecutionStatusDetail `json:"elasticmapreduce:JobFlowDetail:ExecutionStatusDetail" type:"structure" required:"true"`
 
 	// Describes the Amazon EC2 instances of the job flow.
 	//
 	// Instances is a required field
-	Instances *JobFlowInstancesDetail `type:"structure" required:"true"`
+	Instances *JobFlowInstancesDetail `json:"elasticmapreduce:JobFlowDetail:Instances" type:"structure" required:"true"`
 
 	// The job flow identifier.
 	//
 	// JobFlowId is a required field
-	JobFlowId *string `type:"string" required:"true"`
+	JobFlowId *string `json:"elasticmapreduce:JobFlowDetail:JobFlowId" type:"string" required:"true"`
 
 	// The IAM role that was specified when the job flow was launched. The EC2 instances
 	// of the job flow assume this role.
-	JobFlowRole *string `type:"string"`
+	JobFlowRole *string `json:"elasticmapreduce:JobFlowDetail:JobFlowRole" type:"string"`
 
 	// The location in Amazon S3 where log files for the job are stored.
-	LogUri *string `type:"string"`
+	LogUri *string `json:"elasticmapreduce:JobFlowDetail:LogUri" type:"string"`
 
 	// The name of the job flow.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"elasticmapreduce:JobFlowDetail:Name" type:"string" required:"true"`
 
 	// The way that individual Amazon EC2 instances terminate when an automatic
 	// scale-in activity occurs or an instance group is resized. TERMINATE_AT_INSTANCE_HOUR
@@ -1864,19 +1864,19 @@ type JobFlowDetail struct {
 	// instance termination if it could lead to HDFS corruption. TERMINATE_AT_TASK_COMPLETION
 	// available only in Amazon EMR version 4.1.0 and later, and is the default
 	// for versions of Amazon EMR earlier than 5.1.0.
-	ScaleDownBehavior ScaleDownBehavior `type:"string" enum:"true"`
+	ScaleDownBehavior ScaleDownBehavior `json:"elasticmapreduce:JobFlowDetail:ScaleDownBehavior" type:"string" enum:"true"`
 
 	// The IAM role that will be assumed by the Amazon EMR service to access AWS
 	// resources on your behalf.
-	ServiceRole *string `type:"string"`
+	ServiceRole *string `json:"elasticmapreduce:JobFlowDetail:ServiceRole" type:"string"`
 
 	// A list of steps run by the job flow.
-	Steps []StepDetail `type:"list"`
+	Steps []StepDetail `json:"elasticmapreduce:JobFlowDetail:Steps" type:"list"`
 
 	// A list of strings set by third party software when the job flow is launched.
 	// If you are not using third party software to manage the job flow this value
 	// is empty.
-	SupportedProducts []string `type:"list"`
+	SupportedProducts []string `json:"elasticmapreduce:JobFlowDetail:SupportedProducts" type:"list"`
 
 	// Specifies whether the cluster is visible to all IAM users of the AWS account
 	// associated with the cluster. If this value is set to true, all IAM users
@@ -1884,7 +1884,7 @@ type JobFlowDetail struct {
 	// set) manage the cluster. If it is set to false, only the IAM user that created
 	// the cluster can view and manage it. This value can be changed using the SetVisibleToAllUsers
 	// action.
-	VisibleToAllUsers *bool `type:"boolean"`
+	VisibleToAllUsers *bool `json:"elasticmapreduce:JobFlowDetail:VisibleToAllUsers" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1900,25 +1900,25 @@ type JobFlowExecutionStatusDetail struct {
 	// The creation date and time of the job flow.
 	//
 	// CreationDateTime is a required field
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:JobFlowExecutionStatusDetail:CreationDateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The completion date and time of the job flow.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"elasticmapreduce:JobFlowExecutionStatusDetail:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Description of the job flow last changed state.
-	LastStateChangeReason *string `type:"string"`
+	LastStateChangeReason *string `json:"elasticmapreduce:JobFlowExecutionStatusDetail:LastStateChangeReason" type:"string"`
 
 	// The date and time when the job flow was ready to start running bootstrap
 	// actions.
-	ReadyDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReadyDateTime *time.Time `json:"elasticmapreduce:JobFlowExecutionStatusDetail:ReadyDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The start date and time of the job flow.
-	StartDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartDateTime *time.Time `json:"elasticmapreduce:JobFlowExecutionStatusDetail:StartDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The state of the job flow.
 	//
 	// State is a required field
-	State JobFlowExecutionState `type:"string" required:"true" enum:"true"`
+	State JobFlowExecutionState `json:"elasticmapreduce:JobFlowExecutionStatusDetail:State" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1936,15 +1936,15 @@ type JobFlowInstancesConfig struct {
 	_ struct{} `type:"structure"`
 
 	// A list of additional Amazon EC2 security group IDs for the master node.
-	AdditionalMasterSecurityGroups []string `type:"list"`
+	AdditionalMasterSecurityGroups []string `json:"elasticmapreduce:JobFlowInstancesConfig:AdditionalMasterSecurityGroups" type:"list"`
 
 	// A list of additional Amazon EC2 security group IDs for the core and task
 	// nodes.
-	AdditionalSlaveSecurityGroups []string `type:"list"`
+	AdditionalSlaveSecurityGroups []string `json:"elasticmapreduce:JobFlowInstancesConfig:AdditionalSlaveSecurityGroups" type:"list"`
 
 	// The name of the EC2 key pair that can be used to ssh to the master node as
 	// the user called "hadoop."
-	Ec2KeyName *string `type:"string"`
+	Ec2KeyName *string `json:"elasticmapreduce:JobFlowInstancesConfig:Ec2KeyName" type:"string"`
 
 	// Applies to clusters that use the uniform instance group configuration. To
 	// launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this
@@ -1957,7 +1957,7 @@ type JobFlowInstancesConfig struct {
 	// Amazon VPC currently does not support cluster compute quadruple extra large
 	// (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance
 	// type for clusters launched in an Amazon VPC.
-	Ec2SubnetId *string `type:"string"`
+	Ec2SubnetId *string `json:"elasticmapreduce:JobFlowInstancesConfig:Ec2SubnetId" type:"string"`
 
 	// Applies to clusters that use the instance fleet configuration. When multiple
 	// EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances
@@ -1965,13 +1965,13 @@ type JobFlowInstancesConfig struct {
 	//
 	// The instance fleet configuration is available only in Amazon EMR versions
 	// 4.8.0 and later, excluding 5.0.x versions.
-	Ec2SubnetIds []string `type:"list"`
+	Ec2SubnetIds []string `json:"elasticmapreduce:JobFlowInstancesConfig:Ec2SubnetIds" type:"list"`
 
 	// The identifier of the Amazon EC2 security group for the master node.
-	EmrManagedMasterSecurityGroup *string `type:"string"`
+	EmrManagedMasterSecurityGroup *string `json:"elasticmapreduce:JobFlowInstancesConfig:EmrManagedMasterSecurityGroup" type:"string"`
 
 	// The identifier of the Amazon EC2 security group for the core and task nodes.
-	EmrManagedSlaveSecurityGroup *string `type:"string"`
+	EmrManagedSlaveSecurityGroup *string `json:"elasticmapreduce:JobFlowInstancesConfig:EmrManagedSlaveSecurityGroup" type:"string"`
 
 	// Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop
 	// version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated),
@@ -1979,10 +1979,10 @@ type JobFlowInstancesConfig struct {
 	// this value, the default of 0.18 is used, unless the AmiVersion parameter
 	// is set in the RunJobFlow call, in which case the default version of Hadoop
 	// for that AMI version is used.
-	HadoopVersion *string `type:"string"`
+	HadoopVersion *string `json:"elasticmapreduce:JobFlowInstancesConfig:HadoopVersion" type:"string"`
 
 	// The number of EC2 instances in the cluster.
-	InstanceCount *int64 `type:"integer"`
+	InstanceCount *int64 `json:"elasticmapreduce:JobFlowInstancesConfig:InstanceCount" type:"integer"`
 
 	//
 	// The instance fleet configuration is available only in Amazon EMR versions
@@ -1990,32 +1990,32 @@ type JobFlowInstancesConfig struct {
 	//
 	// Describes the EC2 instances and instance configurations for clusters that
 	// use the instance fleet configuration.
-	InstanceFleets []InstanceFleetConfig `type:"list"`
+	InstanceFleets []InstanceFleetConfig `json:"elasticmapreduce:JobFlowInstancesConfig:InstanceFleets" type:"list"`
 
 	// Configuration for the instance groups in a cluster.
-	InstanceGroups []InstanceGroupConfig `type:"list"`
+	InstanceGroups []InstanceGroupConfig `json:"elasticmapreduce:JobFlowInstancesConfig:InstanceGroups" type:"list"`
 
 	// Specifies whether the cluster should remain available after completing all
 	// steps.
-	KeepJobFlowAliveWhenNoSteps *bool `type:"boolean"`
+	KeepJobFlowAliveWhenNoSteps *bool `json:"elasticmapreduce:JobFlowInstancesConfig:KeepJobFlowAliveWhenNoSteps" type:"boolean"`
 
 	// The EC2 instance type of the master node.
-	MasterInstanceType *string `min:"1" type:"string"`
+	MasterInstanceType *string `json:"elasticmapreduce:JobFlowInstancesConfig:MasterInstanceType" min:"1" type:"string"`
 
 	// The Availability Zone in which the cluster runs.
-	Placement *PlacementType `type:"structure"`
+	Placement *PlacementType `json:"elasticmapreduce:JobFlowInstancesConfig:Placement" type:"structure"`
 
 	// The identifier of the Amazon EC2 security group for the Amazon EMR service
 	// to access clusters in VPC private subnets.
-	ServiceAccessSecurityGroup *string `type:"string"`
+	ServiceAccessSecurityGroup *string `json:"elasticmapreduce:JobFlowInstancesConfig:ServiceAccessSecurityGroup" type:"string"`
 
 	// The EC2 instance type of the core and task nodes.
-	SlaveInstanceType *string `min:"1" type:"string"`
+	SlaveInstanceType *string `json:"elasticmapreduce:JobFlowInstancesConfig:SlaveInstanceType" min:"1" type:"string"`
 
 	// Specifies whether to lock the cluster to prevent the Amazon EC2 instances
 	// from being terminated by API call, user intervention, or in the event of
 	// a job-flow error.
-	TerminationProtected *bool `type:"boolean"`
+	TerminationProtected *bool `json:"elasticmapreduce:JobFlowInstancesConfig:TerminationProtected" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2061,14 +2061,14 @@ type JobFlowInstancesDetail struct {
 
 	// The name of an Amazon EC2 key pair that can be used to ssh to the master
 	// node.
-	Ec2KeyName *string `type:"string"`
+	Ec2KeyName *string `json:"elasticmapreduce:JobFlowInstancesDetail:Ec2KeyName" type:"string"`
 
 	// For clusters launched within Amazon Virtual Private Cloud, this is the identifier
 	// of the subnet where the cluster was launched.
-	Ec2SubnetId *string `type:"string"`
+	Ec2SubnetId *string `json:"elasticmapreduce:JobFlowInstancesDetail:Ec2SubnetId" type:"string"`
 
 	// The Hadoop version for the cluster.
-	HadoopVersion *string `type:"string"`
+	HadoopVersion *string `json:"elasticmapreduce:JobFlowInstancesDetail:HadoopVersion" type:"string"`
 
 	// The number of Amazon EC2 instances in the cluster. If the value is 1, the
 	// same instance serves as both the master and core and task node. If the value
@@ -2076,26 +2076,26 @@ type JobFlowInstancesDetail struct {
 	// and task nodes.
 	//
 	// InstanceCount is a required field
-	InstanceCount *int64 `type:"integer" required:"true"`
+	InstanceCount *int64 `json:"elasticmapreduce:JobFlowInstancesDetail:InstanceCount" type:"integer" required:"true"`
 
 	// Details about the instance groups in a cluster.
-	InstanceGroups []InstanceGroupDetail `type:"list"`
+	InstanceGroups []InstanceGroupDetail `json:"elasticmapreduce:JobFlowInstancesDetail:InstanceGroups" type:"list"`
 
 	// Specifies whether the cluster should remain available after completing all
 	// steps.
-	KeepJobFlowAliveWhenNoSteps *bool `type:"boolean"`
+	KeepJobFlowAliveWhenNoSteps *bool `json:"elasticmapreduce:JobFlowInstancesDetail:KeepJobFlowAliveWhenNoSteps" type:"boolean"`
 
 	// The Amazon EC2 instance identifier of the master node.
-	MasterInstanceId *string `type:"string"`
+	MasterInstanceId *string `json:"elasticmapreduce:JobFlowInstancesDetail:MasterInstanceId" type:"string"`
 
 	// The Amazon EC2 master node instance type.
 	//
 	// MasterInstanceType is a required field
-	MasterInstanceType *string `min:"1" type:"string" required:"true"`
+	MasterInstanceType *string `json:"elasticmapreduce:JobFlowInstancesDetail:MasterInstanceType" min:"1" type:"string" required:"true"`
 
 	// The DNS name of the master node. If the cluster is on a private subnet, this
 	// is the private DNS name. On a public subnet, this is the public DNS name.
-	MasterPublicDnsName *string `type:"string"`
+	MasterPublicDnsName *string `json:"elasticmapreduce:JobFlowInstancesDetail:MasterPublicDnsName" type:"string"`
 
 	// An approximation of the cost of the cluster, represented in m1.small/hours.
 	// This value is incremented one time for every hour that an m1.small runs.
@@ -2103,20 +2103,20 @@ type JobFlowInstancesDetail struct {
 	// four times more expensive would result in the normalized instance hours being
 	// incremented by four. This result is only an approximation and does not reflect
 	// the actual billing rate.
-	NormalizedInstanceHours *int64 `type:"integer"`
+	NormalizedInstanceHours *int64 `json:"elasticmapreduce:JobFlowInstancesDetail:NormalizedInstanceHours" type:"integer"`
 
 	// The Amazon EC2 Availability Zone for the cluster.
-	Placement *PlacementType `type:"structure"`
+	Placement *PlacementType `json:"elasticmapreduce:JobFlowInstancesDetail:Placement" type:"structure"`
 
 	// The Amazon EC2 core and task node instance type.
 	//
 	// SlaveInstanceType is a required field
-	SlaveInstanceType *string `min:"1" type:"string" required:"true"`
+	SlaveInstanceType *string `json:"elasticmapreduce:JobFlowInstancesDetail:SlaveInstanceType" min:"1" type:"string" required:"true"`
 
 	// Specifies whether the Amazon EC2 instances in the cluster are protected from
 	// termination by API calls, user intervention, or in the event of a job-flow
 	// error.
-	TerminationProtected *bool `type:"boolean"`
+	TerminationProtected *bool `json:"elasticmapreduce:JobFlowInstancesDetail:TerminationProtected" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2133,29 +2133,29 @@ type KerberosAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The Active Directory password for ADDomainJoinUser.
-	ADDomainJoinPassword *string `type:"string"`
+	ADDomainJoinPassword *string `json:"elasticmapreduce:KerberosAttributes:ADDomainJoinPassword" type:"string"`
 
 	// Required only when establishing a cross-realm trust with an Active Directory
 	// domain. A user with sufficient privileges to join resources to the domain.
-	ADDomainJoinUser *string `type:"string"`
+	ADDomainJoinUser *string `json:"elasticmapreduce:KerberosAttributes:ADDomainJoinUser" type:"string"`
 
 	// Required only when establishing a cross-realm trust with a KDC in a different
 	// realm. The cross-realm principal password, which must be identical across
 	// realms.
-	CrossRealmTrustPrincipalPassword *string `type:"string"`
+	CrossRealmTrustPrincipalPassword *string `json:"elasticmapreduce:KerberosAttributes:CrossRealmTrustPrincipalPassword" type:"string"`
 
 	// The password used within the cluster for the kadmin service on the cluster-dedicated
 	// KDC, which maintains Kerberos principals, password policies, and keytabs
 	// for the cluster.
 	//
 	// KdcAdminPassword is a required field
-	KdcAdminPassword *string `type:"string" required:"true"`
+	KdcAdminPassword *string `json:"elasticmapreduce:KerberosAttributes:KdcAdminPassword" type:"string" required:"true"`
 
 	// The name of the Kerberos realm to which all nodes in a cluster belong. For
 	// example, EC2.INTERNAL.
 	//
 	// Realm is a required field
-	Realm *string `type:"string" required:"true"`
+	Realm *string `json:"elasticmapreduce:KerberosAttributes:Realm" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2187,10 +2187,10 @@ type KeyValue struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of a key value pair.
-	Key *string `type:"string"`
+	Key *string `json:"elasticmapreduce:KeyValue:Key" type:"string"`
 
 	// The value part of the identified key.
-	Value *string `type:"string"`
+	Value *string `json:"elasticmapreduce:KeyValue:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2208,10 +2208,10 @@ type MetricDimension struct {
 	_ struct{} `type:"structure"`
 
 	// The dimension name.
-	Key *string `type:"string"`
+	Key *string `json:"elasticmapreduce:MetricDimension:Key" type:"string"`
 
 	// The dimension value.
-	Value *string `type:"string"`
+	Value *string `json:"elasticmapreduce:MetricDimension:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2227,7 +2227,7 @@ type PlacementType struct {
 	// The Amazon EC2 Availability Zone for the cluster. AvailabilityZone is used
 	// for uniform instance groups, while AvailabilityZones (plural) is used for
 	// instance fleets.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"elasticmapreduce:PlacementType:AvailabilityZone" type:"string"`
 
 	// When multiple Availability Zones are specified, Amazon EMR evaluates them
 	// and launches instances in the optimal Availability Zone. AvailabilityZones
@@ -2236,7 +2236,7 @@ type PlacementType struct {
 	//
 	// The instance fleet configuration is available only in Amazon EMR versions
 	// 4.8.0 and later, excluding 5.0.x versions.
-	AvailabilityZones []string `type:"list"`
+	AvailabilityZones []string `json:"elasticmapreduce:PlacementType:AvailabilityZones" type:"list"`
 }
 
 // String returns the string representation
@@ -2252,13 +2252,13 @@ type ScalingAction struct {
 
 	// Not available for instance groups. Instance groups use the market type specified
 	// for the group.
-	Market MarketType `type:"string" enum:"true"`
+	Market MarketType `json:"elasticmapreduce:ScalingAction:Market" type:"string" enum:"true"`
 
 	// The type of adjustment the automatic scaling activity makes when triggered,
 	// and the periodicity of the adjustment.
 	//
 	// SimpleScalingPolicyConfiguration is a required field
-	SimpleScalingPolicyConfiguration *SimpleScalingPolicyConfiguration `type:"structure" required:"true"`
+	SimpleScalingPolicyConfiguration *SimpleScalingPolicyConfiguration `json:"elasticmapreduce:ScalingAction:SimpleScalingPolicyConfiguration" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2297,14 +2297,14 @@ type ScalingConstraints struct {
 	// beyond this boundary.
 	//
 	// MaxCapacity is a required field
-	MaxCapacity *int64 `type:"integer" required:"true"`
+	MaxCapacity *int64 `json:"elasticmapreduce:ScalingConstraints:MaxCapacity" type:"integer" required:"true"`
 
 	// The lower boundary of EC2 instances in an instance group below which scaling
 	// activities are not allowed to shrink. Scale-in activities will not terminate
 	// instances below this boundary.
 	//
 	// MinCapacity is a required field
-	MinCapacity *int64 `type:"integer" required:"true"`
+	MinCapacity *int64 `json:"elasticmapreduce:ScalingConstraints:MinCapacity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2341,22 +2341,22 @@ type ScalingRule struct {
 	// The conditions that trigger an automatic scaling activity.
 	//
 	// Action is a required field
-	Action *ScalingAction `type:"structure" required:"true"`
+	Action *ScalingAction `json:"elasticmapreduce:ScalingRule:Action" type:"structure" required:"true"`
 
 	// A friendly, more verbose description of the automatic scaling rule.
-	Description *string `type:"string"`
+	Description *string `json:"elasticmapreduce:ScalingRule:Description" type:"string"`
 
 	// The name used to identify an automatic scaling rule. Rule names must be unique
 	// within a scaling policy.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"elasticmapreduce:ScalingRule:Name" type:"string" required:"true"`
 
 	// The CloudWatch alarm definition that determines when automatic scaling activity
 	// is triggered.
 	//
 	// Trigger is a required field
-	Trigger *ScalingTrigger `type:"structure" required:"true"`
+	Trigger *ScalingTrigger `json:"elasticmapreduce:ScalingRule:Trigger" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2405,7 +2405,7 @@ type ScalingTrigger struct {
 	// are met along with other trigger parameters, scaling activity begins.
 	//
 	// CloudWatchAlarmDefinition is a required field
-	CloudWatchAlarmDefinition *CloudWatchAlarmDefinition `type:"structure" required:"true"`
+	CloudWatchAlarmDefinition *CloudWatchAlarmDefinition `json:"elasticmapreduce:ScalingTrigger:CloudWatchAlarmDefinition" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2438,13 +2438,13 @@ type ScriptBootstrapActionConfig struct {
 	_ struct{} `type:"structure"`
 
 	// A list of command line arguments to pass to the bootstrap action script.
-	Args []string `type:"list"`
+	Args []string `json:"elasticmapreduce:ScriptBootstrapActionConfig:Args" type:"list"`
 
 	// Location of the script to run during a bootstrap action. Can be either a
 	// location in Amazon S3 or on a local file system.
 	//
 	// Path is a required field
-	Path *string `type:"string" required:"true"`
+	Path *string `json:"elasticmapreduce:ScriptBootstrapActionConfig:Path" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2472,10 +2472,10 @@ type SecurityConfigurationSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the security configuration was created.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:SecurityConfigurationSummary:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the security configuration.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:SecurityConfigurationSummary:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -2491,11 +2491,11 @@ type ShrinkPolicy struct {
 
 	// The desired timeout for decommissioning an instance. Overrides the default
 	// YARN decommissioning timeout.
-	DecommissionTimeout *int64 `type:"integer"`
+	DecommissionTimeout *int64 `json:"elasticmapreduce:ShrinkPolicy:DecommissionTimeout" type:"integer"`
 
 	// Custom policy for requesting termination protection or termination of specific
 	// instances when shrinking an instance group.
-	InstanceResizePolicy *InstanceResizePolicy `type:"structure"`
+	InstanceResizePolicy *InstanceResizePolicy `json:"elasticmapreduce:ShrinkPolicy:InstanceResizePolicy" type:"structure"`
 }
 
 // String returns the string representation
@@ -2521,12 +2521,12 @@ type SimpleScalingPolicyConfiguration struct {
 	// indicates the scaling activity results in an instance group with the number
 	// of EC2 instances specified by ScalingAdjustment, which should be expressed
 	// as a positive integer.
-	AdjustmentType AdjustmentType `type:"string" enum:"true"`
+	AdjustmentType AdjustmentType `json:"elasticmapreduce:SimpleScalingPolicyConfiguration:AdjustmentType" type:"string" enum:"true"`
 
 	// The amount of time, in seconds, after a scaling activity completes before
 	// any further trigger-related scaling activities can start. The default value
 	// is 0.
-	CoolDown *int64 `type:"integer"`
+	CoolDown *int64 `json:"elasticmapreduce:SimpleScalingPolicyConfiguration:CoolDown" type:"integer"`
 
 	// The amount by which to scale in or scale out, based on the specified AdjustmentType.
 	// A positive value adds to the instance group's EC2 instance count while a
@@ -2537,7 +2537,7 @@ type SimpleScalingPolicyConfiguration struct {
 	// capacity.
 	//
 	// ScalingAdjustment is a required field
-	ScalingAdjustment *int64 `type:"integer" required:"true"`
+	ScalingAdjustment *int64 `json:"elasticmapreduce:SimpleScalingPolicyConfiguration:ScalingAdjustment" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2576,7 +2576,7 @@ type SpotProvisioningSpecification struct {
 	// EC2 marks the Spot instance for termination and provides a Spot instance
 	// termination notice, which gives the instance a two-minute warning before
 	// it terminates.
-	BlockDurationMinutes *int64 `type:"integer"`
+	BlockDurationMinutes *int64 `json:"elasticmapreduce:SpotProvisioningSpecification:BlockDurationMinutes" type:"integer"`
 
 	// The action to take when TargetSpotCapacity has not been fulfilled when the
 	// TimeoutDurationMinutes has expired; that is, when all Spot instances could
@@ -2586,7 +2586,7 @@ type SpotProvisioningSpecification struct {
 	// to fulfill any remaining Spot capacity.
 	//
 	// TimeoutAction is a required field
-	TimeoutAction SpotProvisioningTimeoutAction `type:"string" required:"true" enum:"true"`
+	TimeoutAction SpotProvisioningTimeoutAction `json:"elasticmapreduce:SpotProvisioningSpecification:TimeoutAction" type:"string" required:"true" enum:"true"`
 
 	// The spot provisioning timeout period in minutes. If Spot instances are not
 	// provisioned within this time period, the TimeOutAction is taken. Minimum
@@ -2594,7 +2594,7 @@ type SpotProvisioningSpecification struct {
 	// provisioning, when the cluster is first created.
 	//
 	// TimeoutDurationMinutes is a required field
-	TimeoutDurationMinutes *int64 `type:"integer" required:"true"`
+	TimeoutDurationMinutes *int64 `json:"elasticmapreduce:SpotProvisioningSpecification:TimeoutDurationMinutes" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2627,19 +2627,19 @@ type Step struct {
 	// The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
 	// CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward
 	// compatibility. We recommend using TERMINATE_CLUSTER instead.
-	ActionOnFailure ActionOnFailure `type:"string" enum:"true"`
+	ActionOnFailure ActionOnFailure `json:"elasticmapreduce:Step:ActionOnFailure" type:"string" enum:"true"`
 
 	// The Hadoop job configuration of the cluster step.
-	Config *HadoopStepConfig `type:"structure"`
+	Config *HadoopStepConfig `json:"elasticmapreduce:Step:Config" type:"structure"`
 
 	// The identifier of the cluster step.
-	Id *string `type:"string"`
+	Id *string `json:"elasticmapreduce:Step:Id" type:"string"`
 
 	// The name of the cluster step.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:Step:Name" type:"string"`
 
 	// The current execution status details of the cluster step.
-	Status *StepStatus `type:"structure"`
+	Status *StepStatus `json:"elasticmapreduce:Step:Status" type:"structure"`
 }
 
 // String returns the string representation
@@ -2655,17 +2655,17 @@ type StepConfig struct {
 	// The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
 	// CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward
 	// compatibility. We recommend using TERMINATE_CLUSTER instead.
-	ActionOnFailure ActionOnFailure `type:"string" enum:"true"`
+	ActionOnFailure ActionOnFailure `json:"elasticmapreduce:StepConfig:ActionOnFailure" type:"string" enum:"true"`
 
 	// The JAR file used for the step.
 	//
 	// HadoopJarStep is a required field
-	HadoopJarStep *HadoopJarStepConfig `type:"structure" required:"true"`
+	HadoopJarStep *HadoopJarStepConfig `json:"elasticmapreduce:StepConfig:HadoopJarStep" type:"structure" required:"true"`
 
 	// The name of the step.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"elasticmapreduce:StepConfig:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2704,12 +2704,12 @@ type StepDetail struct {
 	// The description of the step status.
 	//
 	// ExecutionStatusDetail is a required field
-	ExecutionStatusDetail *StepExecutionStatusDetail `type:"structure" required:"true"`
+	ExecutionStatusDetail *StepExecutionStatusDetail `json:"elasticmapreduce:StepDetail:ExecutionStatusDetail" type:"structure" required:"true"`
 
 	// The step configuration.
 	//
 	// StepConfig is a required field
-	StepConfig *StepConfig `type:"structure" required:"true"`
+	StepConfig *StepConfig `json:"elasticmapreduce:StepDetail:StepConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2725,21 +2725,21 @@ type StepExecutionStatusDetail struct {
 	// The creation date and time of the step.
 	//
 	// CreationDateTime is a required field
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:StepExecutionStatusDetail:CreationDateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The completion date and time of the step.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"elasticmapreduce:StepExecutionStatusDetail:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the step's current state.
-	LastStateChangeReason *string `type:"string"`
+	LastStateChangeReason *string `json:"elasticmapreduce:StepExecutionStatusDetail:LastStateChangeReason" type:"string"`
 
 	// The start date and time of the step.
-	StartDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartDateTime *time.Time `json:"elasticmapreduce:StepExecutionStatusDetail:StartDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The state of the step.
 	//
 	// State is a required field
-	State StepExecutionState `type:"string" required:"true" enum:"true"`
+	State StepExecutionState `json:"elasticmapreduce:StepExecutionStatusDetail:State" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2754,10 +2754,10 @@ type StepStateChangeReason struct {
 
 	// The programmable code for the state change reason. Note: Currently, the service
 	// provides no code for the state change.
-	Code StepStateChangeReasonCode `type:"string" enum:"true"`
+	Code StepStateChangeReasonCode `json:"elasticmapreduce:StepStateChangeReason:Code" type:"string" enum:"true"`
 
 	// The descriptive message for the state change reason.
-	Message *string `type:"string"`
+	Message *string `json:"elasticmapreduce:StepStateChangeReason:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -2772,16 +2772,16 @@ type StepStatus struct {
 
 	// The details for the step failure including reason, message, and log file
 	// path where the root cause was identified.
-	FailureDetails *FailureDetails `type:"structure"`
+	FailureDetails *FailureDetails `json:"elasticmapreduce:StepStatus:FailureDetails" type:"structure"`
 
 	// The execution state of the cluster step.
-	State StepState `type:"string" enum:"true"`
+	State StepState `json:"elasticmapreduce:StepStatus:State" type:"string" enum:"true"`
 
 	// The reason for the step execution status change.
-	StateChangeReason *StepStateChangeReason `type:"structure"`
+	StateChangeReason *StepStateChangeReason `json:"elasticmapreduce:StepStatus:StateChangeReason" type:"structure"`
 
 	// The timeline of the cluster step status over time.
-	Timeline *StepTimeline `type:"structure"`
+	Timeline *StepTimeline `json:"elasticmapreduce:StepStatus:Timeline" type:"structure"`
 }
 
 // String returns the string representation
@@ -2797,19 +2797,19 @@ type StepSummary struct {
 	// The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
 	// CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward
 	// compatibility. We recommend using TERMINATE_CLUSTER instead.
-	ActionOnFailure ActionOnFailure `type:"string" enum:"true"`
+	ActionOnFailure ActionOnFailure `json:"elasticmapreduce:StepSummary:ActionOnFailure" type:"string" enum:"true"`
 
 	// The Hadoop job configuration of the cluster step.
-	Config *HadoopStepConfig `type:"structure"`
+	Config *HadoopStepConfig `json:"elasticmapreduce:StepSummary:Config" type:"structure"`
 
 	// The identifier of the cluster step.
-	Id *string `type:"string"`
+	Id *string `json:"elasticmapreduce:StepSummary:Id" type:"string"`
 
 	// The name of the cluster step.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:StepSummary:Name" type:"string"`
 
 	// The current execution status details of the cluster step.
-	Status *StepStatus `type:"structure"`
+	Status *StepStatus `json:"elasticmapreduce:StepSummary:Status" type:"structure"`
 }
 
 // String returns the string representation
@@ -2823,13 +2823,13 @@ type StepTimeline struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the cluster step was created.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:StepTimeline:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the cluster step execution completed or failed.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"elasticmapreduce:StepTimeline:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the cluster step execution started.
-	StartDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartDateTime *time.Time `json:"elasticmapreduce:StepTimeline:StartDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -2845,10 +2845,10 @@ type SupportedProductConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The list of user-supplied arguments.
-	Args []string `type:"list"`
+	Args []string `json:"elasticmapreduce:SupportedProductConfig:Args" type:"list"`
 
 	// The name of the product configuration.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:SupportedProductConfig:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -2866,11 +2866,11 @@ type Tag struct {
 
 	// A user-defined key, which is the minimum required information for a valid
 	// tag. For more information, see Tag (https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
-	Key *string `type:"string"`
+	Key *string `json:"elasticmapreduce:Tag:Key" type:"string"`
 
 	// A user-defined value, which is optional in a tag. For more information, see
 	// Tag Clusters (https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html).
-	Value *string `type:"string"`
+	Value *string `json:"elasticmapreduce:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2885,18 +2885,18 @@ type VolumeSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// The number of I/O operations per second (IOPS) that the volume supports.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"elasticmapreduce:VolumeSpecification:Iops" type:"integer"`
 
 	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024.
 	// If the volume type is EBS-optimized, the minimum value is 10.
 	//
 	// SizeInGB is a required field
-	SizeInGB *int64 `type:"integer" required:"true"`
+	SizeInGB *int64 `json:"elasticmapreduce:VolumeSpecification:SizeInGB" type:"integer" required:"true"`
 
 	// The volume type. Volume types supported are gp2, io1, standard.
 	//
 	// VolumeType is a required field
-	VolumeType *string `type:"string" required:"true"`
+	VolumeType *string `json:"elasticmapreduce:VolumeSpecification:VolumeType" type:"string" required:"true"`
 }
 
 // String returns the string representation

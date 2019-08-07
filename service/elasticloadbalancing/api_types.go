@@ -21,20 +21,20 @@ type AccessLog struct {
 	// of either 5 minutes or 60 minutes.
 	//
 	// Default: 60 minutes
-	EmitInterval *int64 `type:"integer"`
+	EmitInterval *int64 `json:"elasticloadbalancing:AccessLog:EmitInterval" type:"integer"`
 
 	// Specifies whether access logs are enabled for the load balancer.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"elasticloadbalancing:AccessLog:Enabled" type:"boolean" required:"true"`
 
 	// The name of the Amazon S3 bucket where the access logs are stored.
-	S3BucketName *string `type:"string"`
+	S3BucketName *string `json:"elasticloadbalancing:AccessLog:S3BucketName" type:"string"`
 
 	// The logical hierarchy you created for your Amazon S3 bucket, for example
 	// my-bucket-prefix/prod. If the prefix is not provided, the log is placed at
 	// the root level of the bucket.
-	S3BucketPrefix *string `type:"string"`
+	S3BucketPrefix *string `json:"elasticloadbalancing:AccessLog:S3BucketPrefix" type:"string"`
 }
 
 // String returns the string representation
@@ -62,10 +62,10 @@ type AdditionalAttribute struct {
 	_ struct{} `type:"structure"`
 
 	// This parameter is reserved.
-	Key *string `type:"string"`
+	Key *string `json:"elasticloadbalancing:AdditionalAttribute:Key" type:"string"`
 
 	// This parameter is reserved.
-	Value *string `type:"string"`
+	Value *string `json:"elasticloadbalancing:AdditionalAttribute:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -79,11 +79,11 @@ type AppCookieStickinessPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the application cookie used for stickiness.
-	CookieName *string `type:"string"`
+	CookieName *string `json:"elasticloadbalancing:AppCookieStickinessPolicy:CookieName" type:"string"`
 
 	// The mnemonic name for the policy being created. The name must be unique within
 	// a set of policies for this load balancer.
-	PolicyName *string `type:"string"`
+	PolicyName *string `json:"elasticloadbalancing:AppCookieStickinessPolicy:PolicyName" type:"string"`
 }
 
 // String returns the string representation
@@ -97,10 +97,10 @@ type BackendServerDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The port on which the EC2 instance is listening.
-	InstancePort *int64 `min:"1" type:"integer"`
+	InstancePort *int64 `json:"elasticloadbalancing:BackendServerDescription:InstancePort" min:"1" type:"integer"`
 
 	// The names of the policies enabled for the EC2 instance.
-	PolicyNames []string `type:"list"`
+	PolicyNames []string `json:"elasticloadbalancing:BackendServerDescription:PolicyNames" type:"list"`
 }
 
 // String returns the string representation
@@ -116,11 +116,11 @@ type ConnectionDraining struct {
 	// Specifies whether connection draining is enabled for the load balancer.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"elasticloadbalancing:ConnectionDraining:Enabled" type:"boolean" required:"true"`
 
 	// The maximum time, in seconds, to keep the existing connections open before
 	// deregistering the instances.
-	Timeout *int64 `type:"integer"`
+	Timeout *int64 `json:"elasticloadbalancing:ConnectionDraining:Timeout" type:"integer"`
 }
 
 // String returns the string representation
@@ -151,7 +151,7 @@ type ConnectionSettings struct {
 	// has been sent over the connection) before it is closed by the load balancer.
 	//
 	// IdleTimeout is a required field
-	IdleTimeout *int64 `min:"1" type:"integer" required:"true"`
+	IdleTimeout *int64 `json:"elasticloadbalancing:ConnectionSettings:IdleTimeout" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -184,7 +184,7 @@ type CrossZoneLoadBalancing struct {
 	// Specifies whether cross-zone load balancing is enabled for the load balancer.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"elasticloadbalancing:CrossZoneLoadBalancing:Enabled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -215,13 +215,13 @@ type HealthCheck struct {
 	// the instance to the Healthy state.
 	//
 	// HealthyThreshold is a required field
-	HealthyThreshold *int64 `min:"2" type:"integer" required:"true"`
+	HealthyThreshold *int64 `json:"elasticloadbalancing:HealthCheck:HealthyThreshold" min:"2" type:"integer" required:"true"`
 
 	// The approximate interval, in seconds, between health checks of an individual
 	// instance.
 	//
 	// Interval is a required field
-	Interval *int64 `min:"5" type:"integer" required:"true"`
+	Interval *int64 `json:"elasticloadbalancing:HealthCheck:Interval" min:"5" type:"integer" required:"true"`
 
 	// The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL.
 	// The range of valid ports is one (1) through 65535.
@@ -243,7 +243,7 @@ type HealthCheck struct {
 	// or less.
 	//
 	// Target is a required field
-	Target *string `type:"string" required:"true"`
+	Target *string `json:"elasticloadbalancing:HealthCheck:Target" type:"string" required:"true"`
 
 	// The amount of time, in seconds, during which no response means a failed health
 	// check.
@@ -251,13 +251,13 @@ type HealthCheck struct {
 	// This value must be less than the Interval value.
 	//
 	// Timeout is a required field
-	Timeout *int64 `min:"2" type:"integer" required:"true"`
+	Timeout *int64 `json:"elasticloadbalancing:HealthCheck:Timeout" min:"2" type:"integer" required:"true"`
 
 	// The number of consecutive health check failures required before moving the
 	// instance to the Unhealthy state.
 	//
 	// UnhealthyThreshold is a required field
-	UnhealthyThreshold *int64 `min:"2" type:"integer" required:"true"`
+	UnhealthyThreshold *int64 `json:"elasticloadbalancing:HealthCheck:UnhealthyThreshold" min:"2" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -313,7 +313,7 @@ type Instance struct {
 	_ struct{} `type:"structure"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"elasticloadbalancing:Instance:InstanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -355,21 +355,21 @@ type InstanceState struct {
 	//    * Instance is in stopped state.
 	//
 	//    * Instance is in terminated state.
-	Description *string `type:"string"`
+	Description *string `json:"elasticloadbalancing:InstanceState:Description" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"elasticloadbalancing:InstanceState:InstanceId" type:"string"`
 
 	// Information about the cause of OutOfService instances. Specifically, whether
 	// the cause is Elastic Load Balancing or the instance.
 	//
 	// Valid values: ELB | Instance | N/A
-	ReasonCode *string `type:"string"`
+	ReasonCode *string `json:"elasticloadbalancing:InstanceState:ReasonCode" type:"string"`
 
 	// The current state of the instance.
 	//
 	// Valid values: InService | OutOfService | Unknown
-	State *string `type:"string"`
+	State *string `json:"elasticloadbalancing:InstanceState:State" type:"string"`
 }
 
 // String returns the string representation
@@ -385,11 +385,11 @@ type LBCookieStickinessPolicy struct {
 	// The time period, in seconds, after which the cookie should be considered
 	// stale. If this parameter is not specified, the stickiness session lasts for
 	// the duration of the browser session.
-	CookieExpirationPeriod *int64 `type:"long"`
+	CookieExpirationPeriod *int64 `json:"elasticloadbalancing:LBCookieStickinessPolicy:CookieExpirationPeriod" type:"long"`
 
 	// The name of the policy. This name must be unique within the set of policies
 	// for this load balancer.
-	PolicyName *string `type:"string"`
+	PolicyName *string `json:"elasticloadbalancing:LBCookieStickinessPolicy:PolicyName" type:"string"`
 }
 
 // String returns the string representation
@@ -403,7 +403,7 @@ type Limit struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum value of the limit.
-	Max *string `type:"string"`
+	Max *string `json:"elasticloadbalancing:Limit:Max" type:"string"`
 
 	// The name of the limit. The possible values are:
 	//
@@ -412,7 +412,7 @@ type Limit struct {
 	//    * classic-load-balancers
 	//
 	//    * classic-registered-instances
-	Name *string `type:"string"`
+	Name *string `json:"elasticloadbalancing:Limit:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -432,7 +432,7 @@ type Listener struct {
 	// The port on which the instance is listening.
 	//
 	// InstancePort is a required field
-	InstancePort *int64 `min:"1" type:"integer" required:"true"`
+	InstancePort *int64 `json:"elasticloadbalancing:Listener:InstancePort" min:"1" type:"integer" required:"true"`
 
 	// The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or
 	// SSL.
@@ -445,23 +445,23 @@ type Listener struct {
 	//
 	// If there is another listener with the same InstancePort whose InstanceProtocol
 	// is HTTP or TCP, the listener's InstanceProtocol must be HTTP or TCP.
-	InstanceProtocol *string `type:"string"`
+	InstanceProtocol *string `json:"elasticloadbalancing:Listener:InstanceProtocol" type:"string"`
 
 	// The port on which the load balancer is listening. On EC2-VPC, you can specify
 	// any port from the range 1-65535. On EC2-Classic, you can specify any port
 	// from the following list: 25, 80, 443, 465, 587, 1024-65535.
 	//
 	// LoadBalancerPort is a required field
-	LoadBalancerPort *int64 `type:"integer" required:"true"`
+	LoadBalancerPort *int64 `json:"elasticloadbalancing:Listener:LoadBalancerPort" type:"integer" required:"true"`
 
 	// The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP,
 	// or SSL.
 	//
 	// Protocol is a required field
-	Protocol *string `type:"string" required:"true"`
+	Protocol *string `json:"elasticloadbalancing:Listener:Protocol" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the server certificate.
-	SSLCertificateId *string `type:"string"`
+	SSLCertificateId *string `json:"elasticloadbalancing:Listener:SSLCertificateId" type:"string"`
 }
 
 // String returns the string representation
@@ -500,10 +500,10 @@ type ListenerDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The listener.
-	Listener *Listener `type:"structure"`
+	Listener *Listener `json:"elasticloadbalancing:ListenerDescription:Listener" type:"structure"`
 
 	// The policies. If there are no policies enabled, the list is empty.
-	PolicyNames []string `type:"list"`
+	PolicyNames []string `json:"elasticloadbalancing:ListenerDescription:PolicyNames" type:"list"`
 }
 
 // String returns the string representation
@@ -521,17 +521,17 @@ type LoadBalancerAttributes struct {
 	//
 	// For more information, see Enable Access Logs (http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html)
 	// in the Classic Load Balancers Guide.
-	AccessLog *AccessLog `type:"structure"`
+	AccessLog *AccessLog `json:"elasticloadbalancing:LoadBalancerAttributes:AccessLog" type:"structure"`
 
 	// This parameter is reserved.
-	AdditionalAttributes []AdditionalAttribute `type:"list"`
+	AdditionalAttributes []AdditionalAttribute `json:"elasticloadbalancing:LoadBalancerAttributes:AdditionalAttributes" type:"list"`
 
 	// If enabled, the load balancer allows existing requests to complete before
 	// the load balancer shifts traffic away from a deregistered or unhealthy instance.
 	//
 	// For more information, see Configure Connection Draining (http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html)
 	// in the Classic Load Balancers Guide.
-	ConnectionDraining *ConnectionDraining `type:"structure"`
+	ConnectionDraining *ConnectionDraining `json:"elasticloadbalancing:LoadBalancerAttributes:ConnectionDraining" type:"structure"`
 
 	// If enabled, the load balancer allows the connections to remain idle (no data
 	// is sent over the connection) for the specified duration.
@@ -540,14 +540,14 @@ type LoadBalancerAttributes struct {
 	// timeout for both front-end and back-end connections of your load balancer.
 	// For more information, see Configure Idle Connection Timeout (http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html)
 	// in the Classic Load Balancers Guide.
-	ConnectionSettings *ConnectionSettings `type:"structure"`
+	ConnectionSettings *ConnectionSettings `json:"elasticloadbalancing:LoadBalancerAttributes:ConnectionSettings" type:"structure"`
 
 	// If enabled, the load balancer routes the request traffic evenly across all
 	// instances regardless of the Availability Zones.
 	//
 	// For more information, see Configure Cross-Zone Load Balancing (http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html)
 	// in the Classic Load Balancers Guide.
-	CrossZoneLoadBalancing *CrossZoneLoadBalancing `type:"structure"`
+	CrossZoneLoadBalancing *CrossZoneLoadBalancing `json:"elasticloadbalancing:LoadBalancerAttributes:CrossZoneLoadBalancing" type:"structure"`
 }
 
 // String returns the string representation
@@ -591,40 +591,40 @@ type LoadBalancerDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zones for the load balancer.
-	AvailabilityZones []string `type:"list"`
+	AvailabilityZones []string `json:"elasticloadbalancing:LoadBalancerDescription:AvailabilityZones" type:"list"`
 
 	// Information about your EC2 instances.
-	BackendServerDescriptions []BackendServerDescription `type:"list"`
+	BackendServerDescriptions []BackendServerDescription `json:"elasticloadbalancing:LoadBalancerDescription:BackendServerDescriptions" type:"list"`
 
 	// The DNS name of the load balancer.
 	//
 	// For more information, see Configure a Custom Domain Name (http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html)
 	// in the Classic Load Balancers Guide.
-	CanonicalHostedZoneName *string `type:"string"`
+	CanonicalHostedZoneName *string `json:"elasticloadbalancing:LoadBalancerDescription:CanonicalHostedZoneName" type:"string"`
 
 	// The ID of the Amazon Route 53 hosted zone for the load balancer.
-	CanonicalHostedZoneNameID *string `type:"string"`
+	CanonicalHostedZoneNameID *string `json:"elasticloadbalancing:LoadBalancerDescription:CanonicalHostedZoneNameID" type:"string"`
 
 	// The date and time the load balancer was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreatedTime *time.Time `json:"elasticloadbalancing:LoadBalancerDescription:CreatedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The DNS name of the load balancer.
-	DNSName *string `type:"string"`
+	DNSName *string `json:"elasticloadbalancing:LoadBalancerDescription:DNSName" type:"string"`
 
 	// Information about the health checks conducted on the load balancer.
-	HealthCheck *HealthCheck `type:"structure"`
+	HealthCheck *HealthCheck `json:"elasticloadbalancing:LoadBalancerDescription:HealthCheck" type:"structure"`
 
 	// The IDs of the instances for the load balancer.
-	Instances []Instance `type:"list"`
+	Instances []Instance `json:"elasticloadbalancing:LoadBalancerDescription:Instances" type:"list"`
 
 	// The listeners for the load balancer.
-	ListenerDescriptions []ListenerDescription `type:"list"`
+	ListenerDescriptions []ListenerDescription `json:"elasticloadbalancing:LoadBalancerDescription:ListenerDescriptions" type:"list"`
 
 	// The name of the load balancer.
-	LoadBalancerName *string `type:"string"`
+	LoadBalancerName *string `json:"elasticloadbalancing:LoadBalancerDescription:LoadBalancerName" type:"string"`
 
 	// The policies defined for the load balancer.
-	Policies *Policies `type:"structure"`
+	Policies *Policies `json:"elasticloadbalancing:LoadBalancerDescription:Policies" type:"structure"`
 
 	// The type of load balancer. Valid only for load balancers in a VPC.
 	//
@@ -633,23 +633,23 @@ type LoadBalancerDescription struct {
 	//
 	// If Scheme is internal, the load balancer has a public DNS name that resolves
 	// to a private IP address.
-	Scheme *string `type:"string"`
+	Scheme *string `json:"elasticloadbalancing:LoadBalancerDescription:Scheme" type:"string"`
 
 	// The security groups for the load balancer. Valid only for load balancers
 	// in a VPC.
-	SecurityGroups []string `type:"list"`
+	SecurityGroups []string `json:"elasticloadbalancing:LoadBalancerDescription:SecurityGroups" type:"list"`
 
 	// The security group for the load balancer, which you can use as part of your
 	// inbound rules for your registered instances. To only allow traffic from load
 	// balancers, add a security group rule that specifies this source security
 	// group as the inbound source.
-	SourceSecurityGroup *SourceSecurityGroup `type:"structure"`
+	SourceSecurityGroup *SourceSecurityGroup `json:"elasticloadbalancing:LoadBalancerDescription:SourceSecurityGroup" type:"structure"`
 
 	// The IDs of the subnets for the load balancer.
-	Subnets []string `type:"list"`
+	Subnets []string `json:"elasticloadbalancing:LoadBalancerDescription:Subnets" type:"list"`
 
 	// The ID of the VPC for the load balancer.
-	VPCId *string `type:"string"`
+	VPCId *string `json:"elasticloadbalancing:LoadBalancerDescription:VPCId" type:"string"`
 }
 
 // String returns the string representation
@@ -663,13 +663,13 @@ type Policies struct {
 	_ struct{} `type:"structure"`
 
 	// The stickiness policies created using CreateAppCookieStickinessPolicy.
-	AppCookieStickinessPolicies []AppCookieStickinessPolicy `type:"list"`
+	AppCookieStickinessPolicies []AppCookieStickinessPolicy `json:"elasticloadbalancing:Policies:AppCookieStickinessPolicies" type:"list"`
 
 	// The stickiness policies created using CreateLBCookieStickinessPolicy.
-	LBCookieStickinessPolicies []LBCookieStickinessPolicy `type:"list"`
+	LBCookieStickinessPolicies []LBCookieStickinessPolicy `json:"elasticloadbalancing:Policies:LBCookieStickinessPolicies" type:"list"`
 
 	// The policies other than the stickiness policies.
-	OtherPolicies []string `type:"list"`
+	OtherPolicies []string `json:"elasticloadbalancing:Policies:OtherPolicies" type:"list"`
 }
 
 // String returns the string representation
@@ -683,10 +683,10 @@ type PolicyAttribute struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the attribute.
-	AttributeName *string `type:"string"`
+	AttributeName *string `json:"elasticloadbalancing:PolicyAttribute:AttributeName" type:"string"`
 
 	// The value of the attribute.
-	AttributeValue *string `type:"string"`
+	AttributeValue *string `json:"elasticloadbalancing:PolicyAttribute:AttributeValue" type:"string"`
 }
 
 // String returns the string representation
@@ -700,10 +700,10 @@ type PolicyAttributeDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the attribute.
-	AttributeName *string `type:"string"`
+	AttributeName *string `json:"elasticloadbalancing:PolicyAttributeDescription:AttributeName" type:"string"`
 
 	// The value of the attribute.
-	AttributeValue *string `type:"string"`
+	AttributeValue *string `json:"elasticloadbalancing:PolicyAttributeDescription:AttributeValue" type:"string"`
 }
 
 // String returns the string representation
@@ -717,10 +717,10 @@ type PolicyAttributeTypeDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the attribute.
-	AttributeName *string `type:"string"`
+	AttributeName *string `json:"elasticloadbalancing:PolicyAttributeTypeDescription:AttributeName" type:"string"`
 
 	// The type of the attribute. For example, Boolean or Integer.
-	AttributeType *string `type:"string"`
+	AttributeType *string `json:"elasticloadbalancing:PolicyAttributeTypeDescription:AttributeType" type:"string"`
 
 	// The cardinality of the attribute.
 	//
@@ -733,13 +733,13 @@ type PolicyAttributeTypeDescription struct {
 	//    * ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
 	//
 	//    * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
-	Cardinality *string `type:"string"`
+	Cardinality *string `json:"elasticloadbalancing:PolicyAttributeTypeDescription:Cardinality" type:"string"`
 
 	// The default value of the attribute, if applicable.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"elasticloadbalancing:PolicyAttributeTypeDescription:DefaultValue" type:"string"`
 
 	// A description of the attribute.
-	Description *string `type:"string"`
+	Description *string `json:"elasticloadbalancing:PolicyAttributeTypeDescription:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -753,13 +753,13 @@ type PolicyDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The policy attributes.
-	PolicyAttributeDescriptions []PolicyAttributeDescription `type:"list"`
+	PolicyAttributeDescriptions []PolicyAttributeDescription `json:"elasticloadbalancing:PolicyDescription:PolicyAttributeDescriptions" type:"list"`
 
 	// The name of the policy.
-	PolicyName *string `type:"string"`
+	PolicyName *string `json:"elasticloadbalancing:PolicyDescription:PolicyName" type:"string"`
 
 	// The name of the policy type.
-	PolicyTypeName *string `type:"string"`
+	PolicyTypeName *string `json:"elasticloadbalancing:PolicyDescription:PolicyTypeName" type:"string"`
 }
 
 // String returns the string representation
@@ -773,14 +773,14 @@ type PolicyTypeDescription struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the policy type.
-	Description *string `type:"string"`
+	Description *string `json:"elasticloadbalancing:PolicyTypeDescription:Description" type:"string"`
 
 	// The description of the policy attributes associated with the policies defined
 	// by Elastic Load Balancing.
-	PolicyAttributeTypeDescriptions []PolicyAttributeTypeDescription `type:"list"`
+	PolicyAttributeTypeDescriptions []PolicyAttributeTypeDescription `json:"elasticloadbalancing:PolicyTypeDescription:PolicyAttributeTypeDescriptions" type:"list"`
 
 	// The name of the policy type.
-	PolicyTypeName *string `type:"string"`
+	PolicyTypeName *string `json:"elasticloadbalancing:PolicyTypeDescription:PolicyTypeName" type:"string"`
 }
 
 // String returns the string representation
@@ -794,10 +794,10 @@ type SourceSecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the security group.
-	GroupName *string `type:"string"`
+	GroupName *string `json:"elasticloadbalancing:SourceSecurityGroup:GroupName" type:"string"`
 
 	// The owner of the security group.
-	OwnerAlias *string `type:"string"`
+	OwnerAlias *string `json:"elasticloadbalancing:SourceSecurityGroup:OwnerAlias" type:"string"`
 }
 
 // String returns the string representation
@@ -813,10 +813,10 @@ type Tag struct {
 	// The key of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"elasticloadbalancing:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag.
-	Value *string `type:"string"`
+	Value *string `json:"elasticloadbalancing:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -847,10 +847,10 @@ type TagDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the load balancer.
-	LoadBalancerName *string `type:"string"`
+	LoadBalancerName *string `json:"elasticloadbalancing:TagDescription:LoadBalancerName" type:"string"`
 
 	// The tags.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"elasticloadbalancing:TagDescription:Tags" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -864,7 +864,7 @@ type TagKeyOnly struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"elasticloadbalancing:TagKeyOnly:Key" min:"1" type:"string"`
 }
 
 // String returns the string representation

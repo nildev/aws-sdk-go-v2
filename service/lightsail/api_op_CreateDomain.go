@@ -54,7 +54,7 @@ type CreateDomainOutput struct {
 
 	// An array of key-value pairs containing information about the domain resource
 	// you created.
-	Operation *Operation `locationName:"operation" type:"structure"`
+	Operation *Operation `json:"lightsail:CreateDomainOutput:Operation" locationName:"operation" type:"structure"`
 }
 
 // String returns the string representation

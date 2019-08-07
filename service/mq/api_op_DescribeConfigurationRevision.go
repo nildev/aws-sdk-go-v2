@@ -68,13 +68,13 @@ func (s DescribeConfigurationRevisionInput) MarshalFields(e protocol.FieldEncode
 type DescribeConfigurationRevisionOutput struct {
 	_ struct{} `type:"structure"`
 
-	ConfigurationId *string `locationName:"configurationId" type:"string"`
+	ConfigurationId *string `json:"mq:DescribeConfigurationRevisionOutput:ConfigurationId" locationName:"configurationId" type:"string"`
 
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"mq:DescribeConfigurationRevisionOutput:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
-	Data *string `locationName:"data" type:"string"`
+	Data *string `json:"mq:DescribeConfigurationRevisionOutput:Data" locationName:"data" type:"string"`
 
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mq:DescribeConfigurationRevisionOutput:Description" locationName:"description" type:"string"`
 }
 
 // String returns the string representation

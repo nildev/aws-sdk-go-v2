@@ -44,10 +44,10 @@ type DescribeSpotFleetRequestsOutput struct {
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeSpotFleetRequestsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the configuration of your Spot Fleet.
-	SpotFleetRequestConfigs []SpotFleetRequestConfig `locationName:"spotFleetRequestConfigSet" locationNameList:"item" type:"list"`
+	SpotFleetRequestConfigs []SpotFleetRequestConfig `json:"ec2:DescribeSpotFleetRequestsOutput:SpotFleetRequestConfigs" locationName:"spotFleetRequestConfigSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

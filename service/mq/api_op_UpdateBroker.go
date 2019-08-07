@@ -88,17 +88,17 @@ func (s UpdateBrokerInput) MarshalFields(e protocol.FieldEncoder) error {
 type UpdateBrokerOutput struct {
 	_ struct{} `type:"structure"`
 
-	AutoMinorVersionUpgrade *bool `locationName:"autoMinorVersionUpgrade" type:"boolean"`
+	AutoMinorVersionUpgrade *bool `json:"mq:UpdateBrokerOutput:AutoMinorVersionUpgrade" locationName:"autoMinorVersionUpgrade" type:"boolean"`
 
-	BrokerId *string `locationName:"brokerId" type:"string"`
+	BrokerId *string `json:"mq:UpdateBrokerOutput:BrokerId" locationName:"brokerId" type:"string"`
 
 	// A list of information about the configuration.
-	Configuration *ConfigurationId `locationName:"configuration" type:"structure"`
+	Configuration *ConfigurationId `json:"mq:UpdateBrokerOutput:Configuration" locationName:"configuration" type:"structure"`
 
-	EngineVersion *string `locationName:"engineVersion" type:"string"`
+	EngineVersion *string `json:"mq:UpdateBrokerOutput:EngineVersion" locationName:"engineVersion" type:"string"`
 
 	// The list of information about logs to be enabled for the specified broker.
-	Logs *Logs `locationName:"logs" type:"structure"`
+	Logs *Logs `json:"mq:UpdateBrokerOutput:Logs" locationName:"logs" type:"structure"`
 }
 
 // String returns the string representation

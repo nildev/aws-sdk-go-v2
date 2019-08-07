@@ -161,16 +161,16 @@ type ExecuteStatementOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Metadata for the columns included in the results.
-	ColumnMetadata []ColumnMetadata `locationName:"columnMetadata" type:"list"`
+	ColumnMetadata []ColumnMetadata `json:"rds-data:ExecuteStatementOutput:ColumnMetadata" locationName:"columnMetadata" type:"list"`
 
 	// Values for fields generated during the request.
-	GeneratedFields []Field `locationName:"generatedFields" type:"list"`
+	GeneratedFields []Field `json:"rds-data:ExecuteStatementOutput:GeneratedFields" locationName:"generatedFields" type:"list"`
 
 	// The number of records updated by the request.
-	NumberOfRecordsUpdated *int64 `locationName:"numberOfRecordsUpdated" type:"long"`
+	NumberOfRecordsUpdated *int64 `json:"rds-data:ExecuteStatementOutput:NumberOfRecordsUpdated" locationName:"numberOfRecordsUpdated" type:"long"`
 
 	// The records returned by the SQL statement.
-	Records [][]Field `locationName:"records" type:"list"`
+	Records [][]Field `json:"rds-data:ExecuteStatementOutput:Records" locationName:"records" type:"list"`
 }
 
 // String returns the string representation

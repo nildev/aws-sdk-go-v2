@@ -83,7 +83,7 @@ type PutRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the rule.
-	RuleArn *string `min:"1" type:"string"`
+	RuleArn *string `json:"events:PutRuleOutput:RuleArn" min:"1" type:"string"`
 }
 
 // String returns the string representation

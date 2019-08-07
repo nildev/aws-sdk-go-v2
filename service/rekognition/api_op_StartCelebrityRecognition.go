@@ -73,7 +73,7 @@ type StartCelebrityRecognitionOutput struct {
 
 	// The identifier for the celebrity recognition analysis job. Use JobId to identify
 	// the job in a subsequent call to GetCelebrityRecognition.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"rekognition:StartCelebrityRecognitionOutput:JobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -56,7 +56,7 @@ type ImportCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The certificate to be uploaded.
-	Certificate *Certificate `type:"structure"`
+	Certificate *Certificate `json:"dms:ImportCertificateOutput:Certificate" type:"structure"`
 }
 
 // String returns the string representation

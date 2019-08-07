@@ -51,7 +51,7 @@ type GenerateRandomOutput struct {
 	// is Base64-encoded. Otherwise, it is not encoded.
 	//
 	// Plaintext is automatically base64 encoded/decoded by the SDK.
-	Plaintext []byte `min:"1" type:"blob"`
+	Plaintext []byte `json:"kms:GenerateRandomOutput:Plaintext" min:"1" type:"blob"`
 }
 
 // String returns the string representation

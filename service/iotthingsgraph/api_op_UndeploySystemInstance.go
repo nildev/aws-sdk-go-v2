@@ -28,7 +28,7 @@ type UndeploySystemInstanceOutput struct {
 
 	// An object that contains summary information about the system instance that
 	// was removed from its target.
-	Summary *SystemInstanceSummary `locationName:"summary" type:"structure"`
+	Summary *SystemInstanceSummary `json:"iotthingsgraph:UndeploySystemInstanceOutput:Summary" locationName:"summary" type:"structure"`
 }
 
 // String returns the string representation

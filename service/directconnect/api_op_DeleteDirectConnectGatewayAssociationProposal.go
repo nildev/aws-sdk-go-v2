@@ -43,7 +43,7 @@ type DeleteDirectConnectGatewayAssociationProposalOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the associated gateway.
-	DirectConnectGatewayAssociationProposal *DirectConnectGatewayAssociationProposal `locationName:"directConnectGatewayAssociationProposal" type:"structure"`
+	DirectConnectGatewayAssociationProposal *DirectConnectGatewayAssociationProposal `json:"directconnect:DeleteDirectConnectGatewayAssociationProposalOutput:DirectConnectGatewayAssociationProposal" locationName:"directConnectGatewayAssociationProposal" type:"structure"`
 }
 
 // String returns the string representation

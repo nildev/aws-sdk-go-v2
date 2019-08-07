@@ -72,7 +72,7 @@ type DeleteVirtualInterfaceOutput struct {
 	//    state.
 	//
 	//    * unknown: The state of the virtual interface is not available.
-	VirtualInterfaceState VirtualInterfaceState `locationName:"virtualInterfaceState" type:"string" enum:"true"`
+	VirtualInterfaceState VirtualInterfaceState `json:"directconnect:DeleteVirtualInterfaceOutput:VirtualInterfaceState" locationName:"virtualInterfaceState" type:"string" enum:"true"`
 }
 
 // String returns the string representation

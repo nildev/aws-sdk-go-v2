@@ -128,12 +128,12 @@ type CreateDeliverabilityTestReportOutput struct {
 	// the GetDeliverabilityTestReport to view the results of the test.
 	//
 	// DeliverabilityTestStatus is a required field
-	DeliverabilityTestStatus DeliverabilityTestStatus `type:"string" required:"true" enum:"true"`
+	DeliverabilityTestStatus DeliverabilityTestStatus `json:"email:CreateDeliverabilityTestReportOutput:DeliverabilityTestStatus" type:"string" required:"true" enum:"true"`
 
 	// A unique string that identifies the predictive inbox placement test.
 	//
 	// ReportId is a required field
-	ReportId *string `type:"string" required:"true"`
+	ReportId *string `json:"email:CreateDeliverabilityTestReportOutput:ReportId" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -49,7 +49,7 @@ type AcceptTransitGatewayVpcAttachmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The VPC attachment.
-	TransitGatewayVpcAttachment *TransitGatewayVpcAttachment `locationName:"transitGatewayVpcAttachment" type:"structure"`
+	TransitGatewayVpcAttachment *TransitGatewayVpcAttachment `json:"ec2:AcceptTransitGatewayVpcAttachmentOutput:TransitGatewayVpcAttachment" locationName:"transitGatewayVpcAttachment" type:"structure"`
 }
 
 // String returns the string representation

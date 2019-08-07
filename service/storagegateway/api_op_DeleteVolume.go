@@ -50,7 +50,7 @@ type DeleteVolumeOutput struct {
 
 	// The Amazon Resource Name (ARN) of the storage volume that was deleted. It
 	// is the same ARN you provided in the request.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:DeleteVolumeOutput:VolumeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

@@ -20,26 +20,26 @@ type BotAliasMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the bot to which the alias points.
-	BotName *string `locationName:"botName" min:"2" type:"string"`
+	BotName *string `json:"models.lex:BotAliasMetadata:BotName" locationName:"botName" min:"2" type:"string"`
 
 	// The version of the Amazon Lex bot to which the alias points.
-	BotVersion *string `locationName:"botVersion" min:"1" type:"string"`
+	BotVersion *string `json:"models.lex:BotAliasMetadata:BotVersion" locationName:"botVersion" min:"1" type:"string"`
 
 	// Checksum of the bot alias.
-	Checksum *string `locationName:"checksum" type:"string"`
+	Checksum *string `json:"models.lex:BotAliasMetadata:Checksum" locationName:"checksum" type:"string"`
 
 	// The date that the bot alias was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:BotAliasMetadata:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the bot alias.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:BotAliasMetadata:Description" locationName:"description" type:"string"`
 
 	// The date that the bot alias was updated. When you create a resource, the
 	// creation date and last updated date are the same.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:BotAliasMetadata:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the bot alias.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:BotAliasMetadata:Name" locationName:"name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -102,30 +102,30 @@ type BotChannelAssociation struct {
 
 	// An alias pointing to the specific version of the Amazon Lex bot to which
 	// this association is being made.
-	BotAlias *string `locationName:"botAlias" min:"1" type:"string"`
+	BotAlias *string `json:"models.lex:BotChannelAssociation:BotAlias" locationName:"botAlias" min:"1" type:"string"`
 
 	// Provides information necessary to communicate with the messaging platform.
-	BotConfiguration map[string]string `locationName:"botConfiguration" min:"1" type:"map"`
+	BotConfiguration map[string]string `json:"models.lex:BotChannelAssociation:BotConfiguration" locationName:"botConfiguration" min:"1" type:"map"`
 
 	// The name of the Amazon Lex bot to which this association is being made.
 	//
 	// Currently, Amazon Lex supports associations with Facebook and Slack, and
 	// Twilio.
-	BotName *string `locationName:"botName" min:"2" type:"string"`
+	BotName *string `json:"models.lex:BotChannelAssociation:BotName" locationName:"botName" min:"2" type:"string"`
 
 	// The date that the association between the Amazon Lex bot and the channel
 	// was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:BotChannelAssociation:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A text description of the association you are creating.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:BotChannelAssociation:Description" locationName:"description" type:"string"`
 
 	// If status is FAILED, Amazon Lex provides the reason that it failed to create
 	// the association.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"models.lex:BotChannelAssociation:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The name of the association between the bot and the channel.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:BotChannelAssociation:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the bot channel.
 	//
@@ -135,11 +135,11 @@ type BotChannelAssociation struct {
 	//
 	//    * FAILED - There was an error creating the channel. For information about
 	//    the reason for the failure, see the failureReason field.
-	Status ChannelStatus `locationName:"status" type:"string" enum:"true"`
+	Status ChannelStatus `json:"models.lex:BotChannelAssociation:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Specifies the type of association by indicating the type of channel being
 	// established between the Amazon Lex bot and the external messaging platform.
-	Type ChannelType `locationName:"type" type:"string" enum:"true"`
+	Type ChannelType `json:"models.lex:BotChannelAssociation:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -218,23 +218,23 @@ type BotMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The date that the bot was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:BotMetadata:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the bot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:BotMetadata:Description" locationName:"description" type:"string"`
 
 	// The date that the bot was updated. When you create a bot, the creation date
 	// and last updated date are the same.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:BotMetadata:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the bot.
-	Name *string `locationName:"name" min:"2" type:"string"`
+	Name *string `json:"models.lex:BotMetadata:Name" locationName:"name" min:"2" type:"string"`
 
 	// The status of the bot.
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"models.lex:BotMetadata:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The version of the bot. For a new bot, the version is always $LATEST.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:BotMetadata:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -291,10 +291,10 @@ type BuiltinIntentMetadata struct {
 	// A unique identifier for the built-in intent. To find the signature for an
 	// intent, see Standard Built-in Intents (https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
-	Signature *string `locationName:"signature" type:"string"`
+	Signature *string `json:"models.lex:BuiltinIntentMetadata:Signature" locationName:"signature" type:"string"`
 
 	// A list of identifiers for the locales that the intent supports.
-	SupportedLocales []Locale `locationName:"supportedLocales" type:"list"`
+	SupportedLocales []Locale `json:"models.lex:BuiltinIntentMetadata:SupportedLocales" locationName:"supportedLocales" type:"list"`
 }
 
 // String returns the string representation
@@ -331,7 +331,7 @@ type BuiltinIntentSlot struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the slots defined for the intent.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"models.lex:BuiltinIntentSlot:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -358,10 +358,10 @@ type BuiltinSlotTypeMetadata struct {
 	// A unique identifier for the built-in slot type. To find the signature for
 	// a slot type, see Slot Type Reference (https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference)
 	// in the Alexa Skills Kit.
-	Signature *string `locationName:"signature" type:"string"`
+	Signature *string `json:"models.lex:BuiltinSlotTypeMetadata:Signature" locationName:"signature" type:"string"`
 
 	// A list of target locales for the slot.
-	SupportedLocales []Locale `locationName:"supportedLocales" type:"list"`
+	SupportedLocales []Locale `json:"models.lex:BuiltinSlotTypeMetadata:SupportedLocales" locationName:"supportedLocales" type:"list"`
 }
 
 // String returns the string representation
@@ -402,12 +402,12 @@ type CodeHook struct {
 	// your Lambda function. For more information, see using-lambda.
 	//
 	// MessageVersion is a required field
-	MessageVersion *string `locationName:"messageVersion" min:"1" type:"string" required:"true"`
+	MessageVersion *string `json:"models.lex:CodeHook:MessageVersion" locationName:"messageVersion" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the Lambda function.
 	//
 	// Uri is a required field
-	Uri *string `locationName:"uri" min:"20" type:"string" required:"true"`
+	Uri *string `json:"models.lex:CodeHook:Uri" locationName:"uri" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -473,12 +473,12 @@ type EnumerationValue struct {
 	_ struct{} `type:"structure"`
 
 	// Additional values related to the slot type value.
-	Synonyms []string `locationName:"synonyms" type:"list"`
+	Synonyms []string `json:"models.lex:EnumerationValue:Synonyms" locationName:"synonyms" type:"list"`
 
 	// The value of the slot type.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"models.lex:EnumerationValue:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -536,13 +536,13 @@ type FollowUpPrompt struct {
 	// Prompts for information from the user.
 	//
 	// Prompt is a required field
-	Prompt *Prompt `locationName:"prompt" type:"structure" required:"true"`
+	Prompt *Prompt `json:"models.lex:FollowUpPrompt:Prompt" locationName:"prompt" type:"structure" required:"true"`
 
 	// If the user answers "no" to the question defined in the prompt field, Amazon
 	// Lex responds with this statement to acknowledge that the intent was canceled.
 	//
 	// RejectionStatement is a required field
-	RejectionStatement *Statement `locationName:"rejectionStatement" type:"structure" required:"true"`
+	RejectionStatement *Statement `json:"models.lex:FollowUpPrompt:RejectionStatement" locationName:"rejectionStatement" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -618,13 +618,13 @@ type FulfillmentActivity struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the Lambda function that is run to fulfill the intent.
-	CodeHook *CodeHook `locationName:"codeHook" type:"structure"`
+	CodeHook *CodeHook `json:"models.lex:FulfillmentActivity:CodeHook" locationName:"codeHook" type:"structure"`
 
 	// How the intent should be fulfilled, either by running a Lambda function or
 	// by returning the slot data to the client application.
 	//
 	// Type is a required field
-	Type FulfillmentActivityType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type FulfillmentActivityType `json:"models.lex:FulfillmentActivity:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -675,12 +675,12 @@ type Intent struct {
 	// The name of the intent.
 	//
 	// IntentName is a required field
-	IntentName *string `locationName:"intentName" min:"1" type:"string" required:"true"`
+	IntentName *string `json:"models.lex:Intent:IntentName" locationName:"intentName" min:"1" type:"string" required:"true"`
 
 	// The version of the intent.
 	//
 	// IntentVersion is a required field
-	IntentVersion *string `locationName:"intentVersion" min:"1" type:"string" required:"true"`
+	IntentVersion *string `json:"models.lex:Intent:IntentVersion" locationName:"intentVersion" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -735,20 +735,20 @@ type IntentMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The date that the intent was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:IntentMetadata:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the intent.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:IntentMetadata:Description" locationName:"description" type:"string"`
 
 	// The date that the intent was updated. When you create an intent, the creation
 	// date and last updated date are the same.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:IntentMetadata:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the intent.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:IntentMetadata:Name" locationName:"name" min:"1" type:"string"`
 
 	// The version of the intent.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:IntentMetadata:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -799,17 +799,17 @@ type Message struct {
 	// The text of the message.
 	//
 	// Content is a required field
-	Content *string `locationName:"content" min:"1" type:"string" required:"true"`
+	Content *string `json:"models.lex:Message:Content" locationName:"content" min:"1" type:"string" required:"true"`
 
 	// The content type of the message string.
 	//
 	// ContentType is a required field
-	ContentType ContentType `locationName:"contentType" type:"string" required:"true" enum:"true"`
+	ContentType ContentType `json:"models.lex:Message:ContentType" locationName:"contentType" type:"string" required:"true" enum:"true"`
 
 	// Identifies the message group that the message belongs to. When a group is
 	// assigned to a message, Amazon Lex returns one message from each group in
 	// the response.
-	GroupNumber *int64 `locationName:"groupNumber" min:"1" type:"integer"`
+	GroupNumber *int64 `json:"models.lex:Message:GroupNumber" locationName:"groupNumber" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -874,19 +874,19 @@ type Prompt struct {
 	// The number of times to prompt the user for information.
 	//
 	// MaxAttempts is a required field
-	MaxAttempts *int64 `locationName:"maxAttempts" min:"1" type:"integer" required:"true"`
+	MaxAttempts *int64 `json:"models.lex:Prompt:MaxAttempts" locationName:"maxAttempts" min:"1" type:"integer" required:"true"`
 
 	// An array of objects, each of which provides a message string and its type.
 	// You can specify the message string in plain text or in Speech Synthesis Markup
 	// Language (SSML).
 	//
 	// Messages is a required field
-	Messages []Message `locationName:"messages" min:"1" type:"list" required:"true"`
+	Messages []Message `json:"models.lex:Prompt:Messages" locationName:"messages" min:"1" type:"list" required:"true"`
 
 	// A response card. Amazon Lex uses this prompt at runtime, in the PostText
 	// API response. It substitutes session attributes and slot values for placeholders
 	// in the response card. For more information, see ex-resp-card.
-	ResponseCard *string `locationName:"responseCard" min:"1" type:"string"`
+	ResponseCard *string `json:"models.lex:Prompt:ResponseCard" locationName:"responseCard" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -966,11 +966,11 @@ type ResourceReference struct {
 
 	// The name of the resource that is using the resource that you are trying to
 	// delete.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:ResourceReference:Name" locationName:"name" min:"1" type:"string"`
 
 	// The version of the resource that is using the resource that you are trying
 	// to delete.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:ResourceReference:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1001,12 +1001,12 @@ type Slot struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the slot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:Slot:Description" locationName:"description" type:"string"`
 
 	// The name of the slot.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"models.lex:Slot:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// Directs Lex the order in which to elicit this slot value from the user. For
 	// example, if the intent has two slots with priorities 1 and 2, AWS Lex first
@@ -1014,33 +1014,33 @@ type Slot struct {
 	//
 	// If multiple slots share the same priority, the order in which Lex elicits
 	// values is arbitrary.
-	Priority *int64 `locationName:"priority" type:"integer"`
+	Priority *int64 `json:"models.lex:Slot:Priority" locationName:"priority" type:"integer"`
 
 	// A set of possible responses for the slot type used by text-based clients.
 	// A user chooses an option from the response card, instead of using text to
 	// reply.
-	ResponseCard *string `locationName:"responseCard" min:"1" type:"string"`
+	ResponseCard *string `json:"models.lex:Slot:ResponseCard" locationName:"responseCard" min:"1" type:"string"`
 
 	// If you know a specific pattern with which users might respond to an Amazon
 	// Lex request for a slot value, you can provide those utterances to improve
 	// accuracy. This is optional. In most cases, Amazon Lex is capable of understanding
 	// user utterances.
-	SampleUtterances []string `locationName:"sampleUtterances" type:"list"`
+	SampleUtterances []string `json:"models.lex:Slot:SampleUtterances" locationName:"sampleUtterances" type:"list"`
 
 	// Specifies whether the slot is required or optional.
 	//
 	// SlotConstraint is a required field
-	SlotConstraint SlotConstraint `locationName:"slotConstraint" type:"string" required:"true" enum:"true"`
+	SlotConstraint SlotConstraint `json:"models.lex:Slot:SlotConstraint" locationName:"slotConstraint" type:"string" required:"true" enum:"true"`
 
 	// The type of the slot, either a custom slot type that you defined or one of
 	// the built-in slot types.
-	SlotType *string `locationName:"slotType" min:"1" type:"string"`
+	SlotType *string `json:"models.lex:Slot:SlotType" locationName:"slotType" min:"1" type:"string"`
 
 	// The version of the slot type.
-	SlotTypeVersion *string `locationName:"slotTypeVersion" min:"1" type:"string"`
+	SlotTypeVersion *string `json:"models.lex:Slot:SlotTypeVersion" locationName:"slotTypeVersion" min:"1" type:"string"`
 
 	// The prompt that Amazon Lex uses to elicit the slot value from the user.
-	ValueElicitationPrompt *Prompt `locationName:"valueElicitationPrompt" type:"structure"`
+	ValueElicitationPrompt *Prompt `json:"models.lex:Slot:ValueElicitationPrompt" locationName:"valueElicitationPrompt" type:"structure"`
 }
 
 // String returns the string representation
@@ -1153,20 +1153,20 @@ type SlotTypeMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The date that the slot type was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:SlotTypeMetadata:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the slot type.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:SlotTypeMetadata:Description" locationName:"description" type:"string"`
 
 	// The date that the slot type was updated. When you create a resource, the
 	// creation date and last updated date are the same.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:SlotTypeMetadata:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the slot type.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:SlotTypeMetadata:Name" locationName:"name" min:"1" type:"string"`
 
 	// The version of the slot type.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:SlotTypeMetadata:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1218,13 +1218,13 @@ type Statement struct {
 	// A collection of message objects.
 	//
 	// Messages is a required field
-	Messages []Message `locationName:"messages" min:"1" type:"list" required:"true"`
+	Messages []Message `json:"models.lex:Statement:Messages" locationName:"messages" min:"1" type:"list" required:"true"`
 
 	// At runtime, if the client is using the PostText (http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html)
 	// API, Amazon Lex includes the response card in the response. It substitutes
 	// all of the session attributes and slot values for placeholders in the response
 	// card.
-	ResponseCard *string `locationName:"responseCard" min:"1" type:"string"`
+	ResponseCard *string `json:"models.lex:Statement:ResponseCard" locationName:"responseCard" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1288,20 +1288,20 @@ type UtteranceData struct {
 	_ struct{} `type:"structure"`
 
 	// The number of times that the utterance was processed.
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"models.lex:UtteranceData:Count" locationName:"count" type:"integer"`
 
 	// The total number of individuals that used the utterance.
-	DistinctUsers *int64 `locationName:"distinctUsers" type:"integer"`
+	DistinctUsers *int64 `json:"models.lex:UtteranceData:DistinctUsers" locationName:"distinctUsers" type:"integer"`
 
 	// The date that the utterance was first recorded.
-	FirstUtteredDate *time.Time `locationName:"firstUtteredDate" type:"timestamp" timestampFormat:"unix"`
+	FirstUtteredDate *time.Time `json:"models.lex:UtteranceData:FirstUtteredDate" locationName:"firstUtteredDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date that the utterance was last recorded.
-	LastUtteredDate *time.Time `locationName:"lastUtteredDate" type:"timestamp" timestampFormat:"unix"`
+	LastUtteredDate *time.Time `json:"models.lex:UtteranceData:LastUtteredDate" locationName:"lastUtteredDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The text that was entered by the user or the text representation of an audio
 	// clip.
-	UtteranceString *string `locationName:"utteranceString" min:"1" type:"string"`
+	UtteranceString *string `json:"models.lex:UtteranceData:UtteranceString" locationName:"utteranceString" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1351,11 +1351,11 @@ type UtteranceList struct {
 	_ struct{} `type:"structure"`
 
 	// The version of the bot that processed the list.
-	BotVersion *string `locationName:"botVersion" min:"1" type:"string"`
+	BotVersion *string `json:"models.lex:UtteranceList:BotVersion" locationName:"botVersion" min:"1" type:"string"`
 
 	// One or more UtteranceData objects that contain information about the utterances
 	// that have been made to a bot. The maximum number of object is 100.
-	Utterances []UtteranceData `locationName:"utterances" type:"list"`
+	Utterances []UtteranceData `json:"models.lex:UtteranceList:Utterances" locationName:"utterances" type:"list"`
 }
 
 // String returns the string representation

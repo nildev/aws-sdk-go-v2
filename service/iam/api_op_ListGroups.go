@@ -75,7 +75,7 @@ type ListGroupsOutput struct {
 	// A list of groups.
 	//
 	// Groups is a required field
-	Groups []Group `type:"list" required:"true"`
+	Groups []Group `json:"iam:ListGroupsOutput:Groups" type:"list" required:"true"`
 
 	// A flag that indicates whether there are more items to return. If your results
 	// were truncated, you can make a subsequent pagination request using the Marker
@@ -83,11 +83,11 @@ type ListGroupsOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListGroupsOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListGroupsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

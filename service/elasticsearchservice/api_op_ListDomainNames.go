@@ -31,7 +31,7 @@ type ListDomainNamesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of Elasticsearch domain names.
-	DomainNames []DomainInfo `type:"list"`
+	DomainNames []DomainInfo `json:"es:ListDomainNamesOutput:DomainNames" type:"list"`
 }
 
 // String returns the string representation

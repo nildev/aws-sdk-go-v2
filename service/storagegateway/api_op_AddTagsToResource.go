@@ -71,7 +71,7 @@ type AddTagsToResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the resource you want to add tags to.
-	ResourceARN *string `min:"50" type:"string"`
+	ResourceARN *string `json:"storagegateway:AddTagsToResourceOutput:ResourceARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

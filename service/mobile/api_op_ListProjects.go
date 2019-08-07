@@ -56,10 +56,10 @@ type ListProjectsOutput struct {
 	// Pagination token. Set to null to start listing records from start. If non-null
 	// pagination token is returned in a result, then pass its value in here in
 	// another request to list more entries.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mobile:ListProjectsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// List of projects.
-	Projects []ProjectSummary `locationName:"projects" type:"list"`
+	Projects []ProjectSummary `json:"mobile:ListProjectsOutput:Projects" locationName:"projects" type:"list"`
 }
 
 // String returns the string representation

@@ -112,11 +112,11 @@ type TestRoleOutput struct {
 
 	// If the Success element contains false, this value is an array of one or more
 	// error messages that were generated during the test process.
-	Messages []string `type:"list"`
+	Messages []string `json:"elastictranscoder:TestRoleOutput:Messages" type:"list"`
 
 	// If the operation is successful, this value is true; otherwise, the value
 	// is false.
-	Success *string `type:"string"`
+	Success *string `json:"elastictranscoder:TestRoleOutput:Success" type:"string"`
 }
 
 // String returns the string representation

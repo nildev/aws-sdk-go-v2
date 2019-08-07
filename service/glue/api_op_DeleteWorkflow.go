@@ -46,7 +46,7 @@ type DeleteWorkflowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the workflow specified in input.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:DeleteWorkflowOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -47,7 +47,7 @@ type CreateAccessKeyOutput struct {
 	// A structure with details about the access key.
 	//
 	// AccessKey is a required field
-	AccessKey *AccessKey `type:"structure" required:"true"`
+	AccessKey *AccessKey `json:"iam:CreateAccessKeyOutput:AccessKey" type:"structure" required:"true"`
 }
 
 // String returns the string representation

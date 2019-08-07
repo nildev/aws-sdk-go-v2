@@ -73,13 +73,13 @@ type SearchRoomsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:SearchRoomsOutput:NextToken" min:"1" type:"string"`
 
 	// The rooms that meet the specified set of filter criteria, in sort order.
-	Rooms []RoomData `type:"list"`
+	Rooms []RoomData `json:"a4b:SearchRoomsOutput:Rooms" type:"list"`
 
 	// The total number of rooms returned.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"a4b:SearchRoomsOutput:TotalCount" type:"integer"`
 }
 
 // String returns the string representation

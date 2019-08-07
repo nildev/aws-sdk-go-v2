@@ -85,13 +85,13 @@ type CreateThingTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the thing type.
-	ThingTypeArn *string `locationName:"thingTypeArn" type:"string"`
+	ThingTypeArn *string `json:"iot:CreateThingTypeOutput:ThingTypeArn" locationName:"thingTypeArn" type:"string"`
 
 	// The thing type ID.
-	ThingTypeId *string `locationName:"thingTypeId" type:"string"`
+	ThingTypeId *string `json:"iot:CreateThingTypeOutput:ThingTypeId" locationName:"thingTypeId" type:"string"`
 
 	// The name of the thing type.
-	ThingTypeName *string `locationName:"thingTypeName" min:"1" type:"string"`
+	ThingTypeName *string `json:"iot:CreateThingTypeOutput:ThingTypeName" locationName:"thingTypeName" min:"1" type:"string"`
 }
 
 // String returns the string representation

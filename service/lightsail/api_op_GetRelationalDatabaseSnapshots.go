@@ -29,11 +29,11 @@ type GetRelationalDatabaseSnapshotsOutput struct {
 
 	// A token used for advancing to the next page of results from your get relational
 	// database snapshots request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetRelationalDatabaseSnapshotsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// An object describing the result of your get relational database snapshots
 	// request.
-	RelationalDatabaseSnapshots []RelationalDatabaseSnapshot `locationName:"relationalDatabaseSnapshots" type:"list"`
+	RelationalDatabaseSnapshots []RelationalDatabaseSnapshot `json:"lightsail:GetRelationalDatabaseSnapshotsOutput:RelationalDatabaseSnapshots" locationName:"relationalDatabaseSnapshots" type:"list"`
 }
 
 // String returns the string representation

@@ -64,14 +64,14 @@ type ListTagsForResourceOutput struct {
 
 	// An opaque string that indicates the position at which to stop returning the
 	// list of tags.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"storagegateway:ListTagsForResourceOutput:Marker" min:"1" type:"string"`
 
 	// he Amazon Resource Name (ARN) of the resource for which you want to list
 	// tags.
-	ResourceARN *string `min:"50" type:"string"`
+	ResourceARN *string `json:"storagegateway:ListTagsForResourceOutput:ResourceARN" min:"50" type:"string"`
 
 	// An array that contains the tags for the specified resource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"storagegateway:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

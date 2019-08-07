@@ -67,7 +67,7 @@ type CreateClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the cluster that was created.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"cloudhsmv2:CreateClusterOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

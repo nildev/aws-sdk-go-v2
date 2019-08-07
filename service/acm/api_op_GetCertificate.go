@@ -52,11 +52,11 @@ type GetCertificateOutput struct {
 
 	// String that contains the ACM certificate represented by the ARN specified
 	// at input.
-	Certificate *string `json:"ACM:GetCertificateOutput:Certificate" min:"1" type:"string"`
+	Certificate *string `json:"acm:GetCertificateOutput:Certificate" min:"1" type:"string"`
 
 	// The certificate chain that contains the root certificate issued by the certificate
 	// authority (CA).
-	CertificateChain *string `json:"ACM:GetCertificateOutput:CertificateChain" min:"1" type:"string"`
+	CertificateChain *string `json:"acm:GetCertificateOutput:CertificateChain" min:"1" type:"string"`
 }
 
 // String returns the string representation

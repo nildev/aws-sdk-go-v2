@@ -59,7 +59,7 @@ type CopyBackupToRegionOutput struct {
 	// You will need to use the sourceBackupID returned in this operation to use
 	// the DescribeBackups operation on the backup that will be copied to the destination
 	// region.
-	DestinationBackup *DestinationBackup `type:"structure"`
+	DestinationBackup *DestinationBackup `json:"cloudhsmv2:CopyBackupToRegionOutput:DestinationBackup" type:"structure"`
 }
 
 // String returns the string representation

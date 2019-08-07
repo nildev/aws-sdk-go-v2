@@ -73,20 +73,20 @@ type GetMinuteUsageOutput struct {
 
 	// Estimated number of minutes remaining for an account, specific to the month
 	// being requested.
-	EstimatedMinutesRemaining *int64 `locationName:"estimatedMinutesRemaining" type:"integer"`
+	EstimatedMinutesRemaining *int64 `json:"groundstation:GetMinuteUsageOutput:EstimatedMinutesRemaining" locationName:"estimatedMinutesRemaining" type:"integer"`
 
 	// Returns whether or not an account has signed up for the reserved minutes
 	// pricing plan, specific to the month being requested.
-	IsReservedMinutesCustomer *bool `locationName:"isReservedMinutesCustomer" type:"boolean"`
+	IsReservedMinutesCustomer *bool `json:"groundstation:GetMinuteUsageOutput:IsReservedMinutesCustomer" locationName:"isReservedMinutesCustomer" type:"boolean"`
 
 	// Total number of reserved minutes allocated, specific to the month being requested.
-	TotalReservedMinuteAllocation *int64 `locationName:"totalReservedMinuteAllocation" type:"integer"`
+	TotalReservedMinuteAllocation *int64 `json:"groundstation:GetMinuteUsageOutput:TotalReservedMinuteAllocation" locationName:"totalReservedMinuteAllocation" type:"integer"`
 
 	// Total scheduled minutes for an account, specific to the month being requested.
-	TotalScheduledMinutes *int64 `locationName:"totalScheduledMinutes" type:"integer"`
+	TotalScheduledMinutes *int64 `json:"groundstation:GetMinuteUsageOutput:TotalScheduledMinutes" locationName:"totalScheduledMinutes" type:"integer"`
 
 	// Upcoming minutes scheduled for an account, specific to the month being requested.
-	UpcomingMinutesScheduled *int64 `locationName:"upcomingMinutesScheduled" type:"integer"`
+	UpcomingMinutesScheduled *int64 `json:"groundstation:GetMinuteUsageOutput:UpcomingMinutesScheduled" locationName:"upcomingMinutesScheduled" type:"integer"`
 }
 
 // String returns the string representation

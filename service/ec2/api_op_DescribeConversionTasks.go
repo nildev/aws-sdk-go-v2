@@ -33,7 +33,7 @@ type DescribeConversionTasksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the conversion tasks.
-	ConversionTasks []ConversionTask `locationName:"conversionTasks" locationNameList:"item" type:"list"`
+	ConversionTasks []ConversionTask `json:"ec2:DescribeConversionTasksOutput:ConversionTasks" locationName:"conversionTasks" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

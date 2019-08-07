@@ -86,11 +86,11 @@ type ListTagsOutput struct {
 	// a request is made to return maxResults number of items, NextToken allows
 	// you to return more items in your list starting at the location pointed to
 	// by the next token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"backup:ListTagsOutput:NextToken" type:"string"`
 
 	// To help organize your resources, you can assign your own metadata to the
 	// resources you create. Each tag is a key-value pair.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"backup:ListTagsOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

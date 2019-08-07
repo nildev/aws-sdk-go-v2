@@ -77,7 +77,7 @@ type InviteUsersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The invite details.
-	Invites []Invite `type:"list"`
+	Invites []Invite `json:"chime:InviteUsersOutput:Invites" type:"list"`
 }
 
 // String returns the string representation

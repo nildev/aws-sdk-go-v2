@@ -58,7 +58,7 @@ type GetServiceQuotaOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns the ServiceQuota object which contains all values for a quota.
-	Quota *ServiceQuota `type:"structure"`
+	Quota *ServiceQuota `json:"servicequotas:GetServiceQuotaOutput:Quota" type:"structure"`
 }
 
 // String returns the string representation

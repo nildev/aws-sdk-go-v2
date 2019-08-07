@@ -111,7 +111,7 @@ type RegisterDeviceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID generated for this device by Cognito.
-	DeviceId *string `min:"1" type:"string"`
+	DeviceId *string `json:"cognito-sync:RegisterDeviceOutput:DeviceId" min:"1" type:"string"`
 }
 
 // String returns the string representation

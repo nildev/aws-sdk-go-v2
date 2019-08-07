@@ -75,7 +75,7 @@ type ApplyPendingMaintenanceActionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the output of ApplyPendingMaintenanceAction.
-	ResourcePendingMaintenanceActions *ResourcePendingMaintenanceActions `type:"structure"`
+	ResourcePendingMaintenanceActions *ResourcePendingMaintenanceActions `json:"rds:ApplyPendingMaintenanceActionOutput:ResourcePendingMaintenanceActions" type:"structure"`
 }
 
 // String returns the string representation

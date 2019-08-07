@@ -57,12 +57,12 @@ type ListEventSubscriptionsOutput struct {
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"inspector:ListEventSubscriptionsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// Details of the returned event subscriptions.
 	//
 	// Subscriptions is a required field
-	Subscriptions []Subscription `locationName:"subscriptions" type:"list" required:"true"`
+	Subscriptions []Subscription `json:"inspector:ListEventSubscriptionsOutput:Subscriptions" locationName:"subscriptions" type:"list" required:"true"`
 }
 
 // String returns the string representation

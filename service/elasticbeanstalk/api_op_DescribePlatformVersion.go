@@ -27,7 +27,7 @@ type DescribePlatformVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about the version of the platform.
-	PlatformDescription *PlatformDescription `type:"structure"`
+	PlatformDescription *PlatformDescription `json:"elasticbeanstalk:DescribePlatformVersionOutput:PlatformDescription" type:"structure"`
 }
 
 // String returns the string representation

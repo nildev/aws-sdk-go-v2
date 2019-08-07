@@ -82,7 +82,7 @@ type BatchCreatePartitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Errors encountered when trying to create the requested partitions.
-	Errors []PartitionError `type:"list"`
+	Errors []PartitionError `json:"glue:BatchCreatePartitionOutput:Errors" type:"list"`
 }
 
 // String returns the string representation

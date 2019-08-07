@@ -63,10 +63,10 @@ type ListInvitationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The invitations for the network.
-	Invitations []Invitation `type:"list"`
+	Invitations []Invitation `json:"managedblockchain:ListInvitationsOutput:Invitations" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"managedblockchain:ListInvitationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

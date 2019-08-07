@@ -56,10 +56,10 @@ type ListRegexMatchSetsOutput struct {
 	// more RegexMatchSet objects, submit another ListRegexMatchSets request, and
 	// specify the NextMarker value from the response in the NextMarker value in
 	// the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf-regional:ListRegexMatchSetsOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of RegexMatchSetSummary objects.
-	RegexMatchSets []waf.RegexMatchSetSummary `type:"list"`
+	RegexMatchSets []waf.RegexMatchSetSummary `json:"waf-regional:ListRegexMatchSetsOutput:RegexMatchSets" type:"list"`
 }
 
 // String returns the string representation

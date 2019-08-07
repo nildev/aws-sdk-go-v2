@@ -57,7 +57,7 @@ type ListTagsForResourceOutput struct {
 
 	// A map from tag keys to values. Tag keys can have a maximum character length
 	// of 128 characters, and tag values can have a maximum length of 256 characters.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mediaconnect:ListTagsForResourceOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

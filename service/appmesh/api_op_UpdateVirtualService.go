@@ -114,7 +114,7 @@ type UpdateVirtualServiceOutput struct {
 	// A full description of the virtual service that was updated.
 	//
 	// VirtualService is a required field
-	VirtualService *VirtualServiceData `locationName:"virtualService" type:"structure" required:"true"`
+	VirtualService *VirtualServiceData `json:"appmesh:UpdateVirtualServiceOutput:VirtualService" locationName:"virtualService" type:"structure" required:"true"`
 }
 
 // String returns the string representation

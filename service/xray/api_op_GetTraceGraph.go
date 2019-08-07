@@ -71,10 +71,10 @@ type GetTraceGraphOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Pagination token. Not used.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"xray:GetTraceGraphOutput:NextToken" type:"string"`
 
 	// The services that have processed one of the specified requests.
-	Services []Service `type:"list"`
+	Services []Service `json:"xray:GetTraceGraphOutput:Services" type:"list"`
 }
 
 // String returns the string representation

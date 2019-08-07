@@ -47,22 +47,22 @@ type GetMaintenanceWindowExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time the maintenance window finished running.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"ssm:GetMaintenanceWindowExecutionOutput:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the maintenance window started running.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"ssm:GetMaintenanceWindowExecutionOutput:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the maintenance window execution.
-	Status MaintenanceWindowExecutionStatus `type:"string" enum:"true"`
+	Status MaintenanceWindowExecutionStatus `json:"ssm:GetMaintenanceWindowExecutionOutput:Status" type:"string" enum:"true"`
 
 	// The details explaining the Status. Only available for certain status values.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:GetMaintenanceWindowExecutionOutput:StatusDetails" type:"string"`
 
 	// The ID of the task executions from the maintenance window execution.
-	TaskIds []string `type:"list"`
+	TaskIds []string `json:"ssm:GetMaintenanceWindowExecutionOutput:TaskIds" type:"list"`
 
 	// The ID of the maintenance window execution.
-	WindowExecutionId *string `min:"36" type:"string"`
+	WindowExecutionId *string `json:"ssm:GetMaintenanceWindowExecutionOutput:WindowExecutionId" min:"36" type:"string"`
 }
 
 // String returns the string representation

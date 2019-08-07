@@ -65,7 +65,7 @@ type GetUserOutput struct {
 	// to access key last used information because it is accurate for all dates.
 	//
 	// User is a required field
-	User *User `type:"structure" required:"true"`
+	User *User `json:"iam:GetUserOutput:User" type:"structure" required:"true"`
 }
 
 // String returns the string representation

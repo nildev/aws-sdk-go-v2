@@ -45,7 +45,7 @@ type DescribeLoadBasedAutoScalingOutput struct {
 
 	// An array of LoadBasedAutoScalingConfiguration objects that describe each
 	// layer's configuration.
-	LoadBasedAutoScalingConfigurations []LoadBasedAutoScalingConfiguration `type:"list"`
+	LoadBasedAutoScalingConfigurations []LoadBasedAutoScalingConfiguration `json:"opsworks:DescribeLoadBasedAutoScalingOutput:LoadBasedAutoScalingConfigurations" type:"list"`
 }
 
 // String returns the string representation

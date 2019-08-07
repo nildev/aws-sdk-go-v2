@@ -58,7 +58,7 @@ type RejectVpcEndpointConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the endpoints that were not rejected, if applicable.
-	Unsuccessful []UnsuccessfulItem `locationName:"unsuccessful" locationNameList:"item" type:"list"`
+	Unsuccessful []UnsuccessfulItem `json:"ec2:RejectVpcEndpointConnectionsOutput:Unsuccessful" locationName:"unsuccessful" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

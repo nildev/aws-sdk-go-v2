@@ -82,11 +82,11 @@ type GetDifferencesOutput struct {
 
 	// A differences data type object that contains information about the differences,
 	// including whether the difference is added, modified, or deleted (A, D, M).
-	Differences []Difference `locationName:"differences" type:"list"`
+	Differences []Difference `json:"codecommit:GetDifferencesOutput:Differences" locationName:"differences" type:"list"`
 
 	// An enumeration token that can be used in a request to return the next batch
 	// of the results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"codecommit:GetDifferencesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -95,31 +95,31 @@ type PostCommentForPullRequestOutput struct {
 	_ struct{} `type:"structure"`
 
 	// In the directionality of the pull request, the blob ID of the 'after' blob.
-	AfterBlobId *string `locationName:"afterBlobId" type:"string"`
+	AfterBlobId *string `json:"codecommit:PostCommentForPullRequestOutput:AfterBlobId" locationName:"afterBlobId" type:"string"`
 
 	// The full commit ID of the commit in the destination branch where the pull
 	// request will be merged.
-	AfterCommitId *string `locationName:"afterCommitId" type:"string"`
+	AfterCommitId *string `json:"codecommit:PostCommentForPullRequestOutput:AfterCommitId" locationName:"afterCommitId" type:"string"`
 
 	// In the directionality of the pull request, the blob ID of the 'before' blob.
-	BeforeBlobId *string `locationName:"beforeBlobId" type:"string"`
+	BeforeBlobId *string `json:"codecommit:PostCommentForPullRequestOutput:BeforeBlobId" locationName:"beforeBlobId" type:"string"`
 
 	// The full commit ID of the commit in the source branch used to create the
 	// pull request, or in the case of an updated pull request, the full commit
 	// ID of the commit used to update the pull request.
-	BeforeCommitId *string `locationName:"beforeCommitId" type:"string"`
+	BeforeCommitId *string `json:"codecommit:PostCommentForPullRequestOutput:BeforeCommitId" locationName:"beforeCommitId" type:"string"`
 
 	// The content of the comment you posted.
-	Comment *Comment `locationName:"comment" type:"structure"`
+	Comment *Comment `json:"codecommit:PostCommentForPullRequestOutput:Comment" locationName:"comment" type:"structure"`
 
 	// The location of the change where you posted your comment.
-	Location *Location `locationName:"location" type:"structure"`
+	Location *Location `json:"codecommit:PostCommentForPullRequestOutput:Location" locationName:"location" type:"structure"`
 
 	// The system-generated ID of the pull request.
-	PullRequestId *string `locationName:"pullRequestId" type:"string"`
+	PullRequestId *string `json:"codecommit:PostCommentForPullRequestOutput:PullRequestId" locationName:"pullRequestId" type:"string"`
 
 	// The name of the repository where you posted a comment on a pull request.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:PostCommentForPullRequestOutput:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 }
 
 // String returns the string representation

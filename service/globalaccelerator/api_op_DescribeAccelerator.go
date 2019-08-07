@@ -43,7 +43,7 @@ type DescribeAcceleratorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the accelerator.
-	Accelerator *Accelerator `type:"structure"`
+	Accelerator *Accelerator `json:"globalaccelerator:DescribeAcceleratorOutput:Accelerator" type:"structure"`
 }
 
 // String returns the string representation

@@ -47,10 +47,10 @@ type GetConnectionStatusOutput struct {
 
 	// The status of the connection to the instance. For example, 'Connected' or
 	// 'Not Connected'.
-	Status ConnectionStatus `type:"string" enum:"true"`
+	Status ConnectionStatus `json:"ssm:GetConnectionStatusOutput:Status" type:"string" enum:"true"`
 
 	// The ID of the instance to check connection status.
-	Target *string `min:"1" type:"string"`
+	Target *string `json:"ssm:GetConnectionStatusOutput:Target" min:"1" type:"string"`
 }
 
 // String returns the string representation

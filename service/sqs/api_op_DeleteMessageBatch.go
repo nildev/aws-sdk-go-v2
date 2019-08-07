@@ -67,12 +67,12 @@ type DeleteMessageBatchOutput struct {
 	// A list of BatchResultErrorEntry items.
 	//
 	// Failed is a required field
-	Failed []BatchResultErrorEntry `locationNameList:"BatchResultErrorEntry" type:"list" flattened:"true" required:"true"`
+	Failed []BatchResultErrorEntry `json:"sqs:DeleteMessageBatchOutput:Failed" locationNameList:"BatchResultErrorEntry" type:"list" flattened:"true" required:"true"`
 
 	// A list of DeleteMessageBatchResultEntry items.
 	//
 	// Successful is a required field
-	Successful []DeleteMessageBatchResultEntry `locationNameList:"DeleteMessageBatchResultEntry" type:"list" flattened:"true" required:"true"`
+	Successful []DeleteMessageBatchResultEntry `json:"sqs:DeleteMessageBatchOutput:Successful" locationNameList:"DeleteMessageBatchResultEntry" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation

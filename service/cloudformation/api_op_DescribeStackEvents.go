@@ -54,10 +54,10 @@ type DescribeStackEventsOutput struct {
 
 	// If the output exceeds 1 MB in size, a string that identifies the next page
 	// of events. If no additional page exists, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:DescribeStackEventsOutput:NextToken" min:"1" type:"string"`
 
 	// A list of StackEvents structures.
-	StackEvents []StackEvent `type:"list"`
+	StackEvents []StackEvent `json:"cloudformation:DescribeStackEventsOutput:StackEvents" type:"list"`
 }
 
 // String returns the string representation

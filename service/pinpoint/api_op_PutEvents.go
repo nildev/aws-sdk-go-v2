@@ -78,7 +78,7 @@ type PutEventsOutput struct {
 	// with.
 	//
 	// EventsResponse is a required field
-	EventsResponse *EventsResponse `type:"structure" required:"true"`
+	EventsResponse *EventsResponse `json:"pinpoint:PutEventsOutput:EventsResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

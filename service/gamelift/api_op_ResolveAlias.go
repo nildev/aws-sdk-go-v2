@@ -45,7 +45,7 @@ type ResolveAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Fleet identifier that is associated with the requested alias.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:ResolveAliasOutput:FleetId" type:"string"`
 }
 
 // String returns the string representation

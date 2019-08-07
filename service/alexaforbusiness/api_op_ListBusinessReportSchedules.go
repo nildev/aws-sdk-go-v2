@@ -46,10 +46,10 @@ type ListBusinessReportSchedulesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The schedule of the reports.
-	BusinessReportSchedules []BusinessReportSchedule `type:"list"`
+	BusinessReportSchedules []BusinessReportSchedule `json:"a4b:ListBusinessReportSchedulesOutput:BusinessReportSchedules" type:"list"`
 
 	// The token used to list the remaining schedules from the previous API call.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:ListBusinessReportSchedulesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -41,10 +41,10 @@ type DescribeHubOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the Hub resource retrieved.
-	HubArn *string `type:"string"`
+	HubArn *string `json:"securityhub:DescribeHubOutput:HubArn" type:"string"`
 
 	// The date and time when Security Hub was enabled in the account.
-	SubscribedAt *string `type:"string"`
+	SubscribedAt *string `json:"securityhub:DescribeHubOutput:SubscribedAt" type:"string"`
 }
 
 // String returns the string representation

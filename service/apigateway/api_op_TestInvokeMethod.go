@@ -170,22 +170,22 @@ type TestInvokeMethodOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The body of the HTTP response.
-	Body *string `locationName:"body" type:"string"`
+	Body *string `json:"apigateway:TestInvokeMethodOutput:Body" locationName:"body" type:"string"`
 
 	// The headers of the HTTP response.
-	Headers map[string]string `locationName:"headers" type:"map"`
+	Headers map[string]string `json:"apigateway:TestInvokeMethodOutput:Headers" locationName:"headers" type:"map"`
 
 	// The execution latency of the test invoke request.
-	Latency *int64 `locationName:"latency" type:"long"`
+	Latency *int64 `json:"apigateway:TestInvokeMethodOutput:Latency" locationName:"latency" type:"long"`
 
 	// The API Gateway execution log for the test invoke request.
-	Log *string `locationName:"log" type:"string"`
+	Log *string `json:"apigateway:TestInvokeMethodOutput:Log" locationName:"log" type:"string"`
 
 	// The headers of the HTTP response as a map from string to list of values.
-	MultiValueHeaders map[string][]string `locationName:"multiValueHeaders" type:"map"`
+	MultiValueHeaders map[string][]string `json:"apigateway:TestInvokeMethodOutput:MultiValueHeaders" locationName:"multiValueHeaders" type:"map"`
 
 	// The HTTP status code.
-	Status *int64 `locationName:"status" type:"integer"`
+	Status *int64 `json:"apigateway:TestInvokeMethodOutput:Status" locationName:"status" type:"integer"`
 }
 
 // String returns the string representation

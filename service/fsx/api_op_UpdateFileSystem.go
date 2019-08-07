@@ -75,7 +75,7 @@ type UpdateFileSystemOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the file system that was updated.
-	FileSystem *FileSystem `type:"structure"`
+	FileSystem *FileSystem `json:"fsx:UpdateFileSystemOutput:FileSystem" type:"structure"`
 }
 
 // String returns the string representation

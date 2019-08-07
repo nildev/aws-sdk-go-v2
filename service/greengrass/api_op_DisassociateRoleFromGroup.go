@@ -56,7 +56,7 @@ type DisassociateRoleFromGroupOutput struct {
 
 	// The time, in milliseconds since the epoch, when the role was disassociated
 	// from the group.
-	DisassociatedAt *string `type:"string"`
+	DisassociatedAt *string `json:"greengrass:DisassociateRoleFromGroupOutput:DisassociatedAt" type:"string"`
 }
 
 // String returns the string representation

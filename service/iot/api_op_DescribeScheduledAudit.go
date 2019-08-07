@@ -59,27 +59,27 @@ type DescribeScheduledAuditOutput struct {
 	// The day of the month on which the scheduled audit takes place. Will be "1"
 	// through "31" or "LAST". If days 29-31 are specified, and the month does not
 	// have that many days, the audit takes place on the "LAST" day of the month.
-	DayOfMonth *string `locationName:"dayOfMonth" type:"string"`
+	DayOfMonth *string `json:"iot:DescribeScheduledAuditOutput:DayOfMonth" locationName:"dayOfMonth" type:"string"`
 
 	// The day of the week on which the scheduled audit takes place. One of "SUN",
 	// "MON", "TUE", "WED", "THU", "FRI" or "SAT".
-	DayOfWeek DayOfWeek `locationName:"dayOfWeek" type:"string" enum:"true"`
+	DayOfWeek DayOfWeek `json:"iot:DescribeScheduledAuditOutput:DayOfWeek" locationName:"dayOfWeek" type:"string" enum:"true"`
 
 	// How often the scheduled audit takes place. One of "DAILY", "WEEKLY", "BIWEEKLY"
 	// or "MONTHLY". The actual start time of each audit is determined by the system.
-	Frequency AuditFrequency `locationName:"frequency" type:"string" enum:"true"`
+	Frequency AuditFrequency `json:"iot:DescribeScheduledAuditOutput:Frequency" locationName:"frequency" type:"string" enum:"true"`
 
 	// The ARN of the scheduled audit.
-	ScheduledAuditArn *string `locationName:"scheduledAuditArn" type:"string"`
+	ScheduledAuditArn *string `json:"iot:DescribeScheduledAuditOutput:ScheduledAuditArn" locationName:"scheduledAuditArn" type:"string"`
 
 	// The name of the scheduled audit.
-	ScheduledAuditName *string `locationName:"scheduledAuditName" min:"1" type:"string"`
+	ScheduledAuditName *string `json:"iot:DescribeScheduledAuditOutput:ScheduledAuditName" locationName:"scheduledAuditName" min:"1" type:"string"`
 
 	// Which checks are performed during the scheduled audit. (Note that checks
 	// must be enabled for your account. (Use DescribeAccountAuditConfiguration
 	// to see the list of all checks including those that are enabled or UpdateAccountAuditConfiguration
 	// to select which checks are enabled.)
-	TargetCheckNames []string `locationName:"targetCheckNames" type:"list"`
+	TargetCheckNames []string `json:"iot:DescribeScheduledAuditOutput:TargetCheckNames" locationName:"targetCheckNames" type:"list"`
 }
 
 // String returns the string representation

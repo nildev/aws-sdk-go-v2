@@ -158,7 +158,7 @@ type UpdateFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Function object.
-	FunctionConfiguration *FunctionConfiguration `locationName:"functionConfiguration" type:"structure"`
+	FunctionConfiguration *FunctionConfiguration `json:"appsync:UpdateFunctionOutput:FunctionConfiguration" locationName:"functionConfiguration" type:"structure"`
 }
 
 // String returns the string representation

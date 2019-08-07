@@ -53,10 +53,10 @@ type GetConsoleScreenshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The data that comprises the image.
-	ImageData *string `locationName:"imageData" type:"string"`
+	ImageData *string `json:"ec2:GetConsoleScreenshotOutput:ImageData" locationName:"imageData" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:GetConsoleScreenshotOutput:InstanceId" locationName:"instanceId" type:"string"`
 }
 
 // String returns the string representation

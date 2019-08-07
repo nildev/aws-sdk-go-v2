@@ -96,7 +96,7 @@ type CreateWorkteamOutput struct {
 
 	// The Amazon Resource Name (ARN) of the work team. You can use this ARN to
 	// identify the work team.
-	WorkteamArn *string `type:"string"`
+	WorkteamArn *string `json:"api.sagemaker:CreateWorkteamOutput:WorkteamArn" type:"string"`
 }
 
 // String returns the string representation

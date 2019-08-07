@@ -58,7 +58,7 @@ type EnableDirectoryOutput struct {
 	// The ARN of the enabled directory.
 	//
 	// DirectoryArn is a required field
-	DirectoryArn *string `type:"string" required:"true"`
+	DirectoryArn *string `json:"clouddirectory:EnableDirectoryOutput:DirectoryArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

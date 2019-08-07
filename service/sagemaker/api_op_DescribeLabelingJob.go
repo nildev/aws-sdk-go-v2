@@ -49,31 +49,31 @@ type DescribeLabelingJobOutput struct {
 	// The date and time that the labeling job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeLabelingJobOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// If the job failed, the reason that it failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:DescribeLabelingJobOutput:FailureReason" type:"string"`
 
 	// Configuration information required for human workers to complete a labeling
 	// task.
 	//
 	// HumanTaskConfig is a required field
-	HumanTaskConfig *HumanTaskConfig `type:"structure" required:"true"`
+	HumanTaskConfig *HumanTaskConfig `json:"api.sagemaker:DescribeLabelingJobOutput:HumanTaskConfig" type:"structure" required:"true"`
 
 	// Input configuration information for the labeling job, such as the Amazon
 	// S3 location of the data objects and the location of the manifest file that
 	// describes the data objects.
 	//
 	// InputConfig is a required field
-	InputConfig *LabelingJobInputConfig `type:"structure" required:"true"`
+	InputConfig *LabelingJobInputConfig `json:"api.sagemaker:DescribeLabelingJobOutput:InputConfig" type:"structure" required:"true"`
 
 	// A unique identifier for work done as part of a labeling job.
 	//
 	// JobReferenceCode is a required field
-	JobReferenceCode *string `min:"1" type:"string" required:"true"`
+	JobReferenceCode *string `json:"api.sagemaker:DescribeLabelingJobOutput:JobReferenceCode" min:"1" type:"string" required:"true"`
 
 	// The attribute used as the label in the output manifest file.
-	LabelAttributeName *string `min:"1" type:"string"`
+	LabelAttributeName *string `json:"api.sagemaker:DescribeLabelingJobOutput:LabelAttributeName" min:"1" type:"string"`
 
 	// The S3 location of the JSON file that defines the categories used to label
 	// data objects.
@@ -109,61 +109,61 @@ type DescribeLabelingJobOutput struct {
 	// ]
 	//
 	// }
-	LabelCategoryConfigS3Uri *string `type:"string"`
+	LabelCategoryConfigS3Uri *string `json:"api.sagemaker:DescribeLabelingJobOutput:LabelCategoryConfigS3Uri" type:"string"`
 
 	// Provides a breakdown of the number of data objects labeled by humans, the
 	// number of objects labeled by machine, the number of objects than couldn't
 	// be labeled, and the total number of objects labeled.
 	//
 	// LabelCounters is a required field
-	LabelCounters *LabelCounters `type:"structure" required:"true"`
+	LabelCounters *LabelCounters `json:"api.sagemaker:DescribeLabelingJobOutput:LabelCounters" type:"structure" required:"true"`
 
 	// Configuration information for automated data labeling.
-	LabelingJobAlgorithmsConfig *LabelingJobAlgorithmsConfig `type:"structure"`
+	LabelingJobAlgorithmsConfig *LabelingJobAlgorithmsConfig `json:"api.sagemaker:DescribeLabelingJobOutput:LabelingJobAlgorithmsConfig" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the labeling job.
 	//
 	// LabelingJobArn is a required field
-	LabelingJobArn *string `type:"string" required:"true"`
+	LabelingJobArn *string `json:"api.sagemaker:DescribeLabelingJobOutput:LabelingJobArn" type:"string" required:"true"`
 
 	// The name assigned to the labeling job when it was created.
 	//
 	// LabelingJobName is a required field
-	LabelingJobName *string `min:"1" type:"string" required:"true"`
+	LabelingJobName *string `json:"api.sagemaker:DescribeLabelingJobOutput:LabelingJobName" min:"1" type:"string" required:"true"`
 
 	// The location of the output produced by the labeling job.
-	LabelingJobOutput *LabelingJobOutput `type:"structure"`
+	LabelingJobOutput *LabelingJobOutput `json:"api.sagemaker:DescribeLabelingJobOutput:LabelingJobOutput" type:"structure"`
 
 	// The processing status of the labeling job.
 	//
 	// LabelingJobStatus is a required field
-	LabelingJobStatus LabelingJobStatus `type:"string" required:"true" enum:"true"`
+	LabelingJobStatus LabelingJobStatus `json:"api.sagemaker:DescribeLabelingJobOutput:LabelingJobStatus" type:"string" required:"true" enum:"true"`
 
 	// The date and time that the labeling job was last updated.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:DescribeLabelingJobOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The location of the job's output data and the AWS Key Management Service
 	// key ID for the key used to encrypt the output data, if any.
 	//
 	// OutputConfig is a required field
-	OutputConfig *LabelingJobOutputConfig `type:"structure" required:"true"`
+	OutputConfig *LabelingJobOutputConfig `json:"api.sagemaker:DescribeLabelingJobOutput:OutputConfig" type:"structure" required:"true"`
 
 	// The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform tasks
 	// on your behalf during data labeling.
 	//
 	// RoleArn is a required field
-	RoleArn *string `min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"api.sagemaker:DescribeLabelingJobOutput:RoleArn" min:"20" type:"string" required:"true"`
 
 	// A set of conditions for stopping a labeling job. If any of the conditions
 	// are met, the job is automatically stopped.
-	StoppingConditions *LabelingJobStoppingConditions `type:"structure"`
+	StoppingConditions *LabelingJobStoppingConditions `json:"api.sagemaker:DescribeLabelingJobOutput:StoppingConditions" type:"structure"`
 
 	// An array of key/value pairs. For more information, see Using Cost Allocation
 	// Tags (http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what)
 	// in the AWS Billing and Cost Management User Guide.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"api.sagemaker:DescribeLabelingJobOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

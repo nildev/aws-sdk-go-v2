@@ -48,7 +48,7 @@ type DescribeRdsDbInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An a array of RdsDbInstance objects that describe the instances.
-	RdsDbInstances []RdsDbInstance `type:"list"`
+	RdsDbInstances []RdsDbInstance `json:"opsworks:DescribeRdsDbInstancesOutput:RdsDbInstances" type:"list"`
 }
 
 // String returns the string representation

@@ -63,7 +63,7 @@ type TransactGetItemsOutput struct {
 	// objects, one for each table addressed by TransactGetItem objects in the TransactItems
 	// parameter. These ConsumedCapacity objects report the read-capacity units
 	// consumed by the TransactGetItems call in that table.
-	ConsumedCapacity []ConsumedCapacity `type:"list"`
+	ConsumedCapacity []ConsumedCapacity `json:"dynamodb:TransactGetItemsOutput:ConsumedCapacity" type:"list"`
 
 	// An ordered array of up to 25 ItemResponse objects, each of which corresponds
 	// to the TransactGetItem object in the same position in the TransactItems array.
@@ -73,7 +73,7 @@ type TransactGetItemsOutput struct {
 	// If a requested item could not be retrieved, the corresponding ItemResponse
 	// object is Null, or if the requested item has no projected attributes, the
 	// corresponding ItemResponse object is an empty Map.
-	Responses []ItemResponse `min:"1" type:"list"`
+	Responses []ItemResponse `json:"dynamodb:TransactGetItemsOutput:Responses" min:"1" type:"list"`
 }
 
 // String returns the string representation

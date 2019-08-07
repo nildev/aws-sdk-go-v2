@@ -24,7 +24,7 @@ type DescribeLocationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The locations.
-	Locations []Location `locationName:"locations" type:"list"`
+	Locations []Location `json:"directconnect:DescribeLocationsOutput:Locations" locationName:"locations" type:"list"`
 }
 
 // String returns the string representation

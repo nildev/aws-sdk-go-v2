@@ -58,7 +58,7 @@ type CreateUserProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user's IAM ARN.
-	IamUserArn *string `type:"string"`
+	IamUserArn *string `json:"opsworks:CreateUserProfileOutput:IamUserArn" type:"string"`
 }
 
 // String returns the string representation

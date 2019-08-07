@@ -151,7 +151,7 @@ type CreatePatchBaselineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the created patch baseline.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:CreatePatchBaselineOutput:BaselineId" min:"20" type:"string"`
 }
 
 // String returns the string representation

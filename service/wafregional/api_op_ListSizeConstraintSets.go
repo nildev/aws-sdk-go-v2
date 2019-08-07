@@ -55,10 +55,10 @@ type ListSizeConstraintSetsOutput struct {
 	// more SizeConstraintSet objects, submit another ListSizeConstraintSets request,
 	// and specify the NextMarker value from the response in the NextMarker value
 	// in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf-regional:ListSizeConstraintSetsOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of SizeConstraintSetSummary objects.
-	SizeConstraintSets []waf.SizeConstraintSetSummary `type:"list"`
+	SizeConstraintSets []waf.SizeConstraintSetSummary `json:"waf-regional:ListSizeConstraintSetsOutput:SizeConstraintSets" type:"list"`
 }
 
 // String returns the string representation

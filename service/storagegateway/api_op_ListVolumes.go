@@ -67,17 +67,17 @@ type ListVolumesOutput struct {
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:ListVolumesOutput:GatewayARN" min:"50" type:"string"`
 
 	// Use the marker in your next request to continue pagination of iSCSI volumes.
 	// If there are no more volumes to list, this field does not appear in the response
 	// body.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"storagegateway:ListVolumesOutput:Marker" min:"1" type:"string"`
 
 	// An array of VolumeInfo objects, where each object describes an iSCSI volume.
 	// If no volumes are defined for the gateway, then VolumeInfos is an empty array
 	// "[]".
-	VolumeInfos []VolumeInfo `type:"list"`
+	VolumeInfos []VolumeInfo `json:"storagegateway:ListVolumesOutput:VolumeInfos" type:"list"`
 }
 
 // String returns the string representation

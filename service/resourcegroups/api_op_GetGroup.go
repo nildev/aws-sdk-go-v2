@@ -59,7 +59,7 @@ type GetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A full description of the resource group.
-	Group *Group `type:"structure"`
+	Group *Group `json:"resource-groups:GetGroupOutput:Group" type:"structure"`
 }
 
 // String returns the string representation

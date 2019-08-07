@@ -98,13 +98,13 @@ type GetObjectAclOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of grants.
-	Grants []Grant `locationName:"AccessControlList" locationNameList:"Grant" type:"list"`
+	Grants []Grant `json:"s3:GetObjectAclOutput:Grants" locationName:"AccessControlList" locationNameList:"Grant" type:"list"`
 
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:GetObjectAclOutput:Owner" type:"structure"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:GetObjectAclOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 }
 
 // String returns the string representation

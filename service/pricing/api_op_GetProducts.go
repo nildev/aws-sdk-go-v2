@@ -64,14 +64,14 @@ type GetProductsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The format version of the response. For example, aws_v1.
-	FormatVersion *string `type:"string"`
+	FormatVersion *string `json:"api.pricing:GetProductsOutput:FormatVersion" type:"string"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.pricing:GetProductsOutput:NextToken" type:"string"`
 
 	// The list of products that match your filters. The list contains both the
 	// product metadata and the price information.
-	PriceList []aws.JSONValue `type:"list"`
+	PriceList []aws.JSONValue `json:"api.pricing:GetProductsOutput:PriceList" type:"list"`
 }
 
 // String returns the string representation

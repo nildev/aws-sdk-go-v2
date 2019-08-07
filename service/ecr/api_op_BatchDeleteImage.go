@@ -65,10 +65,10 @@ type BatchDeleteImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any failures associated with the call.
-	Failures []ImageFailure `locationName:"failures" type:"list"`
+	Failures []ImageFailure `json:"api.ecr:BatchDeleteImageOutput:Failures" locationName:"failures" type:"list"`
 
 	// The image IDs of the deleted images.
-	ImageIds []ImageIdentifier `locationName:"imageIds" min:"1" type:"list"`
+	ImageIds []ImageIdentifier `json:"api.ecr:BatchDeleteImageOutput:ImageIds" locationName:"imageIds" min:"1" type:"list"`
 }
 
 // String returns the string representation

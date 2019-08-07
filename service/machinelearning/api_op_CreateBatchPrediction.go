@@ -94,7 +94,7 @@ type CreateBatchPredictionOutput struct {
 
 	// A user-supplied ID that uniquely identifies the BatchPrediction. This value
 	// is identical to the value of the BatchPredictionId in the request.
-	BatchPredictionId *string `min:"1" type:"string"`
+	BatchPredictionId *string `json:"machinelearning:CreateBatchPredictionOutput:BatchPredictionId" min:"1" type:"string"`
 }
 
 // String returns the string representation

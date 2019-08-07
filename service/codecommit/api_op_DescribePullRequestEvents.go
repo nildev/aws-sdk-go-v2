@@ -61,12 +61,12 @@ type DescribePullRequestEventsOutput struct {
 
 	// An enumeration token that can be used in a request to return the next batch
 	// of the results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:DescribePullRequestEventsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the pull request events.
 	//
 	// PullRequestEvents is a required field
-	PullRequestEvents []PullRequestEvent `locationName:"pullRequestEvents" type:"list" required:"true"`
+	PullRequestEvents []PullRequestEvent `json:"codecommit:DescribePullRequestEventsOutput:PullRequestEvents" locationName:"pullRequestEvents" type:"list" required:"true"`
 }
 
 // String returns the string representation

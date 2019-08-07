@@ -116,30 +116,30 @@ type ListPartsOutput struct {
 
 	// The description of the archive that was specified in the Initiate Multipart
 	// Upload request.
-	ArchiveDescription *string `type:"string"`
+	ArchiveDescription *string `json:"glacier:ListPartsOutput:ArchiveDescription" type:"string"`
 
 	// The UTC time at which the multipart upload was initiated.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"glacier:ListPartsOutput:CreationDate" type:"string"`
 
 	// An opaque string that represents where to continue pagination of the results.
 	// You use the marker in a new List Parts request to obtain more jobs in the
 	// list. If there are no more parts, this value is null.
-	Marker *string `type:"string"`
+	Marker *string `json:"glacier:ListPartsOutput:Marker" type:"string"`
 
 	// The ID of the upload to which the parts are associated.
-	MultipartUploadId *string `type:"string"`
+	MultipartUploadId *string `json:"glacier:ListPartsOutput:MultipartUploadId" type:"string"`
 
 	// The part size in bytes. This is the same value that you specified in the
 	// Initiate Multipart Upload request.
-	PartSizeInBytes *int64 `type:"long"`
+	PartSizeInBytes *int64 `json:"glacier:ListPartsOutput:PartSizeInBytes" type:"long"`
 
 	// A list of the part sizes of the multipart upload. Each object in the array
 	// contains a RangeBytes and sha256-tree-hash name/value pair.
-	Parts []PartListElement `type:"list"`
+	Parts []PartListElement `json:"glacier:ListPartsOutput:Parts" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the vault to which the multipart upload
 	// was initiated.
-	VaultARN *string `type:"string"`
+	VaultARN *string `json:"glacier:ListPartsOutput:VaultARN" type:"string"`
 }
 
 // String returns the string representation

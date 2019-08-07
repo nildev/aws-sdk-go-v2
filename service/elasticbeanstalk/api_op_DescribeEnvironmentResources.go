@@ -53,7 +53,7 @@ type DescribeEnvironmentResourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of EnvironmentResourceDescription.
-	EnvironmentResources *EnvironmentResourceDescription `type:"structure"`
+	EnvironmentResources *EnvironmentResourceDescription `json:"elasticbeanstalk:DescribeEnvironmentResourcesOutput:EnvironmentResources" type:"structure"`
 }
 
 // String returns the string representation

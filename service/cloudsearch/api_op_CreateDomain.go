@@ -50,7 +50,7 @@ type CreateDomainOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current status of the search domain.
-	DomainStatus *DomainStatus `type:"structure"`
+	DomainStatus *DomainStatus `json:"cloudsearch:CreateDomainOutput:DomainStatus" type:"structure"`
 }
 
 // String returns the string representation

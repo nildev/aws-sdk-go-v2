@@ -77,18 +77,18 @@ func (s UpdateDeploymentInput) MarshalFields(e protocol.FieldEncoder) error {
 type UpdateDeploymentOutput struct {
 	_ struct{} `type:"structure"`
 
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:UpdateDeploymentOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"apigateway:UpdateDeploymentOutput:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// Represents a deployment status.
-	DeploymentStatus DeploymentStatus `locationName:"deploymentStatus" type:"string" enum:"true"`
+	DeploymentStatus DeploymentStatus `json:"apigateway:UpdateDeploymentOutput:DeploymentStatus" locationName:"deploymentStatus" type:"string" enum:"true"`
 
-	DeploymentStatusMessage *string `locationName:"deploymentStatusMessage" type:"string"`
+	DeploymentStatusMessage *string `json:"apigateway:UpdateDeploymentOutput:DeploymentStatusMessage" locationName:"deploymentStatusMessage" type:"string"`
 
 	// A string with a length between [0-1024].
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:UpdateDeploymentOutput:Description" locationName:"description" type:"string"`
 }
 
 // String returns the string representation

@@ -149,19 +149,19 @@ type CreateProvisionedProductPlanOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The plan identifier.
-	PlanId *string `min:"1" type:"string"`
+	PlanId *string `json:"servicecatalog:CreateProvisionedProductPlanOutput:PlanId" min:"1" type:"string"`
 
 	// The name of the plan.
-	PlanName *string `type:"string"`
+	PlanName *string `json:"servicecatalog:CreateProvisionedProductPlanOutput:PlanName" type:"string"`
 
 	// The product identifier.
-	ProvisionProductId *string `min:"1" type:"string"`
+	ProvisionProductId *string `json:"servicecatalog:CreateProvisionedProductPlanOutput:ProvisionProductId" min:"1" type:"string"`
 
 	// The user-friendly name of the provisioned product.
-	ProvisionedProductName *string `min:"1" type:"string"`
+	ProvisionedProductName *string `json:"servicecatalog:CreateProvisionedProductPlanOutput:ProvisionedProductName" min:"1" type:"string"`
 
 	// The identifier of the provisioning artifact.
-	ProvisioningArtifactId *string `min:"1" type:"string"`
+	ProvisioningArtifactId *string `json:"servicecatalog:CreateProvisionedProductPlanOutput:ProvisioningArtifactId" min:"1" type:"string"`
 }
 
 // String returns the string representation

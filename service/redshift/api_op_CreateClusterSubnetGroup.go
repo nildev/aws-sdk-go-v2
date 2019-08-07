@@ -76,7 +76,7 @@ type CreateClusterSubnetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes a subnet group.
-	ClusterSubnetGroup *ClusterSubnetGroup `type:"structure"`
+	ClusterSubnetGroup *ClusterSubnetGroup `json:"redshift:CreateClusterSubnetGroupOutput:ClusterSubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

@@ -43,11 +43,11 @@ type DescribeConfigRuleEvaluationStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Status information about your AWS managed Config rules.
-	ConfigRulesEvaluationStatus []ConfigRuleEvaluationStatus `type:"list"`
+	ConfigRulesEvaluationStatus []ConfigRuleEvaluationStatus `json:"config:DescribeConfigRuleEvaluationStatusOutput:ConfigRulesEvaluationStatus" type:"list"`
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:DescribeConfigRuleEvaluationStatusOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

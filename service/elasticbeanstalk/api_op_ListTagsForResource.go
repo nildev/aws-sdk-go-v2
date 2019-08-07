@@ -45,10 +45,10 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the resouce for which a tag list was requested.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"elasticbeanstalk:ListTagsForResourceOutput:ResourceArn" type:"string"`
 
 	// A list of tag key-value pairs.
-	ResourceTags []Tag `type:"list"`
+	ResourceTags []Tag `json:"elasticbeanstalk:ListTagsForResourceOutput:ResourceTags" type:"list"`
 }
 
 // String returns the string representation

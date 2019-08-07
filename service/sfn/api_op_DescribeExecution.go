@@ -49,12 +49,12 @@ type DescribeExecutionOutput struct {
 	// The Amazon Resource Name (ARN) that identifies the execution.
 	//
 	// ExecutionArn is a required field
-	ExecutionArn *string `locationName:"executionArn" min:"1" type:"string" required:"true"`
+	ExecutionArn *string `json:"states:DescribeExecutionOutput:ExecutionArn" locationName:"executionArn" min:"1" type:"string" required:"true"`
 
 	// The string that contains the JSON input data of the execution.
 	//
 	// Input is a required field
-	Input *string `locationName:"input" type:"string" required:"true"`
+	Input *string `json:"states:DescribeExecutionOutput:Input" locationName:"input" type:"string" required:"true"`
 
 	// The name of the execution.
 	//
@@ -69,31 +69,31 @@ type DescribeExecutionOutput struct {
 	//    * special characters " # % \ ^ | ~ ` $ & , ; : /
 	//
 	//    * control characters (U+0000-001F, U+007F-009F)
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"states:DescribeExecutionOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The JSON output data of the execution.
 	//
 	// This field is set only if the execution succeeds. If the execution fails,
 	// this field is null.
-	Output *string `locationName:"output" type:"string"`
+	Output *string `json:"states:DescribeExecutionOutput:Output" locationName:"output" type:"string"`
 
 	// The date the execution is started.
 	//
 	// StartDate is a required field
-	StartDate *time.Time `locationName:"startDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartDate *time.Time `json:"states:DescribeExecutionOutput:StartDate" locationName:"startDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the executed stated machine.
 	//
 	// StateMachineArn is a required field
-	StateMachineArn *string `locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
+	StateMachineArn *string `json:"states:DescribeExecutionOutput:StateMachineArn" locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
 
 	// The current status of the execution.
 	//
 	// Status is a required field
-	Status ExecutionStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status ExecutionStatus `json:"states:DescribeExecutionOutput:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 
 	// If the execution has already ended, the date the execution stopped.
-	StopDate *time.Time `locationName:"stopDate" type:"timestamp" timestampFormat:"unix"`
+	StopDate *time.Time `json:"states:DescribeExecutionOutput:StopDate" locationName:"stopDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

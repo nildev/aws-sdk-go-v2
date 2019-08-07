@@ -66,7 +66,7 @@ type PollForTaskOutput struct {
 	// task runner. One of the fields returned in this object is taskId, which contains
 	// an identifier for the task being assigned. The calling task runner uses taskId
 	// in subsequent calls to ReportTaskProgress and SetTaskStatus.
-	TaskObject *TaskObject `locationName:"taskObject" type:"structure"`
+	TaskObject *TaskObject `json:"datapipeline:PollForTaskOutput:TaskObject" locationName:"taskObject" type:"structure"`
 }
 
 // String returns the string representation

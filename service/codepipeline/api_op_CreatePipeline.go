@@ -61,10 +61,10 @@ type CreatePipelineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the structure of actions and stages to be performed in the pipeline.
-	Pipeline *PipelineDeclaration `locationName:"pipeline" type:"structure"`
+	Pipeline *PipelineDeclaration `json:"codepipeline:CreatePipelineOutput:Pipeline" locationName:"pipeline" type:"structure"`
 
 	// Specifies the tags applied to the pipeline.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"codepipeline:CreatePipelineOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

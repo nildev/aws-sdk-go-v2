@@ -57,7 +57,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags associated with a resource.
-	Tags map[string]string `min:"1" type:"map"`
+	Tags map[string]string `json:"securityhub:ListTagsForResourceOutput:Tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

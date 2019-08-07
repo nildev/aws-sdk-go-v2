@@ -120,14 +120,14 @@ type CreateFleetOutput struct {
 
 	// Information about the instances that could not be launched by the fleet.
 	// Valid only when Type is set to instant.
-	Errors []CreateFleetError `locationName:"errorSet" locationNameList:"item" type:"list"`
+	Errors []CreateFleetError `json:"ec2:CreateFleetOutput:Errors" locationName:"errorSet" locationNameList:"item" type:"list"`
 
 	// The ID of the EC2 Fleet.
-	FleetId *string `locationName:"fleetId" type:"string"`
+	FleetId *string `json:"ec2:CreateFleetOutput:FleetId" locationName:"fleetId" type:"string"`
 
 	// Information about the instances that were launched by the fleet. Valid only
 	// when Type is set to instant.
-	Instances []CreateFleetInstance `locationName:"fleetInstanceSet" locationNameList:"item" type:"list"`
+	Instances []CreateFleetInstance `json:"ec2:CreateFleetOutput:Instances" locationName:"fleetInstanceSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

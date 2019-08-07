@@ -54,7 +54,7 @@ type UpdateCommentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the updated comment.
-	Comment *Comment `locationName:"comment" type:"structure"`
+	Comment *Comment `json:"codecommit:UpdateCommentOutput:Comment" locationName:"comment" type:"structure"`
 }
 
 // String returns the string representation

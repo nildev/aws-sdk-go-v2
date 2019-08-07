@@ -70,19 +70,19 @@ type DescribeConfigurationRevisionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the configuration.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"kafka:DescribeConfigurationRevisionOutput:Arn" locationName:"arn" type:"string"`
 
 	// The time when the configuration was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"kafka:DescribeConfigurationRevisionOutput:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the configuration.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"kafka:DescribeConfigurationRevisionOutput:Description" locationName:"description" type:"string"`
 
 	// The revision number.
-	Revision *int64 `locationName:"revision" type:"long"`
+	Revision *int64 `json:"kafka:DescribeConfigurationRevisionOutput:Revision" locationName:"revision" type:"long"`
 
 	// ServerProperties is automatically base64 encoded/decoded by the SDK.
-	ServerProperties []byte `locationName:"serverProperties" type:"blob"`
+	ServerProperties []byte `json:"kafka:DescribeConfigurationRevisionOutput:ServerProperties" locationName:"serverProperties" type:"blob"`
 }
 
 // String returns the string representation

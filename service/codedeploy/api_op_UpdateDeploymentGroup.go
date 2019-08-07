@@ -133,7 +133,7 @@ type UpdateDeploymentGroupOutput struct {
 	// corresponding Auto Scaling lifecycle event hooks from the AWS account. If
 	// the output contains data, AWS CodeDeploy could not remove some Auto Scaling
 	// lifecycle event hooks from the AWS account.
-	HooksNotCleanedUp []AutoScalingGroup `locationName:"hooksNotCleanedUp" type:"list"`
+	HooksNotCleanedUp []AutoScalingGroup `json:"codedeploy:UpdateDeploymentGroupOutput:HooksNotCleanedUp" locationName:"hooksNotCleanedUp" type:"list"`
 }
 
 // String returns the string representation

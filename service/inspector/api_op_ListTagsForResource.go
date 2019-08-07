@@ -48,7 +48,7 @@ type ListTagsForResourceOutput struct {
 	// A collection of key and value pairs.
 	//
 	// Tags is a required field
-	Tags []Tag `locationName:"tags" type:"list" required:"true"`
+	Tags []Tag `json:"inspector:ListTagsForResourceOutput:Tags" locationName:"tags" type:"list" required:"true"`
 }
 
 // String returns the string representation

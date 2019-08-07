@@ -57,7 +57,7 @@ type IncreaseReplicationFactorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the DAX cluster. with its new replication factor.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"dax:IncreaseReplicationFactorOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

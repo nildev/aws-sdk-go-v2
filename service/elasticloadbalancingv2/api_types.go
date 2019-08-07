@@ -19,34 +19,34 @@ type Action struct {
 
 	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users.
 	// Specify only when Type is authenticate-cognito.
-	AuthenticateCognitoConfig *AuthenticateCognitoActionConfig `type:"structure"`
+	AuthenticateCognitoConfig *AuthenticateCognitoActionConfig `json:"elasticloadbalancing:Action:AuthenticateCognitoConfig" type:"structure"`
 
 	// [HTTPS listeners] Information about an identity provider that is compliant
 	// with OpenID Connect (OIDC). Specify only when Type is authenticate-oidc.
-	AuthenticateOidcConfig *AuthenticateOidcActionConfig `type:"structure"`
+	AuthenticateOidcConfig *AuthenticateOidcActionConfig `json:"elasticloadbalancing:Action:AuthenticateOidcConfig" type:"structure"`
 
 	// [Application Load Balancer] Information for creating an action that returns
 	// a custom HTTP response. Specify only when Type is fixed-response.
-	FixedResponseConfig *FixedResponseActionConfig `type:"structure"`
+	FixedResponseConfig *FixedResponseActionConfig `json:"elasticloadbalancing:Action:FixedResponseConfig" type:"structure"`
 
 	// The order for the action. This value is required for rules with multiple
 	// actions. The action with the lowest value for order is performed first. The
 	// final action to be performed must be a forward or a fixed-response action.
-	Order *int64 `min:"1" type:"integer"`
+	Order *int64 `json:"elasticloadbalancing:Action:Order" min:"1" type:"integer"`
 
 	// [Application Load Balancer] Information for creating a redirect action. Specify
 	// only when Type is redirect.
-	RedirectConfig *RedirectActionConfig `type:"structure"`
+	RedirectConfig *RedirectActionConfig `json:"elasticloadbalancing:Action:RedirectConfig" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the target group. Specify only when Type
 	// is forward.
-	TargetGroupArn *string `type:"string"`
+	TargetGroupArn *string `json:"elasticloadbalancing:Action:TargetGroupArn" type:"string"`
 
 	// The type of action. Each rule must include exactly one of the following types
 	// of actions: forward, fixed-response, or redirect.
 	//
 	// Type is a required field
-	Type ActionTypeEnum `type:"string" required:"true" enum:"true"`
+	Type ActionTypeEnum `json:"elasticloadbalancing:Action:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -98,7 +98,7 @@ type AuthenticateCognitoActionConfig struct {
 
 	// The query parameters (up to 10) to include in the redirect request to the
 	// authorization endpoint.
-	AuthenticationRequestExtraParams map[string]string `type:"map"`
+	AuthenticationRequestExtraParams map[string]string `json:"elasticloadbalancing:AuthenticateCognitoActionConfig:AuthenticationRequestExtraParams" type:"map"`
 
 	// The behavior if the user is not authenticated. The following are possible
 	// values:
@@ -109,37 +109,37 @@ type AuthenticateCognitoActionConfig struct {
 	//
 	//    * authenticate - Redirect the request to the IdP authorization endpoint.
 	//    This is the default value.
-	OnUnauthenticatedRequest AuthenticateCognitoActionConditionalBehaviorEnum `type:"string" enum:"true"`
+	OnUnauthenticatedRequest AuthenticateCognitoActionConditionalBehaviorEnum `json:"elasticloadbalancing:AuthenticateCognitoActionConfig:OnUnauthenticatedRequest" type:"string" enum:"true"`
 
 	// The set of user claims to be requested from the IdP. The default is openid.
 	//
 	// To verify which scope values your IdP supports and how to separate multiple
 	// values, see the documentation for your IdP.
-	Scope *string `type:"string"`
+	Scope *string `json:"elasticloadbalancing:AuthenticateCognitoActionConfig:Scope" type:"string"`
 
 	// The name of the cookie used to maintain session information. The default
 	// is AWSELBAuthSessionCookie.
-	SessionCookieName *string `type:"string"`
+	SessionCookieName *string `json:"elasticloadbalancing:AuthenticateCognitoActionConfig:SessionCookieName" type:"string"`
 
 	// The maximum duration of the authentication session, in seconds. The default
 	// is 604800 seconds (7 days).
-	SessionTimeout *int64 `type:"long"`
+	SessionTimeout *int64 `json:"elasticloadbalancing:AuthenticateCognitoActionConfig:SessionTimeout" type:"long"`
 
 	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
 	//
 	// UserPoolArn is a required field
-	UserPoolArn *string `type:"string" required:"true"`
+	UserPoolArn *string `json:"elasticloadbalancing:AuthenticateCognitoActionConfig:UserPoolArn" type:"string" required:"true"`
 
 	// The ID of the Amazon Cognito user pool client.
 	//
 	// UserPoolClientId is a required field
-	UserPoolClientId *string `type:"string" required:"true"`
+	UserPoolClientId *string `json:"elasticloadbalancing:AuthenticateCognitoActionConfig:UserPoolClientId" type:"string" required:"true"`
 
 	// The domain prefix or fully-qualified domain name of the Amazon Cognito user
 	// pool.
 	//
 	// UserPoolDomain is a required field
-	UserPoolDomain *string `type:"string" required:"true"`
+	UserPoolDomain *string `json:"elasticloadbalancing:AuthenticateCognitoActionConfig:UserPoolDomain" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -177,29 +177,29 @@ type AuthenticateOidcActionConfig struct {
 
 	// The query parameters (up to 10) to include in the redirect request to the
 	// authorization endpoint.
-	AuthenticationRequestExtraParams map[string]string `type:"map"`
+	AuthenticationRequestExtraParams map[string]string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:AuthenticationRequestExtraParams" type:"map"`
 
 	// The authorization endpoint of the IdP. This must be a full URL, including
 	// the HTTPS protocol, the domain, and the path.
 	//
 	// AuthorizationEndpoint is a required field
-	AuthorizationEndpoint *string `type:"string" required:"true"`
+	AuthorizationEndpoint *string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:AuthorizationEndpoint" type:"string" required:"true"`
 
 	// The OAuth 2.0 client identifier.
 	//
 	// ClientId is a required field
-	ClientId *string `type:"string" required:"true"`
+	ClientId *string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:ClientId" type:"string" required:"true"`
 
 	// The OAuth 2.0 client secret. This parameter is required if you are creating
 	// a rule. If you are modifying a rule, you can omit this parameter if you set
 	// UseExistingClientSecret to true.
-	ClientSecret *string `type:"string"`
+	ClientSecret *string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:ClientSecret" type:"string"`
 
 	// The OIDC issuer identifier of the IdP. This must be a full URL, including
 	// the HTTPS protocol, the domain, and the path.
 	//
 	// Issuer is a required field
-	Issuer *string `type:"string" required:"true"`
+	Issuer *string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:Issuer" type:"string" required:"true"`
 
 	// The behavior if the user is not authenticated. The following are possible
 	// values:
@@ -210,37 +210,37 @@ type AuthenticateOidcActionConfig struct {
 	//
 	//    * authenticate - Redirect the request to the IdP authorization endpoint.
 	//    This is the default value.
-	OnUnauthenticatedRequest AuthenticateOidcActionConditionalBehaviorEnum `type:"string" enum:"true"`
+	OnUnauthenticatedRequest AuthenticateOidcActionConditionalBehaviorEnum `json:"elasticloadbalancing:AuthenticateOidcActionConfig:OnUnauthenticatedRequest" type:"string" enum:"true"`
 
 	// The set of user claims to be requested from the IdP. The default is openid.
 	//
 	// To verify which scope values your IdP supports and how to separate multiple
 	// values, see the documentation for your IdP.
-	Scope *string `type:"string"`
+	Scope *string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:Scope" type:"string"`
 
 	// The name of the cookie used to maintain session information. The default
 	// is AWSELBAuthSessionCookie.
-	SessionCookieName *string `type:"string"`
+	SessionCookieName *string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:SessionCookieName" type:"string"`
 
 	// The maximum duration of the authentication session, in seconds. The default
 	// is 604800 seconds (7 days).
-	SessionTimeout *int64 `type:"long"`
+	SessionTimeout *int64 `json:"elasticloadbalancing:AuthenticateOidcActionConfig:SessionTimeout" type:"long"`
 
 	// The token endpoint of the IdP. This must be a full URL, including the HTTPS
 	// protocol, the domain, and the path.
 	//
 	// TokenEndpoint is a required field
-	TokenEndpoint *string `type:"string" required:"true"`
+	TokenEndpoint *string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:TokenEndpoint" type:"string" required:"true"`
 
 	// Indicates whether to use the existing client secret when modifying a rule.
 	// If you are creating a rule, you can omit this parameter or set it to false.
-	UseExistingClientSecret *bool `type:"boolean"`
+	UseExistingClientSecret *bool `json:"elasticloadbalancing:AuthenticateOidcActionConfig:UseExistingClientSecret" type:"boolean"`
 
 	// The user info endpoint of the IdP. This must be a full URL, including the
 	// HTTPS protocol, the domain, and the path.
 	//
 	// UserInfoEndpoint is a required field
-	UserInfoEndpoint *string `type:"string" required:"true"`
+	UserInfoEndpoint *string `json:"elasticloadbalancing:AuthenticateOidcActionConfig:UserInfoEndpoint" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -284,13 +284,13 @@ type AvailabilityZone struct {
 	_ struct{} `type:"structure"`
 
 	// [Network Load Balancers] The static IP address.
-	LoadBalancerAddresses []LoadBalancerAddress `type:"list"`
+	LoadBalancerAddresses []LoadBalancerAddress `json:"elasticloadbalancing:AvailabilityZone:LoadBalancerAddresses" type:"list"`
 
 	// The ID of the subnet.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"elasticloadbalancing:AvailabilityZone:SubnetId" type:"string"`
 
 	// The name of the Availability Zone.
-	ZoneName *string `type:"string"`
+	ZoneName *string `json:"elasticloadbalancing:AvailabilityZone:ZoneName" type:"string"`
 }
 
 // String returns the string representation
@@ -304,13 +304,13 @@ type Certificate struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the certificate.
-	CertificateArn *string `type:"string"`
+	CertificateArn *string `json:"elasticloadbalancing:Certificate:CertificateArn" type:"string"`
 
 	// Indicates whether the certificate is the default certificate. Do not set
 	// this value when specifying a certificate as an input. This value is not included
 	// in the output when describing a listener, but is included when describing
 	// listener certificates.
-	IsDefault *bool `type:"boolean"`
+	IsDefault *bool `json:"elasticloadbalancing:Certificate:IsDefault" type:"boolean"`
 }
 
 // String returns the string representation
@@ -324,10 +324,10 @@ type Cipher struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cipher.
-	Name *string `type:"string"`
+	Name *string `json:"elasticloadbalancing:Cipher:Name" type:"string"`
 
 	// The priority of the cipher.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"elasticloadbalancing:Cipher:Priority" type:"integer"`
 }
 
 // String returns the string representation
@@ -344,15 +344,15 @@ type FixedResponseActionConfig struct {
 	//
 	// Valid Values: text/plain | text/css | text/html | application/javascript
 	// | application/json
-	ContentType *string `type:"string"`
+	ContentType *string `json:"elasticloadbalancing:FixedResponseActionConfig:ContentType" type:"string"`
 
 	// The message.
-	MessageBody *string `type:"string"`
+	MessageBody *string `json:"elasticloadbalancing:FixedResponseActionConfig:MessageBody" type:"string"`
 
 	// The HTTP response code (2XX, 4XX, or 5XX).
 	//
 	// StatusCode is a required field
-	StatusCode *string `type:"string" required:"true"`
+	StatusCode *string `json:"elasticloadbalancing:FixedResponseActionConfig:StatusCode" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -385,7 +385,7 @@ type HostHeaderConditionConfig struct {
 	//
 	// If you specify multiple strings, the condition is satisfied if one of the
 	// strings matches the host name.
-	Values []string `type:"list"`
+	Values []string `json:"elasticloadbalancing:HostHeaderConditionConfig:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -407,7 +407,7 @@ type HttpHeaderConditionConfig struct {
 	//
 	// You can't use an HTTP header condition to specify the host header. Use HostHeaderConditionConfig
 	// to specify a host header condition.
-	HttpHeaderName *string `type:"string"`
+	HttpHeaderName *string `json:"elasticloadbalancing:HttpHeaderConditionConfig:HttpHeaderName" type:"string"`
 
 	// One or more strings to compare against the value of the HTTP header. The
 	// maximum size of each string is 128 characters. The comparison strings are
@@ -420,7 +420,7 @@ type HttpHeaderConditionConfig struct {
 	// If you specify multiple strings, the condition is satisfied if one of the
 	// strings matches the value of the HTTP header. To require that all of the
 	// strings are a match, create one condition per string.
-	Values []string `type:"list"`
+	Values []string `json:"elasticloadbalancing:HttpHeaderConditionConfig:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -446,7 +446,7 @@ type HttpRequestMethodConditionConfig struct {
 	// strings matches the HTTP request method. We recommend that you route GET
 	// and HEAD requests in the same way, because the response to a HEAD request
 	// may be cached.
-	Values []string `type:"list"`
+	Values []string `json:"elasticloadbalancing:HttpRequestMethodConditionConfig:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -460,7 +460,7 @@ type Limit struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum value of the limit.
-	Max *string `type:"string"`
+	Max *string `json:"elasticloadbalancing:Limit:Max" type:"string"`
 
 	// The name of the limit. The possible values are:
 	//
@@ -481,7 +481,7 @@ type Limit struct {
 	//    * targets-per-availability-zone-per-network-load-balancer
 	//
 	//    * targets-per-network-load-balancer
-	Name *string `type:"string"`
+	Name *string `json:"elasticloadbalancing:Limit:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -495,26 +495,26 @@ type Listener struct {
 	_ struct{} `type:"structure"`
 
 	// [HTTPS or TLS listener] The default certificate for the listener.
-	Certificates []Certificate `type:"list"`
+	Certificates []Certificate `json:"elasticloadbalancing:Listener:Certificates" type:"list"`
 
 	// The default actions for the listener.
-	DefaultActions []Action `type:"list"`
+	DefaultActions []Action `json:"elasticloadbalancing:Listener:DefaultActions" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string `type:"string"`
+	ListenerArn *string `json:"elasticloadbalancing:Listener:ListenerArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the load balancer.
-	LoadBalancerArn *string `type:"string"`
+	LoadBalancerArn *string `json:"elasticloadbalancing:Listener:LoadBalancerArn" type:"string"`
 
 	// The port on which the load balancer is listening.
-	Port *int64 `min:"1" type:"integer"`
+	Port *int64 `json:"elasticloadbalancing:Listener:Port" min:"1" type:"integer"`
 
 	// The protocol for connections from clients to the load balancer.
-	Protocol ProtocolEnum `type:"string" enum:"true"`
+	Protocol ProtocolEnum `json:"elasticloadbalancing:Listener:Protocol" type:"string" enum:"true"`
 
 	// [HTTPS or TLS listener] The security policy that defines which ciphers and
 	// protocols are supported. The default is the current predefined security policy.
-	SslPolicy *string `type:"string"`
+	SslPolicy *string `json:"elasticloadbalancing:Listener:SslPolicy" type:"string"`
 }
 
 // String returns the string representation
@@ -528,27 +528,27 @@ type LoadBalancer struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zones for the load balancer.
-	AvailabilityZones []AvailabilityZone `type:"list"`
+	AvailabilityZones []AvailabilityZone `json:"elasticloadbalancing:LoadBalancer:AvailabilityZones" type:"list"`
 
 	// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
-	CanonicalHostedZoneId *string `type:"string"`
+	CanonicalHostedZoneId *string `json:"elasticloadbalancing:LoadBalancer:CanonicalHostedZoneId" type:"string"`
 
 	// The date and time the load balancer was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreatedTime *time.Time `json:"elasticloadbalancing:LoadBalancer:CreatedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The public DNS name of the load balancer.
-	DNSName *string `type:"string"`
+	DNSName *string `json:"elasticloadbalancing:LoadBalancer:DNSName" type:"string"`
 
 	// The type of IP addresses used by the subnets for your load balancer. The
 	// possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and
 	// IPv6 addresses).
-	IpAddressType IpAddressType `type:"string" enum:"true"`
+	IpAddressType IpAddressType `json:"elasticloadbalancing:LoadBalancer:IpAddressType" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the load balancer.
-	LoadBalancerArn *string `type:"string"`
+	LoadBalancerArn *string `json:"elasticloadbalancing:LoadBalancer:LoadBalancerArn" type:"string"`
 
 	// The name of the load balancer.
-	LoadBalancerName *string `type:"string"`
+	LoadBalancerName *string `json:"elasticloadbalancing:LoadBalancer:LoadBalancerName" type:"string"`
 
 	// The nodes of an Internet-facing load balancer have public IP addresses. The
 	// DNS name of an Internet-facing load balancer is publicly resolvable to the
@@ -559,19 +559,19 @@ type LoadBalancer struct {
 	// DNS name of an internal load balancer is publicly resolvable to the private
 	// IP addresses of the nodes. Therefore, internal load balancers can only route
 	// requests from clients with access to the VPC for the load balancer.
-	Scheme LoadBalancerSchemeEnum `type:"string" enum:"true"`
+	Scheme LoadBalancerSchemeEnum `json:"elasticloadbalancing:LoadBalancer:Scheme" type:"string" enum:"true"`
 
 	// The IDs of the security groups for the load balancer.
-	SecurityGroups []string `type:"list"`
+	SecurityGroups []string `json:"elasticloadbalancing:LoadBalancer:SecurityGroups" type:"list"`
 
 	// The state of the load balancer.
-	State *LoadBalancerState `type:"structure"`
+	State *LoadBalancerState `json:"elasticloadbalancing:LoadBalancer:State" type:"structure"`
 
 	// The type of load balancer.
-	Type LoadBalancerTypeEnum `type:"string" enum:"true"`
+	Type LoadBalancerTypeEnum `json:"elasticloadbalancing:LoadBalancer:Type" type:"string" enum:"true"`
 
 	// The ID of the VPC for the load balancer.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"elasticloadbalancing:LoadBalancer:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -585,10 +585,10 @@ type LoadBalancerAddress struct {
 	_ struct{} `type:"structure"`
 
 	// [Network Load Balancers] The allocation ID of the Elastic IP address.
-	AllocationId *string `type:"string"`
+	AllocationId *string `json:"elasticloadbalancing:LoadBalancerAddress:AllocationId" type:"string"`
 
 	// The static IP address.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"elasticloadbalancing:LoadBalancerAddress:IpAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -632,10 +632,10 @@ type LoadBalancerAttribute struct {
 	//
 	//    * load_balancing.cross_zone.enabled - Indicates whether cross-zone load
 	//    balancing is enabled. The value is true or false. The default is false.
-	Key *string `type:"string"`
+	Key *string `json:"elasticloadbalancing:LoadBalancerAttribute:Key" type:"string"`
 
 	// The value of the attribute.
-	Value *string `type:"string"`
+	Value *string `json:"elasticloadbalancing:LoadBalancerAttribute:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -651,10 +651,10 @@ type LoadBalancerState struct {
 	// The state code. The initial state of the load balancer is provisioning. After
 	// the load balancer is fully set up and ready to route traffic, its state is
 	// active. If the load balancer could not be set up, its state is failed.
-	Code LoadBalancerStateEnum `type:"string" enum:"true"`
+	Code LoadBalancerStateEnum `json:"elasticloadbalancing:LoadBalancerState:Code" type:"string" enum:"true"`
 
 	// A description of the state.
-	Reason *string `type:"string"`
+	Reason *string `json:"elasticloadbalancing:LoadBalancerState:Reason" type:"string"`
 }
 
 // String returns the string representation
@@ -676,7 +676,7 @@ type Matcher struct {
 	// For Network Load Balancers, this is 200–399.
 	//
 	// HttpCode is a required field
-	HttpCode *string `type:"string" required:"true"`
+	HttpCode *string `json:"elasticloadbalancing:Matcher:HttpCode" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -712,7 +712,7 @@ type PathPatternConditionConfig struct {
 	// matches the request URL. The path pattern is compared only to the path of
 	// the URL, not to its query string. To compare against the query string, use
 	// QueryStringConditionConfig.
-	Values []string `type:"list"`
+	Values []string `json:"elasticloadbalancing:PathPatternConditionConfig:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -739,7 +739,7 @@ type QueryStringConditionConfig struct {
 	//
 	// If you specify multiple key/value pairs or values, the condition is satisfied
 	// if one of them is found in the query string.
-	Values []QueryStringKeyValuePair `type:"list"`
+	Values []QueryStringKeyValuePair `json:"elasticloadbalancing:QueryStringConditionConfig:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -753,10 +753,10 @@ type QueryStringKeyValuePair struct {
 	_ struct{} `type:"structure"`
 
 	// The key. You can omit the key.
-	Key *string `type:"string"`
+	Key *string `json:"elasticloadbalancing:QueryStringKeyValuePair:Key" type:"string"`
 
 	// The value.
-	Value *string `type:"string"`
+	Value *string `json:"elasticloadbalancing:QueryStringKeyValuePair:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -791,30 +791,30 @@ type RedirectActionConfig struct {
 
 	// The hostname. This component is not percent-encoded. The hostname can contain
 	// #{host}.
-	Host *string `min:"1" type:"string"`
+	Host *string `json:"elasticloadbalancing:RedirectActionConfig:Host" min:"1" type:"string"`
 
 	// The absolute path, starting with the leading "/". This component is not percent-encoded.
 	// The path can contain #{host}, #{path}, and #{port}.
-	Path *string `min:"1" type:"string"`
+	Path *string `json:"elasticloadbalancing:RedirectActionConfig:Path" min:"1" type:"string"`
 
 	// The port. You can specify a value from 1 to 65535 or #{port}.
-	Port *string `type:"string"`
+	Port *string `json:"elasticloadbalancing:RedirectActionConfig:Port" type:"string"`
 
 	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect
 	// HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS
 	// to HTTP.
-	Protocol *string `type:"string"`
+	Protocol *string `json:"elasticloadbalancing:RedirectActionConfig:Protocol" type:"string"`
 
 	// The query parameters, URL-encoded when necessary, but not percent-encoded.
 	// Do not include the leading "?", as it is automatically added. You can specify
 	// any of the reserved keywords.
-	Query *string `type:"string"`
+	Query *string `json:"elasticloadbalancing:RedirectActionConfig:Query" type:"string"`
 
 	// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary
 	// (HTTP 302).
 	//
 	// StatusCode is a required field
-	StatusCode RedirectActionStatusCodeEnum `type:"string" required:"true" enum:"true"`
+	StatusCode RedirectActionStatusCodeEnum `json:"elasticloadbalancing:RedirectActionConfig:StatusCode" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -849,21 +849,21 @@ type Rule struct {
 	// The actions. Each rule must include exactly one of the following types of
 	// actions: forward, redirect, or fixed-response, and it must be the last action
 	// to be performed.
-	Actions []Action `type:"list"`
+	Actions []Action `json:"elasticloadbalancing:Rule:Actions" type:"list"`
 
 	// The conditions. Each rule can include zero or one of the following conditions:
 	// http-request-method, host-header, path-pattern, and source-ip, and zero or
 	// more of the following conditions: http-header and query-string.
-	Conditions []RuleCondition `type:"list"`
+	Conditions []RuleCondition `json:"elasticloadbalancing:Rule:Conditions" type:"list"`
 
 	// Indicates whether this is the default rule.
-	IsDefault *bool `type:"boolean"`
+	IsDefault *bool `json:"elasticloadbalancing:Rule:IsDefault" type:"boolean"`
 
 	// The priority.
-	Priority *string `type:"string"`
+	Priority *string `json:"elasticloadbalancing:Rule:Priority" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the rule.
-	RuleArn *string `type:"string"`
+	RuleArn *string `json:"elasticloadbalancing:Rule:RuleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -889,25 +889,25 @@ type RuleCondition struct {
 	//    * query-string
 	//
 	//    * source-ip
-	Field *string `type:"string"`
+	Field *string `json:"elasticloadbalancing:RuleCondition:Field" type:"string"`
 
 	// Information for a host header condition. Specify only when Field is host-header.
-	HostHeaderConfig *HostHeaderConditionConfig `type:"structure"`
+	HostHeaderConfig *HostHeaderConditionConfig `json:"elasticloadbalancing:RuleCondition:HostHeaderConfig" type:"structure"`
 
 	// Information for an HTTP header condition. Specify only when Field is http-header.
-	HttpHeaderConfig *HttpHeaderConditionConfig `type:"structure"`
+	HttpHeaderConfig *HttpHeaderConditionConfig `json:"elasticloadbalancing:RuleCondition:HttpHeaderConfig" type:"structure"`
 
 	// Information for an HTTP method condition. Specify only when Field is http-request-method.
-	HttpRequestMethodConfig *HttpRequestMethodConditionConfig `type:"structure"`
+	HttpRequestMethodConfig *HttpRequestMethodConditionConfig `json:"elasticloadbalancing:RuleCondition:HttpRequestMethodConfig" type:"structure"`
 
 	// Information for a path pattern condition. Specify only when Field is path-pattern.
-	PathPatternConfig *PathPatternConditionConfig `type:"structure"`
+	PathPatternConfig *PathPatternConditionConfig `json:"elasticloadbalancing:RuleCondition:PathPatternConfig" type:"structure"`
 
 	// Information for a query string condition. Specify only when Field is query-string.
-	QueryStringConfig *QueryStringConditionConfig `type:"structure"`
+	QueryStringConfig *QueryStringConditionConfig `json:"elasticloadbalancing:RuleCondition:QueryStringConfig" type:"structure"`
 
 	// Information for a source IP condition. Specify only when Field is source-ip.
-	SourceIpConfig *SourceIpConditionConfig `type:"structure"`
+	SourceIpConfig *SourceIpConditionConfig `json:"elasticloadbalancing:RuleCondition:SourceIpConfig" type:"structure"`
 
 	// The condition value. You can use Values if the rule contains only host-header
 	// and path-pattern conditions. Otherwise, you can use HostHeaderConfig for
@@ -938,7 +938,7 @@ type RuleCondition struct {
 	//    * * (matches 0 or more characters)
 	//
 	//    * ? (matches exactly 1 character)
-	Values []string `type:"list"`
+	Values []string `json:"elasticloadbalancing:RuleCondition:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -952,10 +952,10 @@ type RulePriorityPair struct {
 	_ struct{} `type:"structure"`
 
 	// The rule priority.
-	Priority *int64 `min:"1" type:"integer"`
+	Priority *int64 `json:"elasticloadbalancing:RulePriorityPair:Priority" min:"1" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the rule.
-	RuleArn *string `type:"string"`
+	RuleArn *string `json:"elasticloadbalancing:RulePriorityPair:RuleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -992,7 +992,7 @@ type SourceIpConditionConfig struct {
 	// IP address of the request matches one of the CIDR blocks. This condition
 	// is not satisfied by the addresses in the X-Forwarded-For header. To search
 	// for addresses in the X-Forwarded-For header, use HttpHeaderConditionConfig.
-	Values []string `type:"list"`
+	Values []string `json:"elasticloadbalancing:SourceIpConditionConfig:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -1006,13 +1006,13 @@ type SslPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The ciphers.
-	Ciphers []Cipher `type:"list"`
+	Ciphers []Cipher `json:"elasticloadbalancing:SslPolicy:Ciphers" type:"list"`
 
 	// The name of the policy.
-	Name *string `type:"string"`
+	Name *string `json:"elasticloadbalancing:SslPolicy:Name" type:"string"`
 
 	// The protocols.
-	SslProtocols []string `type:"list"`
+	SslProtocols []string `json:"elasticloadbalancing:SslPolicy:SslProtocols" type:"list"`
 }
 
 // String returns the string representation
@@ -1026,10 +1026,10 @@ type SubnetMapping struct {
 	_ struct{} `type:"structure"`
 
 	// [Network Load Balancers] The allocation ID of the Elastic IP address.
-	AllocationId *string `type:"string"`
+	AllocationId *string `json:"elasticloadbalancing:SubnetMapping:AllocationId" type:"string"`
 
 	// The ID of the subnet.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"elasticloadbalancing:SubnetMapping:SubnetId" type:"string"`
 }
 
 // String returns the string representation
@@ -1045,10 +1045,10 @@ type Tag struct {
 	// The key of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"elasticloadbalancing:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag.
-	Value *string `type:"string"`
+	Value *string `json:"elasticloadbalancing:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1079,10 +1079,10 @@ type TagDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the resource.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"elasticloadbalancing:TagDescription:ResourceArn" type:"string"`
 
 	// Information about the tags.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"elasticloadbalancing:TagDescription:Tags" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -1112,17 +1112,17 @@ type TargetDescription struct {
 	//
 	// If the target type is lambda, this parameter is optional and the only supported
 	// value is all.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"elasticloadbalancing:TargetDescription:AvailabilityZone" type:"string"`
 
 	// The ID of the target. If the target type of the target group is instance,
 	// specify an instance ID. If the target type is ip, specify an IP address.
 	// If the target type is lambda, specify the ARN of the Lambda function.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"elasticloadbalancing:TargetDescription:Id" type:"string" required:"true"`
 
 	// The port on which the target is listening.
-	Port *int64 `min:"1" type:"integer"`
+	Port *int64 `json:"elasticloadbalancing:TargetDescription:Port" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -1153,59 +1153,59 @@ type TargetGroup struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether health checks are enabled.
-	HealthCheckEnabled *bool `type:"boolean"`
+	HealthCheckEnabled *bool `json:"elasticloadbalancing:TargetGroup:HealthCheckEnabled" type:"boolean"`
 
 	// The approximate amount of time, in seconds, between health checks of an individual
 	// target.
-	HealthCheckIntervalSeconds *int64 `min:"5" type:"integer"`
+	HealthCheckIntervalSeconds *int64 `json:"elasticloadbalancing:TargetGroup:HealthCheckIntervalSeconds" min:"5" type:"integer"`
 
 	// The destination for the health check request.
-	HealthCheckPath *string `min:"1" type:"string"`
+	HealthCheckPath *string `json:"elasticloadbalancing:TargetGroup:HealthCheckPath" min:"1" type:"string"`
 
 	// The port to use to connect with the target.
-	HealthCheckPort *string `type:"string"`
+	HealthCheckPort *string `json:"elasticloadbalancing:TargetGroup:HealthCheckPort" type:"string"`
 
 	// The protocol to use to connect with the target.
-	HealthCheckProtocol ProtocolEnum `type:"string" enum:"true"`
+	HealthCheckProtocol ProtocolEnum `json:"elasticloadbalancing:TargetGroup:HealthCheckProtocol" type:"string" enum:"true"`
 
 	// The amount of time, in seconds, during which no response means a failed health
 	// check.
-	HealthCheckTimeoutSeconds *int64 `min:"2" type:"integer"`
+	HealthCheckTimeoutSeconds *int64 `json:"elasticloadbalancing:TargetGroup:HealthCheckTimeoutSeconds" min:"2" type:"integer"`
 
 	// The number of consecutive health checks successes required before considering
 	// an unhealthy target healthy.
-	HealthyThresholdCount *int64 `min:"2" type:"integer"`
+	HealthyThresholdCount *int64 `json:"elasticloadbalancing:TargetGroup:HealthyThresholdCount" min:"2" type:"integer"`
 
 	// The Amazon Resource Names (ARN) of the load balancers that route traffic
 	// to this target group.
-	LoadBalancerArns []string `type:"list"`
+	LoadBalancerArns []string `json:"elasticloadbalancing:TargetGroup:LoadBalancerArns" type:"list"`
 
 	// The HTTP codes to use when checking for a successful response from a target.
-	Matcher *Matcher `type:"structure"`
+	Matcher *Matcher `json:"elasticloadbalancing:TargetGroup:Matcher" type:"structure"`
 
 	// The port on which the targets are listening.
-	Port *int64 `min:"1" type:"integer"`
+	Port *int64 `json:"elasticloadbalancing:TargetGroup:Port" min:"1" type:"integer"`
 
 	// The protocol to use for routing traffic to the targets.
-	Protocol ProtocolEnum `type:"string" enum:"true"`
+	Protocol ProtocolEnum `json:"elasticloadbalancing:TargetGroup:Protocol" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the target group.
-	TargetGroupArn *string `type:"string"`
+	TargetGroupArn *string `json:"elasticloadbalancing:TargetGroup:TargetGroupArn" type:"string"`
 
 	// The name of the target group.
-	TargetGroupName *string `type:"string"`
+	TargetGroupName *string `json:"elasticloadbalancing:TargetGroup:TargetGroupName" type:"string"`
 
 	// The type of target that you must specify when registering targets with this
 	// target group. The possible values are instance (targets are specified by
 	// instance ID) or ip (targets are specified by IP address).
-	TargetType TargetTypeEnum `type:"string" enum:"true"`
+	TargetType TargetTypeEnum `json:"elasticloadbalancing:TargetGroup:TargetType" type:"string" enum:"true"`
 
 	// The number of consecutive health check failures required before considering
 	// the target unhealthy.
-	UnhealthyThresholdCount *int64 `min:"2" type:"integer"`
+	UnhealthyThresholdCount *int64 `json:"elasticloadbalancing:TargetGroup:UnhealthyThresholdCount" min:"2" type:"integer"`
 
 	// The ID of the VPC for the targets.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"elasticloadbalancing:TargetGroup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1263,10 +1263,10 @@ type TargetGroupAttribute struct {
 	//
 	//    * proxy_protocol_v2.enabled - Indicates whether Proxy Protocol version
 	//    2 is enabled. The value is true or false. The default is false.
-	Key *string `type:"string"`
+	Key *string `json:"elasticloadbalancing:TargetGroupAttribute:Key" type:"string"`
 
 	// The value of the attribute.
-	Value *string `type:"string"`
+	Value *string `json:"elasticloadbalancing:TargetGroupAttribute:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1281,7 +1281,7 @@ type TargetHealth struct {
 
 	// A description of the target health that provides additional details. If the
 	// state is healthy, a description is not provided.
-	Description *string `type:"string"`
+	Description *string `json:"elasticloadbalancing:TargetHealth:Description" type:"string"`
 
 	// The reason code.
 	//
@@ -1335,10 +1335,10 @@ type TargetHealth struct {
 	//
 	//    * Target.HealthCheckDisabled - Health checks are disabled for the target
 	//    group.
-	Reason TargetHealthReasonEnum `type:"string" enum:"true"`
+	Reason TargetHealthReasonEnum `json:"elasticloadbalancing:TargetHealth:Reason" type:"string" enum:"true"`
 
 	// The state of the target.
-	State TargetHealthStateEnum `type:"string" enum:"true"`
+	State TargetHealthStateEnum `json:"elasticloadbalancing:TargetHealth:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1352,13 +1352,13 @@ type TargetHealthDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The port to use to connect with the target.
-	HealthCheckPort *string `type:"string"`
+	HealthCheckPort *string `json:"elasticloadbalancing:TargetHealthDescription:HealthCheckPort" type:"string"`
 
 	// The description of the target.
-	Target *TargetDescription `type:"structure"`
+	Target *TargetDescription `json:"elasticloadbalancing:TargetHealthDescription:Target" type:"structure"`
 
 	// The health information for the target.
-	TargetHealth *TargetHealth `type:"structure"`
+	TargetHealth *TargetHealth `json:"elasticloadbalancing:TargetHealthDescription:TargetHealth" type:"structure"`
 }
 
 // String returns the string representation

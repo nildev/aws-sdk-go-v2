@@ -49,7 +49,7 @@ type GetApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the application.
-	Application *ApplicationInfo `locationName:"application" type:"structure"`
+	Application *ApplicationInfo `json:"codedeploy:GetApplicationOutput:Application" locationName:"application" type:"structure"`
 }
 
 // String returns the string representation

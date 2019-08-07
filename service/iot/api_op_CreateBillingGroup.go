@@ -81,13 +81,13 @@ type CreateBillingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the billing group.
-	BillingGroupArn *string `locationName:"billingGroupArn" type:"string"`
+	BillingGroupArn *string `json:"iot:CreateBillingGroupOutput:BillingGroupArn" locationName:"billingGroupArn" type:"string"`
 
 	// The ID of the billing group.
-	BillingGroupId *string `locationName:"billingGroupId" min:"1" type:"string"`
+	BillingGroupId *string `json:"iot:CreateBillingGroupOutput:BillingGroupId" locationName:"billingGroupId" min:"1" type:"string"`
 
 	// The name you gave to the billing group.
-	BillingGroupName *string `locationName:"billingGroupName" min:"1" type:"string"`
+	BillingGroupName *string `json:"iot:CreateBillingGroupOutput:BillingGroupName" locationName:"billingGroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation

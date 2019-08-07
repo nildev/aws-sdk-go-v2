@@ -75,7 +75,7 @@ type CreateUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the newly created user in the response.
-	UserArn *string `type:"string"`
+	UserArn *string `json:"a4b:CreateUserOutput:UserArn" type:"string"`
 }
 
 // String returns the string representation

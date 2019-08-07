@@ -99,17 +99,17 @@ type GetSampledRequestsOutput struct {
 	// The total number of requests from which GetSampledRequests got a sample of
 	// MaxItems requests. If PopulationSize is less than MaxItems, the sample includes
 	// every request that your AWS resource received during the specified time range.
-	PopulationSize *int64 `type:"long"`
+	PopulationSize *int64 `json:"waf:GetSampledRequestsOutput:PopulationSize" type:"long"`
 
 	// A complex type that contains detailed information about each of the requests
 	// in the sample.
-	SampledRequests []SampledHTTPRequest `type:"list"`
+	SampledRequests []SampledHTTPRequest `json:"waf:GetSampledRequestsOutput:SampledRequests" type:"list"`
 
 	// Usually, TimeWindow is the time range that you specified in the GetSampledRequests
 	// request. However, if your AWS resource received more than 5,000 requests
 	// during the time range that you specified in the request, GetSampledRequests
 	// returns the time range for the first 5,000 requests.
-	TimeWindow *TimeWindow `type:"structure"`
+	TimeWindow *TimeWindow `json:"waf:GetSampledRequestsOutput:TimeWindow" type:"structure"`
 }
 
 // String returns the string representation

@@ -17,17 +17,17 @@ type Group struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the resource group.
-	Description *string `type:"string"`
+	Description *string `json:"resource-groups:Group:Description" type:"string"`
 
 	// The ARN of a resource group.
 	//
 	// GroupArn is a required field
-	GroupArn *string `min:"12" type:"string" required:"true"`
+	GroupArn *string `json:"resource-groups:Group:GroupArn" min:"12" type:"string" required:"true"`
 
 	// The name of a resource group.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"resource-groups:Group:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -67,13 +67,13 @@ type GroupFilter struct {
 	// The name of the filter. Filter names are case-sensitive.
 	//
 	// Name is a required field
-	Name GroupFilterName `type:"string" required:"true" enum:"true"`
+	Name GroupFilterName `json:"resource-groups:GroupFilter:Name" type:"string" required:"true" enum:"true"`
 
 	// One or more filter values. Allowed filter values vary by group filter name,
 	// and are case-sensitive.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"resource-groups:GroupFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -130,10 +130,10 @@ type GroupIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of a resource group.
-	GroupArn *string `min:"12" type:"string"`
+	GroupArn *string `json:"resource-groups:GroupIdentifier:GroupArn" min:"12" type:"string"`
 
 	// The name of a resource group.
-	GroupName *string `min:"1" type:"string"`
+	GroupName *string `json:"resource-groups:GroupIdentifier:GroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -168,13 +168,13 @@ type GroupQuery struct {
 	// query.
 	//
 	// GroupName is a required field
-	GroupName *string `min:"1" type:"string" required:"true"`
+	GroupName *string `json:"resource-groups:GroupQuery:GroupName" min:"1" type:"string" required:"true"`
 
 	// The resource query which determines which AWS resources are members of the
 	// associated resource group.
 	//
 	// ResourceQuery is a required field
-	ResourceQuery *ResourceQuery `type:"structure" required:"true"`
+	ResourceQuery *ResourceQuery `json:"resource-groups:GroupQuery:ResourceQuery" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -210,13 +210,13 @@ type QueryError struct {
 	_ struct{} `type:"structure"`
 
 	// Possible values are CLOUDFORMATION_STACK_INACTIVE and CLOUDFORMATION_STACK_NOT_EXISTING.
-	ErrorCode QueryErrorCode `type:"string" enum:"true"`
+	ErrorCode QueryErrorCode `json:"resource-groups:QueryError:ErrorCode" type:"string" enum:"true"`
 
 	// A message that explains the ErrorCode value. Messages might state that the
 	// specified CloudFormation stack does not exist (or no longer exists). For
 	// CLOUDFORMATION_STACK_INACTIVE, the message typically states that the CloudFormation
 	// stack has a status that is not (or no longer) active, such as CREATE_FAILED.
-	Message *string `type:"string"`
+	Message *string `json:"resource-groups:QueryError:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -250,13 +250,13 @@ type ResourceFilter struct {
 	// The name of the filter. Filter names are case-sensitive.
 	//
 	// Name is a required field
-	Name ResourceFilterName `type:"string" required:"true" enum:"true"`
+	Name ResourceFilterName `json:"resource-groups:ResourceFilter:Name" type:"string" required:"true" enum:"true"`
 
 	// One or more filter values. Allowed filter values vary by resource filter
 	// name, and are case-sensitive.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"resource-groups:ResourceFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -313,10 +313,10 @@ type ResourceIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of a resource.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"resource-groups:ResourceIdentifier:ResourceArn" type:"string"`
 
 	// The resource type of a resource, such as AWS::EC2::Instance.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"resource-groups:ResourceIdentifier:ResourceType" type:"string"`
 }
 
 // String returns the string representation
@@ -349,7 +349,7 @@ type ResourceQuery struct {
 	// The query that defines a group or a search.
 	//
 	// Query is a required field
-	Query *string `type:"string" required:"true"`
+	Query *string `json:"resource-groups:ResourceQuery:Query" type:"string" required:"true"`
 
 	// The type of the query. The valid values in this release are TAG_FILTERS_1_0
 	// and CLOUDFORMATION_STACK_1_0.
@@ -387,7 +387,7 @@ type ResourceQuery struct {
 	//  stack ARN.
 	//
 	// Type is a required field
-	Type QueryType `min:"1" type:"string" required:"true" enum:"true"`
+	Type QueryType `json:"resource-groups:ResourceQuery:Type" min:"1" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

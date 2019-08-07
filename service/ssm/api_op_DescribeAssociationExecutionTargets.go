@@ -84,11 +84,11 @@ type DescribeAssociationExecutionTargetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the execution.
-	AssociationExecutionTargets []AssociationExecutionTarget `type:"list"`
+	AssociationExecutionTargets []AssociationExecutionTarget `json:"ssm:DescribeAssociationExecutionTargetsOutput:AssociationExecutionTargets" type:"list"`
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeAssociationExecutionTargetsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -28,7 +28,7 @@ type DescribeAcceleratorAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes of the accelerator.
-	AcceleratorAttributes *AcceleratorAttributes `type:"structure"`
+	AcceleratorAttributes *AcceleratorAttributes `json:"globalaccelerator:DescribeAcceleratorAttributesOutput:AcceleratorAttributes" type:"structure"`
 }
 
 // String returns the string representation

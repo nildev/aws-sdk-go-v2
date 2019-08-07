@@ -77,7 +77,7 @@ type DeleteVirtualServiceOutput struct {
 	// The virtual service that was deleted.
 	//
 	// VirtualService is a required field
-	VirtualService *VirtualServiceData `locationName:"virtualService" type:"structure" required:"true"`
+	VirtualService *VirtualServiceData `json:"appmesh:DeleteVirtualServiceOutput:VirtualService" locationName:"virtualService" type:"structure" required:"true"`
 }
 
 // String returns the string representation

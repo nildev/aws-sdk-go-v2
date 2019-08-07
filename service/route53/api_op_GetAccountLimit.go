@@ -80,7 +80,7 @@ type GetAccountLimitOutput struct {
 	// that you have created using the current account.
 	//
 	// Count is a required field
-	Count *int64 `type:"long" required:"true"`
+	Count *int64 `json:"route53:GetAccountLimitOutput:Count" type:"long" required:"true"`
 
 	// The current setting for the specified limit. For example, if you specified
 	// MAX_HEALTH_CHECKS_BY_OWNER for the value of Type in the request, the value
@@ -88,7 +88,7 @@ type GetAccountLimitOutput struct {
 	// the current account.
 	//
 	// Limit is a required field
-	Limit *AccountLimit `type:"structure" required:"true"`
+	Limit *AccountLimit `json:"route53:GetAccountLimitOutput:Limit" type:"structure" required:"true"`
 }
 
 // String returns the string representation

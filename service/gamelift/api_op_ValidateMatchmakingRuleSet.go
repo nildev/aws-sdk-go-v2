@@ -48,7 +48,7 @@ type ValidateMatchmakingRuleSetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Response indicating whether the rule set is valid.
-	Valid *bool `type:"boolean"`
+	Valid *bool `json:"gamelift:ValidateMatchmakingRuleSetOutput:Valid" type:"boolean"`
 }
 
 // String returns the string representation

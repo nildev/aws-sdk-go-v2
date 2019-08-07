@@ -69,7 +69,7 @@ type GetMappingOutput struct {
 	// A list of mappings to the specified targets.
 	//
 	// Mapping is a required field
-	Mapping []MappingEntry `type:"list" required:"true"`
+	Mapping []MappingEntry `json:"glue:GetMappingOutput:Mapping" type:"list" required:"true"`
 }
 
 // String returns the string representation

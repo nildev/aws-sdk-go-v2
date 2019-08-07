@@ -135,7 +135,7 @@ type CreateReplicationTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The replication task that was created.
-	ReplicationTask *ReplicationTask `type:"structure"`
+	ReplicationTask *ReplicationTask `json:"dms:CreateReplicationTaskOutput:ReplicationTask" type:"structure"`
 }
 
 // String returns the string representation

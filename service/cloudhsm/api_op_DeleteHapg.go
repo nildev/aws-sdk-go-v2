@@ -47,7 +47,7 @@ type DeleteHapgOutput struct {
 	// The status of the action.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudhsm:DeleteHapgOutput:Status" type:"string" required:"true"`
 }
 
 // String returns the string representation

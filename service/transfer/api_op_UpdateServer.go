@@ -75,7 +75,7 @@ type UpdateServerOutput struct {
 	// is assigned to.
 	//
 	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `json:"transfer:UpdateServerOutput:ServerId" type:"string" required:"true"`
 }
 
 // String returns the string representation

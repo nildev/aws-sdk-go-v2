@@ -48,7 +48,7 @@ type DescribeGameSessionPlacementOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that describes the requested game session placement.
-	GameSessionPlacement *GameSessionPlacement `type:"structure"`
+	GameSessionPlacement *GameSessionPlacement `json:"gamelift:DescribeGameSessionPlacementOutput:GameSessionPlacement" type:"structure"`
 }
 
 // String returns the string representation

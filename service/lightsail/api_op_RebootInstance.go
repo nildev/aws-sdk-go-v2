@@ -43,7 +43,7 @@ type RebootInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key-value pairs containing information about the request operations.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:RebootInstanceOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

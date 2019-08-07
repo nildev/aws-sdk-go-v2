@@ -48,23 +48,23 @@ type GetVocabularyOutput struct {
 
 	// The S3 location where the vocabulary is stored. Use this URI to get the contents
 	// of the vocabulary. The URI is available for a limited time.
-	DownloadUri *string `min:"1" type:"string"`
+	DownloadUri *string `json:"transcribe:GetVocabularyOutput:DownloadUri" min:"1" type:"string"`
 
 	// If the VocabularyState field is FAILED, this field contains information about
 	// why the job failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"transcribe:GetVocabularyOutput:FailureReason" type:"string"`
 
 	// The language code of the vocabulary entries.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"transcribe:GetVocabularyOutput:LanguageCode" type:"string" enum:"true"`
 
 	// The date and time that the vocabulary was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"transcribe:GetVocabularyOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the vocabulary to return.
-	VocabularyName *string `min:"1" type:"string"`
+	VocabularyName *string `json:"transcribe:GetVocabularyOutput:VocabularyName" min:"1" type:"string"`
 
 	// The processing state of the vocabulary.
-	VocabularyState VocabularyState `type:"string" enum:"true"`
+	VocabularyState VocabularyState `json:"transcribe:GetVocabularyOutput:VocabularyState" type:"string" enum:"true"`
 }
 
 // String returns the string representation

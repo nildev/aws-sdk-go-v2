@@ -72,11 +72,11 @@ type ListCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The descriptions of the certificates.
-	Certificates []Certificate `locationName:"certificates" type:"list"`
+	Certificates []Certificate `json:"iot:ListCertificatesOutput:Certificates" locationName:"certificates" type:"list"`
 
 	// The marker for the next set of results, or null if there are no additional
 	// results.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListCertificatesOutput:NextMarker" locationName:"nextMarker" type:"string"`
 }
 
 // String returns the string representation

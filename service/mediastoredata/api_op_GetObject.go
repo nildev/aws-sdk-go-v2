@@ -96,36 +96,36 @@ type GetObjectOutput struct {
 	_ struct{} `type:"structure" payload:"Body"`
 
 	// The bytes of the object.
-	Body io.ReadCloser `type:"blob"`
+	Body io.ReadCloser `json:"data.mediastore:GetObjectOutput:Body" type:"blob"`
 
 	// An optional CacheControl header that allows the caller to control the object's
 	// cache behavior. Headers can be passed in as specified in the HTTP spec at
 	// https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 (https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9).
 	//
 	// Headers with a custom user-defined value are also accepted.
-	CacheControl *string `location:"header" locationName:"Cache-Control" type:"string"`
+	CacheControl *string `json:"data.mediastore:GetObjectOutput:CacheControl" location:"header" locationName:"Cache-Control" type:"string"`
 
 	// The length of the object in bytes.
-	ContentLength *int64 `location:"header" locationName:"Content-Length" type:"long"`
+	ContentLength *int64 `json:"data.mediastore:GetObjectOutput:ContentLength" location:"header" locationName:"Content-Length" type:"long"`
 
 	// The range of bytes to retrieve.
-	ContentRange *string `location:"header" locationName:"Content-Range" type:"string"`
+	ContentRange *string `json:"data.mediastore:GetObjectOutput:ContentRange" location:"header" locationName:"Content-Range" type:"string"`
 
 	// The content type of the object.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"data.mediastore:GetObjectOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 
 	// The ETag that represents a unique instance of the object.
-	ETag *string `location:"header" locationName:"ETag" min:"1" type:"string"`
+	ETag *string `json:"data.mediastore:GetObjectOutput:ETag" location:"header" locationName:"ETag" min:"1" type:"string"`
 
 	// The date and time that the object was last modified.
-	LastModified *time.Time `location:"header" locationName:"Last-Modified" type:"timestamp" timestampFormat:"rfc822"`
+	LastModified *time.Time `json:"data.mediastore:GetObjectOutput:LastModified" location:"header" locationName:"Last-Modified" type:"timestamp" timestampFormat:"rfc822"`
 
 	// The HTML status code of the request. Status codes ranging from 200 to 299
 	// indicate success. All other status codes indicate the type of error that
 	// occurred.
 	//
 	// StatusCode is a required field
-	StatusCode *int64 `location:"statusCode" type:"integer" required:"true"`
+	StatusCode *int64 `json:"data.mediastore:GetObjectOutput:StatusCode" location:"statusCode" type:"integer" required:"true"`
 }
 
 // String returns the string representation

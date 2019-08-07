@@ -55,12 +55,12 @@ type GetActivityTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The string that contains the JSON input data for the task.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"states:GetActivityTaskOutput:Input" locationName:"input" type:"string"`
 
 	// A token that identifies the scheduled task. This token must be copied and
 	// included in subsequent calls to SendTaskHeartbeat, SendTaskSuccess or SendTaskFailure
 	// in order to report the progress or completion of the task.
-	TaskToken *string `locationName:"taskToken" min:"1" type:"string"`
+	TaskToken *string `json:"states:GetActivityTaskOutput:TaskToken" locationName:"taskToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -75,7 +75,7 @@ type StartSchemaCreationOutput struct {
 
 	// The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE).
 	// When the schema is in the ACTIVE state, you can add data.
-	Status SchemaStatus `locationName:"status" type:"string" enum:"true"`
+	Status SchemaStatus `json:"appsync:StartSchemaCreationOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

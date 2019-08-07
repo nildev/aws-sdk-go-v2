@@ -60,17 +60,17 @@ type GetRecordsOutput struct {
 	// stream, indicating how far behind current time the consumer is. A value of
 	// zero indicates that record processing is caught up, and there are no new
 	// records to process at this moment.
-	MillisBehindLatest *int64 `type:"long"`
+	MillisBehindLatest *int64 `json:"kinesis:GetRecordsOutput:MillisBehindLatest" type:"long"`
 
 	// The next position in the shard from which to start sequentially reading data
 	// records. If set to null, the shard has been closed and the requested iterator
 	// does not return any more data.
-	NextShardIterator *string `min:"1" type:"string"`
+	NextShardIterator *string `json:"kinesis:GetRecordsOutput:NextShardIterator" min:"1" type:"string"`
 
 	// The data records retrieved from the shard.
 	//
 	// Records is a required field
-	Records []Record `type:"list" required:"true"`
+	Records []Record `json:"kinesis:GetRecordsOutput:Records" type:"list" required:"true"`
 }
 
 // String returns the string representation

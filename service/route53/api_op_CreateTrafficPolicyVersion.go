@@ -95,13 +95,13 @@ type CreateTrafficPolicyVersionOutput struct {
 	// A unique URL that represents a new traffic policy version.
 	//
 	// Location is a required field
-	Location *string `location:"header" locationName:"Location" type:"string" required:"true"`
+	Location *string `json:"route53:CreateTrafficPolicyVersionOutput:Location" location:"header" locationName:"Location" type:"string" required:"true"`
 
 	// A complex type that contains settings for the new version of the traffic
 	// policy.
 	//
 	// TrafficPolicy is a required field
-	TrafficPolicy *TrafficPolicy `type:"structure" required:"true"`
+	TrafficPolicy *TrafficPolicy `json:"route53:CreateTrafficPolicyVersionOutput:TrafficPolicy" type:"structure" required:"true"`
 }
 
 // String returns the string representation

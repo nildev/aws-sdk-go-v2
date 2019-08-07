@@ -66,29 +66,29 @@ type GetFolderOutput struct {
 	// is returned.
 	//
 	// CommitId is a required field
-	CommitId *string `locationName:"commitId" type:"string" required:"true"`
+	CommitId *string `json:"codecommit:GetFolderOutput:CommitId" locationName:"commitId" type:"string" required:"true"`
 
 	// The list of files that exist in the specified folder, if any.
-	Files []File `locationName:"files" type:"list"`
+	Files []File `json:"codecommit:GetFolderOutput:Files" locationName:"files" type:"list"`
 
 	// The fully-qualified path of the folder whose contents are returned.
 	//
 	// FolderPath is a required field
-	FolderPath *string `locationName:"folderPath" type:"string" required:"true"`
+	FolderPath *string `json:"codecommit:GetFolderOutput:FolderPath" locationName:"folderPath" type:"string" required:"true"`
 
 	// The list of folders that exist beneath the specified folder, if any.
-	SubFolders []Folder `locationName:"subFolders" type:"list"`
+	SubFolders []Folder `json:"codecommit:GetFolderOutput:SubFolders" locationName:"subFolders" type:"list"`
 
 	// The list of submodules that exist in the specified folder, if any.
-	SubModules []SubModule `locationName:"subModules" type:"list"`
+	SubModules []SubModule `json:"codecommit:GetFolderOutput:SubModules" locationName:"subModules" type:"list"`
 
 	// The list of symbolic links to other files and folders that exist in the specified
 	// folder, if any.
-	SymbolicLinks []SymbolicLink `locationName:"symbolicLinks" type:"list"`
+	SymbolicLinks []SymbolicLink `json:"codecommit:GetFolderOutput:SymbolicLinks" locationName:"symbolicLinks" type:"list"`
 
 	// The full SHA-1 pointer of the tree information for the commit that contains
 	// the folder.
-	TreeId *string `locationName:"treeId" type:"string"`
+	TreeId *string `json:"codecommit:GetFolderOutput:TreeId" locationName:"treeId" type:"string"`
 }
 
 // String returns the string representation

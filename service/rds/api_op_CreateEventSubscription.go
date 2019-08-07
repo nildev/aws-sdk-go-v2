@@ -103,7 +103,7 @@ type CreateEventSubscriptionOutput struct {
 
 	// Contains the results of a successful invocation of the DescribeEventSubscriptions
 	// action.
-	EventSubscription *EventSubscription `type:"structure"`
+	EventSubscription *EventSubscription `json:"rds:CreateEventSubscriptionOutput:EventSubscription" type:"structure"`
 }
 
 // String returns the string representation

@@ -96,7 +96,7 @@ type UpdateApplicationOutput struct {
 	// Describes application updates.
 	//
 	// ApplicationDetail is a required field
-	ApplicationDetail *ApplicationDetail `type:"structure" required:"true"`
+	ApplicationDetail *ApplicationDetail `json:"kinesisanalytics:UpdateApplicationOutput:ApplicationDetail" type:"structure" required:"true"`
 }
 
 // String returns the string representation

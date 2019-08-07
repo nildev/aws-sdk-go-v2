@@ -77,14 +77,14 @@ type GetOrganizationsAccessReportOutput struct {
 
 	// An object that contains details about the most recent attempt to access the
 	// service.
-	AccessDetails []AccessDetail `type:"list"`
+	AccessDetails []AccessDetail `json:"iam:GetOrganizationsAccessReportOutput:AccessDetails" type:"list"`
 
 	// Contains information about the reason that the operation failed.
 	//
 	// This data type is used as a response element in the GetOrganizationsAccessReport,
 	// GetServiceLastAccessedDetails, and GetServiceLastAccessedDetailsWithEntities
 	// operations.
-	ErrorDetails *ErrorDetails `type:"structure"`
+	ErrorDetails *ErrorDetails `json:"iam:GetOrganizationsAccessReportOutput:ErrorDetails" type:"structure"`
 
 	// A flag that indicates whether there are more items to return. If your results
 	// were truncated, you can make a subsequent pagination request using the Marker
@@ -92,37 +92,37 @@ type GetOrganizationsAccessReportOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:GetOrganizationsAccessReportOutput:IsTruncated" type:"boolean"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the generated report job was completed or failed.
 	//
 	// This field is null if the job is still in progress, as indicated by a job
 	// status value of IN_PROGRESS.
-	JobCompletionDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	JobCompletionDate *time.Time `json:"iam:GetOrganizationsAccessReportOutput:JobCompletionDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the report job was created.
 	//
 	// JobCreationDate is a required field
-	JobCreationDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	JobCreationDate *time.Time `json:"iam:GetOrganizationsAccessReportOutput:JobCreationDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The status of the job.
 	//
 	// JobStatus is a required field
-	JobStatus JobStatusType `type:"string" required:"true" enum:"true"`
+	JobStatus JobStatusType `json:"iam:GetOrganizationsAccessReportOutput:JobStatus" type:"string" required:"true" enum:"true"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"iam:GetOrganizationsAccessReportOutput:Marker" min:"1" type:"string"`
 
 	// The number of services that the applicable SCPs allow account principals
 	// to access.
-	NumberOfServicesAccessible *int64 `type:"integer"`
+	NumberOfServicesAccessible *int64 `json:"iam:GetOrganizationsAccessReportOutput:NumberOfServicesAccessible" type:"integer"`
 
 	// The number of services that account principals are allowed but did not attempt
 	// to access.
-	NumberOfServicesNotAccessed *int64 `type:"integer"`
+	NumberOfServicesNotAccessed *int64 `json:"iam:GetOrganizationsAccessReportOutput:NumberOfServicesNotAccessed" type:"integer"`
 }
 
 // String returns the string representation

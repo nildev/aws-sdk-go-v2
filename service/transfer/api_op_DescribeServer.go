@@ -45,7 +45,7 @@ type DescribeServerOutput struct {
 	// An array containing the properties of the server with the ServerID you specified.
 	//
 	// Server is a required field
-	Server *DescribedServer `type:"structure" required:"true"`
+	Server *DescribedServer `json:"transfer:DescribeServerOutput:Server" type:"structure" required:"true"`
 }
 
 // String returns the string representation

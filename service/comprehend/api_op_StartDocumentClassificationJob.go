@@ -119,7 +119,7 @@ type StartDocumentClassificationJobOutput struct {
 
 	// The identifier generated for the job. To get the status of the job, use this
 	// identifier with the operation.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:StartDocumentClassificationJobOutput:JobId" min:"1" type:"string"`
 
 	// The status of the job:
 	//
@@ -135,7 +135,7 @@ type StartDocumentClassificationJobOutput struct {
 	//    job and is processing the request.
 	//
 	//    * STOPPED - The job was successfully stopped without completing.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:StartDocumentClassificationJobOutput:JobStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

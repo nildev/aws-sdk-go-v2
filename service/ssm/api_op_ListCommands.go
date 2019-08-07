@@ -70,11 +70,11 @@ type ListCommandsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// (Optional) The list of commands requested by the user.
-	Commands []Command `type:"list"`
+	Commands []Command `json:"ssm:ListCommandsOutput:Commands" type:"list"`
 
 	// (Optional) The token for the next set of items to return. (You received this
 	// token from a previous call.)
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListCommandsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

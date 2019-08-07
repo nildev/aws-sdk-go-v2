@@ -49,7 +49,7 @@ type DeleteTransitGatewayRouteTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the deleted transit gateway route table.
-	TransitGatewayRouteTable *TransitGatewayRouteTable `locationName:"transitGatewayRouteTable" type:"structure"`
+	TransitGatewayRouteTable *TransitGatewayRouteTable `json:"ec2:DeleteTransitGatewayRouteTableOutput:TransitGatewayRouteTable" locationName:"transitGatewayRouteTable" type:"structure"`
 }
 
 // String returns the string representation

@@ -80,16 +80,16 @@ type ListHostedZonesByNameOutput struct {
 	// For the second and subsequent calls to ListHostedZonesByName, DNSName is
 	// the value that you specified for the dnsname parameter in the request that
 	// produced the current response.
-	DNSName *string `type:"string"`
+	DNSName *string `json:"route53:ListHostedZonesByNameOutput:DNSName" type:"string"`
 
 	// The ID that Amazon Route 53 assigned to the hosted zone when you created
 	// it.
-	HostedZoneId *string `type:"string"`
+	HostedZoneId *string `json:"route53:ListHostedZonesByNameOutput:HostedZoneId" type:"string"`
 
 	// A complex type that contains general information about the hosted zone.
 	//
 	// HostedZones is a required field
-	HostedZones []HostedZone `locationNameList:"HostedZone" type:"list" required:"true"`
+	HostedZones []HostedZone `json:"route53:ListHostedZonesByNameOutput:HostedZones" locationNameList:"HostedZone" type:"list" required:"true"`
 
 	// A flag that indicates whether there are more hosted zones to be listed. If
 	// the response was truncated, you can get the next group of maxitems hosted
@@ -98,13 +98,13 @@ type ListHostedZonesByNameOutput struct {
 	// parameters.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListHostedZonesByNameOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// The value that you specified for the maxitems parameter in the call to ListHostedZonesByName
 	// that produced the current response.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListHostedZonesByNameOutput:MaxItems" type:"string" required:"true"`
 
 	// If IsTruncated is true, the value of NextDNSName is the name of the first
 	// hosted zone in the next group of maxitems hosted zones. Call ListHostedZonesByName
@@ -112,7 +112,7 @@ type ListHostedZonesByNameOutput struct {
 	// and hostedzoneid parameters, respectively.
 	//
 	// This element is present only if IsTruncated is true.
-	NextDNSName *string `type:"string"`
+	NextDNSName *string `json:"route53:ListHostedZonesByNameOutput:NextDNSName" type:"string"`
 
 	// If IsTruncated is true, the value of NextHostedZoneId identifies the first
 	// hosted zone in the next group of maxitems hosted zones. Call ListHostedZonesByName
@@ -120,7 +120,7 @@ type ListHostedZonesByNameOutput struct {
 	// and hostedzoneid parameters, respectively.
 	//
 	// This element is present only if IsTruncated is true.
-	NextHostedZoneId *string `type:"string"`
+	NextHostedZoneId *string `json:"route53:ListHostedZonesByNameOutput:NextHostedZoneId" type:"string"`
 }
 
 // String returns the string representation

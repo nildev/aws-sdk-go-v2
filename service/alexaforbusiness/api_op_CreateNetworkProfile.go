@@ -108,7 +108,7 @@ type CreateNetworkProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the network profile associated with a device.
-	NetworkProfileArn *string `type:"string"`
+	NetworkProfileArn *string `json:"a4b:CreateNetworkProfileOutput:NetworkProfileArn" type:"string"`
 }
 
 // String returns the string representation

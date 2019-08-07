@@ -55,7 +55,7 @@ type DeleteReplicationGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains all of the attributes of a specific Redis replication group.
-	ReplicationGroup *ReplicationGroup `type:"structure"`
+	ReplicationGroup *ReplicationGroup `json:"elasticache:DeleteReplicationGroupOutput:ReplicationGroup" type:"structure"`
 }
 
 // String returns the string representation

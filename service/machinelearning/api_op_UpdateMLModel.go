@@ -59,7 +59,7 @@ type UpdateMLModelOutput struct {
 
 	// The ID assigned to the MLModel during creation. This value should be identical
 	// to the value of the MLModelID in the request.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:UpdateMLModelOutput:MLModelId" min:"1" type:"string"`
 }
 
 // String returns the string representation

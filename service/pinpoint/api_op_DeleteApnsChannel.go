@@ -58,7 +58,7 @@ type DeleteApnsChannelOutput struct {
 	// Notification service) channel for an application.
 	//
 	// APNSChannelResponse is a required field
-	APNSChannelResponse *APNSChannelResponse `type:"structure" required:"true"`
+	APNSChannelResponse *APNSChannelResponse `json:"pinpoint:DeleteApnsChannelOutput:APNSChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

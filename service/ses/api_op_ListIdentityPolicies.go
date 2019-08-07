@@ -54,7 +54,7 @@ type ListIdentityPoliciesOutput struct {
 	// A list of names of policies that apply to the specified identity.
 	//
 	// PolicyNames is a required field
-	PolicyNames []string `type:"list" required:"true"`
+	PolicyNames []string `json:"email:ListIdentityPoliciesOutput:PolicyNames" type:"list" required:"true"`
 }
 
 // String returns the string representation

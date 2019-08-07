@@ -66,7 +66,7 @@ type RetrieveTapeArchiveOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the retrieved virtual tape.
-	TapeARN *string `min:"50" type:"string"`
+	TapeARN *string `json:"storagegateway:RetrieveTapeArchiveOutput:TapeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

@@ -88,10 +88,10 @@ type UpdateStreamingDistributionOutput struct {
 	_ struct{} `type:"structure" payload:"StreamingDistribution"`
 
 	// The current version of the configuration. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:UpdateStreamingDistributionOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// The streaming distribution's information.
-	StreamingDistribution *StreamingDistribution `type:"structure"`
+	StreamingDistribution *StreamingDistribution `json:"cloudfront:UpdateStreamingDistributionOutput:StreamingDistribution" type:"structure"`
 }
 
 // String returns the string representation

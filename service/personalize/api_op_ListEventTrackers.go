@@ -47,10 +47,10 @@ type ListEventTrackersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event trackers.
-	EventTrackers []EventTrackerSummary `locationName:"eventTrackers" type:"list"`
+	EventTrackers []EventTrackerSummary `json:"personalize:ListEventTrackersOutput:EventTrackers" locationName:"eventTrackers" type:"list"`
 
 	// A token for getting the next set of event trackers (if they exist).
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListEventTrackersOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

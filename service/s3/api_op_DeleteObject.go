@@ -119,15 +119,15 @@ type DeleteObjectOutput struct {
 
 	// Specifies whether the versioned object that was permanently deleted was (true)
 	// or was not (false) a delete marker.
-	DeleteMarker *bool `location:"header" locationName:"x-amz-delete-marker" type:"boolean"`
+	DeleteMarker *bool `json:"s3:DeleteObjectOutput:DeleteMarker" location:"header" locationName:"x-amz-delete-marker" type:"boolean"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:DeleteObjectOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// Returns the version ID of the delete marker created as a result of the DELETE
 	// operation.
-	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+	VersionId *string `json:"s3:DeleteObjectOutput:VersionId" location:"header" locationName:"x-amz-version-id" type:"string"`
 }
 
 // String returns the string representation

@@ -126,10 +126,10 @@ type GetResourcesOutput struct {
 	// A string that indicates that the response contains more data than can be
 	// returned in a single response. To receive additional data, specify this string
 	// for the PaginationToken value in a subsequent request.
-	PaginationToken *string `type:"string"`
+	PaginationToken *string `json:"tagging:GetResourcesOutput:PaginationToken" type:"string"`
 
 	// A list of resource ARNs and the tags (keys and values) associated with each.
-	ResourceTagMappingList []ResourceTagMapping `type:"list"`
+	ResourceTagMappingList []ResourceTagMapping `json:"tagging:GetResourcesOutput:ResourceTagMappingList" type:"list"`
 }
 
 // String returns the string representation

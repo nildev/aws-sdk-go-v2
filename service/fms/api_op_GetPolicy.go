@@ -46,10 +46,10 @@ type GetPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the specified AWS Firewall Manager policy.
-	Policy *Policy `type:"structure"`
+	Policy *Policy `json:"fms:GetPolicyOutput:Policy" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the specified policy.
-	PolicyArn *string `min:"1" type:"string"`
+	PolicyArn *string `json:"fms:GetPolicyOutput:PolicyArn" min:"1" type:"string"`
 }
 
 // String returns the string representation

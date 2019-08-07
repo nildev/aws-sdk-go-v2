@@ -80,7 +80,7 @@ type CreateAgentOutput struct {
 
 	// The Amazon Resource Name (ARN) of the agent. Use the ListAgents operation
 	// to return a list of agents for your account and AWS Region.
-	AgentArn *string `type:"string"`
+	AgentArn *string `json:"datasync:CreateAgentOutput:AgentArn" type:"string"`
 }
 
 // String returns the string representation

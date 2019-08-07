@@ -122,7 +122,7 @@ type CreateJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The automatically generated ID for a job, for example JID123e4567-e89b-12d3-a456-426655440000.
-	JobId *string `min:"39" type:"string"`
+	JobId *string `json:"snowball:CreateJobOutput:JobId" min:"39" type:"string"`
 }
 
 // String returns the string representation

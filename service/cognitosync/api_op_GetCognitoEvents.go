@@ -62,7 +62,7 @@ type GetCognitoEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Cognito Events returned from the GetCognitoEvents request
-	Events map[string]string `type:"map"`
+	Events map[string]string `json:"cognito-sync:GetCognitoEventsOutput:Events" type:"map"`
 }
 
 // String returns the string representation

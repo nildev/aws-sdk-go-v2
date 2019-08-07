@@ -23,31 +23,31 @@ type Account struct {
 	// The Amazon Chime account ID.
 	//
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `json:"chime:Account:AccountId" type:"string" required:"true"`
 
 	// The Amazon Chime account type. For more information about different account
 	// types, see Managing Your Amazon Chime Accounts (https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html)
 	// in the Amazon Chime Administration Guide.
-	AccountType AccountType `type:"string" enum:"true"`
+	AccountType AccountType `json:"chime:Account:AccountType" type:"string" enum:"true"`
 
 	// The AWS account ID.
 	//
 	// AwsAccountId is a required field
-	AwsAccountId *string `type:"string" required:"true"`
+	AwsAccountId *string `json:"chime:Account:AwsAccountId" type:"string" required:"true"`
 
 	// The Amazon Chime account creation timestamp, in ISO 8601 format.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"chime:Account:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The default license for the Amazon Chime account.
-	DefaultLicense License `type:"string" enum:"true"`
+	DefaultLicense License `json:"chime:Account:DefaultLicense" type:"string" enum:"true"`
 
 	// The Amazon Chime account name.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"chime:Account:Name" type:"string" required:"true"`
 
 	// Supported licenses for the Amazon Chime account.
-	SupportedLicenses []License `type:"list"`
+	SupportedLicenses []License `json:"chime:Account:SupportedLicenses" type:"list"`
 }
 
 // String returns the string representation
@@ -118,12 +118,12 @@ type AccountSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Setting that stops or starts remote control of shared screens during meetings.
-	DisableRemoteControl *bool `type:"boolean"`
+	DisableRemoteControl *bool `json:"chime:AccountSettings:DisableRemoteControl" type:"boolean"`
 
 	// Setting that allows meeting participants to choose the Call me at a phone
 	// number option. For more information, see Join a Meeting without the Amazon
 	// Chime App (https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html).
-	EnableDialOut *bool `type:"boolean"`
+	EnableDialOut *bool `json:"chime:AccountSettings:EnableDialOut" type:"boolean"`
 }
 
 // String returns the string representation
@@ -155,32 +155,32 @@ type Bot struct {
 	_ struct{} `type:"structure"`
 
 	// The bot email address.
-	BotEmail *string `type:"string"`
+	BotEmail *string `json:"chime:Bot:BotEmail" type:"string"`
 
 	// The bot ID.
-	BotId *string `type:"string"`
+	BotId *string `json:"chime:Bot:BotId" type:"string"`
 
 	// The bot type.
-	BotType BotType `type:"string" enum:"true"`
+	BotType BotType `json:"chime:Bot:BotType" type:"string" enum:"true"`
 
 	// The bot creation timestamp, in ISO 8601 format.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"chime:Bot:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// When true, the bot is stopped from running in your account.
-	Disabled *bool `type:"boolean"`
+	Disabled *bool `json:"chime:Bot:Disabled" type:"boolean"`
 
 	// The bot display name.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"chime:Bot:DisplayName" type:"string"`
 
 	// The security token used to authenticate Amazon Chime with the outgoing event
 	// endpoint.
-	SecurityToken *string `type:"string"`
+	SecurityToken *string `json:"chime:Bot:SecurityToken" type:"string"`
 
 	// The updated bot timestamp, in ISO 8601 format.
-	UpdatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdatedTimestamp *time.Time `json:"chime:Bot:UpdatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique ID for the bot user.
-	UserId *string `type:"string"`
+	UserId *string `json:"chime:Bot:UserId" type:"string"`
 }
 
 // String returns the string representation
@@ -254,7 +254,7 @@ type BusinessCallingSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 bucket designated for call detail record storage.
-	CdrBucket *string `type:"string"`
+	CdrBucket *string `json:"chime:BusinessCallingSettings:CdrBucket" type:"string"`
 }
 
 // String returns the string representation
@@ -281,11 +281,11 @@ type Credential struct {
 
 	// The RFC2617 compliant password associated with the SIP credentials, in US-ASCII
 	// format.
-	Password *string `type:"string"`
+	Password *string `json:"chime:Credential:Password" type:"string"`
 
 	// The RFC2617 compliant user name associated with the SIP credentials, in US-ASCII
 	// format.
-	Username *string `type:"string"`
+	Username *string `json:"chime:Credential:Username" type:"string"`
 }
 
 // String returns the string representation
@@ -317,13 +317,13 @@ type EventsConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The bot ID.
-	BotId *string `type:"string"`
+	BotId *string `json:"chime:EventsConfiguration:BotId" type:"string"`
 
 	// Lambda function ARN that allows a bot to receive outgoing events.
-	LambdaFunctionArn *string `type:"string"`
+	LambdaFunctionArn *string `json:"chime:EventsConfiguration:LambdaFunctionArn" type:"string"`
 
 	// HTTPS endpoint that allows a bot to receive outgoing events.
-	OutboundEventsHTTPSEndpoint *string `type:"string"`
+	OutboundEventsHTTPSEndpoint *string `json:"chime:EventsConfiguration:OutboundEventsHTTPSEndpoint" type:"string"`
 }
 
 // String returns the string representation
@@ -361,16 +361,16 @@ type Invite struct {
 	_ struct{} `type:"structure"`
 
 	// The email address to which the invite is sent.
-	EmailAddress *string `type:"string"`
+	EmailAddress *string `json:"chime:Invite:EmailAddress" type:"string"`
 
 	// The status of the invite email.
-	EmailStatus EmailStatus `type:"string" enum:"true"`
+	EmailStatus EmailStatus `json:"chime:Invite:EmailStatus" type:"string" enum:"true"`
 
 	// The invite ID.
-	InviteId *string `type:"string"`
+	InviteId *string `json:"chime:Invite:InviteId" type:"string"`
 
 	// The status of the invite.
-	Status InviteStatus `type:"string" enum:"true"`
+	Status InviteStatus `json:"chime:Invite:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -413,10 +413,10 @@ type OrderedPhoneNumber struct {
 	_ struct{} `type:"structure"`
 
 	// The phone number, in E.164 format.
-	E164PhoneNumber *string `type:"string"`
+	E164PhoneNumber *string `json:"chime:OrderedPhoneNumber:E164PhoneNumber" type:"string"`
 
 	// The phone number status.
-	Status OrderedPhoneNumberStatus `type:"string" enum:"true"`
+	Status OrderedPhoneNumberStatus `json:"chime:OrderedPhoneNumber:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -449,11 +449,11 @@ type Origination struct {
 
 	// When origination settings are disabled, inbound calls are not enabled for
 	// your Amazon Chime Voice Connector.
-	Disabled *bool `type:"boolean"`
+	Disabled *bool `json:"chime:Origination:Disabled" type:"boolean"`
 
 	// The call distribution properties defined for your SIP hosts. Valid range:
 	// Minimum value of 1. Maximum value of 20.
-	Routes []OriginationRoute `type:"list"`
+	Routes []OriginationRoute `json:"chime:Origination:Routes" type:"list"`
 }
 
 // String returns the string representation
@@ -509,22 +509,22 @@ type OriginationRoute struct {
 	_ struct{} `type:"structure"`
 
 	// The FODN or IP address to contact for origination traffic.
-	Host *string `type:"string"`
+	Host *string `json:"chime:OriginationRoute:Host" type:"string"`
 
 	// The designated origination route port. Defaults to 5060.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"chime:OriginationRoute:Port" type:"integer"`
 
 	// The priority associated with the host, with 1 being the highest priority.
 	// Higher priority hosts are attempted first.
-	Priority *int64 `min:"1" type:"integer"`
+	Priority *int64 `json:"chime:OriginationRoute:Priority" min:"1" type:"integer"`
 
 	// The protocol to use for the origination route. Encryption-enabled Amazon
 	// Chime Voice Connectors use TCP protocol by default.
-	Protocol OriginationRouteProtocol `type:"string" enum:"true"`
+	Protocol OriginationRouteProtocol `json:"chime:OriginationRoute:Protocol" type:"string" enum:"true"`
 
 	// The weight associated with the host. If hosts are equal in priority, calls
 	// are distributed among them based on their relative weight.
-	Weight *int64 `min:"1" type:"integer"`
+	Weight *int64 `json:"chime:OriginationRoute:Weight" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -590,34 +590,34 @@ type PhoneNumber struct {
 	_ struct{} `type:"structure"`
 
 	// The phone number associations.
-	Associations []PhoneNumberAssociation `type:"list"`
+	Associations []PhoneNumberAssociation `json:"chime:PhoneNumber:Associations" type:"list"`
 
 	// The phone number capabilities.
-	Capabilities *PhoneNumberCapabilities `type:"structure"`
+	Capabilities *PhoneNumberCapabilities `json:"chime:PhoneNumber:Capabilities" type:"structure"`
 
 	// The phone number creation timestamp, in ISO 8601 format.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"chime:PhoneNumber:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The deleted phone number timestamp, in ISO 8601 format.
-	DeletionTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeletionTimestamp *time.Time `json:"chime:PhoneNumber:DeletionTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The phone number, in E.164 format.
-	E164PhoneNumber *string `type:"string"`
+	E164PhoneNumber *string `json:"chime:PhoneNumber:E164PhoneNumber" type:"string"`
 
 	// The phone number ID.
-	PhoneNumberId *string `type:"string"`
+	PhoneNumberId *string `json:"chime:PhoneNumber:PhoneNumberId" type:"string"`
 
 	// The phone number product type.
-	ProductType PhoneNumberProductType `type:"string" enum:"true"`
+	ProductType PhoneNumberProductType `json:"chime:PhoneNumber:ProductType" type:"string" enum:"true"`
 
 	// The phone number status.
-	Status PhoneNumberStatus `type:"string" enum:"true"`
+	Status PhoneNumberStatus `json:"chime:PhoneNumber:Status" type:"string" enum:"true"`
 
 	// The phone number type.
-	Type PhoneNumberType `type:"string" enum:"true"`
+	Type PhoneNumberType `json:"chime:PhoneNumber:Type" type:"string" enum:"true"`
 
 	// The updated phone number timestamp, in ISO 8601 format.
-	UpdatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdatedTimestamp *time.Time `json:"chime:PhoneNumber:UpdatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -703,14 +703,14 @@ type PhoneNumberAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp of the phone number association, in ISO 8601 format.
-	AssociatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AssociatedTimestamp *time.Time `json:"chime:PhoneNumberAssociation:AssociatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// Defines the association with an Amazon Chime account ID, user ID, or Amazon
 	// Chime Voice Connector ID.
-	Name PhoneNumberAssociationName `type:"string" enum:"true"`
+	Name PhoneNumberAssociationName `json:"chime:PhoneNumberAssociation:Name" type:"string" enum:"true"`
 
 	// Contains the ID for the entity specified in Name.
-	Value *string `type:"string"`
+	Value *string `json:"chime:PhoneNumberAssociation:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -748,22 +748,22 @@ type PhoneNumberCapabilities struct {
 	_ struct{} `type:"structure"`
 
 	// Allows or denies inbound calling for the specified phone number.
-	InboundCall *bool `type:"boolean"`
+	InboundCall *bool `json:"chime:PhoneNumberCapabilities:InboundCall" type:"boolean"`
 
 	// Allows or denies inbound MMS messaging for the specified phone number.
-	InboundMMS *bool `type:"boolean"`
+	InboundMMS *bool `json:"chime:PhoneNumberCapabilities:InboundMMS" type:"boolean"`
 
 	// Allows or denies inbound SMS messaging for the specified phone number.
-	InboundSMS *bool `type:"boolean"`
+	InboundSMS *bool `json:"chime:PhoneNumberCapabilities:InboundSMS" type:"boolean"`
 
 	// Allows or denies outbound calling for the specified phone number.
-	OutboundCall *bool `type:"boolean"`
+	OutboundCall *bool `json:"chime:PhoneNumberCapabilities:OutboundCall" type:"boolean"`
 
 	// Allows or denies outbound MMS messaging for the specified phone number.
-	OutboundMMS *bool `type:"boolean"`
+	OutboundMMS *bool `json:"chime:PhoneNumberCapabilities:OutboundMMS" type:"boolean"`
 
 	// Allows or denies outbound SMS messaging for the specified phone number.
-	OutboundSMS *bool `type:"boolean"`
+	OutboundSMS *bool `json:"chime:PhoneNumberCapabilities:OutboundSMS" type:"boolean"`
 }
 
 // String returns the string representation
@@ -820,13 +820,13 @@ type PhoneNumberError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	ErrorCode ErrorCode `type:"string" enum:"true"`
+	ErrorCode ErrorCode `json:"chime:PhoneNumberError:ErrorCode" type:"string" enum:"true"`
 
 	// The error message.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"chime:PhoneNumberError:ErrorMessage" type:"string"`
 
 	// The phone number ID for which the action failed.
-	PhoneNumberId *string `type:"string"`
+	PhoneNumberId *string `json:"chime:PhoneNumberError:PhoneNumberId" type:"string"`
 }
 
 // String returns the string representation
@@ -863,23 +863,23 @@ type PhoneNumberOrder struct {
 	_ struct{} `type:"structure"`
 
 	// The phone number order creation timestamp, in ISO 8601 format.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"chime:PhoneNumberOrder:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ordered phone number details, such as the phone number in E.164 format
 	// and the phone number status.
-	OrderedPhoneNumbers []OrderedPhoneNumber `type:"list"`
+	OrderedPhoneNumbers []OrderedPhoneNumber `json:"chime:PhoneNumberOrder:OrderedPhoneNumbers" type:"list"`
 
 	// The phone number order ID.
-	PhoneNumberOrderId *string `type:"string"`
+	PhoneNumberOrderId *string `json:"chime:PhoneNumberOrder:PhoneNumberOrderId" type:"string"`
 
 	// The phone number order product type.
-	ProductType PhoneNumberProductType `type:"string" enum:"true"`
+	ProductType PhoneNumberProductType `json:"chime:PhoneNumberOrder:ProductType" type:"string" enum:"true"`
 
 	// The status of the phone number order.
-	Status PhoneNumberOrderStatus `type:"string" enum:"true"`
+	Status PhoneNumberOrderStatus `json:"chime:PhoneNumberOrder:Status" type:"string" enum:"true"`
 
 	// The updated phone number order timestamp, in ISO 8601 format.
-	UpdatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdatedTimestamp *time.Time `json:"chime:PhoneNumberOrder:UpdatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -943,17 +943,17 @@ type TelephonySettings struct {
 	// Allows or denies inbound calling.
 	//
 	// InboundCalling is a required field
-	InboundCalling *bool `type:"boolean" required:"true"`
+	InboundCalling *bool `json:"chime:TelephonySettings:InboundCalling" type:"boolean" required:"true"`
 
 	// Allows or denies outbound calling.
 	//
 	// OutboundCalling is a required field
-	OutboundCalling *bool `type:"boolean" required:"true"`
+	OutboundCalling *bool `json:"chime:TelephonySettings:OutboundCalling" type:"boolean" required:"true"`
 
 	// Allows or denies SMS messaging.
 	//
 	// SMS is a required field
-	SMS *bool `type:"boolean" required:"true"`
+	SMS *bool `json:"chime:TelephonySettings:SMS" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -1013,20 +1013,20 @@ type Termination struct {
 	_ struct{} `type:"structure"`
 
 	// The countries to which calls are allowed.
-	CallingRegions []string `type:"list"`
+	CallingRegions []string `json:"chime:Termination:CallingRegions" type:"list"`
 
 	// The IP addresses allowed to make calls, in CIDR format.
-	CidrAllowedList []string `type:"list"`
+	CidrAllowedList []string `json:"chime:Termination:CidrAllowedList" type:"list"`
 
 	// The limit on calls per second. Max value based on account service limit.
 	// Default value of 1.
-	CpsLimit *int64 `min:"1" type:"integer"`
+	CpsLimit *int64 `json:"chime:Termination:CpsLimit" min:"1" type:"integer"`
 
 	// The default caller ID phone number.
-	DefaultPhoneNumber *string `type:"string"`
+	DefaultPhoneNumber *string `json:"chime:Termination:DefaultPhoneNumber" type:"string"`
 
 	// When termination settings are disabled, outbound calls can not be made.
-	Disabled *bool `type:"boolean"`
+	Disabled *bool `json:"chime:Termination:Disabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1101,10 +1101,10 @@ type TerminationHealth struct {
 	_ struct{} `type:"structure"`
 
 	// The source IP address.
-	Source *string `type:"string"`
+	Source *string `json:"chime:TerminationHealth:Source" type:"string"`
 
 	// The timestamp, in ISO 8601 format.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"chime:TerminationHealth:Timestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1138,10 +1138,10 @@ type UpdatePhoneNumberRequestItem struct {
 	// The phone number ID to update.
 	//
 	// PhoneNumberId is a required field
-	PhoneNumberId *string `type:"string" required:"true"`
+	PhoneNumberId *string `json:"chime:UpdatePhoneNumberRequestItem:PhoneNumberId" type:"string" required:"true"`
 
 	// The product type to update.
-	ProductType PhoneNumberProductType `type:"string" enum:"true"`
+	ProductType PhoneNumberProductType `json:"chime:UpdatePhoneNumberRequestItem:ProductType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1186,12 +1186,12 @@ type UpdateUserRequestItem struct {
 	_ struct{} `type:"structure"`
 
 	// The user license type.
-	LicenseType License `type:"string" enum:"true"`
+	LicenseType License `json:"chime:UpdateUserRequestItem:LicenseType" type:"string" enum:"true"`
 
 	// The user ID.
 	//
 	// UserId is a required field
-	UserId *string `type:"string" required:"true"`
+	UserId *string `json:"chime:UpdateUserRequestItem:UserId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1236,40 +1236,40 @@ type User struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Chime account ID.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"chime:User:AccountId" type:"string"`
 
 	// The display name of the user.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"chime:User:DisplayName" type:"string"`
 
 	// Date and time when the user is invited to the Amazon Chime account, in ISO
 	// 8601 format.
-	InvitedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	InvitedOn *time.Time `json:"chime:User:InvitedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The license type for the user.
-	LicenseType License `type:"string" enum:"true"`
+	LicenseType License `json:"chime:User:LicenseType" type:"string" enum:"true"`
 
 	// The user's personal meeting PIN.
-	PersonalPIN *string `type:"string"`
+	PersonalPIN *string `json:"chime:User:PersonalPIN" type:"string"`
 
 	// The primary email address of the user.
-	PrimaryEmail *string `type:"string"`
+	PrimaryEmail *string `json:"chime:User:PrimaryEmail" type:"string"`
 
 	// The primary phone number associated with the user.
-	PrimaryProvisionedNumber *string `type:"string"`
+	PrimaryProvisionedNumber *string `json:"chime:User:PrimaryProvisionedNumber" type:"string"`
 
 	// Date and time when the user is registered, in ISO 8601 format.
-	RegisteredOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RegisteredOn *time.Time `json:"chime:User:RegisteredOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The user ID.
 	//
 	// UserId is a required field
-	UserId *string `type:"string" required:"true"`
+	UserId *string `json:"chime:User:UserId" type:"string" required:"true"`
 
 	// The user invite status.
-	UserInvitationStatus InviteStatus `type:"string" enum:"true"`
+	UserInvitationStatus InviteStatus `json:"chime:User:UserInvitationStatus" type:"string" enum:"true"`
 
 	// The user registration status.
-	UserRegistrationStatus RegistrationStatus `type:"string" enum:"true"`
+	UserRegistrationStatus RegistrationStatus `json:"chime:User:UserRegistrationStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1356,13 +1356,13 @@ type UserError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	ErrorCode ErrorCode `type:"string" enum:"true"`
+	ErrorCode ErrorCode `json:"chime:UserError:ErrorCode" type:"string" enum:"true"`
 
 	// The error message.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"chime:UserError:ErrorMessage" type:"string"`
 
 	// The user ID for which the action failed.
-	UserId *string `type:"string"`
+	UserId *string `json:"chime:UserError:UserId" type:"string"`
 }
 
 // String returns the string representation
@@ -1402,7 +1402,7 @@ type UserSettings struct {
 	// The telephony settings associated with the user.
 	//
 	// Telephony is a required field
-	Telephony *TelephonySettings `type:"structure" required:"true"`
+	Telephony *TelephonySettings `json:"chime:UserSettings:Telephony" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1447,22 +1447,22 @@ type VoiceConnector struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Chime Voice Connector creation timestamp, in ISO 8601 format.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"chime:VoiceConnector:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the Amazon Chime Voice Connector.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"chime:VoiceConnector:Name" min:"1" type:"string"`
 
 	// The outbound host name for the Amazon Chime Voice Connector.
-	OutboundHostName *string `type:"string"`
+	OutboundHostName *string `json:"chime:VoiceConnector:OutboundHostName" type:"string"`
 
 	// Designates whether encryption is required for the Amazon Chime Voice Connector.
-	RequireEncryption *bool `type:"boolean"`
+	RequireEncryption *bool `json:"chime:VoiceConnector:RequireEncryption" type:"boolean"`
 
 	// The updated Amazon Chime Voice Connector timestamp, in ISO 8601 format.
-	UpdatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdatedTimestamp *time.Time `json:"chime:VoiceConnector:UpdatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Chime Voice Connector ID.
-	VoiceConnectorId *string `type:"string"`
+	VoiceConnectorId *string `json:"chime:VoiceConnector:VoiceConnectorId" type:"string"`
 }
 
 // String returns the string representation
@@ -1518,7 +1518,7 @@ type VoiceConnectorSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 bucket designated for call detail record storage.
-	CdrBucket *string `type:"string"`
+	CdrBucket *string `json:"chime:VoiceConnectorSettings:CdrBucket" type:"string"`
 }
 
 // String returns the string representation

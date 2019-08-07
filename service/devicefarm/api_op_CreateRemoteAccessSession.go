@@ -124,7 +124,7 @@ type CreateRemoteAccessSessionOutput struct {
 
 	// A container that describes the remote access session when the request to
 	// create a remote access session is sent.
-	RemoteAccessSession *RemoteAccessSession `locationName:"remoteAccessSession" type:"structure"`
+	RemoteAccessSession *RemoteAccessSession `json:"devicefarm:CreateRemoteAccessSessionOutput:RemoteAccessSession" locationName:"remoteAccessSession" type:"structure"`
 }
 
 // String returns the string representation

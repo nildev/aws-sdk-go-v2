@@ -48,72 +48,72 @@ type DescribeHyperParameterTuningJobOutput struct {
 
 	// A TrainingJobSummary object that describes the training job that completed
 	// with the best current HyperParameterTuningJobObjective.
-	BestTrainingJob *HyperParameterTrainingJobSummary `type:"structure"`
+	BestTrainingJob *HyperParameterTrainingJobSummary `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:BestTrainingJob" type:"structure"`
 
 	// The date and time that the tuning job started.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// If the tuning job failed, the reason it failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:FailureReason" type:"string"`
 
 	// The date and time that the tuning job ended.
-	HyperParameterTuningEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	HyperParameterTuningEndTime *time.Time `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:HyperParameterTuningEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the tuning job.
 	//
 	// HyperParameterTuningJobArn is a required field
-	HyperParameterTuningJobArn *string `type:"string" required:"true"`
+	HyperParameterTuningJobArn *string `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:HyperParameterTuningJobArn" type:"string" required:"true"`
 
 	// The HyperParameterTuningJobConfig object that specifies the configuration
 	// of the tuning job.
 	//
 	// HyperParameterTuningJobConfig is a required field
-	HyperParameterTuningJobConfig *HyperParameterTuningJobConfig `type:"structure" required:"true"`
+	HyperParameterTuningJobConfig *HyperParameterTuningJobConfig `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:HyperParameterTuningJobConfig" type:"structure" required:"true"`
 
 	// The name of the tuning job.
 	//
 	// HyperParameterTuningJobName is a required field
-	HyperParameterTuningJobName *string `min:"1" type:"string" required:"true"`
+	HyperParameterTuningJobName *string `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:HyperParameterTuningJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the tuning job: InProgress, Completed, Failed, Stopping, or
 	// Stopped.
 	//
 	// HyperParameterTuningJobStatus is a required field
-	HyperParameterTuningJobStatus HyperParameterTuningJobStatus `type:"string" required:"true" enum:"true"`
+	HyperParameterTuningJobStatus HyperParameterTuningJobStatus `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:HyperParameterTuningJobStatus" type:"string" required:"true" enum:"true"`
 
 	// The date and time that the status of the tuning job was modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ObjectiveStatusCounters object that specifies the number of training
 	// jobs, categorized by the status of their final objective metric, that this
 	// tuning job launched.
 	//
 	// ObjectiveStatusCounters is a required field
-	ObjectiveStatusCounters *ObjectiveStatusCounters `type:"structure" required:"true"`
+	ObjectiveStatusCounters *ObjectiveStatusCounters `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:ObjectiveStatusCounters" type:"structure" required:"true"`
 
 	// If the hyperparameter tuning job is an warm start tuning job with a WarmStartType
 	// of IDENTICAL_DATA_AND_ALGORITHM, this is the TrainingJobSummary for the training
 	// job with the best objective metric value of all training jobs launched by
 	// this tuning job and all parent jobs specified for the warm start tuning job.
-	OverallBestTrainingJob *HyperParameterTrainingJobSummary `type:"structure"`
+	OverallBestTrainingJob *HyperParameterTrainingJobSummary `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:OverallBestTrainingJob" type:"structure"`
 
 	// The HyperParameterTrainingJobDefinition object that specifies the definition
 	// of the training jobs that this tuning job launches.
-	TrainingJobDefinition *HyperParameterTrainingJobDefinition `type:"structure"`
+	TrainingJobDefinition *HyperParameterTrainingJobDefinition `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:TrainingJobDefinition" type:"structure"`
 
 	// The TrainingJobStatusCounters object that specifies the number of training
 	// jobs, categorized by status, that this tuning job launched.
 	//
 	// TrainingJobStatusCounters is a required field
-	TrainingJobStatusCounters *TrainingJobStatusCounters `type:"structure" required:"true"`
+	TrainingJobStatusCounters *TrainingJobStatusCounters `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:TrainingJobStatusCounters" type:"structure" required:"true"`
 
 	// The configuration for starting the hyperparameter parameter tuning job using
 	// one or more previous tuning jobs as a starting point. The results of previous
 	// tuning jobs are used to inform which combinations of hyperparameters to search
 	// over in the new tuning job.
-	WarmStartConfig *HyperParameterTuningJobWarmStartConfig `type:"structure"`
+	WarmStartConfig *HyperParameterTuningJobWarmStartConfig `json:"api.sagemaker:DescribeHyperParameterTuningJobOutput:WarmStartConfig" type:"structure"`
 }
 
 // String returns the string representation

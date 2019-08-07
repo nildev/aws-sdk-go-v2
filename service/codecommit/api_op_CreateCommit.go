@@ -111,20 +111,20 @@ type CreateCommitOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full commit ID of the commit that contains your committed file changes.
-	CommitId *string `locationName:"commitId" type:"string"`
+	CommitId *string `json:"codecommit:CreateCommitOutput:CommitId" locationName:"commitId" type:"string"`
 
 	// The files added as part of the committed file changes.
-	FilesAdded []FileMetadata `locationName:"filesAdded" type:"list"`
+	FilesAdded []FileMetadata `json:"codecommit:CreateCommitOutput:FilesAdded" locationName:"filesAdded" type:"list"`
 
 	// The files deleted as part of the committed file changes.
-	FilesDeleted []FileMetadata `locationName:"filesDeleted" type:"list"`
+	FilesDeleted []FileMetadata `json:"codecommit:CreateCommitOutput:FilesDeleted" locationName:"filesDeleted" type:"list"`
 
 	// The files updated as part of the commited file changes.
-	FilesUpdated []FileMetadata `locationName:"filesUpdated" type:"list"`
+	FilesUpdated []FileMetadata `json:"codecommit:CreateCommitOutput:FilesUpdated" locationName:"filesUpdated" type:"list"`
 
 	// The full SHA-1 pointer of the tree information for the commit that contains
 	// the commited file changes.
-	TreeId *string `locationName:"treeId" type:"string"`
+	TreeId *string `json:"codecommit:CreateCommitOutput:TreeId" locationName:"treeId" type:"string"`
 }
 
 // String returns the string representation

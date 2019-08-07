@@ -80,10 +80,10 @@ type ListTopicRulesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token used to retrieve the next value.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListTopicRulesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The rules.
-	Rules []TopicRuleListItem `locationName:"rules" type:"list"`
+	Rules []TopicRuleListItem `json:"iot:ListTopicRulesOutput:Rules" locationName:"rules" type:"list"`
 }
 
 // String returns the string representation

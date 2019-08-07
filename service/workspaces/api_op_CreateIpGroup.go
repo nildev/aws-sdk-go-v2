@@ -60,7 +60,7 @@ type CreateIpGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the group.
-	GroupId *string `type:"string"`
+	GroupId *string `json:"workspaces:CreateIpGroupOutput:GroupId" type:"string"`
 }
 
 // String returns the string representation

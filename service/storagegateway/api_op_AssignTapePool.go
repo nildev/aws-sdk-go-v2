@@ -66,7 +66,7 @@ type AssignTapePoolOutput struct {
 
 	// The unique Amazon Resource Names (ARN) of the virtual tape that was added
 	// to the tape pool.
-	TapeARN *string `min:"50" type:"string"`
+	TapeARN *string `json:"storagegateway:AssignTapePoolOutput:TapeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

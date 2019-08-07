@@ -54,12 +54,12 @@ type DescribeDomainControllersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of the DomainController objects that were retrieved.
-	DomainControllers []DomainController `type:"list"`
+	DomainControllers []DomainController `json:"ds:DescribeDomainControllersOutput:DomainControllers" type:"list"`
 
 	// If not null, more results are available. Pass this value for the NextToken
 	// parameter in a subsequent call to DescribeDomainControllers retrieve the
 	// next set of items.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ds:DescribeDomainControllersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

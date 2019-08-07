@@ -95,13 +95,13 @@ type CreateConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of a Config.
-	ConfigArn *string `locationName:"configArn" type:"string"`
+	ConfigArn *string `json:"groundstation:CreateConfigOutput:ConfigArn" locationName:"configArn" type:"string"`
 
 	// UUID of a Config.
-	ConfigId *string `locationName:"configId" type:"string"`
+	ConfigId *string `json:"groundstation:CreateConfigOutput:ConfigId" locationName:"configId" type:"string"`
 
 	// Type of a Config.
-	ConfigType ConfigCapabilityType `locationName:"configType" type:"string" enum:"true"`
+	ConfigType ConfigCapabilityType `json:"groundstation:CreateConfigOutput:ConfigType" locationName:"configType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

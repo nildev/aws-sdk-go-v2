@@ -45,14 +45,14 @@ type CreateCollectionOutput struct {
 
 	// Amazon Resource Name (ARN) of the collection. You can use this to manage
 	// permissions on your resources.
-	CollectionArn *string `type:"string"`
+	CollectionArn *string `json:"rekognition:CreateCollectionOutput:CollectionArn" type:"string"`
 
 	// Version number of the face detection model associated with the collection
 	// you are creating.
-	FaceModelVersion *string `type:"string"`
+	FaceModelVersion *string `json:"rekognition:CreateCollectionOutput:FaceModelVersion" type:"string"`
 
 	// HTTP status code indicating the result of the operation.
-	StatusCode *int64 `type:"integer"`
+	StatusCode *int64 `json:"rekognition:CreateCollectionOutput:StatusCode" type:"integer"`
 }
 
 // String returns the string representation

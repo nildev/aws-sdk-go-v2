@@ -67,7 +67,7 @@ type GetAccountAuthorizationDetailsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list containing information about IAM groups.
-	GroupDetailList []GroupDetail `type:"list"`
+	GroupDetailList []GroupDetail `json:"iam:GetAccountAuthorizationDetailsOutput:GroupDetailList" type:"list"`
 
 	// A flag that indicates whether there are more items to return. If your results
 	// were truncated, you can make a subsequent pagination request using the Marker
@@ -75,20 +75,20 @@ type GetAccountAuthorizationDetailsOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:GetAccountAuthorizationDetailsOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:GetAccountAuthorizationDetailsOutput:Marker" type:"string"`
 
 	// A list containing information about managed policies.
-	Policies []ManagedPolicyDetail `type:"list"`
+	Policies []ManagedPolicyDetail `json:"iam:GetAccountAuthorizationDetailsOutput:Policies" type:"list"`
 
 	// A list containing information about IAM roles.
-	RoleDetailList []RoleDetail `type:"list"`
+	RoleDetailList []RoleDetail `json:"iam:GetAccountAuthorizationDetailsOutput:RoleDetailList" type:"list"`
 
 	// A list containing information about IAM users.
-	UserDetailList []UserDetail `type:"list"`
+	UserDetailList []UserDetail `json:"iam:GetAccountAuthorizationDetailsOutput:UserDetailList" type:"list"`
 }
 
 // String returns the string representation

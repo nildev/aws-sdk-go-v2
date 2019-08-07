@@ -175,7 +175,7 @@ type CreateStackSetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the stack set that you're creating.
-	StackSetId *string `type:"string"`
+	StackSetId *string `json:"cloudformation:CreateStackSetOutput:StackSetId" type:"string"`
 }
 
 // String returns the string representation

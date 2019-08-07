@@ -78,7 +78,7 @@ type GetProposalOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about a proposal.
-	Proposal *Proposal `type:"structure"`
+	Proposal *Proposal `json:"managedblockchain:GetProposalOutput:Proposal" type:"structure"`
 }
 
 // String returns the string representation

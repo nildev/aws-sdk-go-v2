@@ -92,7 +92,7 @@ type UpdateMeshOutput struct {
 	// An object representing a service mesh returned by a describe operation.
 	//
 	// Mesh is a required field
-	Mesh *MeshData `locationName:"mesh" type:"structure" required:"true"`
+	Mesh *MeshData `json:"appmesh:UpdateMeshOutput:Mesh" locationName:"mesh" type:"structure" required:"true"`
 }
 
 // String returns the string representation

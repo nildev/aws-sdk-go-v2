@@ -43,7 +43,7 @@ type DescribeStackSetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The specified stack set.
-	StackSet *StackSet `type:"structure"`
+	StackSet *StackSet `json:"cloudformation:DescribeStackSetOutput:StackSet" type:"structure"`
 }
 
 // String returns the string representation

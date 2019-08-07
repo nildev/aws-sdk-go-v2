@@ -33,10 +33,10 @@ func (s DescribeExportConfigurationsInput) String() string {
 type DescribeExportConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
-	ExportsInfo []ExportInfo `locationName:"exportsInfo" type:"list"`
+	ExportsInfo []ExportInfo `json:"discovery:DescribeExportConfigurationsOutput:ExportsInfo" locationName:"exportsInfo" type:"list"`
 
 	// The token from the previous call to describe-export-tasks.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"discovery:DescribeExportConfigurationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

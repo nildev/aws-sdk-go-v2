@@ -113,10 +113,10 @@ type GetDevicePoolCompatibilityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about compatible devices.
-	CompatibleDevices []DevicePoolCompatibilityResult `locationName:"compatibleDevices" type:"list"`
+	CompatibleDevices []DevicePoolCompatibilityResult `json:"devicefarm:GetDevicePoolCompatibilityOutput:CompatibleDevices" locationName:"compatibleDevices" type:"list"`
 
 	// Information about incompatible devices.
-	IncompatibleDevices []DevicePoolCompatibilityResult `locationName:"incompatibleDevices" type:"list"`
+	IncompatibleDevices []DevicePoolCompatibilityResult `json:"devicefarm:GetDevicePoolCompatibilityOutput:IncompatibleDevices" locationName:"incompatibleDevices" type:"list"`
 }
 
 // String returns the string representation

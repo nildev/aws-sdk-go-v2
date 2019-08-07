@@ -80,7 +80,7 @@ type PutEventStreamOutput struct {
 	// or an Amazon Kinesis Data Firehose delivery stream.
 	//
 	// EventStream is a required field
-	EventStream *EventStream `type:"structure" required:"true"`
+	EventStream *EventStream `json:"pinpoint:PutEventStreamOutput:EventStream" type:"structure" required:"true"`
 }
 
 // String returns the string representation

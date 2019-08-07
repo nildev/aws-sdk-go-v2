@@ -69,20 +69,20 @@ type PurchaseHostReservationOutput struct {
 
 	// Unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request. For more information, see How to Ensure Idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:PurchaseHostReservationOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// The currency in which the totalUpfrontPrice and totalHourlyPrice amounts
 	// are specified. At this time, the only supported currency is USD.
-	CurrencyCode CurrencyCodeValues `locationName:"currencyCode" type:"string" enum:"true"`
+	CurrencyCode CurrencyCodeValues `json:"ec2:PurchaseHostReservationOutput:CurrencyCode" locationName:"currencyCode" type:"string" enum:"true"`
 
 	// Describes the details of the purchase.
-	Purchase []Purchase `locationName:"purchase" locationNameList:"item" type:"list"`
+	Purchase []Purchase `json:"ec2:PurchaseHostReservationOutput:Purchase" locationName:"purchase" locationNameList:"item" type:"list"`
 
 	// The total hourly price of the reservation calculated per hour.
-	TotalHourlyPrice *string `locationName:"totalHourlyPrice" type:"string"`
+	TotalHourlyPrice *string `json:"ec2:PurchaseHostReservationOutput:TotalHourlyPrice" locationName:"totalHourlyPrice" type:"string"`
 
 	// The total amount charged to your account when you purchase the reservation.
-	TotalUpfrontPrice *string `locationName:"totalUpfrontPrice" type:"string"`
+	TotalUpfrontPrice *string `json:"ec2:PurchaseHostReservationOutput:TotalUpfrontPrice" locationName:"totalUpfrontPrice" type:"string"`
 }
 
 // String returns the string representation

@@ -93,7 +93,7 @@ type CreateCustomKeyStoreOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier for the new custom key store.
-	CustomKeyStoreId *string `min:"1" type:"string"`
+	CustomKeyStoreId *string `json:"kms:CreateCustomKeyStoreOutput:CustomKeyStoreId" min:"1" type:"string"`
 }
 
 // String returns the string representation

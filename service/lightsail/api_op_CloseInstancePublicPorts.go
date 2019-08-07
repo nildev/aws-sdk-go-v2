@@ -52,7 +52,7 @@ type CloseInstancePublicPortsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key-value pairs that contains information about the operation.
-	Operation *Operation `locationName:"operation" type:"structure"`
+	Operation *Operation `json:"lightsail:CloseInstancePublicPortsOutput:Operation" locationName:"operation" type:"structure"`
 }
 
 // String returns the string representation

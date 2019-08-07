@@ -55,10 +55,10 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token that specifies the next page of results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:ListTagsForResourceOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// List of tags returned by the ListTagsForResource operation.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"iotthingsgraph:ListTagsForResourceOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

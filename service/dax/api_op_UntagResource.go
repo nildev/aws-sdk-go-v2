@@ -53,7 +53,7 @@ type UntagResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tag keys that have been removed from the cluster.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"dax:UntagResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

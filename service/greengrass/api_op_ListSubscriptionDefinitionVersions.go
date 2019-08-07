@@ -70,9 +70,9 @@ func (s ListSubscriptionDefinitionVersionsInput) MarshalFields(e protocol.FieldE
 type ListSubscriptionDefinitionVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListSubscriptionDefinitionVersionsOutput:NextToken" type:"string"`
 
-	Versions []VersionInformation `type:"list"`
+	Versions []VersionInformation `json:"greengrass:ListSubscriptionDefinitionVersionsOutput:Versions" type:"list"`
 }
 
 // String returns the string representation

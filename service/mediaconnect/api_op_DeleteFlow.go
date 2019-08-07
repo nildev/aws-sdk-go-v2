@@ -56,10 +56,10 @@ type DeleteFlowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the flow that was deleted.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:DeleteFlowOutput:FlowArn" locationName:"flowArn" type:"string"`
 
 	// The status of the flow when the DeleteFlow process begins.
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"mediaconnect:DeleteFlowOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

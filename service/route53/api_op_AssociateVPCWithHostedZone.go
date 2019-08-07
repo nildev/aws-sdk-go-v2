@@ -99,7 +99,7 @@ type AssociateVPCWithHostedZoneOutput struct {
 	// A complex type that describes the changes made to your hosted zone.
 	//
 	// ChangeInfo is a required field
-	ChangeInfo *ChangeInfo `type:"structure" required:"true"`
+	ChangeInfo *ChangeInfo `json:"route53:AssociateVPCWithHostedZoneOutput:ChangeInfo" type:"structure" required:"true"`
 }
 
 // String returns the string representation

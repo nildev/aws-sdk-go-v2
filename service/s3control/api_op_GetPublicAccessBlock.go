@@ -53,7 +53,7 @@ func (s GetPublicAccessBlockInput) MarshalFields(e protocol.FieldEncoder) error 
 type GetPublicAccessBlockOutput struct {
 	_ struct{} `type:"structure" payload:"PublicAccessBlockConfiguration"`
 
-	PublicAccessBlockConfiguration *PublicAccessBlockConfiguration `type:"structure"`
+	PublicAccessBlockConfiguration *PublicAccessBlockConfiguration `json:"s3-control:GetPublicAccessBlockOutput:PublicAccessBlockConfiguration" type:"structure"`
 }
 
 // String returns the string representation

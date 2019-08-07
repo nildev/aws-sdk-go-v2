@@ -78,11 +78,11 @@ type CreateInvalidationOutput struct {
 	_ struct{} `type:"structure" payload:"Invalidation"`
 
 	// The invalidation's information.
-	Invalidation *Invalidation `type:"structure"`
+	Invalidation *Invalidation `json:"cloudfront:CreateInvalidationOutput:Invalidation" type:"structure"`
 
 	// The fully qualified URI of the distribution and invalidation batch request,
 	// including the Invalidation ID.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"cloudfront:CreateInvalidationOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

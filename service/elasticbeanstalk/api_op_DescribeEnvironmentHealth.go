@@ -54,32 +54,32 @@ type DescribeEnvironmentHealthOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Application request metrics for the environment.
-	ApplicationMetrics *ApplicationMetrics `type:"structure"`
+	ApplicationMetrics *ApplicationMetrics `json:"elasticbeanstalk:DescribeEnvironmentHealthOutput:ApplicationMetrics" type:"structure"`
 
 	// Descriptions of the data that contributed to the environment's current health
 	// status.
-	Causes []string `type:"list"`
+	Causes []string `json:"elasticbeanstalk:DescribeEnvironmentHealthOutput:Causes" type:"list"`
 
 	// The health color (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html)
 	// of the environment.
-	Color *string `type:"string"`
+	Color *string `json:"elasticbeanstalk:DescribeEnvironmentHealthOutput:Color" type:"string"`
 
 	// The environment's name.
-	EnvironmentName *string `min:"4" type:"string"`
+	EnvironmentName *string `json:"elasticbeanstalk:DescribeEnvironmentHealthOutput:EnvironmentName" min:"4" type:"string"`
 
 	// The health status (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html)
 	// of the environment. For example, Ok.
-	HealthStatus *string `type:"string"`
+	HealthStatus *string `json:"elasticbeanstalk:DescribeEnvironmentHealthOutput:HealthStatus" type:"string"`
 
 	// Summary health information for the instances in the environment.
-	InstancesHealth *InstanceHealthSummary `type:"structure"`
+	InstancesHealth *InstanceHealthSummary `json:"elasticbeanstalk:DescribeEnvironmentHealthOutput:InstancesHealth" type:"structure"`
 
 	// The date and time that the health information was retrieved.
-	RefreshedAt *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	RefreshedAt *time.Time `json:"elasticbeanstalk:DescribeEnvironmentHealthOutput:RefreshedAt" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The environment's operational status. Ready, Launching, Updating, Terminating,
 	// or Terminated.
-	Status EnvironmentHealth `type:"string" enum:"true"`
+	Status EnvironmentHealth `json:"elasticbeanstalk:DescribeEnvironmentHealthOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -78,7 +78,7 @@ type ModifyDBClusterSnapshotAttributeOutput struct {
 
 	// Detailed information about the attributes that are associated with a DB cluster
 	// snapshot.
-	DBClusterSnapshotAttributesResult *DBClusterSnapshotAttributesResult `type:"structure"`
+	DBClusterSnapshotAttributesResult *DBClusterSnapshotAttributesResult `json:"rds:ModifyDBClusterSnapshotAttributeOutput:DBClusterSnapshotAttributesResult" type:"structure"`
 }
 
 // String returns the string representation

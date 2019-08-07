@@ -54,10 +54,10 @@ type ListPresetsOutput struct {
 	// A value that you use to access the second and subsequent pages of results,
 	// if any. When the presets fit on one page or when you've reached the last
 	// page of results, the value of NextPageToken is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"elastictranscoder:ListPresetsOutput:NextPageToken" type:"string"`
 
 	// An array of Preset objects.
-	Presets []Preset `type:"list"`
+	Presets []Preset `json:"elastictranscoder:ListPresetsOutput:Presets" type:"list"`
 }
 
 // String returns the string representation

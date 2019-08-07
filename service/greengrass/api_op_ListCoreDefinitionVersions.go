@@ -70,9 +70,9 @@ func (s ListCoreDefinitionVersionsInput) MarshalFields(e protocol.FieldEncoder) 
 type ListCoreDefinitionVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListCoreDefinitionVersionsOutput:NextToken" type:"string"`
 
-	Versions []VersionInformation `type:"list"`
+	Versions []VersionInformation `json:"greengrass:ListCoreDefinitionVersionsOutput:Versions" type:"list"`
 }
 
 // String returns the string representation

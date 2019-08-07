@@ -56,10 +56,10 @@ type StartFlowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the flow that you started.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:StartFlowOutput:FlowArn" locationName:"flowArn" type:"string"`
 
 	// The status of the flow when the StartFlow process begins.
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"mediaconnect:StartFlowOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

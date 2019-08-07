@@ -56,7 +56,7 @@ type RequestSpotFleetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Spot Fleet request.
-	SpotFleetRequestId *string `locationName:"spotFleetRequestId" type:"string"`
+	SpotFleetRequestId *string `json:"ec2:RequestSpotFleetOutput:SpotFleetRequestId" locationName:"spotFleetRequestId" type:"string"`
 }
 
 // String returns the string representation

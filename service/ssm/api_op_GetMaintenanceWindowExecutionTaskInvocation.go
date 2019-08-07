@@ -72,43 +72,43 @@ type GetMaintenanceWindowExecutionTaskInvocationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time that the task finished running on the target.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The execution ID.
-	ExecutionId *string `type:"string"`
+	ExecutionId *string `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:ExecutionId" type:"string"`
 
 	// The invocation ID.
-	InvocationId *string `min:"36" type:"string"`
+	InvocationId *string `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:InvocationId" min:"36" type:"string"`
 
 	// User-provided value to be included in any CloudWatch events raised while
 	// running tasks for these targets in this maintenance window.
-	OwnerInformation *string `min:"1" type:"string"`
+	OwnerInformation *string `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:OwnerInformation" min:"1" type:"string"`
 
 	// The parameters used at the time that the task ran.
-	Parameters *string `type:"string"`
+	Parameters *string `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:Parameters" type:"string"`
 
 	// The time that the task started running on the target.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The task status for an invocation.
-	Status MaintenanceWindowExecutionStatus `type:"string" enum:"true"`
+	Status MaintenanceWindowExecutionStatus `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:Status" type:"string" enum:"true"`
 
 	// The details explaining the status. Details are only available for certain
 	// status values.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:StatusDetails" type:"string"`
 
 	// The task execution ID.
-	TaskExecutionId *string `min:"36" type:"string"`
+	TaskExecutionId *string `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:TaskExecutionId" min:"36" type:"string"`
 
 	// Retrieves the task type for a maintenance window. Task types include the
 	// following: LAMBDA, STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.
-	TaskType MaintenanceWindowTaskType `type:"string" enum:"true"`
+	TaskType MaintenanceWindowTaskType `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:TaskType" type:"string" enum:"true"`
 
 	// The maintenance window execution ID.
-	WindowExecutionId *string `min:"36" type:"string"`
+	WindowExecutionId *string `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:WindowExecutionId" min:"36" type:"string"`
 
 	// The maintenance window target ID.
-	WindowTargetId *string `type:"string"`
+	WindowTargetId *string `json:"ssm:GetMaintenanceWindowExecutionTaskInvocationOutput:WindowTargetId" type:"string"`
 }
 
 // String returns the string representation

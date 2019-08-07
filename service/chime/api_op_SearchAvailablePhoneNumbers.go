@@ -110,7 +110,7 @@ type SearchAvailablePhoneNumbersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of phone numbers, in E.164 format.
-	E164PhoneNumbers []string `type:"list"`
+	E164PhoneNumbers []string `json:"chime:SearchAvailablePhoneNumbersOutput:E164PhoneNumbers" type:"list"`
 }
 
 // String returns the string representation

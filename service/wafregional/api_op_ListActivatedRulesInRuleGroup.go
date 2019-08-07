@@ -58,13 +58,13 @@ type ListActivatedRulesInRuleGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of ActivatedRules objects.
-	ActivatedRules []waf.ActivatedRule `type:"list"`
+	ActivatedRules []waf.ActivatedRule `json:"waf-regional:ListActivatedRulesInRuleGroupOutput:ActivatedRules" type:"list"`
 
 	// If you have more ActivatedRules than the number that you specified for Limit
 	// in the request, the response includes a NextMarker value. To list more ActivatedRules,
 	// submit another ListActivatedRulesInRuleGroup request, and specify the NextMarker
 	// value from the response in the NextMarker value in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf-regional:ListActivatedRulesInRuleGroupOutput:NextMarker" min:"1" type:"string"`
 }
 
 // String returns the string representation

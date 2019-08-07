@@ -66,7 +66,7 @@ type CreateVpcPeeringAuthorizationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Details on the requested VPC peering authorization, including expiration.
-	VpcPeeringAuthorization *VpcPeeringAuthorization `type:"structure"`
+	VpcPeeringAuthorization *VpcPeeringAuthorization `json:"gamelift:CreateVpcPeeringAuthorizationOutput:VpcPeeringAuthorization" type:"structure"`
 }
 
 // String returns the string representation

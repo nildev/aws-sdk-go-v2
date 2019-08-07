@@ -81,7 +81,7 @@ type CreateEvaluationOutput struct {
 
 	// The user-supplied ID that uniquely identifies the Evaluation. This value
 	// should be identical to the value of the EvaluationId in the request.
-	EvaluationId *string `min:"1" type:"string"`
+	EvaluationId *string `json:"machinelearning:CreateEvaluationOutput:EvaluationId" min:"1" type:"string"`
 }
 
 // String returns the string representation

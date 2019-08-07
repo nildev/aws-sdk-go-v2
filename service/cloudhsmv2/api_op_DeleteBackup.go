@@ -44,7 +44,7 @@ type DeleteBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information on the Backup object deleted.
-	Backup *Backup `type:"structure"`
+	Backup *Backup `json:"cloudhsmv2:DeleteBackupOutput:Backup" type:"structure"`
 }
 
 // String returns the string representation

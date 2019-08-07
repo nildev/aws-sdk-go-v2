@@ -47,10 +47,10 @@ type DescribeContinuousExportsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of continuous export descriptions.
-	Descriptions []ContinuousExportDescription `locationName:"descriptions" type:"list"`
+	Descriptions []ContinuousExportDescription `json:"discovery:DescribeContinuousExportsOutput:Descriptions" locationName:"descriptions" type:"list"`
 
 	// The token from the previous call to DescribeExportTasks.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"discovery:DescribeContinuousExportsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

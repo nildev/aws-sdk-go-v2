@@ -52,12 +52,12 @@ type DescribeRulesPackagesOutput struct {
 	// for each failed item.
 	//
 	// FailedItems is a required field
-	FailedItems map[string]FailedItemDetails `locationName:"failedItems" type:"map" required:"true"`
+	FailedItems map[string]FailedItemDetails `json:"inspector:DescribeRulesPackagesOutput:FailedItems" locationName:"failedItems" type:"map" required:"true"`
 
 	// Information about the rules package.
 	//
 	// RulesPackages is a required field
-	RulesPackages []RulesPackage `locationName:"rulesPackages" type:"list" required:"true"`
+	RulesPackages []RulesPackage `json:"inspector:DescribeRulesPackagesOutput:RulesPackages" locationName:"rulesPackages" type:"list" required:"true"`
 }
 
 // String returns the string representation

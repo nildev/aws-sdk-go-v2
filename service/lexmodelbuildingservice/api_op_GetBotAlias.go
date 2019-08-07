@@ -79,26 +79,26 @@ type GetBotAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the bot that the alias points to.
-	BotName *string `locationName:"botName" min:"2" type:"string"`
+	BotName *string `json:"models.lex:GetBotAliasOutput:BotName" locationName:"botName" min:"2" type:"string"`
 
 	// The version of the bot that the alias points to.
-	BotVersion *string `locationName:"botVersion" min:"1" type:"string"`
+	BotVersion *string `json:"models.lex:GetBotAliasOutput:BotVersion" locationName:"botVersion" min:"1" type:"string"`
 
 	// Checksum of the bot alias.
-	Checksum *string `locationName:"checksum" type:"string"`
+	Checksum *string `json:"models.lex:GetBotAliasOutput:Checksum" locationName:"checksum" type:"string"`
 
 	// The date that the bot alias was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:GetBotAliasOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the bot alias.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:GetBotAliasOutput:Description" locationName:"description" type:"string"`
 
 	// The date that the bot alias was updated. When you create a resource, the
 	// creation date and the last updated date are the same.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:GetBotAliasOutput:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the bot alias.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:GetBotAliasOutput:Name" locationName:"name" min:"1" type:"string"`
 }
 
 // String returns the string representation

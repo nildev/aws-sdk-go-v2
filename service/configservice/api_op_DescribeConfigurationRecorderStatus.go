@@ -31,7 +31,7 @@ type DescribeConfigurationRecorderStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list that contains status of the specified recorders.
-	ConfigurationRecordersStatus []ConfigurationRecorderStatus `type:"list"`
+	ConfigurationRecordersStatus []ConfigurationRecorderStatus `json:"config:DescribeConfigurationRecorderStatusOutput:ConfigurationRecordersStatus" type:"list"`
 }
 
 // String returns the string representation

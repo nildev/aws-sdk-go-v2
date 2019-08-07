@@ -45,10 +45,10 @@ type BatchGetRepositoriesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of repositories returned by the batch get repositories operation.
-	Repositories []RepositoryMetadata `locationName:"repositories" type:"list"`
+	Repositories []RepositoryMetadata `json:"codecommit:BatchGetRepositoriesOutput:Repositories" locationName:"repositories" type:"list"`
 
 	// Returns a list of repository names for which information could not be found.
-	RepositoriesNotFound []string `locationName:"repositoriesNotFound" type:"list"`
+	RepositoriesNotFound []string `json:"codecommit:BatchGetRepositoriesOutput:RepositoriesNotFound" locationName:"repositoriesNotFound" type:"list"`
 }
 
 // String returns the string representation

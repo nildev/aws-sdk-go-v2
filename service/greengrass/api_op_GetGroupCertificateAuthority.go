@@ -69,13 +69,13 @@ type GetGroupCertificateAuthorityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the certificate authority for the group.
-	GroupCertificateAuthorityArn *string `type:"string"`
+	GroupCertificateAuthorityArn *string `json:"greengrass:GetGroupCertificateAuthorityOutput:GroupCertificateAuthorityArn" type:"string"`
 
 	// The ID of the certificate authority for the group.
-	GroupCertificateAuthorityId *string `type:"string"`
+	GroupCertificateAuthorityId *string `json:"greengrass:GetGroupCertificateAuthorityOutput:GroupCertificateAuthorityId" type:"string"`
 
 	// The PEM encoded certificate for the group.
-	PemEncodedCertificate *string `type:"string"`
+	PemEncodedCertificate *string `json:"greengrass:GetGroupCertificateAuthorityOutput:PemEncodedCertificate" type:"string"`
 }
 
 // String returns the string representation

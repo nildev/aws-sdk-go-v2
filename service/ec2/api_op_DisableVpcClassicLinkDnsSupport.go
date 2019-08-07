@@ -27,7 +27,7 @@ type DisableVpcClassicLinkDnsSupportOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns true if the request succeeds; otherwise, it returns an error.
-	Return *bool `locationName:"return" type:"boolean"`
+	Return *bool `json:"ec2:DisableVpcClassicLinkDnsSupportOutput:Return" locationName:"return" type:"boolean"`
 }
 
 // String returns the string representation

@@ -80,7 +80,7 @@ type DescribeVirtualRouterOutput struct {
 	// The full description of your virtual router.
 	//
 	// VirtualRouter is a required field
-	VirtualRouter *VirtualRouterData `locationName:"virtualRouter" type:"structure" required:"true"`
+	VirtualRouter *VirtualRouterData `json:"appmesh:DescribeVirtualRouterOutput:VirtualRouter" locationName:"virtualRouter" type:"structure" required:"true"`
 }
 
 // String returns the string representation

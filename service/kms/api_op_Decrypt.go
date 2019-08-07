@@ -60,13 +60,13 @@ type DecryptOutput struct {
 
 	// ARN of the key used to perform the decryption. This value is returned if
 	// no errors are encountered during the operation.
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"kms:DecryptOutput:KeyId" min:"1" type:"string"`
 
 	// Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value
 	// is Base64-encoded. Otherwise, it is not encoded.
 	//
 	// Plaintext is automatically base64 encoded/decoded by the SDK.
-	Plaintext []byte `min:"1" type:"blob"`
+	Plaintext []byte `json:"kms:DecryptOutput:Plaintext" min:"1" type:"blob"`
 }
 
 // String returns the string representation

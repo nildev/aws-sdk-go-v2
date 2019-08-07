@@ -74,7 +74,7 @@ type GetModelTemplateOutput struct {
 
 	// The Apache Velocity Template Language (VTL) (https://velocity.apache.org/engine/devel/vtl-reference-guide.html)
 	// template content used for the template resource.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"apigateway:GetModelTemplateOutput:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation

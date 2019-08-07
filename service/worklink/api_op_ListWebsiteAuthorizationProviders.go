@@ -86,10 +86,10 @@ type ListWebsiteAuthorizationProvidersOutput struct {
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If this value is null, it retrieves the first page.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"worklink:ListWebsiteAuthorizationProvidersOutput:NextToken" min:"1" type:"string"`
 
 	// The website authorization providers.
-	WebsiteAuthorizationProviders []WebsiteAuthorizationProviderSummary `type:"list"`
+	WebsiteAuthorizationProviders []WebsiteAuthorizationProviderSummary `json:"worklink:ListWebsiteAuthorizationProvidersOutput:WebsiteAuthorizationProviders" type:"list"`
 }
 
 // String returns the string representation

@@ -125,10 +125,10 @@ type DescribeRouteTablesOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeRouteTablesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about one or more route tables.
-	RouteTables []RouteTable `locationName:"routeTableSet" locationNameList:"item" type:"list"`
+	RouteTables []RouteTable `json:"ec2:DescribeRouteTablesOutput:RouteTables" locationName:"routeTableSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

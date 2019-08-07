@@ -82,7 +82,7 @@ type DescribeIdentityUsageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Usage information for the identity.
-	IdentityUsage *IdentityUsage `type:"structure"`
+	IdentityUsage *IdentityUsage `json:"cognito-sync:DescribeIdentityUsageOutput:IdentityUsage" type:"structure"`
 }
 
 // String returns the string representation

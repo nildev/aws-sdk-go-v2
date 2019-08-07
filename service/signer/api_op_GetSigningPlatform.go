@@ -57,29 +57,29 @@ type GetSigningPlatformOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The category type of the target signing platform.
-	Category Category `locationName:"category" type:"string" enum:"true"`
+	Category Category `json:"signer:GetSigningPlatformOutput:Category" locationName:"category" type:"string" enum:"true"`
 
 	// The display name of the target signing platform.
-	DisplayName *string `locationName:"displayName" type:"string"`
+	DisplayName *string `json:"signer:GetSigningPlatformOutput:DisplayName" locationName:"displayName" type:"string"`
 
 	// The maximum size (in MB) of the payload that can be signed by the target
 	// platform.
-	MaxSizeInMB *int64 `locationName:"maxSizeInMB" type:"integer"`
+	MaxSizeInMB *int64 `json:"signer:GetSigningPlatformOutput:MaxSizeInMB" locationName:"maxSizeInMB" type:"integer"`
 
 	// A list of partner entities that use the target signing platform.
-	Partner *string `locationName:"partner" type:"string"`
+	Partner *string `json:"signer:GetSigningPlatformOutput:Partner" locationName:"partner" type:"string"`
 
 	// The ID of the target signing platform.
-	PlatformId *string `locationName:"platformId" type:"string"`
+	PlatformId *string `json:"signer:GetSigningPlatformOutput:PlatformId" locationName:"platformId" type:"string"`
 
 	// A list of configurations applied to the target platform at signing.
-	SigningConfiguration *SigningConfiguration `locationName:"signingConfiguration" type:"structure"`
+	SigningConfiguration *SigningConfiguration `json:"signer:GetSigningPlatformOutput:SigningConfiguration" locationName:"signingConfiguration" type:"structure"`
 
 	// The format of the target platform's signing image.
-	SigningImageFormat *SigningImageFormat `locationName:"signingImageFormat" type:"structure"`
+	SigningImageFormat *SigningImageFormat `json:"signer:GetSigningPlatformOutput:SigningImageFormat" locationName:"signingImageFormat" type:"structure"`
 
 	// The validation template that is used by the target signing platform.
-	Target *string `locationName:"target" type:"string"`
+	Target *string `json:"signer:GetSigningPlatformOutput:Target" locationName:"target" type:"string"`
 }
 
 // String returns the string representation

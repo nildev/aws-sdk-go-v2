@@ -82,7 +82,7 @@ type StartQueryExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of the query that ran as a result of this request.
-	QueryExecutionId *string `type:"string"`
+	QueryExecutionId *string `json:"athena:StartQueryExecutionOutput:QueryExecutionId" type:"string"`
 }
 
 // String returns the string representation

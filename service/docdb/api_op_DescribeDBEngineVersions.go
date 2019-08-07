@@ -90,12 +90,12 @@ type DescribeDBEngineVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about one or more DB engine versions.
-	DBEngineVersions []DBEngineVersion `locationNameList:"DBEngineVersion" type:"list"`
+	DBEngineVersions []DBEngineVersion `json:"rds:DescribeDBEngineVersionsOutput:DBEngineVersions" locationNameList:"DBEngineVersion" type:"list"`
 
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeDBEngineVersionsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

@@ -80,7 +80,7 @@ type DeleteVirtualNodeOutput struct {
 	// The virtual node that was deleted.
 	//
 	// VirtualNode is a required field
-	VirtualNode *VirtualNodeData `locationName:"virtualNode" type:"structure" required:"true"`
+	VirtualNode *VirtualNodeData `json:"appmesh:DeleteVirtualNodeOutput:VirtualNode" locationName:"virtualNode" type:"structure" required:"true"`
 }
 
 // String returns the string representation

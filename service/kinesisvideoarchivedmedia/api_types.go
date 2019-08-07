@@ -45,12 +45,12 @@ type DASHFragmentSelector struct {
 	// in the HLS media playlist.
 	//
 	// The default is SERVER_TIMESTAMP.
-	FragmentSelectorType DASHFragmentSelectorType `type:"string" enum:"true"`
+	FragmentSelectorType DASHFragmentSelectorType `json:"kinesisvideo:DASHFragmentSelector:FragmentSelectorType" type:"string" enum:"true"`
 
 	// The start and end of the timestamp range for the requested media.
 	//
 	// This value should not be present if PlaybackType is LIVE.
-	TimestampRange *DASHTimestampRange `type:"structure"`
+	TimestampRange *DASHTimestampRange `json:"kinesisvideo:DASHFragmentSelector:TimestampRange" type:"structure"`
 }
 
 // String returns the string representation
@@ -100,7 +100,7 @@ type DASHTimestampRange struct {
 	// This value is inclusive. The EndTimestamp is compared to the (starting) timestamp
 	// of the fragment. Fragments that start before the EndTimestamp value and continue
 	// past it are included in the session.
-	EndTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTimestamp *time.Time `json:"kinesisvideo:DASHTimestampRange:EndTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The start of the timestamp range for the requested media.
 	//
@@ -110,7 +110,7 @@ type DASHTimestampRange struct {
 	// This value is inclusive. Fragments that start before the StartTimestamp and
 	// continue past it are included in the session. If FragmentSelectorType is
 	// SERVER_TIMESTAMP, the StartTimestamp must be later than the stream head.
-	StartTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTimestamp *time.Time `json:"kinesisvideo:DASHTimestampRange:StartTimestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -141,21 +141,21 @@ type Fragment struct {
 	_ struct{} `type:"structure"`
 
 	// The playback duration or other time value associated with the fragment.
-	FragmentLengthInMilliseconds *int64 `type:"long"`
+	FragmentLengthInMilliseconds *int64 `json:"kinesisvideo:Fragment:FragmentLengthInMilliseconds" type:"long"`
 
 	// The unique identifier of the fragment. This value monotonically increases
 	// based on the ingestion order.
-	FragmentNumber *string `min:"1" type:"string"`
+	FragmentNumber *string `json:"kinesisvideo:Fragment:FragmentNumber" min:"1" type:"string"`
 
 	// The total fragment size, including information about the fragment and contained
 	// media data.
-	FragmentSizeInBytes *int64 `type:"long"`
+	FragmentSizeInBytes *int64 `json:"kinesisvideo:Fragment:FragmentSizeInBytes" type:"long"`
 
 	// The timestamp from the producer corresponding to the fragment.
-	ProducerTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ProducerTimestamp *time.Time `json:"kinesisvideo:Fragment:ProducerTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The timestamp from the AWS server corresponding to the fragment.
-	ServerTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ServerTimestamp *time.Time `json:"kinesisvideo:Fragment:ServerTimestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -221,12 +221,12 @@ type FragmentSelector struct {
 	// The origin of the timestamps to use (Server or Producer).
 	//
 	// FragmentSelectorType is a required field
-	FragmentSelectorType FragmentSelectorType `type:"string" required:"true" enum:"true"`
+	FragmentSelectorType FragmentSelectorType `json:"kinesisvideo:FragmentSelector:FragmentSelectorType" type:"string" required:"true" enum:"true"`
 
 	// The range of timestamps to return.
 	//
 	// TimestampRange is a required field
-	TimestampRange *TimestampRange `type:"structure" required:"true"`
+	TimestampRange *TimestampRange `json:"kinesisvideo:FragmentSelector:TimestampRange" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -305,12 +305,12 @@ type HLSFragmentSelector struct {
 	// in the HLS media playlist.
 	//
 	// The default is SERVER_TIMESTAMP.
-	FragmentSelectorType HLSFragmentSelectorType `type:"string" enum:"true"`
+	FragmentSelectorType HLSFragmentSelectorType `json:"kinesisvideo:HLSFragmentSelector:FragmentSelectorType" type:"string" enum:"true"`
 
 	// The start and end of the timestamp range for the requested media.
 	//
 	// This value should not be present if PlaybackType is LIVE.
-	TimestampRange *HLSTimestampRange `type:"structure"`
+	TimestampRange *HLSTimestampRange `json:"kinesisvideo:HLSFragmentSelector:TimestampRange" type:"structure"`
 }
 
 // String returns the string representation
@@ -360,7 +360,7 @@ type HLSTimestampRange struct {
 	// This value is inclusive. The EndTimestamp is compared to the (starting) timestamp
 	// of the fragment. Fragments that start before the EndTimestamp value and continue
 	// past it are included in the session.
-	EndTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTimestamp *time.Time `json:"kinesisvideo:HLSTimestampRange:EndTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The start of the timestamp range for the requested media.
 	//
@@ -370,7 +370,7 @@ type HLSTimestampRange struct {
 	// This value is inclusive. Fragments that start before the StartTimestamp and
 	// continue past it are included in the session. If FragmentSelectorType is
 	// SERVER_TIMESTAMP, the StartTimestamp must be later than the stream head.
-	StartTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTimestamp *time.Time `json:"kinesisvideo:HLSTimestampRange:StartTimestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -403,12 +403,12 @@ type TimestampRange struct {
 	// The ending timestamp in the range of timestamps for which to return fragments.
 	//
 	// EndTimestamp is a required field
-	EndTimestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	EndTimestamp *time.Time `json:"kinesisvideo:TimestampRange:EndTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The starting timestamp in the range of timestamps for which to return fragments.
 	//
 	// StartTimestamp is a required field
-	StartTimestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartTimestamp *time.Time `json:"kinesisvideo:TimestampRange:StartTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation

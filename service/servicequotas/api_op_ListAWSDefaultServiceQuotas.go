@@ -72,10 +72,10 @@ type ListAWSDefaultServiceQuotasOutput struct {
 	// in a previous request that indicates that there's more output available.
 	// In a subsequent call, set it to the value of the previous call's NextToken
 	// response to indicate where the output should continue from.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicequotas:ListAWSDefaultServiceQuotasOutput:NextToken" type:"string"`
 
 	// A list of the quotas in the account with the AWS default values.
-	Quotas []ServiceQuota `type:"list"`
+	Quotas []ServiceQuota `json:"servicequotas:ListAWSDefaultServiceQuotasOutput:Quotas" type:"list"`
 }
 
 // String returns the string representation

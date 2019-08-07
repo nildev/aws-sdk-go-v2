@@ -56,10 +56,10 @@ type DeleteBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the backup deleted.
-	BackupId *string `min:"12" type:"string"`
+	BackupId *string `json:"fsx:DeleteBackupOutput:BackupId" min:"12" type:"string"`
 
 	// The lifecycle of the backup. Should be DELETED.
-	Lifecycle BackupLifecycle `type:"string" enum:"true"`
+	Lifecycle BackupLifecycle `json:"fsx:DeleteBackupOutput:Lifecycle" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -57,7 +57,7 @@ type ModifyVpcTenancyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns true if the request succeeds; otherwise, returns an error.
-	ReturnValue *bool `locationName:"return" type:"boolean"`
+	ReturnValue *bool `json:"ec2:ModifyVpcTenancyOutput:ReturnValue" locationName:"return" type:"boolean"`
 }
 
 // String returns the string representation

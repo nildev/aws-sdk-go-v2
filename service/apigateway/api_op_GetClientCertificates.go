@@ -52,9 +52,9 @@ type GetClientCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []Certificate `locationName:"item" type:"list"`
+	Items []Certificate `json:"apigateway:GetClientCertificatesOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetClientCertificatesOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

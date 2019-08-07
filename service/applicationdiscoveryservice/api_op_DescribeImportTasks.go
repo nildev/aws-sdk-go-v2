@@ -57,11 +57,11 @@ type DescribeImportTasksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token to request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"discovery:DescribeImportTasksOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A returned array of import tasks that match any applied filters, up to the
 	// specified number of maximum results.
-	Tasks []ImportTask `locationName:"tasks" type:"list"`
+	Tasks []ImportTask `json:"discovery:DescribeImportTasksOutput:Tasks" locationName:"tasks" type:"list"`
 }
 
 // String returns the string representation

@@ -18,10 +18,10 @@ type AvailabilityZone struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the Availability Zone.
-	State *string `locationName:"state" type:"string"`
+	State *string `json:"lightsail:AvailabilityZone:State" locationName:"state" type:"string"`
 
 	// The name of the Availability Zone. The format is us-east-2a (case-sensitive).
-	ZoneName *string `locationName:"zoneName" type:"string"`
+	ZoneName *string `json:"lightsail:AvailabilityZone:ZoneName" locationName:"zoneName" type:"string"`
 }
 
 // String returns the string representation
@@ -35,48 +35,48 @@ type Blueprint struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for the virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0).
-	BlueprintId *string `locationName:"blueprintId" type:"string"`
+	BlueprintId *string `json:"lightsail:Blueprint:BlueprintId" locationName:"blueprintId" type:"string"`
 
 	// The description of the blueprint.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"lightsail:Blueprint:Description" locationName:"description" type:"string"`
 
 	// The group name of the blueprint (e.g., amazon-linux).
-	Group *string `locationName:"group" type:"string"`
+	Group *string `json:"lightsail:Blueprint:Group" locationName:"group" type:"string"`
 
 	// A Boolean value indicating whether the blueprint is active. Inactive blueprints
 	// are listed to support customers with existing instances but are not necessarily
 	// available for launch of new instances. Blueprints are marked inactive when
 	// they become outdated due to operating system updates or new application releases.
-	IsActive *bool `locationName:"isActive" type:"boolean"`
+	IsActive *bool `json:"lightsail:Blueprint:IsActive" locationName:"isActive" type:"boolean"`
 
 	// The end-user license agreement URL for the image or blueprint.
-	LicenseUrl *string `locationName:"licenseUrl" type:"string"`
+	LicenseUrl *string `json:"lightsail:Blueprint:LicenseUrl" locationName:"licenseUrl" type:"string"`
 
 	// The minimum bundle power required to run this blueprint. For example, you
 	// need a bundle with a power value of 500 or more to create an instance that
 	// uses a blueprint with a minimum power value of 500. 0 indicates that the
 	// blueprint runs on all instance sizes.
-	MinPower *int64 `locationName:"minPower" type:"integer"`
+	MinPower *int64 `json:"lightsail:Blueprint:MinPower" locationName:"minPower" type:"integer"`
 
 	// The friendly name of the blueprint (e.g., Amazon Linux).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:Blueprint:Name" locationName:"name" type:"string"`
 
 	// The operating system platform (either Linux/Unix-based or Windows Server-based)
 	// of the blueprint.
-	Platform InstancePlatform `locationName:"platform" type:"string" enum:"true"`
+	Platform InstancePlatform `json:"lightsail:Blueprint:Platform" locationName:"platform" type:"string" enum:"true"`
 
 	// The product URL to learn more about the image or blueprint.
-	ProductUrl *string `locationName:"productUrl" type:"string"`
+	ProductUrl *string `json:"lightsail:Blueprint:ProductUrl" locationName:"productUrl" type:"string"`
 
 	// The type of the blueprint (e.g., os or app).
-	Type BlueprintType `locationName:"type" type:"string" enum:"true"`
+	Type BlueprintType `json:"lightsail:Blueprint:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The version number of the operating system, application, or stack (e.g.,
 	// 2016.03.0).
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"lightsail:Blueprint:Version" locationName:"version" type:"string"`
 
 	// The version code.
-	VersionCode *string `locationName:"versionCode" type:"string"`
+	VersionCode *string `json:"lightsail:Blueprint:VersionCode" locationName:"versionCode" type:"string"`
 }
 
 // String returns the string representation
@@ -91,44 +91,44 @@ type Bundle struct {
 	_ struct{} `type:"structure"`
 
 	// The bundle ID (e.g., micro_1_0).
-	BundleId *string `locationName:"bundleId" type:"string"`
+	BundleId *string `json:"lightsail:Bundle:BundleId" locationName:"bundleId" type:"string"`
 
 	// The number of vCPUs included in the bundle (e.g., 2).
-	CpuCount *int64 `locationName:"cpuCount" type:"integer"`
+	CpuCount *int64 `json:"lightsail:Bundle:CpuCount" locationName:"cpuCount" type:"integer"`
 
 	// The size of the SSD (e.g., 30).
-	DiskSizeInGb *int64 `locationName:"diskSizeInGb" type:"integer"`
+	DiskSizeInGb *int64 `json:"lightsail:Bundle:DiskSizeInGb" locationName:"diskSizeInGb" type:"integer"`
 
 	// The Amazon EC2 instance type (e.g., t2.micro).
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"lightsail:Bundle:InstanceType" locationName:"instanceType" type:"string"`
 
 	// A Boolean value indicating whether the bundle is active.
-	IsActive *bool `locationName:"isActive" type:"boolean"`
+	IsActive *bool `json:"lightsail:Bundle:IsActive" locationName:"isActive" type:"boolean"`
 
 	// A friendly name for the bundle (e.g., Micro).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:Bundle:Name" locationName:"name" type:"string"`
 
 	// A numeric value that represents the power of the bundle (e.g., 500). You
 	// can use the bundle's power value in conjunction with a blueprint's minimum
 	// power value to determine whether the blueprint will run on the bundle. For
 	// example, you need a bundle with a power value of 500 or more to create an
 	// instance that uses a blueprint with a minimum power value of 500.
-	Power *int64 `locationName:"power" type:"integer"`
+	Power *int64 `json:"lightsail:Bundle:Power" locationName:"power" type:"integer"`
 
 	// The price in US dollars (e.g., 5.0).
-	Price *float64 `locationName:"price" type:"float"`
+	Price *float64 `json:"lightsail:Bundle:Price" locationName:"price" type:"float"`
 
 	// The amount of RAM in GB (e.g., 2.0).
-	RamSizeInGb *float64 `locationName:"ramSizeInGb" type:"float"`
+	RamSizeInGb *float64 `json:"lightsail:Bundle:RamSizeInGb" locationName:"ramSizeInGb" type:"float"`
 
 	// The operating system platform (Linux/Unix-based or Windows Server-based)
 	// that the bundle supports. You can only launch a WINDOWS bundle on a blueprint
 	// that supports the WINDOWS platform. LINUX_UNIX blueprints require a LINUX_UNIX
 	// bundle.
-	SupportedPlatforms []InstancePlatform `locationName:"supportedPlatforms" type:"list"`
+	SupportedPlatforms []InstancePlatform `json:"lightsail:Bundle:SupportedPlatforms" locationName:"supportedPlatforms" type:"list"`
 
 	// The data transfer rate per month in GB (e.g., 2000).
-	TransferPerMonthInGb *int64 `locationName:"transferPerMonthInGb" type:"integer"`
+	TransferPerMonthInGb *int64 `json:"lightsail:Bundle:TransferPerMonthInGb" locationName:"transferPerMonthInGb" type:"integer"`
 }
 
 // String returns the string representation
@@ -147,31 +147,31 @@ type CloudFormationStackRecord struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the CloudFormation stack record.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:CloudFormationStackRecord:Arn" locationName:"arn" type:"string"`
 
 	// The date when the CloudFormation stack record was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:CloudFormationStackRecord:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of objects describing the destination service, which is AWS CloudFormation,
 	// and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
-	DestinationInfo *DestinationInfo `locationName:"destinationInfo" type:"structure"`
+	DestinationInfo *DestinationInfo `json:"lightsail:CloudFormationStackRecord:DestinationInfo" locationName:"destinationInfo" type:"structure"`
 
 	// A list of objects describing the Availability Zone and AWS Region of the
 	// CloudFormation stack record.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:CloudFormationStackRecord:Location" locationName:"location" type:"structure"`
 
 	// The name of the CloudFormation stack record. It starts with CloudFormationStackRecord
 	// followed by a GUID.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:CloudFormationStackRecord:Name" locationName:"name" type:"string"`
 
 	// The Lightsail resource type (e.g., CloudFormationStackRecord).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:CloudFormationStackRecord:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// A list of objects describing the source of the CloudFormation stack record.
-	SourceInfo []CloudFormationStackRecordSourceInfo `locationName:"sourceInfo" type:"list"`
+	SourceInfo []CloudFormationStackRecordSourceInfo `json:"lightsail:CloudFormationStackRecord:SourceInfo" locationName:"sourceInfo" type:"list"`
 
 	// The current state of the CloudFormation stack record.
-	State RecordState `locationName:"state" type:"string" enum:"true"`
+	State RecordState `json:"lightsail:CloudFormationStackRecord:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -186,13 +186,13 @@ type CloudFormationStackRecordSourceInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the export snapshot record.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:CloudFormationStackRecordSourceInfo:Arn" locationName:"arn" type:"string"`
 
 	// The name of the record.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:CloudFormationStackRecordSourceInfo:Name" locationName:"name" type:"string"`
 
 	// The Lightsail resource type (e.g., ExportSnapshotRecord).
-	ResourceType CloudFormationStackRecordSourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType CloudFormationStackRecordSourceType `json:"lightsail:CloudFormationStackRecordSourceInfo:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -206,10 +206,10 @@ type DestinationInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource created at the destination.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"lightsail:DestinationInfo:Id" locationName:"id" type:"string"`
 
 	// The destination service of the record.
-	Service *string `locationName:"service" type:"string"`
+	Service *string `json:"lightsail:DestinationInfo:Service" locationName:"service" type:"string"`
 }
 
 // String returns the string representation
@@ -223,63 +223,63 @@ type Disk struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the disk.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:Disk:Arn" locationName:"arn" type:"string"`
 
 	// The resources to which the disk is attached.
-	AttachedTo *string `locationName:"attachedTo" type:"string"`
+	AttachedTo *string `json:"lightsail:Disk:AttachedTo" locationName:"attachedTo" type:"string"`
 
 	// (Deprecated) The attachment state of the disk.
 	//
 	// In releases prior to November 14, 2017, this parameter returned attached
 	// for system disks in the API response. It is now deprecated, but still included
 	// in the response. Use isAttached instead.
-	AttachmentState *string `locationName:"attachmentState" deprecated:"true" type:"string"`
+	AttachmentState *string `json:"lightsail:Disk:AttachmentState" locationName:"attachmentState" deprecated:"true" type:"string"`
 
 	// The date when the disk was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:Disk:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// (Deprecated) The number of GB in use by the disk.
 	//
 	// In releases prior to November 14, 2017, this parameter was not included in
 	// the API response. It is now deprecated.
-	GbInUse *int64 `locationName:"gbInUse" deprecated:"true" type:"integer"`
+	GbInUse *int64 `json:"lightsail:Disk:GbInUse" locationName:"gbInUse" deprecated:"true" type:"integer"`
 
 	// The input/output operations per second (IOPS) of the disk.
-	Iops *int64 `locationName:"iops" type:"integer"`
+	Iops *int64 `json:"lightsail:Disk:Iops" locationName:"iops" type:"integer"`
 
 	// A Boolean value indicating whether the disk is attached.
-	IsAttached *bool `locationName:"isAttached" type:"boolean"`
+	IsAttached *bool `json:"lightsail:Disk:IsAttached" locationName:"isAttached" type:"boolean"`
 
 	// A Boolean value indicating whether this disk is a system disk (has an operating
 	// system loaded on it).
-	IsSystemDisk *bool `locationName:"isSystemDisk" type:"boolean"`
+	IsSystemDisk *bool `json:"lightsail:Disk:IsSystemDisk" locationName:"isSystemDisk" type:"boolean"`
 
 	// The AWS Region and Availability Zone where the disk is located.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:Disk:Location" locationName:"location" type:"structure"`
 
 	// The unique name of the disk.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:Disk:Name" locationName:"name" type:"string"`
 
 	// The disk path.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"lightsail:Disk:Path" locationName:"path" type:"string"`
 
 	// The Lightsail resource type (e.g., Disk).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:Disk:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The size of the disk in GB.
-	SizeInGb *int64 `locationName:"sizeInGb" type:"integer"`
+	SizeInGb *int64 `json:"lightsail:Disk:SizeInGb" locationName:"sizeInGb" type:"integer"`
 
 	// Describes the status of the disk.
-	State DiskState `locationName:"state" type:"string" enum:"true"`
+	State DiskState `json:"lightsail:Disk:State" locationName:"state" type:"string" enum:"true"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about an instance or another resource in Lightsail. This code enables
 	// our support team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:Disk:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:Disk:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -294,16 +294,16 @@ type DiskInfo struct {
 
 	// A Boolean value indicating whether this disk is a system disk (has an operating
 	// system loaded on it).
-	IsSystemDisk *bool `locationName:"isSystemDisk" type:"boolean"`
+	IsSystemDisk *bool `json:"lightsail:DiskInfo:IsSystemDisk" locationName:"isSystemDisk" type:"boolean"`
 
 	// The disk name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:DiskInfo:Name" locationName:"name" type:"string"`
 
 	// The disk path.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"lightsail:DiskInfo:Path" locationName:"path" type:"string"`
 
 	// The size of the disk in GB (e.g., 32).
-	SizeInGb *int64 `locationName:"sizeInGb" type:"integer"`
+	SizeInGb *int64 `json:"lightsail:DiskInfo:SizeInGb" locationName:"sizeInGb" type:"integer"`
 }
 
 // String returns the string representation
@@ -317,10 +317,10 @@ type DiskMap struct {
 	_ struct{} `type:"structure"`
 
 	// The new disk name (e.g., my-new-disk).
-	NewDiskName *string `locationName:"newDiskName" type:"string"`
+	NewDiskName *string `json:"lightsail:DiskMap:NewDiskName" locationName:"newDiskName" type:"string"`
 
 	// The original disk path exposed to the instance (for example, /dev/sdh).
-	OriginalDiskPath *string `locationName:"originalDiskPath" type:"string"`
+	OriginalDiskPath *string `json:"lightsail:DiskMap:OriginalDiskPath" locationName:"originalDiskPath" type:"string"`
 }
 
 // String returns the string representation
@@ -334,52 +334,52 @@ type DiskSnapshot struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the disk snapshot.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:DiskSnapshot:Arn" locationName:"arn" type:"string"`
 
 	// The date when the disk snapshot was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:DiskSnapshot:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the source disk from which the disk snapshot
 	// was created.
-	FromDiskArn *string `locationName:"fromDiskArn" type:"string"`
+	FromDiskArn *string `json:"lightsail:DiskSnapshot:FromDiskArn" locationName:"fromDiskArn" type:"string"`
 
 	// The unique name of the source disk from which the disk snapshot was created.
-	FromDiskName *string `locationName:"fromDiskName" type:"string"`
+	FromDiskName *string `json:"lightsail:DiskSnapshot:FromDiskName" locationName:"fromDiskName" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the source instance from which the disk
 	// (system volume) snapshot was created.
-	FromInstanceArn *string `locationName:"fromInstanceArn" type:"string"`
+	FromInstanceArn *string `json:"lightsail:DiskSnapshot:FromInstanceArn" locationName:"fromInstanceArn" type:"string"`
 
 	// The unique name of the source instance from which the disk (system volume)
 	// snapshot was created.
-	FromInstanceName *string `locationName:"fromInstanceName" type:"string"`
+	FromInstanceName *string `json:"lightsail:DiskSnapshot:FromInstanceName" locationName:"fromInstanceName" type:"string"`
 
 	// The AWS Region and Availability Zone where the disk snapshot was created.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:DiskSnapshot:Location" locationName:"location" type:"structure"`
 
 	// The name of the disk snapshot (e.g., my-disk-snapshot).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:DiskSnapshot:Name" locationName:"name" type:"string"`
 
 	// The progress of the disk snapshot operation.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"lightsail:DiskSnapshot:Progress" locationName:"progress" type:"string"`
 
 	// The Lightsail resource type (e.g., DiskSnapshot).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:DiskSnapshot:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The size of the disk in GB.
-	SizeInGb *int64 `locationName:"sizeInGb" type:"integer"`
+	SizeInGb *int64 `json:"lightsail:DiskSnapshot:SizeInGb" locationName:"sizeInGb" type:"integer"`
 
 	// The status of the disk snapshot operation.
-	State DiskSnapshotState `locationName:"state" type:"string" enum:"true"`
+	State DiskSnapshotState `json:"lightsail:DiskSnapshot:State" locationName:"state" type:"string" enum:"true"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about an instance or another resource in Lightsail. This code enables
 	// our support team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:DiskSnapshot:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:DiskSnapshot:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -393,7 +393,7 @@ type DiskSnapshotInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The size of the disk in GB (e.g., 32).
-	SizeInGb *int64 `locationName:"sizeInGb" type:"integer"`
+	SizeInGb *int64 `json:"lightsail:DiskSnapshotInfo:SizeInGb" locationName:"sizeInGb" type:"integer"`
 }
 
 // String returns the string representation
@@ -407,31 +407,31 @@ type Domain struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the domain recordset (e.g., arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE).
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:Domain:Arn" locationName:"arn" type:"string"`
 
 	// The date when the domain recordset was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:Domain:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// An array of key-value pairs containing information about the domain entries.
-	DomainEntries []DomainEntry `locationName:"domainEntries" type:"list"`
+	DomainEntries []DomainEntry `json:"lightsail:Domain:DomainEntries" locationName:"domainEntries" type:"list"`
 
 	// The AWS Region and Availability Zones where the domain recordset was created.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:Domain:Location" locationName:"location" type:"structure"`
 
 	// The name of the domain.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:Domain:Name" locationName:"name" type:"string"`
 
 	// The resource type.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:Domain:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about an instance or another resource in Lightsail. This code enables
 	// our support team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:Domain:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:Domain:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -445,29 +445,29 @@ type DomainEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the domain recordset entry.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"lightsail:DomainEntry:Id" locationName:"id" type:"string"`
 
 	// When true, specifies whether the domain entry is an alias used by the Lightsail
 	// load balancer. You can include an alias (A type) record in your request,
 	// which points to a load balancer DNS name and routes traffic to your load
 	// balancer
-	IsAlias *bool `locationName:"isAlias" type:"boolean"`
+	IsAlias *bool `json:"lightsail:DomainEntry:IsAlias" locationName:"isAlias" type:"boolean"`
 
 	// The name of the domain.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:DomainEntry:Name" locationName:"name" type:"string"`
 
 	// (Deprecated) The options for the domain entry.
 	//
 	// In releases prior to November 29, 2017, this parameter was not included in
 	// the API response. It is now deprecated.
-	Options map[string]string `locationName:"options" deprecated:"true" type:"map"`
+	Options map[string]string `json:"lightsail:DomainEntry:Options" locationName:"options" deprecated:"true" type:"map"`
 
 	// The target AWS name server (e.g., ns-111.awsdns-22.com.).
 	//
 	// For Lightsail load balancers, the value looks like ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com.
 	// Be sure to also set isAlias to true when setting up an A record for a load
 	// balancer.
-	Target *string `locationName:"target" type:"string"`
+	Target *string `json:"lightsail:DomainEntry:Target" locationName:"target" type:"string"`
 
 	// The type of domain entry, such as address (A), canonical name (CNAME), mail
 	// exchanger (MX), name server (NS), start of authority (SOA), service locator
@@ -488,7 +488,7 @@ type DomainEntry struct {
 	//    * SRV
 	//
 	//    * TXT
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"lightsail:DomainEntry:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -502,29 +502,29 @@ type ExportSnapshotRecord struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the export snapshot record.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:ExportSnapshotRecord:Arn" locationName:"arn" type:"string"`
 
 	// The date when the export snapshot record was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:ExportSnapshotRecord:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of objects describing the destination of the export snapshot record.
-	DestinationInfo *DestinationInfo `locationName:"destinationInfo" type:"structure"`
+	DestinationInfo *DestinationInfo `json:"lightsail:ExportSnapshotRecord:DestinationInfo" locationName:"destinationInfo" type:"structure"`
 
 	// The AWS Region and Availability Zone where the export snapshot record is
 	// located.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:ExportSnapshotRecord:Location" locationName:"location" type:"structure"`
 
 	// The export snapshot record name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:ExportSnapshotRecord:Name" locationName:"name" type:"string"`
 
 	// The Lightsail resource type (e.g., ExportSnapshotRecord).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:ExportSnapshotRecord:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// A list of objects describing the source of the export snapshot record.
-	SourceInfo *ExportSnapshotRecordSourceInfo `locationName:"sourceInfo" type:"structure"`
+	SourceInfo *ExportSnapshotRecordSourceInfo `json:"lightsail:ExportSnapshotRecord:SourceInfo" locationName:"sourceInfo" type:"structure"`
 
 	// The state of the export snapshot record.
-	State RecordState `locationName:"state" type:"string" enum:"true"`
+	State RecordState `json:"lightsail:ExportSnapshotRecord:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -538,28 +538,28 @@ type ExportSnapshotRecordSourceInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the source instance or disk snapshot.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:ExportSnapshotRecordSourceInfo:Arn" locationName:"arn" type:"string"`
 
 	// The date when the source instance or disk snapshot was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:ExportSnapshotRecordSourceInfo:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of objects describing a disk snapshot.
-	DiskSnapshotInfo *DiskSnapshotInfo `locationName:"diskSnapshotInfo" type:"structure"`
+	DiskSnapshotInfo *DiskSnapshotInfo `json:"lightsail:ExportSnapshotRecordSourceInfo:DiskSnapshotInfo" locationName:"diskSnapshotInfo" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the snapshot's source instance or disk.
-	FromResourceArn *string `locationName:"fromResourceArn" type:"string"`
+	FromResourceArn *string `json:"lightsail:ExportSnapshotRecordSourceInfo:FromResourceArn" locationName:"fromResourceArn" type:"string"`
 
 	// The name of the snapshot's source instance or disk.
-	FromResourceName *string `locationName:"fromResourceName" type:"string"`
+	FromResourceName *string `json:"lightsail:ExportSnapshotRecordSourceInfo:FromResourceName" locationName:"fromResourceName" type:"string"`
 
 	// A list of objects describing an instance snapshot.
-	InstanceSnapshotInfo *InstanceSnapshotInfo `locationName:"instanceSnapshotInfo" type:"structure"`
+	InstanceSnapshotInfo *InstanceSnapshotInfo `json:"lightsail:ExportSnapshotRecordSourceInfo:InstanceSnapshotInfo" locationName:"instanceSnapshotInfo" type:"structure"`
 
 	// The name of the source instance or disk snapshot.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:ExportSnapshotRecordSourceInfo:Name" locationName:"name" type:"string"`
 
 	// The Lightsail resource type (e.g., InstanceSnapshot or DiskSnapshot).
-	ResourceType ExportSnapshotRecordSourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ExportSnapshotRecordSourceType `json:"lightsail:ExportSnapshotRecordSourceInfo:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -576,37 +576,37 @@ type HostKeyAttributes struct {
 	//
 	// For SSH host keys, the algorithm may be ssh-rsa, ecdsa-sha2-nistp256, ssh-ed25519,
 	// etc. For RDP certificates, the algorithm is always x509-cert.
-	Algorithm *string `locationName:"algorithm" type:"string"`
+	Algorithm *string `json:"lightsail:HostKeyAttributes:Algorithm" locationName:"algorithm" type:"string"`
 
 	// The SHA-1 fingerprint of the returned SSH host key or RDP certificate.
 	//
 	//    * Example of an SHA-1 SSH fingerprint: SHA1:1CHH6FaAaXjtFOsR/t83vf91SR0
 	//
 	//    * Example of an SHA-1 RDP fingerprint: af:34:51:fe:09:f0:e0:da:b8:4e:56:ca:60:c2:10:ff:38:06:db:45
-	FingerprintSHA1 *string `locationName:"fingerprintSHA1" type:"string"`
+	FingerprintSHA1 *string `json:"lightsail:HostKeyAttributes:FingerprintSHA1" locationName:"fingerprintSHA1" type:"string"`
 
 	// The SHA-256 fingerprint of the returned SSH host key or RDP certificate.
 	//
 	//    * Example of an SHA-256 SSH fingerprint: SHA256:KTsMnRBh1IhD17HpdfsbzeGA4jOijm5tyXsMjKVbB8o
 	//
 	//    * Example of an SHA-256 RDP fingerprint: 03:9b:36:9f:4b:de:4e:61:70:fc:7c:c9:78:e7:d2:1a:1c:25:a8:0c:91:f6:7c:e4:d6:a0:85:c8:b4:53:99:68
-	FingerprintSHA256 *string `locationName:"fingerprintSHA256" type:"string"`
+	FingerprintSHA256 *string `json:"lightsail:HostKeyAttributes:FingerprintSHA256" locationName:"fingerprintSHA256" type:"string"`
 
 	// The returned RDP certificate is not valid after this point in time.
 	//
 	// This value is listed only for RDP certificates.
-	NotValidAfter *time.Time `locationName:"notValidAfter" type:"timestamp" timestampFormat:"unix"`
+	NotValidAfter *time.Time `json:"lightsail:HostKeyAttributes:NotValidAfter" locationName:"notValidAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// The returned RDP certificate is valid after this point in time.
 	//
 	// This value is listed only for RDP certificates.
-	NotValidBefore *time.Time `locationName:"notValidBefore" type:"timestamp" timestampFormat:"unix"`
+	NotValidBefore *time.Time `json:"lightsail:HostKeyAttributes:NotValidBefore" locationName:"notValidBefore" type:"timestamp" timestampFormat:"unix"`
 
 	// The public SSH host key or the RDP certificate.
-	PublicKey *string `locationName:"publicKey" type:"string"`
+	PublicKey *string `json:"lightsail:HostKeyAttributes:PublicKey" locationName:"publicKey" type:"string"`
 
 	// The time that the SSH host key or RDP certificate was recorded by Lightsail.
-	WitnessedAt *time.Time `locationName:"witnessedAt" type:"timestamp" timestampFormat:"unix"`
+	WitnessedAt *time.Time `json:"lightsail:HostKeyAttributes:WitnessedAt" locationName:"witnessedAt" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -620,66 +620,66 @@ type Instance struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the instance (e.g., arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE).
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:Instance:Arn" locationName:"arn" type:"string"`
 
 	// The blueprint ID (e.g., os_amlinux_2016_03).
-	BlueprintId *string `locationName:"blueprintId" type:"string"`
+	BlueprintId *string `json:"lightsail:Instance:BlueprintId" locationName:"blueprintId" type:"string"`
 
 	// The friendly name of the blueprint (e.g., Amazon Linux).
-	BlueprintName *string `locationName:"blueprintName" type:"string"`
+	BlueprintName *string `json:"lightsail:Instance:BlueprintName" locationName:"blueprintName" type:"string"`
 
 	// The bundle for the instance (e.g., micro_1_0).
-	BundleId *string `locationName:"bundleId" type:"string"`
+	BundleId *string `json:"lightsail:Instance:BundleId" locationName:"bundleId" type:"string"`
 
 	// The timestamp when the instance was created (e.g., 1479734909.17).
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:Instance:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The size of the vCPU and the amount of RAM for the instance.
-	Hardware *InstanceHardware `locationName:"hardware" type:"structure"`
+	Hardware *InstanceHardware `json:"lightsail:Instance:Hardware" locationName:"hardware" type:"structure"`
 
 	// The IPv6 address of the instance.
-	Ipv6Address *string `locationName:"ipv6Address" type:"string"`
+	Ipv6Address *string `json:"lightsail:Instance:Ipv6Address" locationName:"ipv6Address" type:"string"`
 
 	// A Boolean value indicating whether this instance has a static IP assigned
 	// to it.
-	IsStaticIp *bool `locationName:"isStaticIp" type:"boolean"`
+	IsStaticIp *bool `json:"lightsail:Instance:IsStaticIp" locationName:"isStaticIp" type:"boolean"`
 
 	// The region name and Availability Zone where the instance is located.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:Instance:Location" locationName:"location" type:"structure"`
 
 	// The name the user gave the instance (e.g., Amazon_Linux-1GB-Ohio-1).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:Instance:Name" locationName:"name" type:"string"`
 
 	// Information about the public ports and monthly data transfer rates for the
 	// instance.
-	Networking *InstanceNetworking `locationName:"networking" type:"structure"`
+	Networking *InstanceNetworking `json:"lightsail:Instance:Networking" locationName:"networking" type:"structure"`
 
 	// The private IP address of the instance.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"lightsail:Instance:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// The public IP address of the instance.
-	PublicIpAddress *string `locationName:"publicIpAddress" type:"string"`
+	PublicIpAddress *string `json:"lightsail:Instance:PublicIpAddress" locationName:"publicIpAddress" type:"string"`
 
 	// The type of resource (usually Instance).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:Instance:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The name of the SSH key being used to connect to the instance (e.g., LightsailDefaultKeyPair).
-	SshKeyName *string `locationName:"sshKeyName" type:"string"`
+	SshKeyName *string `json:"lightsail:Instance:SshKeyName" locationName:"sshKeyName" type:"string"`
 
 	// The status code and the state (e.g., running) for the instance.
-	State *InstanceState `locationName:"state" type:"structure"`
+	State *InstanceState `json:"lightsail:Instance:State" locationName:"state" type:"structure"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about an instance or another resource in Lightsail. This code enables
 	// our support team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:Instance:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:Instance:Tags" locationName:"tags" type:"list"`
 
 	// The user name for connecting to the instance (e.g., ec2-user).
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"lightsail:Instance:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -695,19 +695,19 @@ type InstanceAccessDetails struct {
 
 	// For SSH access, the public key to use when accessing your instance For OpenSSH
 	// clients (e.g., command line SSH), you should save this value to tempkey-cert.pub.
-	CertKey *string `locationName:"certKey" type:"string"`
+	CertKey *string `json:"lightsail:InstanceAccessDetails:CertKey" locationName:"certKey" type:"string"`
 
 	// For SSH access, the date on which the temporary keys expire.
-	ExpiresAt *time.Time `locationName:"expiresAt" type:"timestamp" timestampFormat:"unix"`
+	ExpiresAt *time.Time `json:"lightsail:InstanceAccessDetails:ExpiresAt" locationName:"expiresAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Describes the public SSH host keys or the RDP certificate.
-	HostKeys []HostKeyAttributes `locationName:"hostKeys" type:"list"`
+	HostKeys []HostKeyAttributes `json:"lightsail:InstanceAccessDetails:HostKeys" locationName:"hostKeys" type:"list"`
 
 	// The name of this Amazon Lightsail instance.
-	InstanceName *string `locationName:"instanceName" type:"string"`
+	InstanceName *string `json:"lightsail:InstanceAccessDetails:InstanceName" locationName:"instanceName" type:"string"`
 
 	// The public IP address of the Amazon Lightsail instance.
-	IpAddress *string `locationName:"ipAddress" type:"string"`
+	IpAddress *string `json:"lightsail:InstanceAccessDetails:IpAddress" locationName:"ipAddress" type:"string"`
 
 	// For RDP access, the password for your Amazon Lightsail instance. Password
 	// will be an empty string if the password for your new instance is not ready
@@ -721,23 +721,23 @@ type InstanceAccessDetails struct {
 	// continue to return the original password value. When accessing the instance
 	// using RDP, you need to manually enter the Administrator password after changing
 	// it from the default.
-	Password *string `locationName:"password" type:"string"`
+	Password *string `json:"lightsail:InstanceAccessDetails:Password" locationName:"password" type:"string"`
 
 	// For a Windows Server-based instance, an object with the data you can use
 	// to retrieve your password. This is only needed if password is empty and the
 	// instance is not new (and therefore the password is not ready yet). When you
 	// create an instance, it can take up to 15 minutes for the instance to be ready.
-	PasswordData *PasswordData `locationName:"passwordData" type:"structure"`
+	PasswordData *PasswordData `json:"lightsail:InstanceAccessDetails:PasswordData" locationName:"passwordData" type:"structure"`
 
 	// For SSH access, the temporary private key. For OpenSSH clients (e.g., command
 	// line SSH), you should save this value to tempkey).
-	PrivateKey *string `locationName:"privateKey" type:"string"`
+	PrivateKey *string `json:"lightsail:InstanceAccessDetails:PrivateKey" locationName:"privateKey" type:"string"`
 
 	// The protocol for these Amazon Lightsail instance access details.
-	Protocol InstanceAccessProtocol `locationName:"protocol" type:"string" enum:"true"`
+	Protocol InstanceAccessProtocol `json:"lightsail:InstanceAccessDetails:Protocol" locationName:"protocol" type:"string" enum:"true"`
 
 	// The user name to use when logging in to the Amazon Lightsail instance.
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"lightsail:InstanceAccessDetails:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -754,12 +754,12 @@ type InstanceEntry struct {
 	// The Availability Zone for the new Amazon EC2 instance.
 	//
 	// AvailabilityZone is a required field
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string" required:"true"`
+	AvailabilityZone *string `json:"lightsail:InstanceEntry:AvailabilityZone" locationName:"availabilityZone" type:"string" required:"true"`
 
 	// The instance type (e.g., t2.micro) to use for the new Amazon EC2 instance.
 	//
 	// InstanceType is a required field
-	InstanceType *string `locationName:"instanceType" type:"string" required:"true"`
+	InstanceType *string `json:"lightsail:InstanceEntry:InstanceType" locationName:"instanceType" type:"string" required:"true"`
 
 	// The port configuration to use for the new Amazon EC2 instance.
 	//
@@ -774,7 +774,7 @@ type InstanceEntry struct {
 	//    * CLOSED — All ports closed.
 	//
 	// PortInfoSource is a required field
-	PortInfoSource PortInfoSourceType `locationName:"portInfoSource" type:"string" required:"true" enum:"true"`
+	PortInfoSource PortInfoSourceType `json:"lightsail:InstanceEntry:PortInfoSource" locationName:"portInfoSource" type:"string" required:"true" enum:"true"`
 
 	// The name of the export snapshot record, which contains the exported Lightsail
 	// instance snapshot that will be used as the source of the new Amazon EC2 instance.
@@ -783,7 +783,7 @@ type InstanceEntry struct {
 	// records that you can use to create a CloudFormation stack.
 	//
 	// SourceName is a required field
-	SourceName *string `locationName:"sourceName" type:"string" required:"true"`
+	SourceName *string `json:"lightsail:InstanceEntry:SourceName" locationName:"sourceName" type:"string" required:"true"`
 
 	// A launch script you can create that configures a server with additional user
 	// data. For example, you might want to run apt-get -y update.
@@ -791,7 +791,7 @@ type InstanceEntry struct {
 	// Depending on the machine image you choose, the command to get software on
 	// your instance varies. Amazon Linux and CentOS use yum, Debian and Ubuntu
 	// use apt-get, and FreeBSD uses pkg.
-	UserData *string `locationName:"userData" type:"string"`
+	UserData *string `json:"lightsail:InstanceEntry:UserData" locationName:"userData" type:"string"`
 }
 
 // String returns the string representation
@@ -830,13 +830,13 @@ type InstanceHardware struct {
 	_ struct{} `type:"structure"`
 
 	// The number of vCPUs the instance has.
-	CpuCount *int64 `locationName:"cpuCount" type:"integer"`
+	CpuCount *int64 `json:"lightsail:InstanceHardware:CpuCount" locationName:"cpuCount" type:"integer"`
 
 	// The disks attached to the instance.
-	Disks []Disk `locationName:"disks" type:"list"`
+	Disks []Disk `json:"lightsail:InstanceHardware:Disks" locationName:"disks" type:"list"`
 
 	// The amount of RAM in GB on the instance (e.g., 1.0).
-	RamSizeInGb *float64 `locationName:"ramSizeInGb" type:"float"`
+	RamSizeInGb *float64 `json:"lightsail:InstanceHardware:RamSizeInGb" locationName:"ramSizeInGb" type:"float"`
 }
 
 // String returns the string representation
@@ -850,7 +850,7 @@ type InstanceHealthSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the overall instance health. Valid values are below.
-	InstanceHealth InstanceHealthState `locationName:"instanceHealth" type:"string" enum:"true"`
+	InstanceHealth InstanceHealthState `json:"lightsail:InstanceHealthSummary:InstanceHealth" locationName:"instanceHealth" type:"string" enum:"true"`
 
 	// More information about the instance health. If the instanceHealth is healthy,
 	// then an instanceHealthReason value is not provided.
@@ -899,11 +899,11 @@ type InstanceHealthSummary struct {
 	//
 	//    * Instance.DeregistrationInProgress - The target instance is in the process
 	//    of being deregistered and the deregistration delay period has not expired.
-	InstanceHealthReason InstanceHealthReason `locationName:"instanceHealthReason" type:"string" enum:"true"`
+	InstanceHealthReason InstanceHealthReason `json:"lightsail:InstanceHealthSummary:InstanceHealthReason" locationName:"instanceHealthReason" type:"string" enum:"true"`
 
 	// The name of the Lightsail instance for which you are requesting health check
 	// data.
-	InstanceName *string `locationName:"instanceName" type:"string"`
+	InstanceName *string `json:"lightsail:InstanceHealthSummary:InstanceName" locationName:"instanceName" type:"string"`
 }
 
 // String returns the string representation
@@ -917,11 +917,11 @@ type InstanceNetworking struct {
 	_ struct{} `type:"structure"`
 
 	// The amount of data in GB allocated for monthly data transfers.
-	MonthlyTransfer *MonthlyTransfer `locationName:"monthlyTransfer" type:"structure"`
+	MonthlyTransfer *MonthlyTransfer `json:"lightsail:InstanceNetworking:MonthlyTransfer" locationName:"monthlyTransfer" type:"structure"`
 
 	// An array of key-value pairs containing information about the ports on the
 	// instance.
-	Ports []InstancePortInfo `locationName:"ports" type:"list"`
+	Ports []InstancePortInfo `json:"lightsail:InstanceNetworking:Ports" locationName:"ports" type:"list"`
 }
 
 // String returns the string representation
@@ -935,19 +935,19 @@ type InstancePortInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The access direction (inbound or outbound).
-	AccessDirection AccessDirection `locationName:"accessDirection" type:"string" enum:"true"`
+	AccessDirection AccessDirection `json:"lightsail:InstancePortInfo:AccessDirection" locationName:"accessDirection" type:"string" enum:"true"`
 
 	// The location from which access is allowed (e.g., Anywhere (0.0.0.0/0)).
-	AccessFrom *string `locationName:"accessFrom" type:"string"`
+	AccessFrom *string `json:"lightsail:InstancePortInfo:AccessFrom" locationName:"accessFrom" type:"string"`
 
 	// The type of access (Public or Private).
-	AccessType PortAccessType `locationName:"accessType" type:"string" enum:"true"`
+	AccessType PortAccessType `json:"lightsail:InstancePortInfo:AccessType" locationName:"accessType" type:"string" enum:"true"`
 
 	// The common name.
-	CommonName *string `locationName:"commonName" type:"string"`
+	CommonName *string `json:"lightsail:InstancePortInfo:CommonName" locationName:"commonName" type:"string"`
 
 	// The first port in the range.
-	FromPort *int64 `locationName:"fromPort" type:"integer"`
+	FromPort *int64 `json:"lightsail:InstancePortInfo:FromPort" locationName:"fromPort" type:"integer"`
 
 	// The protocol being used. Can be one of the following.
 	//
@@ -967,10 +967,10 @@ type InstancePortInfo struct {
 	//    can use UDP, which provides a connectionless datagram service that emphasizes
 	//    reduced latency over reliability. If you do require reliable data stream
 	//    service, use TCP instead.
-	Protocol NetworkProtocol `locationName:"protocol" type:"string" enum:"true"`
+	Protocol NetworkProtocol `json:"lightsail:InstancePortInfo:Protocol" locationName:"protocol" type:"string" enum:"true"`
 
 	// The last port in the range.
-	ToPort *int64 `locationName:"toPort" type:"integer"`
+	ToPort *int64 `json:"lightsail:InstancePortInfo:ToPort" locationName:"toPort" type:"integer"`
 }
 
 // String returns the string representation
@@ -984,7 +984,7 @@ type InstancePortState struct {
 	_ struct{} `type:"structure"`
 
 	// The first port in the range.
-	FromPort *int64 `locationName:"fromPort" type:"integer"`
+	FromPort *int64 `json:"lightsail:InstancePortState:FromPort" locationName:"fromPort" type:"integer"`
 
 	// The protocol being used. Can be one of the following.
 	//
@@ -1004,13 +1004,13 @@ type InstancePortState struct {
 	//    can use UDP, which provides a connectionless datagram service that emphasizes
 	//    reduced latency over reliability. If you do require reliable data stream
 	//    service, use TCP instead.
-	Protocol NetworkProtocol `locationName:"protocol" type:"string" enum:"true"`
+	Protocol NetworkProtocol `json:"lightsail:InstancePortState:Protocol" locationName:"protocol" type:"string" enum:"true"`
 
 	// Specifies whether the instance port is open or closed.
-	State PortState `locationName:"state" type:"string" enum:"true"`
+	State PortState `json:"lightsail:InstancePortState:State" locationName:"state" type:"string" enum:"true"`
 
 	// The last port in the range.
-	ToPort *int64 `locationName:"toPort" type:"integer"`
+	ToPort *int64 `json:"lightsail:InstancePortState:ToPort" locationName:"toPort" type:"integer"`
 }
 
 // String returns the string representation
@@ -1024,55 +1024,55 @@ type InstanceSnapshot struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the snapshot (e.g., arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE).
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:InstanceSnapshot:Arn" locationName:"arn" type:"string"`
 
 	// The timestamp when the snapshot was created (e.g., 1479907467.024).
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:InstanceSnapshot:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// An array of disk objects containing information about all block storage disks.
-	FromAttachedDisks []Disk `locationName:"fromAttachedDisks" type:"list"`
+	FromAttachedDisks []Disk `json:"lightsail:InstanceSnapshot:FromAttachedDisks" locationName:"fromAttachedDisks" type:"list"`
 
 	// The blueprint ID from which you created the snapshot (e.g., os_debian_8_3).
 	// A blueprint is a virtual private server (or instance) image used to create
 	// instances quickly.
-	FromBlueprintId *string `locationName:"fromBlueprintId" type:"string"`
+	FromBlueprintId *string `json:"lightsail:InstanceSnapshot:FromBlueprintId" locationName:"fromBlueprintId" type:"string"`
 
 	// The bundle ID from which you created the snapshot (e.g., micro_1_0).
-	FromBundleId *string `locationName:"fromBundleId" type:"string"`
+	FromBundleId *string `json:"lightsail:InstanceSnapshot:FromBundleId" locationName:"fromBundleId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the instance from which the snapshot was
 	// created (e.g., arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE).
-	FromInstanceArn *string `locationName:"fromInstanceArn" type:"string"`
+	FromInstanceArn *string `json:"lightsail:InstanceSnapshot:FromInstanceArn" locationName:"fromInstanceArn" type:"string"`
 
 	// The instance from which the snapshot was created.
-	FromInstanceName *string `locationName:"fromInstanceName" type:"string"`
+	FromInstanceName *string `json:"lightsail:InstanceSnapshot:FromInstanceName" locationName:"fromInstanceName" type:"string"`
 
 	// The region name and Availability Zone where you created the snapshot.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:InstanceSnapshot:Location" locationName:"location" type:"structure"`
 
 	// The name of the snapshot.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:InstanceSnapshot:Name" locationName:"name" type:"string"`
 
 	// The progress of the snapshot.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"lightsail:InstanceSnapshot:Progress" locationName:"progress" type:"string"`
 
 	// The type of resource (usually InstanceSnapshot).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:InstanceSnapshot:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The size in GB of the SSD.
-	SizeInGb *int64 `locationName:"sizeInGb" type:"integer"`
+	SizeInGb *int64 `json:"lightsail:InstanceSnapshot:SizeInGb" locationName:"sizeInGb" type:"integer"`
 
 	// The state the snapshot is in.
-	State InstanceSnapshotState `locationName:"state" type:"string" enum:"true"`
+	State InstanceSnapshotState `json:"lightsail:InstanceSnapshot:State" locationName:"state" type:"string" enum:"true"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about an instance or another resource in Lightsail. This code enables
 	// our support team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:InstanceSnapshot:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:InstanceSnapshot:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -1086,13 +1086,13 @@ type InstanceSnapshotInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The blueprint ID from which the source instance (e.g., os_debian_8_3).
-	FromBlueprintId *string `locationName:"fromBlueprintId" type:"string"`
+	FromBlueprintId *string `json:"lightsail:InstanceSnapshotInfo:FromBlueprintId" locationName:"fromBlueprintId" type:"string"`
 
 	// The bundle ID from which the source instance was created (e.g., micro_1_0).
-	FromBundleId *string `locationName:"fromBundleId" type:"string"`
+	FromBundleId *string `json:"lightsail:InstanceSnapshotInfo:FromBundleId" locationName:"fromBundleId" type:"string"`
 
 	// A list of objects describing the disks that were attached to the source instance.
-	FromDiskInfo []DiskInfo `locationName:"fromDiskInfo" type:"list"`
+	FromDiskInfo []DiskInfo `json:"lightsail:InstanceSnapshotInfo:FromDiskInfo" locationName:"fromDiskInfo" type:"list"`
 }
 
 // String returns the string representation
@@ -1106,10 +1106,10 @@ type InstanceState struct {
 	_ struct{} `type:"structure"`
 
 	// The status code for the instance.
-	Code *int64 `locationName:"code" type:"integer"`
+	Code *int64 `json:"lightsail:InstanceState:Code" locationName:"code" type:"integer"`
 
 	// The state of the instance (e.g., running or pending).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:InstanceState:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -1123,31 +1123,31 @@ type KeyPair struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the key pair (e.g., arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE).
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:KeyPair:Arn" locationName:"arn" type:"string"`
 
 	// The timestamp when the key pair was created (e.g., 1479816991.349).
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:KeyPair:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The RSA fingerprint of the key pair.
-	Fingerprint *string `locationName:"fingerprint" type:"string"`
+	Fingerprint *string `json:"lightsail:KeyPair:Fingerprint" locationName:"fingerprint" type:"string"`
 
 	// The region name and Availability Zone where the key pair was created.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:KeyPair:Location" locationName:"location" type:"structure"`
 
 	// The friendly name of the SSH key pair.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:KeyPair:Name" locationName:"name" type:"string"`
 
 	// The resource type (usually KeyPair).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:KeyPair:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about an instance or another resource in Lightsail. This code enables
 	// our support team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:KeyPair:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:KeyPair:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -1161,65 +1161,65 @@ type LoadBalancer struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the load balancer.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:LoadBalancer:Arn" locationName:"arn" type:"string"`
 
 	// A string to string map of the configuration options for your load balancer.
 	// Valid values are listed below.
-	ConfigurationOptions map[string]string `locationName:"configurationOptions" type:"map"`
+	ConfigurationOptions map[string]string `json:"lightsail:LoadBalancer:ConfigurationOptions" locationName:"configurationOptions" type:"map"`
 
 	// The date when your load balancer was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:LoadBalancer:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The DNS name of your Lightsail load balancer.
-	DnsName *string `locationName:"dnsName" type:"string"`
+	DnsName *string `json:"lightsail:LoadBalancer:DnsName" locationName:"dnsName" type:"string"`
 
 	// The path you specified to perform your health checks. If no path is specified,
 	// the load balancer tries to make a request to the default (root) page.
-	HealthCheckPath *string `locationName:"healthCheckPath" type:"string"`
+	HealthCheckPath *string `json:"lightsail:LoadBalancer:HealthCheckPath" locationName:"healthCheckPath" type:"string"`
 
 	// An array of InstanceHealthSummary objects describing the health of the load
 	// balancer.
-	InstanceHealthSummary []InstanceHealthSummary `locationName:"instanceHealthSummary" type:"list"`
+	InstanceHealthSummary []InstanceHealthSummary `json:"lightsail:LoadBalancer:InstanceHealthSummary" locationName:"instanceHealthSummary" type:"list"`
 
 	// The port where the load balancer will direct traffic to your Lightsail instances.
 	// For HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.
-	InstancePort *int64 `locationName:"instancePort" type:"integer"`
+	InstancePort *int64 `json:"lightsail:LoadBalancer:InstancePort" locationName:"instancePort" type:"integer"`
 
 	// The AWS Region where your load balancer was created (e.g., us-east-2a). Lightsail
 	// automatically creates your load balancer across Availability Zones.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:LoadBalancer:Location" locationName:"location" type:"structure"`
 
 	// The name of the load balancer (e.g., my-load-balancer).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:LoadBalancer:Name" locationName:"name" type:"string"`
 
 	// The protocol you have enabled for your load balancer. Valid values are below.
 	//
 	// You can't just have HTTP_HTTPS, but you can have just HTTP.
-	Protocol LoadBalancerProtocol `locationName:"protocol" type:"string" enum:"true"`
+	Protocol LoadBalancerProtocol `json:"lightsail:LoadBalancer:Protocol" locationName:"protocol" type:"string" enum:"true"`
 
 	// An array of public port settings for your load balancer. For HTTP, use port
 	// 80. For HTTPS, use port 443.
-	PublicPorts []int64 `locationName:"publicPorts" type:"list"`
+	PublicPorts []int64 `json:"lightsail:LoadBalancer:PublicPorts" locationName:"publicPorts" type:"list"`
 
 	// The resource type (e.g., LoadBalancer.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:LoadBalancer:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The status of your load balancer. Valid values are below.
-	State LoadBalancerState `locationName:"state" type:"string" enum:"true"`
+	State LoadBalancerState `json:"lightsail:LoadBalancer:State" locationName:"state" type:"string" enum:"true"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about your Lightsail load balancer. This code enables our support
 	// team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:LoadBalancer:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:LoadBalancer:Tags" locationName:"tags" type:"list"`
 
 	// An array of LoadBalancerTlsCertificateSummary objects that provide additional
 	// information about the SSL/TLS certificates. For example, if true, the certificate
 	// is attached to the load balancer.
-	TlsCertificateSummaries []LoadBalancerTlsCertificateSummary `locationName:"tlsCertificateSummaries" type:"list"`
+	TlsCertificateSummaries []LoadBalancerTlsCertificateSummary `json:"lightsail:LoadBalancer:TlsCertificateSummaries" locationName:"tlsCertificateSummaries" type:"list"`
 }
 
 // String returns the string representation
@@ -1235,52 +1235,52 @@ type LoadBalancerTlsCertificate struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the SSL/TLS certificate.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:LoadBalancerTlsCertificate:Arn" locationName:"arn" type:"string"`
 
 	// The time when you created your SSL/TLS certificate.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:LoadBalancerTlsCertificate:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The domain name for your SSL/TLS certificate.
-	DomainName *string `locationName:"domainName" type:"string"`
+	DomainName *string `json:"lightsail:LoadBalancerTlsCertificate:DomainName" locationName:"domainName" type:"string"`
 
 	// An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing
 	// the records.
-	DomainValidationRecords []LoadBalancerTlsCertificateDomainValidationRecord `locationName:"domainValidationRecords" type:"list"`
+	DomainValidationRecords []LoadBalancerTlsCertificateDomainValidationRecord `json:"lightsail:LoadBalancerTlsCertificate:DomainValidationRecords" locationName:"domainValidationRecords" type:"list"`
 
 	// The reason for the SSL/TLS certificate validation failure.
-	FailureReason LoadBalancerTlsCertificateFailureReason `locationName:"failureReason" type:"string" enum:"true"`
+	FailureReason LoadBalancerTlsCertificateFailureReason `json:"lightsail:LoadBalancerTlsCertificate:FailureReason" locationName:"failureReason" type:"string" enum:"true"`
 
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
-	IsAttached *bool `locationName:"isAttached" type:"boolean"`
+	IsAttached *bool `json:"lightsail:LoadBalancerTlsCertificate:IsAttached" locationName:"isAttached" type:"boolean"`
 
 	// The time when the SSL/TLS certificate was issued.
-	IssuedAt *time.Time `locationName:"issuedAt" type:"timestamp" timestampFormat:"unix"`
+	IssuedAt *time.Time `json:"lightsail:LoadBalancerTlsCertificate:IssuedAt" locationName:"issuedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The issuer of the certificate.
-	Issuer *string `locationName:"issuer" type:"string"`
+	Issuer *string `json:"lightsail:LoadBalancerTlsCertificate:Issuer" locationName:"issuer" type:"string"`
 
 	// The algorithm that was used to generate the key pair (the public and private
 	// key).
-	KeyAlgorithm *string `locationName:"keyAlgorithm" type:"string"`
+	KeyAlgorithm *string `json:"lightsail:LoadBalancerTlsCertificate:KeyAlgorithm" locationName:"keyAlgorithm" type:"string"`
 
 	// The load balancer name where your SSL/TLS certificate is attached.
-	LoadBalancerName *string `locationName:"loadBalancerName" type:"string"`
+	LoadBalancerName *string `json:"lightsail:LoadBalancerTlsCertificate:LoadBalancerName" locationName:"loadBalancerName" type:"string"`
 
 	// The AWS Region and Availability Zone where you created your certificate.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:LoadBalancerTlsCertificate:Location" locationName:"location" type:"structure"`
 
 	// The name of the SSL/TLS certificate (e.g., my-certificate).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:LoadBalancerTlsCertificate:Name" locationName:"name" type:"string"`
 
 	// The timestamp when the SSL/TLS certificate expires.
-	NotAfter *time.Time `locationName:"notAfter" type:"timestamp" timestampFormat:"unix"`
+	NotAfter *time.Time `json:"lightsail:LoadBalancerTlsCertificate:NotAfter" locationName:"notAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// The timestamp when the SSL/TLS certificate is first valid.
-	NotBefore *time.Time `locationName:"notBefore" type:"timestamp" timestampFormat:"unix"`
+	NotBefore *time.Time `json:"lightsail:LoadBalancerTlsCertificate:NotBefore" locationName:"notBefore" type:"timestamp" timestampFormat:"unix"`
 
 	// An object containing information about the status of Lightsail's managed
 	// renewal for the certificate.
-	RenewalSummary *LoadBalancerTlsCertificateRenewalSummary `locationName:"renewalSummary" type:"structure"`
+	RenewalSummary *LoadBalancerTlsCertificateRenewalSummary `json:"lightsail:LoadBalancerTlsCertificate:RenewalSummary" locationName:"renewalSummary" type:"structure"`
 
 	// The resource type (e.g., LoadBalancerTlsCertificate).
 	//
@@ -1304,43 +1304,43 @@ type LoadBalancerTlsCertificate struct {
 	//    * Disk - A Lightsail block storage disk
 	//
 	//    * DiskSnapshot - A block storage disk snapshot
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:LoadBalancerTlsCertificate:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The reason the certificate was revoked. Valid values are below.
-	RevocationReason LoadBalancerTlsCertificateRevocationReason `locationName:"revocationReason" type:"string" enum:"true"`
+	RevocationReason LoadBalancerTlsCertificateRevocationReason `json:"lightsail:LoadBalancerTlsCertificate:RevocationReason" locationName:"revocationReason" type:"string" enum:"true"`
 
 	// The timestamp when the SSL/TLS certificate was revoked.
-	RevokedAt *time.Time `locationName:"revokedAt" type:"timestamp" timestampFormat:"unix"`
+	RevokedAt *time.Time `json:"lightsail:LoadBalancerTlsCertificate:RevokedAt" locationName:"revokedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The serial number of the certificate.
-	Serial *string `locationName:"serial" type:"string"`
+	Serial *string `json:"lightsail:LoadBalancerTlsCertificate:Serial" locationName:"serial" type:"string"`
 
 	// The algorithm that was used to sign the certificate.
-	SignatureAlgorithm *string `locationName:"signatureAlgorithm" type:"string"`
+	SignatureAlgorithm *string `json:"lightsail:LoadBalancerTlsCertificate:SignatureAlgorithm" locationName:"signatureAlgorithm" type:"string"`
 
 	// The status of the SSL/TLS certificate. Valid values are below.
-	Status LoadBalancerTlsCertificateStatus `locationName:"status" type:"string" enum:"true"`
+	Status LoadBalancerTlsCertificateStatus `json:"lightsail:LoadBalancerTlsCertificate:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The name of the entity that is associated with the public key contained in
 	// the certificate.
-	Subject *string `locationName:"subject" type:"string"`
+	Subject *string `json:"lightsail:LoadBalancerTlsCertificate:Subject" locationName:"subject" type:"string"`
 
 	// One or more domains or subdomains included in the certificate. This list
 	// contains the domain names that are bound to the public key that is contained
 	// in the certificate. The subject alternative names include the canonical domain
 	// name (CNAME) of the certificate and additional domain names that can be used
 	// to connect to the website, such as example.com, www.example.com, or m.example.com.
-	SubjectAlternativeNames []string `locationName:"subjectAlternativeNames" type:"list"`
+	SubjectAlternativeNames []string `json:"lightsail:LoadBalancerTlsCertificate:SubjectAlternativeNames" locationName:"subjectAlternativeNames" type:"list"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about your Lightsail load balancer or SSL/TLS certificate. This
 	// code enables our support team to look up your Lightsail information more
 	// easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:LoadBalancerTlsCertificate:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:LoadBalancerTlsCertificate:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -1355,10 +1355,10 @@ type LoadBalancerTlsCertificateDomainValidationOption struct {
 	_ struct{} `type:"structure"`
 
 	// The fully qualified domain name in the certificate request.
-	DomainName *string `locationName:"domainName" type:"string"`
+	DomainName *string `json:"lightsail:LoadBalancerTlsCertificateDomainValidationOption:DomainName" locationName:"domainName" type:"string"`
 
 	// The status of the domain validation. Valid values are listed below.
-	ValidationStatus LoadBalancerTlsCertificateDomainStatus `locationName:"validationStatus" type:"string" enum:"true"`
+	ValidationStatus LoadBalancerTlsCertificateDomainStatus `json:"lightsail:LoadBalancerTlsCertificateDomainValidationOption:ValidationStatus" locationName:"validationStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1372,19 +1372,19 @@ type LoadBalancerTlsCertificateDomainValidationRecord struct {
 	_ struct{} `type:"structure"`
 
 	// The domain name against which your SSL/TLS certificate was validated.
-	DomainName *string `locationName:"domainName" type:"string"`
+	DomainName *string `json:"lightsail:LoadBalancerTlsCertificateDomainValidationRecord:DomainName" locationName:"domainName" type:"string"`
 
 	// A fully qualified domain name in the certificate. For example, example.com.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:LoadBalancerTlsCertificateDomainValidationRecord:Name" locationName:"name" type:"string"`
 
 	// The type of validation record. For example, CNAME for domain validation.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"lightsail:LoadBalancerTlsCertificateDomainValidationRecord:Type" locationName:"type" type:"string"`
 
 	// The validation status. Valid values are listed below.
-	ValidationStatus LoadBalancerTlsCertificateDomainStatus `locationName:"validationStatus" type:"string" enum:"true"`
+	ValidationStatus LoadBalancerTlsCertificateDomainStatus `json:"lightsail:LoadBalancerTlsCertificateDomainValidationRecord:ValidationStatus" locationName:"validationStatus" type:"string" enum:"true"`
 
 	// The value for that type.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"lightsail:LoadBalancerTlsCertificateDomainValidationRecord:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -1401,11 +1401,11 @@ type LoadBalancerTlsCertificateRenewalSummary struct {
 	// Contains information about the validation of each domain name in the certificate,
 	// as it pertains to Lightsail's managed renewal. This is different from the
 	// initial validation that occurs as a result of the RequestCertificate request.
-	DomainValidationOptions []LoadBalancerTlsCertificateDomainValidationOption `locationName:"domainValidationOptions" type:"list"`
+	DomainValidationOptions []LoadBalancerTlsCertificateDomainValidationOption `json:"lightsail:LoadBalancerTlsCertificateRenewalSummary:DomainValidationOptions" locationName:"domainValidationOptions" type:"list"`
 
 	// The status of Lightsail's managed renewal of the certificate. Valid values
 	// are listed below.
-	RenewalStatus LoadBalancerTlsCertificateRenewalStatus `locationName:"renewalStatus" type:"string" enum:"true"`
+	RenewalStatus LoadBalancerTlsCertificateRenewalStatus `json:"lightsail:LoadBalancerTlsCertificateRenewalSummary:RenewalStatus" locationName:"renewalStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1419,10 +1419,10 @@ type LoadBalancerTlsCertificateSummary struct {
 	_ struct{} `type:"structure"`
 
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
-	IsAttached *bool `locationName:"isAttached" type:"boolean"`
+	IsAttached *bool `json:"lightsail:LoadBalancerTlsCertificateSummary:IsAttached" locationName:"isAttached" type:"boolean"`
 
 	// The name of the SSL/TLS certificate.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:LoadBalancerTlsCertificateSummary:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -1436,10 +1436,10 @@ type LogEvent struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp when the database log event was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:LogEvent:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The message of the database log event.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"lightsail:LogEvent:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -1453,25 +1453,25 @@ type MetricDatapoint struct {
 	_ struct{} `type:"structure"`
 
 	// The average.
-	Average *float64 `locationName:"average" type:"double"`
+	Average *float64 `json:"lightsail:MetricDatapoint:Average" locationName:"average" type:"double"`
 
 	// The maximum.
-	Maximum *float64 `locationName:"maximum" type:"double"`
+	Maximum *float64 `json:"lightsail:MetricDatapoint:Maximum" locationName:"maximum" type:"double"`
 
 	// The minimum.
-	Minimum *float64 `locationName:"minimum" type:"double"`
+	Minimum *float64 `json:"lightsail:MetricDatapoint:Minimum" locationName:"minimum" type:"double"`
 
 	// The sample count.
-	SampleCount *float64 `locationName:"sampleCount" type:"double"`
+	SampleCount *float64 `json:"lightsail:MetricDatapoint:SampleCount" locationName:"sampleCount" type:"double"`
 
 	// The sum.
-	Sum *float64 `locationName:"sum" type:"double"`
+	Sum *float64 `json:"lightsail:MetricDatapoint:Sum" locationName:"sum" type:"double"`
 
 	// The timestamp (e.g., 1479816991.349).
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"lightsail:MetricDatapoint:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The unit.
-	Unit MetricUnit `locationName:"unit" type:"string" enum:"true"`
+	Unit MetricUnit `json:"lightsail:MetricDatapoint:Unit" locationName:"unit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1486,7 +1486,7 @@ type MonthlyTransfer struct {
 	_ struct{} `type:"structure"`
 
 	// The amount allocated per month (in GB).
-	GbPerMonthAllocated *int64 `locationName:"gbPerMonthAllocated" type:"integer"`
+	GbPerMonthAllocated *int64 `json:"lightsail:MonthlyTransfer:GbPerMonthAllocated" locationName:"gbPerMonthAllocated" type:"integer"`
 }
 
 // String returns the string representation
@@ -1500,40 +1500,40 @@ type Operation struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp when the operation was initialized (e.g., 1479816991.349).
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:Operation:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The error code.
-	ErrorCode *string `locationName:"errorCode" type:"string"`
+	ErrorCode *string `json:"lightsail:Operation:ErrorCode" locationName:"errorCode" type:"string"`
 
 	// The error details.
-	ErrorDetails *string `locationName:"errorDetails" type:"string"`
+	ErrorDetails *string `json:"lightsail:Operation:ErrorDetails" locationName:"errorDetails" type:"string"`
 
 	// The ID of the operation.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"lightsail:Operation:Id" locationName:"id" type:"string"`
 
 	// A Boolean value indicating whether the operation is terminal.
-	IsTerminal *bool `locationName:"isTerminal" type:"boolean"`
+	IsTerminal *bool `json:"lightsail:Operation:IsTerminal" locationName:"isTerminal" type:"boolean"`
 
 	// The region and Availability Zone.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:Operation:Location" locationName:"location" type:"structure"`
 
 	// Details about the operation (e.g., Debian-1GB-Ohio-1).
-	OperationDetails *string `locationName:"operationDetails" type:"string"`
+	OperationDetails *string `json:"lightsail:Operation:OperationDetails" locationName:"operationDetails" type:"string"`
 
 	// The type of operation.
-	OperationType OperationType `locationName:"operationType" type:"string" enum:"true"`
+	OperationType OperationType `json:"lightsail:Operation:OperationType" locationName:"operationType" type:"string" enum:"true"`
 
 	// The resource name.
-	ResourceName *string `locationName:"resourceName" type:"string"`
+	ResourceName *string `json:"lightsail:Operation:ResourceName" locationName:"resourceName" type:"string"`
 
 	// The resource type.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:Operation:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The status of the operation.
-	Status OperationStatus `locationName:"status" type:"string" enum:"true"`
+	Status OperationStatus `json:"lightsail:Operation:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The timestamp when the status was changed (e.g., 1479816991.349).
-	StatusChangedAt *time.Time `locationName:"statusChangedAt" type:"timestamp" timestampFormat:"unix"`
+	StatusChangedAt *time.Time `json:"lightsail:Operation:StatusChangedAt" locationName:"statusChangedAt" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1560,7 +1560,7 @@ type PasswordData struct {
 	// continue to return the original ciphertext value. When accessing the instance
 	// using RDP, you need to manually enter the Administrator password after changing
 	// it from the default.
-	Ciphertext *string `locationName:"ciphertext" type:"string"`
+	Ciphertext *string `json:"lightsail:PasswordData:Ciphertext" locationName:"ciphertext" type:"string"`
 
 	// The name of the key pair that you used when creating your instance. If no
 	// key pair name was specified when creating the instance, Lightsail uses the
@@ -1569,7 +1569,7 @@ type PasswordData struct {
 	// If you are using a custom key pair, you need to use your own means of decrypting
 	// your password using the ciphertext. Lightsail creates the ciphertext by encrypting
 	// your password with the public key part of this key pair.
-	KeyPairName *string `locationName:"keyPairName" type:"string"`
+	KeyPairName *string `json:"lightsail:PasswordData:KeyPairName" locationName:"keyPairName" type:"string"`
 }
 
 // String returns the string representation
@@ -1583,13 +1583,13 @@ type PendingMaintenanceAction struct {
 	_ struct{} `type:"structure"`
 
 	// The type of pending database maintenance action.
-	Action *string `locationName:"action" type:"string"`
+	Action *string `json:"lightsail:PendingMaintenanceAction:Action" locationName:"action" type:"string"`
 
 	// The effective date of the pending database maintenance action.
-	CurrentApplyDate *time.Time `locationName:"currentApplyDate" type:"timestamp" timestampFormat:"unix"`
+	CurrentApplyDate *time.Time `json:"lightsail:PendingMaintenanceAction:CurrentApplyDate" locationName:"currentApplyDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Additional detail about the pending database maintenance action.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"lightsail:PendingMaintenanceAction:Description" locationName:"description" type:"string"`
 }
 
 // String returns the string representation
@@ -1603,13 +1603,13 @@ type PendingModifiedRelationalDatabaseValues struct {
 	_ struct{} `type:"structure"`
 
 	// A Boolean value indicating whether automated backup retention is enabled.
-	BackupRetentionEnabled *bool `locationName:"backupRetentionEnabled" type:"boolean"`
+	BackupRetentionEnabled *bool `json:"lightsail:PendingModifiedRelationalDatabaseValues:BackupRetentionEnabled" locationName:"backupRetentionEnabled" type:"boolean"`
 
 	// The database engine version.
-	EngineVersion *string `locationName:"engineVersion" type:"string"`
+	EngineVersion *string `json:"lightsail:PendingModifiedRelationalDatabaseValues:EngineVersion" locationName:"engineVersion" type:"string"`
 
 	// The password for the master user of the database.
-	MasterUserPassword *string `locationName:"masterUserPassword" type:"string"`
+	MasterUserPassword *string `json:"lightsail:PendingModifiedRelationalDatabaseValues:MasterUserPassword" locationName:"masterUserPassword" type:"string"`
 }
 
 // String returns the string representation
@@ -1624,13 +1624,13 @@ type PortInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The first port in the range.
-	FromPort *int64 `locationName:"fromPort" type:"integer"`
+	FromPort *int64 `json:"lightsail:PortInfo:FromPort" locationName:"fromPort" type:"integer"`
 
 	// The protocol.
-	Protocol NetworkProtocol `locationName:"protocol" type:"string" enum:"true"`
+	Protocol NetworkProtocol `json:"lightsail:PortInfo:Protocol" locationName:"protocol" type:"string" enum:"true"`
 
 	// The last port in the range.
-	ToPort *int64 `locationName:"toPort" type:"integer"`
+	ToPort *int64 `json:"lightsail:PortInfo:ToPort" locationName:"toPort" type:"integer"`
 }
 
 // String returns the string representation
@@ -1644,23 +1644,23 @@ type Region struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zones. Follows the format us-east-2a (case-sensitive).
-	AvailabilityZones []AvailabilityZone `locationName:"availabilityZones" type:"list"`
+	AvailabilityZones []AvailabilityZone `json:"lightsail:Region:AvailabilityZones" locationName:"availabilityZones" type:"list"`
 
 	// The continent code (e.g., NA, meaning North America).
-	ContinentCode *string `locationName:"continentCode" type:"string"`
+	ContinentCode *string `json:"lightsail:Region:ContinentCode" locationName:"continentCode" type:"string"`
 
 	// The description of the AWS Region (e.g., This region is recommended to serve
 	// users in the eastern United States and eastern Canada).
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"lightsail:Region:Description" locationName:"description" type:"string"`
 
 	// The display name (e.g., Ohio).
-	DisplayName *string `locationName:"displayName" type:"string"`
+	DisplayName *string `json:"lightsail:Region:DisplayName" locationName:"displayName" type:"string"`
 
 	// The region name (e.g., us-east-2).
-	Name RegionName `locationName:"name" type:"string" enum:"true"`
+	Name RegionName `json:"lightsail:Region:Name" locationName:"name" type:"string" enum:"true"`
 
 	// The Availability Zones for databases. Follows the format us-east-2a (case-sensitive).
-	RelationalDatabaseAvailabilityZones []AvailabilityZone `locationName:"relationalDatabaseAvailabilityZones" type:"list"`
+	RelationalDatabaseAvailabilityZones []AvailabilityZone `json:"lightsail:Region:RelationalDatabaseAvailabilityZones" locationName:"relationalDatabaseAvailabilityZones" type:"list"`
 }
 
 // String returns the string representation
@@ -1674,93 +1674,93 @@ type RelationalDatabase struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the database.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:RelationalDatabase:Arn" locationName:"arn" type:"string"`
 
 	// A Boolean value indicating whether automated backup retention is enabled
 	// for the database.
-	BackupRetentionEnabled *bool `locationName:"backupRetentionEnabled" type:"boolean"`
+	BackupRetentionEnabled *bool `json:"lightsail:RelationalDatabase:BackupRetentionEnabled" locationName:"backupRetentionEnabled" type:"boolean"`
 
 	// The timestamp when the database was created. Formatted in Unix time.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:RelationalDatabase:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The database software (for example, MySQL).
-	Engine *string `locationName:"engine" type:"string"`
+	Engine *string `json:"lightsail:RelationalDatabase:Engine" locationName:"engine" type:"string"`
 
 	// The database engine version (for example, 5.7.23).
-	EngineVersion *string `locationName:"engineVersion" type:"string"`
+	EngineVersion *string `json:"lightsail:RelationalDatabase:EngineVersion" locationName:"engineVersion" type:"string"`
 
 	// Describes the hardware of the database.
-	Hardware *RelationalDatabaseHardware `locationName:"hardware" type:"structure"`
+	Hardware *RelationalDatabaseHardware `json:"lightsail:RelationalDatabase:Hardware" locationName:"hardware" type:"structure"`
 
 	// The latest point in time to which the database can be restored. Formatted
 	// in Unix time.
-	LatestRestorableTime *time.Time `locationName:"latestRestorableTime" type:"timestamp" timestampFormat:"unix"`
+	LatestRestorableTime *time.Time `json:"lightsail:RelationalDatabase:LatestRestorableTime" locationName:"latestRestorableTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Region name and Availability Zone where the database is located.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:RelationalDatabase:Location" locationName:"location" type:"structure"`
 
 	// The name of the master database created when the Lightsail database resource
 	// is created.
-	MasterDatabaseName *string `locationName:"masterDatabaseName" type:"string"`
+	MasterDatabaseName *string `json:"lightsail:RelationalDatabase:MasterDatabaseName" locationName:"masterDatabaseName" type:"string"`
 
 	// The master endpoint for the database.
-	MasterEndpoint *RelationalDatabaseEndpoint `locationName:"masterEndpoint" type:"structure"`
+	MasterEndpoint *RelationalDatabaseEndpoint `json:"lightsail:RelationalDatabase:MasterEndpoint" locationName:"masterEndpoint" type:"structure"`
 
 	// The master user name of the database.
-	MasterUsername *string `locationName:"masterUsername" type:"string"`
+	MasterUsername *string `json:"lightsail:RelationalDatabase:MasterUsername" locationName:"masterUsername" type:"string"`
 
 	// The unique name of the database resource in Lightsail.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:RelationalDatabase:Name" locationName:"name" type:"string"`
 
 	// The status of parameter updates for the database.
-	ParameterApplyStatus *string `locationName:"parameterApplyStatus" type:"string"`
+	ParameterApplyStatus *string `json:"lightsail:RelationalDatabase:ParameterApplyStatus" locationName:"parameterApplyStatus" type:"string"`
 
 	// Describes the pending maintenance actions for the database.
-	PendingMaintenanceActions []PendingMaintenanceAction `locationName:"pendingMaintenanceActions" type:"list"`
+	PendingMaintenanceActions []PendingMaintenanceAction `json:"lightsail:RelationalDatabase:PendingMaintenanceActions" locationName:"pendingMaintenanceActions" type:"list"`
 
 	// Describes pending database value modifications.
-	PendingModifiedValues *PendingModifiedRelationalDatabaseValues `locationName:"pendingModifiedValues" type:"structure"`
+	PendingModifiedValues *PendingModifiedRelationalDatabaseValues `json:"lightsail:RelationalDatabase:PendingModifiedValues" locationName:"pendingModifiedValues" type:"structure"`
 
 	// The daily time range during which automated backups are created for the database
 	// (for example, 16:00-16:30).
-	PreferredBackupWindow *string `locationName:"preferredBackupWindow" type:"string"`
+	PreferredBackupWindow *string `json:"lightsail:RelationalDatabase:PreferredBackupWindow" locationName:"preferredBackupWindow" type:"string"`
 
 	// The weekly time range during which system maintenance can occur on the database.
 	//
 	// In the format ddd:hh24:mi-ddd:hh24:mi. For example, Tue:17:00-Tue:17:30.
-	PreferredMaintenanceWindow *string `locationName:"preferredMaintenanceWindow" type:"string"`
+	PreferredMaintenanceWindow *string `json:"lightsail:RelationalDatabase:PreferredMaintenanceWindow" locationName:"preferredMaintenanceWindow" type:"string"`
 
 	// A Boolean value indicating whether the database is publicly accessible.
-	PubliclyAccessible *bool `locationName:"publiclyAccessible" type:"boolean"`
+	PubliclyAccessible *bool `json:"lightsail:RelationalDatabase:PubliclyAccessible" locationName:"publiclyAccessible" type:"boolean"`
 
 	// The blueprint ID for the database. A blueprint describes the major engine
 	// version of a database.
-	RelationalDatabaseBlueprintId *string `locationName:"relationalDatabaseBlueprintId" type:"string"`
+	RelationalDatabaseBlueprintId *string `json:"lightsail:RelationalDatabase:RelationalDatabaseBlueprintId" locationName:"relationalDatabaseBlueprintId" type:"string"`
 
 	// The bundle ID for the database. A bundle describes the performance specifications
 	// for your database.
-	RelationalDatabaseBundleId *string `locationName:"relationalDatabaseBundleId" type:"string"`
+	RelationalDatabaseBundleId *string `json:"lightsail:RelationalDatabase:RelationalDatabaseBundleId" locationName:"relationalDatabaseBundleId" type:"string"`
 
 	// The Lightsail resource type for the database (for example, RelationalDatabase).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:RelationalDatabase:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// Describes the secondary Availability Zone of a high availability database.
 	//
 	// The secondary database is used for failover support of a high availability
 	// database.
-	SecondaryAvailabilityZone *string `locationName:"secondaryAvailabilityZone" type:"string"`
+	SecondaryAvailabilityZone *string `json:"lightsail:RelationalDatabase:SecondaryAvailabilityZone" locationName:"secondaryAvailabilityZone" type:"string"`
 
 	// Describes the current state of the database.
-	State *string `locationName:"state" type:"string"`
+	State *string `json:"lightsail:RelationalDatabase:State" locationName:"state" type:"string"`
 
 	// The support code for the database. Include this code in your email to support
 	// when you have questions about a database in Lightsail. This code enables
 	// our support team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:RelationalDatabase:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:RelationalDatabase:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -1775,23 +1775,23 @@ type RelationalDatabaseBlueprint struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for the database blueprint.
-	BlueprintId *string `locationName:"blueprintId" type:"string"`
+	BlueprintId *string `json:"lightsail:RelationalDatabaseBlueprint:BlueprintId" locationName:"blueprintId" type:"string"`
 
 	// The database software of the database blueprint (for example, MySQL).
-	Engine RelationalDatabaseEngine `locationName:"engine" type:"string" enum:"true"`
+	Engine RelationalDatabaseEngine `json:"lightsail:RelationalDatabaseBlueprint:Engine" locationName:"engine" type:"string" enum:"true"`
 
 	// The description of the database engine for the database blueprint.
-	EngineDescription *string `locationName:"engineDescription" type:"string"`
+	EngineDescription *string `json:"lightsail:RelationalDatabaseBlueprint:EngineDescription" locationName:"engineDescription" type:"string"`
 
 	// The database engine version for the database blueprint (for example, 5.7.23).
-	EngineVersion *string `locationName:"engineVersion" type:"string"`
+	EngineVersion *string `json:"lightsail:RelationalDatabaseBlueprint:EngineVersion" locationName:"engineVersion" type:"string"`
 
 	// The description of the database engine version for the database blueprint.
-	EngineVersionDescription *string `locationName:"engineVersionDescription" type:"string"`
+	EngineVersionDescription *string `json:"lightsail:RelationalDatabaseBlueprint:EngineVersionDescription" locationName:"engineVersionDescription" type:"string"`
 
 	// A Boolean value indicating whether the engine version is the default for
 	// the database blueprint.
-	IsEngineDefault *bool `locationName:"isEngineDefault" type:"boolean"`
+	IsEngineDefault *bool `json:"lightsail:RelationalDatabaseBlueprint:IsEngineDefault" locationName:"isEngineDefault" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1806,31 +1806,31 @@ type RelationalDatabaseBundle struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for the database bundle.
-	BundleId *string `locationName:"bundleId" type:"string"`
+	BundleId *string `json:"lightsail:RelationalDatabaseBundle:BundleId" locationName:"bundleId" type:"string"`
 
 	// The number of virtual CPUs (vCPUs) for the database bundle.
-	CpuCount *int64 `locationName:"cpuCount" type:"integer"`
+	CpuCount *int64 `json:"lightsail:RelationalDatabaseBundle:CpuCount" locationName:"cpuCount" type:"integer"`
 
 	// The size of the disk for the database bundle.
-	DiskSizeInGb *int64 `locationName:"diskSizeInGb" type:"integer"`
+	DiskSizeInGb *int64 `json:"lightsail:RelationalDatabaseBundle:DiskSizeInGb" locationName:"diskSizeInGb" type:"integer"`
 
 	// A Boolean value indicating whether the database bundle is active.
-	IsActive *bool `locationName:"isActive" type:"boolean"`
+	IsActive *bool `json:"lightsail:RelationalDatabaseBundle:IsActive" locationName:"isActive" type:"boolean"`
 
 	// A Boolean value indicating whether the database bundle is encrypted.
-	IsEncrypted *bool `locationName:"isEncrypted" type:"boolean"`
+	IsEncrypted *bool `json:"lightsail:RelationalDatabaseBundle:IsEncrypted" locationName:"isEncrypted" type:"boolean"`
 
 	// The name for the database bundle.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:RelationalDatabaseBundle:Name" locationName:"name" type:"string"`
 
 	// The cost of the database bundle in US currency.
-	Price *float64 `locationName:"price" type:"float"`
+	Price *float64 `json:"lightsail:RelationalDatabaseBundle:Price" locationName:"price" type:"float"`
 
 	// The amount of RAM in GB (for example, 2.0) for the database bundle.
-	RamSizeInGb *float64 `locationName:"ramSizeInGb" type:"float"`
+	RamSizeInGb *float64 `json:"lightsail:RelationalDatabaseBundle:RamSizeInGb" locationName:"ramSizeInGb" type:"float"`
 
 	// The data transfer rate per month in GB for the database bundle.
-	TransferPerMonthInGb *int64 `locationName:"transferPerMonthInGb" type:"integer"`
+	TransferPerMonthInGb *int64 `json:"lightsail:RelationalDatabaseBundle:TransferPerMonthInGb" locationName:"transferPerMonthInGb" type:"integer"`
 }
 
 // String returns the string representation
@@ -1844,10 +1844,10 @@ type RelationalDatabaseEndpoint struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the DNS address of the database.
-	Address *string `locationName:"address" type:"string"`
+	Address *string `json:"lightsail:RelationalDatabaseEndpoint:Address" locationName:"address" type:"string"`
 
 	// Specifies the port that the database is listening on.
-	Port *int64 `locationName:"port" type:"integer"`
+	Port *int64 `json:"lightsail:RelationalDatabaseEndpoint:Port" locationName:"port" type:"integer"`
 }
 
 // String returns the string representation
@@ -1861,16 +1861,16 @@ type RelationalDatabaseEvent struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp when the database event was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:RelationalDatabaseEvent:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The category that the database event belongs to.
-	EventCategories []string `locationName:"eventCategories" type:"list"`
+	EventCategories []string `json:"lightsail:RelationalDatabaseEvent:EventCategories" locationName:"eventCategories" type:"list"`
 
 	// The message of the database event.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"lightsail:RelationalDatabaseEvent:Message" locationName:"message" type:"string"`
 
 	// The database that the database event relates to.
-	Resource *string `locationName:"resource" type:"string"`
+	Resource *string `json:"lightsail:RelationalDatabaseEvent:Resource" locationName:"resource" type:"string"`
 }
 
 // String returns the string representation
@@ -1884,13 +1884,13 @@ type RelationalDatabaseHardware struct {
 	_ struct{} `type:"structure"`
 
 	// The number of vCPUs for the database.
-	CpuCount *int64 `locationName:"cpuCount" type:"integer"`
+	CpuCount *int64 `json:"lightsail:RelationalDatabaseHardware:CpuCount" locationName:"cpuCount" type:"integer"`
 
 	// The size of the disk for the database.
-	DiskSizeInGb *int64 `locationName:"diskSizeInGb" type:"integer"`
+	DiskSizeInGb *int64 `json:"lightsail:RelationalDatabaseHardware:DiskSizeInGb" locationName:"diskSizeInGb" type:"integer"`
 
 	// The amount of RAM in GB for the database.
-	RamSizeInGb *float64 `locationName:"ramSizeInGb" type:"float"`
+	RamSizeInGb *float64 `json:"lightsail:RelationalDatabaseHardware:RamSizeInGb" locationName:"ramSizeInGb" type:"float"`
 }
 
 // String returns the string representation
@@ -1904,30 +1904,30 @@ type RelationalDatabaseParameter struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the valid range of values for the parameter.
-	AllowedValues *string `locationName:"allowedValues" type:"string"`
+	AllowedValues *string `json:"lightsail:RelationalDatabaseParameter:AllowedValues" locationName:"allowedValues" type:"string"`
 
 	// Indicates when parameter updates are applied.
 	//
 	// Can be immediate or pending-reboot.
-	ApplyMethod *string `locationName:"applyMethod" type:"string"`
+	ApplyMethod *string `json:"lightsail:RelationalDatabaseParameter:ApplyMethod" locationName:"applyMethod" type:"string"`
 
 	// Specifies the engine-specific parameter type.
-	ApplyType *string `locationName:"applyType" type:"string"`
+	ApplyType *string `json:"lightsail:RelationalDatabaseParameter:ApplyType" locationName:"applyType" type:"string"`
 
 	// Specifies the valid data type for the parameter.
-	DataType *string `locationName:"dataType" type:"string"`
+	DataType *string `json:"lightsail:RelationalDatabaseParameter:DataType" locationName:"dataType" type:"string"`
 
 	// Provides a description of the parameter.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"lightsail:RelationalDatabaseParameter:Description" locationName:"description" type:"string"`
 
 	// A Boolean value indicating whether the parameter can be modified.
-	IsModifiable *bool `locationName:"isModifiable" type:"boolean"`
+	IsModifiable *bool `json:"lightsail:RelationalDatabaseParameter:IsModifiable" locationName:"isModifiable" type:"boolean"`
 
 	// Specifies the name of the parameter.
-	ParameterName *string `locationName:"parameterName" type:"string"`
+	ParameterName *string `json:"lightsail:RelationalDatabaseParameter:ParameterName" locationName:"parameterName" type:"string"`
 
 	// Specifies the value of the parameter.
-	ParameterValue *string `locationName:"parameterValue" type:"string"`
+	ParameterValue *string `json:"lightsail:RelationalDatabaseParameter:ParameterValue" locationName:"parameterValue" type:"string"`
 }
 
 // String returns the string representation
@@ -1941,55 +1941,55 @@ type RelationalDatabaseSnapshot struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the database snapshot.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:RelationalDatabaseSnapshot:Arn" locationName:"arn" type:"string"`
 
 	// The timestamp when the database snapshot was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:RelationalDatabaseSnapshot:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The software of the database snapshot (for example, MySQL)
-	Engine *string `locationName:"engine" type:"string"`
+	Engine *string `json:"lightsail:RelationalDatabaseSnapshot:Engine" locationName:"engine" type:"string"`
 
 	// The database engine version for the database snapshot (for example, 5.7.23).
-	EngineVersion *string `locationName:"engineVersion" type:"string"`
+	EngineVersion *string `json:"lightsail:RelationalDatabaseSnapshot:EngineVersion" locationName:"engineVersion" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the database from which the database snapshot
 	// was created.
-	FromRelationalDatabaseArn *string `locationName:"fromRelationalDatabaseArn" type:"string"`
+	FromRelationalDatabaseArn *string `json:"lightsail:RelationalDatabaseSnapshot:FromRelationalDatabaseArn" locationName:"fromRelationalDatabaseArn" type:"string"`
 
 	// The blueprint ID of the database from which the database snapshot was created.
 	// A blueprint describes the major engine version of a database.
-	FromRelationalDatabaseBlueprintId *string `locationName:"fromRelationalDatabaseBlueprintId" type:"string"`
+	FromRelationalDatabaseBlueprintId *string `json:"lightsail:RelationalDatabaseSnapshot:FromRelationalDatabaseBlueprintId" locationName:"fromRelationalDatabaseBlueprintId" type:"string"`
 
 	// The bundle ID of the database from which the database snapshot was created.
-	FromRelationalDatabaseBundleId *string `locationName:"fromRelationalDatabaseBundleId" type:"string"`
+	FromRelationalDatabaseBundleId *string `json:"lightsail:RelationalDatabaseSnapshot:FromRelationalDatabaseBundleId" locationName:"fromRelationalDatabaseBundleId" type:"string"`
 
 	// The name of the source database from which the database snapshot was created.
-	FromRelationalDatabaseName *string `locationName:"fromRelationalDatabaseName" type:"string"`
+	FromRelationalDatabaseName *string `json:"lightsail:RelationalDatabaseSnapshot:FromRelationalDatabaseName" locationName:"fromRelationalDatabaseName" type:"string"`
 
 	// The Region name and Availability Zone where the database snapshot is located.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:RelationalDatabaseSnapshot:Location" locationName:"location" type:"structure"`
 
 	// The name of the database snapshot.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:RelationalDatabaseSnapshot:Name" locationName:"name" type:"string"`
 
 	// The Lightsail resource type.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:RelationalDatabaseSnapshot:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The size of the disk in GB (for example, 32) for the database snapshot.
-	SizeInGb *int64 `locationName:"sizeInGb" type:"integer"`
+	SizeInGb *int64 `json:"lightsail:RelationalDatabaseSnapshot:SizeInGb" locationName:"sizeInGb" type:"integer"`
 
 	// The state of the database snapshot.
-	State *string `locationName:"state" type:"string"`
+	State *string `json:"lightsail:RelationalDatabaseSnapshot:State" locationName:"state" type:"string"`
 
 	// The support code for the database snapshot. Include this code in your email
 	// to support when you have questions about a database snapshot in Lightsail.
 	// This code enables our support team to look up your Lightsail information
 	// more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:RelationalDatabaseSnapshot:SupportCode" locationName:"supportCode" type:"string"`
 
 	// The tag keys and optional values for the resource. For more information about
 	// tags in Lightsail, see the Lightsail Dev Guide (https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags).
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"lightsail:RelationalDatabaseSnapshot:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -2003,10 +2003,10 @@ type ResourceLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"lightsail:ResourceLocation:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The AWS Region name.
-	RegionName RegionName `locationName:"regionName" type:"string" enum:"true"`
+	RegionName RegionName `json:"lightsail:ResourceLocation:RegionName" locationName:"regionName" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2020,33 +2020,33 @@ type StaticIp struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the static IP (e.g., arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE).
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"lightsail:StaticIp:Arn" locationName:"arn" type:"string"`
 
 	// The instance where the static IP is attached (e.g., Amazon_Linux-1GB-Ohio-1).
-	AttachedTo *string `locationName:"attachedTo" type:"string"`
+	AttachedTo *string `json:"lightsail:StaticIp:AttachedTo" locationName:"attachedTo" type:"string"`
 
 	// The timestamp when the static IP was created (e.g., 1479735304.222).
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"lightsail:StaticIp:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The static IP address.
-	IpAddress *string `locationName:"ipAddress" type:"string"`
+	IpAddress *string `json:"lightsail:StaticIp:IpAddress" locationName:"ipAddress" type:"string"`
 
 	// A Boolean value indicating whether the static IP is attached.
-	IsAttached *bool `locationName:"isAttached" type:"boolean"`
+	IsAttached *bool `json:"lightsail:StaticIp:IsAttached" locationName:"isAttached" type:"boolean"`
 
 	// The region and Availability Zone where the static IP was created.
-	Location *ResourceLocation `locationName:"location" type:"structure"`
+	Location *ResourceLocation `json:"lightsail:StaticIp:Location" locationName:"location" type:"structure"`
 
 	// The name of the static IP (e.g., StaticIP-Ohio-EXAMPLE).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"lightsail:StaticIp:Name" locationName:"name" type:"string"`
 
 	// The resource type (usually StaticIp).
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"lightsail:StaticIp:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// The support code. Include this code in your email to support when you have
 	// questions about an instance or another resource in Lightsail. This code enables
 	// our support team to look up your Lightsail information more easily.
-	SupportCode *string `locationName:"supportCode" type:"string"`
+	SupportCode *string `json:"lightsail:StaticIp:SupportCode" locationName:"supportCode" type:"string"`
 }
 
 // String returns the string representation
@@ -2066,13 +2066,13 @@ type Tag struct {
 	//
 	// Constraints: Tag keys accept a maximum of 128 letters, numbers, spaces in
 	// UTF-8, or the following characters: + - = . _ : / @
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"lightsail:Tag:Key" locationName:"key" type:"string"`
 
 	// The value of the tag.
 	//
 	// Constraints: Tag values accept a maximum of 256 letters, numbers, spaces
 	// in UTF-8, or the following characters: + - = . _ : / @
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"lightsail:Tag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation

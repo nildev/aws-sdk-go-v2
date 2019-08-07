@@ -123,16 +123,16 @@ type CreateVolumeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the volume attachments.
-	Attachments []VolumeAttachment `locationName:"attachmentSet" locationNameList:"item" type:"list"`
+	Attachments []VolumeAttachment `json:"ec2:CreateVolumeOutput:Attachments" locationName:"attachmentSet" locationNameList:"item" type:"list"`
 
 	// The Availability Zone for the volume.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"ec2:CreateVolumeOutput:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The time stamp when volume creation was initiated.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
+	CreateTime *time.Time `json:"ec2:CreateVolumeOutput:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates whether the volume is encrypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:CreateVolumeOutput:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	// For Provisioned IOPS SSD volumes, this represents the number of IOPS that
@@ -149,32 +149,32 @@ type CreateVolumeOutput struct {
 	//
 	// Condition: This parameter is required for requests to create io1 volumes;
 	// it is not used in requests to create gp2, st1, sc1, or standard volumes.
-	Iops *int64 `locationName:"iops" type:"integer"`
+	Iops *int64 `json:"ec2:CreateVolumeOutput:Iops" locationName:"iops" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS)
 	// customer master key (CMK) that was used to protect the volume encryption
 	// key for the volume.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:CreateVolumeOutput:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The size of the volume, in GiBs.
-	Size *int64 `locationName:"size" type:"integer"`
+	Size *int64 `json:"ec2:CreateVolumeOutput:Size" locationName:"size" type:"integer"`
 
 	// The snapshot from which the volume was created, if applicable.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:CreateVolumeOutput:SnapshotId" locationName:"snapshotId" type:"string"`
 
 	// The volume state.
-	State VolumeState `locationName:"status" type:"string" enum:"true"`
+	State VolumeState `json:"ec2:CreateVolumeOutput:State" locationName:"status" type:"string" enum:"true"`
 
 	// Any tags assigned to the volume.
-	Tags []Tag `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []Tag `json:"ec2:CreateVolumeOutput:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	// The ID of the volume.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:CreateVolumeOutput:VolumeId" locationName:"volumeId" type:"string"`
 
 	// The volume type. This can be gp2 for General Purpose SSD, io1 for Provisioned
 	// IOPS SSD, st1 for Throughput Optimized HDD, sc1 for Cold HDD, or standard
 	// for Magnetic volumes.
-	VolumeType VolumeType `locationName:"volumeType" type:"string" enum:"true"`
+	VolumeType VolumeType `json:"ec2:CreateVolumeOutput:VolumeType" locationName:"volumeType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

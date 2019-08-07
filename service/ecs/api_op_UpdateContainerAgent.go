@@ -49,7 +49,7 @@ type UpdateContainerAgentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The container instance for which the container agent was updated.
-	ContainerInstance *ContainerInstance `locationName:"containerInstance" type:"structure"`
+	ContainerInstance *ContainerInstance `json:"ecs:UpdateContainerAgentOutput:ContainerInstance" locationName:"containerInstance" type:"structure"`
 }
 
 // String returns the string representation

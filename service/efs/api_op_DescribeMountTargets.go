@@ -87,16 +87,16 @@ type DescribeMountTargetsOutput struct {
 
 	// If the request included the Marker, the response returns that value in this
 	// field.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticfilesystem:DescribeMountTargetsOutput:Marker" type:"string"`
 
 	// Returns the file system's mount targets as an array of MountTargetDescription
 	// objects.
-	MountTargets []MountTargetDescription `type:"list"`
+	MountTargets []MountTargetDescription `json:"elasticfilesystem:DescribeMountTargetsOutput:MountTargets" type:"list"`
 
 	// If a value is present, there are more mount targets to return. In a subsequent
 	// request, you can provide Marker in your request with this value to retrieve
 	// the next set of mount targets.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"elasticfilesystem:DescribeMountTargetsOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

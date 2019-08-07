@@ -69,11 +69,11 @@ type DescribeDatastoreOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the data store.
-	Datastore *Datastore `locationName:"datastore" type:"structure"`
+	Datastore *Datastore `json:"iotanalytics:DescribeDatastoreOutput:Datastore" locationName:"datastore" type:"structure"`
 
 	// Additional statistical information about the data store. Included if the
 	// 'includeStatistics' parameter is set to true in the request.
-	Statistics *DatastoreStatistics `locationName:"statistics" type:"structure"`
+	Statistics *DatastoreStatistics `json:"iotanalytics:DescribeDatastoreOutput:Statistics" locationName:"statistics" type:"structure"`
 }
 
 // String returns the string representation

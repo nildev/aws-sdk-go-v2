@@ -30,7 +30,7 @@ type DeleteReportDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the deletion was successful or not.
-	ResponseMessage *string `type:"string"`
+	ResponseMessage *string `json:"cur:DeleteReportDefinitionOutput:ResponseMessage" type:"string"`
 }
 
 // String returns the string representation

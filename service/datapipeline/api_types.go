@@ -22,13 +22,13 @@ type Field struct {
 	// The field identifier.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"datapipeline:Field:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The field value, expressed as the identifier of another object.
-	RefValue *string `locationName:"refValue" min:"1" type:"string"`
+	RefValue *string `json:"datapipeline:Field:RefValue" locationName:"refValue" min:"1" type:"string"`
 
 	// The field value, expressed as a String.
-	StringValue *string `locationName:"stringValue" type:"string"`
+	StringValue *string `json:"datapipeline:Field:StringValue" locationName:"stringValue" type:"string"`
 }
 
 // String returns the string representation
@@ -69,11 +69,11 @@ type InstanceIdentity struct {
 	// A description of an EC2 instance that is generated when the instance is launched
 	// and exposed to the instance via the instance metadata service in the form
 	// of a JSON representation of an object.
-	Document *string `locationName:"document" type:"string"`
+	Document *string `json:"datapipeline:InstanceIdentity:Document" locationName:"document" type:"string"`
 
 	// A signature which can be used to verify the accuracy and authenticity of
 	// the information provided in the instance identity document.
-	Signature *string `locationName:"signature" type:"string"`
+	Signature *string `json:"datapipeline:InstanceIdentity:Signature" locationName:"signature" type:"string"`
 }
 
 // String returns the string representation
@@ -130,10 +130,10 @@ type Operator struct {
 	// only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline.
 	// User-defined fields that you add to a pipeline should prefix their name with
 	// the string "my".
-	Type OperatorType `locationName:"type" type:"string" enum:"true"`
+	Type OperatorType `json:"datapipeline:Operator:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The value that the actual field value will be compared with.
-	Values []string `locationName:"values" type:"list"`
+	Values []string `json:"datapipeline:Operator:Values" locationName:"values" type:"list"`
 }
 
 // String returns the string representation
@@ -149,12 +149,12 @@ type ParameterAttribute struct {
 	// The field identifier.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"datapipeline:ParameterAttribute:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The field value, expressed as a String.
 	//
 	// StringValue is a required field
-	StringValue *string `locationName:"stringValue" type:"string" required:"true"`
+	StringValue *string `json:"datapipeline:ParameterAttribute:StringValue" locationName:"stringValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -191,12 +191,12 @@ type ParameterObject struct {
 	// The attributes of the parameter object.
 	//
 	// Attributes is a required field
-	Attributes []ParameterAttribute `locationName:"attributes" type:"list" required:"true"`
+	Attributes []ParameterAttribute `json:"datapipeline:ParameterObject:Attributes" locationName:"attributes" type:"list" required:"true"`
 
 	// The ID of the parameter object.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"1" type:"string" required:"true"`
+	Id *string `json:"datapipeline:ParameterObject:Id" locationName:"id" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -240,12 +240,12 @@ type ParameterValue struct {
 	// The ID of the parameter value.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"1" type:"string" required:"true"`
+	Id *string `json:"datapipeline:ParameterValue:Id" locationName:"id" min:"1" type:"string" required:"true"`
 
 	// The field value, expressed as a String.
 	//
 	// StringValue is a required field
-	StringValue *string `locationName:"stringValue" type:"string" required:"true"`
+	StringValue *string `json:"datapipeline:ParameterValue:StringValue" locationName:"stringValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -280,30 +280,30 @@ type PipelineDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Description of the pipeline.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"datapipeline:PipelineDescription:Description" locationName:"description" type:"string"`
 
 	// A list of read-only fields that contain metadata about the pipeline: @userId,
 	// @accountId, and @pipelineState.
 	//
 	// Fields is a required field
-	Fields []Field `locationName:"fields" type:"list" required:"true"`
+	Fields []Field `json:"datapipeline:PipelineDescription:Fields" locationName:"fields" type:"list" required:"true"`
 
 	// The name of the pipeline.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"datapipeline:PipelineDescription:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The pipeline identifier that was assigned by AWS Data Pipeline. This is a
 	// string of the form df-297EG78HU43EEXAMPLE.
 	//
 	// PipelineId is a required field
-	PipelineId *string `locationName:"pipelineId" min:"1" type:"string" required:"true"`
+	PipelineId *string `json:"datapipeline:PipelineDescription:PipelineId" locationName:"pipelineId" min:"1" type:"string" required:"true"`
 
 	// A list of tags to associated with a pipeline. Tags let you control access
 	// to pipelines. For more information, see Controlling User Access to Pipelines
 	// (http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html)
 	// in the AWS Data Pipeline Developer Guide.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"datapipeline:PipelineDescription:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -318,10 +318,10 @@ type PipelineIdName struct {
 
 	// The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
 	// string of the form df-297EG78HU43EEXAMPLE.
-	Id *string `locationName:"id" min:"1" type:"string"`
+	Id *string `json:"datapipeline:PipelineIdName:Id" locationName:"id" min:"1" type:"string"`
 
 	// The name of the pipeline.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"datapipeline:PipelineIdName:Name" locationName:"name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -339,17 +339,17 @@ type PipelineObject struct {
 	// Key-value pairs that define the properties of the object.
 	//
 	// Fields is a required field
-	Fields []Field `locationName:"fields" type:"list" required:"true"`
+	Fields []Field `json:"datapipeline:PipelineObject:Fields" locationName:"fields" type:"list" required:"true"`
 
 	// The ID of the object.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"1" type:"string" required:"true"`
+	Id *string `json:"datapipeline:PipelineObject:Id" locationName:"id" min:"1" type:"string" required:"true"`
 
 	// The name of the object.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"datapipeline:PipelineObject:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -399,7 +399,7 @@ type Query struct {
 
 	// List of selectors that define the query. An object must satisfy all of the
 	// selectors to match the query.
-	Selectors []Selector `locationName:"selectors" type:"list"`
+	Selectors []Selector `json:"datapipeline:Query:Selectors" locationName:"selectors" type:"list"`
 }
 
 // String returns the string representation
@@ -417,11 +417,11 @@ type Selector struct {
 	// is the "key" portion of the field definition in the pipeline definition syntax
 	// that is used by the AWS Data Pipeline API. If the field is not set on the
 	// object, the condition fails.
-	FieldName *string `locationName:"fieldName" type:"string"`
+	FieldName *string `json:"datapipeline:Selector:FieldName" locationName:"fieldName" type:"string"`
 
 	// Contains a logical operation for comparing the value of a field with a specified
 	// value.
-	Operator *Operator `locationName:"operator" type:"structure"`
+	Operator *Operator `json:"datapipeline:Selector:Operator" locationName:"operator" type:"structure"`
 }
 
 // String returns the string representation
@@ -443,14 +443,14 @@ type Tag struct {
 	// in the AWS Data Pipeline Developer Guide.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"datapipeline:Tag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The optional value portion of a tag defined by a user. For more information,
 	// see Controlling User Access to Pipelines (http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html)
 	// in the AWS Data Pipeline Developer Guide.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"datapipeline:Tag:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -486,18 +486,18 @@ type TaskObject struct {
 
 	// The ID of the pipeline task attempt object. AWS Data Pipeline uses this value
 	// to track how many times a task is attempted.
-	AttemptId *string `locationName:"attemptId" min:"1" type:"string"`
+	AttemptId *string `json:"datapipeline:TaskObject:AttemptId" locationName:"attemptId" min:"1" type:"string"`
 
 	// Connection information for the location where the task runner will publish
 	// the output of the task.
-	Objects map[string]PipelineObject `locationName:"objects" type:"map"`
+	Objects map[string]PipelineObject `json:"datapipeline:TaskObject:Objects" locationName:"objects" type:"map"`
 
 	// The ID of the pipeline that provided the task.
-	PipelineId *string `locationName:"pipelineId" min:"1" type:"string"`
+	PipelineId *string `json:"datapipeline:TaskObject:PipelineId" locationName:"pipelineId" min:"1" type:"string"`
 
 	// An internal identifier for the task. This ID is passed to the SetTaskStatus
 	// and ReportTaskProgress actions.
-	TaskId *string `locationName:"taskId" min:"1" type:"string"`
+	TaskId *string `json:"datapipeline:TaskObject:TaskId" locationName:"taskId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -513,10 +513,10 @@ type ValidationError struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the validation error.
-	Errors []string `locationName:"errors" type:"list"`
+	Errors []string `json:"datapipeline:ValidationError:Errors" locationName:"errors" type:"list"`
 
 	// The identifier of the object that contains the validation error.
-	Id *string `locationName:"id" min:"1" type:"string"`
+	Id *string `json:"datapipeline:ValidationError:Id" locationName:"id" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -532,10 +532,10 @@ type ValidationWarning struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the object that contains the validation warning.
-	Id *string `locationName:"id" min:"1" type:"string"`
+	Id *string `json:"datapipeline:ValidationWarning:Id" locationName:"id" min:"1" type:"string"`
 
 	// A description of the validation warning.
-	Warnings []string `locationName:"warnings" type:"list"`
+	Warnings []string `json:"datapipeline:ValidationWarning:Warnings" locationName:"warnings" type:"list"`
 }
 
 // String returns the string representation

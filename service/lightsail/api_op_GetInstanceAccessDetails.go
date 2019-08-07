@@ -47,7 +47,7 @@ type GetInstanceAccessDetailsOutput struct {
 
 	// An array of key-value pairs containing information about a get instance access
 	// request.
-	AccessDetails *InstanceAccessDetails `locationName:"accessDetails" type:"structure"`
+	AccessDetails *InstanceAccessDetails `json:"lightsail:GetInstanceAccessDetailsOutput:AccessDetails" locationName:"accessDetails" type:"structure"`
 }
 
 // String returns the string representation

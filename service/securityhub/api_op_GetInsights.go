@@ -83,10 +83,10 @@ type GetInsightsOutput struct {
 	// The insights returned by the operation.
 	//
 	// Insights is a required field
-	Insights []Insight `type:"list" required:"true"`
+	Insights []Insight `json:"securityhub:GetInsightsOutput:Insights" type:"list" required:"true"`
 
 	// The token that is required for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"securityhub:GetInsightsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

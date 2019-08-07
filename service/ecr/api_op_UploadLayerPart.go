@@ -89,16 +89,16 @@ type UploadLayerPartOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The integer value of the last byte received in the request.
-	LastByteReceived *int64 `locationName:"lastByteReceived" type:"long"`
+	LastByteReceived *int64 `json:"api.ecr:UploadLayerPartOutput:LastByteReceived" locationName:"lastByteReceived" type:"long"`
 
 	// The registry ID associated with the request.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:UploadLayerPartOutput:RegistryId" locationName:"registryId" type:"string"`
 
 	// The repository name associated with the request.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:UploadLayerPartOutput:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 
 	// The upload ID associated with the request.
-	UploadId *string `locationName:"uploadId" type:"string"`
+	UploadId *string `json:"api.ecr:UploadLayerPartOutput:UploadId" locationName:"uploadId" type:"string"`
 }
 
 // String returns the string representation

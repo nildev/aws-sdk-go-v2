@@ -54,10 +54,10 @@ type ListIdentityPoolsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identity pools returned by the ListIdentityPools action.
-	IdentityPools []IdentityPoolShortDescription `type:"list"`
+	IdentityPools []IdentityPoolShortDescription `json:"cognito-identity:ListIdentityPoolsOutput:IdentityPools" type:"list"`
 
 	// A pagination token.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-identity:ListIdentityPoolsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

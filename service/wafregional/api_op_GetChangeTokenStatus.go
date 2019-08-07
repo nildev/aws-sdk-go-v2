@@ -47,7 +47,7 @@ type GetChangeTokenStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the change token.
-	ChangeTokenStatus ChangeTokenStatus `type:"string" enum:"true"`
+	ChangeTokenStatus ChangeTokenStatus `json:"waf-regional:GetChangeTokenStatusOutput:ChangeTokenStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

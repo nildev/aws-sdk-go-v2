@@ -60,7 +60,7 @@ type GetConnectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested connection definition.
-	Connection *Connection `type:"structure"`
+	Connection *Connection `json:"glue:GetConnectionOutput:Connection" type:"structure"`
 }
 
 // String returns the string representation

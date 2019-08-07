@@ -123,7 +123,7 @@ type CreateIndexOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the index created by this operation.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:CreateIndexOutput:ObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation

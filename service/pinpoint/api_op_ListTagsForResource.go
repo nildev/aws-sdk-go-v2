@@ -57,7 +57,7 @@ type ListTagsForResourceOutput struct {
 	// Specifies the tags (keys and values) for an application, campaign, or segment.
 	//
 	// TagsModel is a required field
-	TagsModel *TagsModel `type:"structure" required:"true"`
+	TagsModel *TagsModel `json:"pinpoint:ListTagsForResourceOutput:TagsModel" type:"structure" required:"true"`
 }
 
 // String returns the string representation

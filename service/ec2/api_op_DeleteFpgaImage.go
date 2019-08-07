@@ -49,7 +49,7 @@ type DeleteFpgaImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Is true if the request succeeds, and an error otherwise.
-	Return *bool `locationName:"return" type:"boolean"`
+	Return *bool `json:"ec2:DeleteFpgaImageOutput:Return" locationName:"return" type:"boolean"`
 }
 
 // String returns the string representation

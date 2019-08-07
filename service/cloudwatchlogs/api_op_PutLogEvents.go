@@ -88,10 +88,10 @@ type PutLogEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The next sequence token.
-	NextSequenceToken *string `locationName:"nextSequenceToken" min:"1" type:"string"`
+	NextSequenceToken *string `json:"logs:PutLogEventsOutput:NextSequenceToken" locationName:"nextSequenceToken" min:"1" type:"string"`
 
 	// The rejected events.
-	RejectedLogEventsInfo *RejectedLogEventsInfo `locationName:"rejectedLogEventsInfo" type:"structure"`
+	RejectedLogEventsInfo *RejectedLogEventsInfo `json:"logs:PutLogEventsOutput:RejectedLogEventsInfo" locationName:"rejectedLogEventsInfo" type:"structure"`
 }
 
 // String returns the string representation

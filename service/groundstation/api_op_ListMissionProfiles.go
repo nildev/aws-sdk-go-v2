@@ -51,11 +51,11 @@ type ListMissionProfilesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of mission profiles
-	MissionProfileList []MissionProfileListItem `locationName:"missionProfileList" type:"list"`
+	MissionProfileList []MissionProfileListItem `json:"groundstation:ListMissionProfilesOutput:MissionProfileList" locationName:"missionProfileList" type:"list"`
 
 	// Next token returned in the response of a previous ListMissionProfiles call.
 	// Used to get the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"groundstation:ListMissionProfilesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

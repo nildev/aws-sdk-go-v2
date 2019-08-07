@@ -56,7 +56,7 @@ type UpdateS3ResourcesOutput struct {
 
 	// The S3 resources whose classification types can't be updated. An error code
 	// and an error message are provided for each failed item.
-	FailedS3Resources []FailedS3Resource `locationName:"failedS3Resources" type:"list"`
+	FailedS3Resources []FailedS3Resource `json:"macie:UpdateS3ResourcesOutput:FailedS3Resources" locationName:"failedS3Resources" type:"list"`
 }
 
 // String returns the string representation

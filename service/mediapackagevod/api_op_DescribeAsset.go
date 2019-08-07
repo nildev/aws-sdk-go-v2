@@ -54,19 +54,19 @@ func (s DescribeAssetInput) MarshalFields(e protocol.FieldEncoder) error {
 type DescribeAssetOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage-vod:DescribeAssetOutput:Arn" locationName:"arn" type:"string"`
 
-	EgressEndpoints []EgressEndpoint `locationName:"egressEndpoints" type:"list"`
+	EgressEndpoints []EgressEndpoint `json:"mediapackage-vod:DescribeAssetOutput:EgressEndpoints" locationName:"egressEndpoints" type:"list"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage-vod:DescribeAssetOutput:Id" locationName:"id" type:"string"`
 
-	PackagingGroupId *string `locationName:"packagingGroupId" type:"string"`
+	PackagingGroupId *string `json:"mediapackage-vod:DescribeAssetOutput:PackagingGroupId" locationName:"packagingGroupId" type:"string"`
 
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"mediapackage-vod:DescribeAssetOutput:ResourceId" locationName:"resourceId" type:"string"`
 
-	SourceArn *string `locationName:"sourceArn" type:"string"`
+	SourceArn *string `json:"mediapackage-vod:DescribeAssetOutput:SourceArn" locationName:"sourceArn" type:"string"`
 
-	SourceRoleArn *string `locationName:"sourceRoleArn" type:"string"`
+	SourceRoleArn *string `json:"mediapackage-vod:DescribeAssetOutput:SourceRoleArn" locationName:"sourceRoleArn" type:"string"`
 }
 
 // String returns the string representation

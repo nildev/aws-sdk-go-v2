@@ -30,7 +30,7 @@ type Media struct {
 	//
 	// For more information about S3 object names, see Object Keys (http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys)
 	// in the Amazon S3 Developer Guide.
-	MediaFileUri *string `min:"1" type:"string"`
+	MediaFileUri *string `json:"transcribe:Media:MediaFileUri" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -66,13 +66,13 @@ type Settings struct {
 	//
 	// You can't set both ShowSpeakerLabels and ChannelIdentification in the same
 	// request. If you set both, your request returns a BadRequestException.
-	ChannelIdentification *bool `type:"boolean"`
+	ChannelIdentification *bool `json:"transcribe:Settings:ChannelIdentification" type:"boolean"`
 
 	// The maximum number of speakers to identify in the input audio. If there are
 	// more speakers in the audio than this number, multiple speakers will be identified
 	// as a single speaker. If you specify the MaxSpeakerLabels field, you must
 	// set the ShowSpeakerLabels field to true.
-	MaxSpeakerLabels *int64 `min:"2" type:"integer"`
+	MaxSpeakerLabels *int64 `json:"transcribe:Settings:MaxSpeakerLabels" min:"2" type:"integer"`
 
 	// Determines whether the transcription job uses speaker recognition to identify
 	// different speakers in the input audio. Speaker recognition labels individual
@@ -81,10 +81,10 @@ type Settings struct {
 	//
 	// You can't set both ShowSpeakerLabels and ChannelIdentification in the same
 	// request. If you set both, your request returns a BadRequestException.
-	ShowSpeakerLabels *bool `type:"boolean"`
+	ShowSpeakerLabels *bool `json:"transcribe:Settings:ShowSpeakerLabels" type:"boolean"`
 
 	// The name of a vocabulary to use when processing the transcription job.
-	VocabularyName *string `min:"1" type:"string"`
+	VocabularyName *string `json:"transcribe:Settings:VocabularyName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -119,7 +119,7 @@ type Transcript struct {
 	// the OutputBucketName field when you created the job, this is the URI of that
 	// bucket. If you chose to store the transcription in Amazon Transcribe, this
 	// is a shareable URL that provides secure access to that location.
-	TranscriptFileUri *string `min:"1" type:"string"`
+	TranscriptFileUri *string `json:"transcribe:Transcript:TranscriptFileUri" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -134,10 +134,10 @@ type TranscriptionJob struct {
 	_ struct{} `type:"structure"`
 
 	// A timestamp that shows when the job was completed.
-	CompletionTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletionTime *time.Time `json:"transcribe:TranscriptionJob:CompletionTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A timestamp that shows when the job was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"transcribe:TranscriptionJob:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If the TranscriptionJobStatus field is FAILED, this field contains information
 	// about why the job failed.
@@ -171,34 +171,34 @@ type TranscriptionJob struct {
 	//    contains more channels than Amazon Transcribe is configured to process.
 	//    To request additional channels, see Amazon Transcribe Limits (https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe)
 	//    in the Amazon Web Services General Reference.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"transcribe:TranscriptionJob:FailureReason" type:"string"`
 
 	// The language code for the input speech.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"transcribe:TranscriptionJob:LanguageCode" type:"string" enum:"true"`
 
 	// An object that describes the input media for the transcription job.
-	Media *Media `type:"structure"`
+	Media *Media `json:"transcribe:TranscriptionJob:Media" type:"structure"`
 
 	// The format of the input media file.
-	MediaFormat MediaFormat `type:"string" enum:"true"`
+	MediaFormat MediaFormat `json:"transcribe:TranscriptionJob:MediaFormat" type:"string" enum:"true"`
 
 	// The sample rate, in Hertz, of the audio track in the input media file.
-	MediaSampleRateHertz *int64 `min:"8000" type:"integer"`
+	MediaSampleRateHertz *int64 `json:"transcribe:TranscriptionJob:MediaSampleRateHertz" min:"8000" type:"integer"`
 
 	// Optional settings for the transcription job. Use these settings to turn on
 	// speaker recognition, to set the maximum number of speakers that should be
 	// identified and to specify a custom vocabulary to use when processing the
 	// transcription job.
-	Settings *Settings `type:"structure"`
+	Settings *Settings `json:"transcribe:TranscriptionJob:Settings" type:"structure"`
 
 	// An object that describes the output of the transcription job.
-	Transcript *Transcript `type:"structure"`
+	Transcript *Transcript `json:"transcribe:TranscriptionJob:Transcript" type:"structure"`
 
 	// The name of the transcription job.
-	TranscriptionJobName *string `min:"1" type:"string"`
+	TranscriptionJobName *string `json:"transcribe:TranscriptionJob:TranscriptionJobName" min:"1" type:"string"`
 
 	// The status of the transcription job.
-	TranscriptionJobStatus TranscriptionJobStatus `type:"string" enum:"true"`
+	TranscriptionJobStatus TranscriptionJobStatus `json:"transcribe:TranscriptionJob:TranscriptionJobStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -212,16 +212,16 @@ type TranscriptionJobSummary struct {
 	_ struct{} `type:"structure"`
 
 	// A timestamp that shows when the job was completed.
-	CompletionTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletionTime *time.Time `json:"transcribe:TranscriptionJobSummary:CompletionTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A timestamp that shows when the job was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"transcribe:TranscriptionJobSummary:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If the TranscriptionJobStatus field is FAILED, a description of the error.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"transcribe:TranscriptionJobSummary:FailureReason" type:"string"`
 
 	// The language code for the input speech.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"transcribe:TranscriptionJobSummary:LanguageCode" type:"string" enum:"true"`
 
 	// Indicates the location of the output of the transcription job.
 	//
@@ -232,14 +232,14 @@ type TranscriptionJobSummary struct {
 	// If the value is SERVICE_BUCKET then the output is stored by Amazon Transcribe
 	// and can be retrieved using the URI in the GetTranscriptionJob response's
 	// TranscriptFileUri field.
-	OutputLocationType OutputLocationType `type:"string" enum:"true"`
+	OutputLocationType OutputLocationType `json:"transcribe:TranscriptionJobSummary:OutputLocationType" type:"string" enum:"true"`
 
 	// The name of the transcription job.
-	TranscriptionJobName *string `min:"1" type:"string"`
+	TranscriptionJobName *string `json:"transcribe:TranscriptionJobSummary:TranscriptionJobName" min:"1" type:"string"`
 
 	// The status of the transcription job. When the status is COMPLETED, use the
 	// GetTranscriptionJob operation to get the results of the transcription.
-	TranscriptionJobStatus TranscriptionJobStatus `type:"string" enum:"true"`
+	TranscriptionJobStatus TranscriptionJobStatus `json:"transcribe:TranscriptionJobSummary:TranscriptionJobStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -253,17 +253,17 @@ type VocabularyInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The language code of the vocabulary entries.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"transcribe:VocabularyInfo:LanguageCode" type:"string" enum:"true"`
 
 	// The date and time that the vocabulary was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"transcribe:VocabularyInfo:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the vocabulary.
-	VocabularyName *string `min:"1" type:"string"`
+	VocabularyName *string `json:"transcribe:VocabularyInfo:VocabularyName" min:"1" type:"string"`
 
 	// The processing state of the vocabulary. If the state is READY you can use
 	// the vocabulary in a StartTranscriptionJob request.
-	VocabularyState VocabularyState `type:"string" enum:"true"`
+	VocabularyState VocabularyState `json:"transcribe:VocabularyInfo:VocabularyState" type:"string" enum:"true"`
 }
 
 // String returns the string representation

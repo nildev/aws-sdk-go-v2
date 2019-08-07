@@ -99,7 +99,7 @@ type UpdateClusterConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object representing an asynchronous update.
-	Update *Update `locationName:"update" type:"structure"`
+	Update *Update `json:"eks:UpdateClusterConfigOutput:Update" locationName:"update" type:"structure"`
 }
 
 // String returns the string representation

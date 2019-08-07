@@ -65,12 +65,12 @@ type GetFileOutput struct {
 	// The blob ID of the object that represents the file content.
 	//
 	// BlobId is a required field
-	BlobId *string `locationName:"blobId" type:"string" required:"true"`
+	BlobId *string `json:"codecommit:GetFileOutput:BlobId" locationName:"blobId" type:"string" required:"true"`
 
 	// The full commit ID of the commit that contains the content returned by GetFile.
 	//
 	// CommitId is a required field
-	CommitId *string `locationName:"commitId" type:"string" required:"true"`
+	CommitId *string `json:"codecommit:GetFileOutput:CommitId" locationName:"commitId" type:"string" required:"true"`
 
 	// The base-64 encoded binary data object that represents the content of the
 	// file.
@@ -78,7 +78,7 @@ type GetFileOutput struct {
 	// FileContent is automatically base64 encoded/decoded by the SDK.
 	//
 	// FileContent is a required field
-	FileContent []byte `locationName:"fileContent" type:"blob" required:"true"`
+	FileContent []byte `json:"codecommit:GetFileOutput:FileContent" locationName:"fileContent" type:"blob" required:"true"`
 
 	// The extrapolated file mode permissions of the blob. Valid values include
 	// strings such as EXECUTABLE and not numeric values.
@@ -88,18 +88,18 @@ type GetFileOutput struct {
 	// below for a full list of supported return values.
 	//
 	// FileMode is a required field
-	FileMode FileModeTypeEnum `locationName:"fileMode" type:"string" required:"true" enum:"true"`
+	FileMode FileModeTypeEnum `json:"codecommit:GetFileOutput:FileMode" locationName:"fileMode" type:"string" required:"true" enum:"true"`
 
 	// The fully qualified path to the specified file. This returns the name and
 	// extension of the file.
 	//
 	// FilePath is a required field
-	FilePath *string `locationName:"filePath" type:"string" required:"true"`
+	FilePath *string `json:"codecommit:GetFileOutput:FilePath" locationName:"filePath" type:"string" required:"true"`
 
 	// The size of the contents of the file, in bytes.
 	//
 	// FileSize is a required field
-	FileSize *int64 `locationName:"fileSize" type:"long" required:"true"`
+	FileSize *int64 `json:"codecommit:GetFileOutput:FileSize" locationName:"fileSize" type:"long" required:"true"`
 }
 
 // String returns the string representation

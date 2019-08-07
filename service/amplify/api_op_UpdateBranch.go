@@ -190,7 +190,7 @@ type UpdateBranchOutput struct {
 	// Branch structure for an Amplify App.
 	//
 	// Branch is a required field
-	Branch *Branch `locationName:"branch" type:"structure" required:"true"`
+	Branch *Branch `json:"amplify:UpdateBranchOutput:Branch" locationName:"branch" type:"structure" required:"true"`
 }
 
 // String returns the string representation

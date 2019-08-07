@@ -79,18 +79,18 @@ type ListPolicyVersionsOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListPolicyVersionsOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListPolicyVersionsOutput:Marker" type:"string"`
 
 	// A list of policy versions.
 	//
 	// For more information about managed policy versions, see Versioning for Managed
 	// Policies (https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
 	// in the IAM User Guide.
-	Versions []PolicyVersion `type:"list"`
+	Versions []PolicyVersion `json:"iam:ListPolicyVersionsOutput:Versions" type:"list"`
 }
 
 // String returns the string representation

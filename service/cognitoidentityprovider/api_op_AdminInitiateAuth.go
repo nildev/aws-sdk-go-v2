@@ -135,7 +135,7 @@ type AdminInitiateAuthOutput struct {
 	// does not need to pass another challenge. If the caller does need to pass
 	// another challenge before it gets tokens, ChallengeName, ChallengeParameters,
 	// and Session are returned.
-	AuthenticationResult *AuthenticationResultType `type:"structure"`
+	AuthenticationResult *AuthenticationResultType `json:"cognito-idp:AdminInitiateAuthOutput:AuthenticationResult" type:"structure"`
 
 	// The name of the challenge which you are responding to with this call. This
 	// is returned to you in the AdminInitiateAuth response if you need to pass
@@ -172,7 +172,7 @@ type AdminInitiateAuthOutput struct {
 	//    * NEW_PASSWORD_REQUIRED: For users which are required to change their
 	//    passwords after successful first login. This challenge should be passed
 	//    with NEW_PASSWORD and any other required attributes.
-	ChallengeName ChallengeNameType `type:"string" enum:"true"`
+	ChallengeName ChallengeNameType `json:"cognito-idp:AdminInitiateAuthOutput:ChallengeName" type:"string" enum:"true"`
 
 	// The challenge parameters. These are returned to you in the AdminInitiateAuth
 	// response if you need to pass another challenge. The responses in this parameter
@@ -184,14 +184,14 @@ type AdminInitiateAuthOutput struct {
 	// not an alias (such as email address or phone number), even if you specified
 	// an alias in your call to AdminInitiateAuth. This is because, in the AdminRespondToAuthChallenge
 	// API ChallengeResponses, the USERNAME attribute cannot be an alias.
-	ChallengeParameters map[string]string `type:"map"`
+	ChallengeParameters map[string]string `json:"cognito-idp:AdminInitiateAuthOutput:ChallengeParameters" type:"map"`
 
 	// The session which should be passed both ways in challenge-response calls
 	// to the service. If AdminInitiateAuth or AdminRespondToAuthChallenge API call
 	// determines that the caller needs to go through another challenge, they return
 	// a session with other challenge parameters. This session should be passed
 	// as it is to the next AdminRespondToAuthChallenge API call.
-	Session *string `min:"20" type:"string"`
+	Session *string `json:"cognito-idp:AdminInitiateAuthOutput:Session" min:"20" type:"string"`
 }
 
 // String returns the string representation

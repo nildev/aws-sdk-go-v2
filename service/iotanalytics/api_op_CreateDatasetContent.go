@@ -59,7 +59,7 @@ type CreateDatasetContentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The version ID of the data set contents which are being created.
-	VersionId *string `locationName:"versionId" min:"7" type:"string"`
+	VersionId *string `json:"iotanalytics:CreateDatasetContentOutput:VersionId" locationName:"versionId" min:"7" type:"string"`
 }
 
 // String returns the string representation

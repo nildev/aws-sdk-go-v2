@@ -85,7 +85,7 @@ type GetMetricWidgetImageOutput struct {
 	// The image of the graph, in the output format specified.
 	//
 	// MetricWidgetImage is automatically base64 encoded/decoded by the SDK.
-	MetricWidgetImage []byte `type:"blob"`
+	MetricWidgetImage []byte `json:"monitoring:GetMetricWidgetImageOutput:MetricWidgetImage" type:"blob"`
 }
 
 // String returns the string representation

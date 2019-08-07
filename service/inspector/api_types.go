@@ -24,12 +24,12 @@ type AgentAlreadyRunningAssessment struct {
 	// in another started assessment run.
 	//
 	// AgentId is a required field
-	AgentId *string `locationName:"agentId" min:"1" type:"string" required:"true"`
+	AgentId *string `json:"inspector:AgentAlreadyRunningAssessment:AgentId" locationName:"agentId" min:"1" type:"string" required:"true"`
 
 	// The ARN of the assessment run that has already been started.
 	//
 	// AssessmentRunArn is a required field
-	AssessmentRunArn *string `locationName:"assessmentRunArn" min:"1" type:"string" required:"true"`
+	AssessmentRunArn *string `json:"inspector:AgentAlreadyRunningAssessment:AssessmentRunArn" locationName:"assessmentRunArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -47,12 +47,12 @@ type AgentFilter struct {
 	// SHUTDOWN, UNHEALTHY, THROTTLED, and UNKNOWN.
 	//
 	// AgentHealthCodes is a required field
-	AgentHealthCodes []AgentHealthCode `locationName:"agentHealthCodes" type:"list" required:"true"`
+	AgentHealthCodes []AgentHealthCode `json:"inspector:AgentFilter:AgentHealthCodes" locationName:"agentHealthCodes" type:"list" required:"true"`
 
 	// The current health state of the agent. Values can be set to HEALTHY or UNHEALTHY.
 	//
 	// AgentHealths is a required field
-	AgentHealths []AgentHealth `locationName:"agentHealths" type:"list" required:"true"`
+	AgentHealths []AgentHealth `json:"inspector:AgentFilter:AgentHealths" locationName:"agentHealths" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -84,33 +84,33 @@ type AgentPreview struct {
 	_ struct{} `type:"structure"`
 
 	// The health status of the Amazon Inspector Agent.
-	AgentHealth AgentHealth `locationName:"agentHealth" type:"string" enum:"true"`
+	AgentHealth AgentHealth `json:"inspector:AgentPreview:AgentHealth" locationName:"agentHealth" type:"string" enum:"true"`
 
 	// The ID of the EC2 instance where the agent is installed.
 	//
 	// AgentId is a required field
-	AgentId *string `locationName:"agentId" min:"1" type:"string" required:"true"`
+	AgentId *string `json:"inspector:AgentPreview:AgentId" locationName:"agentId" min:"1" type:"string" required:"true"`
 
 	// The version of the Amazon Inspector Agent.
-	AgentVersion *string `locationName:"agentVersion" min:"1" type:"string"`
+	AgentVersion *string `json:"inspector:AgentPreview:AgentVersion" locationName:"agentVersion" min:"1" type:"string"`
 
 	// The Auto Scaling group for the EC2 instance where the agent is installed.
-	AutoScalingGroup *string `locationName:"autoScalingGroup" min:"1" type:"string"`
+	AutoScalingGroup *string `json:"inspector:AgentPreview:AutoScalingGroup" locationName:"autoScalingGroup" min:"1" type:"string"`
 
 	// The hostname of the EC2 instance on which the Amazon Inspector Agent is installed.
-	Hostname *string `locationName:"hostname" type:"string"`
+	Hostname *string `json:"inspector:AgentPreview:Hostname" locationName:"hostname" type:"string"`
 
 	// The IP address of the EC2 instance on which the Amazon Inspector Agent is
 	// installed.
-	Ipv4Address *string `locationName:"ipv4Address" min:"7" type:"string"`
+	Ipv4Address *string `json:"inspector:AgentPreview:Ipv4Address" locationName:"ipv4Address" min:"7" type:"string"`
 
 	// The kernel version of the operating system running on the EC2 instance on
 	// which the Amazon Inspector Agent is installed.
-	KernelVersion *string `locationName:"kernelVersion" min:"1" type:"string"`
+	KernelVersion *string `json:"inspector:AgentPreview:KernelVersion" locationName:"kernelVersion" min:"1" type:"string"`
 
 	// The operating system running on the EC2 instance on which the Amazon Inspector
 	// Agent is installed.
-	OperatingSystem *string `locationName:"operatingSystem" min:"1" type:"string"`
+	OperatingSystem *string `json:"inspector:AgentPreview:OperatingSystem" locationName:"operatingSystem" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -129,77 +129,77 @@ type AssessmentRun struct {
 	// The ARN of the assessment run.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" min:"1" type:"string" required:"true"`
+	Arn *string `json:"inspector:AssessmentRun:Arn" locationName:"arn" min:"1" type:"string" required:"true"`
 
 	// The ARN of the assessment template that is associated with the assessment
 	// run.
 	//
 	// AssessmentTemplateArn is a required field
-	AssessmentTemplateArn *string `locationName:"assessmentTemplateArn" min:"1" type:"string" required:"true"`
+	AssessmentTemplateArn *string `json:"inspector:AssessmentRun:AssessmentTemplateArn" locationName:"assessmentTemplateArn" min:"1" type:"string" required:"true"`
 
 	// The assessment run completion time that corresponds to the rules packages
 	// evaluation completion time or failure.
-	CompletedAt *time.Time `locationName:"completedAt" type:"timestamp" timestampFormat:"unix"`
+	CompletedAt *time.Time `json:"inspector:AssessmentRun:CompletedAt" locationName:"completedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time when StartAssessmentRun was called.
 	//
 	// CreatedAt is a required field
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedAt *time.Time `json:"inspector:AssessmentRun:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// A Boolean value (true or false) that specifies whether the process of collecting
 	// data from the agents is completed.
 	//
 	// DataCollected is a required field
-	DataCollected *bool `locationName:"dataCollected" type:"boolean" required:"true"`
+	DataCollected *bool `json:"inspector:AssessmentRun:DataCollected" locationName:"dataCollected" type:"boolean" required:"true"`
 
 	// The duration of the assessment run.
 	//
 	// DurationInSeconds is a required field
-	DurationInSeconds *int64 `locationName:"durationInSeconds" min:"180" type:"integer" required:"true"`
+	DurationInSeconds *int64 `json:"inspector:AssessmentRun:DurationInSeconds" locationName:"durationInSeconds" min:"180" type:"integer" required:"true"`
 
 	// Provides a total count of generated findings per severity.
 	//
 	// FindingCounts is a required field
-	FindingCounts map[string]int64 `locationName:"findingCounts" type:"map" required:"true"`
+	FindingCounts map[string]int64 `json:"inspector:AssessmentRun:FindingCounts" locationName:"findingCounts" type:"map" required:"true"`
 
 	// The auto-generated name for the assessment run.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"inspector:AssessmentRun:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// A list of notifications for the event subscriptions. A notification about
 	// a particular generated finding is added to this list only once.
 	//
 	// Notifications is a required field
-	Notifications []AssessmentRunNotification `locationName:"notifications" type:"list" required:"true"`
+	Notifications []AssessmentRunNotification `json:"inspector:AssessmentRun:Notifications" locationName:"notifications" type:"list" required:"true"`
 
 	// The rules packages selected for the assessment run.
 	//
 	// RulesPackageArns is a required field
-	RulesPackageArns []string `locationName:"rulesPackageArns" min:"1" type:"list" required:"true"`
+	RulesPackageArns []string `json:"inspector:AssessmentRun:RulesPackageArns" locationName:"rulesPackageArns" min:"1" type:"list" required:"true"`
 
 	// The time when StartAssessmentRun was called.
-	StartedAt *time.Time `locationName:"startedAt" type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"inspector:AssessmentRun:StartedAt" locationName:"startedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The state of the assessment run.
 	//
 	// State is a required field
-	State AssessmentRunState `locationName:"state" type:"string" required:"true" enum:"true"`
+	State AssessmentRunState `json:"inspector:AssessmentRun:State" locationName:"state" type:"string" required:"true" enum:"true"`
 
 	// The last time when the assessment run's state changed.
 	//
 	// StateChangedAt is a required field
-	StateChangedAt *time.Time `locationName:"stateChangedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	StateChangedAt *time.Time `json:"inspector:AssessmentRun:StateChangedAt" locationName:"stateChangedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// A list of the assessment run state changes.
 	//
 	// StateChanges is a required field
-	StateChanges []AssessmentRunStateChange `locationName:"stateChanges" type:"list" required:"true"`
+	StateChanges []AssessmentRunStateChange `json:"inspector:AssessmentRun:StateChanges" locationName:"stateChanges" type:"list" required:"true"`
 
 	// The user-defined attributes that are assigned to every generated finding.
 	//
 	// UserAttributesForFindings is a required field
-	UserAttributesForFindings []Attribute `locationName:"userAttributesForFindings" type:"list" required:"true"`
+	UserAttributesForFindings []Attribute `json:"inspector:AssessmentRun:UserAttributesForFindings" locationName:"userAttributesForFindings" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -216,34 +216,34 @@ type AssessmentRunAgent struct {
 	// The current health state of the agent.
 	//
 	// AgentHealth is a required field
-	AgentHealth AgentHealth `locationName:"agentHealth" type:"string" required:"true" enum:"true"`
+	AgentHealth AgentHealth `json:"inspector:AssessmentRunAgent:AgentHealth" locationName:"agentHealth" type:"string" required:"true" enum:"true"`
 
 	// The detailed health state of the agent.
 	//
 	// AgentHealthCode is a required field
-	AgentHealthCode AgentHealthCode `locationName:"agentHealthCode" type:"string" required:"true" enum:"true"`
+	AgentHealthCode AgentHealthCode `json:"inspector:AssessmentRunAgent:AgentHealthCode" locationName:"agentHealthCode" type:"string" required:"true" enum:"true"`
 
 	// The description for the agent health code.
-	AgentHealthDetails *string `locationName:"agentHealthDetails" type:"string"`
+	AgentHealthDetails *string `json:"inspector:AssessmentRunAgent:AgentHealthDetails" locationName:"agentHealthDetails" type:"string"`
 
 	// The AWS account of the EC2 instance where the agent is installed.
 	//
 	// AgentId is a required field
-	AgentId *string `locationName:"agentId" min:"1" type:"string" required:"true"`
+	AgentId *string `json:"inspector:AssessmentRunAgent:AgentId" locationName:"agentId" min:"1" type:"string" required:"true"`
 
 	// The ARN of the assessment run that is associated with the agent.
 	//
 	// AssessmentRunArn is a required field
-	AssessmentRunArn *string `locationName:"assessmentRunArn" min:"1" type:"string" required:"true"`
+	AssessmentRunArn *string `json:"inspector:AssessmentRunAgent:AssessmentRunArn" locationName:"assessmentRunArn" min:"1" type:"string" required:"true"`
 
 	// The Auto Scaling group of the EC2 instance that is specified by the agent
 	// ID.
-	AutoScalingGroup *string `locationName:"autoScalingGroup" min:"1" type:"string"`
+	AutoScalingGroup *string `json:"inspector:AssessmentRunAgent:AutoScalingGroup" locationName:"autoScalingGroup" min:"1" type:"string"`
 
 	// The Amazon Inspector application data metrics that are collected by the agent.
 	//
 	// TelemetryMetadata is a required field
-	TelemetryMetadata []TelemetryMetadata `locationName:"telemetryMetadata" type:"list" required:"true"`
+	TelemetryMetadata []TelemetryMetadata `json:"inspector:AssessmentRunAgent:TelemetryMetadata" locationName:"telemetryMetadata" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -260,38 +260,38 @@ type AssessmentRunFilter struct {
 	// type property must inclusively match any value between the specified minimum
 	// and maximum values of the completedAt property of the AssessmentRun data
 	// type.
-	CompletionTimeRange *TimestampRange `locationName:"completionTimeRange" type:"structure"`
+	CompletionTimeRange *TimestampRange `json:"inspector:AssessmentRunFilter:CompletionTimeRange" locationName:"completionTimeRange" type:"structure"`
 
 	// For a record to match a filter, the value that is specified for this data
 	// type property must inclusively match any value between the specified minimum
 	// and maximum values of the durationInSeconds property of the AssessmentRun
 	// data type.
-	DurationRange *DurationRange `locationName:"durationRange" type:"structure"`
+	DurationRange *DurationRange `json:"inspector:AssessmentRunFilter:DurationRange" locationName:"durationRange" type:"structure"`
 
 	// For a record to match a filter, an explicit value or a string containing
 	// a wildcard that is specified for this data type property must match the value
 	// of the assessmentRunName property of the AssessmentRun data type.
-	NamePattern *string `locationName:"namePattern" min:"1" type:"string"`
+	NamePattern *string `json:"inspector:AssessmentRunFilter:NamePattern" locationName:"namePattern" min:"1" type:"string"`
 
 	// For a record to match a filter, the value that is specified for this data
 	// type property must be contained in the list of values of the rulesPackages
 	// property of the AssessmentRun data type.
-	RulesPackageArns []string `locationName:"rulesPackageArns" type:"list"`
+	RulesPackageArns []string `json:"inspector:AssessmentRunFilter:RulesPackageArns" locationName:"rulesPackageArns" type:"list"`
 
 	// For a record to match a filter, the value that is specified for this data
 	// type property must inclusively match any value between the specified minimum
 	// and maximum values of the startTime property of the AssessmentRun data type.
-	StartTimeRange *TimestampRange `locationName:"startTimeRange" type:"structure"`
+	StartTimeRange *TimestampRange `json:"inspector:AssessmentRunFilter:StartTimeRange" locationName:"startTimeRange" type:"structure"`
 
 	// For a record to match a filter, the value that is specified for this data
 	// type property must match the stateChangedAt property of the AssessmentRun
 	// data type.
-	StateChangeTimeRange *TimestampRange `locationName:"stateChangeTimeRange" type:"structure"`
+	StateChangeTimeRange *TimestampRange `json:"inspector:AssessmentRunFilter:StateChangeTimeRange" locationName:"stateChangeTimeRange" type:"structure"`
 
 	// For a record to match a filter, one of the values specified for this data
 	// type property must be the exact match of the value of the assessmentRunState
 	// property of the AssessmentRun data type.
-	States []AssessmentRunState `locationName:"states" type:"list"`
+	States []AssessmentRunState `json:"inspector:AssessmentRunFilter:States" locationName:"states" type:"list"`
 }
 
 // String returns the string representation
@@ -325,26 +325,26 @@ type AssessmentRunNotification struct {
 	// The date of the notification.
 	//
 	// Date is a required field
-	Date *time.Time `locationName:"date" type:"timestamp" timestampFormat:"unix" required:"true"`
+	Date *time.Time `json:"inspector:AssessmentRunNotification:Date" locationName:"date" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Boolean value that specifies whether the notification represents an error.
 	//
 	// Error is a required field
-	Error *bool `locationName:"error" type:"boolean" required:"true"`
+	Error *bool `json:"inspector:AssessmentRunNotification:Error" locationName:"error" type:"boolean" required:"true"`
 
 	// The event for which a notification is sent.
 	//
 	// Event is a required field
-	Event InspectorEvent `locationName:"event" type:"string" required:"true" enum:"true"`
+	Event InspectorEvent `json:"inspector:AssessmentRunNotification:Event" locationName:"event" type:"string" required:"true" enum:"true"`
 
 	// The message included in the notification.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"inspector:AssessmentRunNotification:Message" locationName:"message" type:"string"`
 
 	// The status code of the SNS notification.
-	SnsPublishStatusCode AssessmentRunNotificationSnsStatusCode `locationName:"snsPublishStatusCode" type:"string" enum:"true"`
+	SnsPublishStatusCode AssessmentRunNotificationSnsStatusCode `json:"inspector:AssessmentRunNotification:SnsPublishStatusCode" locationName:"snsPublishStatusCode" type:"string" enum:"true"`
 
 	// The SNS topic to which the SNS notification is sent.
-	SnsTopicArn *string `locationName:"snsTopicArn" min:"1" type:"string"`
+	SnsTopicArn *string `json:"inspector:AssessmentRunNotification:SnsTopicArn" locationName:"snsTopicArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -360,12 +360,12 @@ type AssessmentRunStateChange struct {
 	// The assessment run state.
 	//
 	// State is a required field
-	State AssessmentRunState `locationName:"state" type:"string" required:"true" enum:"true"`
+	State AssessmentRunState `json:"inspector:AssessmentRunStateChange:State" locationName:"state" type:"string" required:"true" enum:"true"`
 
 	// The last time the assessment run state changed.
 	//
 	// StateChangedAt is a required field
-	StateChangedAt *time.Time `locationName:"stateChangedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	StateChangedAt *time.Time `json:"inspector:AssessmentRunStateChange:StateChangedAt" locationName:"stateChangedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -382,26 +382,26 @@ type AssessmentTarget struct {
 	// The ARN that specifies the Amazon Inspector assessment target.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" min:"1" type:"string" required:"true"`
+	Arn *string `json:"inspector:AssessmentTarget:Arn" locationName:"arn" min:"1" type:"string" required:"true"`
 
 	// The time at which the assessment target is created.
 	//
 	// CreatedAt is a required field
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedAt *time.Time `json:"inspector:AssessmentTarget:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the Amazon Inspector assessment target.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"inspector:AssessmentTarget:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The ARN that specifies the resource group that is associated with the assessment
 	// target.
-	ResourceGroupArn *string `locationName:"resourceGroupArn" min:"1" type:"string"`
+	ResourceGroupArn *string `json:"inspector:AssessmentTarget:ResourceGroupArn" locationName:"resourceGroupArn" min:"1" type:"string"`
 
 	// The time at which UpdateAssessmentTarget is called.
 	//
 	// UpdatedAt is a required field
-	UpdatedAt *time.Time `locationName:"updatedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdatedAt *time.Time `json:"inspector:AssessmentTarget:UpdatedAt" locationName:"updatedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -417,7 +417,7 @@ type AssessmentTargetFilter struct {
 	// For a record to match a filter, an explicit value or a string that contains
 	// a wildcard that is specified for this data type property must match the value
 	// of the assessmentTargetName property of the AssessmentTarget data type.
-	AssessmentTargetNamePattern *string `locationName:"assessmentTargetNamePattern" min:"1" type:"string"`
+	AssessmentTargetNamePattern *string `json:"inspector:AssessmentTargetFilter:AssessmentTargetNamePattern" locationName:"assessmentTargetNamePattern" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -448,51 +448,51 @@ type AssessmentTemplate struct {
 	// The ARN of the assessment template.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" min:"1" type:"string" required:"true"`
+	Arn *string `json:"inspector:AssessmentTemplate:Arn" locationName:"arn" min:"1" type:"string" required:"true"`
 
 	// The number of existing assessment runs associated with this assessment template.
 	// This value can be zero or a positive integer.
 	//
 	// AssessmentRunCount is a required field
-	AssessmentRunCount *int64 `locationName:"assessmentRunCount" type:"integer" required:"true"`
+	AssessmentRunCount *int64 `json:"inspector:AssessmentTemplate:AssessmentRunCount" locationName:"assessmentRunCount" type:"integer" required:"true"`
 
 	// The ARN of the assessment target that corresponds to this assessment template.
 	//
 	// AssessmentTargetArn is a required field
-	AssessmentTargetArn *string `locationName:"assessmentTargetArn" min:"1" type:"string" required:"true"`
+	AssessmentTargetArn *string `json:"inspector:AssessmentTemplate:AssessmentTargetArn" locationName:"assessmentTargetArn" min:"1" type:"string" required:"true"`
 
 	// The time at which the assessment template is created.
 	//
 	// CreatedAt is a required field
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedAt *time.Time `json:"inspector:AssessmentTemplate:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The duration in seconds specified for this assessment template. The default
 	// value is 3600 seconds (one hour). The maximum value is 86400 seconds (one
 	// day).
 	//
 	// DurationInSeconds is a required field
-	DurationInSeconds *int64 `locationName:"durationInSeconds" min:"180" type:"integer" required:"true"`
+	DurationInSeconds *int64 `json:"inspector:AssessmentTemplate:DurationInSeconds" locationName:"durationInSeconds" min:"180" type:"integer" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the most recent assessment run associated
 	// with this assessment template. This value exists only when the value of assessmentRunCount
 	// is greaterpa than zero.
-	LastAssessmentRunArn *string `locationName:"lastAssessmentRunArn" min:"1" type:"string"`
+	LastAssessmentRunArn *string `json:"inspector:AssessmentTemplate:LastAssessmentRunArn" locationName:"lastAssessmentRunArn" min:"1" type:"string"`
 
 	// The name of the assessment template.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"inspector:AssessmentTemplate:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The rules packages that are specified for this assessment template.
 	//
 	// RulesPackageArns is a required field
-	RulesPackageArns []string `locationName:"rulesPackageArns" type:"list" required:"true"`
+	RulesPackageArns []string `json:"inspector:AssessmentTemplate:RulesPackageArns" locationName:"rulesPackageArns" type:"list" required:"true"`
 
 	// The user-defined attributes that are assigned to every generated finding
 	// from the assessment run that uses this assessment template.
 	//
 	// UserAttributesForFindings is a required field
-	UserAttributesForFindings []Attribute `locationName:"userAttributesForFindings" type:"list" required:"true"`
+	UserAttributesForFindings []Attribute `json:"inspector:AssessmentTemplate:UserAttributesForFindings" locationName:"userAttributesForFindings" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -508,17 +508,17 @@ type AssessmentTemplateFilter struct {
 	// For a record to match a filter, the value specified for this data type property
 	// must inclusively match any value between the specified minimum and maximum
 	// values of the durationInSeconds property of the AssessmentTemplate data type.
-	DurationRange *DurationRange `locationName:"durationRange" type:"structure"`
+	DurationRange *DurationRange `json:"inspector:AssessmentTemplateFilter:DurationRange" locationName:"durationRange" type:"structure"`
 
 	// For a record to match a filter, an explicit value or a string that contains
 	// a wildcard that is specified for this data type property must match the value
 	// of the assessmentTemplateName property of the AssessmentTemplate data type.
-	NamePattern *string `locationName:"namePattern" min:"1" type:"string"`
+	NamePattern *string `json:"inspector:AssessmentTemplateFilter:NamePattern" locationName:"namePattern" min:"1" type:"string"`
 
 	// For a record to match a filter, the values that are specified for this data
 	// type property must be contained in the list of values of the rulesPackageArns
 	// property of the AssessmentTemplate data type.
-	RulesPackageArns []string `locationName:"rulesPackageArns" type:"list"`
+	RulesPackageArns []string `json:"inspector:AssessmentTemplateFilter:RulesPackageArns" locationName:"rulesPackageArns" type:"list"`
 }
 
 // String returns the string representation
@@ -551,32 +551,32 @@ type AssetAttributes struct {
 
 	// The ID of the agent that is installed on the EC2 instance where the finding
 	// is generated.
-	AgentId *string `locationName:"agentId" min:"1" type:"string"`
+	AgentId *string `json:"inspector:AssetAttributes:AgentId" locationName:"agentId" min:"1" type:"string"`
 
 	// The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance
 	// where the finding is generated.
-	AmiId *string `locationName:"amiId" type:"string"`
+	AmiId *string `json:"inspector:AssetAttributes:AmiId" locationName:"amiId" type:"string"`
 
 	// The Auto Scaling group of the EC2 instance where the finding is generated.
-	AutoScalingGroup *string `locationName:"autoScalingGroup" min:"1" type:"string"`
+	AutoScalingGroup *string `json:"inspector:AssetAttributes:AutoScalingGroup" locationName:"autoScalingGroup" min:"1" type:"string"`
 
 	// The hostname of the EC2 instance where the finding is generated.
-	Hostname *string `locationName:"hostname" type:"string"`
+	Hostname *string `json:"inspector:AssetAttributes:Hostname" locationName:"hostname" type:"string"`
 
 	// The list of IP v4 addresses of the EC2 instance where the finding is generated.
-	Ipv4Addresses []string `locationName:"ipv4Addresses" type:"list"`
+	Ipv4Addresses []string `json:"inspector:AssetAttributes:Ipv4Addresses" locationName:"ipv4Addresses" type:"list"`
 
 	// An array of the network interfaces interacting with the EC2 instance where
 	// the finding is generated.
-	NetworkInterfaces []NetworkInterface `locationName:"networkInterfaces" type:"list"`
+	NetworkInterfaces []NetworkInterface `json:"inspector:AssetAttributes:NetworkInterfaces" locationName:"networkInterfaces" type:"list"`
 
 	// The schema version of this data type.
 	//
 	// SchemaVersion is a required field
-	SchemaVersion *int64 `locationName:"schemaVersion" type:"integer" required:"true"`
+	SchemaVersion *int64 `json:"inspector:AssetAttributes:SchemaVersion" locationName:"schemaVersion" type:"integer" required:"true"`
 
 	// The tags related to the EC2 instance where the finding is generated.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"inspector:AssetAttributes:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -593,10 +593,10 @@ type Attribute struct {
 	// The attribute key.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"inspector:Attribute:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The value assigned to the attribute key.
-	Value *string `locationName:"value" min:"1" type:"string"`
+	Value *string `json:"inspector:Attribute:Value" locationName:"value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -631,10 +631,10 @@ type DurationRange struct {
 
 	// The maximum value of the duration range. Must be less than or equal to 604800
 	// seconds (1 week).
-	MaxSeconds *int64 `locationName:"maxSeconds" min:"180" type:"integer"`
+	MaxSeconds *int64 `json:"inspector:DurationRange:MaxSeconds" locationName:"maxSeconds" min:"180" type:"integer"`
 
 	// The minimum value of the duration range. Must be greater than zero.
-	MinSeconds *int64 `locationName:"minSeconds" min:"180" type:"integer"`
+	MinSeconds *int64 `json:"inspector:DurationRange:MinSeconds" locationName:"minSeconds" min:"180" type:"integer"`
 }
 
 // String returns the string representation
@@ -667,12 +667,12 @@ type EventSubscription struct {
 	// are sent.
 	//
 	// Event is a required field
-	Event InspectorEvent `locationName:"event" type:"string" required:"true" enum:"true"`
+	Event InspectorEvent `json:"inspector:EventSubscription:Event" locationName:"event" type:"string" required:"true" enum:"true"`
 
 	// The time at which SubscribeToEvent is called.
 	//
 	// SubscribedAt is a required field
-	SubscribedAt *time.Time `locationName:"subscribedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	SubscribedAt *time.Time `json:"inspector:EventSubscription:SubscribedAt" locationName:"subscribedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -688,30 +688,30 @@ type Exclusion struct {
 	// The ARN that specifies the exclusion.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" min:"1" type:"string" required:"true"`
+	Arn *string `json:"inspector:Exclusion:Arn" locationName:"arn" min:"1" type:"string" required:"true"`
 
 	// The system-defined attributes for the exclusion.
-	Attributes []Attribute `locationName:"attributes" type:"list"`
+	Attributes []Attribute `json:"inspector:Exclusion:Attributes" locationName:"attributes" type:"list"`
 
 	// The description of the exclusion.
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"inspector:Exclusion:Description" locationName:"description" type:"string" required:"true"`
 
 	// The recommendation for the exclusion.
 	//
 	// Recommendation is a required field
-	Recommendation *string `locationName:"recommendation" type:"string" required:"true"`
+	Recommendation *string `json:"inspector:Exclusion:Recommendation" locationName:"recommendation" type:"string" required:"true"`
 
 	// The AWS resources for which the exclusion pertains.
 	//
 	// Scopes is a required field
-	Scopes []Scope `locationName:"scopes" min:"1" type:"list" required:"true"`
+	Scopes []Scope `json:"inspector:Exclusion:Scopes" locationName:"scopes" min:"1" type:"list" required:"true"`
 
 	// The name of the exclusion.
 	//
 	// Title is a required field
-	Title *string `locationName:"title" type:"string" required:"true"`
+	Title *string `json:"inspector:Exclusion:Title" locationName:"title" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -726,27 +726,27 @@ type ExclusionPreview struct {
 	_ struct{} `type:"structure"`
 
 	// The system-defined attributes for the exclusion preview.
-	Attributes []Attribute `locationName:"attributes" type:"list"`
+	Attributes []Attribute `json:"inspector:ExclusionPreview:Attributes" locationName:"attributes" type:"list"`
 
 	// The description of the exclusion preview.
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"inspector:ExclusionPreview:Description" locationName:"description" type:"string" required:"true"`
 
 	// The recommendation for the exclusion preview.
 	//
 	// Recommendation is a required field
-	Recommendation *string `locationName:"recommendation" type:"string" required:"true"`
+	Recommendation *string `json:"inspector:ExclusionPreview:Recommendation" locationName:"recommendation" type:"string" required:"true"`
 
 	// The AWS resources for which the exclusion preview pertains.
 	//
 	// Scopes is a required field
-	Scopes []Scope `locationName:"scopes" min:"1" type:"list" required:"true"`
+	Scopes []Scope `json:"inspector:ExclusionPreview:Scopes" locationName:"scopes" min:"1" type:"list" required:"true"`
 
 	// The name of the exclusion preview.
 	//
 	// Title is a required field
-	Title *string `locationName:"title" type:"string" required:"true"`
+	Title *string `json:"inspector:ExclusionPreview:Title" locationName:"title" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -762,13 +762,13 @@ type FailedItemDetails struct {
 	// The status code of a failed item.
 	//
 	// FailureCode is a required field
-	FailureCode FailedItemErrorCode `locationName:"failureCode" type:"string" required:"true" enum:"true"`
+	FailureCode FailedItemErrorCode `json:"inspector:FailedItemDetails:FailureCode" locationName:"failureCode" type:"string" required:"true" enum:"true"`
 
 	// Indicates whether you can immediately retry a request for this item for a
 	// specified resource.
 	//
 	// Retryable is a required field
-	Retryable *bool `locationName:"retryable" type:"boolean" required:"true"`
+	Retryable *bool `json:"inspector:FailedItemDetails:Retryable" locationName:"retryable" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -785,66 +785,66 @@ type Finding struct {
 	// The ARN that specifies the finding.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" min:"1" type:"string" required:"true"`
+	Arn *string `json:"inspector:Finding:Arn" locationName:"arn" min:"1" type:"string" required:"true"`
 
 	// A collection of attributes of the host from which the finding is generated.
-	AssetAttributes *AssetAttributes `locationName:"assetAttributes" type:"structure"`
+	AssetAttributes *AssetAttributes `json:"inspector:Finding:AssetAttributes" locationName:"assetAttributes" type:"structure"`
 
 	// The type of the host from which the finding is generated.
-	AssetType AssetType `locationName:"assetType" type:"string" enum:"true"`
+	AssetType AssetType `json:"inspector:Finding:AssetType" locationName:"assetType" type:"string" enum:"true"`
 
 	// The system-defined attributes for the finding.
 	//
 	// Attributes is a required field
-	Attributes []Attribute `locationName:"attributes" type:"list" required:"true"`
+	Attributes []Attribute `json:"inspector:Finding:Attributes" locationName:"attributes" type:"list" required:"true"`
 
 	// This data element is currently not used.
-	Confidence *int64 `locationName:"confidence" type:"integer"`
+	Confidence *int64 `json:"inspector:Finding:Confidence" locationName:"confidence" type:"integer"`
 
 	// The time when the finding was generated.
 	//
 	// CreatedAt is a required field
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedAt *time.Time `json:"inspector:Finding:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The description of the finding.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"inspector:Finding:Description" locationName:"description" type:"string"`
 
 	// The ID of the finding.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"inspector:Finding:Id" locationName:"id" type:"string"`
 
 	// This data element is currently not used.
-	IndicatorOfCompromise *bool `locationName:"indicatorOfCompromise" type:"boolean"`
+	IndicatorOfCompromise *bool `json:"inspector:Finding:IndicatorOfCompromise" locationName:"indicatorOfCompromise" type:"boolean"`
 
 	// The numeric value of the finding severity.
-	NumericSeverity *float64 `locationName:"numericSeverity" type:"double"`
+	NumericSeverity *float64 `json:"inspector:Finding:NumericSeverity" locationName:"numericSeverity" type:"double"`
 
 	// The recommendation for the finding.
-	Recommendation *string `locationName:"recommendation" type:"string"`
+	Recommendation *string `json:"inspector:Finding:Recommendation" locationName:"recommendation" type:"string"`
 
 	// The schema version of this data type.
-	SchemaVersion *int64 `locationName:"schemaVersion" type:"integer"`
+	SchemaVersion *int64 `json:"inspector:Finding:SchemaVersion" locationName:"schemaVersion" type:"integer"`
 
 	// The data element is set to "Inspector".
-	Service *string `locationName:"service" type:"string"`
+	Service *string `json:"inspector:Finding:Service" locationName:"service" type:"string"`
 
 	// This data type is used in the Finding data type.
-	ServiceAttributes *InspectorServiceAttributes `locationName:"serviceAttributes" type:"structure"`
+	ServiceAttributes *InspectorServiceAttributes `json:"inspector:Finding:ServiceAttributes" locationName:"serviceAttributes" type:"structure"`
 
 	// The finding severity. Values can be set to High, Medium, Low, and Informational.
-	Severity Severity `locationName:"severity" type:"string" enum:"true"`
+	Severity Severity `json:"inspector:Finding:Severity" locationName:"severity" type:"string" enum:"true"`
 
 	// The name of the finding.
-	Title *string `locationName:"title" type:"string"`
+	Title *string `json:"inspector:Finding:Title" locationName:"title" type:"string"`
 
 	// The time when AddAttributesToFindings is called.
 	//
 	// UpdatedAt is a required field
-	UpdatedAt *time.Time `locationName:"updatedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdatedAt *time.Time `json:"inspector:Finding:UpdatedAt" locationName:"updatedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The user-defined attributes that are assigned to the finding.
 	//
 	// UserAttributes is a required field
-	UserAttributes []Attribute `locationName:"userAttributes" type:"list" required:"true"`
+	UserAttributes []Attribute `json:"inspector:Finding:UserAttributes" locationName:"userAttributes" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -860,40 +860,40 @@ type FindingFilter struct {
 	// For a record to match a filter, one of the values that is specified for this
 	// data type property must be the exact match of the value of the agentId property
 	// of the Finding data type.
-	AgentIds []string `locationName:"agentIds" type:"list"`
+	AgentIds []string `json:"inspector:FindingFilter:AgentIds" locationName:"agentIds" type:"list"`
 
 	// For a record to match a filter, the list of values that are specified for
 	// this data type property must be contained in the list of values of the attributes
 	// property of the Finding data type.
-	Attributes []Attribute `locationName:"attributes" type:"list"`
+	Attributes []Attribute `json:"inspector:FindingFilter:Attributes" locationName:"attributes" type:"list"`
 
 	// For a record to match a filter, one of the values that is specified for this
 	// data type property must be the exact match of the value of the autoScalingGroup
 	// property of the Finding data type.
-	AutoScalingGroups []string `locationName:"autoScalingGroups" type:"list"`
+	AutoScalingGroups []string `json:"inspector:FindingFilter:AutoScalingGroups" locationName:"autoScalingGroups" type:"list"`
 
 	// The time range during which the finding is generated.
-	CreationTimeRange *TimestampRange `locationName:"creationTimeRange" type:"structure"`
+	CreationTimeRange *TimestampRange `json:"inspector:FindingFilter:CreationTimeRange" locationName:"creationTimeRange" type:"structure"`
 
 	// For a record to match a filter, one of the values that is specified for this
 	// data type property must be the exact match of the value of the ruleName property
 	// of the Finding data type.
-	RuleNames []string `locationName:"ruleNames" type:"list"`
+	RuleNames []string `json:"inspector:FindingFilter:RuleNames" locationName:"ruleNames" type:"list"`
 
 	// For a record to match a filter, one of the values that is specified for this
 	// data type property must be the exact match of the value of the rulesPackageArn
 	// property of the Finding data type.
-	RulesPackageArns []string `locationName:"rulesPackageArns" type:"list"`
+	RulesPackageArns []string `json:"inspector:FindingFilter:RulesPackageArns" locationName:"rulesPackageArns" type:"list"`
 
 	// For a record to match a filter, one of the values that is specified for this
 	// data type property must be the exact match of the value of the severity property
 	// of the Finding data type.
-	Severities []Severity `locationName:"severities" type:"list"`
+	Severities []Severity `json:"inspector:FindingFilter:Severities" locationName:"severities" type:"list"`
 
 	// For a record to match a filter, the value that is specified for this data
 	// type property must be contained in the list of values of the userAttributes
 	// property of the Finding data type.
-	UserAttributes []Attribute `locationName:"userAttributes" type:"list"`
+	UserAttributes []Attribute `json:"inspector:FindingFilter:UserAttributes" locationName:"userAttributes" type:"list"`
 }
 
 // String returns the string representation
@@ -931,15 +931,15 @@ type InspectorServiceAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the assessment run during which the finding is generated.
-	AssessmentRunArn *string `locationName:"assessmentRunArn" min:"1" type:"string"`
+	AssessmentRunArn *string `json:"inspector:InspectorServiceAttributes:AssessmentRunArn" locationName:"assessmentRunArn" min:"1" type:"string"`
 
 	// The ARN of the rules package that is used to generate the finding.
-	RulesPackageArn *string `locationName:"rulesPackageArn" min:"1" type:"string"`
+	RulesPackageArn *string `json:"inspector:InspectorServiceAttributes:RulesPackageArn" locationName:"rulesPackageArn" min:"1" type:"string"`
 
 	// The schema version of this data type.
 	//
 	// SchemaVersion is a required field
-	SchemaVersion *int64 `locationName:"schemaVersion" type:"integer" required:"true"`
+	SchemaVersion *int64 `json:"inspector:InspectorServiceAttributes:SchemaVersion" locationName:"schemaVersion" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -955,36 +955,36 @@ type NetworkInterface struct {
 	_ struct{} `type:"structure"`
 
 	// The IP addresses associated with the network interface.
-	Ipv6Addresses []string `locationName:"ipv6Addresses" type:"list"`
+	Ipv6Addresses []string `json:"inspector:NetworkInterface:Ipv6Addresses" locationName:"ipv6Addresses" type:"list"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"inspector:NetworkInterface:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The name of a private DNS associated with the network interface.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"inspector:NetworkInterface:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The private IP address associated with the network interface.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"inspector:NetworkInterface:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// A list of the private IP addresses associated with the network interface.
 	// Includes the privateDnsName and privateIpAddress.
-	PrivateIpAddresses []PrivateIp `locationName:"privateIpAddresses" type:"list"`
+	PrivateIpAddresses []PrivateIp `json:"inspector:NetworkInterface:PrivateIpAddresses" locationName:"privateIpAddresses" type:"list"`
 
 	// The name of a public DNS associated with the network interface.
-	PublicDnsName *string `locationName:"publicDnsName" type:"string"`
+	PublicDnsName *string `json:"inspector:NetworkInterface:PublicDnsName" locationName:"publicDnsName" type:"string"`
 
 	// The public IP address from which the network interface is reachable.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"inspector:NetworkInterface:PublicIp" locationName:"publicIp" type:"string"`
 
 	// A list of the security groups associated with the network interface. Includes
 	// the groupId and groupName.
-	SecurityGroups []SecurityGroup `locationName:"securityGroups" type:"list"`
+	SecurityGroups []SecurityGroup `json:"inspector:NetworkInterface:SecurityGroups" locationName:"securityGroups" type:"list"`
 
 	// The ID of a subnet associated with the network interface.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"inspector:NetworkInterface:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The ID of a VPC associated with the network interface.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"inspector:NetworkInterface:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1000,10 +1000,10 @@ type PrivateIp struct {
 	_ struct{} `type:"structure"`
 
 	// The DNS name of the private IP address.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"inspector:PrivateIp:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// The full IP address of the network inteface.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"inspector:PrivateIp:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -1022,18 +1022,18 @@ type ResourceGroup struct {
 	// The ARN of the resource group.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" min:"1" type:"string" required:"true"`
+	Arn *string `json:"inspector:ResourceGroup:Arn" locationName:"arn" min:"1" type:"string" required:"true"`
 
 	// The time at which resource group is created.
 	//
 	// CreatedAt is a required field
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedAt *time.Time `json:"inspector:ResourceGroup:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The tags (key and value pairs) of the resource group. This data type property
 	// is used in the CreateResourceGroup action.
 	//
 	// Tags is a required field
-	Tags []ResourceGroupTag `locationName:"tags" min:"1" type:"list" required:"true"`
+	Tags []ResourceGroupTag `json:"inspector:ResourceGroup:Tags" locationName:"tags" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1049,10 +1049,10 @@ type ResourceGroupTag struct {
 	// A tag key.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"inspector:ResourceGroupTag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The value assigned to a tag key.
-	Value *string `locationName:"value" min:"1" type:"string"`
+	Value *string `json:"inspector:ResourceGroupTag:Value" locationName:"value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1089,25 +1089,25 @@ type RulesPackage struct {
 	// The ARN of the rules package.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" min:"1" type:"string" required:"true"`
+	Arn *string `json:"inspector:RulesPackage:Arn" locationName:"arn" min:"1" type:"string" required:"true"`
 
 	// The description of the rules package.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"inspector:RulesPackage:Description" locationName:"description" type:"string"`
 
 	// The name of the rules package.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"inspector:RulesPackage:Name" locationName:"name" type:"string" required:"true"`
 
 	// The provider of the rules package.
 	//
 	// Provider is a required field
-	Provider *string `locationName:"provider" type:"string" required:"true"`
+	Provider *string `json:"inspector:RulesPackage:Provider" locationName:"provider" type:"string" required:"true"`
 
 	// The version ID of the rules package.
 	//
 	// Version is a required field
-	Version *string `locationName:"version" type:"string" required:"true"`
+	Version *string `json:"inspector:RulesPackage:Version" locationName:"version" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1121,10 +1121,10 @@ type Scope struct {
 	_ struct{} `type:"structure"`
 
 	// The type of the scope.
-	Key ScopeType `locationName:"key" type:"string" enum:"true"`
+	Key ScopeType `json:"inspector:Scope:Key" locationName:"key" type:"string" enum:"true"`
 
 	// The resource identifier for the specified scope type.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"inspector:Scope:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -1140,10 +1140,10 @@ type SecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the security group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"inspector:SecurityGroup:GroupId" locationName:"groupId" type:"string"`
 
 	// The name of the security group.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"inspector:SecurityGroup:GroupName" locationName:"groupName" type:"string"`
 }
 
 // String returns the string representation
@@ -1160,19 +1160,19 @@ type Subscription struct {
 	// The list of existing event subscriptions.
 	//
 	// EventSubscriptions is a required field
-	EventSubscriptions []EventSubscription `locationName:"eventSubscriptions" min:"1" type:"list" required:"true"`
+	EventSubscriptions []EventSubscription `json:"inspector:Subscription:EventSubscriptions" locationName:"eventSubscriptions" min:"1" type:"list" required:"true"`
 
 	// The ARN of the assessment template that is used during the event for which
 	// the SNS notification is sent.
 	//
 	// ResourceArn is a required field
-	ResourceArn *string `locationName:"resourceArn" min:"1" type:"string" required:"true"`
+	ResourceArn *string `json:"inspector:Subscription:ResourceArn" locationName:"resourceArn" min:"1" type:"string" required:"true"`
 
 	// The ARN of the Amazon Simple Notification Service (SNS) topic to which the
 	// SNS notifications are sent.
 	//
 	// TopicArn is a required field
-	TopicArn *string `locationName:"topicArn" min:"1" type:"string" required:"true"`
+	TopicArn *string `json:"inspector:Subscription:TopicArn" locationName:"topicArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1190,10 +1190,10 @@ type Tag struct {
 	// A tag key.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"inspector:Tag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// A value assigned to a tag key.
-	Value *string `locationName:"value" min:"1" type:"string"`
+	Value *string `json:"inspector:Tag:Value" locationName:"value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1231,15 +1231,15 @@ type TelemetryMetadata struct {
 	// The count of messages that the agent sends to the Amazon Inspector service.
 	//
 	// Count is a required field
-	Count *int64 `locationName:"count" type:"long" required:"true"`
+	Count *int64 `json:"inspector:TelemetryMetadata:Count" locationName:"count" type:"long" required:"true"`
 
 	// The data size of messages that the agent sends to the Amazon Inspector service.
-	DataSize *int64 `locationName:"dataSize" type:"long"`
+	DataSize *int64 `json:"inspector:TelemetryMetadata:DataSize" locationName:"dataSize" type:"long"`
 
 	// A specific type of behavioral data that is collected by the agent.
 	//
 	// MessageType is a required field
-	MessageType *string `locationName:"messageType" min:"1" type:"string" required:"true"`
+	MessageType *string `json:"inspector:TelemetryMetadata:MessageType" locationName:"messageType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1253,10 +1253,10 @@ type TimestampRange struct {
 	_ struct{} `type:"structure"`
 
 	// The minimum value of the timestamp range.
-	BeginDate *time.Time `locationName:"beginDate" type:"timestamp" timestampFormat:"unix"`
+	BeginDate *time.Time `json:"inspector:TimestampRange:BeginDate" locationName:"beginDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The maximum value of the timestamp range.
-	EndDate *time.Time `locationName:"endDate" type:"timestamp" timestampFormat:"unix"`
+	EndDate *time.Time `json:"inspector:TimestampRange:EndDate" locationName:"endDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

@@ -105,7 +105,7 @@ type AttachObjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attached ObjectIdentifier, which is the child ObjectIdentifier.
-	AttachedObjectIdentifier *string `type:"string"`
+	AttachedObjectIdentifier *string `json:"clouddirectory:AttachObjectOutput:AttachedObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation

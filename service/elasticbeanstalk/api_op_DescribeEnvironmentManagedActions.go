@@ -35,7 +35,7 @@ type DescribeEnvironmentManagedActionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of upcoming and in-progress managed actions.
-	ManagedActions []ManagedAction `min:"1" type:"list"`
+	ManagedActions []ManagedAction `json:"elasticbeanstalk:DescribeEnvironmentManagedActionsOutput:ManagedActions" min:"1" type:"list"`
 }
 
 // String returns the string representation

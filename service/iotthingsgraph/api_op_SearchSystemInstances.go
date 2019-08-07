@@ -51,11 +51,11 @@ type SearchSystemInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The string to specify as nextToken when you request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:SearchSystemInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of objects that contain summary data abour the system instances
 	// in the result set.
-	Summaries []SystemInstanceSummary `locationName:"summaries" type:"list"`
+	Summaries []SystemInstanceSummary `json:"iotthingsgraph:SearchSystemInstancesOutput:Summaries" locationName:"summaries" type:"list"`
 }
 
 // String returns the string representation

@@ -88,7 +88,7 @@ type ChangeResourceRecordSetsOutput struct {
 	// action to get detailed information about the change.
 	//
 	// ChangeInfo is a required field
-	ChangeInfo *ChangeInfo `type:"structure" required:"true"`
+	ChangeInfo *ChangeInfo `json:"route53:ChangeResourceRecordSetsOutput:ChangeInfo" type:"structure" required:"true"`
 }
 
 // String returns the string representation

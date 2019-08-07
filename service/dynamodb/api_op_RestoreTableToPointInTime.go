@@ -66,7 +66,7 @@ type RestoreTableToPointInTimeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the properties of a table.
-	TableDescription *TableDescription `type:"structure"`
+	TableDescription *TableDescription `json:"dynamodb:RestoreTableToPointInTimeOutput:TableDescription" type:"structure"`
 }
 
 // String returns the string representation

@@ -84,10 +84,10 @@ type ListVaultsOutput struct {
 
 	// The vault ARN at which to continue pagination of the results. You use the
 	// marker in another List Vaults request to obtain more vaults in the list.
-	Marker *string `type:"string"`
+	Marker *string `json:"glacier:ListVaultsOutput:Marker" type:"string"`
 
 	// List of vaults.
-	VaultList []DescribeVaultOutput `type:"list"`
+	VaultList []DescribeVaultOutput `json:"glacier:ListVaultsOutput:VaultList" type:"list"`
 }
 
 // String returns the string representation

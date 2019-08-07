@@ -55,10 +55,10 @@ type GetReservedNodeExchangeOfferingsOutput struct {
 	// a value in the marker field of the response. You can retrieve the next set
 	// of response records by providing the returned marker value in the marker
 	// parameter and retrying the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:GetReservedNodeExchangeOfferingsOutput:Marker" type:"string"`
 
 	// Returns an array of ReservedNodeOffering objects.
-	ReservedNodeOfferings []ReservedNodeOffering `locationNameList:"ReservedNodeOffering" type:"list"`
+	ReservedNodeOfferings []ReservedNodeOffering `json:"redshift:GetReservedNodeExchangeOfferingsOutput:ReservedNodeOfferings" locationNameList:"ReservedNodeOffering" type:"list"`
 }
 
 // String returns the string representation

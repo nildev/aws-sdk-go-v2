@@ -65,19 +65,19 @@ type DescribeObjectOutput struct {
 	// (https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9).
 	//
 	// Headers with a custom user-defined value are also accepted.
-	CacheControl *string `location:"header" locationName:"Cache-Control" type:"string"`
+	CacheControl *string `json:"data.mediastore:DescribeObjectOutput:CacheControl" location:"header" locationName:"Cache-Control" type:"string"`
 
 	// The length of the object in bytes.
-	ContentLength *int64 `location:"header" locationName:"Content-Length" type:"long"`
+	ContentLength *int64 `json:"data.mediastore:DescribeObjectOutput:ContentLength" location:"header" locationName:"Content-Length" type:"long"`
 
 	// The content type of the object.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"data.mediastore:DescribeObjectOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 
 	// The ETag that represents a unique instance of the object.
-	ETag *string `location:"header" locationName:"ETag" min:"1" type:"string"`
+	ETag *string `json:"data.mediastore:DescribeObjectOutput:ETag" location:"header" locationName:"ETag" min:"1" type:"string"`
 
 	// The date and time that the object was last modified.
-	LastModified *time.Time `location:"header" locationName:"Last-Modified" type:"timestamp" timestampFormat:"rfc822"`
+	LastModified *time.Time `json:"data.mediastore:DescribeObjectOutput:LastModified" location:"header" locationName:"Last-Modified" type:"timestamp" timestampFormat:"rfc822"`
 }
 
 // String returns the string representation

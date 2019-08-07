@@ -81,7 +81,7 @@ type CreateExportJobOutput struct {
 	// or downloaded directly to a computer by using the Amazon Pinpoint console.
 	//
 	// ExportJobResponse is a required field
-	ExportJobResponse *ExportJobResponse `type:"structure" required:"true"`
+	ExportJobResponse *ExportJobResponse `json:"pinpoint:CreateExportJobOutput:ExportJobResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

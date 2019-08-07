@@ -59,11 +59,11 @@ type DescribeOrderableClusterOptionsOutput struct {
 	// the next set of records by providing this returned marker value in the Marker
 	// parameter and retrying the command. If the Marker field is empty, all response
 	// records have been retrieved for the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeOrderableClusterOptionsOutput:Marker" type:"string"`
 
 	// An OrderableClusterOption structure containing information about orderable
 	// options for the cluster.
-	OrderableClusterOptions []OrderableClusterOption `locationNameList:"OrderableClusterOption" type:"list"`
+	OrderableClusterOptions []OrderableClusterOption `json:"redshift:DescribeOrderableClusterOptionsOutput:OrderableClusterOptions" locationNameList:"OrderableClusterOption" type:"list"`
 }
 
 // String returns the string representation

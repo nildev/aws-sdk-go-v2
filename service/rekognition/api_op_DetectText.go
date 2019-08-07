@@ -51,7 +51,7 @@ type DetectTextOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of text that was detected in the input image.
-	TextDetections []TextDetection `type:"list"`
+	TextDetections []TextDetection `json:"rekognition:DetectTextOutput:TextDetections" type:"list"`
 }
 
 // String returns the string representation

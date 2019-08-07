@@ -26,7 +26,7 @@ type GetAssociationForServiceQuotaTemplateOutput struct {
 	// Specifies whether the template is ASSOCIATED or DISASSOCIATED. If the template
 	// is ASSOCIATED, then it requests service quota increases for all new accounts
 	// created in your organization.
-	ServiceQuotaTemplateAssociationStatus ServiceQuotaTemplateAssociationStatus `type:"string" enum:"true"`
+	ServiceQuotaTemplateAssociationStatus ServiceQuotaTemplateAssociationStatus `json:"servicequotas:GetAssociationForServiceQuotaTemplateOutput:ServiceQuotaTemplateAssociationStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

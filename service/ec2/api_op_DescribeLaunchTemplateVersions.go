@@ -89,11 +89,11 @@ type DescribeLaunchTemplateVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the launch template versions.
-	LaunchTemplateVersions []LaunchTemplateVersion `locationName:"launchTemplateVersionSet" locationNameList:"item" type:"list"`
+	LaunchTemplateVersions []LaunchTemplateVersion `json:"ec2:DescribeLaunchTemplateVersionsOutput:LaunchTemplateVersions" locationName:"launchTemplateVersionSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeLaunchTemplateVersionsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

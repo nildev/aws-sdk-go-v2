@@ -49,10 +49,10 @@ type ListCampaignsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the campaigns.
-	Campaigns []CampaignSummary `locationName:"campaigns" type:"list"`
+	Campaigns []CampaignSummary `json:"personalize:ListCampaignsOutput:Campaigns" locationName:"campaigns" type:"list"`
 
 	// A token for getting the next set of campaigns (if they exist).
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListCampaignsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

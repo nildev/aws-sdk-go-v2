@@ -80,10 +80,10 @@ type ListStreamsOutput struct {
 
 	// If the response is truncated, the call returns this element with a token.
 	// To get the next batch of streams, use this token in your next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"kinesisvideo:ListStreamsOutput:NextToken" type:"string"`
 
 	// An array of StreamInfo objects.
-	StreamInfoList []StreamInfo `type:"list"`
+	StreamInfoList []StreamInfo `json:"kinesisvideo:ListStreamsOutput:StreamInfoList" type:"list"`
 }
 
 // String returns the string representation

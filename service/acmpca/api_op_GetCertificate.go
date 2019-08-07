@@ -64,11 +64,11 @@ type GetCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The base64 PEM-encoded certificate specified by the CertificateArn parameter.
-	Certificate *string `type:"string"`
+	Certificate *string `json:"acm-pca:GetCertificateOutput:Certificate" type:"string"`
 
 	// The base64 PEM-encoded certificate chain that chains up to the on-premises
 	// root CA certificate that you used to sign your private CA certificate.
-	CertificateChain *string `type:"string"`
+	CertificateChain *string `json:"acm-pca:GetCertificateOutput:CertificateChain" type:"string"`
 }
 
 // String returns the string representation

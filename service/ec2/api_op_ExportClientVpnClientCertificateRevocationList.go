@@ -49,10 +49,10 @@ type ExportClientVpnClientCertificateRevocationListOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the client certificate revocation list.
-	CertificateRevocationList *string `locationName:"certificateRevocationList" type:"string"`
+	CertificateRevocationList *string `json:"ec2:ExportClientVpnClientCertificateRevocationListOutput:CertificateRevocationList" locationName:"certificateRevocationList" type:"string"`
 
 	// The current state of the client certificate revocation list.
-	Status *CertificateRevocationListStatus `locationName:"status" type:"structure"`
+	Status *CertificateRevocationListStatus `json:"ec2:ExportClientVpnClientCertificateRevocationListOutput:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation

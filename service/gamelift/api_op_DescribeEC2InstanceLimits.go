@@ -35,7 +35,7 @@ type DescribeEC2InstanceLimitsOutput struct {
 
 	// Object that contains the maximum number of instances for the specified instance
 	// type.
-	EC2InstanceLimits []EC2InstanceLimit `type:"list"`
+	EC2InstanceLimits []EC2InstanceLimit `json:"gamelift:DescribeEC2InstanceLimitsOutput:EC2InstanceLimits" type:"list"`
 }
 
 // String returns the string representation

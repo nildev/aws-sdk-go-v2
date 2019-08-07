@@ -62,7 +62,7 @@ type DescribeStackInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The stack instance that matches the specified request parameters.
-	StackInstance *StackInstance `type:"structure"`
+	StackInstance *StackInstance `json:"cloudformation:DescribeStackInstanceOutput:StackInstance" type:"structure"`
 }
 
 // String returns the string representation

@@ -91,62 +91,62 @@ type UpdateStageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Settings for logging access in this stage.
-	AccessLogSettings *AccessLogSettings `locationName:"accessLogSettings" type:"structure"`
+	AccessLogSettings *AccessLogSettings `json:"apigateway:UpdateStageOutput:AccessLogSettings" locationName:"accessLogSettings" type:"structure"`
 
 	// Specifies whether a cache cluster is enabled for the stage.
-	CacheClusterEnabled *bool `locationName:"cacheClusterEnabled" type:"boolean"`
+	CacheClusterEnabled *bool `json:"apigateway:UpdateStageOutput:CacheClusterEnabled" locationName:"cacheClusterEnabled" type:"boolean"`
 
 	// The size of the cache cluster for the stage, if enabled.
-	CacheClusterSize CacheClusterSize `locationName:"cacheClusterSize" type:"string" enum:"true"`
+	CacheClusterSize CacheClusterSize `json:"apigateway:UpdateStageOutput:CacheClusterSize" locationName:"cacheClusterSize" type:"string" enum:"true"`
 
 	// The status of the cache cluster for the stage, if enabled.
-	CacheClusterStatus CacheClusterStatus `locationName:"cacheClusterStatus" type:"string" enum:"true"`
+	CacheClusterStatus CacheClusterStatus `json:"apigateway:UpdateStageOutput:CacheClusterStatus" locationName:"cacheClusterStatus" type:"string" enum:"true"`
 
 	// Settings for the canary deployment in this stage.
-	CanarySettings *CanarySettings `locationName:"canarySettings" type:"structure"`
+	CanarySettings *CanarySettings `json:"apigateway:UpdateStageOutput:CanarySettings" locationName:"canarySettings" type:"structure"`
 
 	// The identifier of a client certificate for an API stage.
-	ClientCertificateId *string `locationName:"clientCertificateId" type:"string"`
+	ClientCertificateId *string `json:"apigateway:UpdateStageOutput:ClientCertificateId" locationName:"clientCertificateId" type:"string"`
 
 	// The timestamp when the stage was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:UpdateStageOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the Deployment that the stage points to.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"apigateway:UpdateStageOutput:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// The stage's description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:UpdateStageOutput:Description" locationName:"description" type:"string"`
 
 	// The version of the associated API documentation.
-	DocumentationVersion *string `locationName:"documentationVersion" type:"string"`
+	DocumentationVersion *string `json:"apigateway:UpdateStageOutput:DocumentationVersion" locationName:"documentationVersion" type:"string"`
 
 	// The timestamp when the stage last updated.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"apigateway:UpdateStageOutput:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A map that defines the method settings for a Stage resource. Keys (designated
 	// as /{method_setting_key below) are method paths defined as {resource_path}/{http_method}
 	// for an individual method override, or /\*/\* for overriding all methods in
 	// the stage.
-	MethodSettings map[string]MethodSetting `locationName:"methodSettings" type:"map"`
+	MethodSettings map[string]MethodSetting `json:"apigateway:UpdateStageOutput:MethodSettings" locationName:"methodSettings" type:"map"`
 
 	// The name of the stage is the first path segment in the Uniform Resource Identifier
 	// (URI) of a call to API Gateway. Stage names can only contain alphanumeric
 	// characters, hyphens, and underscores. Maximum length is 128 characters.
-	StageName *string `locationName:"stageName" type:"string"`
+	StageName *string `json:"apigateway:UpdateStageOutput:StageName" locationName:"stageName" type:"string"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:UpdateStageOutput:Tags" locationName:"tags" type:"map"`
 
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
-	TracingEnabled *bool `locationName:"tracingEnabled" type:"boolean"`
+	TracingEnabled *bool `json:"apigateway:UpdateStageOutput:TracingEnabled" locationName:"tracingEnabled" type:"boolean"`
 
 	// A map that defines the stage variables for a Stage resource. Variable names
 	// can have alphanumeric and underscore characters, and the values must match
 	// [A-Za-z0-9-._~:/?#&=,]+.
-	Variables map[string]string `locationName:"variables" type:"map"`
+	Variables map[string]string `json:"apigateway:UpdateStageOutput:Variables" locationName:"variables" type:"map"`
 
 	// The ARN of the WebAcl associated with the Stage.
-	WebAclArn *string `locationName:"webAclArn" type:"string"`
+	WebAclArn *string `json:"apigateway:UpdateStageOutput:WebAclArn" locationName:"webAclArn" type:"string"`
 }
 
 // String returns the string representation

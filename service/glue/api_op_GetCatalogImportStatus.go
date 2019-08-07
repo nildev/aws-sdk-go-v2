@@ -41,7 +41,7 @@ type GetCatalogImportStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the specified catalog migration.
-	ImportStatus *CatalogImportStatus `type:"structure"`
+	ImportStatus *CatalogImportStatus `json:"glue:GetCatalogImportStatusOutput:ImportStatus" type:"structure"`
 }
 
 // String returns the string representation

@@ -85,32 +85,32 @@ type GetTemplateSummaryOutput struct {
 	//
 	// For more information, see Acknowledging IAM Resources in AWS CloudFormation
 	// Templates (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities).
-	Capabilities []Capability `type:"list"`
+	Capabilities []Capability `json:"cloudformation:GetTemplateSummaryOutput:Capabilities" type:"list"`
 
 	// The list of resources that generated the values in the Capabilities response
 	// element.
-	CapabilitiesReason *string `type:"string"`
+	CapabilitiesReason *string `json:"cloudformation:GetTemplateSummaryOutput:CapabilitiesReason" type:"string"`
 
 	// A list of the transforms that are declared in the template.
-	DeclaredTransforms []string `type:"list"`
+	DeclaredTransforms []string `json:"cloudformation:GetTemplateSummaryOutput:DeclaredTransforms" type:"list"`
 
 	// The value that is defined in the Description property of the template.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:GetTemplateSummaryOutput:Description" min:"1" type:"string"`
 
 	// The value that is defined for the Metadata property of the template.
-	Metadata *string `type:"string"`
+	Metadata *string `json:"cloudformation:GetTemplateSummaryOutput:Metadata" type:"string"`
 
 	// A list of parameter declarations that describe various properties for each
 	// parameter.
-	Parameters []ParameterDeclaration `type:"list"`
+	Parameters []ParameterDeclaration `json:"cloudformation:GetTemplateSummaryOutput:Parameters" type:"list"`
 
 	// A list of all the template resource types that are defined in the template,
 	// such as AWS::EC2::Instance, AWS::Dynamo::Table, and Custom::MyCustomInstance.
-	ResourceTypes []string `type:"list"`
+	ResourceTypes []string `json:"cloudformation:GetTemplateSummaryOutput:ResourceTypes" type:"list"`
 
 	// The AWS template format version, which identifies the capabilities of the
 	// template.
-	Version *string `type:"string"`
+	Version *string `json:"cloudformation:GetTemplateSummaryOutput:Version" type:"string"`
 }
 
 // String returns the string representation

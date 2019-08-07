@@ -59,10 +59,10 @@ type GetTopicRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The rule.
-	Rule *TopicRule `locationName:"rule" type:"structure"`
+	Rule *TopicRule `json:"iot:GetTopicRuleOutput:Rule" locationName:"rule" type:"structure"`
 
 	// The rule ARN.
-	RuleArn *string `locationName:"ruleArn" type:"string"`
+	RuleArn *string `json:"iot:GetTopicRuleOutput:RuleArn" locationName:"ruleArn" type:"string"`
 }
 
 // String returns the string representation

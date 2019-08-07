@@ -44,7 +44,7 @@ type AllocateStaticIpOutput struct {
 
 	// An array of key-value pairs containing information about the static IP address
 	// you allocated.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:AllocateStaticIpOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

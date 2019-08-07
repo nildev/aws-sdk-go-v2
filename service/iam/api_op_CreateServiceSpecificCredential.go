@@ -67,7 +67,7 @@ type CreateServiceSpecificCredentialOutput struct {
 	//
 	// This is the only time that the password for this credential set is available.
 	// It cannot be recovered later. Instead, you must reset the password with ResetServiceSpecificCredential.
-	ServiceSpecificCredential *ServiceSpecificCredential `type:"structure"`
+	ServiceSpecificCredential *ServiceSpecificCredential `json:"iam:CreateServiceSpecificCredentialOutput:ServiceSpecificCredential" type:"structure"`
 }
 
 // String returns the string representation

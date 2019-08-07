@@ -120,10 +120,10 @@ type ListObjectAttributesOutput struct {
 
 	// Attributes map that is associated with the object. AttributeArn is the key,
 	// and attribute value is the value.
-	Attributes []AttributeKeyAndValue `type:"list"`
+	Attributes []AttributeKeyAndValue `json:"clouddirectory:ListObjectAttributesOutput:Attributes" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListObjectAttributesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

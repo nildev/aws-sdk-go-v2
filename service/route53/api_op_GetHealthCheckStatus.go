@@ -67,7 +67,7 @@ type GetHealthCheckStatusOutput struct {
 	// 53 health checker that is reporting a status about the health check endpoint.
 	//
 	// HealthCheckObservations is a required field
-	HealthCheckObservations []HealthCheckObservation `locationNameList:"HealthCheckObservation" type:"list" required:"true"`
+	HealthCheckObservations []HealthCheckObservation `json:"route53:GetHealthCheckStatusOutput:HealthCheckObservations" locationNameList:"HealthCheckObservation" type:"list" required:"true"`
 }
 
 // String returns the string representation

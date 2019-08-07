@@ -112,11 +112,11 @@ type RestoreObjectOutput struct {
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:RestoreObjectOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// Indicates the path in the provided S3 output location where Select results
 	// will be restored to.
-	RestoreOutputPath *string `location:"header" locationName:"x-amz-restore-output-path" type:"string"`
+	RestoreOutputPath *string `json:"s3:RestoreObjectOutput:RestoreOutputPath" location:"header" locationName:"x-amz-restore-output-path" type:"string"`
 }
 
 // String returns the string representation

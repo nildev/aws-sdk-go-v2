@@ -25,7 +25,7 @@ type EnableAllFeaturesOutput struct {
 
 	// A structure that contains details about the handshake created to support
 	// this request to enable all features in the organization.
-	Handshake *Handshake `type:"structure"`
+	Handshake *Handshake `json:"organizations:EnableAllFeaturesOutput:Handshake" type:"structure"`
 }
 
 // String returns the string representation

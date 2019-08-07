@@ -64,7 +64,7 @@ type GetQueryLoggingConfigOutput struct {
 	// request.
 	//
 	// QueryLoggingConfig is a required field
-	QueryLoggingConfig *QueryLoggingConfig `type:"structure" required:"true"`
+	QueryLoggingConfig *QueryLoggingConfig `json:"route53:GetQueryLoggingConfigOutput:QueryLoggingConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -36,7 +36,7 @@ type GetHealthCheckCountOutput struct {
 	// The number of health checks associated with the current AWS account.
 	//
 	// HealthCheckCount is a required field
-	HealthCheckCount *int64 `type:"long" required:"true"`
+	HealthCheckCount *int64 `json:"route53:GetHealthCheckCountOutput:HealthCheckCount" type:"long" required:"true"`
 }
 
 // String returns the string representation

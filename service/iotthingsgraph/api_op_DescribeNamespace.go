@@ -27,19 +27,19 @@ type DescribeNamespaceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the namespace.
-	NamespaceArn *string `locationName:"namespaceArn" type:"string"`
+	NamespaceArn *string `json:"iotthingsgraph:DescribeNamespaceOutput:NamespaceArn" locationName:"namespaceArn" type:"string"`
 
 	// The name of the namespace.
-	NamespaceName *string `locationName:"namespaceName" type:"string"`
+	NamespaceName *string `json:"iotthingsgraph:DescribeNamespaceOutput:NamespaceName" locationName:"namespaceName" type:"string"`
 
 	// The version of the user's namespace to describe.
-	NamespaceVersion *int64 `locationName:"namespaceVersion" type:"long"`
+	NamespaceVersion *int64 `json:"iotthingsgraph:DescribeNamespaceOutput:NamespaceVersion" locationName:"namespaceVersion" type:"long"`
 
 	// The name of the public namespace that the latest namespace version is tracking.
-	TrackingNamespaceName *string `locationName:"trackingNamespaceName" type:"string"`
+	TrackingNamespaceName *string `json:"iotthingsgraph:DescribeNamespaceOutput:TrackingNamespaceName" locationName:"trackingNamespaceName" type:"string"`
 
 	// The version of the public namespace that the latest version is tracking.
-	TrackingNamespaceVersion *int64 `locationName:"trackingNamespaceVersion" type:"long"`
+	TrackingNamespaceVersion *int64 `json:"iotthingsgraph:DescribeNamespaceOutput:TrackingNamespaceVersion" locationName:"trackingNamespaceVersion" type:"long"`
 }
 
 // String returns the string representation

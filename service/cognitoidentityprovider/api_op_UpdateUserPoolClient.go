@@ -150,7 +150,7 @@ type UpdateUserPoolClientOutput struct {
 
 	// The user pool client value from the response from the server when an update
 	// user pool client request is made.
-	UserPoolClient *UserPoolClientType `type:"structure"`
+	UserPoolClient *UserPoolClientType `json:"cognito-idp:UpdateUserPoolClientOutput:UserPoolClient" type:"structure"`
 }
 
 // String returns the string representation

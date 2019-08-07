@@ -27,7 +27,7 @@ type DescribeLagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The LAGs.
-	Lags []Lag `locationName:"lags" type:"list"`
+	Lags []Lag `json:"directconnect:DescribeLagsOutput:Lags" locationName:"lags" type:"list"`
 }
 
 // String returns the string representation

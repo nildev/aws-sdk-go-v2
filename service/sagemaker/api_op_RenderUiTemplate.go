@@ -78,12 +78,12 @@ type RenderUiTemplateOutput struct {
 	// rendering the template. If there were no errors, the list is empty.
 	//
 	// Errors is a required field
-	Errors []RenderingError `type:"list" required:"true"`
+	Errors []RenderingError `json:"api.sagemaker:RenderUiTemplateOutput:Errors" type:"list" required:"true"`
 
 	// A Liquid template that renders the HTML for the worker UI.
 	//
 	// RenderedContent is a required field
-	RenderedContent *string `type:"string" required:"true"`
+	RenderedContent *string `json:"api.sagemaker:RenderUiTemplateOutput:RenderedContent" type:"string" required:"true"`
 }
 
 // String returns the string representation

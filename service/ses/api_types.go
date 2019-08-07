@@ -26,13 +26,13 @@ type AddHeaderAction struct {
 	// and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 	//
 	// HeaderName is a required field
-	HeaderName *string `type:"string" required:"true"`
+	HeaderName *string `json:"email:AddHeaderAction:HeaderName" type:"string" required:"true"`
 
 	// Must be less than 2048 characters, and must not contain newline characters
 	// ("\r" or "\n").
 	//
 	// HeaderValue is a required field
-	HeaderValue *string `type:"string" required:"true"`
+	HeaderValue *string `json:"email:AddHeaderAction:HeaderValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -68,11 +68,11 @@ type Body struct {
 	// The content of the message, in HTML format. Use this for email clients that
 	// can process HTML. You can include clickable links, formatted text, and much
 	// more in an HTML message.
-	Html *Content `type:"structure"`
+	Html *Content `json:"email:Body:Html" type:"structure"`
 
 	// The content of the message, in text format. Use this for text-based email
 	// clients, or clients on high-latency networks (such as mobile devices).
-	Text *Content `type:"structure"`
+	Text *Content `json:"email:Body:Text" type:"structure"`
 }
 
 // String returns the string representation
@@ -113,27 +113,27 @@ type BounceAction struct {
 	// Human-readable text to include in the bounce message.
 	//
 	// Message is a required field
-	Message *string `type:"string" required:"true"`
+	Message *string `json:"email:BounceAction:Message" type:"string" required:"true"`
 
 	// The email address of the sender of the bounced email. This is the address
 	// from which the bounce message will be sent.
 	//
 	// Sender is a required field
-	Sender *string `type:"string" required:"true"`
+	Sender *string `json:"email:BounceAction:Sender" type:"string" required:"true"`
 
 	// The SMTP reply code, as defined by RFC 5321 (https://tools.ietf.org/html/rfc5321).
 	//
 	// SmtpReplyCode is a required field
-	SmtpReplyCode *string `type:"string" required:"true"`
+	SmtpReplyCode *string `json:"email:BounceAction:SmtpReplyCode" type:"string" required:"true"`
 
 	// The SMTP enhanced status code, as defined by RFC 3463 (https://tools.ietf.org/html/rfc3463).
-	StatusCode *string `type:"string"`
+	StatusCode *string `json:"email:BounceAction:StatusCode" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the
 	// bounce action is taken. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic.
 	// For more information about Amazon SNS topics, see the Amazon SNS Developer
 	// Guide (https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"email:BounceAction:TopicArn" type:"string"`
 }
 
 // String returns the string representation
@@ -173,23 +173,23 @@ type BouncedRecipientInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The reason for the bounce. You must provide either this parameter or RecipientDsnFields.
-	BounceType BounceType `type:"string" enum:"true"`
+	BounceType BounceType `json:"email:BouncedRecipientInfo:BounceType" type:"string" enum:"true"`
 
 	// The email address of the recipient of the bounced email.
 	//
 	// Recipient is a required field
-	Recipient *string `type:"string" required:"true"`
+	Recipient *string `json:"email:BouncedRecipientInfo:Recipient" type:"string" required:"true"`
 
 	// This parameter is used only for sending authorization. It is the ARN of the
 	// identity that is associated with the sending authorization policy that permits
 	// you to receive email for the recipient of the bounced email. For more information
 	// about sending authorization, see the Amazon SES Developer Guide (https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html).
-	RecipientArn *string `type:"string"`
+	RecipientArn *string `json:"email:BouncedRecipientInfo:RecipientArn" type:"string"`
 
 	// Recipient-related DSN fields, most of which would normally be filled in automatically
 	// when provided with a BounceType. You must provide either this parameter or
 	// BounceType.
-	RecipientDsnFields *RecipientDsnFields `type:"structure"`
+	RecipientDsnFields *RecipientDsnFields `json:"email:BouncedRecipientInfo:RecipientDsnFields" type:"structure"`
 }
 
 // String returns the string representation
@@ -234,17 +234,17 @@ type BulkEmailDestination struct {
 	// (https://tools.ietf.org/html/rfc3492.html).
 	//
 	// Destination is a required field
-	Destination *Destination `type:"structure" required:"true"`
+	Destination *Destination `json:"email:BulkEmailDestination:Destination" type:"structure" required:"true"`
 
 	// A list of tags, in the form of name/value pairs, to apply to an email that
 	// you send using SendBulkTemplatedEmail. Tags correspond to characteristics
 	// of the email that you define, so that you can publish email sending events.
-	ReplacementTags []MessageTag `type:"list"`
+	ReplacementTags []MessageTag `json:"email:BulkEmailDestination:ReplacementTags" type:"list"`
 
 	// A list of replacement values to apply to the template. This parameter is
 	// a JSON object, typically consisting of key-value pairs in which the keys
 	// correspond to replacement tags in the email template.
-	ReplacementTemplateData *string `type:"string"`
+	ReplacementTemplateData *string `json:"email:BulkEmailDestination:ReplacementTemplateData" type:"string"`
 }
 
 // String returns the string representation
@@ -280,10 +280,10 @@ type BulkEmailDestinationStatus struct {
 
 	// A description of an error that prevented a message being sent using the SendBulkTemplatedEmail
 	// operation.
-	Error *string `type:"string"`
+	Error *string `json:"email:BulkEmailDestinationStatus:Error" type:"string"`
 
 	// The unique message identifier returned from the SendBulkTemplatedEmail operation.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"email:BulkEmailDestinationStatus:MessageId" type:"string"`
 
 	// The status of a message sent using the SendBulkTemplatedEmail operation.
 	//
@@ -329,7 +329,7 @@ type BulkEmailDestinationStatus struct {
 	//
 	//    * Failed: Amazon SES was unable to process your request. See the error
 	//    message for additional information.
-	Status BulkEmailStatus `type:"string" enum:"true"`
+	Status BulkEmailStatus `json:"email:BulkEmailDestinationStatus:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -351,7 +351,7 @@ type CloudWatchDestination struct {
 	// email sending events to Amazon CloudWatch.
 	//
 	// DimensionConfigurations is a required field
-	DimensionConfigurations []CloudWatchDimensionConfiguration `type:"list" required:"true"`
+	DimensionConfigurations []CloudWatchDimensionConfiguration `json:"email:CloudWatchDestination:DimensionConfigurations" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -399,7 +399,7 @@ type CloudWatchDimensionConfiguration struct {
 	//    * Contain less than 256 characters.
 	//
 	// DefaultDimensionValue is a required field
-	DefaultDimensionValue *string `type:"string" required:"true"`
+	DefaultDimensionValue *string `json:"email:CloudWatchDimensionConfiguration:DefaultDimensionValue" type:"string" required:"true"`
 
 	// The name of an Amazon CloudWatch dimension associated with an email sending
 	// metric. The name must:
@@ -410,7 +410,7 @@ type CloudWatchDimensionConfiguration struct {
 	//    * Contain less than 256 characters.
 	//
 	// DimensionName is a required field
-	DimensionName *string `type:"string" required:"true"`
+	DimensionName *string `json:"email:CloudWatchDimensionConfiguration:DimensionName" type:"string" required:"true"`
 
 	// The place where Amazon SES finds the value of a dimension to publish to Amazon
 	// CloudWatch. If you want Amazon SES to use the message tags that you specify
@@ -419,7 +419,7 @@ type CloudWatchDimensionConfiguration struct {
 	// choose emailHeader.
 	//
 	// DimensionValueSource is a required field
-	DimensionValueSource DimensionValueSource `type:"string" required:"true" enum:"true"`
+	DimensionValueSource DimensionValueSource `json:"email:CloudWatchDimensionConfiguration:DimensionValueSource" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -466,7 +466,7 @@ type ConfigurationSet struct {
 	//    * Contain 64 characters or fewer.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"email:ConfigurationSet:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -498,12 +498,12 @@ type Content struct {
 	_ struct{} `type:"structure"`
 
 	// The character set of the content.
-	Charset *string `type:"string"`
+	Charset *string `json:"email:Content:Charset" type:"string"`
 
 	// The textual data of the content.
 	//
 	// Data is a required field
-	Data *string `type:"string" required:"true"`
+	Data *string `json:"email:Content:Data" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -532,20 +532,20 @@ type CustomVerificationEmailTemplate struct {
 
 	// The URL that the recipient of the verification email is sent to if his or
 	// her address is not successfully verified.
-	FailureRedirectionURL *string `type:"string"`
+	FailureRedirectionURL *string `json:"email:CustomVerificationEmailTemplate:FailureRedirectionURL" type:"string"`
 
 	// The email address that the custom verification email is sent from.
-	FromEmailAddress *string `type:"string"`
+	FromEmailAddress *string `json:"email:CustomVerificationEmailTemplate:FromEmailAddress" type:"string"`
 
 	// The URL that the recipient of the verification email is sent to if his or
 	// her address is successfully verified.
-	SuccessRedirectionURL *string `type:"string"`
+	SuccessRedirectionURL *string `json:"email:CustomVerificationEmailTemplate:SuccessRedirectionURL" type:"string"`
 
 	// The name of the custom verification email template.
-	TemplateName *string `type:"string"`
+	TemplateName *string `json:"email:CustomVerificationEmailTemplate:TemplateName" type:"string"`
 
 	// The subject line of the custom verification email.
-	TemplateSubject *string `type:"string"`
+	TemplateSubject *string `json:"email:CustomVerificationEmailTemplate:TemplateSubject" type:"string"`
 }
 
 // String returns the string representation
@@ -563,7 +563,7 @@ type DeliveryOptions struct {
 	// use Transport Layer Security (TLS). If the value is Require, messages are
 	// only delivered if a TLS connection can be established. If the value is Optional,
 	// messages can be delivered in plain text if a TLS connection can't be established.
-	TlsPolicy TlsPolicy `type:"string" enum:"true"`
+	TlsPolicy TlsPolicy `json:"email:DeliveryOptions:TlsPolicy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -586,13 +586,13 @@ type Destination struct {
 	_ struct{} `type:"structure"`
 
 	// The BCC: field(s) of the message.
-	BccAddresses []string `type:"list"`
+	BccAddresses []string `json:"email:Destination:BccAddresses" type:"list"`
 
 	// The CC: field(s) of the message.
-	CcAddresses []string `type:"list"`
+	CcAddresses []string `json:"email:Destination:CcAddresses" type:"list"`
 
 	// The To: field(s) of the message.
-	ToAddresses []string `type:"list"`
+	ToAddresses []string `json:"email:Destination:ToAddresses" type:"list"`
 }
 
 // String returns the string representation
@@ -617,22 +617,22 @@ type EventDestination struct {
 
 	// An object that contains the names, default values, and sources of the dimensions
 	// associated with an Amazon CloudWatch event destination.
-	CloudWatchDestination *CloudWatchDestination `type:"structure"`
+	CloudWatchDestination *CloudWatchDestination `json:"email:EventDestination:CloudWatchDestination" type:"structure"`
 
 	// Sets whether Amazon SES publishes events to this destination when you send
 	// an email with the associated configuration set. Set to true to enable publishing
 	// to this destination; set to false to prevent publishing to this destination.
 	// The default value is false.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"email:EventDestination:Enabled" type:"boolean"`
 
 	// An object that contains the delivery stream ARN and the IAM role ARN associated
 	// with an Amazon Kinesis Firehose event destination.
-	KinesisFirehoseDestination *KinesisFirehoseDestination `type:"structure"`
+	KinesisFirehoseDestination *KinesisFirehoseDestination `json:"email:EventDestination:KinesisFirehoseDestination" type:"structure"`
 
 	// The type of email sending events to publish to the event destination.
 	//
 	// MatchingEventTypes is a required field
-	MatchingEventTypes []EventType `type:"list" required:"true"`
+	MatchingEventTypes []EventType `json:"email:EventDestination:MatchingEventTypes" type:"list" required:"true"`
 
 	// The name of the event destination. The name must:
 	//
@@ -642,11 +642,11 @@ type EventDestination struct {
 	//    * Contain less than 64 characters.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"email:EventDestination:Name" type:"string" required:"true"`
 
 	// An object that contains the topic ARN associated with an Amazon Simple Notification
 	// Service (Amazon SNS) event destination.
-	SNSDestination *SNSDestination `type:"structure"`
+	SNSDestination *SNSDestination `json:"email:EventDestination:SNSDestination" type:"structure"`
 }
 
 // String returns the string representation
@@ -700,13 +700,13 @@ type ExtensionField struct {
 	// and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"email:ExtensionField:Name" type:"string" required:"true"`
 
 	// The value of the header to add. Must be less than 2048 characters, and must
 	// not contain newline characters ("\r" or "\n").
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"email:ExtensionField:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -741,7 +741,7 @@ type IdentityDkimAttributes struct {
 	// false otherwise. The default value is true.
 	//
 	// DkimEnabled is a required field
-	DkimEnabled *bool `type:"boolean" required:"true"`
+	DkimEnabled *bool `json:"email:IdentityDkimAttributes:DkimEnabled" type:"boolean" required:"true"`
 
 	// A set of character strings that represent the domain's identity. Using these
 	// tokens, you need to create DNS CNAME records that point to DKIM public keys
@@ -753,14 +753,14 @@ type IdentityDkimAttributes struct {
 	//
 	// For more information about creating DNS records using DKIM tokens, see the
 	// Amazon SES Developer Guide (https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html).
-	DkimTokens []string `type:"list"`
+	DkimTokens []string `json:"email:IdentityDkimAttributes:DkimTokens" type:"list"`
 
 	// Describes whether Amazon SES has successfully verified the DKIM DNS records
 	// (tokens) published in the domain name's DNS. (This only applies to domain
 	// identities, not email address identities.)
 	//
 	// DkimVerificationStatus is a required field
-	DkimVerificationStatus VerificationStatus `type:"string" required:"true" enum:"true"`
+	DkimVerificationStatus VerificationStatus `json:"email:IdentityDkimAttributes:DkimVerificationStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -785,12 +785,12 @@ type IdentityMailFromDomainAttributes struct {
 	// Failed, and TemporaryFailure.
 	//
 	// BehaviorOnMXFailure is a required field
-	BehaviorOnMXFailure BehaviorOnMXFailure `type:"string" required:"true" enum:"true"`
+	BehaviorOnMXFailure BehaviorOnMXFailure `json:"email:IdentityMailFromDomainAttributes:BehaviorOnMXFailure" type:"string" required:"true" enum:"true"`
 
 	// The custom MAIL FROM domain that the identity is configured to use.
 	//
 	// MailFromDomain is a required field
-	MailFromDomain *string `type:"string" required:"true"`
+	MailFromDomain *string `json:"email:IdentityMailFromDomainAttributes:MailFromDomain" type:"string" required:"true"`
 
 	// The state that indicates whether Amazon SES has successfully read the MX
 	// record required for custom MAIL FROM domain setup. If the state is Success,
@@ -799,7 +799,7 @@ type IdentityMailFromDomainAttributes struct {
 	// described by BehaviorOnMXFailure.
 	//
 	// MailFromDomainStatus is a required field
-	MailFromDomainStatus CustomMailFromStatus `type:"string" required:"true" enum:"true"`
+	MailFromDomainStatus CustomMailFromStatus `json:"email:IdentityMailFromDomainAttributes:MailFromDomainStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -819,19 +819,19 @@ type IdentityNotificationAttributes struct {
 	// publish bounce notifications.
 	//
 	// BounceTopic is a required field
-	BounceTopic *string `type:"string" required:"true"`
+	BounceTopic *string `json:"email:IdentityNotificationAttributes:BounceTopic" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
 	// publish complaint notifications.
 	//
 	// ComplaintTopic is a required field
-	ComplaintTopic *string `type:"string" required:"true"`
+	ComplaintTopic *string `json:"email:IdentityNotificationAttributes:ComplaintTopic" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
 	// publish delivery notifications.
 	//
 	// DeliveryTopic is a required field
-	DeliveryTopic *string `type:"string" required:"true"`
+	DeliveryTopic *string `json:"email:IdentityNotificationAttributes:DeliveryTopic" type:"string" required:"true"`
 
 	// Describes whether Amazon SES will forward bounce and complaint notifications
 	// as email. true indicates that Amazon SES will forward bounce and complaint
@@ -839,25 +839,25 @@ type IdentityNotificationAttributes struct {
 	// will be published only to the specified bounce and complaint Amazon SNS topics.
 	//
 	// ForwardingEnabled is a required field
-	ForwardingEnabled *bool `type:"boolean" required:"true"`
+	ForwardingEnabled *bool `json:"email:IdentityNotificationAttributes:ForwardingEnabled" type:"boolean" required:"true"`
 
 	// Describes whether Amazon SES includes the original email headers in Amazon
 	// SNS notifications of type Bounce. A value of true specifies that Amazon SES
 	// will include headers in bounce notifications, and a value of false specifies
 	// that Amazon SES will not include headers in bounce notifications.
-	HeadersInBounceNotificationsEnabled *bool `type:"boolean"`
+	HeadersInBounceNotificationsEnabled *bool `json:"email:IdentityNotificationAttributes:HeadersInBounceNotificationsEnabled" type:"boolean"`
 
 	// Describes whether Amazon SES includes the original email headers in Amazon
 	// SNS notifications of type Complaint. A value of true specifies that Amazon
 	// SES will include headers in complaint notifications, and a value of false
 	// specifies that Amazon SES will not include headers in complaint notifications.
-	HeadersInComplaintNotificationsEnabled *bool `type:"boolean"`
+	HeadersInComplaintNotificationsEnabled *bool `json:"email:IdentityNotificationAttributes:HeadersInComplaintNotificationsEnabled" type:"boolean"`
 
 	// Describes whether Amazon SES includes the original email headers in Amazon
 	// SNS notifications of type Delivery. A value of true specifies that Amazon
 	// SES will include headers in delivery notifications, and a value of false
 	// specifies that Amazon SES will not include headers in delivery notifications.
-	HeadersInDeliveryNotificationsEnabled *bool `type:"boolean"`
+	HeadersInDeliveryNotificationsEnabled *bool `json:"email:IdentityNotificationAttributes:HeadersInDeliveryNotificationsEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -874,10 +874,10 @@ type IdentityVerificationAttributes struct {
 	// or "TemporaryFailure".
 	//
 	// VerificationStatus is a required field
-	VerificationStatus VerificationStatus `type:"string" required:"true" enum:"true"`
+	VerificationStatus VerificationStatus `json:"email:IdentityVerificationAttributes:VerificationStatus" type:"string" required:"true" enum:"true"`
 
 	// The verification token for a domain identity. Null for email address identities.
-	VerificationToken *string `type:"string"`
+	VerificationToken *string `json:"email:IdentityVerificationAttributes:VerificationToken" type:"string"`
 }
 
 // String returns the string representation
@@ -900,13 +900,13 @@ type KinesisFirehoseDestination struct {
 	// be published to.
 	//
 	// DeliveryStreamARN is a required field
-	DeliveryStreamARN *string `type:"string" required:"true"`
+	DeliveryStreamARN *string `json:"email:KinesisFirehoseDestination:DeliveryStreamARN" type:"string" required:"true"`
 
 	// The ARN of the IAM role under which Amazon SES publishes email sending events
 	// to the Amazon Kinesis Firehose stream.
 	//
 	// IAMRoleARN is a required field
-	IAMRoleARN *string `type:"string" required:"true"`
+	IAMRoleARN *string `json:"email:KinesisFirehoseDestination:IAMRoleARN" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -953,7 +953,7 @@ type LambdaAction struct {
 	// (https://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
 	//
 	// FunctionArn is a required field
-	FunctionArn *string `type:"string" required:"true"`
+	FunctionArn *string `json:"email:LambdaAction:FunctionArn" type:"string" required:"true"`
 
 	// The invocation type of the AWS Lambda function. An invocation type of RequestResponse
 	// means that the execution of the function will immediately result in a response,
@@ -965,13 +965,13 @@ type LambdaAction struct {
 	// Event invocation in most cases. Use RequestResponse only when you want to
 	// make a mail flow decision, such as whether to stop the receipt rule or the
 	// receipt rule set.
-	InvocationType InvocationType `type:"string" enum:"true"`
+	InvocationType InvocationType `json:"email:LambdaAction:InvocationType" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the
 	// Lambda action is taken. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic.
 	// For more information about Amazon SNS topics, see the Amazon SNS Developer
 	// Guide (https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"email:LambdaAction:TopicArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1001,13 +1001,13 @@ type Message struct {
 	// The message body.
 	//
 	// Body is a required field
-	Body *Body `type:"structure" required:"true"`
+	Body *Body `json:"email:Message:Body" type:"structure" required:"true"`
 
 	// The subject of the message: A short summary of the content, which will appear
 	// in the recipient's inbox.
 	//
 	// Subject is a required field
-	Subject *Content `type:"structure" required:"true"`
+	Subject *Content `json:"email:Message:Subject" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1054,17 +1054,17 @@ type MessageDsn struct {
 
 	// When the message was received by the reporting mail transfer agent (MTA),
 	// in RFC 822 (https://www.ietf.org/rfc/rfc0822.txt) date-time format.
-	ArrivalDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ArrivalDate *time.Time `json:"email:MessageDsn:ArrivalDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Additional X-headers to include in the DSN.
-	ExtensionFields []ExtensionField `type:"list"`
+	ExtensionFields []ExtensionField `json:"email:MessageDsn:ExtensionFields" type:"list"`
 
 	// The reporting MTA that attempted to deliver the message, formatted as specified
 	// in RFC 3464 (https://tools.ietf.org/html/rfc3464) (mta-name-type; mta-name).
 	// The default value is dns; inbound-smtp.[region].amazonaws.com.
 	//
 	// ReportingMta is a required field
-	ReportingMta *string `type:"string" required:"true"`
+	ReportingMta *string `json:"email:MessageDsn:ReportingMta" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1111,7 +1111,7 @@ type MessageTag struct {
 	//    * Contain less than 256 characters.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"email:MessageTag:Name" type:"string" required:"true"`
 
 	// The value of the tag. The value must:
 	//
@@ -1121,7 +1121,7 @@ type MessageTag struct {
 	//    * Contain less than 256 characters.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"email:MessageTag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1173,7 +1173,7 @@ type RawMessage struct {
 	// Data is automatically base64 encoded/decoded by the SDK.
 	//
 	// Data is a required field
-	Data []byte `type:"blob" required:"true"`
+	Data []byte `json:"email:RawMessage:Data" type:"blob" required:"true"`
 }
 
 // String returns the string representation
@@ -1206,31 +1206,31 @@ type ReceiptAction struct {
 	_ struct{} `type:"structure"`
 
 	// Adds a header to the received email.
-	AddHeaderAction *AddHeaderAction `type:"structure"`
+	AddHeaderAction *AddHeaderAction `json:"email:ReceiptAction:AddHeaderAction" type:"structure"`
 
 	// Rejects the received email by returning a bounce response to the sender and,
 	// optionally, publishes a notification to Amazon Simple Notification Service
 	// (Amazon SNS).
-	BounceAction *BounceAction `type:"structure"`
+	BounceAction *BounceAction `json:"email:ReceiptAction:BounceAction" type:"structure"`
 
 	// Calls an AWS Lambda function, and optionally, publishes a notification to
 	// Amazon SNS.
-	LambdaAction *LambdaAction `type:"structure"`
+	LambdaAction *LambdaAction `json:"email:ReceiptAction:LambdaAction" type:"structure"`
 
 	// Saves the received message to an Amazon Simple Storage Service (Amazon S3)
 	// bucket and, optionally, publishes a notification to Amazon SNS.
-	S3Action *S3Action `type:"structure"`
+	S3Action *S3Action `json:"email:ReceiptAction:S3Action" type:"structure"`
 
 	// Publishes the email content within a notification to Amazon SNS.
-	SNSAction *SNSAction `type:"structure"`
+	SNSAction *SNSAction `json:"email:ReceiptAction:SNSAction" type:"structure"`
 
 	// Terminates the evaluation of the receipt rule set and optionally publishes
 	// a notification to Amazon SNS.
-	StopAction *StopAction `type:"structure"`
+	StopAction *StopAction `json:"email:ReceiptAction:StopAction" type:"structure"`
 
 	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon
 	// Amazon SNS.
-	WorkmailAction *WorkmailAction `type:"structure"`
+	WorkmailAction *WorkmailAction `json:"email:ReceiptAction:WorkmailAction" type:"structure"`
 }
 
 // String returns the string representation
@@ -1296,7 +1296,7 @@ type ReceiptFilter struct {
 	// to block or allow incoming mail from them.
 	//
 	// IpFilter is a required field
-	IpFilter *ReceiptIpFilter `type:"structure" required:"true"`
+	IpFilter *ReceiptIpFilter `json:"email:ReceiptFilter:IpFilter" type:"structure" required:"true"`
 
 	// The name of the IP address filter. The name must:
 	//
@@ -1308,7 +1308,7 @@ type ReceiptFilter struct {
 	//    * Contain less than 64 characters.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"email:ReceiptFilter:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1354,12 +1354,12 @@ type ReceiptIpFilter struct {
 	// is 10.0.0.1/24. For more information about CIDR notation, see RFC 2317 (https://tools.ietf.org/html/rfc2317).
 	//
 	// Cidr is a required field
-	Cidr *string `type:"string" required:"true"`
+	Cidr *string `json:"email:ReceiptIpFilter:Cidr" type:"string" required:"true"`
 
 	// Indicates whether to block or allow incoming mail from the specified IP addresses.
 	//
 	// Policy is a required field
-	Policy ReceiptFilterPolicy `type:"string" required:"true" enum:"true"`
+	Policy ReceiptFilterPolicy `json:"email:ReceiptIpFilter:Policy" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1401,10 +1401,10 @@ type ReceiptRule struct {
 
 	// An ordered list of actions to perform on messages that match at least one
 	// of the recipient email addresses or domains specified in the receipt rule.
-	Actions []ReceiptAction `type:"list"`
+	Actions []ReceiptAction `json:"email:ReceiptRule:Actions" type:"list"`
 
 	// If true, the receipt rule is active. The default value is false.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"email:ReceiptRule:Enabled" type:"boolean"`
 
 	// The name of the receipt rule. The name must:
 	//
@@ -1416,22 +1416,22 @@ type ReceiptRule struct {
 	//    * Contain less than 64 characters.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"email:ReceiptRule:Name" type:"string" required:"true"`
 
 	// The recipient domains and email addresses that the receipt rule applies to.
 	// If this field is not specified, this rule will match all recipients under
 	// all verified domains.
-	Recipients []string `type:"list"`
+	Recipients []string `json:"email:ReceiptRule:Recipients" type:"list"`
 
 	// If true, then messages that this receipt rule applies to are scanned for
 	// spam and viruses. The default value is false.
-	ScanEnabled *bool `type:"boolean"`
+	ScanEnabled *bool `json:"email:ReceiptRule:ScanEnabled" type:"boolean"`
 
 	// Specifies whether Amazon SES should require that incoming email is delivered
 	// over a connection encrypted with Transport Layer Security (TLS). If this
 	// parameter is set to Require, Amazon SES will bounce emails that are not received
 	// over TLS. The default is Optional.
-	TlsPolicy TlsPolicy `type:"string" enum:"true"`
+	TlsPolicy TlsPolicy `json:"email:ReceiptRule:TlsPolicy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1472,7 +1472,7 @@ type ReceiptRuleSetMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the receipt rule set was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreatedTimestamp *time.Time `json:"email:ReceiptRuleSetMetadata:CreatedTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The name of the receipt rule set. The name must:
 	//
@@ -1482,7 +1482,7 @@ type ReceiptRuleSetMetadata struct {
 	//    * Start and end with a letter or number.
 	//
 	//    * Contain less than 64 characters.
-	Name *string `type:"string"`
+	Name *string `json:"email:ReceiptRuleSetMetadata:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1504,15 +1504,15 @@ type RecipientDsnFields struct {
 	// by RFC 3464 (https://tools.ietf.org/html/rfc3464).
 	//
 	// Action is a required field
-	Action DsnAction `type:"string" required:"true" enum:"true"`
+	Action DsnAction `json:"email:RecipientDsnFields:Action" type:"string" required:"true" enum:"true"`
 
 	// An extended explanation of what went wrong; this is usually an SMTP response.
 	// See RFC 3463 (https://tools.ietf.org/html/rfc3463) for the correct formatting
 	// of this parameter.
-	DiagnosticCode *string `type:"string"`
+	DiagnosticCode *string `json:"email:RecipientDsnFields:DiagnosticCode" type:"string"`
 
 	// Additional X-headers to include in the DSN.
-	ExtensionFields []ExtensionField `type:"list"`
+	ExtensionFields []ExtensionField `json:"email:RecipientDsnFields:ExtensionFields" type:"list"`
 
 	// The email address that the message was ultimately delivered to. This corresponds
 	// to the Final-Recipient in the DSN. If not specified, FinalRecipient will
@@ -1522,23 +1522,23 @@ type RecipientDsnFields struct {
 	//
 	// Do not prepend the FinalRecipient email address with rfc 822;, as described
 	// in RFC 3798 (https://tools.ietf.org/html/rfc3798).
-	FinalRecipient *string `type:"string"`
+	FinalRecipient *string `json:"email:RecipientDsnFields:FinalRecipient" type:"string"`
 
 	// The time the final delivery attempt was made, in RFC 822 (https://www.ietf.org/rfc/rfc0822.txt)
 	// date-time format.
-	LastAttemptDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastAttemptDate *time.Time `json:"email:RecipientDsnFields:LastAttemptDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The MTA to which the remote MTA attempted to deliver the message, formatted
 	// as specified in RFC 3464 (https://tools.ietf.org/html/rfc3464) (mta-name-type;
 	// mta-name). This parameter typically applies only to propagating synchronous
 	// bounces.
-	RemoteMta *string `type:"string"`
+	RemoteMta *string `json:"email:RecipientDsnFields:RemoteMta" type:"string"`
 
 	// The status code that indicates what went wrong. This is required by RFC 3464
 	// (https://tools.ietf.org/html/rfc3464).
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"email:RecipientDsnFields:Status" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1584,21 +1584,21 @@ type ReputationOptions struct {
 	//
 	// If email sending for the configuration set has never been disabled and later
 	// re-enabled, the value of this attribute is null.
-	LastFreshStart *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastFreshStart *time.Time `json:"email:ReputationOptions:LastFreshStart" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Describes whether or not Amazon SES publishes reputation metrics for the
 	// configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
 	//
 	// If the value is true, reputation metrics are published. If the value is false,
 	// reputation metrics are not published. The default value is false.
-	ReputationMetricsEnabled *bool `type:"boolean"`
+	ReputationMetricsEnabled *bool `json:"email:ReputationOptions:ReputationMetricsEnabled" type:"boolean"`
 
 	// Describes whether email sending is enabled or disabled for the configuration
 	// set. If the value is true, then Amazon SES will send emails that use the
 	// configuration set. If the value is false, Amazon SES will not send emails
 	// that use the configuration set. The default value is true. You can change
 	// this setting using UpdateConfigurationSetSendingEnabled.
-	SendingEnabled *bool `type:"boolean"`
+	SendingEnabled *bool `json:"email:ReputationOptions:SendingEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1627,7 +1627,7 @@ type S3Action struct {
 	// The name of the Amazon S3 bucket that incoming email will be saved to.
 	//
 	// BucketName is a required field
-	BucketName *string `type:"string" required:"true"`
+	BucketName *string `json:"email:S3Action:BucketName" type:"string" required:"true"`
 
 	// The customer master key that Amazon SES should use to encrypt your emails
 	// before saving them to the Amazon S3 bucket. You can use the default master
@@ -1658,18 +1658,18 @@ type S3Action struct {
 	// and AWS SDK for Ruby (http://aws.amazon.com/sdk-for-ruby/) only. For more
 	// information about client-side encryption using AWS KMS master keys, see the
 	// Amazon S3 Developer Guide (https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html).
-	KmsKeyArn *string `type:"string"`
+	KmsKeyArn *string `json:"email:S3Action:KmsKeyArn" type:"string"`
 
 	// The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory
 	// name that enables you to store similar data under the same directory in a
 	// bucket.
-	ObjectKeyPrefix *string `type:"string"`
+	ObjectKeyPrefix *string `json:"email:S3Action:ObjectKeyPrefix" type:"string"`
 
 	// The ARN of the Amazon SNS topic to notify when the message is saved to the
 	// Amazon S3 bucket. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic.
 	// For more information about Amazon SNS topics, see the Amazon SNS Developer
 	// Guide (https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"email:S3Action:TopicArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1717,7 +1717,7 @@ type SNSAction struct {
 	// is easier to use, but may not preserve all special characters when a message
 	// was encoded with a different encoding format. Base64 preserves all special
 	// characters. The default value is UTF-8.
-	Encoding SNSActionEncoding `type:"string" enum:"true"`
+	Encoding SNSActionEncoding `json:"email:SNSAction:Encoding" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example
 	// of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic.
@@ -1725,7 +1725,7 @@ type SNSAction struct {
 	// Guide (https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
 	//
 	// TopicArn is a required field
-	TopicArn *string `type:"string" required:"true"`
+	TopicArn *string `json:"email:SNSAction:TopicArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1763,7 +1763,7 @@ type SNSDestination struct {
 	// Guide (https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
 	//
 	// TopicARN is a required field
-	TopicARN *string `type:"string" required:"true"`
+	TopicARN *string `json:"email:SNSDestination:TopicARN" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1792,19 +1792,19 @@ type SendDataPoint struct {
 	_ struct{} `type:"structure"`
 
 	// Number of emails that have bounced.
-	Bounces *int64 `type:"long"`
+	Bounces *int64 `json:"email:SendDataPoint:Bounces" type:"long"`
 
 	// Number of unwanted emails that were rejected by recipients.
-	Complaints *int64 `type:"long"`
+	Complaints *int64 `json:"email:SendDataPoint:Complaints" type:"long"`
 
 	// Number of emails that have been sent.
-	DeliveryAttempts *int64 `type:"long"`
+	DeliveryAttempts *int64 `json:"email:SendDataPoint:DeliveryAttempts" type:"long"`
 
 	// Number of emails rejected by Amazon SES.
-	Rejects *int64 `type:"long"`
+	Rejects *int64 `json:"email:SendDataPoint:Rejects" type:"long"`
 
 	// Time of the data point.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"email:SendDataPoint:Timestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1825,13 +1825,13 @@ type StopAction struct {
 	// The name of the RuleSet that is being stopped.
 	//
 	// Scope is a required field
-	Scope StopScope `type:"string" required:"true" enum:"true"`
+	Scope StopScope `json:"email:StopAction:Scope" type:"string" required:"true" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the
 	// stop action is taken. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic.
 	// For more information about Amazon SNS topics, see the Amazon SNS Developer
 	// Guide (https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"email:StopAction:TopicArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1859,20 +1859,20 @@ type Template struct {
 	_ struct{} `type:"structure"`
 
 	// The HTML body of the email.
-	HtmlPart *string `type:"string"`
+	HtmlPart *string `json:"email:Template:HtmlPart" type:"string"`
 
 	// The subject line of the email.
-	SubjectPart *string `type:"string"`
+	SubjectPart *string `json:"email:Template:SubjectPart" type:"string"`
 
 	// The name of the template. You will refer to this name when you send email
 	// using the SendTemplatedEmail or SendBulkTemplatedEmail operations.
 	//
 	// TemplateName is a required field
-	TemplateName *string `type:"string" required:"true"`
+	TemplateName *string `json:"email:Template:TemplateName" type:"string" required:"true"`
 
 	// The email body that will be visible to recipients whose email clients do
 	// not display HTML.
-	TextPart *string `type:"string"`
+	TextPart *string `json:"email:Template:TextPart" type:"string"`
 }
 
 // String returns the string representation
@@ -1900,10 +1900,10 @@ type TemplateMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The time and date the template was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreatedTimestamp *time.Time `json:"email:TemplateMetadata:CreatedTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The name of the template.
-	Name *string `type:"string"`
+	Name *string `json:"email:TemplateMetadata:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1924,7 +1924,7 @@ type TrackingOptions struct {
 
 	// The custom subdomain that will be used to redirect email recipients to the
 	// Amazon SES event tracking domain.
-	CustomRedirectDomain *string `type:"string"`
+	CustomRedirectDomain *string `json:"email:TrackingOptions:CustomRedirectDomain" type:"string"`
 }
 
 // String returns the string representation
@@ -1949,13 +1949,13 @@ type WorkmailAction struct {
 	// Administrator Guide (https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html).
 	//
 	// OrganizationArn is a required field
-	OrganizationArn *string `type:"string" required:"true"`
+	OrganizationArn *string `json:"email:WorkmailAction:OrganizationArn" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the
 	// WorkMail action is called. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic.
 	// For more information about Amazon SNS topics, see the Amazon SNS Developer
 	// Guide (https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"email:WorkmailAction:TopicArn" type:"string"`
 }
 
 // String returns the string representation

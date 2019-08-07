@@ -33,10 +33,10 @@ type ListDashboardsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of matching dashboards.
-	DashboardEntries []DashboardEntry `type:"list"`
+	DashboardEntries []DashboardEntry `json:"monitoring:ListDashboardsOutput:DashboardEntries" type:"list"`
 
 	// The token that marks the start of the next batch of returned results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"monitoring:ListDashboardsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

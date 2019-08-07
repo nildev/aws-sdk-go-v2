@@ -79,11 +79,11 @@ type GetOpsSummaryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of aggregated and filtered OpsItems.
-	Entities []OpsEntity `type:"list"`
+	Entities []OpsEntity `json:"ssm:GetOpsSummaryOutput:Entities" type:"list"`
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:GetOpsSummaryOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -52,7 +52,7 @@ type PutInstancePublicPortsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes metadata about the operation you just executed.
-	Operation *Operation `locationName:"operation" type:"structure"`
+	Operation *Operation `json:"lightsail:PutInstancePublicPortsOutput:Operation" locationName:"operation" type:"structure"`
 }
 
 // String returns the string representation

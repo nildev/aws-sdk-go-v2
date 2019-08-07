@@ -65,10 +65,10 @@ type RegisterUsageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// (Optional) Only included when public key version has expired
-	PublicKeyRotationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	PublicKeyRotationTimestamp *time.Time `json:"metering.marketplace:RegisterUsageOutput:PublicKeyRotationTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// JWT Token
-	Signature *string `type:"string"`
+	Signature *string `json:"metering.marketplace:RegisterUsageOutput:Signature" type:"string"`
 }
 
 // String returns the string representation

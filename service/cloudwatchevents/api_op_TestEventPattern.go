@@ -53,7 +53,7 @@ type TestEventPatternOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the event matches the event pattern.
-	Result *bool `type:"boolean"`
+	Result *bool `json:"events:TestEventPatternOutput:Result" type:"boolean"`
 }
 
 // String returns the string representation

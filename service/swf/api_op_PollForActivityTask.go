@@ -70,33 +70,33 @@ type PollForActivityTaskOutput struct {
 	// The unique ID of the task.
 	//
 	// ActivityId is a required field
-	ActivityId *string `locationName:"activityId" min:"1" type:"string" required:"true"`
+	ActivityId *string `json:"swf:PollForActivityTaskOutput:ActivityId" locationName:"activityId" min:"1" type:"string" required:"true"`
 
 	// The type of this activity task.
 	//
 	// ActivityType is a required field
-	ActivityType *ActivityType `locationName:"activityType" type:"structure" required:"true"`
+	ActivityType *ActivityType `json:"swf:PollForActivityTaskOutput:ActivityType" locationName:"activityType" type:"structure" required:"true"`
 
 	// The inputs provided when the activity task was scheduled. The form of the
 	// input is user defined and should be meaningful to the activity implementation.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:PollForActivityTaskOutput:Input" locationName:"input" type:"string"`
 
 	// The ID of the ActivityTaskStarted event recorded in the history.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:PollForActivityTaskOutput:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The opaque string used as a handle on the task. This token is used by workers
 	// to communicate progress and response information back to the system about
 	// the task.
 	//
 	// TaskToken is a required field
-	TaskToken *string `locationName:"taskToken" min:"1" type:"string" required:"true"`
+	TaskToken *string `json:"swf:PollForActivityTaskOutput:TaskToken" locationName:"taskToken" min:"1" type:"string" required:"true"`
 
 	// The workflow execution that started this activity task.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:PollForActivityTaskOutput:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 }
 
 // String returns the string representation

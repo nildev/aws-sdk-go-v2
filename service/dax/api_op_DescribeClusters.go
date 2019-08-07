@@ -40,10 +40,10 @@ type DescribeClustersOutput struct {
 
 	// The descriptions of your DAX clusters, in response to a DescribeClusters
 	// request.
-	Clusters []Cluster `type:"list"`
+	Clusters []Cluster `json:"dax:DescribeClustersOutput:Clusters" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"dax:DescribeClustersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

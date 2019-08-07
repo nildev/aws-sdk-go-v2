@@ -104,7 +104,7 @@ type GetApplicationDateRangeKpiOutput struct {
 	// that applies to an application, and provides information about that query.
 	//
 	// ApplicationDateRangeKpiResponse is a required field
-	ApplicationDateRangeKpiResponse *ApplicationDateRangeKpiResponse `type:"structure" required:"true"`
+	ApplicationDateRangeKpiResponse *ApplicationDateRangeKpiResponse `json:"pinpoint:GetApplicationDateRangeKpiOutput:ApplicationDateRangeKpiResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

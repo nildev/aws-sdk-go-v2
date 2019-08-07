@@ -196,29 +196,29 @@ type UploadPartOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Entity tag for the uploaded object.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"s3:UploadPartOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:UploadPartOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header confirming the encryption algorithm
 	// used.
-	SSECustomerAlgorithm *string `location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
+	SSECustomerAlgorithm *string `json:"s3:UploadPartOutput:SSECustomerAlgorithm" location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header to provide round trip message integrity
 	// verification of the customer-provided encryption key.
-	SSECustomerKeyMD5 *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
+	SSECustomerKeyMD5 *string `json:"s3:UploadPartOutput:SSECustomerKeyMD5" location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
 
 	// If present, specifies the ID of the AWS Key Management Service (KMS) master
 	// encryption key that was used for the object.
-	SSEKMSKeyId *string `location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
+	SSEKMSKeyId *string `json:"s3:UploadPartOutput:SSEKMSKeyId" location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
 
 	// The Server-side encryption algorithm used when storing this object in S3
 	// (e.g., AES256, aws:kms).
-	ServerSideEncryption ServerSideEncryption `location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
+	ServerSideEncryption ServerSideEncryption `json:"s3:UploadPartOutput:ServerSideEncryption" location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -50,12 +50,12 @@ type ResolveCustomerOutput struct {
 	// The CustomerIdentifier is used to identify an individual customer in your
 	// application. Calls to BatchMeterUsage require CustomerIdentifiers for each
 	// UsageRecord.
-	CustomerIdentifier *string `min:"1" type:"string"`
+	CustomerIdentifier *string `json:"metering.marketplace:ResolveCustomerOutput:CustomerIdentifier" min:"1" type:"string"`
 
 	// The product code is returned to confirm that the buyer is registering for
 	// your product. Subsequent BatchMeterUsage calls should be made using this
 	// product code.
-	ProductCode *string `min:"1" type:"string"`
+	ProductCode *string `json:"metering.marketplace:ResolveCustomerOutput:ProductCode" min:"1" type:"string"`
 }
 
 // String returns the string representation

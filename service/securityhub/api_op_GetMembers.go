@@ -64,11 +64,11 @@ type GetMembersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of details about the Security Hub member accounts.
-	Members []Member `type:"list"`
+	Members []Member `json:"securityhub:GetMembersOutput:Members" type:"list"`
 
 	// A list of account ID and email address pairs of the AWS accounts that couldn't
 	// be processed.
-	UnprocessedAccounts []Result `type:"list"`
+	UnprocessedAccounts []Result `json:"securityhub:GetMembersOutput:UnprocessedAccounts" type:"list"`
 }
 
 // String returns the string representation

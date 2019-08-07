@@ -85,10 +85,10 @@ type GetParametersByPathOutput struct {
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:GetParametersByPathOutput:NextToken" type:"string"`
 
 	// A list of parameters found in the specified hierarchy.
-	Parameters []Parameter `type:"list"`
+	Parameters []Parameter `json:"ssm:GetParametersByPathOutput:Parameters" type:"list"`
 }
 
 // String returns the string representation

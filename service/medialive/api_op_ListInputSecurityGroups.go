@@ -60,9 +60,9 @@ func (s ListInputSecurityGroupsInput) MarshalFields(e protocol.FieldEncoder) err
 type ListInputSecurityGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
-	InputSecurityGroups []InputSecurityGroup `locationName:"inputSecurityGroups" type:"list"`
+	InputSecurityGroups []InputSecurityGroup `json:"medialive:ListInputSecurityGroupsOutput:InputSecurityGroups" locationName:"inputSecurityGroups" type:"list"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"medialive:ListInputSecurityGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

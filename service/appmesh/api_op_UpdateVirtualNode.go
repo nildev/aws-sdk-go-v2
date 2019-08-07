@@ -117,7 +117,7 @@ type UpdateVirtualNodeOutput struct {
 	// A full description of the virtual node that was updated.
 	//
 	// VirtualNode is a required field
-	VirtualNode *VirtualNodeData `locationName:"virtualNode" type:"structure" required:"true"`
+	VirtualNode *VirtualNodeData `json:"appmesh:UpdateVirtualNodeOutput:VirtualNode" locationName:"virtualNode" type:"structure" required:"true"`
 }
 
 // String returns the string representation

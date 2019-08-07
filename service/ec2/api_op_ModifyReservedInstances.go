@@ -58,7 +58,7 @@ type ModifyReservedInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for the modification.
-	ReservedInstancesModificationId *string `locationName:"reservedInstancesModificationId" type:"string"`
+	ReservedInstancesModificationId *string `json:"ec2:ModifyReservedInstancesOutput:ReservedInstancesModificationId" locationName:"reservedInstancesModificationId" type:"string"`
 }
 
 // String returns the string representation

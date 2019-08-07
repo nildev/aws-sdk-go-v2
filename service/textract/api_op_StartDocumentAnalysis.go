@@ -90,7 +90,7 @@ type StartDocumentAnalysisOutput struct {
 
 	// The identifier for the document text detection job. Use JobId to identify
 	// the job in a subsequent call to GetDocumentAnalysis.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"textract:StartDocumentAnalysisOutput:JobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -78,10 +78,10 @@ type DeregisterRobotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	Fleet *string `locationName:"fleet" min:"1" type:"string"`
+	Fleet *string `json:"robomaker:DeregisterRobotOutput:Fleet" locationName:"fleet" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the robot.
-	Robot *string `locationName:"robot" min:"1" type:"string"`
+	Robot *string `json:"robomaker:DeregisterRobotOutput:Robot" locationName:"robot" min:"1" type:"string"`
 }
 
 // String returns the string representation

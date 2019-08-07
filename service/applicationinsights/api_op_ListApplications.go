@@ -44,11 +44,11 @@ type ListApplicationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of applications.
-	ApplicationInfoList []ApplicationInfo `type:"list"`
+	ApplicationInfoList []ApplicationInfo `json:"applicationinsights:ListApplicationsOutput:ApplicationInfoList" type:"list"`
 
 	// The token used to retrieve the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"applicationinsights:ListApplicationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

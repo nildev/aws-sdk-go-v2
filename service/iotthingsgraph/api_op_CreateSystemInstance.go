@@ -95,7 +95,7 @@ type CreateSystemInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The summary object that describes the new system instance.
-	Summary *SystemInstanceSummary `locationName:"summary" type:"structure"`
+	Summary *SystemInstanceSummary `json:"iotthingsgraph:CreateSystemInstanceOutput:Summary" locationName:"summary" type:"structure"`
 }
 
 // String returns the string representation

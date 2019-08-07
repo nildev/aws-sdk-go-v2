@@ -56,10 +56,10 @@ type GetSchemaAsJsonOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON representation of the schema document.
-	Document *string `type:"string"`
+	Document *string `json:"clouddirectory:GetSchemaAsJsonOutput:Document" type:"string"`
 
 	// The name of the retrieved schema.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"clouddirectory:GetSchemaAsJsonOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -61,10 +61,10 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token to be used by the next request if this request is truncated.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"athena:ListTagsForResourceOutput:NextToken" min:"1" type:"string"`
 
 	// The list of tags associated with this workgroup.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"athena:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

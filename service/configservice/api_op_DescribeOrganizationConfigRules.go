@@ -29,9 +29,9 @@ func (s DescribeOrganizationConfigRulesInput) String() string {
 type DescribeOrganizationConfigRulesOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:DescribeOrganizationConfigRulesOutput:NextToken" type:"string"`
 
-	OrganizationConfigRules []OrganizationConfigRule `type:"list"`
+	OrganizationConfigRules []OrganizationConfigRule `json:"config:DescribeOrganizationConfigRulesOutput:OrganizationConfigRules" type:"list"`
 }
 
 // String returns the string representation

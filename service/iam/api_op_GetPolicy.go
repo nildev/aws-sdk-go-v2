@@ -52,7 +52,7 @@ type GetPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure containing details about the policy.
-	Policy *Policy `type:"structure"`
+	Policy *Policy `json:"iam:GetPolicyOutput:Policy" type:"structure"`
 }
 
 // String returns the string representation

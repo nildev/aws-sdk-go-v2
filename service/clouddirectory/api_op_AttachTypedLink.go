@@ -136,7 +136,7 @@ type AttachTypedLinkOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a typed link specifier as output.
-	TypedLinkSpecifier *TypedLinkSpecifier `type:"structure"`
+	TypedLinkSpecifier *TypedLinkSpecifier `json:"clouddirectory:AttachTypedLinkOutput:TypedLinkSpecifier" type:"structure"`
 }
 
 // String returns the string representation

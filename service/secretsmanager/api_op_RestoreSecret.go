@@ -60,10 +60,10 @@ type RestoreSecretOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret that was restored.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:RestoreSecretOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret that was restored.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:RestoreSecretOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

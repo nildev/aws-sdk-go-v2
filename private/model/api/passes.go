@@ -297,7 +297,7 @@ func (a *API) setJsonTag() {
 		}
 		for k, field := range v.MemberRefs {
 			if field.ShapeName != "_" {
-				field.JsonTag = ShapeTag{"json", a.NiceName()+":"+parent+":"+k}
+				field.JsonTag = ShapeTag{"json", a.Metadata.EndpointPrefix+":"+parent+":"+k}
 			}
 		}
 	}

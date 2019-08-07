@@ -58,7 +58,7 @@ type GetChannelsOutput struct {
 	// for an application, including channels that aren't enabled for the application.
 	//
 	// ChannelsResponse is a required field
-	ChannelsResponse *ChannelsResponse `type:"structure" required:"true"`
+	ChannelsResponse *ChannelsResponse `json:"pinpoint:GetChannelsOutput:ChannelsResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

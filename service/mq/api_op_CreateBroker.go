@@ -211,9 +211,9 @@ func (s CreateBrokerInput) MarshalFields(e protocol.FieldEncoder) error {
 type CreateBrokerOutput struct {
 	_ struct{} `type:"structure"`
 
-	BrokerArn *string `locationName:"brokerArn" type:"string"`
+	BrokerArn *string `json:"mq:CreateBrokerOutput:BrokerArn" locationName:"brokerArn" type:"string"`
 
-	BrokerId *string `locationName:"brokerId" type:"string"`
+	BrokerId *string `json:"mq:CreateBrokerOutput:BrokerId" locationName:"brokerId" type:"string"`
 }
 
 // String returns the string representation

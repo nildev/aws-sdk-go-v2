@@ -31,25 +31,25 @@ type Action struct {
 	// For information about the key-value pairs that AWS Glue consumes to set up
 	// your job, see the Special Parameters Used by AWS Glue (https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
 	// topic in the developer guide.
-	Arguments map[string]string `type:"map"`
+	Arguments map[string]string `json:"glue:Action:Arguments" type:"map"`
 
 	// The name of the crawler to be used with this action.
-	CrawlerName *string `min:"1" type:"string"`
+	CrawlerName *string `json:"glue:Action:CrawlerName" min:"1" type:"string"`
 
 	// The name of a job to be executed.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"glue:Action:JobName" min:"1" type:"string"`
 
 	// Specifies configuration properties of a job run notification.
-	NotificationProperty *NotificationProperty `type:"structure"`
+	NotificationProperty *NotificationProperty `json:"glue:Action:NotificationProperty" type:"structure"`
 
 	// The name of the SecurityConfiguration structure to be used with this action.
-	SecurityConfiguration *string `min:"1" type:"string"`
+	SecurityConfiguration *string `json:"glue:Action:SecurityConfiguration" min:"1" type:"string"`
 
 	// The JobRun timeout in minutes. This is the maximum time that a job run can
 	// consume resources before it is terminated and enters TIMEOUT status. The
 	// default is 2,880 minutes (48 hours). This overrides the timeout value set
 	// in the parent job.
-	Timeout *int64 `min:"1" type:"integer"`
+	Timeout *int64 `json:"glue:Action:Timeout" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -90,13 +90,13 @@ type BatchStopJobRunError struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies details about the error that was encountered.
-	ErrorDetail *ErrorDetail `type:"structure"`
+	ErrorDetail *ErrorDetail `json:"glue:BatchStopJobRunError:ErrorDetail" type:"structure"`
 
 	// The name of the job definition that is used in the job run in question.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"glue:BatchStopJobRunError:JobName" min:"1" type:"string"`
 
 	// The JobRunId of the job run in question.
-	JobRunId *string `min:"1" type:"string"`
+	JobRunId *string `json:"glue:BatchStopJobRunError:JobRunId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -110,10 +110,10 @@ type BatchStopJobRunSuccessfulSubmission struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the job definition used in the job run that was stopped.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"glue:BatchStopJobRunSuccessfulSubmission:JobName" min:"1" type:"string"`
 
 	// The JobRunId of the job run that was stopped.
-	JobRunId *string `min:"1" type:"string"`
+	JobRunId *string `json:"glue:BatchStopJobRunSuccessfulSubmission:JobRunId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -129,12 +129,12 @@ type CatalogEntry struct {
 	// The database in which the table metadata resides.
 	//
 	// DatabaseName is a required field
-	DatabaseName *string `min:"1" type:"string" required:"true"`
+	DatabaseName *string `json:"glue:CatalogEntry:DatabaseName" min:"1" type:"string" required:"true"`
 
 	// The name of the table in question.
 	//
 	// TableName is a required field
-	TableName *string `min:"1" type:"string" required:"true"`
+	TableName *string `json:"glue:CatalogEntry:TableName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -172,13 +172,13 @@ type CatalogImportStatus struct {
 	_ struct{} `type:"structure"`
 
 	// True if the migration has completed, or False otherwise.
-	ImportCompleted *bool `type:"boolean"`
+	ImportCompleted *bool `json:"glue:CatalogImportStatus:ImportCompleted" type:"boolean"`
 
 	// The time that the migration was started.
-	ImportTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ImportTime *time.Time `json:"glue:CatalogImportStatus:ImportTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the person who initiated the migration.
-	ImportedBy *string `min:"1" type:"string"`
+	ImportedBy *string `json:"glue:CatalogImportStatus:ImportedBy" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -194,12 +194,12 @@ type CatalogTarget struct {
 	// The name of the database to be synchronized.
 	//
 	// DatabaseName is a required field
-	DatabaseName *string `min:"1" type:"string" required:"true"`
+	DatabaseName *string `json:"glue:CatalogTarget:DatabaseName" min:"1" type:"string" required:"true"`
 
 	// A list of the tables to be synchronized.
 	//
 	// Tables is a required field
-	Tables []string `min:"1" type:"list" required:"true"`
+	Tables []string `json:"glue:CatalogTarget:Tables" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -245,16 +245,16 @@ type Classifier struct {
 	_ struct{} `type:"structure"`
 
 	// A classifier for comma-separated values (CSV).
-	CsvClassifier *CsvClassifier `type:"structure"`
+	CsvClassifier *CsvClassifier `json:"glue:Classifier:CsvClassifier" type:"structure"`
 
 	// A classifier that uses grok.
-	GrokClassifier *GrokClassifier `type:"structure"`
+	GrokClassifier *GrokClassifier `json:"glue:Classifier:GrokClassifier" type:"structure"`
 
 	// A classifier for JSON content.
-	JsonClassifier *JsonClassifier `type:"structure"`
+	JsonClassifier *JsonClassifier `json:"glue:Classifier:JsonClassifier" type:"structure"`
 
 	// A classifier for XML content.
-	XMLClassifier *XMLClassifier `type:"structure"`
+	XMLClassifier *XMLClassifier `json:"glue:Classifier:XMLClassifier" type:"structure"`
 }
 
 // String returns the string representation
@@ -268,10 +268,10 @@ type CloudWatchEncryption struct {
 	_ struct{} `type:"structure"`
 
 	// The encryption mode to use for CloudWatch data.
-	CloudWatchEncryptionMode CloudWatchEncryptionMode `type:"string" enum:"true"`
+	CloudWatchEncryptionMode CloudWatchEncryptionMode `json:"glue:CloudWatchEncryption:CloudWatchEncryptionMode" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `type:"string"`
+	KmsKeyArn *string `json:"glue:CloudWatchEncryption:KmsKeyArn" type:"string"`
 }
 
 // String returns the string representation
@@ -287,15 +287,15 @@ type CodeGenEdge struct {
 	// The ID of the node at which the edge starts.
 	//
 	// Source is a required field
-	Source *string `min:"1" type:"string" required:"true"`
+	Source *string `json:"glue:CodeGenEdge:Source" min:"1" type:"string" required:"true"`
 
 	// The ID of the node at which the edge ends.
 	//
 	// Target is a required field
-	Target *string `min:"1" type:"string" required:"true"`
+	Target *string `json:"glue:CodeGenEdge:Target" min:"1" type:"string" required:"true"`
 
 	// The target of the edge.
-	TargetParameter *string `type:"string"`
+	TargetParameter *string `json:"glue:CodeGenEdge:TargetParameter" type:"string"`
 }
 
 // String returns the string representation
@@ -335,20 +335,20 @@ type CodeGenNode struct {
 	// Properties of the node, in the form of name-value pairs.
 	//
 	// Args is a required field
-	Args []CodeGenNodeArg `type:"list" required:"true"`
+	Args []CodeGenNodeArg `json:"glue:CodeGenNode:Args" type:"list" required:"true"`
 
 	// A node identifier that is unique within the node's graph.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"glue:CodeGenNode:Id" min:"1" type:"string" required:"true"`
 
 	// The line number of the node.
-	LineNumber *int64 `type:"integer"`
+	LineNumber *int64 `json:"glue:CodeGenNode:LineNumber" type:"integer"`
 
 	// The type of node that this is.
 	//
 	// NodeType is a required field
-	NodeType *string `type:"string" required:"true"`
+	NodeType *string `json:"glue:CodeGenNode:NodeType" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -396,15 +396,15 @@ type CodeGenNodeArg struct {
 	// The name of the argument or property.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"glue:CodeGenNodeArg:Name" type:"string" required:"true"`
 
 	// True if the value is used as a parameter.
-	Param *bool `type:"boolean"`
+	Param *bool `json:"glue:CodeGenNodeArg:Param" type:"boolean"`
 
 	// The value of the argument or property.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"glue:CodeGenNodeArg:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -436,15 +436,15 @@ type Column struct {
 	_ struct{} `type:"structure"`
 
 	// Free-form text comment.
-	Comment *string `type:"string"`
+	Comment *string `json:"glue:Column:Comment" type:"string"`
 
 	// The name of the Column.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:Column:Name" min:"1" type:"string" required:"true"`
 
 	// The datatype of data in the Column.
-	Type *string `type:"string"`
+	Type *string `json:"glue:Column:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -475,21 +475,21 @@ type Condition struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the crawler to which this condition applies.
-	CrawlState CrawlState `type:"string" enum:"true"`
+	CrawlState CrawlState `json:"glue:Condition:CrawlState" type:"string" enum:"true"`
 
 	// The name of the crawler to which this condition applies.
-	CrawlerName *string `min:"1" type:"string"`
+	CrawlerName *string `json:"glue:Condition:CrawlerName" min:"1" type:"string"`
 
 	// The name of the job whose JobRuns this condition applies to, and on which
 	// this trigger waits.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"glue:Condition:JobName" min:"1" type:"string"`
 
 	// A logical operator.
-	LogicalOperator LogicalOperator `type:"string" enum:"true"`
+	LogicalOperator LogicalOperator `json:"glue:Condition:LogicalOperator" type:"string" enum:"true"`
 
 	// The condition state. Currently, the values supported are SUCCEEDED, STOPPED,
 	// TIMEOUT, and FAILED.
-	State JobRunState `type:"string" enum:"true"`
+	State JobRunState `json:"glue:Condition:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -553,33 +553,33 @@ type Connection struct {
 	//    * JDBC_ENFORCE_SSL - A Boolean string (true, false) specifying whether
 	//    Secure Sockets Layer (SSL) with hostname matching will be enforced for
 	//    the JDBC connection on the client. The default is false.
-	ConnectionProperties map[string]string `type:"map"`
+	ConnectionProperties map[string]string `json:"glue:Connection:ConnectionProperties" type:"map"`
 
 	// The type of the connection. Currently, only JDBC is supported; SFTP is not
 	// supported.
-	ConnectionType ConnectionType `type:"string" enum:"true"`
+	ConnectionType ConnectionType `json:"glue:Connection:ConnectionType" type:"string" enum:"true"`
 
 	// The time that this connection definition was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"glue:Connection:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the connection.
-	Description *string `type:"string"`
+	Description *string `json:"glue:Connection:Description" type:"string"`
 
 	// The user, group, or role that last updated this connection definition.
-	LastUpdatedBy *string `min:"1" type:"string"`
+	LastUpdatedBy *string `json:"glue:Connection:LastUpdatedBy" min:"1" type:"string"`
 
 	// The last time that this connection definition was updated.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"glue:Connection:LastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of criteria that can be used in selecting this connection.
-	MatchCriteria []string `type:"list"`
+	MatchCriteria []string `json:"glue:Connection:MatchCriteria" type:"list"`
 
 	// The name of the connection definition.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:Connection:Name" min:"1" type:"string"`
 
 	// A map of physical connection requirements, such as virtual private cloud
 	// (VPC) and SecurityGroup, that are needed to make this connection successfully.
-	PhysicalConnectionRequirements *PhysicalConnectionRequirements `type:"structure"`
+	PhysicalConnectionRequirements *PhysicalConnectionRequirements `json:"glue:Connection:PhysicalConnectionRequirements" type:"structure"`
 }
 
 // String returns the string representation
@@ -595,28 +595,28 @@ type ConnectionInput struct {
 	// These key-value pairs define parameters for the connection.
 	//
 	// ConnectionProperties is a required field
-	ConnectionProperties map[string]string `type:"map" required:"true"`
+	ConnectionProperties map[string]string `json:"glue:ConnectionInput:ConnectionProperties" type:"map" required:"true"`
 
 	// The type of the connection. Currently, only JDBC is supported; SFTP is not
 	// supported.
 	//
 	// ConnectionType is a required field
-	ConnectionType ConnectionType `type:"string" required:"true" enum:"true"`
+	ConnectionType ConnectionType `json:"glue:ConnectionInput:ConnectionType" type:"string" required:"true" enum:"true"`
 
 	// The description of the connection.
-	Description *string `type:"string"`
+	Description *string `json:"glue:ConnectionInput:Description" type:"string"`
 
 	// A list of criteria that can be used in selecting this connection.
-	MatchCriteria []string `type:"list"`
+	MatchCriteria []string `json:"glue:ConnectionInput:MatchCriteria" type:"list"`
 
 	// The name of the connection.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:ConnectionInput:Name" min:"1" type:"string" required:"true"`
 
 	// A map of physical connection requirements, such as virtual private cloud
 	// (VPC) and SecurityGroup, that are needed to successfully make this connection.
-	PhysicalConnectionRequirements *PhysicalConnectionRequirements `type:"structure"`
+	PhysicalConnectionRequirements *PhysicalConnectionRequirements `json:"glue:ConnectionInput:PhysicalConnectionRequirements" type:"structure"`
 }
 
 // String returns the string representation
@@ -678,14 +678,14 @@ type ConnectionPasswordEncryption struct {
 	//
 	// You can set the decrypt permission to enable or restrict access on the password
 	// key according to your security requirements.
-	AwsKmsKeyId *string `min:"1" type:"string"`
+	AwsKmsKeyId *string `json:"glue:ConnectionPasswordEncryption:AwsKmsKeyId" min:"1" type:"string"`
 
 	// When the ReturnConnectionPasswordEncrypted flag is set to "true", passwords
 	// remain encrypted in the responses of GetConnection and GetConnections. This
 	// encryption takes effect independently from catalog encryption.
 	//
 	// ReturnConnectionPasswordEncrypted is a required field
-	ReturnConnectionPasswordEncrypted *bool `type:"boolean" required:"true"`
+	ReturnConnectionPasswordEncrypted *bool `json:"glue:ConnectionPasswordEncryption:ReturnConnectionPasswordEncrypted" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -716,7 +716,7 @@ type ConnectionsList struct {
 	_ struct{} `type:"structure"`
 
 	// A list of connections used by the job.
-	Connections []string `type:"list"`
+	Connections []string `json:"glue:ConnectionsList:Connections" type:"list"`
 }
 
 // String returns the string representation
@@ -730,22 +730,22 @@ type Crawl struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time on which the crawl completed.
-	CompletedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletedOn *time.Time `json:"glue:Crawl:CompletedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The error message associated with the crawl.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"glue:Crawl:ErrorMessage" type:"string"`
 
 	// The log group associated with the crawl.
-	LogGroup *string `min:"1" type:"string"`
+	LogGroup *string `json:"glue:Crawl:LogGroup" min:"1" type:"string"`
 
 	// The log stream associated with the crawl.
-	LogStream *string `min:"1" type:"string"`
+	LogStream *string `json:"glue:Crawl:LogStream" min:"1" type:"string"`
 
 	// The date and time on which the crawl started.
-	StartedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedOn *time.Time `json:"glue:Crawl:StartedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The state of the crawler.
-	State CrawlState `type:"string" enum:"true"`
+	State CrawlState `json:"glue:Crawl:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -762,60 +762,60 @@ type Crawler struct {
 
 	// A list of UTF-8 strings that specify the custom classifiers that are associated
 	// with the crawler.
-	Classifiers []string `type:"list"`
+	Classifiers []string `json:"glue:Crawler:Classifiers" type:"list"`
 
 	// Crawler configuration information. This versioned JSON string allows users
 	// to specify aspects of a crawler's behavior. For more information, see Configuring
 	// a Crawler (http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
-	Configuration *string `type:"string"`
+	Configuration *string `json:"glue:Crawler:Configuration" type:"string"`
 
 	// If the crawler is running, contains the total time elapsed since the last
 	// crawl began.
-	CrawlElapsedTime *int64 `type:"long"`
+	CrawlElapsedTime *int64 `json:"glue:Crawler:CrawlElapsedTime" type:"long"`
 
 	// The name of the SecurityConfiguration structure to be used by this crawler.
-	CrawlerSecurityConfiguration *string `type:"string"`
+	CrawlerSecurityConfiguration *string `json:"glue:Crawler:CrawlerSecurityConfiguration" type:"string"`
 
 	// The time that the crawler was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"glue:Crawler:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the database in which the crawler's output is stored.
-	DatabaseName *string `type:"string"`
+	DatabaseName *string `json:"glue:Crawler:DatabaseName" type:"string"`
 
 	// A description of the crawler.
-	Description *string `type:"string"`
+	Description *string `json:"glue:Crawler:Description" type:"string"`
 
 	// The status of the last crawl, and potentially error information if an error
 	// occurred.
-	LastCrawl *LastCrawlInfo `type:"structure"`
+	LastCrawl *LastCrawlInfo `json:"glue:Crawler:LastCrawl" type:"structure"`
 
 	// The time that the crawler was last updated.
-	LastUpdated *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"glue:Crawler:LastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the crawler.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:Crawler:Name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of an IAM role that's used to access customer
 	// resources, such as Amazon Simple Storage Service (Amazon S3) data.
-	Role *string `type:"string"`
+	Role *string `json:"glue:Crawler:Role" type:"string"`
 
 	// For scheduled crawlers, the schedule when the crawler runs.
-	Schedule *Schedule `type:"structure"`
+	Schedule *Schedule `json:"glue:Crawler:Schedule" type:"structure"`
 
 	// The policy that specifies update and delete behaviors for the crawler.
-	SchemaChangePolicy *SchemaChangePolicy `type:"structure"`
+	SchemaChangePolicy *SchemaChangePolicy `json:"glue:Crawler:SchemaChangePolicy" type:"structure"`
 
 	// Indicates whether the crawler is running, or whether a run is pending.
-	State CrawlerState `type:"string" enum:"true"`
+	State CrawlerState `json:"glue:Crawler:State" type:"string" enum:"true"`
 
 	// The prefix added to the names of tables that are created.
-	TablePrefix *string `type:"string"`
+	TablePrefix *string `json:"glue:Crawler:TablePrefix" type:"string"`
 
 	// A collection of targets to crawl.
-	Targets *CrawlerTargets `type:"structure"`
+	Targets *CrawlerTargets `json:"glue:Crawler:Targets" type:"structure"`
 
 	// The version of the crawler.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"glue:Crawler:Version" type:"long"`
 }
 
 // String returns the string representation
@@ -829,29 +829,29 @@ type CrawlerMetrics struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the crawler.
-	CrawlerName *string `min:"1" type:"string"`
+	CrawlerName *string `json:"glue:CrawlerMetrics:CrawlerName" min:"1" type:"string"`
 
 	// The duration of the crawler's most recent run, in seconds.
-	LastRuntimeSeconds *float64 `type:"double"`
+	LastRuntimeSeconds *float64 `json:"glue:CrawlerMetrics:LastRuntimeSeconds" type:"double"`
 
 	// The median duration of this crawler's runs, in seconds.
-	MedianRuntimeSeconds *float64 `type:"double"`
+	MedianRuntimeSeconds *float64 `json:"glue:CrawlerMetrics:MedianRuntimeSeconds" type:"double"`
 
 	// True if the crawler is still estimating how long it will take to complete
 	// this run.
-	StillEstimating *bool `type:"boolean"`
+	StillEstimating *bool `json:"glue:CrawlerMetrics:StillEstimating" type:"boolean"`
 
 	// The number of tables created by this crawler.
-	TablesCreated *int64 `type:"integer"`
+	TablesCreated *int64 `json:"glue:CrawlerMetrics:TablesCreated" type:"integer"`
 
 	// The number of tables deleted by this crawler.
-	TablesDeleted *int64 `type:"integer"`
+	TablesDeleted *int64 `json:"glue:CrawlerMetrics:TablesDeleted" type:"integer"`
 
 	// The number of tables updated by this crawler.
-	TablesUpdated *int64 `type:"integer"`
+	TablesUpdated *int64 `json:"glue:CrawlerMetrics:TablesUpdated" type:"integer"`
 
 	// The estimated time left to complete a running crawl.
-	TimeLeftSeconds *float64 `type:"double"`
+	TimeLeftSeconds *float64 `json:"glue:CrawlerMetrics:TimeLeftSeconds" type:"double"`
 }
 
 // String returns the string representation
@@ -865,7 +865,7 @@ type CrawlerNodeDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A list of crawls represented by the crawl node.
-	Crawls []Crawl `type:"list"`
+	Crawls []Crawl `json:"glue:CrawlerNodeDetails:Crawls" type:"list"`
 }
 
 // String returns the string representation
@@ -879,16 +879,16 @@ type CrawlerTargets struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies AWS Glue Data Catalog targets.
-	CatalogTargets []CatalogTarget `type:"list"`
+	CatalogTargets []CatalogTarget `json:"glue:CrawlerTargets:CatalogTargets" type:"list"`
 
 	// Specifies Amazon DynamoDB targets.
-	DynamoDBTargets []DynamoDBTarget `type:"list"`
+	DynamoDBTargets []DynamoDBTarget `json:"glue:CrawlerTargets:DynamoDBTargets" type:"list"`
 
 	// Specifies JDBC targets.
-	JdbcTargets []JdbcTarget `type:"list"`
+	JdbcTargets []JdbcTarget `json:"glue:CrawlerTargets:JdbcTargets" type:"list"`
 
 	// Specifies Amazon Simple Storage Service (Amazon S3) targets.
-	S3Targets []S3Target `type:"list"`
+	S3Targets []S3Target `json:"glue:CrawlerTargets:S3Targets" type:"list"`
 }
 
 // String returns the string representation
@@ -919,29 +919,29 @@ type CreateCsvClassifierRequest struct {
 	_ struct{} `type:"structure"`
 
 	// Enables the processing of files that contain only one column.
-	AllowSingleColumn *bool `type:"boolean"`
+	AllowSingleColumn *bool `json:"glue:CreateCsvClassifierRequest:AllowSingleColumn" type:"boolean"`
 
 	// Indicates whether the CSV file contains a header.
-	ContainsHeader CsvHeaderOption `type:"string" enum:"true"`
+	ContainsHeader CsvHeaderOption `json:"glue:CreateCsvClassifierRequest:ContainsHeader" type:"string" enum:"true"`
 
 	// A custom symbol to denote what separates each column entry in the row.
-	Delimiter *string `min:"1" type:"string"`
+	Delimiter *string `json:"glue:CreateCsvClassifierRequest:Delimiter" min:"1" type:"string"`
 
 	// Specifies not to trim values before identifying the type of column values.
 	// The default value is true.
-	DisableValueTrimming *bool `type:"boolean"`
+	DisableValueTrimming *bool `json:"glue:CreateCsvClassifierRequest:DisableValueTrimming" type:"boolean"`
 
 	// A list of strings representing column names.
-	Header []string `type:"list"`
+	Header []string `json:"glue:CreateCsvClassifierRequest:Header" type:"list"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:CreateCsvClassifierRequest:Name" min:"1" type:"string" required:"true"`
 
 	// A custom symbol to denote what combines content into a single column value.
 	// Must be different from the column delimiter.
-	QuoteSymbol *string `min:"1" type:"string"`
+	QuoteSymbol *string `json:"glue:CreateCsvClassifierRequest:QuoteSymbol" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -981,20 +981,20 @@ type CreateGrokClassifierRequest struct {
 	// JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 	//
 	// Classification is a required field
-	Classification *string `type:"string" required:"true"`
+	Classification *string `json:"glue:CreateGrokClassifierRequest:Classification" type:"string" required:"true"`
 
 	// Optional custom grok patterns used by this classifier.
-	CustomPatterns *string `type:"string"`
+	CustomPatterns *string `json:"glue:CreateGrokClassifierRequest:CustomPatterns" type:"string"`
 
 	// The grok pattern used by this classifier.
 	//
 	// GrokPattern is a required field
-	GrokPattern *string `min:"1" type:"string" required:"true"`
+	GrokPattern *string `json:"glue:CreateGrokClassifierRequest:GrokPattern" min:"1" type:"string" required:"true"`
 
 	// The name of the new classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:CreateGrokClassifierRequest:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1040,12 +1040,12 @@ type CreateJsonClassifierRequest struct {
 	// Custom Classifiers (https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 	//
 	// JsonPath is a required field
-	JsonPath *string `type:"string" required:"true"`
+	JsonPath *string `json:"glue:CreateJsonClassifierRequest:JsonPath" type:"string" required:"true"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:CreateJsonClassifierRequest:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1082,19 +1082,19 @@ type CreateXMLClassifierRequest struct {
 	// An identifier of the data format that the classifier matches.
 	//
 	// Classification is a required field
-	Classification *string `type:"string" required:"true"`
+	Classification *string `json:"glue:CreateXMLClassifierRequest:Classification" type:"string" required:"true"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:CreateXMLClassifierRequest:Name" min:"1" type:"string" required:"true"`
 
 	// The XML tag designating the element that contains each record in an XML document
 	// being parsed. This can't identify a self-closing element (closed by />).
 	// An empty row element that contains only attributes can be parsed as long
 	// as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row>
 	// is okay, but <row item_a="A" item_b="B" /> is not).
-	RowTag *string `type:"string"`
+	RowTag *string `json:"glue:CreateXMLClassifierRequest:RowTag" type:"string"`
 }
 
 // String returns the string representation
@@ -1129,38 +1129,38 @@ type CsvClassifier struct {
 	_ struct{} `type:"structure"`
 
 	// Enables the processing of files that contain only one column.
-	AllowSingleColumn *bool `type:"boolean"`
+	AllowSingleColumn *bool `json:"glue:CsvClassifier:AllowSingleColumn" type:"boolean"`
 
 	// Indicates whether the CSV file contains a header.
-	ContainsHeader CsvHeaderOption `type:"string" enum:"true"`
+	ContainsHeader CsvHeaderOption `json:"glue:CsvClassifier:ContainsHeader" type:"string" enum:"true"`
 
 	// The time that this classifier was registered.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"glue:CsvClassifier:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A custom symbol to denote what separates each column entry in the row.
-	Delimiter *string `min:"1" type:"string"`
+	Delimiter *string `json:"glue:CsvClassifier:Delimiter" min:"1" type:"string"`
 
 	// Specifies not to trim values before identifying the type of column values.
 	// The default value is true.
-	DisableValueTrimming *bool `type:"boolean"`
+	DisableValueTrimming *bool `json:"glue:CsvClassifier:DisableValueTrimming" type:"boolean"`
 
 	// A list of strings representing column names.
-	Header []string `type:"list"`
+	Header []string `json:"glue:CsvClassifier:Header" type:"list"`
 
 	// The time that this classifier was last updated.
-	LastUpdated *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"glue:CsvClassifier:LastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:CsvClassifier:Name" min:"1" type:"string" required:"true"`
 
 	// A custom symbol to denote what combines content into a single column value.
 	// It must be different from the column delimiter.
-	QuoteSymbol *string `min:"1" type:"string"`
+	QuoteSymbol *string `json:"glue:CsvClassifier:QuoteSymbol" min:"1" type:"string"`
 
 	// The version of this classifier.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"glue:CsvClassifier:Version" type:"long"`
 }
 
 // String returns the string representation
@@ -1177,10 +1177,10 @@ type DataCatalogEncryptionSettings struct {
 	// key to encrypt the password as part of CreateConnection or UpdateConnection
 	// and store it in the ENCRYPTED_PASSWORD field in the connection properties.
 	// You can enable catalog encryption or only password encryption.
-	ConnectionPasswordEncryption *ConnectionPasswordEncryption `type:"structure"`
+	ConnectionPasswordEncryption *ConnectionPasswordEncryption `json:"glue:DataCatalogEncryptionSettings:ConnectionPasswordEncryption" type:"structure"`
 
 	// Specifies the encryption-at-rest configuration for the Data Catalog.
-	EncryptionAtRest *EncryptionAtRest `type:"structure"`
+	EncryptionAtRest *EncryptionAtRest `json:"glue:DataCatalogEncryptionSettings:EncryptionAtRest" type:"structure"`
 }
 
 // String returns the string representation
@@ -1215,22 +1215,22 @@ type Database struct {
 	_ struct{} `type:"structure"`
 
 	// The time at which the metadata database was created in the catalog.
-	CreateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTime *time.Time `json:"glue:Database:CreateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Description of the database.
-	Description *string `type:"string"`
+	Description *string `json:"glue:Database:Description" type:"string"`
 
 	// The location of the database (for example, an HDFS path).
-	LocationUri *string `min:"1" type:"string"`
+	LocationUri *string `json:"glue:Database:LocationUri" min:"1" type:"string"`
 
 	// Name of the database. For Hive compatibility, this is folded to lowercase
 	// when it is stored.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:Database:Name" min:"1" type:"string" required:"true"`
 
 	// These key-value pairs define parameters and properties of the database.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"glue:Database:Parameters" type:"map"`
 }
 
 // String returns the string representation
@@ -1244,19 +1244,19 @@ type DatabaseInput struct {
 	_ struct{} `type:"structure"`
 
 	// Description of the database
-	Description *string `type:"string"`
+	Description *string `json:"glue:DatabaseInput:Description" type:"string"`
 
 	// The location of the database (for example, an HDFS path).
-	LocationUri *string `min:"1" type:"string"`
+	LocationUri *string `json:"glue:DatabaseInput:LocationUri" min:"1" type:"string"`
 
 	// Name of the database. For Hive compatibility, this is folded to lowercase
 	// when it is stored.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:DatabaseInput:Name" min:"1" type:"string" required:"true"`
 
 	// Thes key-value pairs define parameters and properties of the database.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"glue:DatabaseInput:Parameters" type:"map"`
 }
 
 // String returns the string representation
@@ -1293,22 +1293,22 @@ type DevEndpoint struct {
 	// A map of arguments used to configure the DevEndpoint.
 	//
 	// Currently, only "--enable-glue-datacatalog": "" is supported as a valid argument.
-	Arguments map[string]string `type:"map"`
+	Arguments map[string]string `json:"glue:DevEndpoint:Arguments" type:"map"`
 
 	// The AWS Availability Zone where this DevEndpoint is located.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"glue:DevEndpoint:AvailabilityZone" type:"string"`
 
 	// The point in time at which this DevEndpoint was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"glue:DevEndpoint:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the DevEndpoint.
-	EndpointName *string `type:"string"`
+	EndpointName *string `json:"glue:DevEndpoint:EndpointName" type:"string"`
 
 	// The path to one or more Java .jar files in an S3 bucket that should be loaded
 	// in your DevEndpoint.
 	//
 	// You can only use pure Java/Scala libraries with a DevEndpoint.
-	ExtraJarsS3Path *string `type:"string"`
+	ExtraJarsS3Path *string `json:"glue:DevEndpoint:ExtraJarsS3Path" type:"string"`
 
 	// The paths to one or more Python libraries in an Amazon S3 bucket that should
 	// be loaded in your DevEndpoint. Multiple values must be complete paths separated
@@ -1317,40 +1317,40 @@ type DevEndpoint struct {
 	// You can only use pure Python libraries with a DevEndpoint. Libraries that
 	// rely on C extensions, such as the pandas (http://pandas.pydata.org/) Python
 	// data analysis library, are not currently supported.
-	ExtraPythonLibsS3Path *string `type:"string"`
+	ExtraPythonLibsS3Path *string `json:"glue:DevEndpoint:ExtraPythonLibsS3Path" type:"string"`
 
 	// The reason for a current failure in this DevEndpoint.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"glue:DevEndpoint:FailureReason" type:"string"`
 
 	// The point in time at which this DevEndpoint was last modified.
-	LastModifiedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTimestamp *time.Time `json:"glue:DevEndpoint:LastModifiedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the last update.
-	LastUpdateStatus *string `type:"string"`
+	LastUpdateStatus *string `json:"glue:DevEndpoint:LastUpdateStatus" type:"string"`
 
 	// The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.
-	NumberOfNodes *int64 `type:"integer"`
+	NumberOfNodes *int64 `json:"glue:DevEndpoint:NumberOfNodes" type:"integer"`
 
 	// The number of workers of a defined workerType that are allocated to the development
 	// endpoint.
 	//
 	// The maximum number of workers you can define are 299 for G.1X, and 149 for
 	// G.2X.
-	NumberOfWorkers *int64 `type:"integer"`
+	NumberOfWorkers *int64 `json:"glue:DevEndpoint:NumberOfWorkers" type:"integer"`
 
 	// A private IP address to access the DevEndpoint within a VPC if the DevEndpoint
 	// is created within one. The PrivateAddress field is present only when you
 	// create the DevEndpoint within your VPC.
-	PrivateAddress *string `type:"string"`
+	PrivateAddress *string `json:"glue:DevEndpoint:PrivateAddress" type:"string"`
 
 	// The public IP address used by this DevEndpoint. The PublicAddress field is
 	// present only when you create a non-virtual private cloud (VPC) DevEndpoint.
-	PublicAddress *string `type:"string"`
+	PublicAddress *string `json:"glue:DevEndpoint:PublicAddress" type:"string"`
 
 	// The public key to be used by this DevEndpoint for authentication. This attribute
 	// is provided for backward compatibility because the recommended attribute
 	// to use is public keys.
-	PublicKey *string `type:"string"`
+	PublicKey *string `json:"glue:DevEndpoint:PublicKey" type:"string"`
 
 	// A list of public keys to be used by the DevEndpoints for authentication.
 	// Using this attribute is preferred over a single public key because the public
@@ -1360,25 +1360,25 @@ type DevEndpoint struct {
 	// that key to be able to set a list of public keys. Call the UpdateDevEndpoint
 	// API operation with the public key content in the deletePublicKeys attribute,
 	// and the list of new keys in the addPublicKeys attribute.
-	PublicKeys []string `type:"list"`
+	PublicKeys []string `json:"glue:DevEndpoint:PublicKeys" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the IAM role used in this DevEndpoint.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"glue:DevEndpoint:RoleArn" type:"string"`
 
 	// The name of the SecurityConfiguration structure to be used with this DevEndpoint.
-	SecurityConfiguration *string `min:"1" type:"string"`
+	SecurityConfiguration *string `json:"glue:DevEndpoint:SecurityConfiguration" min:"1" type:"string"`
 
 	// A list of security group identifiers used in this DevEndpoint.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"glue:DevEndpoint:SecurityGroupIds" type:"list"`
 
 	// The current status of this DevEndpoint.
-	Status *string `type:"string"`
+	Status *string `json:"glue:DevEndpoint:Status" type:"string"`
 
 	// The subnet ID for this DevEndpoint.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"glue:DevEndpoint:SubnetId" type:"string"`
 
 	// The ID of the virtual private cloud (VPC) used by this DevEndpoint.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"glue:DevEndpoint:VpcId" type:"string"`
 
 	// The type of predefined worker that is allocated to the development endpoint.
 	// Accepts a value of Standard, G.1X, or G.2X.
@@ -1393,13 +1393,13 @@ type DevEndpoint struct {
 	//    * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
 	//    memory, 128 GB disk), and provides 1 executor per worker. We recommend
 	//    this worker type for memory-intensive jobs.
-	WorkerType WorkerType `type:"string" enum:"true"`
+	WorkerType WorkerType `json:"glue:DevEndpoint:WorkerType" type:"string" enum:"true"`
 
 	// The YARN endpoint address used by this DevEndpoint.
-	YarnEndpointAddress *string `type:"string"`
+	YarnEndpointAddress *string `json:"glue:DevEndpoint:YarnEndpointAddress" type:"string"`
 
 	// The Apache Zeppelin port for the remote Apache Spark interpreter.
-	ZeppelinRemoteSparkInterpreterPort *int64 `type:"integer"`
+	ZeppelinRemoteSparkInterpreterPort *int64 `json:"glue:DevEndpoint:ZeppelinRemoteSparkInterpreterPort" type:"integer"`
 }
 
 // String returns the string representation
@@ -1416,7 +1416,7 @@ type DevEndpointCustomLibraries struct {
 	// in your DevEndpoint.
 	//
 	// You can only use pure Java/Scala libraries with a DevEndpoint.
-	ExtraJarsS3Path *string `type:"string"`
+	ExtraJarsS3Path *string `json:"glue:DevEndpointCustomLibraries:ExtraJarsS3Path" type:"string"`
 
 	// The paths to one or more Python libraries in an Amazon Simple Storage Service
 	// (Amazon S3) bucket that should be loaded in your DevEndpoint. Multiple values
@@ -1425,7 +1425,7 @@ type DevEndpointCustomLibraries struct {
 	// You can only use pure Python libraries with a DevEndpoint. Libraries that
 	// rely on C extensions, such as the pandas (http://pandas.pydata.org/) Python
 	// data analysis library, are not currently supported.
-	ExtraPythonLibsS3Path *string `type:"string"`
+	ExtraPythonLibsS3Path *string `json:"glue:DevEndpointCustomLibraries:ExtraPythonLibsS3Path" type:"string"`
 }
 
 // String returns the string representation
@@ -1439,7 +1439,7 @@ type DynamoDBTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the DynamoDB table to crawl.
-	Path *string `type:"string"`
+	Path *string `json:"glue:DynamoDBTarget:Path" type:"string"`
 }
 
 // String returns the string representation
@@ -1454,10 +1454,10 @@ type Edge struct {
 	_ struct{} `type:"structure"`
 
 	// The unique of the node within the workflow where the edge ends.
-	DestinationId *string `min:"1" type:"string"`
+	DestinationId *string `json:"glue:Edge:DestinationId" min:"1" type:"string"`
 
 	// The unique of the node within the workflow where the edge starts.
-	SourceId *string `min:"1" type:"string"`
+	SourceId *string `json:"glue:Edge:SourceId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1473,10 +1473,10 @@ type EncryptionAtRest struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
 	//
 	// CatalogEncryptionMode is a required field
-	CatalogEncryptionMode CatalogEncryptionMode `type:"string" required:"true" enum:"true"`
+	CatalogEncryptionMode CatalogEncryptionMode `json:"glue:EncryptionAtRest:CatalogEncryptionMode" type:"string" required:"true" enum:"true"`
 
 	// The ID of the AWS KMS key to use for encryption at rest.
-	SseAwsKmsKeyId *string `min:"1" type:"string"`
+	SseAwsKmsKeyId *string `json:"glue:EncryptionAtRest:SseAwsKmsKeyId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1506,14 +1506,14 @@ type EncryptionConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The encryption configuration for Amazon CloudWatch.
-	CloudWatchEncryption *CloudWatchEncryption `type:"structure"`
+	CloudWatchEncryption *CloudWatchEncryption `json:"glue:EncryptionConfiguration:CloudWatchEncryption" type:"structure"`
 
 	// The encryption configuration for job bookmarks.
-	JobBookmarksEncryption *JobBookmarksEncryption `type:"structure"`
+	JobBookmarksEncryption *JobBookmarksEncryption `json:"glue:EncryptionConfiguration:JobBookmarksEncryption" type:"structure"`
 
 	// The encryption configuration for Amazon Simple Storage Service (Amazon S3)
 	// data.
-	S3Encryption []S3Encryption `type:"list"`
+	S3Encryption []S3Encryption `json:"glue:EncryptionConfiguration:S3Encryption" type:"list"`
 }
 
 // String returns the string representation
@@ -1527,10 +1527,10 @@ type ErrorDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The code associated with this error.
-	ErrorCode *string `min:"1" type:"string"`
+	ErrorCode *string `json:"glue:ErrorDetail:ErrorCode" min:"1" type:"string"`
 
 	// A message describing the error.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"glue:ErrorDetail:ErrorMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -1546,7 +1546,7 @@ type ExecutionProperty struct {
 	// The maximum number of concurrent runs allowed for the job. The default is
 	// 1. An error is returned when this threshold is reached. The maximum value
 	// you can specify is controlled by a service limit.
-	MaxConcurrentRuns *int64 `type:"integer"`
+	MaxConcurrentRuns *int64 `json:"glue:ExecutionProperty:MaxConcurrentRuns" type:"integer"`
 }
 
 // String returns the string representation
@@ -1562,11 +1562,11 @@ type GetConnectionsFilter struct {
 
 	// The type of connections to return. Currently, only JDBC is supported; SFTP
 	// is not supported.
-	ConnectionType ConnectionType `type:"string" enum:"true"`
+	ConnectionType ConnectionType `json:"glue:GetConnectionsFilter:ConnectionType" type:"string" enum:"true"`
 
 	// A criteria string that must match the criteria recorded in the connection
 	// definition for that connection definition to be returned.
-	MatchCriteria []string `type:"list"`
+	MatchCriteria []string `json:"glue:GetConnectionsFilter:MatchCriteria" type:"list"`
 }
 
 // String returns the string representation
@@ -1583,31 +1583,31 @@ type GrokClassifier struct {
 	// JSON, Omniture logs, and so on.
 	//
 	// Classification is a required field
-	Classification *string `type:"string" required:"true"`
+	Classification *string `json:"glue:GrokClassifier:Classification" type:"string" required:"true"`
 
 	// The time that this classifier was registered.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"glue:GrokClassifier:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Optional custom grok patterns defined by this classifier. For more information,
 	// see custom patterns in Writing Custom Classifiers (http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html).
-	CustomPatterns *string `type:"string"`
+	CustomPatterns *string `json:"glue:GrokClassifier:CustomPatterns" type:"string"`
 
 	// The grok pattern applied to a data store by this classifier. For more information,
 	// see built-in patterns in Writing Custom Classifiers (http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html).
 	//
 	// GrokPattern is a required field
-	GrokPattern *string `min:"1" type:"string" required:"true"`
+	GrokPattern *string `json:"glue:GrokClassifier:GrokPattern" min:"1" type:"string" required:"true"`
 
 	// The time that this classifier was last updated.
-	LastUpdated *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"glue:GrokClassifier:LastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:GrokClassifier:Name" min:"1" type:"string" required:"true"`
 
 	// The version of this classifier.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"glue:GrokClassifier:Version" type:"long"`
 }
 
 // String returns the string representation
@@ -1621,14 +1621,14 @@ type JdbcTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the connection to use to connect to the JDBC target.
-	ConnectionName *string `type:"string"`
+	ConnectionName *string `json:"glue:JdbcTarget:ConnectionName" type:"string"`
 
 	// A list of glob patterns used to exclude from the crawl. For more information,
 	// see Catalog Tables with a Crawler (http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html).
-	Exclusions []string `type:"list"`
+	Exclusions []string `json:"glue:JdbcTarget:Exclusions" type:"list"`
 
 	// The path of the JDBC target.
-	Path *string `type:"string"`
+	Path *string `json:"glue:JdbcTarget:Path" type:"string"`
 }
 
 // String returns the string representation
@@ -1648,16 +1648,16 @@ type Job struct {
 	// a relative measure of processing power that consists of 4 vCPUs of compute
 	// capacity and 16 GB of memory. For more information, see the AWS Glue pricing
 	// page (https://aws.amazon.com/glue/pricing/).
-	AllocatedCapacity *int64 `deprecated:"true" type:"integer"`
+	AllocatedCapacity *int64 `json:"glue:Job:AllocatedCapacity" deprecated:"true" type:"integer"`
 
 	// The JobCommand that executes this job.
-	Command *JobCommand `type:"structure"`
+	Command *JobCommand `json:"glue:Job:Command" type:"structure"`
 
 	// The connections used for this job.
-	Connections *ConnectionsList `type:"structure"`
+	Connections *ConnectionsList `json:"glue:Job:Connections" type:"structure"`
 
 	// The time and date that this job definition was created.
-	CreatedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedOn *time.Time `json:"glue:Job:CreatedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The default arguments for this job, specified as name-value pairs.
 	//
@@ -1671,14 +1671,14 @@ type Job struct {
 	// For information about the key-value pairs that AWS Glue consumes to set up
 	// your job, see the Special Parameters Used by AWS Glue (https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
 	// topic in the developer guide.
-	DefaultArguments map[string]string `type:"map"`
+	DefaultArguments map[string]string `json:"glue:Job:DefaultArguments" type:"map"`
 
 	// A description of the job.
-	Description *string `type:"string"`
+	Description *string `json:"glue:Job:Description" type:"string"`
 
 	// An ExecutionProperty specifying the maximum number of concurrent runs allowed
 	// for this job.
-	ExecutionProperty *ExecutionProperty `type:"structure"`
+	ExecutionProperty *ExecutionProperty `json:"glue:Job:ExecutionProperty" type:"structure"`
 
 	// Glue version determines the versions of Apache Spark and Python that AWS
 	// Glue supports. The Python version indicates the version supported for jobs
@@ -1689,13 +1689,13 @@ type Job struct {
 	// in the developer guide.
 	//
 	// Jobs that are created without specifying a Glue version default to Glue 0.9.
-	GlueVersion *string `min:"1" type:"string"`
+	GlueVersion *string `json:"glue:Job:GlueVersion" min:"1" type:"string"`
 
 	// The last point in time when this job definition was modified.
-	LastModifiedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedOn *time.Time `json:"glue:Job:LastModifiedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// This field is reserved for future use.
-	LogUri *string `type:"string"`
+	LogUri *string `json:"glue:Job:LogUri" type:"string"`
 
 	// The number of AWS Glue data processing units (DPUs) that can be allocated
 	// when this job runs. A DPU is a relative measure of processing power that
@@ -1713,35 +1713,35 @@ type Job struct {
 	//    * When you specify an Apache Spark ETL job (JobCommand.Name="glueetl"),
 	//    you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job
 	//    type cannot have a fractional DPU allocation.
-	MaxCapacity *float64 `type:"double"`
+	MaxCapacity *float64 `json:"glue:Job:MaxCapacity" type:"double"`
 
 	// The maximum number of times to retry this job after a JobRun fails.
-	MaxRetries *int64 `type:"integer"`
+	MaxRetries *int64 `json:"glue:Job:MaxRetries" type:"integer"`
 
 	// The name you assign to this job definition.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:Job:Name" min:"1" type:"string"`
 
 	// Specifies configuration properties of a job notification.
-	NotificationProperty *NotificationProperty `type:"structure"`
+	NotificationProperty *NotificationProperty `json:"glue:Job:NotificationProperty" type:"structure"`
 
 	// The number of workers of a defined workerType that are allocated when a job
 	// runs.
 	//
 	// The maximum number of workers you can define are 299 for G.1X, and 149 for
 	// G.2X.
-	NumberOfWorkers *int64 `type:"integer"`
+	NumberOfWorkers *int64 `json:"glue:Job:NumberOfWorkers" type:"integer"`
 
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this
 	// job.
-	Role *string `type:"string"`
+	Role *string `json:"glue:Job:Role" type:"string"`
 
 	// The name of the SecurityConfiguration structure to be used with this job.
-	SecurityConfiguration *string `min:"1" type:"string"`
+	SecurityConfiguration *string `json:"glue:Job:SecurityConfiguration" min:"1" type:"string"`
 
 	// The job timeout in minutes. This is the maximum time that a job run can consume
 	// resources before it is terminated and enters TIMEOUT status. The default
 	// is 2,880 minutes (48 hours).
-	Timeout *int64 `min:"1" type:"integer"`
+	Timeout *int64 `json:"glue:Job:Timeout" min:"1" type:"integer"`
 
 	// The type of predefined worker that is allocated when a job runs. Accepts
 	// a value of Standard, G.1X, or G.2X.
@@ -1756,7 +1756,7 @@ type Job struct {
 	//    * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
 	//    memory, 128 GB disk), and provides 1 executor per worker. We recommend
 	//    this worker type for memory-intensive jobs.
-	WorkerType WorkerType `type:"string" enum:"true"`
+	WorkerType WorkerType `json:"glue:Job:WorkerType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1770,19 +1770,19 @@ type JobBookmarkEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The attempt ID number.
-	Attempt *int64 `type:"integer"`
+	Attempt *int64 `json:"glue:JobBookmarkEntry:Attempt" type:"integer"`
 
 	// The bookmark itself.
-	JobBookmark *string `type:"string"`
+	JobBookmark *string `json:"glue:JobBookmarkEntry:JobBookmark" type:"string"`
 
 	// The name of the job in question.
-	JobName *string `type:"string"`
+	JobName *string `json:"glue:JobBookmarkEntry:JobName" type:"string"`
 
 	// The run ID number.
-	Run *int64 `type:"integer"`
+	Run *int64 `json:"glue:JobBookmarkEntry:Run" type:"integer"`
 
 	// The version of the job.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"glue:JobBookmarkEntry:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -1796,10 +1796,10 @@ type JobBookmarksEncryption struct {
 	_ struct{} `type:"structure"`
 
 	// The encryption mode to use for job bookmarks data.
-	JobBookmarksEncryptionMode JobBookmarksEncryptionMode `type:"string" enum:"true"`
+	JobBookmarksEncryptionMode JobBookmarksEncryptionMode `json:"glue:JobBookmarksEncryption:JobBookmarksEncryptionMode" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `type:"string"`
+	KmsKeyArn *string `json:"glue:JobBookmarksEncryption:KmsKeyArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1814,15 +1814,15 @@ type JobCommand struct {
 
 	// The name of the job command. For an Apache Spark ETL job, this must be glueetl.
 	// For a Python shell job, it must be pythonshell.
-	Name *string `type:"string"`
+	Name *string `json:"glue:JobCommand:Name" type:"string"`
 
 	// The Python version being used to execute a Python shell job. Allowed values
 	// are 2 or 3.
-	PythonVersion *string `type:"string"`
+	PythonVersion *string `json:"glue:JobCommand:PythonVersion" type:"string"`
 
 	// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
 	// that executes a job.
-	ScriptLocation *string `type:"string"`
+	ScriptLocation *string `json:"glue:JobCommand:ScriptLocation" type:"string"`
 }
 
 // String returns the string representation
@@ -1836,7 +1836,7 @@ type JobNodeDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The information for the job runs represented by the job node.
-	JobRuns []JobRun `type:"list"`
+	JobRuns []JobRun `json:"glue:JobNodeDetails:JobRuns" type:"list"`
 }
 
 // String returns the string representation
@@ -1856,7 +1856,7 @@ type JobRun struct {
 	// measure of processing power that consists of 4 vCPUs of compute capacity
 	// and 16 GB of memory. For more information, see the AWS Glue pricing page
 	// (https://aws.amazon.com/glue/pricing/).
-	AllocatedCapacity *int64 `deprecated:"true" type:"integer"`
+	AllocatedCapacity *int64 `json:"glue:JobRun:AllocatedCapacity" deprecated:"true" type:"integer"`
 
 	// The job arguments associated with this run. For this job run, they replace
 	// the default arguments set in the job definition itself.
@@ -1871,19 +1871,19 @@ type JobRun struct {
 	// For information about the key-value pairs that AWS Glue consumes to set up
 	// your job, see the Special Parameters Used by AWS Glue (https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
 	// topic in the developer guide.
-	Arguments map[string]string `type:"map"`
+	Arguments map[string]string `json:"glue:JobRun:Arguments" type:"map"`
 
 	// The number of the attempt to run this job.
-	Attempt *int64 `type:"integer"`
+	Attempt *int64 `json:"glue:JobRun:Attempt" type:"integer"`
 
 	// The date and time that this job run completed.
-	CompletedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletedOn *time.Time `json:"glue:JobRun:CompletedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// An error message associated with this job run.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"glue:JobRun:ErrorMessage" type:"string"`
 
 	// The amount of time (in seconds) that the job run consumed resources.
-	ExecutionTime *int64 `type:"integer"`
+	ExecutionTime *int64 `json:"glue:JobRun:ExecutionTime" type:"integer"`
 
 	// Glue version determines the versions of Apache Spark and Python that AWS
 	// Glue supports. The Python version indicates the version supported for jobs
@@ -1894,26 +1894,26 @@ type JobRun struct {
 	// in the developer guide.
 	//
 	// Jobs that are created without specifying a Glue version default to Glue 0.9.
-	GlueVersion *string `min:"1" type:"string"`
+	GlueVersion *string `json:"glue:JobRun:GlueVersion" min:"1" type:"string"`
 
 	// The ID of this job run.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"glue:JobRun:Id" min:"1" type:"string"`
 
 	// The name of the job definition being used in this run.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"glue:JobRun:JobName" min:"1" type:"string"`
 
 	// The current state of the job run.
-	JobRunState JobRunState `type:"string" enum:"true"`
+	JobRunState JobRunState `json:"glue:JobRun:JobRunState" type:"string" enum:"true"`
 
 	// The last time that this job run was modified.
-	LastModifiedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedOn *time.Time `json:"glue:JobRun:LastModifiedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the log group for secure logging that can be server-side encrypted
 	// in Amazon CloudWatch using AWS KMS. This name can be /aws-glue/jobs/, in
 	// which case the default encryption is NONE. If you add a role name and SecurityConfiguration
 	// name (in other words, /aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/),
 	// then that security configuration is used to encrypt the log group.
-	LogGroupName *string `type:"string"`
+	LogGroupName *string `json:"glue:JobRun:LogGroupName" type:"string"`
 
 	// The number of AWS Glue data processing units (DPUs) that can be allocated
 	// when this job runs. A DPU is a relative measure of processing power that
@@ -1931,40 +1931,40 @@ type JobRun struct {
 	//    * When you specify an Apache Spark ETL job (JobCommand.Name="glueetl"),
 	//    you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job
 	//    type cannot have a fractional DPU allocation.
-	MaxCapacity *float64 `type:"double"`
+	MaxCapacity *float64 `json:"glue:JobRun:MaxCapacity" type:"double"`
 
 	// Specifies configuration properties of a job run notification.
-	NotificationProperty *NotificationProperty `type:"structure"`
+	NotificationProperty *NotificationProperty `json:"glue:JobRun:NotificationProperty" type:"structure"`
 
 	// The number of workers of a defined workerType that are allocated when a job
 	// runs.
 	//
 	// The maximum number of workers you can define are 299 for G.1X, and 149 for
 	// G.2X.
-	NumberOfWorkers *int64 `type:"integer"`
+	NumberOfWorkers *int64 `json:"glue:JobRun:NumberOfWorkers" type:"integer"`
 
 	// A list of predecessors to this job run.
-	PredecessorRuns []Predecessor `type:"list"`
+	PredecessorRuns []Predecessor `json:"glue:JobRun:PredecessorRuns" type:"list"`
 
 	// The ID of the previous run of this job. For example, the JobRunId specified
 	// in the StartJobRun action.
-	PreviousRunId *string `min:"1" type:"string"`
+	PreviousRunId *string `json:"glue:JobRun:PreviousRunId" min:"1" type:"string"`
 
 	// The name of the SecurityConfiguration structure to be used with this job
 	// run.
-	SecurityConfiguration *string `min:"1" type:"string"`
+	SecurityConfiguration *string `json:"glue:JobRun:SecurityConfiguration" min:"1" type:"string"`
 
 	// The date and time at which this job run was started.
-	StartedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedOn *time.Time `json:"glue:JobRun:StartedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The JobRun timeout in minutes. This is the maximum time that a job run can
 	// consume resources before it is terminated and enters TIMEOUT status. The
 	// default is 2,880 minutes (48 hours). This overrides the timeout value set
 	// in the parent job.
-	Timeout *int64 `min:"1" type:"integer"`
+	Timeout *int64 `json:"glue:JobRun:Timeout" min:"1" type:"integer"`
 
 	// The name of the trigger that started this job run.
-	TriggerName *string `min:"1" type:"string"`
+	TriggerName *string `json:"glue:JobRun:TriggerName" min:"1" type:"string"`
 
 	// The type of predefined worker that is allocated when a job runs. Accepts
 	// a value of Standard, G.1X, or G.2X.
@@ -1977,7 +1977,7 @@ type JobRun struct {
 	//
 	//    * For the G.2X worker type, each worker provides 8 vCPU, 32 GB of memory
 	//    and a 128GB disk, and 1 executor per worker.
-	WorkerType WorkerType `type:"string" enum:"true"`
+	WorkerType WorkerType `json:"glue:JobRun:WorkerType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1998,13 +1998,13 @@ type JobUpdate struct {
 	// measure of processing power that consists of 4 vCPUs of compute capacity
 	// and 16 GB of memory. For more information, see the AWS Glue pricing page
 	// (https://aws.amazon.com/glue/pricing/).
-	AllocatedCapacity *int64 `deprecated:"true" type:"integer"`
+	AllocatedCapacity *int64 `json:"glue:JobUpdate:AllocatedCapacity" deprecated:"true" type:"integer"`
 
 	// The JobCommand that executes this job (required).
-	Command *JobCommand `type:"structure"`
+	Command *JobCommand `json:"glue:JobUpdate:Command" type:"structure"`
 
 	// The connections used for this job.
-	Connections *ConnectionsList `type:"structure"`
+	Connections *ConnectionsList `json:"glue:JobUpdate:Connections" type:"structure"`
 
 	// The default arguments for this job.
 	//
@@ -2018,14 +2018,14 @@ type JobUpdate struct {
 	// For information about the key-value pairs that AWS Glue consumes to set up
 	// your job, see the Special Parameters Used by AWS Glue (https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html)
 	// topic in the developer guide.
-	DefaultArguments map[string]string `type:"map"`
+	DefaultArguments map[string]string `json:"glue:JobUpdate:DefaultArguments" type:"map"`
 
 	// Description of the job being defined.
-	Description *string `type:"string"`
+	Description *string `json:"glue:JobUpdate:Description" type:"string"`
 
 	// An ExecutionProperty specifying the maximum number of concurrent runs allowed
 	// for this job.
-	ExecutionProperty *ExecutionProperty `type:"structure"`
+	ExecutionProperty *ExecutionProperty `json:"glue:JobUpdate:ExecutionProperty" type:"structure"`
 
 	// Glue version determines the versions of Apache Spark and Python that AWS
 	// Glue supports. The Python version indicates the version supported for jobs
@@ -2034,10 +2034,10 @@ type JobUpdate struct {
 	// For more information about the available AWS Glue versions and corresponding
 	// Spark and Python versions, see Glue version (https://docs.aws.amazon.com/glue/latest/dg/add-job.html)
 	// in the developer guide.
-	GlueVersion *string `min:"1" type:"string"`
+	GlueVersion *string `json:"glue:JobUpdate:GlueVersion" min:"1" type:"string"`
 
 	// This field is reserved for future use.
-	LogUri *string `type:"string"`
+	LogUri *string `json:"glue:JobUpdate:LogUri" type:"string"`
 
 	// The number of AWS Glue data processing units (DPUs) that can be allocated
 	// when this job runs. A DPU is a relative measure of processing power that
@@ -2055,32 +2055,32 @@ type JobUpdate struct {
 	//    * When you specify an Apache Spark ETL job (JobCommand.Name="glueetl"),
 	//    you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job
 	//    type cannot have a fractional DPU allocation.
-	MaxCapacity *float64 `type:"double"`
+	MaxCapacity *float64 `json:"glue:JobUpdate:MaxCapacity" type:"double"`
 
 	// The maximum number of times to retry this job if it fails.
-	MaxRetries *int64 `type:"integer"`
+	MaxRetries *int64 `json:"glue:JobUpdate:MaxRetries" type:"integer"`
 
 	// Specifies the configuration properties of a job notification.
-	NotificationProperty *NotificationProperty `type:"structure"`
+	NotificationProperty *NotificationProperty `json:"glue:JobUpdate:NotificationProperty" type:"structure"`
 
 	// The number of workers of a defined workerType that are allocated when a job
 	// runs.
 	//
 	// The maximum number of workers you can define are 299 for G.1X, and 149 for
 	// G.2X.
-	NumberOfWorkers *int64 `type:"integer"`
+	NumberOfWorkers *int64 `json:"glue:JobUpdate:NumberOfWorkers" type:"integer"`
 
 	// The name or Amazon Resource Name (ARN) of the IAM role associated with this
 	// job (required).
-	Role *string `type:"string"`
+	Role *string `json:"glue:JobUpdate:Role" type:"string"`
 
 	// The name of the SecurityConfiguration structure to be used with this job.
-	SecurityConfiguration *string `min:"1" type:"string"`
+	SecurityConfiguration *string `json:"glue:JobUpdate:SecurityConfiguration" min:"1" type:"string"`
 
 	// The job timeout in minutes. This is the maximum time that a job run can consume
 	// resources before it is terminated and enters TIMEOUT status. The default
 	// is 2,880 minutes (48 hours).
-	Timeout *int64 `min:"1" type:"integer"`
+	Timeout *int64 `json:"glue:JobUpdate:Timeout" min:"1" type:"integer"`
 
 	// The type of predefined worker that is allocated when a job runs. Accepts
 	// a value of Standard, G.1X, or G.2X.
@@ -2095,7 +2095,7 @@ type JobUpdate struct {
 	//    * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
 	//    memory, 128 GB disk), and provides 1 executor per worker. We recommend
 	//    this worker type for memory-intensive jobs.
-	WorkerType WorkerType `type:"string" enum:"true"`
+	WorkerType WorkerType `json:"glue:JobUpdate:WorkerType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2133,25 +2133,25 @@ type JsonClassifier struct {
 	_ struct{} `type:"structure"`
 
 	// The time that this classifier was registered.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"glue:JsonClassifier:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A JsonPath string defining the JSON data for the classifier to classify.
 	// AWS Glue supports a subset of JsonPath, as described in Writing JsonPath
 	// Custom Classifiers (https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 	//
 	// JsonPath is a required field
-	JsonPath *string `type:"string" required:"true"`
+	JsonPath *string `json:"glue:JsonClassifier:JsonPath" type:"string" required:"true"`
 
 	// The time that this classifier was last updated.
-	LastUpdated *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"glue:JsonClassifier:LastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:JsonClassifier:Name" min:"1" type:"string" required:"true"`
 
 	// The version of this classifier.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"glue:JsonClassifier:Version" type:"long"`
 }
 
 // String returns the string representation
@@ -2165,22 +2165,22 @@ type LastCrawlInfo struct {
 	_ struct{} `type:"structure"`
 
 	// If an error occurred, the error information about the last crawl.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"glue:LastCrawlInfo:ErrorMessage" type:"string"`
 
 	// The log group for the last crawl.
-	LogGroup *string `min:"1" type:"string"`
+	LogGroup *string `json:"glue:LastCrawlInfo:LogGroup" min:"1" type:"string"`
 
 	// The log stream for the last crawl.
-	LogStream *string `min:"1" type:"string"`
+	LogStream *string `json:"glue:LastCrawlInfo:LogStream" min:"1" type:"string"`
 
 	// The prefix for a message about this crawl.
-	MessagePrefix *string `min:"1" type:"string"`
+	MessagePrefix *string `json:"glue:LastCrawlInfo:MessagePrefix" min:"1" type:"string"`
 
 	// The time at which the crawl started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"glue:LastCrawlInfo:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Status of the last crawl.
-	Status LastCrawlStatus `type:"string" enum:"true"`
+	Status LastCrawlStatus `json:"glue:LastCrawlInfo:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2194,13 +2194,13 @@ type Location struct {
 	_ struct{} `type:"structure"`
 
 	// An Amazon DynamoDB table location.
-	DynamoDB []CodeGenNodeArg `type:"list"`
+	DynamoDB []CodeGenNodeArg `json:"glue:Location:DynamoDB" type:"list"`
 
 	// A JDBC location.
-	Jdbc []CodeGenNodeArg `type:"list"`
+	Jdbc []CodeGenNodeArg `json:"glue:Location:Jdbc" type:"list"`
 
 	// An Amazon Simple Storage Service (Amazon S3) location.
-	S3 []CodeGenNodeArg `type:"list"`
+	S3 []CodeGenNodeArg `json:"glue:Location:S3" type:"list"`
 }
 
 // String returns the string representation
@@ -2245,22 +2245,22 @@ type MappingEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The source path.
-	SourcePath *string `type:"string"`
+	SourcePath *string `json:"glue:MappingEntry:SourcePath" type:"string"`
 
 	// The name of the source table.
-	SourceTable *string `type:"string"`
+	SourceTable *string `json:"glue:MappingEntry:SourceTable" type:"string"`
 
 	// The source type.
-	SourceType *string `type:"string"`
+	SourceType *string `json:"glue:MappingEntry:SourceType" type:"string"`
 
 	// The target path.
-	TargetPath *string `type:"string"`
+	TargetPath *string `json:"glue:MappingEntry:TargetPath" type:"string"`
 
 	// The target table.
-	TargetTable *string `type:"string"`
+	TargetTable *string `json:"glue:MappingEntry:TargetTable" type:"string"`
 
 	// The target type.
-	TargetType *string `type:"string"`
+	TargetType *string `json:"glue:MappingEntry:TargetType" type:"string"`
 }
 
 // String returns the string representation
@@ -2275,22 +2275,22 @@ type Node struct {
 	_ struct{} `type:"structure"`
 
 	// Details of the crawler when the node represents a crawler.
-	CrawlerDetails *CrawlerNodeDetails `type:"structure"`
+	CrawlerDetails *CrawlerNodeDetails `json:"glue:Node:CrawlerDetails" type:"structure"`
 
 	// Details of the Job when the node represents a Job.
-	JobDetails *JobNodeDetails `type:"structure"`
+	JobDetails *JobNodeDetails `json:"glue:Node:JobDetails" type:"structure"`
 
 	// The name of the AWS Glue component represented by the node.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:Node:Name" min:"1" type:"string"`
 
 	// Details of the Trigger when the node represents a Trigger.
-	TriggerDetails *TriggerNodeDetails `type:"structure"`
+	TriggerDetails *TriggerNodeDetails `json:"glue:Node:TriggerDetails" type:"structure"`
 
 	// The type of AWS Glue component represented by the node.
-	Type NodeType `type:"string" enum:"true"`
+	Type NodeType `json:"glue:Node:Type" type:"string" enum:"true"`
 
 	// The unique Id assigned to the node within the workflow.
-	UniqueId *string `min:"1" type:"string"`
+	UniqueId *string `json:"glue:Node:UniqueId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2305,7 +2305,7 @@ type NotificationProperty struct {
 
 	// After a job run starts, the number of minutes to wait before sending a job
 	// run delay notification.
-	NotifyDelayAfter *int64 `min:"1" type:"integer"`
+	NotifyDelayAfter *int64 `json:"glue:NotificationProperty:NotifyDelayAfter" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -2334,13 +2334,13 @@ type Order struct {
 	// The name of the column.
 	//
 	// Column is a required field
-	Column *string `min:"1" type:"string" required:"true"`
+	Column *string `json:"glue:Order:Column" min:"1" type:"string" required:"true"`
 
 	// Indicates that the column is sorted in ascending order (== 1), or in descending
 	// order (==0).
 	//
 	// SortOrder is a required field
-	SortOrder *int64 `type:"integer" required:"true"`
+	SortOrder *int64 `json:"glue:Order:SortOrder" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2375,28 +2375,28 @@ type Partition struct {
 	_ struct{} `type:"structure"`
 
 	// The time at which the partition was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"glue:Partition:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the catalog database where the table in question is located.
-	DatabaseName *string `min:"1" type:"string"`
+	DatabaseName *string `json:"glue:Partition:DatabaseName" min:"1" type:"string"`
 
 	// The last time at which the partition was accessed.
-	LastAccessTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAccessTime *time.Time `json:"glue:Partition:LastAccessTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The last time at which column statistics were computed for this partition.
-	LastAnalyzedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAnalyzedTime *time.Time `json:"glue:Partition:LastAnalyzedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// These key-value pairs define partition parameters.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"glue:Partition:Parameters" type:"map"`
 
 	// Provides information about the physical location where the partition is stored.
-	StorageDescriptor *StorageDescriptor `type:"structure"`
+	StorageDescriptor *StorageDescriptor `json:"glue:Partition:StorageDescriptor" type:"structure"`
 
 	// The name of the table in question.
-	TableName *string `min:"1" type:"string"`
+	TableName *string `json:"glue:Partition:TableName" min:"1" type:"string"`
 
 	// The values of the partition.
-	Values []string `type:"list"`
+	Values []string `json:"glue:Partition:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -2410,10 +2410,10 @@ type PartitionError struct {
 	_ struct{} `type:"structure"`
 
 	// Details about the partition error.
-	ErrorDetail *ErrorDetail `type:"structure"`
+	ErrorDetail *ErrorDetail `json:"glue:PartitionError:ErrorDetail" type:"structure"`
 
 	// The values that define the partition.
-	PartitionValues []string `type:"list"`
+	PartitionValues []string `json:"glue:PartitionError:PartitionValues" type:"list"`
 }
 
 // String returns the string representation
@@ -2427,20 +2427,20 @@ type PartitionInput struct {
 	_ struct{} `type:"structure"`
 
 	// The last time at which the partition was accessed.
-	LastAccessTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAccessTime *time.Time `json:"glue:PartitionInput:LastAccessTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The last time at which column statistics were computed for this partition.
-	LastAnalyzedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAnalyzedTime *time.Time `json:"glue:PartitionInput:LastAnalyzedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// These key-value pairs define partition parameters.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"glue:PartitionInput:Parameters" type:"map"`
 
 	// Provides information about the physical location where the partition is stored.
-	StorageDescriptor *StorageDescriptor `type:"structure"`
+	StorageDescriptor *StorageDescriptor `json:"glue:PartitionInput:StorageDescriptor" type:"structure"`
 
 	// The values of the partition. Although this parameter is not required by the
 	// SDK, you must specify this parameter for a valid input.
-	Values []string `type:"list"`
+	Values []string `json:"glue:PartitionInput:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -2471,7 +2471,7 @@ type PartitionValueList struct {
 	// The list of values.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"glue:PartitionValueList:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2501,13 +2501,13 @@ type PhysicalConnectionRequirements struct {
 	// The connection's Availability Zone. This field is redundant because the specified
 	// subnet implies the Availability Zone to be used. Currently the field must
 	// be populated, but it will be deprecated in the future.
-	AvailabilityZone *string `min:"1" type:"string"`
+	AvailabilityZone *string `json:"glue:PhysicalConnectionRequirements:AvailabilityZone" min:"1" type:"string"`
 
 	// The security group ID list used by the connection.
-	SecurityGroupIdList []string `type:"list"`
+	SecurityGroupIdList []string `json:"glue:PhysicalConnectionRequirements:SecurityGroupIdList" type:"list"`
 
 	// The subnet ID used by the connection.
-	SubnetId *string `min:"1" type:"string"`
+	SubnetId *string `json:"glue:PhysicalConnectionRequirements:SubnetId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2538,10 +2538,10 @@ type Predecessor struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the job definition used by the predecessor job run.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"glue:Predecessor:JobName" min:"1" type:"string"`
 
 	// The job-run ID of the predecessor job run.
-	RunId *string `min:"1" type:"string"`
+	RunId *string `json:"glue:Predecessor:RunId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2555,11 +2555,11 @@ type Predicate struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the conditions that determine when the trigger will fire.
-	Conditions []Condition `type:"list"`
+	Conditions []Condition `json:"glue:Predicate:Conditions" type:"list"`
 
 	// An optional field if only one condition is listed. If multiple conditions
 	// are listed, then this field is required.
-	Logical Logical `type:"string" enum:"true"`
+	Logical Logical `json:"glue:Predicate:Logical" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2590,10 +2590,10 @@ type ResourceUri struct {
 	_ struct{} `type:"structure"`
 
 	// The type of the resource.
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"glue:ResourceUri:ResourceType" type:"string" enum:"true"`
 
 	// The URI for accessing the resource.
-	Uri *string `min:"1" type:"string"`
+	Uri *string `json:"glue:ResourceUri:Uri" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2620,10 +2620,10 @@ type S3Encryption struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn *string `type:"string"`
+	KmsKeyArn *string `json:"glue:S3Encryption:KmsKeyArn" type:"string"`
 
 	// The encryption mode to use for Amazon S3 data.
-	S3EncryptionMode S3EncryptionMode `type:"string" enum:"true"`
+	S3EncryptionMode S3EncryptionMode `json:"glue:S3Encryption:S3EncryptionMode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2638,10 +2638,10 @@ type S3Target struct {
 
 	// A list of glob patterns used to exclude from the crawl. For more information,
 	// see Catalog Tables with a Crawler (http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html).
-	Exclusions []string `type:"list"`
+	Exclusions []string `json:"glue:S3Target:Exclusions" type:"list"`
 
 	// The path to the Amazon S3 target.
-	Path *string `type:"string"`
+	Path *string `json:"glue:S3Target:Path" type:"string"`
 }
 
 // String returns the string representation
@@ -2658,10 +2658,10 @@ type Schedule struct {
 	// Time-Based Schedules for Jobs and Crawlers (http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html).
 	// For example, to run something every day at 12:15 UTC, specify cron(15 12
 	// * * ? *).
-	ScheduleExpression *string `type:"string"`
+	ScheduleExpression *string `json:"glue:Schedule:ScheduleExpression" type:"string"`
 
 	// The state of the schedule.
-	State ScheduleState `type:"string" enum:"true"`
+	State ScheduleState `json:"glue:Schedule:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2675,10 +2675,10 @@ type SchemaChangePolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The deletion behavior when the crawler finds a deleted object.
-	DeleteBehavior DeleteBehavior `type:"string" enum:"true"`
+	DeleteBehavior DeleteBehavior `json:"glue:SchemaChangePolicy:DeleteBehavior" type:"string" enum:"true"`
 
 	// The update behavior when the crawler finds a changed schema.
-	UpdateBehavior UpdateBehavior `type:"string" enum:"true"`
+	UpdateBehavior UpdateBehavior `json:"glue:SchemaChangePolicy:UpdateBehavior" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2692,13 +2692,13 @@ type SecurityConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The time at which this security configuration was created.
-	CreatedTimeStamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimeStamp *time.Time `json:"glue:SecurityConfiguration:CreatedTimeStamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The encryption configuration associated with this security configuration.
-	EncryptionConfiguration *EncryptionConfiguration `type:"structure"`
+	EncryptionConfiguration *EncryptionConfiguration `json:"glue:SecurityConfiguration:EncryptionConfiguration" type:"structure"`
 
 	// The name of the security configuration.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:SecurityConfiguration:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2717,12 +2717,12 @@ type Segment struct {
 	// three.
 	//
 	// SegmentNumber is a required field
-	SegmentNumber *int64 `type:"integer" required:"true"`
+	SegmentNumber *int64 `json:"glue:Segment:SegmentNumber" type:"integer" required:"true"`
 
 	// The total numer of segments.
 	//
 	// TotalSegments is a required field
-	TotalSegments *int64 `min:"1" type:"integer" required:"true"`
+	TotalSegments *int64 `json:"glue:Segment:TotalSegments" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2758,13 +2758,13 @@ type SerDeInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the SerDe.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:SerDeInfo:Name" min:"1" type:"string"`
 
 	// These key-value pairs define initialization parameters for the SerDe.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"glue:SerDeInfo:Parameters" type:"map"`
 
 	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
-	SerializationLibrary *string `min:"1" type:"string"`
+	SerializationLibrary *string `json:"glue:SerDeInfo:SerializationLibrary" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2795,13 +2795,13 @@ type SkewedInfo struct {
 	_ struct{} `type:"structure"`
 
 	// A list of names of columns that contain skewed values.
-	SkewedColumnNames []string `type:"list"`
+	SkewedColumnNames []string `json:"glue:SkewedInfo:SkewedColumnNames" type:"list"`
 
 	// A mapping of skewed values to the columns that contain them.
-	SkewedColumnValueLocationMaps map[string]string `type:"map"`
+	SkewedColumnValueLocationMaps map[string]string `json:"glue:SkewedInfo:SkewedColumnValueLocationMaps" type:"map"`
 
 	// A list of values that appear so frequently as to be considered skewed.
-	SkewedColumnValues []string `type:"list"`
+	SkewedColumnValues []string `json:"glue:SkewedInfo:SkewedColumnValues" type:"list"`
 }
 
 // String returns the string representation
@@ -2816,45 +2816,45 @@ type StorageDescriptor struct {
 
 	// A list of reducer grouping columns, clustering columns, and bucketing columns
 	// in the table.
-	BucketColumns []string `type:"list"`
+	BucketColumns []string `json:"glue:StorageDescriptor:BucketColumns" type:"list"`
 
 	// A list of the Columns in the table.
-	Columns []Column `type:"list"`
+	Columns []Column `json:"glue:StorageDescriptor:Columns" type:"list"`
 
 	// True if the data in the table is compressed, or False if not.
-	Compressed *bool `type:"boolean"`
+	Compressed *bool `json:"glue:StorageDescriptor:Compressed" type:"boolean"`
 
 	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or
 	// a custom format.
-	InputFormat *string `type:"string"`
+	InputFormat *string `json:"glue:StorageDescriptor:InputFormat" type:"string"`
 
 	// The physical location of the table. By default this takes the form of the
 	// warehouse location, followed by the database location in the warehouse, followed
 	// by the table name.
-	Location *string `type:"string"`
+	Location *string `json:"glue:StorageDescriptor:Location" type:"string"`
 
 	// Must be specified if the table contains any dimension columns.
-	NumberOfBuckets *int64 `type:"integer"`
+	NumberOfBuckets *int64 `json:"glue:StorageDescriptor:NumberOfBuckets" type:"integer"`
 
 	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat,
 	// or a custom format.
-	OutputFormat *string `type:"string"`
+	OutputFormat *string `json:"glue:StorageDescriptor:OutputFormat" type:"string"`
 
 	// User-supplied properties in key-value form.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"glue:StorageDescriptor:Parameters" type:"map"`
 
 	// Serialization/deserialization (SerDe) information.
-	SerdeInfo *SerDeInfo `type:"structure"`
+	SerdeInfo *SerDeInfo `json:"glue:StorageDescriptor:SerdeInfo" type:"structure"`
 
 	// Information about values that appear very frequently in a column (skewed
 	// values).
-	SkewedInfo *SkewedInfo `type:"structure"`
+	SkewedInfo *SkewedInfo `json:"glue:StorageDescriptor:SkewedInfo" type:"structure"`
 
 	// A list specifying the sort order of each bucket in the table.
-	SortColumns []Order `type:"list"`
+	SortColumns []Order `json:"glue:StorageDescriptor:SortColumns" type:"list"`
 
 	// True if the table data is stored in subdirectories, or False if not.
-	StoredAsSubDirectories *bool `type:"boolean"`
+	StoredAsSubDirectories *bool `json:"glue:StorageDescriptor:StoredAsSubDirectories" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2897,35 +2897,35 @@ type Table struct {
 	_ struct{} `type:"structure"`
 
 	// Time when the table definition was created in the Data Catalog.
-	CreateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTime *time.Time `json:"glue:Table:CreateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Person or entity who created the table.
-	CreatedBy *string `min:"1" type:"string"`
+	CreatedBy *string `json:"glue:Table:CreatedBy" min:"1" type:"string"`
 
 	// Name of the metadata database where the table metadata resides. For Hive
 	// compatibility, this must be all lowercase.
-	DatabaseName *string `min:"1" type:"string"`
+	DatabaseName *string `json:"glue:Table:DatabaseName" min:"1" type:"string"`
 
 	// Description of the table.
-	Description *string `type:"string"`
+	Description *string `json:"glue:Table:Description" type:"string"`
 
 	// Last time the table was accessed. This is usually taken from HDFS, and may
 	// not be reliable.
-	LastAccessTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAccessTime *time.Time `json:"glue:Table:LastAccessTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Last time column statistics were computed for this table.
-	LastAnalyzedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAnalyzedTime *time.Time `json:"glue:Table:LastAnalyzedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:Table:Name" min:"1" type:"string" required:"true"`
 
 	// Owner of the table.
-	Owner *string `min:"1" type:"string"`
+	Owner *string `json:"glue:Table:Owner" min:"1" type:"string"`
 
 	// These key-value pairs define properties associated with the table.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"glue:Table:Parameters" type:"map"`
 
 	// A list of columns by which the table is partitioned. Only primitive types
 	// are supported as partition keys.
@@ -2934,26 +2934,26 @@ type Table struct {
 	// you must at least set the value of partitionKeys to an empty list. For example:
 	//
 	// "PartitionKeys": []
-	PartitionKeys []Column `type:"list"`
+	PartitionKeys []Column `json:"glue:Table:PartitionKeys" type:"list"`
 
 	// Retention time for this table.
-	Retention *int64 `type:"integer"`
+	Retention *int64 `json:"glue:Table:Retention" type:"integer"`
 
 	// A storage descriptor containing information about the physical storage of
 	// this table.
-	StorageDescriptor *StorageDescriptor `type:"structure"`
+	StorageDescriptor *StorageDescriptor `json:"glue:Table:StorageDescriptor" type:"structure"`
 
 	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
-	TableType *string `type:"string"`
+	TableType *string `json:"glue:Table:TableType" type:"string"`
 
 	// Last time the table was updated.
-	UpdateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdateTime *time.Time `json:"glue:Table:UpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText *string `type:"string"`
+	ViewExpandedText *string `json:"glue:Table:ViewExpandedText" type:"string"`
 
 	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText *string `type:"string"`
+	ViewOriginalText *string `json:"glue:Table:ViewOriginalText" type:"string"`
 }
 
 // String returns the string representation
@@ -2967,10 +2967,10 @@ type TableError struct {
 	_ struct{} `type:"structure"`
 
 	// Detail about the error.
-	ErrorDetail *ErrorDetail `type:"structure"`
+	ErrorDetail *ErrorDetail `json:"glue:TableError:ErrorDetail" type:"structure"`
 
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
-	TableName *string `min:"1" type:"string"`
+	TableName *string `json:"glue:TableError:TableName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2984,25 +2984,25 @@ type TableInput struct {
 	_ struct{} `type:"structure"`
 
 	// Description of the table.
-	Description *string `type:"string"`
+	Description *string `json:"glue:TableInput:Description" type:"string"`
 
 	// Last time the table was accessed.
-	LastAccessTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAccessTime *time.Time `json:"glue:TableInput:LastAccessTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Last time column statistics were computed for this table.
-	LastAnalyzedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAnalyzedTime *time.Time `json:"glue:TableInput:LastAnalyzedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Name of the table. For Hive compatibility, this is folded to lowercase when
 	// it is stored.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:TableInput:Name" min:"1" type:"string" required:"true"`
 
 	// Owner of the table.
-	Owner *string `min:"1" type:"string"`
+	Owner *string `json:"glue:TableInput:Owner" min:"1" type:"string"`
 
 	// These key-value pairs define properties associated with the table.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"glue:TableInput:Parameters" type:"map"`
 
 	// A list of columns by which the table is partitioned. Only primitive types
 	// are supported as partition keys.
@@ -3011,23 +3011,23 @@ type TableInput struct {
 	// you must at least set the value of partitionKeys to an empty list. For example:
 	//
 	// "PartitionKeys": []
-	PartitionKeys []Column `type:"list"`
+	PartitionKeys []Column `json:"glue:TableInput:PartitionKeys" type:"list"`
 
 	// Retention time for this table.
-	Retention *int64 `type:"integer"`
+	Retention *int64 `json:"glue:TableInput:Retention" type:"integer"`
 
 	// A storage descriptor containing information about the physical storage of
 	// this table.
-	StorageDescriptor *StorageDescriptor `type:"structure"`
+	StorageDescriptor *StorageDescriptor `json:"glue:TableInput:StorageDescriptor" type:"structure"`
 
 	// The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
-	TableType *string `type:"string"`
+	TableType *string `json:"glue:TableInput:TableType" type:"string"`
 
 	// If the table is a view, the expanded text of the view; otherwise null.
-	ViewExpandedText *string `type:"string"`
+	ViewExpandedText *string `json:"glue:TableInput:ViewExpandedText" type:"string"`
 
 	// If the table is a view, the original text of the view; otherwise null.
-	ViewOriginalText *string `type:"string"`
+	ViewOriginalText *string `json:"glue:TableInput:ViewOriginalText" type:"string"`
 }
 
 // String returns the string representation
@@ -3073,11 +3073,11 @@ type TableVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The table in question
-	Table *Table `type:"structure"`
+	Table *Table `json:"glue:TableVersion:Table" type:"structure"`
 
 	// The ID value that identifies this table version. A VersionId is a string
 	// representation of an integer. Each version is incremented by 1.
-	VersionId *string `min:"1" type:"string"`
+	VersionId *string `json:"glue:TableVersion:VersionId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3091,14 +3091,14 @@ type TableVersionError struct {
 	_ struct{} `type:"structure"`
 
 	// Detail about the error.
-	ErrorDetail *ErrorDetail `type:"structure"`
+	ErrorDetail *ErrorDetail `json:"glue:TableVersionError:ErrorDetail" type:"structure"`
 
 	// The name of the table in question.
-	TableName *string `min:"1" type:"string"`
+	TableName *string `json:"glue:TableVersionError:TableName" min:"1" type:"string"`
 
 	// The ID value of the version in question. A VersionID is a string representation
 	// of an integer. Each version is incremented by 1.
-	VersionId *string `min:"1" type:"string"`
+	VersionId *string `json:"glue:TableVersionError:VersionId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3112,34 +3112,34 @@ type Trigger struct {
 	_ struct{} `type:"structure"`
 
 	// The actions initiated by this trigger.
-	Actions []Action `type:"list"`
+	Actions []Action `json:"glue:Trigger:Actions" type:"list"`
 
 	// A description of this trigger.
-	Description *string `type:"string"`
+	Description *string `json:"glue:Trigger:Description" type:"string"`
 
 	// Reserved for future use.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"glue:Trigger:Id" min:"1" type:"string"`
 
 	// The name of the trigger.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:Trigger:Name" min:"1" type:"string"`
 
 	// The predicate of this trigger, which defines when it will fire.
-	Predicate *Predicate `type:"structure"`
+	Predicate *Predicate `json:"glue:Trigger:Predicate" type:"structure"`
 
 	// A cron expression used to specify the schedule (see Time-Based Schedules
 	// for Jobs and Crawlers (https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html).
 	// For example, to run something every day at 12:15 UTC, you would specify:
 	// cron(15 12 * * ? *).
-	Schedule *string `type:"string"`
+	Schedule *string `json:"glue:Trigger:Schedule" type:"string"`
 
 	// The current state of the trigger.
-	State TriggerState `type:"string" enum:"true"`
+	State TriggerState `json:"glue:Trigger:State" type:"string" enum:"true"`
 
 	// The type of trigger that this is.
-	Type TriggerType `type:"string" enum:"true"`
+	Type TriggerType `json:"glue:Trigger:Type" type:"string" enum:"true"`
 
 	// The name of the workflow associated with the trigger.
-	WorkflowName *string `min:"1" type:"string"`
+	WorkflowName *string `json:"glue:Trigger:WorkflowName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3153,7 +3153,7 @@ type TriggerNodeDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The information of the trigger represented by the trigger node.
-	Trigger *Trigger `type:"structure"`
+	Trigger *Trigger `json:"glue:TriggerNodeDetails:Trigger" type:"structure"`
 }
 
 // String returns the string representation
@@ -3168,22 +3168,22 @@ type TriggerUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// The actions initiated by this trigger.
-	Actions []Action `type:"list"`
+	Actions []Action `json:"glue:TriggerUpdate:Actions" type:"list"`
 
 	// A description of this trigger.
-	Description *string `type:"string"`
+	Description *string `json:"glue:TriggerUpdate:Description" type:"string"`
 
 	// Reserved for future use.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:TriggerUpdate:Name" min:"1" type:"string"`
 
 	// The predicate of this trigger, which defines when it will fire.
-	Predicate *Predicate `type:"structure"`
+	Predicate *Predicate `json:"glue:TriggerUpdate:Predicate" type:"structure"`
 
 	// A cron expression used to specify the schedule (see Time-Based Schedules
 	// for Jobs and Crawlers (https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html).
 	// For example, to run something every day at 12:15 UTC, you would specify:
 	// cron(15 12 * * ? *).
-	Schedule *string `type:"string"`
+	Schedule *string `json:"glue:TriggerUpdate:Schedule" type:"string"`
 }
 
 // String returns the string representation
@@ -3222,29 +3222,29 @@ type UpdateCsvClassifierRequest struct {
 	_ struct{} `type:"structure"`
 
 	// Enables the processing of files that contain only one column.
-	AllowSingleColumn *bool `type:"boolean"`
+	AllowSingleColumn *bool `json:"glue:UpdateCsvClassifierRequest:AllowSingleColumn" type:"boolean"`
 
 	// Indicates whether the CSV file contains a header.
-	ContainsHeader CsvHeaderOption `type:"string" enum:"true"`
+	ContainsHeader CsvHeaderOption `json:"glue:UpdateCsvClassifierRequest:ContainsHeader" type:"string" enum:"true"`
 
 	// A custom symbol to denote what separates each column entry in the row.
-	Delimiter *string `min:"1" type:"string"`
+	Delimiter *string `json:"glue:UpdateCsvClassifierRequest:Delimiter" min:"1" type:"string"`
 
 	// Specifies not to trim values before identifying the type of column values.
 	// The default value is true.
-	DisableValueTrimming *bool `type:"boolean"`
+	DisableValueTrimming *bool `json:"glue:UpdateCsvClassifierRequest:DisableValueTrimming" type:"boolean"`
 
 	// A list of strings representing column names.
-	Header []string `type:"list"`
+	Header []string `json:"glue:UpdateCsvClassifierRequest:Header" type:"list"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:UpdateCsvClassifierRequest:Name" min:"1" type:"string" required:"true"`
 
 	// A custom symbol to denote what combines content into a single column value.
 	// It must be different from the column delimiter.
-	QuoteSymbol *string `min:"1" type:"string"`
+	QuoteSymbol *string `json:"glue:UpdateCsvClassifierRequest:QuoteSymbol" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3282,18 +3282,18 @@ type UpdateGrokClassifierRequest struct {
 
 	// An identifier of the data format that the classifier matches, such as Twitter,
 	// JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
-	Classification *string `type:"string"`
+	Classification *string `json:"glue:UpdateGrokClassifierRequest:Classification" type:"string"`
 
 	// Optional custom grok patterns used by this classifier.
-	CustomPatterns *string `type:"string"`
+	CustomPatterns *string `json:"glue:UpdateGrokClassifierRequest:CustomPatterns" type:"string"`
 
 	// The grok pattern used by this classifier.
-	GrokPattern *string `min:"1" type:"string"`
+	GrokPattern *string `json:"glue:UpdateGrokClassifierRequest:GrokPattern" min:"1" type:"string"`
 
 	// The name of the GrokClassifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:UpdateGrokClassifierRequest:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3329,12 +3329,12 @@ type UpdateJsonClassifierRequest struct {
 	// A JsonPath string defining the JSON data for the classifier to classify.
 	// AWS Glue supports a subset of JsonPath, as described in Writing JsonPath
 	// Custom Classifiers (https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
-	JsonPath *string `type:"string"`
+	JsonPath *string `json:"glue:UpdateJsonClassifierRequest:JsonPath" type:"string"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:UpdateJsonClassifierRequest:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3365,19 +3365,19 @@ type UpdateXMLClassifierRequest struct {
 	_ struct{} `type:"structure"`
 
 	// An identifier of the data format that the classifier matches.
-	Classification *string `type:"string"`
+	Classification *string `json:"glue:UpdateXMLClassifierRequest:Classification" type:"string"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:UpdateXMLClassifierRequest:Name" min:"1" type:"string" required:"true"`
 
 	// The XML tag designating the element that contains each record in an XML document
 	// being parsed. This cannot identify a self-closing element (closed by />).
 	// An empty row element that contains only attributes can be parsed as long
 	// as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row>
 	// is okay, but <row item_a="A" item_b="B" /> is not).
-	RowTag *string `type:"string"`
+	RowTag *string `json:"glue:UpdateXMLClassifierRequest:RowTag" type:"string"`
 }
 
 // String returns the string representation
@@ -3408,22 +3408,22 @@ type UserDefinedFunction struct {
 	_ struct{} `type:"structure"`
 
 	// The Java class that contains the function code.
-	ClassName *string `min:"1" type:"string"`
+	ClassName *string `json:"glue:UserDefinedFunction:ClassName" min:"1" type:"string"`
 
 	// The time at which the function was created.
-	CreateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTime *time.Time `json:"glue:UserDefinedFunction:CreateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the function.
-	FunctionName *string `min:"1" type:"string"`
+	FunctionName *string `json:"glue:UserDefinedFunction:FunctionName" min:"1" type:"string"`
 
 	// The owner of the function.
-	OwnerName *string `min:"1" type:"string"`
+	OwnerName *string `json:"glue:UserDefinedFunction:OwnerName" min:"1" type:"string"`
 
 	// The owner type.
-	OwnerType PrincipalType `type:"string" enum:"true"`
+	OwnerType PrincipalType `json:"glue:UserDefinedFunction:OwnerType" type:"string" enum:"true"`
 
 	// The resource URIs for the function.
-	ResourceUris []ResourceUri `type:"list"`
+	ResourceUris []ResourceUri `json:"glue:UserDefinedFunction:ResourceUris" type:"list"`
 }
 
 // String returns the string representation
@@ -3437,19 +3437,19 @@ type UserDefinedFunctionInput struct {
 	_ struct{} `type:"structure"`
 
 	// The Java class that contains the function code.
-	ClassName *string `min:"1" type:"string"`
+	ClassName *string `json:"glue:UserDefinedFunctionInput:ClassName" min:"1" type:"string"`
 
 	// The name of the function.
-	FunctionName *string `min:"1" type:"string"`
+	FunctionName *string `json:"glue:UserDefinedFunctionInput:FunctionName" min:"1" type:"string"`
 
 	// The owner of the function.
-	OwnerName *string `min:"1" type:"string"`
+	OwnerName *string `json:"glue:UserDefinedFunctionInput:OwnerName" min:"1" type:"string"`
 
 	// The owner type.
-	OwnerType PrincipalType `type:"string" enum:"true"`
+	OwnerType PrincipalType `json:"glue:UserDefinedFunctionInput:OwnerType" type:"string" enum:"true"`
 
 	// The resource URIs for the function.
-	ResourceUris []ResourceUri `type:"list"`
+	ResourceUris []ResourceUri `json:"glue:UserDefinedFunctionInput:ResourceUris" type:"list"`
 }
 
 // String returns the string representation
@@ -3490,26 +3490,26 @@ type Workflow struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the workflow was created.
-	CreatedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedOn *time.Time `json:"glue:Workflow:CreatedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// A collection of properties to be used as part of each execution of the workflow.
-	DefaultRunProperties map[string]string `type:"map"`
+	DefaultRunProperties map[string]string `json:"glue:Workflow:DefaultRunProperties" type:"map"`
 
 	// A description of the workflow.
-	Description *string `type:"string"`
+	Description *string `json:"glue:Workflow:Description" type:"string"`
 
 	// The graph representing all the AWS Glue components that belong to the workflow
 	// as nodes and directed connections between them as edges.
-	Graph *WorkflowGraph `type:"structure"`
+	Graph *WorkflowGraph `json:"glue:Workflow:Graph" type:"structure"`
 
 	// The date and time when the workflow was last modified.
-	LastModifiedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedOn *time.Time `json:"glue:Workflow:LastModifiedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The information about the last execution of the workflow.
-	LastRun *WorkflowRun `type:"structure"`
+	LastRun *WorkflowRun `json:"glue:Workflow:LastRun" type:"structure"`
 
 	// The name of the workflow representing the flow.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:Workflow:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3526,11 +3526,11 @@ type WorkflowGraph struct {
 
 	// A list of all the directed connections between the nodes belonging to the
 	// workflow.
-	Edges []Edge `type:"list"`
+	Edges []Edge `json:"glue:WorkflowGraph:Edges" type:"list"`
 
 	// A list of the the AWS Glue components belong to the workflow represented
 	// as nodes.
-	Nodes []Node `type:"list"`
+	Nodes []Node `json:"glue:WorkflowGraph:Nodes" type:"list"`
 }
 
 // String returns the string representation
@@ -3544,29 +3544,29 @@ type WorkflowRun struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the workflow run completed.
-	CompletedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletedOn *time.Time `json:"glue:WorkflowRun:CompletedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The graph representing all the AWS Glue components that belong to the workflow
 	// as nodes and directed connections between them as edges.
-	Graph *WorkflowGraph `type:"structure"`
+	Graph *WorkflowGraph `json:"glue:WorkflowRun:Graph" type:"structure"`
 
 	// Name of the workflow which was executed.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:WorkflowRun:Name" min:"1" type:"string"`
 
 	// The date and time when the workflow run was started.
-	StartedOn *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedOn *time.Time `json:"glue:WorkflowRun:StartedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The statistics of the run.
-	Statistics *WorkflowRunStatistics `type:"structure"`
+	Statistics *WorkflowRunStatistics `json:"glue:WorkflowRun:Statistics" type:"structure"`
 
 	// The status of the workflow run.
-	Status WorkflowRunStatus `type:"string" enum:"true"`
+	Status WorkflowRunStatus `json:"glue:WorkflowRun:Status" type:"string" enum:"true"`
 
 	// The ID of this workflow run.
-	WorkflowRunId *string `min:"1" type:"string"`
+	WorkflowRunId *string `json:"glue:WorkflowRun:WorkflowRunId" min:"1" type:"string"`
 
 	// The workflow run properties which were set during the run.
-	WorkflowRunProperties map[string]string `type:"map"`
+	WorkflowRunProperties map[string]string `json:"glue:WorkflowRun:WorkflowRunProperties" type:"map"`
 }
 
 // String returns the string representation
@@ -3580,22 +3580,22 @@ type WorkflowRunStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// Total number of Actions which have failed.
-	FailedActions *int64 `type:"integer"`
+	FailedActions *int64 `json:"glue:WorkflowRunStatistics:FailedActions" type:"integer"`
 
 	// Total number Actions in running state.
-	RunningActions *int64 `type:"integer"`
+	RunningActions *int64 `json:"glue:WorkflowRunStatistics:RunningActions" type:"integer"`
 
 	// Total number of Actions which have stopped.
-	StoppedActions *int64 `type:"integer"`
+	StoppedActions *int64 `json:"glue:WorkflowRunStatistics:StoppedActions" type:"integer"`
 
 	// Total number of Actions which have succeeded.
-	SucceededActions *int64 `type:"integer"`
+	SucceededActions *int64 `json:"glue:WorkflowRunStatistics:SucceededActions" type:"integer"`
 
 	// Total number of Actions which timed out.
-	TimeoutActions *int64 `type:"integer"`
+	TimeoutActions *int64 `json:"glue:WorkflowRunStatistics:TimeoutActions" type:"integer"`
 
 	// Total number of Actions in the workflow run.
-	TotalActions *int64 `type:"integer"`
+	TotalActions *int64 `json:"glue:WorkflowRunStatistics:TotalActions" type:"integer"`
 }
 
 // String returns the string representation
@@ -3611,28 +3611,28 @@ type XMLClassifier struct {
 	// An identifier of the data format that the classifier matches.
 	//
 	// Classification is a required field
-	Classification *string `type:"string" required:"true"`
+	Classification *string `json:"glue:XMLClassifier:Classification" type:"string" required:"true"`
 
 	// The time that this classifier was registered.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"glue:XMLClassifier:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that this classifier was last updated.
-	LastUpdated *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"glue:XMLClassifier:LastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the classifier.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"glue:XMLClassifier:Name" min:"1" type:"string" required:"true"`
 
 	// The XML tag designating the element that contains each record in an XML document
 	// being parsed. This can't identify a self-closing element (closed by />).
 	// An empty row element that contains only attributes can be parsed as long
 	// as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row>
 	// is okay, but <row item_a="A" item_b="B" /> is not).
-	RowTag *string `type:"string"`
+	RowTag *string `json:"glue:XMLClassifier:RowTag" type:"string"`
 
 	// The version of this classifier.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"glue:XMLClassifier:Version" type:"long"`
 }
 
 // String returns the string representation

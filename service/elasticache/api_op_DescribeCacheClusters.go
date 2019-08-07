@@ -55,10 +55,10 @@ type DescribeCacheClustersOutput struct {
 
 	// A list of clusters. Each item in the list contains detailed information about
 	// one cluster.
-	CacheClusters []CacheCluster `locationNameList:"CacheCluster" type:"list"`
+	CacheClusters []CacheCluster `json:"elasticache:DescribeCacheClustersOutput:CacheClusters" locationNameList:"CacheCluster" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeCacheClustersOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

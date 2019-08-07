@@ -46,7 +46,7 @@ type DescribeEnvironmentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the environments that are returned.
-	Environments []Environment `locationName:"environments" type:"list"`
+	Environments []Environment `json:"cloud9:DescribeEnvironmentsOutput:Environments" locationName:"environments" type:"list"`
 }
 
 // String returns the string representation

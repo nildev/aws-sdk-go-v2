@@ -19,20 +19,20 @@ type Principal struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the principal was associated with the resource share.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"ram:Principal:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Indicates whether the principal belongs to the same organization as the AWS
 	// account that owns the resource share.
-	External *bool `locationName:"external" type:"boolean"`
+	External *bool `json:"ram:Principal:External" locationName:"external" type:"boolean"`
 
 	// The ID of the principal.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"ram:Principal:Id" locationName:"id" type:"string"`
 
 	// The time when the association was last updated.
-	LastUpdatedTime *time.Time `locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"ram:Principal:LastUpdatedTime" locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the resource share.
-	ResourceShareArn *string `locationName:"resourceShareArn" type:"string"`
+	ResourceShareArn *string `json:"ram:Principal:ResourceShareArn" locationName:"resourceShareArn" type:"string"`
 }
 
 // String returns the string representation
@@ -81,25 +81,25 @@ type Resource struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"ram:Resource:Arn" locationName:"arn" type:"string"`
 
 	// The time when the resource was associated with the resource share.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"ram:Resource:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time when the association was last updated.
-	LastUpdatedTime *time.Time `locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"ram:Resource:LastUpdatedTime" locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the resource share.
-	ResourceShareArn *string `locationName:"resourceShareArn" type:"string"`
+	ResourceShareArn *string `json:"ram:Resource:ResourceShareArn" locationName:"resourceShareArn" type:"string"`
 
 	// The status of the resource.
-	Status ResourceStatus `locationName:"status" type:"string" enum:"true"`
+	Status ResourceStatus `json:"ram:Resource:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A message about the status of the resource.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ram:Resource:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The resource type.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"ram:Resource:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -161,31 +161,31 @@ type ResourceShare struct {
 
 	// Indicates whether principals outside your organization can be associated
 	// with a resource share.
-	AllowExternalPrincipals *bool `locationName:"allowExternalPrincipals" type:"boolean"`
+	AllowExternalPrincipals *bool `json:"ram:ResourceShare:AllowExternalPrincipals" locationName:"allowExternalPrincipals" type:"boolean"`
 
 	// The time when the resource share was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"ram:ResourceShare:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time when the resource share was last updated.
-	LastUpdatedTime *time.Time `locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"ram:ResourceShare:LastUpdatedTime" locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the resource share.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ram:ResourceShare:Name" locationName:"name" type:"string"`
 
 	// The ID of the AWS account that owns the resource share.
-	OwningAccountId *string `locationName:"owningAccountId" type:"string"`
+	OwningAccountId *string `json:"ram:ResourceShare:OwningAccountId" locationName:"owningAccountId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the resource share.
-	ResourceShareArn *string `locationName:"resourceShareArn" type:"string"`
+	ResourceShareArn *string `json:"ram:ResourceShare:ResourceShareArn" locationName:"resourceShareArn" type:"string"`
 
 	// The status of the resource share.
-	Status ResourceShareStatus `locationName:"status" type:"string" enum:"true"`
+	Status ResourceShareStatus `json:"ram:ResourceShare:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A message about the status of the resource share.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ram:ResourceShare:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The tags for the resource share.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"ram:ResourceShare:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -266,29 +266,29 @@ type ResourceShareAssociation struct {
 	// The associated entity. For resource associations, this is the ARN of the
 	// resource. For principal associations, this is the ID of an AWS account or
 	// the ARN of an OU or organization from AWS Organizations.
-	AssociatedEntity *string `locationName:"associatedEntity" type:"string"`
+	AssociatedEntity *string `json:"ram:ResourceShareAssociation:AssociatedEntity" locationName:"associatedEntity" type:"string"`
 
 	// The association type.
-	AssociationType ResourceShareAssociationType `locationName:"associationType" type:"string" enum:"true"`
+	AssociationType ResourceShareAssociationType `json:"ram:ResourceShareAssociation:AssociationType" locationName:"associationType" type:"string" enum:"true"`
 
 	// The time when the association was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"ram:ResourceShareAssociation:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Indicates whether the principal belongs to the same organization as the AWS
 	// account that owns the resource share.
-	External *bool `locationName:"external" type:"boolean"`
+	External *bool `json:"ram:ResourceShareAssociation:External" locationName:"external" type:"boolean"`
 
 	// The time when the association was last updated.
-	LastUpdatedTime *time.Time `locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"ram:ResourceShareAssociation:LastUpdatedTime" locationName:"lastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the resource share.
-	ResourceShareArn *string `locationName:"resourceShareArn" type:"string"`
+	ResourceShareArn *string `json:"ram:ResourceShareAssociation:ResourceShareArn" locationName:"resourceShareArn" type:"string"`
 
 	// The status of the association.
-	Status ResourceShareAssociationStatus `locationName:"status" type:"string" enum:"true"`
+	Status ResourceShareAssociationStatus `json:"ram:ResourceShareAssociation:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A message about the status of the association.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ram:ResourceShareAssociation:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -355,28 +355,28 @@ type ResourceShareInvitation struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the invitation was sent.
-	InvitationTimestamp *time.Time `locationName:"invitationTimestamp" type:"timestamp" timestampFormat:"unix"`
+	InvitationTimestamp *time.Time `json:"ram:ResourceShareInvitation:InvitationTimestamp" locationName:"invitationTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the AWS account that received the invitation.
-	ReceiverAccountId *string `locationName:"receiverAccountId" type:"string"`
+	ReceiverAccountId *string `json:"ram:ResourceShareInvitation:ReceiverAccountId" locationName:"receiverAccountId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the resource share.
-	ResourceShareArn *string `locationName:"resourceShareArn" type:"string"`
+	ResourceShareArn *string `json:"ram:ResourceShareInvitation:ResourceShareArn" locationName:"resourceShareArn" type:"string"`
 
 	// The resources associated with the resource share.
-	ResourceShareAssociations []ResourceShareAssociation `locationName:"resourceShareAssociations" type:"list"`
+	ResourceShareAssociations []ResourceShareAssociation `json:"ram:ResourceShareInvitation:ResourceShareAssociations" locationName:"resourceShareAssociations" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the invitation.
-	ResourceShareInvitationArn *string `locationName:"resourceShareInvitationArn" type:"string"`
+	ResourceShareInvitationArn *string `json:"ram:ResourceShareInvitation:ResourceShareInvitationArn" locationName:"resourceShareInvitationArn" type:"string"`
 
 	// The name of the resource share.
-	ResourceShareName *string `locationName:"resourceShareName" type:"string"`
+	ResourceShareName *string `json:"ram:ResourceShareInvitation:ResourceShareName" locationName:"resourceShareName" type:"string"`
 
 	// The ID of the AWS account that sent the invitation.
-	SenderAccountId *string `locationName:"senderAccountId" type:"string"`
+	SenderAccountId *string `json:"ram:ResourceShareInvitation:SenderAccountId" locationName:"senderAccountId" type:"string"`
 
 	// The status of the invitation.
-	Status ResourceShareInvitationStatus `locationName:"status" type:"string" enum:"true"`
+	Status ResourceShareInvitationStatus `json:"ram:ResourceShareInvitation:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -449,10 +449,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The key of the tag.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"ram:Tag:Key" locationName:"key" type:"string"`
 
 	// The value of the tag.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ram:Tag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -483,10 +483,10 @@ type TagFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The tag key.
-	TagKey *string `locationName:"tagKey" type:"string"`
+	TagKey *string `json:"ram:TagFilter:TagKey" locationName:"tagKey" type:"string"`
 
 	// The tag values.
-	TagValues []string `locationName:"tagValues" type:"list"`
+	TagValues []string `json:"ram:TagFilter:TagValues" locationName:"tagValues" type:"list"`
 }
 
 // String returns the string representation

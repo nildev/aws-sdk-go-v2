@@ -50,14 +50,14 @@ type ListLoggingConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of LoggingConfiguration objects.
-	LoggingConfigurations []LoggingConfiguration `type:"list"`
+	LoggingConfigurations []LoggingConfiguration `json:"waf:ListLoggingConfigurationsOutput:LoggingConfigurations" type:"list"`
 
 	// If you have more LoggingConfigurations than the number that you specified
 	// for Limit in the request, the response includes a NextMarker value. To list
 	// more LoggingConfigurations, submit another ListLoggingConfigurations request,
 	// and specify the NextMarker value from the response in the NextMarker value
 	// in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListLoggingConfigurationsOutput:NextMarker" min:"1" type:"string"`
 }
 
 // String returns the string representation

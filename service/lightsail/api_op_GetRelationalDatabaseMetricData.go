@@ -116,10 +116,10 @@ type GetRelationalDatabaseMetricDataOutput struct {
 
 	// An object describing the result of your get relational database metric data
 	// request.
-	MetricData []MetricDatapoint `locationName:"metricData" type:"list"`
+	MetricData []MetricDatapoint `json:"lightsail:GetRelationalDatabaseMetricDataOutput:MetricData" locationName:"metricData" type:"list"`
 
 	// The name of the metric.
-	MetricName RelationalDatabaseMetricName `locationName:"metricName" type:"string" enum:"true"`
+	MetricName RelationalDatabaseMetricName `json:"lightsail:GetRelationalDatabaseMetricDataOutput:MetricName" locationName:"metricName" type:"string" enum:"true"`
 }
 
 // String returns the string representation

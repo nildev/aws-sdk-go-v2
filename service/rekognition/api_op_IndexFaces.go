@@ -118,11 +118,11 @@ type IndexFacesOutput struct {
 
 	// The version number of the face detection model that's associated with the
 	// input collection (CollectionId).
-	FaceModelVersion *string `type:"string"`
+	FaceModelVersion *string `json:"rekognition:IndexFacesOutput:FaceModelVersion" type:"string"`
 
 	// An array of faces detected and added to the collection. For more information,
 	// see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
-	FaceRecords []FaceRecord `type:"list"`
+	FaceRecords []FaceRecord `json:"rekognition:IndexFacesOutput:FaceRecords" type:"list"`
 
 	// If your collection is associated with a face detection model that's later
 	// than version 3.0, the value of OrientationCorrection is always null and no
@@ -147,13 +147,13 @@ type IndexFacesOutput struct {
 	//
 	// Bounding box information is returned in the FaceRecords array. You can get
 	// the version of the face detection model by calling DescribeCollection.
-	OrientationCorrection OrientationCorrection `type:"string" enum:"true"`
+	OrientationCorrection OrientationCorrection `json:"rekognition:IndexFacesOutput:OrientationCorrection" type:"string" enum:"true"`
 
 	// An array of faces that were detected in the image but weren't indexed. They
 	// weren't indexed because the quality filter identified them as low quality,
 	// or the MaxFaces request parameter filtered them out. To use the quality filter,
 	// you specify the QualityFilter request parameter.
-	UnindexedFaces []UnindexedFace `type:"list"`
+	UnindexedFaces []UnindexedFace `json:"rekognition:IndexFacesOutput:UnindexedFaces" type:"list"`
 }
 
 // String returns the string representation

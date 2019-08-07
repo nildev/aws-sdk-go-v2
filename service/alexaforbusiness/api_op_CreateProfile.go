@@ -109,7 +109,7 @@ type CreateProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the newly created room profile in the response.
-	ProfileArn *string `type:"string"`
+	ProfileArn *string `json:"a4b:CreateProfileOutput:ProfileArn" type:"string"`
 }
 
 // String returns the string representation

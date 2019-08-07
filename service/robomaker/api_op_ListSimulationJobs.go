@@ -110,12 +110,12 @@ type ListSimulationJobsOutput struct {
 	// the results of a ListRobot request exceed maxResults, this value can be used
 	// to retrieve the next page of results. This value is null when there are no
 	// more results to return.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"robomaker:ListSimulationJobsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// A list of simulation job summaries that meet the criteria of the request.
 	//
 	// SimulationJobSummaries is a required field
-	SimulationJobSummaries []SimulationJobSummary `locationName:"simulationJobSummaries" type:"list" required:"true"`
+	SimulationJobSummaries []SimulationJobSummary `json:"robomaker:ListSimulationJobsOutput:SimulationJobSummaries" locationName:"simulationJobSummaries" type:"list" required:"true"`
 }
 
 // String returns the string representation

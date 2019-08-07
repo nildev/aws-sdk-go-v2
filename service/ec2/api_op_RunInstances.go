@@ -299,20 +299,20 @@ type RunInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// [EC2-Classic only] The security groups.
-	Groups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	Groups []GroupIdentifier `json:"ec2:RunInstancesOutput:Groups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// The instances.
-	Instances []Instance `locationName:"instancesSet" locationNameList:"item" type:"list"`
+	Instances []Instance `json:"ec2:RunInstancesOutput:Instances" locationName:"instancesSet" locationNameList:"item" type:"list"`
 
 	// The ID of the AWS account that owns the reservation.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:RunInstancesOutput:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The ID of the requester that launched the instances on your behalf (for example,
 	// AWS Management Console or Auto Scaling).
-	RequesterId *string `locationName:"requesterId" type:"string"`
+	RequesterId *string `json:"ec2:RunInstancesOutput:RequesterId" locationName:"requesterId" type:"string"`
 
 	// The ID of the reservation.
-	ReservationId *string `locationName:"reservationId" type:"string"`
+	ReservationId *string `json:"ec2:RunInstancesOutput:ReservationId" locationName:"reservationId" type:"string"`
 }
 
 // String returns the string representation

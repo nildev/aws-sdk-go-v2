@@ -43,7 +43,7 @@ type DescribeEnvironmentStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any informational message about the status of the environment.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"cloud9:DescribeEnvironmentStatusOutput:Message" locationName:"message" type:"string"`
 
 	// The status of the environment. Available values include:
 	//
@@ -60,7 +60,7 @@ type DescribeEnvironmentStatusOutput struct {
 	//    * stopped: The environment is stopped.
 	//
 	//    * stopping: The environment is stopping.
-	Status EnvironmentStatus `locationName:"status" type:"string" enum:"true"`
+	Status EnvironmentStatus `json:"cloud9:DescribeEnvironmentStatusOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

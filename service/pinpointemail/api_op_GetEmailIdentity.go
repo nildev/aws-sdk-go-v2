@@ -61,7 +61,7 @@ type GetEmailIdentityOutput struct {
 	// An object that contains information about the DKIM attributes for the identity.
 	// This object includes the tokens that you use to create the CNAME records
 	// that are required to complete the DKIM verification process.
-	DkimAttributes *DkimAttributes `type:"structure"`
+	DkimAttributes *DkimAttributes `json:"email:GetEmailIdentityOutput:DkimAttributes" type:"structure"`
 
 	// The feedback forwarding configuration for the identity.
 	//
@@ -76,23 +76,23 @@ type GetEmailIdentityOutput struct {
 	// If you haven't set up another mechanism for receiving bounce or complaint
 	// notifications, Amazon Pinpoint sends an email notification when these events
 	// occur (even if this setting is disabled).
-	FeedbackForwardingStatus *bool `type:"boolean"`
+	FeedbackForwardingStatus *bool `json:"email:GetEmailIdentityOutput:FeedbackForwardingStatus" type:"boolean"`
 
 	// The email identity type.
-	IdentityType IdentityType `type:"string" enum:"true"`
+	IdentityType IdentityType `json:"email:GetEmailIdentityOutput:IdentityType" type:"string" enum:"true"`
 
 	// An object that contains information about the Mail-From attributes for the
 	// email identity.
-	MailFromAttributes *MailFromAttributes `type:"structure"`
+	MailFromAttributes *MailFromAttributes `json:"email:GetEmailIdentityOutput:MailFromAttributes" type:"structure"`
 
 	// An array of objects that define the tags (keys and values) that are associated
 	// with the email identity.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"email:GetEmailIdentityOutput:Tags" type:"list"`
 
 	// Specifies whether or not the identity is verified. In Amazon Pinpoint, you
 	// can only send email from verified email addresses or domains. For more information
 	// about verifying identities, see the Amazon Pinpoint User Guide (https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html).
-	VerifiedForSendingStatus *bool `type:"boolean"`
+	VerifiedForSendingStatus *bool `json:"email:GetEmailIdentityOutput:VerifiedForSendingStatus" type:"boolean"`
 }
 
 // String returns the string representation

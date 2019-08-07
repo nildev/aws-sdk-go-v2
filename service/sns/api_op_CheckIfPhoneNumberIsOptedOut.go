@@ -51,7 +51,7 @@ type CheckIfPhoneNumberIsOptedOutOutput struct {
 	//
 	//    * false – The phone number is opted in, meaning you can publish SMS
 	//    messages to it.
-	IsOptedOut *bool `locationName:"isOptedOut" type:"boolean"`
+	IsOptedOut *bool `json:"sns:CheckIfPhoneNumberIsOptedOutOutput:IsOptedOut" locationName:"isOptedOut" type:"boolean"`
 }
 
 // String returns the string representation

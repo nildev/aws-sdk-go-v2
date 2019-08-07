@@ -43,7 +43,7 @@ type GetInstanceStateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the instance.
-	State *InstanceState `locationName:"state" type:"structure"`
+	State *InstanceState `json:"lightsail:GetInstanceStateOutput:State" locationName:"state" type:"structure"`
 }
 
 // String returns the string representation

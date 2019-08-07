@@ -29,7 +29,7 @@ type DescribeDefaultAuthorizerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The default authorizer's description.
-	AuthorizerDescription *AuthorizerDescription `locationName:"authorizerDescription" type:"structure"`
+	AuthorizerDescription *AuthorizerDescription `json:"iot:DescribeDefaultAuthorizerOutput:AuthorizerDescription" locationName:"authorizerDescription" type:"structure"`
 }
 
 // String returns the string representation

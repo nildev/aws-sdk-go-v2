@@ -78,10 +78,10 @@ type ListTypedLinkFacetNamesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The names of typed link facets that exist within the schema.
-	FacetNames []string `type:"list"`
+	FacetNames []string `json:"clouddirectory:ListTypedLinkFacetNamesOutput:FacetNames" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListTypedLinkFacetNamesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -74,7 +74,7 @@ type CreateDatasetImportJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the dataset import job.
-	DatasetImportJobArn *string `locationName:"datasetImportJobArn" type:"string"`
+	DatasetImportJobArn *string `json:"personalize:CreateDatasetImportJobOutput:DatasetImportJobArn" locationName:"datasetImportJobArn" type:"string"`
 }
 
 // String returns the string representation

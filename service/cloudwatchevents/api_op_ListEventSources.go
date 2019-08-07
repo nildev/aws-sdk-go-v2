@@ -55,11 +55,11 @@ type ListEventSourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of event sources.
-	EventSources []EventSource `type:"list"`
+	EventSources []EventSource `json:"events:ListEventSourcesOutput:EventSources" type:"list"`
 
 	// A token you can use in a subsequent operation to retrieve the next set of
 	// results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"events:ListEventSourcesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

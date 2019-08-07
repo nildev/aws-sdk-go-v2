@@ -65,7 +65,7 @@ type PurchaseReservedInstancesOfferingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the purchased Reserved Instances.
-	ReservedInstancesId *string `locationName:"reservedInstancesId" type:"string"`
+	ReservedInstancesId *string `json:"ec2:PurchaseReservedInstancesOfferingOutput:ReservedInstancesId" locationName:"reservedInstancesId" type:"string"`
 }
 
 // String returns the string representation

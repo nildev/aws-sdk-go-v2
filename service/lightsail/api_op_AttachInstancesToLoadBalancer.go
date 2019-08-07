@@ -59,7 +59,7 @@ type AttachInstancesToLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object representing the API operations.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:AttachInstancesToLoadBalancerOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

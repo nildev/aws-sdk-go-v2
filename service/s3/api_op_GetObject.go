@@ -254,116 +254,116 @@ func (s GetObjectInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetObjectOutput struct {
 	_ struct{} `type:"structure" payload:"Body"`
 
-	AcceptRanges *string `location:"header" locationName:"accept-ranges" type:"string"`
+	AcceptRanges *string `json:"s3:GetObjectOutput:AcceptRanges" location:"header" locationName:"accept-ranges" type:"string"`
 
 	// Object data.
-	Body io.ReadCloser `type:"blob"`
+	Body io.ReadCloser `json:"s3:GetObjectOutput:Body" type:"blob"`
 
 	// Specifies caching behavior along the request/reply chain.
-	CacheControl *string `location:"header" locationName:"Cache-Control" type:"string"`
+	CacheControl *string `json:"s3:GetObjectOutput:CacheControl" location:"header" locationName:"Cache-Control" type:"string"`
 
 	// Specifies presentational information for the object.
-	ContentDisposition *string `location:"header" locationName:"Content-Disposition" type:"string"`
+	ContentDisposition *string `json:"s3:GetObjectOutput:ContentDisposition" location:"header" locationName:"Content-Disposition" type:"string"`
 
 	// Specifies what content encodings have been applied to the object and thus
 	// what decoding mechanisms must be applied to obtain the media-type referenced
 	// by the Content-Type header field.
-	ContentEncoding *string `location:"header" locationName:"Content-Encoding" type:"string"`
+	ContentEncoding *string `json:"s3:GetObjectOutput:ContentEncoding" location:"header" locationName:"Content-Encoding" type:"string"`
 
 	// The language the content is in.
-	ContentLanguage *string `location:"header" locationName:"Content-Language" type:"string"`
+	ContentLanguage *string `json:"s3:GetObjectOutput:ContentLanguage" location:"header" locationName:"Content-Language" type:"string"`
 
 	// Size of the body in bytes.
-	ContentLength *int64 `location:"header" locationName:"Content-Length" type:"long"`
+	ContentLength *int64 `json:"s3:GetObjectOutput:ContentLength" location:"header" locationName:"Content-Length" type:"long"`
 
 	// The portion of the object returned in the response.
-	ContentRange *string `location:"header" locationName:"Content-Range" type:"string"`
+	ContentRange *string `json:"s3:GetObjectOutput:ContentRange" location:"header" locationName:"Content-Range" type:"string"`
 
 	// A standard MIME type describing the format of the object data.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"s3:GetObjectOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 
 	// Specifies whether the object retrieved was (true) or was not (false) a Delete
 	// Marker. If false, this response header does not appear in the response.
-	DeleteMarker *bool `location:"header" locationName:"x-amz-delete-marker" type:"boolean"`
+	DeleteMarker *bool `json:"s3:GetObjectOutput:DeleteMarker" location:"header" locationName:"x-amz-delete-marker" type:"boolean"`
 
 	// An ETag is an opaque identifier assigned by a web server to a specific version
 	// of a resource found at a URL
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"s3:GetObjectOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// If the object expiration is configured (see PUT Bucket lifecycle), the response
 	// includes this header. It includes the expiry-date and rule-id key value pairs
 	// providing object expiration information. The value of the rule-id is URL
 	// encoded.
-	Expiration *string `location:"header" locationName:"x-amz-expiration" type:"string"`
+	Expiration *string `json:"s3:GetObjectOutput:Expiration" location:"header" locationName:"x-amz-expiration" type:"string"`
 
 	// The date and time at which the object is no longer cacheable.
-	Expires *string `location:"header" locationName:"Expires" type:"string"`
+	Expires *string `json:"s3:GetObjectOutput:Expires" location:"header" locationName:"Expires" type:"string"`
 
 	// Last modified date of the object
-	LastModified *time.Time `location:"header" locationName:"Last-Modified" type:"timestamp" timestampFormat:"rfc822"`
+	LastModified *time.Time `json:"s3:GetObjectOutput:LastModified" location:"header" locationName:"Last-Modified" type:"timestamp" timestampFormat:"rfc822"`
 
 	// A map of metadata to store with the object in S3.
-	Metadata map[string]string `location:"headers" locationName:"x-amz-meta-" type:"map"`
+	Metadata map[string]string `json:"s3:GetObjectOutput:Metadata" location:"headers" locationName:"x-amz-meta-" type:"map"`
 
 	// This is set to the number of metadata entries not returned in x-amz-meta
 	// headers. This can happen if you create metadata using an API like SOAP that
 	// supports more flexible metadata than the REST API. For example, using SOAP,
 	// you can create metadata whose values are not legal HTTP headers.
-	MissingMeta *int64 `location:"header" locationName:"x-amz-missing-meta" type:"integer"`
+	MissingMeta *int64 `json:"s3:GetObjectOutput:MissingMeta" location:"header" locationName:"x-amz-missing-meta" type:"integer"`
 
 	// Indicates whether this object has an active legal hold. This field is only
 	// returned if you have permission to view an object's legal hold status.
-	ObjectLockLegalHoldStatus ObjectLockLegalHoldStatus `location:"header" locationName:"x-amz-object-lock-legal-hold" type:"string" enum:"true"`
+	ObjectLockLegalHoldStatus ObjectLockLegalHoldStatus `json:"s3:GetObjectOutput:ObjectLockLegalHoldStatus" location:"header" locationName:"x-amz-object-lock-legal-hold" type:"string" enum:"true"`
 
 	// The object lock mode currently in place for this object.
-	ObjectLockMode ObjectLockMode `location:"header" locationName:"x-amz-object-lock-mode" type:"string" enum:"true"`
+	ObjectLockMode ObjectLockMode `json:"s3:GetObjectOutput:ObjectLockMode" location:"header" locationName:"x-amz-object-lock-mode" type:"string" enum:"true"`
 
 	// The date and time when this object's object lock will expire.
-	ObjectLockRetainUntilDate *time.Time `location:"header" locationName:"x-amz-object-lock-retain-until-date" type:"timestamp" timestampFormat:"rfc822"`
+	ObjectLockRetainUntilDate *time.Time `json:"s3:GetObjectOutput:ObjectLockRetainUntilDate" location:"header" locationName:"x-amz-object-lock-retain-until-date" type:"timestamp" timestampFormat:"rfc822"`
 
 	// The count of parts this object has.
-	PartsCount *int64 `location:"header" locationName:"x-amz-mp-parts-count" type:"integer"`
+	PartsCount *int64 `json:"s3:GetObjectOutput:PartsCount" location:"header" locationName:"x-amz-mp-parts-count" type:"integer"`
 
-	ReplicationStatus ReplicationStatus `location:"header" locationName:"x-amz-replication-status" type:"string" enum:"true"`
+	ReplicationStatus ReplicationStatus `json:"s3:GetObjectOutput:ReplicationStatus" location:"header" locationName:"x-amz-replication-status" type:"string" enum:"true"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:GetObjectOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// Provides information about object restoration operation and expiration time
 	// of the restored object copy.
-	Restore *string `location:"header" locationName:"x-amz-restore" type:"string"`
+	Restore *string `json:"s3:GetObjectOutput:Restore" location:"header" locationName:"x-amz-restore" type:"string"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header confirming the encryption algorithm
 	// used.
-	SSECustomerAlgorithm *string `location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
+	SSECustomerAlgorithm *string `json:"s3:GetObjectOutput:SSECustomerAlgorithm" location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header to provide round trip message integrity
 	// verification of the customer-provided encryption key.
-	SSECustomerKeyMD5 *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
+	SSECustomerKeyMD5 *string `json:"s3:GetObjectOutput:SSECustomerKeyMD5" location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
 
 	// If present, specifies the ID of the AWS Key Management Service (KMS) master
 	// encryption key that was used for the object.
-	SSEKMSKeyId *string `location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
+	SSEKMSKeyId *string `json:"s3:GetObjectOutput:SSEKMSKeyId" location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
 
 	// The Server-side encryption algorithm used when storing this object in S3
 	// (e.g., AES256, aws:kms).
-	ServerSideEncryption ServerSideEncryption `location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
+	ServerSideEncryption ServerSideEncryption `json:"s3:GetObjectOutput:ServerSideEncryption" location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
 
-	StorageClass StorageClass `location:"header" locationName:"x-amz-storage-class" type:"string" enum:"true"`
+	StorageClass StorageClass `json:"s3:GetObjectOutput:StorageClass" location:"header" locationName:"x-amz-storage-class" type:"string" enum:"true"`
 
 	// The number of tags, if any, on the object.
-	TagCount *int64 `location:"header" locationName:"x-amz-tagging-count" type:"integer"`
+	TagCount *int64 `json:"s3:GetObjectOutput:TagCount" location:"header" locationName:"x-amz-tagging-count" type:"integer"`
 
 	// Version of the object.
-	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+	VersionId *string `json:"s3:GetObjectOutput:VersionId" location:"header" locationName:"x-amz-version-id" type:"string"`
 
 	// If the bucket is configured as a website, redirects requests for this object
 	// to another object in the same bucket or to an external URL. Amazon S3 stores
 	// the value of this header in the object metadata.
-	WebsiteRedirectLocation *string `location:"header" locationName:"x-amz-website-redirect-location" type:"string"`
+	WebsiteRedirectLocation *string `json:"s3:GetObjectOutput:WebsiteRedirectLocation" location:"header" locationName:"x-amz-website-redirect-location" type:"string"`
 }
 
 // String returns the string representation

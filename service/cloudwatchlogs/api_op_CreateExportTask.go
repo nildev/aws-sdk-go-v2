@@ -98,7 +98,7 @@ type CreateExportTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the export task.
-	TaskId *string `locationName:"taskId" min:"1" type:"string"`
+	TaskId *string `json:"logs:CreateExportTaskOutput:TaskId" locationName:"taskId" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -122,12 +122,12 @@ type DescribeDBClusterSnapshotsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Provides a list of DB cluster snapshots for the user.
-	DBClusterSnapshots []DBClusterSnapshot `locationNameList:"DBClusterSnapshot" type:"list"`
+	DBClusterSnapshots []DBClusterSnapshot `json:"rds:DescribeDBClusterSnapshotsOutput:DBClusterSnapshots" locationNameList:"DBClusterSnapshot" type:"list"`
 
 	// An optional pagination token provided by a previous DescribeDBClusterSnapshots
 	// request. If this parameter is specified, the response includes only records
 	// beyond the marker, up to the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeDBClusterSnapshotsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

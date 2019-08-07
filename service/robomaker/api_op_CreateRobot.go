@@ -108,23 +108,23 @@ type CreateRobotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The target architecture of the robot.
-	Architecture Architecture `locationName:"architecture" type:"string" enum:"true"`
+	Architecture Architecture `json:"robomaker:CreateRobotOutput:Architecture" locationName:"architecture" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the robot.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:CreateRobotOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the robot was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:CreateRobotOutput:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the Greengrass group associated with the
 	// robot.
-	GreengrassGroupId *string `locationName:"greengrassGroupId" min:"1" type:"string"`
+	GreengrassGroupId *string `json:"robomaker:CreateRobotOutput:GreengrassGroupId" locationName:"greengrassGroupId" min:"1" type:"string"`
 
 	// The name of the robot.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:CreateRobotOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The list of all tags added to the robot.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:CreateRobotOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

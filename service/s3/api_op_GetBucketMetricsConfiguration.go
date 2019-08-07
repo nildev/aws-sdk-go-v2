@@ -78,7 +78,7 @@ type GetBucketMetricsConfigurationOutput struct {
 	_ struct{} `type:"structure" payload:"MetricsConfiguration"`
 
 	// Specifies the metrics configuration.
-	MetricsConfiguration *MetricsConfiguration `type:"structure"`
+	MetricsConfiguration *MetricsConfiguration `json:"s3:GetBucketMetricsConfigurationOutput:MetricsConfiguration" type:"structure"`
 }
 
 // String returns the string representation

@@ -51,10 +51,10 @@ type BatchDeleteClusterSnapshotsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of any errors returned.
-	Errors []SnapshotErrorMessage `locationNameList:"SnapshotErrorMessage" type:"list"`
+	Errors []SnapshotErrorMessage `json:"redshift:BatchDeleteClusterSnapshotsOutput:Errors" locationNameList:"SnapshotErrorMessage" type:"list"`
 
 	// A list of the snapshot identifiers that were deleted.
-	Resources []string `locationNameList:"String" type:"list"`
+	Resources []string `json:"redshift:BatchDeleteClusterSnapshotsOutput:Resources" locationNameList:"String" type:"list"`
 }
 
 // String returns the string representation

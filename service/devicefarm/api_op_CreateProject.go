@@ -50,7 +50,7 @@ type CreateProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The newly created project.
-	Project *Project `locationName:"project" type:"structure"`
+	Project *Project `json:"devicefarm:CreateProjectOutput:Project" locationName:"project" type:"structure"`
 }
 
 // String returns the string representation

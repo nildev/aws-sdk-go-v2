@@ -56,7 +56,7 @@ type ListTablesOutput struct {
 	//
 	// If you do not receive a LastEvaluatedTableName value in the response, this
 	// means that there are no more table names to be retrieved.
-	LastEvaluatedTableName *string `min:"3" type:"string"`
+	LastEvaluatedTableName *string `json:"dynamodb:ListTablesOutput:LastEvaluatedTableName" min:"3" type:"string"`
 
 	// The names of the tables associated with the current account at the current
 	// endpoint. The maximum size of this array is 100.
@@ -64,7 +64,7 @@ type ListTablesOutput struct {
 	// If LastEvaluatedTableName also appears in the output, you can use this value
 	// as the ExclusiveStartTableName parameter in a subsequent ListTables request
 	// and obtain the next page of results.
-	TableNames []string `type:"list"`
+	TableNames []string `json:"dynamodb:ListTablesOutput:TableNames" type:"list"`
 }
 
 // String returns the string representation

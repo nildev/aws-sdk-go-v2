@@ -64,7 +64,7 @@ type CreateAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that describes the newly created alias record.
-	Alias *Alias `type:"structure"`
+	Alias *Alias `json:"gamelift:CreateAliasOutput:Alias" type:"structure"`
 }
 
 // String returns the string representation

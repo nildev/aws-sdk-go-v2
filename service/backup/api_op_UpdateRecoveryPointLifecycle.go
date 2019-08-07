@@ -93,11 +93,11 @@ type UpdateRecoveryPointLifecycleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An ARN that uniquely identifies a backup vault; for example, arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.
-	BackupVaultArn *string `type:"string"`
+	BackupVaultArn *string `json:"backup:UpdateRecoveryPointLifecycleOutput:BackupVaultArn" type:"string"`
 
 	// A CalculatedLifecycle object containing DeleteAt and MoveToColdStorageAt
 	// timestamps.
-	CalculatedLifecycle *CalculatedLifecycle `type:"structure"`
+	CalculatedLifecycle *CalculatedLifecycle `json:"backup:UpdateRecoveryPointLifecycleOutput:CalculatedLifecycle" type:"structure"`
 
 	// The lifecycle defines when a protected resource is transitioned to cold storage
 	// and when it expires. AWS Backup transitions and expires backups automatically
@@ -108,11 +108,11 @@ type UpdateRecoveryPointLifecycleOutput struct {
 	// 90 days greater than the “transition to cold after days” setting. The
 	// “transition to cold after days” setting cannot be changed after a backup
 	// has been transitioned to cold.
-	Lifecycle *Lifecycle `type:"structure"`
+	Lifecycle *Lifecycle `json:"backup:UpdateRecoveryPointLifecycleOutput:Lifecycle" type:"structure"`
 
 	// An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
 	// for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-	RecoveryPointArn *string `type:"string"`
+	RecoveryPointArn *string `json:"backup:UpdateRecoveryPointLifecycleOutput:RecoveryPointArn" type:"string"`
 }
 
 // String returns the string representation

@@ -73,10 +73,10 @@ type DescribeSnapshotCopyGrantsOutput struct {
 	//
 	// Constraints: You can specify either the SnapshotCopyGrantName parameter or
 	// the Marker parameter, but not both.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeSnapshotCopyGrantsOutput:Marker" type:"string"`
 
 	// The list of SnapshotCopyGrant objects.
-	SnapshotCopyGrants []SnapshotCopyGrant `locationNameList:"SnapshotCopyGrant" type:"list"`
+	SnapshotCopyGrants []SnapshotCopyGrant `json:"redshift:DescribeSnapshotCopyGrantsOutput:SnapshotCopyGrants" locationNameList:"SnapshotCopyGrant" type:"list"`
 }
 
 // String returns the string representation

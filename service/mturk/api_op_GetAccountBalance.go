@@ -24,10 +24,10 @@ type GetAccountBalanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A string representing a currency amount.
-	AvailableBalance *string `type:"string"`
+	AvailableBalance *string `json:"mturk-requester:GetAccountBalanceOutput:AvailableBalance" type:"string"`
 
 	// A string representing a currency amount.
-	OnHoldBalance *string `type:"string"`
+	OnHoldBalance *string `json:"mturk-requester:GetAccountBalanceOutput:OnHoldBalance" type:"string"`
 }
 
 // String returns the string representation

@@ -52,7 +52,7 @@ type DescribeConnectionLoaOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).
-	Loa *Loa `locationName:"loa" type:"structure"`
+	Loa *Loa `json:"directconnect:DescribeConnectionLoaOutput:Loa" locationName:"loa" type:"structure"`
 }
 
 // String returns the string representation

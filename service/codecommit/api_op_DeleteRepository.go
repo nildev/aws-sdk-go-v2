@@ -48,7 +48,7 @@ type DeleteRepositoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the repository that was deleted.
-	RepositoryId *string `locationName:"repositoryId" type:"string"`
+	RepositoryId *string `json:"codecommit:DeleteRepositoryOutput:RepositoryId" locationName:"repositoryId" type:"string"`
 }
 
 // String returns the string representation

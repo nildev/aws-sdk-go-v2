@@ -30,11 +30,11 @@ type ListHapgsOutput struct {
 	// The list of high-availability partition groups.
 	//
 	// HapgList is a required field
-	HapgList []string `type:"list" required:"true"`
+	HapgList []string `json:"cloudhsm:ListHapgsOutput:HapgList" type:"list" required:"true"`
 
 	// If not null, more results are available. Pass this value to ListHapgs to
 	// retrieve the next set of items.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudhsm:ListHapgsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -86,12 +86,12 @@ type ListThreatIntelSetsOutput struct {
 
 	// Pagination parameter to be used on the next list operation to retrieve more
 	// items.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"guardduty:ListThreatIntelSetsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The IDs of the ThreatIntelSet resources.
 	//
 	// ThreatIntelSetIds is a required field
-	ThreatIntelSetIds []string `locationName:"threatIntelSetIds" type:"list" required:"true"`
+	ThreatIntelSetIds []string `json:"guardduty:ListThreatIntelSetsOutput:ThreatIntelSetIds" locationName:"threatIntelSetIds" type:"list" required:"true"`
 }
 
 // String returns the string representation

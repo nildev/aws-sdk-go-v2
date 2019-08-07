@@ -49,7 +49,7 @@ type GetBranchOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the branch.
-	Branch *BranchInfo `locationName:"branch" type:"structure"`
+	Branch *BranchInfo `json:"codecommit:GetBranchOutput:Branch" locationName:"branch" type:"structure"`
 }
 
 // String returns the string representation

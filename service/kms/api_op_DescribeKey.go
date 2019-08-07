@@ -73,7 +73,7 @@ type DescribeKeyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Metadata associated with the key.
-	KeyMetadata *KeyMetadata `type:"structure"`
+	KeyMetadata *KeyMetadata `json:"kms:DescribeKeyOutput:KeyMetadata" type:"structure"`
 }
 
 // String returns the string representation

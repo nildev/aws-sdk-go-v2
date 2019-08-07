@@ -48,7 +48,7 @@ type GetJobDetailsOutput struct {
 	//
 	// If AWSSessionCredentials is used, a long-running job can call GetJobDetails
 	// again to obtain new credentials.
-	JobDetails *JobDetails `locationName:"jobDetails" type:"structure"`
+	JobDetails *JobDetails `json:"codepipeline:GetJobDetailsOutput:JobDetails" locationName:"jobDetails" type:"structure"`
 }
 
 // String returns the string representation

@@ -77,26 +77,26 @@ type GetThreatIntelSetOutput struct {
 	// The format of the threatIntelSet.
 	//
 	// Format is a required field
-	Format ThreatIntelSetFormat `locationName:"format" min:"1" type:"string" required:"true" enum:"true"`
+	Format ThreatIntelSetFormat `json:"guardduty:GetThreatIntelSetOutput:Format" locationName:"format" min:"1" type:"string" required:"true" enum:"true"`
 
 	// The URI of the file that contains the ThreatIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key).
 	//
 	// Location is a required field
-	Location *string `locationName:"location" min:"1" type:"string" required:"true"`
+	Location *string `json:"guardduty:GetThreatIntelSetOutput:Location" locationName:"location" min:"1" type:"string" required:"true"`
 
 	// A user-friendly ThreatIntelSet name that is displayed in all finding generated
 	// by activity that involves IP addresses included in this ThreatIntelSet.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"guardduty:GetThreatIntelSetOutput:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The status of threatIntelSet file uploaded.
 	//
 	// Status is a required field
-	Status ThreatIntelSetStatus `locationName:"status" min:"1" type:"string" required:"true" enum:"true"`
+	Status ThreatIntelSetStatus `json:"guardduty:GetThreatIntelSetOutput:Status" locationName:"status" min:"1" type:"string" required:"true" enum:"true"`
 
 	// The tags of the Threat List resource.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"guardduty:GetThreatIntelSetOutput:Tags" locationName:"tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

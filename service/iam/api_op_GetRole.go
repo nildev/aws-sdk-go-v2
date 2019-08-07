@@ -53,7 +53,7 @@ type GetRoleOutput struct {
 	// A structure containing details about the IAM role.
 	//
 	// Role is a required field
-	Role *Role `type:"structure" required:"true"`
+	Role *Role `json:"iam:GetRoleOutput:Role" type:"structure" required:"true"`
 }
 
 // String returns the string representation

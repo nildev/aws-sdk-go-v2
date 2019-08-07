@@ -88,11 +88,11 @@ type ListRoutingProfilesOutput struct {
 	// A string returned in the response. Use the value returned in the response
 	// as the value of the NextToken in a subsequent request to retrieve the next
 	// set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"connect:ListRoutingProfilesOutput:NextToken" type:"string"`
 
 	// An array of RoutingProfileSummary objects that include the ARN, Id, and Name
 	// of the routing profile.
-	RoutingProfileSummaryList []RoutingProfileSummary `type:"list"`
+	RoutingProfileSummaryList []RoutingProfileSummary `json:"connect:ListRoutingProfilesOutput:RoutingProfileSummaryList" type:"list"`
 }
 
 // String returns the string representation

@@ -22,89 +22,89 @@ type App struct {
 	// ARN for the Amplify App.
 	//
 	// AppArn is a required field
-	AppArn *string `locationName:"appArn" type:"string" required:"true"`
+	AppArn *string `json:"amplify:App:AppArn" locationName:"appArn" type:"string" required:"true"`
 
 	// Unique Id for the Amplify App.
 	//
 	// AppId is a required field
-	AppId *string `locationName:"appId" min:"1" type:"string" required:"true"`
+	AppId *string `json:"amplify:App:AppId" locationName:"appId" min:"1" type:"string" required:"true"`
 
 	// Automated branch creation config for the Amplify App.
-	AutoBranchCreationConfig *AutoBranchCreationConfig `locationName:"autoBranchCreationConfig" type:"structure"`
+	AutoBranchCreationConfig *AutoBranchCreationConfig `json:"amplify:App:AutoBranchCreationConfig" locationName:"autoBranchCreationConfig" type:"structure"`
 
 	// Automated branch creation glob patterns for the Amplify App.
-	AutoBranchCreationPatterns []string `locationName:"autoBranchCreationPatterns" type:"list"`
+	AutoBranchCreationPatterns []string `json:"amplify:App:AutoBranchCreationPatterns" locationName:"autoBranchCreationPatterns" type:"list"`
 
 	// Basic Authorization credentials for branches for the Amplify App.
-	BasicAuthCredentials *string `locationName:"basicAuthCredentials" type:"string"`
+	BasicAuthCredentials *string `json:"amplify:App:BasicAuthCredentials" locationName:"basicAuthCredentials" type:"string"`
 
 	// BuildSpec content for Amplify App.
-	BuildSpec *string `locationName:"buildSpec" min:"1" type:"string"`
+	BuildSpec *string `json:"amplify:App:BuildSpec" locationName:"buildSpec" min:"1" type:"string"`
 
 	// Create date / time for the Amplify App.
 	//
 	// CreateTime is a required field
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreateTime *time.Time `json:"amplify:App:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Custom redirect / rewrite rules for the Amplify App.
-	CustomRules []CustomRule `locationName:"customRules" type:"list"`
+	CustomRules []CustomRule `json:"amplify:App:CustomRules" locationName:"customRules" type:"list"`
 
 	// Default domain for the Amplify App.
 	//
 	// DefaultDomain is a required field
-	DefaultDomain *string `locationName:"defaultDomain" min:"1" type:"string" required:"true"`
+	DefaultDomain *string `json:"amplify:App:DefaultDomain" locationName:"defaultDomain" min:"1" type:"string" required:"true"`
 
 	// Description for the Amplify App.
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"amplify:App:Description" locationName:"description" type:"string" required:"true"`
 
 	// Enables automated branch creation for the Amplify App.
-	EnableAutoBranchCreation *bool `locationName:"enableAutoBranchCreation" type:"boolean"`
+	EnableAutoBranchCreation *bool `json:"amplify:App:EnableAutoBranchCreation" locationName:"enableAutoBranchCreation" type:"boolean"`
 
 	// Enables Basic Authorization for branches for the Amplify App.
 	//
 	// EnableBasicAuth is a required field
-	EnableBasicAuth *bool `locationName:"enableBasicAuth" type:"boolean" required:"true"`
+	EnableBasicAuth *bool `json:"amplify:App:EnableBasicAuth" locationName:"enableBasicAuth" type:"boolean" required:"true"`
 
 	// Enables auto-building of branches for the Amplify App.
 	//
 	// EnableBranchAutoBuild is a required field
-	EnableBranchAutoBuild *bool `locationName:"enableBranchAutoBuild" type:"boolean" required:"true"`
+	EnableBranchAutoBuild *bool `json:"amplify:App:EnableBranchAutoBuild" locationName:"enableBranchAutoBuild" type:"boolean" required:"true"`
 
 	// Environment Variables for the Amplify App.
 	//
 	// EnvironmentVariables is a required field
-	EnvironmentVariables map[string]string `locationName:"environmentVariables" type:"map" required:"true"`
+	EnvironmentVariables map[string]string `json:"amplify:App:EnvironmentVariables" locationName:"environmentVariables" type:"map" required:"true"`
 
 	// IAM service role ARN for the Amplify App.
-	IamServiceRoleArn *string `locationName:"iamServiceRoleArn" min:"1" type:"string"`
+	IamServiceRoleArn *string `json:"amplify:App:IamServiceRoleArn" locationName:"iamServiceRoleArn" min:"1" type:"string"`
 
 	// Name for the Amplify App.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"amplify:App:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// Platform for the Amplify App.
 	//
 	// Platform is a required field
-	Platform Platform `locationName:"platform" type:"string" required:"true" enum:"true"`
+	Platform Platform `json:"amplify:App:Platform" locationName:"platform" type:"string" required:"true" enum:"true"`
 
 	// Structure with Production Branch information.
-	ProductionBranch *ProductionBranch `locationName:"productionBranch" type:"structure"`
+	ProductionBranch *ProductionBranch `json:"amplify:App:ProductionBranch" locationName:"productionBranch" type:"structure"`
 
 	// Repository for the Amplify App.
 	//
 	// Repository is a required field
-	Repository *string `locationName:"repository" type:"string" required:"true"`
+	Repository *string `json:"amplify:App:Repository" locationName:"repository" type:"string" required:"true"`
 
 	// Tag for Amplify App.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"amplify:App:Tags" locationName:"tags" min:"1" type:"map"`
 
 	// Update date / time for the Amplify App.
 	//
 	// UpdateTime is a required field
-	UpdateTime *time.Time `locationName:"updateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdateTime *time.Time `json:"amplify:App:UpdateTime" locationName:"updateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -273,25 +273,25 @@ type AutoBranchCreationConfig struct {
 	_ struct{} `type:"structure"`
 
 	// Basic Authorization credentials for the auto created branch.
-	BasicAuthCredentials *string `locationName:"basicAuthCredentials" type:"string"`
+	BasicAuthCredentials *string `json:"amplify:AutoBranchCreationConfig:BasicAuthCredentials" locationName:"basicAuthCredentials" type:"string"`
 
 	// BuildSpec for the auto created branch.
-	BuildSpec *string `locationName:"buildSpec" min:"1" type:"string"`
+	BuildSpec *string `json:"amplify:AutoBranchCreationConfig:BuildSpec" locationName:"buildSpec" min:"1" type:"string"`
 
 	// Enables auto building for the auto created branch.
-	EnableAutoBuild *bool `locationName:"enableAutoBuild" type:"boolean"`
+	EnableAutoBuild *bool `json:"amplify:AutoBranchCreationConfig:EnableAutoBuild" locationName:"enableAutoBuild" type:"boolean"`
 
 	// Enables Basic Auth for the auto created branch.
-	EnableBasicAuth *bool `locationName:"enableBasicAuth" type:"boolean"`
+	EnableBasicAuth *bool `json:"amplify:AutoBranchCreationConfig:EnableBasicAuth" locationName:"enableBasicAuth" type:"boolean"`
 
 	// Environment Variables for the auto created branch.
-	EnvironmentVariables map[string]string `locationName:"environmentVariables" type:"map"`
+	EnvironmentVariables map[string]string `json:"amplify:AutoBranchCreationConfig:EnvironmentVariables" locationName:"environmentVariables" type:"map"`
 
 	// Framework for the auto created branch.
-	Framework *string `locationName:"framework" type:"string"`
+	Framework *string `json:"amplify:AutoBranchCreationConfig:Framework" locationName:"framework" type:"string"`
 
 	// Stage for the auto created branch.
-	Stage Stage `locationName:"stage" type:"string" enum:"true"`
+	Stage Stage `json:"amplify:AutoBranchCreationConfig:Stage" locationName:"stage" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -373,97 +373,97 @@ type Branch struct {
 	// Id of the active job for a branch, part of an Amplify App.
 	//
 	// ActiveJobId is a required field
-	ActiveJobId *string `locationName:"activeJobId" type:"string" required:"true"`
+	ActiveJobId *string `json:"amplify:Branch:ActiveJobId" locationName:"activeJobId" type:"string" required:"true"`
 
 	// List of custom resources that are linked to this branch.
-	AssociatedResources []string `locationName:"associatedResources" type:"list"`
+	AssociatedResources []string `json:"amplify:Branch:AssociatedResources" locationName:"associatedResources" type:"list"`
 
 	// Basic Authorization credentials for a branch, part of an Amplify App.
-	BasicAuthCredentials *string `locationName:"basicAuthCredentials" type:"string"`
+	BasicAuthCredentials *string `json:"amplify:Branch:BasicAuthCredentials" locationName:"basicAuthCredentials" type:"string"`
 
 	// ARN for a branch, part of an Amplify App.
 	//
 	// BranchArn is a required field
-	BranchArn *string `locationName:"branchArn" type:"string" required:"true"`
+	BranchArn *string `json:"amplify:Branch:BranchArn" locationName:"branchArn" type:"string" required:"true"`
 
 	// Name for a branch, part of an Amplify App.
 	//
 	// BranchName is a required field
-	BranchName *string `locationName:"branchName" min:"1" type:"string" required:"true"`
+	BranchName *string `json:"amplify:Branch:BranchName" locationName:"branchName" min:"1" type:"string" required:"true"`
 
 	// BuildSpec content for branch for Amplify App.
-	BuildSpec *string `locationName:"buildSpec" min:"1" type:"string"`
+	BuildSpec *string `json:"amplify:Branch:BuildSpec" locationName:"buildSpec" min:"1" type:"string"`
 
 	// Creation date and time for a branch, part of an Amplify App.
 	//
 	// CreateTime is a required field
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreateTime *time.Time `json:"amplify:Branch:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Custom domains for a branch, part of an Amplify App.
 	//
 	// CustomDomains is a required field
-	CustomDomains []string `locationName:"customDomains" type:"list" required:"true"`
+	CustomDomains []string `json:"amplify:Branch:CustomDomains" locationName:"customDomains" type:"list" required:"true"`
 
 	// Description for a branch, part of an Amplify App.
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"amplify:Branch:Description" locationName:"description" type:"string" required:"true"`
 
 	// Display name for a branch, will use as the default domain prefix.
 	//
 	// DisplayName is a required field
-	DisplayName *string `locationName:"displayName" type:"string" required:"true"`
+	DisplayName *string `json:"amplify:Branch:DisplayName" locationName:"displayName" type:"string" required:"true"`
 
 	// Enables auto-building on push for a branch, part of an Amplify App.
 	//
 	// EnableAutoBuild is a required field
-	EnableAutoBuild *bool `locationName:"enableAutoBuild" type:"boolean" required:"true"`
+	EnableAutoBuild *bool `json:"amplify:Branch:EnableAutoBuild" locationName:"enableAutoBuild" type:"boolean" required:"true"`
 
 	// Enables Basic Authorization for a branch, part of an Amplify App.
 	//
 	// EnableBasicAuth is a required field
-	EnableBasicAuth *bool `locationName:"enableBasicAuth" type:"boolean" required:"true"`
+	EnableBasicAuth *bool `json:"amplify:Branch:EnableBasicAuth" locationName:"enableBasicAuth" type:"boolean" required:"true"`
 
 	// Enables notifications for a branch, part of an Amplify App.
 	//
 	// EnableNotification is a required field
-	EnableNotification *bool `locationName:"enableNotification" type:"boolean" required:"true"`
+	EnableNotification *bool `json:"amplify:Branch:EnableNotification" locationName:"enableNotification" type:"boolean" required:"true"`
 
 	// Environment Variables specific to a branch, part of an Amplify App.
 	//
 	// EnvironmentVariables is a required field
-	EnvironmentVariables map[string]string `locationName:"environmentVariables" type:"map" required:"true"`
+	EnvironmentVariables map[string]string `json:"amplify:Branch:EnvironmentVariables" locationName:"environmentVariables" type:"map" required:"true"`
 
 	// Framework for a branch, part of an Amplify App.
 	//
 	// Framework is a required field
-	Framework *string `locationName:"framework" type:"string" required:"true"`
+	Framework *string `json:"amplify:Branch:Framework" locationName:"framework" type:"string" required:"true"`
 
 	// Stage for a branch, part of an Amplify App.
 	//
 	// Stage is a required field
-	Stage Stage `locationName:"stage" type:"string" required:"true" enum:"true"`
+	Stage Stage `json:"amplify:Branch:Stage" locationName:"stage" type:"string" required:"true" enum:"true"`
 
 	// Tag for branch for Amplify App.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"amplify:Branch:Tags" locationName:"tags" min:"1" type:"map"`
 
 	// Thumbnail URL for the branch.
-	ThumbnailUrl *string `locationName:"thumbnailUrl" min:"1" type:"string"`
+	ThumbnailUrl *string `json:"amplify:Branch:ThumbnailUrl" locationName:"thumbnailUrl" min:"1" type:"string"`
 
 	// Total number of Jobs part of an Amplify App.
 	//
 	// TotalNumberOfJobs is a required field
-	TotalNumberOfJobs *string `locationName:"totalNumberOfJobs" type:"string" required:"true"`
+	TotalNumberOfJobs *string `json:"amplify:Branch:TotalNumberOfJobs" locationName:"totalNumberOfJobs" type:"string" required:"true"`
 
 	// The content TTL for the website in seconds.
 	//
 	// Ttl is a required field
-	Ttl *string `locationName:"ttl" type:"string" required:"true"`
+	Ttl *string `json:"amplify:Branch:Ttl" locationName:"ttl" type:"string" required:"true"`
 
 	// Last updated date and time for a branch, part of an Amplify App.
 	//
 	// UpdateTime is a required field
-	UpdateTime *time.Time `locationName:"updateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdateTime *time.Time `json:"amplify:Branch:UpdateTime" locationName:"updateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -632,20 +632,20 @@ type CustomRule struct {
 	_ struct{} `type:"structure"`
 
 	// The condition for a URL rewrite or redirect rule, e.g. country code.
-	Condition *string `locationName:"condition" min:"1" type:"string"`
+	Condition *string `json:"amplify:CustomRule:Condition" locationName:"condition" min:"1" type:"string"`
 
 	// The source pattern for a URL rewrite or redirect rule.
 	//
 	// Source is a required field
-	Source *string `locationName:"source" min:"1" type:"string" required:"true"`
+	Source *string `json:"amplify:CustomRule:Source" locationName:"source" min:"1" type:"string" required:"true"`
 
 	// The status code for a URL rewrite or redirect rule.
-	Status *string `locationName:"status" min:"3" type:"string"`
+	Status *string `json:"amplify:CustomRule:Status" locationName:"status" min:"3" type:"string"`
 
 	// The target pattern for a URL rewrite or redirect rule.
 	//
 	// Target is a required field
-	Target *string `locationName:"target" min:"1" type:"string" required:"true"`
+	Target *string `json:"amplify:CustomRule:Target" locationName:"target" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -719,37 +719,37 @@ type DomainAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// DNS Record for certificate verification.
-	CertificateVerificationDNSRecord *string `locationName:"certificateVerificationDNSRecord" type:"string"`
+	CertificateVerificationDNSRecord *string `json:"amplify:DomainAssociation:CertificateVerificationDNSRecord" locationName:"certificateVerificationDNSRecord" type:"string"`
 
 	// ARN for the Domain Association.
 	//
 	// DomainAssociationArn is a required field
-	DomainAssociationArn *string `locationName:"domainAssociationArn" type:"string" required:"true"`
+	DomainAssociationArn *string `json:"amplify:DomainAssociation:DomainAssociationArn" locationName:"domainAssociationArn" type:"string" required:"true"`
 
 	// Name of the domain.
 	//
 	// DomainName is a required field
-	DomainName *string `locationName:"domainName" type:"string" required:"true"`
+	DomainName *string `json:"amplify:DomainAssociation:DomainName" locationName:"domainName" type:"string" required:"true"`
 
 	// Status fo the Domain Association.
 	//
 	// DomainStatus is a required field
-	DomainStatus DomainStatus `locationName:"domainStatus" type:"string" required:"true" enum:"true"`
+	DomainStatus DomainStatus `json:"amplify:DomainAssociation:DomainStatus" locationName:"domainStatus" type:"string" required:"true" enum:"true"`
 
 	// Enables automated creation of Subdomains for branches.
 	//
 	// EnableAutoSubDomain is a required field
-	EnableAutoSubDomain *bool `locationName:"enableAutoSubDomain" type:"boolean" required:"true"`
+	EnableAutoSubDomain *bool `json:"amplify:DomainAssociation:EnableAutoSubDomain" locationName:"enableAutoSubDomain" type:"boolean" required:"true"`
 
 	// Reason for the current status of the Domain Association.
 	//
 	// StatusReason is a required field
-	StatusReason *string `locationName:"statusReason" type:"string" required:"true"`
+	StatusReason *string `json:"amplify:DomainAssociation:StatusReason" locationName:"statusReason" type:"string" required:"true"`
 
 	// Subdomains for the Domain Association.
 	//
 	// SubDomains is a required field
-	SubDomains []SubDomain `locationName:"subDomains" type:"list" required:"true"`
+	SubDomains []SubDomain `json:"amplify:DomainAssociation:SubDomains" locationName:"subDomains" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -818,12 +818,12 @@ type Job struct {
 	// Execution steps for an execution job, for an Amplify App.
 	//
 	// Steps is a required field
-	Steps []Step `locationName:"steps" type:"list" required:"true"`
+	Steps []Step `json:"amplify:Job:Steps" locationName:"steps" type:"list" required:"true"`
 
 	// Summary for an execution job for an Amplify App.
 	//
 	// Summary is a required field
-	Summary *JobSummary `locationName:"summary" type:"structure" required:"true"`
+	Summary *JobSummary `json:"amplify:Job:Summary" locationName:"summary" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -862,47 +862,47 @@ type JobSummary struct {
 	// Commit Id from 3rd party repository provider for the Job.
 	//
 	// CommitId is a required field
-	CommitId *string `locationName:"commitId" type:"string" required:"true"`
+	CommitId *string `json:"amplify:JobSummary:CommitId" locationName:"commitId" type:"string" required:"true"`
 
 	// Commit message from 3rd party repository provider for the Job.
 	//
 	// CommitMessage is a required field
-	CommitMessage *string `locationName:"commitMessage" type:"string" required:"true"`
+	CommitMessage *string `json:"amplify:JobSummary:CommitMessage" locationName:"commitMessage" type:"string" required:"true"`
 
 	// Commit date / time for the Job.
 	//
 	// CommitTime is a required field
-	CommitTime *time.Time `locationName:"commitTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CommitTime *time.Time `json:"amplify:JobSummary:CommitTime" locationName:"commitTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// End date / time for the Job.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"amplify:JobSummary:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Arn for the Job.
 	//
 	// JobArn is a required field
-	JobArn *string `locationName:"jobArn" type:"string" required:"true"`
+	JobArn *string `json:"amplify:JobSummary:JobArn" locationName:"jobArn" type:"string" required:"true"`
 
 	// Unique Id for the Job.
 	//
 	// JobId is a required field
-	JobId *string `locationName:"jobId" type:"string" required:"true"`
+	JobId *string `json:"amplify:JobSummary:JobId" locationName:"jobId" type:"string" required:"true"`
 
 	// Type for the Job. \n "RELEASE": Manually released from source by using StartJob
 	// API. "RETRY": Manually retried by using StartJob API. "WEB_HOOK": Automatically
 	// triggered by WebHooks.
 	//
 	// JobType is a required field
-	JobType JobType `locationName:"jobType" type:"string" required:"true" enum:"true"`
+	JobType JobType `json:"amplify:JobSummary:JobType" locationName:"jobType" type:"string" required:"true" enum:"true"`
 
 	// Start date / time for the Job.
 	//
 	// StartTime is a required field
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartTime *time.Time `json:"amplify:JobSummary:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Status for the Job.
 	//
 	// Status is a required field
-	Status JobStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status JobStatus `json:"amplify:JobSummary:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -975,16 +975,16 @@ type ProductionBranch struct {
 	_ struct{} `type:"structure"`
 
 	// Branch Name for Production Branch.
-	BranchName *string `locationName:"branchName" min:"1" type:"string"`
+	BranchName *string `json:"amplify:ProductionBranch:BranchName" locationName:"branchName" min:"1" type:"string"`
 
 	// Last Deploy Time of Production Branch.
-	LastDeployTime *time.Time `locationName:"lastDeployTime" type:"timestamp" timestampFormat:"unix"`
+	LastDeployTime *time.Time `json:"amplify:ProductionBranch:LastDeployTime" locationName:"lastDeployTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Status of Production Branch.
-	Status *string `locationName:"status" min:"3" type:"string"`
+	Status *string `json:"amplify:ProductionBranch:Status" locationName:"status" min:"3" type:"string"`
 
 	// Thumbnail URL for Production Branch.
-	ThumbnailUrl *string `locationName:"thumbnailUrl" min:"1" type:"string"`
+	ThumbnailUrl *string `json:"amplify:ProductionBranch:ThumbnailUrl" locationName:"thumbnailUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1027,39 +1027,39 @@ type Step struct {
 	_ struct{} `type:"structure"`
 
 	// URL to the artifact for the execution step.
-	ArtifactsUrl *string `locationName:"artifactsUrl" type:"string"`
+	ArtifactsUrl *string `json:"amplify:Step:ArtifactsUrl" locationName:"artifactsUrl" type:"string"`
 
 	// The context for current step, will include build image if step is build.
-	Context *string `locationName:"context" type:"string"`
+	Context *string `json:"amplify:Step:Context" locationName:"context" type:"string"`
 
 	// End date/ time of the execution step.
 	//
 	// EndTime is a required field
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	EndTime *time.Time `json:"amplify:Step:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// URL to the logs for the execution step.
-	LogUrl *string `locationName:"logUrl" type:"string"`
+	LogUrl *string `json:"amplify:Step:LogUrl" locationName:"logUrl" type:"string"`
 
 	// List of screenshot URLs for the execution step, if relevant.
-	Screenshots map[string]string `locationName:"screenshots" type:"map"`
+	Screenshots map[string]string `json:"amplify:Step:Screenshots" locationName:"screenshots" type:"map"`
 
 	// Start date/ time of the execution step.
 	//
 	// StartTime is a required field
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartTime *time.Time `json:"amplify:Step:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Status of the execution step.
 	//
 	// Status is a required field
-	Status JobStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status JobStatus `json:"amplify:Step:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 
 	// The reason for current step status.
-	StatusReason *string `locationName:"statusReason" type:"string"`
+	StatusReason *string `json:"amplify:Step:StatusReason" locationName:"statusReason" type:"string"`
 
 	// Name of the execution step.
 	//
 	// StepName is a required field
-	StepName *string `locationName:"stepName" type:"string" required:"true"`
+	StepName *string `json:"amplify:Step:StepName" locationName:"stepName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1140,17 +1140,17 @@ type SubDomain struct {
 	// DNS record for the Subdomain.
 	//
 	// DnsRecord is a required field
-	DnsRecord *string `locationName:"dnsRecord" type:"string" required:"true"`
+	DnsRecord *string `json:"amplify:SubDomain:DnsRecord" locationName:"dnsRecord" type:"string" required:"true"`
 
 	// Setting structure for the Subdomain.
 	//
 	// SubDomainSetting is a required field
-	SubDomainSetting *SubDomainSetting `locationName:"subDomainSetting" type:"structure" required:"true"`
+	SubDomainSetting *SubDomainSetting `json:"amplify:SubDomain:SubDomainSetting" locationName:"subDomainSetting" type:"structure" required:"true"`
 
 	// Verified status of the Subdomain
 	//
 	// Verified is a required field
-	Verified *bool `locationName:"verified" type:"boolean" required:"true"`
+	Verified *bool `json:"amplify:SubDomain:Verified" locationName:"verified" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -1189,12 +1189,12 @@ type SubDomainSetting struct {
 	// Branch name setting for the Subdomain.
 	//
 	// BranchName is a required field
-	BranchName *string `locationName:"branchName" min:"1" type:"string" required:"true"`
+	BranchName *string `json:"amplify:SubDomainSetting:BranchName" locationName:"branchName" min:"1" type:"string" required:"true"`
 
 	// Prefix setting for the Subdomain.
 	//
 	// Prefix is a required field
-	Prefix *string `locationName:"prefix" type:"string" required:"true"`
+	Prefix *string `json:"amplify:SubDomainSetting:Prefix" locationName:"prefix" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1248,37 +1248,37 @@ type Webhook struct {
 	// Name for a branch, part of an Amplify App.
 	//
 	// BranchName is a required field
-	BranchName *string `locationName:"branchName" min:"1" type:"string" required:"true"`
+	BranchName *string `json:"amplify:Webhook:BranchName" locationName:"branchName" min:"1" type:"string" required:"true"`
 
 	// Create date / time for a webhook.
 	//
 	// CreateTime is a required field
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreateTime *time.Time `json:"amplify:Webhook:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Description for a webhook.
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"amplify:Webhook:Description" locationName:"description" type:"string" required:"true"`
 
 	// Update date / time for a webhook.
 	//
 	// UpdateTime is a required field
-	UpdateTime *time.Time `locationName:"updateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdateTime *time.Time `json:"amplify:Webhook:UpdateTime" locationName:"updateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// ARN for the webhook.
 	//
 	// WebhookArn is a required field
-	WebhookArn *string `locationName:"webhookArn" type:"string" required:"true"`
+	WebhookArn *string `json:"amplify:Webhook:WebhookArn" locationName:"webhookArn" type:"string" required:"true"`
 
 	// Id of the webhook.
 	//
 	// WebhookId is a required field
-	WebhookId *string `locationName:"webhookId" type:"string" required:"true"`
+	WebhookId *string `json:"amplify:Webhook:WebhookId" locationName:"webhookId" type:"string" required:"true"`
 
 	// Url of the webhook.
 	//
 	// WebhookUrl is a required field
-	WebhookUrl *string `locationName:"webhookUrl" type:"string" required:"true"`
+	WebhookUrl *string `json:"amplify:Webhook:WebhookUrl" locationName:"webhookUrl" type:"string" required:"true"`
 }
 
 // String returns the string representation

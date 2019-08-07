@@ -25,10 +25,10 @@ type ListAvailableSolutionStacksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of available solution stacks and their SolutionStackDescription.
-	SolutionStackDetails []SolutionStackDescription `type:"list"`
+	SolutionStackDetails []SolutionStackDescription `json:"elasticbeanstalk:ListAvailableSolutionStacksOutput:SolutionStackDetails" type:"list"`
 
 	// A list of available solution stacks.
-	SolutionStacks []string `type:"list"`
+	SolutionStacks []string `json:"elasticbeanstalk:ListAvailableSolutionStacksOutput:SolutionStacks" type:"list"`
 }
 
 // String returns the string representation

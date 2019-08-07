@@ -143,7 +143,7 @@ type CreateKeyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Metadata associated with the CMK.
-	KeyMetadata *KeyMetadata `type:"structure"`
+	KeyMetadata *KeyMetadata `json:"kms:CreateKeyOutput:KeyMetadata" type:"structure"`
 }
 
 // String returns the string representation

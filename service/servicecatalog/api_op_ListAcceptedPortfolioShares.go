@@ -51,10 +51,10 @@ type ListAcceptedPortfolioSharesOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListAcceptedPortfolioSharesOutput:NextPageToken" type:"string"`
 
 	// Information about the portfolios.
-	PortfolioDetails []PortfolioDetail `type:"list"`
+	PortfolioDetails []PortfolioDetail `json:"servicecatalog:ListAcceptedPortfolioSharesOutput:PortfolioDetails" type:"list"`
 }
 
 // String returns the string representation

@@ -19,13 +19,13 @@ type AccountQuota struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the AWS DMS quota for this AWS account.
-	AccountQuotaName *string `type:"string"`
+	AccountQuotaName *string `json:"dms:AccountQuota:AccountQuotaName" type:"string"`
 
 	// The maximum allowed value for the quota.
-	Max *int64 `type:"long"`
+	Max *int64 `json:"dms:AccountQuota:Max" type:"long"`
 
 	// The amount currently used toward the quota maximum.
-	Used *int64 `type:"long"`
+	Used *int64 `json:"dms:AccountQuota:Used" type:"long"`
 }
 
 // String returns the string representation
@@ -38,7 +38,7 @@ type AvailabilityZone struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the availability zone.
-	Name *string `type:"string"`
+	Name *string `json:"dms:AvailabilityZone:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -53,38 +53,38 @@ type Certificate struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn *string `type:"string"`
+	CertificateArn *string `json:"dms:Certificate:CertificateArn" type:"string"`
 
 	// The date that the certificate was created.
-	CertificateCreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CertificateCreationDate *time.Time `json:"dms:Certificate:CertificateCreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A customer-assigned name for the certificate. Identifiers must begin with
 	// a letter; must contain only ASCII letters, digits, and hyphens; and must
 	// not end with a hyphen or contain two consecutive hyphens.
-	CertificateIdentifier *string `type:"string"`
+	CertificateIdentifier *string `json:"dms:Certificate:CertificateIdentifier" type:"string"`
 
 	// The owner of the certificate.
-	CertificateOwner *string `type:"string"`
+	CertificateOwner *string `json:"dms:Certificate:CertificateOwner" type:"string"`
 
 	// The contents of a .pem file, which contains an X.509 certificate.
-	CertificatePem *string `type:"string"`
+	CertificatePem *string `json:"dms:Certificate:CertificatePem" type:"string"`
 
 	// The location of an imported Oracle Wallet certificate for use with SSL.
 	//
 	// CertificateWallet is automatically base64 encoded/decoded by the SDK.
-	CertificateWallet []byte `type:"blob"`
+	CertificateWallet []byte `json:"dms:Certificate:CertificateWallet" type:"blob"`
 
 	// The key length of the cryptographic algorithm being used.
-	KeyLength *int64 `type:"integer"`
+	KeyLength *int64 `json:"dms:Certificate:KeyLength" type:"integer"`
 
 	// The signing algorithm for the certificate.
-	SigningAlgorithm *string `type:"string"`
+	SigningAlgorithm *string `json:"dms:Certificate:SigningAlgorithm" type:"string"`
 
 	// The beginning date that the certificate is valid.
-	ValidFromDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ValidFromDate *time.Time `json:"dms:Certificate:ValidFromDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The final date that the certificate is valid.
-	ValidToDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ValidToDate *time.Time `json:"dms:Certificate:ValidToDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -97,25 +97,25 @@ type Connection struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-	EndpointArn *string `type:"string"`
+	EndpointArn *string `json:"dms:Connection:EndpointArn" type:"string"`
 
 	// The identifier of the endpoint. Identifiers must begin with a letter; must
 	// contain only ASCII letters, digits, and hyphens; and must not end with a
 	// hyphen or contain two consecutive hyphens.
-	EndpointIdentifier *string `type:"string"`
+	EndpointIdentifier *string `json:"dms:Connection:EndpointIdentifier" type:"string"`
 
 	// The error message when the connection last failed.
-	LastFailureMessage *string `type:"string"`
+	LastFailureMessage *string `json:"dms:Connection:LastFailureMessage" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the replication instance.
-	ReplicationInstanceArn *string `type:"string"`
+	ReplicationInstanceArn *string `json:"dms:Connection:ReplicationInstanceArn" type:"string"`
 
 	// The replication instance identifier. This parameter is stored as a lowercase
 	// string.
-	ReplicationInstanceIdentifier *string `type:"string"`
+	ReplicationInstanceIdentifier *string `json:"dms:Connection:ReplicationInstanceIdentifier" type:"string"`
 
 	// The connection status.
-	Status *string `type:"string"`
+	Status *string `json:"dms:Connection:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -129,10 +129,10 @@ type DmsTransferSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the S3 bucket to use.
-	BucketName *string `type:"string"`
+	BucketName *string `json:"dms:DmsTransferSettings:BucketName" type:"string"`
 
 	// The IAM role that has permission to access the Amazon S3 bucket.
-	ServiceAccessRoleArn *string `type:"string"`
+	ServiceAccessRoleArn *string `json:"dms:DmsTransferSettings:ServiceAccessRoleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -147,7 +147,7 @@ type DynamoDbSettings struct {
 	// The Amazon Resource Name (ARN) used by the service access IAM role.
 	//
 	// ServiceAccessRoleArn is a required field
-	ServiceAccessRoleArn *string `type:"string" required:"true"`
+	ServiceAccessRoleArn *string `json:"dms:DynamoDbSettings:ServiceAccessRoleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -176,20 +176,20 @@ type ElasticsearchSettings struct {
 	// The endpoint for the Elasticsearch cluster.
 	//
 	// EndpointUri is a required field
-	EndpointUri *string `type:"string" required:"true"`
+	EndpointUri *string `json:"dms:ElasticsearchSettings:EndpointUri" type:"string" required:"true"`
 
 	// The maximum number of seconds that DMS retries failed API requests to the
 	// Elasticsearch cluster.
-	ErrorRetryDuration *int64 `type:"integer"`
+	ErrorRetryDuration *int64 `json:"dms:ElasticsearchSettings:ErrorRetryDuration" type:"integer"`
 
 	// The maximum percentage of records that can fail to be written before a full
 	// load operation stops.
-	FullLoadErrorPercentage *int64 `type:"integer"`
+	FullLoadErrorPercentage *int64 `json:"dms:ElasticsearchSettings:FullLoadErrorPercentage" type:"integer"`
 
 	// The Amazon Resource Name (ARN) used by service to access the IAM role.
 	//
 	// ServiceAccessRoleArn is a required field
-	ServiceAccessRoleArn *string `type:"string" required:"true"`
+	ServiceAccessRoleArn *string `json:"dms:ElasticsearchSettings:ServiceAccessRoleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -220,10 +220,10 @@ type Endpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
-	CertificateArn *string `type:"string"`
+	CertificateArn *string `json:"dms:Endpoint:CertificateArn" type:"string"`
 
 	// The name of the database at the endpoint.
-	DatabaseName *string `type:"string"`
+	DatabaseName *string `json:"dms:Endpoint:DatabaseName" type:"string"`
 
 	// The settings in JSON format for the DMS transfer type of source endpoint.
 	//
@@ -242,50 +242,50 @@ type Endpoint struct {
 	//
 	// JSON syntax for these attributes is as follows: { "ServiceAccessRoleArn":
 	// "string", "BucketName": "string", "CompressionType": "none"|"gzip" }
-	DmsTransferSettings *DmsTransferSettings `type:"structure"`
+	DmsTransferSettings *DmsTransferSettings `json:"dms:Endpoint:DmsTransferSettings" type:"structure"`
 
 	// The settings for the target DynamoDB database. For more information, see
 	// the DynamoDBSettings structure.
-	DynamoDbSettings *DynamoDbSettings `type:"structure"`
+	DynamoDbSettings *DynamoDbSettings `json:"dms:Endpoint:DynamoDbSettings" type:"structure"`
 
 	// The settings for the Elasticsearch source endpoint. For more information,
 	// see the ElasticsearchSettings structure.
-	ElasticsearchSettings *ElasticsearchSettings `type:"structure"`
+	ElasticsearchSettings *ElasticsearchSettings `json:"dms:Endpoint:ElasticsearchSettings" type:"structure"`
 
 	// The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-	EndpointArn *string `type:"string"`
+	EndpointArn *string `json:"dms:Endpoint:EndpointArn" type:"string"`
 
 	// The database endpoint identifier. Identifiers must begin with a letter; must
 	// contain only ASCII letters, digits, and hyphens; and must not end with a
 	// hyphen or contain two consecutive hyphens.
-	EndpointIdentifier *string `type:"string"`
+	EndpointIdentifier *string `json:"dms:Endpoint:EndpointIdentifier" type:"string"`
 
 	// The type of endpoint. Valid values are source and target.
-	EndpointType ReplicationEndpointTypeValue `type:"string" enum:"true"`
+	EndpointType ReplicationEndpointTypeValue `json:"dms:Endpoint:EndpointType" type:"string" enum:"true"`
 
 	// The expanded name for the engine name. For example, if the EngineName parameter
 	// is "aurora," this value would be "Amazon Aurora MySQL."
-	EngineDisplayName *string `type:"string"`
+	EngineDisplayName *string `json:"dms:Endpoint:EngineDisplayName" type:"string"`
 
 	// The database engine name. Valid values, depending on the EndpointType, include
 	// mysql, oracle, postgres, mariadb, aurora, aurora-postgresql, redshift, s3,
 	// db2, azuredb, sybase, dynamodb, mongodb, and sqlserver.
-	EngineName *string `type:"string"`
+	EngineName *string `json:"dms:Endpoint:EngineName" type:"string"`
 
 	// Value returned by a call to CreateEndpoint that can be used for cross-account
 	// validation. Use it on a subsequent call to CreateEndpoint to create the endpoint
 	// with a cross-account.
-	ExternalId *string `type:"string"`
+	ExternalId *string `json:"dms:Endpoint:ExternalId" type:"string"`
 
 	// The external table definition.
-	ExternalTableDefinition *string `type:"string"`
+	ExternalTableDefinition *string `json:"dms:Endpoint:ExternalTableDefinition" type:"string"`
 
 	// Additional connection attributes used to connect to the endpoint.
-	ExtraConnectionAttributes *string `type:"string"`
+	ExtraConnectionAttributes *string `json:"dms:Endpoint:ExtraConnectionAttributes" type:"string"`
 
 	// The settings for the Amazon Kinesis source endpoint. For more information,
 	// see the KinesisSettings structure.
-	KinesisSettings *KinesisSettings `type:"structure"`
+	KinesisSettings *KinesisSettings `json:"dms:Endpoint:KinesisSettings" type:"structure"`
 
 	// An AWS KMS key identifier that is used to encrypt the connection parameters
 	// for the endpoint.
@@ -295,36 +295,36 @@ type Endpoint struct {
 	//
 	// AWS KMS creates the default encryption key for your AWS account. Your AWS
 	// account has a different default encryption key for each AWS Region.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"dms:Endpoint:KmsKeyId" type:"string"`
 
 	// The settings for the MongoDB source endpoint. For more information, see the
 	// MongoDbSettings structure.
-	MongoDbSettings *MongoDbSettings `type:"structure"`
+	MongoDbSettings *MongoDbSettings `json:"dms:Endpoint:MongoDbSettings" type:"structure"`
 
 	// The port value used to access the endpoint.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"dms:Endpoint:Port" type:"integer"`
 
 	// Settings for the Amazon Redshift endpoint.
-	RedshiftSettings *RedshiftSettings `type:"structure"`
+	RedshiftSettings *RedshiftSettings `json:"dms:Endpoint:RedshiftSettings" type:"structure"`
 
 	// The settings for the S3 target endpoint. For more information, see the S3Settings
 	// structure.
-	S3Settings *S3Settings `type:"structure"`
+	S3Settings *S3Settings `json:"dms:Endpoint:S3Settings" type:"structure"`
 
 	// The name of the server at the endpoint.
-	ServerName *string `type:"string"`
+	ServerName *string `json:"dms:Endpoint:ServerName" type:"string"`
 
 	// The Amazon Resource Name (ARN) used by the service access IAM role.
-	ServiceAccessRoleArn *string `type:"string"`
+	ServiceAccessRoleArn *string `json:"dms:Endpoint:ServiceAccessRoleArn" type:"string"`
 
 	// The SSL mode used to connect to the endpoint. The default value is none.
-	SslMode DmsSslModeValue `type:"string" enum:"true"`
+	SslMode DmsSslModeValue `json:"dms:Endpoint:SslMode" type:"string" enum:"true"`
 
 	// The status of the endpoint.
-	Status *string `type:"string"`
+	Status *string `json:"dms:Endpoint:Status" type:"string"`
 
 	// The user name used to connect to the endpoint.
-	Username *string `type:"string"`
+	Username *string `json:"dms:Endpoint:Username" type:"string"`
 }
 
 // String returns the string representation
@@ -337,21 +337,21 @@ type Event struct {
 	_ struct{} `type:"structure"`
 
 	// The date of the event.
-	Date *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Date *time.Time `json:"dms:Event:Date" type:"timestamp" timestampFormat:"unix"`
 
 	// The event categories available for the specified source type.
-	EventCategories []string `type:"list"`
+	EventCategories []string `json:"dms:Event:EventCategories" type:"list"`
 
 	// The event message.
-	Message *string `type:"string"`
+	Message *string `json:"dms:Event:Message" type:"string"`
 
 	// The identifier of an event source.
-	SourceIdentifier *string `type:"string"`
+	SourceIdentifier *string `json:"dms:Event:SourceIdentifier" type:"string"`
 
 	// The type of AWS DMS resource that generates events.
 	//
 	// Valid values: replication-instance | endpoint | replication-task
-	SourceType SourceType `type:"string" enum:"true"`
+	SourceType SourceType `json:"dms:Event:SourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -364,13 +364,13 @@ type EventCategoryGroup struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event categories from a source type that you've chosen.
-	EventCategories []string `type:"list"`
+	EventCategories []string `json:"dms:EventCategoryGroup:EventCategories" type:"list"`
 
 	// The type of AWS DMS resource that generates events.
 	//
 	// Valid values: replication-instance | replication-server | security-group
 	// | replication-task
-	SourceType *string `type:"string"`
+	SourceType *string `json:"dms:EventCategoryGroup:SourceType" type:"string"`
 }
 
 // String returns the string representation
@@ -383,28 +383,28 @@ type EventSubscription struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS DMS event notification subscription Id.
-	CustSubscriptionId *string `type:"string"`
+	CustSubscriptionId *string `json:"dms:EventSubscription:CustSubscriptionId" type:"string"`
 
 	// The AWS customer account associated with the AWS DMS event notification subscription.
-	CustomerAwsId *string `type:"string"`
+	CustomerAwsId *string `json:"dms:EventSubscription:CustomerAwsId" type:"string"`
 
 	// Boolean value that indicates if the event subscription is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"dms:EventSubscription:Enabled" type:"boolean"`
 
 	// A lists of event categories.
-	EventCategoriesList []string `type:"list"`
+	EventCategoriesList []string `json:"dms:EventSubscription:EventCategoriesList" type:"list"`
 
 	// The topic ARN of the AWS DMS event notification subscription.
-	SnsTopicArn *string `type:"string"`
+	SnsTopicArn *string `json:"dms:EventSubscription:SnsTopicArn" type:"string"`
 
 	// A list of source Ids for the event subscription.
-	SourceIdsList []string `type:"list"`
+	SourceIdsList []string `json:"dms:EventSubscription:SourceIdsList" type:"list"`
 
 	// The type of AWS DMS resource that generates events.
 	//
 	// Valid values: replication-instance | replication-server | security-group
 	// | replication-task
-	SourceType *string `type:"string"`
+	SourceType *string `json:"dms:EventSubscription:SourceType" type:"string"`
 
 	// The status of the AWS DMS event notification subscription.
 	//
@@ -416,10 +416,10 @@ type EventSubscription struct {
 	// The status "no-permission" indicates that AWS DMS no longer has permission
 	// to post to the SNS topic. The status "topic-not-exist" indicates that the
 	// topic was deleted after the subscription was created.
-	Status *string `type:"string"`
+	Status *string `json:"dms:EventSubscription:Status" type:"string"`
 
 	// The time the RDS event notification subscription was created.
-	SubscriptionCreationTime *string `type:"string"`
+	SubscriptionCreationTime *string `json:"dms:EventSubscription:SubscriptionCreationTime" type:"string"`
 }
 
 // String returns the string representation
@@ -434,12 +434,12 @@ type Filter struct {
 	// The name of the filter.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"dms:Filter:Name" type:"string" required:"true"`
 
 	// The filter value.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"dms:Filter:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -471,14 +471,14 @@ type KinesisSettings struct {
 
 	// The output format for the records created on the endpoint. The message format
 	// is JSON.
-	MessageFormat MessageFormatValue `type:"string" enum:"true"`
+	MessageFormat MessageFormatValue `json:"dms:KinesisSettings:MessageFormat" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) for the IAM role that DMS uses to write to
 	// the Amazon Kinesis data stream.
-	ServiceAccessRoleArn *string `type:"string"`
+	ServiceAccessRoleArn *string `json:"dms:KinesisSettings:ServiceAccessRoleArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
-	StreamArn *string `type:"string"`
+	StreamArn *string `json:"dms:KinesisSettings:StreamArn" type:"string"`
 }
 
 // String returns the string representation
@@ -496,12 +496,12 @@ type MongoDbSettings struct {
 	//
 	// DEFAULT – For MongoDB version 2.x, use MONGODB_CR. For MongoDB version
 	// 3.x, use SCRAM_SHA_1. This attribute is not used when authType=No.
-	AuthMechanism AuthMechanismValue `type:"string" enum:"true"`
+	AuthMechanism AuthMechanismValue `json:"dms:MongoDbSettings:AuthMechanism" type:"string" enum:"true"`
 
 	// The MongoDB database name. This attribute is not used when authType=NO.
 	//
 	// The default is admin.
-	AuthSource *string `type:"string"`
+	AuthSource *string `json:"dms:MongoDbSettings:AuthSource" type:"string"`
 
 	// The authentication type you use to access the MongoDB source endpoint.
 	//
@@ -509,29 +509,29 @@ type MongoDbSettings struct {
 	//
 	// When NO is selected, user name and password parameters are not used and can
 	// be empty.
-	AuthType AuthTypeValue `type:"string" enum:"true"`
+	AuthType AuthTypeValue `json:"dms:MongoDbSettings:AuthType" type:"string" enum:"true"`
 
 	// The database name on the MongoDB source endpoint.
-	DatabaseName *string `type:"string"`
+	DatabaseName *string `json:"dms:MongoDbSettings:DatabaseName" type:"string"`
 
 	// Indicates the number of documents to preview to determine the document organization.
 	// Use this attribute when NestingLevel is set to ONE.
 	//
 	// Must be a positive value greater than 0. Default value is 1000.
-	DocsToInvestigate *string `type:"string"`
+	DocsToInvestigate *string `json:"dms:MongoDbSettings:DocsToInvestigate" type:"string"`
 
 	// Specifies the document ID. Use this attribute when NestingLevel is set to
 	// NONE.
 	//
 	// Default value is false.
-	ExtractDocId *string `type:"string"`
+	ExtractDocId *string `json:"dms:MongoDbSettings:ExtractDocId" type:"string"`
 
 	// The AWS KMS key identifier that is used to encrypt the content on the replication
 	// instance. If you don't specify a value for the KmsKeyId parameter, then AWS
 	// DMS uses your default encryption key. AWS KMS creates the default encryption
 	// key for your AWS account. Your AWS account has a different default encryption
 	// key for each AWS Region.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"dms:MongoDbSettings:KmsKeyId" type:"string"`
 
 	// Specifies either document or table mode.
 	//
@@ -539,19 +539,19 @@ type MongoDbSettings struct {
 	//
 	// Default value is NONE. Specify NONE to use document mode. Specify ONE to
 	// use table mode.
-	NestingLevel NestingLevelValue `type:"string" enum:"true"`
+	NestingLevel NestingLevelValue `json:"dms:MongoDbSettings:NestingLevel" type:"string" enum:"true"`
 
 	// The password for the user account you use to access the MongoDB source endpoint.
-	Password *string `type:"string"`
+	Password *string `json:"dms:MongoDbSettings:Password" type:"string"`
 
 	// The port value for the MongoDB source endpoint.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"dms:MongoDbSettings:Port" type:"integer"`
 
 	// The name of the server on the MongoDB source endpoint.
-	ServerName *string `type:"string"`
+	ServerName *string `json:"dms:MongoDbSettings:ServerName" type:"string"`
 
 	// The user name you use to access the MongoDB source endpoint.
-	Username *string `type:"string"`
+	Username *string `json:"dms:MongoDbSettings:Username" type:"string"`
 }
 
 // String returns the string representation
@@ -564,41 +564,41 @@ type OrderableReplicationInstance struct {
 	_ struct{} `type:"structure"`
 
 	// List of Availability Zones for this replication instance.
-	AvailabilityZones []string `type:"list"`
+	AvailabilityZones []string `json:"dms:OrderableReplicationInstance:AvailabilityZones" type:"list"`
 
 	// The default amount of storage (in gigabytes) that is allocated for the replication
 	// instance.
-	DefaultAllocatedStorage *int64 `type:"integer"`
+	DefaultAllocatedStorage *int64 `json:"dms:OrderableReplicationInstance:DefaultAllocatedStorage" type:"integer"`
 
 	// The version of the replication engine.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"dms:OrderableReplicationInstance:EngineVersion" type:"string"`
 
 	// The amount of storage (in gigabytes) that is allocated for the replication
 	// instance.
-	IncludedAllocatedStorage *int64 `type:"integer"`
+	IncludedAllocatedStorage *int64 `json:"dms:OrderableReplicationInstance:IncludedAllocatedStorage" type:"integer"`
 
 	// The minimum amount of storage (in gigabytes) that can be allocated for the
 	// replication instance.
-	MaxAllocatedStorage *int64 `type:"integer"`
+	MaxAllocatedStorage *int64 `json:"dms:OrderableReplicationInstance:MaxAllocatedStorage" type:"integer"`
 
 	// The minimum amount of storage (in gigabytes) that can be allocated for the
 	// replication instance.
-	MinAllocatedStorage *int64 `type:"integer"`
+	MinAllocatedStorage *int64 `json:"dms:OrderableReplicationInstance:MinAllocatedStorage" type:"integer"`
 
 	// The value returned when the specified EngineVersion of the replication instance
 	// is in Beta or test mode. This indicates some features might not work as expected.
 	//
 	// AWS DMS supports ReleaseStatus in versions 3.1.4 and later.
-	ReleaseStatus ReleaseStatusValues `type:"string" enum:"true"`
+	ReleaseStatus ReleaseStatusValues `json:"dms:OrderableReplicationInstance:ReleaseStatus" type:"string" enum:"true"`
 
 	// The compute and memory capacity of the replication instance.
 	//
 	// Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large
 	// | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge
-	ReplicationInstanceClass *string `type:"string"`
+	ReplicationInstanceClass *string `json:"dms:OrderableReplicationInstance:ReplicationInstanceClass" type:"string"`
 
 	// The type of storage used by the replication instance.
-	StorageType *string `type:"string"`
+	StorageType *string `json:"dms:OrderableReplicationInstance:StorageType" type:"string"`
 }
 
 // String returns the string representation
@@ -611,32 +611,32 @@ type PendingMaintenanceAction struct {
 	_ struct{} `type:"structure"`
 
 	// The type of pending maintenance action that is available for the resource.
-	Action *string `type:"string"`
+	Action *string `json:"dms:PendingMaintenanceAction:Action" type:"string"`
 
 	// The date of the maintenance window when the action will be applied. The maintenance
 	// action will be applied to the resource during its first maintenance window
 	// after this date. If this date is specified, any next-maintenance opt-in requests
 	// are ignored.
-	AutoAppliedAfterDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AutoAppliedAfterDate *time.Time `json:"dms:PendingMaintenanceAction:AutoAppliedAfterDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The effective date when the pending maintenance action will be applied to
 	// the resource. This date takes into account opt-in requests received from
 	// the ApplyPendingMaintenanceAction API, the AutoAppliedAfterDate, and the
 	// ForcedApplyDate. This value is blank if an opt-in request has not been received
 	// and nothing has been specified as AutoAppliedAfterDate or ForcedApplyDate.
-	CurrentApplyDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CurrentApplyDate *time.Time `json:"dms:PendingMaintenanceAction:CurrentApplyDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description providing more detail about the maintenance action.
-	Description *string `type:"string"`
+	Description *string `json:"dms:PendingMaintenanceAction:Description" type:"string"`
 
 	// The date when the maintenance action will be automatically applied. The maintenance
 	// action will be applied to the resource on this date regardless of the maintenance
 	// window for the resource. If this date is specified, any immediate opt-in
 	// requests are ignored.
-	ForcedApplyDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ForcedApplyDate *time.Time `json:"dms:PendingMaintenanceAction:ForcedApplyDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Indicates the type of opt-in request that has been received for the resource.
-	OptInStatus *string `type:"string"`
+	OptInStatus *string `json:"dms:PendingMaintenanceAction:OptInStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -656,26 +656,26 @@ type RedshiftSettings struct {
 	// with the DATEFORMAT parameter. If the date format for the data doesn't match
 	// the DATEFORMAT specification, Amazon Redshift inserts a NULL value into that
 	// field.
-	AcceptAnyDate *bool `type:"boolean"`
+	AcceptAnyDate *bool `json:"dms:RedshiftSettings:AcceptAnyDate" type:"boolean"`
 
 	// Code to run after connecting. This parameter should contain the code itself,
 	// not the name of a file containing the code.
-	AfterConnectScript *string `type:"string"`
+	AfterConnectScript *string `json:"dms:RedshiftSettings:AfterConnectScript" type:"string"`
 
 	// The location where the comma-separated value (.csv) files are stored before
 	// being uploaded to the S3 bucket.
-	BucketFolder *string `type:"string"`
+	BucketFolder *string `json:"dms:RedshiftSettings:BucketFolder" type:"string"`
 
 	// The name of the S3 bucket you want to use
-	BucketName *string `type:"string"`
+	BucketName *string `json:"dms:RedshiftSettings:BucketName" type:"string"`
 
 	// A value that sets the amount of time to wait (in milliseconds) before timing
 	// out, beginning from when you initially establish a connection.
-	ConnectionTimeout *int64 `type:"integer"`
+	ConnectionTimeout *int64 `json:"dms:RedshiftSettings:ConnectionTimeout" type:"integer"`
 
 	// The name of the Amazon Redshift data warehouse (service) that you are working
 	// with.
-	DatabaseName *string `type:"string"`
+	DatabaseName *string `json:"dms:RedshiftSettings:DatabaseName" type:"string"`
 
 	// The date format that you are using. Valid values are auto (case-sensitive),
 	// your date format string enclosed in quotes, or NULL. If this parameter is
@@ -685,12 +685,12 @@ type RedshiftSettings struct {
 	//
 	// If your date and time values use formats different from each other, set this
 	// to auto.
-	DateFormat *string `type:"string"`
+	DateFormat *string `json:"dms:RedshiftSettings:DateFormat" type:"string"`
 
 	// A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR
 	// fields as NULL. A value of true sets empty CHAR and VARCHAR fields to null.
 	// The default is false.
-	EmptyAsNull *bool `type:"boolean"`
+	EmptyAsNull *bool `json:"dms:RedshiftSettings:EmptyAsNull" type:"boolean"`
 
 	// The type of server-side encryption that you want to use for your data. This
 	// encryption type is part of the endpoint settings or the extra connections
@@ -698,51 +698,51 @@ type RedshiftSettings struct {
 	// To use SSE_S3, create an AWS Identity and Access Management (IAM) role with
 	// a policy that allows "arn:aws:s3:::*" to use the following actions: "s3:PutObject",
 	// "s3:ListBucket"
-	EncryptionMode EncryptionModeValue `type:"string" enum:"true"`
+	EncryptionMode EncryptionModeValue `json:"dms:RedshiftSettings:EncryptionMode" type:"string" enum:"true"`
 
 	// The number of threads used to upload a single file. This parameter accepts
 	// a value from 1 through 64. It defaults to 10.
-	FileTransferUploadStreams *int64 `type:"integer"`
+	FileTransferUploadStreams *int64 `json:"dms:RedshiftSettings:FileTransferUploadStreams" type:"integer"`
 
 	// The amount of time to wait (in milliseconds) before timing out, beginning
 	// from when you begin loading.
-	LoadTimeout *int64 `type:"integer"`
+	LoadTimeout *int64 `json:"dms:RedshiftSettings:LoadTimeout" type:"integer"`
 
 	// The maximum size (in KB) of any .csv file used to transfer data to Amazon
 	// Redshift. This accepts a value from 1 through 1,048,576. It defaults to 32,768
 	// KB (32 MB).
-	MaxFileSize *int64 `type:"integer"`
+	MaxFileSize *int64 `json:"dms:RedshiftSettings:MaxFileSize" type:"integer"`
 
 	// The password for the user named in the username property.
-	Password *string `type:"string"`
+	Password *string `json:"dms:RedshiftSettings:Password" type:"string"`
 
 	// The port number for Amazon Redshift. The default value is 5439.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"dms:RedshiftSettings:Port" type:"integer"`
 
 	// A value that specifies to remove surrounding quotation marks from strings
 	// in the incoming data. All characters within the quotation marks, including
 	// delimiters, are retained. Choose true to remove quotation marks. The default
 	// is false.
-	RemoveQuotes *bool `type:"boolean"`
+	RemoveQuotes *bool `json:"dms:RedshiftSettings:RemoveQuotes" type:"boolean"`
 
 	// A value that specifies to replaces the invalid characters specified in ReplaceInvalidChars,
 	// substituting the specified characters instead. The default is "?".
-	ReplaceChars *string `type:"string"`
+	ReplaceChars *string `json:"dms:RedshiftSettings:ReplaceChars" type:"string"`
 
 	// A list of characters that you want to replace. Use with ReplaceChars.
-	ReplaceInvalidChars *string `type:"string"`
+	ReplaceInvalidChars *string `json:"dms:RedshiftSettings:ReplaceInvalidChars" type:"string"`
 
 	// The name of the Amazon Redshift cluster you are using.
-	ServerName *string `type:"string"`
+	ServerName *string `json:"dms:RedshiftSettings:ServerName" type:"string"`
 
 	// The AWS KMS key ID. If you are using SSE_KMS for the EncryptionMode, provide
 	// this key ID. The key that you use needs an attached policy that enables IAM
 	// user permissions and allows use of the key.
-	ServerSideEncryptionKmsKeyId *string `type:"string"`
+	ServerSideEncryptionKmsKeyId *string `json:"dms:RedshiftSettings:ServerSideEncryptionKmsKeyId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon
 	// Redshift service.
-	ServiceAccessRoleArn *string `type:"string"`
+	ServiceAccessRoleArn *string `json:"dms:RedshiftSettings:ServiceAccessRoleArn" type:"string"`
 
 	// The time format that you want to use. Valid values are auto (case-sensitive),
 	// 'timeformat_string', 'epochsecs', or 'epochmillisecs'. It defaults to 10.
@@ -751,25 +751,25 @@ type RedshiftSettings struct {
 	//
 	// If your date and time values use formats different from each other, set this
 	// parameter to auto.
-	TimeFormat *string `type:"string"`
+	TimeFormat *string `json:"dms:RedshiftSettings:TimeFormat" type:"string"`
 
 	// A value that specifies to remove the trailing white space characters from
 	// a VARCHAR string. This parameter applies only to columns with a VARCHAR data
 	// type. Choose true to remove unneeded white space. The default is false.
-	TrimBlanks *bool `type:"boolean"`
+	TrimBlanks *bool `json:"dms:RedshiftSettings:TrimBlanks" type:"boolean"`
 
 	// A value that specifies to truncate data in columns to the appropriate number
 	// of characters, so that the data fits in the column. This parameter applies
 	// only to columns with a VARCHAR or CHAR data type, and rows with a size of
 	// 4 MB or less. Choose true to truncate data. The default is false.
-	TruncateColumns *bool `type:"boolean"`
+	TruncateColumns *bool `json:"dms:RedshiftSettings:TruncateColumns" type:"boolean"`
 
 	// An Amazon Redshift user name for a registered user.
-	Username *string `type:"string"`
+	Username *string `json:"dms:RedshiftSettings:Username" type:"string"`
 
 	// The size of the write buffer to use in rows. Valid values range from 1 through
 	// 2,048. The default is 1,024. Use this setting to tune performance.
-	WriteBufferSize *int64 `type:"integer"`
+	WriteBufferSize *int64 `json:"dms:RedshiftSettings:WriteBufferSize" type:"integer"`
 }
 
 // String returns the string representation
@@ -782,19 +782,19 @@ type RefreshSchemasStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-	EndpointArn *string `type:"string"`
+	EndpointArn *string `json:"dms:RefreshSchemasStatus:EndpointArn" type:"string"`
 
 	// The last failure message for the schema.
-	LastFailureMessage *string `type:"string"`
+	LastFailureMessage *string `json:"dms:RefreshSchemasStatus:LastFailureMessage" type:"string"`
 
 	// The date the schema was last refreshed.
-	LastRefreshDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastRefreshDate *time.Time `json:"dms:RefreshSchemasStatus:LastRefreshDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the replication instance.
-	ReplicationInstanceArn *string `type:"string"`
+	ReplicationInstanceArn *string `json:"dms:RefreshSchemasStatus:ReplicationInstanceArn" type:"string"`
 
 	// The status of the schema.
-	Status RefreshSchemasStatusTypeValue `type:"string" enum:"true"`
+	Status RefreshSchemasStatusTypeValue `json:"dms:RefreshSchemasStatus:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -808,27 +808,27 @@ type ReplicationInstance struct {
 
 	// The amount of storage (in gigabytes) that is allocated for the replication
 	// instance.
-	AllocatedStorage *int64 `type:"integer"`
+	AllocatedStorage *int64 `json:"dms:ReplicationInstance:AllocatedStorage" type:"integer"`
 
 	// Boolean value indicating if minor version upgrades will be automatically
 	// applied to the instance.
-	AutoMinorVersionUpgrade *bool `type:"boolean"`
+	AutoMinorVersionUpgrade *bool `json:"dms:ReplicationInstance:AutoMinorVersionUpgrade" type:"boolean"`
 
 	// The Availability Zone for the instance.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"dms:ReplicationInstance:AvailabilityZone" type:"string"`
 
 	// The DNS name servers for the replication instance.
-	DnsNameServers *string `type:"string"`
+	DnsNameServers *string `json:"dms:ReplicationInstance:DnsNameServers" type:"string"`
 
 	// The engine version number of the replication instance.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"dms:ReplicationInstance:EngineVersion" type:"string"`
 
 	// The expiration date of the free replication instance that is part of the
 	// Free DMS program.
-	FreeUntil *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FreeUntil *time.Time `json:"dms:ReplicationInstance:FreeUntil" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the replication instance was created.
-	InstanceCreateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	InstanceCreateTime *time.Time `json:"dms:ReplicationInstance:InstanceCreateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// An AWS KMS key identifier that is used to encrypt the data on the replication
 	// instance.
@@ -838,32 +838,32 @@ type ReplicationInstance struct {
 	//
 	// AWS KMS creates the default encryption key for your AWS account. Your AWS
 	// account has a different default encryption key for each AWS Region.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"dms:ReplicationInstance:KmsKeyId" type:"string"`
 
 	// Specifies whether the replication instance is a Multi-AZ deployment. You
 	// cannot set the AvailabilityZone parameter if the Multi-AZ parameter is set
 	// to true.
-	MultiAZ *bool `type:"boolean"`
+	MultiAZ *bool `json:"dms:ReplicationInstance:MultiAZ" type:"boolean"`
 
 	// The pending modification values.
-	PendingModifiedValues *ReplicationPendingModifiedValues `type:"structure"`
+	PendingModifiedValues *ReplicationPendingModifiedValues `json:"dms:ReplicationInstance:PendingModifiedValues" type:"structure"`
 
 	// The maintenance window times for the replication instance.
-	PreferredMaintenanceWindow *string `type:"string"`
+	PreferredMaintenanceWindow *string `json:"dms:ReplicationInstance:PreferredMaintenanceWindow" type:"string"`
 
 	// Specifies the accessibility options for the replication instance. A value
 	// of true represents an instance with a public IP address. A value of false
 	// represents an instance with a private IP address. The default value is true.
-	PubliclyAccessible *bool `type:"boolean"`
+	PubliclyAccessible *bool `json:"dms:ReplicationInstance:PubliclyAccessible" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) of the replication instance.
-	ReplicationInstanceArn *string `type:"string"`
+	ReplicationInstanceArn *string `json:"dms:ReplicationInstance:ReplicationInstanceArn" type:"string"`
 
 	// The compute and memory capacity of the replication instance.
 	//
 	// Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large
 	// | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge
-	ReplicationInstanceClass *string `type:"string"`
+	ReplicationInstanceClass *string `json:"dms:ReplicationInstance:ReplicationInstanceClass" type:"string"`
 
 	// The replication instance identifier. This parameter is stored as a lowercase
 	// string.
@@ -877,31 +877,31 @@ type ReplicationInstance struct {
 	//    * Cannot end with a hyphen or contain two consecutive hyphens.
 	//
 	// Example: myrepinstance
-	ReplicationInstanceIdentifier *string `type:"string"`
+	ReplicationInstanceIdentifier *string `json:"dms:ReplicationInstance:ReplicationInstanceIdentifier" type:"string"`
 
 	// The private IP address of the replication instance.
-	ReplicationInstancePrivateIpAddress *string `deprecated:"true" type:"string"`
+	ReplicationInstancePrivateIpAddress *string `json:"dms:ReplicationInstance:ReplicationInstancePrivateIpAddress" deprecated:"true" type:"string"`
 
 	// One or more private IP addresses for the replication instance.
-	ReplicationInstancePrivateIpAddresses []string `type:"list"`
+	ReplicationInstancePrivateIpAddresses []string `json:"dms:ReplicationInstance:ReplicationInstancePrivateIpAddresses" type:"list"`
 
 	// The public IP address of the replication instance.
-	ReplicationInstancePublicIpAddress *string `deprecated:"true" type:"string"`
+	ReplicationInstancePublicIpAddress *string `json:"dms:ReplicationInstance:ReplicationInstancePublicIpAddress" deprecated:"true" type:"string"`
 
 	// One or more public IP addresses for the replication instance.
-	ReplicationInstancePublicIpAddresses []string `type:"list"`
+	ReplicationInstancePublicIpAddresses []string `json:"dms:ReplicationInstance:ReplicationInstancePublicIpAddresses" type:"list"`
 
 	// The status of the replication instance.
-	ReplicationInstanceStatus *string `type:"string"`
+	ReplicationInstanceStatus *string `json:"dms:ReplicationInstance:ReplicationInstanceStatus" type:"string"`
 
 	// The subnet group for the replication instance.
-	ReplicationSubnetGroup *ReplicationSubnetGroup `type:"structure"`
+	ReplicationSubnetGroup *ReplicationSubnetGroup `json:"dms:ReplicationInstance:ReplicationSubnetGroup" type:"structure"`
 
 	// The availability zone of the standby replication instance in a Multi-AZ deployment.
-	SecondaryAvailabilityZone *string `type:"string"`
+	SecondaryAvailabilityZone *string `json:"dms:ReplicationInstance:SecondaryAvailabilityZone" type:"string"`
 
 	// The VPC security group for the instance.
-	VpcSecurityGroups []VpcSecurityGroupMembership `type:"list"`
+	VpcSecurityGroups []VpcSecurityGroupMembership `json:"dms:ReplicationInstance:VpcSecurityGroups" type:"list"`
 }
 
 // String returns the string representation
@@ -915,13 +915,13 @@ type ReplicationInstanceTaskLog struct {
 	_ struct{} `type:"structure"`
 
 	// The size, in bytes, of the replication task log.
-	ReplicationInstanceTaskLogSize *int64 `type:"long"`
+	ReplicationInstanceTaskLogSize *int64 `json:"dms:ReplicationInstanceTaskLog:ReplicationInstanceTaskLogSize" type:"long"`
 
 	// The Amazon Resource Name (ARN) of the replication task.
-	ReplicationTaskArn *string `type:"string"`
+	ReplicationTaskArn *string `json:"dms:ReplicationInstanceTaskLog:ReplicationTaskArn" type:"string"`
 
 	// The name of the replication task.
-	ReplicationTaskName *string `type:"string"`
+	ReplicationTaskName *string `json:"dms:ReplicationInstanceTaskLog:ReplicationTaskName" type:"string"`
 }
 
 // String returns the string representation
@@ -935,21 +935,21 @@ type ReplicationPendingModifiedValues struct {
 
 	// The amount of storage (in gigabytes) that is allocated for the replication
 	// instance.
-	AllocatedStorage *int64 `type:"integer"`
+	AllocatedStorage *int64 `json:"dms:ReplicationPendingModifiedValues:AllocatedStorage" type:"integer"`
 
 	// The engine version number of the replication instance.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"dms:ReplicationPendingModifiedValues:EngineVersion" type:"string"`
 
 	// Specifies whether the replication instance is a Multi-AZ deployment. You
 	// cannot set the AvailabilityZone parameter if the Multi-AZ parameter is set
 	// to true.
-	MultiAZ *bool `type:"boolean"`
+	MultiAZ *bool `json:"dms:ReplicationPendingModifiedValues:MultiAZ" type:"boolean"`
 
 	// The compute and memory capacity of the replication instance.
 	//
 	// Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large
 	// | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge
-	ReplicationInstanceClass *string `type:"string"`
+	ReplicationInstanceClass *string `json:"dms:ReplicationPendingModifiedValues:ReplicationInstanceClass" type:"string"`
 }
 
 // String returns the string representation
@@ -962,19 +962,19 @@ type ReplicationSubnetGroup struct {
 	_ struct{} `type:"structure"`
 
 	// A description for the replication subnet group.
-	ReplicationSubnetGroupDescription *string `type:"string"`
+	ReplicationSubnetGroupDescription *string `json:"dms:ReplicationSubnetGroup:ReplicationSubnetGroupDescription" type:"string"`
 
 	// The identifier of the replication instance subnet group.
-	ReplicationSubnetGroupIdentifier *string `type:"string"`
+	ReplicationSubnetGroupIdentifier *string `json:"dms:ReplicationSubnetGroup:ReplicationSubnetGroupIdentifier" type:"string"`
 
 	// The status of the subnet group.
-	SubnetGroupStatus *string `type:"string"`
+	SubnetGroupStatus *string `json:"dms:ReplicationSubnetGroup:SubnetGroupStatus" type:"string"`
 
 	// The subnets that are in the subnet group.
-	Subnets []Subnet `type:"list"`
+	Subnets []Subnet `json:"dms:ReplicationSubnetGroup:Subnets" type:"list"`
 
 	// The ID of the VPC.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"dms:ReplicationSubnetGroup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -997,7 +997,7 @@ type ReplicationTask struct {
 	// Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
 	//
 	// LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
-	CdcStartPosition *string `type:"string"`
+	CdcStartPosition *string `json:"dms:ReplicationTask:CdcStartPosition" type:"string"`
 
 	// Indicates when you want a change data capture (CDC) operation to stop. The
 	// value can be either server time or commit time.
@@ -1006,27 +1006,27 @@ type ReplicationTask struct {
 	//
 	// Commit time example: --cdc-stop-position “commit_time: 3018-02-09T12:12:12
 	// “
-	CdcStopPosition *string `type:"string"`
+	CdcStopPosition *string `json:"dms:ReplicationTask:CdcStopPosition" type:"string"`
 
 	// The last error (failure) message generated for the replication instance.
-	LastFailureMessage *string `type:"string"`
+	LastFailureMessage *string `json:"dms:ReplicationTask:LastFailureMessage" type:"string"`
 
 	// The type of migration.
-	MigrationType MigrationTypeValue `type:"string" enum:"true"`
+	MigrationType MigrationTypeValue `json:"dms:ReplicationTask:MigrationType" type:"string" enum:"true"`
 
 	// Indicates the last checkpoint that occurred during a change data capture
 	// (CDC) operation. You can provide this value to the CdcStartPosition parameter
 	// to start a CDC operation that begins at that checkpoint.
-	RecoveryCheckpoint *string `type:"string"`
+	RecoveryCheckpoint *string `json:"dms:ReplicationTask:RecoveryCheckpoint" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the replication instance.
-	ReplicationInstanceArn *string `type:"string"`
+	ReplicationInstanceArn *string `json:"dms:ReplicationTask:ReplicationInstanceArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the replication task.
-	ReplicationTaskArn *string `type:"string"`
+	ReplicationTaskArn *string `json:"dms:ReplicationTask:ReplicationTaskArn" type:"string"`
 
 	// The date the replication task was created.
-	ReplicationTaskCreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReplicationTaskCreationDate *time.Time `json:"dms:ReplicationTask:ReplicationTaskCreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The user-assigned replication task identifier or name.
 	//
@@ -1037,32 +1037,32 @@ type ReplicationTask struct {
 	//    * First character must be a letter.
 	//
 	//    * Cannot end with a hyphen or contain two consecutive hyphens.
-	ReplicationTaskIdentifier *string `type:"string"`
+	ReplicationTaskIdentifier *string `json:"dms:ReplicationTask:ReplicationTaskIdentifier" type:"string"`
 
 	// The settings for the replication task.
-	ReplicationTaskSettings *string `type:"string"`
+	ReplicationTaskSettings *string `json:"dms:ReplicationTask:ReplicationTaskSettings" type:"string"`
 
 	// The date the replication task is scheduled to start.
-	ReplicationTaskStartDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReplicationTaskStartDate *time.Time `json:"dms:ReplicationTask:ReplicationTaskStartDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The statistics for the task, including elapsed time, tables loaded, and table
 	// errors.
-	ReplicationTaskStats *ReplicationTaskStats `type:"structure"`
+	ReplicationTaskStats *ReplicationTaskStats `json:"dms:ReplicationTask:ReplicationTaskStats" type:"structure"`
 
 	// The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-	SourceEndpointArn *string `type:"string"`
+	SourceEndpointArn *string `json:"dms:ReplicationTask:SourceEndpointArn" type:"string"`
 
 	// The status of the replication task.
-	Status *string `type:"string"`
+	Status *string `json:"dms:ReplicationTask:Status" type:"string"`
 
 	// The reason the replication task was stopped.
-	StopReason *string `type:"string"`
+	StopReason *string `json:"dms:ReplicationTask:StopReason" type:"string"`
 
 	// Table mappings specified in the task.
-	TableMappings *string `type:"string"`
+	TableMappings *string `json:"dms:ReplicationTask:TableMappings" type:"string"`
 
 	// The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-	TargetEndpointArn *string `type:"string"`
+	TargetEndpointArn *string `json:"dms:ReplicationTask:TargetEndpointArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1076,26 +1076,26 @@ type ReplicationTaskAssessmentResult struct {
 	_ struct{} `type:"structure"`
 
 	// The task assessment results in JSON format.
-	AssessmentResults *string `type:"string"`
+	AssessmentResults *string `json:"dms:ReplicationTaskAssessmentResult:AssessmentResults" type:"string"`
 
 	// The file containing the results of the task assessment.
-	AssessmentResultsFile *string `type:"string"`
+	AssessmentResultsFile *string `json:"dms:ReplicationTaskAssessmentResult:AssessmentResultsFile" type:"string"`
 
 	// The status of the task assessment.
-	AssessmentStatus *string `type:"string"`
+	AssessmentStatus *string `json:"dms:ReplicationTaskAssessmentResult:AssessmentStatus" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the replication task.
-	ReplicationTaskArn *string `type:"string"`
+	ReplicationTaskArn *string `json:"dms:ReplicationTaskAssessmentResult:ReplicationTaskArn" type:"string"`
 
 	// The replication task identifier of the task on which the task assessment
 	// was run.
-	ReplicationTaskIdentifier *string `type:"string"`
+	ReplicationTaskIdentifier *string `json:"dms:ReplicationTaskAssessmentResult:ReplicationTaskIdentifier" type:"string"`
 
 	// The date the task assessment was completed.
-	ReplicationTaskLastAssessmentDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReplicationTaskLastAssessmentDate *time.Time `json:"dms:ReplicationTaskAssessmentResult:ReplicationTaskLastAssessmentDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The URL of the S3 object containing the task assessment results.
-	S3ObjectUrl *string `type:"string"`
+	S3ObjectUrl *string `json:"dms:ReplicationTaskAssessmentResult:S3ObjectUrl" type:"string"`
 }
 
 // String returns the string representation
@@ -1108,22 +1108,22 @@ type ReplicationTaskStats struct {
 	_ struct{} `type:"structure"`
 
 	// The elapsed time of the task, in milliseconds.
-	ElapsedTimeMillis *int64 `type:"long"`
+	ElapsedTimeMillis *int64 `json:"dms:ReplicationTaskStats:ElapsedTimeMillis" type:"long"`
 
 	// The percent complete for the full load migration task.
-	FullLoadProgressPercent *int64 `type:"integer"`
+	FullLoadProgressPercent *int64 `json:"dms:ReplicationTaskStats:FullLoadProgressPercent" type:"integer"`
 
 	// The number of errors that have occurred during this task.
-	TablesErrored *int64 `type:"integer"`
+	TablesErrored *int64 `json:"dms:ReplicationTaskStats:TablesErrored" type:"integer"`
 
 	// The number of tables loaded for this task.
-	TablesLoaded *int64 `type:"integer"`
+	TablesLoaded *int64 `json:"dms:ReplicationTaskStats:TablesLoaded" type:"integer"`
 
 	// The number of tables currently loading for this task.
-	TablesLoading *int64 `type:"integer"`
+	TablesLoading *int64 `json:"dms:ReplicationTaskStats:TablesLoading" type:"integer"`
 
 	// The number of tables queued for this task.
-	TablesQueued *int64 `type:"integer"`
+	TablesQueued *int64 `json:"dms:ReplicationTaskStats:TablesQueued" type:"integer"`
 }
 
 // String returns the string representation
@@ -1136,13 +1136,13 @@ type ResourcePendingMaintenanceActions struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about the pending maintenance action.
-	PendingMaintenanceActionDetails []PendingMaintenanceAction `type:"list"`
+	PendingMaintenanceActionDetails []PendingMaintenanceAction `json:"dms:ResourcePendingMaintenanceActions:PendingMaintenanceActionDetails" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance
 	// action applies to. For information about creating an ARN, see Constructing
 	// an Amazon Resource Name (ARN) for AWS DMS (https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html)
 	// in the DMS documentation.
-	ResourceIdentifier *string `type:"string"`
+	ResourceIdentifier *string `json:"dms:ResourcePendingMaintenanceActions:ResourceIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -1158,10 +1158,10 @@ type S3Settings struct {
 	// An optional parameter to set a folder name in the S3 bucket. If provided,
 	// tables are created in the path bucketFolder/schema_name/table_name/. If this
 	// parameter is not specified, then the path used is schema_name/table_name/.
-	BucketFolder *string `type:"string"`
+	BucketFolder *string `json:"dms:S3Settings:BucketFolder" type:"string"`
 
 	// The name of the S3 bucket.
-	BucketName *string `type:"string"`
+	BucketName *string `json:"dms:S3Settings:BucketName" type:"string"`
 
 	// A value that enables a change data capture (CDC) load to write only INSERT
 	// operations to .csv or columnar storage (.parquet) output files. By default
@@ -1182,20 +1182,20 @@ type S3Settings struct {
 	//
 	// AWS DMS supports this interaction between CdcInsertsOnly and IncludeOpForFullLoad
 	// in versions 3.1.4 and later.
-	CdcInsertsOnly *bool `type:"boolean"`
+	CdcInsertsOnly *bool `json:"dms:S3Settings:CdcInsertsOnly" type:"boolean"`
 
 	// An optional parameter to use GZIP to compress the target files. Set to GZIP
 	// to compress the target files. Set to NONE (the default) or do not use to
 	// leave the files uncompressed. Applies to both .csv and .parquet file formats.
-	CompressionType CompressionTypeValue `type:"string" enum:"true"`
+	CompressionType CompressionTypeValue `json:"dms:S3Settings:CompressionType" type:"string" enum:"true"`
 
 	// The delimiter used to separate columns in the source files. The default is
 	// a comma.
-	CsvDelimiter *string `type:"string"`
+	CsvDelimiter *string `json:"dms:S3Settings:CsvDelimiter" type:"string"`
 
 	// The delimiter used to separate rows in the source files. The default is a
 	// carriage return (\n).
-	CsvRowDelimiter *string `type:"string"`
+	CsvRowDelimiter *string `json:"dms:S3Settings:CsvRowDelimiter" type:"string"`
 
 	// The format of the data that you want to use for output. You can choose one
 	// of the following:
@@ -1204,24 +1204,24 @@ type S3Settings struct {
 	//
 	//    * parquet : Apache Parquet (.parquet) is a columnar storage file format
 	//    that features efficient compression and provides faster query response.
-	DataFormat DataFormatValue `type:"string" enum:"true"`
+	DataFormat DataFormatValue `json:"dms:S3Settings:DataFormat" type:"string" enum:"true"`
 
 	// The size of one data page in bytes. This parameter defaults to 1024 * 1024
 	// bytes (1 MiB). This number is used for .parquet file format only.
-	DataPageSize *int64 `type:"integer"`
+	DataPageSize *int64 `json:"dms:S3Settings:DataPageSize" type:"integer"`
 
 	// The maximum size of an encoded dictionary page of a column. If the dictionary
 	// page exceeds this, this column is stored using an encoding type of PLAIN.
 	// This parameter defaults to 1024 * 1024 bytes (1 MiB), the maximum size of
 	// a dictionary page before it reverts to PLAIN encoding. This size is used
 	// for .parquet file format only.
-	DictPageSizeLimit *int64 `type:"integer"`
+	DictPageSizeLimit *int64 `json:"dms:S3Settings:DictPageSizeLimit" type:"integer"`
 
 	// A value that enables statistics for Parquet pages and row groups. Choose
 	// true to enable statistics, false to disable. Statistics include NULL, DISTINCT,
 	// MAX, and MIN values. This parameter defaults to true. This value is used
 	// for .parquet file format only.
-	EnableStatistics *bool `type:"boolean"`
+	EnableStatistics *bool `json:"dms:S3Settings:EnableStatistics" type:"boolean"`
 
 	// The type of encoding you are using:
 	//
@@ -1233,7 +1233,7 @@ type S3Settings struct {
 	//    * PLAIN_DICTIONARY builds a dictionary of the values encountered in a
 	//    given column. The dictionary is stored in a dictionary page for each column
 	//    chunk.
-	EncodingType EncodingTypeValue `type:"string" enum:"true"`
+	EncodingType EncodingTypeValue `json:"dms:S3Settings:EncodingType" type:"string" enum:"true"`
 
 	// The type of server-side encryption that you want to use for your data. This
 	// encryption type is part of the endpoint settings or the extra connections
@@ -1262,10 +1262,10 @@ type S3Settings struct {
 	//    * s3:PutBucketPolicy
 	//
 	//    * s3:DeleteBucketPolicy
-	EncryptionMode EncryptionModeValue `type:"string" enum:"true"`
+	EncryptionMode EncryptionModeValue `json:"dms:S3Settings:EncryptionMode" type:"string" enum:"true"`
 
 	// The external table definition.
-	ExternalTableDefinition *string `type:"string"`
+	ExternalTableDefinition *string `json:"dms:S3Settings:ExternalTableDefinition" type:"string"`
 
 	// A value that enables a full load to write INSERT operations to the comma-separated
 	// value (.csv) output files only to indicate how the rows were added to the
@@ -1284,11 +1284,11 @@ type S3Settings struct {
 	// only. For more information about how these settings work together, see Indicating
 	// Source DB Operations in Migrated S3 Data (https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps)
 	// in the AWS Database Migration Service User Guide..
-	IncludeOpForFullLoad *bool `type:"boolean"`
+	IncludeOpForFullLoad *bool `json:"dms:S3Settings:IncludeOpForFullLoad" type:"boolean"`
 
 	// The version of the Apache Parquet format that you want to use: parquet_1_0
 	// (the default) or parquet_2_0.
-	ParquetVersion ParquetVersionValue `type:"string" enum:"true"`
+	ParquetVersion ParquetVersionValue `json:"dms:S3Settings:ParquetVersion" type:"string" enum:"true"`
 
 	// The number of rows in a row group. A smaller row group size provides faster
 	// reads. But as the number of row groups grows, the slower writes become. This
@@ -1297,7 +1297,7 @@ type S3Settings struct {
 	//
 	// If you choose a value larger than the maximum, RowGroupLength is set to the
 	// max row group length in bytes (64 * 1024 * 1024).
-	RowGroupLength *int64 `type:"integer"`
+	RowGroupLength *int64 `json:"dms:S3Settings:RowGroupLength" type:"integer"`
 
 	// If you are using SSE_KMS for the EncryptionMode, provide the AWS KMS key
 	// ID. The key that you use needs an attached policy that enables AWS Identity
@@ -1305,10 +1305,10 @@ type S3Settings struct {
 	//
 	// Here is a CLI example: aws dms create-endpoint --endpoint-identifier value
 	// --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=value,BucketFolder=value,BucketName=value,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=value
-	ServerSideEncryptionKmsKeyId *string `type:"string"`
+	ServerSideEncryptionKmsKeyId *string `json:"dms:S3Settings:ServerSideEncryptionKmsKeyId" type:"string"`
 
 	// The Amazon Resource Name (ARN) used by the service access IAM role.
-	ServiceAccessRoleArn *string `type:"string"`
+	ServiceAccessRoleArn *string `json:"dms:S3Settings:ServiceAccessRoleArn" type:"string"`
 
 	// A value that includes a timestamp column in the Amazon S3 target endpoint
 	// data. AWS DMS includes an additional column in the migrated data when you
@@ -1324,7 +1324,7 @@ type S3Settings struct {
 	// on the commit timestamp supported by DMS for the source database. When the
 	// AddColumnName setting is set to true, DMS also includes the name for the
 	// timestamp column that you set as the nonblank value of timestampColumnName.
-	TimestampColumnName *string `type:"string"`
+	TimestampColumnName *string `json:"dms:S3Settings:TimestampColumnName" type:"string"`
 }
 
 // String returns the string representation
@@ -1337,13 +1337,13 @@ type Subnet struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone of the subnet.
-	SubnetAvailabilityZone *AvailabilityZone `type:"structure"`
+	SubnetAvailabilityZone *AvailabilityZone `json:"dms:Subnet:SubnetAvailabilityZone" type:"structure"`
 
 	// The subnet identifier.
-	SubnetIdentifier *string `type:"string"`
+	SubnetIdentifier *string `json:"dms:Subnet:SubnetIdentifier" type:"string"`
 
 	// The status of the subnet.
-	SubnetStatus *string `type:"string"`
+	SubnetStatus *string `json:"dms:Subnet:SubnetStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -1356,19 +1356,19 @@ type SupportedEndpointType struct {
 	_ struct{} `type:"structure"`
 
 	// The type of endpoint. Valid values are source and target.
-	EndpointType ReplicationEndpointTypeValue `type:"string" enum:"true"`
+	EndpointType ReplicationEndpointTypeValue `json:"dms:SupportedEndpointType:EndpointType" type:"string" enum:"true"`
 
 	// The expanded name for the engine name. For example, if the EngineName parameter
 	// is "aurora," this value would be "Amazon Aurora MySQL."
-	EngineDisplayName *string `type:"string"`
+	EngineDisplayName *string `json:"dms:SupportedEndpointType:EngineDisplayName" type:"string"`
 
 	// The database engine name. Valid values, depending on the EndpointType, include
 	// mysql, oracle, postgres, mariadb, aurora, aurora-postgresql, redshift, s3,
 	// db2, azuredb, sybase, dynamodb, mongodb, and sqlserver.
-	EngineName *string `type:"string"`
+	EngineName *string `json:"dms:SupportedEndpointType:EngineName" type:"string"`
 
 	// Indicates if Change Data Capture (CDC) is supported.
-	SupportsCDC *bool `type:"boolean"`
+	SupportsCDC *bool `json:"dms:SupportedEndpointType:SupportsCDC" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1382,49 +1382,49 @@ type TableStatistics struct {
 
 	// The Data Definition Language (DDL) used to build and modify the structure
 	// of your tables.
-	Ddls *int64 `type:"long"`
+	Ddls *int64 `json:"dms:TableStatistics:Ddls" type:"long"`
 
 	// The number of delete actions performed on a table.
-	Deletes *int64 `type:"long"`
+	Deletes *int64 `json:"dms:TableStatistics:Deletes" type:"long"`
 
 	// The number of rows that failed conditional checks during the Full Load operation
 	// (valid only for DynamoDB as a target migrations).
-	FullLoadCondtnlChkFailedRows *int64 `type:"long"`
+	FullLoadCondtnlChkFailedRows *int64 `json:"dms:TableStatistics:FullLoadCondtnlChkFailedRows" type:"long"`
 
 	// The number of rows that failed to load during the Full Load operation (valid
 	// only for DynamoDB as a target migrations).
-	FullLoadErrorRows *int64 `type:"long"`
+	FullLoadErrorRows *int64 `json:"dms:TableStatistics:FullLoadErrorRows" type:"long"`
 
 	// The number of rows added during the Full Load operation.
-	FullLoadRows *int64 `type:"long"`
+	FullLoadRows *int64 `json:"dms:TableStatistics:FullLoadRows" type:"long"`
 
 	// The number of insert actions performed on a table.
-	Inserts *int64 `type:"long"`
+	Inserts *int64 `json:"dms:TableStatistics:Inserts" type:"long"`
 
 	// The last time the table was updated.
-	LastUpdateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"dms:TableStatistics:LastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The schema name.
-	SchemaName *string `type:"string"`
+	SchemaName *string `json:"dms:TableStatistics:SchemaName" type:"string"`
 
 	// The name of the table.
-	TableName *string `type:"string"`
+	TableName *string `json:"dms:TableStatistics:TableName" type:"string"`
 
 	// The state of the tables described.
 	//
 	// Valid states: Table does not exist | Before load | Full load | Table completed
 	// | Table cancelled | Table error | Table all | Table updates | Table is being
 	// reloaded
-	TableState *string `type:"string"`
+	TableState *string `json:"dms:TableStatistics:TableState" type:"string"`
 
 	// The number of update actions performed on a table.
-	Updates *int64 `type:"long"`
+	Updates *int64 `json:"dms:TableStatistics:Updates" type:"long"`
 
 	// The number of records that failed validation.
-	ValidationFailedRecords *int64 `type:"long"`
+	ValidationFailedRecords *int64 `json:"dms:TableStatistics:ValidationFailedRecords" type:"long"`
 
 	// The number of records that have yet to be validated.
-	ValidationPendingRecords *int64 `type:"long"`
+	ValidationPendingRecords *int64 `json:"dms:TableStatistics:ValidationPendingRecords" type:"long"`
 
 	// The validation state of the table.
 	//
@@ -1450,13 +1450,13 @@ type TableStatistics struct {
 	//    the status can change from Validated.
 	//
 	//    * Error—The table could not be validated because of an unexpected error.
-	ValidationState *string `type:"string"`
+	ValidationState *string `json:"dms:TableStatistics:ValidationState" type:"string"`
 
 	// Additional details about the state of validation.
-	ValidationStateDetails *string `type:"string"`
+	ValidationStateDetails *string `json:"dms:TableStatistics:ValidationStateDetails" type:"string"`
 
 	// The number of records that could not be validated.
-	ValidationSuspendedRecords *int64 `type:"long"`
+	ValidationSuspendedRecords *int64 `json:"dms:TableStatistics:ValidationSuspendedRecords" type:"long"`
 }
 
 // String returns the string representation
@@ -1469,10 +1469,10 @@ type TableToReload struct {
 	_ struct{} `type:"structure"`
 
 	// The schema name of the table to be reloaded.
-	SchemaName *string `type:"string"`
+	SchemaName *string `json:"dms:TableToReload:SchemaName" type:"string"`
 
 	// The table name of the table to be reloaded.
-	TableName *string `type:"string"`
+	TableName *string `json:"dms:TableToReload:TableName" type:"string"`
 }
 
 // String returns the string representation
@@ -1488,13 +1488,13 @@ type Tag struct {
 	// 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:".
 	// The string can only contain only the set of Unicode letters, digits, white-space,
 	// '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-	Key *string `type:"string"`
+	Key *string `json:"dms:Tag:Key" type:"string"`
 
 	// A value is the optional value of the tag. The string value can be from 1
 	// to 256 Unicode characters in length and cannot be prefixed with "aws:" or
 	// "dms:". The string can only contain only the set of Unicode letters, digits,
 	// white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-	Value *string `type:"string"`
+	Value *string `json:"dms:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1507,10 +1507,10 @@ type VpcSecurityGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the VPC security group.
-	Status *string `type:"string"`
+	Status *string `json:"dms:VpcSecurityGroupMembership:Status" type:"string"`
 
 	// The VPC security group Id.
-	VpcSecurityGroupId *string `type:"string"`
+	VpcSecurityGroupId *string `json:"dms:VpcSecurityGroupMembership:VpcSecurityGroupId" type:"string"`
 }
 
 // String returns the string representation

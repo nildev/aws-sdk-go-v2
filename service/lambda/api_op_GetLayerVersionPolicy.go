@@ -74,10 +74,10 @@ type GetLayerVersionPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The policy document.
-	Policy *string `type:"string"`
+	Policy *string `json:"lambda:GetLayerVersionPolicyOutput:Policy" type:"string"`
 
 	// A unique identifier for the current revision of the policy.
-	RevisionId *string `type:"string"`
+	RevisionId *string `json:"lambda:GetLayerVersionPolicyOutput:RevisionId" type:"string"`
 }
 
 // String returns the string representation

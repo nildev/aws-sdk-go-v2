@@ -126,7 +126,7 @@ type CreateCompilationJobOutput struct {
 	//    * CompilationJobArn: The Amazon Resource Name (ARN) of the compiled job.
 	//
 	// CompilationJobArn is a required field
-	CompilationJobArn *string `type:"string" required:"true"`
+	CompilationJobArn *string `json:"api.sagemaker:CreateCompilationJobOutput:CompilationJobArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

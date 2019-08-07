@@ -154,7 +154,7 @@ type CreateCommentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The comment that has been created.
-	Comment *Comment `type:"structure"`
+	Comment *Comment `json:"workdocs:CreateCommentOutput:Comment" type:"structure"`
 }
 
 // String returns the string representation

@@ -24,7 +24,7 @@ type DescribeAutoScalingNotificationTypesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The notification types.
-	AutoScalingNotificationTypes []string `type:"list"`
+	AutoScalingNotificationTypes []string `json:"autoscaling:DescribeAutoScalingNotificationTypesOutput:AutoScalingNotificationTypes" type:"list"`
 }
 
 // String returns the string representation

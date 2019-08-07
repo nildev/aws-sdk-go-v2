@@ -80,7 +80,7 @@ type DescribePlacementOutput struct {
 	// An object describing the placement.
 	//
 	// Placement is a required field
-	Placement *PlacementDescription `locationName:"placement" type:"structure" required:"true"`
+	Placement *PlacementDescription `json:"projects.iot1click:DescribePlacementOutput:Placement" locationName:"placement" type:"structure" required:"true"`
 }
 
 // String returns the string representation

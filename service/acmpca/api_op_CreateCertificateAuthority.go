@@ -101,7 +101,7 @@ type CreateCertificateAuthorityOutput struct {
 	// (CA). This is of the form:
 	//
 	// arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012 .
-	CertificateAuthorityArn *string `min:"5" type:"string"`
+	CertificateAuthorityArn *string `json:"acm-pca:CreateCertificateAuthorityOutput:CertificateAuthorityArn" min:"5" type:"string"`
 }
 
 // String returns the string representation

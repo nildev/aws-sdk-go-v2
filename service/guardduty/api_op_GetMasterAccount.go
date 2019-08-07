@@ -62,7 +62,7 @@ type GetMasterAccountOutput struct {
 	// Master account details.
 	//
 	// Master is a required field
-	Master *Master `locationName:"master" type:"structure" required:"true"`
+	Master *Master `json:"guardduty:GetMasterAccountOutput:Master" locationName:"master" type:"structure" required:"true"`
 }
 
 // String returns the string representation

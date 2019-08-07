@@ -109,7 +109,7 @@ type BatchPutMessageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of any errors encountered when sending the messages to the channel.
-	BatchPutMessageErrorEntries []BatchPutMessageErrorEntry `locationName:"batchPutMessageErrorEntries" type:"list"`
+	BatchPutMessageErrorEntries []BatchPutMessageErrorEntry `json:"iotanalytics:BatchPutMessageOutput:BatchPutMessageErrorEntries" locationName:"batchPutMessageErrorEntries" type:"list"`
 }
 
 // String returns the string representation

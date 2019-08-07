@@ -58,23 +58,23 @@ type DescribeAuditTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about each check performed during this audit.
-	AuditDetails map[string]AuditCheckDetails `locationName:"auditDetails" type:"map"`
+	AuditDetails map[string]AuditCheckDetails `json:"iot:DescribeAuditTaskOutput:AuditDetails" locationName:"auditDetails" type:"map"`
 
 	// The name of the scheduled audit (only if the audit was a scheduled audit).
-	ScheduledAuditName *string `locationName:"scheduledAuditName" min:"1" type:"string"`
+	ScheduledAuditName *string `json:"iot:DescribeAuditTaskOutput:ScheduledAuditName" locationName:"scheduledAuditName" min:"1" type:"string"`
 
 	// The time the audit started.
-	TaskStartTime *time.Time `locationName:"taskStartTime" type:"timestamp" timestampFormat:"unix"`
+	TaskStartTime *time.Time `json:"iot:DescribeAuditTaskOutput:TaskStartTime" locationName:"taskStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Statistical information about the audit.
-	TaskStatistics *TaskStatistics `locationName:"taskStatistics" type:"structure"`
+	TaskStatistics *TaskStatistics `json:"iot:DescribeAuditTaskOutput:TaskStatistics" locationName:"taskStatistics" type:"structure"`
 
 	// The status of the audit: one of "IN_PROGRESS", "COMPLETED", "FAILED", or
 	// "CANCELED".
-	TaskStatus AuditTaskStatus `locationName:"taskStatus" type:"string" enum:"true"`
+	TaskStatus AuditTaskStatus `json:"iot:DescribeAuditTaskOutput:TaskStatus" locationName:"taskStatus" type:"string" enum:"true"`
 
 	// The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
-	TaskType AuditTaskType `locationName:"taskType" type:"string" enum:"true"`
+	TaskType AuditTaskType `json:"iot:DescribeAuditTaskOutput:TaskType" locationName:"taskType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

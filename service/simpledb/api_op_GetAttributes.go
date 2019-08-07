@@ -61,7 +61,7 @@ type GetAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of attributes returned by the operation.
-	Attributes []Attribute `locationNameList:"Attribute" type:"list" flattened:"true"`
+	Attributes []Attribute `json:"sdb:GetAttributesOutput:Attributes" locationNameList:"Attribute" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

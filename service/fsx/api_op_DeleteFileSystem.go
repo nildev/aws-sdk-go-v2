@@ -65,14 +65,14 @@ type DeleteFileSystemOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the file system being deleted.
-	FileSystemId *string `min:"11" type:"string"`
+	FileSystemId *string `json:"fsx:DeleteFileSystemOutput:FileSystemId" min:"11" type:"string"`
 
 	// The file system lifecycle for the deletion request. Should be DELETING.
-	Lifecycle FileSystemLifecycle `type:"string" enum:"true"`
+	Lifecycle FileSystemLifecycle `json:"fsx:DeleteFileSystemOutput:Lifecycle" type:"string" enum:"true"`
 
 	// The response object for the Microsoft Windows file system used in the DeleteFileSystem
 	// operation.
-	WindowsResponse *DeleteFileSystemWindowsResponse `type:"structure"`
+	WindowsResponse *DeleteFileSystemWindowsResponse `json:"fsx:DeleteFileSystemOutput:WindowsResponse" type:"structure"`
 }
 
 // String returns the string representation

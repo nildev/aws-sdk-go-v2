@@ -83,7 +83,7 @@ type UpdateUserPoolDomainOutput struct {
 
 	// The Amazon CloudFront endpoint that Amazon Cognito set up when you added
 	// the custom domain to your user pool.
-	CloudFrontDomain *string `min:"1" type:"string"`
+	CloudFrontDomain *string `json:"cognito-idp:UpdateUserPoolDomainOutput:CloudFrontDomain" min:"1" type:"string"`
 }
 
 // String returns the string representation

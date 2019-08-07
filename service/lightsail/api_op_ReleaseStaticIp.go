@@ -43,7 +43,7 @@ type ReleaseStaticIpOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key-value pairs containing information about the request operation.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:ReleaseStaticIpOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

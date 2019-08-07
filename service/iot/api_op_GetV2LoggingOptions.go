@@ -29,13 +29,13 @@ type GetV2LoggingOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The default log level.
-	DefaultLogLevel LogLevel `locationName:"defaultLogLevel" type:"string" enum:"true"`
+	DefaultLogLevel LogLevel `json:"iot:GetV2LoggingOptionsOutput:DefaultLogLevel" locationName:"defaultLogLevel" type:"string" enum:"true"`
 
 	// Disables all logs.
-	DisableAllLogs *bool `locationName:"disableAllLogs" type:"boolean"`
+	DisableAllLogs *bool `json:"iot:GetV2LoggingOptionsOutput:DisableAllLogs" locationName:"disableAllLogs" type:"boolean"`
 
 	// The IAM role ARN AWS IoT uses to write to your CloudWatch logs.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"iot:GetV2LoggingOptionsOutput:RoleArn" locationName:"roleArn" type:"string"`
 }
 
 // String returns the string representation

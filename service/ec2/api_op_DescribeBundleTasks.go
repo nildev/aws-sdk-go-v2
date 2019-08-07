@@ -60,7 +60,7 @@ type DescribeBundleTasksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the bundle tasks.
-	BundleTasks []BundleTask `locationName:"bundleInstanceTasksSet" locationNameList:"item" type:"list"`
+	BundleTasks []BundleTask `json:"ec2:DescribeBundleTasksOutput:BundleTasks" locationName:"bundleInstanceTasksSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

@@ -48,10 +48,10 @@ type DescribeClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of clusters.
-	Clusters []Cluster `locationName:"clusters" type:"list"`
+	Clusters []Cluster `json:"ecs:DescribeClustersOutput:Clusters" locationName:"clusters" type:"list"`
 
 	// Any failures associated with the call.
-	Failures []Failure `locationName:"failures" type:"list"`
+	Failures []Failure `json:"ecs:DescribeClustersOutput:Failures" locationName:"failures" type:"list"`
 }
 
 // String returns the string representation

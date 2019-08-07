@@ -61,11 +61,11 @@ type DetectModerationLabelsOutput struct {
 
 	// Array of detected Moderation labels and the time, in millseconds from the
 	// start of the video, they were detected.
-	ModerationLabels []ModerationLabel `type:"list"`
+	ModerationLabels []ModerationLabel `json:"rekognition:DetectModerationLabelsOutput:ModerationLabels" type:"list"`
 
 	// Version number of the moderation detection model that was used to detect
 	// unsafe content.
-	ModerationModelVersion *string `type:"string"`
+	ModerationModelVersion *string `json:"rekognition:DetectModerationLabelsOutput:ModerationModelVersion" type:"string"`
 }
 
 // String returns the string representation

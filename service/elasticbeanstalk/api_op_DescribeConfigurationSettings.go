@@ -71,7 +71,7 @@ type DescribeConfigurationSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of ConfigurationSettingsDescription.
-	ConfigurationSettings []ConfigurationSettingsDescription `type:"list"`
+	ConfigurationSettings []ConfigurationSettingsDescription `json:"elasticbeanstalk:DescribeConfigurationSettingsOutput:ConfigurationSettings" type:"list"`
 }
 
 // String returns the string representation

@@ -81,9 +81,9 @@ func (s ListApplicationDependenciesInput) MarshalFields(e protocol.FieldEncoder)
 type ListApplicationDependenciesOutput struct {
 	_ struct{} `type:"structure"`
 
-	Dependencies []ApplicationDependencySummary `locationName:"dependencies" type:"list"`
+	Dependencies []ApplicationDependencySummary `json:"serverlessrepo:ListApplicationDependenciesOutput:Dependencies" locationName:"dependencies" type:"list"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"serverlessrepo:ListApplicationDependenciesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

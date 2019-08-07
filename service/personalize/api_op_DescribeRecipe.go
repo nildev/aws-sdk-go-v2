@@ -43,7 +43,7 @@ type DescribeRecipeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that describes the recipe.
-	Recipe *Recipe `locationName:"recipe" type:"structure"`
+	Recipe *Recipe `json:"personalize:DescribeRecipeOutput:Recipe" locationName:"recipe" type:"structure"`
 }
 
 // String returns the string representation

@@ -101,12 +101,12 @@ type CreateUserOutput struct {
 	// The ID of the SFTP server that the user is attached to.
 	//
 	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `json:"transfer:CreateUserOutput:ServerId" type:"string" required:"true"`
 
 	// A unique string that identifies a user account associated with an SFTP server.
 	//
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `json:"transfer:CreateUserOutput:UserName" type:"string" required:"true"`
 }
 
 // String returns the string representation

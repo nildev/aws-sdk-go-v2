@@ -27,7 +27,7 @@ type GetAccountSendingEnabledOutput struct {
 
 	// Describes whether email sending is enabled or disabled for your Amazon SES
 	// account in the current AWS Region.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"email:GetAccountSendingEnabledOutput:Enabled" type:"boolean"`
 }
 
 // String returns the string representation

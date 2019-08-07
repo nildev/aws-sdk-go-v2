@@ -47,7 +47,7 @@ type GetResolverEndpointOutput struct {
 
 	// Information about the resolver endpoint that you specified in a GetResolverEndpoint
 	// request.
-	ResolverEndpoint *ResolverEndpoint `type:"structure"`
+	ResolverEndpoint *ResolverEndpoint `json:"route53resolver:GetResolverEndpointOutput:ResolverEndpoint" type:"structure"`
 }
 
 // String returns the string representation

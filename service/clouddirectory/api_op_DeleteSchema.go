@@ -58,7 +58,7 @@ type DeleteSchemaOutput struct {
 
 	// The input ARN that is returned as part of the response. For more information,
 	// see arns.
-	SchemaArn *string `type:"string"`
+	SchemaArn *string `json:"clouddirectory:DeleteSchemaOutput:SchemaArn" type:"string"`
 }
 
 // String returns the string representation

@@ -93,10 +93,10 @@ type ListObjectParentPathsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListObjectParentPathsOutput:NextToken" type:"string"`
 
 	// Returns the path to the ObjectIdentifiers that are associated with the directory.
-	PathToObjectIdentifiersList []PathToObjectIdentifiers `type:"list"`
+	PathToObjectIdentifiersList []PathToObjectIdentifiers `json:"clouddirectory:ListObjectParentPathsOutput:PathToObjectIdentifiersList" type:"list"`
 }
 
 // String returns the string representation

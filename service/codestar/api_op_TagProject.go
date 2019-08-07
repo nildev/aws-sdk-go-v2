@@ -55,7 +55,7 @@ type TagProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags for the project.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"codestar:TagProjectOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

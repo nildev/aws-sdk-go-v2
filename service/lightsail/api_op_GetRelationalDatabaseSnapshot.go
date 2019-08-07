@@ -43,7 +43,7 @@ type GetRelationalDatabaseSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object describing the specified database snapshot.
-	RelationalDatabaseSnapshot *RelationalDatabaseSnapshot `locationName:"relationalDatabaseSnapshot" type:"structure"`
+	RelationalDatabaseSnapshot *RelationalDatabaseSnapshot `json:"lightsail:GetRelationalDatabaseSnapshotOutput:RelationalDatabaseSnapshot" locationName:"relationalDatabaseSnapshot" type:"structure"`
 }
 
 // String returns the string representation

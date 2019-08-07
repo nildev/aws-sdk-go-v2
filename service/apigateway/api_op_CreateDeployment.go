@@ -149,16 +149,16 @@ type CreateDeploymentOutput struct {
 
 	// A summary of the RestApi at the date and time that the deployment resource
 	// was created.
-	ApiSummary map[string]map[string]MethodSnapshot `locationName:"apiSummary" type:"map"`
+	ApiSummary map[string]map[string]MethodSnapshot `json:"apigateway:CreateDeploymentOutput:ApiSummary" locationName:"apiSummary" type:"map"`
 
 	// The date and time that the deployment resource was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:CreateDeploymentOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description for the deployment resource.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:CreateDeploymentOutput:Description" locationName:"description" type:"string"`
 
 	// The identifier for the deployment resource.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:CreateDeploymentOutput:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation

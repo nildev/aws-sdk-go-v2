@@ -75,14 +75,14 @@ type LookupEventsOutput struct {
 	// A list of events returned based on the lookup attributes specified and the
 	// CloudTrail event. The events list is sorted by time. The most recent event
 	// is listed first.
-	Events []Event `type:"list"`
+	Events []Event `json:"cloudtrail:LookupEventsOutput:Events" type:"list"`
 
 	// The token to use to get the next page of results after a previous API call.
 	// If the token does not appear, there are no more results to return. The token
 	// must be passed in with the same parameters as the previous call. For example,
 	// if the original call specified an AttributeKey of 'Username' with a value
 	// of 'root', the call with NextToken should include those same parameters.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudtrail:LookupEventsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

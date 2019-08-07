@@ -86,7 +86,7 @@ type CreateDataflowEndpointGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ID of a dataflow endpoint group.
-	DataflowEndpointGroupId *string `locationName:"dataflowEndpointGroupId" type:"string"`
+	DataflowEndpointGroupId *string `json:"groundstation:CreateDataflowEndpointGroupOutput:DataflowEndpointGroupId" locationName:"dataflowEndpointGroupId" type:"string"`
 }
 
 // String returns the string representation

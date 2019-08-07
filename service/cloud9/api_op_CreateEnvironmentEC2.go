@@ -86,7 +86,7 @@ type CreateEnvironmentEC2Output struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the environment that was created.
-	EnvironmentId *string `locationName:"environmentId" type:"string"`
+	EnvironmentId *string `json:"cloud9:CreateEnvironmentEC2Output:EnvironmentId" locationName:"environmentId" type:"string"`
 }
 
 // String returns the string representation

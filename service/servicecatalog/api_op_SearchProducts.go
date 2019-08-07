@@ -51,13 +51,13 @@ type SearchProductsOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:SearchProductsOutput:NextPageToken" type:"string"`
 
 	// The product view aggregations.
-	ProductViewAggregations map[string][]ProductViewAggregationValue `type:"map"`
+	ProductViewAggregations map[string][]ProductViewAggregationValue `json:"servicecatalog:SearchProductsOutput:ProductViewAggregations" type:"map"`
 
 	// Information about the product views.
-	ProductViewSummaries []ProductViewSummary `type:"list"`
+	ProductViewSummaries []ProductViewSummary `json:"servicecatalog:SearchProductsOutput:ProductViewSummaries" type:"list"`
 }
 
 // String returns the string representation

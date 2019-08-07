@@ -86,10 +86,10 @@ type ListSecurityProfilesForTargetOutput struct {
 
 	// A token that can be used to retrieve the next set of results, or null if
 	// there are no additional results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListSecurityProfilesForTargetOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of security profiles and their associated targets.
-	SecurityProfileTargetMappings []SecurityProfileTargetMapping `locationName:"securityProfileTargetMappings" type:"list"`
+	SecurityProfileTargetMappings []SecurityProfileTargetMapping `json:"iot:ListSecurityProfilesForTargetOutput:SecurityProfileTargetMappings" locationName:"securityProfileTargetMappings" type:"list"`
 }
 
 // String returns the string representation

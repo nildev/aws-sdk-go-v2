@@ -78,13 +78,13 @@ type GetReusableDelegationSetLimitOutput struct {
 	// reusable delegation set.
 	//
 	// Count is a required field
-	Count *int64 `type:"long" required:"true"`
+	Count *int64 `json:"route53:GetReusableDelegationSetLimitOutput:Count" type:"long" required:"true"`
 
 	// The current setting for the limit on hosted zones that you can associate
 	// with the specified reusable delegation set.
 	//
 	// Limit is a required field
-	Limit *ReusableDelegationSetLimit `type:"structure" required:"true"`
+	Limit *ReusableDelegationSetLimit `json:"route53:GetReusableDelegationSetLimitOutput:Limit" type:"structure" required:"true"`
 }
 
 // String returns the string representation

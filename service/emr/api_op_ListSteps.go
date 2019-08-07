@@ -55,10 +55,10 @@ type ListStepsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticmapreduce:ListStepsOutput:Marker" type:"string"`
 
 	// The filtered list of steps for the cluster.
-	Steps []StepSummary `type:"list"`
+	Steps []StepSummary `json:"elasticmapreduce:ListStepsOutput:Steps" type:"list"`
 }
 
 // String returns the string representation

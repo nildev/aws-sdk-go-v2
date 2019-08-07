@@ -52,7 +52,7 @@ type RebootNodeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the DAX cluster after a node has been rebooted.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"dax:RebootNodeOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

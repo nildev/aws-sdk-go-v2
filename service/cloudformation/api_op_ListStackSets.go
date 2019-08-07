@@ -59,11 +59,11 @@ type ListStackSetsOutput struct {
 	// set to a token. To retrieve the next set of results, call ListStackInstances
 	// again and assign that token to the request object's NextToken parameter.
 	// If the request returns all results, NextToken is set to null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:ListStackSetsOutput:NextToken" min:"1" type:"string"`
 
 	// A list of StackSetSummary structures that contain information about the user's
 	// stack sets.
-	Summaries []StackSetSummary `type:"list"`
+	Summaries []StackSetSummary `json:"cloudformation:ListStackSetsOutput:Summaries" type:"list"`
 }
 
 // String returns the string representation

@@ -60,7 +60,7 @@ type DescribeApplicationSnapshotOutput struct {
 	// An object containing information about the application snapshot.
 	//
 	// SnapshotDetails is a required field
-	SnapshotDetails *SnapshotDetails `type:"structure" required:"true"`
+	SnapshotDetails *SnapshotDetails `json:"kinesisanalytics:DescribeApplicationSnapshotOutput:SnapshotDetails" type:"structure" required:"true"`
 }
 
 // String returns the string representation

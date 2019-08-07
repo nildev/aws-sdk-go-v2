@@ -66,11 +66,11 @@ type BatchGetAggregateResourceConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list that contains the current configuration of one or more resources.
-	BaseConfigurationItems []BaseConfigurationItem `type:"list"`
+	BaseConfigurationItems []BaseConfigurationItem `json:"config:BatchGetAggregateResourceConfigOutput:BaseConfigurationItems" type:"list"`
 
 	// A list of resource identifiers that were not processed with current scope.
 	// The list is empty if all the resources are processed.
-	UnprocessedResourceIdentifiers []AggregateResourceIdentifier `type:"list"`
+	UnprocessedResourceIdentifiers []AggregateResourceIdentifier `json:"config:BatchGetAggregateResourceConfigOutput:UnprocessedResourceIdentifiers" type:"list"`
 }
 
 // String returns the string representation

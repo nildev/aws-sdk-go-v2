@@ -25,7 +25,7 @@ type ListOpenIDConnectProvidersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of IAM OIDC provider resource objects defined in the AWS account.
-	OpenIDConnectProviderList []OpenIDConnectProviderListEntry `type:"list"`
+	OpenIDConnectProviderList []OpenIDConnectProviderListEntry `json:"iam:ListOpenIDConnectProvidersOutput:OpenIDConnectProviderList" type:"list"`
 }
 
 // String returns the string representation

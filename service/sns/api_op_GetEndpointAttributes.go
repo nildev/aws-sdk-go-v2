@@ -58,7 +58,7 @@ type GetEndpointAttributesOutput struct {
 	//    * Token – device token, also referred to as a registration id, for an
 	//    app and mobile device. This is returned from the notification service
 	//    when an app and mobile device are registered with the notification service.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"sns:GetEndpointAttributesOutput:Attributes" type:"map"`
 }
 
 // String returns the string representation

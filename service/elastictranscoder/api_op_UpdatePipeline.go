@@ -266,7 +266,7 @@ type UpdatePipelineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pipeline updated by this UpdatePipelineResponse call.
-	Pipeline *Pipeline `type:"structure"`
+	Pipeline *Pipeline `json:"elastictranscoder:UpdatePipelineOutput:Pipeline" type:"structure"`
 
 	// Elastic Transcoder returns a warning if the resources used by your pipeline
 	// are not in the same region as the pipeline.
@@ -274,7 +274,7 @@ type UpdatePipelineOutput struct {
 	// Using resources in the same region, such as your Amazon S3 buckets, Amazon
 	// SNS notification topics, and AWS KMS key, reduces processing time and prevents
 	// cross-regional charges.
-	Warnings []Warning `type:"list"`
+	Warnings []Warning `json:"elastictranscoder:UpdatePipelineOutput:Warnings" type:"list"`
 }
 
 // String returns the string representation

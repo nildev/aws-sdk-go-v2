@@ -82,10 +82,10 @@ type UpgradeAppliedSchemaOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the directory that is returned as part of the response.
-	DirectoryArn *string `type:"string"`
+	DirectoryArn *string `json:"clouddirectory:UpgradeAppliedSchemaOutput:DirectoryArn" type:"string"`
 
 	// The ARN of the upgraded schema that is returned as part of the response.
-	UpgradedSchemaArn *string `type:"string"`
+	UpgradedSchemaArn *string `json:"clouddirectory:UpgradeAppliedSchemaOutput:UpgradedSchemaArn" type:"string"`
 }
 
 // String returns the string representation

@@ -73,7 +73,7 @@ type UpdateApplicationSettingsOutput struct {
 	// for an application.
 	//
 	// ApplicationSettingsResource is a required field
-	ApplicationSettingsResource *ApplicationSettingsResource `type:"structure" required:"true"`
+	ApplicationSettingsResource *ApplicationSettingsResource `json:"pinpoint:UpdateApplicationSettingsOutput:ApplicationSettingsResource" type:"structure" required:"true"`
 }
 
 // String returns the string representation

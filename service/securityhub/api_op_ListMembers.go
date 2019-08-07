@@ -79,10 +79,10 @@ type ListMembersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Member details returned by the operation.
-	Members []Member `type:"list"`
+	Members []Member `json:"securityhub:ListMembersOutput:Members" type:"list"`
 
 	// The token that is required for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"securityhub:ListMembersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

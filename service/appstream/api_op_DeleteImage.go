@@ -43,7 +43,7 @@ type DeleteImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the image.
-	Image *Image `type:"structure"`
+	Image *Image `json:"appstream2:DeleteImageOutput:Image" type:"structure"`
 }
 
 // String returns the string representation

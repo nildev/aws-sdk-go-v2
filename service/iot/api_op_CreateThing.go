@@ -95,13 +95,13 @@ type CreateThingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the new thing.
-	ThingArn *string `locationName:"thingArn" type:"string"`
+	ThingArn *string `json:"iot:CreateThingOutput:ThingArn" locationName:"thingArn" type:"string"`
 
 	// The thing ID.
-	ThingId *string `locationName:"thingId" type:"string"`
+	ThingId *string `json:"iot:CreateThingOutput:ThingId" locationName:"thingId" type:"string"`
 
 	// The name of the new thing.
-	ThingName *string `locationName:"thingName" min:"1" type:"string"`
+	ThingName *string `json:"iot:CreateThingOutput:ThingName" locationName:"thingName" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -57,7 +57,7 @@ type CheckDomainTransferabilityOutput struct {
 	// can be transferred to Amazon Route 53.
 	//
 	// Transferability is a required field
-	Transferability *DomainTransferability `type:"structure" required:"true"`
+	Transferability *DomainTransferability `json:"route53domains:CheckDomainTransferabilityOutput:Transferability" type:"structure" required:"true"`
 }
 
 // String returns the string representation

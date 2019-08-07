@@ -75,7 +75,7 @@ type GetExportJobsOutput struct {
 	// to a file.
 	//
 	// ExportJobsResponse is a required field
-	ExportJobsResponse *ExportJobsResponse `type:"structure" required:"true"`
+	ExportJobsResponse *ExportJobsResponse `json:"pinpoint:GetExportJobsOutput:ExportJobsResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

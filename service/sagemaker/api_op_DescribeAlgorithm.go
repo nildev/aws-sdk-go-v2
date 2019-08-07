@@ -49,48 +49,48 @@ type DescribeAlgorithmOutput struct {
 	// The Amazon Resource Name (ARN) of the algorithm.
 	//
 	// AlgorithmArn is a required field
-	AlgorithmArn *string `min:"1" type:"string" required:"true"`
+	AlgorithmArn *string `json:"api.sagemaker:DescribeAlgorithmOutput:AlgorithmArn" min:"1" type:"string" required:"true"`
 
 	// A brief summary about the algorithm.
-	AlgorithmDescription *string `type:"string"`
+	AlgorithmDescription *string `json:"api.sagemaker:DescribeAlgorithmOutput:AlgorithmDescription" type:"string"`
 
 	// The name of the algorithm being described.
 	//
 	// AlgorithmName is a required field
-	AlgorithmName *string `min:"1" type:"string" required:"true"`
+	AlgorithmName *string `json:"api.sagemaker:DescribeAlgorithmOutput:AlgorithmName" min:"1" type:"string" required:"true"`
 
 	// The current status of the algorithm.
 	//
 	// AlgorithmStatus is a required field
-	AlgorithmStatus AlgorithmStatus `type:"string" required:"true" enum:"true"`
+	AlgorithmStatus AlgorithmStatus `json:"api.sagemaker:DescribeAlgorithmOutput:AlgorithmStatus" type:"string" required:"true" enum:"true"`
 
 	// Details about the current status of the algorithm.
 	//
 	// AlgorithmStatusDetails is a required field
-	AlgorithmStatusDetails *AlgorithmStatusDetails `type:"structure" required:"true"`
+	AlgorithmStatusDetails *AlgorithmStatusDetails `json:"api.sagemaker:DescribeAlgorithmOutput:AlgorithmStatusDetails" type:"structure" required:"true"`
 
 	// Whether the algorithm is certified to be listed in AWS Marketplace.
-	CertifyForMarketplace *bool `type:"boolean"`
+	CertifyForMarketplace *bool `json:"api.sagemaker:DescribeAlgorithmOutput:CertifyForMarketplace" type:"boolean"`
 
 	// A timestamp specifying when the algorithm was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeAlgorithmOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Details about inference jobs that the algorithm runs.
-	InferenceSpecification *InferenceSpecification `type:"structure"`
+	InferenceSpecification *InferenceSpecification `json:"api.sagemaker:DescribeAlgorithmOutput:InferenceSpecification" type:"structure"`
 
 	// The product identifier of the algorithm.
-	ProductId *string `type:"string"`
+	ProductId *string `json:"api.sagemaker:DescribeAlgorithmOutput:ProductId" type:"string"`
 
 	// Details about training jobs run by this algorithm.
 	//
 	// TrainingSpecification is a required field
-	TrainingSpecification *TrainingSpecification `type:"structure" required:"true"`
+	TrainingSpecification *TrainingSpecification `json:"api.sagemaker:DescribeAlgorithmOutput:TrainingSpecification" type:"structure" required:"true"`
 
 	// Details about configurations for one or more training jobs that Amazon SageMaker
 	// runs to test the algorithm.
-	ValidationSpecification *AlgorithmValidationSpecification `type:"structure"`
+	ValidationSpecification *AlgorithmValidationSpecification `json:"api.sagemaker:DescribeAlgorithmOutput:ValidationSpecification" type:"structure"`
 }
 
 // String returns the string representation

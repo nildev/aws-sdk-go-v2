@@ -152,7 +152,7 @@ type CreateClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the DAX cluster that you have created.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"dax:CreateClusterOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

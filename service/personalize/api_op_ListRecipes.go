@@ -47,10 +47,10 @@ type ListRecipesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token for getting the next set of recipes.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListRecipesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of available recipes.
-	Recipes []RecipeSummary `locationName:"recipes" type:"list"`
+	Recipes []RecipeSummary `json:"personalize:ListRecipesOutput:Recipes" locationName:"recipes" type:"list"`
 }
 
 // String returns the string representation

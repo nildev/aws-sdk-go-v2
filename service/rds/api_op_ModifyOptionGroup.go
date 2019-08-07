@@ -66,7 +66,7 @@ func (s *ModifyOptionGroupInput) Validate() error {
 type ModifyOptionGroupOutput struct {
 	_ struct{} `type:"structure"`
 
-	OptionGroup *OptionGroup `type:"structure"`
+	OptionGroup *OptionGroup `json:"rds:ModifyOptionGroupOutput:OptionGroup" type:"structure"`
 }
 
 // String returns the string representation

@@ -87,13 +87,13 @@ type UpdateProvisioningArtifactOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The URL of the CloudFormation template in Amazon S3.
-	Info map[string]string `min:"1" type:"map"`
+	Info map[string]string `json:"servicecatalog:UpdateProvisioningArtifactOutput:Info" min:"1" type:"map"`
 
 	// Information about the provisioning artifact.
-	ProvisioningArtifactDetail *ProvisioningArtifactDetail `type:"structure"`
+	ProvisioningArtifactDetail *ProvisioningArtifactDetail `json:"servicecatalog:UpdateProvisioningArtifactOutput:ProvisioningArtifactDetail" type:"structure"`
 
 	// The status of the current request.
-	Status Status `type:"string" enum:"true"`
+	Status Status `json:"servicecatalog:UpdateProvisioningArtifactOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

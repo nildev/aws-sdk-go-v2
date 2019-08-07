@@ -20,13 +20,13 @@ type BookingOptions struct {
 
 	// The resource's ability to automatically reply to requests. If disabled, delegates
 	// must be associated to the resource.
-	AutoAcceptRequests *bool `type:"boolean"`
+	AutoAcceptRequests *bool `json:"workmail:BookingOptions:AutoAcceptRequests" type:"boolean"`
 
 	// The resource's ability to automatically decline any conflicting requests.
-	AutoDeclineConflictingRequests *bool `type:"boolean"`
+	AutoDeclineConflictingRequests *bool `json:"workmail:BookingOptions:AutoDeclineConflictingRequests" type:"boolean"`
 
 	// The resource's ability to automatically decline any recurring requests.
-	AutoDeclineRecurringRequests *bool `type:"boolean"`
+	AutoDeclineRecurringRequests *bool `json:"workmail:BookingOptions:AutoDeclineRecurringRequests" type:"boolean"`
 }
 
 // String returns the string representation
@@ -43,12 +43,12 @@ type Delegate struct {
 	// The identifier for the user or group associated as the resource's delegate.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"workmail:Delegate:Id" type:"string" required:"true"`
 
 	// The type of the delegate: user or group.
 	//
 	// Type is a required field
-	Type MemberType `type:"string" required:"true" enum:"true"`
+	Type MemberType `json:"workmail:Delegate:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -62,22 +62,22 @@ type Group struct {
 	_ struct{} `type:"structure"`
 
 	// The date indicating when the group was disabled from Amazon WorkMail use.
-	DisabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DisabledDate *time.Time `json:"workmail:Group:DisabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The email of the group.
-	Email *string `min:"1" type:"string"`
+	Email *string `json:"workmail:Group:Email" min:"1" type:"string"`
 
 	// The date indicating when the group was enabled for Amazon WorkMail use.
-	EnabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EnabledDate *time.Time `json:"workmail:Group:EnabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the group.
-	Id *string `min:"12" type:"string"`
+	Id *string `json:"workmail:Group:Id" min:"12" type:"string"`
 
 	// The name of the group.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workmail:Group:Name" min:"1" type:"string"`
 
 	// The state of the group, which can be ENABLED, DISABLED, or DELETED.
-	State EntityState `type:"string" enum:"true"`
+	State EntityState `json:"workmail:Group:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -91,22 +91,22 @@ type Member struct {
 	_ struct{} `type:"structure"`
 
 	// The date indicating when the member was disabled from Amazon WorkMail use.
-	DisabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DisabledDate *time.Time `json:"workmail:Member:DisabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date indicating when the member was enabled for Amazon WorkMail use.
-	EnabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EnabledDate *time.Time `json:"workmail:Member:EnabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the member.
-	Id *string `type:"string"`
+	Id *string `json:"workmail:Member:Id" type:"string"`
 
 	// The name of the member.
-	Name *string `type:"string"`
+	Name *string `json:"workmail:Member:Name" type:"string"`
 
 	// The state of the member, which can be ENABLED, DISABLED, or DELETED.
-	State EntityState `type:"string" enum:"true"`
+	State EntityState `json:"workmail:Member:State" type:"string" enum:"true"`
 
 	// A member can be a user or group.
-	Type MemberType `type:"string" enum:"true"`
+	Type MemberType `json:"workmail:Member:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -120,18 +120,18 @@ type OrganizationSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The alias associated with the organization.
-	Alias *string `min:"1" type:"string"`
+	Alias *string `json:"workmail:OrganizationSummary:Alias" min:"1" type:"string"`
 
 	// The error message associated with the organization. It is only present if
 	// unexpected behavior has occurred with regards to the organization. It provides
 	// insight or solutions regarding unexpected behavior.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"workmail:OrganizationSummary:ErrorMessage" type:"string"`
 
 	// The identifier associated with the organization.
-	OrganizationId *string `type:"string"`
+	OrganizationId *string `json:"workmail:OrganizationSummary:OrganizationId" type:"string"`
 
 	// The state associated with the organization.
-	State *string `type:"string"`
+	State *string `json:"workmail:OrganizationSummary:State" type:"string"`
 }
 
 // String returns the string representation
@@ -149,12 +149,12 @@ type Permission struct {
 	// granted.
 	//
 	// GranteeId is a required field
-	GranteeId *string `min:"12" type:"string" required:"true"`
+	GranteeId *string `json:"workmail:Permission:GranteeId" min:"12" type:"string" required:"true"`
 
 	// The type of user, group, or resource referred to in GranteeId.
 	//
 	// GranteeType is a required field
-	GranteeType MemberType `type:"string" required:"true" enum:"true"`
+	GranteeType MemberType `json:"workmail:Permission:GranteeType" type:"string" required:"true" enum:"true"`
 
 	// The permissions granted to the grantee. SEND_AS allows the grantee to send
 	// email as the owner of the mailbox (the grantee is not mentioned on these
@@ -164,7 +164,7 @@ type Permission struct {
 	// irrespective of other folder-level permissions set on the mailbox.
 	//
 	// PermissionValues is a required field
-	PermissionValues []PermissionType `type:"list" required:"true"`
+	PermissionValues []PermissionType `json:"workmail:Permission:PermissionValues" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -178,25 +178,25 @@ type Resource struct {
 	_ struct{} `type:"structure"`
 
 	// The date indicating when the resource was disabled from Amazon WorkMail use.
-	DisabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DisabledDate *time.Time `json:"workmail:Resource:DisabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The email of the resource.
-	Email *string `min:"1" type:"string"`
+	Email *string `json:"workmail:Resource:Email" min:"1" type:"string"`
 
 	// The date indicating when the resource was enabled for Amazon WorkMail use.
-	EnabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EnabledDate *time.Time `json:"workmail:Resource:EnabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the resource.
-	Id *string `min:"12" type:"string"`
+	Id *string `json:"workmail:Resource:Id" min:"12" type:"string"`
 
 	// The name of the resource.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workmail:Resource:Name" min:"1" type:"string"`
 
 	// The state of the resource, which can be ENABLED, DISABLED, or DELETED.
-	State EntityState `type:"string" enum:"true"`
+	State EntityState `json:"workmail:Resource:State" type:"string" enum:"true"`
 
 	// The type of the resource: equipment or room.
-	Type ResourceType `type:"string" enum:"true"`
+	Type ResourceType `json:"workmail:Resource:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -210,28 +210,28 @@ type User struct {
 	_ struct{} `type:"structure"`
 
 	// The date indicating when the user was disabled from Amazon WorkMail use.
-	DisabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DisabledDate *time.Time `json:"workmail:User:DisabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The display name of the user.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"workmail:User:DisplayName" type:"string"`
 
 	// The email of the user.
-	Email *string `min:"1" type:"string"`
+	Email *string `json:"workmail:User:Email" min:"1" type:"string"`
 
 	// The date indicating when the user was enabled for Amazon WorkMail use.
-	EnabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EnabledDate *time.Time `json:"workmail:User:EnabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the user.
-	Id *string `min:"12" type:"string"`
+	Id *string `json:"workmail:User:Id" min:"12" type:"string"`
 
 	// The name of the user.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workmail:User:Name" min:"1" type:"string"`
 
 	// The state of the user, which can be ENABLED, DISABLED, or DELETED.
-	State EntityState `type:"string" enum:"true"`
+	State EntityState `json:"workmail:User:State" type:"string" enum:"true"`
 
 	// The role of the user.
-	UserRole UserRole `type:"string" enum:"true"`
+	UserRole UserRole `json:"workmail:User:UserRole" type:"string" enum:"true"`
 }
 
 // String returns the string representation

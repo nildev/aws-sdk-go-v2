@@ -36,17 +36,17 @@ type GetServersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the server was last modified.
-	LastModifiedOn *time.Time `locationName:"lastModifiedOn" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedOn *time.Time `json:"sms:GetServersOutput:LastModifiedOn" locationName:"lastModifiedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"sms:GetServersOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The status of the server catalog.
-	ServerCatalogStatus ServerCatalogStatus `locationName:"serverCatalogStatus" type:"string" enum:"true"`
+	ServerCatalogStatus ServerCatalogStatus `json:"sms:GetServersOutput:ServerCatalogStatus" locationName:"serverCatalogStatus" type:"string" enum:"true"`
 
 	// Information about the servers.
-	ServerList []Server `locationName:"serverList" type:"list"`
+	ServerList []Server `json:"sms:GetServersOutput:ServerList" locationName:"serverList" type:"list"`
 }
 
 // String returns the string representation

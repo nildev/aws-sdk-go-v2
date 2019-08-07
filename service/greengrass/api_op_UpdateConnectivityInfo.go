@@ -71,10 +71,10 @@ type UpdateConnectivityInfoOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A message about the connectivity info update request.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"greengrass:UpdateConnectivityInfoOutput:Message" locationName:"message" type:"string"`
 
 	// The new version of the connectivity info.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:UpdateConnectivityInfoOutput:Version" type:"string"`
 }
 
 // String returns the string representation

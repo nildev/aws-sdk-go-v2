@@ -56,7 +56,7 @@ type AuthorizeClusterSecurityGroupIngressOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes a security group.
-	ClusterSecurityGroup *ClusterSecurityGroup `type:"structure"`
+	ClusterSecurityGroup *ClusterSecurityGroup `json:"redshift:AuthorizeClusterSecurityGroupIngressOutput:ClusterSecurityGroup" type:"structure"`
 }
 
 // String returns the string representation

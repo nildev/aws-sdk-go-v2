@@ -97,12 +97,12 @@ type CreateStateMachineOutput struct {
 	// The date the state machine is created.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"states:CreateStateMachineOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) that identifies the created state machine.
 	//
 	// StateMachineArn is a required field
-	StateMachineArn *string `locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
+	StateMachineArn *string `json:"states:CreateStateMachineOutput:StateMachineArn" locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

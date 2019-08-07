@@ -66,14 +66,14 @@ type GetAggregateConfigRuleComplianceSummaryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a list of AggregateComplianceCounts object.
-	AggregateComplianceCounts []AggregateComplianceCount `type:"list"`
+	AggregateComplianceCounts []AggregateComplianceCount `json:"config:GetAggregateConfigRuleComplianceSummaryOutput:AggregateComplianceCounts" type:"list"`
 
 	// Groups the result based on ACCOUNT_ID or AWS_REGION.
-	GroupByKey *string `min:"1" type:"string"`
+	GroupByKey *string `json:"config:GetAggregateConfigRuleComplianceSummaryOutput:GroupByKey" min:"1" type:"string"`
 
 	// The nextToken string returned on a previous page that you use to get the
 	// next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:GetAggregateConfigRuleComplianceSummaryOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

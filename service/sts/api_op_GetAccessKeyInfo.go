@@ -49,7 +49,7 @@ type GetAccessKeyInfoOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number used to identify the AWS account.
-	Account *string `type:"string"`
+	Account *string `json:"sts:GetAccessKeyInfoOutput:Account" type:"string"`
 }
 
 // String returns the string representation

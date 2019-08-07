@@ -59,29 +59,29 @@ type DeleteEventSourceMappingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of items to retrieve in a single batch.
-	BatchSize *int64 `min:"1" type:"integer"`
+	BatchSize *int64 `json:"lambda:DeleteEventSourceMappingOutput:BatchSize" min:"1" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the event source.
-	EventSourceArn *string `type:"string"`
+	EventSourceArn *string `json:"lambda:DeleteEventSourceMappingOutput:EventSourceArn" type:"string"`
 
 	// The ARN of the Lambda function.
-	FunctionArn *string `type:"string"`
+	FunctionArn *string `json:"lambda:DeleteEventSourceMappingOutput:FunctionArn" type:"string"`
 
 	// The date that the event source mapping was last updated.
-	LastModified *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModified *time.Time `json:"lambda:DeleteEventSourceMappingOutput:LastModified" type:"timestamp" timestampFormat:"unix"`
 
 	// The result of the last AWS Lambda invocation of your Lambda function.
-	LastProcessingResult *string `type:"string"`
+	LastProcessingResult *string `json:"lambda:DeleteEventSourceMappingOutput:LastProcessingResult" type:"string"`
 
 	// The state of the event source mapping. It can be one of the following: Creating,
 	// Enabling, Enabled, Disabling, Disabled, Updating, or Deleting.
-	State *string `type:"string"`
+	State *string `json:"lambda:DeleteEventSourceMappingOutput:State" type:"string"`
 
 	// The cause of the last state change, either User initiated or Lambda initiated.
-	StateTransitionReason *string `type:"string"`
+	StateTransitionReason *string `json:"lambda:DeleteEventSourceMappingOutput:StateTransitionReason" type:"string"`
 
 	// The identifier of the event source mapping.
-	UUID *string `type:"string"`
+	UUID *string `json:"lambda:DeleteEventSourceMappingOutput:UUID" type:"string"`
 }
 
 // String returns the string representation

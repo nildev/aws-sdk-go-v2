@@ -64,13 +64,13 @@ type SetRepositoryPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON repository policy text applied to the repository.
-	PolicyText *string `locationName:"policyText" type:"string"`
+	PolicyText *string `json:"api.ecr:SetRepositoryPolicyOutput:PolicyText" locationName:"policyText" type:"string"`
 
 	// The registry ID associated with the request.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:SetRepositoryPolicyOutput:RegistryId" locationName:"registryId" type:"string"`
 
 	// The repository name associated with the request.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:SetRepositoryPolicyOutput:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 }
 
 // String returns the string representation

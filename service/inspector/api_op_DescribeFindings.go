@@ -53,12 +53,12 @@ type DescribeFindingsOutput struct {
 	// failed item.
 	//
 	// FailedItems is a required field
-	FailedItems map[string]FailedItemDetails `locationName:"failedItems" type:"map" required:"true"`
+	FailedItems map[string]FailedItemDetails `json:"inspector:DescribeFindingsOutput:FailedItems" locationName:"failedItems" type:"map" required:"true"`
 
 	// Information about the finding.
 	//
 	// Findings is a required field
-	Findings []Finding `locationName:"findings" type:"list" required:"true"`
+	Findings []Finding `json:"inspector:DescribeFindingsOutput:Findings" locationName:"findings" type:"list" required:"true"`
 }
 
 // String returns the string representation

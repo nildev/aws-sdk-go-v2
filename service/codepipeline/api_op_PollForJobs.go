@@ -62,7 +62,7 @@ type PollForJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the jobs to take action on.
-	Jobs []Job `locationName:"jobs" type:"list"`
+	Jobs []Job `json:"codepipeline:PollForJobsOutput:Jobs" locationName:"jobs" type:"list"`
 }
 
 // String returns the string representation

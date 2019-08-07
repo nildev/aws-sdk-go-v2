@@ -90,14 +90,14 @@ type DescribeFileSystemsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of file system descriptions.
-	FileSystems []FileSystemDescription `type:"list"`
+	FileSystems []FileSystemDescription `json:"elasticfilesystem:DescribeFileSystemsOutput:FileSystems" type:"list"`
 
 	// Present if provided by caller in the request (String).
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticfilesystem:DescribeFileSystemsOutput:Marker" type:"string"`
 
 	// Present if there are more file systems than returned in the response (String).
 	// You can use the NextMarker in the subsequent request to fetch the descriptions.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"elasticfilesystem:DescribeFileSystemsOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

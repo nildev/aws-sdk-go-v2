@@ -104,10 +104,10 @@ type ListObjectPoliciesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of policy ObjectIdentifiers, that are attached to the object.
-	AttachedPolicyIds []string `type:"list"`
+	AttachedPolicyIds []string `json:"clouddirectory:ListObjectPoliciesOutput:AttachedPolicyIds" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListObjectPoliciesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

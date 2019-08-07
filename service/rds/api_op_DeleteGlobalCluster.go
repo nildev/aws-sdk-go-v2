@@ -43,7 +43,7 @@ type DeleteGlobalClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A data type representing an Aurora global database.
-	GlobalCluster *GlobalCluster `type:"structure"`
+	GlobalCluster *GlobalCluster `json:"rds:DeleteGlobalClusterOutput:GlobalCluster" type:"structure"`
 }
 
 // String returns the string representation

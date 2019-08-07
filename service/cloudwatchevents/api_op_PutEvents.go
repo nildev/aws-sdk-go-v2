@@ -58,10 +58,10 @@ type PutEventsOutput struct {
 	// The successfully and unsuccessfully ingested events results. If the ingestion
 	// was successful, the entry has the event ID in it. Otherwise, you can use
 	// the error code and error message to identify the problem with the entry.
-	Entries []PutEventsResultEntry `type:"list"`
+	Entries []PutEventsResultEntry `json:"events:PutEventsOutput:Entries" type:"list"`
 
 	// The number of failed entries.
-	FailedEntryCount *int64 `type:"integer"`
+	FailedEntryCount *int64 `json:"events:PutEventsOutput:FailedEntryCount" type:"integer"`
 }
 
 // String returns the string representation

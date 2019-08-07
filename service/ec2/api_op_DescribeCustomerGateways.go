@@ -64,7 +64,7 @@ type DescribeCustomerGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about one or more customer gateways.
-	CustomerGateways []CustomerGateway `locationName:"customerGatewaySet" locationNameList:"item" type:"list"`
+	CustomerGateways []CustomerGateway `json:"ec2:DescribeCustomerGatewaysOutput:CustomerGateways" locationName:"customerGatewaySet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type ListHealthChecksOutput struct {
 	// that is associated with the current AWS account.
 	//
 	// HealthChecks is a required field
-	HealthChecks []HealthCheck `locationNameList:"HealthCheck" type:"list" required:"true"`
+	HealthChecks []HealthCheck `json:"route53:ListHealthChecksOutput:HealthChecks" locationNameList:"HealthCheck" type:"list" required:"true"`
 
 	// A flag that indicates whether there are more health checks to be listed.
 	// If the response was truncated, you can get the next group of health checks
@@ -74,24 +74,24 @@ type ListHealthChecksOutput struct {
 	// NextMarker in the marker parameter.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListHealthChecksOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// For the second and subsequent calls to ListHealthChecks, Marker is the value
 	// that you specified for the marker parameter in the previous request.
 	//
 	// Marker is a required field
-	Marker *string `type:"string" required:"true"`
+	Marker *string `json:"route53:ListHealthChecksOutput:Marker" type:"string" required:"true"`
 
 	// The value that you specified for the maxitems parameter in the call to ListHealthChecks
 	// that produced the current response.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListHealthChecksOutput:MaxItems" type:"string" required:"true"`
 
 	// If IsTruncated is true, the value of NextMarker identifies the first health
 	// check that Amazon Route 53 returns if you submit another ListHealthChecks
 	// request and specify the value of NextMarker in the marker parameter.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"route53:ListHealthChecksOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

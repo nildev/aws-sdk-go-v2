@@ -118,7 +118,7 @@ type CreateAppOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The app ID.
-	AppId *string `type:"string"`
+	AppId *string `json:"opsworks:CreateAppOutput:AppId" type:"string"`
 }
 
 // String returns the string representation

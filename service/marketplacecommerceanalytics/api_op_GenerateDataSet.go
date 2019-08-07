@@ -196,7 +196,7 @@ type GenerateDataSetOutput struct {
 	// A unique identifier representing a specific request to the GenerateDataSet
 	// operation. This identifier can be used to correlate a request with notifications
 	// from the SNS topic.
-	DataSetRequestId *string `locationName:"dataSetRequestId" type:"string"`
+	DataSetRequestId *string `json:"marketplacecommerceanalytics:GenerateDataSetOutput:DataSetRequestId" locationName:"dataSetRequestId" type:"string"`
 }
 
 // String returns the string representation

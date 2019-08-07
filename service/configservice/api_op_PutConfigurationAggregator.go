@@ -74,7 +74,7 @@ type PutConfigurationAggregatorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a ConfigurationAggregator object.
-	ConfigurationAggregator *ConfigurationAggregator `type:"structure"`
+	ConfigurationAggregator *ConfigurationAggregator `json:"config:PutConfigurationAggregatorOutput:ConfigurationAggregator" type:"structure"`
 }
 
 // String returns the string representation

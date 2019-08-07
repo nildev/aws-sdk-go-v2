@@ -49,7 +49,7 @@ type PurchaseReservedNodeOfferingOutput struct {
 
 	// Describes a reserved node. You can call the DescribeReservedNodeOfferings
 	// API to obtain the available reserved node offerings.
-	ReservedNode *ReservedNode `type:"structure"`
+	ReservedNode *ReservedNode `json:"redshift:PurchaseReservedNodeOfferingOutput:ReservedNode" type:"structure"`
 }
 
 // String returns the string representation

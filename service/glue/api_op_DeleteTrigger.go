@@ -46,7 +46,7 @@ type DeleteTriggerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the trigger that was deleted.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:DeleteTriggerOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

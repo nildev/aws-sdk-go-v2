@@ -105,16 +105,16 @@ type CreateConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the configuration.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"kafka:CreateConfigurationOutput:Arn" locationName:"arn" type:"string"`
 
 	// The time when the configuration was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"kafka:CreateConfigurationOutput:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Latest revision of the configuration.
-	LatestRevision *ConfigurationRevision `locationName:"latestRevision" type:"structure"`
+	LatestRevision *ConfigurationRevision `json:"kafka:CreateConfigurationOutput:LatestRevision" locationName:"latestRevision" type:"structure"`
 
 	// The name of the configuration.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"kafka:CreateConfigurationOutput:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation

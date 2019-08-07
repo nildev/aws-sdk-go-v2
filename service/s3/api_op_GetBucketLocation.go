@@ -60,7 +60,7 @@ func (s GetBucketLocationInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetBucketLocationOutput struct {
 	_ struct{} `type:"structure"`
 
-	LocationConstraint BucketLocationConstraint `type:"string" enum:"true"`
+	LocationConstraint BucketLocationConstraint `json:"s3:GetBucketLocationOutput:LocationConstraint" type:"string" enum:"true"`
 }
 
 // String returns the string representation

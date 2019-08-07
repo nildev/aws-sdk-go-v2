@@ -55,7 +55,7 @@ type CreateGlobalTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the details of the global table.
-	GlobalTableDescription *GlobalTableDescription `type:"structure"`
+	GlobalTableDescription *GlobalTableDescription `json:"dynamodb:CreateGlobalTableOutput:GlobalTableDescription" type:"structure"`
 }
 
 // String returns the string representation

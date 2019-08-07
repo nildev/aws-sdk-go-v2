@@ -64,10 +64,10 @@ type ListTagsForResourceOutput struct {
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListTagsForResourceOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of tags assigned to the resource.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"iot:ListTagsForResourceOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

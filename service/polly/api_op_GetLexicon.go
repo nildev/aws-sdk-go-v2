@@ -56,12 +56,12 @@ type GetLexiconOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Lexicon object that provides name and the string content of the lexicon.
-	Lexicon *Lexicon `type:"structure"`
+	Lexicon *Lexicon `json:"polly:GetLexiconOutput:Lexicon" type:"structure"`
 
 	// Metadata of the lexicon, including phonetic alphabetic used, language code,
 	// lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon
 	// in bytes.
-	LexiconAttributes *LexiconAttributes `type:"structure"`
+	LexiconAttributes *LexiconAttributes `json:"polly:GetLexiconOutput:LexiconAttributes" type:"structure"`
 }
 
 // String returns the string representation

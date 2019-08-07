@@ -27,7 +27,7 @@ type GetAccountSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The account settings.
-	AccountSettings *AccountSettings `locationName:"accountSettings" type:"structure"`
+	AccountSettings *AccountSettings `json:"devicefarm:GetAccountSettingsOutput:AccountSettings" locationName:"accountSettings" type:"structure"`
 }
 
 // String returns the string representation

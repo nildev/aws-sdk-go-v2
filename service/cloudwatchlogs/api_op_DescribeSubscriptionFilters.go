@@ -67,10 +67,10 @@ type DescribeSubscriptionFiltersOutput struct {
 
 	// The token for the next set of items to return. The token expires after 24
 	// hours.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"logs:DescribeSubscriptionFiltersOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// The subscription filters.
-	SubscriptionFilters []SubscriptionFilter `locationName:"subscriptionFilters" type:"list"`
+	SubscriptionFilters []SubscriptionFilter `json:"logs:DescribeSubscriptionFiltersOutput:SubscriptionFilters" locationName:"subscriptionFilters" type:"list"`
 }
 
 // String returns the string representation

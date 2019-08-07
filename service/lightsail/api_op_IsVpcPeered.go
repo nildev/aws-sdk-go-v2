@@ -24,7 +24,7 @@ type IsVpcPeeredOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns true if the Lightsail VPC is peered; otherwise, false.
-	IsPeered *bool `locationName:"isPeered" type:"boolean"`
+	IsPeered *bool `json:"lightsail:IsVpcPeeredOutput:IsPeered" locationName:"isPeered" type:"boolean"`
 }
 
 // String returns the string representation

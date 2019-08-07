@@ -54,7 +54,7 @@ type GetDeploymentInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the instance.
-	InstanceSummary *InstanceSummary `locationName:"instanceSummary" deprecated:"true" type:"structure"`
+	InstanceSummary *InstanceSummary `json:"codedeploy:GetDeploymentInstanceOutput:InstanceSummary" locationName:"instanceSummary" deprecated:"true" type:"structure"`
 }
 
 // String returns the string representation

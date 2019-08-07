@@ -63,10 +63,10 @@ type ListStackInstancesForProvisionedProductOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListStackInstancesForProvisionedProductOutput:NextPageToken" type:"string"`
 
 	// List of stack instances.
-	StackInstances []StackInstance `type:"list"`
+	StackInstances []StackInstance `json:"servicecatalog:ListStackInstancesForProvisionedProductOutput:StackInstances" type:"list"`
 }
 
 // String returns the string representation

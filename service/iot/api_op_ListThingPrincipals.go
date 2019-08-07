@@ -59,7 +59,7 @@ type ListThingPrincipalsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The principals associated with the thing.
-	Principals []string `locationName:"principals" type:"list"`
+	Principals []string `json:"iot:ListThingPrincipalsOutput:Principals" locationName:"principals" type:"list"`
 }
 
 // String returns the string representation

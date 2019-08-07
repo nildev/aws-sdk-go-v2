@@ -43,7 +43,7 @@ type DeleteKnownHostKeysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of objects describing the API operation.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:DeleteKnownHostKeysOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

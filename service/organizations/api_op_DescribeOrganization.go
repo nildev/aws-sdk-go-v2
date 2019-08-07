@@ -24,7 +24,7 @@ type DescribeOrganizationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains information about the organization.
-	Organization *Organization `type:"structure"`
+	Organization *Organization `json:"organizations:DescribeOrganizationOutput:Organization" type:"structure"`
 }
 
 // String returns the string representation

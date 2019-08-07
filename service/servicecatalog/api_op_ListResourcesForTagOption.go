@@ -61,10 +61,10 @@ type ListResourcesForTagOptionOutput struct {
 
 	// The page token for the next set of results. To retrieve the first set of
 	// results, use null.
-	PageToken *string `type:"string"`
+	PageToken *string `json:"servicecatalog:ListResourcesForTagOptionOutput:PageToken" type:"string"`
 
 	// Information about the resources.
-	ResourceDetails []ResourceDetail `type:"list"`
+	ResourceDetails []ResourceDetail `json:"servicecatalog:ListResourcesForTagOptionOutput:ResourceDetails" type:"list"`
 }
 
 // String returns the string representation

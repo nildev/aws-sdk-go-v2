@@ -58,10 +58,10 @@ type ListPoliciesOutput struct {
 	// list more PolicySummary objects, submit another ListPolicies request, and
 	// specify the NextToken value from the response in the NextToken value in the
 	// next request.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"fms:ListPoliciesOutput:NextToken" min:"1" type:"string"`
 
 	// An array of PolicySummary objects.
-	PolicyList []PolicySummary `type:"list"`
+	PolicyList []PolicySummary `json:"fms:ListPoliciesOutput:PolicyList" type:"list"`
 }
 
 // String returns the string representation

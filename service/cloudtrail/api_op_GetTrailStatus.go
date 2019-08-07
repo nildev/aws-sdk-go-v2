@@ -51,21 +51,21 @@ type GetTrailStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the CloudTrail is currently logging AWS API calls.
-	IsLogging *bool `type:"boolean"`
+	IsLogging *bool `json:"cloudtrail:GetTrailStatusOutput:IsLogging" type:"boolean"`
 
 	// Displays any CloudWatch Logs error that CloudTrail encountered when attempting
 	// to deliver logs to CloudWatch Logs.
-	LatestCloudWatchLogsDeliveryError *string `type:"string"`
+	LatestCloudWatchLogsDeliveryError *string `json:"cloudtrail:GetTrailStatusOutput:LatestCloudWatchLogsDeliveryError" type:"string"`
 
 	// Displays the most recent date and time when CloudTrail delivered logs to
 	// CloudWatch Logs.
-	LatestCloudWatchLogsDeliveryTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LatestCloudWatchLogsDeliveryTime *time.Time `json:"cloudtrail:GetTrailStatusOutput:LatestCloudWatchLogsDeliveryTime" type:"timestamp" timestampFormat:"unix"`
 
 	// This field is deprecated.
-	LatestDeliveryAttemptSucceeded *string `type:"string"`
+	LatestDeliveryAttemptSucceeded *string `json:"cloudtrail:GetTrailStatusOutput:LatestDeliveryAttemptSucceeded" type:"string"`
 
 	// This field is deprecated.
-	LatestDeliveryAttemptTime *string `type:"string"`
+	LatestDeliveryAttemptTime *string `json:"cloudtrail:GetTrailStatusOutput:LatestDeliveryAttemptTime" type:"string"`
 
 	// Displays any Amazon S3 error that CloudTrail encountered when attempting
 	// to deliver log files to the designated bucket. For more information see the
@@ -76,11 +76,11 @@ type GetTrailStatusOutput struct {
 	// and will not occur for timeouts. To resolve the issue, create a new bucket
 	// and call UpdateTrail to specify the new bucket, or fix the existing objects
 	// so that CloudTrail can again write to the bucket.
-	LatestDeliveryError *string `type:"string"`
+	LatestDeliveryError *string `json:"cloudtrail:GetTrailStatusOutput:LatestDeliveryError" type:"string"`
 
 	// Specifies the date and time that CloudTrail last delivered log files to an
 	// account's Amazon S3 bucket.
-	LatestDeliveryTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LatestDeliveryTime *time.Time `json:"cloudtrail:GetTrailStatusOutput:LatestDeliveryTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Displays any Amazon S3 error that CloudTrail encountered when attempting
 	// to deliver a digest file to the designated bucket. For more information see
@@ -91,40 +91,40 @@ type GetTrailStatusOutput struct {
 	// and will not occur for timeouts. To resolve the issue, create a new bucket
 	// and call UpdateTrail to specify the new bucket, or fix the existing objects
 	// so that CloudTrail can again write to the bucket.
-	LatestDigestDeliveryError *string `type:"string"`
+	LatestDigestDeliveryError *string `json:"cloudtrail:GetTrailStatusOutput:LatestDigestDeliveryError" type:"string"`
 
 	// Specifies the date and time that CloudTrail last delivered a digest file
 	// to an account's Amazon S3 bucket.
-	LatestDigestDeliveryTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LatestDigestDeliveryTime *time.Time `json:"cloudtrail:GetTrailStatusOutput:LatestDigestDeliveryTime" type:"timestamp" timestampFormat:"unix"`
 
 	// This field is deprecated.
-	LatestNotificationAttemptSucceeded *string `type:"string"`
+	LatestNotificationAttemptSucceeded *string `json:"cloudtrail:GetTrailStatusOutput:LatestNotificationAttemptSucceeded" type:"string"`
 
 	// This field is deprecated.
-	LatestNotificationAttemptTime *string `type:"string"`
+	LatestNotificationAttemptTime *string `json:"cloudtrail:GetTrailStatusOutput:LatestNotificationAttemptTime" type:"string"`
 
 	// Displays any Amazon SNS error that CloudTrail encountered when attempting
 	// to send a notification. For more information about Amazon SNS errors, see
 	// the Amazon SNS Developer Guide (http://docs.aws.amazon.com/sns/latest/dg/welcome.html).
-	LatestNotificationError *string `type:"string"`
+	LatestNotificationError *string `json:"cloudtrail:GetTrailStatusOutput:LatestNotificationError" type:"string"`
 
 	// Specifies the date and time of the most recent Amazon SNS notification that
 	// CloudTrail has written a new log file to an account's Amazon S3 bucket.
-	LatestNotificationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LatestNotificationTime *time.Time `json:"cloudtrail:GetTrailStatusOutput:LatestNotificationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies the most recent date and time when CloudTrail started recording
 	// API calls for an AWS account.
-	StartLoggingTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartLoggingTime *time.Time `json:"cloudtrail:GetTrailStatusOutput:StartLoggingTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies the most recent date and time when CloudTrail stopped recording
 	// API calls for an AWS account.
-	StopLoggingTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StopLoggingTime *time.Time `json:"cloudtrail:GetTrailStatusOutput:StopLoggingTime" type:"timestamp" timestampFormat:"unix"`
 
 	// This field is deprecated.
-	TimeLoggingStarted *string `type:"string"`
+	TimeLoggingStarted *string `json:"cloudtrail:GetTrailStatusOutput:TimeLoggingStarted" type:"string"`
 
 	// This field is deprecated.
-	TimeLoggingStopped *string `type:"string"`
+	TimeLoggingStopped *string `json:"cloudtrail:GetTrailStatusOutput:TimeLoggingStopped" type:"string"`
 }
 
 // String returns the string representation

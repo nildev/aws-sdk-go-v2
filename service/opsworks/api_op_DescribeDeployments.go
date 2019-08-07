@@ -38,7 +38,7 @@ type DescribeDeploymentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Deployment objects that describe the deployments.
-	Deployments []Deployment `type:"list"`
+	Deployments []Deployment `json:"opsworks:DescribeDeploymentsOutput:Deployments" type:"list"`
 }
 
 // String returns the string representation

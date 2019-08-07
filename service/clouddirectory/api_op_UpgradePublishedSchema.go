@@ -102,7 +102,7 @@ type UpgradePublishedSchemaOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the upgraded schema that is returned as part of the response.
-	UpgradedSchemaArn *string `type:"string"`
+	UpgradedSchemaArn *string `json:"clouddirectory:UpgradePublishedSchemaOutput:UpgradedSchemaArn" type:"string"`
 }
 
 // String returns the string representation

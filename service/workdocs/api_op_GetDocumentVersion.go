@@ -113,10 +113,10 @@ type GetDocumentVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The custom metadata on the document version.
-	CustomMetadata map[string]string `min:"1" type:"map"`
+	CustomMetadata map[string]string `json:"workdocs:GetDocumentVersionOutput:CustomMetadata" min:"1" type:"map"`
 
 	// The version metadata.
-	Metadata *DocumentVersionMetadata `type:"structure"`
+	Metadata *DocumentVersionMetadata `json:"workdocs:GetDocumentVersionOutput:Metadata" type:"structure"`
 }
 
 // String returns the string representation

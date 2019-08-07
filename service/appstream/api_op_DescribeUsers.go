@@ -54,10 +54,10 @@ type DescribeUsersOutput struct {
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:DescribeUsersOutput:NextToken" min:"1" type:"string"`
 
 	// Information about users in the user pool.
-	Users []User `type:"list"`
+	Users []User `json:"appstream2:DescribeUsersOutput:Users" type:"list"`
 }
 
 // String returns the string representation

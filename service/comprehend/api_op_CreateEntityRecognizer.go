@@ -124,7 +124,7 @@ type CreateEntityRecognizerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) that identifies the entity recognizer.
-	EntityRecognizerArn *string `type:"string"`
+	EntityRecognizerArn *string `json:"comprehend:CreateEntityRecognizerOutput:EntityRecognizerArn" type:"string"`
 }
 
 // String returns the string representation

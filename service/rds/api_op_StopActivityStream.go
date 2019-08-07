@@ -49,14 +49,14 @@ type StopActivityStreamOutput struct {
 
 	// The name of the Amazon Kinesis data stream used for the database activity
 	// stream.
-	KinesisStreamName *string `type:"string"`
+	KinesisStreamName *string `json:"rds:StopActivityStreamOutput:KinesisStreamName" type:"string"`
 
 	// The AWS KMS key identifier used for encrypting messages in the database activity
 	// stream.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"rds:StopActivityStreamOutput:KmsKeyId" type:"string"`
 
 	// The status of the database activity stream.
-	Status ActivityStreamStatus `type:"string" enum:"true"`
+	Status ActivityStreamStatus `json:"rds:StopActivityStreamOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

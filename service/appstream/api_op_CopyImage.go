@@ -68,7 +68,7 @@ type CopyImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the destination image.
-	DestinationImageName *string `type:"string"`
+	DestinationImageName *string `json:"appstream2:CopyImageOutput:DestinationImageName" type:"string"`
 }
 
 // String returns the string representation

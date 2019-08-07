@@ -173,12 +173,12 @@ type PutScalingPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The CloudWatch alarms created for the target tracking scaling policy.
-	Alarms []Alarm `type:"list"`
+	Alarms []Alarm `json:"autoscaling:PutScalingPolicyOutput:Alarms" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the resulting scaling policy.
 	//
 	// PolicyARN is a required field
-	PolicyARN *string `min:"1" type:"string" required:"true"`
+	PolicyARN *string `json:"autoscaling:PutScalingPolicyOutput:PolicyARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

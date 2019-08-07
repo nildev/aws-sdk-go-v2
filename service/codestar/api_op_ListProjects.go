@@ -48,12 +48,12 @@ type ListProjectsOutput struct {
 
 	// The continuation token to use when requesting the next set of results, if
 	// there are more results to be returned.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codestar:ListProjectsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// A list of projects.
 	//
 	// Projects is a required field
-	Projects []ProjectSummary `locationName:"projects" type:"list" required:"true"`
+	Projects []ProjectSummary `json:"codestar:ListProjectsOutput:Projects" locationName:"projects" type:"list" required:"true"`
 }
 
 // String returns the string representation

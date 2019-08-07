@@ -49,10 +49,10 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved for future use.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ds:ListTagsForResourceOutput:NextToken" type:"string"`
 
 	// List of tags returned by the ListTagsForResource operation.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"ds:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

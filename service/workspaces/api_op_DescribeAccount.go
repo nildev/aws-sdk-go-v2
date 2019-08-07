@@ -30,10 +30,10 @@ type DescribeAccountOutput struct {
 	// management network. It is used for interactive streaming of the WorkSpace
 	// desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage
 	// the WorkSpace.
-	DedicatedTenancyManagementCidrRange *string `type:"string"`
+	DedicatedTenancyManagementCidrRange *string `json:"workspaces:DescribeAccountOutput:DedicatedTenancyManagementCidrRange" type:"string"`
 
 	// The status of BYOL (whether BYOL is enabled or disabled).
-	DedicatedTenancySupport DedicatedTenancySupportResultEnum `type:"string" enum:"true"`
+	DedicatedTenancySupport DedicatedTenancySupportResultEnum `json:"workspaces:DescribeAccountOutput:DedicatedTenancySupport" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -53,7 +53,7 @@ type RegisterElasticIpOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Elastic IP address.
-	ElasticIp *string `type:"string"`
+	ElasticIp *string `json:"opsworks:RegisterElasticIpOutput:ElasticIp" type:"string"`
 }
 
 // String returns the string representation

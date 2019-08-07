@@ -43,11 +43,11 @@ type DescribeAccountLimitsOutput struct {
 
 	// An account limit structure that contain a list of AWS CloudFormation account
 	// limits and their values.
-	AccountLimits []AccountLimit `type:"list"`
+	AccountLimits []AccountLimit `json:"cloudformation:DescribeAccountLimitsOutput:AccountLimits" type:"list"`
 
 	// If the output exceeds 1 MB in size, a string that identifies the next page
 	// of limits. If no additional page exists, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:DescribeAccountLimitsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

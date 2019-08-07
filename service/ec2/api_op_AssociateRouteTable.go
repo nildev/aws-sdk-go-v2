@@ -59,7 +59,7 @@ type AssociateRouteTableOutput struct {
 
 	// The route table association ID. This ID is required for disassociating the
 	// route table.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:AssociateRouteTableOutput:AssociationId" locationName:"associationId" type:"string"`
 }
 
 // String returns the string representation

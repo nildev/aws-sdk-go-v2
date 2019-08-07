@@ -60,25 +60,25 @@ type GetPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date the policy was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:GetPolicyOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The default policy version ID.
-	DefaultVersionId *string `locationName:"defaultVersionId" type:"string"`
+	DefaultVersionId *string `json:"iot:GetPolicyOutput:DefaultVersionId" locationName:"defaultVersionId" type:"string"`
 
 	// The generation ID of the policy.
-	GenerationId *string `locationName:"generationId" type:"string"`
+	GenerationId *string `json:"iot:GetPolicyOutput:GenerationId" locationName:"generationId" type:"string"`
 
 	// The date the policy was last modified.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:GetPolicyOutput:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The policy ARN.
-	PolicyArn *string `locationName:"policyArn" type:"string"`
+	PolicyArn *string `json:"iot:GetPolicyOutput:PolicyArn" locationName:"policyArn" type:"string"`
 
 	// The JSON document that describes the policy.
-	PolicyDocument *string `locationName:"policyDocument" type:"string"`
+	PolicyDocument *string `json:"iot:GetPolicyOutput:PolicyDocument" locationName:"policyDocument" type:"string"`
 
 	// The policy name.
-	PolicyName *string `locationName:"policyName" min:"1" type:"string"`
+	PolicyName *string `json:"iot:GetPolicyOutput:PolicyName" locationName:"policyName" min:"1" type:"string"`
 }
 
 // String returns the string representation

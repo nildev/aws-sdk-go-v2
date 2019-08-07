@@ -95,10 +95,10 @@ type GetResourceShareInvitationsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ram:GetResourceShareInvitationsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the invitations.
-	ResourceShareInvitations []ResourceShareInvitation `locationName:"resourceShareInvitations" type:"list"`
+	ResourceShareInvitations []ResourceShareInvitation `json:"ram:GetResourceShareInvitationsOutput:ResourceShareInvitations" locationName:"resourceShareInvitations" type:"list"`
 }
 
 // String returns the string representation

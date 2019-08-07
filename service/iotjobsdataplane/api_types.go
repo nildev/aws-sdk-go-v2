@@ -18,41 +18,41 @@ type JobExecution struct {
 
 	// The estimated number of seconds that remain before the job execution status
 	// will be changed to TIMED_OUT.
-	ApproximateSecondsBeforeTimedOut *int64 `locationName:"approximateSecondsBeforeTimedOut" type:"long"`
+	ApproximateSecondsBeforeTimedOut *int64 `json:"data.jobs.iot:JobExecution:ApproximateSecondsBeforeTimedOut" locationName:"approximateSecondsBeforeTimedOut" type:"long"`
 
 	// A number that identifies a particular job execution on a particular device.
 	// It can be used later in commands that return or update job execution information.
-	ExecutionNumber *int64 `locationName:"executionNumber" type:"long"`
+	ExecutionNumber *int64 `json:"data.jobs.iot:JobExecution:ExecutionNumber" locationName:"executionNumber" type:"long"`
 
 	// The content of the job document.
-	JobDocument *string `locationName:"jobDocument" type:"string"`
+	JobDocument *string `json:"data.jobs.iot:JobExecution:JobDocument" locationName:"jobDocument" type:"string"`
 
 	// The unique identifier you assigned to this job when it was created.
-	JobId *string `locationName:"jobId" min:"1" type:"string"`
+	JobId *string `json:"data.jobs.iot:JobExecution:JobId" locationName:"jobId" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the job execution was last
 	// updated.
-	LastUpdatedAt *int64 `locationName:"lastUpdatedAt" type:"long"`
+	LastUpdatedAt *int64 `json:"data.jobs.iot:JobExecution:LastUpdatedAt" locationName:"lastUpdatedAt" type:"long"`
 
 	// The time, in milliseconds since the epoch, when the job execution was enqueued.
-	QueuedAt *int64 `locationName:"queuedAt" type:"long"`
+	QueuedAt *int64 `json:"data.jobs.iot:JobExecution:QueuedAt" locationName:"queuedAt" type:"long"`
 
 	// The time, in milliseconds since the epoch, when the job execution was started.
-	StartedAt *int64 `locationName:"startedAt" type:"long"`
+	StartedAt *int64 `json:"data.jobs.iot:JobExecution:StartedAt" locationName:"startedAt" type:"long"`
 
 	// The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS",
 	// "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
-	Status JobExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobExecutionStatus `json:"data.jobs.iot:JobExecution:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A collection of name/value pairs that describe the status of the job execution.
-	StatusDetails map[string]string `locationName:"statusDetails" type:"map"`
+	StatusDetails map[string]string `json:"data.jobs.iot:JobExecution:StatusDetails" locationName:"statusDetails" type:"map"`
 
 	// The name of the thing that is executing the job.
-	ThingName *string `locationName:"thingName" min:"1" type:"string"`
+	ThingName *string `json:"data.jobs.iot:JobExecution:ThingName" locationName:"thingName" min:"1" type:"string"`
 
 	// The version of the job execution. Job execution versions are incremented
 	// each time they are updated by a device.
-	VersionNumber *int64 `locationName:"versionNumber" type:"long"`
+	VersionNumber *int64 `json:"data.jobs.iot:JobExecution:VersionNumber" locationName:"versionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -144,14 +144,14 @@ type JobExecutionState struct {
 
 	// The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS",
 	// "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
-	Status JobExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobExecutionStatus `json:"data.jobs.iot:JobExecutionState:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A collection of name/value pairs that describe the status of the job execution.
-	StatusDetails map[string]string `locationName:"statusDetails" type:"map"`
+	StatusDetails map[string]string `json:"data.jobs.iot:JobExecutionState:StatusDetails" locationName:"statusDetails" type:"map"`
 
 	// The version of the job execution. Job execution versions are incremented
 	// each time they are updated by a device.
-	VersionNumber *int64 `locationName:"versionNumber" type:"long"`
+	VersionNumber *int64 `json:"data.jobs.iot:JobExecutionState:VersionNumber" locationName:"versionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -194,24 +194,24 @@ type JobExecutionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// A number that identifies a particular job execution on a particular device.
-	ExecutionNumber *int64 `locationName:"executionNumber" type:"long"`
+	ExecutionNumber *int64 `json:"data.jobs.iot:JobExecutionSummary:ExecutionNumber" locationName:"executionNumber" type:"long"`
 
 	// The unique identifier you assigned to this job when it was created.
-	JobId *string `locationName:"jobId" min:"1" type:"string"`
+	JobId *string `json:"data.jobs.iot:JobExecutionSummary:JobId" locationName:"jobId" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the job execution was last
 	// updated.
-	LastUpdatedAt *int64 `locationName:"lastUpdatedAt" type:"long"`
+	LastUpdatedAt *int64 `json:"data.jobs.iot:JobExecutionSummary:LastUpdatedAt" locationName:"lastUpdatedAt" type:"long"`
 
 	// The time, in milliseconds since the epoch, when the job execution was enqueued.
-	QueuedAt *int64 `locationName:"queuedAt" type:"long"`
+	QueuedAt *int64 `json:"data.jobs.iot:JobExecutionSummary:QueuedAt" locationName:"queuedAt" type:"long"`
 
 	// The time, in milliseconds since the epoch, when the job execution started.
-	StartedAt *int64 `locationName:"startedAt" type:"long"`
+	StartedAt *int64 `json:"data.jobs.iot:JobExecutionSummary:StartedAt" locationName:"startedAt" type:"long"`
 
 	// The version of the job execution. Job execution versions are incremented
 	// each time AWS IoT Jobs receives an update from a device.
-	VersionNumber *int64 `locationName:"versionNumber" type:"long"`
+	VersionNumber *int64 `json:"data.jobs.iot:JobExecutionSummary:VersionNumber" locationName:"versionNumber" type:"long"`
 }
 
 // String returns the string representation

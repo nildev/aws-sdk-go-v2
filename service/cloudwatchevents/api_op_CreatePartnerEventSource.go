@@ -62,7 +62,7 @@ type CreatePartnerEventSourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the partner event source.
-	EventSourceArn *string `type:"string"`
+	EventSourceArn *string `json:"events:CreatePartnerEventSourceOutput:EventSourceArn" type:"string"`
 }
 
 // String returns the string representation

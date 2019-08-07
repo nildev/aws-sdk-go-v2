@@ -59,11 +59,11 @@ type DeleteProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the deleted project.
-	ProjectArn *string `locationName:"projectArn" type:"string"`
+	ProjectArn *string `json:"codestar:DeleteProjectOutput:ProjectArn" locationName:"projectArn" type:"string"`
 
 	// The ID of the primary stack in AWS CloudFormation that will be deleted as
 	// part of deleting the project and its resources.
-	StackId *string `locationName:"stackId" type:"string"`
+	StackId *string `json:"codestar:DeleteProjectOutput:StackId" locationName:"stackId" type:"string"`
 }
 
 // String returns the string representation

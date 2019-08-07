@@ -54,10 +54,10 @@ type DescribeTargetGroupsOutput struct {
 
 	// If there are additional results, this is the marker for the next set of results.
 	// Otherwise, this is null.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"elasticloadbalancing:DescribeTargetGroupsOutput:NextMarker" type:"string"`
 
 	// Information about the target groups.
-	TargetGroups []TargetGroup `type:"list"`
+	TargetGroups []TargetGroup `json:"elasticloadbalancing:DescribeTargetGroupsOutput:TargetGroups" type:"list"`
 }
 
 // String returns the string representation

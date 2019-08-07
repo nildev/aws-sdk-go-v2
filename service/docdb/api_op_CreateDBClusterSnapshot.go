@@ -74,7 +74,7 @@ type CreateDBClusterSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB cluster snapshot.
-	DBClusterSnapshot *DBClusterSnapshot `type:"structure"`
+	DBClusterSnapshot *DBClusterSnapshot `json:"rds:CreateDBClusterSnapshotOutput:DBClusterSnapshot" type:"structure"`
 }
 
 // String returns the string representation

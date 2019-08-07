@@ -84,7 +84,7 @@ type CreateResourceServerOutput struct {
 	// The newly created resource server.
 	//
 	// ResourceServer is a required field
-	ResourceServer *ResourceServerType `type:"structure" required:"true"`
+	ResourceServer *ResourceServerType `json:"cognito-idp:CreateResourceServerOutput:ResourceServer" type:"structure" required:"true"`
 }
 
 // String returns the string representation

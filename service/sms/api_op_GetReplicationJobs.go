@@ -36,10 +36,10 @@ type GetReplicationJobsOutput struct {
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"sms:GetReplicationJobsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the replication jobs.
-	ReplicationJobList []ReplicationJob `locationName:"replicationJobList" type:"list"`
+	ReplicationJobList []ReplicationJob `json:"sms:GetReplicationJobsOutput:ReplicationJobList" locationName:"replicationJobList" type:"list"`
 }
 
 // String returns the string representation

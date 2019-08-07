@@ -137,29 +137,29 @@ type TestDNSAnswerOutput struct {
 	// The Amazon Route 53 name server used to respond to the request.
 	//
 	// Nameserver is a required field
-	Nameserver *string `type:"string" required:"true"`
+	Nameserver *string `json:"route53:TestDNSAnswerOutput:Nameserver" type:"string" required:"true"`
 
 	// The protocol that Amazon Route 53 used to respond to the request, either
 	// UDP or TCP.
 	//
 	// Protocol is a required field
-	Protocol *string `type:"string" required:"true"`
+	Protocol *string `json:"route53:TestDNSAnswerOutput:Protocol" type:"string" required:"true"`
 
 	// A list that contains values that Amazon Route 53 returned for this resource
 	// record set.
 	//
 	// RecordData is a required field
-	RecordData []string `locationNameList:"RecordDataEntry" type:"list" required:"true"`
+	RecordData []string `json:"route53:TestDNSAnswerOutput:RecordData" locationNameList:"RecordDataEntry" type:"list" required:"true"`
 
 	// The name of the resource record set that you submitted a request for.
 	//
 	// RecordName is a required field
-	RecordName *string `type:"string" required:"true"`
+	RecordName *string `json:"route53:TestDNSAnswerOutput:RecordName" type:"string" required:"true"`
 
 	// The type of the resource record set that you submitted a request for.
 	//
 	// RecordType is a required field
-	RecordType RRType `type:"string" required:"true" enum:"true"`
+	RecordType RRType `json:"route53:TestDNSAnswerOutput:RecordType" type:"string" required:"true" enum:"true"`
 
 	// A code that indicates whether the request is valid or not. The most common
 	// response code is NOERROR, meaning that the request is valid. If the response
@@ -168,7 +168,7 @@ type TestDNSAnswerOutput struct {
 	// on the IANA website.
 	//
 	// ResponseCode is a required field
-	ResponseCode *string `type:"string" required:"true"`
+	ResponseCode *string `json:"route53:TestDNSAnswerOutput:ResponseCode" type:"string" required:"true"`
 }
 
 // String returns the string representation

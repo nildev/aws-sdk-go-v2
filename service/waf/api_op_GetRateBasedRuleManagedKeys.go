@@ -53,10 +53,10 @@ type GetRateBasedRuleManagedKeysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of IP addresses that currently are blocked by the specified RateBasedRule.
-	ManagedKeys []string `type:"list"`
+	ManagedKeys []string `json:"waf:GetRateBasedRuleManagedKeysOutput:ManagedKeys" type:"list"`
 
 	// A null value and not currently used.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:GetRateBasedRuleManagedKeysOutput:NextMarker" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -76,10 +76,10 @@ type GetUserDefinedFunctionsOutput struct {
 
 	// A continuation token, if the list of functions returned does not include
 	// the last requested function.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetUserDefinedFunctionsOutput:NextToken" type:"string"`
 
 	// A list of requested function definitions.
-	UserDefinedFunctions []UserDefinedFunction `type:"list"`
+	UserDefinedFunctions []UserDefinedFunction `json:"glue:GetUserDefinedFunctionsOutput:UserDefinedFunctions" type:"list"`
 }
 
 // String returns the string representation

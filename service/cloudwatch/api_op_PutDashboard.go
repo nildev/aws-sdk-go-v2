@@ -67,7 +67,7 @@ type PutDashboardOutput struct {
 	//
 	// If this result includes error messages, the input was not valid and the operation
 	// failed.
-	DashboardValidationMessages []DashboardValidationMessage `type:"list"`
+	DashboardValidationMessages []DashboardValidationMessage `json:"monitoring:PutDashboardOutput:DashboardValidationMessages" type:"list"`
 }
 
 // String returns the string representation

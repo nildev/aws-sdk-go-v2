@@ -54,7 +54,7 @@ type DescribeTargetHealthOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the health of the targets.
-	TargetHealthDescriptions []TargetHealthDescription `type:"list"`
+	TargetHealthDescriptions []TargetHealthDescription `json:"elasticloadbalancing:DescribeTargetHealthOutput:TargetHealthDescriptions" type:"list"`
 }
 
 // String returns the string representation

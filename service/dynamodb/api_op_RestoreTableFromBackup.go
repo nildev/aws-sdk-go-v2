@@ -58,7 +58,7 @@ type RestoreTableFromBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the table created from an existing backup.
-	TableDescription *TableDescription `type:"structure"`
+	TableDescription *TableDescription `json:"dynamodb:RestoreTableFromBackupOutput:TableDescription" type:"structure"`
 }
 
 // String returns the string representation

@@ -53,11 +53,11 @@ type DescribeWorkspaceImagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the images.
-	Images []WorkspaceImage `type:"list"`
+	Images []WorkspaceImage `json:"workspaces:DescribeWorkspaceImagesOutput:Images" type:"list"`
 
 	// The token to use to retrieve the next set of results, or null if no more
 	// results are available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workspaces:DescribeWorkspaceImagesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

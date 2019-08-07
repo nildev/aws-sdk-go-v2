@@ -108,10 +108,10 @@ type CreateTrafficMirrorSessionOutput struct {
 
 	// Unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request. For more information, see How to Ensure Idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:CreateTrafficMirrorSessionOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the Traffic Mirror session.
-	TrafficMirrorSession *TrafficMirrorSession `locationName:"trafficMirrorSession" type:"structure"`
+	TrafficMirrorSession *TrafficMirrorSession `json:"ec2:CreateTrafficMirrorSessionOutput:TrafficMirrorSession" locationName:"trafficMirrorSession" type:"structure"`
 }
 
 // String returns the string representation

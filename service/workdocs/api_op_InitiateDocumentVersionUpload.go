@@ -137,10 +137,10 @@ type InitiateDocumentVersionUploadOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The document metadata.
-	Metadata *DocumentMetadata `type:"structure"`
+	Metadata *DocumentMetadata `json:"workdocs:InitiateDocumentVersionUploadOutput:Metadata" type:"structure"`
 
 	// The upload metadata.
-	UploadMetadata *UploadMetadata `type:"structure"`
+	UploadMetadata *UploadMetadata `json:"workdocs:InitiateDocumentVersionUploadOutput:UploadMetadata" type:"structure"`
 }
 
 // String returns the string representation

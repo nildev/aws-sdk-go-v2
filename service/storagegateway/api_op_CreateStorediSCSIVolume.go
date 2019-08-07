@@ -152,13 +152,13 @@ type CreateStorediSCSIVolumeOutput struct {
 
 	// The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI
 	// name that initiators can use to connect to the target.
-	TargetARN *string `min:"50" type:"string"`
+	TargetARN *string `json:"storagegateway:CreateStorediSCSIVolumeOutput:TargetARN" min:"50" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the configured volume.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:CreateStorediSCSIVolumeOutput:VolumeARN" min:"50" type:"string"`
 
 	// The size of the volume in bytes.
-	VolumeSizeInBytes *int64 `type:"long"`
+	VolumeSizeInBytes *int64 `json:"storagegateway:CreateStorediSCSIVolumeOutput:VolumeSizeInBytes" type:"long"`
 }
 
 // String returns the string representation

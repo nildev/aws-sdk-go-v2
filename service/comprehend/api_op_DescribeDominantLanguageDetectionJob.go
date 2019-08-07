@@ -48,7 +48,7 @@ type DescribeDominantLanguageDetectionJobOutput struct {
 
 	// An object that contains the properties associated with a dominant language
 	// detection job.
-	DominantLanguageDetectionJobProperties *DominantLanguageDetectionJobProperties `type:"structure"`
+	DominantLanguageDetectionJobProperties *DominantLanguageDetectionJobProperties `json:"comprehend:DescribeDominantLanguageDetectionJobOutput:DominantLanguageDetectionJobProperties" type:"structure"`
 }
 
 // String returns the string representation

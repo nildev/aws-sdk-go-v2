@@ -72,7 +72,7 @@ type CreateServiceLinkedRoleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A Role object that contains details about the newly created role.
-	Role *Role `type:"structure"`
+	Role *Role `json:"iam:CreateServiceLinkedRoleOutput:Role" type:"structure"`
 }
 
 // String returns the string representation

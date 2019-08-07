@@ -20,27 +20,27 @@ type Backup struct {
 	// The identifier (ID) of the backup.
 	//
 	// BackupId is a required field
-	BackupId *string `type:"string" required:"true"`
+	BackupId *string `json:"cloudhsmv2:Backup:BackupId" type:"string" required:"true"`
 
 	// The state of the backup.
-	BackupState BackupState `type:"string" enum:"true"`
+	BackupState BackupState `json:"cloudhsmv2:Backup:BackupState" type:"string" enum:"true"`
 
 	// The identifier (ID) of the cluster that was backed up.
-	ClusterId *string `type:"string"`
+	ClusterId *string `json:"cloudhsmv2:Backup:ClusterId" type:"string"`
 
-	CopyTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CopyTimestamp *time.Time `json:"cloudhsmv2:Backup:CopyTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the backup was created.
-	CreateTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTimestamp *time.Time `json:"cloudhsmv2:Backup:CreateTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the backup will be permanently deleted.
-	DeleteTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeleteTimestamp *time.Time `json:"cloudhsmv2:Backup:DeleteTimestamp" type:"timestamp" timestampFormat:"unix"`
 
-	SourceBackup *string `type:"string"`
+	SourceBackup *string `json:"cloudhsmv2:Backup:SourceBackup" type:"string"`
 
-	SourceCluster *string `type:"string"`
+	SourceCluster *string `json:"cloudhsmv2:Backup:SourceCluster" type:"string"`
 
-	SourceRegion *string `type:"string"`
+	SourceRegion *string `json:"cloudhsmv2:Backup:SourceRegion" type:"string"`
 }
 
 // String returns the string representation
@@ -54,21 +54,21 @@ type Certificates struct {
 	_ struct{} `type:"structure"`
 
 	// The HSM hardware certificate issued (signed) by AWS CloudHSM.
-	AwsHardwareCertificate *string `type:"string"`
+	AwsHardwareCertificate *string `json:"cloudhsmv2:Certificates:AwsHardwareCertificate" type:"string"`
 
 	// The cluster certificate issued (signed) by the issuing certificate authority
 	// (CA) of the cluster's owner.
-	ClusterCertificate *string `type:"string"`
+	ClusterCertificate *string `json:"cloudhsmv2:Certificates:ClusterCertificate" type:"string"`
 
 	// The cluster's certificate signing request (CSR). The CSR exists only when
 	// the cluster's state is UNINITIALIZED.
-	ClusterCsr *string `type:"string"`
+	ClusterCsr *string `json:"cloudhsmv2:Certificates:ClusterCsr" type:"string"`
 
 	// The HSM certificate issued (signed) by the HSM hardware.
-	HsmCertificate *string `type:"string"`
+	HsmCertificate *string `json:"cloudhsmv2:Certificates:HsmCertificate" type:"string"`
 
 	// The HSM hardware certificate issued (signed) by the hardware manufacturer.
-	ManufacturerHardwareCertificate *string `type:"string"`
+	ManufacturerHardwareCertificate *string `json:"cloudhsmv2:Certificates:ManufacturerHardwareCertificate" type:"string"`
 }
 
 // String returns the string representation
@@ -82,45 +82,45 @@ type Cluster struct {
 	_ struct{} `type:"structure"`
 
 	// The cluster's backup policy.
-	BackupPolicy BackupPolicy `type:"string" enum:"true"`
+	BackupPolicy BackupPolicy `json:"cloudhsmv2:Cluster:BackupPolicy" type:"string" enum:"true"`
 
 	// Contains one or more certificates or a certificate signing request (CSR).
-	Certificates *Certificates `type:"structure"`
+	Certificates *Certificates `json:"cloudhsmv2:Cluster:Certificates" type:"structure"`
 
 	// The cluster's identifier (ID).
-	ClusterId *string `type:"string"`
+	ClusterId *string `json:"cloudhsmv2:Cluster:ClusterId" type:"string"`
 
 	// The date and time when the cluster was created.
-	CreateTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTimestamp *time.Time `json:"cloudhsmv2:Cluster:CreateTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The type of HSM that the cluster contains.
-	HsmType *string `type:"string"`
+	HsmType *string `json:"cloudhsmv2:Cluster:HsmType" type:"string"`
 
 	// Contains information about the HSMs in the cluster.
-	Hsms []Hsm `type:"list"`
+	Hsms []Hsm `json:"cloudhsmv2:Cluster:Hsms" type:"list"`
 
 	// The default password for the cluster's Pre-Crypto Officer (PRECO) user.
-	PreCoPassword *string `min:"7" type:"string"`
+	PreCoPassword *string `json:"cloudhsmv2:Cluster:PreCoPassword" min:"7" type:"string"`
 
 	// The identifier (ID) of the cluster's security group.
-	SecurityGroup *string `type:"string"`
+	SecurityGroup *string `json:"cloudhsmv2:Cluster:SecurityGroup" type:"string"`
 
 	// The identifier (ID) of the backup used to create the cluster. This value
 	// exists only when the cluster was created from a backup.
-	SourceBackupId *string `type:"string"`
+	SourceBackupId *string `json:"cloudhsmv2:Cluster:SourceBackupId" type:"string"`
 
 	// The cluster's state.
-	State ClusterState `type:"string" enum:"true"`
+	State ClusterState `json:"cloudhsmv2:Cluster:State" type:"string" enum:"true"`
 
 	// A description of the cluster's state.
-	StateMessage *string `type:"string"`
+	StateMessage *string `json:"cloudhsmv2:Cluster:StateMessage" type:"string"`
 
 	// A map of the cluster's subnets and their corresponding Availability Zones.
-	SubnetMapping map[string]string `type:"map"`
+	SubnetMapping map[string]string `json:"cloudhsmv2:Cluster:SubnetMapping" type:"map"`
 
 	// The identifier (ID) of the virtual private cloud (VPC) that contains the
 	// cluster.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"cloudhsmv2:Cluster:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -132,13 +132,13 @@ func (s Cluster) String() string {
 type DestinationBackup struct {
 	_ struct{} `type:"structure"`
 
-	CreateTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTimestamp *time.Time `json:"cloudhsmv2:DestinationBackup:CreateTimestamp" type:"timestamp" timestampFormat:"unix"`
 
-	SourceBackup *string `type:"string"`
+	SourceBackup *string `json:"cloudhsmv2:DestinationBackup:SourceBackup" type:"string"`
 
-	SourceCluster *string `type:"string"`
+	SourceCluster *string `json:"cloudhsmv2:DestinationBackup:SourceCluster" type:"string"`
 
-	SourceRegion *string `type:"string"`
+	SourceRegion *string `json:"cloudhsmv2:DestinationBackup:SourceRegion" type:"string"`
 }
 
 // String returns the string representation
@@ -153,30 +153,30 @@ type Hsm struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone that contains the HSM.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"cloudhsmv2:Hsm:AvailabilityZone" type:"string"`
 
 	// The identifier (ID) of the cluster that contains the HSM.
-	ClusterId *string `type:"string"`
+	ClusterId *string `json:"cloudhsmv2:Hsm:ClusterId" type:"string"`
 
 	// The identifier (ID) of the HSM's elastic network interface (ENI).
-	EniId *string `type:"string"`
+	EniId *string `json:"cloudhsmv2:Hsm:EniId" type:"string"`
 
 	// The IP address of the HSM's elastic network interface (ENI).
-	EniIp *string `type:"string"`
+	EniIp *string `json:"cloudhsmv2:Hsm:EniIp" type:"string"`
 
 	// The HSM's identifier (ID).
 	//
 	// HsmId is a required field
-	HsmId *string `type:"string" required:"true"`
+	HsmId *string `json:"cloudhsmv2:Hsm:HsmId" type:"string" required:"true"`
 
 	// The HSM's state.
-	State HsmState `type:"string" enum:"true"`
+	State HsmState `json:"cloudhsmv2:Hsm:State" type:"string" enum:"true"`
 
 	// A description of the HSM's state.
-	StateMessage *string `type:"string"`
+	StateMessage *string `json:"cloudhsmv2:Hsm:StateMessage" type:"string"`
 
 	// The subnet that contains the HSM's elastic network interface (ENI).
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"cloudhsmv2:Hsm:SubnetId" type:"string"`
 }
 
 // String returns the string representation
@@ -192,12 +192,12 @@ type Tag struct {
 	// The key of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"cloudhsmv2:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"cloudhsmv2:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation

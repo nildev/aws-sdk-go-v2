@@ -261,7 +261,7 @@ type StartBuildOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the build to be run.
-	Build *Build `locationName:"build" type:"structure"`
+	Build *Build `json:"codebuild:StartBuildOutput:Build" locationName:"build" type:"structure"`
 }
 
 // String returns the string representation

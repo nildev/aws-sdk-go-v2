@@ -120,10 +120,10 @@ type DescribeMLModelsOutput struct {
 
 	// The ID of the next page in the paginated results that indicates at least
 	// one more page follows.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"machinelearning:DescribeMLModelsOutput:NextToken" type:"string"`
 
 	// A list of MLModel that meet the search criteria.
-	Results []MLModel `type:"list"`
+	Results []MLModel `json:"machinelearning:DescribeMLModelsOutput:Results" type:"list"`
 }
 
 // String returns the string representation

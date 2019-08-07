@@ -22,41 +22,41 @@ type DescribedServer struct {
 	// Specifies the unique Amazon Resource Name (ARN) for the server to be described.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"transfer:DescribedServer:Arn" min:"20" type:"string" required:"true"`
 
 	// The virtual private cloud (VPC) endpoint settings that you configured for
 	// your SFTP server.
-	EndpointDetails *EndpointDetails `type:"structure"`
+	EndpointDetails *EndpointDetails `json:"transfer:DescribedServer:EndpointDetails" type:"structure"`
 
 	// The type of endpoint that your SFTP server is connected to. If your SFTP
 	// server is connected to a VPC endpoint, your server isn't accessible over
 	// the public internet.
-	EndpointType EndpointType `type:"string" enum:"true"`
+	EndpointType EndpointType `json:"transfer:DescribedServer:EndpointType" type:"string" enum:"true"`
 
 	// This value contains the Message-Digest Algorithm (MD5) hash of the server's
 	// host key. This value is equivalent to the output of ssh-keygen -l -E md5
 	// -f my-new-server-key command.
-	HostKeyFingerprint *string `type:"string"`
+	HostKeyFingerprint *string `json:"transfer:DescribedServer:HostKeyFingerprint" type:"string"`
 
 	// Specifies information to call a customer-supplied authentication API. This
 	// field is not populated when the IdentityProviderType of the server is SERVICE_MANAGED>.
-	IdentityProviderDetails *IdentityProviderDetails `type:"structure"`
+	IdentityProviderDetails *IdentityProviderDetails `json:"transfer:DescribedServer:IdentityProviderDetails" type:"structure"`
 
 	// This property defines the mode of authentication method enabled for this
 	// service. A value of SERVICE_MANAGED, means that you are using this Server
 	// to store and access SFTP user credentials within the service. A value of
 	// API_GATEWAY indicates that you have integrated an API Gateway endpoint that
 	// will be invoked for authenticating your user into the service.
-	IdentityProviderType IdentityProviderType `type:"string" enum:"true"`
+	IdentityProviderType IdentityProviderType `json:"transfer:DescribedServer:IdentityProviderType" type:"string" enum:"true"`
 
 	// This property is an AWS Identity and Access Management (IAM) entity that
 	// allows the server to turn on Amazon CloudWatch logging for Amazon S3 events.
 	// When set, user activity can be view in your CloudWatch logs.
-	LoggingRole *string `type:"string"`
+	LoggingRole *string `json:"transfer:DescribedServer:LoggingRole" type:"string"`
 
 	// This property is a unique system assigned identifier for the SFTP server
 	// that you instantiate.
-	ServerId *string `type:"string"`
+	ServerId *string `json:"transfer:DescribedServer:ServerId" type:"string"`
 
 	// The condition of the SFTP server for the server that was described. A value
 	// of ONLINE indicates that the server can accept jobs and transfer files. A
@@ -66,15 +66,15 @@ type DescribedServer struct {
 	// The states of STARTING and STOPPING indicated that the server is in an intermediate
 	// state, either not fully able to respond, or not fully offline. The values
 	// of START_FAILED or STOP_FAILED can indicate an error condition.
-	State State `type:"string" enum:"true"`
+	State State `json:"transfer:DescribedServer:State" type:"string" enum:"true"`
 
 	// This property contains the key-value pairs that you can use to search for
 	// and group servers that were assigned to the server that was described.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"transfer:DescribedServer:Tags" min:"1" type:"list"`
 
 	// The number of users that are assigned to the SFTP server you specified with
 	// the ServerId.
-	UserCount *int64 `type:"integer"`
+	UserCount *int64 `json:"transfer:DescribedServer:UserCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -91,15 +91,15 @@ type DescribedUser struct {
 	// that was requested to be described.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"transfer:DescribedUser:Arn" min:"20" type:"string" required:"true"`
 
 	// This property specifies the landing directory (or folder) which is the location
 	// that files are written to or read from in an Amazon S3 bucket for the described
 	// user. An example would be: /bucket_name/home/username .
-	HomeDirectory *string `type:"string"`
+	HomeDirectory *string `json:"transfer:DescribedUser:HomeDirectory" type:"string"`
 
 	// Specifies the name of the policy in use for the described user.
-	Policy *string `type:"string"`
+	Policy *string `json:"transfer:DescribedUser:Policy" type:"string"`
 
 	// This property specifies the IAM role that controls your user's access to
 	// your Amazon S3 bucket. The policies attached to this role will determine
@@ -107,20 +107,20 @@ type DescribedUser struct {
 	// into and out of your Amazon S3 bucket or buckets. The IAM role should also
 	// contain a trust relationship that allows the SFTP server to access your resources
 	// when servicing your SFTP user's transfer requests.
-	Role *string `type:"string"`
+	Role *string `json:"transfer:DescribedUser:Role" type:"string"`
 
 	// This property contains the public key portion of the Secure Shell (SSH) keys
 	// stored for the described user.
-	SshPublicKeys []SshPublicKey `type:"list"`
+	SshPublicKeys []SshPublicKey `json:"transfer:DescribedUser:SshPublicKeys" type:"list"`
 
 	// This property contains the key-value pairs for the user requested. Tag can
 	// be used to search for and group users for a variety of purposes.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"transfer:DescribedUser:Tags" min:"1" type:"list"`
 
 	// This property is the name of the user that was requested to be described.
 	// User names are used for authentication purposes. This is the string that
 	// will be used by your user when they log in to your SFTP server.
-	UserName *string `type:"string"`
+	UserName *string `json:"transfer:DescribedUser:UserName" type:"string"`
 }
 
 // String returns the string representation
@@ -135,7 +135,7 @@ type EndpointDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the VPC endpoint.
-	VpcEndpointId *string `type:"string"`
+	VpcEndpointId *string `json:"transfer:EndpointDetails:VpcEndpointId" type:"string"`
 }
 
 // String returns the string representation
@@ -151,11 +151,11 @@ type IdentityProviderDetails struct {
 
 	// The Role parameter provides the type of InvocationRole used to authenticate
 	// the user account.
-	InvocationRole *string `type:"string"`
+	InvocationRole *string `json:"transfer:IdentityProviderDetails:InvocationRole" type:"string"`
 
 	// The IdentityProviderDetail parameter contains the location of the service
 	// endpoint used to authenticate users.
-	Url *string `type:"string"`
+	Url *string `json:"transfer:IdentityProviderDetails:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -171,26 +171,26 @@ type ListedServer struct {
 	// The unique Amazon Resource Name (ARN) for the server to be listed.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"transfer:ListedServer:Arn" min:"20" type:"string" required:"true"`
 
 	// The type of VPC endpoint that your SFTP server is connected to. If your SFTP
 	// server is connected to a VPC endpoint, your server isn't accessible over
 	// the public internet.
-	EndpointType EndpointType `type:"string" enum:"true"`
+	EndpointType EndpointType `json:"transfer:ListedServer:EndpointType" type:"string" enum:"true"`
 
 	// The authentication method used to validate a user for the server that was
 	// specified. listed. This can include Secure Shell (SSH), user name and password
 	// combinations, or your own custom authentication method. Valid values include
 	// SERVICE_MANAGED or API_GATEWAY.
-	IdentityProviderType IdentityProviderType `type:"string" enum:"true"`
+	IdentityProviderType IdentityProviderType `json:"transfer:ListedServer:IdentityProviderType" type:"string" enum:"true"`
 
 	// The AWS Identity and Access Management entity that allows the server to turn
 	// on Amazon CloudWatch logging.
-	LoggingRole *string `type:"string"`
+	LoggingRole *string `json:"transfer:ListedServer:LoggingRole" type:"string"`
 
 	// This value is the unique system assigned identifier for the SFTP servers
 	// that were listed.
-	ServerId *string `type:"string"`
+	ServerId *string `json:"transfer:ListedServer:ServerId" type:"string"`
 
 	// This property describes the condition of the SFTP server for the server that
 	// was described. A value of ONLINE> indicates that the server can accept jobs
@@ -200,11 +200,11 @@ type ListedServer struct {
 	// The states of STARTING and STOPPING indicated that the server is in an intermediate
 	// state, either not fully able to respond, or not fully offline. The values
 	// of START_FAILED or STOP_FAILED can indicate an error condition.
-	State State `type:"string" enum:"true"`
+	State State `json:"transfer:ListedServer:State" type:"string" enum:"true"`
 
 	// This property is a numeric value that indicates the number of users that
 	// are assigned to the SFTP server you specified with the ServerId.
-	UserCount *int64 `type:"integer"`
+	UserCount *int64 `json:"transfer:ListedServer:UserCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -221,24 +221,24 @@ type ListedUser struct {
 	// you wish to learn about.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"transfer:ListedUser:Arn" min:"20" type:"string" required:"true"`
 
 	// This value specifies the location that files are written to or read from
 	// an Amazon S3 bucket for the user you specify by their ARN.
-	HomeDirectory *string `type:"string"`
+	HomeDirectory *string `json:"transfer:ListedUser:HomeDirectory" type:"string"`
 
 	// The role in use by this user. A role is an AWS Identity and Access Management
 	// (IAM) entity that in this case allows the SFTP server to act on a user's
 	// behalf. It allows the server to inherit the trust relationship that enables
 	// that user to perform file operations to their Amazon S3 bucket.
-	Role *string `type:"string"`
+	Role *string `json:"transfer:ListedUser:Role" type:"string"`
 
 	// This value is the number of SSH public keys stored for the user you specified.
-	SshPublicKeyCount *int64 `type:"integer"`
+	SshPublicKeyCount *int64 `json:"transfer:ListedUser:SshPublicKeyCount" type:"integer"`
 
 	// The name of the user whose ARN was specified. User names are used for authentication
 	// purposes.
-	UserName *string `type:"string"`
+	UserName *string `json:"transfer:ListedUser:UserName" type:"string"`
 }
 
 // String returns the string representation
@@ -258,17 +258,17 @@ type SshPublicKey struct {
 	// The date that the public key was added to the user account.
 	//
 	// DateImported is a required field
-	DateImported *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	DateImported *time.Time `json:"transfer:SshPublicKey:DateImported" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The content of the SSH public key as specified by the PublicKeyId.
 	//
 	// SshPublicKeyBody is a required field
-	SshPublicKeyBody *string `type:"string" required:"true"`
+	SshPublicKeyBody *string `json:"transfer:SshPublicKey:SshPublicKeyBody" type:"string" required:"true"`
 
 	// The SshPublicKeyId parameter contains the identifier of the public key.
 	//
 	// SshPublicKeyId is a required field
-	SshPublicKeyId *string `type:"string" required:"true"`
+	SshPublicKeyId *string `json:"transfer:SshPublicKey:SshPublicKeyId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -289,13 +289,13 @@ type Tag struct {
 	// The name assigned to the tag that you create.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"transfer:Tag:Key" type:"string" required:"true"`
 
 	// This property contains one or more values that you assigned to the key name
 	// you create.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"transfer:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation

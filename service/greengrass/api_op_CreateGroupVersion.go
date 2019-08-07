@@ -118,13 +118,13 @@ func (s CreateGroupVersionInput) MarshalFields(e protocol.FieldEncoder) error {
 type CreateGroupVersionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:CreateGroupVersionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:CreateGroupVersionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:CreateGroupVersionOutput:Id" type:"string"`
 
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:CreateGroupVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

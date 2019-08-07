@@ -59,7 +59,7 @@ type GetInstanceAccessOutput struct {
 
 	// Object that contains connection information for a fleet instance, including
 	// IP address and access credentials.
-	InstanceAccess *InstanceAccess `type:"structure"`
+	InstanceAccess *InstanceAccess `json:"gamelift:GetInstanceAccessOutput:InstanceAccess" type:"structure"`
 }
 
 // String returns the string representation

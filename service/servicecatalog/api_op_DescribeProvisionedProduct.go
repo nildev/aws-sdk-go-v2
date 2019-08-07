@@ -55,10 +55,10 @@ type DescribeProvisionedProductOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any CloudWatch dashboards that were created when provisioning the product.
-	CloudWatchDashboards []CloudWatchDashboard `type:"list"`
+	CloudWatchDashboards []CloudWatchDashboard `json:"servicecatalog:DescribeProvisionedProductOutput:CloudWatchDashboards" type:"list"`
 
 	// Information about the provisioned product.
-	ProvisionedProductDetail *ProvisionedProductDetail `type:"structure"`
+	ProvisionedProductDetail *ProvisionedProductDetail `json:"servicecatalog:DescribeProvisionedProductOutput:ProvisionedProductDetail" type:"structure"`
 }
 
 // String returns the string representation

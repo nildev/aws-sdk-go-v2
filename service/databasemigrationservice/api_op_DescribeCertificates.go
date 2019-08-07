@@ -58,10 +58,10 @@ type DescribeCertificatesOutput struct {
 
 	// The Secure Sockets Layer (SSL) certificates associated with the replication
 	// instance.
-	Certificates []Certificate `type:"list"`
+	Certificates []Certificate `json:"dms:DescribeCertificatesOutput:Certificates" type:"list"`
 
 	// The pagination token.
-	Marker *string `type:"string"`
+	Marker *string `json:"dms:DescribeCertificatesOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

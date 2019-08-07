@@ -16,10 +16,10 @@ type Bucket struct {
 	_ struct{} `type:"structure"`
 
 	// The number of hits that contain the facet value in the specified facet field.
-	Count *int64 `locationName:"count" type:"long"`
+	Count *int64 `json:"cloudsearchdomain:Bucket:Count" locationName:"count" type:"long"`
 
 	// The facet value being counted.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"cloudsearchdomain:Bucket:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -49,7 +49,7 @@ type BucketInfo struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the calculated facet values and counts.
-	Buckets []Bucket `locationName:"buckets" type:"list"`
+	Buckets []Bucket `json:"cloudsearchdomain:BucketInfo:Buckets" locationName:"buckets" type:"list"`
 }
 
 // String returns the string representation
@@ -80,7 +80,7 @@ type DocumentServiceWarning struct {
 	_ struct{} `type:"structure"`
 
 	// The description for a warning returned by the document service.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"cloudsearchdomain:DocumentServiceWarning:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -105,7 +105,7 @@ type FieldStats struct {
 
 	// The number of documents that contain a value in the specified field in the
 	// result set.
-	Count *int64 `locationName:"count" type:"long"`
+	Count *int64 `json:"cloudsearchdomain:FieldStats:Count" locationName:"count" type:"long"`
 
 	// The maximum value found in the specified field in the result set.
 	//
@@ -114,7 +114,7 @@ type FieldStats struct {
 	// If the field is date or date-array, max is the string representation of a
 	// date with the format specified in IETF RFC3339 (http://tools.ietf.org/html/rfc3339):
 	// yyyy-mm-ddTHH:mm:ss.SSSZ.
-	Max *string `locationName:"max" type:"string"`
+	Max *string `json:"cloudsearchdomain:FieldStats:Max" locationName:"max" type:"string"`
 
 	// The average of the values found in the specified field in the result set.
 	//
@@ -123,7 +123,7 @@ type FieldStats struct {
 	// If the field is date or date-array, mean is the string representation of
 	// a date with the format specified in IETF RFC3339 (http://tools.ietf.org/html/rfc3339):
 	// yyyy-mm-ddTHH:mm:ss.SSSZ.
-	Mean *string `locationName:"mean" type:"string"`
+	Mean *string `json:"cloudsearchdomain:FieldStats:Mean" locationName:"mean" type:"string"`
 
 	// The minimum value found in the specified field in the result set.
 	//
@@ -132,22 +132,22 @@ type FieldStats struct {
 	// If the field is date or date-array, min is the string representation of a
 	// date with the format specified in IETF RFC3339 (http://tools.ietf.org/html/rfc3339):
 	// yyyy-mm-ddTHH:mm:ss.SSSZ.
-	Min *string `locationName:"min" type:"string"`
+	Min *string `json:"cloudsearchdomain:FieldStats:Min" locationName:"min" type:"string"`
 
 	// The number of documents that do not contain a value in the specified field
 	// in the result set.
-	Missing *int64 `locationName:"missing" type:"long"`
+	Missing *int64 `json:"cloudsearchdomain:FieldStats:Missing" locationName:"missing" type:"long"`
 
 	// The standard deviation of the values in the specified field in the result
 	// set.
-	Stddev *float64 `locationName:"stddev" type:"double"`
+	Stddev *float64 `json:"cloudsearchdomain:FieldStats:Stddev" locationName:"stddev" type:"double"`
 
 	// The sum of the field values across the documents in the result set. null
 	// for date fields.
-	Sum *float64 `locationName:"sum" type:"double"`
+	Sum *float64 `json:"cloudsearchdomain:FieldStats:Sum" locationName:"sum" type:"double"`
 
 	// The sum of all field values in the result set squared.
-	SumOfSquares *float64 `locationName:"sumOfSquares" type:"double"`
+	SumOfSquares *float64 `json:"cloudsearchdomain:FieldStats:SumOfSquares" locationName:"sumOfSquares" type:"double"`
 }
 
 // String returns the string representation
@@ -213,16 +213,16 @@ type Hit struct {
 	_ struct{} `type:"structure"`
 
 	// The expressions returned from a document that matches the search request.
-	Exprs map[string]string `locationName:"exprs" type:"map"`
+	Exprs map[string]string `json:"cloudsearchdomain:Hit:Exprs" locationName:"exprs" type:"map"`
 
 	// The fields returned from a document that matches the search request.
-	Fields map[string][]string `locationName:"fields" type:"map"`
+	Fields map[string][]string `json:"cloudsearchdomain:Hit:Fields" locationName:"fields" type:"map"`
 
 	// The highlights returned from a document that matches the search request.
-	Highlights map[string]string `locationName:"highlights" type:"map"`
+	Highlights map[string]string `json:"cloudsearchdomain:Hit:Highlights" locationName:"highlights" type:"map"`
 
 	// The document ID of a document that matches the search request.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"cloudsearchdomain:Hit:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation
@@ -288,16 +288,16 @@ type Hits struct {
 
 	// A cursor that can be used to retrieve the next set of matching documents
 	// when you want to page through a large result set.
-	Cursor *string `locationName:"cursor" type:"string"`
+	Cursor *string `json:"cloudsearchdomain:Hits:Cursor" locationName:"cursor" type:"string"`
 
 	// The total number of documents that match the search request.
-	Found *int64 `locationName:"found" type:"long"`
+	Found *int64 `json:"cloudsearchdomain:Hits:Found" locationName:"found" type:"long"`
 
 	// A document that matches the search request.
-	Hit []Hit `locationName:"hit" type:"list"`
+	Hit []Hit `json:"cloudsearchdomain:Hits:Hit" locationName:"hit" type:"list"`
 
 	// The index of the first matching document.
-	Start *int64 `locationName:"start" type:"long"`
+	Start *int64 `json:"cloudsearchdomain:Hits:Start" locationName:"start" type:"long"`
 }
 
 // String returns the string representation
@@ -346,10 +346,10 @@ type SearchStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The encrypted resource ID for the request.
-	Rid *string `locationName:"rid" type:"string"`
+	Rid *string `json:"cloudsearchdomain:SearchStatus:Rid" locationName:"rid" type:"string"`
 
 	// How long it took to process the request, in milliseconds.
-	Timems *int64 `locationName:"timems" type:"long"`
+	Timems *int64 `json:"cloudsearchdomain:SearchStatus:Timems" locationName:"timems" type:"long"`
 }
 
 // String returns the string representation
@@ -379,13 +379,13 @@ type SuggestModel struct {
 	_ struct{} `type:"structure"`
 
 	// The number of documents that were found to match the query string.
-	Found *int64 `locationName:"found" type:"long"`
+	Found *int64 `json:"cloudsearchdomain:SuggestModel:Found" locationName:"found" type:"long"`
 
 	// The query string specified in the suggest request.
-	Query *string `locationName:"query" type:"string"`
+	Query *string `json:"cloudsearchdomain:SuggestModel:Query" locationName:"query" type:"string"`
 
 	// The documents that match the query string.
-	Suggestions []SuggestionMatch `locationName:"suggestions" type:"list"`
+	Suggestions []SuggestionMatch `json:"cloudsearchdomain:SuggestModel:Suggestions" locationName:"suggestions" type:"list"`
 }
 
 // String returns the string representation
@@ -428,10 +428,10 @@ type SuggestStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The encrypted resource ID for the request.
-	Rid *string `locationName:"rid" type:"string"`
+	Rid *string `json:"cloudsearchdomain:SuggestStatus:Rid" locationName:"rid" type:"string"`
 
 	// How long it took to process the request, in milliseconds.
-	Timems *int64 `locationName:"timems" type:"long"`
+	Timems *int64 `json:"cloudsearchdomain:SuggestStatus:Timems" locationName:"timems" type:"long"`
 }
 
 // String returns the string representation
@@ -461,13 +461,13 @@ type SuggestionMatch struct {
 	_ struct{} `type:"structure"`
 
 	// The document ID of the suggested document.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"cloudsearchdomain:SuggestionMatch:Id" locationName:"id" type:"string"`
 
 	// The relevance score of a suggested match.
-	Score *int64 `locationName:"score" type:"long"`
+	Score *int64 `json:"cloudsearchdomain:SuggestionMatch:Score" locationName:"score" type:"long"`
 
 	// The string that matches the query string specified in the SuggestRequest.
-	Suggestion *string `locationName:"suggestion" type:"string"`
+	Suggestion *string `json:"cloudsearchdomain:SuggestionMatch:Suggestion" locationName:"suggestion" type:"string"`
 }
 
 // String returns the string representation

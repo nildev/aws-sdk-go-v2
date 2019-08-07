@@ -19,17 +19,17 @@ type Credentials struct {
 	_ struct{} `type:"structure"`
 
 	// An access token generated for a federated user to access Amazon Connect
-	AccessToken *string `type:"string"`
+	AccessToken *string `json:"connect:Credentials:AccessToken" type:"string"`
 
 	// A token generated with an expiration time for the session a user is logged
 	// in to Amazon Connect
-	AccessTokenExpiration *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AccessTokenExpiration *time.Time `json:"connect:Credentials:AccessTokenExpiration" type:"timestamp" timestampFormat:"unix"`
 
 	// Renews a token generated for a user to access the Amazon Connect instance.
-	RefreshToken *string `type:"string"`
+	RefreshToken *string `json:"connect:Credentials:RefreshToken" type:"string"`
 
 	// Renews the expiration timer for a generated token.
-	RefreshTokenExpiration *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RefreshTokenExpiration *time.Time `json:"connect:Credentials:RefreshTokenExpiration" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -72,10 +72,10 @@ type CurrentMetric struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the metric.
-	Name CurrentMetricName `type:"string" enum:"true"`
+	Name CurrentMetricName `json:"connect:CurrentMetric:Name" type:"string" enum:"true"`
 
 	// The unit for the metric.
-	Unit Unit `type:"string" enum:"true"`
+	Unit Unit `json:"connect:CurrentMetric:Unit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -106,10 +106,10 @@ type CurrentMetricData struct {
 	_ struct{} `type:"structure"`
 
 	// The metric in a CurrentMetricData object.
-	Metric *CurrentMetric `type:"structure"`
+	Metric *CurrentMetric `json:"connect:CurrentMetricData:Metric" type:"structure"`
 
 	// The value of the metric in the CurrentMetricData object.
-	Value *float64 `type:"double"`
+	Value *float64 `json:"connect:CurrentMetricData:Value" type:"double"`
 }
 
 // String returns the string representation
@@ -140,10 +140,10 @@ type CurrentMetricResult struct {
 	_ struct{} `type:"structure"`
 
 	// The Collections for the CurrentMetricResult object.
-	Collections []CurrentMetricData `type:"list"`
+	Collections []CurrentMetricData `json:"connect:CurrentMetricResult:Collections" type:"list"`
 
 	// The Dimensions for the CurrentMetricResult object.
-	Dimensions *Dimensions `type:"structure"`
+	Dimensions *Dimensions `json:"connect:CurrentMetricResult:Dimensions" type:"structure"`
 }
 
 // String returns the string representation
@@ -180,10 +180,10 @@ type Dimensions struct {
 	_ struct{} `type:"structure"`
 
 	// The channel used for grouping and filters. Only VOICE is supported.
-	Channel Channel `type:"string" enum:"true"`
+	Channel Channel `json:"connect:Dimensions:Channel" type:"string" enum:"true"`
 
 	// A QueueReference object used as one part of dimension for the metrics results.
-	Queue *QueueReference `type:"structure"`
+	Queue *QueueReference `json:"connect:Dimensions:Queue" type:"structure"`
 }
 
 // String returns the string representation
@@ -214,11 +214,11 @@ type Filters struct {
 	_ struct{} `type:"structure"`
 
 	// The Channel to use as a filter for the metrics returned. Only VOICE is supported.
-	Channels []Channel `type:"list"`
+	Channels []Channel `json:"connect:Filters:Channels" type:"list"`
 
 	// A list of up to 100 queue IDs or queue ARNs to use to filter the metrics
 	// retrieved. You can include both IDs and ARNs in a request.
-	Queues []string `min:"1" type:"list"`
+	Queues []string `json:"connect:Filters:Queues" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -275,20 +275,20 @@ type HierarchyGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the hierarchy group.
-	Arn *string `type:"string"`
+	Arn *string `json:"connect:HierarchyGroup:Arn" type:"string"`
 
 	// A HierarchyPath object that contains information about the levels in the
 	// hierarchy group.
-	HierarchyPath *HierarchyPath `type:"structure"`
+	HierarchyPath *HierarchyPath `json:"connect:HierarchyGroup:HierarchyPath" type:"structure"`
 
 	// The identifier for the hierarchy group.
-	Id *string `type:"string"`
+	Id *string `json:"connect:HierarchyGroup:Id" type:"string"`
 
 	// The identifier for the level in the hierarchy group.
-	LevelId *string `type:"string"`
+	LevelId *string `json:"connect:HierarchyGroup:LevelId" type:"string"`
 
 	// The name of the hierarchy group in your instance.
-	Name *string `type:"string"`
+	Name *string `json:"connect:HierarchyGroup:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -338,13 +338,13 @@ type HierarchyGroupSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN for the hierarchy group.
-	Arn *string `type:"string"`
+	Arn *string `json:"connect:HierarchyGroupSummary:Arn" type:"string"`
 
 	// The identifier of the hierarchy group.
-	Id *string `type:"string"`
+	Id *string `json:"connect:HierarchyGroupSummary:Id" type:"string"`
 
 	// The name of the hierarchy group.
-	Name *string `type:"string"`
+	Name *string `json:"connect:HierarchyGroupSummary:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -382,13 +382,13 @@ type HierarchyLevel struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN for the hierarchy group level.
-	Arn *string `type:"string"`
+	Arn *string `json:"connect:HierarchyLevel:Arn" type:"string"`
 
 	// The identifier for the hierarchy group level.
-	Id *string `type:"string"`
+	Id *string `json:"connect:HierarchyLevel:Id" type:"string"`
 
 	// The name of the hierarchy group level.
-	Name *string `type:"string"`
+	Name *string `json:"connect:HierarchyLevel:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -427,23 +427,23 @@ type HierarchyPath struct {
 
 	// A HierarchyGroupSummary object that contains information about the level
 	// of the hierarchy group, including ARN, Id, and Name.
-	LevelFive *HierarchyGroupSummary `type:"structure"`
+	LevelFive *HierarchyGroupSummary `json:"connect:HierarchyPath:LevelFive" type:"structure"`
 
 	// A HierarchyGroupSummary object that contains information about the level
 	// of the hierarchy group, including ARN, Id, and Name.
-	LevelFour *HierarchyGroupSummary `type:"structure"`
+	LevelFour *HierarchyGroupSummary `json:"connect:HierarchyPath:LevelFour" type:"structure"`
 
 	// A HierarchyGroupSummary object that contains information about the level
 	// of the hierarchy group, including ARN, Id, and Name.
-	LevelOne *HierarchyGroupSummary `type:"structure"`
+	LevelOne *HierarchyGroupSummary `json:"connect:HierarchyPath:LevelOne" type:"structure"`
 
 	// A HierarchyGroupSummary object that contains information about the level
 	// of the hierarchy group, including ARN, Id, and Name.
-	LevelThree *HierarchyGroupSummary `type:"structure"`
+	LevelThree *HierarchyGroupSummary `json:"connect:HierarchyPath:LevelThree" type:"structure"`
 
 	// A HierarchyGroupSummary object that contains information about the level
 	// of the hierarchy group, including ARN, Id, and Name.
-	LevelTwo *HierarchyGroupSummary `type:"structure"`
+	LevelTwo *HierarchyGroupSummary `json:"connect:HierarchyPath:LevelTwo" type:"structure"`
 }
 
 // String returns the string representation
@@ -494,23 +494,23 @@ type HierarchyStructure struct {
 
 	// A HierarchyLevel object that contains information about the hierarchy group
 	// level.
-	LevelFive *HierarchyLevel `type:"structure"`
+	LevelFive *HierarchyLevel `json:"connect:HierarchyStructure:LevelFive" type:"structure"`
 
 	// A HierarchyLevel object that contains information about the hierarchy group
 	// level.
-	LevelFour *HierarchyLevel `type:"structure"`
+	LevelFour *HierarchyLevel `json:"connect:HierarchyStructure:LevelFour" type:"structure"`
 
 	// A HierarchyLevel object that contains information about the hierarchy group
 	// level.
-	LevelOne *HierarchyLevel `type:"structure"`
+	LevelOne *HierarchyLevel `json:"connect:HierarchyStructure:LevelOne" type:"structure"`
 
 	// A HierarchyLevel object that contains information about the hierarchy group
 	// level.
-	LevelThree *HierarchyLevel `type:"structure"`
+	LevelThree *HierarchyLevel `json:"connect:HierarchyStructure:LevelThree" type:"structure"`
 
 	// A HierarchyLevel object that contains information about the hierarchy group
 	// level.
-	LevelTwo *HierarchyLevel `type:"structure"`
+	LevelTwo *HierarchyLevel `json:"connect:HierarchyStructure:LevelTwo" type:"structure"`
 }
 
 // String returns the string representation
@@ -560,16 +560,16 @@ type HistoricalMetric struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the historical metric.
-	Name HistoricalMetricName `type:"string" enum:"true"`
+	Name HistoricalMetricName `json:"connect:HistoricalMetric:Name" type:"string" enum:"true"`
 
 	// The statistic for the metric.
-	Statistic Statistic `type:"string" enum:"true"`
+	Statistic Statistic `json:"connect:HistoricalMetric:Statistic" type:"string" enum:"true"`
 
 	// The threshold for the metric, used with service level metrics.
-	Threshold *Threshold `type:"structure"`
+	Threshold *Threshold `json:"connect:HistoricalMetric:Threshold" type:"structure"`
 
 	// The unit for the metric.
-	Unit Unit `type:"string" enum:"true"`
+	Unit Unit `json:"connect:HistoricalMetric:Unit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -612,10 +612,10 @@ type HistoricalMetricData struct {
 	_ struct{} `type:"structure"`
 
 	// A HistoricalMetric object.
-	Metric *HistoricalMetric `type:"structure"`
+	Metric *HistoricalMetric `json:"connect:HistoricalMetricData:Metric" type:"structure"`
 
 	// The Value of the metric.
-	Value *float64 `type:"double"`
+	Value *float64 `json:"connect:HistoricalMetricData:Value" type:"double"`
 }
 
 // String returns the string representation
@@ -646,10 +646,10 @@ type HistoricalMetricResult struct {
 	_ struct{} `type:"structure"`
 
 	// A list of HistoricalMetricData objects.
-	Collections []HistoricalMetricData `type:"list"`
+	Collections []HistoricalMetricData `json:"connect:HistoricalMetricResult:Collections" type:"list"`
 
 	// The Dimensions for the metrics.
-	Dimensions *Dimensions `type:"structure"`
+	Dimensions *Dimensions `json:"connect:HistoricalMetricResult:Dimensions" type:"structure"`
 }
 
 // String returns the string representation
@@ -687,10 +687,10 @@ type QueueReference struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of queue.
-	Arn *string `type:"string"`
+	Arn *string `json:"connect:QueueReference:Arn" type:"string"`
 
 	// The ID of the queue associated with the metrics returned.
-	Id *string `type:"string"`
+	Id *string `json:"connect:QueueReference:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -722,13 +722,13 @@ type RoutingProfileSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the routing profile.
-	Arn *string `type:"string"`
+	Arn *string `json:"connect:RoutingProfileSummary:Arn" type:"string"`
 
 	// The identifier of the routing profile.
-	Id *string `type:"string"`
+	Id *string `json:"connect:RoutingProfileSummary:Id" type:"string"`
 
 	// The name of the routing profile.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"connect:RoutingProfileSummary:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -766,13 +766,13 @@ type SecurityProfileSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the security profile.
-	Arn *string `type:"string"`
+	Arn *string `json:"connect:SecurityProfileSummary:Arn" type:"string"`
 
 	// The identifier of the security profile.
-	Id *string `type:"string"`
+	Id *string `json:"connect:SecurityProfileSummary:Id" type:"string"`
 
 	// The name of the security profile.
-	Name *string `type:"string"`
+	Name *string `json:"connect:SecurityProfileSummary:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -811,11 +811,11 @@ type Threshold struct {
 
 	// The Threshold to use to compare service level metrics to. Only "Less than"
 	// (LT) comparisons are supported.
-	Comparison Comparison `type:"string" enum:"true"`
+	Comparison Comparison `json:"connect:Threshold:Comparison" type:"string" enum:"true"`
 
 	// The value of the threshold to compare the metric to. Only "Less than" (LT)
 	// comparisons are supported.
-	ThresholdValue *float64 `type:"double"`
+	ThresholdValue *float64 `json:"connect:Threshold:ThresholdValue" type:"double"`
 }
 
 // String returns the string representation
@@ -847,32 +847,32 @@ type User struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the user account.
-	Arn *string `type:"string"`
+	Arn *string `json:"connect:User:Arn" type:"string"`
 
 	// The directory Id for the user account in the existing directory used for
 	// identity management.
-	DirectoryUserId *string `type:"string"`
+	DirectoryUserId *string `json:"connect:User:DirectoryUserId" type:"string"`
 
 	// The identifier for the hierarchy group assigned to the user.
-	HierarchyGroupId *string `type:"string"`
+	HierarchyGroupId *string `json:"connect:User:HierarchyGroupId" type:"string"`
 
 	// The identifier of the user account.
-	Id *string `type:"string"`
+	Id *string `json:"connect:User:Id" type:"string"`
 
 	// A UserIdentityInfo object.
-	IdentityInfo *UserIdentityInfo `type:"structure"`
+	IdentityInfo *UserIdentityInfo `json:"connect:User:IdentityInfo" type:"structure"`
 
 	// A UserPhoneConfig object.
-	PhoneConfig *UserPhoneConfig `type:"structure"`
+	PhoneConfig *UserPhoneConfig `json:"connect:User:PhoneConfig" type:"structure"`
 
 	// The identifier of the routing profile assigned to the user.
-	RoutingProfileId *string `type:"string"`
+	RoutingProfileId *string `json:"connect:User:RoutingProfileId" type:"string"`
 
 	// The identifier(s) for the security profile assigned to the user.
-	SecurityProfileIds []string `min:"1" type:"list"`
+	SecurityProfileIds []string `json:"connect:User:SecurityProfileIds" min:"1" type:"list"`
 
 	// The user name assigned to the user account.
-	Username *string `min:"1" type:"string"`
+	Username *string `json:"connect:User:Username" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -953,15 +953,15 @@ type UserIdentityInfo struct {
 
 	// The email address added to the user account. If you are using SAML for identity
 	// management and include this parameter, an InvalidRequestException is returned.
-	Email *string `type:"string"`
+	Email *string `json:"connect:UserIdentityInfo:Email" type:"string"`
 
 	// The first name used in the user account. This is required if you are using
 	// Amazon Connect or SAML for identity management.
-	FirstName *string `min:"1" type:"string"`
+	FirstName *string `json:"connect:UserIdentityInfo:FirstName" min:"1" type:"string"`
 
 	// The last name used in the user account. This is required if you are using
 	// Amazon Connect or SAML for identity management.
-	LastName *string `min:"1" type:"string"`
+	LastName *string `json:"connect:UserIdentityInfo:LastName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1015,18 +1015,18 @@ type UserPhoneConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The After Call Work (ACW) timeout setting, in seconds, for the user.
-	AfterContactWorkTimeLimit *int64 `type:"integer"`
+	AfterContactWorkTimeLimit *int64 `json:"connect:UserPhoneConfig:AfterContactWorkTimeLimit" type:"integer"`
 
 	// The Auto accept setting for the user, Yes or No.
-	AutoAccept *bool `type:"boolean"`
+	AutoAccept *bool `json:"connect:UserPhoneConfig:AutoAccept" type:"boolean"`
 
 	// The phone number for the user's desk phone.
-	DeskPhoneNumber *string `type:"string"`
+	DeskPhoneNumber *string `json:"connect:UserPhoneConfig:DeskPhoneNumber" type:"string"`
 
 	// The phone type selected for the user, either Soft phone or Desk phone.
 	//
 	// PhoneType is a required field
-	PhoneType PhoneType `type:"string" required:"true" enum:"true"`
+	PhoneType PhoneType `json:"connect:UserPhoneConfig:PhoneType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1083,13 +1083,13 @@ type UserSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN for the user account.
-	Arn *string `type:"string"`
+	Arn *string `json:"connect:UserSummary:Arn" type:"string"`
 
 	// The identifier for the user account.
-	Id *string `type:"string"`
+	Id *string `json:"connect:UserSummary:Id" type:"string"`
 
 	// The Amazon Connect user name for the user account.
-	Username *string `min:"1" type:"string"`
+	Username *string `json:"connect:UserSummary:Username" min:"1" type:"string"`
 }
 
 // String returns the string representation

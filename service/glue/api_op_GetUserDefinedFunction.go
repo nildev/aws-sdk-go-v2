@@ -65,7 +65,7 @@ type GetUserDefinedFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested function definition.
-	UserDefinedFunction *UserDefinedFunction `type:"structure"`
+	UserDefinedFunction *UserDefinedFunction `json:"glue:GetUserDefinedFunctionOutput:UserDefinedFunction" type:"structure"`
 }
 
 // String returns the string representation

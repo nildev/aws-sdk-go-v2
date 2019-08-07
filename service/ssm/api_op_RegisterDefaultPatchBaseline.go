@@ -46,7 +46,7 @@ type RegisterDefaultPatchBaselineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the default patch baseline.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:RegisterDefaultPatchBaselineOutput:BaselineId" min:"20" type:"string"`
 }
 
 // String returns the string representation

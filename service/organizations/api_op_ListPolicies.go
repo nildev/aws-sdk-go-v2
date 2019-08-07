@@ -66,12 +66,12 @@ type ListPoliciesOutput struct {
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListPoliciesOutput:NextToken" type:"string"`
 
 	// A list of policies that match the filter criteria in the request. The output
 	// list doesn't include the policy contents. To see the content for a policy,
 	// see DescribePolicy.
-	Policies []PolicySummary `type:"list"`
+	Policies []PolicySummary `json:"organizations:ListPoliciesOutput:Policies" type:"list"`
 }
 
 // String returns the string representation

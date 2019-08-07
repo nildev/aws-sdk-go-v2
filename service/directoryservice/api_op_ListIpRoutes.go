@@ -51,12 +51,12 @@ type ListIpRoutesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of IpRoutes.
-	IpRoutesInfo []IpRouteInfo `type:"list"`
+	IpRoutesInfo []IpRouteInfo `json:"ds:ListIpRoutesOutput:IpRoutesInfo" type:"list"`
 
 	// If not null, more results are available. Pass this value for the NextToken
 	// parameter in a subsequent call to ListIpRoutes to retrieve the next set of
 	// items.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ds:ListIpRoutesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

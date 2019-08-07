@@ -49,10 +49,10 @@ type ListGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The gateways in the list.
-	Gateways []GatewaySummary `type:"list"`
+	Gateways []GatewaySummary `json:"a4b:ListGatewaysOutput:Gateways" type:"list"`
 
 	// The token used to paginate though multiple pages of gateway summaries.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:ListGatewaysOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -23,12 +23,12 @@ type AccessPoliciesStatus struct {
 	// is 100 KB.
 	//
 	// Options is a required field
-	Options *string `type:"string" required:"true"`
+	Options *string `json:"cloudsearch:AccessPoliciesStatus:Options" type:"string" required:"true"`
 
 	// The status of domain configuration option.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"cloudsearch:AccessPoliciesStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -45,13 +45,13 @@ type AnalysisOptions struct {
 	// The available levels vary depending on the language. For more information,
 	// see Language Specific Text Processing Settings (http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings)
 	// in the Amazon CloudSearch Developer Guide
-	AlgorithmicStemming AlgorithmicStemming `type:"string" enum:"true"`
+	AlgorithmicStemming AlgorithmicStemming `json:"cloudsearch:AnalysisOptions:AlgorithmicStemming" type:"string" enum:"true"`
 
 	// A JSON array that contains a collection of terms, tokens, readings and part
 	// of speech for Japanese Tokenizaiton. The Japanese tokenization dictionary
 	// enables you to override the default tokenization for selected terms. This
 	// is only valid for Japanese language fields.
-	JapaneseTokenizationDictionary *string `type:"string"`
+	JapaneseTokenizationDictionary *string `json:"cloudsearch:AnalysisOptions:JapaneseTokenizationDictionary" type:"string"`
 
 	// A JSON object that contains a collection of string:value pairs that each
 	// map a term to its stem. For example, {"term1": "stem1", "term2": "stem2",
@@ -59,12 +59,12 @@ type AnalysisOptions struct {
 	// algorithmic stemming. This enables you to override the results of the algorithmic
 	// stemming to correct specific cases of overstemming or understemming. The
 	// maximum size of a stemming dictionary is 500 KB.
-	StemmingDictionary *string `type:"string"`
+	StemmingDictionary *string `json:"cloudsearch:AnalysisOptions:StemmingDictionary" type:"string"`
 
 	// A JSON array of terms to ignore during indexing and searching. For example,
 	// ["a", "an", "the", "of"]. The stopwords dictionary must explicitly list each
 	// word you want to ignore. Wildcards and regular expressions are not supported.
-	Stopwords *string `type:"string"`
+	Stopwords *string `json:"cloudsearch:AnalysisOptions:Stopwords" type:"string"`
 
 	// A JSON object that defines synonym groups and aliases. A synonym group is
 	// an array of arrays, where each sub-array is a group of terms where each term
@@ -75,7 +75,7 @@ type AnalysisOptions struct {
 	// term, but the term is not considered a synonym of the alias. For more information
 	// about specifying synonyms, see Synonyms (http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms)
 	// in the Amazon CloudSearch Developer Guide.
-	Synonyms *string `type:"string"`
+	Synonyms *string `json:"cloudsearch:AnalysisOptions:Synonyms" type:"string"`
 }
 
 // String returns the string representation
@@ -92,19 +92,19 @@ type AnalysisScheme struct {
 
 	// Synonyms, stopwords, and stemming options for an analysis scheme. Includes
 	// tokenization dictionary for Japanese.
-	AnalysisOptions *AnalysisOptions `type:"structure"`
+	AnalysisOptions *AnalysisOptions `json:"cloudsearch:AnalysisScheme:AnalysisOptions" type:"structure"`
 
 	// An IETF RFC 4646 (http://tools.ietf.org/html/rfc4646) language code or mul
 	// for multiple languages.
 	//
 	// AnalysisSchemeLanguage is a required field
-	AnalysisSchemeLanguage AnalysisSchemeLanguage `type:"string" required:"true" enum:"true"`
+	AnalysisSchemeLanguage AnalysisSchemeLanguage `json:"cloudsearch:AnalysisScheme:AnalysisSchemeLanguage" type:"string" required:"true" enum:"true"`
 
 	// Names must begin with a letter and can contain the following characters:
 	// a-z (lowercase), 0-9, and _ (underscore).
 	//
 	// AnalysisSchemeName is a required field
-	AnalysisSchemeName *string `min:"1" type:"string" required:"true"`
+	AnalysisSchemeName *string `json:"cloudsearch:AnalysisScheme:AnalysisSchemeName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -142,12 +142,12 @@ type AnalysisSchemeStatus struct {
 	// StemmingDictionary, JapaneseTokenizationDictionary and AlgorithmicStemming.
 	//
 	// Options is a required field
-	Options *AnalysisScheme `type:"structure" required:"true"`
+	Options *AnalysisScheme `json:"cloudsearch:AnalysisSchemeStatus:Options" type:"structure" required:"true"`
 
 	// The status of domain configuration option.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"cloudsearch:AnalysisSchemeStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -162,12 +162,12 @@ type AvailabilityOptionsStatus struct {
 	// The availability options configured for the domain.
 	//
 	// Options is a required field
-	Options *bool `type:"boolean" required:"true"`
+	Options *bool `json:"cloudsearch:AvailabilityOptionsStatus:Options" type:"boolean" required:"true"`
 
 	// The status of domain configuration option.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"cloudsearch:AvailabilityOptionsStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -181,19 +181,19 @@ type DateArrayOptions struct {
 	_ struct{} `type:"structure"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudsearch:DateArrayOptions:DefaultValue" type:"string"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:DateArrayOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:DateArrayOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:DateArrayOptions:SearchEnabled" type:"boolean"`
 
 	// A list of source fields to map to the field.
-	SourceFields *string `type:"string"`
+	SourceFields *string `json:"cloudsearch:DateArrayOptions:SourceFields" type:"string"`
 }
 
 // String returns the string representation
@@ -209,19 +209,19 @@ type DateOptions struct {
 	_ struct{} `type:"structure"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudsearch:DateOptions:DefaultValue" type:"string"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:DateOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:DateOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:DateOptions:SearchEnabled" type:"boolean"`
 
 	// Whether the field can be used to sort the search results.
-	SortEnabled *bool `type:"boolean"`
+	SortEnabled *bool `json:"cloudsearch:DateOptions:SortEnabled" type:"boolean"`
 
 	// A string that represents the name of an index field. CloudSearch supports
 	// regular index fields as well as dynamic fields. A dynamic field's name defines
@@ -237,7 +237,7 @@ type DateOptions struct {
 	//
 	// The name score is reserved and cannot be used as a field name. To reference
 	// a document's ID, you can use the name _id.
-	SourceField *string `min:"1" type:"string"`
+	SourceField *string `json:"cloudsearch:DateOptions:SourceField" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -267,7 +267,7 @@ type DocumentSuggesterOptions struct {
 	// With low, suggestions must differ from the specified string by no more than
 	// one character. With high, suggestions can differ by up to two characters.
 	// The default is none.
-	FuzzyMatching SuggesterFuzzyMatching `type:"string" enum:"true"`
+	FuzzyMatching SuggesterFuzzyMatching `json:"cloudsearch:DocumentSuggesterOptions:FuzzyMatching" type:"string" enum:"true"`
 
 	// An expression that computes a score for each suggestion to control how they
 	// are sorted. The scores are rounded to the nearest integer, with a floor of
@@ -276,12 +276,12 @@ type DocumentSuggesterOptions struct {
 	// suggestions using a numeric field or existing expression, simply specify
 	// the name of the field or expression. If no expression is configured for the
 	// suggester, the suggestions are sorted with the closest matches listed first.
-	SortExpression *string `type:"string"`
+	SortExpression *string `json:"cloudsearch:DocumentSuggesterOptions:SortExpression" type:"string"`
 
 	// The name of the index field you want to use for suggestions.
 	//
 	// SourceField is a required field
-	SourceField *string `min:"1" type:"string" required:"true"`
+	SourceField *string `json:"cloudsearch:DocumentSuggesterOptions:SourceField" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -313,27 +313,27 @@ type DomainStatus struct {
 	// The Amazon Resource Name (ARN) of the search domain. See Identifiers for
 	// IAM Entities (http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html)
 	// in Using AWS Identity and Access Management for more information.
-	ARN *string `type:"string"`
+	ARN *string `json:"cloudsearch:DomainStatus:ARN" type:"string"`
 
 	// True if the search domain is created. It can take several minutes to initialize
 	// a domain when CreateDomain is called. Newly created search domains are returned
 	// from DescribeDomains with a false value for Created until domain creation
 	// is complete.
-	Created *bool `type:"boolean"`
+	Created *bool `json:"cloudsearch:DomainStatus:Created" type:"boolean"`
 
 	// True if the search domain has been deleted. The system must clean up resources
 	// dedicated to the search domain when DeleteDomain is called. Newly deleted
 	// search domains are returned from DescribeDomains with a true value for IsDeleted
 	// for several minutes until resource cleanup is complete.
-	Deleted *bool `type:"boolean"`
+	Deleted *bool `json:"cloudsearch:DomainStatus:Deleted" type:"boolean"`
 
 	// The service endpoint for updating documents in a search domain.
-	DocService *ServiceEndpoint `type:"structure"`
+	DocService *ServiceEndpoint `json:"cloudsearch:DomainStatus:DocService" type:"structure"`
 
 	// An internally generated unique identifier for a domain.
 	//
 	// DomainId is a required field
-	DomainId *string `min:"1" type:"string" required:"true"`
+	DomainId *string `json:"cloudsearch:DomainStatus:DomainId" min:"1" type:"string" required:"true"`
 
 	// A string that represents the name of a domain. Domain names are unique across
 	// the domains owned by an account within an AWS region. Domain names start
@@ -341,30 +341,30 @@ type DomainStatus struct {
 	// 0-9, and - (hyphen).
 	//
 	// DomainName is a required field
-	DomainName *string `min:"3" type:"string" required:"true"`
+	DomainName *string `json:"cloudsearch:DomainStatus:DomainName" min:"3" type:"string" required:"true"`
 
-	Limits *Limits `type:"structure"`
+	Limits *Limits `json:"cloudsearch:DomainStatus:Limits" type:"structure"`
 
 	// True if processing is being done to activate the current domain configuration.
-	Processing *bool `type:"boolean"`
+	Processing *bool `json:"cloudsearch:DomainStatus:Processing" type:"boolean"`
 
 	// True if IndexDocuments needs to be called to activate the current domain
 	// configuration.
 	//
 	// RequiresIndexDocuments is a required field
-	RequiresIndexDocuments *bool `type:"boolean" required:"true"`
+	RequiresIndexDocuments *bool `json:"cloudsearch:DomainStatus:RequiresIndexDocuments" type:"boolean" required:"true"`
 
 	// The number of search instances that are available to process search requests.
-	SearchInstanceCount *int64 `min:"1" type:"integer"`
+	SearchInstanceCount *int64 `json:"cloudsearch:DomainStatus:SearchInstanceCount" min:"1" type:"integer"`
 
 	// The instance type that is being used to process search requests.
-	SearchInstanceType *string `type:"string"`
+	SearchInstanceType *string `json:"cloudsearch:DomainStatus:SearchInstanceType" type:"string"`
 
 	// The number of partitions across which the search index is spread.
-	SearchPartitionCount *int64 `min:"1" type:"integer"`
+	SearchPartitionCount *int64 `json:"cloudsearch:DomainStatus:SearchPartitionCount" min:"1" type:"integer"`
 
 	// The service endpoint for requesting search results from a search domain.
-	SearchService *ServiceEndpoint `type:"structure"`
+	SearchService *ServiceEndpoint `json:"cloudsearch:DomainStatus:SearchService" type:"structure"`
 }
 
 // String returns the string representation
@@ -379,19 +379,19 @@ type DoubleArrayOptions struct {
 	_ struct{} `type:"structure"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *float64 `type:"double"`
+	DefaultValue *float64 `json:"cloudsearch:DoubleArrayOptions:DefaultValue" type:"double"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:DoubleArrayOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:DoubleArrayOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:DoubleArrayOptions:SearchEnabled" type:"boolean"`
 
 	// A list of source fields to map to the field.
-	SourceFields *string `type:"string"`
+	SourceFields *string `json:"cloudsearch:DoubleArrayOptions:SourceFields" type:"string"`
 }
 
 // String returns the string representation
@@ -407,22 +407,22 @@ type DoubleOptions struct {
 	// A value to use for the field if the field isn't specified for a document.
 	// This can be important if you are using the field in an expression and that
 	// field is not present in every document.
-	DefaultValue *float64 `type:"double"`
+	DefaultValue *float64 `json:"cloudsearch:DoubleOptions:DefaultValue" type:"double"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:DoubleOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:DoubleOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:DoubleOptions:SearchEnabled" type:"boolean"`
 
 	// Whether the field can be used to sort the search results.
-	SortEnabled *bool `type:"boolean"`
+	SortEnabled *bool `json:"cloudsearch:DoubleOptions:SortEnabled" type:"boolean"`
 
 	// The name of the source field to map to the field.
-	SourceField *string `min:"1" type:"string"`
+	SourceField *string `json:"cloudsearch:DoubleOptions:SourceField" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -453,7 +453,7 @@ type Expression struct {
 	// a-z (lowercase), 0-9, and _ (underscore).
 	//
 	// ExpressionName is a required field
-	ExpressionName *string `min:"1" type:"string" required:"true"`
+	ExpressionName *string `json:"cloudsearch:Expression:ExpressionName" min:"1" type:"string" required:"true"`
 
 	// The expression to evaluate for sorting while processing a search request.
 	// The Expression syntax is based on JavaScript expressions. For more information,
@@ -461,7 +461,7 @@ type Expression struct {
 	// in the Amazon CloudSearch Developer Guide.
 	//
 	// ExpressionValue is a required field
-	ExpressionValue *string `min:"1" type:"string" required:"true"`
+	ExpressionValue *string `json:"cloudsearch:Expression:ExpressionValue" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -500,12 +500,12 @@ type ExpressionStatus struct {
 	// The expression that is evaluated for sorting while processing a search request.
 	//
 	// Options is a required field
-	Options *Expression `type:"structure" required:"true"`
+	Options *Expression `json:"cloudsearch:ExpressionStatus:Options" type:"structure" required:"true"`
 
 	// The status of domain configuration option.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"cloudsearch:ExpressionStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -520,22 +520,22 @@ type IndexField struct {
 
 	// Options for a field that contains an array of dates. Present if IndexFieldType
 	// specifies the field is of type date-array. All options are enabled by default.
-	DateArrayOptions *DateArrayOptions `type:"structure"`
+	DateArrayOptions *DateArrayOptions `json:"cloudsearch:IndexField:DateArrayOptions" type:"structure"`
 
 	// Options for a date field. Dates and times are specified in UTC (Coordinated
 	// Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present
 	// if IndexFieldType specifies the field is of type date. All options are enabled
 	// by default.
-	DateOptions *DateOptions `type:"structure"`
+	DateOptions *DateOptions `json:"cloudsearch:IndexField:DateOptions" type:"structure"`
 
 	// Options for a field that contains an array of double-precision 64-bit floating
 	// point values. Present if IndexFieldType specifies the field is of type double-array.
 	// All options are enabled by default.
-	DoubleArrayOptions *DoubleArrayOptions `type:"structure"`
+	DoubleArrayOptions *DoubleArrayOptions `json:"cloudsearch:IndexField:DoubleArrayOptions" type:"structure"`
 
 	// Options for a double-precision 64-bit floating point field. Present if IndexFieldType
 	// specifies the field is of type double. All options are enabled by default.
-	DoubleOptions *DoubleOptions `type:"structure"`
+	DoubleOptions *DoubleOptions `json:"cloudsearch:IndexField:DoubleOptions" type:"structure"`
 
 	// A string that represents the name of an index field. CloudSearch supports
 	// regular index fields as well as dynamic fields. A dynamic field's name defines
@@ -553,7 +553,7 @@ type IndexField struct {
 	// a document's ID, you can use the name _id.
 	//
 	// IndexFieldName is a required field
-	IndexFieldName *string `min:"1" type:"string" required:"true"`
+	IndexFieldName *string `json:"cloudsearch:IndexField:IndexFieldName" min:"1" type:"string" required:"true"`
 
 	// The type of field. The valid options for a field depend on the field type.
 	// For more information about the supported field types, see Configuring Index
@@ -561,40 +561,40 @@ type IndexField struct {
 	// in the Amazon CloudSearch Developer Guide.
 	//
 	// IndexFieldType is a required field
-	IndexFieldType IndexFieldType `type:"string" required:"true" enum:"true"`
+	IndexFieldType IndexFieldType `json:"cloudsearch:IndexField:IndexFieldType" type:"string" required:"true" enum:"true"`
 
 	// Options for a field that contains an array of 64-bit signed integers. Present
 	// if IndexFieldType specifies the field is of type int-array. All options are
 	// enabled by default.
-	IntArrayOptions *IntArrayOptions `type:"structure"`
+	IntArrayOptions *IntArrayOptions `json:"cloudsearch:IndexField:IntArrayOptions" type:"structure"`
 
 	// Options for a 64-bit signed integer field. Present if IndexFieldType specifies
 	// the field is of type int. All options are enabled by default.
-	IntOptions *IntOptions `type:"structure"`
+	IntOptions *IntOptions `json:"cloudsearch:IndexField:IntOptions" type:"structure"`
 
 	// Options for a latlon field. A latlon field contains a location stored as
 	// a latitude and longitude value pair. Present if IndexFieldType specifies
 	// the field is of type latlon. All options are enabled by default.
-	LatLonOptions *LatLonOptions `type:"structure"`
+	LatLonOptions *LatLonOptions `json:"cloudsearch:IndexField:LatLonOptions" type:"structure"`
 
 	// Options for a field that contains an array of literal strings. Present if
 	// IndexFieldType specifies the field is of type literal-array. All options
 	// are enabled by default.
-	LiteralArrayOptions *LiteralArrayOptions `type:"structure"`
+	LiteralArrayOptions *LiteralArrayOptions `json:"cloudsearch:IndexField:LiteralArrayOptions" type:"structure"`
 
 	// Options for literal field. Present if IndexFieldType specifies the field
 	// is of type literal. All options are enabled by default.
-	LiteralOptions *LiteralOptions `type:"structure"`
+	LiteralOptions *LiteralOptions `json:"cloudsearch:IndexField:LiteralOptions" type:"structure"`
 
 	// Options for a field that contains an array of text strings. Present if IndexFieldType
 	// specifies the field is of type text-array. A text-array field is always searchable.
 	// All options are enabled by default.
-	TextArrayOptions *TextArrayOptions `type:"structure"`
+	TextArrayOptions *TextArrayOptions `json:"cloudsearch:IndexField:TextArrayOptions" type:"structure"`
 
 	// Options for text field. Present if IndexFieldType specifies the field is
 	// of type text. A text field is always searchable. All options are enabled
 	// by default.
-	TextOptions *TextOptions `type:"structure"`
+	TextOptions *TextOptions `json:"cloudsearch:IndexField:TextOptions" type:"structure"`
 }
 
 // String returns the string representation
@@ -660,12 +660,12 @@ type IndexFieldStatus struct {
 	// and options. The supported options depend on the IndexFieldType.
 	//
 	// Options is a required field
-	Options *IndexField `type:"structure" required:"true"`
+	Options *IndexField `json:"cloudsearch:IndexFieldStatus:Options" type:"structure" required:"true"`
 
 	// The status of domain configuration option.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"cloudsearch:IndexFieldStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -680,19 +680,19 @@ type IntArrayOptions struct {
 	_ struct{} `type:"structure"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *int64 `type:"long"`
+	DefaultValue *int64 `json:"cloudsearch:IntArrayOptions:DefaultValue" type:"long"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:IntArrayOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:IntArrayOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:IntArrayOptions:SearchEnabled" type:"boolean"`
 
 	// A list of source fields to map to the field.
-	SourceFields *string `type:"string"`
+	SourceFields *string `json:"cloudsearch:IntArrayOptions:SourceFields" type:"string"`
 }
 
 // String returns the string representation
@@ -708,22 +708,22 @@ type IntOptions struct {
 	// A value to use for the field if the field isn't specified for a document.
 	// This can be important if you are using the field in an expression and that
 	// field is not present in every document.
-	DefaultValue *int64 `type:"long"`
+	DefaultValue *int64 `json:"cloudsearch:IntOptions:DefaultValue" type:"long"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:IntOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:IntOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:IntOptions:SearchEnabled" type:"boolean"`
 
 	// Whether the field can be used to sort the search results.
-	SortEnabled *bool `type:"boolean"`
+	SortEnabled *bool `json:"cloudsearch:IntOptions:SortEnabled" type:"boolean"`
 
 	// The name of the source field to map to the field.
-	SourceField *string `min:"1" type:"string"`
+	SourceField *string `json:"cloudsearch:IntOptions:SourceField" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -751,19 +751,19 @@ type LatLonOptions struct {
 	_ struct{} `type:"structure"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudsearch:LatLonOptions:DefaultValue" type:"string"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:LatLonOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:LatLonOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:LatLonOptions:SearchEnabled" type:"boolean"`
 
 	// Whether the field can be used to sort the search results.
-	SortEnabled *bool `type:"boolean"`
+	SortEnabled *bool `json:"cloudsearch:LatLonOptions:SortEnabled" type:"boolean"`
 
 	// A string that represents the name of an index field. CloudSearch supports
 	// regular index fields as well as dynamic fields. A dynamic field's name defines
@@ -779,7 +779,7 @@ type LatLonOptions struct {
 	//
 	// The name score is reserved and cannot be used as a field name. To reference
 	// a document's ID, you can use the name _id.
-	SourceField *string `min:"1" type:"string"`
+	SourceField *string `json:"cloudsearch:LatLonOptions:SourceField" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -804,10 +804,10 @@ type Limits struct {
 	_ struct{} `type:"structure"`
 
 	// MaximumPartitionCount is a required field
-	MaximumPartitionCount *int64 `min:"1" type:"integer" required:"true"`
+	MaximumPartitionCount *int64 `json:"cloudsearch:Limits:MaximumPartitionCount" min:"1" type:"integer" required:"true"`
 
 	// MaximumReplicationCount is a required field
-	MaximumReplicationCount *int64 `min:"1" type:"integer" required:"true"`
+	MaximumReplicationCount *int64 `json:"cloudsearch:Limits:MaximumReplicationCount" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -822,19 +822,19 @@ type LiteralArrayOptions struct {
 	_ struct{} `type:"structure"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudsearch:LiteralArrayOptions:DefaultValue" type:"string"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:LiteralArrayOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:LiteralArrayOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:LiteralArrayOptions:SearchEnabled" type:"boolean"`
 
 	// A list of source fields to map to the field.
-	SourceFields *string `type:"string"`
+	SourceFields *string `json:"cloudsearch:LiteralArrayOptions:SourceFields" type:"string"`
 }
 
 // String returns the string representation
@@ -848,19 +848,19 @@ type LiteralOptions struct {
 	_ struct{} `type:"structure"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudsearch:LiteralOptions:DefaultValue" type:"string"`
 
 	// Whether facet information can be returned for the field.
-	FacetEnabled *bool `type:"boolean"`
+	FacetEnabled *bool `json:"cloudsearch:LiteralOptions:FacetEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:LiteralOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the contents of the field are searchable.
-	SearchEnabled *bool `type:"boolean"`
+	SearchEnabled *bool `json:"cloudsearch:LiteralOptions:SearchEnabled" type:"boolean"`
 
 	// Whether the field can be used to sort the search results.
-	SortEnabled *bool `type:"boolean"`
+	SortEnabled *bool `json:"cloudsearch:LiteralOptions:SortEnabled" type:"boolean"`
 
 	// A string that represents the name of an index field. CloudSearch supports
 	// regular index fields as well as dynamic fields. A dynamic field's name defines
@@ -876,7 +876,7 @@ type LiteralOptions struct {
 	//
 	// The name score is reserved and cannot be used as a field name. To reference
 	// a document's ID, you can use the name _id.
-	SourceField *string `min:"1" type:"string"`
+	SourceField *string `json:"cloudsearch:LiteralOptions:SourceField" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -904,10 +904,10 @@ type OptionStatus struct {
 	// A timestamp for when this option was created.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreationDate *time.Time `json:"cloudsearch:OptionStatus:CreationDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// Indicates that the option will be deleted once processing is complete.
-	PendingDeletion *bool `type:"boolean"`
+	PendingDeletion *bool `json:"cloudsearch:OptionStatus:PendingDeletion" type:"boolean"`
 
 	// The state of processing a change to an option. Possible values:
 	//
@@ -923,15 +923,15 @@ type OptionStatus struct {
 	//    option value or update or remove the incompatible documents.
 	//
 	// State is a required field
-	State OptionState `type:"string" required:"true" enum:"true"`
+	State OptionState `json:"cloudsearch:OptionStatus:State" type:"string" required:"true" enum:"true"`
 
 	// A timestamp for when this option was last updated.
 	//
 	// UpdateDate is a required field
-	UpdateDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	UpdateDate *time.Time `json:"cloudsearch:OptionStatus:UpdateDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// A unique integer that indicates when this option was last updated.
-	UpdateVersion *int64 `type:"integer"`
+	UpdateVersion *int64 `json:"cloudsearch:OptionStatus:UpdateVersion" type:"integer"`
 }
 
 // String returns the string representation
@@ -945,14 +945,14 @@ type ScalingParameters struct {
 
 	// The instance type that you want to preconfigure for your domain. For example,
 	// search.m1.small.
-	DesiredInstanceType PartitionInstanceType `type:"string" enum:"true"`
+	DesiredInstanceType PartitionInstanceType `json:"cloudsearch:ScalingParameters:DesiredInstanceType" type:"string" enum:"true"`
 
 	// The number of partitions you want to preconfigure for your domain. Only valid
 	// when you select m2.2xlarge as the desired instance type.
-	DesiredPartitionCount *int64 `type:"integer"`
+	DesiredPartitionCount *int64 `json:"cloudsearch:ScalingParameters:DesiredPartitionCount" type:"integer"`
 
 	// The number of replicas you want to preconfigure for each index partition.
-	DesiredReplicationCount *int64 `type:"integer"`
+	DesiredReplicationCount *int64 `json:"cloudsearch:ScalingParameters:DesiredReplicationCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -967,12 +967,12 @@ type ScalingParametersStatus struct {
 	// The desired instance type and desired number of replicas of each index partition.
 	//
 	// Options is a required field
-	Options *ScalingParameters `type:"structure" required:"true"`
+	Options *ScalingParameters `json:"cloudsearch:ScalingParametersStatus:Options" type:"structure" required:"true"`
 
 	// The status of domain configuration option.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"cloudsearch:ScalingParametersStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -986,7 +986,7 @@ type ServiceEndpoint struct {
 
 	// The endpoint to which service requests can be submitted. For example, search-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com
 	// or doc-imdb-movies-oopcnjfn6ugofer3zx5iadxxca.eu-west-1.cloudsearch.amazonaws.com.
-	Endpoint *string `type:"string"`
+	Endpoint *string `json:"cloudsearch:ServiceEndpoint:Endpoint" type:"string"`
 }
 
 // String returns the string representation
@@ -1003,13 +1003,13 @@ type Suggester struct {
 	// Options for a search suggester.
 	//
 	// DocumentSuggesterOptions is a required field
-	DocumentSuggesterOptions *DocumentSuggesterOptions `type:"structure" required:"true"`
+	DocumentSuggesterOptions *DocumentSuggesterOptions `json:"cloudsearch:Suggester:DocumentSuggesterOptions" type:"structure" required:"true"`
 
 	// Names must begin with a letter and can contain the following characters:
 	// a-z (lowercase), 0-9, and _ (underscore).
 	//
 	// SuggesterName is a required field
-	SuggesterName *string `min:"1" type:"string" required:"true"`
+	SuggesterName *string `json:"cloudsearch:Suggester:SuggesterName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1052,12 +1052,12 @@ type SuggesterStatus struct {
 	// options can be configured for a suggester: FuzzyMatching, SortExpression.
 	//
 	// Options is a required field
-	Options *Suggester `type:"structure" required:"true"`
+	Options *Suggester `json:"cloudsearch:SuggesterStatus:Options" type:"structure" required:"true"`
 
 	// The status of domain configuration option.
 	//
 	// Status is a required field
-	Status *OptionStatus `type:"structure" required:"true"`
+	Status *OptionStatus `json:"cloudsearch:SuggesterStatus:Status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1072,19 +1072,19 @@ type TextArrayOptions struct {
 	_ struct{} `type:"structure"`
 
 	// The name of an analysis scheme for a text-array field.
-	AnalysisScheme *string `type:"string"`
+	AnalysisScheme *string `json:"cloudsearch:TextArrayOptions:AnalysisScheme" type:"string"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudsearch:TextArrayOptions:DefaultValue" type:"string"`
 
 	// Whether highlights can be returned for the field.
-	HighlightEnabled *bool `type:"boolean"`
+	HighlightEnabled *bool `json:"cloudsearch:TextArrayOptions:HighlightEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:TextArrayOptions:ReturnEnabled" type:"boolean"`
 
 	// A list of source fields to map to the field.
-	SourceFields *string `type:"string"`
+	SourceFields *string `json:"cloudsearch:TextArrayOptions:SourceFields" type:"string"`
 }
 
 // String returns the string representation
@@ -1099,19 +1099,19 @@ type TextOptions struct {
 	_ struct{} `type:"structure"`
 
 	// The name of an analysis scheme for a text field.
-	AnalysisScheme *string `type:"string"`
+	AnalysisScheme *string `json:"cloudsearch:TextOptions:AnalysisScheme" type:"string"`
 
 	// A value to use for the field if the field isn't specified for a document.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudsearch:TextOptions:DefaultValue" type:"string"`
 
 	// Whether highlights can be returned for the field.
-	HighlightEnabled *bool `type:"boolean"`
+	HighlightEnabled *bool `json:"cloudsearch:TextOptions:HighlightEnabled" type:"boolean"`
 
 	// Whether the contents of the field can be returned in the search results.
-	ReturnEnabled *bool `type:"boolean"`
+	ReturnEnabled *bool `json:"cloudsearch:TextOptions:ReturnEnabled" type:"boolean"`
 
 	// Whether the field can be used to sort the search results.
-	SortEnabled *bool `type:"boolean"`
+	SortEnabled *bool `json:"cloudsearch:TextOptions:SortEnabled" type:"boolean"`
 
 	// A string that represents the name of an index field. CloudSearch supports
 	// regular index fields as well as dynamic fields. A dynamic field's name defines
@@ -1127,7 +1127,7 @@ type TextOptions struct {
 	//
 	// The name score is reserved and cannot be used as a field name. To reference
 	// a document's ID, you can use the name _id.
-	SourceField *string `min:"1" type:"string"`
+	SourceField *string `json:"cloudsearch:TextOptions:SourceField" min:"1" type:"string"`
 }
 
 // String returns the string representation

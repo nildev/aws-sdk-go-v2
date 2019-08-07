@@ -163,7 +163,7 @@ type CreateThreatIntelSetOutput struct {
 	// The ID of the ThreatIntelSet resource.
 	//
 	// ThreatIntelSetId is a required field
-	ThreatIntelSetId *string `locationName:"threatIntelSetId" type:"string" required:"true"`
+	ThreatIntelSetId *string `json:"guardduty:CreateThreatIntelSetOutput:ThreatIntelSetId" locationName:"threatIntelSetId" type:"string" required:"true"`
 }
 
 // String returns the string representation

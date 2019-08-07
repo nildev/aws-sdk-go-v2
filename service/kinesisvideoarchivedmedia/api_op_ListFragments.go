@@ -102,12 +102,12 @@ type ListFragmentsOutput struct {
 
 	// A list of archived Fragment objects from the stream that meet the selector
 	// criteria. Results are in no specific order, even across pages.
-	Fragments []Fragment `type:"list"`
+	Fragments []Fragment `json:"kinesisvideo:ListFragmentsOutput:Fragments" type:"list"`
 
 	// If the returned list is truncated, the operation returns this token to use
 	// to retrieve the next page of results. This value is null when there are no
 	// more results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"kinesisvideo:ListFragmentsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

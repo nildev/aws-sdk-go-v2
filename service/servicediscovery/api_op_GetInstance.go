@@ -52,7 +52,7 @@ type GetInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A complex type that contains information about a specified instance.
-	Instance *Instance `type:"structure"`
+	Instance *Instance `json:"servicediscovery:GetInstanceOutput:Instance" type:"structure"`
 }
 
 // String returns the string representation

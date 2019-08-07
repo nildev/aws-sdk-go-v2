@@ -43,7 +43,7 @@ type GetNamespaceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A complex type that contains information about the specified namespace.
-	Namespace *Namespace `type:"structure"`
+	Namespace *Namespace `json:"servicediscovery:GetNamespaceOutput:Namespace" type:"structure"`
 }
 
 // String returns the string representation

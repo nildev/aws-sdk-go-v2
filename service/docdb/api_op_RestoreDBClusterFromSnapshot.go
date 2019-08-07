@@ -143,7 +143,7 @@ type RestoreDBClusterFromSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB cluster.
-	DBCluster *DBCluster `type:"structure"`
+	DBCluster *DBCluster `json:"rds:RestoreDBClusterFromSnapshotOutput:DBCluster" type:"structure"`
 }
 
 // String returns the string representation

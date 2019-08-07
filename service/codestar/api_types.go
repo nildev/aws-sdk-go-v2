@@ -22,13 +22,13 @@ type Code struct {
 	// files provided with the project request are placed in the repository.
 	//
 	// Destination is a required field
-	Destination *CodeDestination `locationName:"destination" type:"structure" required:"true"`
+	Destination *CodeDestination `json:"codestar:Code:Destination" locationName:"destination" type:"structure" required:"true"`
 
 	// The location where the source code files provided with the project request
 	// are stored. AWS CodeStar retrieves the files during project creation.
 	//
 	// Source is a required field
-	Source *CodeSource `locationName:"source" type:"structure" required:"true"`
+	Source *CodeSource `json:"codestar:Code:Source" locationName:"source" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -74,7 +74,7 @@ type CodeCommitCodeDestination struct {
 	// The name of the AWS CodeCommit repository to be created in AWS CodeStar.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codestar:CodeCommitCodeDestination:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -109,12 +109,12 @@ type CodeDestination struct {
 	// Information about the AWS CodeCommit repository to be created in AWS CodeStar.
 	// This is where the source code files provided with the project request will
 	// be uploaded after project creation.
-	CodeCommit *CodeCommitCodeDestination `locationName:"codeCommit" type:"structure"`
+	CodeCommit *CodeCommitCodeDestination `json:"codestar:CodeDestination:CodeCommit" locationName:"codeCommit" type:"structure"`
 
 	// Information about the GitHub repository to be created in AWS CodeStar. This
 	// is where the source code files provided with the project request will be
 	// uploaded after project creation.
-	GitHub *GitHubCodeDestination `locationName:"gitHub" type:"structure"`
+	GitHub *GitHubCodeDestination `json:"codestar:CodeDestination:GitHub" locationName:"gitHub" type:"structure"`
 }
 
 // String returns the string representation
@@ -152,7 +152,7 @@ type CodeSource struct {
 	// with the project request are stored.
 	//
 	// S3 is a required field
-	S3 *S3Location `locationName:"s3" type:"structure" required:"true"`
+	S3 *S3Location `json:"codestar:CodeSource:S3" locationName:"s3" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -188,40 +188,40 @@ type GitHubCodeDestination struct {
 
 	// Description for the GitHub repository to be created in AWS CodeStar. This
 	// description displays in GitHub after the repository is created.
-	Description *string `locationName:"description" min:"1" type:"string"`
+	Description *string `json:"codestar:GitHubCodeDestination:Description" locationName:"description" min:"1" type:"string"`
 
 	// Whether to enable issues for the GitHub repository.
 	//
 	// IssuesEnabled is a required field
-	IssuesEnabled *bool `locationName:"issuesEnabled" type:"boolean" required:"true"`
+	IssuesEnabled *bool `json:"codestar:GitHubCodeDestination:IssuesEnabled" locationName:"issuesEnabled" type:"boolean" required:"true"`
 
 	// Name of the GitHub repository to be created in AWS CodeStar.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codestar:GitHubCodeDestination:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The GitHub username for the owner of the GitHub repository to be created
 	// in AWS CodeStar. If this repository should be owned by a GitHub organization,
 	// provide its name.
 	//
 	// Owner is a required field
-	Owner *string `locationName:"owner" min:"1" type:"string" required:"true"`
+	Owner *string `json:"codestar:GitHubCodeDestination:Owner" locationName:"owner" min:"1" type:"string" required:"true"`
 
 	// Whether the GitHub repository is to be a private repository.
 	//
 	// PrivateRepository is a required field
-	PrivateRepository *bool `locationName:"privateRepository" type:"boolean" required:"true"`
+	PrivateRepository *bool `json:"codestar:GitHubCodeDestination:PrivateRepository" locationName:"privateRepository" type:"boolean" required:"true"`
 
 	// The GitHub user's personal access token for the GitHub repository.
 	//
 	// Token is a required field
-	Token *string `locationName:"token" min:"1" type:"string" required:"true"`
+	Token *string `json:"codestar:GitHubCodeDestination:Token" locationName:"token" min:"1" type:"string" required:"true"`
 
 	// The type of GitHub repository to be created in AWS CodeStar. Valid values
 	// are User or Organization.
 	//
 	// Type is a required field
-	Type *string `locationName:"type" type:"string" required:"true"`
+	Type *string `json:"codestar:GitHubCodeDestination:Type" locationName:"type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -281,12 +281,12 @@ type ProjectStatus struct {
 	_ struct{} `type:"structure"`
 
 	// In the case of a project creation or deletion failure, a reason for the failure.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"codestar:ProjectStatus:Reason" locationName:"reason" type:"string"`
 
 	// The phase of completion for a project creation or deletion.
 	//
 	// State is a required field
-	State *string `locationName:"state" type:"string" required:"true"`
+	State *string `json:"codestar:ProjectStatus:State" locationName:"state" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -300,10 +300,10 @@ type ProjectSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the project.
-	ProjectArn *string `locationName:"projectArn" type:"string"`
+	ProjectArn *string `json:"codestar:ProjectSummary:ProjectArn" locationName:"projectArn" type:"string"`
 
 	// The ID of the project.
-	ProjectId *string `locationName:"projectId" min:"2" type:"string"`
+	ProjectId *string `json:"codestar:ProjectSummary:ProjectId" locationName:"projectId" min:"2" type:"string"`
 }
 
 // String returns the string representation
@@ -319,7 +319,7 @@ type Resource struct {
 	// The Amazon Resource Name (ARN) of the resource.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"11" type:"string" required:"true"`
+	Id *string `json:"codestar:Resource:Id" locationName:"id" min:"11" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -335,11 +335,11 @@ type S3Location struct {
 
 	// The Amazon S3 object key where the source code files provided with the project
 	// request are stored.
-	BucketKey *string `locationName:"bucketKey" type:"string"`
+	BucketKey *string `json:"codestar:S3Location:BucketKey" locationName:"bucketKey" type:"string"`
 
 	// The Amazon S3 bucket name where the source code files provided with the project
 	// request are stored.
-	BucketName *string `locationName:"bucketName" min:"3" type:"string"`
+	BucketName *string `json:"codestar:S3Location:BucketName" locationName:"bucketName" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -370,16 +370,16 @@ type TeamMember struct {
 	// in the AWS CodeStar User Guide.
 	//
 	// ProjectRole is a required field
-	ProjectRole *string `locationName:"projectRole" type:"string" required:"true"`
+	ProjectRole *string `json:"codestar:TeamMember:ProjectRole" locationName:"projectRole" type:"string" required:"true"`
 
 	// Whether the user is allowed to remotely access project resources using an
 	// SSH public/private key pair.
-	RemoteAccessAllowed *bool `locationName:"remoteAccessAllowed" type:"boolean"`
+	RemoteAccessAllowed *bool `json:"codestar:TeamMember:RemoteAccessAllowed" locationName:"remoteAccessAllowed" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) of the user in IAM.
 	//
 	// UserArn is a required field
-	UserArn *string `locationName:"userArn" min:"32" type:"string" required:"true"`
+	UserArn *string `json:"codestar:TeamMember:UserArn" locationName:"userArn" min:"32" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -395,18 +395,18 @@ type Toolchain struct {
 
 	// The service role ARN for AWS CodeStar to use for the toolchain template during
 	// stack provisioning.
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string"`
+	RoleArn *string `json:"codestar:Toolchain:RoleArn" locationName:"roleArn" min:"1" type:"string"`
 
 	// The Amazon S3 location where the toolchain template file provided with the
 	// project request is stored. AWS CodeStar retrieves the file during project
 	// creation.
 	//
 	// Source is a required field
-	Source *ToolchainSource `locationName:"source" type:"structure" required:"true"`
+	Source *ToolchainSource `json:"codestar:Toolchain:Source" locationName:"source" type:"structure" required:"true"`
 
 	// The list of parameter overrides to be passed into the toolchain template
 	// during stack provisioning, if any.
-	StackParameters map[string]string `locationName:"stackParameters" type:"map"`
+	StackParameters map[string]string `json:"codestar:Toolchain:StackParameters" locationName:"stackParameters" type:"map"`
 }
 
 // String returns the string representation
@@ -447,7 +447,7 @@ type ToolchainSource struct {
 	// project request is stored.
 	//
 	// S3 is a required field
-	S3 *S3Location `locationName:"s3" type:"structure" required:"true"`
+	S3 *S3Location `json:"codestar:ToolchainSource:S3" locationName:"s3" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -488,18 +488,18 @@ type UserProfileSummary struct {
 	// two characters, so a display name with more than one space (for example "Mary
 	// Jane Major") would generate an initial icon using the first character and
 	// the first character after the space ("MJ", not "MM").
-	DisplayName *string `locationName:"displayName" min:"1" type:"string"`
+	DisplayName *string `json:"codestar:UserProfileSummary:DisplayName" locationName:"displayName" min:"1" type:"string"`
 
 	// The email address associated with the user.
-	EmailAddress *string `locationName:"emailAddress" min:"3" type:"string"`
+	EmailAddress *string `json:"codestar:UserProfileSummary:EmailAddress" locationName:"emailAddress" min:"3" type:"string"`
 
 	// The SSH public key associated with the user in AWS CodeStar. If a project
 	// owner allows the user remote access to project resources, this public key
 	// will be used along with the user's private key for SSH access.
-	SshPublicKey *string `locationName:"sshPublicKey" type:"string"`
+	SshPublicKey *string `json:"codestar:UserProfileSummary:SshPublicKey" locationName:"sshPublicKey" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the user in IAM.
-	UserArn *string `locationName:"userArn" min:"32" type:"string"`
+	UserArn *string `json:"codestar:UserProfileSummary:UserArn" locationName:"userArn" min:"32" type:"string"`
 }
 
 // String returns the string representation

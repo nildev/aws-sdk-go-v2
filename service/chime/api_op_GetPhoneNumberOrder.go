@@ -56,7 +56,7 @@ type GetPhoneNumberOrderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The phone number order details.
-	PhoneNumberOrder *PhoneNumberOrder `type:"structure"`
+	PhoneNumberOrder *PhoneNumberOrder `json:"chime:GetPhoneNumberOrderOutput:PhoneNumberOrder" type:"structure"`
 }
 
 // String returns the string representation

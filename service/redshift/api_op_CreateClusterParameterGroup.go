@@ -84,7 +84,7 @@ type CreateClusterParameterGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes a parameter group.
-	ClusterParameterGroup *ClusterParameterGroup `type:"structure"`
+	ClusterParameterGroup *ClusterParameterGroup `json:"redshift:CreateClusterParameterGroupOutput:ClusterParameterGroup" type:"structure"`
 }
 
 // String returns the string representation

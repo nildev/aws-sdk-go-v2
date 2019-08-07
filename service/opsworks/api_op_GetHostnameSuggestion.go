@@ -44,10 +44,10 @@ type GetHostnameSuggestionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The generated host name.
-	Hostname *string `type:"string"`
+	Hostname *string `json:"opsworks:GetHostnameSuggestionOutput:Hostname" type:"string"`
 
 	// The layer ID.
-	LayerId *string `type:"string"`
+	LayerId *string `json:"opsworks:GetHostnameSuggestionOutput:LayerId" type:"string"`
 }
 
 // String returns the string representation

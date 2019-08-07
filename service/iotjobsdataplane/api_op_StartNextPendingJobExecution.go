@@ -91,7 +91,7 @@ type StartNextPendingJobExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A JobExecution object.
-	Execution *JobExecution `locationName:"execution" type:"structure"`
+	Execution *JobExecution `json:"data.jobs.iot:StartNextPendingJobExecutionOutput:Execution" locationName:"execution" type:"structure"`
 }
 
 // String returns the string representation

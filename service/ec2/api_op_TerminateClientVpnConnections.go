@@ -57,13 +57,13 @@ type TerminateClientVpnConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId *string `locationName:"clientVpnEndpointId" type:"string"`
+	ClientVpnEndpointId *string `json:"ec2:TerminateClientVpnConnectionsOutput:ClientVpnEndpointId" locationName:"clientVpnEndpointId" type:"string"`
 
 	// The current state of the client connections.
-	ConnectionStatuses []TerminateConnectionStatus `locationName:"connectionStatuses" locationNameList:"item" type:"list"`
+	ConnectionStatuses []TerminateConnectionStatus `json:"ec2:TerminateClientVpnConnectionsOutput:ConnectionStatuses" locationName:"connectionStatuses" locationNameList:"item" type:"list"`
 
 	// The user who established the terminated client connections.
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"ec2:TerminateClientVpnConnectionsOutput:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation

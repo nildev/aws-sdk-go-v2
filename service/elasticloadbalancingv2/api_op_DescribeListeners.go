@@ -50,11 +50,11 @@ type DescribeListenersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the listeners.
-	Listeners []Listener `type:"list"`
+	Listeners []Listener `json:"elasticloadbalancing:DescribeListenersOutput:Listeners" type:"list"`
 
 	// If there are additional results, this is the marker for the next set of results.
 	// Otherwise, this is null.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"elasticloadbalancing:DescribeListenersOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

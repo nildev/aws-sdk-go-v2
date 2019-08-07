@@ -79,13 +79,13 @@ type DescribeJobQueuesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of job queues.
-	JobQueues []JobQueueDetail `locationName:"jobQueues" type:"list"`
+	JobQueues []JobQueueDetail `json:"batch:DescribeJobQueuesOutput:JobQueues" locationName:"jobQueues" type:"list"`
 
 	// The nextToken value to include in a future DescribeJobQueues request. When
 	// the results of a DescribeJobQueues request exceed maxResults, this value
 	// can be used to retrieve the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"batch:DescribeJobQueuesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

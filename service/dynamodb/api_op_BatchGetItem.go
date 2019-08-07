@@ -123,12 +123,12 @@ type BatchGetItemOutput struct {
 	//    * TableName - The table that consumed the provisioned throughput.
 	//
 	//    * CapacityUnits - The total number of capacity units consumed.
-	ConsumedCapacity []ConsumedCapacity `type:"list"`
+	ConsumedCapacity []ConsumedCapacity `json:"dynamodb:BatchGetItemOutput:ConsumedCapacity" type:"list"`
 
 	// A map of table name to a list of items. Each object in Responses consists
 	// of a table name, along with a map of attribute data consisting of the data
 	// type and attribute value.
-	Responses map[string][]map[string]AttributeValue `type:"map"`
+	Responses map[string][]map[string]AttributeValue `json:"dynamodb:BatchGetItemOutput:Responses" type:"map"`
 
 	// A map of tables and their respective keys that were not processed with the
 	// current response. The UnprocessedKeys value is in the same form as RequestItems,
@@ -150,7 +150,7 @@ type BatchGetItemOutput struct {
 	//
 	// If there are no unprocessed keys remaining, the response contains an empty
 	// UnprocessedKeys map.
-	UnprocessedKeys map[string]KeysAndAttributes `min:"1" type:"map"`
+	UnprocessedKeys map[string]KeysAndAttributes `json:"dynamodb:BatchGetItemOutput:UnprocessedKeys" min:"1" type:"map"`
 }
 
 // String returns the string representation

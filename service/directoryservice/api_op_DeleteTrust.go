@@ -49,7 +49,7 @@ type DeleteTrustOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Trust ID of the trust relationship that was deleted.
-	TrustId *string `type:"string"`
+	TrustId *string `json:"ds:DeleteTrustOutput:TrustId" type:"string"`
 }
 
 // String returns the string representation

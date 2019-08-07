@@ -102,7 +102,7 @@ type GetObjectRetentionOutput struct {
 	_ struct{} `type:"structure" payload:"Retention"`
 
 	// The container element for an object's retention settings.
-	Retention *ObjectLockRetention `type:"structure"`
+	Retention *ObjectLockRetention `json:"s3:GetObjectRetentionOutput:Retention" type:"structure"`
 }
 
 // String returns the string representation

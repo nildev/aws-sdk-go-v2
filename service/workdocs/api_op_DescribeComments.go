@@ -116,11 +116,11 @@ type DescribeCommentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of comments for the specified document version.
-	Comments []Comment `type:"list"`
+	Comments []Comment `json:"workdocs:DescribeCommentsOutput:Comments" type:"list"`
 
 	// The marker for the next set of results. This marker was received from a previous
 	// call.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeCommentsOutput:Marker" min:"1" type:"string"`
 }
 
 // String returns the string representation

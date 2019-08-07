@@ -47,29 +47,29 @@ type GetDeliverabilityDashboardOptionsOutput struct {
 	// The current status of your Deliverability dashboard subscription. If this
 	// value is PENDING_EXPIRATION, your subscription is scheduled to expire at
 	// the end of the current calendar month.
-	AccountStatus DeliverabilityDashboardAccountStatus `type:"string" enum:"true"`
+	AccountStatus DeliverabilityDashboardAccountStatus `json:"email:GetDeliverabilityDashboardOptionsOutput:AccountStatus" type:"string" enum:"true"`
 
 	// An array of objects, one for each verified domain that you use to send email
 	// and currently has an active Deliverability dashboard subscription that isn’t
 	// scheduled to expire at the end of the current calendar month.
-	ActiveSubscribedDomains []DomainDeliverabilityTrackingOption `type:"list"`
+	ActiveSubscribedDomains []DomainDeliverabilityTrackingOption `json:"email:GetDeliverabilityDashboardOptionsOutput:ActiveSubscribedDomains" type:"list"`
 
 	// Specifies whether the Deliverability dashboard is enabled for your Amazon
 	// Pinpoint account. If this value is true, the dashboard is enabled.
 	//
 	// DashboardEnabled is a required field
-	DashboardEnabled *bool `type:"boolean" required:"true"`
+	DashboardEnabled *bool `json:"email:GetDeliverabilityDashboardOptionsOutput:DashboardEnabled" type:"boolean" required:"true"`
 
 	// An array of objects, one for each verified domain that you use to send email
 	// and currently has an active Deliverability dashboard subscription that's
 	// scheduled to expire at the end of the current calendar month.
-	PendingExpirationSubscribedDomains []DomainDeliverabilityTrackingOption `type:"list"`
+	PendingExpirationSubscribedDomains []DomainDeliverabilityTrackingOption `json:"email:GetDeliverabilityDashboardOptionsOutput:PendingExpirationSubscribedDomains" type:"list"`
 
 	// The date, in Unix time format, when your current subscription to the Deliverability
 	// dashboard is scheduled to expire, if your subscription is scheduled to expire
 	// at the end of the current calendar month. This value is null if you have
 	// an active subscription that isn’t due to expire at the end of the month.
-	SubscriptionExpiryDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubscriptionExpiryDate *time.Time `json:"email:GetDeliverabilityDashboardOptionsOutput:SubscriptionExpiryDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

@@ -141,7 +141,7 @@ type UploadServerCertificateOutput struct {
 
 	// The meta information of the uploaded server certificate without its certificate
 	// body, certificate chain, and private key.
-	ServerCertificateMetadata *ServerCertificateMetadata `type:"structure"`
+	ServerCertificateMetadata *ServerCertificateMetadata `json:"iam:UploadServerCertificateOutput:ServerCertificateMetadata" type:"structure"`
 }
 
 // String returns the string representation

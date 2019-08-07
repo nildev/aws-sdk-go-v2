@@ -47,7 +47,7 @@ type RebootReplicationInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The replication instance that is being rebooted.
-	ReplicationInstance *ReplicationInstance `type:"structure"`
+	ReplicationInstance *ReplicationInstance `json:"dms:RebootReplicationInstanceOutput:ReplicationInstance" type:"structure"`
 }
 
 // String returns the string representation

@@ -59,7 +59,7 @@ type GetSqlInjectionMatchSetOutput struct {
 	//    FieldToMatch and TextTransformation
 	//
 	//    * FieldToMatch: Contains Data and Type
-	SqlInjectionMatchSet *waf.SqlInjectionMatchSet `type:"structure"`
+	SqlInjectionMatchSet *waf.SqlInjectionMatchSet `json:"waf-regional:GetSqlInjectionMatchSetOutput:SqlInjectionMatchSet" type:"structure"`
 }
 
 // String returns the string representation

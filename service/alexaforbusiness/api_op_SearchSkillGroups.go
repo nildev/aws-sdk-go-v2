@@ -74,13 +74,13 @@ type SearchSkillGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:SearchSkillGroupsOutput:NextToken" min:"1" type:"string"`
 
 	// The skill groups that meet the filter criteria, in sort order.
-	SkillGroups []SkillGroupData `type:"list"`
+	SkillGroups []SkillGroupData `json:"a4b:SearchSkillGroupsOutput:SkillGroups" type:"list"`
 
 	// The total number of skill groups returned.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"a4b:SearchSkillGroupsOutput:TotalCount" type:"integer"`
 }
 
 // String returns the string representation

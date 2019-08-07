@@ -61,10 +61,10 @@ type UpdateContainerInstancesStateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of container instances.
-	ContainerInstances []ContainerInstance `locationName:"containerInstances" type:"list"`
+	ContainerInstances []ContainerInstance `json:"ecs:UpdateContainerInstancesStateOutput:ContainerInstances" locationName:"containerInstances" type:"list"`
 
 	// Any failures associated with the call.
-	Failures []Failure `locationName:"failures" type:"list"`
+	Failures []Failure `json:"ecs:UpdateContainerInstancesStateOutput:Failures" locationName:"failures" type:"list"`
 }
 
 // String returns the string representation

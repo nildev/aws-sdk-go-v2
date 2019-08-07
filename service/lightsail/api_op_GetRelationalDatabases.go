@@ -29,10 +29,10 @@ type GetRelationalDatabasesOutput struct {
 
 	// A token used for advancing to the next page of results from your get relational
 	// databases request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetRelationalDatabasesOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// An object describing the result of your get relational databases request.
-	RelationalDatabases []RelationalDatabase `locationName:"relationalDatabases" type:"list"`
+	RelationalDatabases []RelationalDatabase `json:"lightsail:GetRelationalDatabasesOutput:RelationalDatabases" locationName:"relationalDatabases" type:"list"`
 }
 
 // String returns the string representation

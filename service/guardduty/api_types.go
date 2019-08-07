@@ -16,16 +16,16 @@ type AccessKeyDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Access key ID of the user.
-	AccessKeyId *string `locationName:"accessKeyId" type:"string"`
+	AccessKeyId *string `json:"guardduty:AccessKeyDetails:AccessKeyId" locationName:"accessKeyId" type:"string"`
 
 	// The principal ID of the user.
-	PrincipalId *string `locationName:"principalId" type:"string"`
+	PrincipalId *string `json:"guardduty:AccessKeyDetails:PrincipalId" locationName:"principalId" type:"string"`
 
 	// The name of the user.
-	UserName *string `locationName:"userName" type:"string"`
+	UserName *string `json:"guardduty:AccessKeyDetails:UserName" locationName:"userName" type:"string"`
 
 	// The type of the user.
-	UserType *string `locationName:"userType" type:"string"`
+	UserType *string `json:"guardduty:AccessKeyDetails:UserType" locationName:"userType" type:"string"`
 }
 
 // String returns the string representation
@@ -69,12 +69,12 @@ type AccountDetail struct {
 	// Member account ID.
 	//
 	// AccountId is a required field
-	AccountId *string `locationName:"accountId" min:"12" type:"string" required:"true"`
+	AccountId *string `json:"guardduty:AccountDetail:AccountId" locationName:"accountId" min:"12" type:"string" required:"true"`
 
 	// Member account's email address.
 	//
 	// Email is a required field
-	Email *string `locationName:"email" min:"1" type:"string" required:"true"`
+	Email *string `json:"guardduty:AccountDetail:Email" locationName:"email" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -128,19 +128,19 @@ type Action struct {
 	_ struct{} `type:"structure"`
 
 	// GuardDuty Finding activity type.
-	ActionType *string `locationName:"actionType" type:"string"`
+	ActionType *string `json:"guardduty:Action:ActionType" locationName:"actionType" type:"string"`
 
 	// Information about the AWS_API_CALL action described in this finding.
-	AwsApiCallAction *AwsApiCallAction `locationName:"awsApiCallAction" type:"structure"`
+	AwsApiCallAction *AwsApiCallAction `json:"guardduty:Action:AwsApiCallAction" locationName:"awsApiCallAction" type:"structure"`
 
 	// Information about the DNS_REQUEST action described in this finding.
-	DnsRequestAction *DnsRequestAction `locationName:"dnsRequestAction" type:"structure"`
+	DnsRequestAction *DnsRequestAction `json:"guardduty:Action:DnsRequestAction" locationName:"dnsRequestAction" type:"structure"`
 
 	// Information about the NETWORK_CONNECTION action described in this finding.
-	NetworkConnectionAction *NetworkConnectionAction `locationName:"networkConnectionAction" type:"structure"`
+	NetworkConnectionAction *NetworkConnectionAction `json:"guardduty:Action:NetworkConnectionAction" locationName:"networkConnectionAction" type:"structure"`
 
 	// Information about the PORT_PROBE action described in this finding.
-	PortProbeAction *PortProbeAction `locationName:"portProbeAction" type:"structure"`
+	PortProbeAction *PortProbeAction `json:"guardduty:Action:PortProbeAction" locationName:"portProbeAction" type:"structure"`
 }
 
 // String returns the string representation
@@ -188,19 +188,19 @@ type AwsApiCallAction struct {
 	_ struct{} `type:"structure"`
 
 	// AWS API name.
-	Api *string `locationName:"api" type:"string"`
+	Api *string `json:"guardduty:AwsApiCallAction:Api" locationName:"api" type:"string"`
 
 	// AWS API caller type.
-	CallerType *string `locationName:"callerType" type:"string"`
+	CallerType *string `json:"guardduty:AwsApiCallAction:CallerType" locationName:"callerType" type:"string"`
 
 	// Domain information for the AWS API call.
-	DomainDetails *DomainDetails `locationName:"domainDetails" type:"structure"`
+	DomainDetails *DomainDetails `json:"guardduty:AwsApiCallAction:DomainDetails" locationName:"domainDetails" type:"structure"`
 
 	// Remote IP information of the connection.
-	RemoteIpDetails *RemoteIpDetails `locationName:"remoteIpDetails" type:"structure"`
+	RemoteIpDetails *RemoteIpDetails `json:"guardduty:AwsApiCallAction:RemoteIpDetails" locationName:"remoteIpDetails" type:"structure"`
 
 	// AWS service name whose API was invoked.
-	ServiceName *string `locationName:"serviceName" type:"string"`
+	ServiceName *string `json:"guardduty:AwsApiCallAction:ServiceName" locationName:"serviceName" type:"string"`
 }
 
 // String returns the string representation
@@ -248,7 +248,7 @@ type City struct {
 	_ struct{} `type:"structure"`
 
 	// City name of the remote IP address.
-	CityName *string `locationName:"cityName" type:"string"`
+	CityName *string `json:"guardduty:City:CityName" locationName:"cityName" type:"string"`
 }
 
 // String returns the string representation
@@ -273,47 +273,47 @@ type Condition struct {
 
 	// Represents the equal condition to be applied to a single field when querying
 	// for findings.
-	Eq []string `locationName:"eq" deprecated:"true" type:"list"`
+	Eq []string `json:"guardduty:Condition:Eq" locationName:"eq" deprecated:"true" type:"list"`
 
-	Equals []string `locationName:"equals" type:"list"`
-
-	// Represents a greater than condition to be applied to a single field when
-	// querying for findings.
-	GreaterThan *int64 `locationName:"greaterThan" type:"long"`
-
-	// Represents a greater than equal condition to be applied to a single field
-	// when querying for findings.
-	GreaterThanOrEqual *int64 `locationName:"greaterThanOrEqual" type:"long"`
+	Equals []string `json:"guardduty:Condition:Equals" locationName:"equals" type:"list"`
 
 	// Represents a greater than condition to be applied to a single field when
 	// querying for findings.
-	Gt *int64 `locationName:"gt" deprecated:"true" type:"integer"`
+	GreaterThan *int64 `json:"guardduty:Condition:GreaterThan" locationName:"greaterThan" type:"long"`
 
 	// Represents a greater than equal condition to be applied to a single field
 	// when querying for findings.
-	Gte *int64 `locationName:"gte" deprecated:"true" type:"integer"`
+	GreaterThanOrEqual *int64 `json:"guardduty:Condition:GreaterThanOrEqual" locationName:"greaterThanOrEqual" type:"long"`
+
+	// Represents a greater than condition to be applied to a single field when
+	// querying for findings.
+	Gt *int64 `json:"guardduty:Condition:Gt" locationName:"gt" deprecated:"true" type:"integer"`
+
+	// Represents a greater than equal condition to be applied to a single field
+	// when querying for findings.
+	Gte *int64 `json:"guardduty:Condition:Gte" locationName:"gte" deprecated:"true" type:"integer"`
 
 	// Represents a less than condition to be applied to a single field when querying
 	// for findings.
-	LessThan *int64 `locationName:"lessThan" type:"long"`
+	LessThan *int64 `json:"guardduty:Condition:LessThan" locationName:"lessThan" type:"long"`
 
 	// Represents a less than equal condition to be applied to a single field when
 	// querying for findings.
-	LessThanOrEqual *int64 `locationName:"lessThanOrEqual" type:"long"`
+	LessThanOrEqual *int64 `json:"guardduty:Condition:LessThanOrEqual" locationName:"lessThanOrEqual" type:"long"`
 
 	// Represents a less than condition to be applied to a single field when querying
 	// for findings.
-	Lt *int64 `locationName:"lt" deprecated:"true" type:"integer"`
+	Lt *int64 `json:"guardduty:Condition:Lt" locationName:"lt" deprecated:"true" type:"integer"`
 
 	// Represents a less than equal condition to be applied to a single field when
 	// querying for findings.
-	Lte *int64 `locationName:"lte" deprecated:"true" type:"integer"`
+	Lte *int64 `json:"guardduty:Condition:Lte" locationName:"lte" deprecated:"true" type:"integer"`
 
 	// Represents the not equal condition to be applied to a single field when querying
 	// for findings.
-	Neq []string `locationName:"neq" deprecated:"true" type:"list"`
+	Neq []string `json:"guardduty:Condition:Neq" locationName:"neq" deprecated:"true" type:"list"`
 
-	NotEquals []string `locationName:"notEquals" type:"list"`
+	NotEquals []string `json:"guardduty:Condition:NotEquals" locationName:"notEquals" type:"list"`
 }
 
 // String returns the string representation
@@ -427,10 +427,10 @@ type Country struct {
 	_ struct{} `type:"structure"`
 
 	// Country code of the remote IP address.
-	CountryCode *string `locationName:"countryCode" type:"string"`
+	CountryCode *string `json:"guardduty:Country:CountryCode" locationName:"countryCode" type:"string"`
 
 	// Country name of the remote IP address.
-	CountryName *string `locationName:"countryName" type:"string"`
+	CountryName *string `json:"guardduty:Country:CountryName" locationName:"countryName" type:"string"`
 }
 
 // String returns the string representation
@@ -460,7 +460,7 @@ type DnsRequestAction struct {
 	_ struct{} `type:"structure"`
 
 	// Domain information for the DNS request.
-	Domain *string `locationName:"domain" type:"string"`
+	Domain *string `json:"guardduty:DnsRequestAction:Domain" locationName:"domain" type:"string"`
 }
 
 // String returns the string representation
@@ -484,7 +484,7 @@ type DomainDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Domain information for the AWS API call.
-	Domain *string `locationName:"domain" type:"string"`
+	Domain *string `json:"guardduty:DomainDetails:Domain" locationName:"domain" type:"string"`
 }
 
 // String returns the string representation
@@ -511,69 +511,69 @@ type Finding struct {
 	// a finding.
 	//
 	// AccountId is a required field
-	AccountId *string `locationName:"accountId" type:"string" required:"true"`
+	AccountId *string `json:"guardduty:Finding:AccountId" locationName:"accountId" type:"string" required:"true"`
 
 	// The ARN of a finding described by the action.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"guardduty:Finding:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The confidence level of a finding.
-	Confidence *float64 `locationName:"confidence" type:"double"`
+	Confidence *float64 `json:"guardduty:Finding:Confidence" locationName:"confidence" type:"double"`
 
 	// The time stamp at which a finding was generated.
 	//
 	// CreatedAt is a required field
-	CreatedAt *string `locationName:"createdAt" type:"string" required:"true"`
+	CreatedAt *string `json:"guardduty:Finding:CreatedAt" locationName:"createdAt" type:"string" required:"true"`
 
 	// The description of a finding.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"guardduty:Finding:Description" locationName:"description" type:"string"`
 
 	// The identifier that corresponds to a finding described by the action.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" type:"string" required:"true"`
+	Id *string `json:"guardduty:Finding:Id" locationName:"id" type:"string" required:"true"`
 
 	// The AWS resource partition.
-	Partition *string `locationName:"partition" type:"string"`
+	Partition *string `json:"guardduty:Finding:Partition" locationName:"partition" type:"string"`
 
 	// The AWS region where the activity occurred that prompted GuardDuty to generate
 	// a finding.
 	//
 	// Region is a required field
-	Region *string `locationName:"region" type:"string" required:"true"`
+	Region *string `json:"guardduty:Finding:Region" locationName:"region" type:"string" required:"true"`
 
 	// The AWS resource associated with the activity that prompted GuardDuty to
 	// generate a finding.
 	//
 	// Resource is a required field
-	Resource *Resource `locationName:"resource" type:"structure" required:"true"`
+	Resource *Resource `json:"guardduty:Finding:Resource" locationName:"resource" type:"structure" required:"true"`
 
 	// Findings' schema version.
 	//
 	// SchemaVersion is a required field
-	SchemaVersion *string `locationName:"schemaVersion" type:"string" required:"true"`
+	SchemaVersion *string `json:"guardduty:Finding:SchemaVersion" locationName:"schemaVersion" type:"string" required:"true"`
 
 	// Additional information assigned to the generated finding by GuardDuty.
-	Service *Service `locationName:"service" type:"structure"`
+	Service *Service `json:"guardduty:Finding:Service" locationName:"service" type:"structure"`
 
 	// The severity of a finding.
 	//
 	// Severity is a required field
-	Severity *float64 `locationName:"severity" type:"double" required:"true"`
+	Severity *float64 `json:"guardduty:Finding:Severity" locationName:"severity" type:"double" required:"true"`
 
 	// The title of a finding.
-	Title *string `locationName:"title" type:"string"`
+	Title *string `json:"guardduty:Finding:Title" locationName:"title" type:"string"`
 
 	// The type of a finding described by the action.
 	//
 	// Type is a required field
-	Type *string `locationName:"type" min:"1" type:"string" required:"true"`
+	Type *string `json:"guardduty:Finding:Type" locationName:"type" min:"1" type:"string" required:"true"`
 
 	// The time stamp at which a finding was last updated.
 	//
 	// UpdatedAt is a required field
-	UpdatedAt *string `locationName:"updatedAt" type:"string" required:"true"`
+	UpdatedAt *string `json:"guardduty:Finding:UpdatedAt" locationName:"updatedAt" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -682,7 +682,7 @@ type FindingCriteria struct {
 
 	// Represents a map of finding properties that match specified conditions and
 	// values when querying findings.
-	Criterion map[string]Condition `locationName:"criterion" type:"map"`
+	Criterion map[string]Condition `json:"guardduty:FindingCriteria:Criterion" locationName:"criterion" type:"map"`
 }
 
 // String returns the string representation
@@ -712,7 +712,7 @@ type FindingStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// Represents a map of severity to count statistic for a set of findings
-	CountBySeverity map[string]int64 `locationName:"countBySeverity" type:"map"`
+	CountBySeverity map[string]int64 `json:"guardduty:FindingStatistics:CountBySeverity" locationName:"countBySeverity" type:"map"`
 }
 
 // String returns the string representation
@@ -742,10 +742,10 @@ type GeoLocation struct {
 	_ struct{} `type:"structure"`
 
 	// Latitude information of remote IP address.
-	Lat *float64 `locationName:"lat" type:"double"`
+	Lat *float64 `json:"guardduty:GeoLocation:Lat" locationName:"lat" type:"double"`
 
 	// Longitude information of remote IP address.
-	Lon *float64 `locationName:"lon" type:"double"`
+	Lon *float64 `json:"guardduty:GeoLocation:Lon" locationName:"lon" type:"double"`
 }
 
 // String returns the string representation
@@ -775,10 +775,10 @@ type IamInstanceProfile struct {
 	_ struct{} `type:"structure"`
 
 	// AWS EC2 instance profile ARN.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"guardduty:IamInstanceProfile:Arn" locationName:"arn" type:"string"`
 
 	// AWS EC2 instance profile ID.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"guardduty:IamInstanceProfile:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation
@@ -808,40 +808,40 @@ type InstanceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The availability zone of the EC2 instance.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"guardduty:InstanceDetails:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The profile information of the EC2 instance.
-	IamInstanceProfile *IamInstanceProfile `locationName:"iamInstanceProfile" type:"structure"`
+	IamInstanceProfile *IamInstanceProfile `json:"guardduty:InstanceDetails:IamInstanceProfile" locationName:"iamInstanceProfile" type:"structure"`
 
 	// The image description of the EC2 instance.
-	ImageDescription *string `locationName:"imageDescription" type:"string"`
+	ImageDescription *string `json:"guardduty:InstanceDetails:ImageDescription" locationName:"imageDescription" type:"string"`
 
 	// The image ID of the EC2 instance.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"guardduty:InstanceDetails:ImageId" locationName:"imageId" type:"string"`
 
 	// The ID of the EC2 instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"guardduty:InstanceDetails:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The state of the EC2 instance.
-	InstanceState *string `locationName:"instanceState" type:"string"`
+	InstanceState *string `json:"guardduty:InstanceDetails:InstanceState" locationName:"instanceState" type:"string"`
 
 	// The type of the EC2 instance.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"guardduty:InstanceDetails:InstanceType" locationName:"instanceType" type:"string"`
 
 	// The launch time of the EC2 instance.
-	LaunchTime *string `locationName:"launchTime" type:"string"`
+	LaunchTime *string `json:"guardduty:InstanceDetails:LaunchTime" locationName:"launchTime" type:"string"`
 
 	// The network interface information of the EC2 instance.
-	NetworkInterfaces []NetworkInterface `locationName:"networkInterfaces" type:"list"`
+	NetworkInterfaces []NetworkInterface `json:"guardduty:InstanceDetails:NetworkInterfaces" locationName:"networkInterfaces" type:"list"`
 
 	// The platform of the EC2 instance.
-	Platform *string `locationName:"platform" type:"string"`
+	Platform *string `json:"guardduty:InstanceDetails:Platform" locationName:"platform" type:"string"`
 
 	// The product code of the EC2 instance.
-	ProductCodes []ProductCode `locationName:"productCodes" type:"list"`
+	ProductCodes []ProductCode `json:"guardduty:InstanceDetails:ProductCodes" locationName:"productCodes" type:"list"`
 
 	// The tags of the EC2 instance.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"guardduty:InstanceDetails:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -949,16 +949,16 @@ type Invitation struct {
 	_ struct{} `type:"structure"`
 
 	// Inviter account ID
-	AccountId *string `locationName:"accountId" min:"12" type:"string"`
+	AccountId *string `json:"guardduty:Invitation:AccountId" locationName:"accountId" min:"12" type:"string"`
 
 	// This value is used to validate the inviter account to the member account.
-	InvitationId *string `locationName:"invitationId" type:"string"`
+	InvitationId *string `json:"guardduty:Invitation:InvitationId" locationName:"invitationId" type:"string"`
 
 	// Timestamp at which the invitation was sent
-	InvitedAt *string `locationName:"invitedAt" type:"string"`
+	InvitedAt *string `json:"guardduty:Invitation:InvitedAt" locationName:"invitedAt" type:"string"`
 
 	// The status of the relationship between the inviter and invitee accounts.
-	RelationshipStatus *string `locationName:"relationshipStatus" type:"string"`
+	RelationshipStatus *string `json:"guardduty:Invitation:RelationshipStatus" locationName:"relationshipStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -1000,10 +1000,10 @@ type LocalPortDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Port number of the local connection.
-	Port *int64 `locationName:"port" type:"integer"`
+	Port *int64 `json:"guardduty:LocalPortDetails:Port" locationName:"port" type:"integer"`
 
 	// Port name of the local connection.
-	PortName *string `locationName:"portName" type:"string"`
+	PortName *string `json:"guardduty:LocalPortDetails:PortName" locationName:"portName" type:"string"`
 }
 
 // String returns the string representation
@@ -1033,16 +1033,16 @@ type Master struct {
 	_ struct{} `type:"structure"`
 
 	// Master account ID
-	AccountId *string `locationName:"accountId" min:"12" type:"string"`
+	AccountId *string `json:"guardduty:Master:AccountId" locationName:"accountId" min:"12" type:"string"`
 
 	// This value is used to validate the master account to the member account.
-	InvitationId *string `locationName:"invitationId" type:"string"`
+	InvitationId *string `json:"guardduty:Master:InvitationId" locationName:"invitationId" type:"string"`
 
 	// Timestamp at which the invitation was sent
-	InvitedAt *string `locationName:"invitedAt" type:"string"`
+	InvitedAt *string `json:"guardduty:Master:InvitedAt" locationName:"invitedAt" type:"string"`
 
 	// The status of the relationship between the master and member accounts.
-	RelationshipStatus *string `locationName:"relationshipStatus" type:"string"`
+	RelationshipStatus *string `json:"guardduty:Master:RelationshipStatus" locationName:"relationshipStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -1086,33 +1086,33 @@ type Member struct {
 	// Member account ID.
 	//
 	// AccountId is a required field
-	AccountId *string `locationName:"accountId" min:"12" type:"string" required:"true"`
+	AccountId *string `json:"guardduty:Member:AccountId" locationName:"accountId" min:"12" type:"string" required:"true"`
 
 	// Member account's detector ID.
-	DetectorId *string `locationName:"detectorId" min:"1" type:"string"`
+	DetectorId *string `json:"guardduty:Member:DetectorId" locationName:"detectorId" min:"1" type:"string"`
 
 	// Member account's email address.
 	//
 	// Email is a required field
-	Email *string `locationName:"email" min:"1" type:"string" required:"true"`
+	Email *string `json:"guardduty:Member:Email" locationName:"email" min:"1" type:"string" required:"true"`
 
 	// Timestamp at which the invitation was sent
-	InvitedAt *string `locationName:"invitedAt" type:"string"`
+	InvitedAt *string `json:"guardduty:Member:InvitedAt" locationName:"invitedAt" type:"string"`
 
 	// Master account ID.
 	//
 	// MasterId is a required field
-	MasterId *string `locationName:"masterId" type:"string" required:"true"`
+	MasterId *string `json:"guardduty:Member:MasterId" locationName:"masterId" type:"string" required:"true"`
 
 	// The status of the relationship between the member and the master.
 	//
 	// RelationshipStatus is a required field
-	RelationshipStatus *string `locationName:"relationshipStatus" type:"string" required:"true"`
+	RelationshipStatus *string `json:"guardduty:Member:RelationshipStatus" locationName:"relationshipStatus" type:"string" required:"true"`
 
 	// Member last updated timestamp.
 	//
 	// UpdatedAt is a required field
-	UpdatedAt *string `locationName:"updatedAt" type:"string" required:"true"`
+	UpdatedAt *string `json:"guardduty:Member:UpdatedAt" locationName:"updatedAt" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1172,22 +1172,22 @@ type NetworkConnectionAction struct {
 	_ struct{} `type:"structure"`
 
 	// Network connection blocked information.
-	Blocked *bool `locationName:"blocked" type:"boolean"`
+	Blocked *bool `json:"guardduty:NetworkConnectionAction:Blocked" locationName:"blocked" type:"boolean"`
 
 	// Network connection direction.
-	ConnectionDirection *string `locationName:"connectionDirection" type:"string"`
+	ConnectionDirection *string `json:"guardduty:NetworkConnectionAction:ConnectionDirection" locationName:"connectionDirection" type:"string"`
 
 	// Local port information of the connection.
-	LocalPortDetails *LocalPortDetails `locationName:"localPortDetails" type:"structure"`
+	LocalPortDetails *LocalPortDetails `json:"guardduty:NetworkConnectionAction:LocalPortDetails" locationName:"localPortDetails" type:"structure"`
 
 	// Network connection protocol.
-	Protocol *string `locationName:"protocol" type:"string"`
+	Protocol *string `json:"guardduty:NetworkConnectionAction:Protocol" locationName:"protocol" type:"string"`
 
 	// Remote IP information of the connection.
-	RemoteIpDetails *RemoteIpDetails `locationName:"remoteIpDetails" type:"structure"`
+	RemoteIpDetails *RemoteIpDetails `json:"guardduty:NetworkConnectionAction:RemoteIpDetails" locationName:"remoteIpDetails" type:"structure"`
 
 	// Remote port information of the connection.
-	RemotePortDetails *RemotePortDetails `locationName:"remotePortDetails" type:"structure"`
+	RemotePortDetails *RemotePortDetails `json:"guardduty:NetworkConnectionAction:RemotePortDetails" locationName:"remotePortDetails" type:"structure"`
 }
 
 // String returns the string representation
@@ -1241,34 +1241,34 @@ type NetworkInterface struct {
 	_ struct{} `type:"structure"`
 
 	// A list of EC2 instance IPv6 address information.
-	Ipv6Addresses []string `locationName:"ipv6Addresses" type:"list"`
+	Ipv6Addresses []string `json:"guardduty:NetworkInterface:Ipv6Addresses" locationName:"ipv6Addresses" type:"list"`
 
 	// The ID of the network interface
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"guardduty:NetworkInterface:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// Private DNS name of the EC2 instance.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"guardduty:NetworkInterface:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// Private IP address of the EC2 instance.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"guardduty:NetworkInterface:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 
 	// Other private IP address information of the EC2 instance.
-	PrivateIpAddresses []PrivateIpAddressDetails `locationName:"privateIpAddresses" type:"list"`
+	PrivateIpAddresses []PrivateIpAddressDetails `json:"guardduty:NetworkInterface:PrivateIpAddresses" locationName:"privateIpAddresses" type:"list"`
 
 	// Public DNS name of the EC2 instance.
-	PublicDnsName *string `locationName:"publicDnsName" type:"string"`
+	PublicDnsName *string `json:"guardduty:NetworkInterface:PublicDnsName" locationName:"publicDnsName" type:"string"`
 
 	// Public IP address of the EC2 instance.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"guardduty:NetworkInterface:PublicIp" locationName:"publicIp" type:"string"`
 
 	// Security groups associated with the EC2 instance.
-	SecurityGroups []SecurityGroup `locationName:"securityGroups" type:"list"`
+	SecurityGroups []SecurityGroup `json:"guardduty:NetworkInterface:SecurityGroups" locationName:"securityGroups" type:"list"`
 
 	// The subnet ID of the EC2 instance.
-	SubnetId *string `locationName:"subnetId" type:"string"`
+	SubnetId *string `json:"guardduty:NetworkInterface:SubnetId" locationName:"subnetId" type:"string"`
 
 	// The VPC ID of the EC2 instance.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"guardduty:NetworkInterface:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1364,16 +1364,16 @@ type Organization struct {
 	_ struct{} `type:"structure"`
 
 	// Autonomous system number of the internet provider of the remote IP address.
-	Asn *string `locationName:"asn" type:"string"`
+	Asn *string `json:"guardduty:Organization:Asn" locationName:"asn" type:"string"`
 
 	// Organization that registered this ASN.
-	AsnOrg *string `locationName:"asnOrg" type:"string"`
+	AsnOrg *string `json:"guardduty:Organization:AsnOrg" locationName:"asnOrg" type:"string"`
 
 	// ISP information for the internet provider.
-	Isp *string `locationName:"isp" type:"string"`
+	Isp *string `json:"guardduty:Organization:Isp" locationName:"isp" type:"string"`
 
 	// Name of the internet provider.
-	Org *string `locationName:"org" type:"string"`
+	Org *string `json:"guardduty:Organization:Org" locationName:"org" type:"string"`
 }
 
 // String returns the string representation
@@ -1415,10 +1415,10 @@ type PortProbeAction struct {
 	_ struct{} `type:"structure"`
 
 	// Port probe blocked information.
-	Blocked *bool `locationName:"blocked" type:"boolean"`
+	Blocked *bool `json:"guardduty:PortProbeAction:Blocked" locationName:"blocked" type:"boolean"`
 
 	// A list of port probe details objects.
-	PortProbeDetails []PortProbeDetail `locationName:"portProbeDetails" type:"list"`
+	PortProbeDetails []PortProbeDetail `json:"guardduty:PortProbeAction:PortProbeDetails" locationName:"portProbeDetails" type:"list"`
 }
 
 // String returns the string representation
@@ -1454,10 +1454,10 @@ type PortProbeDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Local port information of the connection.
-	LocalPortDetails *LocalPortDetails `locationName:"localPortDetails" type:"structure"`
+	LocalPortDetails *LocalPortDetails `json:"guardduty:PortProbeDetail:LocalPortDetails" locationName:"localPortDetails" type:"structure"`
 
 	// Remote IP information of the connection.
-	RemoteIpDetails *RemoteIpDetails `locationName:"remoteIpDetails" type:"structure"`
+	RemoteIpDetails *RemoteIpDetails `json:"guardduty:PortProbeDetail:RemoteIpDetails" locationName:"remoteIpDetails" type:"structure"`
 }
 
 // String returns the string representation
@@ -1487,10 +1487,10 @@ type PrivateIpAddressDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Private DNS name of the EC2 instance.
-	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+	PrivateDnsName *string `json:"guardduty:PrivateIpAddressDetails:PrivateDnsName" locationName:"privateDnsName" type:"string"`
 
 	// Private IP address of the EC2 instance.
-	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+	PrivateIpAddress *string `json:"guardduty:PrivateIpAddressDetails:PrivateIpAddress" locationName:"privateIpAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -1520,10 +1520,10 @@ type ProductCode struct {
 	_ struct{} `type:"structure"`
 
 	// Product code information.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"guardduty:ProductCode:Code" locationName:"code" type:"string"`
 
 	// Product code type.
-	ProductType *string `locationName:"productType" type:"string"`
+	ProductType *string `json:"guardduty:ProductCode:ProductType" locationName:"productType" type:"string"`
 }
 
 // String returns the string representation
@@ -1553,19 +1553,19 @@ type RemoteIpDetails struct {
 	_ struct{} `type:"structure"`
 
 	// City information of the remote IP address.
-	City *City `locationName:"city" type:"structure"`
+	City *City `json:"guardduty:RemoteIpDetails:City" locationName:"city" type:"structure"`
 
 	// Country code of the remote IP address.
-	Country *Country `locationName:"country" type:"structure"`
+	Country *Country `json:"guardduty:RemoteIpDetails:Country" locationName:"country" type:"structure"`
 
 	// Location information of the remote IP address.
-	GeoLocation *GeoLocation `locationName:"geoLocation" type:"structure"`
+	GeoLocation *GeoLocation `json:"guardduty:RemoteIpDetails:GeoLocation" locationName:"geoLocation" type:"structure"`
 
 	// IPV4 remote address of the connection.
-	IpAddressV4 *string `locationName:"ipAddressV4" type:"string"`
+	IpAddressV4 *string `json:"guardduty:RemoteIpDetails:IpAddressV4" locationName:"ipAddressV4" type:"string"`
 
 	// ISP Organization information of the remote IP address.
-	Organization *Organization `locationName:"organization" type:"structure"`
+	Organization *Organization `json:"guardduty:RemoteIpDetails:Organization" locationName:"organization" type:"structure"`
 }
 
 // String returns the string representation
@@ -1613,10 +1613,10 @@ type RemotePortDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Port number of the remote connection.
-	Port *int64 `locationName:"port" type:"integer"`
+	Port *int64 `json:"guardduty:RemotePortDetails:Port" locationName:"port" type:"integer"`
 
 	// Port name of the remote connection.
-	PortName *string `locationName:"portName" type:"string"`
+	PortName *string `json:"guardduty:RemotePortDetails:PortName" locationName:"portName" type:"string"`
 }
 
 // String returns the string representation
@@ -1647,14 +1647,14 @@ type Resource struct {
 
 	// The IAM access key details (IAM user information) of a user that engaged
 	// in the activity that prompted GuardDuty to generate a finding.
-	AccessKeyDetails *AccessKeyDetails `locationName:"accessKeyDetails" type:"structure"`
+	AccessKeyDetails *AccessKeyDetails `json:"guardduty:Resource:AccessKeyDetails" locationName:"accessKeyDetails" type:"structure"`
 
 	// The information about the EC2 instance associated with the activity that
 	// prompted GuardDuty to generate a finding.
-	InstanceDetails *InstanceDetails `locationName:"instanceDetails" type:"structure"`
+	InstanceDetails *InstanceDetails `json:"guardduty:Resource:InstanceDetails" locationName:"instanceDetails" type:"structure"`
 
 	// The type of the AWS resource.
-	ResourceType *string `locationName:"resourceType" type:"string"`
+	ResourceType *string `json:"guardduty:Resource:ResourceType" locationName:"resourceType" type:"string"`
 }
 
 // String returns the string representation
@@ -1690,10 +1690,10 @@ type SecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// EC2 instance's security group ID.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"guardduty:SecurityGroup:GroupId" locationName:"groupId" type:"string"`
 
 	// EC2 instance's security group name.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"guardduty:SecurityGroup:GroupName" locationName:"groupName" type:"string"`
 }
 
 // String returns the string representation
@@ -1723,33 +1723,33 @@ type Service struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the activity described in a finding.
-	Action *Action `locationName:"action" type:"structure"`
+	Action *Action `json:"guardduty:Service:Action" locationName:"action" type:"structure"`
 
 	// Indicates whether this finding is archived.
-	Archived *bool `locationName:"archived" type:"boolean"`
+	Archived *bool `json:"guardduty:Service:Archived" locationName:"archived" type:"boolean"`
 
 	// Total count of the occurrences of this finding type.
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"guardduty:Service:Count" locationName:"count" type:"integer"`
 
 	// Detector ID for the GuardDuty service.
-	DetectorId *string `locationName:"detectorId" min:"1" type:"string"`
+	DetectorId *string `json:"guardduty:Service:DetectorId" locationName:"detectorId" min:"1" type:"string"`
 
 	// First seen timestamp of the activity that prompted GuardDuty to generate
 	// this finding.
-	EventFirstSeen *string `locationName:"eventFirstSeen" type:"string"`
+	EventFirstSeen *string `json:"guardduty:Service:EventFirstSeen" locationName:"eventFirstSeen" type:"string"`
 
 	// Last seen timestamp of the activity that prompted GuardDuty to generate this
 	// finding.
-	EventLastSeen *string `locationName:"eventLastSeen" type:"string"`
+	EventLastSeen *string `json:"guardduty:Service:EventLastSeen" locationName:"eventLastSeen" type:"string"`
 
 	// Resource role information for this finding.
-	ResourceRole *string `locationName:"resourceRole" type:"string"`
+	ResourceRole *string `json:"guardduty:Service:ResourceRole" locationName:"resourceRole" type:"string"`
 
 	// The name of the AWS service (GuardDuty) that generated a finding.
-	ServiceName *string `locationName:"serviceName" type:"string"`
+	ServiceName *string `json:"guardduty:Service:ServiceName" locationName:"serviceName" type:"string"`
 
 	// Feedback left about the finding.
-	UserFeedback *string `locationName:"userFeedback" type:"string"`
+	UserFeedback *string `json:"guardduty:Service:UserFeedback" locationName:"userFeedback" type:"string"`
 }
 
 // String returns the string representation
@@ -1822,10 +1822,10 @@ type SortCriteria struct {
 
 	// Represents the finding attribute (for example, accountId) by which to sort
 	// findings.
-	AttributeName *string `locationName:"attributeName" type:"string"`
+	AttributeName *string `json:"guardduty:SortCriteria:AttributeName" locationName:"attributeName" type:"string"`
 
 	// Order by which the sorted findings are to be displayed.
-	OrderBy OrderBy `locationName:"orderBy" type:"string" enum:"true"`
+	OrderBy OrderBy `json:"guardduty:SortCriteria:OrderBy" locationName:"orderBy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1855,10 +1855,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// EC2 instance tag key.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"guardduty:Tag:Key" locationName:"key" type:"string"`
 
 	// EC2 instance tag value.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"guardduty:Tag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -1890,12 +1890,12 @@ type UnprocessedAccount struct {
 	// AWS Account ID.
 	//
 	// AccountId is a required field
-	AccountId *string `locationName:"accountId" min:"12" type:"string" required:"true"`
+	AccountId *string `json:"guardduty:UnprocessedAccount:AccountId" locationName:"accountId" min:"12" type:"string" required:"true"`
 
 	// A reason why the account hasn't been processed.
 	//
 	// Result is a required field
-	Result *string `locationName:"result" type:"string" required:"true"`
+	Result *string `json:"guardduty:UnprocessedAccount:Result" locationName:"result" type:"string" required:"true"`
 }
 
 // String returns the string representation

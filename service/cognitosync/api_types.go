@@ -21,18 +21,18 @@ type CognitoStreams struct {
 	// The ARN of the role Amazon Cognito can assume in order to publish to the
 	// stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke
 	// PutRecord on your Cognito stream.
-	RoleArn *string `min:"20" type:"string"`
+	RoleArn *string `json:"cognito-sync:CognitoStreams:RoleArn" min:"20" type:"string"`
 
 	// The name of the Cognito stream to receive updates. This stream must be in
 	// the developers account and in the same region as the identity pool.
-	StreamName *string `min:"1" type:"string"`
+	StreamName *string `json:"cognito-sync:CognitoStreams:StreamName" min:"1" type:"string"`
 
 	// Status of the Cognito streams. Valid values are:
 	// ENABLED - Streaming of updates to identity pool is enabled.
 	//
 	// DISABLED - Streaming of updates to identity pool is disabled. Bulk publish
 	// will also fail if StreamingStatus is DISABLED.
-	StreamingStatus StreamingStatus `type:"string" enum:"true"`
+	StreamingStatus StreamingStatus `json:"cognito-sync:CognitoStreams:StreamingStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -89,27 +89,27 @@ type Dataset struct {
 	_ struct{} `type:"structure"`
 
 	// Date on which the dataset was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-sync:Dataset:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Total size in bytes of the records in this dataset.
-	DataStorage *int64 `type:"long"`
+	DataStorage *int64 `json:"cognito-sync:Dataset:DataStorage" type:"long"`
 
 	// A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
 	// (underscore), '-' (dash), and '.' (dot).
-	DatasetName *string `min:"1" type:"string"`
+	DatasetName *string `json:"cognito-sync:Dataset:DatasetName" min:"1" type:"string"`
 
 	// A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
 	// created by Amazon Cognito. GUID generation is unique within a region.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-sync:Dataset:IdentityId" min:"1" type:"string"`
 
 	// The device that made the last change to this dataset.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"cognito-sync:Dataset:LastModifiedBy" type:"string"`
 
 	// Date when the dataset was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-sync:Dataset:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Number of records in this dataset.
-	NumRecords *int64 `type:"long"`
+	NumRecords *int64 `json:"cognito-sync:Dataset:NumRecords" type:"long"`
 }
 
 // String returns the string representation
@@ -170,17 +170,17 @@ type IdentityPoolUsage struct {
 	_ struct{} `type:"structure"`
 
 	// Data storage information for the identity pool.
-	DataStorage *int64 `type:"long"`
+	DataStorage *int64 `json:"cognito-sync:IdentityPoolUsage:DataStorage" type:"long"`
 
 	// A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
 	// created by Amazon Cognito. GUID generation is unique within a region.
-	IdentityPoolId *string `min:"1" type:"string"`
+	IdentityPoolId *string `json:"cognito-sync:IdentityPoolUsage:IdentityPoolId" min:"1" type:"string"`
 
 	// Date on which the identity pool was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-sync:IdentityPoolUsage:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Number of sync sessions for the identity pool.
-	SyncSessionsCount *int64 `type:"long"`
+	SyncSessionsCount *int64 `json:"cognito-sync:IdentityPoolUsage:SyncSessionsCount" type:"long"`
 }
 
 // String returns the string representation
@@ -223,21 +223,21 @@ type IdentityUsage struct {
 	_ struct{} `type:"structure"`
 
 	// Total data storage for this identity.
-	DataStorage *int64 `type:"long"`
+	DataStorage *int64 `json:"cognito-sync:IdentityUsage:DataStorage" type:"long"`
 
 	// Number of datasets for the identity.
-	DatasetCount *int64 `type:"integer"`
+	DatasetCount *int64 `json:"cognito-sync:IdentityUsage:DatasetCount" type:"integer"`
 
 	// A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
 	// created by Amazon Cognito. GUID generation is unique within a region.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-sync:IdentityUsage:IdentityId" min:"1" type:"string"`
 
 	// A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
 	// created by Amazon Cognito. GUID generation is unique within a region.
-	IdentityPoolId *string `min:"1" type:"string"`
+	IdentityPoolId *string `json:"cognito-sync:IdentityUsage:IdentityPoolId" min:"1" type:"string"`
 
 	// Date on which the identity was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-sync:IdentityUsage:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -286,10 +286,10 @@ type PushSync struct {
 	_ struct{} `type:"structure"`
 
 	// List of SNS platform application ARNs that could be used by clients.
-	ApplicationArns []string `type:"list"`
+	ApplicationArns []string `json:"cognito-sync:PushSync:ApplicationArns" type:"list"`
 
 	// A role configured to allow Cognito to call SNS on behalf of the developer.
-	RoleArn *string `min:"20" type:"string"`
+	RoleArn *string `json:"cognito-sync:PushSync:RoleArn" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -339,22 +339,22 @@ type Record struct {
 	_ struct{} `type:"structure"`
 
 	// The last modified date of the client device.
-	DeviceLastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeviceLastModifiedDate *time.Time `json:"cognito-sync:Record:DeviceLastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The key for the record.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"cognito-sync:Record:Key" min:"1" type:"string"`
 
 	// The user/device that made the last change to this record.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"cognito-sync:Record:LastModifiedBy" type:"string"`
 
 	// The date on which the record was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-sync:Record:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The server sync count for this record.
-	SyncCount *int64 `type:"long"`
+	SyncCount *int64 `json:"cognito-sync:Record:SyncCount" type:"long"`
 
 	// The value for the record.
-	Value *string `type:"string"`
+	Value *string `json:"cognito-sync:Record:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -409,25 +409,25 @@ type RecordPatch struct {
 	_ struct{} `type:"structure"`
 
 	// The last modified date of the client device.
-	DeviceLastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeviceLastModifiedDate *time.Time `json:"cognito-sync:RecordPatch:DeviceLastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The key associated with the record patch.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"cognito-sync:RecordPatch:Key" min:"1" type:"string" required:"true"`
 
 	// An operation, either replace or remove.
 	//
 	// Op is a required field
-	Op Operation `type:"string" required:"true" enum:"true"`
+	Op Operation `json:"cognito-sync:RecordPatch:Op" type:"string" required:"true" enum:"true"`
 
 	// Last known server sync count for this record. Set to 0 if unknown.
 	//
 	// SyncCount is a required field
-	SyncCount *int64 `type:"long" required:"true"`
+	SyncCount *int64 `json:"cognito-sync:RecordPatch:SyncCount" type:"long" required:"true"`
 
 	// The value associated with the record patch.
-	Value *string `type:"string"`
+	Value *string `json:"cognito-sync:RecordPatch:Value" type:"string"`
 }
 
 // String returns the string representation

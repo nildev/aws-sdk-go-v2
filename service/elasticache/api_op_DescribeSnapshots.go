@@ -64,11 +64,11 @@ type DescribeSnapshotsOutput struct {
 	// An optional marker returned from a prior request. Use this marker for pagination
 	// of results from this operation. If this parameter is specified, the response
 	// includes only records beyond the marker, up to the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeSnapshotsOutput:Marker" type:"string"`
 
 	// A list of snapshots. Each item in the list contains detailed information
 	// about one snapshot.
-	Snapshots []Snapshot `locationNameList:"Snapshot" type:"list"`
+	Snapshots []Snapshot `json:"elasticache:DescribeSnapshotsOutput:Snapshots" locationNameList:"Snapshot" type:"list"`
 }
 
 // String returns the string representation

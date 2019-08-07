@@ -50,7 +50,7 @@ type DescribeEventCategoriesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event categories.
-	EventCategoryGroupList []EventCategoryGroup `type:"list"`
+	EventCategoryGroupList []EventCategoryGroup `json:"dms:DescribeEventCategoriesOutput:EventCategoryGroupList" type:"list"`
 }
 
 // String returns the string representation

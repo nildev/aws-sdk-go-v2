@@ -42,7 +42,7 @@ type DescribeSnapshotsOutput struct {
 
 	// If not null, more results are available. Pass this value in the NextToken
 	// member of a subsequent call to DescribeSnapshots.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ds:DescribeSnapshotsOutput:NextToken" type:"string"`
 
 	// The list of Snapshot objects that were retrieved.
 	//
@@ -50,7 +50,7 @@ type DescribeSnapshotsOutput struct {
 	// in the Limit member of the request. This occurs if there are less than the
 	// requested number of items left to retrieve, or if the limitations of the
 	// operation have been exceeded.
-	Snapshots []Snapshot `type:"list"`
+	Snapshots []Snapshot `json:"ds:DescribeSnapshotsOutput:Snapshots" type:"list"`
 }
 
 // String returns the string representation

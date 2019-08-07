@@ -71,7 +71,7 @@ type GetServiceLastAccessedDetailsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that contains details about the reason the operation failed.
-	Error *ErrorDetails `type:"structure"`
+	Error *ErrorDetails `json:"iam:GetServiceLastAccessedDetailsOutput:Error" type:"structure"`
 
 	// A flag that indicates whether there are more items to return. If your results
 	// were truncated, you can make a subsequent pagination request using the Marker
@@ -79,7 +79,7 @@ type GetServiceLastAccessedDetailsOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:GetServiceLastAccessedDetailsOutput:IsTruncated" type:"boolean"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the generated report job was completed or failed.
@@ -88,28 +88,28 @@ type GetServiceLastAccessedDetailsOutput struct {
 	// status value of IN_PROGRESS.
 	//
 	// JobCompletionDate is a required field
-	JobCompletionDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	JobCompletionDate *time.Time `json:"iam:GetServiceLastAccessedDetailsOutput:JobCompletionDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the report job was created.
 	//
 	// JobCreationDate is a required field
-	JobCreationDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	JobCreationDate *time.Time `json:"iam:GetServiceLastAccessedDetailsOutput:JobCreationDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The status of the job.
 	//
 	// JobStatus is a required field
-	JobStatus JobStatusType `type:"string" required:"true" enum:"true"`
+	JobStatus JobStatusType `json:"iam:GetServiceLastAccessedDetailsOutput:JobStatus" type:"string" required:"true" enum:"true"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:GetServiceLastAccessedDetailsOutput:Marker" type:"string"`
 
 	// A ServiceLastAccessed object that contains details about the most recent
 	// attempt to access the service.
 	//
 	// ServicesLastAccessed is a required field
-	ServicesLastAccessed []ServiceLastAccessed `type:"list" required:"true"`
+	ServicesLastAccessed []ServiceLastAccessed `json:"iam:GetServiceLastAccessedDetailsOutput:ServicesLastAccessed" type:"list" required:"true"`
 }
 
 // String returns the string representation

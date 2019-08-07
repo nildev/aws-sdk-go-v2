@@ -73,7 +73,7 @@ type InvokeDeviceMethodOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A JSON encoded string containing the device method response.
-	DeviceMethodResponse *string `locationName:"deviceMethodResponse" type:"string"`
+	DeviceMethodResponse *string `json:"devices.iot1click:InvokeDeviceMethodOutput:DeviceMethodResponse" locationName:"deviceMethodResponse" type:"string"`
 }
 
 // String returns the string representation

@@ -45,17 +45,17 @@ type AllocateAddressOutput struct {
 
 	// [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic
 	// IP address for use with instances in a VPC.
-	AllocationId *string `locationName:"allocationId" type:"string"`
+	AllocationId *string `json:"ec2:AllocateAddressOutput:AllocationId" locationName:"allocationId" type:"string"`
 
 	// Indicates whether this Elastic IP address is for use with instances in EC2-Classic
 	// (standard) or instances in a VPC (vpc).
-	Domain DomainType `locationName:"domain" type:"string" enum:"true"`
+	Domain DomainType `json:"ec2:AllocateAddressOutput:Domain" locationName:"domain" type:"string" enum:"true"`
 
 	// The Elastic IP address.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"ec2:AllocateAddressOutput:PublicIp" locationName:"publicIp" type:"string"`
 
 	// The ID of an address pool.
-	PublicIpv4Pool *string `locationName:"publicIpv4Pool" type:"string"`
+	PublicIpv4Pool *string `json:"ec2:AllocateAddressOutput:PublicIpv4Pool" locationName:"publicIpv4Pool" type:"string"`
 }
 
 // String returns the string representation

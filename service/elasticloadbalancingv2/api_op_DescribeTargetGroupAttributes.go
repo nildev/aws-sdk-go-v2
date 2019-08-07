@@ -43,7 +43,7 @@ type DescribeTargetGroupAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the target group attributes
-	Attributes []TargetGroupAttribute `type:"list"`
+	Attributes []TargetGroupAttribute `json:"elasticloadbalancing:DescribeTargetGroupAttributesOutput:Attributes" type:"list"`
 }
 
 // String returns the string representation

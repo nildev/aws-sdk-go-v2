@@ -60,7 +60,7 @@ type DeleteGcmChannelOutput struct {
 	// (GCM), service.
 	//
 	// GCMChannelResponse is a required field
-	GCMChannelResponse *GCMChannelResponse `type:"structure" required:"true"`
+	GCMChannelResponse *GCMChannelResponse `json:"pinpoint:DeleteGcmChannelOutput:GCMChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

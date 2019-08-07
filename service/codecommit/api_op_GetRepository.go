@@ -48,7 +48,7 @@ type GetRepositoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the repository.
-	RepositoryMetadata *RepositoryMetadata `locationName:"repositoryMetadata" type:"structure"`
+	RepositoryMetadata *RepositoryMetadata `json:"codecommit:GetRepositoryOutput:RepositoryMetadata" locationName:"repositoryMetadata" type:"structure"`
 }
 
 // String returns the string representation

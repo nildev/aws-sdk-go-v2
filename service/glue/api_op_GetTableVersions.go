@@ -76,10 +76,10 @@ type GetTableVersionsOutput struct {
 
 	// A continuation token, if the list of available versions does not include
 	// the last one.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetTableVersionsOutput:NextToken" type:"string"`
 
 	// A list of strings identifying available versions of the specified table.
-	TableVersions []TableVersion `type:"list"`
+	TableVersions []TableVersion `json:"glue:GetTableVersionsOutput:TableVersions" type:"list"`
 }
 
 // String returns the string representation

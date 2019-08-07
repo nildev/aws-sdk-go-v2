@@ -58,13 +58,13 @@ type DescribeTapeArchivesOutput struct {
 	// to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If
 	// there are no more virtual tapes to describe, this field does not appear in
 	// the response.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"storagegateway:DescribeTapeArchivesOutput:Marker" min:"1" type:"string"`
 
 	// An array of virtual tape objects in the virtual tape shelf (VTS). The description
 	// includes of the Amazon Resource Name (ARN) of the virtual tapes. The information
 	// returned includes the Amazon Resource Names (ARNs) of the tapes, size of
 	// the tapes, status of the tapes, progress of the description and tape barcode.
-	TapeArchives []TapeArchive `type:"list"`
+	TapeArchives []TapeArchive `json:"storagegateway:DescribeTapeArchivesOutput:TapeArchives" type:"list"`
 }
 
 // String returns the string representation

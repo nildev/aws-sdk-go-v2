@@ -109,7 +109,7 @@ type RegisterImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the newly registered AMI.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:RegisterImageOutput:ImageId" locationName:"imageId" type:"string"`
 }
 
 // String returns the string representation

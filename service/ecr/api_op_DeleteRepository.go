@@ -53,7 +53,7 @@ type DeleteRepositoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The repository that was deleted.
-	Repository *Repository `locationName:"repository" type:"structure"`
+	Repository *Repository `json:"api.ecr:DeleteRepositoryOutput:Repository" locationName:"repository" type:"structure"`
 }
 
 // String returns the string representation

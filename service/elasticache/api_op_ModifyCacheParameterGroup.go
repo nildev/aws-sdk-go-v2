@@ -60,7 +60,7 @@ type ModifyCacheParameterGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cache parameter group.
-	CacheParameterGroupName *string `type:"string"`
+	CacheParameterGroupName *string `json:"elasticache:ModifyCacheParameterGroupOutput:CacheParameterGroupName" type:"string"`
 }
 
 // String returns the string representation

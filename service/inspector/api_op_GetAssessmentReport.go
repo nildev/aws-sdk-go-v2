@@ -68,11 +68,11 @@ type GetAssessmentReportOutput struct {
 	// Specifies the status of the request to generate an assessment report.
 	//
 	// Status is a required field
-	Status ReportStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status ReportStatus `json:"inspector:GetAssessmentReportOutput:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 
 	// Specifies the URL where you can find the generated assessment report. This
 	// parameter is only returned if the report is successfully generated.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"inspector:GetAssessmentReportOutput:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation

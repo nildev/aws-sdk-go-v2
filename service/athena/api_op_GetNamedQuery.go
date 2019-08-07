@@ -43,7 +43,7 @@ type GetNamedQueryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the query.
-	NamedQuery *NamedQuery `type:"structure"`
+	NamedQuery *NamedQuery `json:"athena:GetNamedQueryOutput:NamedQuery" type:"structure"`
 }
 
 // String returns the string representation

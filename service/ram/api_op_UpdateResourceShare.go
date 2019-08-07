@@ -87,10 +87,10 @@ type UpdateResourceShareOutput struct {
 
 	// A unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ram:UpdateResourceShareOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the resource share.
-	ResourceShare *ResourceShare `locationName:"resourceShare" type:"structure"`
+	ResourceShare *ResourceShare `json:"ram:UpdateResourceShareOutput:ResourceShare" locationName:"resourceShare" type:"structure"`
 }
 
 // String returns the string representation

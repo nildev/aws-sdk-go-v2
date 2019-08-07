@@ -105,7 +105,7 @@ type CreateImageBuilderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the image builder.
-	ImageBuilder *ImageBuilder `type:"structure"`
+	ImageBuilder *ImageBuilder `json:"appstream2:CreateImageBuilderOutput:ImageBuilder" type:"structure"`
 }
 
 // String returns the string representation

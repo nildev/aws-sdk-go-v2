@@ -68,14 +68,14 @@ type PutAutoScalingPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The automatic scaling policy definition.
-	AutoScalingPolicy *AutoScalingPolicyDescription `type:"structure"`
+	AutoScalingPolicy *AutoScalingPolicyDescription `json:"elasticmapreduce:PutAutoScalingPolicyOutput:AutoScalingPolicy" type:"structure"`
 
 	// Specifies the ID of a cluster. The instance group to which the automatic
 	// scaling policy is applied is within this cluster.
-	ClusterId *string `type:"string"`
+	ClusterId *string `json:"elasticmapreduce:PutAutoScalingPolicyOutput:ClusterId" type:"string"`
 
 	// Specifies the ID of the instance group to which the scaling policy is applied.
-	InstanceGroupId *string `type:"string"`
+	InstanceGroupId *string `json:"elasticmapreduce:PutAutoScalingPolicyOutput:InstanceGroupId" type:"string"`
 }
 
 // String returns the string representation

@@ -71,7 +71,7 @@ type ResetPersonalPINOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user details and new personal meeting PIN.
-	User *User `type:"structure"`
+	User *User `json:"chime:ResetPersonalPINOutput:User" type:"structure"`
 }
 
 // String returns the string representation

@@ -69,14 +69,14 @@ type CreateCertificateFromCsrOutput struct {
 
 	// The Amazon Resource Name (ARN) of the certificate. You can use the ARN as
 	// a principal for policy operations.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:CreateCertificateFromCsrOutput:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The ID of the certificate. Certificate management operations only take a
 	// certificateId.
-	CertificateId *string `locationName:"certificateId" min:"64" type:"string"`
+	CertificateId *string `json:"iot:CreateCertificateFromCsrOutput:CertificateId" locationName:"certificateId" min:"64" type:"string"`
 
 	// The certificate data, in PEM format.
-	CertificatePem *string `locationName:"certificatePem" min:"1" type:"string"`
+	CertificatePem *string `json:"iot:CreateCertificateFromCsrOutput:CertificatePem" locationName:"certificatePem" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -52,7 +52,7 @@ type DescribeDocumentPermissionOutput struct {
 
 	// The account IDs that have permission to use this document. The ID can be
 	// either an AWS account or All.
-	AccountIds []string `type:"list"`
+	AccountIds []string `json:"ssm:DescribeDocumentPermissionOutput:AccountIds" type:"list"`
 }
 
 // String returns the string representation

@@ -54,7 +54,7 @@ type DisableAvailabilityZonesForLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The remaining Availability Zones for the load balancer.
-	AvailabilityZones []string `type:"list"`
+	AvailabilityZones []string `json:"elasticloadbalancing:DisableAvailabilityZonesForLoadBalancerOutput:AvailabilityZones" type:"list"`
 }
 
 // String returns the string representation

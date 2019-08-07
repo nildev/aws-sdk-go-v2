@@ -87,16 +87,16 @@ type SearchResourcesOutput struct {
 
 	// The NextToken value to include in a subsequent SearchResources request, to
 	// get more results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"resource-groups:SearchResourcesOutput:NextToken" type:"string"`
 
 	// A list of QueryError objects. Each error is an object that contains ErrorCode
 	// and Message structures. Possible values for ErrorCode are CLOUDFORMATION_STACK_INACTIVE
 	// and CLOUDFORMATION_STACK_NOT_EXISTING.
-	QueryErrors []QueryError `type:"list"`
+	QueryErrors []QueryError `json:"resource-groups:SearchResourcesOutput:QueryErrors" type:"list"`
 
 	// The ARNs and resource types of resources that are members of the group that
 	// you specified.
-	ResourceIdentifiers []ResourceIdentifier `type:"list"`
+	ResourceIdentifiers []ResourceIdentifier `json:"resource-groups:SearchResourcesOutput:ResourceIdentifiers" type:"list"`
 }
 
 // String returns the string representation

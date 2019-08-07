@@ -46,12 +46,12 @@ type ListClustersOutput struct {
 
 	// Each ClusterListEntry object contains a cluster's state, a cluster's ID,
 	// and other important status information.
-	ClusterListEntries []ClusterListEntry `type:"list"`
+	ClusterListEntries []ClusterListEntry `json:"snowball:ListClustersOutput:ClusterListEntries" type:"list"`
 
 	// HTTP requests are stateless. If you use the automatically generated NextToken
 	// value in your next ClusterListEntry call, your list of returned clusters
 	// will start from this point in the array.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"snowball:ListClustersOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -70,19 +70,19 @@ func (s CreateDeviceDefinitionInput) MarshalFields(e protocol.FieldEncoder) erro
 type CreateDeviceDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:CreateDeviceDefinitionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:CreateDeviceDefinitionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:CreateDeviceDefinitionOutput:Id" type:"string"`
 
-	LastUpdatedTimestamp *string `type:"string"`
+	LastUpdatedTimestamp *string `json:"greengrass:CreateDeviceDefinitionOutput:LastUpdatedTimestamp" type:"string"`
 
-	LatestVersion *string `type:"string"`
+	LatestVersion *string `json:"greengrass:CreateDeviceDefinitionOutput:LatestVersion" type:"string"`
 
-	LatestVersionArn *string `type:"string"`
+	LatestVersionArn *string `json:"greengrass:CreateDeviceDefinitionOutput:LatestVersionArn" type:"string"`
 
-	Name *string `type:"string"`
+	Name *string `json:"greengrass:CreateDeviceDefinitionOutput:Name" type:"string"`
 }
 
 // String returns the string representation

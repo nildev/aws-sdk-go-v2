@@ -70,11 +70,11 @@ type ListV2LoggingLevelsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The logging configuration for a target.
-	LogTargetConfigurations []LogTargetConfiguration `locationName:"logTargetConfigurations" type:"list"`
+	LogTargetConfigurations []LogTargetConfiguration `json:"iot:ListV2LoggingLevelsOutput:LogTargetConfigurations" locationName:"logTargetConfigurations" type:"list"`
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListV2LoggingLevelsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

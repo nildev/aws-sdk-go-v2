@@ -75,28 +75,28 @@ type GetPolicyVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date the policy version was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:GetPolicyVersionOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The generation ID of the policy version.
-	GenerationId *string `locationName:"generationId" type:"string"`
+	GenerationId *string `json:"iot:GetPolicyVersionOutput:GenerationId" locationName:"generationId" type:"string"`
 
 	// Specifies whether the policy version is the default.
-	IsDefaultVersion *bool `locationName:"isDefaultVersion" type:"boolean"`
+	IsDefaultVersion *bool `json:"iot:GetPolicyVersionOutput:IsDefaultVersion" locationName:"isDefaultVersion" type:"boolean"`
 
 	// The date the policy version was last modified.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:GetPolicyVersionOutput:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The policy ARN.
-	PolicyArn *string `locationName:"policyArn" type:"string"`
+	PolicyArn *string `json:"iot:GetPolicyVersionOutput:PolicyArn" locationName:"policyArn" type:"string"`
 
 	// The JSON document that describes the policy.
-	PolicyDocument *string `locationName:"policyDocument" type:"string"`
+	PolicyDocument *string `json:"iot:GetPolicyVersionOutput:PolicyDocument" locationName:"policyDocument" type:"string"`
 
 	// The policy name.
-	PolicyName *string `locationName:"policyName" min:"1" type:"string"`
+	PolicyName *string `json:"iot:GetPolicyVersionOutput:PolicyName" locationName:"policyName" min:"1" type:"string"`
 
 	// The policy version ID.
-	PolicyVersionId *string `locationName:"policyVersionId" type:"string"`
+	PolicyVersionId *string `json:"iot:GetPolicyVersionOutput:PolicyVersionId" locationName:"policyVersionId" type:"string"`
 }
 
 // String returns the string representation

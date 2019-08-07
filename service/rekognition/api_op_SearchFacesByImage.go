@@ -77,18 +77,18 @@ type SearchFacesByImageOutput struct {
 
 	// An array of faces that match the input face, along with the confidence in
 	// the match.
-	FaceMatches []FaceMatch `type:"list"`
+	FaceMatches []FaceMatch `json:"rekognition:SearchFacesByImageOutput:FaceMatches" type:"list"`
 
 	// Version number of the face detection model associated with the input collection
 	// (CollectionId).
-	FaceModelVersion *string `type:"string"`
+	FaceModelVersion *string `json:"rekognition:SearchFacesByImageOutput:FaceModelVersion" type:"string"`
 
 	// The bounding box around the face in the input image that Amazon Rekognition
 	// used for the search.
-	SearchedFaceBoundingBox *BoundingBox `type:"structure"`
+	SearchedFaceBoundingBox *BoundingBox `json:"rekognition:SearchFacesByImageOutput:SearchedFaceBoundingBox" type:"structure"`
 
 	// The level of confidence that the searchedFaceBoundingBox, contains a face.
-	SearchedFaceConfidence *float64 `type:"float"`
+	SearchedFaceConfidence *float64 `json:"rekognition:SearchFacesByImageOutput:SearchedFaceConfidence" type:"float"`
 }
 
 // String returns the string representation

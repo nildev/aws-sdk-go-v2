@@ -93,10 +93,10 @@ type ListSigningPlatformsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Value for specifying the next set of paginated results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"signer:ListSigningPlatformsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of all platforms that match the request parameters.
-	Platforms []SigningPlatform `locationName:"platforms" type:"list"`
+	Platforms []SigningPlatform `json:"signer:ListSigningPlatformsOutput:Platforms" locationName:"platforms" type:"list"`
 }
 
 // String returns the string representation

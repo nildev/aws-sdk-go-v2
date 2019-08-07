@@ -64,7 +64,7 @@ type ListTagsForResourceOutput struct {
 
 	// The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert
 	// resource.
-	ResourceTags *ResourceTags `locationName:"resourceTags" type:"structure"`
+	ResourceTags *ResourceTags `json:"mediaconvert:ListTagsForResourceOutput:ResourceTags" locationName:"resourceTags" type:"structure"`
 }
 
 // String returns the string representation

@@ -43,7 +43,7 @@ type DescribeFeatureTransformationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A listing of the FeatureTransformation properties.
-	FeatureTransformation *FeatureTransformation `locationName:"featureTransformation" type:"structure"`
+	FeatureTransformation *FeatureTransformation `json:"personalize:DescribeFeatureTransformationOutput:FeatureTransformation" locationName:"featureTransformation" type:"structure"`
 }
 
 // String returns the string representation

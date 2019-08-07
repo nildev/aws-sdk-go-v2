@@ -128,7 +128,7 @@ type CreateMLModelOutput struct {
 
 	// A user-supplied ID that uniquely identifies the MLModel. This value should
 	// be identical to the value of the MLModelId in the request.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:CreateMLModelOutput:MLModelId" min:"1" type:"string"`
 }
 
 // String returns the string representation

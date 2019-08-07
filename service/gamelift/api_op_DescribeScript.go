@@ -43,7 +43,7 @@ type DescribeScriptOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Set of properties describing the requested script.
-	Script *Script `type:"structure"`
+	Script *Script `json:"gamelift:DescribeScriptOutput:Script" type:"structure"`
 }
 
 // String returns the string representation

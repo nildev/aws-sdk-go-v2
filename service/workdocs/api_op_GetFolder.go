@@ -82,10 +82,10 @@ type GetFolderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The custom metadata on the folder.
-	CustomMetadata map[string]string `min:"1" type:"map"`
+	CustomMetadata map[string]string `json:"workdocs:GetFolderOutput:CustomMetadata" min:"1" type:"map"`
 
 	// The metadata of the folder.
-	Metadata *FolderMetadata `type:"structure"`
+	Metadata *FolderMetadata `json:"workdocs:GetFolderOutput:Metadata" type:"structure"`
 }
 
 // String returns the string representation

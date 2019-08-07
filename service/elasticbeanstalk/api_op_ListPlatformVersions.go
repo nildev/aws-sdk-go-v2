@@ -49,10 +49,10 @@ type ListPlatformVersionsOutput struct {
 
 	// The starting index into the remaining list of platforms. if this value is
 	// not null, you can use it in a subsequent ListPlatformVersion call.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"elasticbeanstalk:ListPlatformVersionsOutput:NextToken" type:"string"`
 
 	// Detailed information about the platforms.
-	PlatformSummaryList []PlatformSummary `type:"list"`
+	PlatformSummaryList []PlatformSummary `json:"elasticbeanstalk:ListPlatformVersionsOutput:PlatformSummaryList" type:"list"`
 }
 
 // String returns the string representation

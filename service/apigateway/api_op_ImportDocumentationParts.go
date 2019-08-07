@@ -101,10 +101,10 @@ type ImportDocumentationPartsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the returned documentation part identifiers.
-	Ids []string `locationName:"ids" type:"list"`
+	Ids []string `json:"apigateway:ImportDocumentationPartsOutput:Ids" locationName:"ids" type:"list"`
 
 	// A list of warning messages reported during import of documentation parts.
-	Warnings []string `locationName:"warnings" type:"list"`
+	Warnings []string `json:"apigateway:ImportDocumentationPartsOutput:Warnings" locationName:"warnings" type:"list"`
 }
 
 // String returns the string representation

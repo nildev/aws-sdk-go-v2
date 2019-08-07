@@ -82,7 +82,7 @@ type GetWorkflowExecutionHistoryOutput struct {
 	// The list of history events.
 	//
 	// Events is a required field
-	Events []HistoryEvent `locationName:"events" type:"list" required:"true"`
+	Events []HistoryEvent `json:"swf:GetWorkflowExecutionHistoryOutput:Events" locationName:"events" type:"list" required:"true"`
 
 	// If a NextPageToken was returned by a previous call, there are more results
 	// available. To retrieve the next page of results, make the call again using
@@ -90,7 +90,7 @@ type GetWorkflowExecutionHistoryOutput struct {
 	//
 	// The configured maximumPageSize determines how many results can be returned
 	// in a single call.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"swf:GetWorkflowExecutionHistoryOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

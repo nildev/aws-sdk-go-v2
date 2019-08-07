@@ -75,10 +75,10 @@ type DescribeOptionGroupsOutput struct {
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeOptionGroupsOutput:Marker" type:"string"`
 
 	// List of option groups.
-	OptionGroupsList []OptionGroup `locationNameList:"OptionGroup" type:"list"`
+	OptionGroupsList []OptionGroup `json:"rds:DescribeOptionGroupsOutput:OptionGroupsList" locationNameList:"OptionGroup" type:"list"`
 }
 
 // String returns the string representation

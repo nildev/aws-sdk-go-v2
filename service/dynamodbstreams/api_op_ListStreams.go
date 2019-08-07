@@ -66,10 +66,10 @@ type ListStreamsOutput struct {
 	// If LastEvaluatedStreamArn is not empty, it does not necessarily mean that
 	// there is more data in the result set. The only way to know when you have
 	// reached the end of the result set is when LastEvaluatedStreamArn is empty.
-	LastEvaluatedStreamArn *string `min:"37" type:"string"`
+	LastEvaluatedStreamArn *string `json:"streams.dynamodb:ListStreamsOutput:LastEvaluatedStreamArn" min:"37" type:"string"`
 
 	// A list of stream descriptors associated with the current account and endpoint.
-	Streams []Stream `type:"list"`
+	Streams []Stream `json:"streams.dynamodb:ListStreamsOutput:Streams" type:"list"`
 }
 
 // String returns the string representation

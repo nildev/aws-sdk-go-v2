@@ -46,18 +46,18 @@ type DescribePatchGroupStateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of instances in the patch group.
-	Instances *int64 `type:"integer"`
+	Instances *int64 `json:"ssm:DescribePatchGroupStateOutput:Instances" type:"integer"`
 
 	// The number of instances with patches from the patch baseline that failed
 	// to install.
-	InstancesWithFailedPatches *int64 `type:"integer"`
+	InstancesWithFailedPatches *int64 `json:"ssm:DescribePatchGroupStateOutput:InstancesWithFailedPatches" type:"integer"`
 
 	// The number of instances with patches installed that aren't defined in the
 	// patch baseline.
-	InstancesWithInstalledOtherPatches *int64 `type:"integer"`
+	InstancesWithInstalledOtherPatches *int64 `json:"ssm:DescribePatchGroupStateOutput:InstancesWithInstalledOtherPatches" type:"integer"`
 
 	// The number of instances with installed patches.
-	InstancesWithInstalledPatches *int64 `type:"integer"`
+	InstancesWithInstalledPatches *int64 `json:"ssm:DescribePatchGroupStateOutput:InstancesWithInstalledPatches" type:"integer"`
 
 	// The number of instances with patches installed that are specified in a RejectedPatches
 	// list. Patches with a status of INSTALLED_REJECTED were typically installed
@@ -65,17 +65,17 @@ type DescribePatchGroupStateOutput struct {
 	//
 	// If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction,
 	// the value of InstancesWithInstalledRejectedPatches will always be 0 (zero).
-	InstancesWithInstalledRejectedPatches *int64 `type:"integer"`
+	InstancesWithInstalledRejectedPatches *int64 `json:"ssm:DescribePatchGroupStateOutput:InstancesWithInstalledRejectedPatches" type:"integer"`
 
 	// The number of instances with missing patches from the patch baseline.
-	InstancesWithMissingPatches *int64 `type:"integer"`
+	InstancesWithMissingPatches *int64 `json:"ssm:DescribePatchGroupStateOutput:InstancesWithMissingPatches" type:"integer"`
 
 	// The number of instances with patches that aren't applicable.
-	InstancesWithNotApplicablePatches *int64 `type:"integer"`
+	InstancesWithNotApplicablePatches *int64 `json:"ssm:DescribePatchGroupStateOutput:InstancesWithNotApplicablePatches" type:"integer"`
 
 	// The number of instances with NotApplicable patches beyond the supported limit,
 	// which are not reported by name to Systems Manager Inventory.
-	InstancesWithUnreportedNotApplicablePatches *int64 `type:"integer"`
+	InstancesWithUnreportedNotApplicablePatches *int64 `json:"ssm:DescribePatchGroupStateOutput:InstancesWithUnreportedNotApplicablePatches" type:"integer"`
 }
 
 // String returns the string representation

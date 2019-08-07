@@ -59,7 +59,7 @@ type DescribeDatasetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that contains information about the data set.
-	Dataset *Dataset `locationName:"dataset" type:"structure"`
+	Dataset *Dataset `json:"iotanalytics:DescribeDatasetOutput:Dataset" locationName:"dataset" type:"structure"`
 }
 
 // String returns the string representation

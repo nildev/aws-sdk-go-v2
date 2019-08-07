@@ -43,10 +43,10 @@ type GetClassifiersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested list of classifier objects.
-	Classifiers []Classifier `type:"list"`
+	Classifiers []Classifier `json:"glue:GetClassifiersOutput:Classifiers" type:"list"`
 
 	// A continuation token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetClassifiersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

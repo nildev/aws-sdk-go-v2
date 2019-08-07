@@ -48,7 +48,7 @@ type DescribeKeyPhrasesDetectionJobOutput struct {
 
 	// An object that contains the properties associated with a key phrases detection
 	// job.
-	KeyPhrasesDetectionJobProperties *KeyPhrasesDetectionJobProperties `type:"structure"`
+	KeyPhrasesDetectionJobProperties *KeyPhrasesDetectionJobProperties `json:"comprehend:DescribeKeyPhrasesDetectionJobOutput:KeyPhrasesDetectionJobProperties" type:"structure"`
 }
 
 // String returns the string representation

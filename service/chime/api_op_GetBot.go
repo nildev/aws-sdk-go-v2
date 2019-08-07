@@ -71,7 +71,7 @@ type GetBotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The chat bot details.
-	Bot *Bot `type:"structure"`
+	Bot *Bot `json:"chime:GetBotOutput:Bot" type:"structure"`
 }
 
 // String returns the string representation

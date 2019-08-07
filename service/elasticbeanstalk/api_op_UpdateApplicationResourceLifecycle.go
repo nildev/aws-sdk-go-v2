@@ -60,10 +60,10 @@ type UpdateApplicationResourceLifecycleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the application.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:UpdateApplicationResourceLifecycleOutput:ApplicationName" min:"1" type:"string"`
 
 	// The lifecycle configuration.
-	ResourceLifecycleConfig *ApplicationResourceLifecycleConfig `type:"structure"`
+	ResourceLifecycleConfig *ApplicationResourceLifecycleConfig `json:"elasticbeanstalk:UpdateApplicationResourceLifecycleOutput:ResourceLifecycleConfig" type:"structure"`
 }
 
 // String returns the string representation

@@ -53,14 +53,14 @@ type ListFacesOutput struct {
 
 	// Version number of the face detection model associated with the input collection
 	// (CollectionId).
-	FaceModelVersion *string `type:"string"`
+	FaceModelVersion *string `json:"rekognition:ListFacesOutput:FaceModelVersion" type:"string"`
 
 	// An array of Face objects.
-	Faces []Face `type:"list"`
+	Faces []Face `json:"rekognition:ListFacesOutput:Faces" type:"list"`
 
 	// If the response is truncated, Amazon Rekognition returns this token that
 	// you can use in the subsequent request to retrieve the next set of faces.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:ListFacesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

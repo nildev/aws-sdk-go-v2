@@ -44,7 +44,7 @@ type DeleteClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the cluster that was deleted.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"cloudhsmv2:DeleteClusterOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

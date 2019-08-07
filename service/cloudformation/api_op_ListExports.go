@@ -41,11 +41,11 @@ type ListExportsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The output for the ListExports action.
-	Exports []Export `type:"list"`
+	Exports []Export `json:"cloudformation:ListExportsOutput:Exports" type:"list"`
 
 	// If the output exceeds 100 exported output values, a string that identifies
 	// the next page of exports. If there is no additional page, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:ListExportsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -60,7 +60,7 @@ type AttachVpnGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the attachment.
-	VpcAttachment *VpcAttachment `locationName:"attachment" type:"structure"`
+	VpcAttachment *VpcAttachment `json:"ec2:AttachVpnGatewayOutput:VpcAttachment" locationName:"attachment" type:"structure"`
 }
 
 // String returns the string representation

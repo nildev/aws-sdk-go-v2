@@ -91,10 +91,10 @@ type ListResolversByFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An identifier that can be used to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appsync:ListResolversByFunctionOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of resolvers.
-	Resolvers []Resolver `locationName:"resolvers" type:"list"`
+	Resolvers []Resolver `json:"appsync:ListResolversByFunctionOutput:Resolvers" locationName:"resolvers" type:"list"`
 }
 
 // String returns the string representation

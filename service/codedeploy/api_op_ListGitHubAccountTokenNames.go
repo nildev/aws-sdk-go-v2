@@ -32,10 +32,10 @@ type ListGitHubAccountTokenNamesOutput struct {
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent ListGitHubAccountTokenNames call to return
 	// the next set of names in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListGitHubAccountTokenNamesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of names of connections to GitHub accounts.
-	TokenNameList []string `locationName:"tokenNameList" type:"list"`
+	TokenNameList []string `json:"codedeploy:ListGitHubAccountTokenNamesOutput:TokenNameList" locationName:"tokenNameList" type:"list"`
 }
 
 // String returns the string representation

@@ -57,7 +57,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags (metadata key/value pairs) which you have assigned to the resource.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"projects.iot1click:ListTagsForResourceOutput:Tags" locationName:"tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

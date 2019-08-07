@@ -47,7 +47,7 @@ type DescribeAccountOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains information about the requested account.
-	Account *Account `type:"structure"`
+	Account *Account `json:"organizations:DescribeAccountOutput:Account" type:"structure"`
 }
 
 // String returns the string representation

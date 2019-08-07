@@ -62,7 +62,7 @@ type ListDomainsOutput struct {
 	// A list of DomainInfo structures.
 	//
 	// DomainInfos is a required field
-	DomainInfos []DomainInfo `locationName:"domainInfos" type:"list" required:"true"`
+	DomainInfos []DomainInfo `json:"swf:ListDomainsOutput:DomainInfos" locationName:"domainInfos" type:"list" required:"true"`
 
 	// If a NextPageToken was returned by a previous call, there are more results
 	// available. To retrieve the next page of results, make the call again using
@@ -70,7 +70,7 @@ type ListDomainsOutput struct {
 	//
 	// The configured maximumPageSize determines how many results can be returned
 	// in a single call.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"swf:ListDomainsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

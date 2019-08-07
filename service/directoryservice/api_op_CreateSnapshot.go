@@ -48,7 +48,7 @@ type CreateSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the snapshot that was created.
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"ds:CreateSnapshotOutput:SnapshotId" type:"string"`
 }
 
 // String returns the string representation

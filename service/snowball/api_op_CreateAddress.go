@@ -50,7 +50,7 @@ type CreateAddressOutput struct {
 	// The automatically generated ID for a specific address. You'll use this ID
 	// when you create a job to specify which address you want the Snowball for
 	// that job shipped to.
-	AddressId *string `min:"1" type:"string"`
+	AddressId *string `json:"snowball:CreateAddressOutput:AddressId" min:"1" type:"string"`
 }
 
 // String returns the string representation

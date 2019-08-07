@@ -123,13 +123,13 @@ type CreateProductOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the product view.
-	ProductViewDetail *ProductViewDetail `type:"structure"`
+	ProductViewDetail *ProductViewDetail `json:"servicecatalog:CreateProductOutput:ProductViewDetail" type:"structure"`
 
 	// Information about the provisioning artifact.
-	ProvisioningArtifactDetail *ProvisioningArtifactDetail `type:"structure"`
+	ProvisioningArtifactDetail *ProvisioningArtifactDetail `json:"servicecatalog:CreateProductOutput:ProvisioningArtifactDetail" type:"structure"`
 
 	// Information about the tags associated with the product.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"servicecatalog:CreateProductOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

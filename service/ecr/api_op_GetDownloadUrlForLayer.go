@@ -59,10 +59,10 @@ type GetDownloadUrlForLayerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pre-signed Amazon S3 download URL for the requested layer.
-	DownloadUrl *string `locationName:"downloadUrl" type:"string"`
+	DownloadUrl *string `json:"api.ecr:GetDownloadUrlForLayerOutput:DownloadUrl" locationName:"downloadUrl" type:"string"`
 
 	// The digest of the image layer to download.
-	LayerDigest *string `locationName:"layerDigest" type:"string"`
+	LayerDigest *string `json:"api.ecr:GetDownloadUrlForLayerOutput:LayerDigest" locationName:"layerDigest" type:"string"`
 }
 
 // String returns the string representation

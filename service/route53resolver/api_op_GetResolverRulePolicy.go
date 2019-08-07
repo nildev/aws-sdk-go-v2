@@ -47,7 +47,7 @@ type GetResolverRulePolicyOutput struct {
 
 	// Information about the resolver rule policy that you specified in a GetResolverRulePolicy
 	// request.
-	ResolverRulePolicy *string `type:"string"`
+	ResolverRulePolicy *string `json:"route53resolver:GetResolverRulePolicyOutput:ResolverRulePolicy" type:"string"`
 }
 
 // String returns the string representation

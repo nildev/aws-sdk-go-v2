@@ -116,7 +116,7 @@ type CreateDataSourceFromRedshiftOutput struct {
 
 	// A user-supplied ID that uniquely identifies the datasource. This value should
 	// be identical to the value of the DataSourceID in the request.
-	DataSourceId *string `min:"1" type:"string"`
+	DataSourceId *string `json:"machinelearning:CreateDataSourceFromRedshiftOutput:DataSourceId" min:"1" type:"string"`
 }
 
 // String returns the string representation

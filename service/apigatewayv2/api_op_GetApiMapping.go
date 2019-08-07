@@ -68,20 +68,20 @@ type GetApiMappingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier.
-	ApiId *string `locationName:"apiId" type:"string"`
+	ApiId *string `json:"apigateway:GetApiMappingOutput:ApiId" locationName:"apiId" type:"string"`
 
 	// The identifier.
-	ApiMappingId *string `locationName:"apiMappingId" type:"string"`
+	ApiMappingId *string `json:"apigateway:GetApiMappingOutput:ApiMappingId" locationName:"apiMappingId" type:"string"`
 
 	// After evaulating a selection expression, the result is compared against one
 	// or more selection keys to find a matching key. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for a list of expressions and each expression's associated selection key
 	// type.
-	ApiMappingKey *string `locationName:"apiMappingKey" type:"string"`
+	ApiMappingKey *string `json:"apigateway:GetApiMappingOutput:ApiMappingKey" locationName:"apiMappingKey" type:"string"`
 
 	// A string with a length between [1-128].
-	Stage *string `locationName:"stage" type:"string"`
+	Stage *string `json:"apigateway:GetApiMappingOutput:Stage" locationName:"stage" type:"string"`
 }
 
 // String returns the string representation

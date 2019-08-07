@@ -56,7 +56,7 @@ type DescribeNodeAssociationStatusOutput struct {
 
 	// Attributes specific to the node association. In Puppet, the attibute PUPPET_NODE_CERT
 	// contains the signed certificate (the result of the CSR).
-	EngineAttributes []EngineAttribute `type:"list"`
+	EngineAttributes []EngineAttribute `json:"opsworks-cm:DescribeNodeAssociationStatusOutput:EngineAttributes" type:"list"`
 
 	// The status of the association or disassociation request.
 	//
@@ -67,7 +67,7 @@ type DescribeNodeAssociationStatusOutput struct {
 	//    * FAILED: The association or disassociation failed.
 	//
 	//    * IN_PROGRESS: The association or disassociation is still in progress.
-	NodeAssociationStatus NodeAssociationStatus `type:"string" enum:"true"`
+	NodeAssociationStatus NodeAssociationStatus `json:"opsworks-cm:DescribeNodeAssociationStatusOutput:NodeAssociationStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

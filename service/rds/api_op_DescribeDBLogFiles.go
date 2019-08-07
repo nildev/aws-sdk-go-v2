@@ -81,10 +81,10 @@ type DescribeDBLogFilesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The DB log files returned.
-	DescribeDBLogFiles []DescribeDBLogFilesDetails `locationNameList:"DescribeDBLogFilesDetails" type:"list"`
+	DescribeDBLogFiles []DescribeDBLogFilesDetails `json:"rds:DescribeDBLogFilesOutput:DescribeDBLogFiles" locationNameList:"DescribeDBLogFilesDetails" type:"list"`
 
 	// A pagination token that can be used in a subsequent DescribeDBLogFiles request.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeDBLogFilesOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

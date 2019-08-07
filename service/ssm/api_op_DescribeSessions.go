@@ -69,10 +69,10 @@ type DescribeSessionsOutput struct {
 
 	// The token for the next set of items to return. (You received this token from
 	// a previous call.)
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeSessionsOutput:NextToken" type:"string"`
 
 	// A list of sessions meeting the request parameters.
-	Sessions []Session `type:"list"`
+	Sessions []Session `json:"ssm:DescribeSessionsOutput:Sessions" type:"list"`
 }
 
 // String returns the string representation

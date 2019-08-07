@@ -67,10 +67,10 @@ type DescribeCacheEngineVersionsOutput struct {
 
 	// A list of cache engine version details. Each element in the list contains
 	// detailed information about one cache engine version.
-	CacheEngineVersions []CacheEngineVersion `locationNameList:"CacheEngineVersion" type:"list"`
+	CacheEngineVersions []CacheEngineVersion `json:"elasticache:DescribeCacheEngineVersionsOutput:CacheEngineVersions" locationNameList:"CacheEngineVersion" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeCacheEngineVersionsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

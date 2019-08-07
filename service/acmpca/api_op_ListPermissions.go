@@ -68,11 +68,11 @@ type ListPermissionsOutput struct {
 
 	// When the list is truncated, this value is present and should be used for
 	// the NextToken parameter in a subsequent pagination request.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"acm-pca:ListPermissionsOutput:NextToken" min:"1" type:"string"`
 
 	// Summary information about each permission assigned by the specified private
 	// CA, including the action enabled, the policy provided, and the time of creation.
-	Permissions []Permission `type:"list"`
+	Permissions []Permission `json:"acm-pca:ListPermissionsOutput:Permissions" type:"list"`
 }
 
 // String returns the string representation

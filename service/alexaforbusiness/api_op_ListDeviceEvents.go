@@ -66,10 +66,10 @@ type ListDeviceEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The device events requested for the device ARN.
-	DeviceEvents []DeviceEvent `type:"list"`
+	DeviceEvents []DeviceEvent `json:"a4b:ListDeviceEventsOutput:DeviceEvents" type:"list"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:ListDeviceEventsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

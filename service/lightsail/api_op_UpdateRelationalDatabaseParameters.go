@@ -53,7 +53,7 @@ type UpdateRelationalDatabaseParametersOutput struct {
 
 	// An object describing the result of your update relational database parameters
 	// request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:UpdateRelationalDatabaseParametersOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

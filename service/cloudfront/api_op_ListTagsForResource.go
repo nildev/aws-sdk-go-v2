@@ -60,7 +60,7 @@ type ListTagsForResourceOutput struct {
 	// A complex type that contains zero or more Tag elements.
 	//
 	// Tags is a required field
-	Tags *Tags `type:"structure" required:"true"`
+	Tags *Tags `json:"cloudfront:ListTagsForResourceOutput:Tags" type:"structure" required:"true"`
 }
 
 // String returns the string representation

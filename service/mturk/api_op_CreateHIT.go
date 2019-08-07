@@ -199,7 +199,7 @@ type CreateHITOutput struct {
 
 	// Contains the newly created HIT data. For a description of the HIT data structure
 	// as it appears in responses, see the HIT Data Structure documentation.
-	HIT *HIT `type:"structure"`
+	HIT *HIT `json:"mturk-requester:CreateHITOutput:HIT" type:"structure"`
 }
 
 // String returns the string representation

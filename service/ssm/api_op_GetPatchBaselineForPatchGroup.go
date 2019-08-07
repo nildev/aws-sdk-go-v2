@@ -50,13 +50,13 @@ type GetPatchBaselineForPatchGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the patch baseline that should be used for the patch group.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:GetPatchBaselineForPatchGroupOutput:BaselineId" min:"20" type:"string"`
 
 	// The operating system rule specified for patch groups using the patch baseline.
-	OperatingSystem OperatingSystem `type:"string" enum:"true"`
+	OperatingSystem OperatingSystem `json:"ssm:GetPatchBaselineForPatchGroupOutput:OperatingSystem" type:"string" enum:"true"`
 
 	// The name of the patch group.
-	PatchGroup *string `min:"1" type:"string"`
+	PatchGroup *string `json:"ssm:GetPatchBaselineForPatchGroupOutput:PatchGroup" min:"1" type:"string"`
 }
 
 // String returns the string representation

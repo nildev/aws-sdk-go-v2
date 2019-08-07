@@ -59,11 +59,11 @@ type ListComplianceSummariesOutput struct {
 	// A list of compliant and non-compliant summary counts based on compliance
 	// types. For example, this call returns State Manager associations, patches,
 	// or custom compliance types according to the filter criteria that you specified.
-	ComplianceSummaryItems []ComplianceSummaryItem `type:"list"`
+	ComplianceSummaryItems []ComplianceSummaryItem `json:"ssm:ListComplianceSummariesOutput:ComplianceSummaryItems" type:"list"`
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListComplianceSummariesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

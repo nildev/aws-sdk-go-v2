@@ -64,10 +64,10 @@ type DescribeReplicationInstancesOutput struct {
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"dms:DescribeReplicationInstancesOutput:Marker" type:"string"`
 
 	// The replication instances described.
-	ReplicationInstances []ReplicationInstance `type:"list"`
+	ReplicationInstances []ReplicationInstance `json:"dms:DescribeReplicationInstancesOutput:ReplicationInstances" type:"list"`
 }
 
 // String returns the string representation

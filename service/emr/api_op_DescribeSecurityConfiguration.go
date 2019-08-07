@@ -44,13 +44,13 @@ type DescribeSecurityConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the security configuration was created
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:DescribeSecurityConfigurationOutput:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the security configuration.
-	Name *string `type:"string"`
+	Name *string `json:"elasticmapreduce:DescribeSecurityConfigurationOutput:Name" type:"string"`
 
 	// The security configuration details in JSON format.
-	SecurityConfiguration *string `type:"string"`
+	SecurityConfiguration *string `json:"elasticmapreduce:DescribeSecurityConfigurationOutput:SecurityConfiguration" type:"string"`
 }
 
 // String returns the string representation

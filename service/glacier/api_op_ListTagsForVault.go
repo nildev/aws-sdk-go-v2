@@ -75,7 +75,7 @@ type ListTagsForVaultOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags attached to the vault. Each tag is composed of a key and a value.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"glacier:ListTagsForVaultOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

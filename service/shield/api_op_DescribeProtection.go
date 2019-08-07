@@ -50,7 +50,7 @@ type DescribeProtectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Protection object that is described.
-	Protection *Protection `type:"structure"`
+	Protection *Protection `json:"shield:DescribeProtectionOutput:Protection" type:"structure"`
 }
 
 // String returns the string representation

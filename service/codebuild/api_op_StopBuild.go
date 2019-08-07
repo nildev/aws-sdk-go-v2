@@ -46,7 +46,7 @@ type StopBuildOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the build.
-	Build *Build `locationName:"build" type:"structure"`
+	Build *Build `json:"codebuild:StopBuildOutput:Build" locationName:"build" type:"structure"`
 }
 
 // String returns the string representation

@@ -81,7 +81,7 @@ type StartReplicationTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The replication task started.
-	ReplicationTask *ReplicationTask `type:"structure"`
+	ReplicationTask *ReplicationTask `json:"dms:StartReplicationTaskOutput:ReplicationTask" type:"structure"`
 }
 
 // String returns the string representation

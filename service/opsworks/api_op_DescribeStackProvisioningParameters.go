@@ -44,10 +44,10 @@ type DescribeStackProvisioningParametersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS OpsWorks Stacks agent installer's URL.
-	AgentInstallerUrl *string `type:"string"`
+	AgentInstallerUrl *string `json:"opsworks:DescribeStackProvisioningParametersOutput:AgentInstallerUrl" type:"string"`
 
 	// An embedded object that contains the provisioning parameters.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"opsworks:DescribeStackProvisioningParametersOutput:Parameters" type:"map"`
 }
 
 // String returns the string representation

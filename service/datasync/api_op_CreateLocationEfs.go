@@ -98,7 +98,7 @@ type CreateLocationEfsOutput struct {
 
 	// The Amazon Resource Name (ARN) of the Amazon EFS file system location that
 	// is created.
-	LocationArn *string `type:"string"`
+	LocationArn *string `json:"datasync:CreateLocationEfsOutput:LocationArn" type:"string"`
 }
 
 // String returns the string representation

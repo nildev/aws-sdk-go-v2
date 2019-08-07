@@ -39,7 +39,7 @@ type DescribeJobFlowsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of job flows matching the parameters supplied.
-	JobFlows []JobFlowDetail `type:"list"`
+	JobFlows []JobFlowDetail `json:"elasticmapreduce:DescribeJobFlowsOutput:JobFlows" type:"list"`
 }
 
 // String returns the string representation

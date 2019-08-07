@@ -49,10 +49,10 @@ type ListTagsForResourceOutput struct {
 
 	// An enumeration token that allows the operation to batch the next results
 	// of the operation.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:ListTagsForResourceOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of tag key and value pairs associated with the specified resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"codecommit:ListTagsForResourceOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

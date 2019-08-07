@@ -49,7 +49,7 @@ type CreateRouteTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the route table.
-	RouteTable *RouteTable `locationName:"routeTable" type:"structure"`
+	RouteTable *RouteTable `json:"ec2:CreateRouteTableOutput:RouteTable" locationName:"routeTable" type:"structure"`
 }
 
 // String returns the string representation

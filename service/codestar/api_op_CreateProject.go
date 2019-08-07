@@ -95,19 +95,19 @@ type CreateProjectOutput struct {
 	// The Amazon Resource Name (ARN) of the created project.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"codestar:CreateProjectOutput:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// A user- or system-generated token that identifies the entity that requested
 	// project creation.
-	ClientRequestToken *string `locationName:"clientRequestToken" min:"1" type:"string"`
+	ClientRequestToken *string `json:"codestar:CreateProjectOutput:ClientRequestToken" locationName:"clientRequestToken" min:"1" type:"string"`
 
 	// The ID of the project.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"2" type:"string" required:"true"`
+	Id *string `json:"codestar:CreateProjectOutput:Id" locationName:"id" min:"2" type:"string" required:"true"`
 
 	// Reserved for future use.
-	ProjectTemplateId *string `locationName:"projectTemplateId" min:"1" type:"string"`
+	ProjectTemplateId *string `json:"codestar:CreateProjectOutput:ProjectTemplateId" locationName:"projectTemplateId" min:"1" type:"string"`
 }
 
 // String returns the string representation

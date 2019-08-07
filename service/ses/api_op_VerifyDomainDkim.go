@@ -61,7 +61,7 @@ type VerifyDomainDkimOutput struct {
 	// Amazon SES Developer Guide (https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html).
 	//
 	// DkimTokens is a required field
-	DkimTokens []string `type:"list" required:"true"`
+	DkimTokens []string `json:"email:VerifyDomainDkimOutput:DkimTokens" type:"list" required:"true"`
 }
 
 // String returns the string representation

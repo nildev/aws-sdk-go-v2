@@ -48,11 +48,11 @@ type DescribeActivationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of activations for your AWS account.
-	ActivationList []Activation `type:"list"`
+	ActivationList []Activation `json:"ssm:DescribeActivationsOutput:ActivationList" type:"list"`
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeActivationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

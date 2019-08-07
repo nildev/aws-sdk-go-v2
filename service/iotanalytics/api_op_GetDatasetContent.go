@@ -75,13 +75,13 @@ type GetDatasetContentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of "DatasetEntry" objects.
-	Entries []DatasetEntry `locationName:"entries" type:"list"`
+	Entries []DatasetEntry `json:"iotanalytics:GetDatasetContentOutput:Entries" locationName:"entries" type:"list"`
 
 	// The status of the data set content.
-	Status *DatasetContentStatus `locationName:"status" type:"structure"`
+	Status *DatasetContentStatus `json:"iotanalytics:GetDatasetContentOutput:Status" locationName:"status" type:"structure"`
 
 	// The time when the request was made.
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"iotanalytics:GetDatasetContentOutput:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

@@ -50,7 +50,7 @@ type BatchDetectDominantLanguageOutput struct {
 	// the ErrorList is empty.
 	//
 	// ErrorList is a required field
-	ErrorList []BatchItemError `type:"list" required:"true"`
+	ErrorList []BatchItemError `json:"comprehend:BatchDetectDominantLanguageOutput:ErrorList" type:"list" required:"true"`
 
 	// A list of objects containing the results of the operation. The results are
 	// sorted in ascending order by the Index field and match the order of the documents
@@ -58,7 +58,7 @@ type BatchDetectDominantLanguageOutput struct {
 	// is empty.
 	//
 	// ResultList is a required field
-	ResultList []BatchDetectDominantLanguageItemResult `type:"list" required:"true"`
+	ResultList []BatchDetectDominantLanguageItemResult `json:"comprehend:BatchDetectDominantLanguageOutput:ResultList" type:"list" required:"true"`
 }
 
 // String returns the string representation

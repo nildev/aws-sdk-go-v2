@@ -49,7 +49,7 @@ type GetRegexMatchSetOutput struct {
 
 	// Information about the RegexMatchSet that you specified in the GetRegexMatchSet
 	// request. For more information, see RegexMatchTuple.
-	RegexMatchSet *waf.RegexMatchSet `type:"structure"`
+	RegexMatchSet *waf.RegexMatchSet `json:"waf-regional:GetRegexMatchSetOutput:RegexMatchSet" type:"structure"`
 }
 
 // String returns the string representation

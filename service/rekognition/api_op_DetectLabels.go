@@ -63,10 +63,10 @@ type DetectLabelsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Version number of the label detection model that was used to detect labels.
-	LabelModelVersion *string `type:"string"`
+	LabelModelVersion *string `json:"rekognition:DetectLabelsOutput:LabelModelVersion" type:"string"`
 
 	// An array of labels for the real-world objects detected.
-	Labels []Label `type:"list"`
+	Labels []Label `json:"rekognition:DetectLabelsOutput:Labels" type:"list"`
 
 	// The value of OrientationCorrection is always null.
 	//
@@ -81,7 +81,7 @@ type DetectLabelsOutput struct {
 	// format and .jpeg images without orientation information in the image Exif
 	// metadata. The bounding box coordinates aren't translated and represent the
 	// object locations before the image is rotated.
-	OrientationCorrection OrientationCorrection `type:"string" enum:"true"`
+	OrientationCorrection OrientationCorrection `json:"rekognition:DetectLabelsOutput:OrientationCorrection" type:"string" enum:"true"`
 }
 
 // String returns the string representation

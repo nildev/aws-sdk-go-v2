@@ -83,7 +83,7 @@ type CreateScalingPlanOutput struct {
 	// Currently, you cannot specify multiple scaling plan versions.
 	//
 	// ScalingPlanVersion is a required field
-	ScalingPlanVersion *int64 `type:"long" required:"true"`
+	ScalingPlanVersion *int64 `json:"autoscaling:CreateScalingPlanOutput:ScalingPlanVersion" type:"long" required:"true"`
 }
 
 // String returns the string representation

@@ -44,10 +44,10 @@ type DescribeCacheSecurityGroupsOutput struct {
 
 	// A list of cache security groups. Each element in the list contains detailed
 	// information about one group.
-	CacheSecurityGroups []CacheSecurityGroup `locationNameList:"CacheSecurityGroup" type:"list"`
+	CacheSecurityGroups []CacheSecurityGroup `json:"elasticache:DescribeCacheSecurityGroupsOutput:CacheSecurityGroups" locationNameList:"CacheSecurityGroup" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeCacheSecurityGroupsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

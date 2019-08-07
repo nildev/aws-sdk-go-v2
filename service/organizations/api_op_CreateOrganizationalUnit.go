@@ -67,7 +67,7 @@ type CreateOrganizationalUnitOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains details about the newly created OU.
-	OrganizationalUnit *OrganizationalUnit `type:"structure"`
+	OrganizationalUnit *OrganizationalUnit `json:"organizations:CreateOrganizationalUnitOutput:OrganizationalUnit" type:"structure"`
 }
 
 // String returns the string representation

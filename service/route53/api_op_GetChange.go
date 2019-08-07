@@ -62,7 +62,7 @@ type GetChangeOutput struct {
 	// A complex type that contains information about the specified change batch.
 	//
 	// ChangeInfo is a required field
-	ChangeInfo *ChangeInfo `type:"structure" required:"true"`
+	ChangeInfo *ChangeInfo `json:"route53:GetChangeOutput:ChangeInfo" type:"structure" required:"true"`
 }
 
 // String returns the string representation

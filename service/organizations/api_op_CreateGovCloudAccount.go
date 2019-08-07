@@ -101,7 +101,7 @@ type CreateGovCloudAccountOutput struct {
 
 	// Contains the status about a CreateAccount or CreateGovCloudAccount request
 	// to create an AWS account or an AWS GovCloud (US) account in an organization.
-	CreateAccountStatus *CreateAccountStatus `type:"structure"`
+	CreateAccountStatus *CreateAccountStatus `json:"organizations:CreateGovCloudAccountOutput:CreateAccountStatus" type:"structure"`
 }
 
 // String returns the string representation

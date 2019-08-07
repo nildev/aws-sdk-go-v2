@@ -71,13 +71,13 @@ type ListIdentitiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing a set of identities and associated mappings.
-	Identities []IdentityDescription `type:"list"`
+	Identities []IdentityDescription `json:"cognito-identity:ListIdentitiesOutput:Identities" type:"list"`
 
 	// An identity pool ID in the format REGION:GUID.
-	IdentityPoolId *string `min:"1" type:"string"`
+	IdentityPoolId *string `json:"cognito-identity:ListIdentitiesOutput:IdentityPoolId" min:"1" type:"string"`
 
 	// A pagination token.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-identity:ListIdentitiesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -73,7 +73,7 @@ type UpdateVoiceChannelOutput struct {
 	// an application.
 	//
 	// VoiceChannelResponse is a required field
-	VoiceChannelResponse *VoiceChannelResponse `type:"structure" required:"true"`
+	VoiceChannelResponse *VoiceChannelResponse `json:"pinpoint:UpdateVoiceChannelOutput:VoiceChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -61,10 +61,10 @@ type ListStackResourcesOutput struct {
 
 	// If the output exceeds 1 MB, a string that identifies the next page of stack
 	// resources. If no additional page exists, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:ListStackResourcesOutput:NextToken" min:"1" type:"string"`
 
 	// A list of StackResourceSummary structures.
-	StackResourceSummaries []StackResourceSummary `type:"list"`
+	StackResourceSummaries []StackResourceSummary `json:"cloudformation:ListStackResourcesOutput:StackResourceSummaries" type:"list"`
 }
 
 // String returns the string representation

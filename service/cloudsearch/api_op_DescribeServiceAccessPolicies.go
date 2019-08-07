@@ -55,7 +55,7 @@ type DescribeServiceAccessPoliciesOutput struct {
 	// The access rules configured for the domain specified in the request.
 	//
 	// AccessPolicies is a required field
-	AccessPolicies *AccessPoliciesStatus `type:"structure" required:"true"`
+	AccessPolicies *AccessPoliciesStatus `json:"cloudsearch:DescribeServiceAccessPoliciesOutput:AccessPolicies" type:"structure" required:"true"`
 }
 
 // String returns the string representation

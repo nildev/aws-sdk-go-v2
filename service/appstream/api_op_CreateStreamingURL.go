@@ -89,10 +89,10 @@ type CreateStreamingURLOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The elapsed time, in seconds after the Unix epoch, when this URL expires.
-	Expires *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Expires *time.Time `json:"appstream2:CreateStreamingURLOutput:Expires" type:"timestamp" timestampFormat:"unix"`
 
 	// The URL to start the AppStream 2.0 streaming session.
-	StreamingURL *string `min:"1" type:"string"`
+	StreamingURL *string `json:"appstream2:CreateStreamingURLOutput:StreamingURL" min:"1" type:"string"`
 }
 
 // String returns the string representation

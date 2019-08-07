@@ -62,15 +62,15 @@ type DescribeProtectedResourceOutput struct {
 	// Coordinated Universal Time (UTC). The value of LastBackupTime is accurate
 	// to milliseconds. For example, the value 1516925490.087 represents Friday,
 	// January 26, 2018 12:11:30.087 AM.
-	LastBackupTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastBackupTime *time.Time `json:"backup:DescribeProtectedResourceOutput:LastBackupTime" type:"timestamp" timestampFormat:"unix"`
 
 	// An ARN that uniquely identifies a resource. The format of the ARN depends
 	// on the resource type.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"backup:DescribeProtectedResourceOutput:ResourceArn" type:"string"`
 
 	// The type of AWS resource saved as a recovery point; for example, an EBS volume
 	// or an Amazon RDS database.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"backup:DescribeProtectedResourceOutput:ResourceType" type:"string"`
 }
 
 // String returns the string representation

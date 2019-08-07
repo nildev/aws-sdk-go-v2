@@ -46,27 +46,27 @@ type DescribeAgentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the agent.
-	AgentArn *string `type:"string"`
+	AgentArn *string `json:"datasync:DescribeAgentOutput:AgentArn" type:"string"`
 
 	// The time that the agent was activated (that is, created in your account).
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"datasync:DescribeAgentOutput:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
-	EndpointOptions *EndpointOptions `type:"structure"`
+	EndpointOptions *EndpointOptions `json:"datasync:DescribeAgentOutput:EndpointOptions" type:"structure"`
 
 	// The time that the agent last connected to DataSyc.
-	LastConnectionTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastConnectionTime *time.Time `json:"datasync:DescribeAgentOutput:LastConnectionTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the agent.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"datasync:DescribeAgentOutput:Name" min:"1" type:"string"`
 
-	PrivateLinkConfig *PrivateLinkConfig `type:"structure"`
+	PrivateLinkConfig *PrivateLinkConfig `json:"datasync:DescribeAgentOutput:PrivateLinkConfig" type:"structure"`
 
 	// The status of the agent. If the status is ONLINE, then the agent is configured
 	// properly and is available to use. The Running status is the normal running
 	// status for an agent. If the status is OFFLINE, the agent's VM is turned off
 	// or the agent is in an unhealthy state. When the issue that caused the unhealthy
 	// state is resolved, the agent returns to ONLINE status.
-	Status AgentStatus `type:"string" enum:"true"`
+	Status AgentStatus `json:"datasync:DescribeAgentOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

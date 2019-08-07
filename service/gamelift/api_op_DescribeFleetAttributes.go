@@ -61,12 +61,12 @@ type DescribeFleetAttributesOutput struct {
 
 	// Collection of objects containing attribute metadata for each requested fleet
 	// ID.
-	FleetAttributes []FleetAttributes `type:"list"`
+	FleetAttributes []FleetAttributes `json:"gamelift:DescribeFleetAttributesOutput:FleetAttributes" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:DescribeFleetAttributesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

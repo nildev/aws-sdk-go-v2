@@ -45,7 +45,7 @@ type DescribeClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// This output contains the details for the requested cluster.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"elasticmapreduce:DescribeClusterOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

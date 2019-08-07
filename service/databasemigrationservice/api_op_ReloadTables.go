@@ -61,7 +61,7 @@ type ReloadTablesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the replication task.
-	ReplicationTaskArn *string `type:"string"`
+	ReplicationTaskArn *string `json:"dms:ReloadTablesOutput:ReplicationTaskArn" type:"string"`
 }
 
 // String returns the string representation

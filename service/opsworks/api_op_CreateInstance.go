@@ -184,7 +184,7 @@ type CreateInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:CreateInstanceOutput:InstanceId" type:"string"`
 }
 
 // String returns the string representation

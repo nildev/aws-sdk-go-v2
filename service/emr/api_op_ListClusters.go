@@ -41,10 +41,10 @@ type ListClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of clusters for the account based on the given filters.
-	Clusters []ClusterSummary `type:"list"`
+	Clusters []ClusterSummary `json:"elasticmapreduce:ListClustersOutput:Clusters" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticmapreduce:ListClustersOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

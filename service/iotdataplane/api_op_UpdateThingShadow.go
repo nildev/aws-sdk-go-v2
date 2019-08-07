@@ -74,7 +74,7 @@ type UpdateThingShadowOutput struct {
 	_ struct{} `type:"structure" payload:"Payload"`
 
 	// The state information, in JSON format.
-	Payload []byte `locationName:"payload" type:"blob"`
+	Payload []byte `json:"data.iot:UpdateThingShadowOutput:Payload" locationName:"payload" type:"blob"`
 }
 
 // String returns the string representation

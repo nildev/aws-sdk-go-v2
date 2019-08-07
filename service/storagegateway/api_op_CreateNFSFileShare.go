@@ -173,7 +173,7 @@ type CreateNFSFileShareOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the newly created file share.
-	FileShareARN *string `min:"50" type:"string"`
+	FileShareARN *string `json:"storagegateway:CreateNFSFileShareOutput:FileShareARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

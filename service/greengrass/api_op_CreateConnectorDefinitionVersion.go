@@ -76,13 +76,13 @@ func (s CreateConnectorDefinitionVersionInput) MarshalFields(e protocol.FieldEnc
 type CreateConnectorDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:CreateConnectorDefinitionVersionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:CreateConnectorDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:CreateConnectorDefinitionVersionOutput:Id" type:"string"`
 
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:CreateConnectorDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

@@ -36,11 +36,11 @@ type DescribeComplianceByConfigRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether each of the specified AWS Config rules is compliant.
-	ComplianceByConfigRules []ComplianceByConfigRule `type:"list"`
+	ComplianceByConfigRules []ComplianceByConfigRule `json:"config:DescribeComplianceByConfigRuleOutput:ComplianceByConfigRules" type:"list"`
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:DescribeComplianceByConfigRuleOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

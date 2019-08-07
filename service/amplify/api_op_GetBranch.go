@@ -81,7 +81,7 @@ type GetBranchOutput struct {
 	// Branch for an Amplify App, which maps to a 3rd party repository branch.
 	//
 	// Branch is a required field
-	Branch *Branch `locationName:"branch" type:"structure" required:"true"`
+	Branch *Branch `json:"amplify:GetBranchOutput:Branch" locationName:"branch" type:"structure" required:"true"`
 }
 
 // String returns the string representation

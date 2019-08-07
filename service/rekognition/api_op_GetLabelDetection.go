@@ -64,27 +64,27 @@ type GetLabelDetectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current status of the label detection job.
-	JobStatus VideoJobStatus `type:"string" enum:"true"`
+	JobStatus VideoJobStatus `json:"rekognition:GetLabelDetectionOutput:JobStatus" type:"string" enum:"true"`
 
 	// Version number of the label detection model that was used to detect labels.
-	LabelModelVersion *string `type:"string"`
+	LabelModelVersion *string `json:"rekognition:GetLabelDetectionOutput:LabelModelVersion" type:"string"`
 
 	// An array of labels detected in the video. Each element contains the detected
 	// label and the time, in milliseconds from the start of the video, that the
 	// label was detected.
-	Labels []LabelDetection `type:"list"`
+	Labels []LabelDetection `json:"rekognition:GetLabelDetectionOutput:Labels" type:"list"`
 
 	// If the response is truncated, Amazon Rekognition Video returns this token
 	// that you can use in the subsequent request to retrieve the next set of labels.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:GetLabelDetectionOutput:NextToken" type:"string"`
 
 	// If the job fails, StatusMessage provides a descriptive error message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"rekognition:GetLabelDetectionOutput:StatusMessage" type:"string"`
 
 	// Information about a video that Amazon Rekognition Video analyzed. Videometadata
 	// is returned in every page of paginated responses from a Amazon Rekognition
 	// video operation.
-	VideoMetadata *VideoMetadata `type:"structure"`
+	VideoMetadata *VideoMetadata `json:"rekognition:GetLabelDetectionOutput:VideoMetadata" type:"structure"`
 }
 
 // String returns the string representation

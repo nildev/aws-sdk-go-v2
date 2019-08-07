@@ -18,28 +18,28 @@ type ApplicationDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the application.
-	ApplicationArn *string `type:"string"`
+	ApplicationArn *string `json:"elasticbeanstalk:ApplicationDescription:ApplicationArn" type:"string"`
 
 	// The name of the application.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:ApplicationDescription:ApplicationName" min:"1" type:"string"`
 
 	// The names of the configuration templates associated with this application.
-	ConfigurationTemplates []string `type:"list"`
+	ConfigurationTemplates []string `json:"elasticbeanstalk:ApplicationDescription:ConfigurationTemplates" type:"list"`
 
 	// The date when the application was created.
-	DateCreated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateCreated *time.Time `json:"elasticbeanstalk:ApplicationDescription:DateCreated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The date when the application was last modified.
-	DateUpdated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateUpdated *time.Time `json:"elasticbeanstalk:ApplicationDescription:DateUpdated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// User-defined description of the application.
-	Description *string `type:"string"`
+	Description *string `json:"elasticbeanstalk:ApplicationDescription:Description" type:"string"`
 
 	// The lifecycle settings for the application.
-	ResourceLifecycleConfig *ApplicationResourceLifecycleConfig `type:"structure"`
+	ResourceLifecycleConfig *ApplicationResourceLifecycleConfig `json:"elasticbeanstalk:ApplicationDescription:ResourceLifecycleConfig" type:"structure"`
 
 	// The names of the versions for this application.
-	Versions []string `type:"list"`
+	Versions []string `json:"elasticbeanstalk:ApplicationDescription:Versions" type:"list"`
 }
 
 // String returns the string representation
@@ -55,19 +55,19 @@ type ApplicationMetrics struct {
 	// The amount of time that the metrics cover (usually 10 seconds). For example,
 	// you might have 5 requests (request_count) within the most recent time slice
 	// of 10 seconds (duration).
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"elasticbeanstalk:ApplicationMetrics:Duration" type:"integer"`
 
 	// Represents the average latency for the slowest X percent of requests over
 	// the last 10 seconds. Latencies are in seconds with one millisecond resolution.
-	Latency *Latency `type:"structure"`
+	Latency *Latency `json:"elasticbeanstalk:ApplicationMetrics:Latency" type:"structure"`
 
 	// Average number of requests handled by the web server per second over the
 	// last 10 seconds.
-	RequestCount *int64 `type:"integer"`
+	RequestCount *int64 `json:"elasticbeanstalk:ApplicationMetrics:RequestCount" type:"integer"`
 
 	// Represents the percentage of requests over the last 10 seconds that resulted
 	// in each type of status code response.
-	StatusCodes *StatusCodes `type:"structure"`
+	StatusCodes *StatusCodes `json:"elasticbeanstalk:ApplicationMetrics:StatusCodes" type:"structure"`
 }
 
 // String returns the string representation
@@ -93,10 +93,10 @@ type ApplicationResourceLifecycleConfig struct {
 	// and you don't need to specify it again in subsequent UpdateApplicationResourceLifecycle
 	// calls. You can, however, specify it in subsequent calls to change the Service
 	// Role to another value.
-	ServiceRole *string `type:"string"`
+	ServiceRole *string `json:"elasticbeanstalk:ApplicationResourceLifecycleConfig:ServiceRole" type:"string"`
 
 	// The application version lifecycle configuration.
-	VersionLifecycleConfig *ApplicationVersionLifecycleConfig `type:"structure"`
+	VersionLifecycleConfig *ApplicationVersionLifecycleConfig `json:"elasticbeanstalk:ApplicationResourceLifecycleConfig:VersionLifecycleConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -125,30 +125,30 @@ type ApplicationVersionDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the application to which the application version belongs.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:ApplicationVersionDescription:ApplicationName" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the application version.
-	ApplicationVersionArn *string `type:"string"`
+	ApplicationVersionArn *string `json:"elasticbeanstalk:ApplicationVersionDescription:ApplicationVersionArn" type:"string"`
 
 	// Reference to the artifact from the AWS CodeBuild build.
-	BuildArn *string `type:"string"`
+	BuildArn *string `json:"elasticbeanstalk:ApplicationVersionDescription:BuildArn" type:"string"`
 
 	// The creation date of the application version.
-	DateCreated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateCreated *time.Time `json:"elasticbeanstalk:ApplicationVersionDescription:DateCreated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The last modified date of the application version.
-	DateUpdated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateUpdated *time.Time `json:"elasticbeanstalk:ApplicationVersionDescription:DateUpdated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The description of the application version.
-	Description *string `type:"string"`
+	Description *string `json:"elasticbeanstalk:ApplicationVersionDescription:Description" type:"string"`
 
 	// If the version's source code was retrieved from AWS CodeCommit, the location
 	// of the source code for the application version.
-	SourceBuildInformation *SourceBuildInformation `type:"structure"`
+	SourceBuildInformation *SourceBuildInformation `json:"elasticbeanstalk:ApplicationVersionDescription:SourceBuildInformation" type:"structure"`
 
 	// The storage location of the application version's source bundle in Amazon
 	// S3.
-	SourceBundle *S3Location `type:"structure"`
+	SourceBundle *S3Location `json:"elasticbeanstalk:ApplicationVersionDescription:SourceBundle" type:"structure"`
 
 	// The processing status of the application version. Reflects the state of the
 	// application version during its creation. Many of the values are only applicable
@@ -169,10 +169,10 @@ type ApplicationVersionDescription struct {
 	//
 	//    * Failed – Either the AWS CodeBuild build failed or configuration files
 	//    didn't pass validation. This application version isn't usable.
-	Status ApplicationVersionStatus `type:"string" enum:"true"`
+	Status ApplicationVersionStatus `json:"elasticbeanstalk:ApplicationVersionDescription:Status" type:"string" enum:"true"`
 
 	// A unique identifier for the application version.
-	VersionLabel *string `min:"1" type:"string"`
+	VersionLabel *string `json:"elasticbeanstalk:ApplicationVersionDescription:VersionLabel" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -193,11 +193,11 @@ type ApplicationVersionLifecycleConfig struct {
 
 	// Specify a max age rule to restrict the length of time that application versions
 	// are retained for an application.
-	MaxAgeRule *MaxAgeRule `type:"structure"`
+	MaxAgeRule *MaxAgeRule `json:"elasticbeanstalk:ApplicationVersionLifecycleConfig:MaxAgeRule" type:"structure"`
 
 	// Specify a max count rule to restrict the number of application versions that
 	// are retained for an application.
-	MaxCountRule *MaxCountRule `type:"structure"`
+	MaxCountRule *MaxCountRule `json:"elasticbeanstalk:ApplicationVersionLifecycleConfig:MaxCountRule" type:"structure"`
 }
 
 // String returns the string representation
@@ -231,7 +231,7 @@ type AutoScalingGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the AutoScalingGroup .
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:AutoScalingGroup:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -248,14 +248,14 @@ type BuildConfiguration struct {
 	// stores the build artifact in the S3 location S3-bucket/resources/application-name/codebuild/codebuild-version-label-artifact-name.zip.
 	// If not provided, Elastic Beanstalk stores the build artifact in the S3 location
 	// S3-bucket/resources/application-name/codebuild/codebuild-version-label.zip.
-	ArtifactName *string `type:"string"`
+	ArtifactName *string `json:"elasticbeanstalk:BuildConfiguration:ArtifactName" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 	// (IAM) role that enables AWS CodeBuild to interact with dependent AWS services
 	// on behalf of the AWS account.
 	//
 	// CodeBuildServiceRole is a required field
-	CodeBuildServiceRole *string `type:"string" required:"true"`
+	CodeBuildServiceRole *string `json:"elasticbeanstalk:BuildConfiguration:CodeBuildServiceRole" type:"string" required:"true"`
 
 	// Information about the compute resources the build project will use.
 	//
@@ -264,17 +264,17 @@ type BuildConfiguration struct {
 	//    * BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds
 	//
 	//    * BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds
-	ComputeType ComputeType `type:"string" enum:"true"`
+	ComputeType ComputeType `json:"elasticbeanstalk:BuildConfiguration:ComputeType" type:"string" enum:"true"`
 
 	// The ID of the Docker image to use for this build project.
 	//
 	// Image is a required field
-	Image *string `type:"string" required:"true"`
+	Image *string `json:"elasticbeanstalk:BuildConfiguration:Image" type:"string" required:"true"`
 
 	// How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until
 	// timing out any related build that does not get marked as completed. The default
 	// is 60 minutes.
-	TimeoutInMinutes *int64 `type:"integer"`
+	TimeoutInMinutes *int64 `json:"elasticbeanstalk:BuildConfiguration:TimeoutInMinutes" type:"integer"`
 }
 
 // String returns the string representation
@@ -306,7 +306,7 @@ type Builder struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the builder.
-	ARN *string `type:"string"`
+	ARN *string `json:"elasticbeanstalk:Builder:ARN" type:"string"`
 }
 
 // String returns the string representation
@@ -323,45 +323,45 @@ type CPUUtilization struct {
 	//
 	// Percentage of time that the CPU has spent in the I/O Wait state over the
 	// last 10 seconds.
-	IOWait *float64 `type:"double"`
+	IOWait *float64 `json:"elasticbeanstalk:CPUUtilization:IOWait" type:"double"`
 
 	// Available on Linux environments only.
 	//
 	// Percentage of time that the CPU has spent in the IRQ state over the last
 	// 10 seconds.
-	IRQ *float64 `type:"double"`
+	IRQ *float64 `json:"elasticbeanstalk:CPUUtilization:IRQ" type:"double"`
 
 	// Percentage of time that the CPU has spent in the Idle state over the last
 	// 10 seconds.
-	Idle *float64 `type:"double"`
+	Idle *float64 `json:"elasticbeanstalk:CPUUtilization:Idle" type:"double"`
 
 	// Available on Linux environments only.
 	//
 	// Percentage of time that the CPU has spent in the Nice state over the last
 	// 10 seconds.
-	Nice *float64 `type:"double"`
+	Nice *float64 `json:"elasticbeanstalk:CPUUtilization:Nice" type:"double"`
 
 	// Available on Windows environments only.
 	//
 	// Percentage of time that the CPU has spent in the Privileged state over the
 	// last 10 seconds.
-	Privileged *float64 `type:"double"`
+	Privileged *float64 `json:"elasticbeanstalk:CPUUtilization:Privileged" type:"double"`
 
 	// Available on Linux environments only.
 	//
 	// Percentage of time that the CPU has spent in the SoftIRQ state over the last
 	// 10 seconds.
-	SoftIRQ *float64 `type:"double"`
+	SoftIRQ *float64 `json:"elasticbeanstalk:CPUUtilization:SoftIRQ" type:"double"`
 
 	// Available on Linux environments only.
 	//
 	// Percentage of time that the CPU has spent in the System state over the last
 	// 10 seconds.
-	System *float64 `type:"double"`
+	System *float64 `json:"elasticbeanstalk:CPUUtilization:System" type:"double"`
 
 	// Percentage of time that the CPU has spent in the User state over the last
 	// 10 seconds.
-	User *float64 `type:"double"`
+	User *float64 `json:"elasticbeanstalk:CPUUtilization:User" type:"double"`
 }
 
 // String returns the string representation
@@ -387,32 +387,32 @@ type ConfigurationOptionDescription struct {
 	//    * RestartApplicationServer : The environment is available the entire time.
 	//    However, a short application outage occurs when the application servers
 	//    on the running Amazon EC2 instances are restarted.
-	ChangeSeverity *string `type:"string"`
+	ChangeSeverity *string `json:"elasticbeanstalk:ConfigurationOptionDescription:ChangeSeverity" type:"string"`
 
 	// The default value for this configuration option.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"elasticbeanstalk:ConfigurationOptionDescription:DefaultValue" type:"string"`
 
 	// If specified, the configuration option must be a string value no longer than
 	// this value.
-	MaxLength *int64 `type:"integer"`
+	MaxLength *int64 `json:"elasticbeanstalk:ConfigurationOptionDescription:MaxLength" type:"integer"`
 
 	// If specified, the configuration option must be a numeric value less than
 	// this value.
-	MaxValue *int64 `type:"integer"`
+	MaxValue *int64 `json:"elasticbeanstalk:ConfigurationOptionDescription:MaxValue" type:"integer"`
 
 	// If specified, the configuration option must be a numeric value greater than
 	// this value.
-	MinValue *int64 `type:"integer"`
+	MinValue *int64 `json:"elasticbeanstalk:ConfigurationOptionDescription:MinValue" type:"integer"`
 
 	// The name of the configuration option.
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:ConfigurationOptionDescription:Name" type:"string"`
 
 	// A unique namespace identifying the option's associated AWS resource.
-	Namespace *string `type:"string"`
+	Namespace *string `json:"elasticbeanstalk:ConfigurationOptionDescription:Namespace" type:"string"`
 
 	// If specified, the configuration option must be a string value that satisfies
 	// this regular expression.
-	Regex *OptionRestrictionRegex `type:"structure"`
+	Regex *OptionRestrictionRegex `json:"elasticbeanstalk:ConfigurationOptionDescription:Regex" type:"structure"`
 
 	// An indication of whether the user defined this configuration option:
 	//
@@ -425,11 +425,11 @@ type ConfigurationOptionDescription struct {
 	// Constraint: You can remove only UserDefined options from a configuration.
 	//
 	// Valid Values: true | false
-	UserDefined *bool `type:"boolean"`
+	UserDefined *bool `json:"elasticbeanstalk:ConfigurationOptionDescription:UserDefined" type:"boolean"`
 
 	// If specified, values for the configuration option are selected from this
 	// list.
-	ValueOptions []string `type:"list"`
+	ValueOptions []string `json:"elasticbeanstalk:ConfigurationOptionDescription:ValueOptions" type:"list"`
 
 	// An indication of which type of values this option has and whether it is allowable
 	// to select one or more than one of the possible values:
@@ -444,7 +444,7 @@ type ConfigurationOptionDescription struct {
 	//    * Boolean : Values for this option are either true or false .
 	//
 	//    * Json : Values for this option are a JSON representation of a ConfigDocument.
-	ValueType ConfigurationOptionValueType `type:"string" enum:"true"`
+	ValueType ConfigurationOptionValueType `json:"elasticbeanstalk:ConfigurationOptionDescription:ValueType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -461,16 +461,16 @@ type ConfigurationOptionSetting struct {
 	_ struct{} `type:"structure"`
 
 	// A unique namespace identifying the option's associated AWS resource.
-	Namespace *string `type:"string"`
+	Namespace *string `json:"elasticbeanstalk:ConfigurationOptionSetting:Namespace" type:"string"`
 
 	// The name of the configuration option.
-	OptionName *string `type:"string"`
+	OptionName *string `json:"elasticbeanstalk:ConfigurationOptionSetting:OptionName" type:"string"`
 
 	// A unique resource name for a time-based scaling configuration option.
-	ResourceName *string `min:"1" type:"string"`
+	ResourceName *string `json:"elasticbeanstalk:ConfigurationOptionSetting:ResourceName" min:"1" type:"string"`
 
 	// The current value for the configuration option.
-	Value *string `type:"string"`
+	Value *string `json:"elasticbeanstalk:ConfigurationOptionSetting:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -497,13 +497,13 @@ type ConfigurationSettingsDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the application associated with this configuration set.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:ConfigurationSettingsDescription:ApplicationName" min:"1" type:"string"`
 
 	// The date (in UTC time) when this configuration set was created.
-	DateCreated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateCreated *time.Time `json:"elasticbeanstalk:ConfigurationSettingsDescription:DateCreated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The date (in UTC time) when this configuration set was last modified.
-	DateUpdated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateUpdated *time.Time `json:"elasticbeanstalk:ConfigurationSettingsDescription:DateUpdated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// If this configuration set is associated with an environment, the DeploymentStatus
 	// parameter indicates the deployment status of this configuration set:
@@ -517,27 +517,27 @@ type ConfigurationSettingsDescription struct {
 	//    associated running environment.
 	//
 	//    * failed: This is a draft configuration that failed to successfully deploy.
-	DeploymentStatus ConfigurationDeploymentStatus `type:"string" enum:"true"`
+	DeploymentStatus ConfigurationDeploymentStatus `json:"elasticbeanstalk:ConfigurationSettingsDescription:DeploymentStatus" type:"string" enum:"true"`
 
 	// Describes this configuration set.
-	Description *string `type:"string"`
+	Description *string `json:"elasticbeanstalk:ConfigurationSettingsDescription:Description" type:"string"`
 
 	// If not null, the name of the environment for this configuration set.
-	EnvironmentName *string `min:"4" type:"string"`
+	EnvironmentName *string `json:"elasticbeanstalk:ConfigurationSettingsDescription:EnvironmentName" min:"4" type:"string"`
 
 	// A list of the configuration options and their values in this configuration
 	// set.
-	OptionSettings []ConfigurationOptionSetting `type:"list"`
+	OptionSettings []ConfigurationOptionSetting `json:"elasticbeanstalk:ConfigurationSettingsDescription:OptionSettings" type:"list"`
 
 	// The ARN of the platform.
-	PlatformArn *string `type:"string"`
+	PlatformArn *string `json:"elasticbeanstalk:ConfigurationSettingsDescription:PlatformArn" type:"string"`
 
 	// The name of the solution stack this configuration set uses.
-	SolutionStackName *string `type:"string"`
+	SolutionStackName *string `json:"elasticbeanstalk:ConfigurationSettingsDescription:SolutionStackName" type:"string"`
 
 	// If not null, the name of the configuration template for this configuration
 	// set.
-	TemplateName *string `min:"1" type:"string"`
+	TemplateName *string `json:"elasticbeanstalk:ConfigurationSettingsDescription:TemplateName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -551,10 +551,10 @@ type CustomAmi struct {
 	_ struct{} `type:"structure"`
 
 	// THe ID of the image used to create the custom AMI.
-	ImageId *string `type:"string"`
+	ImageId *string `json:"elasticbeanstalk:CustomAmi:ImageId" type:"string"`
 
 	// The type of virtualization used to create the custom AMI.
-	VirtualizationType *string `type:"string"`
+	VirtualizationType *string `json:"elasticbeanstalk:CustomAmi:VirtualizationType" type:"string"`
 }
 
 // String returns the string representation
@@ -569,12 +569,12 @@ type Deployment struct {
 
 	// The ID of the deployment. This number increases by one each time that you
 	// deploy source code or change instance configuration settings.
-	DeploymentId *int64 `type:"long"`
+	DeploymentId *int64 `json:"elasticbeanstalk:Deployment:DeploymentId" type:"long"`
 
 	// For in-progress deployments, the time that the deployment started.
 	//
 	// For completed deployments, the time that the deployment ended.
-	DeploymentTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DeploymentTime *time.Time `json:"elasticbeanstalk:Deployment:DeploymentTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The status of the deployment:
 	//
@@ -583,10 +583,10 @@ type Deployment struct {
 	//    * Deployed : The deployment succeeded.
 	//
 	//    * Failed : The deployment failed.
-	Status *string `type:"string"`
+	Status *string `json:"elasticbeanstalk:Deployment:Status" type:"string"`
 
 	// The version label of the application version in the deployment.
-	VersionLabel *string `type:"string"`
+	VersionLabel *string `json:"elasticbeanstalk:Deployment:VersionLabel" type:"string"`
 }
 
 // String returns the string representation
@@ -605,39 +605,39 @@ type EnvironmentDescription struct {
 	// true: There is an update in progress.
 	//
 	// false: There are no updates currently in progress.
-	AbortableOperationInProgress *bool `type:"boolean"`
+	AbortableOperationInProgress *bool `json:"elasticbeanstalk:EnvironmentDescription:AbortableOperationInProgress" type:"boolean"`
 
 	// The name of the application associated with this environment.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:EnvironmentDescription:ApplicationName" min:"1" type:"string"`
 
 	// The URL to the CNAME for this environment.
-	CNAME *string `min:"1" type:"string"`
+	CNAME *string `json:"elasticbeanstalk:EnvironmentDescription:CNAME" min:"1" type:"string"`
 
 	// The creation date for this environment.
-	DateCreated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateCreated *time.Time `json:"elasticbeanstalk:EnvironmentDescription:DateCreated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The last modified date for this environment.
-	DateUpdated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateUpdated *time.Time `json:"elasticbeanstalk:EnvironmentDescription:DateUpdated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Describes this environment.
-	Description *string `type:"string"`
+	Description *string `json:"elasticbeanstalk:EnvironmentDescription:Description" type:"string"`
 
 	// For load-balanced, autoscaling environments, the URL to the LoadBalancer.
 	// For single-instance environments, the IP address of the instance.
-	EndpointURL *string `type:"string"`
+	EndpointURL *string `json:"elasticbeanstalk:EnvironmentDescription:EndpointURL" type:"string"`
 
 	// The environment's Amazon Resource Name (ARN), which can be used in other
 	// API requests that require an ARN.
-	EnvironmentArn *string `type:"string"`
+	EnvironmentArn *string `json:"elasticbeanstalk:EnvironmentDescription:EnvironmentArn" type:"string"`
 
 	// The ID of this environment.
-	EnvironmentId *string `type:"string"`
+	EnvironmentId *string `json:"elasticbeanstalk:EnvironmentDescription:EnvironmentId" type:"string"`
 
 	// A list of links to other environments in the same group.
-	EnvironmentLinks []EnvironmentLink `type:"list"`
+	EnvironmentLinks []EnvironmentLink `json:"elasticbeanstalk:EnvironmentDescription:EnvironmentLinks" type:"list"`
 
 	// The name of this environment.
-	EnvironmentName *string `min:"4" type:"string"`
+	EnvironmentName *string `json:"elasticbeanstalk:EnvironmentDescription:EnvironmentName" min:"4" type:"string"`
 
 	// Describes the health status of the environment. AWS Elastic Beanstalk indicates
 	// the failure levels for a running environment:
@@ -655,20 +655,20 @@ type EnvironmentDescription struct {
 	//    during an UpdateEnvironment or RestartEnvironment request.
 	//
 	// Default: Grey
-	Health EnvironmentHealth `type:"string" enum:"true"`
+	Health EnvironmentHealth `json:"elasticbeanstalk:EnvironmentDescription:Health" type:"string" enum:"true"`
 
 	// Returns the health status of the application running in your environment.
 	// For more information, see Health Colors and Statuses (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html).
-	HealthStatus EnvironmentHealthStatus `type:"string" enum:"true"`
+	HealthStatus EnvironmentHealthStatus `json:"elasticbeanstalk:EnvironmentDescription:HealthStatus" type:"string" enum:"true"`
 
 	// The ARN of the platform.
-	PlatformArn *string `type:"string"`
+	PlatformArn *string `json:"elasticbeanstalk:EnvironmentDescription:PlatformArn" type:"string"`
 
 	// The description of the AWS resources used by this environment.
-	Resources *EnvironmentResourcesDescription `type:"structure"`
+	Resources *EnvironmentResourcesDescription `json:"elasticbeanstalk:EnvironmentDescription:Resources" type:"structure"`
 
 	// The name of the SolutionStack deployed with this environment.
-	SolutionStackName *string `type:"string"`
+	SolutionStackName *string `json:"elasticbeanstalk:EnvironmentDescription:SolutionStackName" type:"string"`
 
 	// The current operational status of the environment:
 	//
@@ -683,16 +683,16 @@ type EnvironmentDescription struct {
 	//    * Terminating: Environment is in the shut-down process.
 	//
 	//    * Terminated: Environment is not running.
-	Status EnvironmentStatus `type:"string" enum:"true"`
+	Status EnvironmentStatus `json:"elasticbeanstalk:EnvironmentDescription:Status" type:"string" enum:"true"`
 
 	// The name of the configuration template used to originally launch this environment.
-	TemplateName *string `min:"1" type:"string"`
+	TemplateName *string `json:"elasticbeanstalk:EnvironmentDescription:TemplateName" min:"1" type:"string"`
 
 	// Describes the current tier of this environment.
-	Tier *EnvironmentTier `type:"structure"`
+	Tier *EnvironmentTier `json:"elasticbeanstalk:EnvironmentDescription:Tier" type:"structure"`
 
 	// The application version deployed in this environment.
-	VersionLabel *string `min:"1" type:"string"`
+	VersionLabel *string `json:"elasticbeanstalk:EnvironmentDescription:VersionLabel" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -706,20 +706,20 @@ type EnvironmentInfoDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon EC2 Instance ID for this information.
-	Ec2InstanceId *string `type:"string"`
+	Ec2InstanceId *string `json:"elasticbeanstalk:EnvironmentInfoDescription:Ec2InstanceId" type:"string"`
 
 	// The type of information retrieved.
-	InfoType EnvironmentInfoType `type:"string" enum:"true"`
+	InfoType EnvironmentInfoType `json:"elasticbeanstalk:EnvironmentInfoDescription:InfoType" type:"string" enum:"true"`
 
 	// The retrieved information. Currently contains a presigned Amazon S3 URL.
 	// The files are deleted after 15 minutes.
 	//
 	// Anyone in possession of this URL can access the files before they are deleted.
 	// Make the URL available only to trusted parties.
-	Message *string `type:"string"`
+	Message *string `json:"elasticbeanstalk:EnvironmentInfoDescription:Message" type:"string"`
 
 	// The time stamp when this information was retrieved.
-	SampleTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	SampleTimestamp *time.Time `json:"elasticbeanstalk:EnvironmentInfoDescription:SampleTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -737,10 +737,10 @@ type EnvironmentLink struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the linked environment (the dependency).
-	EnvironmentName *string `type:"string"`
+	EnvironmentName *string `json:"elasticbeanstalk:EnvironmentLink:EnvironmentName" type:"string"`
 
 	// The name of the link.
-	LinkName *string `type:"string"`
+	LinkName *string `json:"elasticbeanstalk:EnvironmentLink:LinkName" type:"string"`
 }
 
 // String returns the string representation
@@ -754,28 +754,28 @@ type EnvironmentResourceDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The AutoScalingGroups used by this environment.
-	AutoScalingGroups []AutoScalingGroup `type:"list"`
+	AutoScalingGroups []AutoScalingGroup `json:"elasticbeanstalk:EnvironmentResourceDescription:AutoScalingGroups" type:"list"`
 
 	// The name of the environment.
-	EnvironmentName *string `min:"4" type:"string"`
+	EnvironmentName *string `json:"elasticbeanstalk:EnvironmentResourceDescription:EnvironmentName" min:"4" type:"string"`
 
 	// The Amazon EC2 instances used by this environment.
-	Instances []Instance `type:"list"`
+	Instances []Instance `json:"elasticbeanstalk:EnvironmentResourceDescription:Instances" type:"list"`
 
 	// The Auto Scaling launch configurations in use by this environment.
-	LaunchConfigurations []LaunchConfiguration `type:"list"`
+	LaunchConfigurations []LaunchConfiguration `json:"elasticbeanstalk:EnvironmentResourceDescription:LaunchConfigurations" type:"list"`
 
 	// The Amazon EC2 launch templates in use by this environment.
-	LaunchTemplates []LaunchTemplate `type:"list"`
+	LaunchTemplates []LaunchTemplate `json:"elasticbeanstalk:EnvironmentResourceDescription:LaunchTemplates" type:"list"`
 
 	// The LoadBalancers in use by this environment.
-	LoadBalancers []LoadBalancer `type:"list"`
+	LoadBalancers []LoadBalancer `json:"elasticbeanstalk:EnvironmentResourceDescription:LoadBalancers" type:"list"`
 
 	// The queues used by this environment.
-	Queues []Queue `type:"list"`
+	Queues []Queue `json:"elasticbeanstalk:EnvironmentResourceDescription:Queues" type:"list"`
 
 	// The AutoScaling triggers in use by this environment.
-	Triggers []Trigger `type:"list"`
+	Triggers []Trigger `json:"elasticbeanstalk:EnvironmentResourceDescription:Triggers" type:"list"`
 }
 
 // String returns the string representation
@@ -790,7 +790,7 @@ type EnvironmentResourcesDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the LoadBalancer.
-	LoadBalancer *LoadBalancerDescription `type:"structure"`
+	LoadBalancer *LoadBalancerDescription `json:"elasticbeanstalk:EnvironmentResourcesDescription:LoadBalancer" type:"structure"`
 }
 
 // String returns the string representation
@@ -810,7 +810,7 @@ type EnvironmentTier struct {
 	//    * For Web server tier – WebServer
 	//
 	//    * For Worker tier – Worker
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:EnvironmentTier:Name" type:"string"`
 
 	// The type of this environment tier.
 	//
@@ -819,14 +819,14 @@ type EnvironmentTier struct {
 	//    * For Web server tier – Standard
 	//
 	//    * For Worker tier – SQS/HTTP
-	Type *string `type:"string"`
+	Type *string `json:"elasticbeanstalk:EnvironmentTier:Type" type:"string"`
 
 	// The version of this environment tier. When you don't set a value to it, Elastic
 	// Beanstalk uses the latest compatible worker tier version.
 	//
 	// This member is deprecated. Any specific version that you set may become out
 	// of date. We recommend leaving it unspecified.
-	Version *string `type:"string"`
+	Version *string `json:"elasticbeanstalk:EnvironmentTier:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -840,31 +840,31 @@ type EventDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The application associated with the event.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:EventDescription:ApplicationName" min:"1" type:"string"`
 
 	// The name of the environment associated with this event.
-	EnvironmentName *string `min:"4" type:"string"`
+	EnvironmentName *string `json:"elasticbeanstalk:EventDescription:EnvironmentName" min:"4" type:"string"`
 
 	// The date when the event occurred.
-	EventDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EventDate *time.Time `json:"elasticbeanstalk:EventDescription:EventDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The event message.
-	Message *string `type:"string"`
+	Message *string `json:"elasticbeanstalk:EventDescription:Message" type:"string"`
 
 	// The ARN of the platform.
-	PlatformArn *string `type:"string"`
+	PlatformArn *string `json:"elasticbeanstalk:EventDescription:PlatformArn" type:"string"`
 
 	// The web service request ID for the activity of this event.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"elasticbeanstalk:EventDescription:RequestId" type:"string"`
 
 	// The severity level of this event.
-	Severity EventSeverity `type:"string" enum:"true"`
+	Severity EventSeverity `json:"elasticbeanstalk:EventDescription:Severity" type:"string" enum:"true"`
 
 	// The name of the configuration associated with this event.
-	TemplateName *string `min:"1" type:"string"`
+	TemplateName *string `json:"elasticbeanstalk:EventDescription:TemplateName" min:"1" type:"string"`
 
 	// The release label for the application version associated with this event.
-	VersionLabel *string `min:"1" type:"string"`
+	VersionLabel *string `json:"elasticbeanstalk:EventDescription:VersionLabel" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -878,7 +878,7 @@ type Instance struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Amazon EC2 instance.
-	Id *string `type:"string"`
+	Id *string `json:"elasticbeanstalk:Instance:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -894,33 +894,33 @@ type InstanceHealthSummary struct {
 
 	// Red. The health agent is reporting a high number of request failures or other
 	// issues for an instance or environment.
-	Degraded *int64 `type:"integer"`
+	Degraded *int64 `json:"elasticbeanstalk:InstanceHealthSummary:Degraded" type:"integer"`
 
 	// Green. An operation is in progress on an instance.
-	Info *int64 `type:"integer"`
+	Info *int64 `json:"elasticbeanstalk:InstanceHealthSummary:Info" type:"integer"`
 
 	// Grey. AWS Elastic Beanstalk and the health agent are reporting no data on
 	// an instance.
-	NoData *int64 `type:"integer"`
+	NoData *int64 `json:"elasticbeanstalk:InstanceHealthSummary:NoData" type:"integer"`
 
 	// Green. An instance is passing health checks and the health agent is not reporting
 	// any problems.
-	Ok *int64 `type:"integer"`
+	Ok *int64 `json:"elasticbeanstalk:InstanceHealthSummary:Ok" type:"integer"`
 
 	// Grey. An operation is in progress on an instance within the command timeout.
-	Pending *int64 `type:"integer"`
+	Pending *int64 `json:"elasticbeanstalk:InstanceHealthSummary:Pending" type:"integer"`
 
 	// Red. The health agent is reporting a very high number of request failures
 	// or other issues for an instance or environment.
-	Severe *int64 `type:"integer"`
+	Severe *int64 `json:"elasticbeanstalk:InstanceHealthSummary:Severe" type:"integer"`
 
 	// Grey. AWS Elastic Beanstalk and the health agent are reporting an insufficient
 	// amount of data on an instance.
-	Unknown *int64 `type:"integer"`
+	Unknown *int64 `json:"elasticbeanstalk:InstanceHealthSummary:Unknown" type:"integer"`
 
 	// Yellow. The health agent is reporting a moderate number of request failures
 	// or other issues for an instance or environment.
-	Warning *int64 `type:"integer"`
+	Warning *int64 `json:"elasticbeanstalk:InstanceHealthSummary:Warning" type:"integer"`
 }
 
 // String returns the string representation
@@ -936,35 +936,35 @@ type Latency struct {
 
 	// The average latency for the slowest 90 percent of requests over the last
 	// 10 seconds.
-	P10 *float64 `type:"double"`
+	P10 *float64 `json:"elasticbeanstalk:Latency:P10" type:"double"`
 
 	// The average latency for the slowest 50 percent of requests over the last
 	// 10 seconds.
-	P50 *float64 `type:"double"`
+	P50 *float64 `json:"elasticbeanstalk:Latency:P50" type:"double"`
 
 	// The average latency for the slowest 25 percent of requests over the last
 	// 10 seconds.
-	P75 *float64 `type:"double"`
+	P75 *float64 `json:"elasticbeanstalk:Latency:P75" type:"double"`
 
 	// The average latency for the slowest 15 percent of requests over the last
 	// 10 seconds.
-	P85 *float64 `type:"double"`
+	P85 *float64 `json:"elasticbeanstalk:Latency:P85" type:"double"`
 
 	// The average latency for the slowest 10 percent of requests over the last
 	// 10 seconds.
-	P90 *float64 `type:"double"`
+	P90 *float64 `json:"elasticbeanstalk:Latency:P90" type:"double"`
 
 	// The average latency for the slowest 5 percent of requests over the last 10
 	// seconds.
-	P95 *float64 `type:"double"`
+	P95 *float64 `json:"elasticbeanstalk:Latency:P95" type:"double"`
 
 	// The average latency for the slowest 1 percent of requests over the last 10
 	// seconds.
-	P99 *float64 `type:"double"`
+	P99 *float64 `json:"elasticbeanstalk:Latency:P99" type:"double"`
 
 	// The average latency for the slowest 0.1 percent of requests over the last
 	// 10 seconds.
-	P999 *float64 `type:"double"`
+	P999 *float64 `json:"elasticbeanstalk:Latency:P999" type:"double"`
 }
 
 // String returns the string representation
@@ -978,7 +978,7 @@ type LaunchConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the launch configuration.
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:LaunchConfiguration:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -992,7 +992,7 @@ type LaunchTemplate struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the launch template.
-	Id *string `type:"string"`
+	Id *string `json:"elasticbeanstalk:LaunchTemplate:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -1006,10 +1006,10 @@ type Listener struct {
 	_ struct{} `type:"structure"`
 
 	// The port that is used by the Listener.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"elasticbeanstalk:Listener:Port" type:"integer"`
 
 	// The protocol that is used by the Listener.
-	Protocol *string `type:"string"`
+	Protocol *string `json:"elasticbeanstalk:Listener:Protocol" type:"string"`
 }
 
 // String returns the string representation
@@ -1023,7 +1023,7 @@ type LoadBalancer struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the LoadBalancer.
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:LoadBalancer:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1037,13 +1037,13 @@ type LoadBalancerDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The domain name of the LoadBalancer.
-	Domain *string `type:"string"`
+	Domain *string `json:"elasticbeanstalk:LoadBalancerDescription:Domain" type:"string"`
 
 	// A list of Listeners used by the LoadBalancer.
-	Listeners []Listener `type:"list"`
+	Listeners []Listener `json:"elasticbeanstalk:LoadBalancerDescription:Listeners" type:"list"`
 
 	// The name of the LoadBalancer.
-	LoadBalancerName *string `type:"string"`
+	LoadBalancerName *string `json:"elasticbeanstalk:LoadBalancerDescription:LoadBalancerName" type:"string"`
 }
 
 // String returns the string representation
@@ -1057,21 +1057,21 @@ type ManagedAction struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the managed action.
-	ActionDescription *string `type:"string"`
+	ActionDescription *string `json:"elasticbeanstalk:ManagedAction:ActionDescription" type:"string"`
 
 	// A unique identifier for the managed action.
-	ActionId *string `type:"string"`
+	ActionId *string `json:"elasticbeanstalk:ManagedAction:ActionId" type:"string"`
 
 	// The type of managed action.
-	ActionType ActionType `type:"string" enum:"true"`
+	ActionType ActionType `json:"elasticbeanstalk:ManagedAction:ActionType" type:"string" enum:"true"`
 
 	// The status of the managed action. If the action is Scheduled, you can apply
 	// it immediately with ApplyEnvironmentManagedAction.
-	Status ActionStatus `type:"string" enum:"true"`
+	Status ActionStatus `json:"elasticbeanstalk:ManagedAction:Status" type:"string" enum:"true"`
 
 	// The start time of the maintenance window in which the managed action will
 	// execute.
-	WindowStartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	WindowStartTime *time.Time `json:"elasticbeanstalk:ManagedAction:WindowStartTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1085,28 +1085,28 @@ type ManagedActionHistoryItem struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the managed action.
-	ActionDescription *string `type:"string"`
+	ActionDescription *string `json:"elasticbeanstalk:ManagedActionHistoryItem:ActionDescription" type:"string"`
 
 	// A unique identifier for the managed action.
-	ActionId *string `type:"string"`
+	ActionId *string `json:"elasticbeanstalk:ManagedActionHistoryItem:ActionId" type:"string"`
 
 	// The type of the managed action.
-	ActionType ActionType `type:"string" enum:"true"`
+	ActionType ActionType `json:"elasticbeanstalk:ManagedActionHistoryItem:ActionType" type:"string" enum:"true"`
 
 	// The date and time that the action started executing.
-	ExecutedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ExecutedTime *time.Time `json:"elasticbeanstalk:ManagedActionHistoryItem:ExecutedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// If the action failed, a description of the failure.
-	FailureDescription *string `type:"string"`
+	FailureDescription *string `json:"elasticbeanstalk:ManagedActionHistoryItem:FailureDescription" type:"string"`
 
 	// If the action failed, the type of failure.
-	FailureType FailureType `type:"string" enum:"true"`
+	FailureType FailureType `json:"elasticbeanstalk:ManagedActionHistoryItem:FailureType" type:"string" enum:"true"`
 
 	// The date and time that the action finished executing.
-	FinishedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	FinishedTime *time.Time `json:"elasticbeanstalk:ManagedActionHistoryItem:FinishedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The status of the action.
-	Status ActionHistoryStatus `type:"string" enum:"true"`
+	Status ActionHistoryStatus `json:"elasticbeanstalk:ManagedActionHistoryItem:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1122,15 +1122,15 @@ type MaxAgeRule struct {
 
 	// Set to true to delete a version's source bundle from Amazon S3 when Elastic
 	// Beanstalk deletes the application version.
-	DeleteSourceFromS3 *bool `type:"boolean"`
+	DeleteSourceFromS3 *bool `json:"elasticbeanstalk:MaxAgeRule:DeleteSourceFromS3" type:"boolean"`
 
 	// Specify true to apply the rule, or false to disable it.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"elasticbeanstalk:MaxAgeRule:Enabled" type:"boolean" required:"true"`
 
 	// Specify the number of days to retain an application versions.
-	MaxAgeInDays *int64 `type:"integer"`
+	MaxAgeInDays *int64 `json:"elasticbeanstalk:MaxAgeRule:MaxAgeInDays" type:"integer"`
 }
 
 // String returns the string representation
@@ -1160,15 +1160,15 @@ type MaxCountRule struct {
 
 	// Set to true to delete a version's source bundle from Amazon S3 when Elastic
 	// Beanstalk deletes the application version.
-	DeleteSourceFromS3 *bool `type:"boolean"`
+	DeleteSourceFromS3 *bool `json:"elasticbeanstalk:MaxCountRule:DeleteSourceFromS3" type:"boolean"`
 
 	// Specify true to apply the rule, or false to disable it.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"elasticbeanstalk:MaxCountRule:Enabled" type:"boolean" required:"true"`
 
 	// Specify the maximum number of application versions to retain.
-	MaxCount *int64 `type:"integer"`
+	MaxCount *int64 `json:"elasticbeanstalk:MaxCountRule:MaxCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -1197,11 +1197,11 @@ type OptionRestrictionRegex struct {
 	_ struct{} `type:"structure"`
 
 	// A unique name representing this regular expression.
-	Label *string `type:"string"`
+	Label *string `json:"elasticbeanstalk:OptionRestrictionRegex:Label" type:"string"`
 
 	// The regular expression pattern that a string configuration option value with
 	// this restriction must match.
-	Pattern *string `type:"string"`
+	Pattern *string `json:"elasticbeanstalk:OptionRestrictionRegex:Pattern" type:"string"`
 }
 
 // String returns the string representation
@@ -1215,13 +1215,13 @@ type OptionSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// A unique namespace identifying the option's associated AWS resource.
-	Namespace *string `type:"string"`
+	Namespace *string `json:"elasticbeanstalk:OptionSpecification:Namespace" type:"string"`
 
 	// The name of the configuration option.
-	OptionName *string `type:"string"`
+	OptionName *string `json:"elasticbeanstalk:OptionSpecification:OptionName" type:"string"`
 
 	// A unique resource name for a time-based scaling configuration option.
-	ResourceName *string `min:"1" type:"string"`
+	ResourceName *string `json:"elasticbeanstalk:OptionSpecification:ResourceName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1248,58 +1248,58 @@ type PlatformDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The custom AMIs supported by the platform.
-	CustomAmiList []CustomAmi `type:"list"`
+	CustomAmiList []CustomAmi `json:"elasticbeanstalk:PlatformDescription:CustomAmiList" type:"list"`
 
 	// The date when the platform was created.
-	DateCreated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateCreated *time.Time `json:"elasticbeanstalk:PlatformDescription:DateCreated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The date when the platform was last updated.
-	DateUpdated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateUpdated *time.Time `json:"elasticbeanstalk:PlatformDescription:DateUpdated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The description of the platform.
-	Description *string `type:"string"`
+	Description *string `json:"elasticbeanstalk:PlatformDescription:Description" type:"string"`
 
 	// The frameworks supported by the platform.
-	Frameworks []PlatformFramework `type:"list"`
+	Frameworks []PlatformFramework `json:"elasticbeanstalk:PlatformDescription:Frameworks" type:"list"`
 
 	// Information about the maintainer of the platform.
-	Maintainer *string `type:"string"`
+	Maintainer *string `json:"elasticbeanstalk:PlatformDescription:Maintainer" type:"string"`
 
 	// The operating system used by the platform.
-	OperatingSystemName *string `type:"string"`
+	OperatingSystemName *string `json:"elasticbeanstalk:PlatformDescription:OperatingSystemName" type:"string"`
 
 	// The version of the operating system used by the platform.
-	OperatingSystemVersion *string `type:"string"`
+	OperatingSystemVersion *string `json:"elasticbeanstalk:PlatformDescription:OperatingSystemVersion" type:"string"`
 
 	// The ARN of the platform.
-	PlatformArn *string `type:"string"`
+	PlatformArn *string `json:"elasticbeanstalk:PlatformDescription:PlatformArn" type:"string"`
 
 	// The category of the platform.
-	PlatformCategory *string `type:"string"`
+	PlatformCategory *string `json:"elasticbeanstalk:PlatformDescription:PlatformCategory" type:"string"`
 
 	// The name of the platform.
-	PlatformName *string `type:"string"`
+	PlatformName *string `json:"elasticbeanstalk:PlatformDescription:PlatformName" type:"string"`
 
 	// The AWS account ID of the person who created the platform.
-	PlatformOwner *string `type:"string"`
+	PlatformOwner *string `json:"elasticbeanstalk:PlatformDescription:PlatformOwner" type:"string"`
 
 	// The status of the platform.
-	PlatformStatus PlatformStatus `type:"string" enum:"true"`
+	PlatformStatus PlatformStatus `json:"elasticbeanstalk:PlatformDescription:PlatformStatus" type:"string" enum:"true"`
 
 	// The version of the platform.
-	PlatformVersion *string `type:"string"`
+	PlatformVersion *string `json:"elasticbeanstalk:PlatformDescription:PlatformVersion" type:"string"`
 
 	// The programming languages supported by the platform.
-	ProgrammingLanguages []PlatformProgrammingLanguage `type:"list"`
+	ProgrammingLanguages []PlatformProgrammingLanguage `json:"elasticbeanstalk:PlatformDescription:ProgrammingLanguages" type:"list"`
 
 	// The name of the solution stack used by the platform.
-	SolutionStackName *string `type:"string"`
+	SolutionStackName *string `json:"elasticbeanstalk:PlatformDescription:SolutionStackName" type:"string"`
 
 	// The additions supported by the platform.
-	SupportedAddonList []string `type:"list"`
+	SupportedAddonList []string `json:"elasticbeanstalk:PlatformDescription:SupportedAddonList" type:"list"`
 
 	// The tiers supported by the platform.
-	SupportedTierList []string `type:"list"`
+	SupportedTierList []string `json:"elasticbeanstalk:PlatformDescription:SupportedTierList" type:"list"`
 }
 
 // String returns the string representation
@@ -1321,15 +1321,15 @@ type PlatformFilter struct {
 	// Valid Values: = (equal to) | != (not equal to) | < (less than) | <= (less
 	// than or equal to) | > (greater than) | >= (greater than or equal to) | contains
 	// | begins_with | ends_with
-	Operator *string `type:"string"`
+	Operator *string `json:"elasticbeanstalk:PlatformFilter:Operator" type:"string"`
 
 	// The custom platform attribute to which the filter values are applied.
 	//
 	// Valid Values: PlatformName | PlatformVersion | PlatformStatus | PlatformOwner
-	Type *string `type:"string"`
+	Type *string `json:"elasticbeanstalk:PlatformFilter:Type" type:"string"`
 
 	// The list of values applied to the custom platform attribute.
-	Values []string `type:"list"`
+	Values []string `json:"elasticbeanstalk:PlatformFilter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -1343,10 +1343,10 @@ type PlatformFramework struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the framework.
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:PlatformFramework:Name" type:"string"`
 
 	// The version of the framework.
-	Version *string `type:"string"`
+	Version *string `json:"elasticbeanstalk:PlatformFramework:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -1360,10 +1360,10 @@ type PlatformProgrammingLanguage struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the programming language.
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:PlatformProgrammingLanguage:Name" type:"string"`
 
 	// The version of the programming language.
-	Version *string `type:"string"`
+	Version *string `json:"elasticbeanstalk:PlatformProgrammingLanguage:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -1377,29 +1377,29 @@ type PlatformSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The operating system used by the platform.
-	OperatingSystemName *string `type:"string"`
+	OperatingSystemName *string `json:"elasticbeanstalk:PlatformSummary:OperatingSystemName" type:"string"`
 
 	// The version of the operating system used by the platform.
-	OperatingSystemVersion *string `type:"string"`
+	OperatingSystemVersion *string `json:"elasticbeanstalk:PlatformSummary:OperatingSystemVersion" type:"string"`
 
 	// The ARN of the platform.
-	PlatformArn *string `type:"string"`
+	PlatformArn *string `json:"elasticbeanstalk:PlatformSummary:PlatformArn" type:"string"`
 
 	// The category of platform.
-	PlatformCategory *string `type:"string"`
+	PlatformCategory *string `json:"elasticbeanstalk:PlatformSummary:PlatformCategory" type:"string"`
 
 	// The AWS account ID of the person who created the platform.
-	PlatformOwner *string `type:"string"`
+	PlatformOwner *string `json:"elasticbeanstalk:PlatformSummary:PlatformOwner" type:"string"`
 
 	// The status of the platform. You can create an environment from the platform
 	// once it is ready.
-	PlatformStatus PlatformStatus `type:"string" enum:"true"`
+	PlatformStatus PlatformStatus `json:"elasticbeanstalk:PlatformSummary:PlatformStatus" type:"string" enum:"true"`
 
 	// The additions associated with the platform.
-	SupportedAddonList []string `type:"list"`
+	SupportedAddonList []string `json:"elasticbeanstalk:PlatformSummary:SupportedAddonList" type:"list"`
 
 	// The tiers in which the platform runs.
-	SupportedTierList []string `type:"list"`
+	SupportedTierList []string `json:"elasticbeanstalk:PlatformSummary:SupportedTierList" type:"list"`
 }
 
 // String returns the string representation
@@ -1413,10 +1413,10 @@ type Queue struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the queue.
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:Queue:Name" type:"string"`
 
 	// The URL of the queue.
-	URL *string `type:"string"`
+	URL *string `json:"elasticbeanstalk:Queue:URL" type:"string"`
 }
 
 // String returns the string representation
@@ -1432,7 +1432,7 @@ type ResourceQuota struct {
 
 	// The maximum number of instances of this Elastic Beanstalk resource type that
 	// an AWS account can use.
-	Maximum *int64 `type:"integer"`
+	Maximum *int64 `json:"elasticbeanstalk:ResourceQuota:Maximum" type:"integer"`
 }
 
 // String returns the string representation
@@ -1447,19 +1447,19 @@ type ResourceQuotas struct {
 	_ struct{} `type:"structure"`
 
 	// The quota for applications in the AWS account.
-	ApplicationQuota *ResourceQuota `type:"structure"`
+	ApplicationQuota *ResourceQuota `json:"elasticbeanstalk:ResourceQuotas:ApplicationQuota" type:"structure"`
 
 	// The quota for application versions in the AWS account.
-	ApplicationVersionQuota *ResourceQuota `type:"structure"`
+	ApplicationVersionQuota *ResourceQuota `json:"elasticbeanstalk:ResourceQuotas:ApplicationVersionQuota" type:"structure"`
 
 	// The quota for configuration templates in the AWS account.
-	ConfigurationTemplateQuota *ResourceQuota `type:"structure"`
+	ConfigurationTemplateQuota *ResourceQuota `json:"elasticbeanstalk:ResourceQuotas:ConfigurationTemplateQuota" type:"structure"`
 
 	// The quota for custom platforms in the AWS account.
-	CustomPlatformQuota *ResourceQuota `type:"structure"`
+	CustomPlatformQuota *ResourceQuota `json:"elasticbeanstalk:ResourceQuotas:CustomPlatformQuota" type:"structure"`
 
 	// The quota for environments in the AWS account.
-	EnvironmentQuota *ResourceQuota `type:"structure"`
+	EnvironmentQuota *ResourceQuota `json:"elasticbeanstalk:ResourceQuotas:EnvironmentQuota" type:"structure"`
 }
 
 // String returns the string representation
@@ -1473,10 +1473,10 @@ type S3Location struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 bucket where the data is located.
-	S3Bucket *string `type:"string"`
+	S3Bucket *string `json:"elasticbeanstalk:S3Location:S3Bucket" type:"string"`
 
 	// The Amazon S3 key where the data is located.
-	S3Key *string `type:"string"`
+	S3Key *string `json:"elasticbeanstalk:S3Location:S3Key" type:"string"`
 }
 
 // String returns the string representation
@@ -1491,38 +1491,38 @@ type SingleInstanceHealth struct {
 	_ struct{} `type:"structure"`
 
 	// Request metrics from your application.
-	ApplicationMetrics *ApplicationMetrics `type:"structure"`
+	ApplicationMetrics *ApplicationMetrics `json:"elasticbeanstalk:SingleInstanceHealth:ApplicationMetrics" type:"structure"`
 
 	// The availability zone in which the instance runs.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"elasticbeanstalk:SingleInstanceHealth:AvailabilityZone" type:"string"`
 
 	// Represents the causes, which provide more information about the current health
 	// status.
-	Causes []string `type:"list"`
+	Causes []string `json:"elasticbeanstalk:SingleInstanceHealth:Causes" type:"list"`
 
 	// Represents the color indicator that gives you information about the health
 	// of the EC2 instance. For more information, see Health Colors and Statuses
 	// (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html).
-	Color *string `type:"string"`
+	Color *string `json:"elasticbeanstalk:SingleInstanceHealth:Color" type:"string"`
 
 	// Information about the most recent deployment to an instance.
-	Deployment *Deployment `type:"structure"`
+	Deployment *Deployment `json:"elasticbeanstalk:SingleInstanceHealth:Deployment" type:"structure"`
 
 	// Returns the health status of the specified instance. For more information,
 	// see Health Colors and Statuses (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html).
-	HealthStatus *string `type:"string"`
+	HealthStatus *string `json:"elasticbeanstalk:SingleInstanceHealth:HealthStatus" type:"string"`
 
 	// The ID of the Amazon EC2 instance.
-	InstanceId *string `min:"1" type:"string"`
+	InstanceId *string `json:"elasticbeanstalk:SingleInstanceHealth:InstanceId" min:"1" type:"string"`
 
 	// The instance's type.
-	InstanceType *string `type:"string"`
+	InstanceType *string `json:"elasticbeanstalk:SingleInstanceHealth:InstanceType" type:"string"`
 
 	// The time at which the EC2 instance was launched.
-	LaunchedAt *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LaunchedAt *time.Time `json:"elasticbeanstalk:SingleInstanceHealth:LaunchedAt" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Operating system metrics from the instance.
-	System *SystemStatus `type:"structure"`
+	System *SystemStatus `json:"elasticbeanstalk:SingleInstanceHealth:System" type:"structure"`
 }
 
 // String returns the string representation
@@ -1536,10 +1536,10 @@ type SolutionStackDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The permitted file types allowed for a solution stack.
-	PermittedFileTypes []string `type:"list"`
+	PermittedFileTypes []string `json:"elasticbeanstalk:SolutionStackDescription:PermittedFileTypes" type:"list"`
 
 	// The name of the solution stack.
-	SolutionStackName *string `type:"string"`
+	SolutionStackName *string `json:"elasticbeanstalk:SolutionStackDescription:SolutionStackName" type:"string"`
 }
 
 // String returns the string representation
@@ -1562,7 +1562,7 @@ type SourceBuildInformation struct {
 	//    a forward slash. For example, my-s3-bucket/Folders/my-source-file.
 	//
 	// SourceLocation is a required field
-	SourceLocation *string `min:"3" type:"string" required:"true"`
+	SourceLocation *string `json:"elasticbeanstalk:SourceBuildInformation:SourceLocation" min:"3" type:"string" required:"true"`
 
 	// Location where the repository is stored.
 	//
@@ -1571,7 +1571,7 @@ type SourceBuildInformation struct {
 	//    * S3
 	//
 	// SourceRepository is a required field
-	SourceRepository SourceRepository `type:"string" required:"true" enum:"true"`
+	SourceRepository SourceRepository `json:"elasticbeanstalk:SourceBuildInformation:SourceRepository" type:"string" required:"true" enum:"true"`
 
 	// The type of repository.
 	//
@@ -1580,7 +1580,7 @@ type SourceBuildInformation struct {
 	//    * Zip
 	//
 	// SourceType is a required field
-	SourceType SourceType `type:"string" required:"true" enum:"true"`
+	SourceType SourceType `json:"elasticbeanstalk:SourceBuildInformation:SourceType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1617,10 +1617,10 @@ type SourceConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the application associated with the configuration.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:SourceConfiguration:ApplicationName" min:"1" type:"string"`
 
 	// The name of the configuration template.
-	TemplateName *string `min:"1" type:"string"`
+	TemplateName *string `json:"elasticbeanstalk:SourceConfiguration:TemplateName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1653,19 +1653,19 @@ type StatusCodes struct {
 
 	// The percentage of requests over the last 10 seconds that resulted in a 2xx
 	// (200, 201, etc.) status code.
-	Status2xx *int64 `type:"integer"`
+	Status2xx *int64 `json:"elasticbeanstalk:StatusCodes:Status2xx" type:"integer"`
 
 	// The percentage of requests over the last 10 seconds that resulted in a 3xx
 	// (300, 301, etc.) status code.
-	Status3xx *int64 `type:"integer"`
+	Status3xx *int64 `json:"elasticbeanstalk:StatusCodes:Status3xx" type:"integer"`
 
 	// The percentage of requests over the last 10 seconds that resulted in a 4xx
 	// (400, 401, etc.) status code.
-	Status4xx *int64 `type:"integer"`
+	Status4xx *int64 `json:"elasticbeanstalk:StatusCodes:Status4xx" type:"integer"`
 
 	// The percentage of requests over the last 10 seconds that resulted in a 5xx
 	// (500, 501, etc.) status code.
-	Status5xx *int64 `type:"integer"`
+	Status5xx *int64 `json:"elasticbeanstalk:StatusCodes:Status5xx" type:"integer"`
 }
 
 // String returns the string representation
@@ -1679,11 +1679,11 @@ type SystemStatus struct {
 	_ struct{} `type:"structure"`
 
 	// CPU utilization metrics for the instance.
-	CPUUtilization *CPUUtilization `type:"structure"`
+	CPUUtilization *CPUUtilization `json:"elasticbeanstalk:SystemStatus:CPUUtilization" type:"structure"`
 
 	// Load average in the last 1-minute, 5-minute, and 15-minute periods. For more
 	// information, see Operating System Metrics (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os).
-	LoadAverage []float64 `type:"list"`
+	LoadAverage []float64 `json:"elasticbeanstalk:SystemStatus:LoadAverage" type:"list"`
 }
 
 // String returns the string representation
@@ -1697,10 +1697,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The key of the tag.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"elasticbeanstalk:Tag:Key" min:"1" type:"string"`
 
 	// The value of the tag.
-	Value *string `min:"1" type:"string"`
+	Value *string `json:"elasticbeanstalk:Tag:Value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1730,7 +1730,7 @@ type Trigger struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the trigger.
-	Name *string `type:"string"`
+	Name *string `json:"elasticbeanstalk:Trigger:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1744,13 +1744,13 @@ type ValidationMessage struct {
 	_ struct{} `type:"structure"`
 
 	// A message describing the error or warning.
-	Message *string `type:"string"`
+	Message *string `json:"elasticbeanstalk:ValidationMessage:Message" type:"string"`
 
 	// The namespace to which the option belongs.
-	Namespace *string `type:"string"`
+	Namespace *string `json:"elasticbeanstalk:ValidationMessage:Namespace" type:"string"`
 
 	// The name of the option.
-	OptionName *string `type:"string"`
+	OptionName *string `json:"elasticbeanstalk:ValidationMessage:OptionName" type:"string"`
 
 	// An indication of the severity of this message:
 	//
@@ -1759,7 +1759,7 @@ type ValidationMessage struct {
 	//
 	//    * warning: This message is providing information you should take into
 	//    account.
-	Severity ValidationSeverity `type:"string" enum:"true"`
+	Severity ValidationSeverity `json:"elasticbeanstalk:ValidationMessage:Severity" type:"string" enum:"true"`
 }
 
 // String returns the string representation

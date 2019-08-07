@@ -57,12 +57,12 @@ type CreateSecurityConfigurationOutput struct {
 	// The date and time the security configuration was created.
 	//
 	// CreationDateTime is a required field
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDateTime *time.Time `json:"elasticmapreduce:CreateSecurityConfigurationOutput:CreationDateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the security configuration.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"elasticmapreduce:CreateSecurityConfigurationOutput:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation

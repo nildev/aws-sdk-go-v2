@@ -53,11 +53,11 @@ type DescribeEgressOnlyInternetGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the egress-only internet gateways.
-	EgressOnlyInternetGateways []EgressOnlyInternetGateway `locationName:"egressOnlyInternetGatewaySet" locationNameList:"item" type:"list"`
+	EgressOnlyInternetGateways []EgressOnlyInternetGateway `json:"ec2:DescribeEgressOnlyInternetGatewaysOutput:EgressOnlyInternetGateways" locationName:"egressOnlyInternetGatewaySet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeEgressOnlyInternetGatewaysOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

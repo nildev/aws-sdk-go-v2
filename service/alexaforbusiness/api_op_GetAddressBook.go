@@ -43,7 +43,7 @@ type GetAddressBookOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the requested address book.
-	AddressBook *AddressBook `type:"structure"`
+	AddressBook *AddressBook `json:"a4b:GetAddressBookOutput:AddressBook" type:"structure"`
 }
 
 // String returns the string representation

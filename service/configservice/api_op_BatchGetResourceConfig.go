@@ -55,14 +55,14 @@ type BatchGetResourceConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list that contains the current configuration of one or more resources.
-	BaseConfigurationItems []BaseConfigurationItem `locationName:"baseConfigurationItems" type:"list"`
+	BaseConfigurationItems []BaseConfigurationItem `json:"config:BatchGetResourceConfigOutput:BaseConfigurationItems" locationName:"baseConfigurationItems" type:"list"`
 
 	// A list of resource keys that were not processed with the current response.
 	// The unprocessesResourceKeys value is in the same form as ResourceKeys, so
 	// the value can be directly provided to a subsequent BatchGetResourceConfig
 	// operation. If there are no unprocessed resource keys, the response contains
 	// an empty unprocessedResourceKeys list.
-	UnprocessedResourceKeys []ResourceKey `locationName:"unprocessedResourceKeys" min:"1" type:"list"`
+	UnprocessedResourceKeys []ResourceKey `json:"config:BatchGetResourceConfigOutput:UnprocessedResourceKeys" locationName:"unprocessedResourceKeys" min:"1" type:"list"`
 }
 
 // String returns the string representation

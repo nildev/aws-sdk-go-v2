@@ -55,11 +55,11 @@ type ListEventBusesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// This list of event buses.
-	EventBuses []EventBus `type:"list"`
+	EventBuses []EventBus `json:"events:ListEventBusesOutput:EventBuses" type:"list"`
 
 	// A token you can use in a subsequent operation to retrieve the next set of
 	// results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"events:ListEventBusesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

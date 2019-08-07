@@ -112,10 +112,10 @@ type ListMembersOutput struct {
 
 	// An array of MemberSummary objects. Each object contains details about a network
 	// member.
-	Members []MemberSummary `type:"list"`
+	Members []MemberSummary `json:"managedblockchain:ListMembersOutput:Members" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"managedblockchain:ListMembersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

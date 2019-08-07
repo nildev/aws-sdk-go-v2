@@ -43,7 +43,7 @@ type DescribeLoadBalancerAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the load balancer attributes.
-	Attributes []LoadBalancerAttribute `type:"list"`
+	Attributes []LoadBalancerAttribute `json:"elasticloadbalancing:DescribeLoadBalancerAttributesOutput:Attributes" type:"list"`
 }
 
 // String returns the string representation

@@ -25,7 +25,7 @@ type ListSAMLProvidersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of SAML provider resource objects defined in IAM for this AWS account.
-	SAMLProviderList []SAMLProviderListEntry `type:"list"`
+	SAMLProviderList []SAMLProviderListEntry `json:"iam:ListSAMLProvidersOutput:SAMLProviderList" type:"list"`
 }
 
 // String returns the string representation

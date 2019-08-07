@@ -50,7 +50,7 @@ type ListServiceSpecificCredentialsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of structures that each contain details about a service-specific credential.
-	ServiceSpecificCredentials []ServiceSpecificCredentialMetadata `type:"list"`
+	ServiceSpecificCredentials []ServiceSpecificCredentialMetadata `json:"iam:ListServiceSpecificCredentialsOutput:ServiceSpecificCredentials" type:"list"`
 }
 
 // String returns the string representation

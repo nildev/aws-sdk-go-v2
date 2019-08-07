@@ -28,14 +28,14 @@ type GetCredentialReportOutput struct {
 	// Contains the credential report. The report is Base64-encoded.
 	//
 	// Content is automatically base64 encoded/decoded by the SDK.
-	Content []byte `type:"blob"`
+	Content []byte `json:"iam:GetCredentialReportOutput:Content" type:"blob"`
 
 	// The date and time when the credential report was created, in ISO 8601 date-time
 	// format (http://www.iso.org/iso/iso8601).
-	GeneratedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	GeneratedTime *time.Time `json:"iam:GetCredentialReportOutput:GeneratedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The format (MIME type) of the credential report.
-	ReportFormat ReportFormatType `type:"string" enum:"true"`
+	ReportFormat ReportFormatType `json:"iam:GetCredentialReportOutput:ReportFormat" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -120,7 +120,7 @@ type CreateHyperParameterTuningJobOutput struct {
 	// an ARN to a hyperparameter tuning job when you create it.
 	//
 	// HyperParameterTuningJobArn is a required field
-	HyperParameterTuningJobArn *string `type:"string" required:"true"`
+	HyperParameterTuningJobArn *string `json:"api.sagemaker:CreateHyperParameterTuningJobOutput:HyperParameterTuningJobArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -95,11 +95,11 @@ type GetAggregateComplianceDetailsByConfigRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns an AggregateEvaluationResults object.
-	AggregateEvaluationResults []AggregateEvaluationResult `type:"list"`
+	AggregateEvaluationResults []AggregateEvaluationResult `json:"config:GetAggregateComplianceDetailsByConfigRuleOutput:AggregateEvaluationResults" type:"list"`
 
 	// The nextToken string returned on a previous page that you use to get the
 	// next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:GetAggregateComplianceDetailsByConfigRuleOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -65,7 +65,7 @@ type RegisterStreamConsumerOutput struct {
 	// Streams.
 	//
 	// Consumer is a required field
-	Consumer *Consumer `type:"structure" required:"true"`
+	Consumer *Consumer `json:"kinesis:RegisterStreamConsumerOutput:Consumer" type:"structure" required:"true"`
 }
 
 // String returns the string representation

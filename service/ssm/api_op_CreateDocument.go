@@ -118,7 +118,7 @@ type CreateDocumentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Systems Manager document.
-	DocumentDescription *DocumentDescription `type:"structure"`
+	DocumentDescription *DocumentDescription `json:"ssm:CreateDocumentOutput:DocumentDescription" type:"structure"`
 }
 
 // String returns the string representation

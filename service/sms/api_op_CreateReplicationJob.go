@@ -91,7 +91,7 @@ type CreateReplicationJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the replication job.
-	ReplicationJobId *string `locationName:"replicationJobId" type:"string"`
+	ReplicationJobId *string `json:"sms:CreateReplicationJobOutput:ReplicationJobId" locationName:"replicationJobId" type:"string"`
 }
 
 // String returns the string representation

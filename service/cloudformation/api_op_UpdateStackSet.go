@@ -250,7 +250,7 @@ type UpdateStackSetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID for this stack set operation.
-	OperationId *string `min:"1" type:"string"`
+	OperationId *string `json:"cloudformation:UpdateStackSetOutput:OperationId" min:"1" type:"string"`
 }
 
 // String returns the string representation

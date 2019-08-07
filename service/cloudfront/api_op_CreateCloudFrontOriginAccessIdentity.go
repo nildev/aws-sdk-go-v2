@@ -68,14 +68,14 @@ type CreateCloudFrontOriginAccessIdentityOutput struct {
 	_ struct{} `type:"structure" payload:"CloudFrontOriginAccessIdentity"`
 
 	// The origin access identity's information.
-	CloudFrontOriginAccessIdentity *CloudFrontOriginAccessIdentity `type:"structure"`
+	CloudFrontOriginAccessIdentity *CloudFrontOriginAccessIdentity `json:"cloudfront:CreateCloudFrontOriginAccessIdentityOutput:CloudFrontOriginAccessIdentity" type:"structure"`
 
 	// The current version of the origin access identity created.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:CreateCloudFrontOriginAccessIdentityOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// The fully qualified URI of the new origin access identity just created. For
 	// example: https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"cloudfront:CreateCloudFrontOriginAccessIdentityOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

@@ -71,10 +71,10 @@ type DescribeMaintenanceWindowTasksOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeMaintenanceWindowTasksOutput:NextToken" type:"string"`
 
 	// Information about the tasks in the maintenance window.
-	Tasks []MaintenanceWindowTask `type:"list"`
+	Tasks []MaintenanceWindowTask `json:"ssm:DescribeMaintenanceWindowTasksOutput:Tasks" type:"list"`
 }
 
 // String returns the string representation

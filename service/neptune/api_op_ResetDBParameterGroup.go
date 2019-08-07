@@ -61,7 +61,7 @@ type ResetDBParameterGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Provides the name of the DB parameter group.
-	DBParameterGroupName *string `type:"string"`
+	DBParameterGroupName *string `json:"rds:ResetDBParameterGroupOutput:DBParameterGroupName" type:"string"`
 }
 
 // String returns the string representation

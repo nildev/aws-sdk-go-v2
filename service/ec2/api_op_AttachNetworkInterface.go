@@ -69,7 +69,7 @@ type AttachNetworkInterfaceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the network interface attachment.
-	AttachmentId *string `locationName:"attachmentId" type:"string"`
+	AttachmentId *string `json:"ec2:AttachNetworkInterfaceOutput:AttachmentId" locationName:"attachmentId" type:"string"`
 }
 
 // String returns the string representation

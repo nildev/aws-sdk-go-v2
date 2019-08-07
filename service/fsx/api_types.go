@@ -21,10 +21,10 @@ type ActiveDirectoryBackupAttributes struct {
 
 	// The ID of the AWS Managed Microsoft Active Directory instance to which the
 	// file system is joined.
-	ActiveDirectoryId *string `min:"12" type:"string"`
+	ActiveDirectoryId *string `json:"fsx:ActiveDirectoryBackupAttributes:ActiveDirectoryId" min:"12" type:"string"`
 
 	// The fully qualified domain name of the self-managed AD directory.
-	DomainName *string `type:"string"`
+	DomainName *string `json:"fsx:ActiveDirectoryBackupAttributes:DomainName" type:"string"`
 }
 
 // String returns the string representation
@@ -41,48 +41,48 @@ type Backup struct {
 	// The ID of the backup.
 	//
 	// BackupId is a required field
-	BackupId *string `min:"12" type:"string" required:"true"`
+	BackupId *string `json:"fsx:Backup:BackupId" min:"12" type:"string" required:"true"`
 
 	// The time when a particular backup was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"fsx:Backup:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The configuration of the self-managed Microsoft Active Directory (AD) to
 	// which the Windows File Server instance is joined.
-	DirectoryInformation *ActiveDirectoryBackupAttributes `type:"structure"`
+	DirectoryInformation *ActiveDirectoryBackupAttributes `json:"fsx:Backup:DirectoryInformation" type:"structure"`
 
 	// Details explaining any failures that occur when creating a backup.
-	FailureDetails *BackupFailureDetails `type:"structure"`
+	FailureDetails *BackupFailureDetails `json:"fsx:Backup:FailureDetails" type:"structure"`
 
 	// Metadata of the file system associated with the backup. This metadata is
 	// persisted even if the file system is deleted.
 	//
 	// FileSystem is a required field
-	FileSystem *FileSystem `type:"structure" required:"true"`
+	FileSystem *FileSystem `json:"fsx:Backup:FileSystem" type:"structure" required:"true"`
 
 	// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt this
 	// backup's data.
-	KmsKeyId *string `min:"1" type:"string"`
+	KmsKeyId *string `json:"fsx:Backup:KmsKeyId" min:"1" type:"string"`
 
 	// The lifecycle status of the backup.
 	//
 	// Lifecycle is a required field
-	Lifecycle BackupLifecycle `type:"string" required:"true" enum:"true"`
+	Lifecycle BackupLifecycle `json:"fsx:Backup:Lifecycle" type:"string" required:"true" enum:"true"`
 
 	// The current percent of progress of an asynchronous task.
-	ProgressPercent *int64 `type:"integer"`
+	ProgressPercent *int64 `json:"fsx:Backup:ProgressPercent" type:"integer"`
 
 	// The Amazon Resource Name (ARN) for the backup resource.
-	ResourceARN *string `min:"8" type:"string"`
+	ResourceARN *string `json:"fsx:Backup:ResourceARN" min:"8" type:"string"`
 
 	// Tags associated with a particular file system.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"fsx:Backup:Tags" min:"1" type:"list"`
 
 	// The type of the backup.
 	//
 	// Type is a required field
-	Type BackupType `type:"string" required:"true" enum:"true"`
+	Type BackupType `json:"fsx:Backup:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -96,7 +96,7 @@ type BackupFailureDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A message describing the backup creation failure.
-	Message *string `min:"1" type:"string"`
+	Message *string `json:"fsx:BackupFailureDetails:Message" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -124,7 +124,7 @@ type CreateFileSystemLustreConfiguration struct {
 	// a custom prefix in the export path, such as s3://import-bucket/[custom-optional-prefix],
 	// Amazon FSx exports the contents of your file system to that export prefix
 	// in the Amazon S3 bucket.
-	ExportPath *string `min:"3" type:"string"`
+	ExportPath *string `json:"fsx:CreateFileSystemLustreConfiguration:ExportPath" min:"3" type:"string"`
 
 	// (Optional) The path to the Amazon S3 bucket (including the optional prefix)
 	// that you're using as the data repository for your Amazon FSx for Lustre file
@@ -132,7 +132,7 @@ type CreateFileSystemLustreConfiguration struct {
 	// root of the Amazon S3 bucket you select. An example is s3://import-bucket/optional-prefix.
 	// If you specify a prefix after the Amazon S3 bucket name, only object keys
 	// with that prefix are loaded into the file system.
-	ImportPath *string `min:"3" type:"string"`
+	ImportPath *string `json:"fsx:CreateFileSystemLustreConfiguration:ImportPath" min:"3" type:"string"`
 
 	// (Optional) For files imported from a data repository, this value determines
 	// the stripe count and maximum amount of data per file (in MiB) stored on a
@@ -142,10 +142,10 @@ type CreateFileSystemLustreConfiguration struct {
 	//
 	// The chunk size default is 1,024 MiB (1 GiB) and can go as high as 512,000
 	// MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
-	ImportedFileChunkSize *int64 `min:"1" type:"integer"`
+	ImportedFileChunkSize *int64 `json:"fsx:CreateFileSystemLustreConfiguration:ImportedFileChunkSize" min:"1" type:"integer"`
 
 	// The preferred time to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime *string `min:"7" type:"string"`
+	WeeklyMaintenanceStartTime *string `json:"fsx:CreateFileSystemLustreConfiguration:WeeklyMaintenanceStartTime" min:"7" type:"string"`
 }
 
 // String returns the string representation
@@ -183,38 +183,38 @@ type CreateFileSystemWindowsConfiguration struct {
 
 	// The ID for an existing AWS Managed Microsoft Active Directory (AD) instance
 	// that the file system should join when it's created.
-	ActiveDirectoryId *string `min:"12" type:"string"`
+	ActiveDirectoryId *string `json:"fsx:CreateFileSystemWindowsConfiguration:ActiveDirectoryId" min:"12" type:"string"`
 
 	// The number of days to retain automatic backups. The default is to retain
 	// backups for 7 days. Setting this value to 0 disables the creation of automatic
 	// backups. The maximum retention period for backups is 35 days.
-	AutomaticBackupRetentionDays *int64 `type:"integer"`
+	AutomaticBackupRetentionDays *int64 `json:"fsx:CreateFileSystemWindowsConfiguration:AutomaticBackupRetentionDays" type:"integer"`
 
 	// A boolean flag indicating whether tags for the file system should be copied
 	// to backups. This value defaults to false. If it's set to true, all tags for
 	// the file system are copied to all automatic and user-initiated backups where
 	// the user doesn't specify tags. If this value is true, and you specify one
 	// or more tags, only the specified tags are copied to backups.
-	CopyTagsToBackups *bool `type:"boolean"`
+	CopyTagsToBackups *bool `json:"fsx:CreateFileSystemWindowsConfiguration:CopyTagsToBackups" type:"boolean"`
 
 	// The preferred time to take daily automatic backups, formatted HH:MM in the
 	// UTC time zone.
-	DailyAutomaticBackupStartTime *string `min:"5" type:"string"`
+	DailyAutomaticBackupStartTime *string `json:"fsx:CreateFileSystemWindowsConfiguration:DailyAutomaticBackupStartTime" min:"5" type:"string"`
 
 	// The configuration that Amazon FSx uses to join the Windows File Server instance
 	// to your self-managed (including on-premises) Microsoft Active Directory (AD)
 	// directory.
-	SelfManagedActiveDirectoryConfiguration *SelfManagedActiveDirectoryConfiguration `type:"structure"`
+	SelfManagedActiveDirectoryConfiguration *SelfManagedActiveDirectoryConfiguration `json:"fsx:CreateFileSystemWindowsConfiguration:SelfManagedActiveDirectoryConfiguration" type:"structure"`
 
 	// The throughput of an Amazon FSx file system, measured in megabytes per second,
 	// in 2 to the nth increments, between 2^3 (8) and 2^11 (2048).
 	//
 	// ThroughputCapacity is a required field
-	ThroughputCapacity *int64 `min:"8" type:"integer" required:"true"`
+	ThroughputCapacity *int64 `json:"fsx:CreateFileSystemWindowsConfiguration:ThroughputCapacity" min:"8" type:"integer" required:"true"`
 
 	// The preferred start time to perform weekly maintenance, formatted d:HH:MM
 	// in the UTC time zone.
-	WeeklyMaintenanceStartTime *string `min:"7" type:"string"`
+	WeeklyMaintenanceStartTime *string `json:"fsx:CreateFileSystemWindowsConfiguration:WeeklyMaintenanceStartTime" min:"7" type:"string"`
 }
 
 // String returns the string representation
@@ -261,14 +261,14 @@ type DataRepositoryConfiguration struct {
 
 	// The export path to the Amazon S3 bucket (and prefix) that you are using to
 	// store new and changed Lustre file system files in S3.
-	ExportPath *string `min:"3" type:"string"`
+	ExportPath *string `json:"fsx:DataRepositoryConfiguration:ExportPath" min:"3" type:"string"`
 
 	// The import path to the Amazon S3 bucket (and optional prefix) that you're
 	// using as the data repository for your FSx for Lustre file system, for example
 	// s3://import-bucket/optional-prefix. If a prefix is specified after the Amazon
 	// S3 bucket name, only object keys with that prefix are loaded into the file
 	// system.
-	ImportPath *string `min:"3" type:"string"`
+	ImportPath *string `json:"fsx:DataRepositoryConfiguration:ImportPath" min:"3" type:"string"`
 
 	// For files imported from a data repository, this value determines the stripe
 	// count and maximum amount of data per file (in MiB) stored on a single physical
@@ -277,7 +277,7 @@ type DataRepositoryConfiguration struct {
 	//
 	// The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000
 	// MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
-	ImportedFileChunkSize *int64 `min:"1" type:"integer"`
+	ImportedFileChunkSize *int64 `json:"fsx:DataRepositoryConfiguration:ImportedFileChunkSize" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -292,13 +292,13 @@ type DeleteFileSystemWindowsConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// A set of tags for your final backup.
-	FinalBackupTags []Tag `min:"1" type:"list"`
+	FinalBackupTags []Tag `json:"fsx:DeleteFileSystemWindowsConfiguration:FinalBackupTags" min:"1" type:"list"`
 
 	// By default, Amazon FSx for Windows takes a final backup on your behalf when
 	// the DeleteFileSystem operation is invoked. Doing this helps protect you from
 	// data loss, and we highly recommend taking the final backup. If you want to
 	// skip this backup, use this flag to do so.
-	SkipFinalBackup *bool `type:"boolean"`
+	SkipFinalBackup *bool `json:"fsx:DeleteFileSystemWindowsConfiguration:SkipFinalBackup" type:"boolean"`
 }
 
 // String returns the string representation
@@ -333,10 +333,10 @@ type DeleteFileSystemWindowsResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the final backup for this file system.
-	FinalBackupId *string `min:"12" type:"string"`
+	FinalBackupId *string `json:"fsx:DeleteFileSystemWindowsResponse:FinalBackupId" min:"12" type:"string"`
 
 	// The set of tags applied to the final backup.
-	FinalBackupTags []Tag `min:"1" type:"list"`
+	FinalBackupTags []Tag `json:"fsx:DeleteFileSystemWindowsResponse:FinalBackupTags" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -351,24 +351,24 @@ type FileSystem struct {
 
 	// The time that the file system was created, in seconds (since 1970-01-01T00:00:00Z),
 	// also known as Unix time.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"fsx:FileSystem:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The DNS name for the file system.
-	DNSName *string `min:"16" type:"string"`
+	DNSName *string `json:"fsx:FileSystem:DNSName" min:"16" type:"string"`
 
 	// A structure providing details of any failures that occur when creating the
 	// file system has failed.
-	FailureDetails *FileSystemFailureDetails `type:"structure"`
+	FailureDetails *FileSystemFailureDetails `json:"fsx:FileSystem:FailureDetails" type:"structure"`
 
 	// The system-generated, unique 17-digit ID of the file system.
-	FileSystemId *string `min:"11" type:"string"`
+	FileSystemId *string `json:"fsx:FileSystem:FileSystemId" min:"11" type:"string"`
 
 	// The type of Amazon FSx file system, either LUSTRE or WINDOWS.
-	FileSystemType FileSystemType `type:"string" enum:"true"`
+	FileSystemType FileSystemType `json:"fsx:FileSystem:FileSystemType" type:"string" enum:"true"`
 
 	// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the
 	// file system's data for an Amazon FSx for Windows File Server file system.
-	KmsKeyId *string `min:"1" type:"string"`
+	KmsKeyId *string `json:"fsx:FileSystem:KmsKeyId" min:"1" type:"string"`
 
 	// The lifecycle status of the file system:
 	//
@@ -388,10 +388,10 @@ type FileSystem struct {
 	//
 	//    * UPDATING indicates that the file system is undergoing a customer initiated
 	//    update.
-	Lifecycle FileSystemLifecycle `type:"string" enum:"true"`
+	Lifecycle FileSystemLifecycle `json:"fsx:FileSystem:Lifecycle" type:"string" enum:"true"`
 
 	// The configuration for the Amazon FSx for Lustre file system.
-	LustreConfiguration *LustreFileSystemConfiguration `type:"structure"`
+	LustreConfiguration *LustreFileSystemConfiguration `json:"fsx:FileSystem:LustreConfiguration" type:"structure"`
 
 	// The IDs of the elastic network interface from which a specific file system
 	// is accessible. The elastic network interface is automatically created in
@@ -402,34 +402,34 @@ type FileSystem struct {
 	// For an Amazon FSx for Windows File Server file system, you can have one network
 	// interface ID. For an Amazon FSx for Lustre file system, you can have more
 	// than one.
-	NetworkInterfaceIds []string `type:"list"`
+	NetworkInterfaceIds []string `json:"fsx:FileSystem:NetworkInterfaceIds" type:"list"`
 
 	// The AWS account that created the file system. If the file system was created
 	// by an AWS Identity and Access Management (IAM) user, the AWS account to which
 	// the IAM user belongs is the owner.
-	OwnerId *string `min:"12" type:"string"`
+	OwnerId *string `json:"fsx:FileSystem:OwnerId" min:"12" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the file system resource.
-	ResourceARN *string `min:"8" type:"string"`
+	ResourceARN *string `json:"fsx:FileSystem:ResourceARN" min:"8" type:"string"`
 
 	// The storage capacity of the file system in gigabytes (GB).
-	StorageCapacity *int64 `min:"1" type:"integer"`
+	StorageCapacity *int64 `json:"fsx:FileSystem:StorageCapacity" min:"1" type:"integer"`
 
 	// The ID of the subnet to contain the endpoint for the file system. One and
 	// only one is supported. The file system is launched in the Availability Zone
 	// associated with this subnet.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"fsx:FileSystem:SubnetIds" type:"list"`
 
 	// The tags to associate with the file system. For more information, see Tagging
 	// Your Amazon EC2 Resources (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html)
 	// in the Amazon EC2 User Guide.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"fsx:FileSystem:Tags" min:"1" type:"list"`
 
 	// The ID of the primary VPC for the file system.
-	VpcId *string `min:"12" type:"string"`
+	VpcId *string `json:"fsx:FileSystem:VpcId" min:"12" type:"string"`
 
 	// The configuration for this Microsoft Windows file system.
-	WindowsConfiguration *WindowsFileSystemConfiguration `type:"structure"`
+	WindowsConfiguration *WindowsFileSystemConfiguration `json:"fsx:FileSystem:WindowsConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -444,7 +444,7 @@ type FileSystemFailureDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A message describing any failures that occurred during file system creation.
-	Message *string `min:"1" type:"string"`
+	Message *string `json:"fsx:FileSystemFailureDetails:Message" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -459,11 +459,11 @@ type Filter struct {
 	_ struct{} `type:"structure"`
 
 	// The name for this filter.
-	Name FilterName `type:"string" enum:"true"`
+	Name FilterName `json:"fsx:Filter:Name" type:"string" enum:"true"`
 
 	// The values of the filter. These are all the values for any of the applied
 	// filters.
-	Values []string `type:"list"`
+	Values []string `json:"fsx:Filter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -478,10 +478,10 @@ type LustreFileSystemConfiguration struct {
 
 	// The data repository configuration object for Lustre file systems returned
 	// in the response of the CreateFileSystem operation.
-	DataRepositoryConfiguration *DataRepositoryConfiguration `type:"structure"`
+	DataRepositoryConfiguration *DataRepositoryConfiguration `json:"fsx:LustreFileSystemConfiguration:DataRepositoryConfiguration" type:"structure"`
 
 	// The UTC time that you want to begin your weekly maintenance window.
-	WeeklyMaintenanceStartTime *string `min:"7" type:"string"`
+	WeeklyMaintenanceStartTime *string `json:"fsx:LustreFileSystemConfiguration:WeeklyMaintenanceStartTime" min:"7" type:"string"`
 }
 
 // String returns the string representation
@@ -497,23 +497,23 @@ type SelfManagedActiveDirectoryAttributes struct {
 
 	// A list of up to two IP addresses of DNS servers or domain controllers in
 	// the self-managed AD directory.
-	DnsIps []string `min:"1" type:"list"`
+	DnsIps []string `json:"fsx:SelfManagedActiveDirectoryAttributes:DnsIps" min:"1" type:"list"`
 
 	// The fully qualified domain name of the self-managed AD directory.
-	DomainName *string `type:"string"`
+	DomainName *string `json:"fsx:SelfManagedActiveDirectoryAttributes:DomainName" type:"string"`
 
 	// The name of the domain group whose members have administrative privileges
 	// for the FSx file system.
-	FileSystemAdministratorsGroup *string `min:"1" type:"string"`
+	FileSystemAdministratorsGroup *string `json:"fsx:SelfManagedActiveDirectoryAttributes:FileSystemAdministratorsGroup" min:"1" type:"string"`
 
 	// The fully qualified distinguished name of the organizational unit within
 	// the self-managed AD directory to which the Windows File Server instance is
 	// joined.
-	OrganizationalUnitDistinguishedName *string `min:"1" type:"string"`
+	OrganizationalUnitDistinguishedName *string `json:"fsx:SelfManagedActiveDirectoryAttributes:OrganizationalUnitDistinguishedName" min:"1" type:"string"`
 
 	// The user name for the service account on your self-managed AD domain that
 	// FSx uses to join to your AD domain.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"fsx:SelfManagedActiveDirectoryAttributes:UserName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -541,13 +541,13 @@ type SelfManagedActiveDirectoryConfiguration struct {
 	//    * 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
 	//
 	// DnsIps is a required field
-	DnsIps []string `min:"1" type:"list" required:"true"`
+	DnsIps []string `json:"fsx:SelfManagedActiveDirectoryConfiguration:DnsIps" min:"1" type:"list" required:"true"`
 
 	// The fully qualified domain name of the self-managed AD directory, such as
 	// corp.example.com.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"fsx:SelfManagedActiveDirectoryConfiguration:DomainName" type:"string" required:"true"`
 
 	// (Optional) The name of the domain group whose members are granted administrative
 	// privileges for the file system. Administrative privileges include taking
@@ -555,7 +555,7 @@ type SelfManagedActiveDirectoryConfiguration struct {
 	// files and folders. The group that you specify must already exist in your
 	// domain. If you don't provide one, your AD domain's Domain Admins group is
 	// used.
-	FileSystemAdministratorsGroup *string `min:"1" type:"string"`
+	FileSystemAdministratorsGroup *string `json:"fsx:SelfManagedActiveDirectoryConfiguration:FileSystemAdministratorsGroup" min:"1" type:"string"`
 
 	// (Optional) The fully qualified distinguished name of the organizational unit
 	// within your self-managed AD directory that the Windows File Server instance
@@ -566,13 +566,13 @@ type SelfManagedActiveDirectoryConfiguration struct {
 	//
 	// Only Organizational Unit (OU) objects can be the direct parent of the file
 	// system that you're creating.
-	OrganizationalUnitDistinguishedName *string `min:"1" type:"string"`
+	OrganizationalUnitDistinguishedName *string `json:"fsx:SelfManagedActiveDirectoryConfiguration:OrganizationalUnitDistinguishedName" min:"1" type:"string"`
 
 	// The password for the service account on your self-managed AD domain that
 	// Amazon FSx will use to join to your AD domain.
 	//
 	// Password is a required field
-	Password *string `min:"1" type:"string" required:"true"`
+	Password *string `json:"fsx:SelfManagedActiveDirectoryConfiguration:Password" min:"1" type:"string" required:"true"`
 
 	// The user name for the service account on your self-managed AD domain that
 	// Amazon FSx will use to join to your AD domain. This account must have the
@@ -581,7 +581,7 @@ type SelfManagedActiveDirectoryConfiguration struct {
 	// AD domain.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"fsx:SelfManagedActiveDirectoryConfiguration:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -638,17 +638,17 @@ type SelfManagedActiveDirectoryConfigurationUpdates struct {
 
 	// A list of up to two IP addresses of DNS servers or domain controllers in
 	// the self-managed AD directory.
-	DnsIps []string `min:"1" type:"list"`
+	DnsIps []string `json:"fsx:SelfManagedActiveDirectoryConfigurationUpdates:DnsIps" min:"1" type:"list"`
 
 	// The password for the service account on your self-managed AD domain that
 	// Amazon FSx will use to join to your AD domain.
-	Password *string `min:"1" type:"string"`
+	Password *string `json:"fsx:SelfManagedActiveDirectoryConfigurationUpdates:Password" min:"1" type:"string"`
 
 	// The user name for the service account on your self-managed AD domain that
 	// Amazon FSx will use to join to your AD domain. This account must have the
 	// permission to join computers to the domain in the organizational unit provided
 	// in OrganizationalUnitDistinguishedName.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"fsx:SelfManagedActiveDirectoryConfigurationUpdates:UserName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -682,13 +682,13 @@ type Tag struct {
 
 	// A value that specifies the TagKey, the name of the tag. Tag keys must be
 	// unique for the resource to which they are attached.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"fsx:Tag:Key" min:"1" type:"string"`
 
 	// A value that specifies the TagValue, the value assigned to the corresponding
 	// tag key. Tag values can be null and don't have to be unique in a tag set.
 	// For example, you can have a key-value pair in a tag set of finances : April
 	// and also of payroll : April.
-	Value *string `type:"string"`
+	Value *string `json:"fsx:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -716,7 +716,7 @@ type UpdateFileSystemLustreConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The preferred time to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime *string `min:"7" type:"string"`
+	WeeklyMaintenanceStartTime *string `json:"fsx:UpdateFileSystemLustreConfiguration:WeeklyMaintenanceStartTime" min:"7" type:"string"`
 }
 
 // String returns the string representation
@@ -747,17 +747,17 @@ type UpdateFileSystemWindowsConfiguration struct {
 
 	// The number of days to retain automatic backups. Setting this to 0 disables
 	// automatic backups. You can retain automatic backups for a maximum of 35 days.
-	AutomaticBackupRetentionDays *int64 `type:"integer"`
+	AutomaticBackupRetentionDays *int64 `json:"fsx:UpdateFileSystemWindowsConfiguration:AutomaticBackupRetentionDays" type:"integer"`
 
 	// The preferred time to take daily automatic backups, in the UTC time zone.
-	DailyAutomaticBackupStartTime *string `min:"5" type:"string"`
+	DailyAutomaticBackupStartTime *string `json:"fsx:UpdateFileSystemWindowsConfiguration:DailyAutomaticBackupStartTime" min:"5" type:"string"`
 
 	// The configuration Amazon FSx uses to join the Windows File Server instance
 	// to the self-managed Microsoft AD directory.
-	SelfManagedActiveDirectoryConfiguration *SelfManagedActiveDirectoryConfigurationUpdates `type:"structure"`
+	SelfManagedActiveDirectoryConfiguration *SelfManagedActiveDirectoryConfigurationUpdates `json:"fsx:UpdateFileSystemWindowsConfiguration:SelfManagedActiveDirectoryConfiguration" type:"structure"`
 
 	// The preferred time to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime *string `min:"7" type:"string"`
+	WeeklyMaintenanceStartTime *string `json:"fsx:UpdateFileSystemWindowsConfiguration:WeeklyMaintenanceStartTime" min:"7" type:"string"`
 }
 
 // String returns the string representation
@@ -793,34 +793,34 @@ type WindowsFileSystemConfiguration struct {
 
 	// The ID for an existing Microsoft Active Directory instance that the file
 	// system should join when it's created.
-	ActiveDirectoryId *string `min:"12" type:"string"`
+	ActiveDirectoryId *string `json:"fsx:WindowsFileSystemConfiguration:ActiveDirectoryId" min:"12" type:"string"`
 
 	// The number of days to retain automatic backups. Setting this to 0 disables
 	// automatic backups. You can retain automatic backups for a maximum of 35 days.
-	AutomaticBackupRetentionDays *int64 `type:"integer"`
+	AutomaticBackupRetentionDays *int64 `json:"fsx:WindowsFileSystemConfiguration:AutomaticBackupRetentionDays" type:"integer"`
 
 	// A boolean flag indicating whether tags on the file system should be copied
 	// to backups. This value defaults to false. If it's set to true, all tags on
 	// the file system are copied to all automatic backups and any user-initiated
 	// backups where the user doesn't specify any tags. If this value is true, and
 	// you specify one or more tags, only the specified tags are copied to backups.
-	CopyTagsToBackups *bool `type:"boolean"`
+	CopyTagsToBackups *bool `json:"fsx:WindowsFileSystemConfiguration:CopyTagsToBackups" type:"boolean"`
 
 	// The preferred time to take daily automatic backups, in the UTC time zone.
-	DailyAutomaticBackupStartTime *string `min:"5" type:"string"`
+	DailyAutomaticBackupStartTime *string `json:"fsx:WindowsFileSystemConfiguration:DailyAutomaticBackupStartTime" min:"5" type:"string"`
 
 	// The list of maintenance operations in progress for this file system.
-	MaintenanceOperationsInProgress []FileSystemMaintenanceOperation `type:"list"`
+	MaintenanceOperationsInProgress []FileSystemMaintenanceOperation `json:"fsx:WindowsFileSystemConfiguration:MaintenanceOperationsInProgress" type:"list"`
 
 	// The configuration of the self-managed Microsoft Active Directory (AD) directory
 	// to which the Windows File Server instance is joined.
-	SelfManagedActiveDirectoryConfiguration *SelfManagedActiveDirectoryAttributes `type:"structure"`
+	SelfManagedActiveDirectoryConfiguration *SelfManagedActiveDirectoryAttributes `json:"fsx:WindowsFileSystemConfiguration:SelfManagedActiveDirectoryConfiguration" type:"structure"`
 
 	// The throughput of an Amazon FSx file system, measured in megabytes per second.
-	ThroughputCapacity *int64 `min:"8" type:"integer"`
+	ThroughputCapacity *int64 `json:"fsx:WindowsFileSystemConfiguration:ThroughputCapacity" min:"8" type:"integer"`
 
 	// The preferred time to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime *string `min:"7" type:"string"`
+	WeeklyMaintenanceStartTime *string `json:"fsx:WindowsFileSystemConfiguration:WeeklyMaintenanceStartTime" min:"7" type:"string"`
 }
 
 // String returns the string representation

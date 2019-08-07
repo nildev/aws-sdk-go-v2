@@ -49,7 +49,7 @@ type UpdateResolverEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The response to an UpdateResolverEndpoint request.
-	ResolverEndpoint *ResolverEndpoint `type:"structure"`
+	ResolverEndpoint *ResolverEndpoint `json:"route53resolver:UpdateResolverEndpointOutput:ResolverEndpoint" type:"structure"`
 }
 
 // String returns the string representation

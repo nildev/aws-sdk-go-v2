@@ -65,7 +65,7 @@ type UpdatePhoneNumberOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated phone number details.
-	PhoneNumber *PhoneNumber `type:"structure"`
+	PhoneNumber *PhoneNumber `json:"chime:UpdatePhoneNumberOutput:PhoneNumber" type:"structure"`
 }
 
 // String returns the string representation

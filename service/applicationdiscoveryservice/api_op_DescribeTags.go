@@ -54,11 +54,11 @@ type DescribeTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The call returns a token. Use this token to get the next set of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"discovery:DescribeTagsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Depending on the input, this is a list of configuration items tagged with
 	// a specific tag, or a list of tags for a specific configuration item.
-	Tags []ConfigurationTag `locationName:"tags" type:"list"`
+	Tags []ConfigurationTag `json:"discovery:DescribeTagsOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

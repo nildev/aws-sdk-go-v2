@@ -102,7 +102,7 @@ func (s PutObjectTaggingInput) MarshalFields(e protocol.FieldEncoder) error {
 type PutObjectTaggingOutput struct {
 	_ struct{} `type:"structure"`
 
-	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+	VersionId *string `json:"s3:PutObjectTaggingOutput:VersionId" location:"header" locationName:"x-amz-version-id" type:"string"`
 }
 
 // String returns the string representation

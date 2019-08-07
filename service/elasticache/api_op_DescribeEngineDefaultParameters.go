@@ -61,7 +61,7 @@ type DescribeEngineDefaultParametersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the output of a DescribeEngineDefaultParameters operation.
-	EngineDefaults *EngineDefaults `type:"structure"`
+	EngineDefaults *EngineDefaults `json:"elasticache:DescribeEngineDefaultParametersOutput:EngineDefaults" type:"structure"`
 }
 
 // String returns the string representation

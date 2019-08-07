@@ -98,11 +98,11 @@ type DescribeEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of EventDescription.
-	Events []EventDescription `type:"list"`
+	Events []EventDescription `json:"elasticbeanstalk:DescribeEventsOutput:Events" type:"list"`
 
 	// If returned, this indicates that there are more results to obtain. Use this
 	// token in the next DescribeEvents call to get the next batch of events.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"elasticbeanstalk:DescribeEventsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

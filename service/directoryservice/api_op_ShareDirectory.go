@@ -75,7 +75,7 @@ type ShareDirectoryOutput struct {
 
 	// Identifier of the directory that is stored in the directory consumer account
 	// that is shared from the specified directory (DirectoryId).
-	SharedDirectoryId *string `type:"string"`
+	SharedDirectoryId *string `json:"ds:ShareDirectoryOutput:SharedDirectoryId" type:"string"`
 }
 
 // String returns the string representation

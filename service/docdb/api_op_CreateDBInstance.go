@@ -126,7 +126,7 @@ type CreateDBInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB instance.
-	DBInstance *DBInstance `type:"structure"`
+	DBInstance *DBInstance `json:"rds:CreateDBInstanceOutput:DBInstance" type:"structure"`
 }
 
 // String returns the string representation

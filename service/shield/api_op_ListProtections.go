@@ -59,10 +59,10 @@ type ListProtectionsOutput struct {
 	// AWS WAF might return the list of Protection objects in batches smaller than
 	// the number specified by MaxResults. If there are more Protection objects
 	// to return, AWS WAF will always also return a NextToken.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"shield:ListProtectionsOutput:NextToken" min:"1" type:"string"`
 
 	// The array of enabled Protection objects.
-	Protections []Protection `type:"list"`
+	Protections []Protection `json:"shield:ListProtectionsOutput:Protections" type:"list"`
 }
 
 // String returns the string representation

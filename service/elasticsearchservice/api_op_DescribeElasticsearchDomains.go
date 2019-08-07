@@ -66,7 +66,7 @@ type DescribeElasticsearchDomainsOutput struct {
 	// The status of the domains requested in the DescribeElasticsearchDomains request.
 	//
 	// DomainStatusList is a required field
-	DomainStatusList []ElasticsearchDomainStatus `type:"list" required:"true"`
+	DomainStatusList []ElasticsearchDomainStatus `json:"es:DescribeElasticsearchDomainsOutput:DomainStatusList" type:"list" required:"true"`
 }
 
 // String returns the string representation

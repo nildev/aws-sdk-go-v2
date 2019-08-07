@@ -46,7 +46,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags associated with the specified topic.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"sns:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

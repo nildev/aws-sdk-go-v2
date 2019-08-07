@@ -83,7 +83,7 @@ type UpdateInputSecurityGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An Input Security Group
-	SecurityGroup *InputSecurityGroup `locationName:"securityGroup" type:"structure"`
+	SecurityGroup *InputSecurityGroup `json:"medialive:UpdateInputSecurityGroupOutput:SecurityGroup" locationName:"securityGroup" type:"structure"`
 }
 
 // String returns the string representation

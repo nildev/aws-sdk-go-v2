@@ -198,13 +198,13 @@ type CreateDatasetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the data set.
-	DatasetArn *string `locationName:"datasetArn" type:"string"`
+	DatasetArn *string `json:"iotanalytics:CreateDatasetOutput:DatasetArn" locationName:"datasetArn" type:"string"`
 
 	// The name of the data set.
-	DatasetName *string `locationName:"datasetName" min:"1" type:"string"`
+	DatasetName *string `json:"iotanalytics:CreateDatasetOutput:DatasetName" locationName:"datasetName" min:"1" type:"string"`
 
 	// How long, in days, data set contents are kept for the data set.
-	RetentionPeriod *RetentionPeriod `locationName:"retentionPeriod" type:"structure"`
+	RetentionPeriod *RetentionPeriod `json:"iotanalytics:CreateDatasetOutput:RetentionPeriod" locationName:"retentionPeriod" type:"structure"`
 }
 
 // String returns the string representation

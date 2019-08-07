@@ -27,11 +27,11 @@ type GetActiveNamesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of active names returned by the get active names request.
-	ActiveNames []string `locationName:"activeNames" type:"list"`
+	ActiveNames []string `json:"lightsail:GetActiveNamesOutput:ActiveNames" locationName:"activeNames" type:"list"`
 
 	// A token used for advancing to the next page of results from your get active
 	// names request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetActiveNamesOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

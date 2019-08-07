@@ -22,13 +22,13 @@ type BlacklistEntry struct {
 
 	// Additional information about the blacklisting event, as provided by the blacklist
 	// maintainer.
-	Description *string `type:"string"`
+	Description *string `json:"email:BlacklistEntry:Description" type:"string"`
 
 	// The time when the blacklisting event occurred, shown in Unix time format.
-	ListingTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ListingTime *time.Time `json:"email:BlacklistEntry:ListingTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the blacklist that the IP address appears on.
-	RblName *string `type:"string"`
+	RblName *string `json:"email:BlacklistEntry:RblName" type:"string"`
 }
 
 // String returns the string representation
@@ -67,12 +67,12 @@ type Body struct {
 	// An object that represents the version of the message that is displayed in
 	// email clients that support HTML. HTML messages can include formatted text,
 	// hyperlinks, images, and more.
-	Html *Content `type:"structure"`
+	Html *Content `json:"email:Body:Html" type:"structure"`
 
 	// An object that represents the version of the message that is displayed in
 	// email clients that don't support HTML, or clients where the recipient has
 	// disabled HTML rendering.
-	Text *Content `type:"structure"`
+	Text *Content `json:"email:Body:Text" type:"structure"`
 }
 
 // String returns the string representation
@@ -128,7 +128,7 @@ type CloudWatchDestination struct {
 	// events to Amazon CloudWatch.
 	//
 	// DimensionConfigurations is a required field
-	DimensionConfigurations []CloudWatchDimensionConfiguration `type:"list" required:"true"`
+	DimensionConfigurations []CloudWatchDimensionConfiguration `json:"email:CloudWatchDestination:DimensionConfigurations" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -190,7 +190,7 @@ type CloudWatchDimensionConfiguration struct {
 	//    * It can contain no more than 256 characters.
 	//
 	// DefaultDimensionValue is a required field
-	DefaultDimensionValue *string `type:"string" required:"true"`
+	DefaultDimensionValue *string `json:"email:CloudWatchDimensionConfiguration:DefaultDimensionValue" type:"string" required:"true"`
 
 	// The name of an Amazon CloudWatch dimension associated with an email sending
 	// metric. The name has to meet the following criteria:
@@ -201,7 +201,7 @@ type CloudWatchDimensionConfiguration struct {
 	//    * It can contain no more than 256 characters.
 	//
 	// DimensionName is a required field
-	DimensionName *string `type:"string" required:"true"`
+	DimensionName *string `json:"email:CloudWatchDimensionConfiguration:DimensionName" type:"string" required:"true"`
 
 	// The location where Amazon Pinpoint finds the value of a dimension to publish
 	// to Amazon CloudWatch. If you want Amazon Pinpoint to use the message tags
@@ -211,7 +211,7 @@ type CloudWatchDimensionConfiguration struct {
 	// to use link tags, choose linkTags.
 	//
 	// DimensionValueSource is a required field
-	DimensionValueSource DimensionValueSource `type:"string" required:"true" enum:"true"`
+	DimensionValueSource DimensionValueSource `json:"email:CloudWatchDimensionConfiguration:DimensionValueSource" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -273,12 +273,12 @@ type Content struct {
 	// protocol, Amazon Pinpoint uses 7-bit ASCII by default. If the text includes
 	// characters outside of the ASCII range, you have to specify a character set.
 	// For example, you could specify UTF-8, ISO-8859-1, or Shift_JIS.
-	Charset *string `type:"string"`
+	Charset *string `json:"email:Content:Charset" type:"string"`
 
 	// The content of the message itself.
 	//
 	// Data is a required field
-	Data *string `type:"string" required:"true"`
+	Data *string `json:"email:Content:Data" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -325,14 +325,14 @@ type DailyVolume struct {
 
 	// An object that contains inbox placement metrics for a specified day in the
 	// analysis period, broken out by the recipient's email provider.
-	DomainIspPlacements []DomainIspPlacement `type:"list"`
+	DomainIspPlacements []DomainIspPlacement `json:"email:DailyVolume:DomainIspPlacements" type:"list"`
 
 	// The date that the DailyVolume metrics apply to, in Unix time.
-	StartDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartDate *time.Time `json:"email:DailyVolume:StartDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An object that contains inbox placement metrics for a specific day in the
 	// analysis period.
-	VolumeStatistics *VolumeStatistics `type:"structure"`
+	VolumeStatistics *VolumeStatistics `json:"email:DailyVolume:VolumeStatistics" type:"structure"`
 }
 
 // String returns the string representation
@@ -378,17 +378,17 @@ type DedicatedIp struct {
 	// An IP address that is reserved for use by your Amazon Pinpoint account.
 	//
 	// Ip is a required field
-	Ip *string `type:"string" required:"true"`
+	Ip *string `json:"email:DedicatedIp:Ip" type:"string" required:"true"`
 
 	// The name of the dedicated IP pool that the IP address is associated with.
-	PoolName *string `type:"string"`
+	PoolName *string `json:"email:DedicatedIp:PoolName" type:"string"`
 
 	// Indicates how complete the dedicated IP warm-up process is. When this value
 	// equals 1, the address has completed the warm-up process and is ready for
 	// use.
 	//
 	// WarmupPercentage is a required field
-	WarmupPercentage *int64 `type:"integer" required:"true"`
+	WarmupPercentage *int64 `json:"email:DedicatedIp:WarmupPercentage" type:"integer" required:"true"`
 
 	// The warm-up status of a dedicated IP address. The status can have one of
 	// the following values:
@@ -400,7 +400,7 @@ type DedicatedIp struct {
 	//    is ready to use.
 	//
 	// WarmupStatus is a required field
-	WarmupStatus WarmupStatus `type:"string" required:"true" enum:"true"`
+	WarmupStatus WarmupStatus `json:"email:DedicatedIp:WarmupStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -445,28 +445,28 @@ type DeliverabilityTestReport struct {
 
 	// The date and time when the predictive inbox placement test was created, in
 	// Unix time format.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateDate *time.Time `json:"email:DeliverabilityTestReport:CreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the predictive inbox placement test. If the status is IN_PROGRESS,
 	// then the predictive inbox placement test is currently running. Predictive
 	// inbox placement tests are usually complete within 24 hours of creating the
 	// test. If the status is COMPLETE, then the test is finished, and you can use
 	// the GetDeliverabilityTestReport to view the results of the test.
-	DeliverabilityTestStatus DeliverabilityTestStatus `type:"string" enum:"true"`
+	DeliverabilityTestStatus DeliverabilityTestStatus `json:"email:DeliverabilityTestReport:DeliverabilityTestStatus" type:"string" enum:"true"`
 
 	// The sender address that you specified for the predictive inbox placement
 	// test.
-	FromEmailAddress *string `type:"string"`
+	FromEmailAddress *string `json:"email:DeliverabilityTestReport:FromEmailAddress" type:"string"`
 
 	// A unique string that identifies the predictive inbox placement test.
-	ReportId *string `type:"string"`
+	ReportId *string `json:"email:DeliverabilityTestReport:ReportId" type:"string"`
 
 	// A name that helps you identify a predictive inbox placement test report.
-	ReportName *string `type:"string"`
+	ReportName *string `json:"email:DeliverabilityTestReport:ReportName" type:"string"`
 
 	// The subject line for an email that you submitted in a predictive inbox placement
 	// test.
-	Subject *string `type:"string"`
+	Subject *string `json:"email:DeliverabilityTestReport:Subject" type:"string"`
 }
 
 // String returns the string representation
@@ -522,13 +522,13 @@ type DeliveryOptions struct {
 
 	// The name of the dedicated IP pool that you want to associate with the configuration
 	// set.
-	SendingPoolName *string `type:"string"`
+	SendingPoolName *string `json:"email:DeliveryOptions:SendingPoolName" type:"string"`
 
 	// Specifies whether Amazon Pinpoint should require that incoming email is delivered
 	// over a connection that’s encrypted by using Transport Layer Security (TLS).
 	// If this value is set to Require, Amazon Pinpoint will bounce email messages
 	// that cannot be delivered over TLS. The default value is Optional.
-	TlsPolicy TlsPolicy `type:"string" enum:"true"`
+	TlsPolicy TlsPolicy `json:"email:DeliveryOptions:TlsPolicy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -560,15 +560,15 @@ type Destination struct {
 
 	// An array that contains the email addresses of the "BCC" (blind carbon copy)
 	// recipients for the email.
-	BccAddresses []string `type:"list"`
+	BccAddresses []string `json:"email:Destination:BccAddresses" type:"list"`
 
 	// An array that contains the email addresses of the "CC" (carbon copy) recipients
 	// for the email.
-	CcAddresses []string `type:"list"`
+	CcAddresses []string `json:"email:Destination:CcAddresses" type:"list"`
 
 	// An array that contains the email addresses of the "To" recipients for the
 	// email.
-	ToAddresses []string `type:"list"`
+	ToAddresses []string `json:"email:Destination:ToAddresses" type:"list"`
 }
 
 // String returns the string representation
@@ -626,7 +626,7 @@ type DkimAttributes struct {
 	// If the value is true, then the messages that Amazon Pinpoint sends from the
 	// identity are DKIM-signed. If the value is false, then the messages that Amazon
 	// Pinpoint sends from the identity aren't DKIM-signed.
-	SigningEnabled *bool `type:"boolean"`
+	SigningEnabled *bool `json:"email:DkimAttributes:SigningEnabled" type:"boolean"`
 
 	// Describes whether or not Amazon Pinpoint has successfully located the DKIM
 	// records in the DNS records for the domain. The status can be one of the following:
@@ -647,14 +647,14 @@ type DkimAttributes struct {
 	//
 	//    * NOT_STARTED – Amazon Pinpoint hasn't yet started searching for the
 	//    DKIM records in the DKIM records for the domain.
-	Status DkimStatus `type:"string" enum:"true"`
+	Status DkimStatus `json:"email:DkimAttributes:Status" type:"string" enum:"true"`
 
 	// A set of unique strings that you use to create a set of CNAME records that
 	// you add to the DNS configuration for your domain. When Amazon Pinpoint detects
 	// these records in the DNS configuration for your domain, the DKIM authentication
 	// process is complete. Amazon Pinpoint usually detects these records within
 	// about 72 hours of adding them to the DNS configuration for your domain.
-	Tokens []string `type:"list"`
+	Tokens []string `json:"email:DkimAttributes:Tokens" type:"list"`
 }
 
 // String returns the string representation
@@ -704,59 +704,59 @@ type DomainDeliverabilityCampaign struct {
 	// the campaign identifier that Amazon Pinpoint assigns to campaigns that you
 	// create and manage by using the Amazon Pinpoint API or the Amazon Pinpoint
 	// console.
-	CampaignId *string `type:"string"`
+	CampaignId *string `json:"email:DomainDeliverabilityCampaign:CampaignId" type:"string"`
 
 	// The percentage of email messages that were deleted by recipients, without
 	// being opened first. Due to technical limitations, this value only includes
 	// recipients who opened the message by using an email client that supports
 	// images.
-	DeleteRate *float64 `type:"double"`
+	DeleteRate *float64 `json:"email:DomainDeliverabilityCampaign:DeleteRate" type:"double"`
 
 	// The major email providers who handled the email message.
-	Esps []string `type:"list"`
+	Esps []string `json:"email:DomainDeliverabilityCampaign:Esps" type:"list"`
 
 	// The first time, in Unix time format, when the email message was delivered
 	// to any recipient's inbox. This value can help you determine how long it took
 	// for a campaign to deliver an email message.
-	FirstSeenDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FirstSeenDateTime *time.Time `json:"email:DomainDeliverabilityCampaign:FirstSeenDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The verified email address that the email message was sent from.
-	FromAddress *string `type:"string"`
+	FromAddress *string `json:"email:DomainDeliverabilityCampaign:FromAddress" type:"string"`
 
 	// The URL of an image that contains a snapshot of the email message that was
 	// sent.
-	ImageUrl *string `type:"string"`
+	ImageUrl *string `json:"email:DomainDeliverabilityCampaign:ImageUrl" type:"string"`
 
 	// The number of email messages that were delivered to recipients’ inboxes.
-	InboxCount *int64 `type:"long"`
+	InboxCount *int64 `json:"email:DomainDeliverabilityCampaign:InboxCount" type:"long"`
 
 	// The last time, in Unix time format, when the email message was delivered
 	// to any recipient's inbox. This value can help you determine how long it took
 	// for a campaign to deliver an email message.
-	LastSeenDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastSeenDateTime *time.Time `json:"email:DomainDeliverabilityCampaign:LastSeenDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The projected number of recipients that the email message was sent to.
-	ProjectedVolume *int64 `type:"long"`
+	ProjectedVolume *int64 `json:"email:DomainDeliverabilityCampaign:ProjectedVolume" type:"long"`
 
 	// The percentage of email messages that were opened and then deleted by recipients.
 	// Due to technical limitations, this value only includes recipients who opened
 	// the message by using an email client that supports images.
-	ReadDeleteRate *float64 `type:"double"`
+	ReadDeleteRate *float64 `json:"email:DomainDeliverabilityCampaign:ReadDeleteRate" type:"double"`
 
 	// The percentage of email messages that were opened by recipients. Due to technical
 	// limitations, this value only includes recipients who opened the message by
 	// using an email client that supports images.
-	ReadRate *float64 `type:"double"`
+	ReadRate *float64 `json:"email:DomainDeliverabilityCampaign:ReadRate" type:"double"`
 
 	// The IP addresses that were used to send the email message.
-	SendingIps []string `type:"list"`
+	SendingIps []string `json:"email:DomainDeliverabilityCampaign:SendingIps" type:"list"`
 
 	// The number of email messages that were delivered to recipients' spam or junk
 	// mail folders.
-	SpamCount *int64 `type:"long"`
+	SpamCount *int64 `json:"email:DomainDeliverabilityCampaign:SpamCount" type:"long"`
 
 	// The subject line, or title, of the email message.
-	Subject *string `type:"string"`
+	Subject *string `json:"email:DomainDeliverabilityCampaign:Subject" type:"string"`
 }
 
 // String returns the string representation
@@ -876,15 +876,15 @@ type DomainDeliverabilityTrackingOption struct {
 
 	// A verified domain that’s associated with your AWS account and currently
 	// has an active Deliverability dashboard subscription.
-	Domain *string `type:"string"`
+	Domain *string `json:"email:DomainDeliverabilityTrackingOption:Domain" type:"string"`
 
 	// An object that contains information about the inbox placement data settings
 	// for the domain.
-	InboxPlacementTrackingOption *InboxPlacementTrackingOption `type:"structure"`
+	InboxPlacementTrackingOption *InboxPlacementTrackingOption `json:"email:DomainDeliverabilityTrackingOption:InboxPlacementTrackingOption" type:"structure"`
 
 	// The date, in Unix time format, when you enabled the Deliverability dashboard
 	// for the domain.
-	SubscriptionStartDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubscriptionStartDate *time.Time `json:"email:DomainDeliverabilityTrackingOption:SubscriptionStartDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -923,22 +923,22 @@ type DomainIspPlacement struct {
 
 	// The percentage of messages that were sent from the selected domain to the
 	// specified email provider that arrived in recipients' inboxes.
-	InboxPercentage *float64 `type:"double"`
+	InboxPercentage *float64 `json:"email:DomainIspPlacement:InboxPercentage" type:"double"`
 
 	// The total number of messages that were sent from the selected domain to the
 	// specified email provider that arrived in recipients' inboxes.
-	InboxRawCount *int64 `type:"long"`
+	InboxRawCount *int64 `json:"email:DomainIspPlacement:InboxRawCount" type:"long"`
 
 	// The name of the email provider that the inbox placement data applies to.
-	IspName *string `type:"string"`
+	IspName *string `json:"email:DomainIspPlacement:IspName" type:"string"`
 
 	// The percentage of messages that were sent from the selected domain to the
 	// specified email provider that arrived in recipients' spam or junk mail folders.
-	SpamPercentage *float64 `type:"double"`
+	SpamPercentage *float64 `json:"email:DomainIspPlacement:SpamPercentage" type:"double"`
 
 	// The total number of messages that were sent from the selected domain to the
 	// specified email provider that arrived in recipients' spam or junk mail folders.
-	SpamRawCount *int64 `type:"long"`
+	SpamRawCount *int64 `json:"email:DomainIspPlacement:SpamRawCount" type:"long"`
 }
 
 // String returns the string representation
@@ -1010,11 +1010,11 @@ type EmailContent struct {
 	//
 	//    * The length of any single line of text in the message can't exceed 1,000
 	//    characters. This restriction is defined in RFC 5321 (https://tools.ietf.org/html/rfc5321).
-	Raw *RawMessage `type:"structure"`
+	Raw *RawMessage `json:"email:EmailContent:Raw" type:"structure"`
 
 	// The simple email message. The message consists of a subject and a message
 	// body.
-	Simple *Message `type:"structure"`
+	Simple *Message `json:"email:EmailContent:Simple" type:"structure"`
 }
 
 // String returns the string representation
@@ -1072,38 +1072,38 @@ type EventDestination struct {
 	// An object that defines an Amazon CloudWatch destination for email events.
 	// You can use Amazon CloudWatch to monitor and gain insights on your email
 	// sending metrics.
-	CloudWatchDestination *CloudWatchDestination `type:"structure"`
+	CloudWatchDestination *CloudWatchDestination `json:"email:EventDestination:CloudWatchDestination" type:"structure"`
 
 	// If true, the event destination is enabled. When the event destination is
 	// enabled, the specified event types are sent to the destinations in this EventDestinationDefinition.
 	//
 	// If false, the event destination is disabled. When the event destination is
 	// disabled, events aren't sent to the specified destinations.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"email:EventDestination:Enabled" type:"boolean"`
 
 	// An object that defines an Amazon Kinesis Data Firehose destination for email
 	// events. You can use Amazon Kinesis Data Firehose to stream data to other
 	// services, such as Amazon S3 and Amazon Redshift.
-	KinesisFirehoseDestination *KinesisFirehoseDestination `type:"structure"`
+	KinesisFirehoseDestination *KinesisFirehoseDestination `json:"email:EventDestination:KinesisFirehoseDestination" type:"structure"`
 
 	// The types of events that Amazon Pinpoint sends to the specified event destinations.
 	//
 	// MatchingEventTypes is a required field
-	MatchingEventTypes []EventType `type:"list" required:"true"`
+	MatchingEventTypes []EventType `json:"email:EventDestination:MatchingEventTypes" type:"list" required:"true"`
 
 	// A name that identifies the event destination.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"email:EventDestination:Name" type:"string" required:"true"`
 
 	// An object that defines a Amazon Pinpoint destination for email events. You
 	// can use Amazon Pinpoint events to create attributes in Amazon Pinpoint projects.
 	// You can use these attributes to create segments for your campaigns.
-	PinpointDestination *PinpointDestination `type:"structure"`
+	PinpointDestination *PinpointDestination `json:"email:EventDestination:PinpointDestination" type:"structure"`
 
 	// An object that defines an Amazon SNS destination for email events. You can
 	// use Amazon SNS to send notification when certain email events occur.
-	SnsDestination *SnsDestination `type:"structure"`
+	SnsDestination *SnsDestination `json:"email:EventDestination:SnsDestination" type:"structure"`
 }
 
 // String returns the string representation
@@ -1175,32 +1175,32 @@ type EventDestinationDefinition struct {
 	// An object that defines an Amazon CloudWatch destination for email events.
 	// You can use Amazon CloudWatch to monitor and gain insights on your email
 	// sending metrics.
-	CloudWatchDestination *CloudWatchDestination `type:"structure"`
+	CloudWatchDestination *CloudWatchDestination `json:"email:EventDestinationDefinition:CloudWatchDestination" type:"structure"`
 
 	// If true, the event destination is enabled. When the event destination is
 	// enabled, the specified event types are sent to the destinations in this EventDestinationDefinition.
 	//
 	// If false, the event destination is disabled. When the event destination is
 	// disabled, events aren't sent to the specified destinations.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"email:EventDestinationDefinition:Enabled" type:"boolean"`
 
 	// An object that defines an Amazon Kinesis Data Firehose destination for email
 	// events. You can use Amazon Kinesis Data Firehose to stream data to other
 	// services, such as Amazon S3 and Amazon Redshift.
-	KinesisFirehoseDestination *KinesisFirehoseDestination `type:"structure"`
+	KinesisFirehoseDestination *KinesisFirehoseDestination `json:"email:EventDestinationDefinition:KinesisFirehoseDestination" type:"structure"`
 
 	// An array that specifies which events Amazon Pinpoint should send to the destinations
 	// in this EventDestinationDefinition.
-	MatchingEventTypes []EventType `type:"list"`
+	MatchingEventTypes []EventType `json:"email:EventDestinationDefinition:MatchingEventTypes" type:"list"`
 
 	// An object that defines a Amazon Pinpoint destination for email events. You
 	// can use Amazon Pinpoint events to create attributes in Amazon Pinpoint projects.
 	// You can use these attributes to create segments for your campaigns.
-	PinpointDestination *PinpointDestination `type:"structure"`
+	PinpointDestination *PinpointDestination `json:"email:EventDestinationDefinition:PinpointDestination" type:"structure"`
 
 	// An object that defines an Amazon SNS destination for email events. You can
 	// use Amazon SNS to send notification when certain email events occur.
-	SnsDestination *SnsDestination `type:"structure"`
+	SnsDestination *SnsDestination `json:"email:EventDestinationDefinition:SnsDestination" type:"structure"`
 }
 
 // String returns the string representation
@@ -1286,7 +1286,7 @@ type IdentityInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The address or domain of the identity.
-	IdentityName *string `type:"string"`
+	IdentityName *string `json:"email:IdentityInfo:IdentityName" type:"string"`
 
 	// The email identity type. The identity type can be one of the following:
 	//
@@ -1295,7 +1295,7 @@ type IdentityInfo struct {
 	//    * DOMAIN – The identity is a domain.
 	//
 	//    * MANAGED_DOMAIN – The identity is a domain that is managed by AWS.
-	IdentityType IdentityType `type:"string" enum:"true"`
+	IdentityType IdentityType `json:"email:IdentityInfo:IdentityType" type:"string" enum:"true"`
 
 	// Indicates whether or not you can send email from the identity.
 	//
@@ -1303,7 +1303,7 @@ type IdentityInfo struct {
 	// email from. Before you can send email from an identity, you have to demostrate
 	// that you own the identity, and that you authorize Amazon Pinpoint to send
 	// email from that identity.
-	SendingEnabled *bool `type:"boolean"`
+	SendingEnabled *bool `json:"email:IdentityInfo:SendingEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1343,11 +1343,11 @@ type InboxPlacementTrackingOption struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether inbox placement data is being tracked for the domain.
-	Global *bool `type:"boolean"`
+	Global *bool `json:"email:InboxPlacementTrackingOption:Global" type:"boolean"`
 
 	// An array of strings, one for each major email provider that the inbox placement
 	// data applies to.
-	TrackedIsps []string `type:"list"`
+	TrackedIsps []string `json:"email:InboxPlacementTrackingOption:TrackedIsps" type:"list"`
 }
 
 // String returns the string representation
@@ -1385,10 +1385,10 @@ type IspPlacement struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the email provider that the inbox placement data applies to.
-	IspName *string `type:"string"`
+	IspName *string `json:"email:IspPlacement:IspName" type:"string"`
 
 	// An object that contains inbox placement metrics for a specific email provider.
-	PlacementStatistics *PlacementStatistics `type:"structure"`
+	PlacementStatistics *PlacementStatistics `json:"email:IspPlacement:PlacementStatistics" type:"structure"`
 }
 
 // String returns the string representation
@@ -1424,13 +1424,13 @@ type KinesisFirehoseDestination struct {
 	// that Amazon Pinpoint sends email events to.
 	//
 	// DeliveryStreamArn is a required field
-	DeliveryStreamArn *string `type:"string" required:"true"`
+	DeliveryStreamArn *string `json:"email:KinesisFirehoseDestination:DeliveryStreamArn" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the IAM role that Amazon Pinpoint uses
 	// when sending email events to the Amazon Kinesis Data Firehose stream.
 	//
 	// IamRoleArn is a required field
-	IamRoleArn *string `type:"string" required:"true"`
+	IamRoleArn *string `json:"email:KinesisFirehoseDestination:IamRoleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1488,12 +1488,12 @@ type MailFromAttributes struct {
 	// is in the Pending, Failed, and TemporaryFailure states.
 	//
 	// BehaviorOnMxFailure is a required field
-	BehaviorOnMxFailure BehaviorOnMxFailure `type:"string" required:"true" enum:"true"`
+	BehaviorOnMxFailure BehaviorOnMxFailure `json:"email:MailFromAttributes:BehaviorOnMxFailure" type:"string" required:"true" enum:"true"`
 
 	// The name of a domain that an email identity uses as a custom MAIL FROM domain.
 	//
 	// MailFromDomain is a required field
-	MailFromDomain *string `type:"string" required:"true"`
+	MailFromDomain *string `json:"email:MailFromAttributes:MailFromDomain" type:"string" required:"true"`
 
 	// The status of the MAIL FROM domain. This status can have the following values:
 	//
@@ -1510,7 +1510,7 @@ type MailFromAttributes struct {
 	//    Pinpoint from determining the status of the MAIL FROM domain.
 	//
 	// MailFromDomainStatus is a required field
-	MailFromDomainStatus MailFromDomainStatus `type:"string" required:"true" enum:"true"`
+	MailFromDomainStatus MailFromDomainStatus `json:"email:MailFromAttributes:MailFromDomainStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1551,14 +1551,14 @@ type Message struct {
 	// a text-only version of the message, or both.
 	//
 	// Body is a required field
-	Body *Body `type:"structure" required:"true"`
+	Body *Body `json:"email:Message:Body" type:"structure" required:"true"`
 
 	// The subject line of the email. The subject line can only contain 7-bit ASCII
 	// characters. However, you can specify non-ASCII characters in the subject
 	// line by using encoded-word syntax, as described in RFC 2047 (https://tools.ietf.org/html/rfc2047).
 	//
 	// Subject is a required field
-	Subject *Content `type:"structure" required:"true"`
+	Subject *Content `json:"email:Message:Subject" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1626,7 +1626,7 @@ type MessageTag struct {
 	//    * It can contain no more than 256 characters.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"email:MessageTag:Name" type:"string" required:"true"`
 
 	// The value of the message tag. The message tag value has to meet the following
 	// criteria:
@@ -1637,7 +1637,7 @@ type MessageTag struct {
 	//    * It can contain no more than 256 characters.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"email:MessageTag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1688,15 +1688,15 @@ type OverallVolume struct {
 
 	// An object that contains inbox and junk mail placement metrics for individual
 	// email providers.
-	DomainIspPlacements []DomainIspPlacement `type:"list"`
+	DomainIspPlacements []DomainIspPlacement `json:"email:OverallVolume:DomainIspPlacements" type:"list"`
 
 	// The percentage of emails that were sent from the domain that were read by
 	// their recipients.
-	ReadRatePercent *float64 `type:"double"`
+	ReadRatePercent *float64 `json:"email:OverallVolume:ReadRatePercent" type:"double"`
 
 	// An object that contains information about the numbers of messages that arrived
 	// in recipients' inboxes and junk mail folders.
-	VolumeStatistics *VolumeStatistics `type:"structure"`
+	VolumeStatistics *VolumeStatistics `json:"email:OverallVolume:VolumeStatistics" type:"structure"`
 }
 
 // String returns the string representation
@@ -1742,7 +1742,7 @@ type PinpointDestination struct {
 
 	// The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you want
 	// to send email events to.
-	ApplicationArn *string `type:"string"`
+	ApplicationArn *string `json:"email:PinpointDestination:ApplicationArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1768,23 +1768,23 @@ type PlacementStatistics struct {
 
 	// The percentage of emails that were authenticated by using DomainKeys Identified
 	// Mail (DKIM) during the predictive inbox placement test.
-	DkimPercentage *float64 `type:"double"`
+	DkimPercentage *float64 `json:"email:PlacementStatistics:DkimPercentage" type:"double"`
 
 	// The percentage of emails that arrived in recipients' inboxes during the predictive
 	// inbox placement test.
-	InboxPercentage *float64 `type:"double"`
+	InboxPercentage *float64 `json:"email:PlacementStatistics:InboxPercentage" type:"double"`
 
 	// The percentage of emails that didn't arrive in recipients' inboxes at all
 	// during the predictive inbox placement test.
-	MissingPercentage *float64 `type:"double"`
+	MissingPercentage *float64 `json:"email:PlacementStatistics:MissingPercentage" type:"double"`
 
 	// The percentage of emails that arrived in recipients' spam or junk mail folders
 	// during the predictive inbox placement test.
-	SpamPercentage *float64 `type:"double"`
+	SpamPercentage *float64 `json:"email:PlacementStatistics:SpamPercentage" type:"double"`
 
 	// The percentage of emails that were authenticated by using Sender Policy Framework
 	// (SPF) during the predictive inbox placement test.
-	SpfPercentage *float64 `type:"double"`
+	SpfPercentage *float64 `json:"email:PlacementStatistics:SpfPercentage" type:"double"`
 }
 
 // String returns the string representation
@@ -1855,7 +1855,7 @@ type RawMessage struct {
 	// Data is automatically base64 encoded/decoded by the SDK.
 	//
 	// Data is a required field
-	Data []byte `type:"blob" required:"true"`
+	Data []byte `json:"email:RawMessage:Data" type:"blob" required:"true"`
 }
 
 // String returns the string representation
@@ -1897,12 +1897,12 @@ type ReputationOptions struct {
 	// The date and time (in Unix time) when the reputation metrics were last given
 	// a fresh start. When your account is given a fresh start, your reputation
 	// metrics are calculated starting from the date of the fresh start.
-	LastFreshStart *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastFreshStart *time.Time `json:"email:ReputationOptions:LastFreshStart" type:"timestamp" timestampFormat:"unix"`
 
 	// If true, tracking of reputation metrics is enabled for the configuration
 	// set. If false, tracking of reputation metrics is disabled for the configuration
 	// set.
-	ReputationMetricsEnabled *bool `type:"boolean"`
+	ReputationMetricsEnabled *bool `json:"email:ReputationOptions:ReputationMetricsEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1935,16 +1935,16 @@ type SendQuota struct {
 
 	// The maximum number of emails that you can send in the current AWS Region
 	// over a 24-hour period. This value is also called your sending quota.
-	Max24HourSend *float64 `type:"double"`
+	Max24HourSend *float64 `json:"email:SendQuota:Max24HourSend" type:"double"`
 
 	// The maximum number of emails that you can send per second in the current
 	// AWS Region. This value is also called your maximum sending rate or your maximum
 	// TPS (transactions per second) rate.
-	MaxSendRate *float64 `type:"double"`
+	MaxSendRate *float64 `json:"email:SendQuota:MaxSendRate" type:"double"`
 
 	// The number of emails sent from your Amazon Pinpoint account in the current
 	// AWS Region over the past 24 hours.
-	SentLast24Hours *float64 `type:"double"`
+	SentLast24Hours *float64 `json:"email:SendQuota:SentLast24Hours" type:"double"`
 }
 
 // String returns the string representation
@@ -1983,7 +1983,7 @@ type SendingOptions struct {
 
 	// If true, email sending is enabled for the configuration set. If false, email
 	// sending is disabled for the configuration set.
-	SendingEnabled *bool `type:"boolean"`
+	SendingEnabled *bool `json:"email:SendingOptions:SendingEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2013,7 +2013,7 @@ type SnsDestination struct {
 	// SNS Developer Guide (https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html).
 	//
 	// TopicArn is a required field
-	TopicArn *string `type:"string" required:"true"`
+	TopicArn *string `json:"email:SnsDestination:TopicArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2082,7 +2082,7 @@ type Tag struct {
 	// tag key is 128 characters. The minimum length is 1 character.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"email:Tag:Key" type:"string" required:"true"`
 
 	// The optional part of a key-value pair that defines a tag. The maximum length
 	// of a tag value is 256 characters. The minimum length is 0 characters. If
@@ -2091,7 +2091,7 @@ type Tag struct {
 	// string.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"email:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2150,7 +2150,7 @@ type TrackingOptions struct {
 	// The domain that you want to use for tracking open and click events.
 	//
 	// CustomRedirectDomain is a required field
-	CustomRedirectDomain *string `type:"string" required:"true"`
+	CustomRedirectDomain *string `json:"email:TrackingOptions:CustomRedirectDomain" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2190,19 +2190,19 @@ type VolumeStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of emails that arrived in recipients' inboxes.
-	InboxRawCount *int64 `type:"long"`
+	InboxRawCount *int64 `json:"email:VolumeStatistics:InboxRawCount" type:"long"`
 
 	// An estimate of the percentage of emails sent from the current domain that
 	// will arrive in recipients' inboxes.
-	ProjectedInbox *int64 `type:"long"`
+	ProjectedInbox *int64 `json:"email:VolumeStatistics:ProjectedInbox" type:"long"`
 
 	// An estimate of the percentage of emails sent from the current domain that
 	// will arrive in recipients' spam or junk mail folders.
-	ProjectedSpam *int64 `type:"long"`
+	ProjectedSpam *int64 `json:"email:VolumeStatistics:ProjectedSpam" type:"long"`
 
 	// The total number of emails that arrived in recipients' spam or junk mail
 	// folders.
-	SpamRawCount *int64 `type:"long"`
+	SpamRawCount *int64 `json:"email:VolumeStatistics:SpamRawCount" type:"long"`
 }
 
 // String returns the string representation

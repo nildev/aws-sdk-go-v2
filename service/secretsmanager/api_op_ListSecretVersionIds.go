@@ -95,10 +95,10 @@ type ListSecretVersionIdsOutput struct {
 	// a new secret with the same name as an old secret that you previously deleted,
 	// then users with access to the old secret don't automatically get access to
 	// the new secret because the ARNs are different.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:ListSecretVersionIdsOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:ListSecretVersionIdsOutput:Name" min:"1" type:"string"`
 
 	// If present in the response, this value indicates that there's more output
 	// available than what's included in the current response. This can occur even
@@ -107,10 +107,10 @@ type ListSecretVersionIdsOutput struct {
 	// in a subsequent call to the operation to continue processing and get the
 	// next part of the output. You should repeat this until the NextToken response
 	// element comes back empty (as null).
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"secretsmanager:ListSecretVersionIdsOutput:NextToken" min:"1" type:"string"`
 
 	// The list of the currently available versions of the specified secret.
-	Versions []SecretVersionsListEntry `type:"list"`
+	Versions []SecretVersionsListEntry `json:"secretsmanager:ListSecretVersionIdsOutput:Versions" type:"list"`
 }
 
 // String returns the string representation

@@ -58,7 +58,7 @@ type GetBackupPlanFromTemplateOutput struct {
 
 	// Returns the body of a backup plan based on the target template, including
 	// the name, rules, and backup vault of the plan.
-	BackupPlanDocument *BackupPlan `type:"structure"`
+	BackupPlanDocument *BackupPlan `json:"backup:GetBackupPlanFromTemplateOutput:BackupPlanDocument" type:"structure"`
 }
 
 // String returns the string representation

@@ -64,7 +64,7 @@ type BatchPutScheduledUpdateGroupActionOutput struct {
 
 	// The names of the scheduled actions that could not be created or updated,
 	// including an error message.
-	FailedScheduledUpdateGroupActions []FailedScheduledUpdateGroupActionRequest `type:"list"`
+	FailedScheduledUpdateGroupActions []FailedScheduledUpdateGroupActionRequest `json:"autoscaling:BatchPutScheduledUpdateGroupActionOutput:FailedScheduledUpdateGroupActions" type:"list"`
 }
 
 // String returns the string representation

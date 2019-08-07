@@ -25,7 +25,7 @@ type ListAvailableZonesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of Availability Zones that have available AWS CloudHSM capacity.
-	AZList []string `type:"list"`
+	AZList []string `json:"cloudhsm:ListAvailableZonesOutput:AZList" type:"list"`
 }
 
 // String returns the string representation

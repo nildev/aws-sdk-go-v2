@@ -68,24 +68,24 @@ type GetCoreDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the core definition version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetCoreDefinitionVersionOutput:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the core definition version
 	// was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetCoreDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
 	// Information about the core definition version.
-	Definition *CoreDefinitionVersion `type:"structure"`
+	Definition *CoreDefinitionVersion `json:"greengrass:GetCoreDefinitionVersionOutput:Definition" type:"structure"`
 
 	// The ID of the core definition version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetCoreDefinitionVersionOutput:Id" type:"string"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:GetCoreDefinitionVersionOutput:NextToken" type:"string"`
 
 	// The version of the core definition version.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:GetCoreDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

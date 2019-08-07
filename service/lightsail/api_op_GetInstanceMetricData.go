@@ -100,10 +100,10 @@ type GetInstanceMetricDataOutput struct {
 
 	// An array of key-value pairs containing information about the results of your
 	// get instance metric data request.
-	MetricData []MetricDatapoint `locationName:"metricData" type:"list"`
+	MetricData []MetricDatapoint `json:"lightsail:GetInstanceMetricDataOutput:MetricData" locationName:"metricData" type:"list"`
 
 	// The metric name to return data for.
-	MetricName InstanceMetricName `locationName:"metricName" type:"string" enum:"true"`
+	MetricName InstanceMetricName `json:"lightsail:GetInstanceMetricDataOutput:MetricName" locationName:"metricName" type:"string" enum:"true"`
 }
 
 // String returns the string representation

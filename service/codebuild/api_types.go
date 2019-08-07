@@ -19,13 +19,13 @@ type Build struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the build.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"codebuild:Build:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// Information about the output artifacts for the build.
-	Artifacts *BuildArtifacts `locationName:"artifacts" type:"structure"`
+	Artifacts *BuildArtifacts `json:"codebuild:Build:Artifacts" locationName:"artifacts" type:"structure"`
 
 	// Whether the build is complete. True if complete; otherwise, false.
-	BuildComplete *bool `locationName:"buildComplete" type:"boolean"`
+	BuildComplete *bool `json:"codebuild:Build:BuildComplete" locationName:"buildComplete" type:"boolean"`
 
 	// The current status of the build. Valid values include:
 	//
@@ -40,13 +40,13 @@ type Build struct {
 	//    * SUCCEEDED: The build succeeded.
 	//
 	//    * TIMED_OUT: The build timed out.
-	BuildStatus StatusType `locationName:"buildStatus" type:"string" enum:"true"`
+	BuildStatus StatusType `json:"codebuild:Build:BuildStatus" locationName:"buildStatus" type:"string" enum:"true"`
 
 	// Information about the cache for the build.
-	Cache *ProjectCache `locationName:"cache" type:"structure"`
+	Cache *ProjectCache `json:"codebuild:Build:Cache" locationName:"cache" type:"structure"`
 
 	// The current build phase.
-	CurrentPhase *string `locationName:"currentPhase" type:"string"`
+	CurrentPhase *string `json:"codebuild:Build:CurrentPhase" locationName:"currentPhase" type:"string"`
 
 	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
 	// used for encrypting the build output artifacts.
@@ -56,16 +56,16 @@ type Build struct {
 	//
 	// You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
 	// the CMK's alias (using the format alias/alias-name ).
-	EncryptionKey *string `locationName:"encryptionKey" min:"1" type:"string"`
+	EncryptionKey *string `json:"codebuild:Build:EncryptionKey" locationName:"encryptionKey" min:"1" type:"string"`
 
 	// When the build process ended, expressed in Unix time format.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"codebuild:Build:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the build environment for this build.
-	Environment *ProjectEnvironment `locationName:"environment" type:"structure"`
+	Environment *ProjectEnvironment `json:"codebuild:Build:Environment" locationName:"environment" type:"structure"`
 
 	// The unique ID for the build.
-	Id *string `locationName:"id" min:"1" type:"string"`
+	Id *string `json:"codebuild:Build:Id" locationName:"id" min:"1" type:"string"`
 
 	// The entity that started the build. Valid values include:
 	//
@@ -77,23 +77,23 @@ type Build struct {
 	//
 	//    * If the Jenkins plugin for AWS CodeBuild started the build, the string
 	//    CodeBuild-Jenkins-Plugin.
-	Initiator *string `locationName:"initiator" type:"string"`
+	Initiator *string `json:"codebuild:Build:Initiator" locationName:"initiator" type:"string"`
 
 	// Information about the build's logs in Amazon CloudWatch Logs.
-	Logs *LogsLocation `locationName:"logs" type:"structure"`
+	Logs *LogsLocation `json:"codebuild:Build:Logs" locationName:"logs" type:"structure"`
 
 	// Describes a network interface.
-	NetworkInterface *NetworkInterface `locationName:"networkInterface" type:"structure"`
+	NetworkInterface *NetworkInterface `json:"codebuild:Build:NetworkInterface" locationName:"networkInterface" type:"structure"`
 
 	// Information about all previous build phases that are complete and information
 	// about any current build phase that is not yet complete.
-	Phases []BuildPhase `locationName:"phases" type:"list"`
+	Phases []BuildPhase `json:"codebuild:Build:Phases" locationName:"phases" type:"list"`
 
 	// The name of the AWS CodeBuild project.
-	ProjectName *string `locationName:"projectName" min:"1" type:"string"`
+	ProjectName *string `json:"codebuild:Build:ProjectName" locationName:"projectName" min:"1" type:"string"`
 
 	// The number of minutes a build is allowed to be queued before it times out.
-	QueuedTimeoutInMinutes *int64 `locationName:"queuedTimeoutInMinutes" type:"integer"`
+	QueuedTimeoutInMinutes *int64 `json:"codebuild:Build:QueuedTimeoutInMinutes" locationName:"queuedTimeoutInMinutes" type:"integer"`
 
 	// An identifier for the version of this build's source code.
 	//
@@ -103,10 +103,10 @@ type Build struct {
 	//    * For AWS CodePipeline, the source revision provided by AWS CodePipeline.
 	//
 	//    * For Amazon Simple Storage Service (Amazon S3), this does not apply.
-	ResolvedSourceVersion *string `locationName:"resolvedSourceVersion" min:"1" type:"string"`
+	ResolvedSourceVersion *string `json:"codebuild:Build:ResolvedSourceVersion" locationName:"resolvedSourceVersion" min:"1" type:"string"`
 
 	// An array of ProjectArtifacts objects.
-	SecondaryArtifacts []BuildArtifacts `locationName:"secondaryArtifacts" type:"list"`
+	SecondaryArtifacts []BuildArtifacts `json:"codebuild:Build:SecondaryArtifacts" locationName:"secondaryArtifacts" type:"list"`
 
 	// An array of ProjectSourceVersion objects. Each ProjectSourceVersion must
 	// be one of:
@@ -127,16 +127,16 @@ type Build struct {
 	//
 	//    * For Amazon Simple Storage Service (Amazon S3): the version ID of the
 	//    object that represents the build input ZIP file to use.
-	SecondarySourceVersions []ProjectSourceVersion `locationName:"secondarySourceVersions" type:"list"`
+	SecondarySourceVersions []ProjectSourceVersion `json:"codebuild:Build:SecondarySourceVersions" locationName:"secondarySourceVersions" type:"list"`
 
 	// An array of ProjectSource objects.
-	SecondarySources []ProjectSource `locationName:"secondarySources" type:"list"`
+	SecondarySources []ProjectSource `json:"codebuild:Build:SecondarySources" locationName:"secondarySources" type:"list"`
 
 	// The name of a service role used for this build.
-	ServiceRole *string `locationName:"serviceRole" min:"1" type:"string"`
+	ServiceRole *string `json:"codebuild:Build:ServiceRole" locationName:"serviceRole" min:"1" type:"string"`
 
 	// Information about the source code to be built.
-	Source *ProjectSource `locationName:"source" type:"structure"`
+	Source *ProjectSource `json:"codebuild:Build:Source" locationName:"source" type:"structure"`
 
 	// Any version identifier for the version of the source code to be built. If
 	// sourceVersion is specified at the project level, then this sourceVersion
@@ -144,20 +144,20 @@ type Build struct {
 	//
 	// For more information, see Source Version Sample with CodeBuild (https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html)
 	// in the AWS CodeBuild User Guide.
-	SourceVersion *string `locationName:"sourceVersion" min:"1" type:"string"`
+	SourceVersion *string `json:"codebuild:Build:SourceVersion" locationName:"sourceVersion" min:"1" type:"string"`
 
 	// When the build process started, expressed in Unix time format.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"codebuild:Build:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// How long, in minutes, for AWS CodeBuild to wait before timing out this build
 	// if it does not get marked as completed.
-	TimeoutInMinutes *int64 `locationName:"timeoutInMinutes" type:"integer"`
+	TimeoutInMinutes *int64 `json:"codebuild:Build:TimeoutInMinutes" locationName:"timeoutInMinutes" type:"integer"`
 
 	// If your AWS CodeBuild project accesses resources in an Amazon VPC, you provide
 	// this parameter that identifies the VPC ID and the list of security group
 	// IDs and subnet IDs. The security groups and subnets must belong to the same
 	// VPC. You must provide at least one security group and one subnet ID.
-	VpcConfig *VpcConfig `locationName:"vpcConfig" type:"structure"`
+	VpcConfig *VpcConfig `json:"codebuild:Build:VpcConfig" locationName:"vpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -171,13 +171,13 @@ type BuildArtifacts struct {
 	_ struct{} `type:"structure"`
 
 	// An identifier for this artifact definition.
-	ArtifactIdentifier *string `locationName:"artifactIdentifier" type:"string"`
+	ArtifactIdentifier *string `json:"codebuild:BuildArtifacts:ArtifactIdentifier" locationName:"artifactIdentifier" type:"string"`
 
 	// Information that tells you if encryption for build artifacts is disabled.
-	EncryptionDisabled *bool `locationName:"encryptionDisabled" type:"boolean"`
+	EncryptionDisabled *bool `json:"codebuild:BuildArtifacts:EncryptionDisabled" locationName:"encryptionDisabled" type:"boolean"`
 
 	// Information about the location of the build artifacts.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"codebuild:BuildArtifacts:Location" locationName:"location" type:"string"`
 
 	// The MD5 hash of the build artifact.
 	//
@@ -186,13 +186,13 @@ type BuildArtifacts struct {
 	//
 	// This value is available only if the build project's packaging value is set
 	// to ZIP.
-	Md5sum *string `locationName:"md5sum" type:"string"`
+	Md5sum *string `json:"codebuild:BuildArtifacts:Md5sum" locationName:"md5sum" type:"string"`
 
 	// If this flag is set, a name specified in the build spec file overrides the
 	// artifact name. The name specified in a build spec file is calculated at build
 	// time and uses the Shell Command Language. For example, you can append a date
 	// and time to your artifact name so that it is always unique.
-	OverrideArtifactName *bool `locationName:"overrideArtifactName" type:"boolean"`
+	OverrideArtifactName *bool `json:"codebuild:BuildArtifacts:OverrideArtifactName" locationName:"overrideArtifactName" type:"boolean"`
 
 	// The SHA-256 hash of the build artifact.
 	//
@@ -201,7 +201,7 @@ type BuildArtifacts struct {
 	//
 	// This value is available only if the build project's packaging value is set
 	// to ZIP.
-	Sha256sum *string `locationName:"sha256sum" type:"string"`
+	Sha256sum *string `json:"codebuild:BuildArtifacts:Sha256sum" locationName:"sha256sum" type:"string"`
 }
 
 // String returns the string representation
@@ -215,10 +215,10 @@ type BuildNotDeleted struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the build that could not be successfully deleted.
-	Id *string `locationName:"id" min:"1" type:"string"`
+	Id *string `json:"codebuild:BuildNotDeleted:Id" locationName:"id" min:"1" type:"string"`
 
 	// Additional information about the build that could not be successfully deleted.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"codebuild:BuildNotDeleted:StatusCode" locationName:"statusCode" type:"string"`
 }
 
 // String returns the string representation
@@ -233,14 +233,14 @@ type BuildPhase struct {
 
 	// Additional information about a build phase, especially to help troubleshoot
 	// a failed build.
-	Contexts []PhaseContext `locationName:"contexts" type:"list"`
+	Contexts []PhaseContext `json:"codebuild:BuildPhase:Contexts" locationName:"contexts" type:"list"`
 
 	// How long, in seconds, between the starting and ending times of the build's
 	// phase.
-	DurationInSeconds *int64 `locationName:"durationInSeconds" type:"long"`
+	DurationInSeconds *int64 `json:"codebuild:BuildPhase:DurationInSeconds" locationName:"durationInSeconds" type:"long"`
 
 	// When the build phase ended, expressed in Unix time format.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"codebuild:BuildPhase:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The current status of the build phase. Valid values include:
 	//
@@ -258,7 +258,7 @@ type BuildPhase struct {
 	//    * SUCCEEDED: The build phase succeeded.
 	//
 	//    * TIMED_OUT: The build phase timed out.
-	PhaseStatus StatusType `locationName:"phaseStatus" type:"string" enum:"true"`
+	PhaseStatus StatusType `json:"codebuild:BuildPhase:PhaseStatus" locationName:"phaseStatus" type:"string" enum:"true"`
 
 	// The name of the build phase. Valid values include:
 	//
@@ -285,10 +285,10 @@ type BuildPhase struct {
 	//
 	//    * UPLOAD_ARTIFACTS: Build output artifacts are being uploaded to the output
 	//    location.
-	PhaseType BuildPhaseType `locationName:"phaseType" type:"string" enum:"true"`
+	PhaseType BuildPhaseType `json:"codebuild:BuildPhase:PhaseType" locationName:"phaseType" type:"string" enum:"true"`
 
 	// When the build phase started, expressed in Unix time format.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"codebuild:BuildPhase:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -303,7 +303,7 @@ type CloudWatchLogsConfig struct {
 
 	// The group name of the logs in Amazon CloudWatch Logs. For more information,
 	// see Working with Log Groups and Log Streams (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html).
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"codebuild:CloudWatchLogsConfig:GroupName" locationName:"groupName" type:"string"`
 
 	// The current status of the logs in Amazon CloudWatch Logs for a build project.
 	// Valid values are:
@@ -313,11 +313,11 @@ type CloudWatchLogsConfig struct {
 	//    * DISABLED: Amazon CloudWatch Logs are not enabled for this build project.
 	//
 	// Status is a required field
-	Status LogsConfigStatusType `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status LogsConfigStatusType `json:"codebuild:CloudWatchLogsConfig:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 
 	// The prefix of the stream name of the Amazon CloudWatch Logs. For more information,
 	// see Working with Log Groups and Log Streams (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html).
-	StreamName *string `locationName:"streamName" type:"string"`
+	StreamName *string `json:"codebuild:CloudWatchLogsConfig:StreamName" locationName:"streamName" type:"string"`
 }
 
 // String returns the string representation
@@ -344,13 +344,13 @@ type EnvironmentImage struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the Docker image.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"codebuild:EnvironmentImage:Description" locationName:"description" type:"string"`
 
 	// The name of the Docker image.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"codebuild:EnvironmentImage:Name" locationName:"name" type:"string"`
 
 	// A list of environment image versions.
-	Versions []string `locationName:"versions" type:"list"`
+	Versions []string `json:"codebuild:EnvironmentImage:Versions" locationName:"versions" type:"list"`
 }
 
 // String returns the string representation
@@ -365,10 +365,10 @@ type EnvironmentLanguage struct {
 	_ struct{} `type:"structure"`
 
 	// The list of Docker images that are related by the specified programming language.
-	Images []EnvironmentImage `locationName:"images" type:"list"`
+	Images []EnvironmentImage `json:"codebuild:EnvironmentLanguage:Images" locationName:"images" type:"list"`
 
 	// The programming language for the Docker images.
-	Language LanguageType `locationName:"language" type:"string" enum:"true"`
+	Language LanguageType `json:"codebuild:EnvironmentLanguage:Language" locationName:"language" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -383,10 +383,10 @@ type EnvironmentPlatform struct {
 	_ struct{} `type:"structure"`
 
 	// The list of programming languages that are available for the specified platform.
-	Languages []EnvironmentLanguage `locationName:"languages" type:"list"`
+	Languages []EnvironmentLanguage `json:"codebuild:EnvironmentPlatform:Languages" locationName:"languages" type:"list"`
 
 	// The platform's name.
-	Platform PlatformType `locationName:"platform" type:"string" enum:"true"`
+	Platform PlatformType `json:"codebuild:EnvironmentPlatform:Platform" locationName:"platform" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -402,7 +402,7 @@ type EnvironmentVariable struct {
 	// The name or key of the environment variable.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"codebuild:EnvironmentVariable:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The type of environment variable. Valid values include:
 	//
@@ -410,7 +410,7 @@ type EnvironmentVariable struct {
 	//    Manager Parameter Store.
 	//
 	//    * PLAINTEXT: An environment variable in plaintext format.
-	Type EnvironmentVariableType `locationName:"type" type:"string" enum:"true"`
+	Type EnvironmentVariableType `json:"codebuild:EnvironmentVariable:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The value of the environment variable.
 	//
@@ -420,7 +420,7 @@ type EnvironmentVariable struct {
 	// and the AWS Command Line Interface (AWS CLI).
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"codebuild:EnvironmentVariable:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -458,7 +458,7 @@ type GitSubmodulesConfig struct {
 	// Set to true to fetch Git submodules for your AWS CodeBuild build project.
 	//
 	// FetchSubmodules is a required field
-	FetchSubmodules *bool `locationName:"fetchSubmodules" type:"boolean" required:"true"`
+	FetchSubmodules *bool `json:"codebuild:GitSubmodulesConfig:FetchSubmodules" locationName:"fetchSubmodules" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -488,11 +488,11 @@ type LogsConfig struct {
 
 	// Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch
 	// Logs are enabled by default.
-	CloudWatchLogs *CloudWatchLogsConfig `locationName:"cloudWatchLogs" type:"structure"`
+	CloudWatchLogs *CloudWatchLogsConfig `json:"codebuild:LogsConfig:CloudWatchLogs" locationName:"cloudWatchLogs" type:"structure"`
 
 	// Information about logs built to an S3 bucket for a build project. S3 logs
 	// are not enabled by default.
-	S3Logs *S3LogsConfig `locationName:"s3Logs" type:"structure"`
+	S3Logs *S3LogsConfig `json:"codebuild:LogsConfig:S3Logs" locationName:"s3Logs" type:"structure"`
 }
 
 // String returns the string representation
@@ -526,22 +526,22 @@ type LogsLocation struct {
 	_ struct{} `type:"structure"`
 
 	// Information about Amazon CloudWatch Logs for a build project.
-	CloudWatchLogs *CloudWatchLogsConfig `locationName:"cloudWatchLogs" type:"structure"`
+	CloudWatchLogs *CloudWatchLogsConfig `json:"codebuild:LogsLocation:CloudWatchLogs" locationName:"cloudWatchLogs" type:"structure"`
 
 	// The URL to an individual build log in Amazon CloudWatch Logs.
-	DeepLink *string `locationName:"deepLink" type:"string"`
+	DeepLink *string `json:"codebuild:LogsLocation:DeepLink" locationName:"deepLink" type:"string"`
 
 	// The name of the Amazon CloudWatch Logs group for the build logs.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"codebuild:LogsLocation:GroupName" locationName:"groupName" type:"string"`
 
 	// The URL to a build log in an S3 bucket.
-	S3DeepLink *string `locationName:"s3DeepLink" type:"string"`
+	S3DeepLink *string `json:"codebuild:LogsLocation:S3DeepLink" locationName:"s3DeepLink" type:"string"`
 
 	// Information about S3 logs for a build project.
-	S3Logs *S3LogsConfig `locationName:"s3Logs" type:"structure"`
+	S3Logs *S3LogsConfig `json:"codebuild:LogsLocation:S3Logs" locationName:"s3Logs" type:"structure"`
 
 	// The name of the Amazon CloudWatch Logs stream for the build logs.
-	StreamName *string `locationName:"streamName" type:"string"`
+	StreamName *string `json:"codebuild:LogsLocation:StreamName" locationName:"streamName" type:"string"`
 }
 
 // String returns the string representation
@@ -555,10 +555,10 @@ type NetworkInterface struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" min:"1" type:"string"`
+	NetworkInterfaceId *string `json:"codebuild:NetworkInterface:NetworkInterfaceId" locationName:"networkInterfaceId" min:"1" type:"string"`
 
 	// The ID of the subnet.
-	SubnetId *string `locationName:"subnetId" min:"1" type:"string"`
+	SubnetId *string `json:"codebuild:NetworkInterface:SubnetId" locationName:"subnetId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -574,10 +574,10 @@ type PhaseContext struct {
 
 	// An explanation of the build phase's context. This might include a command
 	// ID and an exit code.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"codebuild:PhaseContext:Message" locationName:"message" type:"string"`
 
 	// The status code for the context of the build phase.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"codebuild:PhaseContext:StatusCode" locationName:"statusCode" type:"string"`
 }
 
 // String returns the string representation
@@ -591,22 +591,22 @@ type Project struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the build project.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"codebuild:Project:Arn" locationName:"arn" type:"string"`
 
 	// Information about the build output artifacts for the build project.
-	Artifacts *ProjectArtifacts `locationName:"artifacts" type:"structure"`
+	Artifacts *ProjectArtifacts `json:"codebuild:Project:Artifacts" locationName:"artifacts" type:"structure"`
 
 	// Information about the build badge for the build project.
-	Badge *ProjectBadge `locationName:"badge" type:"structure"`
+	Badge *ProjectBadge `json:"codebuild:Project:Badge" locationName:"badge" type:"structure"`
 
 	// Information about the cache for the build project.
-	Cache *ProjectCache `locationName:"cache" type:"structure"`
+	Cache *ProjectCache `json:"codebuild:Project:Cache" locationName:"cache" type:"structure"`
 
 	// When the build project was created, expressed in Unix time format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"codebuild:Project:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// A description that makes the build project easy to identify.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"codebuild:Project:Description" locationName:"description" type:"string"`
 
 	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
 	// used for encrypting the build output artifacts.
@@ -616,43 +616,43 @@ type Project struct {
 	//
 	// You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
 	// the CMK's alias (using the format alias/alias-name ).
-	EncryptionKey *string `locationName:"encryptionKey" min:"1" type:"string"`
+	EncryptionKey *string `json:"codebuild:Project:EncryptionKey" locationName:"encryptionKey" min:"1" type:"string"`
 
 	// Information about the build environment for this build project.
-	Environment *ProjectEnvironment `locationName:"environment" type:"structure"`
+	Environment *ProjectEnvironment `json:"codebuild:Project:Environment" locationName:"environment" type:"structure"`
 
 	// When the build project's settings were last modified, expressed in Unix time
 	// format.
-	LastModified *time.Time `locationName:"lastModified" type:"timestamp" timestampFormat:"unix"`
+	LastModified *time.Time `json:"codebuild:Project:LastModified" locationName:"lastModified" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about logs for the build project. A project can create logs in
 	// Amazon CloudWatch Logs, an S3 bucket, or both.
-	LogsConfig *LogsConfig `locationName:"logsConfig" type:"structure"`
+	LogsConfig *LogsConfig `json:"codebuild:Project:LogsConfig" locationName:"logsConfig" type:"structure"`
 
 	// The name of the build project.
-	Name *string `locationName:"name" min:"2" type:"string"`
+	Name *string `json:"codebuild:Project:Name" locationName:"name" min:"2" type:"string"`
 
 	// The number of minutes a build is allowed to be queued before it times out.
-	QueuedTimeoutInMinutes *int64 `locationName:"queuedTimeoutInMinutes" min:"5" type:"integer"`
+	QueuedTimeoutInMinutes *int64 `json:"codebuild:Project:QueuedTimeoutInMinutes" locationName:"queuedTimeoutInMinutes" min:"5" type:"integer"`
 
 	// An array of ProjectArtifacts objects.
-	SecondaryArtifacts []ProjectArtifacts `locationName:"secondaryArtifacts" type:"list"`
+	SecondaryArtifacts []ProjectArtifacts `json:"codebuild:Project:SecondaryArtifacts" locationName:"secondaryArtifacts" type:"list"`
 
 	// An array of ProjectSourceVersion objects. If secondarySourceVersions is specified
 	// at the build level, then they take over these secondarySourceVersions (at
 	// the project level).
-	SecondarySourceVersions []ProjectSourceVersion `locationName:"secondarySourceVersions" type:"list"`
+	SecondarySourceVersions []ProjectSourceVersion `json:"codebuild:Project:SecondarySourceVersions" locationName:"secondarySourceVersions" type:"list"`
 
 	// An array of ProjectSource objects.
-	SecondarySources []ProjectSource `locationName:"secondarySources" type:"list"`
+	SecondarySources []ProjectSource `json:"codebuild:Project:SecondarySources" locationName:"secondarySources" type:"list"`
 
 	// The ARN of the AWS Identity and Access Management (IAM) role that enables
 	// AWS CodeBuild to interact with dependent AWS services on behalf of the AWS
 	// account.
-	ServiceRole *string `locationName:"serviceRole" min:"1" type:"string"`
+	ServiceRole *string `json:"codebuild:Project:ServiceRole" locationName:"serviceRole" min:"1" type:"string"`
 
 	// Information about the build input source code for this build project.
-	Source *ProjectSource `locationName:"source" type:"structure"`
+	Source *ProjectSource `json:"codebuild:Project:Source" locationName:"source" type:"structure"`
 
 	// A version of the build input to be built for this project. If not specified,
 	// the latest version is used. If specified, it must be one of:
@@ -679,25 +679,25 @@ type Project struct {
 	//
 	// For more information, see Source Version Sample with CodeBuild (https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html)
 	// in the AWS CodeBuild User Guide.
-	SourceVersion *string `locationName:"sourceVersion" type:"string"`
+	SourceVersion *string `json:"codebuild:Project:SourceVersion" locationName:"sourceVersion" type:"string"`
 
 	// The tags for this build project.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild
 	// build project tags.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"codebuild:Project:Tags" locationName:"tags" type:"list"`
 
 	// How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait
 	// before timing out any related build that did not get marked as completed.
 	// The default is 60 minutes.
-	TimeoutInMinutes *int64 `locationName:"timeoutInMinutes" min:"5" type:"integer"`
+	TimeoutInMinutes *int64 `json:"codebuild:Project:TimeoutInMinutes" locationName:"timeoutInMinutes" min:"5" type:"integer"`
 
 	// Information about the VPC configuration that AWS CodeBuild accesses.
-	VpcConfig *VpcConfig `locationName:"vpcConfig" type:"structure"`
+	VpcConfig *VpcConfig `json:"codebuild:Project:VpcConfig" locationName:"vpcConfig" type:"structure"`
 
 	// Information about a webhook that connects repository events to a build project
 	// in AWS CodeBuild.
-	Webhook *Webhook `locationName:"webhook" type:"structure"`
+	Webhook *Webhook `json:"codebuild:Project:Webhook" locationName:"webhook" type:"structure"`
 }
 
 // String returns the string representation
@@ -711,13 +711,13 @@ type ProjectArtifacts struct {
 	_ struct{} `type:"structure"`
 
 	// An identifier for this artifact definition.
-	ArtifactIdentifier *string `locationName:"artifactIdentifier" type:"string"`
+	ArtifactIdentifier *string `json:"codebuild:ProjectArtifacts:ArtifactIdentifier" locationName:"artifactIdentifier" type:"string"`
 
 	// Set to true if you do not want your output artifacts encrypted. This option
 	// is valid only if your artifacts type is Amazon Simple Storage Service (Amazon
 	// S3). If this is set with another artifacts type, an invalidInputException
 	// is thrown.
-	EncryptionDisabled *bool `locationName:"encryptionDisabled" type:"boolean"`
+	EncryptionDisabled *bool `json:"codebuild:ProjectArtifacts:EncryptionDisabled" locationName:"encryptionDisabled" type:"boolean"`
 
 	// Information about the build output artifact location:
 	//
@@ -729,7 +729,7 @@ type ProjectArtifacts struct {
 	//    because no build output is produced.
 	//
 	//    * If type is set to S3, this is the name of the output bucket.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"codebuild:ProjectArtifacts:Location" locationName:"location" type:"string"`
 
 	// Along with path and namespaceType, the pattern that AWS CodeBuild uses to
 	// name and store the output artifact:
@@ -755,7 +755,7 @@ type ProjectArtifacts struct {
 	//
 	//    * If path is set to MyArtifacts, namespaceType is set to BUILD_ID, and
 	//    name is set to "/", the output artifact is stored in MyArtifacts/build-ID .
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"codebuild:ProjectArtifacts:Name" locationName:"name" type:"string"`
 
 	// Along with path and name, the pattern that AWS CodeBuild uses to determine
 	// the name and location to store the output artifact:
@@ -773,13 +773,13 @@ type ProjectArtifacts struct {
 	//
 	// For example, if path is set to MyArtifacts, namespaceType is set to BUILD_ID,
 	// and name is set to MyArtifact.zip, the output artifact is stored in MyArtifacts/build-ID/MyArtifact.zip.
-	NamespaceType ArtifactNamespace `locationName:"namespaceType" type:"string" enum:"true"`
+	NamespaceType ArtifactNamespace `json:"codebuild:ProjectArtifacts:NamespaceType" locationName:"namespaceType" type:"string" enum:"true"`
 
 	// If this flag is set, a name specified in the build spec file overrides the
 	// artifact name. The name specified in a build spec file is calculated at build
 	// time and uses the Shell Command Language. For example, you can append a date
 	// and time to your artifact name so that it is always unique.
-	OverrideArtifactName *bool `locationName:"overrideArtifactName" type:"boolean"`
+	OverrideArtifactName *bool `json:"codebuild:ProjectArtifacts:OverrideArtifactName" locationName:"overrideArtifactName" type:"boolean"`
 
 	// The type of build output artifact to create:
 	//
@@ -794,7 +794,7 @@ type ProjectArtifacts struct {
 	//    in the output bucket a folder that contains the build output. This is
 	//    the default if packaging is not specified. ZIP: AWS CodeBuild creates
 	//    in the output bucket a ZIP file that contains the build output.
-	Packaging ArtifactPackaging `locationName:"packaging" type:"string" enum:"true"`
+	Packaging ArtifactPackaging `json:"codebuild:ProjectArtifacts:Packaging" locationName:"packaging" type:"string" enum:"true"`
 
 	// Along with namespaceType and name, the pattern that AWS CodeBuild uses to
 	// name and store the output artifact:
@@ -812,7 +812,7 @@ type ProjectArtifacts struct {
 	// For example, if path is set to MyArtifacts, namespaceType is set to NONE,
 	// and name is set to MyArtifact.zip, the output artifact is stored in the output
 	// bucket at MyArtifacts/MyArtifact.zip.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"codebuild:ProjectArtifacts:Path" locationName:"path" type:"string"`
 
 	// The type of build output artifact. Valid values include:
 	//
@@ -825,7 +825,7 @@ type ProjectArtifacts struct {
 	//    (Amazon S3).
 	//
 	// Type is a required field
-	Type ArtifactsType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type ArtifactsType `json:"codebuild:ProjectArtifacts:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -853,14 +853,14 @@ type ProjectBadge struct {
 
 	// Set this to true to generate a publicly accessible URL for your project's
 	// build badge.
-	BadgeEnabled *bool `locationName:"badgeEnabled" type:"boolean"`
+	BadgeEnabled *bool `json:"codebuild:ProjectBadge:BadgeEnabled" locationName:"badgeEnabled" type:"boolean"`
 
 	// The publicly-accessible URL through which you can access the build badge
 	// for your project.
 	//
 	// The publicly accessible URL through which you can access the build badge
 	// for your project.
-	BadgeRequestUrl *string `locationName:"badgeRequestUrl" type:"string"`
+	BadgeRequestUrl *string `json:"codebuild:ProjectBadge:BadgeRequestUrl" locationName:"badgeRequestUrl" type:"string"`
 }
 
 // String returns the string representation
@@ -878,7 +878,7 @@ type ProjectCache struct {
 	//    * NO_CACHE or LOCAL: This value is ignored.
 	//
 	//    * S3: This is the S3 bucket name/prefix.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"codebuild:ProjectCache:Location" locationName:"location" type:"string"`
 
 	// If you use a LOCAL cache, the local cache mode. You can use one or more local
 	// cache modes at the same time.
@@ -906,7 +906,7 @@ type ProjectCache struct {
 	//    are linked to your build before it downloads its project sources. Cached
 	//    items are overriden if a source item has the same name. Directories are
 	//    specified using cache paths in the buildspec file.
-	Modes []CacheMode `locationName:"modes" type:"list"`
+	Modes []CacheMode `json:"codebuild:ProjectCache:Modes" locationName:"modes" type:"list"`
 
 	// The type of cache used by the build project. Valid values include:
 	//
@@ -918,7 +918,7 @@ type ProjectCache struct {
 	//    is only available to that build host.
 	//
 	// Type is a required field
-	Type CacheType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type CacheType `json:"codebuild:ProjectCache:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -945,7 +945,7 @@ type ProjectEnvironment struct {
 	_ struct{} `type:"structure"`
 
 	// The certificate to use with this build project.
-	Certificate *string `locationName:"certificate" type:"string"`
+	Certificate *string `json:"codebuild:ProjectEnvironment:Certificate" locationName:"certificate" type:"string"`
 
 	// Information about the compute resources the build project uses. Available
 	// values include:
@@ -957,11 +957,11 @@ type ProjectEnvironment struct {
 	//    * BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds.
 	//
 	// ComputeType is a required field
-	ComputeType ComputeType `locationName:"computeType" type:"string" required:"true" enum:"true"`
+	ComputeType ComputeType `json:"codebuild:ProjectEnvironment:ComputeType" locationName:"computeType" type:"string" required:"true" enum:"true"`
 
 	// A set of environment variables to make available to builds for this build
 	// project.
-	EnvironmentVariables []EnvironmentVariable `locationName:"environmentVariables" type:"list"`
+	EnvironmentVariables []EnvironmentVariable `json:"codebuild:ProjectEnvironment:EnvironmentVariables" locationName:"environmentVariables" type:"list"`
 
 	// The image tag or image digest that identifies the Docker image to use for
 	// this build project. Use the following formats:
@@ -974,7 +974,7 @@ type ProjectEnvironment struct {
 	//    use registry/repository@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf.
 	//
 	// Image is a required field
-	Image *string `locationName:"image" min:"1" type:"string" required:"true"`
+	Image *string `json:"codebuild:ProjectEnvironment:Image" locationName:"image" min:"1" type:"string" required:"true"`
 
 	// The type of credentials AWS CodeBuild uses to pull images in your build.
 	// There are two valid values:
@@ -989,7 +989,7 @@ type ProjectEnvironment struct {
 	// When you use a cross-account or private registry image, you must use SERVICE_ROLE
 	// credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD
 	// credentials.
-	ImagePullCredentialsType ImagePullCredentialsType `locationName:"imagePullCredentialsType" type:"string" enum:"true"`
+	ImagePullCredentialsType ImagePullCredentialsType `json:"codebuild:ProjectEnvironment:ImagePullCredentialsType" locationName:"imagePullCredentialsType" type:"string" enum:"true"`
 
 	// Enables running the Docker daemon inside a Docker container. Set to true
 	// only if the build project is be used to build Docker images, and the specified
@@ -1015,15 +1015,15 @@ type ProjectEnvironment struct {
 	// --storage-driver=overlay&
 	//
 	// - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
-	PrivilegedMode *bool `locationName:"privilegedMode" type:"boolean"`
+	PrivilegedMode *bool `json:"codebuild:ProjectEnvironment:PrivilegedMode" locationName:"privilegedMode" type:"boolean"`
 
 	// The credentials for access to a private registry.
-	RegistryCredential *RegistryCredential `locationName:"registryCredential" type:"structure"`
+	RegistryCredential *RegistryCredential `json:"codebuild:ProjectEnvironment:RegistryCredential" locationName:"registryCredential" type:"structure"`
 
 	// The type of build environment to use for related builds.
 	//
 	// Type is a required field
-	Type EnvironmentType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type EnvironmentType `json:"codebuild:ProjectEnvironment:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1076,23 +1076,23 @@ type ProjectSource struct {
 	//
 	// This information is for the AWS CodeBuild console's use only. Your code should
 	// not get or set this information directly.
-	Auth *SourceAuth `locationName:"auth" type:"structure"`
+	Auth *SourceAuth `json:"codebuild:ProjectSource:Auth" locationName:"auth" type:"structure"`
 
 	// The build spec declaration to use for the builds in this build project.
 	//
 	// If this value is not specified, a build spec must be included along with
 	// the source code to be built.
-	Buildspec *string `locationName:"buildspec" type:"string"`
+	Buildspec *string `json:"codebuild:ProjectSource:Buildspec" locationName:"buildspec" type:"string"`
 
 	// Information about the Git clone depth for the build project.
-	GitCloneDepth *int64 `locationName:"gitCloneDepth" type:"integer"`
+	GitCloneDepth *int64 `json:"codebuild:ProjectSource:GitCloneDepth" locationName:"gitCloneDepth" type:"integer"`
 
 	// Information about the Git submodules configuration for the build project.
-	GitSubmodulesConfig *GitSubmodulesConfig `locationName:"gitSubmodulesConfig" type:"structure"`
+	GitSubmodulesConfig *GitSubmodulesConfig `json:"codebuild:ProjectSource:GitSubmodulesConfig" locationName:"gitSubmodulesConfig" type:"structure"`
 
 	// Enable this flag to ignore SSL warnings while connecting to the project source
 	// code.
-	InsecureSsl *bool `locationName:"insecureSsl" type:"boolean"`
+	InsecureSsl *bool `json:"codebuild:ProjectSource:InsecureSsl" locationName:"insecureSsl" type:"boolean"`
 
 	// Information about the location of the source code to be built. Valid values
 	// include:
@@ -1134,16 +1134,16 @@ type ProjectSource struct {
 	//    leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this
 	//    connection, in the source object, set the auth object's type value to
 	//    OAUTH.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"codebuild:ProjectSource:Location" locationName:"location" type:"string"`
 
 	// Set to true to report the status of a build's start and finish to your source
 	// provider. This option is valid only when your source provider is GitHub,
 	// GitHub Enterprise, or Bitbucket. If this is set and you use a different source
 	// provider, an invalidInputException is thrown.
-	ReportBuildStatus *bool `locationName:"reportBuildStatus" type:"boolean"`
+	ReportBuildStatus *bool `json:"codebuild:ProjectSource:ReportBuildStatus" locationName:"reportBuildStatus" type:"boolean"`
 
 	// An identifier for this project source.
-	SourceIdentifier *string `locationName:"sourceIdentifier" type:"string"`
+	SourceIdentifier *string `json:"codebuild:ProjectSource:SourceIdentifier" locationName:"sourceIdentifier" type:"string"`
 
 	// The type of repository that contains the source code to be built. Valid values
 	// include:
@@ -1163,7 +1163,7 @@ type ProjectSource struct {
 	//    input bucket.
 	//
 	// Type is a required field
-	Type SourceType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type SourceType `json:"codebuild:ProjectSource:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1202,7 +1202,7 @@ type ProjectSourceVersion struct {
 	// An identifier for a source in the build project.
 	//
 	// SourceIdentifier is a required field
-	SourceIdentifier *string `locationName:"sourceIdentifier" type:"string" required:"true"`
+	SourceIdentifier *string `json:"codebuild:ProjectSourceVersion:SourceIdentifier" locationName:"sourceIdentifier" type:"string" required:"true"`
 
 	// The source version for the corresponding source identifier. If specified,
 	// must be one of:
@@ -1228,7 +1228,7 @@ type ProjectSourceVersion struct {
 	// in the AWS CodeBuild User Guide.
 	//
 	// SourceVersion is a required field
-	SourceVersion *string `locationName:"sourceVersion" type:"string" required:"true"`
+	SourceVersion *string `json:"codebuild:ProjectSourceVersion:SourceVersion" locationName:"sourceVersion" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1274,13 +1274,13 @@ type RegistryCredential struct {
 	// your current region.
 	//
 	// Credential is a required field
-	Credential *string `locationName:"credential" min:"1" type:"string" required:"true"`
+	Credential *string `json:"codebuild:RegistryCredential:Credential" locationName:"credential" min:"1" type:"string" required:"true"`
 
 	// The service that created the credentials to access a private Docker registry.
 	// The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
 	//
 	// CredentialProvider is a required field
-	CredentialProvider CredentialProviderType `locationName:"credentialProvider" type:"string" required:"true" enum:"true"`
+	CredentialProvider CredentialProviderType `json:"codebuild:RegistryCredential:CredentialProvider" locationName:"credentialProvider" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1315,12 +1315,12 @@ type S3LogsConfig struct {
 
 	// Set to true if you do not want your S3 build log output encrypted. By default
 	// S3 build logs are encrypted.
-	EncryptionDisabled *bool `locationName:"encryptionDisabled" type:"boolean"`
+	EncryptionDisabled *bool `json:"codebuild:S3LogsConfig:EncryptionDisabled" locationName:"encryptionDisabled" type:"boolean"`
 
 	// The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3
 	// bucket name is my-bucket, and your path prefix is build-log, then acceptable
 	// formats are my-bucket/build-log or arn:aws:s3:::my-bucket/build-log.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"codebuild:S3LogsConfig:Location" locationName:"location" type:"string"`
 
 	// The current status of the S3 build logs. Valid values are:
 	//
@@ -1329,7 +1329,7 @@ type S3LogsConfig struct {
 	//    * DISABLED: S3 build logs are not enabled for this build project.
 	//
 	// Status is a required field
-	Status LogsConfigStatusType `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status LogsConfigStatusType `json:"codebuild:S3LogsConfig:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1360,7 +1360,7 @@ type SourceAuth struct {
 	_ struct{} `type:"structure"`
 
 	// The resource value that applies to the specified authorization type.
-	Resource *string `locationName:"resource" type:"string"`
+	Resource *string `json:"codebuild:SourceAuth:Resource" locationName:"resource" type:"string"`
 
 	//
 	// This data type is deprecated and is no longer accurate or used.
@@ -1369,7 +1369,7 @@ type SourceAuth struct {
 	// the OAuth authorization type.
 	//
 	// Type is a required field
-	Type SourceAuthType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type SourceAuthType `json:"codebuild:SourceAuth:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1397,15 +1397,15 @@ type SourceCredentialsInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the token.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"codebuild:SourceCredentialsInfo:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The type of authentication used by the credentials. Valid options are OAUTH,
 	// BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
-	AuthType AuthType `locationName:"authType" type:"string" enum:"true"`
+	AuthType AuthType `json:"codebuild:SourceCredentialsInfo:AuthType" locationName:"authType" type:"string" enum:"true"`
 
 	// The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE,
 	// or BITBUCKET.
-	ServerType ServerType `locationName:"serverType" type:"string" enum:"true"`
+	ServerType ServerType `json:"codebuild:SourceCredentialsInfo:ServerType" locationName:"serverType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1421,10 +1421,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The tag's key.
-	Key *string `locationName:"key" min:"1" type:"string"`
+	Key *string `json:"codebuild:Tag:Key" locationName:"key" min:"1" type:"string"`
 
 	// The tag's value.
-	Value *string `locationName:"value" min:"1" type:"string"`
+	Value *string `json:"codebuild:Tag:Value" locationName:"value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1454,13 +1454,13 @@ type VpcConfig struct {
 	_ struct{} `type:"structure"`
 
 	// A list of one or more security groups IDs in your Amazon VPC.
-	SecurityGroupIds []string `locationName:"securityGroupIds" type:"list"`
+	SecurityGroupIds []string `json:"codebuild:VpcConfig:SecurityGroupIds" locationName:"securityGroupIds" type:"list"`
 
 	// A list of one or more subnet IDs in your Amazon VPC.
-	Subnets []string `locationName:"subnets" type:"list"`
+	Subnets []string `json:"codebuild:VpcConfig:Subnets" locationName:"subnets" type:"list"`
 
 	// The ID of the Amazon VPC.
-	VpcId *string `locationName:"vpcId" min:"1" type:"string"`
+	VpcId *string `json:"codebuild:VpcConfig:VpcId" locationName:"vpcId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1493,7 +1493,7 @@ type Webhook struct {
 	// are built.
 	//
 	// It is recommended that you use filterGroups instead of branchFilter.
-	BranchFilter *string `locationName:"branchFilter" type:"string"`
+	BranchFilter *string `json:"codebuild:Webhook:BranchFilter" locationName:"branchFilter" type:"string"`
 
 	// An array of arrays of WebhookFilter objects used to determine which webhooks
 	// are triggered. At least one WebhookFilter in the array must specify EVENT
@@ -1501,22 +1501,22 @@ type Webhook struct {
 	//
 	// For a build to be triggered, at least one filter group in the filterGroups
 	// array must pass. For a filter group to pass, each of its filters must pass.
-	FilterGroups [][]WebhookFilter `locationName:"filterGroups" type:"list"`
+	FilterGroups [][]WebhookFilter `json:"codebuild:Webhook:FilterGroups" locationName:"filterGroups" type:"list"`
 
 	// A timestamp that indicates the last time a repository's secret token was
 	// modified.
-	LastModifiedSecret *time.Time `locationName:"lastModifiedSecret" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedSecret *time.Time `json:"codebuild:Webhook:LastModifiedSecret" locationName:"lastModifiedSecret" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS CodeBuild endpoint where webhook events are sent.
-	PayloadUrl *string `locationName:"payloadUrl" min:"1" type:"string"`
+	PayloadUrl *string `json:"codebuild:Webhook:PayloadUrl" locationName:"payloadUrl" min:"1" type:"string"`
 
 	// The secret token of the associated repository.
 	//
 	// A Bitbucket webhook does not support secret.
-	Secret *string `locationName:"secret" min:"1" type:"string"`
+	Secret *string `json:"codebuild:Webhook:Secret" locationName:"secret" min:"1" type:"string"`
 
 	// The URL to the webhook.
-	Url *string `locationName:"url" min:"1" type:"string"`
+	Url *string `json:"codebuild:Webhook:Url" locationName:"url" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1533,7 +1533,7 @@ type WebhookFilter struct {
 	// trigger a build. If true, then a webhook event that does not match the pattern
 	// triggers a build. If false, then a webhook event that matches the pattern
 	// triggers a build.
-	ExcludeMatchedPattern *bool `locationName:"excludeMatchedPattern" type:"boolean"`
+	ExcludeMatchedPattern *bool `json:"codebuild:WebhookFilter:ExcludeMatchedPattern" locationName:"excludeMatchedPattern" type:"boolean"`
 
 	// For a WebHookFilter that uses EVENT type, a comma-separated string that specifies
 	// one or more events. For example, the webhook filter PUSH, PULL_REQUEST_CREATED,
@@ -1546,7 +1546,7 @@ type WebhookFilter struct {
 	// with a reference name refs/heads/branch-name.
 	//
 	// Pattern is a required field
-	Pattern *string `locationName:"pattern" type:"string" required:"true"`
+	Pattern *string `json:"codebuild:WebhookFilter:Pattern" locationName:"pattern" type:"string" required:"true"`
 
 	// The type of webhook filter. There are five webhook filter types: EVENT, ACTOR_ACCOUNT_ID,
 	// HEAD_REF, BASE_REF, and FILE_PATH.
@@ -1589,7 +1589,7 @@ type WebhookFilter struct {
 	// Works with GitHub and GitHub Enterprise push events only.
 	//
 	// Type is a required field
-	Type WebhookFilterType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type WebhookFilterType `json:"codebuild:WebhookFilter:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

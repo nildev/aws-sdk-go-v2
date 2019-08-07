@@ -78,7 +78,7 @@ type ResendConfirmationCodeOutput struct {
 
 	// The code delivery details returned by the server in response to the request
 	// to resend the confirmation code.
-	CodeDeliveryDetails *CodeDeliveryDetailsType `type:"structure"`
+	CodeDeliveryDetails *CodeDeliveryDetailsType `json:"cognito-idp:ResendConfirmationCodeOutput:CodeDeliveryDetails" type:"structure"`
 }
 
 // String returns the string representation

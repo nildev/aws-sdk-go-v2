@@ -101,10 +101,10 @@ type ListPresetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Use this string to request the next batch of presets.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediaconvert:ListPresetsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// List of presets
-	Presets []Preset `locationName:"presets" type:"list"`
+	Presets []Preset `json:"mediaconvert:ListPresetsOutput:Presets" locationName:"presets" type:"list"`
 }
 
 // String returns the string representation

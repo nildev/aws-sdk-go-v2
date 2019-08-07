@@ -72,7 +72,7 @@ type ModifyDBSnapshotOutput struct {
 	// Contains the details of an Amazon RDS DB snapshot.
 	//
 	// This data type is used as a response element in the DescribeDBSnapshots action.
-	DBSnapshot *DBSnapshot `type:"structure"`
+	DBSnapshot *DBSnapshot `json:"rds:ModifyDBSnapshotOutput:DBSnapshot" type:"structure"`
 }
 
 // String returns the string representation

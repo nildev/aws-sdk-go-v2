@@ -54,7 +54,7 @@ type GrantAccessOutput struct {
 
 	// A TemporaryCredential object that contains the data needed to log in to the
 	// instance by RDP clients, such as the Microsoft Remote Desktop Connection.
-	TemporaryCredential *TemporaryCredential `type:"structure"`
+	TemporaryCredential *TemporaryCredential `json:"opsworks:GrantAccessOutput:TemporaryCredential" type:"structure"`
 }
 
 // String returns the string representation

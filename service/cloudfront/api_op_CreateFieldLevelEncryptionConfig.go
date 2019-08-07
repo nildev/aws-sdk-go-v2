@@ -62,14 +62,14 @@ type CreateFieldLevelEncryptionConfigOutput struct {
 
 	// The current version of the field level encryption configuration. For example:
 	// E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:CreateFieldLevelEncryptionConfigOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// Returned when you create a new field-level encryption configuration.
-	FieldLevelEncryption *FieldLevelEncryption `type:"structure"`
+	FieldLevelEncryption *FieldLevelEncryption `json:"cloudfront:CreateFieldLevelEncryptionConfigOutput:FieldLevelEncryption" type:"structure"`
 
 	// The fully qualified URI of the new configuration resource just created. For
 	// example: https://cloudfront.amazonaws.com/2010-11-01/field-level-encryption-config/EDFDVBD632BHDS5.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"cloudfront:CreateFieldLevelEncryptionConfigOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

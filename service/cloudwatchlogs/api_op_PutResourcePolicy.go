@@ -53,7 +53,7 @@ type PutResourcePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The new policy.
-	ResourcePolicy *ResourcePolicy `locationName:"resourcePolicy" type:"structure"`
+	ResourcePolicy *ResourcePolicy `json:"logs:PutResourcePolicyOutput:ResourcePolicy" locationName:"resourcePolicy" type:"structure"`
 }
 
 // String returns the string representation

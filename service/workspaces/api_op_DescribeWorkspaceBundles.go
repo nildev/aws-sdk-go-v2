@@ -55,12 +55,12 @@ type DescribeWorkspaceBundlesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the bundles.
-	Bundles []WorkspaceBundle `type:"list"`
+	Bundles []WorkspaceBundle `json:"workspaces:DescribeWorkspaceBundlesOutput:Bundles" type:"list"`
 
 	// The token to use to retrieve the next set of results, or null if there are
 	// no more results available. This token is valid for one day and must be used
 	// within that time frame.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workspaces:DescribeWorkspaceBundlesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

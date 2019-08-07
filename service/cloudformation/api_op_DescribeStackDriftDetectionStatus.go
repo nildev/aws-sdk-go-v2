@@ -67,15 +67,15 @@ type DescribeStackDriftDetectionStatusOutput struct {
 	//    in progress.
 	//
 	// DetectionStatus is a required field
-	DetectionStatus StackDriftDetectionStatus `type:"string" required:"true" enum:"true"`
+	DetectionStatus StackDriftDetectionStatus `json:"cloudformation:DescribeStackDriftDetectionStatusOutput:DetectionStatus" type:"string" required:"true" enum:"true"`
 
 	// The reason the stack drift detection operation has its current status.
-	DetectionStatusReason *string `type:"string"`
+	DetectionStatusReason *string `json:"cloudformation:DescribeStackDriftDetectionStatusOutput:DetectionStatusReason" type:"string"`
 
 	// Total number of stack resources that have drifted. This is NULL until the
 	// drift detection operation reaches a status of DETECTION_COMPLETE. This value
 	// will be 0 for stacks whose drift status is IN_SYNC.
-	DriftedStackResourceCount *int64 `type:"integer"`
+	DriftedStackResourceCount *int64 `json:"cloudformation:DescribeStackDriftDetectionStatusOutput:DriftedStackResourceCount" type:"integer"`
 
 	// The ID of the drift detection results of this operation.
 	//
@@ -84,7 +84,7 @@ type DescribeStackDriftDetectionStatusOutput struct {
 	// retains for any given stack, and for how long, may vary.
 	//
 	// StackDriftDetectionId is a required field
-	StackDriftDetectionId *string `min:"1" type:"string" required:"true"`
+	StackDriftDetectionId *string `json:"cloudformation:DescribeStackDriftDetectionStatusOutput:StackDriftDetectionId" min:"1" type:"string" required:"true"`
 
 	// Status of the stack's actual configuration compared to its expected configuration.
 	//
@@ -99,17 +99,17 @@ type DescribeStackDriftDetectionStatusOutput struct {
 	//    configuration.
 	//
 	//    * UNKNOWN: This value is reserved for future use.
-	StackDriftStatus StackDriftStatus `type:"string" enum:"true"`
+	StackDriftStatus StackDriftStatus `json:"cloudformation:DescribeStackDriftDetectionStatusOutput:StackDriftStatus" type:"string" enum:"true"`
 
 	// The ID of the stack.
 	//
 	// StackId is a required field
-	StackId *string `type:"string" required:"true"`
+	StackId *string `json:"cloudformation:DescribeStackDriftDetectionStatusOutput:StackId" type:"string" required:"true"`
 
 	// Time at which the stack drift detection operation was initiated.
 	//
 	// Timestamp is a required field
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	Timestamp *time.Time `json:"cloudformation:DescribeStackDriftDetectionStatusOutput:Timestamp" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation

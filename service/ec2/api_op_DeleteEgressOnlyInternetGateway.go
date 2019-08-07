@@ -49,7 +49,7 @@ type DeleteEgressOnlyInternetGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns true if the request succeeds; otherwise, it returns an error.
-	ReturnCode *bool `locationName:"returnCode" type:"boolean"`
+	ReturnCode *bool `json:"ec2:DeleteEgressOnlyInternetGatewayOutput:ReturnCode" locationName:"returnCode" type:"boolean"`
 }
 
 // String returns the string representation

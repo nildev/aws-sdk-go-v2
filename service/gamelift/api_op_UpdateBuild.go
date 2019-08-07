@@ -59,7 +59,7 @@ type UpdateBuildOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that contains the updated build record.
-	Build *Build `type:"structure"`
+	Build *Build `json:"gamelift:UpdateBuildOutput:Build" type:"structure"`
 }
 
 // String returns the string representation

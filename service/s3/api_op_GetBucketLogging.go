@@ -64,7 +64,7 @@ type GetBucketLoggingOutput struct {
 	// all log object keys for a bucket. For more information, see PUT Bucket logging
 	// (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html)
 	// in the Amazon Simple Storage Service API Reference.
-	LoggingEnabled *LoggingEnabled `type:"structure"`
+	LoggingEnabled *LoggingEnabled `json:"s3:GetBucketLoggingOutput:LoggingEnabled" type:"structure"`
 }
 
 // String returns the string representation

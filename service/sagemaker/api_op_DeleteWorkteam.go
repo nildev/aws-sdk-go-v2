@@ -49,7 +49,7 @@ type DeleteWorkteamOutput struct {
 	// false.
 	//
 	// Success is a required field
-	Success *bool `type:"boolean" required:"true"`
+	Success *bool `json:"api.sagemaker:DeleteWorkteamOutput:Success" type:"boolean" required:"true"`
 }
 
 // String returns the string representation

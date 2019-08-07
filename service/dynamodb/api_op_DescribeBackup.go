@@ -46,7 +46,7 @@ type DescribeBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the description of the backup created for the table.
-	BackupDescription *BackupDescription `type:"structure"`
+	BackupDescription *BackupDescription `json:"dynamodb:DescribeBackupOutput:BackupDescription" type:"structure"`
 }
 
 // String returns the string representation

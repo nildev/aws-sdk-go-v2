@@ -24,7 +24,7 @@ type DescribeAccountAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes that are currently set for the account.
-	Attributes []AccountAttribute `type:"list"`
+	Attributes []AccountAttribute `json:"opsworks-cm:DescribeAccountAttributesOutput:Attributes" type:"list"`
 }
 
 // String returns the string representation

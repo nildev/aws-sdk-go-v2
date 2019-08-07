@@ -66,10 +66,10 @@ type SearchEntitiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of descriptions for each entity returned in the search result.
-	Descriptions []EntityDescription `locationName:"descriptions" type:"list"`
+	Descriptions []EntityDescription `json:"iotthingsgraph:SearchEntitiesOutput:Descriptions" locationName:"descriptions" type:"list"`
 
 	// The string to specify as nextToken when you request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:SearchEntitiesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

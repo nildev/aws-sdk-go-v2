@@ -73,12 +73,12 @@ type ListSpeechSynthesisTasksOutput struct {
 
 	// An opaque pagination token returned from the previous List operation in this
 	// request. If present, this indicates where to continue the listing.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"polly:ListSpeechSynthesisTasksOutput:NextToken" type:"string"`
 
 	// List of SynthesisTask objects that provides information from the specified
 	// task in the list request, including output format, creation time, task status,
 	// and so on.
-	SynthesisTasks []SynthesisTask `type:"list"`
+	SynthesisTasks []SynthesisTask `json:"polly:ListSpeechSynthesisTasksOutput:SynthesisTasks" type:"list"`
 }
 
 // String returns the string representation

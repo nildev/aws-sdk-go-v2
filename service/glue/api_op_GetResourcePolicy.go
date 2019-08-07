@@ -25,16 +25,16 @@ type GetResourcePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time at which the policy was created.
-	CreateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTime *time.Time `json:"glue:GetResourcePolicyOutput:CreateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Contains the hash value associated with this policy.
-	PolicyHash *string `min:"1" type:"string"`
+	PolicyHash *string `json:"glue:GetResourcePolicyOutput:PolicyHash" min:"1" type:"string"`
 
 	// Contains the requested policy document, in JSON format.
-	PolicyInJson *string `min:"2" type:"string"`
+	PolicyInJson *string `json:"glue:GetResourcePolicyOutput:PolicyInJson" min:"2" type:"string"`
 
 	// The date and time at which the policy was last updated.
-	UpdateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdateTime *time.Time `json:"glue:GetResourcePolicyOutput:UpdateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

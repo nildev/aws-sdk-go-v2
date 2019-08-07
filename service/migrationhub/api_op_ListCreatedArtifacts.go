@@ -70,11 +70,11 @@ type ListCreatedArtifactsOutput struct {
 
 	// List of created artifacts up to the maximum number of results specified in
 	// the request.
-	CreatedArtifactList []CreatedArtifact `type:"list"`
+	CreatedArtifactList []CreatedArtifact `json:"mgh:ListCreatedArtifactsOutput:CreatedArtifactList" type:"list"`
 
 	// If there are more created artifacts than the max result, return the next
 	// token to be passed to the next call as a bookmark of where to start from.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"mgh:ListCreatedArtifactsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

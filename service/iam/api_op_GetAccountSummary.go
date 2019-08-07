@@ -26,7 +26,7 @@ type GetAccountSummaryOutput struct {
 
 	// A set of key–value pairs containing information about IAM entity usage
 	// and IAM quotas.
-	SummaryMap map[string]int64 `type:"map"`
+	SummaryMap map[string]int64 `json:"iam:GetAccountSummaryOutput:SummaryMap" type:"map"`
 }
 
 // String returns the string representation

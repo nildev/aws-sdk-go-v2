@@ -38,12 +38,12 @@ type DescribeClusterTracksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of maintenance tracks output by the DescribeClusterTracks operation.
-	MaintenanceTracks []MaintenanceTrack `locationNameList:"MaintenanceTrack" type:"list"`
+	MaintenanceTracks []MaintenanceTrack `json:"redshift:DescribeClusterTracksOutput:MaintenanceTracks" locationNameList:"MaintenanceTrack" type:"list"`
 
 	// The starting point to return a set of response tracklist records. You can
 	// retrieve the next set of response records by providing the returned marker
 	// value in the Marker parameter and retrying the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeClusterTracksOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

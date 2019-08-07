@@ -66,14 +66,14 @@ type SearchFacesOutput struct {
 
 	// An array of faces that matched the input face, along with the confidence
 	// in the match.
-	FaceMatches []FaceMatch `type:"list"`
+	FaceMatches []FaceMatch `json:"rekognition:SearchFacesOutput:FaceMatches" type:"list"`
 
 	// Version number of the face detection model associated with the input collection
 	// (CollectionId).
-	FaceModelVersion *string `type:"string"`
+	FaceModelVersion *string `json:"rekognition:SearchFacesOutput:FaceModelVersion" type:"string"`
 
 	// ID of the face that was searched for matches in a collection.
-	SearchedFaceId *string `type:"string"`
+	SearchedFaceId *string `json:"rekognition:SearchFacesOutput:SearchedFaceId" type:"string"`
 }
 
 // String returns the string representation

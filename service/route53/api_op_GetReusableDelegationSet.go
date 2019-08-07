@@ -62,7 +62,7 @@ type GetReusableDelegationSetOutput struct {
 	// A complex type that contains information about the reusable delegation set.
 	//
 	// DelegationSet is a required field
-	DelegationSet *DelegationSet `type:"structure" required:"true"`
+	DelegationSet *DelegationSet `json:"route53:GetReusableDelegationSetOutput:DelegationSet" type:"structure" required:"true"`
 }
 
 // String returns the string representation

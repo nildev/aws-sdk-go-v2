@@ -105,7 +105,7 @@ type DeleteDatasetOutput struct {
 	// a particular entity in an application (like a saved game). Datasets are automatically
 	// created if they don't exist. Data is synced by dataset, and a dataset can
 	// hold up to 1MB of key-value pairs.
-	Dataset *Dataset `type:"structure"`
+	Dataset *Dataset `json:"cognito-sync:DeleteDatasetOutput:Dataset" type:"structure"`
 }
 
 // String returns the string representation

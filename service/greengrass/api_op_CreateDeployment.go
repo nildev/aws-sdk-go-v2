@@ -92,10 +92,10 @@ type CreateDeploymentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the deployment.
-	DeploymentArn *string `type:"string"`
+	DeploymentArn *string `json:"greengrass:CreateDeploymentOutput:DeploymentArn" type:"string"`
 
 	// The ID of the deployment.
-	DeploymentId *string `type:"string"`
+	DeploymentId *string `json:"greengrass:CreateDeploymentOutput:DeploymentId" type:"string"`
 }
 
 // String returns the string representation

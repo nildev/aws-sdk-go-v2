@@ -71,7 +71,7 @@ type CreateBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the backup.
-	Backup *Backup `type:"structure"`
+	Backup *Backup `json:"fsx:CreateBackupOutput:Backup" type:"structure"`
 }
 
 // String returns the string representation

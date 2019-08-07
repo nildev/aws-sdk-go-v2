@@ -92,12 +92,12 @@ type ListElasticsearchInstanceTypesOutput struct {
 
 	// List of instance types supported by Amazon Elasticsearch service for given
 	// ElasticsearchVersion
-	ElasticsearchInstanceTypes []ESPartitionInstanceType `type:"list"`
+	ElasticsearchInstanceTypes []ESPartitionInstanceType `json:"es:ListElasticsearchInstanceTypesOutput:ElasticsearchInstanceTypes" type:"list"`
 
 	// In case if there are more results available NextToken would be present, make
 	// further request to the same API with received NextToken to paginate remaining
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"es:ListElasticsearchInstanceTypesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

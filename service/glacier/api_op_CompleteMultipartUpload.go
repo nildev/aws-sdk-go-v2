@@ -121,13 +121,13 @@ type CompleteMultipartUploadOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the archive. This value is also included as part of the location.
-	ArchiveId *string `location:"header" locationName:"x-amz-archive-id" type:"string"`
+	ArchiveId *string `json:"glacier:CompleteMultipartUploadOutput:ArchiveId" location:"header" locationName:"x-amz-archive-id" type:"string"`
 
 	// The checksum of the archive computed by Amazon S3 Glacier.
-	Checksum *string `location:"header" locationName:"x-amz-sha256-tree-hash" type:"string"`
+	Checksum *string `json:"glacier:CompleteMultipartUploadOutput:Checksum" location:"header" locationName:"x-amz-sha256-tree-hash" type:"string"`
 
 	// The relative URI path of the newly added archive resource.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"glacier:CompleteMultipartUploadOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

@@ -73,7 +73,7 @@ type StartMatchmakingOutput struct {
 	// Ticket representing the matchmaking request. This object include the information
 	// included in the request, ticket status, and match results as generated during
 	// the matchmaking process.
-	MatchmakingTicket *MatchmakingTicket `type:"structure"`
+	MatchmakingTicket *MatchmakingTicket `json:"gamelift:StartMatchmakingOutput:MatchmakingTicket" type:"structure"`
 }
 
 // String returns the string representation

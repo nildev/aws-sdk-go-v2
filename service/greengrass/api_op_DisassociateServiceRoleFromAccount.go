@@ -32,7 +32,7 @@ type DisassociateServiceRoleFromAccountOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the service role was disassociated from the account.
-	DisassociatedAt *string `type:"string"`
+	DisassociatedAt *string `json:"greengrass:DisassociateServiceRoleFromAccountOutput:DisassociatedAt" type:"string"`
 }
 
 // String returns the string representation

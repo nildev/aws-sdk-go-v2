@@ -46,26 +46,26 @@ type DescribeTaskExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The physical number of bytes transferred over the network.
-	BytesTransferred *int64 `type:"long"`
+	BytesTransferred *int64 `json:"datasync:DescribeTaskExecutionOutput:BytesTransferred" type:"long"`
 
 	// The number of logical bytes written to the destination AWS storage resource.
-	BytesWritten *int64 `type:"long"`
+	BytesWritten *int64 `json:"datasync:DescribeTaskExecutionOutput:BytesWritten" type:"long"`
 
 	// The estimated physical number of bytes that is to be transferred over the
 	// network.
-	EstimatedBytesToTransfer *int64 `type:"long"`
+	EstimatedBytesToTransfer *int64 `json:"datasync:DescribeTaskExecutionOutput:EstimatedBytesToTransfer" type:"long"`
 
 	// The expected number of files that is to be transferred over the network.
 	// This value is calculated during the PREPARING phase, before the TRANSFERRING
 	// phase. This value is the expected number of files to be transferred. It's
 	// calculated based on comparing the content of the source and destination locations
 	// and finding the delta that needs to be transferred.
-	EstimatedFilesToTransfer *int64 `type:"long"`
+	EstimatedFilesToTransfer *int64 `json:"datasync:DescribeTaskExecutionOutput:EstimatedFilesToTransfer" type:"long"`
 
 	// Specifies that the task execution excludes files from the transfer based
 	// on the specified pattern in the filter. Transfers all files in the task’s
 	// subdirectory, except files that match the filter that is set.
-	Excludes []FilterRule `type:"list"`
+	Excludes []FilterRule `json:"datasync:DescribeTaskExecutionOutput:Excludes" type:"list"`
 
 	// The actual number of files that was transferred over the network. This value
 	// is calculated and updated on an ongoing basis during the TRANSFERRING phase.
@@ -77,12 +77,12 @@ type DescribeTaskExecutionOutput struct {
 	// This element is implementation-specific for some location types, so don't
 	// use it as an indicator for a correct file number or to monitor your task
 	// execution.
-	FilesTransferred *int64 `type:"long"`
+	FilesTransferred *int64 `json:"datasync:DescribeTaskExecutionOutput:FilesTransferred" type:"long"`
 
 	// Specifies that the task execution excludes files in the transfer based on
 	// the specified pattern in the filter. When multiple include filters are set,
 	// they are interpreted as an OR.
-	Includes []FilterRule `type:"list"`
+	Includes []FilterRule `json:"datasync:DescribeTaskExecutionOutput:Includes" type:"list"`
 
 	// Represents the options that are available to control the behavior of a StartTaskExecution
 	// operation. Behavior includes preserving metadata such as user ID (UID), group
@@ -93,19 +93,19 @@ type DescribeTaskExecutionOutput struct {
 	// an option in StartTaskExecution, the default value is used. You can override
 	// the defaults options on each task execution by specifying an overriding Options
 	// value to StartTaskExecution.
-	Options *Options `type:"structure"`
+	Options *Options `json:"datasync:DescribeTaskExecutionOutput:Options" type:"structure"`
 
 	// The result of the task execution.
-	Result *TaskExecutionResultDetail `type:"structure"`
+	Result *TaskExecutionResultDetail `json:"datasync:DescribeTaskExecutionOutput:Result" type:"structure"`
 
 	// The time that the task execution was started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"datasync:DescribeTaskExecutionOutput:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the task execution.
 	//
 	// For detailed information about task execution statuses, see "https://docs.aws.amazon.com/datasync/latest/userguide/working-with-tasks.html#understand-task-creation-statuses"
 	// (Understanding Task Statuses).
-	Status TaskExecutionStatus `type:"string" enum:"true"`
+	Status TaskExecutionStatus `json:"datasync:DescribeTaskExecutionOutput:Status" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the task execution that was described.
 	// TaskExecutionArn is hierarchical and includes TaskArn for the task that was
@@ -113,7 +113,7 @@ type DescribeTaskExecutionOutput struct {
 	//
 	// For example, a TaskExecution value with the ARN arn:aws:datasync:us-east-1:111222333444:task/task-0208075f79cedf4a2/execution/exec-08ef1e88ec491019b
 	// executed the task with the ARN arn:aws:datasync:us-east-1:111222333444:task/task-0208075f79cedf4a2.
-	TaskExecutionArn *string `type:"string"`
+	TaskExecutionArn *string `json:"datasync:DescribeTaskExecutionOutput:TaskExecutionArn" type:"string"`
 }
 
 // String returns the string representation

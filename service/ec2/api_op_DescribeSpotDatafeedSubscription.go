@@ -32,7 +32,7 @@ type DescribeSpotDatafeedSubscriptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Spot Instance data feed subscription.
-	SpotDatafeedSubscription *SpotDatafeedSubscription `locationName:"spotDatafeedSubscription" type:"structure"`
+	SpotDatafeedSubscription *SpotDatafeedSubscription `json:"ec2:DescribeSpotDatafeedSubscriptionOutput:SpotDatafeedSubscription" locationName:"spotDatafeedSubscription" type:"structure"`
 }
 
 // String returns the string representation

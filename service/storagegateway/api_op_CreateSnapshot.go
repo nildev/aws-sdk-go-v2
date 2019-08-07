@@ -86,10 +86,10 @@ type CreateSnapshotOutput struct {
 	// The snapshot ID that is used to refer to the snapshot in future operations
 	// such as describing snapshots (Amazon Elastic Compute Cloud API DescribeSnapshots)
 	// or creating a volume from a snapshot (CreateStorediSCSIVolume).
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"storagegateway:CreateSnapshotOutput:SnapshotId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the volume of which the snapshot was taken.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:CreateSnapshotOutput:VolumeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

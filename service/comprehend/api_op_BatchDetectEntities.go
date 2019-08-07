@@ -61,7 +61,7 @@ type BatchDetectEntitiesOutput struct {
 	// the ErrorList is empty.
 	//
 	// ErrorList is a required field
-	ErrorList []BatchItemError `type:"list" required:"true"`
+	ErrorList []BatchItemError `json:"comprehend:BatchDetectEntitiesOutput:ErrorList" type:"list" required:"true"`
 
 	// A list of objects containing the results of the operation. The results are
 	// sorted in ascending order by the Index field and match the order of the documents
@@ -69,7 +69,7 @@ type BatchDetectEntitiesOutput struct {
 	// is empty.
 	//
 	// ResultList is a required field
-	ResultList []BatchDetectEntitiesItemResult `type:"list" required:"true"`
+	ResultList []BatchDetectEntitiesItemResult `json:"comprehend:BatchDetectEntitiesOutput:ResultList" type:"list" required:"true"`
 }
 
 // String returns the string representation

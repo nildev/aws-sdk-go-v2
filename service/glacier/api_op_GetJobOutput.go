@@ -128,13 +128,13 @@ type GetJobOutputOutput struct {
 	_ struct{} `type:"structure" payload:"Body"`
 
 	// Indicates the range units accepted. For more information, see RFC2616 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
-	AcceptRanges *string `location:"header" locationName:"Accept-Ranges" type:"string"`
+	AcceptRanges *string `json:"glacier:GetJobOutputOutput:AcceptRanges" location:"header" locationName:"Accept-Ranges" type:"string"`
 
 	// The description of an archive.
-	ArchiveDescription *string `location:"header" locationName:"x-amz-archive-description" type:"string"`
+	ArchiveDescription *string `json:"glacier:GetJobOutputOutput:ArchiveDescription" location:"header" locationName:"x-amz-archive-description" type:"string"`
 
 	// The job data, either archive data or inventory data.
-	Body io.ReadCloser `locationName:"body" type:"blob"`
+	Body io.ReadCloser `json:"glacier:GetJobOutputOutput:Body" locationName:"body" type:"blob"`
 
 	// The checksum of the data in the response. This header is returned only when
 	// retrieving the output for an archive retrieval job. Furthermore, this header
@@ -152,24 +152,24 @@ type GetJobOutputOutput struct {
 	//    3.1 MB archive and you specify a range that starts at 2 MB and ends at
 	//    3.1 MB (the end of the archive), then the x-amz-sha256-tree-hash is returned
 	//    as a response header.
-	Checksum *string `location:"header" locationName:"x-amz-sha256-tree-hash" type:"string"`
+	Checksum *string `json:"glacier:GetJobOutputOutput:Checksum" location:"header" locationName:"x-amz-sha256-tree-hash" type:"string"`
 
 	// The range of bytes returned by Amazon S3 Glacier. If only partial output
 	// is downloaded, the response provides the range of bytes Amazon S3 Glacier
 	// returned. For example, bytes 0-1048575/8388608 returns the first 1 MB from
 	// 8 MB.
-	ContentRange *string `location:"header" locationName:"Content-Range" type:"string"`
+	ContentRange *string `json:"glacier:GetJobOutputOutput:ContentRange" location:"header" locationName:"Content-Range" type:"string"`
 
 	// The Content-Type depends on whether the job output is an archive or a vault
 	// inventory. For archive data, the Content-Type is application/octet-stream.
 	// For vault inventory, if you requested CSV format when you initiated the job,
 	// the Content-Type is text/csv. Otherwise, by default, vault inventory is returned
 	// as JSON, and the Content-Type is application/json.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"glacier:GetJobOutputOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 
 	// The HTTP response code for a job output request. The value depends on whether
 	// a range was specified in the request.
-	Status *int64 `location:"statusCode" locationName:"status" type:"integer"`
+	Status *int64 `json:"glacier:GetJobOutputOutput:Status" location:"statusCode" locationName:"status" type:"integer"`
 }
 
 // String returns the string representation

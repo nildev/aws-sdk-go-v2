@@ -18,31 +18,31 @@ type AttackDetail struct {
 	_ struct{} `type:"structure"`
 
 	// List of counters that describe the attack for the specified time period.
-	AttackCounters []SummarizedCounter `type:"list"`
+	AttackCounters []SummarizedCounter `json:"shield:AttackDetail:AttackCounters" type:"list"`
 
 	// The unique identifier (ID) of the attack.
-	AttackId *string `min:"1" type:"string"`
+	AttackId *string `json:"shield:AttackDetail:AttackId" min:"1" type:"string"`
 
 	// The array of AttackProperty objects.
-	AttackProperties []AttackProperty `type:"list"`
+	AttackProperties []AttackProperty `json:"shield:AttackDetail:AttackProperties" type:"list"`
 
 	// The time the attack ended, in Unix time in seconds. For more information
 	// see timestamp (http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types).
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"shield:AttackDetail:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// List of mitigation actions taken for the attack.
-	Mitigations []Mitigation `type:"list"`
+	Mitigations []Mitigation `json:"shield:AttackDetail:Mitigations" type:"list"`
 
 	// The ARN (Amazon Resource Name) of the resource that was attacked.
-	ResourceArn *string `min:"1" type:"string"`
+	ResourceArn *string `json:"shield:AttackDetail:ResourceArn" min:"1" type:"string"`
 
 	// The time the attack started, in Unix time in seconds. For more information
 	// see timestamp (http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types).
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"shield:AttackDetail:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If applicable, additional detail about the resource being attacked, for example,
 	// IP address or URL.
-	SubResources []SubResourceSummary `type:"list"`
+	SubResources []SubResourceSummary `json:"shield:AttackDetail:SubResources" type:"list"`
 }
 
 // String returns the string representation
@@ -58,23 +58,23 @@ type AttackProperty struct {
 	// The type of distributed denial of service (DDoS) event that was observed.
 	// NETWORK indicates layer 3 and layer 4 events and APPLICATION indicates layer
 	// 7 events.
-	AttackLayer AttackLayer `type:"string" enum:"true"`
+	AttackLayer AttackLayer `json:"shield:AttackProperty:AttackLayer" type:"string" enum:"true"`
 
 	// Defines the DDoS attack property information that is provided. The WORDPRESS_PINGBACK_REFLECTOR
 	// and WORDPRESS_PINGBACK_SOURCE values are valid only for WordPress reflective
 	// pingback DDoS attacks.
-	AttackPropertyIdentifier AttackPropertyIdentifier `type:"string" enum:"true"`
+	AttackPropertyIdentifier AttackPropertyIdentifier `json:"shield:AttackProperty:AttackPropertyIdentifier" type:"string" enum:"true"`
 
 	// The array of Contributor objects that includes the top five contributors
 	// to an attack.
-	TopContributors []Contributor `type:"list"`
+	TopContributors []Contributor `json:"shield:AttackProperty:TopContributors" type:"list"`
 
 	// The total contributions made to this attack by all contributors, not just
 	// the five listed in the TopContributors list.
-	Total *int64 `type:"long"`
+	Total *int64 `json:"shield:AttackProperty:Total" type:"long"`
 
 	// The unit of the Value of the contributions.
-	Unit Unit `type:"string" enum:"true"`
+	Unit Unit `json:"shield:AttackProperty:Unit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -88,21 +88,21 @@ type AttackSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier (ID) of the attack.
-	AttackId *string `type:"string"`
+	AttackId *string `json:"shield:AttackSummary:AttackId" type:"string"`
 
 	// The list of attacks for a specified time period.
-	AttackVectors []AttackVectorDescription `type:"list"`
+	AttackVectors []AttackVectorDescription `json:"shield:AttackSummary:AttackVectors" type:"list"`
 
 	// The end time of the attack, in Unix time in seconds. For more information
 	// see timestamp (http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types).
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"shield:AttackSummary:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN (Amazon Resource Name) of the resource that was attacked.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"shield:AttackSummary:ResourceArn" type:"string"`
 
 	// The start time of the attack, in Unix time in seconds. For more information
 	// see timestamp (http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types).
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"shield:AttackSummary:StartTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -154,7 +154,7 @@ type AttackVectorDescription struct {
 	//    * MEMCACHED_REFLECTION
 	//
 	// VectorType is a required field
-	VectorType *string `type:"string" required:"true"`
+	VectorType *string `json:"shield:AttackVectorDescription:VectorType" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -170,11 +170,11 @@ type Contributor struct {
 	// The name of the contributor. This is dependent on the AttackPropertyIdentifier.
 	// For example, if the AttackPropertyIdentifier is SOURCE_COUNTRY, the Name
 	// could be United States.
-	Name *string `type:"string"`
+	Name *string `json:"shield:Contributor:Name" type:"string"`
 
 	// The contribution of this contributor expressed in Protection units. For example
 	// 10,000.
-	Value *int64 `type:"long"`
+	Value *int64 `json:"shield:Contributor:Value" type:"long"`
 }
 
 // String returns the string representation
@@ -191,7 +191,7 @@ type EmergencyContact struct {
 	// An email address that the DRT can use to contact you during a suspected attack.
 	//
 	// EmailAddress is a required field
-	EmailAddress *string `min:"1" type:"string" required:"true"`
+	EmailAddress *string `json:"shield:EmergencyContact:EmailAddress" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -222,10 +222,10 @@ type Limit struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of protections that can be created for the specified Type.
-	Max *int64 `type:"long"`
+	Max *int64 `json:"shield:Limit:Max" type:"long"`
 
 	// The type of protection.
-	Type *string `type:"string"`
+	Type *string `json:"shield:Limit:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -239,7 +239,7 @@ type Mitigation struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the mitigation taken for this attack.
-	MitigationName *string `type:"string"`
+	MitigationName *string `json:"shield:Mitigation:MitigationName" type:"string"`
 }
 
 // String returns the string representation
@@ -253,13 +253,13 @@ type Protection struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier (ID) of the protection.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"shield:Protection:Id" min:"1" type:"string"`
 
 	// The friendly name of the protection. For example, My CloudFront distributions.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"shield:Protection:Name" min:"1" type:"string"`
 
 	// The ARN (Amazon Resource Name) of the AWS resource that is protected.
-	ResourceArn *string `min:"1" type:"string"`
+	ResourceArn *string `json:"shield:Protection:ResourceArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -273,16 +273,16 @@ type SubResourceSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The list of attack types and associated counters.
-	AttackVectors []SummarizedAttackVector `type:"list"`
+	AttackVectors []SummarizedAttackVector `json:"shield:SubResourceSummary:AttackVectors" type:"list"`
 
 	// The counters that describe the details of the attack.
-	Counters []SummarizedCounter `type:"list"`
+	Counters []SummarizedCounter `json:"shield:SubResourceSummary:Counters" type:"list"`
 
 	// The unique identifier (ID) of the SubResource.
-	Id *string `type:"string"`
+	Id *string `json:"shield:SubResourceSummary:Id" type:"string"`
 
 	// The SubResource type.
-	Type SubResourceType `type:"string" enum:"true"`
+	Type SubResourceType `json:"shield:SubResourceSummary:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -302,20 +302,20 @@ type Subscription struct {
 	// can change this by submitting an UpdateSubscription request. If the UpdateSubscription
 	// request does not included a value for AutoRenew, the existing value for AutoRenew
 	// remains unchanged.
-	AutoRenew AutoRenew `type:"string" enum:"true"`
+	AutoRenew AutoRenew `json:"shield:Subscription:AutoRenew" type:"string" enum:"true"`
 
 	// The date and time your subscription will end.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"shield:Subscription:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies how many protections of a given type you can create.
-	Limits []Limit `type:"list"`
+	Limits []Limit `json:"shield:Subscription:Limits" type:"list"`
 
 	// The start time of the subscription, in Unix time in seconds. For more information
 	// see timestamp (http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types).
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"shield:Subscription:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The length, in seconds, of the AWS Shield Advanced subscription for the account.
-	TimeCommitmentInSeconds *int64 `type:"long"`
+	TimeCommitmentInSeconds *int64 `json:"shield:Subscription:TimeCommitmentInSeconds" type:"long"`
 }
 
 // String returns the string representation
@@ -329,12 +329,12 @@ type SummarizedAttackVector struct {
 	_ struct{} `type:"structure"`
 
 	// The list of counters that describe the details of the attack.
-	VectorCounters []SummarizedCounter `type:"list"`
+	VectorCounters []SummarizedCounter `json:"shield:SummarizedAttackVector:VectorCounters" type:"list"`
 
 	// The attack type, for example, SNMP reflection or SYN flood.
 	//
 	// VectorType is a required field
-	VectorType *string `type:"string" required:"true"`
+	VectorType *string `json:"shield:SummarizedAttackVector:VectorType" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -348,22 +348,22 @@ type SummarizedCounter struct {
 	_ struct{} `type:"structure"`
 
 	// The average value of the counter for a specified time period.
-	Average *float64 `type:"double"`
+	Average *float64 `json:"shield:SummarizedCounter:Average" type:"double"`
 
 	// The maximum value of the counter for a specified time period.
-	Max *float64 `type:"double"`
+	Max *float64 `json:"shield:SummarizedCounter:Max" type:"double"`
 
 	// The number of counters for a specified time period.
-	N *int64 `type:"integer"`
+	N *int64 `json:"shield:SummarizedCounter:N" type:"integer"`
 
 	// The counter name.
-	Name *string `type:"string"`
+	Name *string `json:"shield:SummarizedCounter:Name" type:"string"`
 
 	// The total of counter values for a specified time period.
-	Sum *float64 `type:"double"`
+	Sum *float64 `json:"shield:SummarizedCounter:Sum" type:"double"`
 
 	// The unit of the counters.
-	Unit *string `type:"string"`
+	Unit *string `json:"shield:SummarizedCounter:Unit" type:"string"`
 }
 
 // String returns the string representation
@@ -378,11 +378,11 @@ type TimeRange struct {
 
 	// The start time, in Unix time in seconds. For more information see timestamp
 	// (http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types).
-	FromInclusive *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FromInclusive *time.Time `json:"shield:TimeRange:FromInclusive" type:"timestamp" timestampFormat:"unix"`
 
 	// The end time, in Unix time in seconds. For more information see timestamp
 	// (http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types).
-	ToExclusive *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ToExclusive *time.Time `json:"shield:TimeRange:ToExclusive" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

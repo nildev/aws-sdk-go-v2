@@ -93,7 +93,7 @@ type CreateTrustOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier for the trust relationship that was created.
-	TrustId *string `type:"string"`
+	TrustId *string `json:"ds:CreateTrustOutput:TrustId" type:"string"`
 }
 
 // String returns the string representation

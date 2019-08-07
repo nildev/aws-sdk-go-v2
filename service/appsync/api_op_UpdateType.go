@@ -95,7 +95,7 @@ type UpdateTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated Type object.
-	Type *Type `locationName:"type" type:"structure"`
+	Type *Type `json:"appsync:UpdateTypeOutput:Type" locationName:"type" type:"structure"`
 }
 
 // String returns the string representation

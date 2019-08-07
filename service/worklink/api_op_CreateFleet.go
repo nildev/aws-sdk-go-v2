@@ -79,7 +79,7 @@ type CreateFleetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the fleet.
-	FleetArn *string `min:"20" type:"string"`
+	FleetArn *string `json:"worklink:CreateFleetOutput:FleetArn" min:"20" type:"string"`
 }
 
 // String returns the string representation

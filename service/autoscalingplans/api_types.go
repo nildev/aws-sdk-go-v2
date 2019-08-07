@@ -19,10 +19,10 @@ type ApplicationSource struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-	CloudFormationStackARN *string `type:"string"`
+	CloudFormationStackARN *string `json:"autoscaling:ApplicationSource:CloudFormationStackARN" type:"string"`
 
 	// A set of tags (up to 50).
-	TagFilters []TagFilter `type:"list"`
+	TagFilters []TagFilter `json:"autoscaling:ApplicationSource:TagFilters" type:"list"`
 }
 
 // String returns the string representation
@@ -76,25 +76,25 @@ type CustomizedLoadMetricSpecification struct {
 	//
 	// Conditional: If you published your metric with dimensions, you must specify
 	// the same dimensions in your customized load metric specification.
-	Dimensions []MetricDimension `type:"list"`
+	Dimensions []MetricDimension `json:"autoscaling:CustomizedLoadMetricSpecification:Dimensions" type:"list"`
 
 	// The name of the metric.
 	//
 	// MetricName is a required field
-	MetricName *string `type:"string" required:"true"`
+	MetricName *string `json:"autoscaling:CustomizedLoadMetricSpecification:MetricName" type:"string" required:"true"`
 
 	// The namespace of the metric.
 	//
 	// Namespace is a required field
-	Namespace *string `type:"string" required:"true"`
+	Namespace *string `json:"autoscaling:CustomizedLoadMetricSpecification:Namespace" type:"string" required:"true"`
 
 	// The statistic of the metric. Currently, the value must always be Sum.
 	//
 	// Statistic is a required field
-	Statistic MetricStatistic `type:"string" required:"true" enum:"true"`
+	Statistic MetricStatistic `json:"autoscaling:CustomizedLoadMetricSpecification:Statistic" type:"string" required:"true" enum:"true"`
 
 	// The unit of the metric.
-	Unit *string `type:"string"`
+	Unit *string `json:"autoscaling:CustomizedLoadMetricSpecification:Unit" type:"string"`
 }
 
 // String returns the string representation
@@ -155,25 +155,25 @@ type CustomizedScalingMetricSpecification struct {
 	//
 	// Conditional: If you published your metric with dimensions, you must specify
 	// the same dimensions in your customized scaling metric specification.
-	Dimensions []MetricDimension `type:"list"`
+	Dimensions []MetricDimension `json:"autoscaling:CustomizedScalingMetricSpecification:Dimensions" type:"list"`
 
 	// The name of the metric.
 	//
 	// MetricName is a required field
-	MetricName *string `type:"string" required:"true"`
+	MetricName *string `json:"autoscaling:CustomizedScalingMetricSpecification:MetricName" type:"string" required:"true"`
 
 	// The namespace of the metric.
 	//
 	// Namespace is a required field
-	Namespace *string `type:"string" required:"true"`
+	Namespace *string `json:"autoscaling:CustomizedScalingMetricSpecification:Namespace" type:"string" required:"true"`
 
 	// The statistic of the metric.
 	//
 	// Statistic is a required field
-	Statistic MetricStatistic `type:"string" required:"true" enum:"true"`
+	Statistic MetricStatistic `json:"autoscaling:CustomizedScalingMetricSpecification:Statistic" type:"string" required:"true" enum:"true"`
 
 	// The unit of the metric.
-	Unit *string `type:"string"`
+	Unit *string `json:"autoscaling:CustomizedScalingMetricSpecification:Unit" type:"string"`
 }
 
 // String returns the string representation
@@ -215,10 +215,10 @@ type Datapoint struct {
 	_ struct{} `type:"structure"`
 
 	// The time stamp for the data point in UTC format.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"autoscaling:Datapoint:Timestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The value of the data point.
-	Value *float64 `type:"double"`
+	Value *float64 `json:"autoscaling:Datapoint:Value" type:"double"`
 }
 
 // String returns the string representation
@@ -234,12 +234,12 @@ type MetricDimension struct {
 	// The name of the dimension.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"autoscaling:MetricDimension:Name" type:"string" required:"true"`
 
 	// The value of the dimension.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"autoscaling:MetricDimension:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -273,7 +273,7 @@ type PredefinedLoadMetricSpecification struct {
 	// The metric type.
 	//
 	// PredefinedLoadMetricType is a required field
-	PredefinedLoadMetricType LoadMetricType `type:"string" required:"true" enum:"true"`
+	PredefinedLoadMetricType LoadMetricType `json:"autoscaling:PredefinedLoadMetricSpecification:PredefinedLoadMetricType" type:"string" required:"true" enum:"true"`
 
 	// Identifies the resource associated with the metric type. You can't specify
 	// a resource label unless the metric type is ALBRequestCountPerTarget and there
@@ -288,7 +288,7 @@ type PredefinedLoadMetricSpecification struct {
 	//
 	//    * targetgroup/<target-group-name>/<target-group-id> is the final portion
 	//    of the target group ARN.
-	ResourceLabel *string `min:"1" type:"string"`
+	ResourceLabel *string `json:"autoscaling:PredefinedLoadMetricSpecification:ResourceLabel" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -322,7 +322,7 @@ type PredefinedScalingMetricSpecification struct {
 	// Auto Scaling groups, Spot Fleet requests, and ECS services.
 	//
 	// PredefinedScalingMetricType is a required field
-	PredefinedScalingMetricType ScalingMetricType `type:"string" required:"true" enum:"true"`
+	PredefinedScalingMetricType ScalingMetricType `json:"autoscaling:PredefinedScalingMetricSpecification:PredefinedScalingMetricType" type:"string" required:"true" enum:"true"`
 
 	// Identifies the resource associated with the metric type. You can't specify
 	// a resource label unless the metric type is ALBRequestCountPerTarget and there
@@ -337,7 +337,7 @@ type PredefinedScalingMetricSpecification struct {
 	//
 	//    * targetgroup/<target-group-name>/<target-group-id> is the final portion
 	//    of the target group ARN.
-	ResourceLabel *string `min:"1" type:"string"`
+	ResourceLabel *string `json:"autoscaling:PredefinedScalingMetricSpecification:ResourceLabel" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -394,30 +394,30 @@ type ScalingInstruction struct {
 	// The customized load metric to use for predictive scaling. This parameter
 	// or a PredefinedLoadMetricSpecification is required when configuring predictive
 	// scaling, and cannot be used otherwise.
-	CustomizedLoadMetricSpecification *CustomizedLoadMetricSpecification `type:"structure"`
+	CustomizedLoadMetricSpecification *CustomizedLoadMetricSpecification `json:"autoscaling:ScalingInstruction:CustomizedLoadMetricSpecification" type:"structure"`
 
 	// Controls whether dynamic scaling by AWS Auto Scaling is disabled. When dynamic
 	// scaling is enabled, AWS Auto Scaling creates target tracking scaling policies
 	// based on the specified target tracking configurations.
 	//
 	// The default is enabled (false).
-	DisableDynamicScaling *bool `type:"boolean"`
+	DisableDynamicScaling *bool `json:"autoscaling:ScalingInstruction:DisableDynamicScaling" type:"boolean"`
 
 	// The maximum capacity of the resource. The exception to this upper limit is
 	// if you specify a non-default setting for PredictiveScalingMaxCapacityBehavior.
 	//
 	// MaxCapacity is a required field
-	MaxCapacity *int64 `type:"integer" required:"true"`
+	MaxCapacity *int64 `json:"autoscaling:ScalingInstruction:MaxCapacity" type:"integer" required:"true"`
 
 	// The minimum capacity of the resource.
 	//
 	// MinCapacity is a required field
-	MinCapacity *int64 `type:"integer" required:"true"`
+	MinCapacity *int64 `json:"autoscaling:ScalingInstruction:MinCapacity" type:"integer" required:"true"`
 
 	// The predefined load metric to use for predictive scaling. This parameter
 	// or a CustomizedLoadMetricSpecification is required when configuring predictive
 	// scaling, and cannot be used otherwise.
-	PredefinedLoadMetricSpecification *PredefinedLoadMetricSpecification `type:"structure"`
+	PredefinedLoadMetricSpecification *PredefinedLoadMetricSpecification `json:"autoscaling:ScalingInstruction:PredefinedLoadMetricSpecification" type:"structure"`
 
 	// Defines the behavior that should be applied if the forecast capacity approaches
 	// or exceeds the maximum capacity specified for the resource. The default value
@@ -439,7 +439,7 @@ type ScalingInstruction struct {
 	//    if unexpected traffic occurs.
 	//
 	// Only valid when configuring predictive scaling.
-	PredictiveScalingMaxCapacityBehavior PredictiveScalingMaxCapacityBehavior `type:"string" enum:"true"`
+	PredictiveScalingMaxCapacityBehavior PredictiveScalingMaxCapacityBehavior `json:"autoscaling:ScalingInstruction:PredictiveScalingMaxCapacityBehavior" type:"string" enum:"true"`
 
 	// The size of the capacity buffer to use when the forecast capacity is close
 	// to or exceeds the maximum capacity. The value is specified as a percentage
@@ -451,12 +451,12 @@ type ScalingInstruction struct {
 	// is set to SetMaxCapacityAboveForecastCapacity, and cannot be used otherwise.
 	//
 	// The range is 1-100.
-	PredictiveScalingMaxCapacityBuffer *int64 `type:"integer"`
+	PredictiveScalingMaxCapacityBuffer *int64 `json:"autoscaling:ScalingInstruction:PredictiveScalingMaxCapacityBuffer" type:"integer"`
 
 	// The predictive scaling mode. The default value is ForecastAndScale. Otherwise,
 	// AWS Auto Scaling forecasts capacity but does not create any scheduled scaling
 	// actions based on the capacity forecast.
-	PredictiveScalingMode PredictiveScalingMode `type:"string" enum:"true"`
+	PredictiveScalingMode PredictiveScalingMode `json:"autoscaling:ScalingInstruction:PredictiveScalingMode" type:"string" enum:"true"`
 
 	// The ID of the resource. This string consists of the resource type and unique
 	// identifier.
@@ -480,7 +480,7 @@ type ScalingInstruction struct {
 	//    is the cluster name. Example: cluster:my-db-cluster.
 	//
 	// ResourceId is a required field
-	ResourceId *string `min:"1" type:"string" required:"true"`
+	ResourceId *string `json:"autoscaling:ScalingInstruction:ResourceId" min:"1" type:"string" required:"true"`
 
 	// The scalable dimension associated with the resource.
 	//
@@ -509,7 +509,7 @@ type ScalingInstruction struct {
 	//    edition.
 	//
 	// ScalableDimension is a required field
-	ScalableDimension ScalableDimension `type:"string" required:"true" enum:"true"`
+	ScalableDimension ScalableDimension `json:"autoscaling:ScalingInstruction:ScalableDimension" type:"string" required:"true" enum:"true"`
 
 	// Controls whether a resource's externally created scaling policies are kept
 	// or replaced.
@@ -523,7 +523,7 @@ type ScalingInstruction struct {
 	// Condition: The number of existing policies to be replaced must be less than
 	// or equal to 50. If there are more than 50 policies to be replaced, AWS Auto
 	// Scaling keeps all existing policies and does not create new ones.
-	ScalingPolicyUpdateBehavior ScalingPolicyUpdateBehavior `type:"string" enum:"true"`
+	ScalingPolicyUpdateBehavior ScalingPolicyUpdateBehavior `json:"autoscaling:ScalingInstruction:ScalingPolicyUpdateBehavior" type:"string" enum:"true"`
 
 	// The amount of time, in seconds, to buffer the run time of scheduled scaling
 	// actions when scaling out. For example, if the forecast says to add capacity
@@ -538,12 +538,12 @@ type ScalingInstruction struct {
 	// (60 minutes). The default is 300 seconds.
 	//
 	// Only valid when configuring predictive scaling.
-	ScheduledActionBufferTime *int64 `type:"integer"`
+	ScheduledActionBufferTime *int64 `json:"autoscaling:ScalingInstruction:ScheduledActionBufferTime" type:"integer"`
 
 	// The namespace of the AWS service.
 	//
 	// ServiceNamespace is a required field
-	ServiceNamespace ServiceNamespace `type:"string" required:"true" enum:"true"`
+	ServiceNamespace ServiceNamespace `json:"autoscaling:ScalingInstruction:ServiceNamespace" type:"string" required:"true" enum:"true"`
 
 	// The structure that defines new target tracking configurations (up to 10).
 	// Each of these structures includes a specific scaling metric and a target
@@ -556,7 +556,7 @@ type ScalingInstruction struct {
 	// Condition: The scaling metric must be unique across target tracking configurations.
 	//
 	// TargetTrackingConfigurations is a required field
-	TargetTrackingConfigurations []TargetTrackingConfiguration `type:"list" required:"true"`
+	TargetTrackingConfigurations []TargetTrackingConfiguration `json:"autoscaling:ScalingInstruction:TargetTrackingConfigurations" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -624,25 +624,25 @@ type ScalingPlan struct {
 	// The application source.
 	//
 	// ApplicationSource is a required field
-	ApplicationSource *ApplicationSource `type:"structure" required:"true"`
+	ApplicationSource *ApplicationSource `json:"autoscaling:ScalingPlan:ApplicationSource" type:"structure" required:"true"`
 
 	// The Unix time stamp when the scaling plan was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"autoscaling:ScalingPlan:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The scaling instructions.
 	//
 	// ScalingInstructions is a required field
-	ScalingInstructions []ScalingInstruction `type:"list" required:"true"`
+	ScalingInstructions []ScalingInstruction `json:"autoscaling:ScalingPlan:ScalingInstructions" type:"list" required:"true"`
 
 	// The name of the scaling plan.
 	//
 	// ScalingPlanName is a required field
-	ScalingPlanName *string `min:"1" type:"string" required:"true"`
+	ScalingPlanName *string `json:"autoscaling:ScalingPlan:ScalingPlanName" min:"1" type:"string" required:"true"`
 
 	// The version number of the scaling plan.
 	//
 	// ScalingPlanVersion is a required field
-	ScalingPlanVersion *int64 `type:"long" required:"true"`
+	ScalingPlanVersion *int64 `json:"autoscaling:ScalingPlan:ScalingPlanVersion" type:"long" required:"true"`
 
 	// The status of the scaling plan.
 	//
@@ -664,13 +664,13 @@ type ScalingPlan struct {
 	//    * UpdateFailed - The scaling plan could not be updated.
 	//
 	// StatusCode is a required field
-	StatusCode ScalingPlanStatusCode `type:"string" required:"true" enum:"true"`
+	StatusCode ScalingPlanStatusCode `json:"autoscaling:ScalingPlan:StatusCode" type:"string" required:"true" enum:"true"`
 
 	// A simple message about the current status of the scaling plan.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"autoscaling:ScalingPlan:StatusMessage" type:"string"`
 
 	// The Unix time stamp when the scaling plan entered the current status.
-	StatusStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StatusStartTime *time.Time `json:"autoscaling:ScalingPlan:StatusStartTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -705,7 +705,7 @@ type ScalingPlanResource struct {
 	//    is the cluster name. Example: cluster:my-db-cluster.
 	//
 	// ResourceId is a required field
-	ResourceId *string `min:"1" type:"string" required:"true"`
+	ResourceId *string `json:"autoscaling:ScalingPlanResource:ResourceId" min:"1" type:"string" required:"true"`
 
 	// The scalable dimension for the resource.
 	//
@@ -734,20 +734,20 @@ type ScalingPlanResource struct {
 	//    edition.
 	//
 	// ScalableDimension is a required field
-	ScalableDimension ScalableDimension `type:"string" required:"true" enum:"true"`
+	ScalableDimension ScalableDimension `json:"autoscaling:ScalingPlanResource:ScalableDimension" type:"string" required:"true" enum:"true"`
 
 	// The name of the scaling plan.
 	//
 	// ScalingPlanName is a required field
-	ScalingPlanName *string `min:"1" type:"string" required:"true"`
+	ScalingPlanName *string `json:"autoscaling:ScalingPlanResource:ScalingPlanName" min:"1" type:"string" required:"true"`
 
 	// The version number of the scaling plan.
 	//
 	// ScalingPlanVersion is a required field
-	ScalingPlanVersion *int64 `type:"long" required:"true"`
+	ScalingPlanVersion *int64 `json:"autoscaling:ScalingPlanResource:ScalingPlanVersion" type:"long" required:"true"`
 
 	// The scaling policies.
-	ScalingPolicies []ScalingPolicy `type:"list"`
+	ScalingPolicies []ScalingPolicy `json:"autoscaling:ScalingPlanResource:ScalingPolicies" type:"list"`
 
 	// The scaling status of the resource.
 	//
@@ -762,15 +762,15 @@ type ScalingPlanResource struct {
 	//    could not be fully applied. Check the status message for more information.
 	//
 	// ScalingStatusCode is a required field
-	ScalingStatusCode ScalingStatusCode `type:"string" required:"true" enum:"true"`
+	ScalingStatusCode ScalingStatusCode `json:"autoscaling:ScalingPlanResource:ScalingStatusCode" type:"string" required:"true" enum:"true"`
 
 	// A simple message about the current scaling status of the resource.
-	ScalingStatusMessage *string `type:"string"`
+	ScalingStatusMessage *string `json:"autoscaling:ScalingPlanResource:ScalingStatusMessage" type:"string"`
 
 	// The namespace of the AWS service.
 	//
 	// ServiceNamespace is a required field
-	ServiceNamespace ServiceNamespace `type:"string" required:"true" enum:"true"`
+	ServiceNamespace ServiceNamespace `json:"autoscaling:ScalingPlanResource:ServiceNamespace" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -786,16 +786,16 @@ type ScalingPolicy struct {
 	// The name of the scaling policy.
 	//
 	// PolicyName is a required field
-	PolicyName *string `min:"1" type:"string" required:"true"`
+	PolicyName *string `json:"autoscaling:ScalingPolicy:PolicyName" min:"1" type:"string" required:"true"`
 
 	// The type of scaling policy.
 	//
 	// PolicyType is a required field
-	PolicyType PolicyType `type:"string" required:"true" enum:"true"`
+	PolicyType PolicyType `json:"autoscaling:ScalingPolicy:PolicyType" type:"string" required:"true" enum:"true"`
 
 	// The target tracking scaling policy. Includes support for predefined or customized
 	// metrics.
-	TargetTrackingConfiguration *TargetTrackingConfiguration `type:"structure"`
+	TargetTrackingConfiguration *TargetTrackingConfiguration `json:"autoscaling:ScalingPolicy:TargetTrackingConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -809,10 +809,10 @@ type TagFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The tag key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"autoscaling:TagFilter:Key" min:"1" type:"string"`
 
 	// The tag values (0 to 20).
-	Values []string `type:"list"`
+	Values []string `json:"autoscaling:TagFilter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -841,7 +841,7 @@ type TargetTrackingConfiguration struct {
 
 	// A customized metric. You can specify either a predefined metric or a customized
 	// metric.
-	CustomizedScalingMetricSpecification *CustomizedScalingMetricSpecification `type:"structure"`
+	CustomizedScalingMetricSpecification *CustomizedScalingMetricSpecification `json:"autoscaling:TargetTrackingConfiguration:CustomizedScalingMetricSpecification" type:"structure"`
 
 	// Indicates whether scale in by the target tracking scaling policy is disabled.
 	// If the value is true, scale in is disabled and the target tracking scaling
@@ -850,16 +850,16 @@ type TargetTrackingConfiguration struct {
 	// from the scalable resource.
 	//
 	// The default value is false.
-	DisableScaleIn *bool `type:"boolean"`
+	DisableScaleIn *bool `json:"autoscaling:TargetTrackingConfiguration:DisableScaleIn" type:"boolean"`
 
 	// The estimated time, in seconds, until a newly launched instance can contribute
 	// to the CloudWatch metrics. This value is used only if the resource is an
 	// Auto Scaling group.
-	EstimatedInstanceWarmup *int64 `type:"integer"`
+	EstimatedInstanceWarmup *int64 `json:"autoscaling:TargetTrackingConfiguration:EstimatedInstanceWarmup" type:"integer"`
 
 	// A predefined metric. You can specify either a predefined metric or a customized
 	// metric.
-	PredefinedScalingMetricSpecification *PredefinedScalingMetricSpecification `type:"structure"`
+	PredefinedScalingMetricSpecification *PredefinedScalingMetricSpecification `json:"autoscaling:TargetTrackingConfiguration:PredefinedScalingMetricSpecification" type:"structure"`
 
 	// The amount of time, in seconds, after a scale in activity completes before
 	// another scale in activity can start. This value is not used if the scalable
@@ -870,7 +870,7 @@ type TargetTrackingConfiguration struct {
 	// application's availability. However, if another alarm triggers a scale-out
 	// policy during the cooldown period after a scale-in, AWS Auto Scaling scales
 	// out your scalable target immediately.
-	ScaleInCooldown *int64 `type:"integer"`
+	ScaleInCooldown *int64 `json:"autoscaling:TargetTrackingConfiguration:ScaleInCooldown" type:"integer"`
 
 	// The amount of time, in seconds, after a scale-out activity completes before
 	// another scale-out activity can start. This value is not used if the scalable
@@ -880,13 +880,13 @@ type TargetTrackingConfiguration struct {
 	// by the previous scale-out event that initiated the cooldown is calculated
 	// as part of the desired capacity for the next scale out. The intention is
 	// to continuously (but not excessively) scale out.
-	ScaleOutCooldown *int64 `type:"integer"`
+	ScaleOutCooldown *int64 `json:"autoscaling:TargetTrackingConfiguration:ScaleOutCooldown" type:"integer"`
 
 	// The target value for the metric. The range is 8.515920e-109 to 1.174271e+108
 	// (Base 10) or 2e-360 to 2e360 (Base 2).
 	//
 	// TargetValue is a required field
-	TargetValue *float64 `type:"double" required:"true"`
+	TargetValue *float64 `json:"autoscaling:TargetTrackingConfiguration:TargetValue" type:"double" required:"true"`
 }
 
 // String returns the string representation

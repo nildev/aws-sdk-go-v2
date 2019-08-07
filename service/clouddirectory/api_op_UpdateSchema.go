@@ -76,7 +76,7 @@ type UpdateSchemaOutput struct {
 
 	// The ARN that is associated with the updated schema. For more information,
 	// see arns.
-	SchemaArn *string `type:"string"`
+	SchemaArn *string `json:"clouddirectory:UpdateSchemaOutput:SchemaArn" type:"string"`
 }
 
 // String returns the string representation

@@ -55,7 +55,7 @@ type SetSubnetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the subnet and Availability Zone.
-	AvailabilityZones []AvailabilityZone `type:"list"`
+	AvailabilityZones []AvailabilityZone `json:"elasticloadbalancing:SetSubnetsOutput:AvailabilityZones" type:"list"`
 }
 
 // String returns the string representation

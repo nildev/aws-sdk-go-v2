@@ -63,7 +63,7 @@ type DescribeIdentityPoolUsageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the usage of the identity pool.
-	IdentityPoolUsage *IdentityPoolUsage `type:"structure"`
+	IdentityPoolUsage *IdentityPoolUsage `json:"cognito-sync:DescribeIdentityPoolUsageOutput:IdentityPoolUsage" type:"structure"`
 }
 
 // String returns the string representation

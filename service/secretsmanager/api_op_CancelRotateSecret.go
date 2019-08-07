@@ -60,17 +60,17 @@ type CancelRotateSecretOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret for which rotation was canceled.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:CancelRotateSecretOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret for which rotation was canceled.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:CancelRotateSecretOutput:Name" min:"1" type:"string"`
 
 	// The unique identifier of the version of the secret that was created during
 	// the rotation. This version might not be complete, and should be evaluated
 	// for possible deletion. At the very least, you should remove the VersionStage
 	// value AWSPENDING to enable this version to be deleted. Failing to clean up
 	// a cancelled rotation can block you from successfully starting future rotations.
-	VersionId *string `min:"32" type:"string"`
+	VersionId *string `json:"secretsmanager:CancelRotateSecretOutput:VersionId" min:"32" type:"string"`
 }
 
 // String returns the string representation

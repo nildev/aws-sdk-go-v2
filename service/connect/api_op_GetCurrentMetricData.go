@@ -209,7 +209,7 @@ type GetCurrentMetricDataOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time at which CurrentMetricData was retrieved and cached for pagination.
-	DataSnapshotTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DataSnapshotTime *time.Time `json:"connect:GetCurrentMetricDataOutput:DataSnapshotTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of CurrentMetricResult objects organized by Dimensions combining with
 	// CurrentMetricDataCollections.
@@ -221,7 +221,7 @@ type GetCurrentMetricDataOutput struct {
 	//
 	// If no Grouping is specified in the request, Collections is a summary for
 	// the CurrentMetric returned.
-	MetricResults []CurrentMetricResult `type:"list"`
+	MetricResults []CurrentMetricResult `json:"connect:GetCurrentMetricDataOutput:MetricResults" type:"list"`
 
 	// A string returned in the response. Use the value returned in the response
 	// as the value of the NextToken in a subsequent request to retrieve the next
@@ -230,7 +230,7 @@ type GetCurrentMetricDataOutput struct {
 	// The token expires after 5 minutes from the time it is created. Subsequent
 	// requests that use the NextToken must use the same request parameters as the
 	// request that generated the token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"connect:GetCurrentMetricDataOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

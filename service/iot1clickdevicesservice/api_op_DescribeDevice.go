@@ -55,7 +55,7 @@ type DescribeDeviceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Device details.
-	DeviceDescription *DeviceDescription `locationName:"deviceDescription" type:"structure"`
+	DeviceDescription *DeviceDescription `json:"devices.iot1click:DescribeDeviceOutput:DeviceDescription" locationName:"deviceDescription" type:"structure"`
 }
 
 // String returns the string representation

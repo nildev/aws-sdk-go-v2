@@ -48,7 +48,7 @@ type GetResolverRuleAssociationOutput struct {
 
 	// Information about the resolver rule association that you specified in a GetResolverRuleAssociation
 	// request.
-	ResolverRuleAssociation *ResolverRuleAssociation `type:"structure"`
+	ResolverRuleAssociation *ResolverRuleAssociation `json:"route53resolver:GetResolverRuleAssociationOutput:ResolverRuleAssociation" type:"structure"`
 }
 
 // String returns the string representation

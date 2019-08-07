@@ -54,30 +54,30 @@ func (s DescribeOfferingInput) MarshalFields(e protocol.FieldEncoder) error {
 type DescribeOfferingOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:DescribeOfferingOutput:Arn" locationName:"arn" type:"string"`
 
-	CurrencyCode *string `locationName:"currencyCode" type:"string"`
+	CurrencyCode *string `json:"medialive:DescribeOfferingOutput:CurrencyCode" locationName:"currencyCode" type:"string"`
 
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"medialive:DescribeOfferingOutput:Duration" locationName:"duration" type:"integer"`
 
 	// Units for duration, e.g. 'MONTHS'
-	DurationUnits OfferingDurationUnits `locationName:"durationUnits" type:"string" enum:"true"`
+	DurationUnits OfferingDurationUnits `json:"medialive:DescribeOfferingOutput:DurationUnits" locationName:"durationUnits" type:"string" enum:"true"`
 
-	FixedPrice *float64 `locationName:"fixedPrice" type:"double"`
+	FixedPrice *float64 `json:"medialive:DescribeOfferingOutput:FixedPrice" locationName:"fixedPrice" type:"double"`
 
-	OfferingDescription *string `locationName:"offeringDescription" type:"string"`
+	OfferingDescription *string `json:"medialive:DescribeOfferingOutput:OfferingDescription" locationName:"offeringDescription" type:"string"`
 
-	OfferingId *string `locationName:"offeringId" type:"string"`
+	OfferingId *string `json:"medialive:DescribeOfferingOutput:OfferingId" locationName:"offeringId" type:"string"`
 
 	// Offering type, e.g. 'NO_UPFRONT'
-	OfferingType OfferingType `locationName:"offeringType" type:"string" enum:"true"`
+	OfferingType OfferingType `json:"medialive:DescribeOfferingOutput:OfferingType" locationName:"offeringType" type:"string" enum:"true"`
 
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"medialive:DescribeOfferingOutput:Region" locationName:"region" type:"string"`
 
 	// Resource configuration (codec, resolution, bitrate, ...)
-	ResourceSpecification *ReservationResourceSpecification `locationName:"resourceSpecification" type:"structure"`
+	ResourceSpecification *ReservationResourceSpecification `json:"medialive:DescribeOfferingOutput:ResourceSpecification" locationName:"resourceSpecification" type:"structure"`
 
-	UsagePrice *float64 `locationName:"usagePrice" type:"double"`
+	UsagePrice *float64 `json:"medialive:DescribeOfferingOutput:UsagePrice" locationName:"usagePrice" type:"double"`
 }
 
 // String returns the string representation

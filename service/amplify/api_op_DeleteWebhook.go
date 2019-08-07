@@ -61,7 +61,7 @@ type DeleteWebhookOutput struct {
 	// Webhook structure.
 	//
 	// Webhook is a required field
-	Webhook *Webhook `locationName:"webhook" type:"structure" required:"true"`
+	Webhook *Webhook `json:"amplify:DeleteWebhookOutput:Webhook" locationName:"webhook" type:"structure" required:"true"`
 }
 
 // String returns the string representation

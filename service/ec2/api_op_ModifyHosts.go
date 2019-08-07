@@ -51,11 +51,11 @@ type ModifyHostsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the Dedicated Hosts that were successfully modified.
-	Successful []string `locationName:"successful" locationNameList:"item" type:"list"`
+	Successful []string `json:"ec2:ModifyHostsOutput:Successful" locationName:"successful" locationNameList:"item" type:"list"`
 
 	// The IDs of the Dedicated Hosts that could not be modified. Check whether
 	// the setting you requested can be used.
-	Unsuccessful []UnsuccessfulItem `locationName:"unsuccessful" locationNameList:"item" type:"list"`
+	Unsuccessful []UnsuccessfulItem `json:"ec2:ModifyHostsOutput:Unsuccessful" locationName:"unsuccessful" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

@@ -116,7 +116,7 @@ type CreateQualificationTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The created Qualification type, returned as a QualificationType data structure.
-	QualificationType *QualificationType `type:"structure"`
+	QualificationType *QualificationType `json:"mturk-requester:CreateQualificationTypeOutput:QualificationType" type:"structure"`
 }
 
 // String returns the string representation

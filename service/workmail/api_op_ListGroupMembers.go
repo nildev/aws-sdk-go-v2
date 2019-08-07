@@ -68,11 +68,11 @@ type ListGroupMembersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The members associated to the group.
-	Members []Member `type:"list"`
+	Members []Member `json:"workmail:ListGroupMembersOutput:Members" type:"list"`
 
 	// The token to use to retrieve the next page of results. The first call does
 	// not contain any tokens.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workmail:ListGroupMembersOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -126,44 +126,44 @@ type ListMultipartUploadsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the bucket to which the multipart upload was initiated.
-	Bucket *string `type:"string"`
+	Bucket *string `json:"s3:ListMultipartUploadsOutput:Bucket" type:"string"`
 
-	CommonPrefixes []CommonPrefix `type:"list" flattened:"true"`
+	CommonPrefixes []CommonPrefix `json:"s3:ListMultipartUploadsOutput:CommonPrefixes" type:"list" flattened:"true"`
 
-	Delimiter *string `type:"string"`
+	Delimiter *string `json:"s3:ListMultipartUploadsOutput:Delimiter" type:"string"`
 
 	// Encoding type used by Amazon S3 to encode object keys in the response.
-	EncodingType EncodingType `type:"string" enum:"true"`
+	EncodingType EncodingType `json:"s3:ListMultipartUploadsOutput:EncodingType" type:"string" enum:"true"`
 
 	// Indicates whether the returned list of multipart uploads is truncated. A
 	// value of true indicates that the list was truncated. The list can be truncated
 	// if the number of multipart uploads exceeds the limit allowed or specified
 	// by max uploads.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"s3:ListMultipartUploadsOutput:IsTruncated" type:"boolean"`
 
 	// The key at or after which the listing began.
-	KeyMarker *string `type:"string"`
+	KeyMarker *string `json:"s3:ListMultipartUploadsOutput:KeyMarker" type:"string"`
 
 	// Maximum number of multipart uploads that could have been included in the
 	// response.
-	MaxUploads *int64 `type:"integer"`
+	MaxUploads *int64 `json:"s3:ListMultipartUploadsOutput:MaxUploads" type:"integer"`
 
 	// When a list is truncated, this element specifies the value that should be
 	// used for the key-marker request parameter in a subsequent request.
-	NextKeyMarker *string `type:"string"`
+	NextKeyMarker *string `json:"s3:ListMultipartUploadsOutput:NextKeyMarker" type:"string"`
 
 	// When a list is truncated, this element specifies the value that should be
 	// used for the upload-id-marker request parameter in a subsequent request.
-	NextUploadIdMarker *string `type:"string"`
+	NextUploadIdMarker *string `json:"s3:ListMultipartUploadsOutput:NextUploadIdMarker" type:"string"`
 
 	// When a prefix is provided in the request, this field contains the specified
 	// prefix. The result contains only keys starting with the specified prefix.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:ListMultipartUploadsOutput:Prefix" type:"string"`
 
 	// Upload ID after which listing began.
-	UploadIdMarker *string `type:"string"`
+	UploadIdMarker *string `json:"s3:ListMultipartUploadsOutput:UploadIdMarker" type:"string"`
 
-	Uploads []MultipartUpload `locationName:"Upload" type:"list" flattened:"true"`
+	Uploads []MultipartUpload `json:"s3:ListMultipartUploadsOutput:Uploads" locationName:"Upload" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

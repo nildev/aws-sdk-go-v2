@@ -43,7 +43,7 @@ type GetOperationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A complex type that contains information about the operation.
-	Operation *Operation `type:"structure"`
+	Operation *Operation `json:"servicediscovery:GetOperationOutput:Operation" type:"structure"`
 }
 
 // String returns the string representation

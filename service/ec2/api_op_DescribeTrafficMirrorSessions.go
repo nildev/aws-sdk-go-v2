@@ -75,11 +75,11 @@ type DescribeTrafficMirrorSessionsOutput struct {
 
 	// The token to use to retrieve the next page of results. The value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeTrafficMirrorSessionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror
 	// sessions are described. Alternatively, you can filter the results.
-	TrafficMirrorSessions []TrafficMirrorSession `locationName:"trafficMirrorSessionSet" locationNameList:"item" type:"list"`
+	TrafficMirrorSessions []TrafficMirrorSession `json:"ec2:DescribeTrafficMirrorSessionsOutput:TrafficMirrorSessions" locationName:"trafficMirrorSessionSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

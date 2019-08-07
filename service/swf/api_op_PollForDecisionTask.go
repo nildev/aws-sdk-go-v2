@@ -99,7 +99,7 @@ type PollForDecisionTaskOutput struct {
 	// uses this during the processing of the decision task.
 	//
 	// Events is a required field
-	Events []HistoryEvent `locationName:"events" type:"list" required:"true"`
+	Events []HistoryEvent `json:"swf:PollForDecisionTaskOutput:Events" locationName:"events" type:"list" required:"true"`
 
 	// If a NextPageToken was returned by a previous call, there are more results
 	// available. To retrieve the next page of results, make the call again using
@@ -107,35 +107,35 @@ type PollForDecisionTaskOutput struct {
 	//
 	// The configured maximumPageSize determines how many results can be returned
 	// in a single call.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"swf:PollForDecisionTaskOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// The ID of the DecisionTaskStarted event of the previous decision task of
 	// this workflow execution that was processed by the decider. This can be used
 	// to determine the events in the history new since the last decision task received
 	// by the decider.
-	PreviousStartedEventId *int64 `locationName:"previousStartedEventId" type:"long"`
+	PreviousStartedEventId *int64 `json:"swf:PollForDecisionTaskOutput:PreviousStartedEventId" locationName:"previousStartedEventId" type:"long"`
 
 	// The ID of the DecisionTaskStarted event recorded in the history.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:PollForDecisionTaskOutput:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The opaque string used as a handle on the task. This token is used by workers
 	// to communicate progress and response information back to the system about
 	// the task.
 	//
 	// TaskToken is a required field
-	TaskToken *string `locationName:"taskToken" min:"1" type:"string" required:"true"`
+	TaskToken *string `json:"swf:PollForDecisionTaskOutput:TaskToken" locationName:"taskToken" min:"1" type:"string" required:"true"`
 
 	// The workflow execution for which this decision task was created.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:PollForDecisionTaskOutput:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 
 	// The type of the workflow execution for which this decision task was created.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:PollForDecisionTaskOutput:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation

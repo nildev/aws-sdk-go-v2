@@ -61,7 +61,7 @@ type UpdateVTLDeviceTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the medium changer you have selected.
-	VTLDeviceARN *string `min:"50" type:"string"`
+	VTLDeviceARN *string `json:"storagegateway:UpdateVTLDeviceTypeOutput:VTLDeviceARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

@@ -74,13 +74,13 @@ type SearchUsersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:SearchUsersOutput:NextToken" min:"1" type:"string"`
 
 	// The total number of users returned.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"a4b:SearchUsersOutput:TotalCount" type:"integer"`
 
 	// The users that meet the specified set of filter criteria, in sort order.
-	Users []UserData `type:"list"`
+	Users []UserData `json:"a4b:SearchUsersOutput:Users" type:"list"`
 }
 
 // String returns the string representation

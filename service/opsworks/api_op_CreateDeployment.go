@@ -84,7 +84,7 @@ type CreateDeploymentOutput struct {
 
 	// The deployment ID, which can be used with other requests to identify the
 	// deployment.
-	DeploymentId *string `type:"string"`
+	DeploymentId *string `json:"opsworks:CreateDeploymentOutput:DeploymentId" type:"string"`
 }
 
 // String returns the string representation

@@ -31,12 +31,12 @@ type ListDeploymentConfigsOutput struct {
 
 	// A list of deployment configurations, including built-in configurations such
 	// as CodeDeployDefault.OneAtATime.
-	DeploymentConfigsList []string `locationName:"deploymentConfigsList" type:"list"`
+	DeploymentConfigsList []string `json:"codedeploy:ListDeploymentConfigsOutput:DeploymentConfigsList" locationName:"deploymentConfigsList" type:"list"`
 
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent list deployment configurations call to return
 	// the next set of deployment configurations in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListDeploymentConfigsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

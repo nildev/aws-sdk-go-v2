@@ -42,11 +42,11 @@ type DescribeDirectConnectGatewayAssociationProposalsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the Direct Connect gateway association proposals.
-	DirectConnectGatewayAssociationProposals []DirectConnectGatewayAssociationProposal `locationName:"directConnectGatewayAssociationProposals" type:"list"`
+	DirectConnectGatewayAssociationProposals []DirectConnectGatewayAssociationProposal `json:"directconnect:DescribeDirectConnectGatewayAssociationProposalsOutput:DirectConnectGatewayAssociationProposals" locationName:"directConnectGatewayAssociationProposals" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"directconnect:DescribeDirectConnectGatewayAssociationProposalsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

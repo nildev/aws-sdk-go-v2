@@ -225,7 +225,7 @@ type GetDASHStreamingSessionURLOutput struct {
 
 	// The URL (containing the session token) that a media player can use to retrieve
 	// the MPEG-DASH manifest.
-	DASHStreamingSessionURL *string `type:"string"`
+	DASHStreamingSessionURL *string `json:"kinesisvideo:GetDASHStreamingSessionURLOutput:DASHStreamingSessionURL" type:"string"`
 }
 
 // String returns the string representation

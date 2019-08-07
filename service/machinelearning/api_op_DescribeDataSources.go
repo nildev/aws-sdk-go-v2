@@ -107,10 +107,10 @@ type DescribeDataSourcesOutput struct {
 
 	// An ID of the next page in the paginated results that indicates at least one
 	// more page follows.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"machinelearning:DescribeDataSourcesOutput:NextToken" type:"string"`
 
 	// A list of DataSource that meet the search criteria.
-	Results []DataSource `type:"list"`
+	Results []DataSource `json:"machinelearning:DescribeDataSourcesOutput:Results" type:"list"`
 }
 
 // String returns the string representation

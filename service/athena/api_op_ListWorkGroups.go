@@ -46,11 +46,11 @@ type ListWorkGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token to be used by the next request if this request is truncated.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"athena:ListWorkGroupsOutput:NextToken" min:"1" type:"string"`
 
 	// The list of workgroups, including their names, descriptions, creation times,
 	// and states.
-	WorkGroups []WorkGroupSummary `type:"list"`
+	WorkGroups []WorkGroupSummary `json:"athena:ListWorkGroupsOutput:WorkGroups" type:"list"`
 }
 
 // String returns the string representation

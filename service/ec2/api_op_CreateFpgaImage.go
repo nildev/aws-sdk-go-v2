@@ -63,10 +63,10 @@ type CreateFpgaImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The global FPGA image identifier (AGFI ID).
-	FpgaImageGlobalId *string `locationName:"fpgaImageGlobalId" type:"string"`
+	FpgaImageGlobalId *string `json:"ec2:CreateFpgaImageOutput:FpgaImageGlobalId" locationName:"fpgaImageGlobalId" type:"string"`
 
 	// The FPGA image identifier (AFI ID).
-	FpgaImageId *string `locationName:"fpgaImageId" type:"string"`
+	FpgaImageId *string `json:"ec2:CreateFpgaImageOutput:FpgaImageId" locationName:"fpgaImageId" type:"string"`
 }
 
 // String returns the string representation

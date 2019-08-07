@@ -220,22 +220,22 @@ type GetDimensionValuesOutput struct {
 	//    * TENANCY - The tenancy of a resource. Examples are shared or dedicated.
 	//
 	// DimensionValues is a required field
-	DimensionValues []DimensionValuesWithAttributes `type:"list" required:"true"`
+	DimensionValues []DimensionValuesWithAttributes `json:"ce:GetDimensionValuesOutput:DimensionValues" type:"list" required:"true"`
 
 	// The token for the next set of retrievable results. AWS provides the token
 	// when the response from a previous call has more results than the maximum
 	// page size.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"ce:GetDimensionValuesOutput:NextPageToken" type:"string"`
 
 	// The number of results that AWS returned at one time.
 	//
 	// ReturnSize is a required field
-	ReturnSize *int64 `type:"integer" required:"true"`
+	ReturnSize *int64 `json:"ce:GetDimensionValuesOutput:ReturnSize" type:"integer" required:"true"`
 
 	// The total number of search results.
 	//
 	// TotalSize is a required field
-	TotalSize *int64 `type:"integer" required:"true"`
+	TotalSize *int64 `json:"ce:GetDimensionValuesOutput:TotalSize" type:"integer" required:"true"`
 }
 
 // String returns the string representation

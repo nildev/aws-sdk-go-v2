@@ -65,16 +65,16 @@ type ListResolverRulesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The value that you specified for MaxResults in the request.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"route53resolver:ListResolverRulesOutput:MaxResults" min:"1" type:"integer"`
 
 	// If more than MaxResults resolver rules match the specified criteria, you
 	// can submit another ListResolverRules request to get the next group of results.
 	// In the next request, specify the value of NextToken from the previous response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"route53resolver:ListResolverRulesOutput:NextToken" type:"string"`
 
 	// The resolver rules that were created using the current AWS account and that
 	// match the specified filters, if any.
-	ResolverRules []ResolverRule `type:"list"`
+	ResolverRules []ResolverRule `json:"route53resolver:ListResolverRulesOutput:ResolverRules" type:"list"`
 }
 
 // String returns the string representation

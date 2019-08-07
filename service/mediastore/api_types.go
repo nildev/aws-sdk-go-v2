@@ -24,32 +24,32 @@ type Container struct {
 	// arn:aws:<region>:<account that owns this container>:container/<name of container>
 	//
 	// For example: arn:aws:mediastore:us-west-2:111122223333:container/movies
-	ARN *string `min:"1" type:"string"`
+	ARN *string `json:"mediastore:Container:ARN" min:"1" type:"string"`
 
 	// The state of access logging on the container. This value is false by default,
 	// indicating that AWS Elemental MediaStore does not send access logs to Amazon
 	// CloudWatch Logs. When you enable access logging on the container, MediaStore
 	// changes this value to true, indicating that the service delivers access logs
 	// for objects stored in that container to CloudWatch Logs.
-	AccessLoggingEnabled *bool `type:"boolean"`
+	AccessLoggingEnabled *bool `json:"mediastore:Container:AccessLoggingEnabled" type:"boolean"`
 
 	// Unix timestamp.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"mediastore:Container:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The DNS endpoint of the container. Use the endpoint to identify the specific
 	// container when sending requests to the data plane. The service assigns this
 	// value when the container is created. Once the value has been assigned, it
 	// does not change.
-	Endpoint *string `min:"1" type:"string"`
+	Endpoint *string `json:"mediastore:Container:Endpoint" min:"1" type:"string"`
 
 	// The name of the container.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"mediastore:Container:Name" min:"1" type:"string"`
 
 	// The status of container creation or deletion. The status is one of the following:
 	// CREATING, ACTIVE, or DELETING. While the service is creating the container,
 	// the status is CREATING. When the endpoint is available, the status changes
 	// to ACTIVE.
-	Status ContainerStatus `min:"1" type:"string" enum:"true"`
+	Status ContainerStatus `json:"mediastore:Container:Status" min:"1" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -71,14 +71,14 @@ type CorsRule struct {
 	// This element can contain only one wildcard character (*).
 	//
 	// AllowedHeaders is a required field
-	AllowedHeaders []string `type:"list" required:"true"`
+	AllowedHeaders []string `json:"mediastore:CorsRule:AllowedHeaders" type:"list" required:"true"`
 
 	// Identifies an HTTP method that the origin that is specified in the rule is
 	// allowed to execute.
 	//
 	// Each CORS rule must contain at least one AllowedMethods and one AllowedOrigins
 	// element.
-	AllowedMethods []MethodName `min:"1" type:"list"`
+	AllowedMethods []MethodName `json:"mediastore:CorsRule:AllowedMethods" min:"1" type:"list"`
 
 	// One or more response headers that you want users to be able to access from
 	// their applications (for example, from a JavaScript XMLHttpRequest object).
@@ -89,19 +89,19 @@ type CorsRule struct {
 	// access for all origins.
 	//
 	// AllowedOrigins is a required field
-	AllowedOrigins []string `min:"1" type:"list" required:"true"`
+	AllowedOrigins []string `json:"mediastore:CorsRule:AllowedOrigins" min:"1" type:"list" required:"true"`
 
 	// One or more headers in the response that you want users to be able to access
 	// from their applications (for example, from a JavaScript XMLHttpRequest object).
 	//
 	// This element is optional for each rule.
-	ExposeHeaders []string `type:"list"`
+	ExposeHeaders []string `json:"mediastore:CorsRule:ExposeHeaders" type:"list"`
 
 	// The time in seconds that your browser caches the preflight response for the
 	// specified resource.
 	//
 	// A CORS rule can have only one MaxAgeSeconds element.
-	MaxAgeSeconds *int64 `type:"integer"`
+	MaxAgeSeconds *int64 `json:"mediastore:CorsRule:MaxAgeSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -146,12 +146,12 @@ type Tag struct {
 
 	// Part of the key:value pair that defines a tag. You can use a tag key to describe
 	// a category of information, such as "customer." Tag keys are case-sensitive.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"mediastore:Tag:Key" min:"1" type:"string"`
 
 	// Part of the key:value pair that defines a tag. You can use a tag value to
 	// describe a specific value within a category, such as "companyA" or "companyB."
 	// Tag values are case-sensitive.
-	Value *string `type:"string"`
+	Value *string `json:"mediastore:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

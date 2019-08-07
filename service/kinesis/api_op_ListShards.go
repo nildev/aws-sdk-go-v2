@@ -110,13 +110,13 @@ type ListShardsOutput struct {
 	// Tokens expire after 300 seconds. When you obtain a value for NextToken in
 	// the response to a call to ListShards, you have 300 seconds to use that value.
 	// If you specify an expired token in a call to ListShards, you get ExpiredNextTokenException.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"kinesis:ListShardsOutput:NextToken" min:"1" type:"string"`
 
 	// An array of JSON objects. Each object represents one shard and specifies
 	// the IDs of the shard, the shard's parent, and the shard that's adjacent to
 	// the shard's parent. Each object also contains the starting and ending hash
 	// keys and the starting and ending sequence numbers for the shard.
-	Shards []Shard `type:"list"`
+	Shards []Shard `json:"kinesis:ListShardsOutput:Shards" type:"list"`
 }
 
 // String returns the string representation

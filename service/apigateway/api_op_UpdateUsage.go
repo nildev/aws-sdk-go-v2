@@ -92,22 +92,22 @@ type UpdateUsageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ending date of the usage data.
-	EndDate *string `locationName:"endDate" type:"string"`
+	EndDate *string `json:"apigateway:UpdateUsageOutput:EndDate" locationName:"endDate" type:"string"`
 
 	// The usage data, as daily logs of used and remaining quotas, over the specified
 	// time interval indexed over the API keys in a usage plan. For example, {...,
 	// "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}, where {api_key}
 	// stands for an API key value and the daily log entry is of the format [used
 	// quota, remaining quota].
-	Items map[string][][]int64 `locationName:"values" type:"map"`
+	Items map[string][][]int64 `json:"apigateway:UpdateUsageOutput:Items" locationName:"values" type:"map"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:UpdateUsageOutput:Position" locationName:"position" type:"string"`
 
 	// The starting date of the usage data.
-	StartDate *string `locationName:"startDate" type:"string"`
+	StartDate *string `json:"apigateway:UpdateUsageOutput:StartDate" locationName:"startDate" type:"string"`
 
 	// The plan Id associated with this usage data.
-	UsagePlanId *string `locationName:"usagePlanId" type:"string"`
+	UsagePlanId *string `json:"apigateway:UpdateUsageOutput:UsagePlanId" locationName:"usagePlanId" type:"string"`
 }
 
 // String returns the string representation

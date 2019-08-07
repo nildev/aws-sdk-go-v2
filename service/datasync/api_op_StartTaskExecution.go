@@ -66,7 +66,7 @@ type StartTaskExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the specific task execution that was started.
-	TaskExecutionArn *string `type:"string"`
+	TaskExecutionArn *string `json:"datasync:StartTaskExecutionOutput:TaskExecutionArn" type:"string"`
 }
 
 // String returns the string representation

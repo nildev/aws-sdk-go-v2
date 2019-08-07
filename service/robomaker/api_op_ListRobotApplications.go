@@ -117,10 +117,10 @@ type ListRobotApplicationsOutput struct {
 	// When the results of a ListRobotApplications request exceed maxResults, this
 	// value can be used to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"robomaker:ListRobotApplicationsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// A list of robot application summaries that meet the criteria of the request.
-	RobotApplicationSummaries []RobotApplicationSummary `locationName:"robotApplicationSummaries" type:"list"`
+	RobotApplicationSummaries []RobotApplicationSummary `json:"robomaker:ListRobotApplicationsOutput:RobotApplicationSummaries" locationName:"robotApplicationSummaries" type:"list"`
 }
 
 // String returns the string representation

@@ -17,46 +17,46 @@ type ColumnMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The type of the column.
-	ArrayBaseColumnType *int64 `locationName:"arrayBaseColumnType" type:"integer"`
+	ArrayBaseColumnType *int64 `json:"rds-data:ColumnMetadata:ArrayBaseColumnType" locationName:"arrayBaseColumnType" type:"integer"`
 
 	// A value that indicates whether the column increments automatically.
-	IsAutoIncrement *bool `locationName:"isAutoIncrement" type:"boolean"`
+	IsAutoIncrement *bool `json:"rds-data:ColumnMetadata:IsAutoIncrement" locationName:"isAutoIncrement" type:"boolean"`
 
 	// A value that indicates whether the column is case-sensitive.
-	IsCaseSensitive *bool `locationName:"isCaseSensitive" type:"boolean"`
+	IsCaseSensitive *bool `json:"rds-data:ColumnMetadata:IsCaseSensitive" locationName:"isCaseSensitive" type:"boolean"`
 
 	// A value that indicates whether the column contains currency values.
-	IsCurrency *bool `locationName:"isCurrency" type:"boolean"`
+	IsCurrency *bool `json:"rds-data:ColumnMetadata:IsCurrency" locationName:"isCurrency" type:"boolean"`
 
 	// A value that indicates whether an integer column is signed.
-	IsSigned *bool `locationName:"isSigned" type:"boolean"`
+	IsSigned *bool `json:"rds-data:ColumnMetadata:IsSigned" locationName:"isSigned" type:"boolean"`
 
 	// The label for the column.
-	Label *string `locationName:"label" type:"string"`
+	Label *string `json:"rds-data:ColumnMetadata:Label" locationName:"label" type:"string"`
 
 	// The name of the column.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"rds-data:ColumnMetadata:Name" locationName:"name" type:"string"`
 
 	// A value that indicates whether the column is nullable.
-	Nullable *int64 `locationName:"nullable" type:"integer"`
+	Nullable *int64 `json:"rds-data:ColumnMetadata:Nullable" locationName:"nullable" type:"integer"`
 
 	// The precision value of a decimal number column.
-	Precision *int64 `locationName:"precision" type:"integer"`
+	Precision *int64 `json:"rds-data:ColumnMetadata:Precision" locationName:"precision" type:"integer"`
 
 	// The scale value of a decimal number column.
-	Scale *int64 `locationName:"scale" type:"integer"`
+	Scale *int64 `json:"rds-data:ColumnMetadata:Scale" locationName:"scale" type:"integer"`
 
 	// The name of the schema that owns the table that includes the column.
-	SchemaName *string `locationName:"schemaName" type:"string"`
+	SchemaName *string `json:"rds-data:ColumnMetadata:SchemaName" locationName:"schemaName" type:"string"`
 
 	// The name of the table that includes the column.
-	TableName *string `locationName:"tableName" type:"string"`
+	TableName *string `json:"rds-data:ColumnMetadata:TableName" locationName:"tableName" type:"string"`
 
 	// The type of the column.
-	Type *int64 `locationName:"type" type:"integer"`
+	Type *int64 `json:"rds-data:ColumnMetadata:Type" locationName:"type" type:"integer"`
 
 	// The database-specific data type of the column.
-	TypeName *string `locationName:"typeName" type:"string"`
+	TypeName *string `json:"rds-data:ColumnMetadata:TypeName" locationName:"typeName" type:"string"`
 }
 
 // String returns the string representation
@@ -161,22 +161,22 @@ type Field struct {
 	// A value of BLOB data type.
 	//
 	// BlobValue is automatically base64 encoded/decoded by the SDK.
-	BlobValue []byte `locationName:"blobValue" type:"blob"`
+	BlobValue []byte `json:"rds-data:Field:BlobValue" locationName:"blobValue" type:"blob"`
 
 	// A value of Boolean data type.
-	BooleanValue *bool `locationName:"booleanValue" type:"boolean"`
+	BooleanValue *bool `json:"rds-data:Field:BooleanValue" locationName:"booleanValue" type:"boolean"`
 
 	// A value of double data type.
-	DoubleValue *float64 `locationName:"doubleValue" type:"double"`
+	DoubleValue *float64 `json:"rds-data:Field:DoubleValue" locationName:"doubleValue" type:"double"`
 
 	// A NULL value.
-	IsNull *bool `locationName:"isNull" type:"boolean"`
+	IsNull *bool `json:"rds-data:Field:IsNull" locationName:"isNull" type:"boolean"`
 
 	// A value of long data type.
-	LongValue *int64 `locationName:"longValue" type:"long"`
+	LongValue *int64 `json:"rds-data:Field:LongValue" locationName:"longValue" type:"long"`
 
 	// A value of string data type.
-	StringValue *string `locationName:"stringValue" type:"string"`
+	StringValue *string `json:"rds-data:Field:StringValue" locationName:"stringValue" type:"string"`
 }
 
 // String returns the string representation
@@ -231,7 +231,7 @@ type Record struct {
 	_ struct{} `type:"structure"`
 
 	// The values returned in the record.
-	Values []Value `locationName:"values" type:"list"`
+	Values []Value `json:"rds-data:Record:Values" locationName:"values" type:"list"`
 }
 
 // String returns the string representation
@@ -262,10 +262,10 @@ type ResultFrame struct {
 	_ struct{} `type:"structure"`
 
 	// The records in the result set.
-	Records []Record `locationName:"records" type:"list"`
+	Records []Record `json:"rds-data:ResultFrame:Records" locationName:"records" type:"list"`
 
 	// The result-set metadata in the result set.
-	ResultSetMetadata *ResultSetMetadata `locationName:"resultSetMetadata" type:"structure"`
+	ResultSetMetadata *ResultSetMetadata `json:"rds-data:ResultFrame:ResultSetMetadata" locationName:"resultSetMetadata" type:"structure"`
 }
 
 // String returns the string representation
@@ -302,10 +302,10 @@ type ResultSetMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The number of columns in the result set.
-	ColumnCount *int64 `locationName:"columnCount" type:"long"`
+	ColumnCount *int64 `json:"rds-data:ResultSetMetadata:ColumnCount" locationName:"columnCount" type:"long"`
 
 	// The metadata of the columns in the result set.
-	ColumnMetadata []ColumnMetadata `locationName:"columnMetadata" type:"list"`
+	ColumnMetadata []ColumnMetadata `json:"rds-data:ResultSetMetadata:ColumnMetadata" locationName:"columnMetadata" type:"list"`
 }
 
 // String returns the string representation
@@ -342,10 +342,10 @@ type SqlParameter struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the parameter.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"rds-data:SqlParameter:Name" locationName:"name" type:"string"`
 
 	// The value of the parameter.
-	Value *Field `locationName:"value" type:"structure"`
+	Value *Field `json:"rds-data:SqlParameter:Value" locationName:"value" type:"structure"`
 }
 
 // String returns the string representation
@@ -376,10 +376,10 @@ type SqlStatementResult struct {
 	_ struct{} `type:"structure"`
 
 	// The number of records updated by a SQL statement.
-	NumberOfRecordsUpdated *int64 `locationName:"numberOfRecordsUpdated" type:"long"`
+	NumberOfRecordsUpdated *int64 `json:"rds-data:SqlStatementResult:NumberOfRecordsUpdated" locationName:"numberOfRecordsUpdated" type:"long"`
 
 	// The result set of the SQL statement.
-	ResultFrame *ResultFrame `locationName:"resultFrame" type:"structure"`
+	ResultFrame *ResultFrame `json:"rds-data:SqlStatementResult:ResultFrame" locationName:"resultFrame" type:"structure"`
 }
 
 // String returns the string representation
@@ -410,7 +410,7 @@ type StructValue struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes returned in the record.
-	Attributes []Value `locationName:"attributes" type:"list"`
+	Attributes []Value `json:"rds-data:StructValue:Attributes" locationName:"attributes" type:"list"`
 }
 
 // String returns the string representation
@@ -441,7 +441,7 @@ type UpdateResult struct {
 	_ struct{} `type:"structure"`
 
 	// Values for fields generated during the request.
-	GeneratedFields []Field `locationName:"generatedFields" type:"list"`
+	GeneratedFields []Field `json:"rds-data:UpdateResult:GeneratedFields" locationName:"generatedFields" type:"list"`
 }
 
 // String returns the string representation
@@ -472,36 +472,36 @@ type Value struct {
 	_ struct{} `type:"structure"`
 
 	// An array of column values.
-	ArrayValues []Value `locationName:"arrayValues" type:"list"`
+	ArrayValues []Value `json:"rds-data:Value:ArrayValues" locationName:"arrayValues" type:"list"`
 
 	// A value for a column of big integer data type.
-	BigIntValue *int64 `locationName:"bigIntValue" type:"long"`
+	BigIntValue *int64 `json:"rds-data:Value:BigIntValue" locationName:"bigIntValue" type:"long"`
 
 	// A value for a column of BIT data type.
-	BitValue *bool `locationName:"bitValue" type:"boolean"`
+	BitValue *bool `json:"rds-data:Value:BitValue" locationName:"bitValue" type:"boolean"`
 
 	// A value for a column of BLOB data type.
 	//
 	// BlobValue is automatically base64 encoded/decoded by the SDK.
-	BlobValue []byte `locationName:"blobValue" type:"blob"`
+	BlobValue []byte `json:"rds-data:Value:BlobValue" locationName:"blobValue" type:"blob"`
 
 	// A value for a column of double data type.
-	DoubleValue *float64 `locationName:"doubleValue" type:"double"`
+	DoubleValue *float64 `json:"rds-data:Value:DoubleValue" locationName:"doubleValue" type:"double"`
 
 	// A value for a column of integer data type.
-	IntValue *int64 `locationName:"intValue" type:"integer"`
+	IntValue *int64 `json:"rds-data:Value:IntValue" locationName:"intValue" type:"integer"`
 
 	// A NULL value.
-	IsNull *bool `locationName:"isNull" type:"boolean"`
+	IsNull *bool `json:"rds-data:Value:IsNull" locationName:"isNull" type:"boolean"`
 
 	// A value for a column of real data type.
-	RealValue *float64 `locationName:"realValue" type:"float"`
+	RealValue *float64 `json:"rds-data:Value:RealValue" locationName:"realValue" type:"float"`
 
 	// A value for a column of string data type.
-	StringValue *string `locationName:"stringValue" type:"string"`
+	StringValue *string `json:"rds-data:Value:StringValue" locationName:"stringValue" type:"string"`
 
 	// A value for a column of STRUCT data type.
-	StructValue *StructValue `locationName:"structValue" type:"structure"`
+	StructValue *StructValue `json:"rds-data:Value:StructValue" locationName:"structValue" type:"structure"`
 }
 
 // String returns the string representation

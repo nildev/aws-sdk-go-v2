@@ -19,37 +19,37 @@ type Algorithm struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the algorithm.
-	AlgorithmArn *string `locationName:"algorithmArn" type:"string"`
+	AlgorithmArn *string `json:"personalize:Algorithm:AlgorithmArn" locationName:"algorithmArn" type:"string"`
 
 	// The URI of the Docker container for the algorithm image.
-	AlgorithmImage *AlgorithmImage `locationName:"algorithmImage" type:"structure"`
+	AlgorithmImage *AlgorithmImage `json:"personalize:Algorithm:AlgorithmImage" locationName:"algorithmImage" type:"structure"`
 
 	// The date and time (in Unix time) that the algorithm was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:Algorithm:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies the default hyperparameters, their ranges, and whether they are
 	// tunable. A tunable hyperparameter can have its value determined during hyperparameter
 	// optimization (HPO).
-	DefaultHyperParameterRanges *DefaultHyperParameterRanges `locationName:"defaultHyperParameterRanges" type:"structure"`
+	DefaultHyperParameterRanges *DefaultHyperParameterRanges `json:"personalize:Algorithm:DefaultHyperParameterRanges" locationName:"defaultHyperParameterRanges" type:"structure"`
 
 	// Specifies the default hyperparameters.
-	DefaultHyperParameters map[string]string `locationName:"defaultHyperParameters" type:"map"`
+	DefaultHyperParameters map[string]string `json:"personalize:Algorithm:DefaultHyperParameters" locationName:"defaultHyperParameters" type:"map"`
 
 	// Specifies the default maximum number of training jobs and parallel training
 	// jobs.
-	DefaultResourceConfig map[string]string `locationName:"defaultResourceConfig" type:"map"`
+	DefaultResourceConfig map[string]string `json:"personalize:Algorithm:DefaultResourceConfig" locationName:"defaultResourceConfig" type:"map"`
 
 	// The date and time (in Unix time) that the algorithm was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:Algorithm:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the algorithm.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:Algorithm:Name" locationName:"name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the role.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"personalize:Algorithm:RoleArn" locationName:"roleArn" type:"string"`
 
 	// The training input mode.
-	TrainingInputMode *string `locationName:"trainingInputMode" type:"string"`
+	TrainingInputMode *string `json:"personalize:Algorithm:TrainingInputMode" locationName:"trainingInputMode" type:"string"`
 }
 
 // String returns the string representation
@@ -65,10 +65,10 @@ type AlgorithmImage struct {
 	// The URI of the Docker container for the algorithm image.
 	//
 	// DockerURI is a required field
-	DockerURI *string `locationName:"dockerURI" type:"string" required:"true"`
+	DockerURI *string `json:"personalize:AlgorithmImage:DockerURI" locationName:"dockerURI" type:"string" required:"true"`
 
 	// The name of the algorithm image.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:AlgorithmImage:Name" locationName:"name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -84,10 +84,10 @@ type AutoMLConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The metric to optimize.
-	MetricName *string `locationName:"metricName" type:"string"`
+	MetricName *string `json:"personalize:AutoMLConfig:MetricName" locationName:"metricName" type:"string"`
 
 	// The list of candidate recipes.
-	RecipeList []string `locationName:"recipeList" type:"list"`
+	RecipeList []string `json:"personalize:AutoMLConfig:RecipeList" locationName:"recipeList" type:"list"`
 }
 
 // String returns the string representation
@@ -102,7 +102,7 @@ type AutoMLResult struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the best recipe.
-	BestRecipeArn *string `locationName:"bestRecipeArn" type:"string"`
+	BestRecipeArn *string `json:"personalize:AutoMLResult:BestRecipeArn" locationName:"bestRecipeArn" type:"string"`
 }
 
 // String returns the string representation
@@ -117,30 +117,30 @@ type Campaign struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the campaign.
-	CampaignArn *string `locationName:"campaignArn" type:"string"`
+	CampaignArn *string `json:"personalize:Campaign:CampaignArn" locationName:"campaignArn" type:"string"`
 
 	// The date and time (in Unix format) that the campaign was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:Campaign:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If a campaign fails, the reason behind the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:Campaign:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The date and time (in Unix format) that the campaign was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:Campaign:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Provides a summary of the properties of a campaign update. For a complete
 	// listing, call the DescribeCampaign API.
-	LatestCampaignUpdate *CampaignUpdateSummary `locationName:"latestCampaignUpdate" type:"structure"`
+	LatestCampaignUpdate *CampaignUpdateSummary `json:"personalize:Campaign:LatestCampaignUpdate" locationName:"latestCampaignUpdate" type:"structure"`
 
 	// Specifies the requested minimum provisioned transactions (recommendations)
 	// per second.
-	MinProvisionedTPS *int64 `locationName:"minProvisionedTPS" min:"1" type:"integer"`
+	MinProvisionedTPS *int64 `json:"personalize:Campaign:MinProvisionedTPS" locationName:"minProvisionedTPS" min:"1" type:"integer"`
 
 	// The name of the campaign.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:Campaign:Name" locationName:"name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of a specific version of the solution.
-	SolutionVersionArn *string `locationName:"solutionVersionArn" type:"string"`
+	SolutionVersionArn *string `json:"personalize:Campaign:SolutionVersionArn" locationName:"solutionVersionArn" type:"string"`
 
 	// The status of the campaign.
 	//
@@ -149,7 +149,7 @@ type Campaign struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:Campaign:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -164,19 +164,19 @@ type CampaignSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the campaign.
-	CampaignArn *string `locationName:"campaignArn" type:"string"`
+	CampaignArn *string `json:"personalize:CampaignSummary:CampaignArn" locationName:"campaignArn" type:"string"`
 
 	// The date and time (in Unix time) that the campaign was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:CampaignSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If a campaign fails, the reason behind the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:CampaignSummary:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The date and time (in Unix time) that the campaign was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:CampaignSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the campaign.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:CampaignSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the campaign.
 	//
@@ -185,7 +185,7 @@ type CampaignSummary struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:CampaignSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -200,20 +200,20 @@ type CampaignUpdateSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the campaign update was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:CampaignUpdateSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If a campaign update fails, the reason behind the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:CampaignUpdateSummary:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The date and time (in Unix time) that the campaign update was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:CampaignUpdateSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies the requested minimum provisioned transactions (recommendations)
 	// per second that Amazon Personalize will support.
-	MinProvisionedTPS *int64 `locationName:"minProvisionedTPS" min:"1" type:"integer"`
+	MinProvisionedTPS *int64 `json:"personalize:CampaignUpdateSummary:MinProvisionedTPS" locationName:"minProvisionedTPS" min:"1" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the deployed solution version.
-	SolutionVersionArn *string `locationName:"solutionVersionArn" type:"string"`
+	SolutionVersionArn *string `json:"personalize:CampaignUpdateSummary:SolutionVersionArn" locationName:"solutionVersionArn" type:"string"`
 
 	// The status of the campaign update.
 	//
@@ -222,7 +222,7 @@ type CampaignUpdateSummary struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:CampaignUpdateSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -236,10 +236,10 @@ type CategoricalHyperParameterRange struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the hyperparameter.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"personalize:CategoricalHyperParameterRange:Name" locationName:"name" type:"string"`
 
 	// A list of the categories for the hyperparameter.
-	Values []string `locationName:"values" type:"list"`
+	Values []string `json:"personalize:CategoricalHyperParameterRange:Values" locationName:"values" type:"list"`
 }
 
 // String returns the string representation
@@ -253,13 +253,13 @@ type ContinuousHyperParameterRange struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum allowable value for the hyperparameter.
-	MaxValue *float64 `locationName:"maxValue" type:"double"`
+	MaxValue *float64 `json:"personalize:ContinuousHyperParameterRange:MaxValue" locationName:"maxValue" type:"double"`
 
 	// The minimum allowable value for the hyperparameter.
-	MinValue *float64 `locationName:"minValue" type:"double"`
+	MinValue *float64 `json:"personalize:ContinuousHyperParameterRange:MinValue" locationName:"minValue" type:"double"`
 
 	// The name of the hyperparameter.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"personalize:ContinuousHyperParameterRange:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -292,7 +292,7 @@ type DataSource struct {
 	// your dataset is stored. For example:
 	//
 	// s3://bucket-name/training-data.csv
-	DataLocation *string `locationName:"dataLocation" type:"string"`
+	DataLocation *string `json:"personalize:DataSource:DataLocation" locationName:"dataLocation" type:"string"`
 }
 
 // String returns the string representation
@@ -306,13 +306,13 @@ type Dataset struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date and time (in Unix time) of the dataset.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:Dataset:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the dataset that you want metadata for.
-	DatasetArn *string `locationName:"datasetArn" type:"string"`
+	DatasetArn *string `json:"personalize:Dataset:DatasetArn" locationName:"datasetArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the dataset group.
-	DatasetGroupArn *string `locationName:"datasetGroupArn" type:"string"`
+	DatasetGroupArn *string `json:"personalize:Dataset:DatasetGroupArn" locationName:"datasetGroupArn" type:"string"`
 
 	// One of the following values:
 	//
@@ -321,16 +321,16 @@ type Dataset struct {
 	//    * Items
 	//
 	//    * Users
-	DatasetType *string `locationName:"datasetType" type:"string"`
+	DatasetType *string `json:"personalize:Dataset:DatasetType" locationName:"datasetType" type:"string"`
 
 	// A time stamp that shows when the dataset was updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:Dataset:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the dataset.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:Dataset:Name" locationName:"name" min:"1" type:"string"`
 
 	// The ARN of the associated schema.
-	SchemaArn *string `locationName:"schemaArn" type:"string"`
+	SchemaArn *string `json:"personalize:Dataset:SchemaArn" locationName:"schemaArn" type:"string"`
 
 	// The status of the dataset.
 	//
@@ -339,7 +339,7 @@ type Dataset struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:Dataset:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -360,25 +360,25 @@ type DatasetGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date and time (in Unix time) of the dataset group.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:DatasetGroup:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the dataset group.
-	DatasetGroupArn *string `locationName:"datasetGroupArn" type:"string"`
+	DatasetGroupArn *string `json:"personalize:DatasetGroup:DatasetGroupArn" locationName:"datasetGroupArn" type:"string"`
 
 	// If creating a dataset group fails, provides the reason why.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:DatasetGroup:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.
-	KmsKeyArn *string `locationName:"kmsKeyArn" type:"string"`
+	KmsKeyArn *string `json:"personalize:DatasetGroup:KmsKeyArn" locationName:"kmsKeyArn" type:"string"`
 
 	// The last update date and time (in Unix time) of the dataset group.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:DatasetGroup:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the dataset group.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:DatasetGroup:Name" locationName:"name" min:"1" type:"string"`
 
 	// The ARN of the IAM role that has permissions to create the dataset group.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"personalize:DatasetGroup:RoleArn" locationName:"roleArn" type:"string"`
 
 	// The current status of the dataset group.
 	//
@@ -387,7 +387,7 @@ type DatasetGroup struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:DatasetGroup:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -402,19 +402,19 @@ type DatasetGroupSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the dataset group was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:DatasetGroupSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the dataset group.
-	DatasetGroupArn *string `locationName:"datasetGroupArn" type:"string"`
+	DatasetGroupArn *string `json:"personalize:DatasetGroupSummary:DatasetGroupArn" locationName:"datasetGroupArn" type:"string"`
 
 	// If creating a dataset group fails, the reason behind the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:DatasetGroupSummary:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The date and time (in Unix time) that the dataset group was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:DatasetGroupSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the dataset group.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:DatasetGroupSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the dataset group.
 	//
@@ -423,7 +423,7 @@ type DatasetGroupSummary struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:DatasetGroupSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -442,37 +442,37 @@ type DatasetImportJob struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date and time (in Unix time) of the dataset import job.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:DatasetImportJob:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon S3 bucket that contains the training data to import.
-	DataSource *DataSource `locationName:"dataSource" type:"structure"`
+	DataSource *DataSource `json:"personalize:DatasetImportJob:DataSource" locationName:"dataSource" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the dataset that receives the imported
 	// data.
-	DatasetArn *string `locationName:"datasetArn" type:"string"`
+	DatasetArn *string `json:"personalize:DatasetImportJob:DatasetArn" locationName:"datasetArn" type:"string"`
 
 	// The ARN of the dataset import job.
-	DatasetImportJobArn *string `locationName:"datasetImportJobArn" type:"string"`
+	DatasetImportJobArn *string `json:"personalize:DatasetImportJob:DatasetImportJobArn" locationName:"datasetImportJobArn" type:"string"`
 
 	// If a dataset import job fails, provides the reason why.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:DatasetImportJob:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The name of the import job.
-	JobName *string `locationName:"jobName" min:"1" type:"string"`
+	JobName *string `json:"personalize:DatasetImportJob:JobName" locationName:"jobName" min:"1" type:"string"`
 
 	// The date and time (in Unix time) the dataset was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:DatasetImportJob:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the AWS Identity and Access Management (IAM) role that has permissions
 	// to read from the Amazon S3 data source.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"personalize:DatasetImportJob:RoleArn" locationName:"roleArn" type:"string"`
 
 	// The status of the dataset import job.
 	//
 	// A dataset import job can be in one of the following states:
 	//
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:DatasetImportJob:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -487,26 +487,26 @@ type DatasetImportJobSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the dataset import job was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:DatasetImportJobSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the dataset import job.
-	DatasetImportJobArn *string `locationName:"datasetImportJobArn" type:"string"`
+	DatasetImportJobArn *string `json:"personalize:DatasetImportJobSummary:DatasetImportJobArn" locationName:"datasetImportJobArn" type:"string"`
 
 	// If a dataset import job fails, the reason behind the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:DatasetImportJobSummary:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The name of the dataset import job.
-	JobName *string `locationName:"jobName" min:"1" type:"string"`
+	JobName *string `json:"personalize:DatasetImportJobSummary:JobName" locationName:"jobName" min:"1" type:"string"`
 
 	// The date and time (in Unix time) that the dataset was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:DatasetImportJobSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the dataset import job.
 	//
 	// A dataset import job can be in one of the following states:
 	//
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:DatasetImportJobSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -521,19 +521,19 @@ type DatasetSchema struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the schema was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:DatasetSchema:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time (in Unix time) that the schema was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:DatasetSchema:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the schema.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:DatasetSchema:Name" locationName:"name" min:"1" type:"string"`
 
 	// The schema.
-	Schema *string `locationName:"schema" type:"string"`
+	Schema *string `json:"personalize:DatasetSchema:Schema" locationName:"schema" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the schema.
-	SchemaArn *string `locationName:"schemaArn" type:"string"`
+	SchemaArn *string `json:"personalize:DatasetSchema:SchemaArn" locationName:"schemaArn" type:"string"`
 }
 
 // String returns the string representation
@@ -548,16 +548,16 @@ type DatasetSchemaSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the schema was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:DatasetSchemaSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time (in Unix time) that the schema was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:DatasetSchemaSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the schema.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:DatasetSchemaSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the schema.
-	SchemaArn *string `locationName:"schemaArn" type:"string"`
+	SchemaArn *string `json:"personalize:DatasetSchemaSummary:SchemaArn" locationName:"schemaArn" type:"string"`
 }
 
 // String returns the string representation
@@ -572,10 +572,10 @@ type DatasetSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the dataset was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:DatasetSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the dataset.
-	DatasetArn *string `locationName:"datasetArn" type:"string"`
+	DatasetArn *string `json:"personalize:DatasetSummary:DatasetArn" locationName:"datasetArn" type:"string"`
 
 	// The dataset type. One of the following values:
 	//
@@ -586,13 +586,13 @@ type DatasetSummary struct {
 	//    * Users
 	//
 	//    * Event-Interactions
-	DatasetType *string `locationName:"datasetType" type:"string"`
+	DatasetType *string `json:"personalize:DatasetSummary:DatasetType" locationName:"datasetType" type:"string"`
 
 	// The date and time (in Unix time) that the dataset was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:DatasetSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the dataset.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:DatasetSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the dataset.
 	//
@@ -601,7 +601,7 @@ type DatasetSummary struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:DatasetSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -617,13 +617,13 @@ type DefaultCategoricalHyperParameterRange struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the hyperparameter is tunable.
-	IsTunable *bool `locationName:"isTunable" type:"boolean"`
+	IsTunable *bool `json:"personalize:DefaultCategoricalHyperParameterRange:IsTunable" locationName:"isTunable" type:"boolean"`
 
 	// The name of the hyperparameter.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"personalize:DefaultCategoricalHyperParameterRange:Name" locationName:"name" type:"string"`
 
 	// A list of the categories for the hyperparameter.
-	Values []string `locationName:"values" type:"list"`
+	Values []string `json:"personalize:DefaultCategoricalHyperParameterRange:Values" locationName:"values" type:"list"`
 }
 
 // String returns the string representation
@@ -639,16 +639,16 @@ type DefaultContinuousHyperParameterRange struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the hyperparameter is tunable.
-	IsTunable *bool `locationName:"isTunable" type:"boolean"`
+	IsTunable *bool `json:"personalize:DefaultContinuousHyperParameterRange:IsTunable" locationName:"isTunable" type:"boolean"`
 
 	// The maximum allowable value for the hyperparameter.
-	MaxValue *float64 `locationName:"maxValue" type:"double"`
+	MaxValue *float64 `json:"personalize:DefaultContinuousHyperParameterRange:MaxValue" locationName:"maxValue" type:"double"`
 
 	// The minimum allowable value for the hyperparameter.
-	MinValue *float64 `locationName:"minValue" type:"double"`
+	MinValue *float64 `json:"personalize:DefaultContinuousHyperParameterRange:MinValue" locationName:"minValue" type:"double"`
 
 	// The name of the hyperparameter.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"personalize:DefaultContinuousHyperParameterRange:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -663,13 +663,13 @@ type DefaultHyperParameterRanges struct {
 	_ struct{} `type:"structure"`
 
 	// The categorical hyperparameters and their default ranges.
-	CategoricalHyperParameterRanges []DefaultCategoricalHyperParameterRange `locationName:"categoricalHyperParameterRanges" type:"list"`
+	CategoricalHyperParameterRanges []DefaultCategoricalHyperParameterRange `json:"personalize:DefaultHyperParameterRanges:CategoricalHyperParameterRanges" locationName:"categoricalHyperParameterRanges" type:"list"`
 
 	// The continuous hyperparameters and their default ranges.
-	ContinuousHyperParameterRanges []DefaultContinuousHyperParameterRange `locationName:"continuousHyperParameterRanges" type:"list"`
+	ContinuousHyperParameterRanges []DefaultContinuousHyperParameterRange `json:"personalize:DefaultHyperParameterRanges:ContinuousHyperParameterRanges" locationName:"continuousHyperParameterRanges" type:"list"`
 
 	// The integer-valued hyperparameters and their default ranges.
-	IntegerHyperParameterRanges []DefaultIntegerHyperParameterRange `locationName:"integerHyperParameterRanges" type:"list"`
+	IntegerHyperParameterRanges []DefaultIntegerHyperParameterRange `json:"personalize:DefaultHyperParameterRanges:IntegerHyperParameterRanges" locationName:"integerHyperParameterRanges" type:"list"`
 }
 
 // String returns the string representation
@@ -685,16 +685,16 @@ type DefaultIntegerHyperParameterRange struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the hyperparameter is tunable.
-	IsTunable *bool `locationName:"isTunable" type:"boolean"`
+	IsTunable *bool `json:"personalize:DefaultIntegerHyperParameterRange:IsTunable" locationName:"isTunable" type:"boolean"`
 
 	// The maximum allowable value for the hyperparameter.
-	MaxValue *int64 `locationName:"maxValue" type:"integer"`
+	MaxValue *int64 `json:"personalize:DefaultIntegerHyperParameterRange:MaxValue" locationName:"maxValue" type:"integer"`
 
 	// The minimum allowable value for the hyperparameter.
-	MinValue *int64 `locationName:"minValue" type:"integer"`
+	MinValue *int64 `json:"personalize:DefaultIntegerHyperParameterRange:MinValue" locationName:"minValue" type:"integer"`
 
 	// The name of the hyperparameter.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"personalize:DefaultIntegerHyperParameterRange:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -708,23 +708,23 @@ type EventTracker struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon AWS account that owns the event tracker.
-	AccountId *string `locationName:"accountId" type:"string"`
+	AccountId *string `json:"personalize:EventTracker:AccountId" locationName:"accountId" type:"string"`
 
 	// The date and time (in Unix format) that the event tracker was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:EventTracker:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the dataset group that receives the event
 	// data.
-	DatasetGroupArn *string `locationName:"datasetGroupArn" type:"string"`
+	DatasetGroupArn *string `json:"personalize:EventTracker:DatasetGroupArn" locationName:"datasetGroupArn" type:"string"`
 
 	// The ARN of the event tracker.
-	EventTrackerArn *string `locationName:"eventTrackerArn" type:"string"`
+	EventTrackerArn *string `json:"personalize:EventTracker:EventTrackerArn" locationName:"eventTrackerArn" type:"string"`
 
 	// The date and time (in Unix time) that the event tracker was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:EventTracker:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the event tracker.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:EventTracker:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the event tracker.
 	//
@@ -733,12 +733,12 @@ type EventTracker struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:EventTracker:Status" locationName:"status" type:"string"`
 
 	// The ID of the event tracker. Include this ID in requests to the PutEvents
 	// (https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html)
 	// API.
-	TrackingId *string `locationName:"trackingId" type:"string"`
+	TrackingId *string `json:"personalize:EventTracker:TrackingId" locationName:"trackingId" type:"string"`
 }
 
 // String returns the string representation
@@ -753,16 +753,16 @@ type EventTrackerSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the event tracker was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:EventTrackerSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the event tracker.
-	EventTrackerArn *string `locationName:"eventTrackerArn" type:"string"`
+	EventTrackerArn *string `json:"personalize:EventTrackerSummary:EventTrackerArn" locationName:"eventTrackerArn" type:"string"`
 
 	// The date and time (in Unix time) that the event tracker was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:EventTrackerSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the event tracker.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:EventTrackerSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the event tracker.
 	//
@@ -771,7 +771,7 @@ type EventTrackerSummary struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:EventTrackerSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -786,26 +786,26 @@ type FeatureTransformation struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date and time (in Unix time) of the feature transformation.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:FeatureTransformation:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Provides the default parameters for feature transformation.
-	DefaultParameters map[string]string `locationName:"defaultParameters" type:"map"`
+	DefaultParameters map[string]string `json:"personalize:FeatureTransformation:DefaultParameters" locationName:"defaultParameters" type:"map"`
 
 	// The Amazon Resource Name (ARN) of the FeatureTransformation object.
-	FeatureTransformationArn *string `locationName:"featureTransformationArn" type:"string"`
+	FeatureTransformationArn *string `json:"personalize:FeatureTransformation:FeatureTransformationArn" locationName:"featureTransformationArn" type:"string"`
 
 	// The last update date and time (in Unix time) of the feature transformation.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:FeatureTransformation:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the feature transformation.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:FeatureTransformation:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the feature transformation.
 	//
 	// A feature transformation can be in one of the following states:
 	//
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:FeatureTransformation:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -821,13 +821,13 @@ type HPOConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The hyperparameters and their allowable ranges.
-	AlgorithmHyperParameterRanges *HyperParameterRanges `locationName:"algorithmHyperParameterRanges" type:"structure"`
+	AlgorithmHyperParameterRanges *HyperParameterRanges `json:"personalize:HPOConfig:AlgorithmHyperParameterRanges" locationName:"algorithmHyperParameterRanges" type:"structure"`
 
 	// The metric to optimize during HPO.
-	HpoObjective *HPOObjective `locationName:"hpoObjective" type:"structure"`
+	HpoObjective *HPOObjective `json:"personalize:HPOConfig:HpoObjective" locationName:"hpoObjective" type:"structure"`
 
 	// Describes the resource configuration for HPO.
-	HpoResourceConfig *HPOResourceConfig `locationName:"hpoResourceConfig" type:"structure"`
+	HpoResourceConfig *HPOResourceConfig `json:"personalize:HPOConfig:HpoResourceConfig" locationName:"hpoResourceConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -856,13 +856,13 @@ type HPOObjective struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the metric.
-	MetricName *string `locationName:"metricName" type:"string"`
+	MetricName *string `json:"personalize:HPOObjective:MetricName" locationName:"metricName" type:"string"`
 
 	// A regular expression for finding the metric in the training job logs.
-	MetricRegex *string `locationName:"metricRegex" type:"string"`
+	MetricRegex *string `json:"personalize:HPOObjective:MetricRegex" locationName:"metricRegex" type:"string"`
 
 	// The data type of the metric.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"personalize:HPOObjective:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -876,10 +876,10 @@ type HPOResourceConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of training jobs.
-	MaxNumberOfTrainingJobs *string `locationName:"maxNumberOfTrainingJobs" type:"string"`
+	MaxNumberOfTrainingJobs *string `json:"personalize:HPOResourceConfig:MaxNumberOfTrainingJobs" locationName:"maxNumberOfTrainingJobs" type:"string"`
 
 	// The maximum number of parallel training jobs.
-	MaxParallelTrainingJobs *string `locationName:"maxParallelTrainingJobs" type:"string"`
+	MaxParallelTrainingJobs *string `json:"personalize:HPOResourceConfig:MaxParallelTrainingJobs" locationName:"maxParallelTrainingJobs" type:"string"`
 }
 
 // String returns the string representation
@@ -894,13 +894,13 @@ type HyperParameterRanges struct {
 	_ struct{} `type:"structure"`
 
 	// The categorical hyperparameters and their ranges.
-	CategoricalHyperParameterRanges []CategoricalHyperParameterRange `locationName:"categoricalHyperParameterRanges" type:"list"`
+	CategoricalHyperParameterRanges []CategoricalHyperParameterRange `json:"personalize:HyperParameterRanges:CategoricalHyperParameterRanges" locationName:"categoricalHyperParameterRanges" type:"list"`
 
 	// The continuous hyperparameters and their ranges.
-	ContinuousHyperParameterRanges []ContinuousHyperParameterRange `locationName:"continuousHyperParameterRanges" type:"list"`
+	ContinuousHyperParameterRanges []ContinuousHyperParameterRange `json:"personalize:HyperParameterRanges:ContinuousHyperParameterRanges" locationName:"continuousHyperParameterRanges" type:"list"`
 
 	// The integer-valued hyperparameters and their ranges.
-	IntegerHyperParameterRanges []IntegerHyperParameterRange `locationName:"integerHyperParameterRanges" type:"list"`
+	IntegerHyperParameterRanges []IntegerHyperParameterRange `json:"personalize:HyperParameterRanges:IntegerHyperParameterRanges" locationName:"integerHyperParameterRanges" type:"list"`
 }
 
 // String returns the string representation
@@ -938,13 +938,13 @@ type IntegerHyperParameterRange struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum allowable value for the hyperparameter.
-	MaxValue *int64 `locationName:"maxValue" type:"integer"`
+	MaxValue *int64 `json:"personalize:IntegerHyperParameterRange:MaxValue" locationName:"maxValue" type:"integer"`
 
 	// The minimum allowable value for the hyperparameter.
-	MinValue *int64 `locationName:"minValue" type:"integer"`
+	MinValue *int64 `json:"personalize:IntegerHyperParameterRange:MinValue" locationName:"minValue" type:"integer"`
 
 	// The name of the hyperparameter.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"personalize:IntegerHyperParameterRange:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -974,25 +974,25 @@ type Recipe struct {
 
 	// The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses
 	// to train the model.
-	AlgorithmArn *string `locationName:"algorithmArn" type:"string"`
+	AlgorithmArn *string `json:"personalize:Recipe:AlgorithmArn" locationName:"algorithmArn" type:"string"`
 
 	// The date and time (in Unix format) that the recipe was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:Recipe:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the recipe.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"personalize:Recipe:Description" locationName:"description" type:"string"`
 
 	// The ARN of the FeatureTransformation object.
-	FeatureTransformationArn *string `locationName:"featureTransformationArn" type:"string"`
+	FeatureTransformationArn *string `json:"personalize:Recipe:FeatureTransformationArn" locationName:"featureTransformationArn" type:"string"`
 
 	// The date and time (in Unix format) that the recipe was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:Recipe:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the recipe.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:Recipe:Name" locationName:"name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the recipe.
-	RecipeArn *string `locationName:"recipeArn" type:"string"`
+	RecipeArn *string `json:"personalize:Recipe:RecipeArn" locationName:"recipeArn" type:"string"`
 
 	// One of the following values:
 	//
@@ -1001,10 +1001,10 @@ type Recipe struct {
 	//    * RELATED_ITEMS
 	//
 	//    * USER_PERSONALIZATION
-	RecipeType *string `locationName:"recipeType" type:"string"`
+	RecipeType *string `json:"personalize:Recipe:RecipeType" locationName:"recipeType" type:"string"`
 
 	// The status of the recipe.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:Recipe:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -1019,19 +1019,19 @@ type RecipeSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the recipe was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:RecipeSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time (in Unix time) that the recipe was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:RecipeSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the recipe.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:RecipeSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the recipe.
-	RecipeArn *string `locationName:"recipeArn" type:"string"`
+	RecipeArn *string `json:"personalize:RecipeSummary:RecipeArn" locationName:"recipeArn" type:"string"`
 
 	// The status of the recipe.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:RecipeSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -1046,47 +1046,47 @@ type Solution struct {
 	_ struct{} `type:"structure"`
 
 	// When performAutoML is true, specifies the best recipe found.
-	AutoMLResult *AutoMLResult `locationName:"autoMLResult" type:"structure"`
+	AutoMLResult *AutoMLResult `json:"personalize:Solution:AutoMLResult" locationName:"autoMLResult" type:"structure"`
 
 	// The creation date and time (in Unix time) of the solution.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:Solution:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the dataset group that provides the training
 	// data.
-	DatasetGroupArn *string `locationName:"datasetGroupArn" type:"string"`
+	DatasetGroupArn *string `json:"personalize:Solution:DatasetGroupArn" locationName:"datasetGroupArn" type:"string"`
 
 	// The event type (for example, 'click' or 'like') that is used for training
 	// the model.
-	EventType *string `locationName:"eventType" type:"string"`
+	EventType *string `json:"personalize:Solution:EventType" locationName:"eventType" type:"string"`
 
 	// The date and time (in Unix time) that the solution was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:Solution:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Describes the latest version of the solution, including the status and the
 	// ARN.
-	LatestSolutionVersion *SolutionVersionSummary `locationName:"latestSolutionVersion" type:"structure"`
+	LatestSolutionVersion *SolutionVersionSummary `json:"personalize:Solution:LatestSolutionVersion" locationName:"latestSolutionVersion" type:"structure"`
 
 	// The name of the solution.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:Solution:Name" locationName:"name" min:"1" type:"string"`
 
 	// When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION
 	// recipe from the list specified in the solution configuration (recipeArn must
 	// not be specified). When false (the default), Amazon Personalize uses recipeArn
 	// for training.
-	PerformAutoML *bool `locationName:"performAutoML" type:"boolean"`
+	PerformAutoML *bool `json:"personalize:Solution:PerformAutoML" locationName:"performAutoML" type:"boolean"`
 
 	// Whether to perform hyperparameter optimization (HPO) on the chosen recipe.
 	// The default is false.
-	PerformHPO *bool `locationName:"performHPO" type:"boolean"`
+	PerformHPO *bool `json:"personalize:Solution:PerformHPO" locationName:"performHPO" type:"boolean"`
 
 	// The ARN of the recipe used to create the solution.
-	RecipeArn *string `locationName:"recipeArn" type:"string"`
+	RecipeArn *string `json:"personalize:Solution:RecipeArn" locationName:"recipeArn" type:"string"`
 
 	// The ARN of the solution.
-	SolutionArn *string `locationName:"solutionArn" type:"string"`
+	SolutionArn *string `json:"personalize:Solution:SolutionArn" locationName:"solutionArn" type:"string"`
 
 	// Describes the configuration properties for the solution.
-	SolutionConfig *SolutionConfig `locationName:"solutionConfig" type:"structure"`
+	SolutionConfig *SolutionConfig `json:"personalize:Solution:SolutionConfig" locationName:"solutionConfig" type:"structure"`
 
 	// The status of the solution.
 	//
@@ -1095,7 +1095,7 @@ type Solution struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:Solution:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -1109,23 +1109,23 @@ type SolutionConfig struct {
 	_ struct{} `type:"structure"`
 
 	// Lists the hyperparameter names and ranges.
-	AlgorithmHyperParameters map[string]string `locationName:"algorithmHyperParameters" type:"map"`
+	AlgorithmHyperParameters map[string]string `json:"personalize:SolutionConfig:AlgorithmHyperParameters" locationName:"algorithmHyperParameters" type:"map"`
 
 	// The AutoMLConfig object containing a list of recipes to search when AutoML
 	// is performed.
-	AutoMLConfig *AutoMLConfig `locationName:"autoMLConfig" type:"structure"`
+	AutoMLConfig *AutoMLConfig `json:"personalize:SolutionConfig:AutoMLConfig" locationName:"autoMLConfig" type:"structure"`
 
 	// Only events with a value greater than or equal to this threshold are used
 	// for training a model.
-	EventValueThreshold *string `locationName:"eventValueThreshold" type:"string"`
+	EventValueThreshold *string `json:"personalize:SolutionConfig:EventValueThreshold" locationName:"eventValueThreshold" type:"string"`
 
 	// Lists the feature transformation parameters.
-	FeatureTransformationParameters map[string]string `locationName:"featureTransformationParameters" type:"map"`
+	FeatureTransformationParameters map[string]string `json:"personalize:SolutionConfig:FeatureTransformationParameters" locationName:"featureTransformationParameters" type:"map"`
 
 	// Describes the properties for hyperparameter optimization (HPO). For use with
 	// the bring-your-own-recipe feature. Not used with Amazon Personalize predefined
 	// recipes.
-	HpoConfig *HPOConfig `locationName:"hpoConfig" type:"structure"`
+	HpoConfig *HPOConfig `json:"personalize:SolutionConfig:HpoConfig" locationName:"hpoConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -1155,16 +1155,16 @@ type SolutionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that the solution was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:SolutionSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time (in Unix time) that the solution was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:SolutionSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the solution.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"personalize:SolutionSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the solution.
-	SolutionArn *string `locationName:"solutionArn" type:"string"`
+	SolutionArn *string `json:"personalize:SolutionSummary:SolutionArn" locationName:"solutionArn" type:"string"`
 
 	// The status of the solution.
 	//
@@ -1173,7 +1173,7 @@ type SolutionSummary struct {
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 	//
 	//    * DELETE PENDING > DELETE IN_PROGRESS
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:SolutionSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -1187,49 +1187,49 @@ type SolutionVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that this version of the solution was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:SolutionVersion:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the dataset group providing the training
 	// data.
-	DatasetGroupArn *string `locationName:"datasetGroupArn" type:"string"`
+	DatasetGroupArn *string `json:"personalize:SolutionVersion:DatasetGroupArn" locationName:"datasetGroupArn" type:"string"`
 
 	// The event type (for example, 'click' or 'like') that is used for training
 	// the model.
-	EventType *string `locationName:"eventType" type:"string"`
+	EventType *string `json:"personalize:SolutionVersion:EventType" locationName:"eventType" type:"string"`
 
 	// If training a solution version fails, the reason behind the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:SolutionVersion:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The date and time (in Unix time) that the solution was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:SolutionVersion:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// When true, Amazon Personalize performs a search for the most optimal recipe
 	// according to the solution configuration. When false (the default), Amazon
 	// Personalize uses recipeArn.
-	PerformAutoML *bool `locationName:"performAutoML" type:"boolean"`
+	PerformAutoML *bool `json:"personalize:SolutionVersion:PerformAutoML" locationName:"performAutoML" type:"boolean"`
 
 	// Whether to perform hyperparameter optimization (HPO) on the chosen recipe.
 	// The default is false.
-	PerformHPO *bool `locationName:"performHPO" type:"boolean"`
+	PerformHPO *bool `json:"personalize:SolutionVersion:PerformHPO" locationName:"performHPO" type:"boolean"`
 
 	// The ARN of the recipe used in the solution.
-	RecipeArn *string `locationName:"recipeArn" type:"string"`
+	RecipeArn *string `json:"personalize:SolutionVersion:RecipeArn" locationName:"recipeArn" type:"string"`
 
 	// The ARN of the solution.
-	SolutionArn *string `locationName:"solutionArn" type:"string"`
+	SolutionArn *string `json:"personalize:SolutionVersion:SolutionArn" locationName:"solutionArn" type:"string"`
 
 	// Describes the configuration properties for the solution.
-	SolutionConfig *SolutionConfig `locationName:"solutionConfig" type:"structure"`
+	SolutionConfig *SolutionConfig `json:"personalize:SolutionVersion:SolutionConfig" locationName:"solutionConfig" type:"structure"`
 
 	// The ARN of the solution version.
-	SolutionVersionArn *string `locationName:"solutionVersionArn" type:"string"`
+	SolutionVersionArn *string `json:"personalize:SolutionVersion:SolutionVersionArn" locationName:"solutionVersionArn" type:"string"`
 
 	// The status of the solution version.
 	//
 	// A solution version can be in one of the following states:
 	//
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:SolutionVersion:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -1244,23 +1244,23 @@ type SolutionVersionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time (in Unix time) that this version of a solution was created.
-	CreationDateTime *time.Time `locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"personalize:SolutionVersionSummary:CreationDateTime" locationName:"creationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If a solution version fails, the reason behind the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"personalize:SolutionVersionSummary:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The date and time (in Unix time) that the solution version was last updated.
-	LastUpdatedDateTime *time.Time `locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"personalize:SolutionVersionSummary:LastUpdatedDateTime" locationName:"lastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the solution version.
-	SolutionVersionArn *string `locationName:"solutionVersionArn" type:"string"`
+	SolutionVersionArn *string `json:"personalize:SolutionVersionSummary:SolutionVersionArn" locationName:"solutionVersionArn" type:"string"`
 
 	// The status of the solution version.
 	//
 	// A solution version can be in one of the following states:
 	//
 	//    * CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"personalize:SolutionVersionSummary:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation

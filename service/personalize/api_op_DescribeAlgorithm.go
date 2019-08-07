@@ -43,7 +43,7 @@ type DescribeAlgorithmOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A listing of the properties of the algorithm.
-	Algorithm *Algorithm `locationName:"algorithm" type:"structure"`
+	Algorithm *Algorithm `json:"personalize:DescribeAlgorithmOutput:Algorithm" locationName:"algorithm" type:"structure"`
 }
 
 // String returns the string representation

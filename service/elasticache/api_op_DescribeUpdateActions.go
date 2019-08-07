@@ -53,10 +53,10 @@ type DescribeUpdateActionsOutput struct {
 	// An optional marker returned from a prior request. Use this marker for pagination
 	// of results from this operation. If this parameter is specified, the response
 	// includes only records beyond the marker, up to the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeUpdateActionsOutput:Marker" type:"string"`
 
 	// Returns a list of update actions
-	UpdateActions []UpdateAction `locationNameList:"UpdateAction" type:"list"`
+	UpdateActions []UpdateAction `json:"elasticache:DescribeUpdateActionsOutput:UpdateActions" locationNameList:"UpdateAction" type:"list"`
 }
 
 // String returns the string representation

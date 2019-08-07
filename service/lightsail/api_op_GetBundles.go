@@ -33,11 +33,11 @@ type GetBundlesOutput struct {
 
 	// An array of key-value pairs that contains information about the available
 	// bundles.
-	Bundles []Bundle `locationName:"bundles" type:"list"`
+	Bundles []Bundle `json:"lightsail:GetBundlesOutput:Bundles" locationName:"bundles" type:"list"`
 
 	// A token used for advancing to the next page of results from your get active
 	// names request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetBundlesOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

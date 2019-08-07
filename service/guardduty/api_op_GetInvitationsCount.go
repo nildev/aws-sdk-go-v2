@@ -32,7 +32,7 @@ type GetInvitationsCountOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of received invitations.
-	InvitationsCount *int64 `locationName:"invitationsCount" type:"integer"`
+	InvitationsCount *int64 `json:"guardduty:GetInvitationsCountOutput:InvitationsCount" locationName:"invitationsCount" type:"integer"`
 }
 
 // String returns the string representation

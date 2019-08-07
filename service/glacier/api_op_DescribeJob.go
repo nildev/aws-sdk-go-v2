@@ -91,59 +91,59 @@ type DescribeJobOutput struct {
 
 	// The job type. This value is either ArchiveRetrieval, InventoryRetrieval,
 	// or Select.
-	Action ActionCode `type:"string" enum:"true"`
+	Action ActionCode `json:"glacier:DescribeJobOutput:Action" type:"string" enum:"true"`
 
 	// The archive ID requested for a select job or archive retrieval. Otherwise,
 	// this field is null.
-	ArchiveId *string `type:"string"`
+	ArchiveId *string `json:"glacier:DescribeJobOutput:ArchiveId" type:"string"`
 
 	// The SHA256 tree hash of the entire archive for an archive retrieval. For
 	// inventory retrieval or select jobs, this field is null.
-	ArchiveSHA256TreeHash *string `type:"string"`
+	ArchiveSHA256TreeHash *string `json:"glacier:DescribeJobOutput:ArchiveSHA256TreeHash" type:"string"`
 
 	// For an archive retrieval job, this value is the size in bytes of the archive
 	// being requested for download. For an inventory retrieval or select job, this
 	// value is null.
-	ArchiveSizeInBytes *int64 `type:"long"`
+	ArchiveSizeInBytes *int64 `json:"glacier:DescribeJobOutput:ArchiveSizeInBytes" type:"long"`
 
 	// The job status. When a job is completed, you get the job's output using Get
 	// Job Output (GET output).
-	Completed *bool `type:"boolean"`
+	Completed *bool `json:"glacier:DescribeJobOutput:Completed" type:"boolean"`
 
 	// The UTC time that the job request completed. While the job is in progress,
 	// the value is null.
-	CompletionDate *string `type:"string"`
+	CompletionDate *string `json:"glacier:DescribeJobOutput:CompletionDate" type:"string"`
 
 	// The UTC date when the job was created. This value is a string representation
 	// of ISO 8601 date format, for example "2012-03-20T17:03:43.221Z".
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"glacier:DescribeJobOutput:CreationDate" type:"string"`
 
 	// Parameters used for range inventory retrieval.
-	InventoryRetrievalParameters *InventoryRetrievalJobDescription `type:"structure"`
+	InventoryRetrievalParameters *InventoryRetrievalJobDescription `json:"glacier:DescribeJobOutput:InventoryRetrievalParameters" type:"structure"`
 
 	// For an inventory retrieval job, this value is the size in bytes of the inventory
 	// requested for download. For an archive retrieval or select job, this value
 	// is null.
-	InventorySizeInBytes *int64 `type:"long"`
+	InventorySizeInBytes *int64 `json:"glacier:DescribeJobOutput:InventorySizeInBytes" type:"long"`
 
 	// The job description provided when initiating the job.
-	JobDescription *string `type:"string"`
+	JobDescription *string `json:"glacier:DescribeJobOutput:JobDescription" type:"string"`
 
 	// An opaque string that identifies an Amazon S3 Glacier job.
-	JobId *string `type:"string"`
+	JobId *string `json:"glacier:DescribeJobOutput:JobId" type:"string"`
 
 	// Contains the job output location.
-	JobOutputPath *string `type:"string"`
+	JobOutputPath *string `json:"glacier:DescribeJobOutput:JobOutputPath" type:"string"`
 
 	// Contains the location where the data from the select job is stored.
-	OutputLocation *OutputLocation `type:"structure"`
+	OutputLocation *OutputLocation `json:"glacier:DescribeJobOutput:OutputLocation" type:"structure"`
 
 	// The retrieved byte range for archive retrieval jobs in the form StartByteValue-EndByteValue.
 	// If no range was specified in the archive retrieval, then the whole archive
 	// is retrieved. In this case, StartByteValue equals 0 and EndByteValue equals
 	// the size of the archive minus 1. For inventory retrieval or select jobs,
 	// this field is null.
-	RetrievalByteRange *string `type:"string"`
+	RetrievalByteRange *string `json:"glacier:DescribeJobOutput:RetrievalByteRange" type:"string"`
 
 	// For an archive retrieval job, this value is the checksum of the archive.
 	// Otherwise, this value is null.
@@ -165,28 +165,28 @@ type DescribeJobOutput struct {
 	//    * Inventory jobs
 	//
 	//    * Select jobs
-	SHA256TreeHash *string `type:"string"`
+	SHA256TreeHash *string `json:"glacier:DescribeJobOutput:SHA256TreeHash" type:"string"`
 
 	// An Amazon SNS topic that receives notification.
-	SNSTopic *string `type:"string"`
+	SNSTopic *string `json:"glacier:DescribeJobOutput:SNSTopic" type:"string"`
 
 	// Contains the parameters used for a select.
-	SelectParameters *SelectParameters `type:"structure"`
+	SelectParameters *SelectParameters `json:"glacier:DescribeJobOutput:SelectParameters" type:"structure"`
 
 	// The status code can be InProgress, Succeeded, or Failed, and indicates the
 	// status of the job.
-	StatusCode StatusCode `type:"string" enum:"true"`
+	StatusCode StatusCode `json:"glacier:DescribeJobOutput:StatusCode" type:"string" enum:"true"`
 
 	// A friendly message that describes the job status.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"glacier:DescribeJobOutput:StatusMessage" type:"string"`
 
 	// The tier to use for a select or an archive retrieval. Valid values are Expedited,
 	// Standard, or Bulk. Standard is the default.
-	Tier *string `type:"string"`
+	Tier *string `json:"glacier:DescribeJobOutput:Tier" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the vault from which an archive retrieval
 	// was requested.
-	VaultARN *string `type:"string"`
+	VaultARN *string `json:"glacier:DescribeJobOutput:VaultARN" type:"string"`
 }
 
 // String returns the string representation

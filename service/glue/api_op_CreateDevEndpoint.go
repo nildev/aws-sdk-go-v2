@@ -127,62 +127,62 @@ type CreateDevEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The map of arguments used to configure this DevEndpoint.
-	Arguments map[string]string `type:"map"`
+	Arguments map[string]string `json:"glue:CreateDevEndpointOutput:Arguments" type:"map"`
 
 	// The AWS Availability Zone where this DevEndpoint is located.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"glue:CreateDevEndpointOutput:AvailabilityZone" type:"string"`
 
 	// The point in time at which this DevEndpoint was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"glue:CreateDevEndpointOutput:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The name assigned to the new DevEndpoint.
-	EndpointName *string `type:"string"`
+	EndpointName *string `json:"glue:CreateDevEndpointOutput:EndpointName" type:"string"`
 
 	// Path to one or more Java .jar files in an S3 bucket that will be loaded in
 	// your DevEndpoint.
-	ExtraJarsS3Path *string `type:"string"`
+	ExtraJarsS3Path *string `json:"glue:CreateDevEndpointOutput:ExtraJarsS3Path" type:"string"`
 
 	// The paths to one or more Python libraries in an S3 bucket that will be loaded
 	// in your DevEndpoint.
-	ExtraPythonLibsS3Path *string `type:"string"`
+	ExtraPythonLibsS3Path *string `json:"glue:CreateDevEndpointOutput:ExtraPythonLibsS3Path" type:"string"`
 
 	// The reason for a current failure in this DevEndpoint.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"glue:CreateDevEndpointOutput:FailureReason" type:"string"`
 
 	// The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.
-	NumberOfNodes *int64 `type:"integer"`
+	NumberOfNodes *int64 `json:"glue:CreateDevEndpointOutput:NumberOfNodes" type:"integer"`
 
 	// The number of workers of a defined workerType that are allocated to the development
 	// endpoint.
-	NumberOfWorkers *int64 `type:"integer"`
+	NumberOfWorkers *int64 `json:"glue:CreateDevEndpointOutput:NumberOfWorkers" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the role assigned to the new DevEndpoint.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"glue:CreateDevEndpointOutput:RoleArn" type:"string"`
 
 	// The name of the SecurityConfiguration structure being used with this DevEndpoint.
-	SecurityConfiguration *string `min:"1" type:"string"`
+	SecurityConfiguration *string `json:"glue:CreateDevEndpointOutput:SecurityConfiguration" min:"1" type:"string"`
 
 	// The security groups assigned to the new DevEndpoint.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"glue:CreateDevEndpointOutput:SecurityGroupIds" type:"list"`
 
 	// The current status of the new DevEndpoint.
-	Status *string `type:"string"`
+	Status *string `json:"glue:CreateDevEndpointOutput:Status" type:"string"`
 
 	// The subnet ID assigned to the new DevEndpoint.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"glue:CreateDevEndpointOutput:SubnetId" type:"string"`
 
 	// The ID of the virtual private cloud (VPC) used by this DevEndpoint.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"glue:CreateDevEndpointOutput:VpcId" type:"string"`
 
 	// The type of predefined worker that is allocated to the development endpoint.
 	// May be a value of Standard, G.1X, or G.2X.
-	WorkerType WorkerType `type:"string" enum:"true"`
+	WorkerType WorkerType `json:"glue:CreateDevEndpointOutput:WorkerType" type:"string" enum:"true"`
 
 	// The address of the YARN endpoint used by this DevEndpoint.
-	YarnEndpointAddress *string `type:"string"`
+	YarnEndpointAddress *string `json:"glue:CreateDevEndpointOutput:YarnEndpointAddress" type:"string"`
 
 	// The Apache Zeppelin port for the remote Apache Spark interpreter.
-	ZeppelinRemoteSparkInterpreterPort *int64 `type:"integer"`
+	ZeppelinRemoteSparkInterpreterPort *int64 `json:"glue:CreateDevEndpointOutput:ZeppelinRemoteSparkInterpreterPort" type:"integer"`
 }
 
 // String returns the string representation

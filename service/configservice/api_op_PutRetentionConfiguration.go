@@ -48,7 +48,7 @@ type PutRetentionConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a retention configuration object.
-	RetentionConfiguration *RetentionConfiguration `type:"structure"`
+	RetentionConfiguration *RetentionConfiguration `json:"config:PutRetentionConfigurationOutput:RetentionConfiguration" type:"structure"`
 }
 
 // String returns the string representation

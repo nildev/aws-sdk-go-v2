@@ -44,30 +44,30 @@ type DescribeOrganizationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The alias for an organization.
-	Alias *string `min:"1" type:"string"`
+	Alias *string `json:"workmail:DescribeOrganizationOutput:Alias" min:"1" type:"string"`
 
 	// The date at which the organization became usable in the WorkMail context,
 	// in UNIX epoch time format.
-	CompletedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletedDate *time.Time `json:"workmail:DescribeOrganizationOutput:CompletedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The default mail domain associated with the organization.
-	DefaultMailDomain *string `type:"string"`
+	DefaultMailDomain *string `json:"workmail:DescribeOrganizationOutput:DefaultMailDomain" type:"string"`
 
 	// The identifier for the directory associated with an Amazon WorkMail organization.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"workmail:DescribeOrganizationOutput:DirectoryId" type:"string"`
 
 	// The type of directory associated with the WorkMail organization.
-	DirectoryType *string `type:"string"`
+	DirectoryType *string `json:"workmail:DescribeOrganizationOutput:DirectoryType" type:"string"`
 
 	// (Optional) The error message indicating if unexpected behavior was encountered
 	// with regards to the organization.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"workmail:DescribeOrganizationOutput:ErrorMessage" type:"string"`
 
 	// The identifier of an organization.
-	OrganizationId *string `type:"string"`
+	OrganizationId *string `json:"workmail:DescribeOrganizationOutput:OrganizationId" type:"string"`
 
 	// The state of an organization.
-	State *string `type:"string"`
+	State *string `json:"workmail:DescribeOrganizationOutput:State" type:"string"`
 }
 
 // String returns the string representation

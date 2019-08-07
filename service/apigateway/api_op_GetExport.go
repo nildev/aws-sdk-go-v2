@@ -119,14 +119,14 @@ type GetExportOutput struct {
 	_ struct{} `type:"structure" payload:"Body"`
 
 	// The binary blob response to GetExport, which contains the export.
-	Body []byte `locationName:"body" type:"blob"`
+	Body []byte `json:"apigateway:GetExportOutput:Body" locationName:"body" type:"blob"`
 
 	// The content-disposition header value in the HTTP response.
-	ContentDisposition *string `location:"header" locationName:"Content-Disposition" type:"string"`
+	ContentDisposition *string `json:"apigateway:GetExportOutput:ContentDisposition" location:"header" locationName:"Content-Disposition" type:"string"`
 
 	// The content-type header value in the HTTP response. This will correspond
 	// to a valid 'accept' type in the request.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"apigateway:GetExportOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 }
 
 // String returns the string representation

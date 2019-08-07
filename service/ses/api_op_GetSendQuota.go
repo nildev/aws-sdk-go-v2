@@ -27,17 +27,17 @@ type GetSendQuotaOutput struct {
 
 	// The maximum number of emails the user is allowed to send in a 24-hour interval.
 	// A value of -1 signifies an unlimited quota.
-	Max24HourSend *float64 `type:"double"`
+	Max24HourSend *float64 `json:"email:GetSendQuotaOutput:Max24HourSend" type:"double"`
 
 	// The maximum number of emails that Amazon SES can accept from the user's account
 	// per second.
 	//
 	// The rate at which Amazon SES accepts the user's messages might be less than
 	// the maximum send rate.
-	MaxSendRate *float64 `type:"double"`
+	MaxSendRate *float64 `json:"email:GetSendQuotaOutput:MaxSendRate" type:"double"`
 
 	// The number of emails sent during the previous 24 hours.
-	SentLast24Hours *float64 `type:"double"`
+	SentLast24Hours *float64 `json:"email:GetSendQuotaOutput:SentLast24Hours" type:"double"`
 }
 
 // String returns the string representation

@@ -43,7 +43,7 @@ type DescribeObservationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the observation.
-	Observation *Observation `type:"structure"`
+	Observation *Observation `json:"applicationinsights:DescribeObservationOutput:Observation" type:"structure"`
 }
 
 // String returns the string representation

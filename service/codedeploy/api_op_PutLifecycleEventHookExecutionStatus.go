@@ -37,7 +37,7 @@ type PutLifecycleEventHookExecutionStatusOutput struct {
 
 	// The execution ID of the lifecycle event hook. A hook is specified in the
 	// hooks section of the deployment's AppSpec file.
-	LifecycleEventHookExecutionId *string `locationName:"lifecycleEventHookExecutionId" type:"string"`
+	LifecycleEventHookExecutionId *string `json:"codedeploy:PutLifecycleEventHookExecutionStatusOutput:LifecycleEventHookExecutionId" locationName:"lifecycleEventHookExecutionId" type:"string"`
 }
 
 // String returns the string representation

@@ -47,10 +47,10 @@ type ListSolutionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token for getting the next set of solutions (if they exist).
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListSolutionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of the current solutions.
-	Solutions []SolutionSummary `locationName:"solutions" type:"list"`
+	Solutions []SolutionSummary `json:"personalize:ListSolutionsOutput:Solutions" locationName:"solutions" type:"list"`
 }
 
 // String returns the string representation

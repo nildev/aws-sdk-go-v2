@@ -58,10 +58,10 @@ type DescribeScheduledInstancesOutput struct {
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeScheduledInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the Scheduled Instances.
-	ScheduledInstanceSet []ScheduledInstance `locationName:"scheduledInstanceSet" locationNameList:"item" type:"list"`
+	ScheduledInstanceSet []ScheduledInstance `json:"ec2:DescribeScheduledInstancesOutput:ScheduledInstanceSet" locationName:"scheduledInstanceSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

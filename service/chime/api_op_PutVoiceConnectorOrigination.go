@@ -76,7 +76,7 @@ type PutVoiceConnectorOriginationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated origination setting details.
-	Origination *Origination `type:"structure"`
+	Origination *Origination `json:"chime:PutVoiceConnectorOriginationOutput:Origination" type:"structure"`
 }
 
 // String returns the string representation

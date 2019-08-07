@@ -92,13 +92,13 @@ type AccountQuota struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Amazon RDS quota for this AWS account.
-	AccountQuotaName *string `type:"string"`
+	AccountQuotaName *string `json:"rds:AccountQuota:AccountQuotaName" type:"string"`
 
 	// The maximum allowed value for the quota.
-	Max *int64 `type:"long"`
+	Max *int64 `json:"rds:AccountQuota:Max" type:"long"`
 
 	// The amount currently used toward the quota maximum.
-	Used *int64 `type:"long"`
+	Used *int64 `json:"rds:AccountQuota:Used" type:"long"`
 }
 
 // String returns the string representation
@@ -115,7 +115,7 @@ type AvailabilityZone struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Availability Zone.
-	Name *string `type:"string"`
+	Name *string `json:"rds:AvailabilityZone:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -134,13 +134,13 @@ type AvailableProcessorFeature struct {
 	_ struct{} `type:"structure"`
 
 	// The allowed values for the processor feature of the DB instance class.
-	AllowedValues *string `type:"string"`
+	AllowedValues *string `json:"rds:AvailableProcessorFeature:AllowedValues" type:"string"`
 
 	// The default value for the processor feature of the DB instance class.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"rds:AvailableProcessorFeature:DefaultValue" type:"string"`
 
 	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
-	Name *string `type:"string"`
+	Name *string `json:"rds:AvailableProcessorFeature:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -154,22 +154,22 @@ type Certificate struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the certificate.
-	CertificateArn *string `type:"string"`
+	CertificateArn *string `json:"rds:Certificate:CertificateArn" type:"string"`
 
 	// The unique key that identifies a certificate.
-	CertificateIdentifier *string `type:"string"`
+	CertificateIdentifier *string `json:"rds:Certificate:CertificateIdentifier" type:"string"`
 
 	// The type of the certificate.
-	CertificateType *string `type:"string"`
+	CertificateType *string `json:"rds:Certificate:CertificateType" type:"string"`
 
 	// The thumbprint of the certificate.
-	Thumbprint *string `type:"string"`
+	Thumbprint *string `json:"rds:Certificate:Thumbprint" type:"string"`
 
 	// The starting date from which the certificate is valid.
-	ValidFrom *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ValidFrom *time.Time `json:"rds:Certificate:ValidFrom" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The final date that the certificate continues to be valid.
-	ValidTill *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ValidTill *time.Time `json:"rds:Certificate:ValidTill" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -183,10 +183,10 @@ type CharacterSet struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the character set.
-	CharacterSetDescription *string `type:"string"`
+	CharacterSetDescription *string `json:"rds:CharacterSet:CharacterSetDescription" type:"string"`
 
 	// The name of the character set.
-	CharacterSetName *string `type:"string"`
+	CharacterSetName *string `json:"rds:CharacterSet:CharacterSetName" type:"string"`
 }
 
 // String returns the string representation
@@ -207,10 +207,10 @@ type CloudwatchLogsExportConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The list of log types to disable.
-	DisableLogTypes []string `type:"list"`
+	DisableLogTypes []string `json:"rds:CloudwatchLogsExportConfiguration:DisableLogTypes" type:"list"`
 
 	// The list of log types to enable.
-	EnableLogTypes []string `type:"list"`
+	EnableLogTypes []string `json:"rds:CloudwatchLogsExportConfiguration:EnableLogTypes" type:"list"`
 }
 
 // String returns the string representation
@@ -228,45 +228,45 @@ type DBCluster struct {
 
 	// The name of the Amazon Kinesis data stream used for the database activity
 	// stream.
-	ActivityStreamKinesisStreamName *string `type:"string"`
+	ActivityStreamKinesisStreamName *string `json:"rds:DBCluster:ActivityStreamKinesisStreamName" type:"string"`
 
 	// The AWS KMS key identifier used for encrypting messages in the database activity
 	// stream.
-	ActivityStreamKmsKeyId *string `type:"string"`
+	ActivityStreamKmsKeyId *string `json:"rds:DBCluster:ActivityStreamKmsKeyId" type:"string"`
 
 	// The mode of the database activity stream. Database events such as a change
 	// or access generate an activity stream event. The database session can handle
 	// these events either synchronously or asynchronously.
-	ActivityStreamMode ActivityStreamMode `type:"string" enum:"true"`
+	ActivityStreamMode ActivityStreamMode `json:"rds:DBCluster:ActivityStreamMode" type:"string" enum:"true"`
 
 	// The status of the database activity stream.
-	ActivityStreamStatus ActivityStreamStatus `type:"string" enum:"true"`
+	ActivityStreamStatus ActivityStreamStatus `json:"rds:DBCluster:ActivityStreamStatus" type:"string" enum:"true"`
 
 	// For all database engines except Amazon Aurora, AllocatedStorage specifies
 	// the allocated storage size in gibibytes (GiB). For Aurora, AllocatedStorage
 	// always returns 1, because Aurora DB cluster storage size is not fixed, but
 	// instead automatically adjusts as needed.
-	AllocatedStorage *int64 `type:"integer"`
+	AllocatedStorage *int64 `json:"rds:DBCluster:AllocatedStorage" type:"integer"`
 
 	// Provides a list of the AWS Identity and Access Management (IAM) roles that
 	// are associated with the DB cluster. IAM roles that are associated with a
 	// DB cluster grant permission for the DB cluster to access other AWS services
 	// on your behalf.
-	AssociatedRoles []DBClusterRole `locationNameList:"DBClusterRole" type:"list"`
+	AssociatedRoles []DBClusterRole `json:"rds:DBCluster:AssociatedRoles" locationNameList:"DBClusterRole" type:"list"`
 
 	// Provides the list of Availability Zones (AZs) where instances in the DB cluster
 	// can be created.
-	AvailabilityZones []string `locationNameList:"AvailabilityZone" type:"list"`
+	AvailabilityZones []string `json:"rds:DBCluster:AvailabilityZones" locationNameList:"AvailabilityZone" type:"list"`
 
 	// The number of change records stored for Backtrack.
-	BacktrackConsumedChangeRecords *int64 `type:"long"`
+	BacktrackConsumedChangeRecords *int64 `json:"rds:DBCluster:BacktrackConsumedChangeRecords" type:"long"`
 
 	// The target backtrack window, in seconds. If this value is set to 0, backtracking
 	// is disabled for the DB cluster. Otherwise, backtracking is enabled.
-	BacktrackWindow *int64 `type:"long"`
+	BacktrackWindow *int64 `json:"rds:DBCluster:BacktrackWindow" type:"long"`
 
 	// Specifies the number of days for which automatic DB snapshots are retained.
-	BackupRetentionPeriod *int64 `type:"integer"`
+	BackupRetentionPeriod *int64 `json:"rds:DBCluster:BackupRetentionPeriod" type:"integer"`
 
 	// The current capacity of an Aurora Serverless DB cluster. The capacity is
 	// 0 (zero) when the cluster is paused.
@@ -274,70 +274,70 @@ type DBCluster struct {
 	// For more information about Aurora Serverless, see Using Amazon Aurora Serverless
 	// (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html)
 	// in the Amazon Aurora User Guide.
-	Capacity *int64 `type:"integer"`
+	Capacity *int64 `json:"rds:DBCluster:Capacity" type:"integer"`
 
 	// If present, specifies the name of the character set that this cluster is
 	// associated with.
-	CharacterSetName *string `type:"string"`
+	CharacterSetName *string `json:"rds:DBCluster:CharacterSetName" type:"string"`
 
 	// Identifies the clone group to which the DB cluster is associated.
-	CloneGroupId *string `type:"string"`
+	CloneGroupId *string `json:"rds:DBCluster:CloneGroupId" type:"string"`
 
 	// Specifies the time when the DB cluster was created, in Universal Coordinated
 	// Time (UTC).
-	ClusterCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ClusterCreateTime *time.Time `json:"rds:DBCluster:ClusterCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Specifies whether tags are copied from the DB cluster to snapshots of the
 	// DB cluster.
-	CopyTagsToSnapshot *bool `type:"boolean"`
+	CopyTagsToSnapshot *bool `json:"rds:DBCluster:CopyTagsToSnapshot" type:"boolean"`
 
 	// Specifies whether the DB cluster is a clone of a DB cluster owned by a different
 	// AWS account.
-	CrossAccountClone *bool `type:"boolean"`
+	CrossAccountClone *bool `json:"rds:DBCluster:CrossAccountClone" type:"boolean"`
 
 	// Identifies all custom endpoints associated with the cluster.
-	CustomEndpoints []string `type:"list"`
+	CustomEndpoints []string `json:"rds:DBCluster:CustomEndpoints" type:"list"`
 
 	// The Amazon Resource Name (ARN) for the DB cluster.
-	DBClusterArn *string `type:"string"`
+	DBClusterArn *string `json:"rds:DBCluster:DBClusterArn" type:"string"`
 
 	// Contains a user-supplied DB cluster identifier. This identifier is the unique
 	// key that identifies a DB cluster.
-	DBClusterIdentifier *string `type:"string"`
+	DBClusterIdentifier *string `json:"rds:DBCluster:DBClusterIdentifier" type:"string"`
 
 	// Provides the list of instances that make up the DB cluster.
-	DBClusterMembers []DBClusterMember `locationNameList:"DBClusterMember" type:"list"`
+	DBClusterMembers []DBClusterMember `json:"rds:DBCluster:DBClusterMembers" locationNameList:"DBClusterMember" type:"list"`
 
 	// Provides the list of option group memberships for this DB cluster.
-	DBClusterOptionGroupMemberships []DBClusterOptionGroupStatus `locationNameList:"DBClusterOptionGroup" type:"list"`
+	DBClusterOptionGroupMemberships []DBClusterOptionGroupStatus `json:"rds:DBCluster:DBClusterOptionGroupMemberships" locationNameList:"DBClusterOptionGroup" type:"list"`
 
 	// Specifies the name of the DB cluster parameter group for the DB cluster.
-	DBClusterParameterGroup *string `type:"string"`
+	DBClusterParameterGroup *string `json:"rds:DBCluster:DBClusterParameterGroup" type:"string"`
 
 	// Specifies information on the subnet group associated with the DB cluster,
 	// including the name, description, and subnets in the subnet group.
-	DBSubnetGroup *string `type:"string"`
+	DBSubnetGroup *string `json:"rds:DBCluster:DBSubnetGroup" type:"string"`
 
 	// Contains the name of the initial database of this DB cluster that was provided
 	// at create time, if one was specified when the DB cluster was created. This
 	// same name is returned for the life of the DB cluster.
-	DatabaseName *string `type:"string"`
+	DatabaseName *string `json:"rds:DBCluster:DatabaseName" type:"string"`
 
 	// The AWS Region-unique, immutable identifier for the DB cluster. This identifier
 	// is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB
 	// cluster is accessed.
-	DbClusterResourceId *string `type:"string"`
+	DbClusterResourceId *string `json:"rds:DBCluster:DbClusterResourceId" type:"string"`
 
 	// Indicates if the DB cluster has deletion protection enabled. The database
 	// can't be deleted when deletion protection is enabled.
-	DeletionProtection *bool `type:"boolean"`
+	DeletionProtection *bool `json:"rds:DBCluster:DeletionProtection" type:"boolean"`
 
 	// The earliest time to which a DB cluster can be backtracked.
-	EarliestBacktrackTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EarliestBacktrackTime *time.Time `json:"rds:DBCluster:EarliestBacktrackTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The earliest time to which a database can be restored with point-in-time
 	// restore.
-	EarliestRestorableTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EarliestRestorableTime *time.Time `json:"rds:DBCluster:EarliestRestorableTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A list of log types that this DB cluster is configured to export to CloudWatch
 	// Logs.
@@ -345,23 +345,23 @@ type DBCluster struct {
 	// Log types vary by DB engine. For information about the log types for each
 	// DB engine, see Amazon RDS Database Log Files (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html)
 	// in the Amazon Aurora User Guide.
-	EnabledCloudwatchLogsExports []string `type:"list"`
+	EnabledCloudwatchLogsExports []string `json:"rds:DBCluster:EnabledCloudwatchLogsExports" type:"list"`
 
 	// Specifies the connection endpoint for the primary instance of the DB cluster.
-	Endpoint *string `type:"string"`
+	Endpoint *string `json:"rds:DBCluster:Endpoint" type:"string"`
 
 	// Provides the name of the database engine to be used for this DB cluster.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:DBCluster:Engine" type:"string"`
 
 	// The DB engine mode of the DB cluster, either provisioned, serverless, or
 	// parallelquery.
-	EngineMode *string `type:"string"`
+	EngineMode *string `json:"rds:DBCluster:EngineMode" type:"string"`
 
 	// Indicates the database engine version.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:DBCluster:EngineVersion" type:"string"`
 
 	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-	HostedZoneId *string `type:"string"`
+	HostedZoneId *string `json:"rds:DBCluster:HostedZoneId" type:"string"`
 
 	// A value that indicates whether the HTTP endpoint for an Aurora Serverless
 	// DB cluster is enabled.
@@ -372,43 +372,43 @@ type DBCluster struct {
 	//
 	// For more information, see Using the Data API for Aurora Serverless (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html)
 	// in the Amazon Aurora User Guide.
-	HttpEndpointEnabled *bool `type:"boolean"`
+	HttpEndpointEnabled *bool `json:"rds:DBCluster:HttpEndpointEnabled" type:"boolean"`
 
 	// A value that indicates whether the mapping of AWS Identity and Access Management
 	// (IAM) accounts to database accounts is enabled.
-	IAMDatabaseAuthenticationEnabled *bool `type:"boolean"`
+	IAMDatabaseAuthenticationEnabled *bool `json:"rds:DBCluster:IAMDatabaseAuthenticationEnabled" type:"boolean"`
 
 	// If StorageEncrypted is enabled, the AWS KMS key identifier for the encrypted
 	// DB cluster.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"rds:DBCluster:KmsKeyId" type:"string"`
 
 	// Specifies the latest time to which a database can be restored with point-in-time
 	// restore.
-	LatestRestorableTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LatestRestorableTime *time.Time `json:"rds:DBCluster:LatestRestorableTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Contains the master username for the DB cluster.
-	MasterUsername *string `type:"string"`
+	MasterUsername *string `json:"rds:DBCluster:MasterUsername" type:"string"`
 
 	// Specifies whether the DB cluster has instances in multiple Availability Zones.
-	MultiAZ *bool `type:"boolean"`
+	MultiAZ *bool `json:"rds:DBCluster:MultiAZ" type:"boolean"`
 
 	// Specifies the progress of the operation as a percentage.
-	PercentProgress *string `type:"string"`
+	PercentProgress *string `json:"rds:DBCluster:PercentProgress" type:"string"`
 
 	// Specifies the port that the database engine is listening on.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"rds:DBCluster:Port" type:"integer"`
 
 	// Specifies the daily time range during which automated backups are created
 	// if automated backups are enabled, as determined by the BackupRetentionPeriod.
-	PreferredBackupWindow *string `type:"string"`
+	PreferredBackupWindow *string `json:"rds:DBCluster:PreferredBackupWindow" type:"string"`
 
 	// Specifies the weekly time range during which system maintenance can occur,
 	// in Universal Coordinated Time (UTC).
-	PreferredMaintenanceWindow *string `type:"string"`
+	PreferredMaintenanceWindow *string `json:"rds:DBCluster:PreferredMaintenanceWindow" type:"string"`
 
 	// Contains one or more identifiers of the Read Replicas associated with this
 	// DB cluster.
-	ReadReplicaIdentifiers []string `locationNameList:"ReadReplicaIdentifier" type:"list"`
+	ReadReplicaIdentifiers []string `json:"rds:DBCluster:ReadReplicaIdentifiers" locationNameList:"ReadReplicaIdentifier" type:"list"`
 
 	// The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
 	// load-balances connections across the Aurora Replicas that are available in
@@ -421,27 +421,27 @@ type DBCluster struct {
 	// promoted to be the primary instance, your connection is dropped. To continue
 	// sending your read workload to other Aurora Replicas in the cluster, you can
 	// then reconnect to the reader endpoint.
-	ReaderEndpoint *string `type:"string"`
+	ReaderEndpoint *string `json:"rds:DBCluster:ReaderEndpoint" type:"string"`
 
 	// Contains the identifier of the source DB cluster if this DB cluster is a
 	// Read Replica.
-	ReplicationSourceIdentifier *string `type:"string"`
+	ReplicationSourceIdentifier *string `json:"rds:DBCluster:ReplicationSourceIdentifier" type:"string"`
 
 	// Shows the scaling configuration for an Aurora DB cluster in serverless DB
 	// engine mode.
 	//
 	// For more information, see Using Amazon Aurora Serverless (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html)
 	// in the Amazon Aurora User Guide.
-	ScalingConfigurationInfo *ScalingConfigurationInfo `type:"structure"`
+	ScalingConfigurationInfo *ScalingConfigurationInfo `json:"rds:DBCluster:ScalingConfigurationInfo" type:"structure"`
 
 	// Specifies the current state of this DB cluster.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBCluster:Status" type:"string"`
 
 	// Specifies whether the DB cluster is encrypted.
-	StorageEncrypted *bool `type:"boolean"`
+	StorageEncrypted *bool `json:"rds:DBCluster:StorageEncrypted" type:"boolean"`
 
 	// Provides a list of VPC security groups that the DB cluster belongs to.
-	VpcSecurityGroups []VpcSecurityGroupMembership `locationNameList:"VpcSecurityGroupMembership" type:"list"`
+	VpcSecurityGroups []VpcSecurityGroupMembership `json:"rds:DBCluster:VpcSecurityGroups" locationNameList:"VpcSecurityGroupMembership" type:"list"`
 }
 
 // String returns the string representation
@@ -456,20 +456,20 @@ type DBClusterBacktrack struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the backtrack identifier.
-	BacktrackIdentifier *string `type:"string"`
+	BacktrackIdentifier *string `json:"rds:DBClusterBacktrack:BacktrackIdentifier" type:"string"`
 
 	// The timestamp of the time at which the backtrack was requested.
-	BacktrackRequestCreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	BacktrackRequestCreationTime *time.Time `json:"rds:DBClusterBacktrack:BacktrackRequestCreationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The timestamp of the time to which the DB cluster was backtracked.
-	BacktrackTo *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	BacktrackTo *time.Time `json:"rds:DBClusterBacktrack:BacktrackTo" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The timestamp of the time from which the DB cluster was backtracked.
-	BacktrackedFrom *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	BacktrackedFrom *time.Time `json:"rds:DBClusterBacktrack:BacktrackedFrom" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Contains a user-supplied DB cluster identifier. This identifier is the unique
 	// key that identifies a DB cluster.
-	DBClusterIdentifier *string `type:"string"`
+	DBClusterIdentifier *string `json:"rds:DBClusterBacktrack:DBClusterIdentifier" type:"string"`
 
 	// The status of the backtrack. This property returns one of the following values:
 	//
@@ -484,7 +484,7 @@ type DBClusterBacktrack struct {
 	//
 	//    * pending - The backtrack is currently pending application to or rollback
 	//    from the DB cluster.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBClusterBacktrack:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -511,40 +511,40 @@ type DBClusterEndpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The type associated with a custom endpoint. One of: READER, ANY.
-	CustomEndpointType *string `type:"string"`
+	CustomEndpointType *string `json:"rds:DBClusterEndpoint:CustomEndpointType" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the endpoint.
-	DBClusterEndpointArn *string `type:"string"`
+	DBClusterEndpointArn *string `json:"rds:DBClusterEndpoint:DBClusterEndpointArn" type:"string"`
 
 	// The identifier associated with the endpoint. This parameter is stored as
 	// a lowercase string.
-	DBClusterEndpointIdentifier *string `type:"string"`
+	DBClusterEndpointIdentifier *string `json:"rds:DBClusterEndpoint:DBClusterEndpointIdentifier" type:"string"`
 
 	// A unique system-generated identifier for an endpoint. It remains the same
 	// for the whole life of the endpoint.
-	DBClusterEndpointResourceIdentifier *string `type:"string"`
+	DBClusterEndpointResourceIdentifier *string `json:"rds:DBClusterEndpoint:DBClusterEndpointResourceIdentifier" type:"string"`
 
 	// The DB cluster identifier of the DB cluster associated with the endpoint.
 	// This parameter is stored as a lowercase string.
-	DBClusterIdentifier *string `type:"string"`
+	DBClusterIdentifier *string `json:"rds:DBClusterEndpoint:DBClusterIdentifier" type:"string"`
 
 	// The DNS address of the endpoint.
-	Endpoint *string `type:"string"`
+	Endpoint *string `json:"rds:DBClusterEndpoint:Endpoint" type:"string"`
 
 	// The type of the endpoint. One of: READER, WRITER, CUSTOM.
-	EndpointType *string `type:"string"`
+	EndpointType *string `json:"rds:DBClusterEndpoint:EndpointType" type:"string"`
 
 	// List of DB instance identifiers that aren't part of the custom endpoint group.
 	// All other eligible instances are reachable through the custom endpoint. Only
 	// relevant if the list of static members is empty.
-	ExcludedMembers []string `type:"list"`
+	ExcludedMembers []string `json:"rds:DBClusterEndpoint:ExcludedMembers" type:"list"`
 
 	// List of DB instance identifiers that are part of the custom endpoint group.
-	StaticMembers []string `type:"list"`
+	StaticMembers []string `json:"rds:DBClusterEndpoint:StaticMembers" type:"list"`
 
 	// The current status of the endpoint. One of: creating, available, deleting,
 	// modifying.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBClusterEndpoint:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -559,20 +559,20 @@ type DBClusterMember struct {
 
 	// Specifies the status of the DB cluster parameter group for this member of
 	// the DB cluster.
-	DBClusterParameterGroupStatus *string `type:"string"`
+	DBClusterParameterGroupStatus *string `json:"rds:DBClusterMember:DBClusterParameterGroupStatus" type:"string"`
 
 	// Specifies the instance identifier for this member of the DB cluster.
-	DBInstanceIdentifier *string `type:"string"`
+	DBInstanceIdentifier *string `json:"rds:DBClusterMember:DBInstanceIdentifier" type:"string"`
 
 	// A value that indicates whehter the cluster member is the primary instance
 	// for the DB cluster.
-	IsClusterWriter *bool `type:"boolean"`
+	IsClusterWriter *bool `json:"rds:DBClusterMember:IsClusterWriter" type:"boolean"`
 
 	// A value that specifies the order in which an Aurora Replica is promoted to
 	// the primary instance after a failure of the existing primary instance. For
 	// more information, see Fault Tolerance for an Aurora DB Cluster (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance)
 	// in the Amazon Aurora User Guide.
-	PromotionTier *int64 `type:"integer"`
+	PromotionTier *int64 `json:"rds:DBClusterMember:PromotionTier" type:"integer"`
 }
 
 // String returns the string representation
@@ -586,10 +586,10 @@ type DBClusterOptionGroupStatus struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the name of the DB cluster option group.
-	DBClusterOptionGroupName *string `type:"string"`
+	DBClusterOptionGroupName *string `json:"rds:DBClusterOptionGroupStatus:DBClusterOptionGroupName" type:"string"`
 
 	// Specifies the status of the DB cluster option group.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBClusterOptionGroupStatus:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -606,18 +606,18 @@ type DBClusterParameterGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the DB cluster parameter group.
-	DBClusterParameterGroupArn *string `type:"string"`
+	DBClusterParameterGroupArn *string `json:"rds:DBClusterParameterGroup:DBClusterParameterGroupArn" type:"string"`
 
 	// Provides the name of the DB cluster parameter group.
-	DBClusterParameterGroupName *string `type:"string"`
+	DBClusterParameterGroupName *string `json:"rds:DBClusterParameterGroup:DBClusterParameterGroupName" type:"string"`
 
 	// Provides the name of the DB parameter group family that this DB cluster parameter
 	// group is compatible with.
-	DBParameterGroupFamily *string `type:"string"`
+	DBParameterGroupFamily *string `json:"rds:DBClusterParameterGroup:DBParameterGroupFamily" type:"string"`
 
 	// Provides the customer-specified description for this DB cluster parameter
 	// group.
-	Description *string `type:"string"`
+	Description *string `json:"rds:DBClusterParameterGroup:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -633,11 +633,11 @@ type DBClusterRole struct {
 
 	// The name of the feature associated with the AWS Identity and Access Management
 	// (IAM) role. For the list of supported feature names, see DBEngineVersion.
-	FeatureName *string `type:"string"`
+	FeatureName *string `json:"rds:DBClusterRole:FeatureName" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the
 	// DB cluster.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"rds:DBClusterRole:RoleArn" type:"string"`
 
 	// Describes the state of association between the IAM role and the DB cluster.
 	// The Status property returns one of the following values:
@@ -650,7 +650,7 @@ type DBClusterRole struct {
 	//    * INVALID - the IAM role ARN is associated with the DB cluster, but the
 	//    DB cluster is unable to assume the IAM role in order to access other AWS
 	//    services on your behalf.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBClusterRole:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -667,73 +667,73 @@ type DBClusterSnapshot struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the allocated storage size in gibibytes (GiB).
-	AllocatedStorage *int64 `type:"integer"`
+	AllocatedStorage *int64 `json:"rds:DBClusterSnapshot:AllocatedStorage" type:"integer"`
 
 	// Provides the list of Availability Zones (AZs) where instances in the DB cluster
 	// snapshot can be restored.
-	AvailabilityZones []string `locationNameList:"AvailabilityZone" type:"list"`
+	AvailabilityZones []string `json:"rds:DBClusterSnapshot:AvailabilityZones" locationNameList:"AvailabilityZone" type:"list"`
 
 	// Specifies the time when the DB cluster was created, in Universal Coordinated
 	// Time (UTC).
-	ClusterCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ClusterCreateTime *time.Time `json:"rds:DBClusterSnapshot:ClusterCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Specifies the DB cluster identifier of the DB cluster that this DB cluster
 	// snapshot was created from.
-	DBClusterIdentifier *string `type:"string"`
+	DBClusterIdentifier *string `json:"rds:DBClusterSnapshot:DBClusterIdentifier" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the DB cluster snapshot.
-	DBClusterSnapshotArn *string `type:"string"`
+	DBClusterSnapshotArn *string `json:"rds:DBClusterSnapshot:DBClusterSnapshotArn" type:"string"`
 
 	// Specifies the identifier for the DB cluster snapshot.
-	DBClusterSnapshotIdentifier *string `type:"string"`
+	DBClusterSnapshotIdentifier *string `json:"rds:DBClusterSnapshot:DBClusterSnapshotIdentifier" type:"string"`
 
 	// Specifies the name of the database engine.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:DBClusterSnapshot:Engine" type:"string"`
 
 	// Provides the version of the database engine for this DB cluster snapshot.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:DBClusterSnapshot:EngineVersion" type:"string"`
 
 	// True if mapping of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled, and otherwise false.
-	IAMDatabaseAuthenticationEnabled *bool `type:"boolean"`
+	IAMDatabaseAuthenticationEnabled *bool `json:"rds:DBClusterSnapshot:IAMDatabaseAuthenticationEnabled" type:"boolean"`
 
 	// If StorageEncrypted is true, the AWS KMS key identifier for the encrypted
 	// DB cluster snapshot.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"rds:DBClusterSnapshot:KmsKeyId" type:"string"`
 
 	// Provides the license model information for this DB cluster snapshot.
-	LicenseModel *string `type:"string"`
+	LicenseModel *string `json:"rds:DBClusterSnapshot:LicenseModel" type:"string"`
 
 	// Provides the master username for the DB cluster snapshot.
-	MasterUsername *string `type:"string"`
+	MasterUsername *string `json:"rds:DBClusterSnapshot:MasterUsername" type:"string"`
 
 	// Specifies the percentage of the estimated data that has been transferred.
-	PercentProgress *int64 `type:"integer"`
+	PercentProgress *int64 `json:"rds:DBClusterSnapshot:PercentProgress" type:"integer"`
 
 	// Specifies the port that the DB cluster was listening on at the time of the
 	// snapshot.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"rds:DBClusterSnapshot:Port" type:"integer"`
 
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time
 	// (UTC).
-	SnapshotCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	SnapshotCreateTime *time.Time `json:"rds:DBClusterSnapshot:SnapshotCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Provides the type of the DB cluster snapshot.
-	SnapshotType *string `type:"string"`
+	SnapshotType *string `json:"rds:DBClusterSnapshot:SnapshotType" type:"string"`
 
 	// If the DB cluster snapshot was copied from a source DB cluster snapshot,
 	// the Amazon Resource Name (ARN) for the source DB cluster snapshot, otherwise,
 	// a null value.
-	SourceDBClusterSnapshotArn *string `type:"string"`
+	SourceDBClusterSnapshotArn *string `json:"rds:DBClusterSnapshot:SourceDBClusterSnapshotArn" type:"string"`
 
 	// Specifies the status of this DB cluster snapshot.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBClusterSnapshot:Status" type:"string"`
 
 	// Specifies whether the DB cluster snapshot is encrypted.
-	StorageEncrypted *bool `type:"boolean"`
+	StorageEncrypted *bool `json:"rds:DBClusterSnapshot:StorageEncrypted" type:"boolean"`
 
 	// Provides the VPC ID associated with the DB cluster snapshot.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"rds:DBClusterSnapshot:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -755,7 +755,7 @@ type DBClusterSnapshotAttribute struct {
 	// The attribute named restore refers to the list of AWS accounts that have
 	// permission to copy or restore the manual DB cluster snapshot. For more information,
 	// see the ModifyDBClusterSnapshotAttribute API action.
-	AttributeName *string `type:"string"`
+	AttributeName *string `json:"rds:DBClusterSnapshotAttribute:AttributeName" type:"string"`
 
 	// The value(s) for the manual DB cluster snapshot attribute.
 	//
@@ -764,7 +764,7 @@ type DBClusterSnapshotAttribute struct {
 	// manual DB cluster snapshot. If a value of all is in the list, then the manual
 	// DB cluster snapshot is public and available for any AWS account to copy or
 	// restore.
-	AttributeValues []string `locationNameList:"AttributeValue" type:"list"`
+	AttributeValues []string `json:"rds:DBClusterSnapshotAttribute:AttributeValues" locationNameList:"AttributeValue" type:"list"`
 }
 
 // String returns the string representation
@@ -783,11 +783,11 @@ type DBClusterSnapshotAttributesResult struct {
 	_ struct{} `type:"structure"`
 
 	// The list of attributes and values for the manual DB cluster snapshot.
-	DBClusterSnapshotAttributes []DBClusterSnapshotAttribute `locationNameList:"DBClusterSnapshotAttribute" type:"list"`
+	DBClusterSnapshotAttributes []DBClusterSnapshotAttribute `json:"rds:DBClusterSnapshotAttributesResult:DBClusterSnapshotAttributes" locationNameList:"DBClusterSnapshotAttribute" type:"list"`
 
 	// The identifier of the manual DB cluster snapshot that the attributes apply
 	// to.
-	DBClusterSnapshotIdentifier *string `type:"string"`
+	DBClusterSnapshotIdentifier *string `json:"rds:DBClusterSnapshotAttributesResult:DBClusterSnapshotIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -801,58 +801,58 @@ type DBEngineVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the database engine.
-	DBEngineDescription *string `type:"string"`
+	DBEngineDescription *string `json:"rds:DBEngineVersion:DBEngineDescription" type:"string"`
 
 	// The description of the database engine version.
-	DBEngineVersionDescription *string `type:"string"`
+	DBEngineVersionDescription *string `json:"rds:DBEngineVersion:DBEngineVersionDescription" type:"string"`
 
 	// The name of the DB parameter group family for the database engine.
-	DBParameterGroupFamily *string `type:"string"`
+	DBParameterGroupFamily *string `json:"rds:DBEngineVersion:DBParameterGroupFamily" type:"string"`
 
 	// The default character set for new instances of this engine version, if the
 	// CharacterSetName parameter of the CreateDBInstance API is not specified.
-	DefaultCharacterSet *CharacterSet `type:"structure"`
+	DefaultCharacterSet *CharacterSet `json:"rds:DBEngineVersion:DefaultCharacterSet" type:"structure"`
 
 	// The name of the database engine.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:DBEngineVersion:Engine" type:"string"`
 
 	// The version number of the database engine.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:DBEngineVersion:EngineVersion" type:"string"`
 
 	// The types of logs that the database engine has available for export to CloudWatch
 	// Logs.
-	ExportableLogTypes []string `type:"list"`
+	ExportableLogTypes []string `json:"rds:DBEngineVersion:ExportableLogTypes" type:"list"`
 
 	// The status of the DB engine version, either available or deprecated.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBEngineVersion:Status" type:"string"`
 
 	// A list of the character sets supported by this engine for the CharacterSetName
 	// parameter of the CreateDBInstance action.
-	SupportedCharacterSets []CharacterSet `locationNameList:"CharacterSet" type:"list"`
+	SupportedCharacterSets []CharacterSet `json:"rds:DBEngineVersion:SupportedCharacterSets" locationNameList:"CharacterSet" type:"list"`
 
 	// A list of the supported DB engine modes.
-	SupportedEngineModes []string `type:"list"`
+	SupportedEngineModes []string `json:"rds:DBEngineVersion:SupportedEngineModes" type:"list"`
 
 	// A list of features supported by the DB engine. Supported feature names include
 	// the following.
 	//
 	//    * s3Import
-	SupportedFeatureNames []string `type:"list"`
+	SupportedFeatureNames []string `json:"rds:DBEngineVersion:SupportedFeatureNames" type:"list"`
 
 	// A list of the time zones supported by this engine for the Timezone parameter
 	// of the CreateDBInstance action.
-	SupportedTimezones []Timezone `locationNameList:"Timezone" type:"list"`
+	SupportedTimezones []Timezone `json:"rds:DBEngineVersion:SupportedTimezones" locationNameList:"Timezone" type:"list"`
 
 	// A value that indicates whether the engine version supports exporting the
 	// log types specified by ExportableLogTypes to CloudWatch Logs.
-	SupportsLogExportsToCloudwatchLogs *bool `type:"boolean"`
+	SupportsLogExportsToCloudwatchLogs *bool `json:"rds:DBEngineVersion:SupportsLogExportsToCloudwatchLogs" type:"boolean"`
 
 	// Indicates whether the database engine version supports Read Replicas.
-	SupportsReadReplica *bool `type:"boolean"`
+	SupportsReadReplica *bool `json:"rds:DBEngineVersion:SupportsReadReplica" type:"boolean"`
 
 	// A list of engine versions that this database engine version can be upgraded
 	// to.
-	ValidUpgradeTarget []UpgradeTarget `locationNameList:"UpgradeTarget" type:"list"`
+	ValidUpgradeTarget []UpgradeTarget `json:"rds:DBEngineVersion:ValidUpgradeTarget" locationNameList:"UpgradeTarget" type:"list"`
 }
 
 // String returns the string representation
@@ -868,27 +868,27 @@ type DBInstance struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the allocated storage size specified in gibibytes.
-	AllocatedStorage *int64 `type:"integer"`
+	AllocatedStorage *int64 `json:"rds:DBInstance:AllocatedStorage" type:"integer"`
 
 	// The AWS Identity and Access Management (IAM) roles associated with the DB
 	// instance.
-	AssociatedRoles []DBInstanceRole `locationNameList:"DBInstanceRole" type:"list"`
+	AssociatedRoles []DBInstanceRole `json:"rds:DBInstance:AssociatedRoles" locationNameList:"DBInstanceRole" type:"list"`
 
 	// Indicates that minor version patches are applied automatically.
-	AutoMinorVersionUpgrade *bool `type:"boolean"`
+	AutoMinorVersionUpgrade *bool `json:"rds:DBInstance:AutoMinorVersionUpgrade" type:"boolean"`
 
 	// Specifies the name of the Availability Zone the DB instance is located in.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"rds:DBInstance:AvailabilityZone" type:"string"`
 
 	// Specifies the number of days for which automatic DB snapshots are retained.
-	BackupRetentionPeriod *int64 `type:"integer"`
+	BackupRetentionPeriod *int64 `json:"rds:DBInstance:BackupRetentionPeriod" type:"integer"`
 
 	// The identifier of the CA certificate for this DB instance.
-	CACertificateIdentifier *string `type:"string"`
+	CACertificateIdentifier *string `json:"rds:DBInstance:CACertificateIdentifier" type:"string"`
 
 	// If present, specifies the name of the character set that this instance is
 	// associated with.
-	CharacterSetName *string `type:"string"`
+	CharacterSetName *string `json:"rds:DBInstance:CharacterSetName" type:"string"`
 
 	// Specifies whether tags are copied from the DB instance to snapshots of the
 	// DB instance.
@@ -898,24 +898,24 @@ type DBInstance struct {
 	// Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting
 	// this value for an Aurora DB instance has no effect on the DB cluster setting.
 	// For more information, see DBCluster.
-	CopyTagsToSnapshot *bool `type:"boolean"`
+	CopyTagsToSnapshot *bool `json:"rds:DBInstance:CopyTagsToSnapshot" type:"boolean"`
 
 	// If the DB instance is a member of a DB cluster, contains the name of the
 	// DB cluster that the DB instance is a member of.
-	DBClusterIdentifier *string `type:"string"`
+	DBClusterIdentifier *string `json:"rds:DBInstance:DBClusterIdentifier" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the DB instance.
-	DBInstanceArn *string `type:"string"`
+	DBInstanceArn *string `json:"rds:DBInstance:DBInstanceArn" type:"string"`
 
 	// Contains the name of the compute and memory capacity class of the DB instance.
-	DBInstanceClass *string `type:"string"`
+	DBInstanceClass *string `json:"rds:DBInstance:DBInstanceClass" type:"string"`
 
 	// Contains a user-supplied database identifier. This identifier is the unique
 	// key that identifies a DB instance.
-	DBInstanceIdentifier *string `type:"string"`
+	DBInstanceIdentifier *string `json:"rds:DBInstance:DBInstanceIdentifier" type:"string"`
 
 	// Specifies the current state of this database.
-	DBInstanceStatus *string `type:"string"`
+	DBInstanceStatus *string `json:"rds:DBInstance:DBInstanceStatus" type:"string"`
 
 	// The meaning of this parameter differs according to the database engine you
 	// use.
@@ -932,35 +932,35 @@ type DBInstance struct {
 	//
 	// Contains the Oracle System ID (SID) of the created DB instance. Not shown
 	// when the returned parameters do not apply to an Oracle DB instance.
-	DBName *string `type:"string"`
+	DBName *string `json:"rds:DBInstance:DBName" type:"string"`
 
 	// Provides the list of DB parameter groups applied to this DB instance.
-	DBParameterGroups []DBParameterGroupStatus `locationNameList:"DBParameterGroup" type:"list"`
+	DBParameterGroups []DBParameterGroupStatus `json:"rds:DBInstance:DBParameterGroups" locationNameList:"DBParameterGroup" type:"list"`
 
 	// A list of DB security group elements containing DBSecurityGroup.Name and
 	// DBSecurityGroup.Status subelements.
-	DBSecurityGroups []DBSecurityGroupMembership `locationNameList:"DBSecurityGroup" type:"list"`
+	DBSecurityGroups []DBSecurityGroupMembership `json:"rds:DBInstance:DBSecurityGroups" locationNameList:"DBSecurityGroup" type:"list"`
 
 	// Specifies information on the subnet group associated with the DB instance,
 	// including the name, description, and subnets in the subnet group.
-	DBSubnetGroup *DBSubnetGroup `type:"structure"`
+	DBSubnetGroup *DBSubnetGroup `json:"rds:DBInstance:DBSubnetGroup" type:"structure"`
 
 	// Specifies the port that the DB instance listens on. If the DB instance is
 	// part of a DB cluster, this can be a different port than the DB cluster port.
-	DbInstancePort *int64 `type:"integer"`
+	DbInstancePort *int64 `json:"rds:DBInstance:DbInstancePort" type:"integer"`
 
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier
 	// is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB
 	// instance is accessed.
-	DbiResourceId *string `type:"string"`
+	DbiResourceId *string `json:"rds:DBInstance:DbiResourceId" type:"string"`
 
 	// Indicates if the DB instance has deletion protection enabled. The database
 	// can't be deleted when deletion protection is enabled. For more information,
 	// see Deleting a DB Instance (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
-	DeletionProtection *bool `type:"boolean"`
+	DeletionProtection *bool `json:"rds:DBInstance:DeletionProtection" type:"boolean"`
 
 	// The Active Directory Domain membership records associated with the DB instance.
-	DomainMemberships []DomainMembership `locationNameList:"DomainMembership" type:"list"`
+	DomainMemberships []DomainMembership `json:"rds:DBInstance:DomainMemberships" locationNameList:"DomainMembership" type:"list"`
 
 	// A list of log types that this DB instance is configured to export to CloudWatch
 	// Logs.
@@ -968,20 +968,20 @@ type DBInstance struct {
 	// Log types vary by DB engine. For information about the log types for each
 	// DB engine, see Amazon RDS Database Log Files (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html)
 	// in the Amazon RDS User Guide.
-	EnabledCloudwatchLogsExports []string `type:"list"`
+	EnabledCloudwatchLogsExports []string `json:"rds:DBInstance:EnabledCloudwatchLogsExports" type:"list"`
 
 	// Specifies the connection endpoint.
-	Endpoint *Endpoint `type:"structure"`
+	Endpoint *Endpoint `json:"rds:DBInstance:Endpoint" type:"structure"`
 
 	// Provides the name of the database engine to be used for this DB instance.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:DBInstance:Engine" type:"string"`
 
 	// Indicates the database engine version.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:DBInstance:EngineVersion" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that
 	// receives the Enhanced Monitoring metrics data for the DB instance.
-	EnhancedMonitoringResourceArn *string `type:"string"`
+	EnhancedMonitoringResourceArn *string `json:"rds:DBInstance:EnhancedMonitoringResourceArn" type:"string"`
 
 	// True if mapping of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled, and otherwise false.
@@ -994,89 +994,89 @@ type DBInstance struct {
 	//
 	//    * Aurora 5.6 or higher. To enable IAM database authentication for Aurora,
 	//    see DBCluster Type.
-	IAMDatabaseAuthenticationEnabled *bool `type:"boolean"`
+	IAMDatabaseAuthenticationEnabled *bool `json:"rds:DBInstance:IAMDatabaseAuthenticationEnabled" type:"boolean"`
 
 	// Provides the date and time the DB instance was created.
-	InstanceCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	InstanceCreateTime *time.Time `json:"rds:DBInstance:InstanceCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Specifies the Provisioned IOPS (I/O operations per second) value.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"rds:DBInstance:Iops" type:"integer"`
 
 	// If StorageEncrypted is true, the AWS KMS key identifier for the encrypted
 	// DB instance.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"rds:DBInstance:KmsKeyId" type:"string"`
 
 	// Specifies the latest time to which a database can be restored with point-in-time
 	// restore.
-	LatestRestorableTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LatestRestorableTime *time.Time `json:"rds:DBInstance:LatestRestorableTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// License model information for this DB instance.
-	LicenseModel *string `type:"string"`
+	LicenseModel *string `json:"rds:DBInstance:LicenseModel" type:"string"`
 
 	// Specifies the listener connection endpoint for SQL Server Always On.
-	ListenerEndpoint *Endpoint `type:"structure"`
+	ListenerEndpoint *Endpoint `json:"rds:DBInstance:ListenerEndpoint" type:"structure"`
 
 	// Contains the master username for the DB instance.
-	MasterUsername *string `type:"string"`
+	MasterUsername *string `json:"rds:DBInstance:MasterUsername" type:"string"`
 
 	// The upper limit to which Amazon RDS can automatically scale the storage of
 	// the DB instance.
-	MaxAllocatedStorage *int64 `type:"integer"`
+	MaxAllocatedStorage *int64 `json:"rds:DBInstance:MaxAllocatedStorage" type:"integer"`
 
 	// The interval, in seconds, between points when Enhanced Monitoring metrics
 	// are collected for the DB instance.
-	MonitoringInterval *int64 `type:"integer"`
+	MonitoringInterval *int64 `json:"rds:DBInstance:MonitoringInterval" type:"integer"`
 
 	// The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics
 	// to Amazon CloudWatch Logs.
-	MonitoringRoleArn *string `type:"string"`
+	MonitoringRoleArn *string `json:"rds:DBInstance:MonitoringRoleArn" type:"string"`
 
 	// Specifies if the DB instance is a Multi-AZ deployment.
-	MultiAZ *bool `type:"boolean"`
+	MultiAZ *bool `json:"rds:DBInstance:MultiAZ" type:"boolean"`
 
 	// Provides the list of option group memberships for this DB instance.
-	OptionGroupMemberships []OptionGroupMembership `locationNameList:"OptionGroupMembership" type:"list"`
+	OptionGroupMemberships []OptionGroupMembership `json:"rds:DBInstance:OptionGroupMemberships" locationNameList:"OptionGroupMembership" type:"list"`
 
 	// Specifies that changes to the DB instance are pending. This element is only
 	// included when changes are pending. Specific changes are identified by subelements.
-	PendingModifiedValues *PendingModifiedValues `type:"structure"`
+	PendingModifiedValues *PendingModifiedValues `json:"rds:DBInstance:PendingModifiedValues" type:"structure"`
 
 	// True if Performance Insights is enabled for the DB instance, and otherwise
 	// false.
-	PerformanceInsightsEnabled *bool `type:"boolean"`
+	PerformanceInsightsEnabled *bool `json:"rds:DBInstance:PerformanceInsightsEnabled" type:"boolean"`
 
 	// The AWS KMS key identifier for encryption of Performance Insights data. The
 	// KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the
 	// KMS key alias for the KMS encryption key.
-	PerformanceInsightsKMSKeyId *string `type:"string"`
+	PerformanceInsightsKMSKeyId *string `json:"rds:DBInstance:PerformanceInsightsKMSKeyId" type:"string"`
 
 	// The amount of time, in days, to retain Performance Insights data. Valid values
 	// are 7 or 731 (2 years).
-	PerformanceInsightsRetentionPeriod *int64 `type:"integer"`
+	PerformanceInsightsRetentionPeriod *int64 `json:"rds:DBInstance:PerformanceInsightsRetentionPeriod" type:"integer"`
 
 	// Specifies the daily time range during which automated backups are created
 	// if automated backups are enabled, as determined by the BackupRetentionPeriod.
-	PreferredBackupWindow *string `type:"string"`
+	PreferredBackupWindow *string `json:"rds:DBInstance:PreferredBackupWindow" type:"string"`
 
 	// Specifies the weekly time range during which system maintenance can occur,
 	// in Universal Coordinated Time (UTC).
-	PreferredMaintenanceWindow *string `type:"string"`
+	PreferredMaintenanceWindow *string `json:"rds:DBInstance:PreferredMaintenanceWindow" type:"string"`
 
 	// The number of CPU cores and the number of threads per core for the DB instance
 	// class of the DB instance.
-	ProcessorFeatures []ProcessorFeature `locationNameList:"ProcessorFeature" type:"list"`
+	ProcessorFeatures []ProcessorFeature `json:"rds:DBInstance:ProcessorFeatures" locationNameList:"ProcessorFeature" type:"list"`
 
 	// A value that specifies the order in which an Aurora Replica is promoted to
 	// the primary instance after a failure of the existing primary instance. For
 	// more information, see Fault Tolerance for an Aurora DB Cluster (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance)
 	// in the Amazon Aurora User Guide.
-	PromotionTier *int64 `type:"integer"`
+	PromotionTier *int64 `json:"rds:DBInstance:PromotionTier" type:"integer"`
 
 	// Specifies the accessibility options for the DB instance. A value of true
 	// specifies an Internet-facing instance with a publicly resolvable DNS name,
 	// which resolves to a public IP address. A value of false specifies an internal
 	// instance with a DNS name that resolves to a private IP address.
-	PubliclyAccessible *bool `type:"boolean"`
+	PubliclyAccessible *bool `json:"rds:DBInstance:PubliclyAccessible" type:"boolean"`
 
 	// Contains one or more identifiers of Aurora DB clusters to which the RDS DB
 	// instance is replicated as a Read Replica. For example, when you create an
@@ -1085,42 +1085,42 @@ type DBInstance struct {
 	// about cross region Aurora Read Replicas.
 	//
 	// Currently, each RDS DB instance can have only one Aurora Read Replica.
-	ReadReplicaDBClusterIdentifiers []string `locationNameList:"ReadReplicaDBClusterIdentifier" type:"list"`
+	ReadReplicaDBClusterIdentifiers []string `json:"rds:DBInstance:ReadReplicaDBClusterIdentifiers" locationNameList:"ReadReplicaDBClusterIdentifier" type:"list"`
 
 	// Contains one or more identifiers of the Read Replicas associated with this
 	// DB instance.
-	ReadReplicaDBInstanceIdentifiers []string `locationNameList:"ReadReplicaDBInstanceIdentifier" type:"list"`
+	ReadReplicaDBInstanceIdentifiers []string `json:"rds:DBInstance:ReadReplicaDBInstanceIdentifiers" locationNameList:"ReadReplicaDBInstanceIdentifier" type:"list"`
 
 	// Contains the identifier of the source DB instance if this DB instance is
 	// a Read Replica.
-	ReadReplicaSourceDBInstanceIdentifier *string `type:"string"`
+	ReadReplicaSourceDBInstanceIdentifier *string `json:"rds:DBInstance:ReadReplicaSourceDBInstanceIdentifier" type:"string"`
 
 	// If present, specifies the name of the secondary Availability Zone for a DB
 	// instance with multi-AZ support.
-	SecondaryAvailabilityZone *string `type:"string"`
+	SecondaryAvailabilityZone *string `json:"rds:DBInstance:SecondaryAvailabilityZone" type:"string"`
 
 	// The status of a Read Replica. If the instance is not a Read Replica, this
 	// is blank.
-	StatusInfos []DBInstanceStatusInfo `locationNameList:"DBInstanceStatusInfo" type:"list"`
+	StatusInfos []DBInstanceStatusInfo `json:"rds:DBInstance:StatusInfos" locationNameList:"DBInstanceStatusInfo" type:"list"`
 
 	// Specifies whether the DB instance is encrypted.
-	StorageEncrypted *bool `type:"boolean"`
+	StorageEncrypted *bool `json:"rds:DBInstance:StorageEncrypted" type:"boolean"`
 
 	// Specifies the storage type associated with DB instance.
-	StorageType *string `type:"string"`
+	StorageType *string `json:"rds:DBInstance:StorageType" type:"string"`
 
 	// The ARN from the key store with which the instance is associated for TDE
 	// encryption.
-	TdeCredentialArn *string `type:"string"`
+	TdeCredentialArn *string `json:"rds:DBInstance:TdeCredentialArn" type:"string"`
 
 	// The time zone of the DB instance. In most cases, the Timezone element is
 	// empty. Timezone content appears only for Microsoft SQL Server DB instances
 	// that were created with a time zone specified.
-	Timezone *string `type:"string"`
+	Timezone *string `json:"rds:DBInstance:Timezone" type:"string"`
 
 	// Provides a list of VPC security group elements that the DB instance belongs
 	// to.
-	VpcSecurityGroups []VpcSecurityGroupMembership `locationNameList:"VpcSecurityGroupMembership" type:"list"`
+	VpcSecurityGroups []VpcSecurityGroupMembership `json:"rds:DBInstance:VpcSecurityGroups" locationNameList:"VpcSecurityGroupMembership" type:"list"`
 }
 
 // String returns the string representation
@@ -1136,70 +1136,70 @@ type DBInstanceAutomatedBackup struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the allocated storage size in gibibytes (GiB).
-	AllocatedStorage *int64 `type:"integer"`
+	AllocatedStorage *int64 `json:"rds:DBInstanceAutomatedBackup:AllocatedStorage" type:"integer"`
 
 	// The Availability Zone that the automated backup was created in. For information
 	// on AWS Regions and Availability Zones, see Regions and Availability Zones
 	// (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"rds:DBInstanceAutomatedBackup:AvailabilityZone" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the automated backup.
-	DBInstanceArn *string `type:"string"`
+	DBInstanceArn *string `json:"rds:DBInstanceAutomatedBackup:DBInstanceArn" type:"string"`
 
 	// The customer id of the instance that is/was associated with the automated
 	// backup.
-	DBInstanceIdentifier *string `type:"string"`
+	DBInstanceIdentifier *string `json:"rds:DBInstanceAutomatedBackup:DBInstanceIdentifier" type:"string"`
 
 	// The identifier for the source DB instance, which can't be changed and which
 	// is unique to an AWS Region.
-	DbiResourceId *string `type:"string"`
+	DbiResourceId *string `json:"rds:DBInstanceAutomatedBackup:DbiResourceId" type:"string"`
 
 	// Specifies whether the automated backup is encrypted.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"rds:DBInstanceAutomatedBackup:Encrypted" type:"boolean"`
 
 	// The name of the database engine for this automated backup.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:DBInstanceAutomatedBackup:Engine" type:"string"`
 
 	// The version of the database engine for the automated backup.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:DBInstanceAutomatedBackup:EngineVersion" type:"string"`
 
 	// True if mapping of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled, and otherwise false.
-	IAMDatabaseAuthenticationEnabled *bool `type:"boolean"`
+	IAMDatabaseAuthenticationEnabled *bool `json:"rds:DBInstanceAutomatedBackup:IAMDatabaseAuthenticationEnabled" type:"boolean"`
 
 	// Provides the date and time that the DB instance was created.
-	InstanceCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	InstanceCreateTime *time.Time `json:"rds:DBInstanceAutomatedBackup:InstanceCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The IOPS (I/O operations per second) value for the automated backup.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"rds:DBInstanceAutomatedBackup:Iops" type:"integer"`
 
 	// The AWS KMS key ID for an automated backup. The KMS key ID is the Amazon
 	// Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS
 	// encryption key.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"rds:DBInstanceAutomatedBackup:KmsKeyId" type:"string"`
 
 	// License model information for the automated backup.
-	LicenseModel *string `type:"string"`
+	LicenseModel *string `json:"rds:DBInstanceAutomatedBackup:LicenseModel" type:"string"`
 
 	// The license model of an automated backup.
-	MasterUsername *string `type:"string"`
+	MasterUsername *string `json:"rds:DBInstanceAutomatedBackup:MasterUsername" type:"string"`
 
 	// The option group the automated backup is associated with. If omitted, the
 	// default option group for the engine specified is used.
-	OptionGroupName *string `type:"string"`
+	OptionGroupName *string `json:"rds:DBInstanceAutomatedBackup:OptionGroupName" type:"string"`
 
 	// The port number that the automated backup used for connections.
 	//
 	// Default: Inherits from the source DB instance
 	//
 	// Valid Values: 1150-65535
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"rds:DBInstanceAutomatedBackup:Port" type:"integer"`
 
 	// The AWS Region associated with the automated backup.
-	Region *string `type:"string"`
+	Region *string `json:"rds:DBInstanceAutomatedBackup:Region" type:"string"`
 
 	// Earliest and latest time an instance can be restored to.
-	RestoreWindow *RestoreWindow `type:"structure"`
+	RestoreWindow *RestoreWindow `json:"rds:DBInstanceAutomatedBackup:RestoreWindow" type:"structure"`
 
 	// Provides a list of status information for an automated backup:
 	//
@@ -1209,22 +1209,22 @@ type DBInstanceAutomatedBackup struct {
 	//
 	//    * creating - automated backups that are waiting for the first automated
 	//    snapshot to be available.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBInstanceAutomatedBackup:Status" type:"string"`
 
 	// Specifies the storage type associated with the automated backup.
-	StorageType *string `type:"string"`
+	StorageType *string `json:"rds:DBInstanceAutomatedBackup:StorageType" type:"string"`
 
 	// The ARN from the key store with which the automated backup is associated
 	// for TDE encryption.
-	TdeCredentialArn *string `type:"string"`
+	TdeCredentialArn *string `json:"rds:DBInstanceAutomatedBackup:TdeCredentialArn" type:"string"`
 
 	// The time zone of the automated backup. In most cases, the Timezone element
 	// is empty. Timezone content appears only for Microsoft SQL Server DB instances
 	// that were created with a time zone specified.
-	Timezone *string `type:"string"`
+	Timezone *string `json:"rds:DBInstanceAutomatedBackup:Timezone" type:"string"`
 
 	// Provides the VPC ID associated with the DB instance
-	VpcId *string `type:"string"`
+	VpcId *string `json:"rds:DBInstanceAutomatedBackup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1240,11 +1240,11 @@ type DBInstanceRole struct {
 
 	// The name of the feature associated with the AWS Identity and Access Management
 	// (IAM) role. For the list of supported feature names, see DBEngineVersion.
-	FeatureName *string `type:"string"`
+	FeatureName *string `json:"rds:DBInstanceRole:FeatureName" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the
 	// DB instance.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"rds:DBInstanceRole:RoleArn" type:"string"`
 
 	// Describes the state of association between the IAM role and the DB instance.
 	// The Status property returns one of the following values:
@@ -1257,7 +1257,7 @@ type DBInstanceRole struct {
 	//    * INVALID - the IAM role ARN is associated with the DB instance, but the
 	//    DB instance is unable to assume the IAM role in order to access other
 	//    AWS services on your behalf.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBInstanceRole:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -1272,19 +1272,19 @@ type DBInstanceStatusInfo struct {
 
 	// Details of the error if there is an error for the instance. If the instance
 	// is not in an error state, this value is blank.
-	Message *string `type:"string"`
+	Message *string `json:"rds:DBInstanceStatusInfo:Message" type:"string"`
 
 	// Boolean value that is true if the instance is operating normally, or false
 	// if the instance is in an error state.
-	Normal *bool `type:"boolean"`
+	Normal *bool `json:"rds:DBInstanceStatusInfo:Normal" type:"boolean"`
 
 	// Status of the DB instance. For a StatusType of Read Replica, the values can
 	// be replicating, replication stop point set, replication stop point reached,
 	// error, stopped, or terminated.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBInstanceStatusInfo:Status" type:"string"`
 
 	// This value is currently "read replication."
-	StatusType *string `type:"string"`
+	StatusType *string `json:"rds:DBInstanceStatusInfo:StatusType" type:"string"`
 }
 
 // String returns the string representation
@@ -1301,17 +1301,17 @@ type DBParameterGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the DB parameter group.
-	DBParameterGroupArn *string `type:"string"`
+	DBParameterGroupArn *string `json:"rds:DBParameterGroup:DBParameterGroupArn" type:"string"`
 
 	// Provides the name of the DB parameter group family that this DB parameter
 	// group is compatible with.
-	DBParameterGroupFamily *string `type:"string"`
+	DBParameterGroupFamily *string `json:"rds:DBParameterGroup:DBParameterGroupFamily" type:"string"`
 
 	// Provides the name of the DB parameter group.
-	DBParameterGroupName *string `type:"string"`
+	DBParameterGroupName *string `json:"rds:DBParameterGroup:DBParameterGroupName" type:"string"`
 
 	// Provides the customer-specified description for this DB parameter group.
-	Description *string `type:"string"`
+	Description *string `json:"rds:DBParameterGroup:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -1339,10 +1339,10 @@ type DBParameterGroupStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the DP parameter group.
-	DBParameterGroupName *string `type:"string"`
+	DBParameterGroupName *string `json:"rds:DBParameterGroupStatus:DBParameterGroupName" type:"string"`
 
 	// The status of parameter updates.
-	ParameterApplyStatus *string `type:"string"`
+	ParameterApplyStatus *string `json:"rds:DBParameterGroupStatus:ParameterApplyStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -1359,25 +1359,25 @@ type DBSecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the DB security group.
-	DBSecurityGroupArn *string `type:"string"`
+	DBSecurityGroupArn *string `json:"rds:DBSecurityGroup:DBSecurityGroupArn" type:"string"`
 
 	// Provides the description of the DB security group.
-	DBSecurityGroupDescription *string `type:"string"`
+	DBSecurityGroupDescription *string `json:"rds:DBSecurityGroup:DBSecurityGroupDescription" type:"string"`
 
 	// Specifies the name of the DB security group.
-	DBSecurityGroupName *string `type:"string"`
+	DBSecurityGroupName *string `json:"rds:DBSecurityGroup:DBSecurityGroupName" type:"string"`
 
 	// Contains a list of EC2SecurityGroup elements.
-	EC2SecurityGroups []EC2SecurityGroup `locationNameList:"EC2SecurityGroup" type:"list"`
+	EC2SecurityGroups []EC2SecurityGroup `json:"rds:DBSecurityGroup:EC2SecurityGroups" locationNameList:"EC2SecurityGroup" type:"list"`
 
 	// Contains a list of IPRange elements.
-	IPRanges []IPRange `locationNameList:"IPRange" type:"list"`
+	IPRanges []IPRange `json:"rds:DBSecurityGroup:IPRanges" locationNameList:"IPRange" type:"list"`
 
 	// Provides the AWS ID of the owner of a specific DB security group.
-	OwnerId *string `type:"string"`
+	OwnerId *string `json:"rds:DBSecurityGroup:OwnerId" type:"string"`
 
 	// Provides the VpcId of the DB security group.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"rds:DBSecurityGroup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1399,10 +1399,10 @@ type DBSecurityGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the DB security group.
-	DBSecurityGroupName *string `type:"string"`
+	DBSecurityGroupName *string `json:"rds:DBSecurityGroupMembership:DBSecurityGroupName" type:"string"`
 
 	// The status of the DB security group.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBSecurityGroupMembership:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -1418,100 +1418,100 @@ type DBSnapshot struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the allocated storage size in gibibytes (GiB).
-	AllocatedStorage *int64 `type:"integer"`
+	AllocatedStorage *int64 `json:"rds:DBSnapshot:AllocatedStorage" type:"integer"`
 
 	// Specifies the name of the Availability Zone the DB instance was located in
 	// at the time of the DB snapshot.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"rds:DBSnapshot:AvailabilityZone" type:"string"`
 
 	// Specifies the DB instance identifier of the DB instance this DB snapshot
 	// was created from.
-	DBInstanceIdentifier *string `type:"string"`
+	DBInstanceIdentifier *string `json:"rds:DBSnapshot:DBInstanceIdentifier" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the DB snapshot.
-	DBSnapshotArn *string `type:"string"`
+	DBSnapshotArn *string `json:"rds:DBSnapshot:DBSnapshotArn" type:"string"`
 
 	// Specifies the identifier for the DB snapshot.
-	DBSnapshotIdentifier *string `type:"string"`
+	DBSnapshotIdentifier *string `json:"rds:DBSnapshot:DBSnapshotIdentifier" type:"string"`
 
 	// The identifier for the source DB instance, which can't be changed and which
 	// is unique to an AWS Region.
-	DbiResourceId *string `type:"string"`
+	DbiResourceId *string `json:"rds:DBSnapshot:DbiResourceId" type:"string"`
 
 	// Specifies whether the DB snapshot is encrypted.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"rds:DBSnapshot:Encrypted" type:"boolean"`
 
 	// Specifies the name of the database engine.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:DBSnapshot:Engine" type:"string"`
 
 	// Specifies the version of the database engine.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:DBSnapshot:EngineVersion" type:"string"`
 
 	// True if mapping of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled, and otherwise false.
-	IAMDatabaseAuthenticationEnabled *bool `type:"boolean"`
+	IAMDatabaseAuthenticationEnabled *bool `json:"rds:DBSnapshot:IAMDatabaseAuthenticationEnabled" type:"boolean"`
 
 	// Specifies the time when the snapshot was taken, in Universal Coordinated
 	// Time (UTC).
-	InstanceCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	InstanceCreateTime *time.Time `json:"rds:DBSnapshot:InstanceCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Specifies the Provisioned IOPS (I/O operations per second) value of the DB
 	// instance at the time of the snapshot.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"rds:DBSnapshot:Iops" type:"integer"`
 
 	// If Encrypted is true, the AWS KMS key identifier for the encrypted DB snapshot.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"rds:DBSnapshot:KmsKeyId" type:"string"`
 
 	// License model information for the restored DB instance.
-	LicenseModel *string `type:"string"`
+	LicenseModel *string `json:"rds:DBSnapshot:LicenseModel" type:"string"`
 
 	// Provides the master username for the DB snapshot.
-	MasterUsername *string `type:"string"`
+	MasterUsername *string `json:"rds:DBSnapshot:MasterUsername" type:"string"`
 
 	// Provides the option group name for the DB snapshot.
-	OptionGroupName *string `type:"string"`
+	OptionGroupName *string `json:"rds:DBSnapshot:OptionGroupName" type:"string"`
 
 	// The percentage of the estimated data that has been transferred.
-	PercentProgress *int64 `type:"integer"`
+	PercentProgress *int64 `json:"rds:DBSnapshot:PercentProgress" type:"integer"`
 
 	// Specifies the port that the database engine was listening on at the time
 	// of the snapshot.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"rds:DBSnapshot:Port" type:"integer"`
 
 	// The number of CPU cores and the number of threads per core for the DB instance
 	// class of the DB instance when the DB snapshot was created.
-	ProcessorFeatures []ProcessorFeature `locationNameList:"ProcessorFeature" type:"list"`
+	ProcessorFeatures []ProcessorFeature `json:"rds:DBSnapshot:ProcessorFeatures" locationNameList:"ProcessorFeature" type:"list"`
 
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time
 	// (UTC).
-	SnapshotCreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	SnapshotCreateTime *time.Time `json:"rds:DBSnapshot:SnapshotCreateTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Provides the type of the DB snapshot.
-	SnapshotType *string `type:"string"`
+	SnapshotType *string `json:"rds:DBSnapshot:SnapshotType" type:"string"`
 
 	// The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied
 	// from. It only has value in case of cross-customer or cross-region copy.
-	SourceDBSnapshotIdentifier *string `type:"string"`
+	SourceDBSnapshotIdentifier *string `json:"rds:DBSnapshot:SourceDBSnapshotIdentifier" type:"string"`
 
 	// The AWS Region that the DB snapshot was created in or copied from.
-	SourceRegion *string `type:"string"`
+	SourceRegion *string `json:"rds:DBSnapshot:SourceRegion" type:"string"`
 
 	// Specifies the status of this DB snapshot.
-	Status *string `type:"string"`
+	Status *string `json:"rds:DBSnapshot:Status" type:"string"`
 
 	// Specifies the storage type associated with DB snapshot.
-	StorageType *string `type:"string"`
+	StorageType *string `json:"rds:DBSnapshot:StorageType" type:"string"`
 
 	// The ARN from the key store with which to associate the instance for TDE encryption.
-	TdeCredentialArn *string `type:"string"`
+	TdeCredentialArn *string `json:"rds:DBSnapshot:TdeCredentialArn" type:"string"`
 
 	// The time zone of the DB snapshot. In most cases, the Timezone element is
 	// empty. Timezone content appears only for snapshots taken from Microsoft SQL
 	// Server DB instances that were created with a time zone specified.
-	Timezone *string `type:"string"`
+	Timezone *string `json:"rds:DBSnapshot:Timezone" type:"string"`
 
 	// Provides the VPC ID associated with the DB snapshot.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"rds:DBSnapshot:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1533,7 +1533,7 @@ type DBSnapshotAttribute struct {
 	// The attribute named restore refers to the list of AWS accounts that have
 	// permission to copy or restore the manual DB cluster snapshot. For more information,
 	// see the ModifyDBSnapshotAttribute API action.
-	AttributeName *string `type:"string"`
+	AttributeName *string `json:"rds:DBSnapshotAttribute:AttributeName" type:"string"`
 
 	// The value or values for the manual DB snapshot attribute.
 	//
@@ -1541,7 +1541,7 @@ type DBSnapshotAttribute struct {
 	// list of IDs of the AWS accounts that are authorized to copy or restore the
 	// manual DB snapshot. If a value of all is in the list, then the manual DB
 	// snapshot is public and available for any AWS account to copy or restore.
-	AttributeValues []string `locationNameList:"AttributeValue" type:"list"`
+	AttributeValues []string `json:"rds:DBSnapshotAttribute:AttributeValues" locationNameList:"AttributeValue" type:"list"`
 }
 
 // String returns the string representation
@@ -1560,10 +1560,10 @@ type DBSnapshotAttributesResult struct {
 	_ struct{} `type:"structure"`
 
 	// The list of attributes and values for the manual DB snapshot.
-	DBSnapshotAttributes []DBSnapshotAttribute `locationNameList:"DBSnapshotAttribute" type:"list"`
+	DBSnapshotAttributes []DBSnapshotAttribute `json:"rds:DBSnapshotAttributesResult:DBSnapshotAttributes" locationNameList:"DBSnapshotAttribute" type:"list"`
 
 	// The identifier of the manual DB snapshot that the attributes apply to.
-	DBSnapshotIdentifier *string `type:"string"`
+	DBSnapshotIdentifier *string `json:"rds:DBSnapshotAttributesResult:DBSnapshotIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -1580,22 +1580,22 @@ type DBSubnetGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the DB subnet group.
-	DBSubnetGroupArn *string `type:"string"`
+	DBSubnetGroupArn *string `json:"rds:DBSubnetGroup:DBSubnetGroupArn" type:"string"`
 
 	// Provides the description of the DB subnet group.
-	DBSubnetGroupDescription *string `type:"string"`
+	DBSubnetGroupDescription *string `json:"rds:DBSubnetGroup:DBSubnetGroupDescription" type:"string"`
 
 	// The name of the DB subnet group.
-	DBSubnetGroupName *string `type:"string"`
+	DBSubnetGroupName *string `json:"rds:DBSubnetGroup:DBSubnetGroupName" type:"string"`
 
 	// Provides the status of the DB subnet group.
-	SubnetGroupStatus *string `type:"string"`
+	SubnetGroupStatus *string `json:"rds:DBSubnetGroup:SubnetGroupStatus" type:"string"`
 
 	// Contains a list of Subnet elements.
-	Subnets []Subnet `locationNameList:"Subnet" type:"list"`
+	Subnets []Subnet `json:"rds:DBSubnetGroup:Subnets" locationNameList:"Subnet" type:"list"`
 
 	// Provides the VpcId of the DB subnet group.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"rds:DBSubnetGroup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -1609,13 +1609,13 @@ type DescribeDBLogFilesDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A POSIX timestamp when the last log entry was written.
-	LastWritten *int64 `type:"long"`
+	LastWritten *int64 `json:"rds:DescribeDBLogFilesDetails:LastWritten" type:"long"`
 
 	// The name of the log file for the specified DB instance.
-	LogFileName *string `type:"string"`
+	LogFileName *string `json:"rds:DescribeDBLogFilesDetails:LogFileName" type:"string"`
 
 	// The size, in bytes, of the log file for the specified DB instance.
-	Size *int64 `type:"long"`
+	Size *int64 `json:"rds:DescribeDBLogFilesDetails:Size" type:"long"`
 }
 
 // String returns the string representation
@@ -1629,18 +1629,18 @@ type DomainMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the Active Directory Domain.
-	Domain *string `type:"string"`
+	Domain *string `json:"rds:DomainMembership:Domain" type:"string"`
 
 	// The fully qualified domain name of the Active Directory Domain.
-	FQDN *string `type:"string"`
+	FQDN *string `json:"rds:DomainMembership:FQDN" type:"string"`
 
 	// The name of the IAM role to be used when making API calls to the Directory
 	// Service.
-	IAMRoleName *string `type:"string"`
+	IAMRoleName *string `json:"rds:DomainMembership:IAMRoleName" type:"string"`
 
 	// The status of the DB instance's Active Directory Domain membership, such
 	// as joined, pending-join, failed etc).
-	Status *string `type:"string"`
+	Status *string `json:"rds:DomainMembership:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -1654,10 +1654,10 @@ type DoubleRange struct {
 	_ struct{} `type:"structure"`
 
 	// The minimum value in the range.
-	From *float64 `type:"double"`
+	From *float64 `json:"rds:DoubleRange:From" type:"double"`
 
 	// The maximum value in the range.
-	To *float64 `type:"double"`
+	To *float64 `json:"rds:DoubleRange:To" type:"double"`
 }
 
 // String returns the string representation
@@ -1677,18 +1677,18 @@ type EC2SecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the id of the EC2 security group.
-	EC2SecurityGroupId *string `type:"string"`
+	EC2SecurityGroupId *string `json:"rds:EC2SecurityGroup:EC2SecurityGroupId" type:"string"`
 
 	// Specifies the name of the EC2 security group.
-	EC2SecurityGroupName *string `type:"string"`
+	EC2SecurityGroupName *string `json:"rds:EC2SecurityGroup:EC2SecurityGroupName" type:"string"`
 
 	// Specifies the AWS ID of the owner of the EC2 security group specified in
 	// the EC2SecurityGroupName field.
-	EC2SecurityGroupOwnerId *string `type:"string"`
+	EC2SecurityGroupOwnerId *string `json:"rds:EC2SecurityGroup:EC2SecurityGroupOwnerId" type:"string"`
 
 	// Provides the status of the EC2 security group. Status can be "authorizing",
 	// "authorized", "revoking", and "revoked".
-	Status *string `type:"string"`
+	Status *string `json:"rds:EC2SecurityGroup:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -1713,13 +1713,13 @@ type Endpoint struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the DNS address of the DB instance.
-	Address *string `type:"string"`
+	Address *string `json:"rds:Endpoint:Address" type:"string"`
 
 	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-	HostedZoneId *string `type:"string"`
+	HostedZoneId *string `json:"rds:Endpoint:HostedZoneId" type:"string"`
 
 	// Specifies the port that the database engine is listening on.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"rds:Endpoint:Port" type:"integer"`
 }
 
 // String returns the string representation
@@ -1735,15 +1735,15 @@ type EngineDefaults struct {
 
 	// Specifies the name of the DB parameter group family that the engine default
 	// parameters apply to.
-	DBParameterGroupFamily *string `type:"string"`
+	DBParameterGroupFamily *string `json:"rds:EngineDefaults:DBParameterGroupFamily" type:"string"`
 
 	// An optional pagination token provided by a previous EngineDefaults request.
 	// If this parameter is specified, the response includes only records beyond
 	// the marker, up to the value specified by MaxRecords .
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:EngineDefaults:Marker" type:"string"`
 
 	// Contains a list of engine default parameters.
-	Parameters []Parameter `locationNameList:"Parameter" type:"list"`
+	Parameters []Parameter `json:"rds:EngineDefaults:Parameters" locationNameList:"Parameter" type:"list"`
 }
 
 // String returns the string representation
@@ -1757,22 +1757,22 @@ type Event struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the date and time of the event.
-	Date *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Date *time.Time `json:"rds:Event:Date" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Specifies the category for the event.
-	EventCategories []string `locationNameList:"EventCategory" type:"list"`
+	EventCategories []string `json:"rds:Event:EventCategories" locationNameList:"EventCategory" type:"list"`
 
 	// Provides the text of this event.
-	Message *string `type:"string"`
+	Message *string `json:"rds:Event:Message" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the event.
-	SourceArn *string `type:"string"`
+	SourceArn *string `json:"rds:Event:SourceArn" type:"string"`
 
 	// Provides the identifier for the source of the event.
-	SourceIdentifier *string `type:"string"`
+	SourceIdentifier *string `json:"rds:Event:SourceIdentifier" type:"string"`
 
 	// Specifies the source type for this event.
-	SourceType SourceType `type:"string" enum:"true"`
+	SourceType SourceType `json:"rds:Event:SourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1787,10 +1787,10 @@ type EventCategoriesMap struct {
 	_ struct{} `type:"structure"`
 
 	// The event categories for the specified source type
-	EventCategories []string `locationNameList:"EventCategory" type:"list"`
+	EventCategories []string `json:"rds:EventCategoriesMap:EventCategories" locationNameList:"EventCategory" type:"list"`
 
 	// The source type that the returned categories belong to
-	SourceType *string `type:"string"`
+	SourceType *string `json:"rds:EventCategoriesMap:SourceType" type:"string"`
 }
 
 // String returns the string representation
@@ -1805,29 +1805,29 @@ type EventSubscription struct {
 	_ struct{} `type:"structure"`
 
 	// The RDS event notification subscription Id.
-	CustSubscriptionId *string `type:"string"`
+	CustSubscriptionId *string `json:"rds:EventSubscription:CustSubscriptionId" type:"string"`
 
 	// The AWS customer account associated with the RDS event notification subscription.
-	CustomerAwsId *string `type:"string"`
+	CustomerAwsId *string `json:"rds:EventSubscription:CustomerAwsId" type:"string"`
 
 	// A Boolean value indicating if the subscription is enabled. True indicates
 	// the subscription is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"rds:EventSubscription:Enabled" type:"boolean"`
 
 	// A list of event categories for the RDS event notification subscription.
-	EventCategoriesList []string `locationNameList:"EventCategory" type:"list"`
+	EventCategoriesList []string `json:"rds:EventSubscription:EventCategoriesList" locationNameList:"EventCategory" type:"list"`
 
 	// The Amazon Resource Name (ARN) for the event subscription.
-	EventSubscriptionArn *string `type:"string"`
+	EventSubscriptionArn *string `json:"rds:EventSubscription:EventSubscriptionArn" type:"string"`
 
 	// The topic ARN of the RDS event notification subscription.
-	SnsTopicArn *string `type:"string"`
+	SnsTopicArn *string `json:"rds:EventSubscription:SnsTopicArn" type:"string"`
 
 	// A list of source IDs for the RDS event notification subscription.
-	SourceIdsList []string `locationNameList:"SourceId" type:"list"`
+	SourceIdsList []string `json:"rds:EventSubscription:SourceIdsList" locationNameList:"SourceId" type:"list"`
 
 	// The source type for the RDS event notification subscription.
-	SourceType *string `type:"string"`
+	SourceType *string `json:"rds:EventSubscription:SourceType" type:"string"`
 
 	// The status of the RDS event notification subscription.
 	//
@@ -1839,10 +1839,10 @@ type EventSubscription struct {
 	// The status "no-permission" indicates that RDS no longer has permission to
 	// post to the SNS topic. The status "topic-not-exist" indicates that the topic
 	// was deleted after the subscription was created.
-	Status *string `type:"string"`
+	Status *string `json:"rds:EventSubscription:Status" type:"string"`
 
 	// The time the RDS event notification subscription was created.
-	SubscriptionCreationTime *string `type:"string"`
+	SubscriptionCreationTime *string `json:"rds:EventSubscription:SubscriptionCreationTime" type:"string"`
 }
 
 // String returns the string representation
@@ -1875,12 +1875,12 @@ type Filter struct {
 	// The name of the filter. Filter names are case-sensitive.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"rds:Filter:Name" type:"string" required:"true"`
 
 	// One or more filter values. Filter values are case-sensitive.
 	//
 	// Values is a required field
-	Values []string `locationNameList:"Value" type:"list" required:"true"`
+	Values []string `json:"rds:Filter:Values" locationNameList:"Value" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1912,38 +1912,38 @@ type GlobalCluster struct {
 	_ struct{} `type:"structure"`
 
 	// The default database name within the new global database cluster.
-	DatabaseName *string `type:"string"`
+	DatabaseName *string `json:"rds:GlobalCluster:DatabaseName" type:"string"`
 
 	// The deletion protection setting for the new global database cluster.
-	DeletionProtection *bool `type:"boolean"`
+	DeletionProtection *bool `json:"rds:GlobalCluster:DeletionProtection" type:"boolean"`
 
 	// The Aurora database engine used by the global database cluster.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:GlobalCluster:Engine" type:"string"`
 
 	// Indicates the database engine version.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:GlobalCluster:EngineVersion" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the global database cluster.
-	GlobalClusterArn *string `type:"string"`
+	GlobalClusterArn *string `json:"rds:GlobalCluster:GlobalClusterArn" type:"string"`
 
 	// Contains a user-supplied global database cluster identifier. This identifier
 	// is the unique key that identifies a global database cluster.
-	GlobalClusterIdentifier *string `type:"string"`
+	GlobalClusterIdentifier *string `json:"rds:GlobalCluster:GlobalClusterIdentifier" type:"string"`
 
 	// The list of cluster IDs for secondary clusters within the global database
 	// cluster. Currently limited to 1 item.
-	GlobalClusterMembers []GlobalClusterMember `locationNameList:"GlobalClusterMember" type:"list"`
+	GlobalClusterMembers []GlobalClusterMember `json:"rds:GlobalCluster:GlobalClusterMembers" locationNameList:"GlobalClusterMember" type:"list"`
 
 	// The AWS Region-unique, immutable identifier for the global database cluster.
 	// This identifier is found in AWS CloudTrail log entries whenever the AWS KMS
 	// key for the DB cluster is accessed.
-	GlobalClusterResourceId *string `type:"string"`
+	GlobalClusterResourceId *string `json:"rds:GlobalCluster:GlobalClusterResourceId" type:"string"`
 
 	// Specifies the current state of this global database cluster.
-	Status *string `type:"string"`
+	Status *string `json:"rds:GlobalCluster:Status" type:"string"`
 
 	// The storage encryption setting for the global database cluster.
-	StorageEncrypted *bool `type:"boolean"`
+	StorageEncrypted *bool `json:"rds:GlobalCluster:StorageEncrypted" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1958,15 +1958,15 @@ type GlobalClusterMember struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for each Aurora cluster.
-	DBClusterArn *string `type:"string"`
+	DBClusterArn *string `json:"rds:GlobalClusterMember:DBClusterArn" type:"string"`
 
 	// Specifies whether the Aurora cluster is the primary cluster (that is, has
 	// read-write capability) for the Aurora global database with which it is associated.
-	IsWriter *bool `type:"boolean"`
+	IsWriter *bool `json:"rds:GlobalClusterMember:IsWriter" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) for each read-only secondary cluster associated
 	// with the Aurora global database.
-	Readers []string `type:"list"`
+	Readers []string `json:"rds:GlobalClusterMember:Readers" type:"list"`
 }
 
 // String returns the string representation
@@ -1981,11 +1981,11 @@ type IPRange struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the IP range.
-	CIDRIP *string `type:"string"`
+	CIDRIP *string `json:"rds:IPRange:CIDRIP" type:"string"`
 
 	// Specifies the status of the IP range. Status can be "authorizing", "authorized",
 	// "revoking", and "revoked".
-	Status *string `type:"string"`
+	Status *string `json:"rds:IPRange:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -2000,10 +2000,10 @@ type MinimumEngineVersionPerAllowedValue struct {
 	_ struct{} `type:"structure"`
 
 	// The allowed value for an option setting.
-	AllowedValue *string `type:"string"`
+	AllowedValue *string `json:"rds:MinimumEngineVersionPerAllowedValue:AllowedValue" type:"string"`
 
 	// The minimum DB engine version required for the allowed value.
-	MinimumEngineVersion *string `type:"string"`
+	MinimumEngineVersion *string `json:"rds:MinimumEngineVersionPerAllowedValue:MinimumEngineVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -2018,32 +2018,32 @@ type Option struct {
 
 	// If the option requires access to a port, then this DB security group allows
 	// access to the port.
-	DBSecurityGroupMemberships []DBSecurityGroupMembership `locationNameList:"DBSecurityGroup" type:"list"`
+	DBSecurityGroupMemberships []DBSecurityGroupMembership `json:"rds:Option:DBSecurityGroupMemberships" locationNameList:"DBSecurityGroup" type:"list"`
 
 	// The description of the option.
-	OptionDescription *string `type:"string"`
+	OptionDescription *string `json:"rds:Option:OptionDescription" type:"string"`
 
 	// The name of the option.
-	OptionName *string `type:"string"`
+	OptionName *string `json:"rds:Option:OptionName" type:"string"`
 
 	// The option settings for this option.
-	OptionSettings []OptionSetting `locationNameList:"OptionSetting" type:"list"`
+	OptionSettings []OptionSetting `json:"rds:Option:OptionSettings" locationNameList:"OptionSetting" type:"list"`
 
 	// The version of the option.
-	OptionVersion *string `type:"string"`
+	OptionVersion *string `json:"rds:Option:OptionVersion" type:"string"`
 
 	// Indicate if this option is permanent.
-	Permanent *bool `type:"boolean"`
+	Permanent *bool `json:"rds:Option:Permanent" type:"boolean"`
 
 	// Indicate if this option is persistent.
-	Persistent *bool `type:"boolean"`
+	Persistent *bool `json:"rds:Option:Persistent" type:"boolean"`
 
 	// If required, the port configured for this option to use.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"rds:Option:Port" type:"integer"`
 
 	// If the option requires access to a port, then this VPC security group allows
 	// access to the port.
-	VpcSecurityGroupMemberships []VpcSecurityGroupMembership `locationNameList:"VpcSecurityGroupMembership" type:"list"`
+	VpcSecurityGroupMemberships []VpcSecurityGroupMembership `json:"rds:Option:VpcSecurityGroupMemberships" locationNameList:"VpcSecurityGroupMembership" type:"list"`
 }
 
 // String returns the string representation
@@ -2057,24 +2057,24 @@ type OptionConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// A list of DBSecurityGroupMembership name strings used for this option.
-	DBSecurityGroupMemberships []string `locationNameList:"DBSecurityGroupName" type:"list"`
+	DBSecurityGroupMemberships []string `json:"rds:OptionConfiguration:DBSecurityGroupMemberships" locationNameList:"DBSecurityGroupName" type:"list"`
 
 	// The configuration of options to include in a group.
 	//
 	// OptionName is a required field
-	OptionName *string `type:"string" required:"true"`
+	OptionName *string `json:"rds:OptionConfiguration:OptionName" type:"string" required:"true"`
 
 	// The option settings to include in an option group.
-	OptionSettings []OptionSetting `locationNameList:"OptionSetting" type:"list"`
+	OptionSettings []OptionSetting `json:"rds:OptionConfiguration:OptionSettings" locationNameList:"OptionSetting" type:"list"`
 
 	// The version for the option.
-	OptionVersion *string `type:"string"`
+	OptionVersion *string `json:"rds:OptionConfiguration:OptionVersion" type:"string"`
 
 	// The optional port for the option.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"rds:OptionConfiguration:Port" type:"integer"`
 
 	// A list of VpcSecurityGroupMembership name strings used for this option.
-	VpcSecurityGroupMemberships []string `locationNameList:"VpcSecurityGroupId" type:"list"`
+	VpcSecurityGroupMemberships []string `json:"rds:OptionConfiguration:VpcSecurityGroupMemberships" locationNameList:"VpcSecurityGroupId" type:"list"`
 }
 
 // String returns the string representation
@@ -2103,32 +2103,32 @@ type OptionGroup struct {
 	// Indicates whether this option group can be applied to both VPC and non-VPC
 	// instances. The value true indicates the option group can be applied to both
 	// VPC and non-VPC instances.
-	AllowsVpcAndNonVpcInstanceMemberships *bool `type:"boolean"`
+	AllowsVpcAndNonVpcInstanceMemberships *bool `json:"rds:OptionGroup:AllowsVpcAndNonVpcInstanceMemberships" type:"boolean"`
 
 	// Indicates the name of the engine that this option group can be applied to.
-	EngineName *string `type:"string"`
+	EngineName *string `json:"rds:OptionGroup:EngineName" type:"string"`
 
 	// Indicates the major engine version associated with this option group.
-	MajorEngineVersion *string `type:"string"`
+	MajorEngineVersion *string `json:"rds:OptionGroup:MajorEngineVersion" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the option group.
-	OptionGroupArn *string `type:"string"`
+	OptionGroupArn *string `json:"rds:OptionGroup:OptionGroupArn" type:"string"`
 
 	// Provides a description of the option group.
-	OptionGroupDescription *string `type:"string"`
+	OptionGroupDescription *string `json:"rds:OptionGroup:OptionGroupDescription" type:"string"`
 
 	// Specifies the name of the option group.
-	OptionGroupName *string `type:"string"`
+	OptionGroupName *string `json:"rds:OptionGroup:OptionGroupName" type:"string"`
 
 	// Indicates what options are available in the option group.
-	Options []Option `locationNameList:"Option" type:"list"`
+	Options []Option `json:"rds:OptionGroup:Options" locationNameList:"Option" type:"list"`
 
 	// If AllowsVpcAndNonVpcInstanceMemberships is false, this field is blank. If
 	// AllowsVpcAndNonVpcInstanceMemberships is true and this field is blank, then
 	// this option group can be applied to both VPC and non-VPC instances. If this
 	// field contains a value, then this option group can only be applied to instances
 	// that are in the VPC indicated by this field.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"rds:OptionGroup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -2142,12 +2142,12 @@ type OptionGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the option group that the instance belongs to.
-	OptionGroupName *string `type:"string"`
+	OptionGroupName *string `json:"rds:OptionGroupMembership:OptionGroupName" type:"string"`
 
 	// The status of the DB instance's option group membership. Valid values are:
 	// in-sync, pending-apply, pending-removal, pending-maintenance-apply, pending-maintenance-removal,
 	// applying, removing, and failed.
-	Status *string `type:"string"`
+	Status *string `json:"rds:OptionGroupMembership:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -2161,61 +2161,61 @@ type OptionGroupOption struct {
 	_ struct{} `type:"structure"`
 
 	// If the option requires a port, specifies the default port for the option.
-	DefaultPort *int64 `type:"integer"`
+	DefaultPort *int64 `json:"rds:OptionGroupOption:DefaultPort" type:"integer"`
 
 	// The description of the option.
-	Description *string `type:"string"`
+	Description *string `json:"rds:OptionGroupOption:Description" type:"string"`
 
 	// The name of the engine that this option can be applied to.
-	EngineName *string `type:"string"`
+	EngineName *string `json:"rds:OptionGroupOption:EngineName" type:"string"`
 
 	// Indicates the major engine version that the option is available for.
-	MajorEngineVersion *string `type:"string"`
+	MajorEngineVersion *string `json:"rds:OptionGroupOption:MajorEngineVersion" type:"string"`
 
 	// The minimum required engine version for the option to be applied.
-	MinimumRequiredMinorEngineVersion *string `type:"string"`
+	MinimumRequiredMinorEngineVersion *string `json:"rds:OptionGroupOption:MinimumRequiredMinorEngineVersion" type:"string"`
 
 	// The name of the option.
-	Name *string `type:"string"`
+	Name *string `json:"rds:OptionGroupOption:Name" type:"string"`
 
 	// The option settings that are available (and the default value) for each option
 	// in an option group.
-	OptionGroupOptionSettings []OptionGroupOptionSetting `locationNameList:"OptionGroupOptionSetting" type:"list"`
+	OptionGroupOptionSettings []OptionGroupOptionSetting `json:"rds:OptionGroupOption:OptionGroupOptionSettings" locationNameList:"OptionGroupOptionSetting" type:"list"`
 
 	// The versions that are available for the option.
-	OptionGroupOptionVersions []OptionVersion `locationNameList:"OptionVersion" type:"list"`
+	OptionGroupOptionVersions []OptionVersion `json:"rds:OptionGroupOption:OptionGroupOptionVersions" locationNameList:"OptionVersion" type:"list"`
 
 	// The options that conflict with this option.
-	OptionsConflictsWith []string `locationNameList:"OptionConflictName" type:"list"`
+	OptionsConflictsWith []string `json:"rds:OptionGroupOption:OptionsConflictsWith" locationNameList:"OptionConflictName" type:"list"`
 
 	// The options that are prerequisites for this option.
-	OptionsDependedOn []string `locationNameList:"OptionName" type:"list"`
+	OptionsDependedOn []string `json:"rds:OptionGroupOption:OptionsDependedOn" locationNameList:"OptionName" type:"list"`
 
 	// Permanent options can never be removed from an option group. An option group
 	// containing a permanent option can't be removed from a DB instance.
-	Permanent *bool `type:"boolean"`
+	Permanent *bool `json:"rds:OptionGroupOption:Permanent" type:"boolean"`
 
 	// Persistent options can't be removed from an option group while DB instances
 	// are associated with the option group. If you disassociate all DB instances
 	// from the option group, your can remove the persistent option from the option
 	// group.
-	Persistent *bool `type:"boolean"`
+	Persistent *bool `json:"rds:OptionGroupOption:Persistent" type:"boolean"`
 
 	// Specifies whether the option requires a port.
-	PortRequired *bool `type:"boolean"`
+	PortRequired *bool `json:"rds:OptionGroupOption:PortRequired" type:"boolean"`
 
 	// If true, you must enable the Auto Minor Version Upgrade setting for your
 	// DB instance before you can use this option. You can enable Auto Minor Version
 	// Upgrade when you first create your DB instance, or by modifying your DB instance
 	// later.
-	RequiresAutoMinorEngineVersionUpgrade *bool `type:"boolean"`
+	RequiresAutoMinorEngineVersionUpgrade *bool `json:"rds:OptionGroupOption:RequiresAutoMinorEngineVersionUpgrade" type:"boolean"`
 
 	// If true, you can change the option to an earlier version of the option. This
 	// only applies to options that have different versions available.
-	SupportsOptionVersionDowngrade *bool `type:"boolean"`
+	SupportsOptionVersionDowngrade *bool `json:"rds:OptionGroupOption:SupportsOptionVersionDowngrade" type:"boolean"`
 
 	// If true, you can only use this option with a DB instance that is in a VPC.
-	VpcOnly *bool `type:"boolean"`
+	VpcOnly *bool `json:"rds:OptionGroupOption:VpcOnly" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2231,31 +2231,31 @@ type OptionGroupOptionSetting struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates the acceptable values for the option group option.
-	AllowedValues *string `type:"string"`
+	AllowedValues *string `json:"rds:OptionGroupOptionSetting:AllowedValues" type:"string"`
 
 	// The DB engine specific parameter type for the option group option.
-	ApplyType *string `type:"string"`
+	ApplyType *string `json:"rds:OptionGroupOptionSetting:ApplyType" type:"string"`
 
 	// The default value for the option group option.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"rds:OptionGroupOptionSetting:DefaultValue" type:"string"`
 
 	// Boolean value where true indicates that this option group option can be changed
 	// from the default value.
-	IsModifiable *bool `type:"boolean"`
+	IsModifiable *bool `json:"rds:OptionGroupOptionSetting:IsModifiable" type:"boolean"`
 
 	// Boolean value where true indicates that a value must be specified for this
 	// option setting of the option group option.
-	IsRequired *bool `type:"boolean"`
+	IsRequired *bool `json:"rds:OptionGroupOptionSetting:IsRequired" type:"boolean"`
 
 	// The minimum DB engine version required for the corresponding allowed value
 	// for this option setting.
-	MinimumEngineVersionPerAllowedValue []MinimumEngineVersionPerAllowedValue `locationNameList:"MinimumEngineVersionPerAllowedValue" type:"list"`
+	MinimumEngineVersionPerAllowedValue []MinimumEngineVersionPerAllowedValue `json:"rds:OptionGroupOptionSetting:MinimumEngineVersionPerAllowedValue" locationNameList:"MinimumEngineVersionPerAllowedValue" type:"list"`
 
 	// The description of the option group option.
-	SettingDescription *string `type:"string"`
+	SettingDescription *string `json:"rds:OptionGroupOptionSetting:SettingDescription" type:"string"`
 
 	// The name of the option group option.
-	SettingName *string `type:"string"`
+	SettingName *string `json:"rds:OptionGroupOptionSetting:SettingName" type:"string"`
 }
 
 // String returns the string representation
@@ -2272,32 +2272,32 @@ type OptionSetting struct {
 	_ struct{} `type:"structure"`
 
 	// The allowed values of the option setting.
-	AllowedValues *string `type:"string"`
+	AllowedValues *string `json:"rds:OptionSetting:AllowedValues" type:"string"`
 
 	// The DB engine specific parameter type.
-	ApplyType *string `type:"string"`
+	ApplyType *string `json:"rds:OptionSetting:ApplyType" type:"string"`
 
 	// The data type of the option setting.
-	DataType *string `type:"string"`
+	DataType *string `json:"rds:OptionSetting:DataType" type:"string"`
 
 	// The default value of the option setting.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"rds:OptionSetting:DefaultValue" type:"string"`
 
 	// The description of the option setting.
-	Description *string `type:"string"`
+	Description *string `json:"rds:OptionSetting:Description" type:"string"`
 
 	// Indicates if the option setting is part of a collection.
-	IsCollection *bool `type:"boolean"`
+	IsCollection *bool `json:"rds:OptionSetting:IsCollection" type:"boolean"`
 
 	// A Boolean value that, when true, indicates the option setting can be modified
 	// from the default.
-	IsModifiable *bool `type:"boolean"`
+	IsModifiable *bool `json:"rds:OptionSetting:IsModifiable" type:"boolean"`
 
 	// The name of the option that has settings that you can set.
-	Name *string `type:"string"`
+	Name *string `json:"rds:OptionSetting:Name" type:"string"`
 
 	// The current value of the option setting.
-	Value *string `type:"string"`
+	Value *string `json:"rds:OptionSetting:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2312,10 +2312,10 @@ type OptionVersion struct {
 	_ struct{} `type:"structure"`
 
 	// True if the version is the default version of the option, and otherwise false.
-	IsDefault *bool `type:"boolean"`
+	IsDefault *bool `json:"rds:OptionVersion:IsDefault" type:"boolean"`
 
 	// The version of the option.
-	Version *string `type:"string"`
+	Version *string `json:"rds:OptionVersion:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -2332,76 +2332,76 @@ type OrderableDBInstanceOption struct {
 	_ struct{} `type:"structure"`
 
 	// A list of Availability Zones for a DB instance.
-	AvailabilityZones []AvailabilityZone `locationNameList:"AvailabilityZone" type:"list"`
+	AvailabilityZones []AvailabilityZone `json:"rds:OrderableDBInstanceOption:AvailabilityZones" locationNameList:"AvailabilityZone" type:"list"`
 
 	// A list of the available processor features for the DB instance class of a
 	// DB instance.
-	AvailableProcessorFeatures []AvailableProcessorFeature `locationNameList:"AvailableProcessorFeature" type:"list"`
+	AvailableProcessorFeatures []AvailableProcessorFeature `json:"rds:OrderableDBInstanceOption:AvailableProcessorFeatures" locationNameList:"AvailableProcessorFeature" type:"list"`
 
 	// The DB instance class for a DB instance.
-	DBInstanceClass *string `type:"string"`
+	DBInstanceClass *string `json:"rds:OrderableDBInstanceOption:DBInstanceClass" type:"string"`
 
 	// The engine type of a DB instance.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:OrderableDBInstanceOption:Engine" type:"string"`
 
 	// The engine version of a DB instance.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:OrderableDBInstanceOption:EngineVersion" type:"string"`
 
 	// The license model for a DB instance.
-	LicenseModel *string `type:"string"`
+	LicenseModel *string `json:"rds:OrderableDBInstanceOption:LicenseModel" type:"string"`
 
 	// Maximum total provisioned IOPS for a DB instance.
-	MaxIopsPerDbInstance *int64 `type:"integer"`
+	MaxIopsPerDbInstance *int64 `json:"rds:OrderableDBInstanceOption:MaxIopsPerDbInstance" type:"integer"`
 
 	// Maximum provisioned IOPS per GiB for a DB instance.
-	MaxIopsPerGib *float64 `type:"double"`
+	MaxIopsPerGib *float64 `json:"rds:OrderableDBInstanceOption:MaxIopsPerGib" type:"double"`
 
 	// Maximum storage size for a DB instance.
-	MaxStorageSize *int64 `type:"integer"`
+	MaxStorageSize *int64 `json:"rds:OrderableDBInstanceOption:MaxStorageSize" type:"integer"`
 
 	// Minimum total provisioned IOPS for a DB instance.
-	MinIopsPerDbInstance *int64 `type:"integer"`
+	MinIopsPerDbInstance *int64 `json:"rds:OrderableDBInstanceOption:MinIopsPerDbInstance" type:"integer"`
 
 	// Minimum provisioned IOPS per GiB for a DB instance.
-	MinIopsPerGib *float64 `type:"double"`
+	MinIopsPerGib *float64 `json:"rds:OrderableDBInstanceOption:MinIopsPerGib" type:"double"`
 
 	// Minimum storage size for a DB instance.
-	MinStorageSize *int64 `type:"integer"`
+	MinStorageSize *int64 `json:"rds:OrderableDBInstanceOption:MinStorageSize" type:"integer"`
 
 	// Indicates whether a DB instance is Multi-AZ capable.
-	MultiAZCapable *bool `type:"boolean"`
+	MultiAZCapable *bool `json:"rds:OrderableDBInstanceOption:MultiAZCapable" type:"boolean"`
 
 	// Indicates whether a DB instance can have a Read Replica.
-	ReadReplicaCapable *bool `type:"boolean"`
+	ReadReplicaCapable *bool `json:"rds:OrderableDBInstanceOption:ReadReplicaCapable" type:"boolean"`
 
 	// Indicates the storage type for a DB instance.
-	StorageType *string `type:"string"`
+	StorageType *string `json:"rds:OrderableDBInstanceOption:StorageType" type:"string"`
 
 	// A list of the supported DB engine modes.
-	SupportedEngineModes []string `type:"list"`
+	SupportedEngineModes []string `json:"rds:OrderableDBInstanceOption:SupportedEngineModes" type:"list"`
 
 	// Indicates whether a DB instance supports Enhanced Monitoring at intervals
 	// from 1 to 60 seconds.
-	SupportsEnhancedMonitoring *bool `type:"boolean"`
+	SupportsEnhancedMonitoring *bool `json:"rds:OrderableDBInstanceOption:SupportsEnhancedMonitoring" type:"boolean"`
 
 	// Indicates whether a DB instance supports IAM database authentication.
-	SupportsIAMDatabaseAuthentication *bool `type:"boolean"`
+	SupportsIAMDatabaseAuthentication *bool `json:"rds:OrderableDBInstanceOption:SupportsIAMDatabaseAuthentication" type:"boolean"`
 
 	// Indicates whether a DB instance supports provisioned IOPS.
-	SupportsIops *bool `type:"boolean"`
+	SupportsIops *bool `json:"rds:OrderableDBInstanceOption:SupportsIops" type:"boolean"`
 
 	// True if a DB instance supports Performance Insights, otherwise false.
-	SupportsPerformanceInsights *bool `type:"boolean"`
+	SupportsPerformanceInsights *bool `json:"rds:OrderableDBInstanceOption:SupportsPerformanceInsights" type:"boolean"`
 
 	// Whether or not Amazon RDS can automatically scale storage for DB instances
 	// that use the specified instance class.
-	SupportsStorageAutoscaling *bool `type:"boolean"`
+	SupportsStorageAutoscaling *bool `json:"rds:OrderableDBInstanceOption:SupportsStorageAutoscaling" type:"boolean"`
 
 	// Indicates whether a DB instance supports encrypted storage.
-	SupportsStorageEncryption *bool `type:"boolean"`
+	SupportsStorageEncryption *bool `json:"rds:OrderableDBInstanceOption:SupportsStorageEncryption" type:"boolean"`
 
 	// Indicates whether a DB instance is in a VPC.
-	Vpc *bool `type:"boolean"`
+	Vpc *bool `json:"rds:OrderableDBInstanceOption:Vpc" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2419,39 +2419,39 @@ type Parameter struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the valid range of values for the parameter.
-	AllowedValues *string `type:"string"`
+	AllowedValues *string `json:"rds:Parameter:AllowedValues" type:"string"`
 
 	// Indicates when to apply parameter updates.
-	ApplyMethod ApplyMethod `type:"string" enum:"true"`
+	ApplyMethod ApplyMethod `json:"rds:Parameter:ApplyMethod" type:"string" enum:"true"`
 
 	// Specifies the engine specific parameters type.
-	ApplyType *string `type:"string"`
+	ApplyType *string `json:"rds:Parameter:ApplyType" type:"string"`
 
 	// Specifies the valid data type for the parameter.
-	DataType *string `type:"string"`
+	DataType *string `json:"rds:Parameter:DataType" type:"string"`
 
 	// Provides a description of the parameter.
-	Description *string `type:"string"`
+	Description *string `json:"rds:Parameter:Description" type:"string"`
 
 	// Indicates whether (true) or not (false) the parameter can be modified. Some
 	// parameters have security or operational implications that prevent them from
 	// being changed.
-	IsModifiable *bool `type:"boolean"`
+	IsModifiable *bool `json:"rds:Parameter:IsModifiable" type:"boolean"`
 
 	// The earliest engine version to which the parameter can apply.
-	MinimumEngineVersion *string `type:"string"`
+	MinimumEngineVersion *string `json:"rds:Parameter:MinimumEngineVersion" type:"string"`
 
 	// Specifies the name of the parameter.
-	ParameterName *string `type:"string"`
+	ParameterName *string `json:"rds:Parameter:ParameterName" type:"string"`
 
 	// Specifies the value of the parameter.
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `json:"rds:Parameter:ParameterValue" type:"string"`
 
 	// Indicates the source of the parameter value.
-	Source *string `type:"string"`
+	Source *string `json:"rds:Parameter:Source" type:"string"`
 
 	// The valid DB engine modes.
-	SupportedEngineModes []string `type:"list"`
+	SupportedEngineModes []string `json:"rds:Parameter:SupportedEngineModes" type:"list"`
 }
 
 // String returns the string representation
@@ -2467,11 +2467,11 @@ type PendingCloudwatchLogsExports struct {
 
 	// Log types that are in the process of being enabled. After they are enabled,
 	// these log types are exported to CloudWatch Logs.
-	LogTypesToDisable []string `type:"list"`
+	LogTypesToDisable []string `json:"rds:PendingCloudwatchLogsExports:LogTypesToDisable" type:"list"`
 
 	// Log types that are in the process of being deactivated. After they are deactivated,
 	// these log types aren't exported to CloudWatch Logs.
-	LogTypesToEnable []string `type:"list"`
+	LogTypesToEnable []string `json:"rds:PendingCloudwatchLogsExports:LogTypesToEnable" type:"list"`
 }
 
 // String returns the string representation
@@ -2486,32 +2486,32 @@ type PendingMaintenanceAction struct {
 
 	// The type of pending maintenance action that is available for the resource.
 	// Valid actions are system-update, db-upgrade, and hardware-maintenance.
-	Action *string `type:"string"`
+	Action *string `json:"rds:PendingMaintenanceAction:Action" type:"string"`
 
 	// The date of the maintenance window when the action is applied. The maintenance
 	// action is applied to the resource during its first maintenance window after
 	// this date. If this date is specified, any next-maintenance opt-in requests
 	// are ignored.
-	AutoAppliedAfterDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	AutoAppliedAfterDate *time.Time `json:"rds:PendingMaintenanceAction:AutoAppliedAfterDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The effective date when the pending maintenance action is applied to the
 	// resource. This date takes into account opt-in requests received from the
 	// ApplyPendingMaintenanceAction API, the AutoAppliedAfterDate, and the ForcedApplyDate.
 	// This value is blank if an opt-in request has not been received and nothing
 	// has been specified as AutoAppliedAfterDate or ForcedApplyDate.
-	CurrentApplyDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CurrentApplyDate *time.Time `json:"rds:PendingMaintenanceAction:CurrentApplyDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A description providing more detail about the maintenance action.
-	Description *string `type:"string"`
+	Description *string `json:"rds:PendingMaintenanceAction:Description" type:"string"`
 
 	// The date when the maintenance action is automatically applied. The maintenance
 	// action is applied to the resource on this date regardless of the maintenance
 	// window for the resource. If this date is specified, any immediate opt-in
 	// requests are ignored.
-	ForcedApplyDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ForcedApplyDate *time.Time `json:"rds:PendingMaintenanceAction:ForcedApplyDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates the type of opt-in request that has been received for the resource.
-	OptInStatus *string `type:"string"`
+	OptInStatus *string `json:"rds:PendingMaintenanceAction:OptInStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -2526,57 +2526,57 @@ type PendingModifiedValues struct {
 
 	// Contains the new AllocatedStorage size for the DB instance that will be applied
 	// or is currently being applied.
-	AllocatedStorage *int64 `type:"integer"`
+	AllocatedStorage *int64 `json:"rds:PendingModifiedValues:AllocatedStorage" type:"integer"`
 
 	// Specifies the pending number of days for which automated backups are retained.
-	BackupRetentionPeriod *int64 `type:"integer"`
+	BackupRetentionPeriod *int64 `json:"rds:PendingModifiedValues:BackupRetentionPeriod" type:"integer"`
 
 	// Specifies the identifier of the CA certificate for the DB instance.
-	CACertificateIdentifier *string `type:"string"`
+	CACertificateIdentifier *string `json:"rds:PendingModifiedValues:CACertificateIdentifier" type:"string"`
 
 	// Contains the new DBInstanceClass for the DB instance that will be applied
 	// or is currently being applied.
-	DBInstanceClass *string `type:"string"`
+	DBInstanceClass *string `json:"rds:PendingModifiedValues:DBInstanceClass" type:"string"`
 
 	// Contains the new DBInstanceIdentifier for the DB instance that will be applied
 	// or is currently being applied.
-	DBInstanceIdentifier *string `type:"string"`
+	DBInstanceIdentifier *string `json:"rds:PendingModifiedValues:DBInstanceIdentifier" type:"string"`
 
 	// The new DB subnet group for the DB instance.
-	DBSubnetGroupName *string `type:"string"`
+	DBSubnetGroupName *string `json:"rds:PendingModifiedValues:DBSubnetGroupName" type:"string"`
 
 	// Indicates the database engine version.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:PendingModifiedValues:EngineVersion" type:"string"`
 
 	// Specifies the new Provisioned IOPS value for the DB instance that will be
 	// applied or is currently being applied.
-	Iops *int64 `type:"integer"`
+	Iops *int64 `json:"rds:PendingModifiedValues:Iops" type:"integer"`
 
 	// The license model for the DB instance.
 	//
 	// Valid values: license-included | bring-your-own-license | general-public-license
-	LicenseModel *string `type:"string"`
+	LicenseModel *string `json:"rds:PendingModifiedValues:LicenseModel" type:"string"`
 
 	// Contains the pending or currently-in-progress change of the master credentials
 	// for the DB instance.
-	MasterUserPassword *string `type:"string"`
+	MasterUserPassword *string `json:"rds:PendingModifiedValues:MasterUserPassword" type:"string"`
 
 	// Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.
-	MultiAZ *bool `type:"boolean"`
+	MultiAZ *bool `json:"rds:PendingModifiedValues:MultiAZ" type:"boolean"`
 
 	// A list of the log types whose configuration is still pending. In other words,
 	// these log types are in the process of being activated or deactivated.
-	PendingCloudwatchLogsExports *PendingCloudwatchLogsExports `type:"structure"`
+	PendingCloudwatchLogsExports *PendingCloudwatchLogsExports `json:"rds:PendingModifiedValues:PendingCloudwatchLogsExports" type:"structure"`
 
 	// Specifies the pending port for the DB instance.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"rds:PendingModifiedValues:Port" type:"integer"`
 
 	// The number of CPU cores and the number of threads per core for the DB instance
 	// class of the DB instance.
-	ProcessorFeatures []ProcessorFeature `locationNameList:"ProcessorFeature" type:"list"`
+	ProcessorFeatures []ProcessorFeature `json:"rds:PendingModifiedValues:ProcessorFeatures" locationNameList:"ProcessorFeature" type:"list"`
 
 	// Specifies the storage type to be associated with the DB instance.
-	StorageType *string `type:"string"`
+	StorageType *string `json:"rds:PendingModifiedValues:StorageType" type:"string"`
 }
 
 // String returns the string representation
@@ -2624,10 +2624,10 @@ type ProcessorFeature struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
-	Name *string `type:"string"`
+	Name *string `json:"rds:ProcessorFeature:Name" type:"string"`
 
 	// The value of a processor feature name.
-	Value *string `type:"string"`
+	Value *string `json:"rds:ProcessorFeature:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2641,16 +2641,16 @@ type Range struct {
 	_ struct{} `type:"structure"`
 
 	// The minimum value in the range.
-	From *int64 `type:"integer"`
+	From *int64 `json:"rds:Range:From" type:"integer"`
 
 	// The step value for the range. For example, if you have a range of 5,000 to
 	// 10,000, with a step value of 1,000, the valid values start at 5,000 and step
 	// up by 1,000. Even though 7,500 is within the range, it isn't a valid value
 	// for the range. The valid values are 5,000, 6,000, 7,000, 8,000...
-	Step *int64 `type:"integer"`
+	Step *int64 `json:"rds:Range:Step" type:"integer"`
 
 	// The maximum value in the range.
-	To *int64 `type:"integer"`
+	To *int64 `json:"rds:Range:To" type:"integer"`
 }
 
 // String returns the string representation
@@ -2665,10 +2665,10 @@ type RecurringCharge struct {
 	_ struct{} `type:"structure"`
 
 	// The amount of the recurring charge.
-	RecurringChargeAmount *float64 `type:"double"`
+	RecurringChargeAmount *float64 `json:"rds:RecurringCharge:RecurringChargeAmount" type:"double"`
 
 	// The frequency of the recurring charge.
-	RecurringChargeFrequency *string `type:"string"`
+	RecurringChargeFrequency *string `json:"rds:RecurringCharge:RecurringChargeFrequency" type:"string"`
 }
 
 // String returns the string representation
@@ -2683,49 +2683,49 @@ type ReservedDBInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The currency code for the reserved DB instance.
-	CurrencyCode *string `type:"string"`
+	CurrencyCode *string `json:"rds:ReservedDBInstance:CurrencyCode" type:"string"`
 
 	// The DB instance class for the reserved DB instance.
-	DBInstanceClass *string `type:"string"`
+	DBInstanceClass *string `json:"rds:ReservedDBInstance:DBInstanceClass" type:"string"`
 
 	// The number of reserved DB instances.
-	DBInstanceCount *int64 `type:"integer"`
+	DBInstanceCount *int64 `json:"rds:ReservedDBInstance:DBInstanceCount" type:"integer"`
 
 	// The duration of the reservation in seconds.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"rds:ReservedDBInstance:Duration" type:"integer"`
 
 	// The fixed price charged for this reserved DB instance.
-	FixedPrice *float64 `type:"double"`
+	FixedPrice *float64 `json:"rds:ReservedDBInstance:FixedPrice" type:"double"`
 
 	// Indicates if the reservation applies to Multi-AZ deployments.
-	MultiAZ *bool `type:"boolean"`
+	MultiAZ *bool `json:"rds:ReservedDBInstance:MultiAZ" type:"boolean"`
 
 	// The offering type of this reserved DB instance.
-	OfferingType *string `type:"string"`
+	OfferingType *string `json:"rds:ReservedDBInstance:OfferingType" type:"string"`
 
 	// The description of the reserved DB instance.
-	ProductDescription *string `type:"string"`
+	ProductDescription *string `json:"rds:ReservedDBInstance:ProductDescription" type:"string"`
 
 	// The recurring price charged to run this reserved DB instance.
-	RecurringCharges []RecurringCharge `locationNameList:"RecurringCharge" type:"list"`
+	RecurringCharges []RecurringCharge `json:"rds:ReservedDBInstance:RecurringCharges" locationNameList:"RecurringCharge" type:"list"`
 
 	// The Amazon Resource Name (ARN) for the reserved DB instance.
-	ReservedDBInstanceArn *string `type:"string"`
+	ReservedDBInstanceArn *string `json:"rds:ReservedDBInstance:ReservedDBInstanceArn" type:"string"`
 
 	// The unique identifier for the reservation.
-	ReservedDBInstanceId *string `type:"string"`
+	ReservedDBInstanceId *string `json:"rds:ReservedDBInstance:ReservedDBInstanceId" type:"string"`
 
 	// The offering identifier.
-	ReservedDBInstancesOfferingId *string `type:"string"`
+	ReservedDBInstancesOfferingId *string `json:"rds:ReservedDBInstance:ReservedDBInstancesOfferingId" type:"string"`
 
 	// The time the reservation started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"rds:ReservedDBInstance:StartTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The state of the reserved DB instance.
-	State *string `type:"string"`
+	State *string `json:"rds:ReservedDBInstance:State" type:"string"`
 
 	// The hourly price charged for this reserved DB instance.
-	UsagePrice *float64 `type:"double"`
+	UsagePrice *float64 `json:"rds:ReservedDBInstance:UsagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -2740,34 +2740,34 @@ type ReservedDBInstancesOffering struct {
 	_ struct{} `type:"structure"`
 
 	// The currency code for the reserved DB instance offering.
-	CurrencyCode *string `type:"string"`
+	CurrencyCode *string `json:"rds:ReservedDBInstancesOffering:CurrencyCode" type:"string"`
 
 	// The DB instance class for the reserved DB instance.
-	DBInstanceClass *string `type:"string"`
+	DBInstanceClass *string `json:"rds:ReservedDBInstancesOffering:DBInstanceClass" type:"string"`
 
 	// The duration of the offering in seconds.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"rds:ReservedDBInstancesOffering:Duration" type:"integer"`
 
 	// The fixed price charged for this offering.
-	FixedPrice *float64 `type:"double"`
+	FixedPrice *float64 `json:"rds:ReservedDBInstancesOffering:FixedPrice" type:"double"`
 
 	// Indicates if the offering applies to Multi-AZ deployments.
-	MultiAZ *bool `type:"boolean"`
+	MultiAZ *bool `json:"rds:ReservedDBInstancesOffering:MultiAZ" type:"boolean"`
 
 	// The offering type.
-	OfferingType *string `type:"string"`
+	OfferingType *string `json:"rds:ReservedDBInstancesOffering:OfferingType" type:"string"`
 
 	// The database engine used by the offering.
-	ProductDescription *string `type:"string"`
+	ProductDescription *string `json:"rds:ReservedDBInstancesOffering:ProductDescription" type:"string"`
 
 	// The recurring price charged to run this reserved DB instance.
-	RecurringCharges []RecurringCharge `locationNameList:"RecurringCharge" type:"list"`
+	RecurringCharges []RecurringCharge `json:"rds:ReservedDBInstancesOffering:RecurringCharges" locationNameList:"RecurringCharge" type:"list"`
 
 	// The offering identifier.
-	ReservedDBInstancesOfferingId *string `type:"string"`
+	ReservedDBInstancesOfferingId *string `json:"rds:ReservedDBInstancesOffering:ReservedDBInstancesOfferingId" type:"string"`
 
 	// The hourly price charged for this offering.
-	UsagePrice *float64 `type:"double"`
+	UsagePrice *float64 `json:"rds:ReservedDBInstancesOffering:UsagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -2782,10 +2782,10 @@ type ResourcePendingMaintenanceActions struct {
 
 	// A list that provides details about the pending maintenance actions for the
 	// resource.
-	PendingMaintenanceActionDetails []PendingMaintenanceAction `locationNameList:"PendingMaintenanceAction" type:"list"`
+	PendingMaintenanceActionDetails []PendingMaintenanceAction `json:"rds:ResourcePendingMaintenanceActions:PendingMaintenanceActionDetails" locationNameList:"PendingMaintenanceAction" type:"list"`
 
 	// The ARN of the resource that has pending maintenance actions.
-	ResourceIdentifier *string `type:"string"`
+	ResourceIdentifier *string `json:"rds:ResourcePendingMaintenanceActions:ResourceIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -2799,10 +2799,10 @@ type RestoreWindow struct {
 	_ struct{} `type:"structure"`
 
 	// The earliest time you can restore an instance to.
-	EarliestTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EarliestTime *time.Time `json:"rds:RestoreWindow:EarliestTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The latest time you can restore an instance to.
-	LatestTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LatestTime *time.Time `json:"rds:RestoreWindow:LatestTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -2825,24 +2825,24 @@ type ScalingConfiguration struct {
 	// If a DB cluster is paused for more than seven days, the DB cluster might
 	// be backed up with a snapshot. In this case, the DB cluster is restored when
 	// there is a request to connect to it.
-	AutoPause *bool `type:"boolean"`
+	AutoPause *bool `json:"rds:ScalingConfiguration:AutoPause" type:"boolean"`
 
 	// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
 	//
 	// Valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
 	//
 	// The maximum capacity must be greater than or equal to the minimum capacity.
-	MaxCapacity *int64 `type:"integer"`
+	MaxCapacity *int64 `json:"rds:ScalingConfiguration:MaxCapacity" type:"integer"`
 
 	// The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
 	//
 	// Valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
 	//
 	// The minimum capacity must be less than or equal to the maximum capacity.
-	MinCapacity *int64 `type:"integer"`
+	MinCapacity *int64 `json:"rds:ScalingConfiguration:MinCapacity" type:"integer"`
 
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
-	SecondsUntilAutoPause *int64 `type:"integer"`
+	SecondsUntilAutoPause *int64 `json:"rds:ScalingConfiguration:SecondsUntilAutoPause" type:"integer"`
 
 	// The action to take when the timeout is reached, either ForceApplyCapacityChange
 	// or RollbackCapacityChange.
@@ -2858,7 +2858,7 @@ type ScalingConfiguration struct {
 	//
 	// For more information, see Autoscaling for Aurora Serverless (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling)
 	// in the Amazon Aurora User Guide.
-	TimeoutAction *string `type:"string"`
+	TimeoutAction *string `json:"rds:ScalingConfiguration:TimeoutAction" type:"string"`
 }
 
 // String returns the string representation
@@ -2880,22 +2880,22 @@ type ScalingConfigurationInfo struct {
 	//
 	// When the value is set to false for an Aurora Serverless DB cluster, the DB
 	// cluster automatically resumes.
-	AutoPause *bool `type:"boolean"`
+	AutoPause *bool `json:"rds:ScalingConfigurationInfo:AutoPause" type:"boolean"`
 
 	// The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
-	MaxCapacity *int64 `type:"integer"`
+	MaxCapacity *int64 `json:"rds:ScalingConfigurationInfo:MaxCapacity" type:"integer"`
 
 	// The maximum capacity for the Aurora DB cluster in serverless DB engine mode.
-	MinCapacity *int64 `type:"integer"`
+	MinCapacity *int64 `json:"rds:ScalingConfigurationInfo:MinCapacity" type:"integer"`
 
 	// The remaining amount of time, in seconds, before the Aurora DB cluster in
 	// serverless mode is paused. A DB cluster can be paused only when it's idle
 	// (it has no connections).
-	SecondsUntilAutoPause *int64 `type:"integer"`
+	SecondsUntilAutoPause *int64 `json:"rds:ScalingConfigurationInfo:SecondsUntilAutoPause" type:"integer"`
 
 	// The timeout action of a call to ModifyCurrentDBClusterCapacity, either ForceApplyCapacityChange
 	// or RollbackCapacityChange.
-	TimeoutAction *string `type:"string"`
+	TimeoutAction *string `json:"rds:ScalingConfigurationInfo:TimeoutAction" type:"string"`
 }
 
 // String returns the string representation
@@ -2910,13 +2910,13 @@ type SourceRegion struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint for the source AWS Region endpoint.
-	Endpoint *string `type:"string"`
+	Endpoint *string `json:"rds:SourceRegion:Endpoint" type:"string"`
 
 	// The name of the source AWS Region.
-	RegionName *string `type:"string"`
+	RegionName *string `json:"rds:SourceRegion:RegionName" type:"string"`
 
 	// The status of the source AWS Region.
-	Status *string `type:"string"`
+	Status *string `json:"rds:SourceRegion:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -2934,13 +2934,13 @@ type Subnet struct {
 	//
 	// This data type is used as an element in the OrderableDBInstanceOption data
 	// type.
-	SubnetAvailabilityZone *AvailabilityZone `type:"structure"`
+	SubnetAvailabilityZone *AvailabilityZone `json:"rds:Subnet:SubnetAvailabilityZone" type:"structure"`
 
 	// Specifies the identifier of the subnet.
-	SubnetIdentifier *string `type:"string"`
+	SubnetIdentifier *string `json:"rds:Subnet:SubnetIdentifier" type:"string"`
 
 	// Specifies the status of the subnet.
-	SubnetStatus *string `type:"string"`
+	SubnetStatus *string `json:"rds:Subnet:SubnetStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -2957,13 +2957,13 @@ type Tag struct {
 	// 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:".
 	// The string can only contain only the set of Unicode letters, digits, white-space,
 	// '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-	Key *string `type:"string"`
+	Key *string `json:"rds:Tag:Key" type:"string"`
 
 	// A value is the optional value of the tag. The string value can be from 1
 	// to 256 Unicode characters in length and can't be prefixed with "aws:" or
 	// "rds:". The string can only contain only the set of Unicode letters, digits,
 	// white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-	Value *string `type:"string"`
+	Value *string `json:"rds:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2979,7 +2979,7 @@ type Timezone struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the time zone.
-	TimezoneName *string `type:"string"`
+	TimezoneName *string `json:"rds:Timezone:TimezoneName" type:"string"`
 }
 
 // String returns the string representation
@@ -2994,19 +2994,19 @@ type UpgradeTarget struct {
 
 	// A value that indicates whether the target version is applied to any source
 	// DB instances that have AutoMinorVersionUpgrade set to true.
-	AutoUpgrade *bool `type:"boolean"`
+	AutoUpgrade *bool `json:"rds:UpgradeTarget:AutoUpgrade" type:"boolean"`
 
 	// The version of the database engine that a DB instance can be upgraded to.
-	Description *string `type:"string"`
+	Description *string `json:"rds:UpgradeTarget:Description" type:"string"`
 
 	// The name of the upgrade target database engine.
-	Engine *string `type:"string"`
+	Engine *string `json:"rds:UpgradeTarget:Engine" type:"string"`
 
 	// The version number of the upgrade target database engine.
-	EngineVersion *string `type:"string"`
+	EngineVersion *string `json:"rds:UpgradeTarget:EngineVersion" type:"string"`
 
 	// A value that indicates whether a database engine is upgraded to a major version.
-	IsMajorVersionUpgrade *bool `type:"boolean"`
+	IsMajorVersionUpgrade *bool `json:"rds:UpgradeTarget:IsMajorVersionUpgrade" type:"boolean"`
 }
 
 // String returns the string representation
@@ -3022,10 +3022,10 @@ type ValidDBInstanceModificationsMessage struct {
 	_ struct{} `type:"structure"`
 
 	// Valid storage options for your DB instance.
-	Storage []ValidStorageOptions `locationNameList:"ValidStorageOptions" type:"list"`
+	Storage []ValidStorageOptions `json:"rds:ValidDBInstanceModificationsMessage:Storage" locationNameList:"ValidStorageOptions" type:"list"`
 
 	// Valid processor features for your DB instance.
-	ValidProcessorFeatures []AvailableProcessorFeature `locationNameList:"AvailableProcessorFeature" type:"list"`
+	ValidProcessorFeatures []AvailableProcessorFeature `json:"rds:ValidDBInstanceModificationsMessage:ValidProcessorFeatures" locationNameList:"AvailableProcessorFeature" type:"list"`
 }
 
 // String returns the string representation
@@ -3043,20 +3043,20 @@ type ValidStorageOptions struct {
 	// The valid range of Provisioned IOPS to gibibytes of storage multiplier. For
 	// example, 3-10, which means that provisioned IOPS can be between 3 and 10
 	// times storage.
-	IopsToStorageRatio []DoubleRange `locationNameList:"DoubleRange" type:"list"`
+	IopsToStorageRatio []DoubleRange `json:"rds:ValidStorageOptions:IopsToStorageRatio" locationNameList:"DoubleRange" type:"list"`
 
 	// The valid range of provisioned IOPS. For example, 1000-20000.
-	ProvisionedIops []Range `locationNameList:"Range" type:"list"`
+	ProvisionedIops []Range `json:"rds:ValidStorageOptions:ProvisionedIops" locationNameList:"Range" type:"list"`
 
 	// The valid range of storage in gibibytes. For example, 100 to 16384.
-	StorageSize []Range `locationNameList:"Range" type:"list"`
+	StorageSize []Range `json:"rds:ValidStorageOptions:StorageSize" locationNameList:"Range" type:"list"`
 
 	// The valid storage types for your DB instance. For example, gp2, io1.
-	StorageType *string `type:"string"`
+	StorageType *string `json:"rds:ValidStorageOptions:StorageType" type:"string"`
 
 	// Whether or not Amazon RDS can automatically scale storage for DB instances
 	// that use the new instance class.
-	SupportsStorageAutoscaling *bool `type:"boolean"`
+	SupportsStorageAutoscaling *bool `json:"rds:ValidStorageOptions:SupportsStorageAutoscaling" type:"boolean"`
 }
 
 // String returns the string representation
@@ -3071,10 +3071,10 @@ type VpcSecurityGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the VPC security group.
-	Status *string `type:"string"`
+	Status *string `json:"rds:VpcSecurityGroupMembership:Status" type:"string"`
 
 	// The name of the VPC security group.
-	VpcSecurityGroupId *string `type:"string"`
+	VpcSecurityGroupId *string `json:"rds:VpcSecurityGroupMembership:VpcSecurityGroupId" type:"string"`
 }
 
 // String returns the string representation

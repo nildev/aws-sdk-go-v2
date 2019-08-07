@@ -55,12 +55,12 @@ type ListIdentityProvidersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A pagination token.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-idp:ListIdentityProvidersOutput:NextToken" min:"1" type:"string"`
 
 	// A list of identity provider objects.
 	//
 	// Providers is a required field
-	Providers []ProviderDescription `type:"list" required:"true"`
+	Providers []ProviderDescription `json:"cognito-idp:ListIdentityProvidersOutput:Providers" type:"list" required:"true"`
 }
 
 // String returns the string representation

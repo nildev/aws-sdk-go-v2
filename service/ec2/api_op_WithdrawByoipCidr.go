@@ -49,7 +49,7 @@ type WithdrawByoipCidrOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the address pool.
-	ByoipCidr *ByoipCidr `locationName:"byoipCidr" type:"structure"`
+	ByoipCidr *ByoipCidr `json:"ec2:WithdrawByoipCidrOutput:ByoipCidr" locationName:"byoipCidr" type:"structure"`
 }
 
 // String returns the string representation

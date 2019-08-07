@@ -19,13 +19,13 @@ type Alias struct {
 	_ struct{} `type:"structure"`
 
 	// The canonical name of the alias.
-	Name *string `type:"string"`
+	Name *string `json:"xray:Alias:Name" type:"string"`
 
 	// A list of names for the alias, including the canonical name.
-	Names []string `type:"list"`
+	Names []string `json:"xray:Alias:Names" type:"list"`
 
 	// The type of the alias.
-	Type *string `type:"string"`
+	Type *string `json:"xray:Alias:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -69,13 +69,13 @@ type AnnotationValue struct {
 	_ struct{} `type:"structure"`
 
 	// Value for a Boolean annotation.
-	BooleanValue *bool `type:"boolean"`
+	BooleanValue *bool `json:"xray:AnnotationValue:BooleanValue" type:"boolean"`
 
 	// Value for a Number annotation.
-	NumberValue *float64 `type:"double"`
+	NumberValue *float64 `json:"xray:AnnotationValue:NumberValue" type:"double"`
 
 	// Value for a String annotation.
-	StringValue *string `type:"string"`
+	StringValue *string `json:"xray:AnnotationValue:StringValue" type:"string"`
 }
 
 // String returns the string representation
@@ -112,7 +112,7 @@ type AvailabilityZoneDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The name of a corresponding availability zone.
-	Name *string `type:"string"`
+	Name *string `json:"xray:AvailabilityZoneDetail:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -135,17 +135,17 @@ func (s AvailabilityZoneDetail) MarshalFields(e protocol.FieldEncoder) error {
 type BackendConnectionErrors struct {
 	_ struct{} `type:"structure"`
 
-	ConnectionRefusedCount *int64 `type:"integer"`
+	ConnectionRefusedCount *int64 `json:"xray:BackendConnectionErrors:ConnectionRefusedCount" type:"integer"`
 
-	HTTPCode4XXCount *int64 `type:"integer"`
+	HTTPCode4XXCount *int64 `json:"xray:BackendConnectionErrors:HTTPCode4XXCount" type:"integer"`
 
-	HTTPCode5XXCount *int64 `type:"integer"`
+	HTTPCode5XXCount *int64 `json:"xray:BackendConnectionErrors:HTTPCode5XXCount" type:"integer"`
 
-	OtherCount *int64 `type:"integer"`
+	OtherCount *int64 `json:"xray:BackendConnectionErrors:OtherCount" type:"integer"`
 
-	TimeoutCount *int64 `type:"integer"`
+	TimeoutCount *int64 `json:"xray:BackendConnectionErrors:TimeoutCount" type:"integer"`
 
-	UnknownHostCount *int64 `type:"integer"`
+	UnknownHostCount *int64 `json:"xray:BackendConnectionErrors:UnknownHostCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -200,22 +200,22 @@ type Edge struct {
 	_ struct{} `type:"structure"`
 
 	// Aliases for the edge.
-	Aliases []Alias `type:"list"`
+	Aliases []Alias `json:"xray:Edge:Aliases" type:"list"`
 
 	// The end time of the last segment on the edge.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"xray:Edge:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Identifier of the edge. Unique within a service map.
-	ReferenceId *int64 `type:"integer"`
+	ReferenceId *int64 `json:"xray:Edge:ReferenceId" type:"integer"`
 
 	// A histogram that maps the spread of client response times on an edge.
-	ResponseTimeHistogram []HistogramEntry `type:"list"`
+	ResponseTimeHistogram []HistogramEntry `json:"xray:Edge:ResponseTimeHistogram" type:"list"`
 
 	// The start time of the first segment on the edge.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"xray:Edge:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Response statistics for segments on the edge.
-	SummaryStatistics *EdgeStatistics `type:"structure"`
+	SummaryStatistics *EdgeStatistics `json:"xray:Edge:SummaryStatistics" type:"structure"`
 }
 
 // String returns the string representation
@@ -282,19 +282,19 @@ type EdgeStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// Information about requests that failed with a 4xx Client Error status code.
-	ErrorStatistics *ErrorStatistics `type:"structure"`
+	ErrorStatistics *ErrorStatistics `json:"xray:EdgeStatistics:ErrorStatistics" type:"structure"`
 
 	// Information about requests that failed with a 5xx Server Error status code.
-	FaultStatistics *FaultStatistics `type:"structure"`
+	FaultStatistics *FaultStatistics `json:"xray:EdgeStatistics:FaultStatistics" type:"structure"`
 
 	// The number of requests that completed with a 2xx Success status code.
-	OkCount *int64 `type:"long"`
+	OkCount *int64 `json:"xray:EdgeStatistics:OkCount" type:"long"`
 
 	// The total number of completed requests.
-	TotalCount *int64 `type:"long"`
+	TotalCount *int64 `json:"xray:EdgeStatistics:TotalCount" type:"long"`
 
 	// The aggregate response time of completed requests.
-	TotalResponseTime *float64 `type:"double"`
+	TotalResponseTime *float64 `json:"xray:EdgeStatistics:TotalResponseTime" type:"double"`
 }
 
 // String returns the string representation
@@ -343,15 +343,15 @@ type EncryptionConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the customer master key (CMK) used for encryption, if applicable.
-	KeyId *string `type:"string"`
+	KeyId *string `json:"xray:EncryptionConfig:KeyId" type:"string"`
 
 	// The encryption status. While the status is UPDATING, X-Ray may encrypt data
 	// with a combination of the new and old settings.
-	Status EncryptionStatus `type:"string" enum:"true"`
+	Status EncryptionStatus `json:"xray:EncryptionConfig:Status" type:"string" enum:"true"`
 
 	// The type of encryption. Set to KMS for encryption with CMKs. Set to NONE
 	// for default encryption.
-	Type EncryptionType `type:"string" enum:"true"`
+	Type EncryptionType `json:"xray:EncryptionConfig:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -389,7 +389,7 @@ type ErrorRootCause struct {
 
 	// A list of services corresponding to an error. A service identifies a segment
 	// and it contains a name, account ID, type, and inferred flag.
-	Services []ErrorRootCauseService `type:"list"`
+	Services []ErrorRootCauseService `json:"xray:ErrorRootCause:Services" type:"list"`
 }
 
 // String returns the string representation
@@ -421,13 +421,13 @@ type ErrorRootCauseEntity struct {
 	_ struct{} `type:"structure"`
 
 	// The types and messages of the exceptions.
-	Exceptions []RootCauseException `type:"list"`
+	Exceptions []RootCauseException `json:"xray:ErrorRootCauseEntity:Exceptions" type:"list"`
 
 	// The name of the entity.
-	Name *string `type:"string"`
+	Name *string `json:"xray:ErrorRootCauseEntity:Name" type:"string"`
 
 	// A flag that denotes a remote subsegment.
-	Remote *bool `type:"boolean"`
+	Remote *bool `json:"xray:ErrorRootCauseEntity:Remote" type:"boolean"`
 }
 
 // String returns the string representation
@@ -470,22 +470,22 @@ type ErrorRootCauseService struct {
 	_ struct{} `type:"structure"`
 
 	// The account ID associated to the service.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"xray:ErrorRootCauseService:AccountId" type:"string"`
 
 	// The path of root cause entities found on the service.
-	EntityPath []ErrorRootCauseEntity `type:"list"`
+	EntityPath []ErrorRootCauseEntity `json:"xray:ErrorRootCauseService:EntityPath" type:"list"`
 
 	// A Boolean value indicating if the service is inferred from the trace.
-	Inferred *bool `type:"boolean"`
+	Inferred *bool `json:"xray:ErrorRootCauseService:Inferred" type:"boolean"`
 
 	// The service name.
-	Name *string `type:"string"`
+	Name *string `json:"xray:ErrorRootCauseService:Name" type:"string"`
 
 	// A collection of associated service names.
-	Names []string `type:"list"`
+	Names []string `json:"xray:ErrorRootCauseService:Names" type:"list"`
 
 	// The type associated to the service.
-	Type *string `type:"string"`
+	Type *string `json:"xray:ErrorRootCauseService:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -553,13 +553,13 @@ type ErrorStatistics struct {
 
 	// The number of requests that failed with untracked 4xx Client Error status
 	// codes.
-	OtherCount *int64 `type:"long"`
+	OtherCount *int64 `json:"xray:ErrorStatistics:OtherCount" type:"long"`
 
 	// The number of requests that failed with a 419 throttling status code.
-	ThrottleCount *int64 `type:"long"`
+	ThrottleCount *int64 `json:"xray:ErrorStatistics:ThrottleCount" type:"long"`
 
 	// The total number of requests that failed with a 4xx Client Error status code.
-	TotalCount *int64 `type:"long"`
+	TotalCount *int64 `json:"xray:ErrorStatistics:TotalCount" type:"long"`
 }
 
 // String returns the string representation
@@ -597,7 +597,7 @@ type FaultRootCause struct {
 
 	// A list of corresponding services. A service identifies a segment and it contains
 	// a name, account ID, type, and inferred flag.
-	Services []FaultRootCauseService `type:"list"`
+	Services []FaultRootCauseService `json:"xray:FaultRootCause:Services" type:"list"`
 }
 
 // String returns the string representation
@@ -629,13 +629,13 @@ type FaultRootCauseEntity struct {
 	_ struct{} `type:"structure"`
 
 	// The types and messages of the exceptions.
-	Exceptions []RootCauseException `type:"list"`
+	Exceptions []RootCauseException `json:"xray:FaultRootCauseEntity:Exceptions" type:"list"`
 
 	// The name of the entity.
-	Name *string `type:"string"`
+	Name *string `json:"xray:FaultRootCauseEntity:Name" type:"string"`
 
 	// A flag that denotes a remote subsegment.
-	Remote *bool `type:"boolean"`
+	Remote *bool `json:"xray:FaultRootCauseEntity:Remote" type:"boolean"`
 }
 
 // String returns the string representation
@@ -678,22 +678,22 @@ type FaultRootCauseService struct {
 	_ struct{} `type:"structure"`
 
 	// The account ID associated to the service.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"xray:FaultRootCauseService:AccountId" type:"string"`
 
 	// The path of root cause entities found on the service.
-	EntityPath []FaultRootCauseEntity `type:"list"`
+	EntityPath []FaultRootCauseEntity `json:"xray:FaultRootCauseService:EntityPath" type:"list"`
 
 	// A Boolean value indicating if the service is inferred from the trace.
-	Inferred *bool `type:"boolean"`
+	Inferred *bool `json:"xray:FaultRootCauseService:Inferred" type:"boolean"`
 
 	// The service name.
-	Name *string `type:"string"`
+	Name *string `json:"xray:FaultRootCauseService:Name" type:"string"`
 
 	// A collection of associated service names.
-	Names []string `type:"list"`
+	Names []string `json:"xray:FaultRootCauseService:Names" type:"list"`
 
 	// The type associated to the service.
-	Type *string `type:"string"`
+	Type *string `json:"xray:FaultRootCauseService:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -761,10 +761,10 @@ type FaultStatistics struct {
 
 	// The number of requests that failed with untracked 5xx Server Error status
 	// codes.
-	OtherCount *int64 `type:"long"`
+	OtherCount *int64 `json:"xray:FaultStatistics:OtherCount" type:"long"`
 
 	// The total number of requests that failed with a 5xx Server Error status code.
-	TotalCount *int64 `type:"long"`
+	TotalCount *int64 `json:"xray:FaultStatistics:TotalCount" type:"long"`
 }
 
 // String returns the string representation
@@ -795,13 +795,13 @@ type Group struct {
 	_ struct{} `type:"structure"`
 
 	// The filter expression defining the parameters to include traces.
-	FilterExpression *string `type:"string"`
+	FilterExpression *string `json:"xray:Group:FilterExpression" type:"string"`
 
 	// The ARN of the group generated based on the GroupName.
-	GroupARN *string `type:"string"`
+	GroupARN *string `json:"xray:Group:GroupARN" type:"string"`
 
 	// The unique case-sensitive name of the group.
-	GroupName *string `type:"string"`
+	GroupName *string `json:"xray:Group:GroupName" type:"string"`
 }
 
 // String returns the string representation
@@ -838,13 +838,13 @@ type GroupSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The filter expression defining the parameters to include traces.
-	FilterExpression *string `type:"string"`
+	FilterExpression *string `json:"xray:GroupSummary:FilterExpression" type:"string"`
 
 	// The ARN of the group generated based on the GroupName.
-	GroupARN *string `type:"string"`
+	GroupARN *string `json:"xray:GroupSummary:GroupARN" type:"string"`
 
 	// The unique case-sensitive name of the group.
-	GroupName *string `type:"string"`
+	GroupName *string `json:"xray:GroupSummary:GroupName" type:"string"`
 }
 
 // String returns the string representation
@@ -882,10 +882,10 @@ type HistogramEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The prevalence of the entry.
-	Count *int64 `type:"integer"`
+	Count *int64 `json:"xray:HistogramEntry:Count" type:"integer"`
 
 	// The value of the entry.
-	Value *float64 `type:"double"`
+	Value *float64 `json:"xray:HistogramEntry:Value" type:"double"`
 }
 
 // String returns the string representation
@@ -916,19 +916,19 @@ type Http struct {
 	_ struct{} `type:"structure"`
 
 	// The IP address of the requestor.
-	ClientIp *string `type:"string"`
+	ClientIp *string `json:"xray:Http:ClientIp" type:"string"`
 
 	// The request method.
-	HttpMethod *string `type:"string"`
+	HttpMethod *string `json:"xray:Http:HttpMethod" type:"string"`
 
 	// The response status.
-	HttpStatus *int64 `type:"integer"`
+	HttpStatus *int64 `json:"xray:Http:HttpStatus" type:"integer"`
 
 	// The request URL.
-	HttpURL *string `type:"string"`
+	HttpURL *string `json:"xray:Http:HttpURL" type:"string"`
 
 	// The request's user agent string.
-	UserAgent *string `type:"string"`
+	UserAgent *string `json:"xray:Http:UserAgent" type:"string"`
 }
 
 // String returns the string representation
@@ -977,7 +977,7 @@ type InstanceIdDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of a corresponding EC2 instance.
-	Id *string `type:"string"`
+	Id *string `json:"xray:InstanceIdDetail:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -1002,7 +1002,7 @@ type ResourceARNDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of a corresponding resource.
-	ARN *string `type:"string"`
+	ARN *string `json:"xray:ResourceARNDetail:ARN" type:"string"`
 }
 
 // String returns the string representation
@@ -1028,7 +1028,7 @@ type ResponseTimeRootCause struct {
 
 	// A list of corresponding services. A service identifies a segment and contains
 	// a name, account ID, type, and inferred flag.
-	Services []ResponseTimeRootCauseService `type:"list"`
+	Services []ResponseTimeRootCauseService `json:"xray:ResponseTimeRootCause:Services" type:"list"`
 }
 
 // String returns the string representation
@@ -1060,13 +1060,13 @@ type ResponseTimeRootCauseEntity struct {
 	_ struct{} `type:"structure"`
 
 	// The types and messages of the exceptions.
-	Coverage *float64 `type:"double"`
+	Coverage *float64 `json:"xray:ResponseTimeRootCauseEntity:Coverage" type:"double"`
 
 	// The name of the entity.
-	Name *string `type:"string"`
+	Name *string `json:"xray:ResponseTimeRootCauseEntity:Name" type:"string"`
 
 	// A flag that denotes a remote subsegment.
-	Remote *bool `type:"boolean"`
+	Remote *bool `json:"xray:ResponseTimeRootCauseEntity:Remote" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1103,22 +1103,22 @@ type ResponseTimeRootCauseService struct {
 	_ struct{} `type:"structure"`
 
 	// The account ID associated to the service.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"xray:ResponseTimeRootCauseService:AccountId" type:"string"`
 
 	// The path of root cause entities found on the service.
-	EntityPath []ResponseTimeRootCauseEntity `type:"list"`
+	EntityPath []ResponseTimeRootCauseEntity `json:"xray:ResponseTimeRootCauseService:EntityPath" type:"list"`
 
 	// A Boolean value indicating if the service is inferred from the trace.
-	Inferred *bool `type:"boolean"`
+	Inferred *bool `json:"xray:ResponseTimeRootCauseService:Inferred" type:"boolean"`
 
 	// The service name.
-	Name *string `type:"string"`
+	Name *string `json:"xray:ResponseTimeRootCauseService:Name" type:"string"`
 
 	// A collection of associated service names.
-	Names []string `type:"list"`
+	Names []string `json:"xray:ResponseTimeRootCauseService:Names" type:"list"`
 
 	// The type associated to the service.
-	Type *string `type:"string"`
+	Type *string `json:"xray:ResponseTimeRootCauseService:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -1185,10 +1185,10 @@ type RootCauseException struct {
 	_ struct{} `type:"structure"`
 
 	// The message of the exception.
-	Message *string `type:"string"`
+	Message *string `json:"xray:RootCauseException:Message" type:"string"`
 
 	// The name of the exception.
-	Name *string `type:"string"`
+	Name *string `json:"xray:RootCauseException:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1221,68 +1221,68 @@ type SamplingRule struct {
 	_ struct{} `type:"structure"`
 
 	// Matches attributes derived from the request.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"xray:SamplingRule:Attributes" type:"map"`
 
 	// The percentage of matching requests to instrument, after the reservoir is
 	// exhausted.
 	//
 	// FixedRate is a required field
-	FixedRate *float64 `type:"double" required:"true"`
+	FixedRate *float64 `json:"xray:SamplingRule:FixedRate" type:"double" required:"true"`
 
 	// Matches the HTTP method of a request.
 	//
 	// HTTPMethod is a required field
-	HTTPMethod *string `type:"string" required:"true"`
+	HTTPMethod *string `json:"xray:SamplingRule:HTTPMethod" type:"string" required:"true"`
 
 	// Matches the hostname from a request URL.
 	//
 	// Host is a required field
-	Host *string `type:"string" required:"true"`
+	Host *string `json:"xray:SamplingRule:Host" type:"string" required:"true"`
 
 	// The priority of the sampling rule.
 	//
 	// Priority is a required field
-	Priority *int64 `min:"1" type:"integer" required:"true"`
+	Priority *int64 `json:"xray:SamplingRule:Priority" min:"1" type:"integer" required:"true"`
 
 	// A fixed number of matching requests to instrument per second, prior to applying
 	// the fixed rate. The reservoir is not used directly by services, but applies
 	// to all services using the rule collectively.
 	//
 	// ReservoirSize is a required field
-	ReservoirSize *int64 `type:"integer" required:"true"`
+	ReservoirSize *int64 `json:"xray:SamplingRule:ReservoirSize" type:"integer" required:"true"`
 
 	// Matches the ARN of the AWS resource on which the service runs.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `type:"string" required:"true"`
+	ResourceARN *string `json:"xray:SamplingRule:ResourceARN" type:"string" required:"true"`
 
 	// The ARN of the sampling rule. Specify a rule by either name or ARN, but not
 	// both.
-	RuleARN *string `type:"string"`
+	RuleARN *string `json:"xray:SamplingRule:RuleARN" type:"string"`
 
 	// The name of the sampling rule. Specify a rule by either name or ARN, but
 	// not both.
-	RuleName *string `min:"1" type:"string"`
+	RuleName *string `json:"xray:SamplingRule:RuleName" min:"1" type:"string"`
 
 	// Matches the name that the service uses to identify itself in segments.
 	//
 	// ServiceName is a required field
-	ServiceName *string `type:"string" required:"true"`
+	ServiceName *string `json:"xray:SamplingRule:ServiceName" type:"string" required:"true"`
 
 	// Matches the origin that the service uses to identify its type in segments.
 	//
 	// ServiceType is a required field
-	ServiceType *string `type:"string" required:"true"`
+	ServiceType *string `json:"xray:SamplingRule:ServiceType" type:"string" required:"true"`
 
 	// Matches the path from a request URL.
 	//
 	// URLPath is a required field
-	URLPath *string `type:"string" required:"true"`
+	URLPath *string `json:"xray:SamplingRule:URLPath" type:"string" required:"true"`
 
 	// The version of the sampling rule format (1).
 	//
 	// Version is a required field
-	Version *int64 `min:"1" type:"integer" required:"true"`
+	Version *int64 `json:"xray:SamplingRule:Version" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1444,13 +1444,13 @@ type SamplingRuleRecord struct {
 	_ struct{} `type:"structure"`
 
 	// When the rule was created.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"xray:SamplingRuleRecord:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// When the rule was last modified.
-	ModifiedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ModifiedAt *time.Time `json:"xray:SamplingRuleRecord:ModifiedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The sampling rule.
-	SamplingRule *SamplingRule `type:"structure"`
+	SamplingRule *SamplingRule `json:"xray:SamplingRuleRecord:SamplingRule" type:"structure"`
 }
 
 // String returns the string representation
@@ -1487,45 +1487,45 @@ type SamplingRuleUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Matches attributes derived from the request.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"xray:SamplingRuleUpdate:Attributes" type:"map"`
 
 	// The percentage of matching requests to instrument, after the reservoir is
 	// exhausted.
-	FixedRate *float64 `type:"double"`
+	FixedRate *float64 `json:"xray:SamplingRuleUpdate:FixedRate" type:"double"`
 
 	// Matches the HTTP method of a request.
-	HTTPMethod *string `type:"string"`
+	HTTPMethod *string `json:"xray:SamplingRuleUpdate:HTTPMethod" type:"string"`
 
 	// Matches the hostname from a request URL.
-	Host *string `type:"string"`
+	Host *string `json:"xray:SamplingRuleUpdate:Host" type:"string"`
 
 	// The priority of the sampling rule.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"xray:SamplingRuleUpdate:Priority" type:"integer"`
 
 	// A fixed number of matching requests to instrument per second, prior to applying
 	// the fixed rate. The reservoir is not used directly by services, but applies
 	// to all services using the rule collectively.
-	ReservoirSize *int64 `type:"integer"`
+	ReservoirSize *int64 `json:"xray:SamplingRuleUpdate:ReservoirSize" type:"integer"`
 
 	// Matches the ARN of the AWS resource on which the service runs.
-	ResourceARN *string `type:"string"`
+	ResourceARN *string `json:"xray:SamplingRuleUpdate:ResourceARN" type:"string"`
 
 	// The ARN of the sampling rule. Specify a rule by either name or ARN, but not
 	// both.
-	RuleARN *string `type:"string"`
+	RuleARN *string `json:"xray:SamplingRuleUpdate:RuleARN" type:"string"`
 
 	// The name of the sampling rule. Specify a rule by either name or ARN, but
 	// not both.
-	RuleName *string `min:"1" type:"string"`
+	RuleName *string `json:"xray:SamplingRuleUpdate:RuleName" min:"1" type:"string"`
 
 	// Matches the name that the service uses to identify itself in segments.
-	ServiceName *string `type:"string"`
+	ServiceName *string `json:"xray:SamplingRuleUpdate:ServiceName" type:"string"`
 
 	// Matches the origin that the service uses to identify its type in segments.
-	ServiceType *string `type:"string"`
+	ServiceType *string `json:"xray:SamplingRuleUpdate:ServiceType" type:"string"`
 
 	// Matches the path from a request URL.
-	URLPath *string `type:"string"`
+	URLPath *string `json:"xray:SamplingRuleUpdate:URLPath" type:"string"`
 }
 
 // String returns the string representation
@@ -1636,19 +1636,19 @@ type SamplingStatisticSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The number of requests recorded with borrowed reservoir quota.
-	BorrowCount *int64 `type:"integer"`
+	BorrowCount *int64 `json:"xray:SamplingStatisticSummary:BorrowCount" type:"integer"`
 
 	// The number of requests that matched the rule.
-	RequestCount *int64 `type:"integer"`
+	RequestCount *int64 `json:"xray:SamplingStatisticSummary:RequestCount" type:"integer"`
 
 	// The name of the sampling rule.
-	RuleName *string `type:"string"`
+	RuleName *string `json:"xray:SamplingStatisticSummary:RuleName" type:"string"`
 
 	// The number of requests recorded.
-	SampledCount *int64 `type:"integer"`
+	SampledCount *int64 `json:"xray:SamplingStatisticSummary:SampledCount" type:"integer"`
 
 	// The start time of the reporting window.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"xray:SamplingStatisticSummary:Timestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1699,32 +1699,32 @@ type SamplingStatisticsDocument struct {
 	_ struct{} `type:"structure"`
 
 	// The number of requests recorded with borrowed reservoir quota.
-	BorrowCount *int64 `type:"integer"`
+	BorrowCount *int64 `json:"xray:SamplingStatisticsDocument:BorrowCount" type:"integer"`
 
 	// A unique identifier for the service in hexadecimal.
 	//
 	// ClientID is a required field
-	ClientID *string `min:"24" type:"string" required:"true"`
+	ClientID *string `json:"xray:SamplingStatisticsDocument:ClientID" min:"24" type:"string" required:"true"`
 
 	// The number of requests that matched the rule.
 	//
 	// RequestCount is a required field
-	RequestCount *int64 `type:"integer" required:"true"`
+	RequestCount *int64 `json:"xray:SamplingStatisticsDocument:RequestCount" type:"integer" required:"true"`
 
 	// The name of the sampling rule.
 	//
 	// RuleName is a required field
-	RuleName *string `min:"1" type:"string" required:"true"`
+	RuleName *string `json:"xray:SamplingStatisticsDocument:RuleName" min:"1" type:"string" required:"true"`
 
 	// The number of requests recorded.
 	//
 	// SampledCount is a required field
-	SampledCount *int64 `type:"integer" required:"true"`
+	SampledCount *int64 `json:"xray:SamplingStatisticsDocument:SampledCount" type:"integer" required:"true"`
 
 	// The current time.
 	//
 	// Timestamp is a required field
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	Timestamp *time.Time `json:"xray:SamplingStatisticsDocument:Timestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -1815,10 +1815,10 @@ type SamplingStrategy struct {
 	_ struct{} `type:"structure"`
 
 	// The name of a sampling rule.
-	Name SamplingStrategyName `type:"string" enum:"true"`
+	Name SamplingStrategyName `json:"xray:SamplingStrategy:Name" type:"string" enum:"true"`
 
 	// The value of a sampling rule.
-	Value *float64 `type:"double"`
+	Value *float64 `json:"xray:SamplingStrategy:Value" type:"double"`
 }
 
 // String returns the string representation
@@ -1852,20 +1852,20 @@ type SamplingTargetDocument struct {
 
 	// The percentage of matching requests to instrument, after the reservoir is
 	// exhausted.
-	FixedRate *float64 `type:"double"`
+	FixedRate *float64 `json:"xray:SamplingTargetDocument:FixedRate" type:"double"`
 
 	// The number of seconds for the service to wait before getting sampling targets
 	// again.
-	Interval *int64 `type:"integer"`
+	Interval *int64 `json:"xray:SamplingTargetDocument:Interval" type:"integer"`
 
 	// The number of requests per second that X-Ray allocated this service.
-	ReservoirQuota *int64 `type:"integer"`
+	ReservoirQuota *int64 `json:"xray:SamplingTargetDocument:ReservoirQuota" type:"integer"`
 
 	// When the reservoir quota expires.
-	ReservoirQuotaTTL *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReservoirQuotaTTL *time.Time `json:"xray:SamplingTargetDocument:ReservoirQuotaTTL" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the sampling rule.
-	RuleName *string `type:"string"`
+	RuleName *string `json:"xray:SamplingTargetDocument:RuleName" type:"string"`
 }
 
 // String returns the string representation
@@ -1920,10 +1920,10 @@ type Segment struct {
 	_ struct{} `type:"structure"`
 
 	// The segment document.
-	Document *string `min:"1" type:"string"`
+	Document *string `json:"xray:Segment:Document" min:"1" type:"string"`
 
 	// The segment's ID.
-	Id *string `type:"string"`
+	Id *string `json:"xray:Segment:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -1956,40 +1956,40 @@ type Service struct {
 	_ struct{} `type:"structure"`
 
 	// Identifier of the AWS account in which the service runs.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"xray:Service:AccountId" type:"string"`
 
 	// A histogram that maps the spread of service durations.
-	DurationHistogram []HistogramEntry `type:"list"`
+	DurationHistogram []HistogramEntry `json:"xray:Service:DurationHistogram" type:"list"`
 
 	// Connections to downstream services.
-	Edges []Edge `type:"list"`
+	Edges []Edge `json:"xray:Service:Edges" type:"list"`
 
 	// The end time of the last segment that the service generated.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"xray:Service:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The canonical name of the service.
-	Name *string `type:"string"`
+	Name *string `json:"xray:Service:Name" type:"string"`
 
 	// A list of names for the service, including the canonical name.
-	Names []string `type:"list"`
+	Names []string `json:"xray:Service:Names" type:"list"`
 
 	// Identifier for the service. Unique within the service map.
-	ReferenceId *int64 `type:"integer"`
+	ReferenceId *int64 `json:"xray:Service:ReferenceId" type:"integer"`
 
 	// A histogram that maps the spread of service response times.
-	ResponseTimeHistogram []HistogramEntry `type:"list"`
+	ResponseTimeHistogram []HistogramEntry `json:"xray:Service:ResponseTimeHistogram" type:"list"`
 
 	// Indicates that the service was the first service to process a request.
-	Root *bool `type:"boolean"`
+	Root *bool `json:"xray:Service:Root" type:"boolean"`
 
 	// The start time of the first segment that the service generated.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"xray:Service:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The service's state.
-	State *string `type:"string"`
+	State *string `json:"xray:Service:State" type:"string"`
 
 	// Aggregated statistics for the service.
-	SummaryStatistics *ServiceStatistics `type:"structure"`
+	SummaryStatistics *ServiceStatistics `json:"xray:Service:SummaryStatistics" type:"structure"`
 
 	// The type of service.
 	//
@@ -2004,7 +2004,7 @@ type Service struct {
 	//    * client - Represents the clients that sent requests to a root service.
 	//
 	//    * remote - A downstream service of indeterminate type.
-	Type *string `type:"string"`
+	Type *string `json:"xray:Service:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -2123,13 +2123,13 @@ func (s Service) MarshalFields(e protocol.FieldEncoder) error {
 type ServiceId struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `json:"xray:ServiceId:AccountId" type:"string"`
 
-	Name *string `type:"string"`
+	Name *string `json:"xray:ServiceId:Name" type:"string"`
 
-	Names []string `type:"list"`
+	Names []string `json:"xray:ServiceId:Names" type:"list"`
 
-	Type *string `type:"string"`
+	Type *string `json:"xray:ServiceId:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -2178,19 +2178,19 @@ type ServiceStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// Information about requests that failed with a 4xx Client Error status code.
-	ErrorStatistics *ErrorStatistics `type:"structure"`
+	ErrorStatistics *ErrorStatistics `json:"xray:ServiceStatistics:ErrorStatistics" type:"structure"`
 
 	// Information about requests that failed with a 5xx Server Error status code.
-	FaultStatistics *FaultStatistics `type:"structure"`
+	FaultStatistics *FaultStatistics `json:"xray:ServiceStatistics:FaultStatistics" type:"structure"`
 
 	// The number of requests that completed with a 2xx Success status code.
-	OkCount *int64 `type:"long"`
+	OkCount *int64 `json:"xray:ServiceStatistics:OkCount" type:"long"`
 
 	// The total number of completed requests.
-	TotalCount *int64 `type:"long"`
+	TotalCount *int64 `json:"xray:ServiceStatistics:TotalCount" type:"long"`
 
 	// The aggregate response time of completed requests.
-	TotalResponseTime *float64 `type:"double"`
+	TotalResponseTime *float64 `json:"xray:ServiceStatistics:TotalResponseTime" type:"double"`
 }
 
 // String returns the string representation
@@ -2237,18 +2237,18 @@ func (s ServiceStatistics) MarshalFields(e protocol.FieldEncoder) error {
 type TelemetryRecord struct {
 	_ struct{} `type:"structure"`
 
-	BackendConnectionErrors *BackendConnectionErrors `type:"structure"`
+	BackendConnectionErrors *BackendConnectionErrors `json:"xray:TelemetryRecord:BackendConnectionErrors" type:"structure"`
 
-	SegmentsReceivedCount *int64 `type:"integer"`
+	SegmentsReceivedCount *int64 `json:"xray:TelemetryRecord:SegmentsReceivedCount" type:"integer"`
 
-	SegmentsRejectedCount *int64 `type:"integer"`
+	SegmentsRejectedCount *int64 `json:"xray:TelemetryRecord:SegmentsRejectedCount" type:"integer"`
 
-	SegmentsSentCount *int64 `type:"integer"`
+	SegmentsSentCount *int64 `json:"xray:TelemetryRecord:SegmentsSentCount" type:"integer"`
 
-	SegmentsSpilloverCount *int64 `type:"integer"`
+	SegmentsSpilloverCount *int64 `json:"xray:TelemetryRecord:SegmentsSpilloverCount" type:"integer"`
 
 	// Timestamp is a required field
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	Timestamp *time.Time `json:"xray:TelemetryRecord:Timestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -2317,16 +2317,16 @@ type TimeSeriesServiceStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// Response statistics for an edge.
-	EdgeSummaryStatistics *EdgeStatistics `type:"structure"`
+	EdgeSummaryStatistics *EdgeStatistics `json:"xray:TimeSeriesServiceStatistics:EdgeSummaryStatistics" type:"structure"`
 
 	// The response time histogram for the selected entities.
-	ResponseTimeHistogram []HistogramEntry `type:"list"`
+	ResponseTimeHistogram []HistogramEntry `json:"xray:TimeSeriesServiceStatistics:ResponseTimeHistogram" type:"list"`
 
 	// Response statistics for a service.
-	ServiceSummaryStatistics *ServiceStatistics `type:"structure"`
+	ServiceSummaryStatistics *ServiceStatistics `json:"xray:TimeSeriesServiceStatistics:ServiceSummaryStatistics" type:"structure"`
 
 	// Timestamp of the window for which statistics are aggregated.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"xray:TimeSeriesServiceStatistics:Timestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -2376,14 +2376,14 @@ type Trace struct {
 
 	// The length of time in seconds between the start time of the root segment
 	// and the end time of the last segment that completed.
-	Duration *float64 `type:"double"`
+	Duration *float64 `json:"xray:Trace:Duration" type:"double"`
 
 	// The unique identifier for the request that generated the trace's segments
 	// and subsegments.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"xray:Trace:Id" min:"1" type:"string"`
 
 	// Segment documents for the segments and subsegments that comprise the trace.
-	Segments []Segment `type:"list"`
+	Segments []Segment `json:"xray:Trace:Segments" type:"list"`
 }
 
 // String returns the string representation
@@ -2426,71 +2426,71 @@ type TraceSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Annotations from the trace's segment documents.
-	Annotations map[string][]ValueWithServiceIds `type:"map"`
+	Annotations map[string][]ValueWithServiceIds `json:"xray:TraceSummary:Annotations" type:"map"`
 
 	// A list of availability zones for any zone corresponding to the trace segments.
-	AvailabilityZones []AvailabilityZoneDetail `type:"list"`
+	AvailabilityZones []AvailabilityZoneDetail `json:"xray:TraceSummary:AvailabilityZones" type:"list"`
 
 	// The length of time in seconds between the start time of the root segment
 	// and the end time of the last segment that completed.
-	Duration *float64 `type:"double"`
+	Duration *float64 `json:"xray:TraceSummary:Duration" type:"double"`
 
 	// The root of a trace.
-	EntryPoint *ServiceId `type:"structure"`
+	EntryPoint *ServiceId `json:"xray:TraceSummary:EntryPoint" type:"structure"`
 
 	// A collection of ErrorRootCause structures corresponding to the trace segments.
-	ErrorRootCauses []ErrorRootCause `type:"list"`
+	ErrorRootCauses []ErrorRootCause `json:"xray:TraceSummary:ErrorRootCauses" type:"list"`
 
 	// A collection of FaultRootCause structures corresponding to the the trace
 	// segments.
-	FaultRootCauses []FaultRootCause `type:"list"`
+	FaultRootCauses []FaultRootCause `json:"xray:TraceSummary:FaultRootCauses" type:"list"`
 
 	// One or more of the segment documents has a 400 series error.
-	HasError *bool `type:"boolean"`
+	HasError *bool `json:"xray:TraceSummary:HasError" type:"boolean"`
 
 	// One or more of the segment documents has a 500 series error.
-	HasFault *bool `type:"boolean"`
+	HasFault *bool `json:"xray:TraceSummary:HasFault" type:"boolean"`
 
 	// One or more of the segment documents has a 429 throttling error.
-	HasThrottle *bool `type:"boolean"`
+	HasThrottle *bool `json:"xray:TraceSummary:HasThrottle" type:"boolean"`
 
 	// Information about the HTTP request served by the trace.
-	Http *Http `type:"structure"`
+	Http *Http `json:"xray:TraceSummary:Http" type:"structure"`
 
 	// The unique identifier for the request that generated the trace's segments
 	// and subsegments.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"xray:TraceSummary:Id" min:"1" type:"string"`
 
 	// A list of EC2 instance IDs for any instance corresponding to the trace segments.
-	InstanceIds []InstanceIdDetail `type:"list"`
+	InstanceIds []InstanceIdDetail `json:"xray:TraceSummary:InstanceIds" type:"list"`
 
 	// One or more of the segment documents is in progress.
-	IsPartial *bool `type:"boolean"`
+	IsPartial *bool `json:"xray:TraceSummary:IsPartial" type:"boolean"`
 
 	// The matched time stamp of a defined event.
-	MatchedEventTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	MatchedEventTime *time.Time `json:"xray:TraceSummary:MatchedEventTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of resource ARNs for any resource corresponding to the trace segments.
-	ResourceARNs []ResourceARNDetail `type:"list"`
+	ResourceARNs []ResourceARNDetail `json:"xray:TraceSummary:ResourceARNs" type:"list"`
 
 	// The length of time in seconds between the start and end times of the root
 	// segment. If the service performs work asynchronously, the response time measures
 	// the time before the response is sent to the user, while the duration measures
 	// the amount of time before the last traced activity completes.
-	ResponseTime *float64 `type:"double"`
+	ResponseTime *float64 `json:"xray:TraceSummary:ResponseTime" type:"double"`
 
 	// A collection of ResponseTimeRootCause structures corresponding to the trace
 	// segments.
-	ResponseTimeRootCauses []ResponseTimeRootCause `type:"list"`
+	ResponseTimeRootCauses []ResponseTimeRootCause `json:"xray:TraceSummary:ResponseTimeRootCauses" type:"list"`
 
 	// The revision number of a trace.
-	Revision *int64 `type:"integer"`
+	Revision *int64 `json:"xray:TraceSummary:Revision" type:"integer"`
 
 	// Service IDs from the trace's segment documents.
-	ServiceIds []ServiceId `type:"list"`
+	ServiceIds []ServiceId `json:"xray:TraceSummary:ServiceIds" type:"list"`
 
 	// Users from the trace's segment documents.
-	Users []TraceUser `type:"list"`
+	Users []TraceUser `json:"xray:TraceSummary:Users" type:"list"`
 }
 
 // String returns the string representation
@@ -2688,10 +2688,10 @@ type TraceUser struct {
 	_ struct{} `type:"structure"`
 
 	// Services that the user's request hit.
-	ServiceIds []ServiceId `type:"list"`
+	ServiceIds []ServiceId `json:"xray:TraceUser:ServiceIds" type:"list"`
 
 	// The user's name.
-	UserName *string `type:"string"`
+	UserName *string `json:"xray:TraceUser:UserName" type:"string"`
 }
 
 // String returns the string representation
@@ -2729,13 +2729,13 @@ type UnprocessedStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"xray:UnprocessedStatistics:ErrorCode" type:"string"`
 
 	// The error message.
-	Message *string `type:"string"`
+	Message *string `json:"xray:UnprocessedStatistics:Message" type:"string"`
 
 	// The name of the sampling rule.
-	RuleName *string `type:"string"`
+	RuleName *string `json:"xray:UnprocessedStatistics:RuleName" type:"string"`
 }
 
 // String returns the string representation
@@ -2772,13 +2772,13 @@ type UnprocessedTraceSegment struct {
 	_ struct{} `type:"structure"`
 
 	// The error that caused processing to fail.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"xray:UnprocessedTraceSegment:ErrorCode" type:"string"`
 
 	// The segment's ID.
-	Id *string `type:"string"`
+	Id *string `json:"xray:UnprocessedTraceSegment:Id" type:"string"`
 
 	// The error message.
-	Message *string `type:"string"`
+	Message *string `json:"xray:UnprocessedTraceSegment:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -2815,10 +2815,10 @@ type ValueWithServiceIds struct {
 	_ struct{} `type:"structure"`
 
 	// Values of the annotation.
-	AnnotationValue *AnnotationValue `type:"structure"`
+	AnnotationValue *AnnotationValue `json:"xray:ValueWithServiceIds:AnnotationValue" type:"structure"`
 
 	// Services to which the annotation applies.
-	ServiceIds []ServiceId `type:"list"`
+	ServiceIds []ServiceId `json:"xray:ValueWithServiceIds:ServiceIds" type:"list"`
 }
 
 // String returns the string representation

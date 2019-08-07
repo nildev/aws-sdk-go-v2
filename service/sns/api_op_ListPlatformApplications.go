@@ -31,10 +31,10 @@ type ListPlatformApplicationsOutput struct {
 
 	// NextToken string is returned when calling ListPlatformApplications action
 	// if additional records are available after the first page results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"sns:ListPlatformApplicationsOutput:NextToken" type:"string"`
 
 	// Platform applications returned when calling ListPlatformApplications action.
-	PlatformApplications []PlatformApplication `type:"list"`
+	PlatformApplications []PlatformApplication `json:"sns:ListPlatformApplicationsOutput:PlatformApplications" type:"list"`
 }
 
 // String returns the string representation

@@ -89,7 +89,7 @@ type CreateComputerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A Computer object that represents the computer account.
-	Computer *Computer `type:"structure"`
+	Computer *Computer `json:"ds:CreateComputerOutput:Computer" type:"structure"`
 }
 
 // String returns the string representation

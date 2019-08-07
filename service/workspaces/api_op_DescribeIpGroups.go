@@ -51,10 +51,10 @@ type DescribeIpGroupsOutput struct {
 
 	// The token to use to retrieve the next set of results, or null if no more
 	// results are available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workspaces:DescribeIpGroupsOutput:NextToken" min:"1" type:"string"`
 
 	// Information about the IP access control groups.
-	Result []WorkspacesIpGroup `type:"list"`
+	Result []WorkspacesIpGroup `json:"workspaces:DescribeIpGroupsOutput:Result" type:"list"`
 }
 
 // String returns the string representation

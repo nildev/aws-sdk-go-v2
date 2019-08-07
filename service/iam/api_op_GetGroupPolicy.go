@@ -69,7 +69,7 @@ type GetGroupPolicyOutput struct {
 	// The group the policy is associated with.
 	//
 	// GroupName is a required field
-	GroupName *string `min:"1" type:"string" required:"true"`
+	GroupName *string `json:"iam:GetGroupPolicyOutput:GroupName" min:"1" type:"string" required:"true"`
 
 	// The policy document.
 	//
@@ -78,12 +78,12 @@ type GetGroupPolicyOutput struct {
 	// always converts a YAML policy to JSON format before submitting it to IAM.
 	//
 	// PolicyDocument is a required field
-	PolicyDocument *string `min:"1" type:"string" required:"true"`
+	PolicyDocument *string `json:"iam:GetGroupPolicyOutput:PolicyDocument" min:"1" type:"string" required:"true"`
 
 	// The name of the policy.
 	//
 	// PolicyName is a required field
-	PolicyName *string `min:"1" type:"string" required:"true"`
+	PolicyName *string `json:"iam:GetGroupPolicyOutput:PolicyName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

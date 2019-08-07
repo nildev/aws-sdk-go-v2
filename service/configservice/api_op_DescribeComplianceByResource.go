@@ -65,11 +65,11 @@ type DescribeComplianceByResourceOutput struct {
 
 	// Indicates whether the specified AWS resource complies with all of the AWS
 	// Config rules that evaluate it.
-	ComplianceByResources []ComplianceByResource `type:"list"`
+	ComplianceByResources []ComplianceByResource `json:"config:DescribeComplianceByResourceOutput:ComplianceByResources" type:"list"`
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:DescribeComplianceByResourceOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

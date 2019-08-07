@@ -95,13 +95,13 @@ type UpdateDocumentationVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date when the API documentation snapshot is created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:UpdateDocumentationVersionOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the API documentation snapshot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:UpdateDocumentationVersionOutput:Description" locationName:"description" type:"string"`
 
 	// The version identifier of the API documentation snapshot.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"apigateway:UpdateDocumentationVersionOutput:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation

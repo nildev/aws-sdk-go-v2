@@ -54,7 +54,7 @@ type UpdateEndpointOutput struct {
 	// The Amazon Resource Name (ARN) of the endpoint.
 	//
 	// EndpointArn is a required field
-	EndpointArn *string `min:"20" type:"string" required:"true"`
+	EndpointArn *string `json:"api.sagemaker:UpdateEndpointOutput:EndpointArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -26,20 +26,20 @@ type Consumer struct {
 	// reference consumer ARNs.
 	//
 	// ConsumerARN is a required field
-	ConsumerARN *string `min:"1" type:"string" required:"true"`
+	ConsumerARN *string `json:"kinesis:Consumer:ConsumerARN" min:"1" type:"string" required:"true"`
 
 	// ConsumerCreationTimestamp is a required field
-	ConsumerCreationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	ConsumerCreationTimestamp *time.Time `json:"kinesis:Consumer:ConsumerCreationTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the consumer is something you choose when you register the consumer.
 	//
 	// ConsumerName is a required field
-	ConsumerName *string `min:"1" type:"string" required:"true"`
+	ConsumerName *string `json:"kinesis:Consumer:ConsumerName" min:"1" type:"string" required:"true"`
 
 	// A consumer can't read data while in the CREATING or DELETING states.
 	//
 	// ConsumerStatus is a required field
-	ConsumerStatus ConsumerStatus `type:"string" required:"true" enum:"true"`
+	ConsumerStatus ConsumerStatus `json:"kinesis:Consumer:ConsumerStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -61,25 +61,25 @@ type ConsumerDescription struct {
 	// reference consumer ARNs.
 	//
 	// ConsumerARN is a required field
-	ConsumerARN *string `min:"1" type:"string" required:"true"`
+	ConsumerARN *string `json:"kinesis:ConsumerDescription:ConsumerARN" min:"1" type:"string" required:"true"`
 
 	// ConsumerCreationTimestamp is a required field
-	ConsumerCreationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	ConsumerCreationTimestamp *time.Time `json:"kinesis:ConsumerDescription:ConsumerCreationTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the consumer is something you choose when you register the consumer.
 	//
 	// ConsumerName is a required field
-	ConsumerName *string `min:"1" type:"string" required:"true"`
+	ConsumerName *string `json:"kinesis:ConsumerDescription:ConsumerName" min:"1" type:"string" required:"true"`
 
 	// A consumer can't read data while in the CREATING or DELETING states.
 	//
 	// ConsumerStatus is a required field
-	ConsumerStatus ConsumerStatus `type:"string" required:"true" enum:"true"`
+	ConsumerStatus ConsumerStatus `json:"kinesis:ConsumerDescription:ConsumerStatus" type:"string" required:"true" enum:"true"`
 
 	// The ARN of the stream with which you registered the consumer.
 	//
 	// StreamARN is a required field
-	StreamARN *string `min:"1" type:"string" required:"true"`
+	StreamARN *string `json:"kinesis:ConsumerDescription:StreamARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -116,7 +116,7 @@ type EnhancedMetrics struct {
 	// For more information, see Monitoring the Amazon Kinesis Data Streams Service
 	// with Amazon CloudWatch (http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html)
 	// in the Amazon Kinesis Data Streams Developer Guide.
-	ShardLevelMetrics []MetricsName `min:"1" type:"list"`
+	ShardLevelMetrics []MetricsName `json:"kinesis:EnhancedMetrics:ShardLevelMetrics" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -133,12 +133,12 @@ type HashKeyRange struct {
 	// The ending hash key of the hash key range.
 	//
 	// EndingHashKey is a required field
-	EndingHashKey *string `type:"string" required:"true"`
+	EndingHashKey *string `json:"kinesis:HashKeyRange:EndingHashKey" type:"string" required:"true"`
 
 	// The starting hash key of the hash key range.
 	//
 	// StartingHashKey is a required field
-	StartingHashKey *string `type:"string" required:"true"`
+	StartingHashKey *string `json:"kinesis:HashKeyRange:StartingHashKey" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -159,11 +159,11 @@ type PutRecordsRequestEntry struct {
 	// Data is automatically base64 encoded/decoded by the SDK.
 	//
 	// Data is a required field
-	Data []byte `type:"blob" required:"true"`
+	Data []byte `json:"kinesis:PutRecordsRequestEntry:Data" type:"blob" required:"true"`
 
 	// The hash value used to determine explicitly the shard that the data record
 	// is assigned to by overriding the partition key hash.
-	ExplicitHashKey *string `type:"string"`
+	ExplicitHashKey *string `json:"kinesis:PutRecordsRequestEntry:ExplicitHashKey" type:"string"`
 
 	// Determines which shard in the stream the data record is assigned to. Partition
 	// keys are Unicode strings with a maximum length limit of 256 characters for
@@ -175,7 +175,7 @@ type PutRecordsRequestEntry struct {
 	// key map to the same shard within the stream.
 	//
 	// PartitionKey is a required field
-	PartitionKey *string `min:"1" type:"string" required:"true"`
+	PartitionKey *string `json:"kinesis:PutRecordsRequestEntry:PartitionKey" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -214,19 +214,19 @@ type PutRecordsResultEntry struct {
 
 	// The error code for an individual record result. ErrorCodes can be either
 	// ProvisionedThroughputExceededException or InternalFailure.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"kinesis:PutRecordsResultEntry:ErrorCode" type:"string"`
 
 	// The error message for an individual record result. An ErrorCode value of
 	// ProvisionedThroughputExceededException has an error message that includes
 	// the account ID, stream name, and shard ID. An ErrorCode value of InternalFailure
 	// has the error message "Internal Service Failure".
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"kinesis:PutRecordsResultEntry:ErrorMessage" type:"string"`
 
 	// The sequence number for an individual record result.
-	SequenceNumber *string `type:"string"`
+	SequenceNumber *string `json:"kinesis:PutRecordsResultEntry:SequenceNumber" type:"string"`
 
 	// The shard ID for an individual record result.
-	ShardId *string `min:"1" type:"string"`
+	ShardId *string `json:"kinesis:PutRecordsResultEntry:ShardId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -241,7 +241,7 @@ type Record struct {
 	_ struct{} `type:"structure"`
 
 	// The approximate time that the record was inserted into the stream.
-	ApproximateArrivalTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ApproximateArrivalTimestamp *time.Time `json:"kinesis:Record:ApproximateArrivalTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The data blob. The data in the blob is both opaque and immutable to Kinesis
 	// Data Streams, which does not inspect, interpret, or change the data in the
@@ -252,7 +252,7 @@ type Record struct {
 	// Data is automatically base64 encoded/decoded by the SDK.
 	//
 	// Data is a required field
-	Data []byte `type:"blob" required:"true"`
+	Data []byte `json:"kinesis:Record:Data" type:"blob" required:"true"`
 
 	// The encryption type used on the record. This parameter can be one of the
 	// following values:
@@ -261,17 +261,17 @@ type Record struct {
 	//
 	//    * KMS: Use server-side encryption on the records in the stream using a
 	//    customer-managed AWS KMS key.
-	EncryptionType EncryptionType `type:"string" enum:"true"`
+	EncryptionType EncryptionType `json:"kinesis:Record:EncryptionType" type:"string" enum:"true"`
 
 	// Identifies which shard in the stream the data record is assigned to.
 	//
 	// PartitionKey is a required field
-	PartitionKey *string `min:"1" type:"string" required:"true"`
+	PartitionKey *string `json:"kinesis:Record:PartitionKey" min:"1" type:"string" required:"true"`
 
 	// The unique identifier of the record within its shard.
 	//
 	// SequenceNumber is a required field
-	SequenceNumber *string `type:"string" required:"true"`
+	SequenceNumber *string `json:"kinesis:Record:SequenceNumber" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -286,12 +286,12 @@ type SequenceNumberRange struct {
 
 	// The ending sequence number for the range. Shards that are in the OPEN state
 	// have an ending sequence number of null.
-	EndingSequenceNumber *string `type:"string"`
+	EndingSequenceNumber *string `json:"kinesis:SequenceNumberRange:EndingSequenceNumber" type:"string"`
 
 	// The starting sequence number for the range.
 	//
 	// StartingSequenceNumber is a required field
-	StartingSequenceNumber *string `type:"string" required:"true"`
+	StartingSequenceNumber *string `json:"kinesis:SequenceNumberRange:StartingSequenceNumber" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -305,26 +305,26 @@ type Shard struct {
 	_ struct{} `type:"structure"`
 
 	// The shard ID of the shard adjacent to the shard's parent.
-	AdjacentParentShardId *string `min:"1" type:"string"`
+	AdjacentParentShardId *string `json:"kinesis:Shard:AdjacentParentShardId" min:"1" type:"string"`
 
 	// The range of possible hash key values for the shard, which is a set of ordered
 	// contiguous positive integers.
 	//
 	// HashKeyRange is a required field
-	HashKeyRange *HashKeyRange `type:"structure" required:"true"`
+	HashKeyRange *HashKeyRange `json:"kinesis:Shard:HashKeyRange" type:"structure" required:"true"`
 
 	// The shard ID of the shard's parent.
-	ParentShardId *string `min:"1" type:"string"`
+	ParentShardId *string `json:"kinesis:Shard:ParentShardId" min:"1" type:"string"`
 
 	// The range of possible sequence numbers for the shard.
 	//
 	// SequenceNumberRange is a required field
-	SequenceNumberRange *SequenceNumberRange `type:"structure" required:"true"`
+	SequenceNumberRange *SequenceNumberRange `json:"kinesis:Shard:SequenceNumberRange" type:"structure" required:"true"`
 
 	// The unique identifier of the shard within the stream.
 	//
 	// ShardId is a required field
-	ShardId *string `min:"1" type:"string" required:"true"`
+	ShardId *string `json:"kinesis:Shard:ShardId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -344,17 +344,17 @@ type StreamDescription struct {
 	//
 	//    * KMS: Use server-side encryption on the records in the stream using a
 	//    customer-managed AWS KMS key.
-	EncryptionType EncryptionType `type:"string" enum:"true"`
+	EncryptionType EncryptionType `json:"kinesis:StreamDescription:EncryptionType" type:"string" enum:"true"`
 
 	// Represents the current enhanced monitoring settings of the stream.
 	//
 	// EnhancedMonitoring is a required field
-	EnhancedMonitoring []EnhancedMetrics `type:"list" required:"true"`
+	EnhancedMonitoring []EnhancedMetrics `json:"kinesis:StreamDescription:EnhancedMonitoring" type:"list" required:"true"`
 
 	// If set to true, more shards in the stream are available to describe.
 	//
 	// HasMoreShards is a required field
-	HasMoreShards *bool `type:"boolean" required:"true"`
+	HasMoreShards *bool `json:"kinesis:StreamDescription:HasMoreShards" type:"boolean" required:"true"`
 
 	// The GUID for the customer-managed AWS KMS key to use for encryption. This
 	// value can be a globally unique identifier, a fully specified ARN to either
@@ -370,32 +370,32 @@ type StreamDescription struct {
 	//    * Alias name example: alias/MyAliasName
 	//
 	//    * Master key owned by Kinesis Data Streams: alias/aws/kinesis
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"kinesis:StreamDescription:KeyId" min:"1" type:"string"`
 
 	// The current retention period, in hours.
 	//
 	// RetentionPeriodHours is a required field
-	RetentionPeriodHours *int64 `min:"1" type:"integer" required:"true"`
+	RetentionPeriodHours *int64 `json:"kinesis:StreamDescription:RetentionPeriodHours" min:"1" type:"integer" required:"true"`
 
 	// The shards that comprise the stream.
 	//
 	// Shards is a required field
-	Shards []Shard `type:"list" required:"true"`
+	Shards []Shard `json:"kinesis:StreamDescription:Shards" type:"list" required:"true"`
 
 	// The Amazon Resource Name (ARN) for the stream being described.
 	//
 	// StreamARN is a required field
-	StreamARN *string `min:"1" type:"string" required:"true"`
+	StreamARN *string `json:"kinesis:StreamDescription:StreamARN" min:"1" type:"string" required:"true"`
 
 	// The approximate time that the stream was created.
 	//
 	// StreamCreationTimestamp is a required field
-	StreamCreationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	StreamCreationTimestamp *time.Time `json:"kinesis:StreamDescription:StreamCreationTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the stream being described.
 	//
 	// StreamName is a required field
-	StreamName *string `min:"1" type:"string" required:"true"`
+	StreamName *string `json:"kinesis:StreamDescription:StreamName" min:"1" type:"string" required:"true"`
 
 	// The current status of the stream being described. The stream status is one
 	// of the following states:
@@ -415,7 +415,7 @@ type StreamDescription struct {
 	//    state.
 	//
 	// StreamStatus is a required field
-	StreamStatus StreamStatus `type:"string" required:"true" enum:"true"`
+	StreamStatus StreamStatus `json:"kinesis:StreamDescription:StreamStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -429,19 +429,19 @@ type StreamDescriptionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The number of enhanced fan-out consumers registered with the stream.
-	ConsumerCount *int64 `type:"integer"`
+	ConsumerCount *int64 `json:"kinesis:StreamDescriptionSummary:ConsumerCount" type:"integer"`
 
 	// The encryption type used. This value is one of the following:
 	//
 	//    * KMS
 	//
 	//    * NONE
-	EncryptionType EncryptionType `type:"string" enum:"true"`
+	EncryptionType EncryptionType `json:"kinesis:StreamDescriptionSummary:EncryptionType" type:"string" enum:"true"`
 
 	// Represents the current enhanced monitoring settings of the stream.
 	//
 	// EnhancedMonitoring is a required field
-	EnhancedMonitoring []EnhancedMetrics `type:"list" required:"true"`
+	EnhancedMonitoring []EnhancedMetrics `json:"kinesis:StreamDescriptionSummary:EnhancedMonitoring" type:"list" required:"true"`
 
 	// The GUID for the customer-managed AWS KMS key to use for encryption. This
 	// value can be a globally unique identifier, a fully specified ARN to either
@@ -457,32 +457,32 @@ type StreamDescriptionSummary struct {
 	//    * Alias name example: alias/MyAliasName
 	//
 	//    * Master key owned by Kinesis Data Streams: alias/aws/kinesis
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"kinesis:StreamDescriptionSummary:KeyId" min:"1" type:"string"`
 
 	// The number of open shards in the stream.
 	//
 	// OpenShardCount is a required field
-	OpenShardCount *int64 `type:"integer" required:"true"`
+	OpenShardCount *int64 `json:"kinesis:StreamDescriptionSummary:OpenShardCount" type:"integer" required:"true"`
 
 	// The current retention period, in hours.
 	//
 	// RetentionPeriodHours is a required field
-	RetentionPeriodHours *int64 `min:"1" type:"integer" required:"true"`
+	RetentionPeriodHours *int64 `json:"kinesis:StreamDescriptionSummary:RetentionPeriodHours" min:"1" type:"integer" required:"true"`
 
 	// The Amazon Resource Name (ARN) for the stream being described.
 	//
 	// StreamARN is a required field
-	StreamARN *string `min:"1" type:"string" required:"true"`
+	StreamARN *string `json:"kinesis:StreamDescriptionSummary:StreamARN" min:"1" type:"string" required:"true"`
 
 	// The approximate time that the stream was created.
 	//
 	// StreamCreationTimestamp is a required field
-	StreamCreationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	StreamCreationTimestamp *time.Time `json:"kinesis:StreamDescriptionSummary:StreamCreationTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the stream being described.
 	//
 	// StreamName is a required field
-	StreamName *string `min:"1" type:"string" required:"true"`
+	StreamName *string `json:"kinesis:StreamDescriptionSummary:StreamName" min:"1" type:"string" required:"true"`
 
 	// The current status of the stream being described. The stream status is one
 	// of the following states:
@@ -502,7 +502,7 @@ type StreamDescriptionSummary struct {
 	//    state.
 	//
 	// StreamStatus is a required field
-	StreamStatus StreamStatus `type:"string" required:"true" enum:"true"`
+	StreamStatus StreamStatus `json:"kinesis:StreamDescriptionSummary:StreamStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -519,12 +519,12 @@ type Tag struct {
 	// Unicode letters, digits, white space, _ . / = + - % @
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"kinesis:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// An optional string, typically used to describe or define the tag. Maximum
 	// length: 256 characters. Valid characters: Unicode letters, digits, white
 	// space, _ . / = + - % @
-	Value *string `type:"string"`
+	Value *string `json:"kinesis:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

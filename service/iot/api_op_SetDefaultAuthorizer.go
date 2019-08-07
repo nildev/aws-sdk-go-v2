@@ -57,10 +57,10 @@ type SetDefaultAuthorizerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The authorizer ARN.
-	AuthorizerArn *string `locationName:"authorizerArn" type:"string"`
+	AuthorizerArn *string `json:"iot:SetDefaultAuthorizerOutput:AuthorizerArn" locationName:"authorizerArn" type:"string"`
 
 	// The authorizer name.
-	AuthorizerName *string `locationName:"authorizerName" min:"1" type:"string"`
+	AuthorizerName *string `json:"iot:SetDefaultAuthorizerOutput:AuthorizerName" locationName:"authorizerName" min:"1" type:"string"`
 }
 
 // String returns the string representation

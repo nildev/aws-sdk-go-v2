@@ -58,10 +58,10 @@ type GetRecordsOutput struct {
 	// The next position in the shard from which to start sequentially reading stream
 	// records. If set to null, the shard has been closed and the requested iterator
 	// will not return any more data.
-	NextShardIterator *string `min:"1" type:"string"`
+	NextShardIterator *string `json:"streams.dynamodb:GetRecordsOutput:NextShardIterator" min:"1" type:"string"`
 
 	// The stream records from the shard, which were retrieved using the shard iterator.
-	Records []Record `type:"list"`
+	Records []Record `json:"streams.dynamodb:GetRecordsOutput:Records" type:"list"`
 }
 
 // String returns the string representation

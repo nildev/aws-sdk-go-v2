@@ -67,10 +67,10 @@ type GetTablesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A continuation token, present if the current list segment is not the last.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetTablesOutput:NextToken" type:"string"`
 
 	// A list of the requested Table objects.
-	TableList []Table `type:"list"`
+	TableList []Table `json:"glue:GetTablesOutput:TableList" type:"list"`
 }
 
 // String returns the string representation

@@ -121,7 +121,7 @@ type CreateQueueOutput struct {
 	// account for running multiple transcoding jobs at the same time. If you don't
 	// specify a queue, the service sends all jobs through the default queue. For
 	// more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-	Queue *Queue `locationName:"queue" type:"structure"`
+	Queue *Queue `json:"mediaconvert:CreateQueueOutput:Queue" locationName:"queue" type:"structure"`
 }
 
 // String returns the string representation

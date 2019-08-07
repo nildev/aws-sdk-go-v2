@@ -104,13 +104,13 @@ type ListFleetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of fleet details meeting the request criteria.
-	FleetDetails []Fleet `locationName:"fleetDetails" type:"list"`
+	FleetDetails []Fleet `json:"robomaker:ListFleetsOutput:FleetDetails" locationName:"fleetDetails" type:"list"`
 
 	// The nextToken value to include in a future ListDeploymentJobs request. When
 	// the results of a ListFleets request exceed maxResults, this value can be
 	// used to retrieve the next page of results. This value is null when there
 	// are no more results to return.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"robomaker:ListFleetsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

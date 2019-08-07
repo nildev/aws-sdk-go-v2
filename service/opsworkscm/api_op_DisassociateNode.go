@@ -65,7 +65,7 @@ type DisassociateNodeOutput struct {
 
 	// Contains a token which can be passed to the DescribeNodeAssociationStatus
 	// API call to get the status of the disassociation request.
-	NodeAssociationStatusToken *string `type:"string"`
+	NodeAssociationStatusToken *string `json:"opsworks-cm:DisassociateNodeOutput:NodeAssociationStatusToken" type:"string"`
 }
 
 // String returns the string representation

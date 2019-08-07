@@ -79,10 +79,10 @@ type ListThingsInBillingGroupOutput struct {
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListThingsInBillingGroupOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of things in the billing group.
-	Things []string `locationName:"things" type:"list"`
+	Things []string `json:"iot:ListThingsInBillingGroupOutput:Things" locationName:"things" type:"list"`
 }
 
 // String returns the string representation

@@ -45,7 +45,7 @@ type GetOnPremisesInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the on-premises instance.
-	InstanceInfo *InstanceInfo `locationName:"instanceInfo" type:"structure"`
+	InstanceInfo *InstanceInfo `json:"codedeploy:GetOnPremisesInstanceOutput:InstanceInfo" locationName:"instanceInfo" type:"structure"`
 }
 
 // String returns the string representation

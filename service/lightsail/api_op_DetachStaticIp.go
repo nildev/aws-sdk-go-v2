@@ -44,7 +44,7 @@ type DetachStaticIpOutput struct {
 
 	// An array of key-value pairs containing information about the results of your
 	// detach static IP request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:DetachStaticIpOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

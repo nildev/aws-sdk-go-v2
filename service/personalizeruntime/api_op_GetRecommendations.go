@@ -88,7 +88,7 @@ type GetRecommendationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of recommendations.
-	ItemList []PredictedItem `locationName:"itemList" type:"list"`
+	ItemList []PredictedItem `json:"personalize-runtime:GetRecommendationsOutput:ItemList" locationName:"itemList" type:"list"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type UpdateAssociationStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the association.
-	AssociationDescription *AssociationDescription `type:"structure"`
+	AssociationDescription *AssociationDescription `json:"ssm:UpdateAssociationStatusOutput:AssociationDescription" type:"structure"`
 }
 
 // String returns the string representation

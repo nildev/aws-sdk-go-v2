@@ -164,7 +164,7 @@ type CreateIPSetOutput struct {
 	// The ID of the IPSet resource.
 	//
 	// IpSetId is a required field
-	IpSetId *string `locationName:"ipSetId" type:"string" required:"true"`
+	IpSetId *string `json:"guardduty:CreateIPSetOutput:IpSetId" locationName:"ipSetId" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -62,14 +62,14 @@ type ListVocabulariesOutput struct {
 	// are more jobs in the list than the page size, Amazon Transcribe returns the
 	// NextPage token. Include the token in the next request to the ListVocabularies
 	// operation to return in the next page of jobs.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"transcribe:ListVocabulariesOutput:NextToken" type:"string"`
 
 	// The requested vocabulary state.
-	Status TranscriptionJobStatus `type:"string" enum:"true"`
+	Status TranscriptionJobStatus `json:"transcribe:ListVocabulariesOutput:Status" type:"string" enum:"true"`
 
 	// A list of objects that describe the vocabularies that match the search criteria
 	// in the request.
-	Vocabularies []VocabularyInfo `type:"list"`
+	Vocabularies []VocabularyInfo `json:"transcribe:ListVocabulariesOutput:Vocabularies" type:"list"`
 }
 
 // String returns the string representation

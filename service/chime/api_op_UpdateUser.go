@@ -81,7 +81,7 @@ type UpdateUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated user details.
-	User *User `type:"structure"`
+	User *User `json:"chime:UpdateUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

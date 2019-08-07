@@ -49,7 +49,7 @@ type UpdateSubnetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The subnet group that has been modified.
-	SubnetGroup *SubnetGroup `type:"structure"`
+	SubnetGroup *SubnetGroup `json:"dax:UpdateSubnetGroupOutput:SubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

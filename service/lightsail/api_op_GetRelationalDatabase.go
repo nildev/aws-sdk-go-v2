@@ -43,7 +43,7 @@ type GetRelationalDatabaseOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object describing the specified database.
-	RelationalDatabase *RelationalDatabase `locationName:"relationalDatabase" type:"structure"`
+	RelationalDatabase *RelationalDatabase `json:"lightsail:GetRelationalDatabaseOutput:RelationalDatabase" locationName:"relationalDatabase" type:"structure"`
 }
 
 // String returns the string representation

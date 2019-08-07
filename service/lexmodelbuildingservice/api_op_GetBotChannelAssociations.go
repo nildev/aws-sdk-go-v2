@@ -120,13 +120,13 @@ type GetBotChannelAssociationsOutput struct {
 
 	// An array of objects, one for each association, that provides information
 	// about the Amazon Lex bot and its association with the channel.
-	BotChannelAssociations []BotChannelAssociation `locationName:"botChannelAssociations" type:"list"`
+	BotChannelAssociations []BotChannelAssociation `json:"models.lex:GetBotChannelAssociationsOutput:BotChannelAssociations" locationName:"botChannelAssociations" type:"list"`
 
 	// A pagination token that fetches the next page of associations. If the response
 	// to this call is truncated, Amazon Lex returns a pagination token in the response.
 	// To fetch the next page of associations, specify the pagination token in the
 	// next request.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetBotChannelAssociationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

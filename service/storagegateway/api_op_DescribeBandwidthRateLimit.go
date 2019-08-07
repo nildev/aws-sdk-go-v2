@@ -50,15 +50,15 @@ type DescribeBandwidthRateLimitOutput struct {
 
 	// The average download bandwidth rate limit in bits per second. This field
 	// does not appear in the response if the download rate limit is not set.
-	AverageDownloadRateLimitInBitsPerSec *int64 `min:"102400" type:"long"`
+	AverageDownloadRateLimitInBitsPerSec *int64 `json:"storagegateway:DescribeBandwidthRateLimitOutput:AverageDownloadRateLimitInBitsPerSec" min:"102400" type:"long"`
 
 	// The average upload bandwidth rate limit in bits per second. This field does
 	// not appear in the response if the upload rate limit is not set.
-	AverageUploadRateLimitInBitsPerSec *int64 `min:"51200" type:"long"`
+	AverageUploadRateLimitInBitsPerSec *int64 `json:"storagegateway:DescribeBandwidthRateLimitOutput:AverageUploadRateLimitInBitsPerSec" min:"51200" type:"long"`
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:DescribeBandwidthRateLimitOutput:GatewayARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

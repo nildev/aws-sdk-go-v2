@@ -56,10 +56,10 @@ type GetConnectivityInfoOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Connectivity info list.
-	ConnectivityInfo []ConnectivityInfo `type:"list"`
+	ConnectivityInfo []ConnectivityInfo `json:"greengrass:GetConnectivityInfoOutput:ConnectivityInfo" type:"list"`
 
 	// A message about the connectivity info request.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"greengrass:GetConnectivityInfoOutput:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation

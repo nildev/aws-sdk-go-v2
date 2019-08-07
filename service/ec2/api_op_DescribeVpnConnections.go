@@ -77,7 +77,7 @@ type DescribeVpnConnectionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about one or more VPN connections.
-	VpnConnections []VpnConnection `locationName:"vpnConnectionSet" locationNameList:"item" type:"list"`
+	VpnConnections []VpnConnection `json:"ec2:DescribeVpnConnectionsOutput:VpnConnections" locationName:"vpnConnectionSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

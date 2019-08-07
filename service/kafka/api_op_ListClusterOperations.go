@@ -76,12 +76,12 @@ type ListClusterOperationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of cluster operation information objects.
-	ClusterOperationInfoList []ClusterOperationInfo `locationName:"clusterOperationInfoList" type:"list"`
+	ClusterOperationInfoList []ClusterOperationInfo `json:"kafka:ListClusterOperationsOutput:ClusterOperationInfoList" locationName:"clusterOperationInfoList" type:"list"`
 
 	// If the response of ListClusterOperations is truncated, it returns a NextToken
 	// in the response. This Nexttoken should be sent in the subsequent request
 	// to ListClusterOperations.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"kafka:ListClusterOperationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

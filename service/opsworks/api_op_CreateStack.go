@@ -286,7 +286,7 @@ type CreateStackOutput struct {
 
 	// The stack ID, which is an opaque string that you use to identify the stack
 	// when performing actions such as DescribeStacks.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:CreateStackOutput:StackId" type:"string"`
 }
 
 // String returns the string representation

@@ -47,7 +47,7 @@ type DescribeTrustedAdvisorCheckSummariesOutput struct {
 	// The summary information for the requested Trusted Advisor checks.
 	//
 	// Summaries is a required field
-	Summaries []TrustedAdvisorCheckSummary `locationName:"summaries" type:"list" required:"true"`
+	Summaries []TrustedAdvisorCheckSummary `json:"support:DescribeTrustedAdvisorCheckSummariesOutput:Summaries" locationName:"summaries" type:"list" required:"true"`
 }
 
 // String returns the string representation

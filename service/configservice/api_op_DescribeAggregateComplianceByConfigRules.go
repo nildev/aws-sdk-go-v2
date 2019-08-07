@@ -62,11 +62,11 @@ type DescribeAggregateComplianceByConfigRulesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a list of AggregateComplianceByConfigRule object.
-	AggregateComplianceByConfigRules []AggregateComplianceByConfigRule `type:"list"`
+	AggregateComplianceByConfigRules []AggregateComplianceByConfigRule `json:"config:DescribeAggregateComplianceByConfigRulesOutput:AggregateComplianceByConfigRules" type:"list"`
 
 	// The nextToken string returned on a previous page that you use to get the
 	// next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:DescribeAggregateComplianceByConfigRulesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -106,11 +106,11 @@ type ListFindingsOutput struct {
 	// The IDs of the findings you are listing.
 	//
 	// FindingIds is a required field
-	FindingIds []string `locationName:"findingIds" type:"list" required:"true"`
+	FindingIds []string `json:"guardduty:ListFindingsOutput:FindingIds" locationName:"findingIds" type:"list" required:"true"`
 
 	// Pagination parameter to be used on the next list operation to retrieve more
 	// items.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"guardduty:ListFindingsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

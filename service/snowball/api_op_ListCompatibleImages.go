@@ -46,11 +46,11 @@ type ListCompatibleImagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A JSON-formatted object that describes a compatible AMI.
-	CompatibleImages []CompatibleImage `type:"list"`
+	CompatibleImages []CompatibleImage `json:"snowball:ListCompatibleImagesOutput:CompatibleImages" type:"list"`
 
 	// Because HTTP requests are stateless, this is the starting point for your
 	// next list of returned images.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"snowball:ListCompatibleImagesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

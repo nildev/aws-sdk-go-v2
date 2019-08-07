@@ -53,7 +53,7 @@ type RegisterEcsClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The cluster's ARN.
-	EcsClusterArn *string `type:"string"`
+	EcsClusterArn *string `json:"opsworks:RegisterEcsClusterOutput:EcsClusterArn" type:"string"`
 }
 
 // String returns the string representation

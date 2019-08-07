@@ -47,10 +47,10 @@ type ListNamedQueriesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of unique query IDs.
-	NamedQueryIds []string `min:"1" type:"list"`
+	NamedQueryIds []string `json:"athena:ListNamedQueriesOutput:NamedQueryIds" min:"1" type:"list"`
 
 	// A token to be used by the next request if this request is truncated.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"athena:ListNamedQueriesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

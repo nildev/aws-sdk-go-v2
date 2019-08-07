@@ -104,23 +104,23 @@ type StartImportOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A timestamp for the date and time that the import job was requested.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:StartImportOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier for the specific import job.
-	ImportId *string `locationName:"importId" type:"string"`
+	ImportId *string `json:"models.lex:StartImportOutput:ImportId" locationName:"importId" type:"string"`
 
 	// The status of the import job. If the status is FAILED, you can get the reason
 	// for the failure using the GetImport operation.
-	ImportStatus ImportStatus `locationName:"importStatus" type:"string" enum:"true"`
+	ImportStatus ImportStatus `json:"models.lex:StartImportOutput:ImportStatus" locationName:"importStatus" type:"string" enum:"true"`
 
 	// The action to take when there is a merge conflict.
-	MergeStrategy MergeStrategy `locationName:"mergeStrategy" type:"string" enum:"true"`
+	MergeStrategy MergeStrategy `json:"models.lex:StartImportOutput:MergeStrategy" locationName:"mergeStrategy" type:"string" enum:"true"`
 
 	// The name given to the import job.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:StartImportOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The type of resource to import.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"models.lex:StartImportOutput:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

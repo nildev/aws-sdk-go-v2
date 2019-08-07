@@ -91,13 +91,13 @@ type AssociateTargetsWithJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A short text description of the job.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:AssociateTargetsWithJobOutput:Description" locationName:"description" type:"string"`
 
 	// An ARN identifying the job.
-	JobArn *string `locationName:"jobArn" type:"string"`
+	JobArn *string `json:"iot:AssociateTargetsWithJobOutput:JobArn" locationName:"jobArn" type:"string"`
 
 	// The unique identifier you assigned to this job when it was created.
-	JobId *string `locationName:"jobId" min:"1" type:"string"`
+	JobId *string `json:"iot:AssociateTargetsWithJobOutput:JobId" locationName:"jobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

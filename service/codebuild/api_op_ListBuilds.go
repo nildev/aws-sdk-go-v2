@@ -39,13 +39,13 @@ type ListBuildsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of build IDs, with each build ID representing a single build.
-	Ids []string `locationName:"ids" min:"1" type:"list"`
+	Ids []string `json:"codebuild:ListBuildsOutput:Ids" locationName:"ids" min:"1" type:"list"`
 
 	// If there are more than 100 items in the list, only the first 100 items are
 	// returned, along with a unique string called a next token. To get the next
 	// batch of items in the list, call this operation again, adding the next token
 	// to the call.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codebuild:ListBuildsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

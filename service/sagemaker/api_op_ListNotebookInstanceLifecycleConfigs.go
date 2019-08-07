@@ -73,11 +73,11 @@ type ListNotebookInstanceLifecycleConfigsOutput struct {
 
 	// If the response is truncated, Amazon SageMaker returns this token. To get
 	// the next set of lifecycle configurations, use it in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListNotebookInstanceLifecycleConfigsOutput:NextToken" type:"string"`
 
 	// An array of NotebookInstanceLifecycleConfiguration objects, each listing
 	// a lifecycle configuration.
-	NotebookInstanceLifecycleConfigs []NotebookInstanceLifecycleConfigSummary `type:"list"`
+	NotebookInstanceLifecycleConfigs []NotebookInstanceLifecycleConfigSummary `json:"api.sagemaker:ListNotebookInstanceLifecycleConfigsOutput:NotebookInstanceLifecycleConfigs" type:"list"`
 }
 
 // String returns the string representation

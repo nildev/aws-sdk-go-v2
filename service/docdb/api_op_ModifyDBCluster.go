@@ -156,7 +156,7 @@ type ModifyDBClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB cluster.
-	DBCluster *DBCluster `type:"structure"`
+	DBCluster *DBCluster `json:"rds:ModifyDBClusterOutput:DBCluster" type:"structure"`
 }
 
 // String returns the string representation

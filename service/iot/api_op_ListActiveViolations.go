@@ -85,11 +85,11 @@ type ListActiveViolationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of active violations.
-	ActiveViolations []ActiveViolation `locationName:"activeViolations" type:"list"`
+	ActiveViolations []ActiveViolation `json:"iot:ListActiveViolationsOutput:ActiveViolations" locationName:"activeViolations" type:"list"`
 
 	// A token that can be used to retrieve the next set of results, or null if
 	// there are no additional results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListActiveViolationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

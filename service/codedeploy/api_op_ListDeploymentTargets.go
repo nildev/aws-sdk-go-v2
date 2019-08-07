@@ -42,10 +42,10 @@ type ListDeploymentTargetsOutput struct {
 	// If a large amount of information is returned, a token identifier is also
 	// returned. It can be used in a subsequent ListDeploymentTargets call to return
 	// the next set of deployment targets in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListDeploymentTargetsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The unique IDs of deployment targets.
-	TargetIds []string `locationName:"targetIds" type:"list"`
+	TargetIds []string `json:"codedeploy:ListDeploymentTargetsOutput:TargetIds" locationName:"targetIds" type:"list"`
 }
 
 // String returns the string representation

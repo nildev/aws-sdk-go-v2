@@ -82,10 +82,10 @@ type ListTasksOutput struct {
 	// of a ListTasks request exceed maxResults, this value can be used to retrieve
 	// the next page of results. This value is null when there are no more results
 	// to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ecs:ListTasksOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of task ARN entries for the ListTasks request.
-	TaskArns []string `locationName:"taskArns" type:"list"`
+	TaskArns []string `json:"ecs:ListTasksOutput:TaskArns" locationName:"taskArns" type:"list"`
 }
 
 // String returns the string representation

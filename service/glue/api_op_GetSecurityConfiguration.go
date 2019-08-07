@@ -46,7 +46,7 @@ type GetSecurityConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested security configuration.
-	SecurityConfiguration *SecurityConfiguration `type:"structure"`
+	SecurityConfiguration *SecurityConfiguration `json:"glue:GetSecurityConfigurationOutput:SecurityConfiguration" type:"structure"`
 }
 
 // String returns the string representation

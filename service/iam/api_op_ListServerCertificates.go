@@ -78,16 +78,16 @@ type ListServerCertificatesOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListServerCertificatesOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListServerCertificatesOutput:Marker" type:"string"`
 
 	// A list of server certificates.
 	//
 	// ServerCertificateMetadataList is a required field
-	ServerCertificateMetadataList []ServerCertificateMetadata `type:"list" required:"true"`
+	ServerCertificateMetadataList []ServerCertificateMetadata `json:"iam:ListServerCertificatesOutput:ServerCertificateMetadataList" type:"list" required:"true"`
 }
 
 // String returns the string representation

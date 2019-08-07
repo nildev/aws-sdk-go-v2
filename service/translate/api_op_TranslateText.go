@@ -82,22 +82,22 @@ type TranslateTextOutput struct {
 
 	// The names of the custom terminologies applied to the input text by Amazon
 	// Translate for the translated text response.
-	AppliedTerminologies []AppliedTerminology `type:"list"`
+	AppliedTerminologies []AppliedTerminology `json:"translate:TranslateTextOutput:AppliedTerminologies" type:"list"`
 
 	// The language code for the language of the source text.
 	//
 	// SourceLanguageCode is a required field
-	SourceLanguageCode *string `min:"2" type:"string" required:"true"`
+	SourceLanguageCode *string `json:"translate:TranslateTextOutput:SourceLanguageCode" min:"2" type:"string" required:"true"`
 
 	// The language code for the language of the target text.
 	//
 	// TargetLanguageCode is a required field
-	TargetLanguageCode *string `min:"2" type:"string" required:"true"`
+	TargetLanguageCode *string `json:"translate:TranslateTextOutput:TargetLanguageCode" min:"2" type:"string" required:"true"`
 
 	// The the translated text. The maximum length of this text is 5kb.
 	//
 	// TranslatedText is a required field
-	TranslatedText *string `type:"string" required:"true"`
+	TranslatedText *string `json:"translate:TranslateTextOutput:TranslatedText" type:"string" required:"true"`
 }
 
 // String returns the string representation

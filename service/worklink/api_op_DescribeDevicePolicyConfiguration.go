@@ -61,7 +61,7 @@ type DescribeDevicePolicyConfigurationOutput struct {
 
 	// The certificate chain, including intermediate certificates and the root certificate
 	// authority certificate used to issue device certificates.
-	DeviceCaCertificate *string `min:"1" type:"string"`
+	DeviceCaCertificate *string `json:"worklink:DescribeDevicePolicyConfigurationOutput:DeviceCaCertificate" min:"1" type:"string"`
 }
 
 // String returns the string representation

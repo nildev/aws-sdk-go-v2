@@ -71,10 +71,10 @@ type ListMailboxPermissionsOutput struct {
 
 	// The token to use to retrieve the next page of results. The value is "null"
 	// when there are no more results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workmail:ListMailboxPermissionsOutput:NextToken" min:"1" type:"string"`
 
 	// One page of the user, group, or resource mailbox permissions.
-	Permissions []Permission `type:"list"`
+	Permissions []Permission `json:"workmail:ListMailboxPermissionsOutput:Permissions" type:"list"`
 }
 
 // String returns the string representation

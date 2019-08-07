@@ -41,10 +41,10 @@ type ListRepositoriesOutput struct {
 	// operation. Batch sizes are 1,000 for list repository operations. When the
 	// client sends the token back to AWS CodeCommit, another page of 1,000 records
 	// is retrieved.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:ListRepositoriesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Lists the repositories called by the list repositories operation.
-	Repositories []RepositoryNameIdPair `locationName:"repositories" type:"list"`
+	Repositories []RepositoryNameIdPair `json:"codecommit:ListRepositoriesOutput:Repositories" locationName:"repositories" type:"list"`
 }
 
 // String returns the string representation

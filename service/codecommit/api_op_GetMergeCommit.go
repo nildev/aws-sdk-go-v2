@@ -80,19 +80,19 @@ type GetMergeCommitOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The commit ID of the merge base.
-	BaseCommitId *string `locationName:"baseCommitId" type:"string"`
+	BaseCommitId *string `json:"codecommit:GetMergeCommitOutput:BaseCommitId" locationName:"baseCommitId" type:"string"`
 
 	// The commit ID of the destination commit specifier that was used in the merge
 	// evaluation.
-	DestinationCommitId *string `locationName:"destinationCommitId" type:"string"`
+	DestinationCommitId *string `json:"codecommit:GetMergeCommitOutput:DestinationCommitId" locationName:"destinationCommitId" type:"string"`
 
 	// The commit ID for the merge commit created when the source branch was merged
 	// into the destination branch. If the fast-forward merge strategy was used,
 	// no merge commit exists.
-	MergedCommitId *string `locationName:"mergedCommitId" type:"string"`
+	MergedCommitId *string `json:"codecommit:GetMergeCommitOutput:MergedCommitId" locationName:"mergedCommitId" type:"string"`
 
 	// The commit ID of the source commit specifier that was used in the merge evaluation.
-	SourceCommitId *string `locationName:"sourceCommitId" type:"string"`
+	SourceCommitId *string `json:"codecommit:GetMergeCommitOutput:SourceCommitId" locationName:"sourceCommitId" type:"string"`
 }
 
 // String returns the string representation

@@ -120,40 +120,40 @@ func (s ListObjectVersionsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListObjectVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	CommonPrefixes []CommonPrefix `type:"list" flattened:"true"`
+	CommonPrefixes []CommonPrefix `json:"s3:ListObjectVersionsOutput:CommonPrefixes" type:"list" flattened:"true"`
 
-	DeleteMarkers []DeleteMarkerEntry `locationName:"DeleteMarker" type:"list" flattened:"true"`
+	DeleteMarkers []DeleteMarkerEntry `json:"s3:ListObjectVersionsOutput:DeleteMarkers" locationName:"DeleteMarker" type:"list" flattened:"true"`
 
-	Delimiter *string `type:"string"`
+	Delimiter *string `json:"s3:ListObjectVersionsOutput:Delimiter" type:"string"`
 
 	// Encoding type used by Amazon S3 to encode object keys in the response.
-	EncodingType EncodingType `type:"string" enum:"true"`
+	EncodingType EncodingType `json:"s3:ListObjectVersionsOutput:EncodingType" type:"string" enum:"true"`
 
 	// A flag that indicates whether or not Amazon S3 returned all of the results
 	// that satisfied the search criteria. If your results were truncated, you can
 	// make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker
 	// response parameters as a starting place in another request to return the
 	// rest of the results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"s3:ListObjectVersionsOutput:IsTruncated" type:"boolean"`
 
 	// Marks the last Key returned in a truncated response.
-	KeyMarker *string `type:"string"`
+	KeyMarker *string `json:"s3:ListObjectVersionsOutput:KeyMarker" type:"string"`
 
-	MaxKeys *int64 `type:"integer"`
+	MaxKeys *int64 `json:"s3:ListObjectVersionsOutput:MaxKeys" type:"integer"`
 
-	Name *string `type:"string"`
+	Name *string `json:"s3:ListObjectVersionsOutput:Name" type:"string"`
 
 	// Use this value for the key marker request parameter in a subsequent request.
-	NextKeyMarker *string `type:"string"`
+	NextKeyMarker *string `json:"s3:ListObjectVersionsOutput:NextKeyMarker" type:"string"`
 
 	// Use this value for the next version id marker parameter in a subsequent request.
-	NextVersionIdMarker *string `type:"string"`
+	NextVersionIdMarker *string `json:"s3:ListObjectVersionsOutput:NextVersionIdMarker" type:"string"`
 
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:ListObjectVersionsOutput:Prefix" type:"string"`
 
-	VersionIdMarker *string `type:"string"`
+	VersionIdMarker *string `json:"s3:ListObjectVersionsOutput:VersionIdMarker" type:"string"`
 
-	Versions []ObjectVersion `locationName:"Version" type:"list" flattened:"true"`
+	Versions []ObjectVersion `json:"s3:ListObjectVersionsOutput:Versions" locationName:"Version" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

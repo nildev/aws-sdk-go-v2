@@ -45,7 +45,7 @@ type GetPullRequestOutput struct {
 	// Information about the specified pull request.
 	//
 	// PullRequest is a required field
-	PullRequest *PullRequest `locationName:"pullRequest" type:"structure" required:"true"`
+	PullRequest *PullRequest `json:"codecommit:GetPullRequestOutput:PullRequest" locationName:"pullRequest" type:"structure" required:"true"`
 }
 
 // String returns the string representation

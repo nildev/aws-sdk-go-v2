@@ -92,7 +92,7 @@ type CreateNamedQueryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of the query.
-	NamedQueryId *string `type:"string"`
+	NamedQueryId *string `json:"athena:CreateNamedQueryOutput:NamedQueryId" type:"string"`
 }
 
 // String returns the string representation

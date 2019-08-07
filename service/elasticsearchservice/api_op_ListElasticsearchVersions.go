@@ -58,12 +58,12 @@ type ListElasticsearchVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of supported elastic search versions.
-	ElasticsearchVersions []string `type:"list"`
+	ElasticsearchVersions []string `json:"es:ListElasticsearchVersionsOutput:ElasticsearchVersions" type:"list"`
 
 	// Paginated APIs accepts NextToken input to returns next page results and provides
 	// a NextToken output in the response which can be used by the client to retrieve
 	// more results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"es:ListElasticsearchVersionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

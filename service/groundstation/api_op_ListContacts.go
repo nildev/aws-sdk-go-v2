@@ -140,11 +140,11 @@ type ListContactsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of contacts.
-	ContactList []ContactData `locationName:"contactList" type:"list"`
+	ContactList []ContactData `json:"groundstation:ListContactsOutput:ContactList" locationName:"contactList" type:"list"`
 
 	// Next token returned in the response of a previous ListContacts call. Used
 	// to get the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"groundstation:ListContactsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

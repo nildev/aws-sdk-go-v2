@@ -29,7 +29,7 @@ type DescribeDeliveryChannelStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list that contains the status of a specified delivery channel.
-	DeliveryChannelsStatus []DeliveryChannelStatus `type:"list"`
+	DeliveryChannelsStatus []DeliveryChannelStatus `json:"config:DescribeDeliveryChannelStatusOutput:DeliveryChannelsStatus" type:"list"`
 }
 
 // String returns the string representation

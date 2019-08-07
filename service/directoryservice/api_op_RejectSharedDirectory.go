@@ -44,7 +44,7 @@ type RejectSharedDirectoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Identifier of the shared directory in the directory consumer account.
-	SharedDirectoryId *string `type:"string"`
+	SharedDirectoryId *string `json:"ds:RejectSharedDirectoryOutput:SharedDirectoryId" type:"string"`
 }
 
 // String returns the string representation

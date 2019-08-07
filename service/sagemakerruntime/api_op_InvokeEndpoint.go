@@ -108,15 +108,15 @@ type InvokeEndpointOutput struct {
 	// (http://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html).
 	//
 	// Body is a required field
-	Body []byte `type:"blob" required:"true"`
+	Body []byte `json:"runtime.sagemaker:InvokeEndpointOutput:Body" type:"blob" required:"true"`
 
 	// The MIME type of the inference returned in the response body.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"runtime.sagemaker:InvokeEndpointOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 
-	CustomAttributes *string `location:"header" locationName:"X-Amzn-SageMaker-Custom-Attributes" type:"string"`
+	CustomAttributes *string `json:"runtime.sagemaker:InvokeEndpointOutput:CustomAttributes" location:"header" locationName:"X-Amzn-SageMaker-Custom-Attributes" type:"string"`
 
 	// Identifies the production variant that was invoked.
-	InvokedProductionVariant *string `location:"header" locationName:"x-Amzn-Invoked-Production-Variant" type:"string"`
+	InvokedProductionVariant *string `json:"runtime.sagemaker:InvokeEndpointOutput:InvokedProductionVariant" location:"header" locationName:"x-Amzn-Invoked-Production-Variant" type:"string"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type GetGroupOutput struct {
 
 	// The group that was requested. Contains the name of the group, the ARN of
 	// the group, and the filter expression that assigned to the group.
-	Group *Group `type:"structure"`
+	Group *Group `json:"xray:GetGroupOutput:Group" type:"structure"`
 }
 
 // String returns the string representation

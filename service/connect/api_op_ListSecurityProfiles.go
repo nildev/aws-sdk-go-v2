@@ -88,10 +88,10 @@ type ListSecurityProfilesOutput struct {
 	// A string returned in the response. Use the value returned in the response
 	// as the value of the NextToken in a subsequent request to retrieve the next
 	// set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"connect:ListSecurityProfilesOutput:NextToken" type:"string"`
 
 	// An array of SecurityProfileSummary objects.
-	SecurityProfileSummaryList []SecurityProfileSummary `type:"list"`
+	SecurityProfileSummaryList []SecurityProfileSummary `json:"connect:ListSecurityProfilesOutput:SecurityProfileSummaryList" type:"list"`
 }
 
 // String returns the string representation

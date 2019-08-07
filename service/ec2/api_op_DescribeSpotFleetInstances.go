@@ -63,14 +63,14 @@ type DescribeSpotFleetInstancesOutput struct {
 
 	// The running instances. This list is refreshed periodically and might be out
 	// of date.
-	ActiveInstances []ActiveInstance `locationName:"activeInstanceSet" locationNameList:"item" type:"list"`
+	ActiveInstances []ActiveInstance `json:"ec2:DescribeSpotFleetInstancesOutput:ActiveInstances" locationName:"activeInstanceSet" locationNameList:"item" type:"list"`
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeSpotFleetInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The ID of the Spot Fleet request.
-	SpotFleetRequestId *string `locationName:"spotFleetRequestId" type:"string"`
+	SpotFleetRequestId *string `json:"ec2:DescribeSpotFleetInstancesOutput:SpotFleetRequestId" locationName:"spotFleetRequestId" type:"string"`
 }
 
 // String returns the string representation

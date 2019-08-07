@@ -63,7 +63,7 @@ type GetObjectLockConfigurationOutput struct {
 	_ struct{} `type:"structure" payload:"ObjectLockConfiguration"`
 
 	// The specified bucket's object lock configuration.
-	ObjectLockConfiguration *ObjectLockConfiguration `type:"structure"`
+	ObjectLockConfiguration *ObjectLockConfiguration `json:"s3:GetObjectLockConfigurationOutput:ObjectLockConfiguration" type:"structure"`
 }
 
 // String returns the string representation

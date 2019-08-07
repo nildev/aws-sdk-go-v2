@@ -97,10 +97,10 @@ type ListSigningJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of your signing jobs.
-	Jobs []SigningJob `locationName:"jobs" type:"list"`
+	Jobs []SigningJob `json:"signer:ListSigningJobsOutput:Jobs" locationName:"jobs" type:"list"`
 
 	// String for specifying the next set of paginated results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"signer:ListSigningJobsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

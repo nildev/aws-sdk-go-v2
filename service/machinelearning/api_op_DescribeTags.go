@@ -53,13 +53,13 @@ type DescribeTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the tagged ML object.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"machinelearning:DescribeTagsOutput:ResourceId" min:"1" type:"string"`
 
 	// The type of the tagged ML object.
-	ResourceType TaggableResourceType `type:"string" enum:"true"`
+	ResourceType TaggableResourceType `json:"machinelearning:DescribeTagsOutput:ResourceType" type:"string" enum:"true"`
 
 	// A list of tags associated with the ML object.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"machinelearning:DescribeTagsOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

@@ -27,7 +27,7 @@ type GetRoomOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the room requested.
-	Room *Room `type:"structure"`
+	Room *Room `json:"a4b:GetRoomOutput:Room" type:"structure"`
 }
 
 // String returns the string representation

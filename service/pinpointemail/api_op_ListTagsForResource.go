@@ -61,7 +61,7 @@ type ListTagsForResourceOutput struct {
 	// tag consists of a required tag key (Key) and an associated tag value (Value)
 	//
 	// Tags is a required field
-	Tags []Tag `type:"list" required:"true"`
+	Tags []Tag `json:"email:ListTagsForResourceOutput:Tags" type:"list" required:"true"`
 }
 
 // String returns the string representation

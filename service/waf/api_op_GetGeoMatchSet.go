@@ -49,7 +49,7 @@ type GetGeoMatchSetOutput struct {
 	// Information about the GeoMatchSet that you specified in the GetGeoMatchSet
 	// request. This includes the Type, which for a GeoMatchContraint is always
 	// Country, as well as the Value, which is the identifier for a specific country.
-	GeoMatchSet *GeoMatchSet `type:"structure"`
+	GeoMatchSet *GeoMatchSet `json:"waf:GetGeoMatchSetOutput:GeoMatchSet" type:"structure"`
 }
 
 // String returns the string representation
