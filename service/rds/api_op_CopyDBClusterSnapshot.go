@@ -153,7 +153,7 @@ type CopyDBClusterSnapshotOutput struct {
 	//
 	// This data type is used as a response element in the DescribeDBClusterSnapshots
 	// action.
-	DBClusterSnapshot *DBClusterSnapshot `type:"structure"`
+	DBClusterSnapshot *DBClusterSnapshot `json:"rds:CopyDBClusterSnapshotOutput:DBClusterSnapshot" type:"structure"`
 }
 
 // String returns the string representation

@@ -77,7 +77,7 @@ type CreateLoadBalancerTlsCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about the API operations.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:CreateLoadBalancerTlsCertificateOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

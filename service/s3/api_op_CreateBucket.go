@@ -133,7 +133,7 @@ func (s CreateBucketInput) MarshalFields(e protocol.FieldEncoder) error {
 type CreateBucketOutput struct {
 	_ struct{} `type:"structure"`
 
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"s3:CreateBucketOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

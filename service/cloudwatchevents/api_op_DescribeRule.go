@@ -53,33 +53,33 @@ type DescribeRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the rule.
-	Arn *string `min:"1" type:"string"`
+	Arn *string `json:"events:DescribeRuleOutput:Arn" min:"1" type:"string"`
 
 	// The description of the rule.
-	Description *string `type:"string"`
+	Description *string `json:"events:DescribeRuleOutput:Description" type:"string"`
 
 	// The event bus associated with the rule.
-	EventBusName *string `min:"1" type:"string"`
+	EventBusName *string `json:"events:DescribeRuleOutput:EventBusName" min:"1" type:"string"`
 
 	// The event pattern. For more information, see Event Patterns (https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html)
 	// in the Amazon EventBridge User Guide.
-	EventPattern *string `type:"string"`
+	EventPattern *string `json:"events:DescribeRuleOutput:EventPattern" type:"string"`
 
 	// If this is a managed rule, created by an AWS service on your behalf, this
 	// field displays the principal name of the AWS service that created the rule.
-	ManagedBy *string `min:"1" type:"string"`
+	ManagedBy *string `json:"events:DescribeRuleOutput:ManagedBy" min:"1" type:"string"`
 
 	// The name of the rule.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"events:DescribeRuleOutput:Name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role associated with the rule.
-	RoleArn *string `min:"1" type:"string"`
+	RoleArn *string `json:"events:DescribeRuleOutput:RoleArn" min:"1" type:"string"`
 
 	// The scheduling expression: for example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
-	ScheduleExpression *string `type:"string"`
+	ScheduleExpression *string `json:"events:DescribeRuleOutput:ScheduleExpression" type:"string"`
 
 	// Specifies whether the rule is enabled or disabled.
-	State RuleState `type:"string" enum:"true"`
+	State RuleState `json:"events:DescribeRuleOutput:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation

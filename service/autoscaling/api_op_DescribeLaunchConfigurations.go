@@ -38,13 +38,13 @@ type DescribeLaunchConfigurationsOutput struct {
 	// The launch configurations.
 	//
 	// LaunchConfigurations is a required field
-	LaunchConfigurations []LaunchConfiguration `type:"list" required:"true"`
+	LaunchConfigurations []LaunchConfiguration `json:"autoscaling:DescribeLaunchConfigurationsOutput:LaunchConfigurations" type:"list" required:"true"`
 
 	// A string that indicates that the response contains more items than can be
 	// returned in a single response. To receive additional items, specify this
 	// string for the NextToken value when requesting the next set of items. This
 	// value is null when there are no more items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeLaunchConfigurationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

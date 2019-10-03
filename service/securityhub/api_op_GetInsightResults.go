@@ -59,7 +59,7 @@ type GetInsightResultsOutput struct {
 	// The insight results returned by the operation.
 	//
 	// InsightResults is a required field
-	InsightResults *InsightResults `type:"structure" required:"true"`
+	InsightResults *InsightResults `json:"securityhub:GetInsightResultsOutput:InsightResults" type:"structure" required:"true"`
 }
 
 // String returns the string representation

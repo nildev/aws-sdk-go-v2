@@ -51,7 +51,7 @@ type PutLoggingConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The LoggingConfiguration that you submitted in the request.
-	LoggingConfiguration *waf.LoggingConfiguration `type:"structure"`
+	LoggingConfiguration *waf.LoggingConfiguration `json:"waf-regional:PutLoggingConfigurationOutput:LoggingConfiguration" type:"structure"`
 }
 
 // String returns the string representation

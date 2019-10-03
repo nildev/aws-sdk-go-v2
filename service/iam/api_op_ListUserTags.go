@@ -79,18 +79,18 @@ type ListUserTagsOutput struct {
 	// fewer than the MaxItems number of results even when more results are available.
 	// Check IsTruncated after every call to ensure that you receive all of your
 	// results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListUserTagsOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListUserTagsOutput:Marker" type:"string"`
 
 	// The list of tags that are currently attached to the user. Each tag consists
 	// of a key name and an associated value. If no tags are attached to the specified
 	// user, the response contains an empty list.
 	//
 	// Tags is a required field
-	Tags []Tag `type:"list" required:"true"`
+	Tags []Tag `json:"iam:ListUserTagsOutput:Tags" type:"list" required:"true"`
 }
 
 // String returns the string representation

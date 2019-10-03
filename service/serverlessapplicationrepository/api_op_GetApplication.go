@@ -62,28 +62,28 @@ func (s GetApplicationInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
-	ApplicationId *string `locationName:"applicationId" type:"string"`
+	ApplicationId *string `json:"serverlessrepo:GetApplicationOutput:ApplicationId" locationName:"applicationId" type:"string"`
 
-	Author *string `locationName:"author" type:"string"`
+	Author *string `json:"serverlessrepo:GetApplicationOutput:Author" locationName:"author" type:"string"`
 
-	CreationTime *string `locationName:"creationTime" type:"string"`
+	CreationTime *string `json:"serverlessrepo:GetApplicationOutput:CreationTime" locationName:"creationTime" type:"string"`
 
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"serverlessrepo:GetApplicationOutput:Description" locationName:"description" type:"string"`
 
-	HomePageUrl *string `locationName:"homePageUrl" type:"string"`
+	HomePageUrl *string `json:"serverlessrepo:GetApplicationOutput:HomePageUrl" locationName:"homePageUrl" type:"string"`
 
-	Labels []string `locationName:"labels" type:"list"`
+	Labels []string `json:"serverlessrepo:GetApplicationOutput:Labels" locationName:"labels" type:"list"`
 
-	LicenseUrl *string `locationName:"licenseUrl" type:"string"`
+	LicenseUrl *string `json:"serverlessrepo:GetApplicationOutput:LicenseUrl" locationName:"licenseUrl" type:"string"`
 
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"serverlessrepo:GetApplicationOutput:Name" locationName:"name" type:"string"`
 
-	ReadmeUrl *string `locationName:"readmeUrl" type:"string"`
+	ReadmeUrl *string `json:"serverlessrepo:GetApplicationOutput:ReadmeUrl" locationName:"readmeUrl" type:"string"`
 
-	SpdxLicenseId *string `locationName:"spdxLicenseId" type:"string"`
+	SpdxLicenseId *string `json:"serverlessrepo:GetApplicationOutput:SpdxLicenseId" locationName:"spdxLicenseId" type:"string"`
 
 	// Application version details.
-	Version *Version `locationName:"version" type:"structure"`
+	Version *Version `json:"serverlessrepo:GetApplicationOutput:Version" locationName:"version" type:"structure"`
 }
 
 // String returns the string representation

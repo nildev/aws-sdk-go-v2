@@ -92,10 +92,10 @@ type CreatePlatformVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The builder used to create the custom platform.
-	Builder *Builder `type:"structure"`
+	Builder *Builder `json:"elasticbeanstalk:CreatePlatformVersionOutput:Builder" type:"structure"`
 
 	// Detailed information about the new version of the custom platform.
-	PlatformSummary *PlatformSummary `type:"structure"`
+	PlatformSummary *PlatformSummary `json:"elasticbeanstalk:CreatePlatformVersionOutput:PlatformSummary" type:"structure"`
 }
 
 // String returns the string representation

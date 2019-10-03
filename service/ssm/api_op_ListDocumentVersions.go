@@ -55,11 +55,11 @@ type ListDocumentVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The document versions.
-	DocumentVersions []DocumentVersionInfo `min:"1" type:"list"`
+	DocumentVersions []DocumentVersionInfo `json:"ssm:ListDocumentVersionsOutput:DocumentVersions" min:"1" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListDocumentVersionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

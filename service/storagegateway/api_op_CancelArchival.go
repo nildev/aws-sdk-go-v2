@@ -63,7 +63,7 @@ type CancelArchivalOutput struct {
 
 	// The Amazon Resource Name (ARN) of the virtual tape for which archiving was
 	// canceled.
-	TapeARN *string `min:"50" type:"string"`
+	TapeARN *string `json:"storagegateway:CancelArchivalOutput:TapeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

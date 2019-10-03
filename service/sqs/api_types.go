@@ -21,20 +21,20 @@ type BatchResultErrorEntry struct {
 	// An error code representing why the action failed on this entry.
 	//
 	// Code is a required field
-	Code *string `type:"string" required:"true"`
+	Code *string `json:"sqs:BatchResultErrorEntry:Code" type:"string" required:"true"`
 
 	// The Id of an entry in a batch request.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"sqs:BatchResultErrorEntry:Id" type:"string" required:"true"`
 
 	// A message explaining why the action failed on this entry.
-	Message *string `type:"string"`
+	Message *string `json:"sqs:BatchResultErrorEntry:Message" type:"string"`
 
 	// Specifies whether the error happened due to the producer.
 	//
 	// SenderFault is a required field
-	SenderFault *bool `type:"boolean" required:"true"`
+	SenderFault *bool `json:"sqs:BatchResultErrorEntry:SenderFault" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -63,15 +63,15 @@ type ChangeMessageVisibilityBatchRequestEntry struct {
 	// The Ids of a batch request need to be unique within a request
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"sqs:ChangeMessageVisibilityBatchRequestEntry:Id" type:"string" required:"true"`
 
 	// A receipt handle.
 	//
 	// ReceiptHandle is a required field
-	ReceiptHandle *string `type:"string" required:"true"`
+	ReceiptHandle *string `json:"sqs:ChangeMessageVisibilityBatchRequestEntry:ReceiptHandle" type:"string" required:"true"`
 
 	// The new value (in seconds) for the message's visibility timeout.
-	VisibilityTimeout *int64 `type:"integer"`
+	VisibilityTimeout *int64 `json:"sqs:ChangeMessageVisibilityBatchRequestEntry:VisibilityTimeout" type:"integer"`
 }
 
 // String returns the string representation
@@ -105,7 +105,7 @@ type ChangeMessageVisibilityBatchResultEntry struct {
 	// Represents a message whose visibility timeout has been changed successfully.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"sqs:ChangeMessageVisibilityBatchResultEntry:Id" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -124,12 +124,12 @@ type DeleteMessageBatchRequestEntry struct {
 	// The Ids of a batch request need to be unique within a request
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"sqs:DeleteMessageBatchRequestEntry:Id" type:"string" required:"true"`
 
 	// A receipt handle.
 	//
 	// ReceiptHandle is a required field
-	ReceiptHandle *string `type:"string" required:"true"`
+	ReceiptHandle *string `json:"sqs:DeleteMessageBatchRequestEntry:ReceiptHandle" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,7 +163,7 @@ type DeleteMessageBatchResultEntry struct {
 	// Represents a successfully deleted message.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"sqs:DeleteMessageBatchResultEntry:Id" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -196,33 +196,33 @@ type Message struct {
 	// ApproximateFirstReceiveTimestamp and SentTimestamp are each returned as an
 	// integer representing the epoch time (http://en.wikipedia.org/wiki/Unix_time)
 	// in milliseconds.
-	Attributes map[string]string `locationName:"Attribute" locationNameKey:"Name" locationNameValue:"Value" type:"map" flattened:"true"`
+	Attributes map[string]string `json:"sqs:Message:Attributes" locationName:"Attribute" locationNameKey:"Name" locationNameValue:"Value" type:"map" flattened:"true"`
 
 	// The message's contents (not URL-encoded).
-	Body *string `type:"string"`
+	Body *string `json:"sqs:Message:Body" type:"string"`
 
 	// An MD5 digest of the non-URL-encoded message body string.
-	MD5OfBody *string `type:"string"`
+	MD5OfBody *string `json:"sqs:Message:MD5OfBody" type:"string"`
 
 	// An MD5 digest of the non-URL-encoded message attribute string. You can use
 	// this attribute to verify that Amazon SQS received the message correctly.
 	// Amazon SQS URL-decodes the message before creating the MD5 digest. For information
 	// about MD5, see RFC1321 (https://www.ietf.org/rfc/rfc1321.txt).
-	MD5OfMessageAttributes *string `type:"string"`
+	MD5OfMessageAttributes *string `json:"sqs:Message:MD5OfMessageAttributes" type:"string"`
 
 	// Each message attribute consists of a Name, Type, and Value. For more information,
 	// see Amazon SQS Message Attributes (https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html)
 	// in the Amazon Simple Queue Service Developer Guide.
-	MessageAttributes map[string]MessageAttributeValue `locationName:"MessageAttribute" locationNameKey:"Name" locationNameValue:"Value" type:"map" flattened:"true"`
+	MessageAttributes map[string]MessageAttributeValue `json:"sqs:Message:MessageAttributes" locationName:"MessageAttribute" locationNameKey:"Name" locationNameValue:"Value" type:"map" flattened:"true"`
 
 	// A unique identifier for the message. A MessageIdis considered unique across
 	// all AWS accounts for an extended period of time.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"sqs:Message:MessageId" type:"string"`
 
 	// An identifier associated with the act of receiving the message. A new receipt
 	// handle is returned every time you receive a message. When deleting a message,
 	// you provide the last received receipt handle to delete the message.
-	ReceiptHandle *string `type:"string"`
+	ReceiptHandle *string `json:"sqs:Message:ReceiptHandle" type:"string"`
 }
 
 // String returns the string representation
@@ -242,13 +242,13 @@ type MessageAttributeValue struct {
 	_ struct{} `type:"structure"`
 
 	// Not implemented. Reserved for future use.
-	BinaryListValues [][]byte `locationName:"BinaryListValue" locationNameList:"BinaryListValue" type:"list" flattened:"true"`
+	BinaryListValues [][]byte `json:"sqs:MessageAttributeValue:BinaryListValues" locationName:"BinaryListValue" locationNameList:"BinaryListValue" type:"list" flattened:"true"`
 
 	// Binary type attributes can store any binary data, such as compressed data,
 	// encrypted data, or images.
 	//
 	// BinaryValue is automatically base64 encoded/decoded by the SDK.
-	BinaryValue []byte `type:"blob"`
+	BinaryValue []byte `json:"sqs:MessageAttributeValue:BinaryValue" type:"blob"`
 
 	// Amazon SQS supports the following logical data types: String, Number, and
 	// Binary. For the Number data type, you must use StringValue.
@@ -258,14 +258,14 @@ type MessageAttributeValue struct {
 	// in the Amazon Simple Queue Service Developer Guide.
 	//
 	// DataType is a required field
-	DataType *string `type:"string" required:"true"`
+	DataType *string `json:"sqs:MessageAttributeValue:DataType" type:"string" required:"true"`
 
 	// Not implemented. Reserved for future use.
-	StringListValues []string `locationName:"StringListValue" locationNameList:"StringListValue" type:"list" flattened:"true"`
+	StringListValues []string `json:"sqs:MessageAttributeValue:StringListValues" locationName:"StringListValue" locationNameList:"StringListValue" type:"list" flattened:"true"`
 
 	// Strings are Unicode with UTF-8 binary encoding. For a list of code values,
 	// see ASCII Printable Characters (http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters).
-	StringValue *string `type:"string"`
+	StringValue *string `json:"sqs:MessageAttributeValue:StringValue" type:"string"`
 }
 
 // String returns the string representation
@@ -299,7 +299,7 @@ type SendMessageBatchRequestEntry struct {
 	//
 	// When you set FifoQueue, you can't set DelaySeconds per message. You can set
 	// this parameter only on a queue level.
-	DelaySeconds *int64 `type:"integer"`
+	DelaySeconds *int64 `json:"sqs:SendMessageBatchRequestEntry:DelaySeconds" type:"integer"`
 
 	// An identifier for a message in this batch used to communicate the result.
 	//
@@ -309,17 +309,17 @@ type SendMessageBatchRequestEntry struct {
 	// accepted: alphanumeric characters, hyphens(-), and underscores (_).
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"sqs:SendMessageBatchRequestEntry:Id" type:"string" required:"true"`
 
 	// Each message attribute consists of a Name, Type, and Value. For more information,
 	// see Amazon SQS Message Attributes (https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html)
 	// in the Amazon Simple Queue Service Developer Guide.
-	MessageAttributes map[string]MessageAttributeValue `locationName:"MessageAttribute" locationNameKey:"Name" locationNameValue:"Value" type:"map" flattened:"true"`
+	MessageAttributes map[string]MessageAttributeValue `json:"sqs:SendMessageBatchRequestEntry:MessageAttributes" locationName:"MessageAttribute" locationNameKey:"Name" locationNameValue:"Value" type:"map" flattened:"true"`
 
 	// The body of the message.
 	//
 	// MessageBody is a required field
-	MessageBody *string `type:"string" required:"true"`
+	MessageBody *string `json:"sqs:SendMessageBatchRequestEntry:MessageBody" type:"string" required:"true"`
 
 	// This parameter applies only to FIFO (first-in-first-out) queues.
 	//
@@ -363,7 +363,7 @@ type SendMessageBatchRequestEntry struct {
 	// For best practices of using MessageDeduplicationId, see Using the MessageDeduplicationId
 	// Property (https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html)
 	// in the Amazon Simple Queue Service Developer Guide.
-	MessageDeduplicationId *string `type:"string"`
+	MessageDeduplicationId *string `json:"sqs:SendMessageBatchRequestEntry:MessageDeduplicationId" type:"string"`
 
 	// This parameter applies only to FIFO (first-in-first-out) queues.
 	//
@@ -391,7 +391,7 @@ type SendMessageBatchRequestEntry struct {
 	//
 	// MessageGroupId is required for FIFO queues. You can't use it for Standard
 	// queues.
-	MessageGroupId *string `type:"string"`
+	MessageGroupId *string `json:"sqs:SendMessageBatchRequestEntry:MessageGroupId" type:"string"`
 }
 
 // String returns the string representation
@@ -432,13 +432,13 @@ type SendMessageBatchResultEntry struct {
 	// An identifier for the message in this batch.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"sqs:SendMessageBatchResultEntry:Id" type:"string" required:"true"`
 
 	// An MD5 digest of the non-URL-encoded message attribute string. You can use
 	// this attribute to verify that Amazon SQS received the message correctly.
 	// Amazon SQS URL-decodes the message before creating the MD5 digest. For information
 	// about MD5, see RFC1321 (https://www.ietf.org/rfc/rfc1321.txt).
-	MD5OfMessageAttributes *string `type:"string"`
+	MD5OfMessageAttributes *string `json:"sqs:SendMessageBatchResultEntry:MD5OfMessageAttributes" type:"string"`
 
 	// An MD5 digest of the non-URL-encoded message attribute string. You can use
 	// this attribute to verify that Amazon SQS received the message correctly.
@@ -446,12 +446,12 @@ type SendMessageBatchResultEntry struct {
 	// about MD5, see RFC1321 (https://www.ietf.org/rfc/rfc1321.txt).
 	//
 	// MD5OfMessageBody is a required field
-	MD5OfMessageBody *string `type:"string" required:"true"`
+	MD5OfMessageBody *string `json:"sqs:SendMessageBatchResultEntry:MD5OfMessageBody" type:"string" required:"true"`
 
 	// An identifier for the message.
 	//
 	// MessageId is a required field
-	MessageId *string `type:"string" required:"true"`
+	MessageId *string `json:"sqs:SendMessageBatchResultEntry:MessageId" type:"string" required:"true"`
 
 	// This parameter applies only to FIFO (first-in-first-out) queues.
 	//
@@ -459,7 +459,7 @@ type SendMessageBatchResultEntry struct {
 	//
 	// The length of SequenceNumber is 128 bits. As SequenceNumber continues to
 	// increase for a particular MessageGroupId.
-	SequenceNumber *string `type:"string"`
+	SequenceNumber *string `json:"sqs:SendMessageBatchResultEntry:SequenceNumber" type:"string"`
 }
 
 // String returns the string representation

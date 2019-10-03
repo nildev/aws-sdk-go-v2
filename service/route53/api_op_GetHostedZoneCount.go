@@ -37,7 +37,7 @@ type GetHostedZoneCountOutput struct {
 	// the current AWS account.
 	//
 	// HostedZoneCount is a required field
-	HostedZoneCount *int64 `type:"long" required:"true"`
+	HostedZoneCount *int64 `json:"route53:GetHostedZoneCountOutput:HostedZoneCount" type:"long" required:"true"`
 }
 
 // String returns the string representation

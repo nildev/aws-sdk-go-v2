@@ -65,17 +65,17 @@ type ListResolverRuleAssociationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The value that you specified for MaxResults in the request.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"route53resolver:ListResolverRuleAssociationsOutput:MaxResults" min:"1" type:"integer"`
 
 	// If more than MaxResults rule associations match the specified criteria, you
 	// can submit another ListResolverRuleAssociation request to get the next group
 	// of results. In the next request, specify the value of NextToken from the
 	// previous response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"route53resolver:ListResolverRuleAssociationsOutput:NextToken" type:"string"`
 
 	// The associations that were created between resolver rules and VPCs using
 	// the current AWS account, and that match the specified filters, if any.
-	ResolverRuleAssociations []ResolverRuleAssociation `type:"list"`
+	ResolverRuleAssociations []ResolverRuleAssociation `json:"route53resolver:ListResolverRuleAssociationsOutput:ResolverRuleAssociations" type:"list"`
 }
 
 // String returns the string representation

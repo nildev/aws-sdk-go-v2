@@ -73,10 +73,10 @@ type DescribeEventsOutput struct {
 	// nextToken parameter value is null. Setting a nextToken value that was not
 	// returned in your previous results causes an InvalidNextTokenException to
 	// occur.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"opsworks-cm:DescribeEventsOutput:NextToken" type:"string"`
 
 	// Contains the response to a DescribeEvents request.
-	ServerEvents []ServerEvent `type:"list"`
+	ServerEvents []ServerEvent `json:"opsworks-cm:DescribeEventsOutput:ServerEvents" type:"list"`
 }
 
 // String returns the string representation

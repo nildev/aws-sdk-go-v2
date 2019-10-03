@@ -223,10 +223,10 @@ type PostContentOutput struct {
 	// it sends the confirmationPrompt. Another example: Suppose that the Lambda
 	// function successfully fulfilled the intent, and sent a message to convey
 	// to the user. Then Amazon Lex sends that message in the response.
-	AudioStream io.ReadCloser `locationName:"audioStream" type:"blob"`
+	AudioStream io.ReadCloser `json:"runtime.lex:PostContentOutput:AudioStream" locationName:"audioStream" type:"blob"`
 
 	// Content type as specified in the Accept HTTP header in the request.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"runtime.lex:PostContentOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 
 	// Identifies the current state of the user interaction. Amazon Lex returns
 	// one of the following values as dialogState. The client can optionally use
@@ -262,7 +262,7 @@ type PostContentOutput struct {
 	//    appropriate response to prompts from the service (you can configure how
 	//    many times Amazon Lex can prompt a user for specific information), or
 	//    if the Lambda function fails to fulfill the intent.
-	DialogState DialogState `location:"header" locationName:"x-amz-lex-dialog-state" type:"string" enum:"true"`
+	DialogState DialogState `json:"runtime.lex:PostContentOutput:DialogState" location:"header" locationName:"x-amz-lex-dialog-state" type:"string" enum:"true"`
 
 	// The text used to process the request.
 	//
@@ -270,10 +270,10 @@ type PostContentOutput struct {
 	// text extracted from the audio stream. This is the text that is actually processed
 	// to recognize intents and slot values. You can use this information to determine
 	// if Amazon Lex is correctly processing the audio that you send.
-	InputTranscript *string `location:"header" locationName:"x-amz-lex-input-transcript" type:"string"`
+	InputTranscript *string `json:"runtime.lex:PostContentOutput:InputTranscript" location:"header" locationName:"x-amz-lex-input-transcript" type:"string"`
 
 	// Current user intent that Amazon Lex is aware of.
-	IntentName *string `location:"header" locationName:"x-amz-lex-intent-name" type:"string"`
+	IntentName *string `json:"runtime.lex:PostContentOutput:IntentName" location:"header" locationName:"x-amz-lex-intent-name" type:"string"`
 
 	// The message to convey to the user. The message can come from the bot's configuration
 	// or from a Lambda function.
@@ -293,7 +293,7 @@ type PostContentOutput struct {
 	//
 	// If the Lambda function returns a message, Amazon Lex passes it to the client
 	// in its response.
-	Message *string `location:"header" locationName:"x-amz-lex-message" min:"1" type:"string"`
+	Message *string `json:"runtime.lex:PostContentOutput:Message" location:"header" locationName:"x-amz-lex-message" min:"1" type:"string"`
 
 	// The format of the response message. One of the following values:
 	//
@@ -306,14 +306,14 @@ type PostContentOutput struct {
 	//    * Composite - The message contains an escaped JSON object containing one
 	//    or more messages from the groups that messages were assigned to when the
 	//    intent was created.
-	MessageFormat MessageFormatType `location:"header" locationName:"x-amz-lex-message-format" type:"string" enum:"true"`
+	MessageFormat MessageFormatType `json:"runtime.lex:PostContentOutput:MessageFormat" location:"header" locationName:"x-amz-lex-message-format" type:"string" enum:"true"`
 
 	// Map of key/value pairs representing the session-specific context information.
-	SessionAttributes aws.JSONValue `location:"header" locationName:"x-amz-lex-session-attributes" type:"jsonvalue"`
+	SessionAttributes aws.JSONValue `json:"runtime.lex:PostContentOutput:SessionAttributes" location:"header" locationName:"x-amz-lex-session-attributes" type:"jsonvalue"`
 
 	// If the dialogState value is ElicitSlot, returns the name of the slot for
 	// which Amazon Lex is eliciting a value.
-	SlotToElicit *string `location:"header" locationName:"x-amz-lex-slot-to-elicit" type:"string"`
+	SlotToElicit *string `json:"runtime.lex:PostContentOutput:SlotToElicit" location:"header" locationName:"x-amz-lex-slot-to-elicit" type:"string"`
 
 	// Map of zero or more intent slots (name/value pairs) Amazon Lex detected from
 	// the user input during the conversation.
@@ -326,7 +326,7 @@ type PostContentOutput struct {
 	// TOP_RESOLUTION Amazon Lex returns the first value in the resolution list
 	// or, if there is no resolution list, null. If you don't specify a valueSelectionStrategy,
 	// the default is ORIGINAL_VALUE.
-	Slots aws.JSONValue `location:"header" locationName:"x-amz-lex-slots" type:"jsonvalue"`
+	Slots aws.JSONValue `json:"runtime.lex:PostContentOutput:Slots" location:"header" locationName:"x-amz-lex-slots" type:"jsonvalue"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type DeleteSuggesterOutput struct {
 	// The status of the suggester being deleted.
 	//
 	// Suggester is a required field
-	Suggester *SuggesterStatus `type:"structure" required:"true"`
+	Suggester *SuggesterStatus `json:"cloudsearch:DeleteSuggesterOutput:Suggester" type:"structure" required:"true"`
 }
 
 // String returns the string representation

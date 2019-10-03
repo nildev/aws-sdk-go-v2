@@ -80,7 +80,7 @@ type GetDevicesInPlacementOutput struct {
 	// An object containing the devices (zero or more) within the placement.
 	//
 	// Devices is a required field
-	Devices map[string]string `locationName:"devices" type:"map" required:"true"`
+	Devices map[string]string `json:"projects.iot1click:GetDevicesInPlacementOutput:Devices" locationName:"devices" type:"map" required:"true"`
 }
 
 // String returns the string representation

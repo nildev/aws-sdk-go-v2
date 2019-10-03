@@ -58,11 +58,11 @@ type ListAvailableManagementCidrRangesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of available IP address ranges, specified as IPv4 CIDR blocks.
-	ManagementCidrRanges []string `type:"list"`
+	ManagementCidrRanges []string `json:"workspaces:ListAvailableManagementCidrRangesOutput:ManagementCidrRanges" type:"list"`
 
 	// The token to use to retrieve the next set of results, or null if no more
 	// results are available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workspaces:ListAvailableManagementCidrRangesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -63,7 +63,7 @@ type DescribeJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of jobs.
-	Jobs []JobDetail `locationName:"jobs" type:"list"`
+	Jobs []JobDetail `json:"batch:DescribeJobsOutput:Jobs" locationName:"jobs" type:"list"`
 }
 
 // String returns the string representation

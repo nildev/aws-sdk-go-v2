@@ -55,7 +55,7 @@ type ListFieldLevelEncryptionConfigsOutput struct {
 
 	// Returns a list of all field-level encryption configurations that have been
 	// created in CloudFront for this account.
-	FieldLevelEncryptionList *FieldLevelEncryptionList `type:"structure"`
+	FieldLevelEncryptionList *FieldLevelEncryptionList `json:"cloudfront:ListFieldLevelEncryptionConfigsOutput:FieldLevelEncryptionList" type:"structure"`
 }
 
 // String returns the string representation

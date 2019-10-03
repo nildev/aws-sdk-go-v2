@@ -32,10 +32,10 @@ type GetServiceRoleForAccountOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the service role was associated with the account.
-	AssociatedAt *string `type:"string"`
+	AssociatedAt *string `json:"greengrass:GetServiceRoleForAccountOutput:AssociatedAt" type:"string"`
 
 	// The ARN of the role which is associated with the account.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"greengrass:GetServiceRoleForAccountOutput:RoleArn" type:"string"`
 }
 
 // String returns the string representation

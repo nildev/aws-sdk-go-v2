@@ -86,20 +86,20 @@ type ListVPCAssociationAuthorizationsOutput struct {
 	// The ID of the hosted zone that you can associate the listed VPCs with.
 	//
 	// HostedZoneId is a required field
-	HostedZoneId *string `type:"string" required:"true"`
+	HostedZoneId *string `json:"route53:ListVPCAssociationAuthorizationsOutput:HostedZoneId" type:"string" required:"true"`
 
 	// When the response includes a NextToken element, there are more VPCs that
 	// can be associated with the specified hosted zone. To get the next page of
 	// VPCs, submit another ListVPCAssociationAuthorizations request, and include
 	// the value of the NextToken element from the response in the nexttoken request
 	// parameter.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"route53:ListVPCAssociationAuthorizationsOutput:NextToken" type:"string"`
 
 	// The list of VPCs that are authorized to be associated with the specified
 	// hosted zone.
 	//
 	// VPCs is a required field
-	VPCs []VPC `locationNameList:"VPC" min:"1" type:"list" required:"true"`
+	VPCs []VPC `json:"route53:ListVPCAssociationAuthorizationsOutput:VPCs" locationNameList:"VPC" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation

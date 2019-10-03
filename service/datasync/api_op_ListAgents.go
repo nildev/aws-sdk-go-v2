@@ -33,11 +33,11 @@ type ListAgentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of agents in your account.
-	Agents []AgentListEntry `type:"list"`
+	Agents []AgentListEntry `json:"datasync:ListAgentsOutput:Agents" type:"list"`
 
 	// An opaque string that indicates the position at which to begin returning
 	// the next list of agents.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"datasync:ListAgentsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

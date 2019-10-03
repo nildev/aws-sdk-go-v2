@@ -65,7 +65,7 @@ type UpdateWebhookOutput struct {
 
 	// Information about a repository's webhook that is associated with a project
 	// in AWS CodeBuild.
-	Webhook *Webhook `locationName:"webhook" type:"structure"`
+	Webhook *Webhook `json:"codebuild:UpdateWebhookOutput:Webhook" locationName:"webhook" type:"structure"`
 }
 
 // String returns the string representation

@@ -85,10 +85,10 @@ type BatchUpdateScheduleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of actions that have been created in the schedule.
-	Creates *BatchScheduleActionCreateResult `locationName:"creates" type:"structure"`
+	Creates *BatchScheduleActionCreateResult `json:"medialive:BatchUpdateScheduleOutput:Creates" locationName:"creates" type:"structure"`
 
 	// List of actions that have been deleted from the schedule.
-	Deletes *BatchScheduleActionDeleteResult `locationName:"deletes" type:"structure"`
+	Deletes *BatchScheduleActionDeleteResult `json:"medialive:BatchUpdateScheduleOutput:Deletes" locationName:"deletes" type:"structure"`
 }
 
 // String returns the string representation

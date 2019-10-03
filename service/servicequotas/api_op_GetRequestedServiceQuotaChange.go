@@ -47,7 +47,7 @@ type GetRequestedServiceQuotaChangeOutput struct {
 
 	// Returns the RequestedServiceQuotaChange object for the specific increase
 	// request.
-	RequestedQuota *RequestedServiceQuotaChange `type:"structure"`
+	RequestedQuota *RequestedServiceQuotaChange `json:"servicequotas:GetRequestedServiceQuotaChangeOutput:RequestedQuota" type:"structure"`
 }
 
 // String returns the string representation

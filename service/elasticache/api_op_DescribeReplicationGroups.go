@@ -47,11 +47,11 @@ type DescribeReplicationGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeReplicationGroupsOutput:Marker" type:"string"`
 
 	// A list of replication groups. Each item in the list contains detailed information
 	// about one replication group.
-	ReplicationGroups []ReplicationGroup `locationNameList:"ReplicationGroup" type:"list"`
+	ReplicationGroups []ReplicationGroup `json:"elasticache:DescribeReplicationGroupsOutput:ReplicationGroups" locationNameList:"ReplicationGroup" type:"list"`
 }
 
 // String returns the string representation

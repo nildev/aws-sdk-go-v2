@@ -231,7 +231,7 @@ type RunJobFlowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An unique identifier for the job flow.
-	JobFlowId *string `type:"string"`
+	JobFlowId *string `json:"elasticmapreduce:RunJobFlowOutput:JobFlowId" type:"string"`
 }
 
 // String returns the string representation

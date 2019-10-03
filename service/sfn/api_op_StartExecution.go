@@ -78,12 +78,12 @@ type StartExecutionOutput struct {
 	// The Amazon Resource Name (ARN) that identifies the execution.
 	//
 	// ExecutionArn is a required field
-	ExecutionArn *string `locationName:"executionArn" min:"1" type:"string" required:"true"`
+	ExecutionArn *string `json:"states:StartExecutionOutput:ExecutionArn" locationName:"executionArn" min:"1" type:"string" required:"true"`
 
 	// The date the execution is started.
 	//
 	// StartDate is a required field
-	StartDate *time.Time `locationName:"startDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartDate *time.Time `json:"states:StartExecutionOutput:StartDate" locationName:"startDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation

@@ -43,15 +43,15 @@ type GetDashboardOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the dashboard.
-	DashboardArn *string `type:"string"`
+	DashboardArn *string `json:"monitoring:GetDashboardOutput:DashboardArn" type:"string"`
 
 	// The detailed information about the dashboard, including what widgets are
 	// included and their location on the dashboard. For more information about
 	// the DashboardBody syntax, see CloudWatch-Dashboard-Body-Structure.
-	DashboardBody *string `type:"string"`
+	DashboardBody *string `json:"monitoring:GetDashboardOutput:DashboardBody" type:"string"`
 
 	// The name of the dashboard.
-	DashboardName *string `type:"string"`
+	DashboardName *string `json:"monitoring:GetDashboardOutput:DashboardName" type:"string"`
 }
 
 // String returns the string representation

@@ -25,7 +25,7 @@ type DescribeEmergencyContactSettingsOutput struct {
 
 	// A list of email addresses that the DRT can use to contact you during a suspected
 	// attack.
-	EmergencyContactList []EmergencyContact `type:"list"`
+	EmergencyContactList []EmergencyContact `json:"shield:DescribeEmergencyContactSettingsOutput:EmergencyContactList" type:"list"`
 }
 
 // String returns the string representation

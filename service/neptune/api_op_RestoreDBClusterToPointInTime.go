@@ -171,7 +171,7 @@ type RestoreDBClusterToPointInTimeOutput struct {
 	// Contains the details of an Amazon Neptune DB cluster.
 	//
 	// This data type is used as a response element in the DescribeDBClusters action.
-	DBCluster *DBCluster `type:"structure"`
+	DBCluster *DBCluster `json:"rds:RestoreDBClusterToPointInTimeOutput:DBCluster" type:"structure"`
 }
 
 // String returns the string representation

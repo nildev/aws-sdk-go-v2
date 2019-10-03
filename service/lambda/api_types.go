@@ -20,22 +20,22 @@ type AccountLimit struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum size of your function's code and layers when they're extracted.
-	CodeSizeUnzipped *int64 `type:"long"`
+	CodeSizeUnzipped *int64 `json:"lambda:AccountLimit:CodeSizeUnzipped" type:"long"`
 
 	// The maximum size of a deployment package when it's uploaded directly to AWS
 	// Lambda. Use Amazon S3 for larger files.
-	CodeSizeZipped *int64 `type:"long"`
+	CodeSizeZipped *int64 `json:"lambda:AccountLimit:CodeSizeZipped" type:"long"`
 
 	// The maximum number of simultaneous function executions.
-	ConcurrentExecutions *int64 `type:"integer"`
+	ConcurrentExecutions *int64 `json:"lambda:AccountLimit:ConcurrentExecutions" type:"integer"`
 
 	// The amount of storage space that you can use for all deployment packages
 	// and layer archives.
-	TotalCodeSize *int64 `type:"long"`
+	TotalCodeSize *int64 `json:"lambda:AccountLimit:TotalCodeSize" type:"long"`
 
 	// The maximum number of simultaneous function executions, minus the capacity
 	// that's reserved for individual functions with PutFunctionConcurrency.
-	UnreservedConcurrentExecutions *int64 `type:"integer"`
+	UnreservedConcurrentExecutions *int64 `json:"lambda:AccountLimit:UnreservedConcurrentExecutions" type:"integer"`
 }
 
 // String returns the string representation
@@ -84,11 +84,11 @@ type AccountUsage struct {
 	_ struct{} `type:"structure"`
 
 	// The number of Lambda functions.
-	FunctionCount *int64 `type:"long"`
+	FunctionCount *int64 `json:"lambda:AccountUsage:FunctionCount" type:"long"`
 
 	// The amount of storage space, in bytes, that's being used by deployment packages
 	// and layer archives.
-	TotalCodeSize *int64 `type:"long"`
+	TotalCodeSize *int64 `json:"lambda:AccountUsage:TotalCodeSize" type:"long"`
 }
 
 // String returns the string representation
@@ -119,23 +119,23 @@ type AliasConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the alias.
-	AliasArn *string `type:"string"`
+	AliasArn *string `json:"lambda:AliasConfiguration:AliasArn" type:"string"`
 
 	// A description of the alias.
-	Description *string `type:"string"`
+	Description *string `json:"lambda:AliasConfiguration:Description" type:"string"`
 
 	// The function version that the alias invokes.
-	FunctionVersion *string `min:"1" type:"string"`
+	FunctionVersion *string `json:"lambda:AliasConfiguration:FunctionVersion" min:"1" type:"string"`
 
 	// The name of the alias.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"lambda:AliasConfiguration:Name" min:"1" type:"string"`
 
 	// A unique identifier that changes when you update the alias.
-	RevisionId *string `type:"string"`
+	RevisionId *string `json:"lambda:AliasConfiguration:RevisionId" type:"string"`
 
 	// The routing configuration (https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html)
 	// of the alias.
-	RoutingConfig *AliasRoutingConfiguration `type:"structure"`
+	RoutingConfig *AliasRoutingConfiguration `json:"lambda:AliasConfiguration:RoutingConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -192,7 +192,7 @@ type AliasRoutingConfiguration struct {
 
 	// The name of the second alias, and the percentage of traffic that's routed
 	// to it.
-	AdditionalVersionWeights map[string]float64 `type:"map"`
+	AdditionalVersionWeights map[string]float64 `json:"lambda:AliasRoutingConfiguration:AdditionalVersionWeights" type:"map"`
 }
 
 // String returns the string representation
@@ -223,7 +223,7 @@ type Concurrency struct {
 
 	// The number of concurrent executions that are reserved for this function.
 	// For more information, see Managing Concurrency (https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html).
-	ReservedConcurrentExecutions *int64 `type:"integer"`
+	ReservedConcurrentExecutions *int64 `json:"lambda:Concurrency:ReservedConcurrentExecutions" type:"integer"`
 }
 
 // String returns the string representation
@@ -249,7 +249,7 @@ type DeadLetterConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
-	TargetArn *string `type:"string"`
+	TargetArn *string `json:"lambda:DeadLetterConfig:TargetArn" type:"string"`
 }
 
 // String returns the string representation
@@ -274,7 +274,7 @@ type Environment struct {
 	_ struct{} `type:"structure"`
 
 	// Environment variable key-value pairs.
-	Variables map[string]string `type:"map"`
+	Variables map[string]string `json:"lambda:Environment:Variables" type:"map"`
 }
 
 // String returns the string representation
@@ -305,10 +305,10 @@ type EnvironmentError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"lambda:EnvironmentError:ErrorCode" type:"string"`
 
 	// The error message.
-	Message *string `type:"string"`
+	Message *string `json:"lambda:EnvironmentError:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -339,10 +339,10 @@ type EnvironmentResponse struct {
 	_ struct{} `type:"structure"`
 
 	// Error messages for environment variables that couldn't be applied.
-	Error *EnvironmentError `type:"structure"`
+	Error *EnvironmentError `json:"lambda:EnvironmentResponse:Error" type:"structure"`
 
 	// Environment variable key-value pairs.
-	Variables map[string]string `type:"map"`
+	Variables map[string]string `json:"lambda:EnvironmentResponse:Variables" type:"map"`
 }
 
 // String returns the string representation
@@ -380,29 +380,29 @@ type EventSourceMappingConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of items to retrieve in a single batch.
-	BatchSize *int64 `min:"1" type:"integer"`
+	BatchSize *int64 `json:"lambda:EventSourceMappingConfiguration:BatchSize" min:"1" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the event source.
-	EventSourceArn *string `type:"string"`
+	EventSourceArn *string `json:"lambda:EventSourceMappingConfiguration:EventSourceArn" type:"string"`
 
 	// The ARN of the Lambda function.
-	FunctionArn *string `type:"string"`
+	FunctionArn *string `json:"lambda:EventSourceMappingConfiguration:FunctionArn" type:"string"`
 
 	// The date that the event source mapping was last updated.
-	LastModified *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModified *time.Time `json:"lambda:EventSourceMappingConfiguration:LastModified" type:"timestamp" timestampFormat:"unix"`
 
 	// The result of the last AWS Lambda invocation of your Lambda function.
-	LastProcessingResult *string `type:"string"`
+	LastProcessingResult *string `json:"lambda:EventSourceMappingConfiguration:LastProcessingResult" type:"string"`
 
 	// The state of the event source mapping. It can be one of the following: Creating,
 	// Enabling, Enabled, Disabling, Disabled, Updating, or Deleting.
-	State *string `type:"string"`
+	State *string `json:"lambda:EventSourceMappingConfiguration:State" type:"string"`
 
 	// The cause of the last state change, either User initiated or Lambda initiated.
-	StateTransitionReason *string `type:"string"`
+	StateTransitionReason *string `json:"lambda:EventSourceMappingConfiguration:StateTransitionReason" type:"string"`
 
 	// The identifier of the event source mapping.
-	UUID *string `type:"string"`
+	UUID *string `json:"lambda:EventSourceMappingConfiguration:UUID" type:"string"`
 }
 
 // String returns the string representation
@@ -471,19 +471,19 @@ type FunctionCode struct {
 
 	// An Amazon S3 bucket in the same AWS Region as your function. The bucket can
 	// be in a different AWS account.
-	S3Bucket *string `min:"3" type:"string"`
+	S3Bucket *string `json:"lambda:FunctionCode:S3Bucket" min:"3" type:"string"`
 
 	// The Amazon S3 key of the deployment package.
-	S3Key *string `min:"1" type:"string"`
+	S3Key *string `json:"lambda:FunctionCode:S3Key" min:"1" type:"string"`
 
 	// For versioned objects, the version of the deployment package object to use.
-	S3ObjectVersion *string `min:"1" type:"string"`
+	S3ObjectVersion *string `json:"lambda:FunctionCode:S3ObjectVersion" min:"1" type:"string"`
 
 	// The base64-encoded contents of the deployment package. AWS SDK and AWS CLI
 	// clients handle the encoding for you.
 	//
 	// ZipFile is automatically base64 encoded/decoded by the SDK.
-	ZipFile []byte `type:"blob"`
+	ZipFile []byte `json:"lambda:FunctionCode:ZipFile" type:"blob"`
 }
 
 // String returns the string representation
@@ -545,10 +545,10 @@ type FunctionCodeLocation struct {
 	_ struct{} `type:"structure"`
 
 	// A presigned URL that you can use to download the deployment package.
-	Location *string `type:"string"`
+	Location *string `json:"lambda:FunctionCodeLocation:Location" type:"string"`
 
 	// The service that's hosting the file.
-	RepositoryType *string `type:"string"`
+	RepositoryType *string `json:"lambda:FunctionCodeLocation:RepositoryType" type:"string"`
 }
 
 // String returns the string representation
@@ -579,66 +579,66 @@ type FunctionConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The SHA256 hash of the function's deployment package.
-	CodeSha256 *string `type:"string"`
+	CodeSha256 *string `json:"lambda:FunctionConfiguration:CodeSha256" type:"string"`
 
 	// The size of the function's deployment package, in bytes.
-	CodeSize *int64 `type:"long"`
+	CodeSize *int64 `json:"lambda:FunctionConfiguration:CodeSize" type:"long"`
 
 	// The function's dead letter queue.
-	DeadLetterConfig *DeadLetterConfig `type:"structure"`
+	DeadLetterConfig *DeadLetterConfig `json:"lambda:FunctionConfiguration:DeadLetterConfig" type:"structure"`
 
 	// The function's description.
-	Description *string `type:"string"`
+	Description *string `json:"lambda:FunctionConfiguration:Description" type:"string"`
 
 	// The function's environment variables.
-	Environment *EnvironmentResponse `type:"structure"`
+	Environment *EnvironmentResponse `json:"lambda:FunctionConfiguration:Environment" type:"structure"`
 
 	// The function's Amazon Resource Name (ARN).
-	FunctionArn *string `type:"string"`
+	FunctionArn *string `json:"lambda:FunctionConfiguration:FunctionArn" type:"string"`
 
 	// The name of the function.
-	FunctionName *string `min:"1" type:"string"`
+	FunctionName *string `json:"lambda:FunctionConfiguration:FunctionName" min:"1" type:"string"`
 
 	// The function that Lambda calls to begin executing your function.
-	Handler *string `type:"string"`
+	Handler *string `json:"lambda:FunctionConfiguration:Handler" type:"string"`
 
 	// The KMS key that's used to encrypt the function's environment variables.
 	// This key is only returned if you've configured a customer-managed CMK.
-	KMSKeyArn *string `type:"string"`
+	KMSKeyArn *string `json:"lambda:FunctionConfiguration:KMSKeyArn" type:"string"`
 
 	// The date and time that the function was last updated, in ISO-8601 format
 	// (https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
-	LastModified *string `type:"string"`
+	LastModified *string `json:"lambda:FunctionConfiguration:LastModified" type:"string"`
 
 	// The function's layers (https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
-	Layers []Layer `type:"list"`
+	Layers []Layer `json:"lambda:FunctionConfiguration:Layers" type:"list"`
 
 	// For Lambda@Edge functions, the ARN of the master function.
-	MasterArn *string `type:"string"`
+	MasterArn *string `json:"lambda:FunctionConfiguration:MasterArn" type:"string"`
 
 	// The memory that's allocated to the function.
-	MemorySize *int64 `min:"128" type:"integer"`
+	MemorySize *int64 `json:"lambda:FunctionConfiguration:MemorySize" min:"128" type:"integer"`
 
 	// The latest updated revision of the function or alias.
-	RevisionId *string `type:"string"`
+	RevisionId *string `json:"lambda:FunctionConfiguration:RevisionId" type:"string"`
 
 	// The function's execution role.
-	Role *string `type:"string"`
+	Role *string `json:"lambda:FunctionConfiguration:Role" type:"string"`
 
 	// The runtime environment for the Lambda function.
-	Runtime Runtime `type:"string" enum:"true"`
+	Runtime Runtime `json:"lambda:FunctionConfiguration:Runtime" type:"string" enum:"true"`
 
 	// The amount of time that Lambda allows a function to run before stopping it.
-	Timeout *int64 `min:"1" type:"integer"`
+	Timeout *int64 `json:"lambda:FunctionConfiguration:Timeout" min:"1" type:"integer"`
 
 	// The function's AWS X-Ray tracing configuration.
-	TracingConfig *TracingConfigResponse `type:"structure"`
+	TracingConfig *TracingConfigResponse `json:"lambda:FunctionConfiguration:TracingConfig" type:"structure"`
 
 	// The version of the Lambda function.
-	Version *string `min:"1" type:"string"`
+	Version *string `json:"lambda:FunctionConfiguration:Version" min:"1" type:"string"`
 
 	// The function's networking configuration.
-	VpcConfig *VpcConfigResponse `type:"structure"`
+	VpcConfig *VpcConfigResponse `json:"lambda:FunctionConfiguration:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -783,10 +783,10 @@ type Layer struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the function layer.
-	Arn *string `min:"1" type:"string"`
+	Arn *string `json:"lambda:Layer:Arn" min:"1" type:"string"`
 
 	// The size of the layer archive in bytes.
-	CodeSize *int64 `type:"long"`
+	CodeSize *int64 `json:"lambda:Layer:CodeSize" type:"long"`
 }
 
 // String returns the string representation
@@ -818,19 +818,19 @@ type LayerVersionContentInput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 bucket of the layer archive.
-	S3Bucket *string `min:"3" type:"string"`
+	S3Bucket *string `json:"lambda:LayerVersionContentInput:S3Bucket" min:"3" type:"string"`
 
 	// The Amazon S3 key of the layer archive.
-	S3Key *string `min:"1" type:"string"`
+	S3Key *string `json:"lambda:LayerVersionContentInput:S3Key" min:"1" type:"string"`
 
 	// For versioned objects, the version of the layer archive object to use.
-	S3ObjectVersion *string `min:"1" type:"string"`
+	S3ObjectVersion *string `json:"lambda:LayerVersionContentInput:S3ObjectVersion" min:"1" type:"string"`
 
 	// The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients
 	// handle the encoding for you.
 	//
 	// ZipFile is automatically base64 encoded/decoded by the SDK.
-	ZipFile []byte `type:"blob"`
+	ZipFile []byte `json:"lambda:LayerVersionContentInput:ZipFile" type:"blob"`
 }
 
 // String returns the string representation
@@ -892,13 +892,13 @@ type LayerVersionContentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The SHA-256 hash of the layer archive.
-	CodeSha256 *string `type:"string"`
+	CodeSha256 *string `json:"lambda:LayerVersionContentOutput:CodeSha256" type:"string"`
 
 	// The size of the layer archive in bytes.
-	CodeSize *int64 `type:"long"`
+	CodeSize *int64 `json:"lambda:LayerVersionContentOutput:CodeSize" type:"long"`
 
 	// A link to the layer archive in Amazon S3 that is valid for 10 minutes.
-	Location *string `type:"string"`
+	Location *string `json:"lambda:LayerVersionContentOutput:Location" type:"string"`
 }
 
 // String returns the string representation
@@ -935,22 +935,22 @@ type LayerVersionsListItem struct {
 	_ struct{} `type:"structure"`
 
 	// The layer's compatible runtimes.
-	CompatibleRuntimes []Runtime `type:"list"`
+	CompatibleRuntimes []Runtime `json:"lambda:LayerVersionsListItem:CompatibleRuntimes" type:"list"`
 
 	// The date that the version was created, in ISO 8601 format. For example, 2018-11-27T15:10:45.123+0000.
-	CreatedDate *string `type:"string"`
+	CreatedDate *string `json:"lambda:LayerVersionsListItem:CreatedDate" type:"string"`
 
 	// The description of the version.
-	Description *string `type:"string"`
+	Description *string `json:"lambda:LayerVersionsListItem:Description" type:"string"`
 
 	// The ARN of the layer version.
-	LayerVersionArn *string `min:"1" type:"string"`
+	LayerVersionArn *string `json:"lambda:LayerVersionsListItem:LayerVersionArn" min:"1" type:"string"`
 
 	// The layer's open-source license.
-	LicenseInfo *string `type:"string"`
+	LicenseInfo *string `json:"lambda:LayerVersionsListItem:LicenseInfo" type:"string"`
 
 	// The version number.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"lambda:LayerVersionsListItem:Version" type:"long"`
 }
 
 // String returns the string representation
@@ -1011,13 +1011,13 @@ type LayersListItem struct {
 	_ struct{} `type:"structure"`
 
 	// The newest version of the layer.
-	LatestMatchingVersion *LayerVersionsListItem `type:"structure"`
+	LatestMatchingVersion *LayerVersionsListItem `json:"lambda:LayersListItem:LatestMatchingVersion" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the function layer.
-	LayerArn *string `min:"1" type:"string"`
+	LayerArn *string `json:"lambda:LayersListItem:LayerArn" min:"1" type:"string"`
 
 	// The name of the layer.
-	LayerName *string `min:"1" type:"string"`
+	LayerName *string `json:"lambda:LayersListItem:LayerName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1054,7 +1054,7 @@ type TracingConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The tracing mode.
-	Mode TracingMode `type:"string" enum:"true"`
+	Mode TracingMode `json:"lambda:TracingConfig:Mode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1079,7 +1079,7 @@ type TracingConfigResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The tracing mode.
-	Mode TracingMode `type:"string" enum:"true"`
+	Mode TracingMode `json:"lambda:TracingConfigResponse:Mode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1104,10 +1104,10 @@ type VpcConfig struct {
 	_ struct{} `type:"structure"`
 
 	// A list of VPC security groups IDs.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"lambda:VpcConfig:SecurityGroupIds" type:"list"`
 
 	// A list of VPC subnet IDs.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"lambda:VpcConfig:SubnetIds" type:"list"`
 }
 
 // String returns the string representation
@@ -1150,13 +1150,13 @@ type VpcConfigResponse struct {
 	_ struct{} `type:"structure"`
 
 	// A list of VPC security groups IDs.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"lambda:VpcConfigResponse:SecurityGroupIds" type:"list"`
 
 	// A list of VPC subnet IDs.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"lambda:VpcConfigResponse:SubnetIds" type:"list"`
 
 	// The ID of the VPC.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"lambda:VpcConfigResponse:VpcId" type:"string"`
 }
 
 // String returns the string representation

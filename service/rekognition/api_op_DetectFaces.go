@@ -63,7 +63,7 @@ type DetectFacesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Details of each face found in the image.
-	FaceDetails []FaceDetail `type:"list"`
+	FaceDetails []FaceDetail `json:"rekognition:DetectFacesOutput:FaceDetails" type:"list"`
 
 	// The value of OrientationCorrection is always null.
 	//
@@ -78,7 +78,7 @@ type DetectFacesOutput struct {
 	// format and .jpeg images without orientation information in the image Exif
 	// metadata. The bounding box coordinates aren't translated and represent the
 	// object locations before the image is rotated.
-	OrientationCorrection OrientationCorrection `type:"string" enum:"true"`
+	OrientationCorrection OrientationCorrection `json:"rekognition:DetectFacesOutput:OrientationCorrection" type:"string" enum:"true"`
 }
 
 // String returns the string representation

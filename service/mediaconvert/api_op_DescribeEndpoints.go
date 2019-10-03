@@ -67,10 +67,10 @@ type DescribeEndpointsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of endpoints
-	Endpoints []Endpoint `locationName:"endpoints" type:"list"`
+	Endpoints []Endpoint `json:"mediaconvert:DescribeEndpointsOutput:Endpoints" locationName:"endpoints" type:"list"`
 
 	// Use this string to request the next batch of endpoints.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediaconvert:DescribeEndpointsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

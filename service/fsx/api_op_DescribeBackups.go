@@ -60,11 +60,11 @@ type DescribeBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any array of backups.
-	Backups []Backup `type:"list"`
+	Backups []Backup `json:"fsx:DescribeBackupsOutput:Backups" type:"list"`
 
 	// This is present if there are more backups than returned in the response (String).
 	// You can use the NextToken value in the later request to fetch the backups.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"fsx:DescribeBackupsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

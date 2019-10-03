@@ -85,10 +85,10 @@ type DescribeMaintenanceWindowExecutionTaskInvocationsOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeMaintenanceWindowExecutionTaskInvocationsOutput:NextToken" type:"string"`
 
 	// Information about the task invocation results per invocation.
-	WindowExecutionTaskInvocationIdentities []MaintenanceWindowExecutionTaskInvocationIdentity `type:"list"`
+	WindowExecutionTaskInvocationIdentities []MaintenanceWindowExecutionTaskInvocationIdentity `json:"ssm:DescribeMaintenanceWindowExecutionTaskInvocationsOutput:WindowExecutionTaskInvocationIdentities" type:"list"`
 }
 
 // String returns the string representation

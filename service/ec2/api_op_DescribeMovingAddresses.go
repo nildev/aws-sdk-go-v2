@@ -63,11 +63,11 @@ type DescribeMovingAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status for each Elastic IP address.
-	MovingAddressStatuses []MovingAddressStatus `locationName:"movingAddressStatusSet" locationNameList:"item" type:"list"`
+	MovingAddressStatuses []MovingAddressStatus `json:"ec2:DescribeMovingAddressesOutput:MovingAddressStatuses" locationName:"movingAddressStatusSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeMovingAddressesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

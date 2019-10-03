@@ -48,7 +48,7 @@ type GetRunOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The run you wish to get results from.
-	Run *Run `locationName:"run" type:"structure"`
+	Run *Run `json:"devicefarm:GetRunOutput:Run" locationName:"run" type:"structure"`
 }
 
 // String returns the string representation

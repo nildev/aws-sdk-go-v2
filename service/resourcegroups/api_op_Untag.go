@@ -80,10 +80,10 @@ type UntagOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the resource from which tags have been removed.
-	Arn *string `min:"12" type:"string"`
+	Arn *string `json:"resource-groups:UntagOutput:Arn" min:"12" type:"string"`
 
 	// The keys of tags that have been removed.
-	Keys []string `type:"list"`
+	Keys []string `json:"resource-groups:UntagOutput:Keys" type:"list"`
 }
 
 // String returns the string representation

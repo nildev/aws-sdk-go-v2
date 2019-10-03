@@ -50,17 +50,17 @@ type DescribeUploadBufferOutput struct {
 	// Each local disk ID is specified as a string (minimum length of 1 and maximum
 	// length of 300). If no local disks are configured as working storage, then
 	// the DiskIds array is empty.
-	DiskIds []string `type:"list"`
+	DiskIds []string `json:"storagegateway:DescribeUploadBufferOutput:DiskIds" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:DescribeUploadBufferOutput:GatewayARN" min:"50" type:"string"`
 
 	// The total number of bytes allocated in the gateway's as upload buffer.
-	UploadBufferAllocatedInBytes *int64 `type:"long"`
+	UploadBufferAllocatedInBytes *int64 `json:"storagegateway:DescribeUploadBufferOutput:UploadBufferAllocatedInBytes" type:"long"`
 
 	// The total number of bytes being used in the gateway's upload buffer.
-	UploadBufferUsedInBytes *int64 `type:"long"`
+	UploadBufferUsedInBytes *int64 `json:"storagegateway:DescribeUploadBufferOutput:UploadBufferUsedInBytes" type:"long"`
 }
 
 // String returns the string representation

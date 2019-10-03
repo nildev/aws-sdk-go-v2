@@ -108,7 +108,7 @@ type ModifyReplicationInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The modified replication instance.
-	ReplicationInstance *ReplicationInstance `type:"structure"`
+	ReplicationInstance *ReplicationInstance `json:"dms:ModifyReplicationInstanceOutput:ReplicationInstance" type:"structure"`
 }
 
 // String returns the string representation

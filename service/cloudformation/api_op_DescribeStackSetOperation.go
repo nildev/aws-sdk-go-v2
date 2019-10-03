@@ -55,7 +55,7 @@ type DescribeStackSetOperationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The specified stack set operation.
-	StackSetOperation *StackSetOperation `type:"structure"`
+	StackSetOperation *StackSetOperation `json:"cloudformation:DescribeStackSetOperationOutput:StackSetOperation" type:"structure"`
 }
 
 // String returns the string representation

@@ -60,10 +60,10 @@ type CreateAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The alias for the directory.
-	Alias *string `min:"1" type:"string"`
+	Alias *string `json:"ds:CreateAliasOutput:Alias" min:"1" type:"string"`
 
 	// The identifier of the directory.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:CreateAliasOutput:DirectoryId" type:"string"`
 }
 
 // String returns the string representation

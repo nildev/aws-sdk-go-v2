@@ -56,10 +56,10 @@ type GetBootstrapBrokersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A string containing one or more hostname:port pairs.
-	BootstrapBrokerString *string `locationName:"bootstrapBrokerString" type:"string"`
+	BootstrapBrokerString *string `json:"kafka:GetBootstrapBrokersOutput:BootstrapBrokerString" locationName:"bootstrapBrokerString" type:"string"`
 
 	// A string containing one or more DNS names (or IP) and TLS port pairs.
-	BootstrapBrokerStringTls *string `locationName:"bootstrapBrokerStringTls" type:"string"`
+	BootstrapBrokerStringTls *string `json:"kafka:GetBootstrapBrokersOutput:BootstrapBrokerStringTls" locationName:"bootstrapBrokerStringTls" type:"string"`
 }
 
 // String returns the string representation

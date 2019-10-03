@@ -83,10 +83,10 @@ type ImportApiKeysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of all the ApiKey identifiers.
-	Ids []string `locationName:"ids" type:"list"`
+	Ids []string `json:"apigateway:ImportApiKeysOutput:Ids" locationName:"ids" type:"list"`
 
 	// A list of warning messages.
-	Warnings []string `locationName:"warnings" type:"list"`
+	Warnings []string `json:"apigateway:ImportApiKeysOutput:Warnings" locationName:"warnings" type:"list"`
 }
 
 // String returns the string representation

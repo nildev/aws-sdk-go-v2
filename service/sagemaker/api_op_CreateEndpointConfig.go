@@ -85,7 +85,7 @@ type CreateEndpointConfigOutput struct {
 	// The Amazon Resource Name (ARN) of the endpoint configuration.
 	//
 	// EndpointConfigArn is a required field
-	EndpointConfigArn *string `min:"20" type:"string" required:"true"`
+	EndpointConfigArn *string `json:"api.sagemaker:CreateEndpointConfigOutput:EndpointConfigArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation

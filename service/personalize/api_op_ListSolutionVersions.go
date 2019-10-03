@@ -47,10 +47,10 @@ type ListSolutionVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token for getting the next set of solution versions (if they exist).
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListSolutionVersionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of solution versions describing the version properties.
-	SolutionVersions []SolutionVersionSummary `locationName:"solutionVersions" type:"list"`
+	SolutionVersions []SolutionVersionSummary `json:"personalize:ListSolutionVersionsOutput:SolutionVersions" locationName:"solutionVersions" type:"list"`
 }
 
 // String returns the string representation

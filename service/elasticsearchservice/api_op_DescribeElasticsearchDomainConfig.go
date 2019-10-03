@@ -64,7 +64,7 @@ type DescribeElasticsearchDomainConfigOutput struct {
 	// request.
 	//
 	// DomainConfig is a required field
-	DomainConfig *ElasticsearchDomainConfig `type:"structure" required:"true"`
+	DomainConfig *ElasticsearchDomainConfig `json:"es:DescribeElasticsearchDomainConfigOutput:DomainConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation

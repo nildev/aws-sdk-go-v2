@@ -55,7 +55,7 @@ type GetWebACLForResourceOutput struct {
 
 	// Information about the web ACL that you specified in the GetWebACLForResource
 	// request. If there is no associated resource, a null WebACLSummary is returned.
-	WebACLSummary *waf.WebACLSummary `type:"structure"`
+	WebACLSummary *waf.WebACLSummary `json:"waf-regional:GetWebACLForResourceOutput:WebACLSummary" type:"structure"`
 }
 
 // String returns the string representation

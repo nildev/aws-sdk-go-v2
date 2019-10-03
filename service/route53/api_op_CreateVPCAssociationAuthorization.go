@@ -88,12 +88,12 @@ type CreateVPCAssociationAuthorizationOutput struct {
 	// The ID of the hosted zone that you authorized associating a VPC with.
 	//
 	// HostedZoneId is a required field
-	HostedZoneId *string `type:"string" required:"true"`
+	HostedZoneId *string `json:"route53:CreateVPCAssociationAuthorizationOutput:HostedZoneId" type:"string" required:"true"`
 
 	// The VPC that you authorized associating with a hosted zone.
 	//
 	// VPC is a required field
-	VPC *VPC `type:"structure" required:"true"`
+	VPC *VPC `json:"route53:CreateVPCAssociationAuthorizationOutput:VPC" type:"structure" required:"true"`
 }
 
 // String returns the string representation

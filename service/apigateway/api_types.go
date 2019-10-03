@@ -19,12 +19,12 @@ type AccessLogSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the CloudWatch Logs log group to receive access logs.
-	DestinationArn *string `locationName:"destinationArn" type:"string"`
+	DestinationArn *string `json:"apigateway:AccessLogSettings:DestinationArn" locationName:"destinationArn" type:"string"`
 
 	// A single line format of the access logs of data, as specified by selected
 	// $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference).
 	// The format must include at least $context.requestId.
-	Format *string `locationName:"format" type:"string"`
+	Format *string `json:"apigateway:AccessLogSettings:Format" locationName:"format" type:"string"`
 }
 
 // String returns the string representation
@@ -59,35 +59,35 @@ type ApiKey struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp when the API Key was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:ApiKey:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An AWS Marketplace customer identifier , when integrating with the AWS SaaS
 	// Marketplace.
-	CustomerId *string `locationName:"customerId" type:"string"`
+	CustomerId *string `json:"apigateway:ApiKey:CustomerId" locationName:"customerId" type:"string"`
 
 	// The description of the API Key.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:ApiKey:Description" locationName:"description" type:"string"`
 
 	// Specifies whether the API Key can be used by callers.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"apigateway:ApiKey:Enabled" locationName:"enabled" type:"boolean"`
 
 	// The identifier of the API Key.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:ApiKey:Id" locationName:"id" type:"string"`
 
 	// The timestamp when the API Key was last updated.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"apigateway:ApiKey:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the API Key.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:ApiKey:Name" locationName:"name" type:"string"`
 
 	// A list of Stage resources that are associated with the ApiKey resource.
-	StageKeys []string `locationName:"stageKeys" type:"list"`
+	StageKeys []string `json:"apigateway:ApiKey:StageKeys" locationName:"stageKeys" type:"list"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:ApiKey:Tags" locationName:"tags" type:"map"`
 
 	// The value of the API Key.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"apigateway:ApiKey:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -177,14 +177,14 @@ type ApiStage struct {
 	_ struct{} `type:"structure"`
 
 	// API Id of the associated API stage in a usage plan.
-	ApiId *string `locationName:"apiId" type:"string"`
+	ApiId *string `json:"apigateway:ApiStage:ApiId" locationName:"apiId" type:"string"`
 
 	// API stage name of the associated API stage in a usage plan.
-	Stage *string `locationName:"stage" type:"string"`
+	Stage *string `json:"apigateway:ApiStage:Stage" locationName:"stage" type:"string"`
 
 	// Map containing method level throttling information for API stage in a usage
 	// plan.
-	Throttle map[string]ThrottleSettings `locationName:"throttle" type:"map"`
+	Throttle map[string]ThrottleSettings `json:"apigateway:ApiStage:Throttle" locationName:"throttle" type:"map"`
 }
 
 // String returns the string representation
@@ -231,19 +231,19 @@ type Authorizer struct {
 
 	// Optional customer-defined field, used in OpenAPI imports and exports without
 	// functional impact.
-	AuthType *string `locationName:"authType" type:"string"`
+	AuthType *string `json:"apigateway:Authorizer:AuthType" locationName:"authType" type:"string"`
 
 	// Specifies the required credentials as an IAM role for API Gateway to invoke
 	// the authorizer. To specify an IAM role for API Gateway to assume, use the
 	// role's Amazon Resource Name (ARN). To use resource-based permissions on the
 	// Lambda function, specify null.
-	AuthorizerCredentials *string `locationName:"authorizerCredentials" type:"string"`
+	AuthorizerCredentials *string `json:"apigateway:Authorizer:AuthorizerCredentials" locationName:"authorizerCredentials" type:"string"`
 
 	// The TTL in seconds of cached authorizer results. If it equals 0, authorization
 	// caching is disabled. If it is greater than 0, API Gateway will cache authorizer
 	// responses. If this field is not set, the default value is 300. The maximum
 	// value is 3600, or 1 hour.
-	AuthorizerResultTtlInSeconds *int64 `locationName:"authorizerResultTtlInSeconds" type:"integer"`
+	AuthorizerResultTtlInSeconds *int64 `json:"apigateway:Authorizer:AuthorizerResultTtlInSeconds" locationName:"authorizerResultTtlInSeconds" type:"integer"`
 
 	// Specifies the authorizer's Uniform Resource Identifier (URI). For TOKEN or
 	// REQUEST authorizers, this must be a well-formed Lambda function URI, for
@@ -253,10 +253,10 @@ type Authorizer struct {
 	// indicates that the remaining substring in the URI should be treated as the
 	// path to the resource, including the initial /. For Lambda functions, this
 	// is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.
-	AuthorizerUri *string `locationName:"authorizerUri" type:"string"`
+	AuthorizerUri *string `json:"apigateway:Authorizer:AuthorizerUri" locationName:"authorizerUri" type:"string"`
 
 	// The identifier for the authorizer resource.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:Authorizer:Id" locationName:"id" type:"string"`
 
 	// The identity source for which authorization is requested.
 	//    * For a TOKEN or COGNITO_USER_POOLS authorizer, this is required and specifies
@@ -277,7 +277,7 @@ type Authorizer struct {
 	//    calling the Lambda function. The valid value is a string of comma-separated
 	//    mapping expressions of the specified request parameters. When the authorization
 	//    caching is not enabled, this property is optional.
-	IdentitySource *string `locationName:"identitySource" type:"string"`
+	IdentitySource *string `json:"apigateway:Authorizer:IdentitySource" locationName:"identitySource" type:"string"`
 
 	// A validation expression for the incoming identity token. For TOKEN authorizers,
 	// this value is a regular expression. For COGNITO_USER_POOLS authorizers, API
@@ -286,21 +286,21 @@ type Authorizer struct {
 	// function when there is a match. Otherwise, it will return a 401 Unauthorized
 	// response without calling the Lambda function. The validation expression does
 	// not apply to the REQUEST authorizer.
-	IdentityValidationExpression *string `locationName:"identityValidationExpression" type:"string"`
+	IdentityValidationExpression *string `json:"apigateway:Authorizer:IdentityValidationExpression" locationName:"identityValidationExpression" type:"string"`
 
 	// [Required] The name of the authorizer.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:Authorizer:Name" locationName:"name" type:"string"`
 
 	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
 	// Each element is of this format: arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}.
 	// For a TOKEN or REQUEST authorizer, this is not defined.
-	ProviderARNs []string `locationName:"providerARNs" type:"list"`
+	ProviderARNs []string `json:"apigateway:Authorizer:ProviderARNs" locationName:"providerARNs" type:"list"`
 
 	// The authorizer type. Valid values are TOKEN for a Lambda function using a
 	// single authorization token submitted in a custom header, REQUEST for a Lambda
 	// function using incoming request parameters, and COGNITO_USER_POOLS for using
 	// an Amazon Cognito user pool.
-	Type AuthorizerType `locationName:"type" type:"string" enum:"true"`
+	Type AuthorizerType `json:"apigateway:Authorizer:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -391,13 +391,13 @@ type BasePathMapping struct {
 
 	// The base path name that callers of the API must provide as part of the URL
 	// after the domain name.
-	BasePath *string `locationName:"basePath" type:"string"`
+	BasePath *string `json:"apigateway:BasePathMapping:BasePath" locationName:"basePath" type:"string"`
 
 	// The string identifier of the associated RestApi.
-	RestApiId *string `locationName:"restApiId" type:"string"`
+	RestApiId *string `json:"apigateway:BasePathMapping:RestApiId" locationName:"restApiId" type:"string"`
 
 	// The name of the associated stage.
-	Stage *string `locationName:"stage" type:"string"`
+	Stage *string `json:"apigateway:BasePathMapping:Stage" locationName:"stage" type:"string"`
 }
 
 // String returns the string representation
@@ -433,19 +433,19 @@ type CanarySettings struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the canary deployment.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"apigateway:CanarySettings:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// The percent (0-100) of traffic diverted to a canary deployment.
-	PercentTraffic *float64 `locationName:"percentTraffic" type:"double"`
+	PercentTraffic *float64 `json:"apigateway:CanarySettings:PercentTraffic" locationName:"percentTraffic" type:"double"`
 
 	// Stage variables overridden for a canary release deployment, including new
 	// stage variables introduced in the canary. These stage variables are represented
 	// as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides map[string]string `locationName:"stageVariableOverrides" type:"map"`
+	StageVariableOverrides map[string]string `json:"apigateway:CanarySettings:StageVariableOverrides" locationName:"stageVariableOverrides" type:"map"`
 
 	// A Boolean flag to indicate whether the canary deployment uses the stage cache
 	// or not.
-	UseStageCache *bool `locationName:"useStageCache" type:"boolean"`
+	UseStageCache *bool `json:"apigateway:CanarySettings:UseStageCache" locationName:"useStageCache" type:"boolean"`
 }
 
 // String returns the string representation
@@ -500,23 +500,23 @@ type Certificate struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the client certificate.
-	ClientCertificateId *string `locationName:"clientCertificateId" type:"string"`
+	ClientCertificateId *string `json:"apigateway:Certificate:ClientCertificateId" locationName:"clientCertificateId" type:"string"`
 
 	// The timestamp when the client certificate was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:Certificate:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the client certificate.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:Certificate:Description" locationName:"description" type:"string"`
 
 	// The timestamp when the client certificate will expire.
-	ExpirationDate *time.Time `locationName:"expirationDate" type:"timestamp" timestampFormat:"unix"`
+	ExpirationDate *time.Time `json:"apigateway:Certificate:ExpirationDate" locationName:"expirationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The PEM-encoded public key of the client certificate, which can be used to
 	// configure certificate authentication in the integration endpoint .
-	PemEncodedCertificate *string `locationName:"pemEncodedCertificate" type:"string"`
+	PemEncodedCertificate *string `json:"apigateway:Certificate:PemEncodedCertificate" locationName:"pemEncodedCertificate" type:"string"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:Certificate:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -586,16 +586,16 @@ type Deployment struct {
 
 	// A summary of the RestApi at the date and time that the deployment resource
 	// was created.
-	ApiSummary map[string]map[string]MethodSnapshot `locationName:"apiSummary" type:"map"`
+	ApiSummary map[string]map[string]MethodSnapshot `json:"apigateway:Deployment:ApiSummary" locationName:"apiSummary" type:"map"`
 
 	// The date and time that the deployment resource was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:Deployment:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description for the deployment resource.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:Deployment:Description" locationName:"description" type:"string"`
 
 	// The identifier for the deployment resource.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:Deployment:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation
@@ -648,17 +648,17 @@ type DeploymentCanarySettings struct {
 	_ struct{} `type:"structure"`
 
 	// The percentage (0.0-100.0) of traffic routed to the canary deployment.
-	PercentTraffic *float64 `locationName:"percentTraffic" type:"double"`
+	PercentTraffic *float64 `json:"apigateway:DeploymentCanarySettings:PercentTraffic" locationName:"percentTraffic" type:"double"`
 
 	// A stage variable overrides used for the canary release deployment. They can
 	// override existing stage variables or add new stage variables for the canary
 	// release deployment. These stage variables are represented as a string-to-string
 	// map between stage variable names and their values.
-	StageVariableOverrides map[string]string `locationName:"stageVariableOverrides" type:"map"`
+	StageVariableOverrides map[string]string `json:"apigateway:DeploymentCanarySettings:StageVariableOverrides" locationName:"stageVariableOverrides" type:"map"`
 
 	// A Boolean flag to indicate whether the canary release deployment uses the
 	// stage cache or not.
-	UseStageCache *bool `locationName:"useStageCache" type:"boolean"`
+	UseStageCache *bool `json:"apigateway:DeploymentCanarySettings:UseStageCache" locationName:"useStageCache" type:"boolean"`
 }
 
 // String returns the string representation
@@ -716,14 +716,14 @@ type DocumentationPart struct {
 
 	// The DocumentationPart identifier, generated by API Gateway when the DocumentationPart
 	// is created.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:DocumentationPart:Id" locationName:"id" type:"string"`
 
 	// The location of the API entity to which the documentation applies. Valid
 	// fields depend on the targeted API entity type. All the valid location fields
 	// are not required. If not explicitly specified, a valid location field is
 	// treated as a wildcard and associated documentation content may be inherited
 	// by matching entities, unless overridden.
-	Location *DocumentationPartLocation `locationName:"location" type:"structure"`
+	Location *DocumentationPartLocation `json:"apigateway:DocumentationPart:Location" locationName:"location" type:"structure"`
 
 	// A content map of API-specific key-value pairs describing the targeted API
 	// entity. The map must be encoded as a JSON string, e.g., "{ \"description\":
@@ -731,7 +731,7 @@ type DocumentationPart struct {
 	// from the properties map are exported and, hence, published as part of the
 	// API entity definitions, while the original documentation parts are exported
 	// in a OpenAPI extension of x-amazon-apigateway-documentation.
-	Properties *string `locationName:"properties" type:"string"`
+	Properties *string `json:"apigateway:DocumentationPart:Properties" locationName:"properties" type:"string"`
 }
 
 // String returns the string representation
@@ -773,13 +773,13 @@ type DocumentationPartLocation struct {
 	// same type with more general specifications of the other location attributes,
 	// the child entity's method attribute must match that of the parent entity
 	// exactly.
-	Method *string `locationName:"method" type:"string"`
+	Method *string `json:"apigateway:DocumentationPartLocation:Method" locationName:"method" type:"string"`
 
 	// The name of the targeted API entity. It is a valid and required field for
 	// the API entity types of AUTHORIZER, MODEL, PATH_PARAMETER, QUERY_PARAMETER,
 	// REQUEST_HEADER, REQUEST_BODY and RESPONSE_HEADER. It is an invalid field
 	// for any other entity type.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:DocumentationPartLocation:Name" locationName:"name" type:"string"`
 
 	// The URL path of the target. It is a valid field for the API entity types
 	// of RESOURCE, METHOD, PATH_PARAMETER, QUERY_PARAMETER, REQUEST_HEADER, REQUEST_BODY,
@@ -788,7 +788,7 @@ type DocumentationPartLocation struct {
 	// another entity of the same type with more general specifications of the other
 	// location attributes, the child entity's path attribute must match that of
 	// the parent entity as a prefix.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"apigateway:DocumentationPartLocation:Path" locationName:"path" type:"string"`
 
 	// The HTTP status code of a response. It is a valid field for the API entity
 	// types of RESPONSE, RESPONSE_HEADER, and RESPONSE_BODY. The default value
@@ -796,7 +796,7 @@ type DocumentationPartLocation struct {
 	// of an entity of the same type with more general specifications of the other
 	// location attributes, the child entity's statusCode attribute must match that
 	// of the parent entity exactly.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"apigateway:DocumentationPartLocation:StatusCode" locationName:"statusCode" type:"string"`
 
 	// [Required] The type of API entity to which the documentation content applies.
 	// Valid values are API, AUTHORIZER, MODEL, RESOURCE, METHOD, PATH_PARAMETER,
@@ -805,7 +805,7 @@ type DocumentationPartLocation struct {
 	// API, AUTHORIZER, METHOD, MODEL, REQUEST_BODY, or RESOURCE type.
 	//
 	// Type is a required field
-	Type DocumentationPartType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type DocumentationPartType `json:"apigateway:DocumentationPartLocation:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -873,13 +873,13 @@ type DocumentationVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The date when the API documentation snapshot is created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:DocumentationVersion:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the API documentation snapshot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:DocumentationVersion:Description" locationName:"description" type:"string"`
 
 	// The version identifier of the API documentation snapshot.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"apigateway:DocumentationVersion:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -928,71 +928,71 @@ type DomainName struct {
 	// The reference to an AWS-managed certificate that will be used by edge-optimized
 	// endpoint for this domain name. AWS Certificate Manager is the only supported
 	// source.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"apigateway:DomainName:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The name of the certificate that will be used by edge-optimized endpoint
 	// for this domain name.
-	CertificateName *string `locationName:"certificateName" type:"string"`
+	CertificateName *string `json:"apigateway:DomainName:CertificateName" locationName:"certificateName" type:"string"`
 
 	// The timestamp when the certificate that was used by edge-optimized endpoint
 	// for this domain name was uploaded.
-	CertificateUploadDate *time.Time `locationName:"certificateUploadDate" type:"timestamp" timestampFormat:"unix"`
+	CertificateUploadDate *time.Time `json:"apigateway:DomainName:CertificateUploadDate" locationName:"certificateUploadDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The domain name of the Amazon CloudFront distribution associated with this
 	// custom domain name for an edge-optimized endpoint. You set up this association
 	// when adding a DNS record pointing the custom domain name to this distribution
 	// name. For more information about CloudFront distributions, see the Amazon
 	// CloudFront documentation (https://aws.amazon.com/documentation/cloudfront/).
-	DistributionDomainName *string `locationName:"distributionDomainName" type:"string"`
+	DistributionDomainName *string `json:"apigateway:DomainName:DistributionDomainName" locationName:"distributionDomainName" type:"string"`
 
 	// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized
 	// endpoint. The valid value is Z2FDTNDATAQYW2 for all the regions. For more
 	// information, see Set up a Regional Custom Domain Name (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html)
 	// and AWS Regions and Endpoints for API Gateway (https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region).
-	DistributionHostedZoneId *string `locationName:"distributionHostedZoneId" type:"string"`
+	DistributionHostedZoneId *string `json:"apigateway:DomainName:DistributionHostedZoneId" locationName:"distributionHostedZoneId" type:"string"`
 
 	// The custom domain name as an API host name, for example, my-api.example.com.
-	DomainName *string `locationName:"domainName" type:"string"`
+	DomainName *string `json:"apigateway:DomainName:DomainName" locationName:"domainName" type:"string"`
 
 	// The status of the DomainName migration. The valid values are AVAILABLE and
 	// UPDATING. If the status is UPDATING, the domain cannot be modified further
 	// until the existing operation is complete. If it is AVAILABLE, the domain
 	// can be updated.
-	DomainNameStatus DomainNameStatus `locationName:"domainNameStatus" type:"string" enum:"true"`
+	DomainNameStatus DomainNameStatus `json:"apigateway:DomainName:DomainNameStatus" locationName:"domainNameStatus" type:"string" enum:"true"`
 
 	// An optional text message containing detailed information about status of
 	// the DomainName migration.
-	DomainNameStatusMessage *string `locationName:"domainNameStatusMessage" type:"string"`
+	DomainNameStatusMessage *string `json:"apigateway:DomainName:DomainNameStatusMessage" locationName:"domainNameStatusMessage" type:"string"`
 
 	// The endpoint configuration of this DomainName showing the endpoint types
 	// of the domain name.
-	EndpointConfiguration *EndpointConfiguration `locationName:"endpointConfiguration" type:"structure"`
+	EndpointConfiguration *EndpointConfiguration `json:"apigateway:DomainName:EndpointConfiguration" locationName:"endpointConfiguration" type:"structure"`
 
 	// The reference to an AWS-managed certificate that will be used for validating
 	// the regional domain name. AWS Certificate Manager is the only supported source.
-	RegionalCertificateArn *string `locationName:"regionalCertificateArn" type:"string"`
+	RegionalCertificateArn *string `json:"apigateway:DomainName:RegionalCertificateArn" locationName:"regionalCertificateArn" type:"string"`
 
 	// The name of the certificate that will be used for validating the regional
 	// domain name.
-	RegionalCertificateName *string `locationName:"regionalCertificateName" type:"string"`
+	RegionalCertificateName *string `json:"apigateway:DomainName:RegionalCertificateName" locationName:"regionalCertificateName" type:"string"`
 
 	// The domain name associated with the regional endpoint for this custom domain
 	// name. You set up this association by adding a DNS record that points the
 	// custom domain name to this regional domain name. The regional domain name
 	// is returned by API Gateway when you create a regional endpoint.
-	RegionalDomainName *string `locationName:"regionalDomainName" type:"string"`
+	RegionalDomainName *string `json:"apigateway:DomainName:RegionalDomainName" locationName:"regionalDomainName" type:"string"`
 
 	// The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
 	// For more information, see Set up a Regional Custom Domain Name (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html)
 	// and AWS Regions and Endpoints for API Gateway (https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region).
-	RegionalHostedZoneId *string `locationName:"regionalHostedZoneId" type:"string"`
+	RegionalHostedZoneId *string `json:"apigateway:DomainName:RegionalHostedZoneId" locationName:"regionalHostedZoneId" type:"string"`
 
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	// The valid values are TLS_1_0 and TLS_1_2.
-	SecurityPolicy SecurityPolicy `locationName:"securityPolicy" type:"string" enum:"true"`
+	SecurityPolicy SecurityPolicy `json:"apigateway:DomainName:SecurityPolicy" locationName:"securityPolicy" type:"string" enum:"true"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:DomainName:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -1110,7 +1110,7 @@ type EndpointConfiguration struct {
 	// For an edge-optimized API and its custom domain name, the endpoint type is
 	// "EDGE". For a regional API and its custom domain name, the endpoint type
 	// is REGIONAL. For a private API, the endpoint type is PRIVATE.
-	Types []EndpointType `locationName:"types" type:"list"`
+	Types []EndpointType `json:"apigateway:EndpointConfiguration:Types" locationName:"types" type:"list"`
 }
 
 // String returns the string representation
@@ -1180,15 +1180,15 @@ type GatewayResponse struct {
 	// A Boolean flag to indicate whether this GatewayResponse is the default gateway
 	// response (true) or not (false). A default gateway response is one generated
 	// by API Gateway without any customization by an API developer.
-	DefaultResponse *bool `locationName:"defaultResponse" type:"boolean"`
+	DefaultResponse *bool `json:"apigateway:GatewayResponse:DefaultResponse" locationName:"defaultResponse" type:"boolean"`
 
 	// Response parameters (paths, query strings and headers) of the GatewayResponse
 	// as a string-to-string map of key-value pairs.
-	ResponseParameters map[string]string `locationName:"responseParameters" type:"map"`
+	ResponseParameters map[string]string `json:"apigateway:GatewayResponse:ResponseParameters" locationName:"responseParameters" type:"map"`
 
 	// Response templates of the GatewayResponse as a string-to-string map of key-value
 	// pairs.
-	ResponseTemplates map[string]string `locationName:"responseTemplates" type:"map"`
+	ResponseTemplates map[string]string `json:"apigateway:GatewayResponse:ResponseTemplates" locationName:"responseTemplates" type:"map"`
 
 	// The response type of the associated GatewayResponse. Valid values are
 	//    * ACCESS_DENIED
@@ -1230,10 +1230,10 @@ type GatewayResponse struct {
 	//    * UNAUTHORIZED
 	//
 	//    * UNSUPPORTED_MEDIA_TYPE
-	ResponseType GatewayResponseType `locationName:"responseType" type:"string" enum:"true"`
+	ResponseType GatewayResponseType `json:"apigateway:GatewayResponse:ResponseType" locationName:"responseType" type:"string" enum:"true"`
 
 	// The HTTP status code for this GatewayResponse.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"apigateway:GatewayResponse:StatusCode" locationName:"statusCode" type:"string"`
 }
 
 // String returns the string representation
@@ -1299,23 +1299,23 @@ type Integration struct {
 	// A list of request parameters whose values API Gateway caches. To be valid
 	// values for cacheKeyParameters, these parameters must also be specified for
 	// Method requestParameters.
-	CacheKeyParameters []string `locationName:"cacheKeyParameters" type:"list"`
+	CacheKeyParameters []string `json:"apigateway:Integration:CacheKeyParameters" locationName:"cacheKeyParameters" type:"list"`
 
 	// An API-specific tag group of related cached parameters. To be valid values
 	// for cacheKeyParameters, these parameters must also be specified for Method
 	// requestParameters.
-	CacheNamespace *string `locationName:"cacheNamespace" type:"string"`
+	CacheNamespace *string `json:"apigateway:Integration:CacheNamespace" locationName:"cacheNamespace" type:"string"`
 
 	// The (id (https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id))
 	// of the VpcLink used for the integration when connectionType=VPC_LINK and
 	// undefined, otherwise.
-	ConnectionId *string `locationName:"connectionId" type:"string"`
+	ConnectionId *string `json:"apigateway:Integration:ConnectionId" locationName:"connectionId" type:"string"`
 
 	// The type of the network connection to the integration endpoint. The valid
 	// value is INTERNET for connections through the public routable internet or
 	// VPC_LINK for private connections between API Gateway and a network load balancer
 	// in a VPC. The default value is INTERNET.
-	ConnectionType ConnectionType `locationName:"connectionType" type:"string" enum:"true"`
+	ConnectionType ConnectionType `json:"apigateway:Integration:ConnectionType" locationName:"connectionType" type:"string" enum:"true"`
 
 	// Specifies how to handle request payload content type conversions. Supported
 	// values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:
@@ -1329,17 +1329,17 @@ type Integration struct {
 	// If this property is not defined, the request payload will be passed through
 	// from the method request to integration request without modification, provided
 	// that the passthroughBehavior is configured to support payload pass-through.
-	ContentHandling ContentHandlingStrategy `locationName:"contentHandling" type:"string" enum:"true"`
+	ContentHandling ContentHandlingStrategy `json:"apigateway:Integration:ContentHandling" locationName:"contentHandling" type:"string" enum:"true"`
 
 	// Specifies the credentials required for the integration, if any. For AWS integrations,
 	// three options are available. To specify an IAM Role for API Gateway to assume,
 	// use the role's Amazon Resource Name (ARN). To require that the caller's identity
 	// be passed through from the request, specify the string arn:aws:iam::\*:user/\*.
 	// To use resource-based permissions on supported AWS services, specify null.
-	Credentials *string `locationName:"credentials" type:"string"`
+	Credentials *string `json:"apigateway:Integration:Credentials" locationName:"credentials" type:"string"`
 
 	// Specifies the integration's HTTP method type.
-	HttpMethod *string `locationName:"httpMethod" type:"string"`
+	HttpMethod *string `json:"apigateway:Integration:HttpMethod" locationName:"httpMethod" type:"string"`
 
 	// Specifies the integration's responses.
 	//
@@ -1363,7 +1363,7 @@ type Integration struct {
 	//  }, "statusCode": "200" }
 	//
 	// Creating an API (https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html)
-	IntegrationResponses map[string]IntegrationResponse `locationName:"integrationResponses" type:"map"`
+	IntegrationResponses map[string]IntegrationResponse `json:"apigateway:Integration:IntegrationResponses" locationName:"integrationResponses" type:"map"`
 
 	// Specifies how the method request body of an unmapped content type will be
 	// passed through the integration request to the back end without transformation.
@@ -1387,7 +1387,7 @@ type Integration struct {
 	//    any content type associated with the mapping templates defined in the
 	//    integration request or no mapping template is defined in the integration
 	//    request.
-	PassthroughBehavior *string `locationName:"passthroughBehavior" type:"string"`
+	PassthroughBehavior *string `json:"apigateway:Integration:PassthroughBehavior" locationName:"passthroughBehavior" type:"string"`
 
 	// A key-value map specifying request parameters that are passed from the method
 	// request to the back end. The key is an integration request parameter name
@@ -1396,17 +1396,17 @@ type Integration struct {
 	// the back end. The method request parameter value must match the pattern of
 	// method.request.{location}.{name}, where location is querystring, path, or
 	// header and name must be a valid and unique method request parameter name.
-	RequestParameters map[string]string `locationName:"requestParameters" type:"map"`
+	RequestParameters map[string]string `json:"apigateway:Integration:RequestParameters" locationName:"requestParameters" type:"map"`
 
 	// Represents a map of Velocity templates that are applied on the request payload
 	// based on the value of the Content-Type header sent by the client. The content
 	// type value is the key in this map, and the template (as a String) is the
 	// value.
-	RequestTemplates map[string]string `locationName:"requestTemplates" type:"map"`
+	RequestTemplates map[string]string `json:"apigateway:Integration:RequestTemplates" locationName:"requestTemplates" type:"map"`
 
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000
 	// milliseconds or 29 seconds.
-	TimeoutInMillis *int64 `locationName:"timeoutInMillis" type:"integer"`
+	TimeoutInMillis *int64 `json:"apigateway:Integration:TimeoutInMillis" locationName:"timeoutInMillis" type:"integer"`
 
 	// Specifies an API method integration type. The valid value is one of the following:
 	//
@@ -1435,7 +1435,7 @@ type Integration struct {
 	// as well as custom ports above 1024. An HTTP or HTTP proxy integration with
 	// a connectionType of VPC_LINK is referred to as a private integration and
 	// uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
-	Type IntegrationType `locationName:"type" type:"string" enum:"true"`
+	Type IntegrationType `json:"apigateway:Integration:Type" locationName:"type" type:"string" enum:"true"`
 
 	// Specifies Uniform Resource Identifier (URI) of the integration endpoint.
 	//
@@ -1458,7 +1458,7 @@ type Integration struct {
 	//    for integration with the S3 API of GetObject (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html),
 	//    the uri can be either arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}
 	//    or arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}
-	Uri *string `locationName:"uri" type:"string"`
+	Uri *string `json:"apigateway:Integration:Uri" locationName:"uri" type:"string"`
 }
 
 // String returns the string representation
@@ -1598,7 +1598,7 @@ type IntegrationResponse struct {
 	//
 	// If this property is not defined, the response payload will be passed through
 	// from the integration response to the method response without modification.
-	ContentHandling ContentHandlingStrategy `locationName:"contentHandling" type:"string" enum:"true"`
+	ContentHandling ContentHandlingStrategy `json:"apigateway:IntegrationResponse:ContentHandling" locationName:"contentHandling" type:"string" enum:"true"`
 
 	// A key-value map specifying response parameters that are passed to the method
 	// response from the back end. The key is a method response header parameter
@@ -1610,12 +1610,12 @@ type IntegrationResponse struct {
 	// or integration.response.body.{JSON-expression}, where name is a valid and
 	// unique response header name and JSON-expression is a valid JSON expression
 	// without the $ prefix.
-	ResponseParameters map[string]string `locationName:"responseParameters" type:"map"`
+	ResponseParameters map[string]string `json:"apigateway:IntegrationResponse:ResponseParameters" locationName:"responseParameters" type:"map"`
 
 	// Specifies the templates used to transform the integration response body.
 	// Response templates are represented as a key/value map, with a content-type
 	// as the key and a template as the value.
-	ResponseTemplates map[string]string `locationName:"responseTemplates" type:"map"`
+	ResponseTemplates map[string]string `json:"apigateway:IntegrationResponse:ResponseTemplates" locationName:"responseTemplates" type:"map"`
 
 	// Specifies the regular expression (regex) pattern used to choose an integration
 	// response based on the response from the back end. For example, if the success
@@ -1625,11 +1625,11 @@ type IntegrationResponse struct {
 	// If the back end is an AWS Lambda function, the AWS Lambda function error
 	// header is matched. For all other HTTP and AWS back ends, the HTTP status
 	// code is matched.
-	SelectionPattern *string `locationName:"selectionPattern" type:"string"`
+	SelectionPattern *string `json:"apigateway:IntegrationResponse:SelectionPattern" locationName:"selectionPattern" type:"string"`
 
 	// Specifies the status code that is used to map the integration response to
 	// an existing MethodResponse.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"apigateway:IntegrationResponse:StatusCode" locationName:"statusCode" type:"string"`
 }
 
 // String returns the string representation
@@ -1759,7 +1759,7 @@ type Method struct {
 
 	// A boolean flag specifying whether a valid ApiKey is required to invoke this
 	// method.
-	ApiKeyRequired *bool `locationName:"apiKeyRequired" type:"boolean"`
+	ApiKeyRequired *bool `json:"apigateway:Method:ApiKeyRequired" locationName:"apiKeyRequired" type:"boolean"`
 
 	// A list of authorization scopes configured on the method. The scopes are used
 	// with a COGNITO_USER_POOLS authorizer to authorize the method invocation.
@@ -1769,19 +1769,19 @@ type Method struct {
 	// token. Otherwise, the invocation is not authorized. When the method scope
 	// is configured, the client must provide an access token instead of an identity
 	// token for authorization purposes.
-	AuthorizationScopes []string `locationName:"authorizationScopes" type:"list"`
+	AuthorizationScopes []string `json:"apigateway:Method:AuthorizationScopes" locationName:"authorizationScopes" type:"list"`
 
 	// The method's authorization type. Valid values are NONE for open access, AWS_IAM
 	// for using AWS IAM permissions, CUSTOM for using a custom authorizer, or COGNITO_USER_POOLS
 	// for using a Cognito user pool.
-	AuthorizationType *string `locationName:"authorizationType" type:"string"`
+	AuthorizationType *string `json:"apigateway:Method:AuthorizationType" locationName:"authorizationType" type:"string"`
 
 	// The identifier of an Authorizer to use on this method. The authorizationType
 	// must be CUSTOM.
-	AuthorizerId *string `locationName:"authorizerId" type:"string"`
+	AuthorizerId *string `json:"apigateway:Method:AuthorizerId" locationName:"authorizerId" type:"string"`
 
 	// The method's HTTP verb.
-	HttpMethod *string `locationName:"httpMethod" type:"string"`
+	HttpMethod *string `json:"apigateway:Method:HttpMethod" locationName:"httpMethod" type:"string"`
 
 	// Gets the method's integration responsible for passing the client-submitted
 	// request to the back end and performing necessary transformations to make
@@ -1826,7 +1826,7 @@ type Method struct {
 	//  } }
 	//
 	// AWS CLI (https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html)
-	MethodIntegration *Integration `locationName:"methodIntegration" type:"structure"`
+	MethodIntegration *Integration `json:"apigateway:Method:MethodIntegration" locationName:"methodIntegration" type:"structure"`
 
 	// Gets a method response associated with a given HTTP status code.
 	//
@@ -1857,17 +1857,17 @@ type Method struct {
 	//  }
 	//
 	// AWS CLI (https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html)
-	MethodResponses map[string]MethodResponse `locationName:"methodResponses" type:"map"`
+	MethodResponses map[string]MethodResponse `json:"apigateway:Method:MethodResponses" locationName:"methodResponses" type:"map"`
 
 	// A human-friendly operation identifier for the method. For example, you can
 	// assign the operationName of ListPets for the GET /pets method in the PetStore
 	// example.
-	OperationName *string `locationName:"operationName" type:"string"`
+	OperationName *string `json:"apigateway:Method:OperationName" locationName:"operationName" type:"string"`
 
 	// A key-value map specifying data schemas, represented by Model resources,
 	// (as the mapped value) of the request payloads of given content types (as
 	// the mapping key).
-	RequestModels map[string]string `locationName:"requestModels" type:"map"`
+	RequestModels map[string]string `json:"apigateway:Method:RequestModels" locationName:"requestModels" type:"map"`
 
 	// A key-value map defining required or optional method request parameters that
 	// can be accepted by API Gateway. A key is a method request parameter name
@@ -1877,10 +1877,10 @@ type Method struct {
 	// the parameter is required (true) or optional (false). The method request
 	// parameter names defined here are available in Integration to be mapped to
 	// integration request parameters or templates.
-	RequestParameters map[string]bool `locationName:"requestParameters" type:"map"`
+	RequestParameters map[string]bool `json:"apigateway:Method:RequestParameters" locationName:"requestParameters" type:"map"`
 
 	// The identifier of a RequestValidator for request validation.
-	RequestValidatorId *string `locationName:"requestValidatorId" type:"string"`
+	RequestValidatorId *string `json:"apigateway:Method:RequestValidatorId" locationName:"requestValidatorId" type:"string"`
 }
 
 // String returns the string representation
@@ -2013,7 +2013,7 @@ type MethodResponse struct {
 	// Specifies the Model resources used for the response's content-type. Response
 	// models are represented as a key/value map, with a content-type as the key
 	// and a Model name as the value.
-	ResponseModels map[string]string `locationName:"responseModels" type:"map"`
+	ResponseModels map[string]string `json:"apigateway:MethodResponse:ResponseModels" locationName:"responseModels" type:"map"`
 
 	// A key-value map specifying required or optional response parameters that
 	// API Gateway can send back to the caller. A key defines a method response
@@ -2027,10 +2027,10 @@ type MethodResponse struct {
 	// of single quotes (e.g., 'application/json'), or a JSON expression from the
 	// back-end response payload in the form of integration.response.body.{JSON-expression},
 	// where JSON-expression is a valid JSON expression without the $ prefix.)
-	ResponseParameters map[string]bool `locationName:"responseParameters" type:"map"`
+	ResponseParameters map[string]bool `json:"apigateway:MethodResponse:ResponseParameters" locationName:"responseParameters" type:"map"`
 
 	// The method response's status code.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"apigateway:MethodResponse:StatusCode" locationName:"statusCode" type:"string"`
 }
 
 // String returns the string representation
@@ -2080,53 +2080,53 @@ type MethodSetting struct {
 	// Specifies whether the cached responses are encrypted. The PATCH path for
 	// this setting is /{method_setting_key}/caching/dataEncrypted, and the value
 	// is a Boolean.
-	CacheDataEncrypted *bool `locationName:"cacheDataEncrypted" type:"boolean"`
+	CacheDataEncrypted *bool `json:"apigateway:MethodSetting:CacheDataEncrypted" locationName:"cacheDataEncrypted" type:"boolean"`
 
 	// Specifies the time to live (TTL), in seconds, for cached responses. The higher
 	// the TTL, the longer the response will be cached. The PATCH path for this
 	// setting is /{method_setting_key}/caching/ttlInSeconds, and the value is an
 	// integer.
-	CacheTtlInSeconds *int64 `locationName:"cacheTtlInSeconds" type:"integer"`
+	CacheTtlInSeconds *int64 `json:"apigateway:MethodSetting:CacheTtlInSeconds" locationName:"cacheTtlInSeconds" type:"integer"`
 
 	// Specifies whether responses should be cached and returned for requests. A
 	// cache cluster must be enabled on the stage for responses to be cached. The
 	// PATCH path for this setting is /{method_setting_key}/caching/enabled, and
 	// the value is a Boolean.
-	CachingEnabled *bool `locationName:"cachingEnabled" type:"boolean"`
+	CachingEnabled *bool `json:"apigateway:MethodSetting:CachingEnabled" locationName:"cachingEnabled" type:"boolean"`
 
 	// Specifies whether data trace logging is enabled for this method, which affects
 	// the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this
 	// setting is /{method_setting_key}/logging/dataTrace, and the value is a Boolean.
-	DataTraceEnabled *bool `locationName:"dataTraceEnabled" type:"boolean"`
+	DataTraceEnabled *bool `json:"apigateway:MethodSetting:DataTraceEnabled" locationName:"dataTraceEnabled" type:"boolean"`
 
 	// Specifies the logging level for this method, which affects the log entries
 	// pushed to Amazon CloudWatch Logs. The PATCH path for this setting is /{method_setting_key}/logging/loglevel,
 	// and the available levels are OFF, ERROR, and INFO.
-	LoggingLevel *string `locationName:"loggingLevel" type:"string"`
+	LoggingLevel *string `json:"apigateway:MethodSetting:LoggingLevel" locationName:"loggingLevel" type:"string"`
 
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
 	// The PATCH path for this setting is /{method_setting_key}/metrics/enabled,
 	// and the value is a Boolean.
-	MetricsEnabled *bool `locationName:"metricsEnabled" type:"boolean"`
+	MetricsEnabled *bool `json:"apigateway:MethodSetting:MetricsEnabled" locationName:"metricsEnabled" type:"boolean"`
 
 	// Specifies whether authorization is required for a cache invalidation request.
 	// The PATCH path for this setting is /{method_setting_key}/caching/requireAuthorizationForCacheControl,
 	// and the value is a Boolean.
-	RequireAuthorizationForCacheControl *bool `locationName:"requireAuthorizationForCacheControl" type:"boolean"`
+	RequireAuthorizationForCacheControl *bool `json:"apigateway:MethodSetting:RequireAuthorizationForCacheControl" locationName:"requireAuthorizationForCacheControl" type:"boolean"`
 
 	// Specifies the throttling burst limit. The PATCH path for this setting is
 	// /{method_setting_key}/throttling/burstLimit, and the value is an integer.
-	ThrottlingBurstLimit *int64 `locationName:"throttlingBurstLimit" type:"integer"`
+	ThrottlingBurstLimit *int64 `json:"apigateway:MethodSetting:ThrottlingBurstLimit" locationName:"throttlingBurstLimit" type:"integer"`
 
 	// Specifies the throttling rate limit. The PATCH path for this setting is /{method_setting_key}/throttling/rateLimit,
 	// and the value is a double.
-	ThrottlingRateLimit *float64 `locationName:"throttlingRateLimit" type:"double"`
+	ThrottlingRateLimit *float64 `json:"apigateway:MethodSetting:ThrottlingRateLimit" locationName:"throttlingRateLimit" type:"double"`
 
 	// Specifies how to handle unauthorized requests for cache invalidation. The
 	// PATCH path for this setting is /{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy,
 	// and the available values are FAIL_WITH_403, SUCCEED_WITH_RESPONSE_HEADER,
 	// SUCCEED_WITHOUT_RESPONSE_HEADER.
-	UnauthorizedCacheControlHeaderStrategy UnauthorizedCacheControlHeaderStrategy `locationName:"unauthorizedCacheControlHeaderStrategy" type:"string" enum:"true"`
+	UnauthorizedCacheControlHeaderStrategy UnauthorizedCacheControlHeaderStrategy `json:"apigateway:MethodSetting:UnauthorizedCacheControlHeaderStrategy" locationName:"unauthorizedCacheControlHeaderStrategy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2204,12 +2204,12 @@ type MethodSnapshot struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether the method requires a valid ApiKey.
-	ApiKeyRequired *bool `locationName:"apiKeyRequired" type:"boolean"`
+	ApiKeyRequired *bool `json:"apigateway:MethodSnapshot:ApiKeyRequired" locationName:"apiKeyRequired" type:"boolean"`
 
 	// The method's authorization type. Valid values are NONE for open access, AWS_IAM
 	// for using AWS IAM permissions, CUSTOM for using a custom authorizer, or COGNITO_USER_POOLS
 	// for using a Cognito user pool.
-	AuthorizationType *string `locationName:"authorizationType" type:"string"`
+	AuthorizationType *string `json:"apigateway:MethodSnapshot:AuthorizationType" locationName:"authorizationType" type:"string"`
 }
 
 // String returns the string representation
@@ -2249,16 +2249,16 @@ type Model struct {
 	_ struct{} `type:"structure"`
 
 	// The content-type for the model.
-	ContentType *string `locationName:"contentType" type:"string"`
+	ContentType *string `json:"apigateway:Model:ContentType" locationName:"contentType" type:"string"`
 
 	// The description of the model.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:Model:Description" locationName:"description" type:"string"`
 
 	// The identifier for the model resource.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:Model:Id" locationName:"id" type:"string"`
 
 	// The name of the model. Must be an alphanumeric string.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:Model:Name" locationName:"name" type:"string"`
 
 	// The schema for the model. For application/json models, this should be JSON
 	// schema draft 4 (https://tools.ietf.org/html/draft-zyp-json-schema-04) model.
@@ -2266,7 +2266,7 @@ type Model struct {
 	// such "\*/" characters may be interpreted as the closing marker for comments
 	// in some languages, such as Java or JavaScript, causing the installation of
 	// your API's SDK generated by API Gateway to fail.
-	Schema *string `locationName:"schema" type:"string"`
+	Schema *string `json:"apigateway:Model:Schema" locationName:"schema" type:"string"`
 }
 
 // String returns the string representation
@@ -2320,14 +2320,14 @@ type PatchOperation struct {
 	// For example, to promote a canary deployment, you copy the canary deployment
 	// ID to the affiliated deployment ID by calling a PATCH request on a Stage
 	// resource with "op":"copy", "from":"/canarySettings/deploymentId" and "path":"/deploymentId".
-	From *string `locationName:"from" type:"string"`
+	From *string `json:"apigateway:PatchOperation:From" locationName:"from" type:"string"`
 
 	// An update operation to be performed with this PATCH request. The valid value
 	// can be add, remove, replace or copy. Not all valid operations are supported
 	// for a given resource. Support of the operations depends on specific operational
 	// contexts. Attempts to apply an unsupported operation on a resource will return
 	// an error message.
-	Op Op `locationName:"op" type:"string" enum:"true"`
+	Op Op `json:"apigateway:PatchOperation:Op" locationName:"op" type:"string" enum:"true"`
 
 	// The op operation's target, as identified by a JSON Pointer (https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08)
 	// value that references a location within the targeted resource. For example,
@@ -2337,13 +2337,13 @@ type PatchOperation struct {
 	// property will be /name/child~1name. Any slash ("/") character appearing in
 	// path names must be escaped with "~1", as shown in the example above. Each
 	// op operation can have only one path associated with it.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"apigateway:PatchOperation:Path" locationName:"path" type:"string"`
 
 	// The new target value of the update operation. It is applicable for the add
 	// or replace operation. When using AWS CLI to update a property of a JSON value,
 	// enclose the JSON object with a pair of single quotes in a Linux shell, e.g.,
 	// '{"a": ...}'. In a Windows shell, see Using JSON for Parameters (https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json).
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"apigateway:PatchOperation:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -2385,15 +2385,15 @@ type QuotaSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of requests that can be made in a given time period.
-	Limit *int64 `locationName:"limit" type:"integer"`
+	Limit *int64 `json:"apigateway:QuotaSettings:Limit" locationName:"limit" type:"integer"`
 
 	// The number of requests subtracted from the given limit in the initial time
 	// period.
-	Offset *int64 `locationName:"offset" type:"integer"`
+	Offset *int64 `json:"apigateway:QuotaSettings:Offset" locationName:"offset" type:"integer"`
 
 	// The time period in which the limit applies. Valid values are "DAY", "WEEK"
 	// or "MONTH".
-	Period QuotaPeriodType `locationName:"period" type:"string" enum:"true"`
+	Period QuotaPeriodType `json:"apigateway:QuotaSettings:Period" locationName:"period" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2437,18 +2437,18 @@ type RequestValidator struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of this RequestValidator.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:RequestValidator:Id" locationName:"id" type:"string"`
 
 	// The name of this RequestValidator
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:RequestValidator:Name" locationName:"name" type:"string"`
 
 	// A Boolean flag to indicate whether to validate a request body according to
 	// the configured Model schema.
-	ValidateRequestBody *bool `locationName:"validateRequestBody" type:"boolean"`
+	ValidateRequestBody *bool `json:"apigateway:RequestValidator:ValidateRequestBody" locationName:"validateRequestBody" type:"boolean"`
 
 	// A Boolean flag to indicate whether to validate request parameters (true)
 	// or not (false).
-	ValidateRequestParameters *bool `locationName:"validateRequestParameters" type:"boolean"`
+	ValidateRequestParameters *bool `json:"apigateway:RequestValidator:ValidateRequestParameters" locationName:"validateRequestParameters" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2492,16 +2492,16 @@ type Resource struct {
 	_ struct{} `type:"structure"`
 
 	// The resource's identifier.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:Resource:Id" locationName:"id" type:"string"`
 
 	// The parent resource's identifier.
-	ParentId *string `locationName:"parentId" type:"string"`
+	ParentId *string `json:"apigateway:Resource:ParentId" locationName:"parentId" type:"string"`
 
 	// The full path for this resource.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"apigateway:Resource:Path" locationName:"path" type:"string"`
 
 	// The last path segment for this resource.
-	PathPart *string `locationName:"pathPart" type:"string"`
+	PathPart *string `json:"apigateway:Resource:PathPart" locationName:"pathPart" type:"string"`
 
 	// Gets an API resource's method of a given HTTP verb.
 	//
@@ -2559,7 +2559,7 @@ type Resource struct {
 	// If the OPTIONS is enabled on the resource, you can follow the example here
 	// to get that method. Just replace the GET of the last path segment in the
 	// request URL with OPTIONS.
-	ResourceMethods map[string]Method `locationName:"resourceMethods" type:"map"`
+	ResourceMethods map[string]Method `json:"apigateway:Resource:ResourceMethods" locationName:"resourceMethods" type:"map"`
 }
 
 // String returns the string representation
@@ -2620,49 +2620,49 @@ type RestApi struct {
 	//
 	//    * AUTHORIZER to read the API key from the UsageIdentifierKey from a custom
 	//    authorizer.
-	ApiKeySource ApiKeySourceType `locationName:"apiKeySource" type:"string" enum:"true"`
+	ApiKeySource ApiKeySourceType `json:"apigateway:RestApi:ApiKeySource" locationName:"apiKeySource" type:"string" enum:"true"`
 
 	// The list of binary media types supported by the RestApi. By default, the
 	// RestApi supports only UTF-8-encoded text payloads.
-	BinaryMediaTypes []string `locationName:"binaryMediaTypes" type:"list"`
+	BinaryMediaTypes []string `json:"apigateway:RestApi:BinaryMediaTypes" locationName:"binaryMediaTypes" type:"list"`
 
 	// The timestamp when the API was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:RestApi:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The API's description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:RestApi:Description" locationName:"description" type:"string"`
 
 	// The endpoint configuration of this RestApi showing the endpoint types of
 	// the API.
-	EndpointConfiguration *EndpointConfiguration `locationName:"endpointConfiguration" type:"structure"`
+	EndpointConfiguration *EndpointConfiguration `json:"apigateway:RestApi:EndpointConfiguration" locationName:"endpointConfiguration" type:"structure"`
 
 	// The API's identifier. This identifier is unique across all of your APIs in
 	// API Gateway.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:RestApi:Id" locationName:"id" type:"string"`
 
 	// A nullable integer that is used to enable compression (with non-negative
 	// between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with
 	// a null value) on an API. When compression is enabled, compression or decompression
 	// is not applied on the payload if the payload size is smaller than this value.
 	// Setting it to zero allows compression for any payload size.
-	MinimumCompressionSize *int64 `locationName:"minimumCompressionSize" type:"integer"`
+	MinimumCompressionSize *int64 `json:"apigateway:RestApi:MinimumCompressionSize" locationName:"minimumCompressionSize" type:"integer"`
 
 	// The API's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:RestApi:Name" locationName:"name" type:"string"`
 
 	// A stringified JSON policy document that applies to this RestApi regardless
 	// of the caller and Method configuration.
-	Policy *string `locationName:"policy" type:"string"`
+	Policy *string `json:"apigateway:RestApi:Policy" locationName:"policy" type:"string"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:RestApi:Tags" locationName:"tags" type:"map"`
 
 	// A version identifier for the API.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"apigateway:RestApi:Version" locationName:"version" type:"string"`
 
 	// The warning messages reported when failonwarnings is turned on during API
 	// import.
-	Warnings []string `locationName:"warnings" type:"list"`
+	Warnings []string `json:"apigateway:RestApi:Warnings" locationName:"warnings" type:"list"`
 }
 
 // String returns the string representation
@@ -2770,20 +2770,20 @@ type SdkConfigurationProperty struct {
 	_ struct{} `type:"structure"`
 
 	// The default value of an SdkType configuration property.
-	DefaultValue *string `locationName:"defaultValue" type:"string"`
+	DefaultValue *string `json:"apigateway:SdkConfigurationProperty:DefaultValue" locationName:"defaultValue" type:"string"`
 
 	// The description of an SdkType configuration property.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:SdkConfigurationProperty:Description" locationName:"description" type:"string"`
 
 	// The user-friendly name of an SdkType configuration property.
-	FriendlyName *string `locationName:"friendlyName" type:"string"`
+	FriendlyName *string `json:"apigateway:SdkConfigurationProperty:FriendlyName" locationName:"friendlyName" type:"string"`
 
 	// The name of a an SdkType configuration property.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:SdkConfigurationProperty:Name" locationName:"name" type:"string"`
 
 	// A boolean flag of an SdkType configuration property to indicate if the associated
 	// SDK configuration property is required (true) or not (false).
-	Required *bool `locationName:"required" type:"boolean"`
+	Required *bool `json:"apigateway:SdkConfigurationProperty:Required" locationName:"required" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2831,16 +2831,16 @@ type SdkType struct {
 	_ struct{} `type:"structure"`
 
 	// A list of configuration properties of an SdkType.
-	ConfigurationProperties []SdkConfigurationProperty `locationName:"configurationProperties" type:"list"`
+	ConfigurationProperties []SdkConfigurationProperty `json:"apigateway:SdkType:ConfigurationProperties" locationName:"configurationProperties" type:"list"`
 
 	// The description of an SdkType.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:SdkType:Description" locationName:"description" type:"string"`
 
 	// The user-friendly name of an SdkType instance.
-	FriendlyName *string `locationName:"friendlyName" type:"string"`
+	FriendlyName *string `json:"apigateway:SdkType:FriendlyName" locationName:"friendlyName" type:"string"`
 
 	// The identifier of an SdkType instance.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:SdkType:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation
@@ -2891,62 +2891,62 @@ type Stage struct {
 	_ struct{} `type:"structure"`
 
 	// Settings for logging access in this stage.
-	AccessLogSettings *AccessLogSettings `locationName:"accessLogSettings" type:"structure"`
+	AccessLogSettings *AccessLogSettings `json:"apigateway:Stage:AccessLogSettings" locationName:"accessLogSettings" type:"structure"`
 
 	// Specifies whether a cache cluster is enabled for the stage.
-	CacheClusterEnabled *bool `locationName:"cacheClusterEnabled" type:"boolean"`
+	CacheClusterEnabled *bool `json:"apigateway:Stage:CacheClusterEnabled" locationName:"cacheClusterEnabled" type:"boolean"`
 
 	// The size of the cache cluster for the stage, if enabled.
-	CacheClusterSize CacheClusterSize `locationName:"cacheClusterSize" type:"string" enum:"true"`
+	CacheClusterSize CacheClusterSize `json:"apigateway:Stage:CacheClusterSize" locationName:"cacheClusterSize" type:"string" enum:"true"`
 
 	// The status of the cache cluster for the stage, if enabled.
-	CacheClusterStatus CacheClusterStatus `locationName:"cacheClusterStatus" type:"string" enum:"true"`
+	CacheClusterStatus CacheClusterStatus `json:"apigateway:Stage:CacheClusterStatus" locationName:"cacheClusterStatus" type:"string" enum:"true"`
 
 	// Settings for the canary deployment in this stage.
-	CanarySettings *CanarySettings `locationName:"canarySettings" type:"structure"`
+	CanarySettings *CanarySettings `json:"apigateway:Stage:CanarySettings" locationName:"canarySettings" type:"structure"`
 
 	// The identifier of a client certificate for an API stage.
-	ClientCertificateId *string `locationName:"clientCertificateId" type:"string"`
+	ClientCertificateId *string `json:"apigateway:Stage:ClientCertificateId" locationName:"clientCertificateId" type:"string"`
 
 	// The timestamp when the stage was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:Stage:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the Deployment that the stage points to.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"apigateway:Stage:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// The stage's description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:Stage:Description" locationName:"description" type:"string"`
 
 	// The version of the associated API documentation.
-	DocumentationVersion *string `locationName:"documentationVersion" type:"string"`
+	DocumentationVersion *string `json:"apigateway:Stage:DocumentationVersion" locationName:"documentationVersion" type:"string"`
 
 	// The timestamp when the stage last updated.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"apigateway:Stage:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A map that defines the method settings for a Stage resource. Keys (designated
 	// as /{method_setting_key below) are method paths defined as {resource_path}/{http_method}
 	// for an individual method override, or /\*/\* for overriding all methods in
 	// the stage.
-	MethodSettings map[string]MethodSetting `locationName:"methodSettings" type:"map"`
+	MethodSettings map[string]MethodSetting `json:"apigateway:Stage:MethodSettings" locationName:"methodSettings" type:"map"`
 
 	// The name of the stage is the first path segment in the Uniform Resource Identifier
 	// (URI) of a call to API Gateway. Stage names can only contain alphanumeric
 	// characters, hyphens, and underscores. Maximum length is 128 characters.
-	StageName *string `locationName:"stageName" type:"string"`
+	StageName *string `json:"apigateway:Stage:StageName" locationName:"stageName" type:"string"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:Stage:Tags" locationName:"tags" type:"map"`
 
 	// Specifies whether active tracing with X-ray is enabled for the Stage.
-	TracingEnabled *bool `locationName:"tracingEnabled" type:"boolean"`
+	TracingEnabled *bool `json:"apigateway:Stage:TracingEnabled" locationName:"tracingEnabled" type:"boolean"`
 
 	// A map that defines the stage variables for a Stage resource. Variable names
 	// can have alphanumeric and underscore characters, and the values must match
 	// [A-Za-z0-9-._~:/?#&=,]+.
-	Variables map[string]string `locationName:"variables" type:"map"`
+	Variables map[string]string `json:"apigateway:Stage:Variables" locationName:"variables" type:"map"`
 
 	// The ARN of the WebAcl associated with the Stage.
-	WebAclArn *string `locationName:"webAclArn" type:"string"`
+	WebAclArn *string `json:"apigateway:Stage:WebAclArn" locationName:"webAclArn" type:"string"`
 }
 
 // String returns the string representation
@@ -3084,10 +3084,10 @@ type StageKey struct {
 	_ struct{} `type:"structure"`
 
 	// The string identifier of the associated RestApi.
-	RestApiId *string `locationName:"restApiId" type:"string"`
+	RestApiId *string `json:"apigateway:StageKey:RestApiId" locationName:"restApiId" type:"string"`
 
 	// The stage name associated with the stage key.
-	StageName *string `locationName:"stageName" type:"string"`
+	StageName *string `json:"apigateway:StageKey:StageName" locationName:"stageName" type:"string"`
 }
 
 // String returns the string representation
@@ -3119,10 +3119,10 @@ type ThrottleSettings struct {
 	// The API request burst limit, the maximum rate limit over a time ranging from
 	// one to a few seconds, depending upon whether the underlying token bucket
 	// is at its full capacity.
-	BurstLimit *int64 `locationName:"burstLimit" type:"integer"`
+	BurstLimit *int64 `json:"apigateway:ThrottleSettings:BurstLimit" locationName:"burstLimit" type:"integer"`
 
 	// The API request steady-state rate limit.
-	RateLimit *float64 `locationName:"rateLimit" type:"double"`
+	RateLimit *float64 `json:"apigateway:ThrottleSettings:RateLimit" locationName:"rateLimit" type:"double"`
 }
 
 // String returns the string representation
@@ -3159,29 +3159,29 @@ type UsagePlan struct {
 	_ struct{} `type:"structure"`
 
 	// The associated API stages of a usage plan.
-	ApiStages []ApiStage `locationName:"apiStages" type:"list"`
+	ApiStages []ApiStage `json:"apigateway:UsagePlan:ApiStages" locationName:"apiStages" type:"list"`
 
 	// The description of a usage plan.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:UsagePlan:Description" locationName:"description" type:"string"`
 
 	// The identifier of a UsagePlan resource.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:UsagePlan:Id" locationName:"id" type:"string"`
 
 	// The name of a usage plan.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:UsagePlan:Name" locationName:"name" type:"string"`
 
 	// The AWS Markeplace product identifier to associate with the usage plan as
 	// a SaaS product on AWS Marketplace.
-	ProductCode *string `locationName:"productCode" type:"string"`
+	ProductCode *string `json:"apigateway:UsagePlan:ProductCode" locationName:"productCode" type:"string"`
 
 	// The maximum number of permitted requests per a given unit time interval.
-	Quota *QuotaSettings `locationName:"quota" type:"structure"`
+	Quota *QuotaSettings `json:"apigateway:UsagePlan:Quota" locationName:"quota" type:"structure"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:UsagePlan:Tags" locationName:"tags" type:"map"`
 
 	// The request throttle limits of a usage plan.
-	Throttle *ThrottleSettings `locationName:"throttle" type:"structure"`
+	Throttle *ThrottleSettings `json:"apigateway:UsagePlan:Throttle" locationName:"throttle" type:"structure"`
 }
 
 // String returns the string representation
@@ -3265,16 +3265,16 @@ type UsagePlanKey struct {
 	_ struct{} `type:"structure"`
 
 	// The Id of a usage plan key.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:UsagePlanKey:Id" locationName:"id" type:"string"`
 
 	// The name of a usage plan key.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:UsagePlanKey:Name" locationName:"name" type:"string"`
 
 	// The type of a usage plan key. Currently, the valid key type is API_KEY.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"apigateway:UsagePlanKey:Type" locationName:"type" type:"string"`
 
 	// The value of a usage plan key.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"apigateway:UsagePlanKey:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -3325,29 +3325,29 @@ type VpcLink struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the VPC link.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:VpcLink:Description" locationName:"description" type:"string"`
 
 	// The identifier of the VpcLink. It is used in an Integration to reference
 	// this VpcLink.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:VpcLink:Id" locationName:"id" type:"string"`
 
 	// The name used to label and identify the VPC link.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:VpcLink:Name" locationName:"name" type:"string"`
 
 	// The status of the VPC link. The valid values are AVAILABLE, PENDING, DELETING,
 	// or FAILED. Deploying an API will wait if the status is PENDING and will fail
 	// if the status is DELETING.
-	Status VpcLinkStatus `locationName:"status" type:"string" enum:"true"`
+	Status VpcLinkStatus `json:"apigateway:VpcLink:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A description about the VPC link status.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"apigateway:VpcLink:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:VpcLink:Tags" locationName:"tags" type:"map"`
 
 	// The ARNs of network load balancers of the VPC targeted by the VPC link. The
 	// network load balancers must be owned by the same AWS account of the API owner.
-	TargetArns []string `locationName:"targetArns" type:"list"`
+	TargetArns []string `json:"apigateway:VpcLink:TargetArns" locationName:"targetArns" type:"list"`
 }
 
 // String returns the string representation

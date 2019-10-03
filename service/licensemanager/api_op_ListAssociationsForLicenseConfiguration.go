@@ -52,10 +52,10 @@ type ListAssociationsForLicenseConfigurationOutput struct {
 	// Lists association objects for the license configuration, each containing
 	// the association time, number of consumed licenses, resource ARN, resource
 	// ID, account ID that owns the resource, resource size, and resource type.
-	LicenseConfigurationAssociations []LicenseConfigurationAssociation `type:"list"`
+	LicenseConfigurationAssociations []LicenseConfigurationAssociation `json:"license-manager:ListAssociationsForLicenseConfigurationOutput:LicenseConfigurationAssociations" type:"list"`
 
 	// Token for the next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"license-manager:ListAssociationsForLicenseConfigurationOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

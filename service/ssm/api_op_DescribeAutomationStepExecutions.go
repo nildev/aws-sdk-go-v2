@@ -78,10 +78,10 @@ type DescribeAutomationStepExecutionsOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeAutomationStepExecutionsOutput:NextToken" type:"string"`
 
 	// A list of details about the current state of all steps that make up an execution.
-	StepExecutions []StepExecution `type:"list"`
+	StepExecutions []StepExecution `json:"ssm:DescribeAutomationStepExecutionsOutput:StepExecutions" type:"list"`
 }
 
 // String returns the string representation

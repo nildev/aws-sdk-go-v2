@@ -134,10 +134,10 @@ type DescribeClusterSnapshotsOutput struct {
 	// the next set of records by providing this returned marker value in the Marker
 	// parameter and retrying the command. If the Marker field is empty, all response
 	// records have been retrieved for the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeClusterSnapshotsOutput:Marker" type:"string"`
 
 	// A list of Snapshot instances.
-	Snapshots []Snapshot `locationNameList:"Snapshot" type:"list"`
+	Snapshots []Snapshot `json:"redshift:DescribeClusterSnapshotsOutput:Snapshots" locationNameList:"Snapshot" type:"list"`
 }
 
 // String returns the string representation

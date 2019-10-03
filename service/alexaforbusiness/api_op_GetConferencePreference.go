@@ -24,7 +24,7 @@ type GetConferencePreferenceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The conference preference.
-	Preference *ConferencePreference `type:"structure"`
+	Preference *ConferencePreference `json:"a4b:GetConferencePreferenceOutput:Preference" type:"structure"`
 }
 
 // String returns the string representation

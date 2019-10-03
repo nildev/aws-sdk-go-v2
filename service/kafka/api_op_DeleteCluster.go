@@ -64,10 +64,10 @@ type DeleteClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the cluster.
-	ClusterArn *string `locationName:"clusterArn" type:"string"`
+	ClusterArn *string `json:"kafka:DeleteClusterOutput:ClusterArn" locationName:"clusterArn" type:"string"`
 
 	// The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED.
-	State ClusterState `locationName:"state" type:"string" enum:"true"`
+	State ClusterState `json:"kafka:DeleteClusterOutput:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation

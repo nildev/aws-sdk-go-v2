@@ -113,13 +113,13 @@ type CreateChannelOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the channel.
-	ChannelArn *string `locationName:"channelArn" type:"string"`
+	ChannelArn *string `json:"iotanalytics:CreateChannelOutput:ChannelArn" locationName:"channelArn" type:"string"`
 
 	// The name of the channel.
-	ChannelName *string `locationName:"channelName" min:"1" type:"string"`
+	ChannelName *string `json:"iotanalytics:CreateChannelOutput:ChannelName" locationName:"channelName" min:"1" type:"string"`
 
 	// How long, in days, message data is kept for the channel.
-	RetentionPeriod *RetentionPeriod `locationName:"retentionPeriod" type:"structure"`
+	RetentionPeriod *RetentionPeriod `json:"iotanalytics:CreateChannelOutput:RetentionPeriod" locationName:"retentionPeriod" type:"structure"`
 }
 
 // String returns the string representation

@@ -79,20 +79,20 @@ type CreateVocabularyOutput struct {
 
 	// If the VocabularyState field is FAILED, this field contains information about
 	// why the job failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"transcribe:CreateVocabularyOutput:FailureReason" type:"string"`
 
 	// The language code of the vocabulary entries.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"transcribe:CreateVocabularyOutput:LanguageCode" type:"string" enum:"true"`
 
 	// The date and time that the vocabulary was created.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"transcribe:CreateVocabularyOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the vocabulary.
-	VocabularyName *string `min:"1" type:"string"`
+	VocabularyName *string `json:"transcribe:CreateVocabularyOutput:VocabularyName" min:"1" type:"string"`
 
 	// The processing state of the vocabulary. When the VocabularyState field contains
 	// READY the vocabulary is ready to be used in a StartTranscriptionJob request.
-	VocabularyState VocabularyState `type:"string" enum:"true"`
+	VocabularyState VocabularyState `json:"transcribe:CreateVocabularyOutput:VocabularyState" type:"string" enum:"true"`
 }
 
 // String returns the string representation

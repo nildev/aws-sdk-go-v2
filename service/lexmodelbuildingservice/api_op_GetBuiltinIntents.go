@@ -87,13 +87,13 @@ type GetBuiltinIntentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of builtinIntentMetadata objects, one for each intent in the response.
-	Intents []BuiltinIntentMetadata `locationName:"intents" type:"list"`
+	Intents []BuiltinIntentMetadata `json:"models.lex:GetBuiltinIntentsOutput:Intents" locationName:"intents" type:"list"`
 
 	// A pagination token that fetches the next page of intents. If the response
 	// to this API call is truncated, Amazon Lex returns a pagination token in the
 	// response. To fetch the next page of intents, specify the pagination token
 	// in the next request.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetBuiltinIntentsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

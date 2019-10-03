@@ -45,11 +45,11 @@ type DescribeImportImageTasksOutput struct {
 
 	// A list of zero or more import image tasks that are currently active or were
 	// completed or canceled in the previous 7 days.
-	ImportImageTasks []ImportImageTask `locationName:"importImageTaskSet" locationNameList:"item" type:"list"`
+	ImportImageTasks []ImportImageTask `json:"ec2:DescribeImportImageTasksOutput:ImportImageTasks" locationName:"importImageTaskSet" locationNameList:"item" type:"list"`
 
 	// The token to use to get the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeImportImageTasksOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

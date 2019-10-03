@@ -58,42 +58,42 @@ type DescribeContactOutput struct {
 	_ struct{} `type:"structure"`
 
 	// UUID of a contact.
-	ContactId *string `locationName:"contactId" type:"string"`
+	ContactId *string `json:"groundstation:DescribeContactOutput:ContactId" locationName:"contactId" type:"string"`
 
 	// Status of a contact.
-	ContactStatus ContactStatus `locationName:"contactStatus" type:"string" enum:"true"`
+	ContactStatus ContactStatus `json:"groundstation:DescribeContactOutput:ContactStatus" locationName:"contactStatus" type:"string" enum:"true"`
 
 	// End time of a contact.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"groundstation:DescribeContactOutput:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Error message for a contact.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"groundstation:DescribeContactOutput:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// Ground station for a contact.
-	GroundStation *string `locationName:"groundStation" type:"string"`
+	GroundStation *string `json:"groundstation:DescribeContactOutput:GroundStation" locationName:"groundStation" type:"string"`
 
 	// Maximum elevation angle of a contact.
-	MaximumElevation *Elevation `locationName:"maximumElevation" type:"structure"`
+	MaximumElevation *Elevation `json:"groundstation:DescribeContactOutput:MaximumElevation" locationName:"maximumElevation" type:"structure"`
 
 	// ARN of a mission profile.
-	MissionProfileArn *string `locationName:"missionProfileArn" type:"string"`
+	MissionProfileArn *string `json:"groundstation:DescribeContactOutput:MissionProfileArn" locationName:"missionProfileArn" type:"string"`
 
 	// Amount of time after a contact ends that you’d like to receive a CloudWatch
 	// event indicating the pass has finished.
-	PostPassEndTime *time.Time `locationName:"postPassEndTime" type:"timestamp" timestampFormat:"unix"`
+	PostPassEndTime *time.Time `json:"groundstation:DescribeContactOutput:PostPassEndTime" locationName:"postPassEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Amount of time prior to contact start you’d like to receive a CloudWatch
 	// event indicating an upcoming pass.
-	PrePassStartTime *time.Time `locationName:"prePassStartTime" type:"timestamp" timestampFormat:"unix"`
+	PrePassStartTime *time.Time `json:"groundstation:DescribeContactOutput:PrePassStartTime" locationName:"prePassStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ARN of a satellite.
-	SatelliteArn *string `locationName:"satelliteArn" type:"string"`
+	SatelliteArn *string `json:"groundstation:DescribeContactOutput:SatelliteArn" locationName:"satelliteArn" type:"string"`
 
 	// Start time of a contact.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"groundstation:DescribeContactOutput:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Tags assigned to a contact.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"groundstation:DescribeContactOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

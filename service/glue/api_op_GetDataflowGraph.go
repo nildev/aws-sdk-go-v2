@@ -27,10 +27,10 @@ type GetDataflowGraphOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the edges in the resulting DAG.
-	DagEdges []CodeGenEdge `type:"list"`
+	DagEdges []CodeGenEdge `json:"glue:GetDataflowGraphOutput:DagEdges" type:"list"`
 
 	// A list of the nodes in the resulting DAG.
-	DagNodes []CodeGenNode `type:"list"`
+	DagNodes []CodeGenNode `json:"glue:GetDataflowGraphOutput:DagNodes" type:"list"`
 }
 
 // String returns the string representation

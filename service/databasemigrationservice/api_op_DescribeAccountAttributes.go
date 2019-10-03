@@ -24,7 +24,7 @@ type DescribeAccountAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Account quota information.
-	AccountQuotas []AccountQuota `type:"list"`
+	AccountQuotas []AccountQuota `json:"dms:DescribeAccountAttributesOutput:AccountQuotas" type:"list"`
 
 	// A unique AWS DMS identifier for an account in a particular AWS Region. The
 	// value of this identifier has the following format: c99999999999. DMS uses
@@ -35,7 +35,7 @@ type DescribeAccountAttributesOutput struct {
 	// default S3 bucket: dms-111122223333-c44445555666.
 	//
 	// AWS DMS supports UniqueAccountIdentifier in versions 3.1.4 and later.
-	UniqueAccountIdentifier *string `type:"string"`
+	UniqueAccountIdentifier *string `json:"dms:DescribeAccountAttributesOutput:UniqueAccountIdentifier" type:"string"`
 }
 
 // String returns the string representation

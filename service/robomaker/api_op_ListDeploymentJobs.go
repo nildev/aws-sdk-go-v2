@@ -106,13 +106,13 @@ type ListDeploymentJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of deployment jobs that meet the criteria of the request.
-	DeploymentJobs []DeploymentJob `locationName:"deploymentJobs" type:"list"`
+	DeploymentJobs []DeploymentJob `json:"robomaker:ListDeploymentJobsOutput:DeploymentJobs" locationName:"deploymentJobs" type:"list"`
 
 	// The nextToken value to include in a future ListDeploymentJobs request. When
 	// the results of a ListDeploymentJobs request exceed maxResults, this value
 	// can be used to retrieve the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"robomaker:ListDeploymentJobsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

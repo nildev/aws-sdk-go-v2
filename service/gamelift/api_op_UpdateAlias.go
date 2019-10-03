@@ -61,7 +61,7 @@ type UpdateAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that contains the updated alias configuration.
-	Alias *Alias `type:"structure"`
+	Alias *Alias `json:"gamelift:UpdateAliasOutput:Alias" type:"structure"`
 }
 
 // String returns the string representation

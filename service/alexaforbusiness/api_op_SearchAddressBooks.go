@@ -74,13 +74,13 @@ type SearchAddressBooksOutput struct {
 
 	// The address books that meet the specified set of filter criteria, in sort
 	// order.
-	AddressBooks []AddressBookData `type:"list"`
+	AddressBooks []AddressBookData `json:"a4b:SearchAddressBooksOutput:AddressBooks" type:"list"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:SearchAddressBooksOutput:NextToken" min:"1" type:"string"`
 
 	// The total number of address books returned.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"a4b:SearchAddressBooksOutput:TotalCount" type:"integer"`
 }
 
 // String returns the string representation

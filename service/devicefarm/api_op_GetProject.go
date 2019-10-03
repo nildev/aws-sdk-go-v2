@@ -48,7 +48,7 @@ type GetProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The project you wish to get information about.
-	Project *Project `locationName:"project" type:"structure"`
+	Project *Project `json:"devicefarm:GetProjectOutput:Project" locationName:"project" type:"structure"`
 }
 
 // String returns the string representation

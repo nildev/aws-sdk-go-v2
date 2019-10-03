@@ -68,12 +68,12 @@ type SendMessageBatchOutput struct {
 	// that can't be enqueued.
 	//
 	// Failed is a required field
-	Failed []BatchResultErrorEntry `locationNameList:"BatchResultErrorEntry" type:"list" flattened:"true" required:"true"`
+	Failed []BatchResultErrorEntry `json:"sqs:SendMessageBatchOutput:Failed" locationNameList:"BatchResultErrorEntry" type:"list" flattened:"true" required:"true"`
 
 	// A list of SendMessageBatchResultEntry items.
 	//
 	// Successful is a required field
-	Successful []SendMessageBatchResultEntry `locationNameList:"SendMessageBatchResultEntry" type:"list" flattened:"true" required:"true"`
+	Successful []SendMessageBatchResultEntry `json:"sqs:SendMessageBatchOutput:Successful" locationNameList:"SendMessageBatchResultEntry" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation

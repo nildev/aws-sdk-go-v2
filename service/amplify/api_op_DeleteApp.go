@@ -65,7 +65,7 @@ type DeleteAppOutput struct {
 	// and hosting.
 	//
 	// App is a required field
-	App *App `locationName:"app" type:"structure" required:"true"`
+	App *App `json:"amplify:DeleteAppOutput:App" locationName:"app" type:"structure" required:"true"`
 }
 
 // String returns the string representation

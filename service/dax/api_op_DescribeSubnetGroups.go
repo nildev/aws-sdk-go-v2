@@ -39,11 +39,11 @@ type DescribeSubnetGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"dax:DescribeSubnetGroupsOutput:NextToken" type:"string"`
 
 	// An array of subnet groups. Each element in the array represents a single
 	// subnet group.
-	SubnetGroups []SubnetGroup `type:"list"`
+	SubnetGroups []SubnetGroup `json:"dax:DescribeSubnetGroupsOutput:SubnetGroups" type:"list"`
 }
 
 // String returns the string representation

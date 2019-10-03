@@ -43,11 +43,11 @@ type GetCrawlersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of crawler metadata.
-	Crawlers []Crawler `type:"list"`
+	Crawlers []Crawler `json:"glue:GetCrawlersOutput:Crawlers" type:"list"`
 
 	// A continuation token, if the returned list has not reached the end of those
 	// defined in this customer account.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetCrawlersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

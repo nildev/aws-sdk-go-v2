@@ -64,14 +64,14 @@ type ListAccountsForParentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the accounts in the specified root or OU.
-	Accounts []Account `type:"list"`
+	Accounts []Account `json:"organizations:ListAccountsForParentOutput:Accounts" type:"list"`
 
 	// If present, this value indicates that there is more output available than
 	// is included in the current response. Use this value in the NextToken request
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListAccountsForParentOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

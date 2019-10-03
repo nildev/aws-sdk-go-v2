@@ -43,7 +43,7 @@ type GetServiceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A complex type that contains information about the service.
-	Service *Service `type:"structure"`
+	Service *Service `json:"servicediscovery:GetServiceOutput:Service" type:"structure"`
 }
 
 // String returns the string representation

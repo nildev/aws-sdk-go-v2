@@ -46,7 +46,7 @@ type StartOnDemandReplicationRunOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the replication run.
-	ReplicationRunId *string `locationName:"replicationRunId" type:"string"`
+	ReplicationRunId *string `json:"sms:StartOnDemandReplicationRunOutput:ReplicationRunId" locationName:"replicationRunId" type:"string"`
 }
 
 // String returns the string representation

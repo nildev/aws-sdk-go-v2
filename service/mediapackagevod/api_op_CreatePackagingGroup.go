@@ -54,9 +54,9 @@ func (s CreatePackagingGroupInput) MarshalFields(e protocol.FieldEncoder) error 
 type CreatePackagingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage-vod:CreatePackagingGroupOutput:Arn" locationName:"arn" type:"string"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage-vod:CreatePackagingGroupOutput:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation

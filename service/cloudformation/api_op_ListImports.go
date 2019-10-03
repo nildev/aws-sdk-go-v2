@@ -51,11 +51,11 @@ type ListImportsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of stack names that are importing the specified exported output value.
-	Imports []string `type:"list"`
+	Imports []string `json:"cloudformation:ListImportsOutput:Imports" type:"list"`
 
 	// A string that identifies the next page of exports. If there is no additional
 	// page, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:ListImportsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

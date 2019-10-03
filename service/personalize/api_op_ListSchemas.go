@@ -44,10 +44,10 @@ type ListSchemasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token used to get the next set of schemas (if they exist).
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListSchemasOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of schemas.
-	Schemas []DatasetSchemaSummary `locationName:"schemas" type:"list"`
+	Schemas []DatasetSchemaSummary `json:"personalize:ListSchemasOutput:Schemas" locationName:"schemas" type:"list"`
 }
 
 // String returns the string representation

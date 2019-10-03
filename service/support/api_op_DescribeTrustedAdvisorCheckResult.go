@@ -50,7 +50,7 @@ type DescribeTrustedAdvisorCheckResultOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The detailed results of the Trusted Advisor check.
-	Result *TrustedAdvisorCheckResult `locationName:"result" type:"structure"`
+	Result *TrustedAdvisorCheckResult `json:"support:DescribeTrustedAdvisorCheckResultOutput:Result" locationName:"result" type:"structure"`
 }
 
 // String returns the string representation

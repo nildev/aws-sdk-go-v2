@@ -51,11 +51,11 @@ type InitiateLayerUploadOutput struct {
 
 	// The size, in bytes, that Amazon ECR expects future layer part uploads to
 	// be.
-	PartSize *int64 `locationName:"partSize" type:"long"`
+	PartSize *int64 `json:"api.ecr:InitiateLayerUploadOutput:PartSize" locationName:"partSize" type:"long"`
 
 	// The upload ID for the layer upload. This parameter is passed to further UploadLayerPart
 	// and CompleteLayerUpload operations.
-	UploadId *string `locationName:"uploadId" type:"string"`
+	UploadId *string `json:"api.ecr:InitiateLayerUploadOutput:UploadId" locationName:"uploadId" type:"string"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type CreateCacheParameterGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the output of a CreateCacheParameterGroup operation.
-	CacheParameterGroup *CacheParameterGroup `type:"structure"`
+	CacheParameterGroup *CacheParameterGroup `json:"elasticache:CreateCacheParameterGroupOutput:CacheParameterGroup" type:"structure"`
 }
 
 // String returns the string representation

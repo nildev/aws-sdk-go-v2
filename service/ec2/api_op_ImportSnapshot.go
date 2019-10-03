@@ -82,13 +82,13 @@ type ImportSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the import snapshot task.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ImportSnapshotOutput:Description" locationName:"description" type:"string"`
 
 	// The ID of the import snapshot task.
-	ImportTaskId *string `locationName:"importTaskId" type:"string"`
+	ImportTaskId *string `json:"ec2:ImportSnapshotOutput:ImportTaskId" locationName:"importTaskId" type:"string"`
 
 	// Information about the import snapshot task.
-	SnapshotTaskDetail *SnapshotTaskDetail `locationName:"snapshotTaskDetail" type:"structure"`
+	SnapshotTaskDetail *SnapshotTaskDetail `json:"ec2:ImportSnapshotOutput:SnapshotTaskDetail" locationName:"snapshotTaskDetail" type:"structure"`
 }
 
 // String returns the string representation

@@ -78,14 +78,14 @@ type AddApplicationReferenceDataSourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The application Amazon Resource Name (ARN).
-	ApplicationARN *string `min:"1" type:"string"`
+	ApplicationARN *string `json:"kinesisanalytics:AddApplicationReferenceDataSourceOutput:ApplicationARN" min:"1" type:"string"`
 
 	// The updated application version ID. Amazon Kinesis Data Analytics increments
 	// this ID when the application is updated.
-	ApplicationVersionId *int64 `min:"1" type:"long"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:AddApplicationReferenceDataSourceOutput:ApplicationVersionId" min:"1" type:"long"`
 
 	// Describes reference data sources configured for the application.
-	ReferenceDataSourceDescriptions []ReferenceDataSourceDescription `type:"list"`
+	ReferenceDataSourceDescriptions []ReferenceDataSourceDescription `json:"kinesisanalytics:AddApplicationReferenceDataSourceOutput:ReferenceDataSourceDescriptions" type:"list"`
 }
 
 // String returns the string representation

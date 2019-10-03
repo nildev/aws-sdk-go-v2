@@ -62,7 +62,7 @@ type DeleteElasticsearchDomainOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the Elasticsearch domain being deleted.
-	DomainStatus *ElasticsearchDomainStatus `type:"structure"`
+	DomainStatus *ElasticsearchDomainStatus `json:"es:DeleteElasticsearchDomainOutput:DomainStatus" type:"structure"`
 }
 
 // String returns the string representation

@@ -60,13 +60,13 @@ type DescribeSnapshotAttributeOutput struct {
 
 	// The users and groups that have the permissions for creating volumes from
 	// the snapshot.
-	CreateVolumePermissions []CreateVolumePermission `locationName:"createVolumePermission" locationNameList:"item" type:"list"`
+	CreateVolumePermissions []CreateVolumePermission `json:"ec2:DescribeSnapshotAttributeOutput:CreateVolumePermissions" locationName:"createVolumePermission" locationNameList:"item" type:"list"`
 
 	// The product codes.
-	ProductCodes []ProductCode `locationName:"productCodes" locationNameList:"item" type:"list"`
+	ProductCodes []ProductCode `json:"ec2:DescribeSnapshotAttributeOutput:ProductCodes" locationName:"productCodes" locationNameList:"item" type:"list"`
 
 	// The ID of the EBS snapshot.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:DescribeSnapshotAttributeOutput:SnapshotId" locationName:"snapshotId" type:"string"`
 }
 
 // String returns the string representation

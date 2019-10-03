@@ -26,11 +26,11 @@ type ApprovalThresholdPolicy struct {
 	// members cast neither the required number of YES votes to approve the proposal
 	// nor the number of NO votes required to reject it before the duration expires,
 	// the proposal is EXPIRED and ProposalActions are not carried out.
-	ProposalDurationInHours *int64 `min:"1" type:"integer"`
+	ProposalDurationInHours *int64 `json:"managedblockchain:ApprovalThresholdPolicy:ProposalDurationInHours" min:"1" type:"integer"`
 
 	// Determines whether the vote percentage must be greater than the ThresholdPercentage
 	// or must be greater than or equal to the ThreholdPercentage to be approved.
-	ThresholdComparator ThresholdComparator `type:"string" enum:"true"`
+	ThresholdComparator ThresholdComparator `json:"managedblockchain:ApprovalThresholdPolicy:ThresholdComparator" type:"string" enum:"true"`
 
 	// The percentage of votes among all members that must be YES for a proposal
 	// to be approved. For example, a ThresholdPercentage value of 50 indicates
@@ -38,7 +38,7 @@ type ApprovalThresholdPolicy struct {
 	// value of 50 is specified on a network with 10 members, along with a ThresholdComparator
 	// value of GREATER_THAN, this indicates that 6 YES votes are required for the
 	// proposal to be approved.
-	ThresholdPercentage *int64 `type:"integer"`
+	ThresholdPercentage *int64 `json:"managedblockchain:ApprovalThresholdPolicy:ThresholdPercentage" type:"integer"`
 }
 
 // String returns the string representation
@@ -88,19 +88,19 @@ type Invitation struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the invitation was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:Invitation:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time that the invitation expires. This is the CreationDate plus
 	// the ProposalDurationInHours that is specified in the ProposalThresholdPolicy.
 	// After this date and time, the invitee can no longer create a member and join
 	// the network using this InvitationId.
-	ExpirationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationDate *time.Time `json:"managedblockchain:Invitation:ExpirationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique identifier for the invitation.
-	InvitationId *string `min:"1" type:"string"`
+	InvitationId *string `json:"managedblockchain:Invitation:InvitationId" min:"1" type:"string"`
 
 	// A summary of network configuration properties.
-	NetworkSummary *NetworkSummary `type:"structure"`
+	NetworkSummary *NetworkSummary `json:"managedblockchain:Invitation:NetworkSummary" type:"structure"`
 
 	// The status of the invitation:
 	//
@@ -117,7 +117,7 @@ type Invitation struct {
 	//
 	//    * EXPIRED - The invitee neither created a member nor rejected the invitation
 	//    before the ExpirationDate.
-	Status InvitationStatus `type:"string" enum:"true"`
+	Status InvitationStatus `json:"managedblockchain:Invitation:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -169,7 +169,7 @@ type InviteAction struct {
 	// The AWS account ID to invite.
 	//
 	// Principal is a required field
-	Principal *string `type:"string" required:"true"`
+	Principal *string `json:"managedblockchain:InviteAction:Principal" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -208,23 +208,23 @@ type Member struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the member was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:Member:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An optional description for the member.
-	Description *string `type:"string"`
+	Description *string `json:"managedblockchain:Member:Description" type:"string"`
 
 	// Attributes relevant to a member for the blockchain framework that the Managed
 	// Blockchain network uses.
-	FrameworkAttributes *MemberFrameworkAttributes `type:"structure"`
+	FrameworkAttributes *MemberFrameworkAttributes `json:"managedblockchain:Member:FrameworkAttributes" type:"structure"`
 
 	// The unique identifier of the member.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"managedblockchain:Member:Id" min:"1" type:"string"`
 
 	// The name of the member.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"managedblockchain:Member:Name" min:"1" type:"string"`
 
 	// The unique identifier of the network to which the member belongs.
-	NetworkId *string `min:"1" type:"string"`
+	NetworkId *string `json:"managedblockchain:Member:NetworkId" min:"1" type:"string"`
 
 	// The status of a member.
 	//
@@ -244,7 +244,7 @@ type Member struct {
 	//    associated resources are deleted. Either the AWS account that owns the
 	//    member deleted it, or the member is being deleted as the result of an
 	//    APPROVED PROPOSAL to remove the member.
-	Status MemberStatus `type:"string" enum:"true"`
+	Status MemberStatus `json:"managedblockchain:Member:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -305,17 +305,17 @@ type MemberConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// An optional description of the member.
-	Description *string `type:"string"`
+	Description *string `json:"managedblockchain:MemberConfiguration:Description" type:"string"`
 
 	// Configuration properties of the blockchain framework relevant to the member.
 	//
 	// FrameworkConfiguration is a required field
-	FrameworkConfiguration *MemberFrameworkConfiguration `type:"structure" required:"true"`
+	FrameworkConfiguration *MemberFrameworkConfiguration `json:"managedblockchain:MemberConfiguration:FrameworkConfiguration" type:"structure" required:"true"`
 
 	// The name of the member.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"managedblockchain:MemberConfiguration:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -379,10 +379,10 @@ type MemberFabricAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The user name for the initial administrator user for the member.
-	AdminUsername *string `min:"1" type:"string"`
+	AdminUsername *string `json:"managedblockchain:MemberFabricAttributes:AdminUsername" min:"1" type:"string"`
 
 	// The endpoint used to access the member's certificate authority.
-	CaEndpoint *string `type:"string"`
+	CaEndpoint *string `json:"managedblockchain:MemberFabricAttributes:CaEndpoint" type:"string"`
 }
 
 // String returns the string representation
@@ -420,12 +420,12 @@ type MemberFabricConfiguration struct {
 	// backward slash(\), @, or a space.
 	//
 	// AdminPassword is a required field
-	AdminPassword *string `min:"8" type:"string" required:"true"`
+	AdminPassword *string `json:"managedblockchain:MemberFabricConfiguration:AdminPassword" min:"8" type:"string" required:"true"`
 
 	// The user name for the member's initial administrative user.
 	//
 	// AdminUsername is a required field
-	AdminUsername *string `min:"1" type:"string" required:"true"`
+	AdminUsername *string `json:"managedblockchain:MemberFabricConfiguration:AdminUsername" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -482,7 +482,7 @@ type MemberFrameworkAttributes struct {
 
 	// Attributes of Hyperledger Fabric relevant to a member on a Managed Blockchain
 	// network that uses Hyperledger Fabric.
-	Fabric *MemberFabricAttributes `type:"structure"`
+	Fabric *MemberFabricAttributes `json:"managedblockchain:MemberFrameworkAttributes:Fabric" type:"structure"`
 }
 
 // String returns the string representation
@@ -509,7 +509,7 @@ type MemberFrameworkConfiguration struct {
 
 	// Attributes of Hyperledger Fabric for a member on a Managed Blockchain network
 	// that uses Hyperledger Fabric.
-	Fabric *MemberFabricConfiguration `type:"structure"`
+	Fabric *MemberFabricConfiguration `json:"managedblockchain:MemberFrameworkConfiguration:Fabric" type:"structure"`
 }
 
 // String returns the string representation
@@ -549,20 +549,20 @@ type MemberSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the member was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:MemberSummary:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An optional description of the member.
-	Description *string `type:"string"`
+	Description *string `json:"managedblockchain:MemberSummary:Description" type:"string"`
 
 	// The unique identifier of the member.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"managedblockchain:MemberSummary:Id" min:"1" type:"string"`
 
 	// An indicator of whether the member is owned by your AWS account or a different
 	// AWS account.
-	IsOwned *bool `type:"boolean"`
+	IsOwned *bool `json:"managedblockchain:MemberSummary:IsOwned" type:"boolean"`
 
 	// The name of the member.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"managedblockchain:MemberSummary:Name" min:"1" type:"string"`
 
 	// The status of the member.
 	//
@@ -582,7 +582,7 @@ type MemberSummary struct {
 	//    associated resources are deleted. Either the AWS account that owns the
 	//    member deleted it, or the member is being deleted as the result of an
 	//    APPROVED PROPOSAL to remove the member.
-	Status MemberStatus `type:"string" enum:"true"`
+	Status MemberStatus `json:"managedblockchain:MemberSummary:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -637,36 +637,36 @@ type Network struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the network was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:Network:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Attributes of the blockchain framework for the network.
-	Description *string `type:"string"`
+	Description *string `json:"managedblockchain:Network:Description" type:"string"`
 
 	// The blockchain framework that the network uses.
-	Framework Framework `type:"string" enum:"true"`
+	Framework Framework `json:"managedblockchain:Network:Framework" type:"string" enum:"true"`
 
 	// Attributes of the blockchain framework that the network uses.
-	FrameworkAttributes *NetworkFrameworkAttributes `type:"structure"`
+	FrameworkAttributes *NetworkFrameworkAttributes `json:"managedblockchain:Network:FrameworkAttributes" type:"structure"`
 
 	// The version of the blockchain framework that the network uses.
-	FrameworkVersion *string `min:"1" type:"string"`
+	FrameworkVersion *string `json:"managedblockchain:Network:FrameworkVersion" min:"1" type:"string"`
 
 	// The unique identifier of the network.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"managedblockchain:Network:Id" min:"1" type:"string"`
 
 	// The name of the network.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"managedblockchain:Network:Name" min:"1" type:"string"`
 
 	// The current status of the network.
-	Status NetworkStatus `type:"string" enum:"true"`
+	Status NetworkStatus `json:"managedblockchain:Network:Status" type:"string" enum:"true"`
 
 	// The voting rules for the network to decide if a proposal is accepted.
-	VotingPolicy *VotingPolicy `type:"structure"`
+	VotingPolicy *VotingPolicy `json:"managedblockchain:Network:VotingPolicy" type:"structure"`
 
 	// The VPC endpoint service name of the VPC endpoint service of the network.
 	// Members use the VPC endpoint service name to create a VPC endpoint to access
 	// network resources.
-	VpcEndpointServiceName *string `type:"string"`
+	VpcEndpointServiceName *string `json:"managedblockchain:Network:VpcEndpointServiceName" type:"string"`
 }
 
 // String returns the string representation
@@ -746,10 +746,10 @@ type NetworkFabricAttributes struct {
 
 	// The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For
 	// more information, see Amazon Managed Blockchain Pricing (https://aws.amazon.com/managed-blockchain/pricing/).
-	Edition Edition `type:"string" enum:"true"`
+	Edition Edition `json:"managedblockchain:NetworkFabricAttributes:Edition" type:"string" enum:"true"`
 
 	// The endpoint of the ordering service for the network.
-	OrderingServiceEndpoint *string `type:"string"`
+	OrderingServiceEndpoint *string `json:"managedblockchain:NetworkFabricAttributes:OrderingServiceEndpoint" type:"string"`
 }
 
 // String returns the string representation
@@ -783,7 +783,7 @@ type NetworkFabricConfiguration struct {
 	// information, see Amazon Managed Blockchain Pricing (https://aws.amazon.com/managed-blockchain/pricing/).
 	//
 	// Edition is a required field
-	Edition Edition `type:"string" required:"true" enum:"true"`
+	Edition Edition `json:"managedblockchain:NetworkFabricConfiguration:Edition" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -823,7 +823,7 @@ type NetworkFrameworkAttributes struct {
 
 	// Attributes of Hyperledger Fabric for a Managed Blockchain network that uses
 	// Hyperledger Fabric.
-	Fabric *NetworkFabricAttributes `type:"structure"`
+	Fabric *NetworkFabricAttributes `json:"managedblockchain:NetworkFrameworkAttributes:Fabric" type:"structure"`
 }
 
 // String returns the string representation
@@ -850,7 +850,7 @@ type NetworkFrameworkConfiguration struct {
 
 	// Hyperledger Fabric configuration properties for a Managed Blockchain network
 	// that uses Hyperledger Fabric.
-	Fabric *NetworkFabricConfiguration `type:"structure"`
+	Fabric *NetworkFabricConfiguration `json:"managedblockchain:NetworkFrameworkConfiguration:Fabric" type:"structure"`
 }
 
 // String returns the string representation
@@ -890,25 +890,25 @@ type NetworkSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the network was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:NetworkSummary:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An optional description of the network.
-	Description *string `type:"string"`
+	Description *string `json:"managedblockchain:NetworkSummary:Description" type:"string"`
 
 	// The blockchain framework that the network uses.
-	Framework Framework `type:"string" enum:"true"`
+	Framework Framework `json:"managedblockchain:NetworkSummary:Framework" type:"string" enum:"true"`
 
 	// The version of the blockchain framework that the network uses.
-	FrameworkVersion *string `min:"1" type:"string"`
+	FrameworkVersion *string `json:"managedblockchain:NetworkSummary:FrameworkVersion" min:"1" type:"string"`
 
 	// The unique identifier of the network.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"managedblockchain:NetworkSummary:Id" min:"1" type:"string"`
 
 	// The name of the network.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"managedblockchain:NetworkSummary:Name" min:"1" type:"string"`
 
 	// The current status of the network.
-	Status NetworkStatus `type:"string" enum:"true"`
+	Status NetworkStatus `json:"managedblockchain:NetworkSummary:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -969,28 +969,28 @@ type Node struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in which the node exists.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"managedblockchain:Node:AvailabilityZone" type:"string"`
 
 	// The date and time that the node was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:Node:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Attributes of the blockchain framework being used.
-	FrameworkAttributes *NodeFrameworkAttributes `type:"structure"`
+	FrameworkAttributes *NodeFrameworkAttributes `json:"managedblockchain:Node:FrameworkAttributes" type:"structure"`
 
 	// The unique identifier of the node.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"managedblockchain:Node:Id" min:"1" type:"string"`
 
 	// The instance type of the node.
-	InstanceType *string `type:"string"`
+	InstanceType *string `json:"managedblockchain:Node:InstanceType" type:"string"`
 
 	// The unique identifier of the member to which the node belongs.
-	MemberId *string `min:"1" type:"string"`
+	MemberId *string `json:"managedblockchain:Node:MemberId" min:"1" type:"string"`
 
 	// The unique identifier of the network that the node is in.
-	NetworkId *string `min:"1" type:"string"`
+	NetworkId *string `json:"managedblockchain:Node:NetworkId" min:"1" type:"string"`
 
 	// The status of the node.
-	Status NodeStatus `type:"string" enum:"true"`
+	Status NodeStatus `json:"managedblockchain:Node:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1059,12 +1059,12 @@ type NodeConfiguration struct {
 	// The Availability Zone in which the node exists.
 	//
 	// AvailabilityZone is a required field
-	AvailabilityZone *string `type:"string" required:"true"`
+	AvailabilityZone *string `json:"managedblockchain:NodeConfiguration:AvailabilityZone" type:"string" required:"true"`
 
 	// The Amazon Managed Blockchain instance type for the node.
 	//
 	// InstanceType is a required field
-	InstanceType *string `type:"string" required:"true"`
+	InstanceType *string `json:"managedblockchain:NodeConfiguration:InstanceType" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1115,10 +1115,10 @@ type NodeFabricAttributes struct {
 
 	// The endpoint that identifies the peer node for all services except peer channel-based
 	// event services.
-	PeerEndpoint *string `type:"string"`
+	PeerEndpoint *string `json:"managedblockchain:NodeFabricAttributes:PeerEndpoint" type:"string"`
 
 	// The endpoint that identifies the peer node for peer channel-based event services.
-	PeerEventEndpoint *string `type:"string"`
+	PeerEventEndpoint *string `json:"managedblockchain:NodeFabricAttributes:PeerEventEndpoint" type:"string"`
 }
 
 // String returns the string representation
@@ -1151,7 +1151,7 @@ type NodeFrameworkAttributes struct {
 
 	// Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain
 	// network that uses Hyperledger Fabric.
-	Fabric *NodeFabricAttributes `type:"structure"`
+	Fabric *NodeFabricAttributes `json:"managedblockchain:NodeFrameworkAttributes:Fabric" type:"structure"`
 }
 
 // String returns the string representation
@@ -1176,19 +1176,19 @@ type NodeSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone in which the node exists.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"managedblockchain:NodeSummary:AvailabilityZone" type:"string"`
 
 	// The date and time that the node was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:NodeSummary:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique identifier of the node.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"managedblockchain:NodeSummary:Id" min:"1" type:"string"`
 
 	// The EC2 instance type for the node.
-	InstanceType *string `type:"string"`
+	InstanceType *string `json:"managedblockchain:NodeSummary:InstanceType" type:"string"`
 
 	// The status of the node.
-	Status NodeStatus `type:"string" enum:"true"`
+	Status NodeStatus `json:"managedblockchain:NodeSummary:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1237,39 +1237,39 @@ type Proposal struct {
 	_ struct{} `type:"structure"`
 
 	// The actions to perform on the network if the proposal is APPROVED.
-	Actions *ProposalActions `type:"structure"`
+	Actions *ProposalActions `json:"managedblockchain:Proposal:Actions" type:"structure"`
 
 	// The date and time that the proposal was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:Proposal:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the proposal.
-	Description *string `type:"string"`
+	Description *string `json:"managedblockchain:Proposal:Description" type:"string"`
 
 	// The date and time that the proposal expires. This is the CreationDate plus
 	// the ProposalDurationInHours that is specified in the ProposalThresholdPolicy.
 	// After this date and time, if members have not cast enough votes to determine
 	// the outcome according to the voting policy, the proposal is EXPIRED and Actions
 	// are not carried out.
-	ExpirationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationDate *time.Time `json:"managedblockchain:Proposal:ExpirationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique identifier of the network for which the proposal is made.
-	NetworkId *string `min:"1" type:"string"`
+	NetworkId *string `json:"managedblockchain:Proposal:NetworkId" min:"1" type:"string"`
 
 	// The current total of NO votes cast on the proposal by members.
-	NoVoteCount *int64 `type:"integer"`
+	NoVoteCount *int64 `json:"managedblockchain:Proposal:NoVoteCount" type:"integer"`
 
 	// The number of votes remaining to be cast on the proposal by members. In other
 	// words, the number of members minus the sum of YES votes and NO votes.
-	OutstandingVoteCount *int64 `type:"integer"`
+	OutstandingVoteCount *int64 `json:"managedblockchain:Proposal:OutstandingVoteCount" type:"integer"`
 
 	// The unique identifier of the proposal.
-	ProposalId *string `min:"1" type:"string"`
+	ProposalId *string `json:"managedblockchain:Proposal:ProposalId" min:"1" type:"string"`
 
 	// The unique identifier of the member that created the proposal.
-	ProposedByMemberId *string `min:"1" type:"string"`
+	ProposedByMemberId *string `json:"managedblockchain:Proposal:ProposedByMemberId" min:"1" type:"string"`
 
 	// The name of the member that created the proposal.
-	ProposedByMemberName *string `min:"1" type:"string"`
+	ProposedByMemberName *string `json:"managedblockchain:Proposal:ProposedByMemberName" min:"1" type:"string"`
 
 	// The status of the proposal. Values are as follows:
 	//
@@ -1289,10 +1289,10 @@ type Proposal struct {
 	//
 	//    * ACTION_FAILED - One or more of the specified ProposalActions in a proposal
 	//    that was approved could not be completed because of an error.
-	Status ProposalStatus `type:"string" enum:"true"`
+	Status ProposalStatus `json:"managedblockchain:Proposal:Status" type:"string" enum:"true"`
 
 	// The current total of YES votes cast on the proposal by members.
-	YesVoteCount *int64 `type:"integer"`
+	YesVoteCount *int64 `json:"managedblockchain:Proposal:YesVoteCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -1384,12 +1384,12 @@ type ProposalActions struct {
 
 	// The actions to perform for an APPROVED proposal to invite an AWS account
 	// to create a member and join the network.
-	Invitations []InviteAction `type:"list"`
+	Invitations []InviteAction `json:"managedblockchain:ProposalActions:Invitations" type:"list"`
 
 	// The actions to perform for an APPROVED proposal to remove a member from the
 	// network, which deletes the member and all associated member resources from
 	// the network.
-	Removals []RemoveAction `type:"list"`
+	Removals []RemoveAction `json:"managedblockchain:ProposalActions:Removals" type:"list"`
 }
 
 // String returns the string representation
@@ -1456,26 +1456,26 @@ type ProposalSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the proposal was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"managedblockchain:ProposalSummary:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the proposal.
-	Description *string `type:"string"`
+	Description *string `json:"managedblockchain:ProposalSummary:Description" type:"string"`
 
 	// The date and time that the proposal expires. This is the CreationDate plus
 	// the ProposalDurationInHours that is specified in the ProposalThresholdPolicy.
 	// After this date and time, if members have not cast enough votes to determine
 	// the outcome according to the voting policy, the proposal is EXPIRED and Actions
 	// are not carried out.
-	ExpirationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationDate *time.Time `json:"managedblockchain:ProposalSummary:ExpirationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique identifier of the proposal.
-	ProposalId *string `min:"1" type:"string"`
+	ProposalId *string `json:"managedblockchain:ProposalSummary:ProposalId" min:"1" type:"string"`
 
 	// The unique identifier of the member that created the proposal.
-	ProposedByMemberId *string `min:"1" type:"string"`
+	ProposedByMemberId *string `json:"managedblockchain:ProposalSummary:ProposedByMemberId" min:"1" type:"string"`
 
 	// The name of the member that created the proposal.
-	ProposedByMemberName *string `min:"1" type:"string"`
+	ProposedByMemberName *string `json:"managedblockchain:ProposalSummary:ProposedByMemberName" min:"1" type:"string"`
 
 	// The status of the proposal. Values are as follows:
 	//
@@ -1495,7 +1495,7 @@ type ProposalSummary struct {
 	//
 	//    * ACTION_FAILED - One or more of the specified ProposalActions in a proposal
 	//    that was approved could not be completed because of an error.
-	Status ProposalStatus `type:"string" enum:"true"`
+	Status ProposalStatus `json:"managedblockchain:ProposalSummary:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1560,7 +1560,7 @@ type RemoveAction struct {
 	// The unique identifier of the member to remove.
 	//
 	// MemberId is a required field
-	MemberId *string `min:"1" type:"string" required:"true"`
+	MemberId *string `json:"managedblockchain:RemoveAction:MemberId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1602,13 +1602,13 @@ type VoteSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the member that cast the vote.
-	MemberId *string `min:"1" type:"string"`
+	MemberId *string `json:"managedblockchain:VoteSummary:MemberId" min:"1" type:"string"`
 
 	// The name of the member that cast the vote.
-	MemberName *string `min:"1" type:"string"`
+	MemberName *string `json:"managedblockchain:VoteSummary:MemberName" min:"1" type:"string"`
 
 	// The vote value, either YES or NO.
-	Vote VoteValue `type:"string" enum:"true"`
+	Vote VoteValue `json:"managedblockchain:VoteSummary:Vote" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1648,7 +1648,7 @@ type VotingPolicy struct {
 	// of YES votes required for the proposal to be approved and the duration of
 	// the proposal. The policy applies to all proposals and is specified when the
 	// network is created.
-	ApprovalThresholdPolicy *ApprovalThresholdPolicy `type:"structure"`
+	ApprovalThresholdPolicy *ApprovalThresholdPolicy `json:"managedblockchain:VotingPolicy:ApprovalThresholdPolicy" type:"structure"`
 }
 
 // String returns the string representation

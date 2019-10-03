@@ -70,7 +70,7 @@ type CreateReplicationSubnetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The replication subnet group that was created.
-	ReplicationSubnetGroup *ReplicationSubnetGroup `type:"structure"`
+	ReplicationSubnetGroup *ReplicationSubnetGroup `json:"dms:CreateReplicationSubnetGroupOutput:ReplicationSubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

@@ -51,7 +51,7 @@ type ListStreamingDistributionsOutput struct {
 	_ struct{} `type:"structure" payload:"StreamingDistributionList"`
 
 	// The StreamingDistributionList type.
-	StreamingDistributionList *StreamingDistributionList `type:"structure"`
+	StreamingDistributionList *StreamingDistributionList `json:"cloudfront:ListStreamingDistributionsOutput:StreamingDistributionList" type:"structure"`
 }
 
 // String returns the string representation

@@ -74,15 +74,15 @@ type SearchNetworkProfilesOutput struct {
 
 	// The network profiles that meet the specified set of filter criteria, in sort
 	// order. It is a list of NetworkProfileData objects.
-	NetworkProfiles []NetworkProfileData `type:"list"`
+	NetworkProfiles []NetworkProfileData `json:"a4b:SearchNetworkProfilesOutput:NetworkProfiles" type:"list"`
 
 	// An optional token returned from a prior request. Use this token for pagination
 	// of results from this action. If this parameter is specified, the response
 	// includes only results beyond the token, up to the value specified by MaxResults.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:SearchNetworkProfilesOutput:NextToken" min:"1" type:"string"`
 
 	// The total number of network profiles returned.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"a4b:SearchNetworkProfilesOutput:TotalCount" type:"integer"`
 }
 
 // String returns the string representation

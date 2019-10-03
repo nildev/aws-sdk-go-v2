@@ -63,29 +63,29 @@ type DescribeImageAttributeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The block device mapping entries.
-	BlockDeviceMappings []BlockDeviceMapping `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
+	BlockDeviceMappings []BlockDeviceMapping `json:"ec2:DescribeImageAttributeOutput:BlockDeviceMappings" locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
 
 	// A description for the AMI.
-	Description *AttributeValue `locationName:"description" type:"structure"`
+	Description *AttributeValue `json:"ec2:DescribeImageAttributeOutput:Description" locationName:"description" type:"structure"`
 
 	// The ID of the AMI.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:DescribeImageAttributeOutput:ImageId" locationName:"imageId" type:"string"`
 
 	// The kernel ID.
-	KernelId *AttributeValue `locationName:"kernel" type:"structure"`
+	KernelId *AttributeValue `json:"ec2:DescribeImageAttributeOutput:KernelId" locationName:"kernel" type:"structure"`
 
 	// The launch permissions.
-	LaunchPermissions []LaunchPermission `locationName:"launchPermission" locationNameList:"item" type:"list"`
+	LaunchPermissions []LaunchPermission `json:"ec2:DescribeImageAttributeOutput:LaunchPermissions" locationName:"launchPermission" locationNameList:"item" type:"list"`
 
 	// The product codes.
-	ProductCodes []ProductCode `locationName:"productCodes" locationNameList:"item" type:"list"`
+	ProductCodes []ProductCode `json:"ec2:DescribeImageAttributeOutput:ProductCodes" locationName:"productCodes" locationNameList:"item" type:"list"`
 
 	// The RAM disk ID.
-	RamdiskId *AttributeValue `locationName:"ramdisk" type:"structure"`
+	RamdiskId *AttributeValue `json:"ec2:DescribeImageAttributeOutput:RamdiskId" locationName:"ramdisk" type:"structure"`
 
 	// Indicates whether enhanced networking with the Intel 82599 Virtual Function
 	// interface is enabled.
-	SriovNetSupport *AttributeValue `locationName:"sriovNetSupport" type:"structure"`
+	SriovNetSupport *AttributeValue `json:"ec2:DescribeImageAttributeOutput:SriovNetSupport" locationName:"sriovNetSupport" type:"structure"`
 }
 
 // String returns the string representation

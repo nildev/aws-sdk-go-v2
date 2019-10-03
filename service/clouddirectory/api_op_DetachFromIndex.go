@@ -87,7 +87,7 @@ type DetachFromIndexOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the object that was detached from the index.
-	DetachedObjectIdentifier *string `type:"string"`
+	DetachedObjectIdentifier *string `json:"clouddirectory:DetachFromIndexOutput:DetachedObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation

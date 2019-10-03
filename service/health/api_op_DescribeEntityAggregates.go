@@ -41,7 +41,7 @@ type DescribeEntityAggregatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of entities that are affected by each of the specified events.
-	EntityAggregates []EntityAggregate `locationName:"entityAggregates" type:"list"`
+	EntityAggregates []EntityAggregate `json:"health:DescribeEntityAggregatesOutput:EntityAggregates" locationName:"entityAggregates" type:"list"`
 }
 
 // String returns the string representation

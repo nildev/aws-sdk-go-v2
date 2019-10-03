@@ -92,10 +92,10 @@ type ListResolversOutput struct {
 
 	// An identifier to be passed in the next request to this operation to return
 	// the next set of items in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appsync:ListResolversOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The Resolver objects.
-	Resolvers []Resolver `locationName:"resolvers" type:"list"`
+	Resolvers []Resolver `json:"appsync:ListResolversOutput:Resolvers" locationName:"resolvers" type:"list"`
 }
 
 // String returns the string representation

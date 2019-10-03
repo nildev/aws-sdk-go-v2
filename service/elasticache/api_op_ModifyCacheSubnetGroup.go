@@ -59,7 +59,7 @@ type ModifyCacheSubnetGroupOutput struct {
 	//    * CreateCacheSubnetGroup
 	//
 	//    * ModifyCacheSubnetGroup
-	CacheSubnetGroup *CacheSubnetGroup `type:"structure"`
+	CacheSubnetGroup *CacheSubnetGroup `json:"elasticache:ModifyCacheSubnetGroupOutput:CacheSubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

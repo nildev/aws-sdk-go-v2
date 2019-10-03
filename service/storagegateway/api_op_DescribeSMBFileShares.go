@@ -49,7 +49,7 @@ type DescribeSMBFileSharesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array containing a description for each requested file share.
-	SMBFileShareInfoList []SMBFileShareInfo `type:"list"`
+	SMBFileShareInfoList []SMBFileShareInfo `json:"storagegateway:DescribeSMBFileSharesOutput:SMBFileShareInfoList" type:"list"`
 }
 
 // String returns the string representation

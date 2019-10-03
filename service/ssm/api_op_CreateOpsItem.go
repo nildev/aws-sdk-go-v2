@@ -136,7 +136,7 @@ type CreateOpsItemOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the OpsItem.
-	OpsItemId *string `type:"string"`
+	OpsItemId *string `json:"ssm:CreateOpsItemOutput:OpsItemId" type:"string"`
 }
 
 // String returns the string representation

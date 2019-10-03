@@ -54,7 +54,7 @@ type DeleteAccountSettingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The account setting for the specified principal ARN.
-	Setting *Setting `locationName:"setting" type:"structure"`
+	Setting *Setting `json:"ecs:DeleteAccountSettingOutput:Setting" locationName:"setting" type:"structure"`
 }
 
 // String returns the string representation

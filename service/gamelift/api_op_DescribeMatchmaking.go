@@ -45,7 +45,7 @@ type DescribeMatchmakingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Collection of existing matchmaking ticket objects matching the request.
-	TicketList []MatchmakingTicket `type:"list"`
+	TicketList []MatchmakingTicket `json:"gamelift:DescribeMatchmakingOutput:TicketList" type:"list"`
 }
 
 // String returns the string representation

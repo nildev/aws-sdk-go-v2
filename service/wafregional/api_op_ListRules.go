@@ -53,10 +53,10 @@ type ListRulesOutput struct {
 	// request, the response includes a NextMarker value. To list more Rules, submit
 	// another ListRules request, and specify the NextMarker value from the response
 	// in the NextMarker value in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf-regional:ListRulesOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of RuleSummary objects.
-	Rules []waf.RuleSummary `type:"list"`
+	Rules []waf.RuleSummary `json:"waf-regional:ListRulesOutput:Rules" type:"list"`
 }
 
 // String returns the string representation

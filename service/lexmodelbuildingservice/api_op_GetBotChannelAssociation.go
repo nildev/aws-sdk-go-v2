@@ -100,27 +100,27 @@ type GetBotChannelAssociationOutput struct {
 
 	// An alias pointing to the specific version of the Amazon Lex bot to which
 	// this association is being made.
-	BotAlias *string `locationName:"botAlias" min:"1" type:"string"`
+	BotAlias *string `json:"models.lex:GetBotChannelAssociationOutput:BotAlias" locationName:"botAlias" min:"1" type:"string"`
 
 	// Provides information that the messaging platform needs to communicate with
 	// the Amazon Lex bot.
-	BotConfiguration map[string]string `locationName:"botConfiguration" min:"1" type:"map"`
+	BotConfiguration map[string]string `json:"models.lex:GetBotChannelAssociationOutput:BotConfiguration" locationName:"botConfiguration" min:"1" type:"map"`
 
 	// The name of the Amazon Lex bot.
-	BotName *string `locationName:"botName" min:"2" type:"string"`
+	BotName *string `json:"models.lex:GetBotChannelAssociationOutput:BotName" locationName:"botName" min:"2" type:"string"`
 
 	// The date that the association between the bot and the channel was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:GetBotChannelAssociationOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the association between the bot and the channel.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:GetBotChannelAssociationOutput:Description" locationName:"description" type:"string"`
 
 	// If status is FAILED, Amazon Lex provides the reason that it failed to create
 	// the association.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"models.lex:GetBotChannelAssociationOutput:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The name of the association between the bot and the channel.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:GetBotChannelAssociationOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the bot channel.
 	//
@@ -130,10 +130,10 @@ type GetBotChannelAssociationOutput struct {
 	//
 	//    * FAILED - There was an error creating the channel. For information about
 	//    the reason for the failure, see the failureReason field.
-	Status ChannelStatus `locationName:"status" type:"string" enum:"true"`
+	Status ChannelStatus `json:"models.lex:GetBotChannelAssociationOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The type of the messaging platform.
-	Type ChannelType `locationName:"type" type:"string" enum:"true"`
+	Type ChannelType `json:"models.lex:GetBotChannelAssociationOutput:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation

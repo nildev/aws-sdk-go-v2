@@ -60,10 +60,10 @@ type DescribeAlarmHistoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The alarm histories, in JSON format.
-	AlarmHistoryItems []AlarmHistoryItem `type:"list"`
+	AlarmHistoryItems []AlarmHistoryItem `json:"monitoring:DescribeAlarmHistoryOutput:AlarmHistoryItems" type:"list"`
 
 	// The token that marks the start of the next batch of returned results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"monitoring:DescribeAlarmHistoryOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

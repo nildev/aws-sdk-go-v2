@@ -60,7 +60,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A TagMap object.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"appsync:ListTagsForResourceOutput:Tags" locationName:"tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

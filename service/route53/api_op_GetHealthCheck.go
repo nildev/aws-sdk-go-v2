@@ -64,7 +64,7 @@ type GetHealthCheckOutput struct {
 	// with the current AWS account.
 	//
 	// HealthCheck is a required field
-	HealthCheck *HealthCheck `type:"structure" required:"true"`
+	HealthCheck *HealthCheck `json:"route53:GetHealthCheckOutput:HealthCheck" type:"structure" required:"true"`
 }
 
 // String returns the string representation

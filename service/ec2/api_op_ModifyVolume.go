@@ -69,7 +69,7 @@ type ModifyVolumeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the volume modification.
-	VolumeModification *VolumeModification `locationName:"volumeModification" type:"structure"`
+	VolumeModification *VolumeModification `json:"ec2:ModifyVolumeOutput:VolumeModification" locationName:"volumeModification" type:"structure"`
 }
 
 // String returns the string representation

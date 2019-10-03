@@ -89,10 +89,10 @@ type ListLayerVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of versions.
-	LayerVersions []LayerVersionsListItem `type:"list"`
+	LayerVersions []LayerVersionsListItem `json:"lambda:ListLayerVersionsOutput:LayerVersions" type:"list"`
 
 	// A pagination token returned when the response doesn't contain all versions.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"lambda:ListLayerVersionsOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

@@ -57,10 +57,10 @@ type GetPipelineOutput struct {
 
 	// Represents the pipeline metadata information returned as part of the output
 	// of a GetPipeline action.
-	Metadata *PipelineMetadata `locationName:"metadata" type:"structure"`
+	Metadata *PipelineMetadata `json:"codepipeline:GetPipelineOutput:Metadata" locationName:"metadata" type:"structure"`
 
 	// Represents the structure of actions and stages to be performed in the pipeline.
-	Pipeline *PipelineDeclaration `locationName:"pipeline" type:"structure"`
+	Pipeline *PipelineDeclaration `json:"codepipeline:GetPipelineOutput:Pipeline" locationName:"pipeline" type:"structure"`
 }
 
 // String returns the string representation

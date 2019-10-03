@@ -52,11 +52,11 @@ type CheckDNSAvailabilityOutput struct {
 	//    * true : The CNAME is available.
 	//
 	//    * false : The CNAME is not available.
-	Available *bool `type:"boolean"`
+	Available *bool `json:"elasticbeanstalk:CheckDNSAvailabilityOutput:Available" type:"boolean"`
 
 	// The fully qualified CNAME to reserve when CreateEnvironment is called with
 	// the provided prefix.
-	FullyQualifiedCNAME *string `min:"1" type:"string"`
+	FullyQualifiedCNAME *string `json:"elasticbeanstalk:CheckDNSAvailabilityOutput:FullyQualifiedCNAME" min:"1" type:"string"`
 }
 
 // String returns the string representation

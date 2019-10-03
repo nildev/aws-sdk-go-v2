@@ -87,10 +87,10 @@ type PutActionRevisionOutput struct {
 
 	// Indicates whether the artifact revision was previously used in an execution
 	// of the specified pipeline.
-	NewRevision *bool `locationName:"newRevision" type:"boolean"`
+	NewRevision *bool `json:"codepipeline:PutActionRevisionOutput:NewRevision" locationName:"newRevision" type:"boolean"`
 
 	// The ID of the current workflow state of the pipeline.
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+	PipelineExecutionId *string `json:"codepipeline:PutActionRevisionOutput:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string"`
 }
 
 // String returns the string representation

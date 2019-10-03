@@ -79,7 +79,7 @@ type DeleteDomainAssociationOutput struct {
 	// Amplify App.
 	//
 	// DomainAssociation is a required field
-	DomainAssociation *DomainAssociation `locationName:"domainAssociation" type:"structure" required:"true"`
+	DomainAssociation *DomainAssociation `json:"amplify:DeleteDomainAssociationOutput:DomainAssociation" locationName:"domainAssociation" type:"structure" required:"true"`
 }
 
 // String returns the string representation

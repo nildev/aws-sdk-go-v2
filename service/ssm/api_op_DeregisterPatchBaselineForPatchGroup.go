@@ -58,10 +58,10 @@ type DeregisterPatchBaselineForPatchGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the patch baseline the patch group was deregistered from.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:DeregisterPatchBaselineForPatchGroupOutput:BaselineId" min:"20" type:"string"`
 
 	// The name of the patch group deregistered from the patch baseline.
-	PatchGroup *string `min:"1" type:"string"`
+	PatchGroup *string `json:"ssm:DeregisterPatchBaselineForPatchGroupOutput:PatchGroup" min:"1" type:"string"`
 }
 
 // String returns the string representation

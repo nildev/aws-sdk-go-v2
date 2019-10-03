@@ -53,7 +53,7 @@ type SetIpAddressTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IP address type.
-	IpAddressType IpAddressType `type:"string" enum:"true"`
+	IpAddressType IpAddressType `json:"elasticloadbalancing:SetIpAddressTypeOutput:IpAddressType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

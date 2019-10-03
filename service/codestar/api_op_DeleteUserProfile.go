@@ -48,7 +48,7 @@ type DeleteUserProfileOutput struct {
 	// The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
 	//
 	// UserArn is a required field
-	UserArn *string `locationName:"userArn" min:"32" type:"string" required:"true"`
+	UserArn *string `json:"codestar:DeleteUserProfileOutput:UserArn" locationName:"userArn" min:"32" type:"string" required:"true"`
 }
 
 // String returns the string representation

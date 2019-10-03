@@ -90,7 +90,7 @@ type CreateStreamProcessorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ARN for the newly create stream processor.
-	StreamProcessorArn *string `type:"string"`
+	StreamProcessorArn *string `json:"rekognition:CreateStreamProcessorOutput:StreamProcessorArn" type:"string"`
 }
 
 // String returns the string representation

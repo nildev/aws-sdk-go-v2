@@ -70,18 +70,18 @@ type DiscoverInputSchemaOutput struct {
 	// Schema inferred from the streaming source. It identifies the format of the
 	// data in the streaming source and how each data element maps to corresponding
 	// columns in the in-application stream that you can create.
-	InputSchema *SourceSchema `type:"structure"`
+	InputSchema *SourceSchema `json:"kinesisanalytics:DiscoverInputSchemaOutput:InputSchema" type:"structure"`
 
 	// An array of elements, where each element corresponds to a row in a stream
 	// record (a stream record can have more than one row).
-	ParsedInputRecords [][]string `type:"list"`
+	ParsedInputRecords [][]string `json:"kinesisanalytics:DiscoverInputSchemaOutput:ParsedInputRecords" type:"list"`
 
 	// Stream data that was modified by the processor specified in the InputProcessingConfiguration
 	// parameter.
-	ProcessedInputRecords []string `type:"list"`
+	ProcessedInputRecords []string `json:"kinesisanalytics:DiscoverInputSchemaOutput:ProcessedInputRecords" type:"list"`
 
 	// Raw stream data that was sampled to infer the schema.
-	RawInputRecords []string `type:"list"`
+	RawInputRecords []string `json:"kinesisanalytics:DiscoverInputSchemaOutput:RawInputRecords" type:"list"`
 }
 
 // String returns the string representation

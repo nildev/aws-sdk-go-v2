@@ -54,12 +54,12 @@ type ListCustomVerificationEmailTemplatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the custom verification email templates that exist in your account.
-	CustomVerificationEmailTemplates []CustomVerificationEmailTemplate `type:"list"`
+	CustomVerificationEmailTemplates []CustomVerificationEmailTemplate `json:"email:ListCustomVerificationEmailTemplatesOutput:CustomVerificationEmailTemplates" type:"list"`
 
 	// A token indicating that there are additional custom verification email templates
 	// available to be listed. Pass this token to a subsequent call to ListTemplates
 	// to retrieve the next 50 custom verification email templates.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"email:ListCustomVerificationEmailTemplatesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -132,13 +132,13 @@ type CreateGrantOutput struct {
 	// The unique identifier for the grant.
 	//
 	// You can use the GrantId in a subsequent RetireGrant or RevokeGrant operation.
-	GrantId *string `min:"1" type:"string"`
+	GrantId *string `json:"kms:CreateGrantOutput:GrantId" min:"1" type:"string"`
 
 	// The grant token.
 	//
 	// For more information, see Grant Tokens (https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token)
 	// in the AWS Key Management Service Developer Guide.
-	GrantToken *string `min:"1" type:"string"`
+	GrantToken *string `json:"kms:CreateGrantOutput:GrantToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

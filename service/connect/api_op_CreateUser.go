@@ -198,10 +198,10 @@ type CreateUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the user account created.
-	UserArn *string `type:"string"`
+	UserArn *string `json:"connect:CreateUserOutput:UserArn" type:"string"`
 
 	// The unique identifier for the user account in Amazon Connect
-	UserId *string `type:"string"`
+	UserId *string `json:"connect:CreateUserOutput:UserId" type:"string"`
 }
 
 // String returns the string representation

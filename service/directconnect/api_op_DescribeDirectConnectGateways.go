@@ -36,10 +36,10 @@ type DescribeDirectConnectGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Direct Connect gateways.
-	DirectConnectGateways []DirectConnectGateway `locationName:"directConnectGateways" type:"list"`
+	DirectConnectGateways []DirectConnectGateway `json:"directconnect:DescribeDirectConnectGatewaysOutput:DirectConnectGateways" locationName:"directConnectGateways" type:"list"`
 
 	// The token to retrieve the next page.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"directconnect:DescribeDirectConnectGatewaysOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

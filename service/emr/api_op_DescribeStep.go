@@ -54,7 +54,7 @@ type DescribeStepOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The step details for the requested step identifier.
-	Step *Step `type:"structure"`
+	Step *Step `json:"elasticmapreduce:DescribeStepOutput:Step" type:"structure"`
 }
 
 // String returns the string representation

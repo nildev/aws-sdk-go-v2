@@ -79,7 +79,7 @@ type BatchUnsuspendUserOutput struct {
 	// If the BatchUnsuspendUser action fails for one or more of the user IDs in
 	// the request, a list of the user IDs is returned, along with error codes and
 	// error messages.
-	UserErrors []UserError `type:"list"`
+	UserErrors []UserError `json:"chime:BatchUnsuspendUserOutput:UserErrors" type:"list"`
 }
 
 // String returns the string representation

@@ -58,7 +58,7 @@ type CreateTagOptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the TagOption.
-	TagOptionDetail *TagOptionDetail `type:"structure"`
+	TagOptionDetail *TagOptionDetail `json:"servicecatalog:CreateTagOptionOutput:TagOptionDetail" type:"structure"`
 }
 
 // String returns the string representation

@@ -106,14 +106,14 @@ type GetMetricDataOutput struct {
 	// A message appears here only if it is related to the global GetMetricData
 	// operation. Any message about a specific metric returned by the operation
 	// appears in the MetricDataResult object returned for that metric.
-	Messages []MessageData `type:"list"`
+	Messages []MessageData `json:"monitoring:GetMetricDataOutput:Messages" type:"list"`
 
 	// The metrics that are returned, including the metric name, namespace, and
 	// dimensions.
-	MetricDataResults []MetricDataResult `type:"list"`
+	MetricDataResults []MetricDataResult `json:"monitoring:GetMetricDataOutput:MetricDataResults" type:"list"`
 
 	// A token that marks the next batch of returned results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"monitoring:GetMetricDataOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

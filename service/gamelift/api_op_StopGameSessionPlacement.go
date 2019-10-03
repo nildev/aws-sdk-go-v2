@@ -49,7 +49,7 @@ type StopGameSessionPlacementOutput struct {
 
 	// Object that describes the canceled game session placement, with CANCELLED
 	// status and an end time stamp.
-	GameSessionPlacement *GameSessionPlacement `type:"structure"`
+	GameSessionPlacement *GameSessionPlacement `json:"gamelift:StopGameSessionPlacementOutput:GameSessionPlacement" type:"structure"`
 }
 
 // String returns the string representation

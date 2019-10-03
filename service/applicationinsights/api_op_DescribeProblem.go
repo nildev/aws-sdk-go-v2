@@ -43,7 +43,7 @@ type DescribeProblemOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the problem.
-	Problem *Problem `type:"structure"`
+	Problem *Problem `json:"applicationinsights:DescribeProblemOutput:Problem" type:"structure"`
 }
 
 // String returns the string representation

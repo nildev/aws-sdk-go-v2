@@ -73,10 +73,10 @@ type PutTargetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The failed target entries.
-	FailedEntries []PutTargetsResultEntry `type:"list"`
+	FailedEntries []PutTargetsResultEntry `json:"events:PutTargetsOutput:FailedEntries" type:"list"`
 
 	// The number of failed entries.
-	FailedEntryCount *int64 `type:"integer"`
+	FailedEntryCount *int64 `json:"events:PutTargetsOutput:FailedEntryCount" type:"integer"`
 }
 
 // String returns the string representation

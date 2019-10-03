@@ -123,23 +123,23 @@ func (s CreatePackagingConfigurationInput) MarshalFields(e protocol.FieldEncoder
 type CreatePackagingConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage-vod:CreatePackagingConfigurationOutput:Arn" locationName:"arn" type:"string"`
 
 	// A CMAF packaging configuration.
-	CmafPackage *CmafPackage `locationName:"cmafPackage" type:"structure"`
+	CmafPackage *CmafPackage `json:"mediapackage-vod:CreatePackagingConfigurationOutput:CmafPackage" locationName:"cmafPackage" type:"structure"`
 
 	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-	DashPackage *DashPackage `locationName:"dashPackage" type:"structure"`
+	DashPackage *DashPackage `json:"mediapackage-vod:CreatePackagingConfigurationOutput:DashPackage" locationName:"dashPackage" type:"structure"`
 
 	// An HTTP Live Streaming (HLS) packaging configuration.
-	HlsPackage *HlsPackage `locationName:"hlsPackage" type:"structure"`
+	HlsPackage *HlsPackage `json:"mediapackage-vod:CreatePackagingConfigurationOutput:HlsPackage" locationName:"hlsPackage" type:"structure"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage-vod:CreatePackagingConfigurationOutput:Id" locationName:"id" type:"string"`
 
 	// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
-	MssPackage *MssPackage `locationName:"mssPackage" type:"structure"`
+	MssPackage *MssPackage `json:"mediapackage-vod:CreatePackagingConfigurationOutput:MssPackage" locationName:"mssPackage" type:"structure"`
 
-	PackagingGroupId *string `locationName:"packagingGroupId" type:"string"`
+	PackagingGroupId *string `json:"mediapackage-vod:CreatePackagingConfigurationOutput:PackagingGroupId" locationName:"packagingGroupId" type:"string"`
 }
 
 // String returns the string representation

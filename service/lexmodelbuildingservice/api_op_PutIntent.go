@@ -295,59 +295,59 @@ type PutIntentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Checksum of the $LATESTversion of the intent created or updated.
-	Checksum *string `locationName:"checksum" type:"string"`
+	Checksum *string `json:"models.lex:PutIntentOutput:Checksum" locationName:"checksum" type:"string"`
 
 	// After the Lambda function specified in thefulfillmentActivityintent fulfills
 	// the intent, Amazon Lex conveys this statement to the user.
-	ConclusionStatement *Statement `locationName:"conclusionStatement" type:"structure"`
+	ConclusionStatement *Statement `json:"models.lex:PutIntentOutput:ConclusionStatement" locationName:"conclusionStatement" type:"structure"`
 
 	// If defined in the intent, Amazon Lex prompts the user to confirm the intent
 	// before fulfilling it.
-	ConfirmationPrompt *Prompt `locationName:"confirmationPrompt" type:"structure"`
+	ConfirmationPrompt *Prompt `json:"models.lex:PutIntentOutput:ConfirmationPrompt" locationName:"confirmationPrompt" type:"structure"`
 
-	CreateVersion *bool `locationName:"createVersion" type:"boolean"`
+	CreateVersion *bool `json:"models.lex:PutIntentOutput:CreateVersion" locationName:"createVersion" type:"boolean"`
 
 	// The date that the intent was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:PutIntentOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the intent.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:PutIntentOutput:Description" locationName:"description" type:"string"`
 
 	// If defined in the intent, Amazon Lex invokes this Lambda function for each
 	// user input.
-	DialogCodeHook *CodeHook `locationName:"dialogCodeHook" type:"structure"`
+	DialogCodeHook *CodeHook `json:"models.lex:PutIntentOutput:DialogCodeHook" locationName:"dialogCodeHook" type:"structure"`
 
 	// If defined in the intent, Amazon Lex uses this prompt to solicit additional
 	// user activity after the intent is fulfilled.
-	FollowUpPrompt *FollowUpPrompt `locationName:"followUpPrompt" type:"structure"`
+	FollowUpPrompt *FollowUpPrompt `json:"models.lex:PutIntentOutput:FollowUpPrompt" locationName:"followUpPrompt" type:"structure"`
 
 	// If defined in the intent, Amazon Lex invokes this Lambda function to fulfill
 	// the intent after the user provides all of the information required by the
 	// intent.
-	FulfillmentActivity *FulfillmentActivity `locationName:"fulfillmentActivity" type:"structure"`
+	FulfillmentActivity *FulfillmentActivity `json:"models.lex:PutIntentOutput:FulfillmentActivity" locationName:"fulfillmentActivity" type:"structure"`
 
 	// The date that the intent was updated. When you create a resource, the creation
 	// date and last update dates are the same.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:PutIntentOutput:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the intent.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:PutIntentOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// A unique identifier for the built-in intent that this intent is based on.
-	ParentIntentSignature *string `locationName:"parentIntentSignature" type:"string"`
+	ParentIntentSignature *string `json:"models.lex:PutIntentOutput:ParentIntentSignature" locationName:"parentIntentSignature" type:"string"`
 
 	// If the user answers "no" to the question defined in confirmationPrompt Amazon
 	// Lex responds with this statement to acknowledge that the intent was canceled.
-	RejectionStatement *Statement `locationName:"rejectionStatement" type:"structure"`
+	RejectionStatement *Statement `json:"models.lex:PutIntentOutput:RejectionStatement" locationName:"rejectionStatement" type:"structure"`
 
 	// An array of sample utterances that are configured for the intent.
-	SampleUtterances []string `locationName:"sampleUtterances" type:"list"`
+	SampleUtterances []string `json:"models.lex:PutIntentOutput:SampleUtterances" locationName:"sampleUtterances" type:"list"`
 
 	// An array of intent slots that are configured for the intent.
-	Slots []Slot `locationName:"slots" type:"list"`
+	Slots []Slot `json:"models.lex:PutIntentOutput:Slots" locationName:"slots" type:"list"`
 
 	// The version of the intent. For a new intent, the version is always $LATEST.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:PutIntentOutput:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation

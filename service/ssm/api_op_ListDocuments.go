@@ -70,11 +70,11 @@ type ListDocumentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The names of the Systems Manager documents.
-	DocumentIdentifiers []DocumentIdentifier `type:"list"`
+	DocumentIdentifiers []DocumentIdentifier `json:"ssm:ListDocumentsOutput:DocumentIdentifiers" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListDocumentsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

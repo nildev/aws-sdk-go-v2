@@ -66,10 +66,10 @@ type ListInvitationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the invitations returned by the operation.
-	Invitations []Invitation `type:"list"`
+	Invitations []Invitation `json:"securityhub:ListInvitationsOutput:Invitations" type:"list"`
 
 	// The token that is required for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"securityhub:ListInvitationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

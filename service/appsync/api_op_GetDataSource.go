@@ -72,7 +72,7 @@ type GetDataSourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The DataSource object.
-	DataSource *DataSource `locationName:"dataSource" type:"structure"`
+	DataSource *DataSource `json:"appsync:GetDataSourceOutput:DataSource" locationName:"dataSource" type:"structure"`
 }
 
 // String returns the string representation

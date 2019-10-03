@@ -76,13 +76,13 @@ func (s CreateDeviceDefinitionVersionInput) MarshalFields(e protocol.FieldEncode
 type CreateDeviceDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:CreateDeviceDefinitionVersionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:CreateDeviceDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:CreateDeviceDefinitionVersionOutput:Id" type:"string"`
 
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:CreateDeviceDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

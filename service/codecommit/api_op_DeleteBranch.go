@@ -61,7 +61,7 @@ type DeleteBranchOutput struct {
 
 	// Information about the branch deleted by the operation, including the branch
 	// name and the commit ID that was the tip of the branch.
-	DeletedBranch *BranchInfo `locationName:"deletedBranch" type:"structure"`
+	DeletedBranch *BranchInfo `json:"codecommit:DeleteBranchOutput:DeletedBranch" locationName:"deletedBranch" type:"structure"`
 }
 
 // String returns the string representation

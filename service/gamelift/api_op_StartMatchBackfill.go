@@ -98,7 +98,7 @@ type StartMatchBackfillOutput struct {
 	// Ticket representing the backfill matchmaking request. This object includes
 	// the information in the request, ticket status, and match results as generated
 	// during the matchmaking process.
-	MatchmakingTicket *MatchmakingTicket `type:"structure"`
+	MatchmakingTicket *MatchmakingTicket `json:"gamelift:StartMatchBackfillOutput:MatchmakingTicket" type:"structure"`
 }
 
 // String returns the string representation

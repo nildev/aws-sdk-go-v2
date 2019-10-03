@@ -49,7 +49,7 @@ type StopRunOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The run that was stopped.
-	Run *Run `locationName:"run" type:"structure"`
+	Run *Run `json:"devicefarm:StopRunOutput:Run" locationName:"run" type:"structure"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type DeleteExpressionOutput struct {
 	// The status of the expression being deleted.
 	//
 	// Expression is a required field
-	Expression *ExpressionStatus `type:"structure" required:"true"`
+	Expression *ExpressionStatus `json:"cloudsearch:DeleteExpressionOutput:Expression" type:"structure" required:"true"`
 }
 
 // String returns the string representation

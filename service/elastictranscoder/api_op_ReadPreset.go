@@ -56,7 +56,7 @@ type ReadPresetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A section of the response body that provides information about the preset.
-	Preset *Preset `type:"structure"`
+	Preset *Preset `json:"elastictranscoder:ReadPresetOutput:Preset" type:"structure"`
 }
 
 // String returns the string representation

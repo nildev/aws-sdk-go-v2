@@ -56,7 +56,7 @@ type GetVoiceConnectorOriginationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The origination setting details.
-	Origination *Origination `type:"structure"`
+	Origination *Origination `json:"chime:GetVoiceConnectorOriginationOutput:Origination" type:"structure"`
 }
 
 // String returns the string representation

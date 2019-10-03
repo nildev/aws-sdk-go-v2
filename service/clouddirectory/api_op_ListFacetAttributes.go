@@ -95,10 +95,10 @@ type ListFacetAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes attached to the facet.
-	Attributes []FacetAttribute `type:"list"`
+	Attributes []FacetAttribute `json:"clouddirectory:ListFacetAttributesOutput:Attributes" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListFacetAttributesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

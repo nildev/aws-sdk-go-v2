@@ -95,11 +95,11 @@ type DescribeInstanceStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the status of the instances.
-	InstanceStatuses []InstanceStatus `locationName:"instanceStatusSet" locationNameList:"item" type:"list"`
+	InstanceStatuses []InstanceStatus `json:"ec2:DescribeInstanceStatusOutput:InstanceStatuses" locationName:"instanceStatusSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeInstanceStatusOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

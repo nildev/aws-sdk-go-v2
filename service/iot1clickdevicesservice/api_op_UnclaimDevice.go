@@ -54,7 +54,7 @@ func (s UnclaimDeviceInput) MarshalFields(e protocol.FieldEncoder) error {
 type UnclaimDeviceOutput struct {
 	_ struct{} `type:"structure"`
 
-	State *string `locationName:"state" type:"string"`
+	State *string `json:"devices.iot1click:UnclaimDeviceOutput:State" locationName:"state" type:"string"`
 }
 
 // String returns the string representation

@@ -255,7 +255,7 @@ type CreateStackOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier of the stack.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:CreateStackOutput:StackId" type:"string"`
 }
 
 // String returns the string representation

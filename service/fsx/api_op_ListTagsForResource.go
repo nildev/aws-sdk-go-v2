@@ -66,10 +66,10 @@ type ListTagsForResourceOutput struct {
 
 	// This is present if there are more tags than returned in the response (String).
 	// You can use the NextToken value in the later request to fetch the tags.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"fsx:ListTagsForResourceOutput:NextToken" min:"1" type:"string"`
 
 	// A list of tags on the resource.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"fsx:ListTagsForResourceOutput:Tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

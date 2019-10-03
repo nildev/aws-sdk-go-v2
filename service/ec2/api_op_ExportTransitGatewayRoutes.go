@@ -87,7 +87,7 @@ type ExportTransitGatewayRoutesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The URL of the exported file in Amazon S3. For example, s3://bucket_name/VPCTransitGateway/TransitGatewayRouteTables/file_name.
-	S3Location *string `locationName:"s3Location" type:"string"`
+	S3Location *string `json:"ec2:ExportTransitGatewayRoutesOutput:S3Location" locationName:"s3Location" type:"string"`
 }
 
 // String returns the string representation

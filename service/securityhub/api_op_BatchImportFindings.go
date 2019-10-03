@@ -74,15 +74,15 @@ type BatchImportFindingsOutput struct {
 	// The number of findings that failed to import.
 	//
 	// FailedCount is a required field
-	FailedCount *int64 `type:"integer" required:"true"`
+	FailedCount *int64 `json:"securityhub:BatchImportFindingsOutput:FailedCount" type:"integer" required:"true"`
 
 	// The list of the findings that failed to import.
-	FailedFindings []ImportFindingsError `type:"list"`
+	FailedFindings []ImportFindingsError `json:"securityhub:BatchImportFindingsOutput:FailedFindings" type:"list"`
 
 	// The number of findings that were successfully imported.
 	//
 	// SuccessCount is a required field
-	SuccessCount *int64 `type:"integer" required:"true"`
+	SuccessCount *int64 `json:"securityhub:BatchImportFindingsOutput:SuccessCount" type:"integer" required:"true"`
 }
 
 // String returns the string representation

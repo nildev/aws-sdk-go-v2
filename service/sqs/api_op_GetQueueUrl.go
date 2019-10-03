@@ -51,7 +51,7 @@ type GetQueueUrlOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The URL of the queue.
-	QueueUrl *string `type:"string"`
+	QueueUrl *string `json:"sqs:GetQueueUrlOutput:QueueUrl" type:"string"`
 }
 
 // String returns the string representation

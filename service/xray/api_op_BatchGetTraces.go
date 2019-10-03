@@ -71,13 +71,13 @@ type BatchGetTracesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Pagination token. Not used.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"xray:BatchGetTracesOutput:NextToken" type:"string"`
 
 	// Full traces for the specified requests.
-	Traces []Trace `type:"list"`
+	Traces []Trace `json:"xray:BatchGetTracesOutput:Traces" type:"list"`
 
 	// Trace IDs of requests that haven't been processed.
-	UnprocessedTraceIds []string `type:"list"`
+	UnprocessedTraceIds []string `json:"xray:BatchGetTracesOutput:UnprocessedTraceIds" type:"list"`
 }
 
 // String returns the string representation

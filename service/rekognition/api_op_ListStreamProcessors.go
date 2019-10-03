@@ -47,10 +47,10 @@ type ListStreamProcessorsOutput struct {
 	// If the response is truncated, Amazon Rekognition Video returns this token
 	// that you can use in the subsequent request to retrieve the next set of stream
 	// processors.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:ListStreamProcessorsOutput:NextToken" type:"string"`
 
 	// List of stream processors that you have created.
-	StreamProcessors []StreamProcessor `type:"list"`
+	StreamProcessors []StreamProcessor `json:"rekognition:ListStreamProcessorsOutput:StreamProcessors" type:"list"`
 }
 
 // String returns the string representation

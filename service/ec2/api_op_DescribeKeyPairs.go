@@ -42,7 +42,7 @@ type DescribeKeyPairsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the key pairs.
-	KeyPairs []KeyPairInfo `locationName:"keySet" locationNameList:"item" type:"list"`
+	KeyPairs []KeyPairInfo `json:"ec2:DescribeKeyPairsOutput:KeyPairs" locationName:"keySet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

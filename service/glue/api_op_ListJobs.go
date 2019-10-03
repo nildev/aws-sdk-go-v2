@@ -46,11 +46,11 @@ type ListJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The names of all jobs in the account, or the jobs with the specified tags.
-	JobNames []string `type:"list"`
+	JobNames []string `json:"glue:ListJobsOutput:JobNames" type:"list"`
 
 	// A continuation token, if the returned list does not contain the last metric
 	// available.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:ListJobsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

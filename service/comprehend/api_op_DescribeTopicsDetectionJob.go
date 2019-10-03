@@ -46,7 +46,7 @@ type DescribeTopicsDetectionJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of properties for the requested job.
-	TopicsDetectionJobProperties *TopicsDetectionJobProperties `type:"structure"`
+	TopicsDetectionJobProperties *TopicsDetectionJobProperties `json:"comprehend:DescribeTopicsDetectionJobOutput:TopicsDetectionJobProperties" type:"structure"`
 }
 
 // String returns the string representation

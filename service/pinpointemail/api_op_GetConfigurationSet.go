@@ -60,27 +60,27 @@ type GetConfigurationSetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the configuration set.
-	ConfigurationSetName *string `type:"string"`
+	ConfigurationSetName *string `json:"email:GetConfigurationSetOutput:ConfigurationSetName" type:"string"`
 
 	// An object that defines the dedicated IP pool that is used to send emails
 	// that you send using the configuration set.
-	DeliveryOptions *DeliveryOptions `type:"structure"`
+	DeliveryOptions *DeliveryOptions `json:"email:GetConfigurationSetOutput:DeliveryOptions" type:"structure"`
 
 	// An object that defines whether or not Amazon Pinpoint collects reputation
 	// metrics for the emails that you send that use the configuration set.
-	ReputationOptions *ReputationOptions `type:"structure"`
+	ReputationOptions *ReputationOptions `json:"email:GetConfigurationSetOutput:ReputationOptions" type:"structure"`
 
 	// An object that defines whether or not Amazon Pinpoint can send email that
 	// you send using the configuration set.
-	SendingOptions *SendingOptions `type:"structure"`
+	SendingOptions *SendingOptions `json:"email:GetConfigurationSetOutput:SendingOptions" type:"structure"`
 
 	// An array of objects that define the tags (keys and values) that are associated
 	// with the configuration set.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"email:GetConfigurationSetOutput:Tags" type:"list"`
 
 	// An object that defines the open and click tracking options for emails that
 	// you send using the configuration set.
-	TrackingOptions *TrackingOptions `type:"structure"`
+	TrackingOptions *TrackingOptions `json:"email:GetConfigurationSetOutput:TrackingOptions" type:"structure"`
 }
 
 // String returns the string representation

@@ -67,19 +67,19 @@ func (s GetCloudFormationTemplateInput) MarshalFields(e protocol.FieldEncoder) e
 type GetCloudFormationTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
-	ApplicationId *string `locationName:"applicationId" type:"string"`
+	ApplicationId *string `json:"serverlessrepo:GetCloudFormationTemplateOutput:ApplicationId" locationName:"applicationId" type:"string"`
 
-	CreationTime *string `locationName:"creationTime" type:"string"`
+	CreationTime *string `json:"serverlessrepo:GetCloudFormationTemplateOutput:CreationTime" locationName:"creationTime" type:"string"`
 
-	ExpirationTime *string `locationName:"expirationTime" type:"string"`
+	ExpirationTime *string `json:"serverlessrepo:GetCloudFormationTemplateOutput:ExpirationTime" locationName:"expirationTime" type:"string"`
 
-	SemanticVersion *string `locationName:"semanticVersion" type:"string"`
+	SemanticVersion *string `json:"serverlessrepo:GetCloudFormationTemplateOutput:SemanticVersion" locationName:"semanticVersion" type:"string"`
 
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"serverlessrepo:GetCloudFormationTemplateOutput:Status" locationName:"status" type:"string" enum:"true"`
 
-	TemplateId *string `locationName:"templateId" type:"string"`
+	TemplateId *string `json:"serverlessrepo:GetCloudFormationTemplateOutput:TemplateId" locationName:"templateId" type:"string"`
 
-	TemplateUrl *string `locationName:"templateUrl" type:"string"`
+	TemplateUrl *string `json:"serverlessrepo:GetCloudFormationTemplateOutput:TemplateUrl" locationName:"templateUrl" type:"string"`
 }
 
 // String returns the string representation

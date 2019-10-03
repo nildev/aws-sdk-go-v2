@@ -145,10 +145,10 @@ type CreateCachediSCSIVolumeOutput struct {
 
 	// The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI
 	// name that initiators can use to connect to the target.
-	TargetARN *string `min:"50" type:"string"`
+	TargetARN *string `json:"storagegateway:CreateCachediSCSIVolumeOutput:TargetARN" min:"50" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the configured volume.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:CreateCachediSCSIVolumeOutput:VolumeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

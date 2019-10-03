@@ -77,55 +77,55 @@ type DescribeRecoveryPointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The size, in bytes, of a backup.
-	BackupSizeInBytes *int64 `type:"long"`
+	BackupSizeInBytes *int64 `json:"backup:DescribeRecoveryPointOutput:BackupSizeInBytes" type:"long"`
 
 	// An ARN that uniquely identifies a backup vault; for example, arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.
-	BackupVaultArn *string `type:"string"`
+	BackupVaultArn *string `json:"backup:DescribeRecoveryPointOutput:BackupVaultArn" type:"string"`
 
 	// The name of a logical container where backups are stored. Backup vaults are
 	// identified by names that are unique to the account used to create them and
 	// the Region where they are created. They consist of lowercase letters, numbers,
 	// and hyphens.
-	BackupVaultName *string `type:"string"`
+	BackupVaultName *string `json:"backup:DescribeRecoveryPointOutput:BackupVaultName" type:"string"`
 
 	// A CalculatedLifecycle object containing DeleteAt and MoveToColdStorageAt
 	// timestamps.
-	CalculatedLifecycle *CalculatedLifecycle `type:"structure"`
+	CalculatedLifecycle *CalculatedLifecycle `json:"backup:DescribeRecoveryPointOutput:CalculatedLifecycle" type:"structure"`
 
 	// The date and time that a job to create a recovery point is completed, in
 	// Unix format and Coordinated Universal Time (UTC). The value of CompletionDate
 	// is accurate to milliseconds. For example, the value 1516925490.087 represents
 	// Friday, January 26, 2018 12:11:30.087 AM.
-	CompletionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletionDate *time.Time `json:"backup:DescribeRecoveryPointOutput:CompletionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Contains identifying information about the creation of a recovery point,
 	// including the BackupPlanArn, BackupPlanId, BackupPlanVersion, and BackupRuleId
 	// of the backup plan used to create it.
-	CreatedBy *RecoveryPointCreator `type:"structure"`
+	CreatedBy *RecoveryPointCreator `json:"backup:DescribeRecoveryPointOutput:CreatedBy" type:"structure"`
 
 	// The date and time that a recovery point is created, in Unix format and Coordinated
 	// Universal Time (UTC). The value of CreationDate is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"backup:DescribeRecoveryPointOutput:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The server-side encryption key used to protect your backups; for example,
 	// arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab.
-	EncryptionKeyArn *string `type:"string"`
+	EncryptionKeyArn *string `json:"backup:DescribeRecoveryPointOutput:EncryptionKeyArn" type:"string"`
 
 	// Specifies the IAM role ARN used to create the target recovery point; for
 	// example, arn:aws:iam::123456789012:role/S3Access.
-	IamRoleArn *string `type:"string"`
+	IamRoleArn *string `json:"backup:DescribeRecoveryPointOutput:IamRoleArn" type:"string"`
 
 	// A Boolean value that is returned as TRUE if the specified recovery point
 	// is encrypted, or FALSE if the recovery point is not encrypted.
-	IsEncrypted *bool `type:"boolean"`
+	IsEncrypted *bool `json:"backup:DescribeRecoveryPointOutput:IsEncrypted" type:"boolean"`
 
 	// The date and time that a recovery point was last restored, in Unix format
 	// and Coordinated Universal Time (UTC). The value of LastRestoreTime is accurate
 	// to milliseconds. For example, the value 1516925490.087 represents Friday,
 	// January 26, 2018 12:11:30.087 AM.
-	LastRestoreTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastRestoreTime *time.Time `json:"backup:DescribeRecoveryPointOutput:LastRestoreTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The lifecycle defines when a protected resource is transitioned to cold storage
 	// and when it expires. AWS Backup transitions and expires backups automatically
@@ -136,29 +136,29 @@ type DescribeRecoveryPointOutput struct {
 	// must be 90 days greater than the “transition to cold after days” setting.
 	// The “transition to cold after days” setting cannot be changed after a
 	// backup has been transitioned to cold.
-	Lifecycle *Lifecycle `type:"structure"`
+	Lifecycle *Lifecycle `json:"backup:DescribeRecoveryPointOutput:Lifecycle" type:"structure"`
 
 	// An ARN that uniquely identifies a recovery point; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-	RecoveryPointArn *string `type:"string"`
+	RecoveryPointArn *string `json:"backup:DescribeRecoveryPointOutput:RecoveryPointArn" type:"string"`
 
 	// An ARN that uniquely identifies a saved resource. The format of the ARN depends
 	// on the resource type.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"backup:DescribeRecoveryPointOutput:ResourceArn" type:"string"`
 
 	// The type of AWS resource to save as a recovery point; for example, an Amazon
 	// Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database
 	// Service (Amazon RDS) database.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"backup:DescribeRecoveryPointOutput:ResourceType" type:"string"`
 
 	// A status code specifying the state of the recovery point.
 	//
 	// A partial status indicates that the recovery point was not successfully re-created
 	// and must be retried.
-	Status RecoveryPointStatus `type:"string" enum:"true"`
+	Status RecoveryPointStatus `json:"backup:DescribeRecoveryPointOutput:Status" type:"string" enum:"true"`
 
 	// Specifies the storage class of the recovery point. Valid values are WARM
 	// or COLD.
-	StorageClass StorageClass `type:"string" enum:"true"`
+	StorageClass StorageClass `json:"backup:DescribeRecoveryPointOutput:StorageClass" type:"string" enum:"true"`
 }
 
 // String returns the string representation

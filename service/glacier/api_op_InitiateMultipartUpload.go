@@ -100,11 +100,11 @@ type InitiateMultipartUploadOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The relative URI path of the multipart upload ID Amazon S3 Glacier created.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"glacier:InitiateMultipartUploadOutput:Location" location:"header" locationName:"Location" type:"string"`
 
 	// The ID of the multipart upload. This value is also included as part of the
 	// location.
-	UploadId *string `location:"header" locationName:"x-amz-multipart-upload-id" type:"string"`
+	UploadId *string `json:"glacier:InitiateMultipartUploadOutput:UploadId" location:"header" locationName:"x-amz-multipart-upload-id" type:"string"`
 }
 
 // String returns the string representation

@@ -87,13 +87,13 @@ type ValidatePipelineDefinitionOutput struct {
 	// Indicates whether there were validation errors.
 	//
 	// Errored is a required field
-	Errored *bool `locationName:"errored" type:"boolean" required:"true"`
+	Errored *bool `json:"datapipeline:ValidatePipelineDefinitionOutput:Errored" locationName:"errored" type:"boolean" required:"true"`
 
 	// Any validation errors that were found.
-	ValidationErrors []ValidationError `locationName:"validationErrors" type:"list"`
+	ValidationErrors []ValidationError `json:"datapipeline:ValidatePipelineDefinitionOutput:ValidationErrors" locationName:"validationErrors" type:"list"`
 
 	// Any validation warnings that were found.
-	ValidationWarnings []ValidationWarning `locationName:"validationWarnings" type:"list"`
+	ValidationWarnings []ValidationWarning `json:"datapipeline:ValidatePipelineDefinitionOutput:ValidationWarnings" locationName:"validationWarnings" type:"list"`
 }
 
 // String returns the string representation

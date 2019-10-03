@@ -46,10 +46,10 @@ type BatchGetQueryExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about a query execution.
-	QueryExecutions []QueryExecution `type:"list"`
+	QueryExecutions []QueryExecution `json:"athena:BatchGetQueryExecutionOutput:QueryExecutions" type:"list"`
 
 	// Information about the query executions that failed to run.
-	UnprocessedQueryExecutionIds []UnprocessedQueryExecutionId `type:"list"`
+	UnprocessedQueryExecutionIds []UnprocessedQueryExecutionId `json:"athena:BatchGetQueryExecutionOutput:UnprocessedQueryExecutionIds" type:"list"`
 }
 
 // String returns the string representation

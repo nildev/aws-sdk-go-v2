@@ -46,7 +46,7 @@ type StartTriggerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the trigger that was started.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:StartTriggerOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

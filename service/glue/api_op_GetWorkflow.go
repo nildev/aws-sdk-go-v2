@@ -50,7 +50,7 @@ type GetWorkflowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The resource metadata for the workflow.
-	Workflow *Workflow `type:"structure"`
+	Workflow *Workflow `json:"glue:GetWorkflowOutput:Workflow" type:"structure"`
 }
 
 // String returns the string representation

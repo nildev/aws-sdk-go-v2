@@ -44,7 +44,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of tags associated with the domain.
-	Tags []ResourceTag `locationName:"tags" type:"list"`
+	Tags []ResourceTag `json:"swf:ListTagsForResourceOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

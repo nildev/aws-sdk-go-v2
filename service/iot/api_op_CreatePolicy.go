@@ -75,16 +75,16 @@ type CreatePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The policy ARN.
-	PolicyArn *string `locationName:"policyArn" type:"string"`
+	PolicyArn *string `json:"iot:CreatePolicyOutput:PolicyArn" locationName:"policyArn" type:"string"`
 
 	// The JSON document that describes the policy.
-	PolicyDocument *string `locationName:"policyDocument" type:"string"`
+	PolicyDocument *string `json:"iot:CreatePolicyOutput:PolicyDocument" locationName:"policyDocument" type:"string"`
 
 	// The policy name.
-	PolicyName *string `locationName:"policyName" min:"1" type:"string"`
+	PolicyName *string `json:"iot:CreatePolicyOutput:PolicyName" locationName:"policyName" min:"1" type:"string"`
 
 	// The policy version ID.
-	PolicyVersionId *string `locationName:"policyVersionId" type:"string"`
+	PolicyVersionId *string `json:"iot:CreatePolicyOutput:PolicyVersionId" locationName:"policyVersionId" type:"string"`
 }
 
 // String returns the string representation

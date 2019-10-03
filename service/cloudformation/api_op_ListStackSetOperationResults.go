@@ -78,12 +78,12 @@ type ListStackSetOperationResultsOutput struct {
 	// retrieve the next set of results, call ListOperationResults again and assign
 	// that token to the request object's NextToken parameter. If there are no remaining
 	// results, NextToken is set to null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:ListStackSetOperationResultsOutput:NextToken" min:"1" type:"string"`
 
 	// A list of StackSetOperationResultSummary structures that contain information
 	// about the specified operation results, for accounts and regions that are
 	// included in the operation.
-	Summaries []StackSetOperationResultSummary `type:"list"`
+	Summaries []StackSetOperationResultSummary `json:"cloudformation:ListStackSetOperationResultsOutput:Summaries" type:"list"`
 }
 
 // String returns the string representation

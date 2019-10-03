@@ -30,7 +30,7 @@ type GetEbsDefaultKmsKeyIdOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the default CMK for encryption by default.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:GetEbsDefaultKmsKeyIdOutput:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 }
 
 // String returns the string representation

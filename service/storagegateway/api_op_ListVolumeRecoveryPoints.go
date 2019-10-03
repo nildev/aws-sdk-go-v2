@@ -48,10 +48,10 @@ type ListVolumeRecoveryPointsOutput struct {
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:ListVolumeRecoveryPointsOutput:GatewayARN" min:"50" type:"string"`
 
 	// An array of VolumeRecoveryPointInfo objects.
-	VolumeRecoveryPointInfos []VolumeRecoveryPointInfo `type:"list"`
+	VolumeRecoveryPointInfos []VolumeRecoveryPointInfo `json:"storagegateway:ListVolumeRecoveryPointsOutput:VolumeRecoveryPointInfos" type:"list"`
 }
 
 // String returns the string representation

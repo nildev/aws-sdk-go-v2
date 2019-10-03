@@ -24,19 +24,19 @@ type GetNamespaceDeletionStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An error code returned by the namespace deletion task.
-	ErrorCode NamespaceDeletionStatusErrorCodes `locationName:"errorCode" type:"string" enum:"true"`
+	ErrorCode NamespaceDeletionStatusErrorCodes `json:"iotthingsgraph:GetNamespaceDeletionStatusOutput:ErrorCode" locationName:"errorCode" type:"string" enum:"true"`
 
 	// An error code returned by the namespace deletion task.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"iotthingsgraph:GetNamespaceDeletionStatusOutput:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The ARN of the namespace that is being deleted.
-	NamespaceArn *string `locationName:"namespaceArn" type:"string"`
+	NamespaceArn *string `json:"iotthingsgraph:GetNamespaceDeletionStatusOutput:NamespaceArn" locationName:"namespaceArn" type:"string"`
 
 	// The name of the namespace that is being deleted.
-	NamespaceName *string `locationName:"namespaceName" type:"string"`
+	NamespaceName *string `json:"iotthingsgraph:GetNamespaceDeletionStatusOutput:NamespaceName" locationName:"namespaceName" type:"string"`
 
 	// The status of the deletion request.
-	Status NamespaceDeletionStatus `locationName:"status" type:"string" enum:"true"`
+	Status NamespaceDeletionStatus `json:"iotthingsgraph:GetNamespaceDeletionStatusOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

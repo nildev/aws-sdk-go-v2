@@ -18,25 +18,25 @@ type Application struct {
 	_ struct{} `type:"structure"`
 
 	// The application name to display.
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"appstream2:Application:DisplayName" min:"1" type:"string"`
 
 	// If there is a problem, the application can be disabled after image creation.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"appstream2:Application:Enabled" type:"boolean"`
 
 	// The URL for the application icon. This URL might be time-limited.
-	IconURL *string `min:"1" type:"string"`
+	IconURL *string `json:"appstream2:Application:IconURL" min:"1" type:"string"`
 
 	// The arguments that are passed to the application at launch.
-	LaunchParameters *string `min:"1" type:"string"`
+	LaunchParameters *string `json:"appstream2:Application:LaunchParameters" min:"1" type:"string"`
 
 	// The path to the application executable in the instance.
-	LaunchPath *string `min:"1" type:"string"`
+	LaunchPath *string `json:"appstream2:Application:LaunchPath" min:"1" type:"string"`
 
 	// Additional attributes that describe the application.
-	Metadata map[string]string `type:"map"`
+	Metadata map[string]string `json:"appstream2:Application:Metadata" type:"map"`
 
 	// The name of the application.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"appstream2:Application:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -53,13 +53,13 @@ type ApplicationSettings struct {
 	// streaming sessions.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"appstream2:ApplicationSettings:Enabled" type:"boolean" required:"true"`
 
 	// The path prefix for the S3 bucket where users’ persistent application settings
 	// are stored. You can allow the same persistent application settings to be
 	// used across multiple stacks by specifying the same settings group for each
 	// stack.
-	SettingsGroup *string `type:"string"`
+	SettingsGroup *string `json:"appstream2:ApplicationSettings:SettingsGroup" type:"string"`
 }
 
 // String returns the string representation
@@ -88,17 +88,17 @@ type ApplicationSettingsResponse struct {
 
 	// Specifies whether persistent application settings are enabled for users during
 	// their streaming sessions.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"appstream2:ApplicationSettingsResponse:Enabled" type:"boolean"`
 
 	// The S3 bucket where users’ persistent application settings are stored.
 	// When persistent application settings are enabled for the first time for an
 	// account in an AWS Region, an S3 bucket is created. The bucket is unique to
 	// the AWS account and the Region.
-	S3BucketName *string `min:"1" type:"string"`
+	S3BucketName *string `json:"appstream2:ApplicationSettingsResponse:S3BucketName" min:"1" type:"string"`
 
 	// The path prefix for the S3 bucket where users’ persistent application settings
 	// are stored.
-	SettingsGroup *string `type:"string"`
+	SettingsGroup *string `json:"appstream2:ApplicationSettingsResponse:SettingsGroup" type:"string"`
 }
 
 // String returns the string representation
@@ -114,7 +114,7 @@ type ComputeCapacity struct {
 	// The desired number of streaming instances.
 	//
 	// DesiredInstances is a required field
-	DesiredInstances *int64 `type:"integer" required:"true"`
+	DesiredInstances *int64 `json:"appstream2:ComputeCapacity:DesiredInstances" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -142,18 +142,18 @@ type ComputeCapacityStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The number of currently available instances that can be used to stream sessions.
-	Available *int64 `type:"integer"`
+	Available *int64 `json:"appstream2:ComputeCapacityStatus:Available" type:"integer"`
 
 	// The desired number of streaming instances.
 	//
 	// Desired is a required field
-	Desired *int64 `type:"integer" required:"true"`
+	Desired *int64 `json:"appstream2:ComputeCapacityStatus:Desired" type:"integer" required:"true"`
 
 	// The number of instances in use for streaming.
-	InUse *int64 `type:"integer"`
+	InUse *int64 `json:"appstream2:ComputeCapacityStatus:InUse" type:"integer"`
 
 	// The total number of simultaneous streaming instances that are running.
-	Running *int64 `type:"integer"`
+	Running *int64 `json:"appstream2:ComputeCapacityStatus:Running" type:"integer"`
 }
 
 // String returns the string representation
@@ -168,19 +168,19 @@ type DirectoryConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The time the directory configuration was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"appstream2:DirectoryConfig:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The fully qualified name of the directory (for example, corp.example.com).
 	//
 	// DirectoryName is a required field
-	DirectoryName *string `type:"string" required:"true"`
+	DirectoryName *string `json:"appstream2:DirectoryConfig:DirectoryName" type:"string" required:"true"`
 
 	// The distinguished names of the organizational units for computer accounts.
-	OrganizationalUnitDistinguishedNames []string `type:"list"`
+	OrganizationalUnitDistinguishedNames []string `json:"appstream2:DirectoryConfig:OrganizationalUnitDistinguishedNames" type:"list"`
 
 	// The credentials for the service account used by the fleet or image builder
 	// to connect to the directory.
-	ServiceAccountCredentials *ServiceAccountCredentials `type:"structure"`
+	ServiceAccountCredentials *ServiceAccountCredentials `json:"appstream2:DirectoryConfig:ServiceAccountCredentials" type:"structure"`
 }
 
 // String returns the string representation
@@ -195,10 +195,10 @@ type DomainJoinInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The fully qualified name of the directory (for example, corp.example.com).
-	DirectoryName *string `type:"string"`
+	DirectoryName *string `json:"appstream2:DomainJoinInfo:DirectoryName" type:"string"`
 
 	// The distinguished name of the organizational unit for computer accounts.
-	OrganizationalUnitDistinguishedName *string `type:"string"`
+	OrganizationalUnitDistinguishedName *string `json:"appstream2:DomainJoinInfo:OrganizationalUnitDistinguishedName" type:"string"`
 }
 
 // String returns the string representation
@@ -214,18 +214,18 @@ type Fleet struct {
 	// The ARN for the fleet.
 	//
 	// Arn is a required field
-	Arn *string `type:"string" required:"true"`
+	Arn *string `json:"appstream2:Fleet:Arn" type:"string" required:"true"`
 
 	// The capacity status for the fleet.
 	//
 	// ComputeCapacityStatus is a required field
-	ComputeCapacityStatus *ComputeCapacityStatus `type:"structure" required:"true"`
+	ComputeCapacityStatus *ComputeCapacityStatus `json:"appstream2:Fleet:ComputeCapacityStatus" type:"structure" required:"true"`
 
 	// The time the fleet was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"appstream2:Fleet:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description to display.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"appstream2:Fleet:Description" min:"1" type:"string"`
 
 	// The amount of time that a streaming session remains active after users disconnect.
 	// If they try to reconnect to the streaming session after a disconnection or
@@ -234,20 +234,20 @@ type Fleet struct {
 	// streaming instance.
 	//
 	// Specify a value between 60 and 360000.
-	DisconnectTimeoutInSeconds *int64 `type:"integer"`
+	DisconnectTimeoutInSeconds *int64 `json:"appstream2:Fleet:DisconnectTimeoutInSeconds" type:"integer"`
 
 	// The fleet name to display.
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"appstream2:Fleet:DisplayName" min:"1" type:"string"`
 
 	// The name of the directory and organizational unit (OU) to use to join the
 	// fleet to a Microsoft Active Directory domain.
-	DomainJoinInfo *DomainJoinInfo `type:"structure"`
+	DomainJoinInfo *DomainJoinInfo `json:"appstream2:Fleet:DomainJoinInfo" type:"structure"`
 
 	// Indicates whether default internet access is enabled for the fleet.
-	EnableDefaultInternetAccess *bool `type:"boolean"`
+	EnableDefaultInternetAccess *bool `json:"appstream2:Fleet:EnableDefaultInternetAccess" type:"boolean"`
 
 	// The fleet errors.
-	FleetErrors []FleetError `type:"list"`
+	FleetErrors []FleetError `json:"appstream2:Fleet:FleetErrors" type:"list"`
 
 	// The fleet type.
 	//
@@ -261,7 +261,7 @@ type Fleet struct {
 	// Provide users with access to applications after they connect, which takes
 	// one to two minutes. You are charged for instance streaming when users are
 	// connected and a small hourly fee for instances that are not streaming apps.
-	FleetType FleetType `type:"string" enum:"true"`
+	FleetType FleetType `json:"appstream2:Fleet:FleetType" type:"string" enum:"true"`
 
 	// The amount of time that users can be idle (inactive) before they are disconnected
 	// from their streaming session and the DisconnectTimeoutInSeconds time interval
@@ -285,18 +285,18 @@ type Fleet struct {
 	// If you specify a value that is at the midpoint between two different minutes,
 	// the value is rounded up. For example, if you specify a value of 90, users
 	// are disconnected after 2 minutes of inactivity.
-	IdleDisconnectTimeoutInSeconds *int64 `type:"integer"`
+	IdleDisconnectTimeoutInSeconds *int64 `json:"appstream2:Fleet:IdleDisconnectTimeoutInSeconds" type:"integer"`
 
 	// The ARN for the public, private, or shared image.
-	ImageArn *string `type:"string"`
+	ImageArn *string `json:"appstream2:Fleet:ImageArn" type:"string"`
 
 	// The name of the image used to create the fleet.
-	ImageName *string `min:"1" type:"string"`
+	ImageName *string `json:"appstream2:Fleet:ImageName" min:"1" type:"string"`
 
 	// The instance type to use when launching fleet instances.
 	//
 	// InstanceType is a required field
-	InstanceType *string `min:"1" type:"string" required:"true"`
+	InstanceType *string `json:"appstream2:Fleet:InstanceType" min:"1" type:"string" required:"true"`
 
 	// The maximum amount of time that a streaming session can remain active, in
 	// seconds. If users are still connected to a streaming instance five minutes
@@ -305,20 +305,20 @@ type Fleet struct {
 	// and replaced by a new instance.
 	//
 	// Specify a value between 600 and 360000.
-	MaxUserDurationInSeconds *int64 `type:"integer"`
+	MaxUserDurationInSeconds *int64 `json:"appstream2:Fleet:MaxUserDurationInSeconds" type:"integer"`
 
 	// The name of the fleet.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"appstream2:Fleet:Name" min:"1" type:"string" required:"true"`
 
 	// The current state for the fleet.
 	//
 	// State is a required field
-	State FleetState `type:"string" required:"true" enum:"true"`
+	State FleetState `json:"appstream2:Fleet:State" type:"string" required:"true" enum:"true"`
 
 	// The VPC configuration for the fleet.
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"appstream2:Fleet:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -332,10 +332,10 @@ type FleetError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	ErrorCode FleetErrorCode `type:"string" enum:"true"`
+	ErrorCode FleetErrorCode `json:"appstream2:FleetError:ErrorCode" type:"string" enum:"true"`
 
 	// The error message.
-	ErrorMessage *string `min:"1" type:"string"`
+	ErrorMessage *string `json:"appstream2:FleetError:ErrorMessage" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -349,59 +349,59 @@ type Image struct {
 	_ struct{} `type:"structure"`
 
 	// The applications associated with the image.
-	Applications []Application `type:"list"`
+	Applications []Application `json:"appstream2:Image:Applications" type:"list"`
 
 	// The version of the AppStream 2.0 agent to use for instances that are launched
 	// from this image.
-	AppstreamAgentVersion *string `min:"1" type:"string"`
+	AppstreamAgentVersion *string `json:"appstream2:Image:AppstreamAgentVersion" min:"1" type:"string"`
 
 	// The ARN of the image.
-	Arn *string `type:"string"`
+	Arn *string `json:"appstream2:Image:Arn" type:"string"`
 
 	// The ARN of the image from which this image was created.
-	BaseImageArn *string `type:"string"`
+	BaseImageArn *string `json:"appstream2:Image:BaseImageArn" type:"string"`
 
 	// The time the image was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"appstream2:Image:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description to display.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"appstream2:Image:Description" min:"1" type:"string"`
 
 	// The image name to display.
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"appstream2:Image:DisplayName" min:"1" type:"string"`
 
 	// The name of the image builder that was used to create the private image.
 	// If the image is shared, this value is null.
-	ImageBuilderName *string `min:"1" type:"string"`
+	ImageBuilderName *string `json:"appstream2:Image:ImageBuilderName" min:"1" type:"string"`
 
 	// Indicates whether an image builder can be launched from this image.
-	ImageBuilderSupported *bool `type:"boolean"`
+	ImageBuilderSupported *bool `json:"appstream2:Image:ImageBuilderSupported" type:"boolean"`
 
 	// The permissions to provide to the destination AWS account for the specified
 	// image.
-	ImagePermissions *ImagePermissions `type:"structure"`
+	ImagePermissions *ImagePermissions `json:"appstream2:Image:ImagePermissions" type:"structure"`
 
 	// The name of the image.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"appstream2:Image:Name" min:"1" type:"string" required:"true"`
 
 	// The operating system platform of the image.
-	Platform PlatformType `type:"string" enum:"true"`
+	Platform PlatformType `json:"appstream2:Image:Platform" type:"string" enum:"true"`
 
 	// The release date of the public base image. For private images, this date
 	// is the release date of the base image from which the image was created.
-	PublicBaseImageReleasedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	PublicBaseImageReleasedDate *time.Time `json:"appstream2:Image:PublicBaseImageReleasedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The image starts in the PENDING state. If image creation succeeds, the state
 	// is AVAILABLE. If image creation fails, the state is FAILED.
-	State ImageState `type:"string" enum:"true"`
+	State ImageState `json:"appstream2:Image:State" type:"string" enum:"true"`
 
 	// The reason why the last state change occurred.
-	StateChangeReason *ImageStateChangeReason `type:"structure"`
+	StateChangeReason *ImageStateChangeReason `json:"appstream2:Image:StateChangeReason" type:"structure"`
 
 	// Indicates whether the image is public or private.
-	Visibility VisibilityType `type:"string" enum:"true"`
+	Visibility VisibilityType `json:"appstream2:Image:Visibility" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -416,55 +416,55 @@ type ImageBuilder struct {
 
 	// The version of the AppStream 2.0 agent that is currently being used by the
 	// image builder.
-	AppstreamAgentVersion *string `min:"1" type:"string"`
+	AppstreamAgentVersion *string `json:"appstream2:ImageBuilder:AppstreamAgentVersion" min:"1" type:"string"`
 
 	// The ARN for the image builder.
-	Arn *string `type:"string"`
+	Arn *string `json:"appstream2:ImageBuilder:Arn" type:"string"`
 
 	// The time stamp when the image builder was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"appstream2:ImageBuilder:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description to display.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"appstream2:ImageBuilder:Description" min:"1" type:"string"`
 
 	// The image builder name to display.
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"appstream2:ImageBuilder:DisplayName" min:"1" type:"string"`
 
 	// The name of the directory and organizational unit (OU) to use to join the
 	// image builder to a Microsoft Active Directory domain.
-	DomainJoinInfo *DomainJoinInfo `type:"structure"`
+	DomainJoinInfo *DomainJoinInfo `json:"appstream2:ImageBuilder:DomainJoinInfo" type:"structure"`
 
 	// Enables or disables default internet access for the image builder.
-	EnableDefaultInternetAccess *bool `type:"boolean"`
+	EnableDefaultInternetAccess *bool `json:"appstream2:ImageBuilder:EnableDefaultInternetAccess" type:"boolean"`
 
 	// The ARN of the image from which this builder was created.
-	ImageArn *string `type:"string"`
+	ImageArn *string `json:"appstream2:ImageBuilder:ImageArn" type:"string"`
 
 	// The image builder errors.
-	ImageBuilderErrors []ResourceError `type:"list"`
+	ImageBuilderErrors []ResourceError `json:"appstream2:ImageBuilder:ImageBuilderErrors" type:"list"`
 
 	// The instance type for the image builder.
-	InstanceType *string `min:"1" type:"string"`
+	InstanceType *string `json:"appstream2:ImageBuilder:InstanceType" min:"1" type:"string"`
 
 	// The name of the image builder.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"appstream2:ImageBuilder:Name" min:"1" type:"string" required:"true"`
 
 	// Describes the network details of the fleet or image builder instance.
-	NetworkAccessConfiguration *NetworkAccessConfiguration `type:"structure"`
+	NetworkAccessConfiguration *NetworkAccessConfiguration `json:"appstream2:ImageBuilder:NetworkAccessConfiguration" type:"structure"`
 
 	// The operating system platform of the image builder.
-	Platform PlatformType `type:"string" enum:"true"`
+	Platform PlatformType `json:"appstream2:ImageBuilder:Platform" type:"string" enum:"true"`
 
 	// The state of the image builder.
-	State ImageBuilderState `type:"string" enum:"true"`
+	State ImageBuilderState `json:"appstream2:ImageBuilder:State" type:"string" enum:"true"`
 
 	// The reason why the last state change occurred.
-	StateChangeReason *ImageBuilderStateChangeReason `type:"structure"`
+	StateChangeReason *ImageBuilderStateChangeReason `json:"appstream2:ImageBuilder:StateChangeReason" type:"structure"`
 
 	// The VPC configuration of the image builder.
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"appstream2:ImageBuilder:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -478,10 +478,10 @@ type ImageBuilderStateChangeReason struct {
 	_ struct{} `type:"structure"`
 
 	// The state change reason code.
-	Code ImageBuilderStateChangeReasonCode `type:"string" enum:"true"`
+	Code ImageBuilderStateChangeReasonCode `json:"appstream2:ImageBuilderStateChangeReason:Code" type:"string" enum:"true"`
 
 	// The state change reason message.
-	Message *string `min:"1" type:"string"`
+	Message *string `json:"appstream2:ImageBuilderStateChangeReason:Message" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -495,10 +495,10 @@ type ImagePermissions struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the image can be used for a fleet.
-	AllowFleet *bool `locationName:"allowFleet" type:"boolean"`
+	AllowFleet *bool `json:"appstream2:ImagePermissions:AllowFleet" locationName:"allowFleet" type:"boolean"`
 
 	// Indicates whether the image can be used for an image builder.
-	AllowImageBuilder *bool `locationName:"allowImageBuilder" type:"boolean"`
+	AllowImageBuilder *bool `json:"appstream2:ImagePermissions:AllowImageBuilder" locationName:"allowImageBuilder" type:"boolean"`
 }
 
 // String returns the string representation
@@ -512,10 +512,10 @@ type ImageStateChangeReason struct {
 	_ struct{} `type:"structure"`
 
 	// The state change reason code.
-	Code ImageStateChangeReasonCode `type:"string" enum:"true"`
+	Code ImageStateChangeReasonCode `json:"appstream2:ImageStateChangeReason:Code" type:"string" enum:"true"`
 
 	// The state change reason message.
-	Message *string `min:"1" type:"string"`
+	Message *string `json:"appstream2:ImageStateChangeReason:Message" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -530,11 +530,11 @@ type LastReportGenerationExecutionError struct {
 
 	// The error code for the error that is returned when a usage report can't be
 	// generated.
-	ErrorCode UsageReportExecutionErrorCode `type:"string" enum:"true"`
+	ErrorCode UsageReportExecutionErrorCode `json:"appstream2:LastReportGenerationExecutionError:ErrorCode" type:"string" enum:"true"`
 
 	// The error message for the error that is returned when a usage report can't
 	// be generated.
-	ErrorMessage *string `min:"1" type:"string"`
+	ErrorMessage *string `json:"appstream2:LastReportGenerationExecutionError:ErrorMessage" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -550,11 +550,11 @@ type NetworkAccessConfiguration struct {
 	// The resource identifier of the elastic network interface that is attached
 	// to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource
 	// identifier.
-	EniId *string `min:"1" type:"string"`
+	EniId *string `json:"appstream2:NetworkAccessConfiguration:EniId" min:"1" type:"string"`
 
 	// The private IP address of the elastic network interface that is attached
 	// to instances in your VPC.
-	EniPrivateIpAddress *string `min:"1" type:"string"`
+	EniPrivateIpAddress *string `json:"appstream2:NetworkAccessConfiguration:EniPrivateIpAddress" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -568,13 +568,13 @@ type ResourceError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	ErrorCode FleetErrorCode `type:"string" enum:"true"`
+	ErrorCode FleetErrorCode `json:"appstream2:ResourceError:ErrorCode" type:"string" enum:"true"`
 
 	// The error message.
-	ErrorMessage *string `min:"1" type:"string"`
+	ErrorMessage *string `json:"appstream2:ResourceError:ErrorMessage" min:"1" type:"string"`
 
 	// The time the error occurred.
-	ErrorTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ErrorTimestamp *time.Time `json:"appstream2:ResourceError:ErrorTimestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -593,12 +593,12 @@ type ServiceAccountCredentials struct {
 	// password on descendant computer objects for the organizational units specified.
 	//
 	// AccountName is a required field
-	AccountName *string `min:"1" type:"string" required:"true"`
+	AccountName *string `json:"appstream2:ServiceAccountCredentials:AccountName" min:"1" type:"string" required:"true"`
 
 	// The password for the account.
 	//
 	// AccountPassword is a required field
-	AccountPassword *string `min:"1" type:"string" required:"true"`
+	AccountPassword *string `json:"appstream2:ServiceAccountCredentials:AccountPassword" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -637,20 +637,20 @@ type Session struct {
 
 	// The authentication method. The user is authenticated using a streaming URL
 	// (API) or SAML 2.0 federation (SAML).
-	AuthenticationType AuthenticationType `type:"string" enum:"true"`
+	AuthenticationType AuthenticationType `json:"appstream2:Session:AuthenticationType" type:"string" enum:"true"`
 
 	// Specifies whether a user is connected to the streaming session.
-	ConnectionState SessionConnectionState `type:"string" enum:"true"`
+	ConnectionState SessionConnectionState `json:"appstream2:Session:ConnectionState" type:"string" enum:"true"`
 
 	// The name of the fleet for the streaming session.
 	//
 	// FleetName is a required field
-	FleetName *string `min:"1" type:"string" required:"true"`
+	FleetName *string `json:"appstream2:Session:FleetName" min:"1" type:"string" required:"true"`
 
 	// The identifier of the streaming session.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"appstream2:Session:Id" min:"1" type:"string" required:"true"`
 
 	// The time when the streaming session is set to expire. This time is based
 	// on the MaxUserDurationinSeconds value, which determines the maximum length
@@ -659,28 +659,28 @@ type Session struct {
 	// elapses or the user chooses to end his or her session. If the DisconnectTimeOutInSeconds
 	// elapses, or the user chooses to end his or her session, the streaming instance
 	// is terminated and the streaming session ends.
-	MaxExpirationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	MaxExpirationTime *time.Time `json:"appstream2:Session:MaxExpirationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The network details for the streaming session.
-	NetworkAccessConfiguration *NetworkAccessConfiguration `type:"structure"`
+	NetworkAccessConfiguration *NetworkAccessConfiguration `json:"appstream2:Session:NetworkAccessConfiguration" type:"structure"`
 
 	// The name of the stack for the streaming session.
 	//
 	// StackName is a required field
-	StackName *string `min:"1" type:"string" required:"true"`
+	StackName *string `json:"appstream2:Session:StackName" min:"1" type:"string" required:"true"`
 
 	// The time when a streaming instance is dedicated for the user.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"appstream2:Session:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The current state of the streaming session.
 	//
 	// State is a required field
-	State SessionState `type:"string" required:"true" enum:"true"`
+	State SessionState `json:"appstream2:Session:State" type:"string" required:"true" enum:"true"`
 
 	// The identifier of the user for whom the session was created.
 	//
 	// UserId is a required field
-	UserId *string `min:"2" type:"string" required:"true"`
+	UserId *string `json:"appstream2:Session:UserId" min:"2" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -697,12 +697,12 @@ type SharedImagePermissions struct {
 	// Describes the permissions for a shared image.
 	//
 	// ImagePermissions is a required field
-	ImagePermissions *ImagePermissions `locationName:"imagePermissions" type:"structure" required:"true"`
+	ImagePermissions *ImagePermissions `json:"appstream2:SharedImagePermissions:ImagePermissions" locationName:"imagePermissions" type:"structure" required:"true"`
 
 	// The 12-digit identifier of the AWS account with which the image is shared.
 	//
 	// SharedAccountId is a required field
-	SharedAccountId *string `locationName:"sharedAccountId" type:"string" required:"true"`
+	SharedAccountId *string `json:"appstream2:SharedImagePermissions:SharedAccountId" locationName:"sharedAccountId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -716,41 +716,41 @@ type Stack struct {
 	_ struct{} `type:"structure"`
 
 	// The persistent application settings for users of the stack.
-	ApplicationSettings *ApplicationSettingsResponse `type:"structure"`
+	ApplicationSettings *ApplicationSettingsResponse `json:"appstream2:Stack:ApplicationSettings" type:"structure"`
 
 	// The ARN of the stack.
-	Arn *string `type:"string"`
+	Arn *string `json:"appstream2:Stack:Arn" type:"string"`
 
 	// The time the stack was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"appstream2:Stack:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description to display.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"appstream2:Stack:Description" min:"1" type:"string"`
 
 	// The stack name to display.
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"appstream2:Stack:DisplayName" min:"1" type:"string"`
 
 	// The URL that users are redirected to after they click the Send Feedback link.
 	// If no URL is specified, no Send Feedback link is displayed.
-	FeedbackURL *string `type:"string"`
+	FeedbackURL *string `json:"appstream2:Stack:FeedbackURL" type:"string"`
 
 	// The name of the stack.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"appstream2:Stack:Name" min:"1" type:"string" required:"true"`
 
 	// The URL that users are redirected to after their streaming session ends.
-	RedirectURL *string `type:"string"`
+	RedirectURL *string `json:"appstream2:Stack:RedirectURL" type:"string"`
 
 	// The errors for the stack.
-	StackErrors []StackError `type:"list"`
+	StackErrors []StackError `json:"appstream2:Stack:StackErrors" type:"list"`
 
 	// The storage connectors to enable.
-	StorageConnectors []StorageConnector `type:"list"`
+	StorageConnectors []StorageConnector `json:"appstream2:Stack:StorageConnectors" type:"list"`
 
 	// The actions that are enabled or disabled for users during their streaming
 	// sessions. By default these actions are enabled.
-	UserSettings []UserSetting `min:"1" type:"list"`
+	UserSettings []UserSetting `json:"appstream2:Stack:UserSettings" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -764,10 +764,10 @@ type StackError struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	ErrorCode StackErrorCode `type:"string" enum:"true"`
+	ErrorCode StackErrorCode `json:"appstream2:StackError:ErrorCode" type:"string" enum:"true"`
 
 	// The error message.
-	ErrorMessage *string `min:"1" type:"string"`
+	ErrorMessage *string `json:"appstream2:StackError:ErrorMessage" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -783,13 +783,13 @@ type StorageConnector struct {
 	// The type of storage connector.
 	//
 	// ConnectorType is a required field
-	ConnectorType StorageConnectorType `type:"string" required:"true" enum:"true"`
+	ConnectorType StorageConnectorType `json:"appstream2:StorageConnector:ConnectorType" type:"string" required:"true" enum:"true"`
 
 	// The names of the domains for the account.
-	Domains []string `type:"list"`
+	Domains []string `json:"appstream2:StorageConnector:Domains" type:"list"`
 
 	// The ARN of the storage connector.
-	ResourceIdentifier *string `min:"1" type:"string"`
+	ResourceIdentifier *string `json:"appstream2:StorageConnector:ResourceIdentifier" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -819,7 +819,7 @@ type UsageReportSubscription struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the last usage report was generated.
-	LastGeneratedReportDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastGeneratedReportDate *time.Time `json:"appstream2:UsageReportSubscription:LastGeneratedReportDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon S3 bucket where generated reports are stored.
 	//
@@ -829,13 +829,13 @@ type UsageReportSubscription struct {
 	// you enable usage reporting in this case, AppStream 2.0 uses the same bucket
 	// to store your usage reports. If you haven't already enabled on-instance session
 	// scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
-	S3BucketName *string `min:"1" type:"string"`
+	S3BucketName *string `json:"appstream2:UsageReportSubscription:S3BucketName" min:"1" type:"string"`
 
 	// The schedule for generating usage reports.
-	Schedule UsageReportSchedule `type:"string" enum:"true"`
+	Schedule UsageReportSchedule `json:"appstream2:UsageReportSubscription:Schedule" type:"string" enum:"true"`
 
 	// The errors that were returned if usage reports couldn't be generated.
-	SubscriptionErrors []LastReportGenerationExecutionError `type:"list"`
+	SubscriptionErrors []LastReportGenerationExecutionError `json:"appstream2:UsageReportSubscription:SubscriptionErrors" type:"list"`
 }
 
 // String returns the string representation
@@ -849,24 +849,24 @@ type User struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the user.
-	Arn *string `type:"string"`
+	Arn *string `json:"appstream2:User:Arn" type:"string"`
 
 	// The authentication type for the user.
 	//
 	// AuthenticationType is a required field
-	AuthenticationType AuthenticationType `type:"string" required:"true" enum:"true"`
+	AuthenticationType AuthenticationType `json:"appstream2:User:AuthenticationType" type:"string" required:"true" enum:"true"`
 
 	// The date and time the user was created in the user pool.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"appstream2:User:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies whether the user in the user pool is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"appstream2:User:Enabled" type:"boolean"`
 
 	// The first name, or given name, of the user.
-	FirstName *string `type:"string"`
+	FirstName *string `json:"appstream2:User:FirstName" type:"string"`
 
 	// The last name, or surname, of the user.
-	LastName *string `type:"string"`
+	LastName *string `json:"appstream2:User:LastName" type:"string"`
 
 	// The status of the user in the user pool. The status can be one of the following:
 	//
@@ -880,12 +880,12 @@ type User struct {
 	//    threat.
 	//
 	//    * UNKNOWN – The user status is not known.
-	Status *string `min:"1" type:"string"`
+	Status *string `json:"appstream2:User:Status" min:"1" type:"string"`
 
 	// The email address of the user.
 	//
 	// Users' email addresses are case-sensitive.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"appstream2:User:UserName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -902,12 +902,12 @@ type UserSetting struct {
 	// The action that is enabled or disabled.
 	//
 	// Action is a required field
-	Action Action `type:"string" required:"true" enum:"true"`
+	Action Action `json:"appstream2:UserSetting:Action" type:"string" required:"true" enum:"true"`
 
 	// Indicates whether the action is enabled or disabled.
 	//
 	// Permission is a required field
-	Permission Permission `type:"string" required:"true" enum:"true"`
+	Permission Permission `json:"appstream2:UserSetting:Permission" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -939,23 +939,23 @@ type UserStackAssociation struct {
 	// The authentication type for the user.
 	//
 	// AuthenticationType is a required field
-	AuthenticationType AuthenticationType `type:"string" required:"true" enum:"true"`
+	AuthenticationType AuthenticationType `json:"appstream2:UserStackAssociation:AuthenticationType" type:"string" required:"true" enum:"true"`
 
 	// Specifies whether a welcome email is sent to a user after the user is created
 	// in the user pool.
-	SendEmailNotification *bool `type:"boolean"`
+	SendEmailNotification *bool `json:"appstream2:UserStackAssociation:SendEmailNotification" type:"boolean"`
 
 	// The name of the stack that is associated with the user.
 	//
 	// StackName is a required field
-	StackName *string `min:"1" type:"string" required:"true"`
+	StackName *string `json:"appstream2:UserStackAssociation:StackName" min:"1" type:"string" required:"true"`
 
 	// The email address of the user who is associated with the stack.
 	//
 	// Users' email addresses are case-sensitive.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"appstream2:UserStackAssociation:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -998,14 +998,14 @@ type UserStackAssociationError struct {
 
 	// The error code for the error that is returned when a user can’t be associated
 	// with or disassociated from a stack.
-	ErrorCode UserStackAssociationErrorCode `type:"string" enum:"true"`
+	ErrorCode UserStackAssociationErrorCode `json:"appstream2:UserStackAssociationError:ErrorCode" type:"string" enum:"true"`
 
 	// The error message for the error that is returned when a user can’t be associated
 	// with or disassociated from a stack.
-	ErrorMessage *string `min:"1" type:"string"`
+	ErrorMessage *string `json:"appstream2:UserStackAssociationError:ErrorMessage" min:"1" type:"string"`
 
 	// Information about the user and associated stack.
-	UserStackAssociation *UserStackAssociation `type:"structure"`
+	UserStackAssociation *UserStackAssociation `json:"appstream2:UserStackAssociationError:UserStackAssociation" type:"structure"`
 }
 
 // String returns the string representation
@@ -1019,12 +1019,12 @@ type VpcConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The identifiers of the security groups for the fleet or image builder.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"appstream2:VpcConfig:SecurityGroupIds" type:"list"`
 
 	// The identifiers of the subnets to which a network interface is attached from
 	// the fleet instance or image builder instance. Fleet instances use one or
 	// more subnets. Image builder instances use one subnet.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"appstream2:VpcConfig:SubnetIds" type:"list"`
 }
 
 // String returns the string representation

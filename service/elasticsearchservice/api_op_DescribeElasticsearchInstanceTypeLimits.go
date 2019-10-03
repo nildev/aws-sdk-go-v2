@@ -90,7 +90,7 @@ type DescribeElasticsearchInstanceTypeLimitsOutput struct {
 	//    * Data: If the given InstanceType is used as Data node
 	//
 	//    * Master: If the given InstanceType is used as Master node
-	LimitsByRole map[string]Limits `type:"map"`
+	LimitsByRole map[string]Limits `json:"es:DescribeElasticsearchInstanceTypeLimitsOutput:LimitsByRole" type:"map"`
 }
 
 // String returns the string representation

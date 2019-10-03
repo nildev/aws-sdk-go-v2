@@ -46,11 +46,11 @@ type GetDiscoveredResourceCountsOutput struct {
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"config:GetDiscoveredResourceCountsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of ResourceCount objects. Each object is listed in descending order
 	// by the number of resources.
-	ResourceCounts []ResourceCount `locationName:"resourceCounts" type:"list"`
+	ResourceCounts []ResourceCount `json:"config:GetDiscoveredResourceCountsOutput:ResourceCounts" locationName:"resourceCounts" type:"list"`
 
 	// The total number of resources that AWS Config is recording in the region
 	// for your account. If you specify resource types in the request, AWS Config
@@ -66,7 +66,7 @@ type GetDiscoveredResourceCountsOutput struct {
 	// resource type, "AWS::EC2::Instances", in the request.
 	//
 	// AWS Config returns 25 for totalDiscoveredResources.
-	TotalDiscoveredResources *int64 `locationName:"totalDiscoveredResources" type:"long"`
+	TotalDiscoveredResources *int64 `json:"config:GetDiscoveredResourceCountsOutput:TotalDiscoveredResources" locationName:"totalDiscoveredResources" type:"long"`
 }
 
 // String returns the string representation

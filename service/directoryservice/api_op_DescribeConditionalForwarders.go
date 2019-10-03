@@ -50,7 +50,7 @@ type DescribeConditionalForwardersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of conditional forwarders that have been created.
-	ConditionalForwarders []ConditionalForwarder `type:"list"`
+	ConditionalForwarders []ConditionalForwarder `json:"ds:DescribeConditionalForwardersOutput:ConditionalForwarders" type:"list"`
 }
 
 // String returns the string representation

@@ -86,10 +86,10 @@ type DescribeOpsItemsOutput struct {
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeOpsItemsOutput:NextToken" type:"string"`
 
 	// A list of OpsItems.
-	OpsItemSummaries []OpsItemSummary `type:"list"`
+	OpsItemSummaries []OpsItemSummary `json:"ssm:DescribeOpsItemsOutput:OpsItemSummaries" type:"list"`
 }
 
 // String returns the string representation

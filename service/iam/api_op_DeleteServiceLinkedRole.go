@@ -49,7 +49,7 @@ type DeleteServiceLinkedRoleOutput struct {
 	// deletion. This identifier is returned in the format task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>.
 	//
 	// DeletionTaskId is a required field
-	DeletionTaskId *string `min:"1" type:"string" required:"true"`
+	DeletionTaskId *string `json:"iam:DeleteServiceLinkedRoleOutput:DeletionTaskId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

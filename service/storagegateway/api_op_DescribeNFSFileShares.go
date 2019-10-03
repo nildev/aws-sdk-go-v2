@@ -49,7 +49,7 @@ type DescribeNFSFileSharesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array containing a description for each requested file share.
-	NFSFileShareInfoList []NFSFileShareInfo `type:"list"`
+	NFSFileShareInfoList []NFSFileShareInfo `json:"storagegateway:DescribeNFSFileSharesOutput:NFSFileShareInfoList" type:"list"`
 }
 
 // String returns the string representation

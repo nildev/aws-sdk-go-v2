@@ -31,10 +31,10 @@ type GetLoggingOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The logging level.
-	LogLevel LogLevel `locationName:"logLevel" type:"string" enum:"true"`
+	LogLevel LogLevel `json:"iot:GetLoggingOptionsOutput:LogLevel" locationName:"logLevel" type:"string" enum:"true"`
 
 	// The ARN of the IAM role that grants access.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"iot:GetLoggingOptionsOutput:RoleArn" locationName:"roleArn" type:"string"`
 }
 
 // String returns the string representation

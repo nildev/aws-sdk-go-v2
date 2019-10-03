@@ -46,13 +46,13 @@ type DescribeAssessmentTemplatesOutput struct {
 	// Information about the assessment templates.
 	//
 	// AssessmentTemplates is a required field
-	AssessmentTemplates []AssessmentTemplate `locationName:"assessmentTemplates" type:"list" required:"true"`
+	AssessmentTemplates []AssessmentTemplate `json:"inspector:DescribeAssessmentTemplatesOutput:AssessmentTemplates" locationName:"assessmentTemplates" type:"list" required:"true"`
 
 	// Assessment template details that cannot be described. An error code is provided
 	// for each failed item.
 	//
 	// FailedItems is a required field
-	FailedItems map[string]FailedItemDetails `locationName:"failedItems" type:"map" required:"true"`
+	FailedItems map[string]FailedItemDetails `json:"inspector:DescribeAssessmentTemplatesOutput:FailedItems" locationName:"failedItems" type:"map" required:"true"`
 }
 
 // String returns the string representation

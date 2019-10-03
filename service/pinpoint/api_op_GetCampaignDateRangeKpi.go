@@ -117,7 +117,7 @@ type GetCampaignDateRangeKpiOutput struct {
 	// that applies to a campaign, and provides information about that query.
 	//
 	// CampaignDateRangeKpiResponse is a required field
-	CampaignDateRangeKpiResponse *CampaignDateRangeKpiResponse `type:"structure" required:"true"`
+	CampaignDateRangeKpiResponse *CampaignDateRangeKpiResponse `json:"pinpoint:GetCampaignDateRangeKpiOutput:CampaignDateRangeKpiResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -70,7 +70,7 @@ type ListAccessKeysOutput struct {
 	// A list of objects containing metadata about the access keys.
 	//
 	// AccessKeyMetadata is a required field
-	AccessKeyMetadata []AccessKeyMetadata `type:"list" required:"true"`
+	AccessKeyMetadata []AccessKeyMetadata `json:"iam:ListAccessKeysOutput:AccessKeyMetadata" type:"list" required:"true"`
 
 	// A flag that indicates whether there are more items to return. If your results
 	// were truncated, you can make a subsequent pagination request using the Marker
@@ -78,11 +78,11 @@ type ListAccessKeysOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListAccessKeysOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListAccessKeysOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

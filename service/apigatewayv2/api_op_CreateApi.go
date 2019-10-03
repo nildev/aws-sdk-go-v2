@@ -123,37 +123,37 @@ func (s CreateApiInput) MarshalFields(e protocol.FieldEncoder) error {
 type CreateApiOutput struct {
 	_ struct{} `type:"structure"`
 
-	ApiEndpoint *string `locationName:"apiEndpoint" type:"string"`
+	ApiEndpoint *string `json:"apigateway:CreateApiOutput:ApiEndpoint" locationName:"apiEndpoint" type:"string"`
 
 	// The identifier.
-	ApiId *string `locationName:"apiId" type:"string"`
+	ApiId *string `json:"apigateway:CreateApiOutput:ApiId" locationName:"apiId" type:"string"`
 
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	ApiKeySelectionExpression *string `locationName:"apiKeySelectionExpression" type:"string"`
+	ApiKeySelectionExpression *string `json:"apigateway:CreateApiOutput:ApiKeySelectionExpression" locationName:"apiKeySelectionExpression" type:"string"`
 
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:CreateApiOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A string with a length between [0-1024].
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:CreateApiOutput:Description" locationName:"description" type:"string"`
 
-	DisableSchemaValidation *bool `locationName:"disableSchemaValidation" type:"boolean"`
+	DisableSchemaValidation *bool `json:"apigateway:CreateApiOutput:DisableSchemaValidation" locationName:"disableSchemaValidation" type:"boolean"`
 
 	// A string with a length between [1-128].
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:CreateApiOutput:Name" locationName:"name" type:"string"`
 
-	ProtocolType ProtocolType `locationName:"protocolType" type:"string" enum:"true"`
+	ProtocolType ProtocolType `json:"apigateway:CreateApiOutput:ProtocolType" locationName:"protocolType" type:"string" enum:"true"`
 
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	RouteSelectionExpression *string `locationName:"routeSelectionExpression" type:"string"`
+	RouteSelectionExpression *string `json:"apigateway:CreateApiOutput:RouteSelectionExpression" locationName:"routeSelectionExpression" type:"string"`
 
 	// A string with a length between [1-64].
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"apigateway:CreateApiOutput:Version" locationName:"version" type:"string"`
 
-	Warnings []string `locationName:"warnings" type:"list"`
+	Warnings []string `json:"apigateway:CreateApiOutput:Warnings" locationName:"warnings" type:"list"`
 }
 
 // String returns the string representation

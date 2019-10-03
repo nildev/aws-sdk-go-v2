@@ -18,10 +18,10 @@ type ActivityFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:ActivityFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:ActivityFailedEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -37,12 +37,12 @@ type ActivityListItem struct {
 	// The Amazon Resource Name (ARN) that identifies the activity.
 	//
 	// ActivityArn is a required field
-	ActivityArn *string `locationName:"activityArn" min:"1" type:"string" required:"true"`
+	ActivityArn *string `json:"states:ActivityListItem:ActivityArn" locationName:"activityArn" min:"1" type:"string" required:"true"`
 
 	// The date the activity is created.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"states:ActivityListItem:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the activity.
 	//
@@ -59,7 +59,7 @@ type ActivityListItem struct {
 	//    * control characters (U+0000-001F, U+007F-009F)
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"states:ActivityListItem:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -74,10 +74,10 @@ type ActivityScheduleFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:ActivityScheduleFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:ActivityScheduleFailedEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -91,18 +91,18 @@ type ActivityScheduledEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum allowed duration between two heartbeats for the activity task.
-	HeartbeatInSeconds *int64 `locationName:"heartbeatInSeconds" type:"long"`
+	HeartbeatInSeconds *int64 `json:"states:ActivityScheduledEventDetails:HeartbeatInSeconds" locationName:"heartbeatInSeconds" type:"long"`
 
 	// The JSON data input to the activity task.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"states:ActivityScheduledEventDetails:Input" locationName:"input" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the scheduled activity.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:ActivityScheduledEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The maximum allowed duration of the activity task.
-	TimeoutInSeconds *int64 `locationName:"timeoutInSeconds" type:"long"`
+	TimeoutInSeconds *int64 `json:"states:ActivityScheduledEventDetails:TimeoutInSeconds" locationName:"timeoutInSeconds" type:"long"`
 }
 
 // String returns the string representation
@@ -117,7 +117,7 @@ type ActivityStartedEventDetails struct {
 
 	// The name of the worker that the task is assigned to. These names are provided
 	// by the workers when calling GetActivityTask.
-	WorkerName *string `locationName:"workerName" type:"string"`
+	WorkerName *string `json:"states:ActivityStartedEventDetails:WorkerName" locationName:"workerName" type:"string"`
 }
 
 // String returns the string representation
@@ -132,7 +132,7 @@ type ActivitySucceededEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON data output by the activity task.
-	Output *string `locationName:"output" type:"string"`
+	Output *string `json:"states:ActivitySucceededEventDetails:Output" locationName:"output" type:"string"`
 }
 
 // String returns the string representation
@@ -146,10 +146,10 @@ type ActivityTimedOutEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the timeout.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:ActivityTimedOutEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:ActivityTimedOutEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -163,10 +163,10 @@ type ExecutionAbortedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:ExecutionAbortedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:ExecutionAbortedEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -180,10 +180,10 @@ type ExecutionFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:ExecutionFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:ExecutionFailedEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -199,7 +199,7 @@ type ExecutionListItem struct {
 	// The Amazon Resource Name (ARN) that identifies the execution.
 	//
 	// ExecutionArn is a required field
-	ExecutionArn *string `locationName:"executionArn" min:"1" type:"string" required:"true"`
+	ExecutionArn *string `json:"states:ExecutionListItem:ExecutionArn" locationName:"executionArn" min:"1" type:"string" required:"true"`
 
 	// The name of the execution.
 	//
@@ -216,25 +216,25 @@ type ExecutionListItem struct {
 	//    * control characters (U+0000-001F, U+007F-009F)
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"states:ExecutionListItem:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The date the execution started.
 	//
 	// StartDate is a required field
-	StartDate *time.Time `locationName:"startDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartDate *time.Time `json:"states:ExecutionListItem:StartDate" locationName:"startDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the executed state machine.
 	//
 	// StateMachineArn is a required field
-	StateMachineArn *string `locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
+	StateMachineArn *string `json:"states:ExecutionListItem:StateMachineArn" locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
 
 	// The current status of the execution.
 	//
 	// Status is a required field
-	Status ExecutionStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status ExecutionStatus `json:"states:ExecutionListItem:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 
 	// If the execution already ended, the date the execution stopped.
-	StopDate *time.Time `locationName:"stopDate" type:"timestamp" timestampFormat:"unix"`
+	StopDate *time.Time `json:"states:ExecutionListItem:StopDate" locationName:"stopDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -248,11 +248,11 @@ type ExecutionStartedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON data input to the execution.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"states:ExecutionStartedEventDetails:Input" locationName:"input" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda
 	// tasks.
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string"`
+	RoleArn *string `json:"states:ExecutionStartedEventDetails:RoleArn" locationName:"roleArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -266,7 +266,7 @@ type ExecutionSucceededEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON data output by the execution.
-	Output *string `locationName:"output" type:"string"`
+	Output *string `json:"states:ExecutionSucceededEventDetails:Output" locationName:"output" type:"string"`
 }
 
 // String returns the string representation
@@ -280,10 +280,10 @@ type ExecutionTimedOutEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the timeout.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:ExecutionTimedOutEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:ExecutionTimedOutEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -297,107 +297,107 @@ type HistoryEvent struct {
 	_ struct{} `type:"structure"`
 
 	// Contains details about an activity that failed during an execution.
-	ActivityFailedEventDetails *ActivityFailedEventDetails `locationName:"activityFailedEventDetails" type:"structure"`
+	ActivityFailedEventDetails *ActivityFailedEventDetails `json:"states:HistoryEvent:ActivityFailedEventDetails" locationName:"activityFailedEventDetails" type:"structure"`
 
 	// Contains details about an activity schedule event that failed during an execution.
-	ActivityScheduleFailedEventDetails *ActivityScheduleFailedEventDetails `locationName:"activityScheduleFailedEventDetails" type:"structure"`
+	ActivityScheduleFailedEventDetails *ActivityScheduleFailedEventDetails `json:"states:HistoryEvent:ActivityScheduleFailedEventDetails" locationName:"activityScheduleFailedEventDetails" type:"structure"`
 
 	// Contains details about an activity scheduled during an execution.
-	ActivityScheduledEventDetails *ActivityScheduledEventDetails `locationName:"activityScheduledEventDetails" type:"structure"`
+	ActivityScheduledEventDetails *ActivityScheduledEventDetails `json:"states:HistoryEvent:ActivityScheduledEventDetails" locationName:"activityScheduledEventDetails" type:"structure"`
 
 	// Contains details about the start of an activity during an execution.
-	ActivityStartedEventDetails *ActivityStartedEventDetails `locationName:"activityStartedEventDetails" type:"structure"`
+	ActivityStartedEventDetails *ActivityStartedEventDetails `json:"states:HistoryEvent:ActivityStartedEventDetails" locationName:"activityStartedEventDetails" type:"structure"`
 
 	// Contains details about an activity that successfully terminated during an
 	// execution.
-	ActivitySucceededEventDetails *ActivitySucceededEventDetails `locationName:"activitySucceededEventDetails" type:"structure"`
+	ActivitySucceededEventDetails *ActivitySucceededEventDetails `json:"states:HistoryEvent:ActivitySucceededEventDetails" locationName:"activitySucceededEventDetails" type:"structure"`
 
 	// Contains details about an activity timeout that occurred during an execution.
-	ActivityTimedOutEventDetails *ActivityTimedOutEventDetails `locationName:"activityTimedOutEventDetails" type:"structure"`
+	ActivityTimedOutEventDetails *ActivityTimedOutEventDetails `json:"states:HistoryEvent:ActivityTimedOutEventDetails" locationName:"activityTimedOutEventDetails" type:"structure"`
 
 	// Contains details about an abort of an execution.
-	ExecutionAbortedEventDetails *ExecutionAbortedEventDetails `locationName:"executionAbortedEventDetails" type:"structure"`
+	ExecutionAbortedEventDetails *ExecutionAbortedEventDetails `json:"states:HistoryEvent:ExecutionAbortedEventDetails" locationName:"executionAbortedEventDetails" type:"structure"`
 
 	// Contains details about an execution failure event.
-	ExecutionFailedEventDetails *ExecutionFailedEventDetails `locationName:"executionFailedEventDetails" type:"structure"`
+	ExecutionFailedEventDetails *ExecutionFailedEventDetails `json:"states:HistoryEvent:ExecutionFailedEventDetails" locationName:"executionFailedEventDetails" type:"structure"`
 
 	// Contains details about the start of the execution.
-	ExecutionStartedEventDetails *ExecutionStartedEventDetails `locationName:"executionStartedEventDetails" type:"structure"`
+	ExecutionStartedEventDetails *ExecutionStartedEventDetails `json:"states:HistoryEvent:ExecutionStartedEventDetails" locationName:"executionStartedEventDetails" type:"structure"`
 
 	// Contains details about the successful termination of the execution.
-	ExecutionSucceededEventDetails *ExecutionSucceededEventDetails `locationName:"executionSucceededEventDetails" type:"structure"`
+	ExecutionSucceededEventDetails *ExecutionSucceededEventDetails `json:"states:HistoryEvent:ExecutionSucceededEventDetails" locationName:"executionSucceededEventDetails" type:"structure"`
 
 	// Contains details about the execution timeout that occurred during the execution.
-	ExecutionTimedOutEventDetails *ExecutionTimedOutEventDetails `locationName:"executionTimedOutEventDetails" type:"structure"`
+	ExecutionTimedOutEventDetails *ExecutionTimedOutEventDetails `json:"states:HistoryEvent:ExecutionTimedOutEventDetails" locationName:"executionTimedOutEventDetails" type:"structure"`
 
 	// The id of the event. Events are numbered sequentially, starting at one.
 	//
 	// Id is a required field
-	Id *int64 `locationName:"id" type:"long" required:"true"`
+	Id *int64 `json:"states:HistoryEvent:Id" locationName:"id" type:"long" required:"true"`
 
 	// Contains details about a lambda function that failed during an execution.
-	LambdaFunctionFailedEventDetails *LambdaFunctionFailedEventDetails `locationName:"lambdaFunctionFailedEventDetails" type:"structure"`
+	LambdaFunctionFailedEventDetails *LambdaFunctionFailedEventDetails `json:"states:HistoryEvent:LambdaFunctionFailedEventDetails" locationName:"lambdaFunctionFailedEventDetails" type:"structure"`
 
 	// Contains details about a failed lambda function schedule event that occurred
 	// during an execution.
-	LambdaFunctionScheduleFailedEventDetails *LambdaFunctionScheduleFailedEventDetails `locationName:"lambdaFunctionScheduleFailedEventDetails" type:"structure"`
+	LambdaFunctionScheduleFailedEventDetails *LambdaFunctionScheduleFailedEventDetails `json:"states:HistoryEvent:LambdaFunctionScheduleFailedEventDetails" locationName:"lambdaFunctionScheduleFailedEventDetails" type:"structure"`
 
 	// Contains details about a lambda function scheduled during an execution.
-	LambdaFunctionScheduledEventDetails *LambdaFunctionScheduledEventDetails `locationName:"lambdaFunctionScheduledEventDetails" type:"structure"`
+	LambdaFunctionScheduledEventDetails *LambdaFunctionScheduledEventDetails `json:"states:HistoryEvent:LambdaFunctionScheduledEventDetails" locationName:"lambdaFunctionScheduledEventDetails" type:"structure"`
 
 	// Contains details about a lambda function that failed to start during an execution.
-	LambdaFunctionStartFailedEventDetails *LambdaFunctionStartFailedEventDetails `locationName:"lambdaFunctionStartFailedEventDetails" type:"structure"`
+	LambdaFunctionStartFailedEventDetails *LambdaFunctionStartFailedEventDetails `json:"states:HistoryEvent:LambdaFunctionStartFailedEventDetails" locationName:"lambdaFunctionStartFailedEventDetails" type:"structure"`
 
 	// Contains details about a lambda function that terminated successfully during
 	// an execution.
-	LambdaFunctionSucceededEventDetails *LambdaFunctionSucceededEventDetails `locationName:"lambdaFunctionSucceededEventDetails" type:"structure"`
+	LambdaFunctionSucceededEventDetails *LambdaFunctionSucceededEventDetails `json:"states:HistoryEvent:LambdaFunctionSucceededEventDetails" locationName:"lambdaFunctionSucceededEventDetails" type:"structure"`
 
 	// Contains details about a lambda function timeout that occurred during an
 	// execution.
-	LambdaFunctionTimedOutEventDetails *LambdaFunctionTimedOutEventDetails `locationName:"lambdaFunctionTimedOutEventDetails" type:"structure"`
+	LambdaFunctionTimedOutEventDetails *LambdaFunctionTimedOutEventDetails `json:"states:HistoryEvent:LambdaFunctionTimedOutEventDetails" locationName:"lambdaFunctionTimedOutEventDetails" type:"structure"`
 
 	// The id of the previous event.
-	PreviousEventId *int64 `locationName:"previousEventId" type:"long"`
+	PreviousEventId *int64 `json:"states:HistoryEvent:PreviousEventId" locationName:"previousEventId" type:"long"`
 
 	// Contains details about a state entered during an execution.
-	StateEnteredEventDetails *StateEnteredEventDetails `locationName:"stateEnteredEventDetails" type:"structure"`
+	StateEnteredEventDetails *StateEnteredEventDetails `json:"states:HistoryEvent:StateEnteredEventDetails" locationName:"stateEnteredEventDetails" type:"structure"`
 
 	// Contains details about an exit from a state during an execution.
-	StateExitedEventDetails *StateExitedEventDetails `locationName:"stateExitedEventDetails" type:"structure"`
+	StateExitedEventDetails *StateExitedEventDetails `json:"states:HistoryEvent:StateExitedEventDetails" locationName:"stateExitedEventDetails" type:"structure"`
 
 	// Contains details about the failure of a task.
-	TaskFailedEventDetails *TaskFailedEventDetails `locationName:"taskFailedEventDetails" type:"structure"`
+	TaskFailedEventDetails *TaskFailedEventDetails `json:"states:HistoryEvent:TaskFailedEventDetails" locationName:"taskFailedEventDetails" type:"structure"`
 
 	// Contains details about a task that was scheduled.
-	TaskScheduledEventDetails *TaskScheduledEventDetails `locationName:"taskScheduledEventDetails" type:"structure"`
+	TaskScheduledEventDetails *TaskScheduledEventDetails `json:"states:HistoryEvent:TaskScheduledEventDetails" locationName:"taskScheduledEventDetails" type:"structure"`
 
 	// Contains details about a task that failed to start.
-	TaskStartFailedEventDetails *TaskStartFailedEventDetails `locationName:"taskStartFailedEventDetails" type:"structure"`
+	TaskStartFailedEventDetails *TaskStartFailedEventDetails `json:"states:HistoryEvent:TaskStartFailedEventDetails" locationName:"taskStartFailedEventDetails" type:"structure"`
 
 	// Contains details about a task that was started.
-	TaskStartedEventDetails *TaskStartedEventDetails `locationName:"taskStartedEventDetails" type:"structure"`
+	TaskStartedEventDetails *TaskStartedEventDetails `json:"states:HistoryEvent:TaskStartedEventDetails" locationName:"taskStartedEventDetails" type:"structure"`
 
 	// Contains details about a task that where the submit failed.
-	TaskSubmitFailedEventDetails *TaskSubmitFailedEventDetails `locationName:"taskSubmitFailedEventDetails" type:"structure"`
+	TaskSubmitFailedEventDetails *TaskSubmitFailedEventDetails `json:"states:HistoryEvent:TaskSubmitFailedEventDetails" locationName:"taskSubmitFailedEventDetails" type:"structure"`
 
 	// Contains details about a submitted task.
-	TaskSubmittedEventDetails *TaskSubmittedEventDetails `locationName:"taskSubmittedEventDetails" type:"structure"`
+	TaskSubmittedEventDetails *TaskSubmittedEventDetails `json:"states:HistoryEvent:TaskSubmittedEventDetails" locationName:"taskSubmittedEventDetails" type:"structure"`
 
 	// Contains details about a task that succeeded.
-	TaskSucceededEventDetails *TaskSucceededEventDetails `locationName:"taskSucceededEventDetails" type:"structure"`
+	TaskSucceededEventDetails *TaskSucceededEventDetails `json:"states:HistoryEvent:TaskSucceededEventDetails" locationName:"taskSucceededEventDetails" type:"structure"`
 
 	// Contains details about a task that timed out.
-	TaskTimedOutEventDetails *TaskTimedOutEventDetails `locationName:"taskTimedOutEventDetails" type:"structure"`
+	TaskTimedOutEventDetails *TaskTimedOutEventDetails `json:"states:HistoryEvent:TaskTimedOutEventDetails" locationName:"taskTimedOutEventDetails" type:"structure"`
 
 	// The date and time the event occurred.
 	//
 	// Timestamp is a required field
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
+	Timestamp *time.Time `json:"states:HistoryEvent:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The type of the event.
 	//
 	// Type is a required field
-	Type HistoryEventType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type HistoryEventType `json:"states:HistoryEvent:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -411,10 +411,10 @@ type LambdaFunctionFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:LambdaFunctionFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:LambdaFunctionFailedEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -429,10 +429,10 @@ type LambdaFunctionScheduleFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:LambdaFunctionScheduleFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:LambdaFunctionScheduleFailedEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -446,15 +446,15 @@ type LambdaFunctionScheduledEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON data input to the lambda function.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"states:LambdaFunctionScheduledEventDetails:Input" locationName:"input" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the scheduled lambda function.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:LambdaFunctionScheduledEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The maximum allowed duration of the lambda function.
-	TimeoutInSeconds *int64 `locationName:"timeoutInSeconds" type:"long"`
+	TimeoutInSeconds *int64 `json:"states:LambdaFunctionScheduledEventDetails:TimeoutInSeconds" locationName:"timeoutInSeconds" type:"long"`
 }
 
 // String returns the string representation
@@ -468,10 +468,10 @@ type LambdaFunctionStartFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:LambdaFunctionStartFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:LambdaFunctionStartFailedEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -486,7 +486,7 @@ type LambdaFunctionSucceededEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON data output by the lambda function.
-	Output *string `locationName:"output" type:"string"`
+	Output *string `json:"states:LambdaFunctionSucceededEventDetails:Output" locationName:"output" type:"string"`
 }
 
 // String returns the string representation
@@ -501,10 +501,10 @@ type LambdaFunctionTimedOutEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the timeout.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:LambdaFunctionTimedOutEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:LambdaFunctionTimedOutEventDetails:Error" locationName:"error" type:"string"`
 }
 
 // String returns the string representation
@@ -518,12 +518,12 @@ type StateEnteredEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The string that contains the JSON input data for the state.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"states:StateEnteredEventDetails:Input" locationName:"input" type:"string"`
 
 	// The name of the state.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"states:StateEnteredEventDetails:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -551,10 +551,10 @@ type StateExitedEventDetails struct {
 	//    * control characters (U+0000-001F, U+007F-009F)
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"states:StateExitedEventDetails:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The JSON output data of the state.
-	Output *string `locationName:"output" type:"string"`
+	Output *string `json:"states:StateExitedEventDetails:Output" locationName:"output" type:"string"`
 }
 
 // String returns the string representation
@@ -570,7 +570,7 @@ type StateMachineListItem struct {
 	// The date the state machine is created.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"states:StateMachineListItem:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the state machine.
 	//
@@ -587,12 +587,12 @@ type StateMachineListItem struct {
 	//    * control characters (U+0000-001F, U+007F-009F)
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"states:StateMachineListItem:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) that identifies the state machine.
 	//
 	// StateMachineArn is a required field
-	StateMachineArn *string `locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
+	StateMachineArn *string `json:"states:StateMachineListItem:StateMachineArn" locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -607,10 +607,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The key of a tag.
-	Key *string `locationName:"key" min:"1" type:"string"`
+	Key *string `json:"states:Tag:Key" locationName:"key" min:"1" type:"string"`
 
 	// The value of a tag.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"states:Tag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -637,20 +637,20 @@ type TaskFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:TaskFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:TaskFailedEventDetails:Error" locationName:"error" type:"string"`
 
 	// The service name of the resource in a task state.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:TaskFailedEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The action of the resource called by a task state.
 	//
 	// ResourceType is a required field
-	ResourceType *string `locationName:"resourceType" min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"states:TaskFailedEventDetails:ResourceType" locationName:"resourceType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -666,25 +666,25 @@ type TaskScheduledEventDetails struct {
 	// The JSON data passed to the resource referenced in a task state.
 	//
 	// Parameters is a required field
-	Parameters *string `locationName:"parameters" type:"string" required:"true"`
+	Parameters *string `json:"states:TaskScheduledEventDetails:Parameters" locationName:"parameters" type:"string" required:"true"`
 
 	// The region of the scheduled task
 	//
 	// Region is a required field
-	Region *string `locationName:"region" min:"1" type:"string" required:"true"`
+	Region *string `json:"states:TaskScheduledEventDetails:Region" locationName:"region" min:"1" type:"string" required:"true"`
 
 	// The service name of the resource in a task state.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:TaskScheduledEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The action of the resource called by a task state.
 	//
 	// ResourceType is a required field
-	ResourceType *string `locationName:"resourceType" min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"states:TaskScheduledEventDetails:ResourceType" locationName:"resourceType" min:"1" type:"string" required:"true"`
 
 	// The maximum allowed duration of the task.
-	TimeoutInSeconds *int64 `locationName:"timeoutInSeconds" type:"long"`
+	TimeoutInSeconds *int64 `json:"states:TaskScheduledEventDetails:TimeoutInSeconds" locationName:"timeoutInSeconds" type:"long"`
 }
 
 // String returns the string representation
@@ -698,20 +698,20 @@ type TaskStartFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:TaskStartFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:TaskStartFailedEventDetails:Error" locationName:"error" type:"string"`
 
 	// The service name of the resource in a task state.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:TaskStartFailedEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The action of the resource called by a task state.
 	//
 	// ResourceType is a required field
-	ResourceType *string `locationName:"resourceType" min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"states:TaskStartFailedEventDetails:ResourceType" locationName:"resourceType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -727,12 +727,12 @@ type TaskStartedEventDetails struct {
 	// The service name of the resource in a task state.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:TaskStartedEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The action of the resource called by a task state.
 	//
 	// ResourceType is a required field
-	ResourceType *string `locationName:"resourceType" min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"states:TaskStartedEventDetails:ResourceType" locationName:"resourceType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -746,20 +746,20 @@ type TaskSubmitFailedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:TaskSubmitFailedEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:TaskSubmitFailedEventDetails:Error" locationName:"error" type:"string"`
 
 	// The service name of the resource in a task state.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:TaskSubmitFailedEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The action of the resource called by a task state.
 	//
 	// ResourceType is a required field
-	ResourceType *string `locationName:"resourceType" min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"states:TaskSubmitFailedEventDetails:ResourceType" locationName:"resourceType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -773,17 +773,17 @@ type TaskSubmittedEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The response from a resource when a task has started.
-	Output *string `locationName:"output" type:"string"`
+	Output *string `json:"states:TaskSubmittedEventDetails:Output" locationName:"output" type:"string"`
 
 	// The service name of the resource in a task state.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:TaskSubmittedEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The action of the resource called by a task state.
 	//
 	// ResourceType is a required field
-	ResourceType *string `locationName:"resourceType" min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"states:TaskSubmittedEventDetails:ResourceType" locationName:"resourceType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -798,17 +798,17 @@ type TaskSucceededEventDetails struct {
 
 	// The full JSON response from a resource when a task has succeeded. This response
 	// becomes the output of the related task.
-	Output *string `locationName:"output" type:"string"`
+	Output *string `json:"states:TaskSucceededEventDetails:Output" locationName:"output" type:"string"`
 
 	// The service name of the resource in a task state.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:TaskSucceededEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The action of the resource called by a task state.
 	//
 	// ResourceType is a required field
-	ResourceType *string `locationName:"resourceType" min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"states:TaskSucceededEventDetails:ResourceType" locationName:"resourceType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -822,20 +822,20 @@ type TaskTimedOutEventDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A more detailed explanation of the cause of the failure.
-	Cause *string `locationName:"cause" type:"string"`
+	Cause *string `json:"states:TaskTimedOutEventDetails:Cause" locationName:"cause" type:"string"`
 
 	// The error code of the failure.
-	Error *string `locationName:"error" type:"string"`
+	Error *string `json:"states:TaskTimedOutEventDetails:Error" locationName:"error" type:"string"`
 
 	// The service name of the resource in a task state.
 	//
 	// Resource is a required field
-	Resource *string `locationName:"resource" min:"1" type:"string" required:"true"`
+	Resource *string `json:"states:TaskTimedOutEventDetails:Resource" locationName:"resource" min:"1" type:"string" required:"true"`
 
 	// The action of the resource called by a task state.
 	//
 	// ResourceType is a required field
-	ResourceType *string `locationName:"resourceType" min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"states:TaskTimedOutEventDetails:ResourceType" locationName:"resourceType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -109,10 +109,10 @@ type UpdateFlowEntitlementOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The settings for a flow entitlement.
-	Entitlement *Entitlement `locationName:"entitlement" type:"structure"`
+	Entitlement *Entitlement `json:"mediaconnect:UpdateFlowEntitlementOutput:Entitlement" locationName:"entitlement" type:"structure"`
 
 	// The ARN of the flow that this entitlement was granted on.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:UpdateFlowEntitlementOutput:FlowArn" locationName:"flowArn" type:"string"`
 }
 
 // String returns the string representation

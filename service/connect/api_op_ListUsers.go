@@ -88,11 +88,11 @@ type ListUsersOutput struct {
 	// A string returned in the response. Use the value returned in the response
 	// as the value of the NextToken in a subsequent request to retrieve the next
 	// set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"connect:ListUsersOutput:NextToken" type:"string"`
 
 	// An array of UserSummary objects that contain information about the users
 	// in your instance.
-	UserSummaryList []UserSummary `type:"list"`
+	UserSummaryList []UserSummary `json:"connect:ListUsersOutput:UserSummaryList" type:"list"`
 }
 
 // String returns the string representation

@@ -46,11 +46,11 @@ type StopDominantLanguageDetectionJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the dominant language detection job to stop.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:StopDominantLanguageDetectionJobOutput:JobId" min:"1" type:"string"`
 
 	// Either STOP_REQUESTED if the job is currently running, or STOPPED if the
 	// job was previously stopped with the StopDominantLanguageDetectionJob operation.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:StopDominantLanguageDetectionJobOutput:JobStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

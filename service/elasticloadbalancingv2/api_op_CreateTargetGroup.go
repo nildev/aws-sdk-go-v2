@@ -156,7 +156,7 @@ type CreateTargetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the target group.
-	TargetGroups []TargetGroup `type:"list"`
+	TargetGroups []TargetGroup `json:"elasticloadbalancing:CreateTargetGroupOutput:TargetGroups" type:"list"`
 }
 
 // String returns the string representation

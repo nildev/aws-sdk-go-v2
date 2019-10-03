@@ -160,7 +160,7 @@ type CreateTransformJobOutput struct {
 	// The Amazon Resource Name (ARN) of the transform job.
 	//
 	// TransformJobArn is a required field
-	TransformJobArn *string `type:"string" required:"true"`
+	TransformJobArn *string `json:"api.sagemaker:CreateTransformJobOutput:TransformJobArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

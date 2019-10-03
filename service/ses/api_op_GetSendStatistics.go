@@ -26,7 +26,7 @@ type GetSendStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of data points, each of which represents 15 minutes of activity.
-	SendDataPoints []SendDataPoint `type:"list"`
+	SendDataPoints []SendDataPoint `json:"email:GetSendStatisticsOutput:SendDataPoints" type:"list"`
 }
 
 // String returns the string representation

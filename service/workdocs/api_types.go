@@ -20,37 +20,37 @@ type Activity struct {
 
 	// Metadata of the commenting activity. This is an optional field and is filled
 	// for commenting activities.
-	CommentMetadata *CommentMetadata `type:"structure"`
+	CommentMetadata *CommentMetadata `json:"workdocs:Activity:CommentMetadata" type:"structure"`
 
 	// The user who performed the action.
-	Initiator *UserMetadata `type:"structure"`
+	Initiator *UserMetadata `json:"workdocs:Activity:Initiator" type:"structure"`
 
 	// Indicates whether an activity is indirect or direct. An indirect activity
 	// results from a direct activity performed on a parent resource. For example,
 	// sharing a parent folder (the direct activity) shares all of the subfolders
 	// and documents within the parent folder (the indirect activity).
-	IsIndirectActivity *bool `type:"boolean"`
+	IsIndirectActivity *bool `json:"workdocs:Activity:IsIndirectActivity" type:"boolean"`
 
 	// The ID of the organization.
-	OrganizationId *string `min:"1" type:"string"`
+	OrganizationId *string `json:"workdocs:Activity:OrganizationId" min:"1" type:"string"`
 
 	// The original parent of the resource. This is an optional field and is filled
 	// for move activities.
-	OriginalParent *ResourceMetadata `type:"structure"`
+	OriginalParent *ResourceMetadata `json:"workdocs:Activity:OriginalParent" type:"structure"`
 
 	// The list of users or groups impacted by this action. This is an optional
 	// field and is filled for the following sharing activities: DOCUMENT_SHARED,
 	// DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.
-	Participants *Participants `type:"structure"`
+	Participants *Participants `json:"workdocs:Activity:Participants" type:"structure"`
 
 	// The metadata of the resource involved in the user action.
-	ResourceMetadata *ResourceMetadata `type:"structure"`
+	ResourceMetadata *ResourceMetadata `json:"workdocs:Activity:ResourceMetadata" type:"structure"`
 
 	// The timestamp when the action was performed.
-	TimeStamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TimeStamp *time.Time `json:"workdocs:Activity:TimeStamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The activity type.
-	Type ActivityType `type:"string" enum:"true"`
+	Type ActivityType `json:"workdocs:Activity:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -125,34 +125,34 @@ type Comment struct {
 	// The ID of the comment.
 	//
 	// CommentId is a required field
-	CommentId *string `min:"1" type:"string" required:"true"`
+	CommentId *string `json:"workdocs:Comment:CommentId" min:"1" type:"string" required:"true"`
 
 	// The details of the user who made the comment.
-	Contributor *User `type:"structure"`
+	Contributor *User `json:"workdocs:Comment:Contributor" type:"structure"`
 
 	// The time that the comment was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"workdocs:Comment:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the parent comment.
-	ParentId *string `min:"1" type:"string"`
+	ParentId *string `json:"workdocs:Comment:ParentId" min:"1" type:"string"`
 
 	// If the comment is a reply to another user's comment, this field contains
 	// the user ID of the user being replied to.
-	RecipientId *string `min:"1" type:"string"`
+	RecipientId *string `json:"workdocs:Comment:RecipientId" min:"1" type:"string"`
 
 	// The status of the comment.
-	Status CommentStatusType `type:"string" enum:"true"`
+	Status CommentStatusType `json:"workdocs:Comment:Status" type:"string" enum:"true"`
 
 	// The text of the comment.
-	Text *string `min:"1" type:"string"`
+	Text *string `json:"workdocs:Comment:Text" min:"1" type:"string"`
 
 	// The ID of the root comment in the thread.
-	ThreadId *string `min:"1" type:"string"`
+	ThreadId *string `json:"workdocs:Comment:ThreadId" min:"1" type:"string"`
 
 	// The visibility of the comment. Options are either PRIVATE, where the comment
 	// is visible only to the comment author and document owner and co-owners, or
 	// PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
-	Visibility CommentVisibilityType `type:"string" enum:"true"`
+	Visibility CommentVisibilityType `json:"workdocs:Comment:Visibility" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -225,19 +225,19 @@ type CommentMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the comment.
-	CommentId *string `min:"1" type:"string"`
+	CommentId *string `json:"workdocs:CommentMetadata:CommentId" min:"1" type:"string"`
 
 	// The status of the comment.
-	CommentStatus CommentStatusType `type:"string" enum:"true"`
+	CommentStatus CommentStatusType `json:"workdocs:CommentMetadata:CommentStatus" type:"string" enum:"true"`
 
 	// The user who made the comment.
-	Contributor *User `type:"structure"`
+	Contributor *User `json:"workdocs:CommentMetadata:Contributor" type:"structure"`
 
 	// The timestamp that the comment was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"workdocs:CommentMetadata:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the user being replied to.
-	RecipientId *string `min:"1" type:"string"`
+	RecipientId *string `json:"workdocs:CommentMetadata:RecipientId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -286,28 +286,28 @@ type DocumentMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the document was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"workdocs:DocumentMetadata:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the creator.
-	CreatorId *string `min:"1" type:"string"`
+	CreatorId *string `json:"workdocs:DocumentMetadata:CreatorId" min:"1" type:"string"`
 
 	// The ID of the document.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:DocumentMetadata:Id" min:"1" type:"string"`
 
 	// List of labels on the document.
-	Labels []string `type:"list"`
+	Labels []string `json:"workdocs:DocumentMetadata:Labels" type:"list"`
 
 	// The latest version of the document.
-	LatestVersionMetadata *DocumentVersionMetadata `type:"structure"`
+	LatestVersionMetadata *DocumentVersionMetadata `json:"workdocs:DocumentMetadata:LatestVersionMetadata" type:"structure"`
 
 	// The time when the document was updated.
-	ModifiedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ModifiedTimestamp *time.Time `json:"workdocs:DocumentMetadata:ModifiedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the parent folder.
-	ParentFolderId *string `min:"1" type:"string"`
+	ParentFolderId *string `json:"workdocs:DocumentMetadata:ParentFolderId" min:"1" type:"string"`
 
 	// The resource state.
-	ResourceState ResourceStateType `type:"string" enum:"true"`
+	ResourceState ResourceStateType `json:"workdocs:DocumentMetadata:ResourceState" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -380,43 +380,43 @@ type DocumentVersionMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp when the content of the document was originally created.
-	ContentCreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ContentCreatedTimestamp *time.Time `json:"workdocs:DocumentVersionMetadata:ContentCreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The timestamp when the content of the document was modified.
-	ContentModifiedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ContentModifiedTimestamp *time.Time `json:"workdocs:DocumentVersionMetadata:ContentModifiedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The content type of the document.
-	ContentType *string `min:"1" type:"string"`
+	ContentType *string `json:"workdocs:DocumentVersionMetadata:ContentType" min:"1" type:"string"`
 
 	// The timestamp when the document was first uploaded.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"workdocs:DocumentVersionMetadata:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the creator.
-	CreatorId *string `min:"1" type:"string"`
+	CreatorId *string `json:"workdocs:DocumentVersionMetadata:CreatorId" min:"1" type:"string"`
 
 	// The ID of the version.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:DocumentVersionMetadata:Id" min:"1" type:"string"`
 
 	// The timestamp when the document was last uploaded.
-	ModifiedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ModifiedTimestamp *time.Time `json:"workdocs:DocumentVersionMetadata:ModifiedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the version.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workdocs:DocumentVersionMetadata:Name" min:"1" type:"string"`
 
 	// The signature of the document.
-	Signature *string `type:"string"`
+	Signature *string `json:"workdocs:DocumentVersionMetadata:Signature" type:"string"`
 
 	// The size of the document, in bytes.
-	Size *int64 `type:"long"`
+	Size *int64 `json:"workdocs:DocumentVersionMetadata:Size" type:"long"`
 
 	// The source of the document.
-	Source map[string]string `type:"map"`
+	Source map[string]string `json:"workdocs:DocumentVersionMetadata:Source" type:"map"`
 
 	// The status of the document.
-	Status DocumentStatusType `type:"string" enum:"true"`
+	Status DocumentStatusType `json:"workdocs:DocumentVersionMetadata:Status" type:"string" enum:"true"`
 
 	// The thumbnail of the document.
-	Thumbnail map[string]string `type:"map"`
+	Thumbnail map[string]string `json:"workdocs:DocumentVersionMetadata:Thumbnail" type:"map"`
 }
 
 // String returns the string representation
@@ -525,37 +525,37 @@ type FolderMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the folder was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"workdocs:FolderMetadata:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the creator.
-	CreatorId *string `min:"1" type:"string"`
+	CreatorId *string `json:"workdocs:FolderMetadata:CreatorId" min:"1" type:"string"`
 
 	// The ID of the folder.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:FolderMetadata:Id" min:"1" type:"string"`
 
 	// List of labels on the folder.
-	Labels []string `type:"list"`
+	Labels []string `json:"workdocs:FolderMetadata:Labels" type:"list"`
 
 	// The size of the latest version of the folder metadata.
-	LatestVersionSize *int64 `type:"long"`
+	LatestVersionSize *int64 `json:"workdocs:FolderMetadata:LatestVersionSize" type:"long"`
 
 	// The time when the folder was updated.
-	ModifiedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ModifiedTimestamp *time.Time `json:"workdocs:FolderMetadata:ModifiedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the folder.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workdocs:FolderMetadata:Name" min:"1" type:"string"`
 
 	// The ID of the parent folder.
-	ParentFolderId *string `min:"1" type:"string"`
+	ParentFolderId *string `json:"workdocs:FolderMetadata:ParentFolderId" min:"1" type:"string"`
 
 	// The resource state of the folder.
-	ResourceState ResourceStateType `type:"string" enum:"true"`
+	ResourceState ResourceStateType `json:"workdocs:FolderMetadata:ResourceState" type:"string" enum:"true"`
 
 	// The unique identifier created from the subfolders and documents of the folder.
-	Signature *string `type:"string"`
+	Signature *string `json:"workdocs:FolderMetadata:Signature" type:"string"`
 
 	// The size of the folder metadata.
-	Size *int64 `type:"long"`
+	Size *int64 `json:"workdocs:FolderMetadata:Size" type:"long"`
 }
 
 // String returns the string representation
@@ -646,10 +646,10 @@ type GroupMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the user group.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:GroupMetadata:Id" min:"1" type:"string"`
 
 	// The name of the group.
-	Name *string `type:"string"`
+	Name *string `json:"workdocs:GroupMetadata:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -680,10 +680,10 @@ type NotificationOptions struct {
 	_ struct{} `type:"structure"`
 
 	// Text value to be included in the email body.
-	EmailMessage *string `type:"string"`
+	EmailMessage *string `json:"workdocs:NotificationOptions:EmailMessage" type:"string"`
 
 	// Boolean value to indicate an email notification should be sent to the receipients.
-	SendEmail *bool `type:"boolean"`
+	SendEmail *bool `json:"workdocs:NotificationOptions:SendEmail" type:"boolean"`
 }
 
 // String returns the string representation
@@ -714,10 +714,10 @@ type Participants struct {
 	_ struct{} `type:"structure"`
 
 	// The list of user groups.
-	Groups []GroupMetadata `type:"list"`
+	Groups []GroupMetadata `json:"workdocs:Participants:Groups" type:"list"`
 
 	// The list of users.
-	Users []UserMetadata `type:"list"`
+	Users []UserMetadata `json:"workdocs:Participants:Users" type:"list"`
 }
 
 // String returns the string representation
@@ -760,10 +760,10 @@ type PermissionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The role of the user.
-	Role RoleType `type:"string" enum:"true"`
+	Role RoleType `json:"workdocs:PermissionInfo:Role" type:"string" enum:"true"`
 
 	// The type of permissions.
-	Type RolePermissionType `type:"string" enum:"true"`
+	Type RolePermissionType `json:"workdocs:PermissionInfo:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -794,13 +794,13 @@ type Principal struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:Principal:Id" min:"1" type:"string"`
 
 	// The permission information for the resource.
-	Roles []PermissionInfo `type:"list"`
+	Roles []PermissionInfo `json:"workdocs:Principal:Roles" type:"list"`
 
 	// The type of resource.
-	Type PrincipalType `type:"string" enum:"true"`
+	Type PrincipalType `json:"workdocs:Principal:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -843,26 +843,26 @@ type ResourceMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:ResourceMetadata:Id" min:"1" type:"string"`
 
 	// The name of the resource.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workdocs:ResourceMetadata:Name" min:"1" type:"string"`
 
 	// The original name of the resource before a rename operation.
-	OriginalName *string `min:"1" type:"string"`
+	OriginalName *string `json:"workdocs:ResourceMetadata:OriginalName" min:"1" type:"string"`
 
 	// The owner of the resource.
-	Owner *UserMetadata `type:"structure"`
+	Owner *UserMetadata `json:"workdocs:ResourceMetadata:Owner" type:"structure"`
 
 	// The parent ID of the resource before a rename operation.
-	ParentId *string `min:"1" type:"string"`
+	ParentId *string `json:"workdocs:ResourceMetadata:ParentId" min:"1" type:"string"`
 
 	// The type of resource.
-	Type ResourceType `type:"string" enum:"true"`
+	Type ResourceType `json:"workdocs:ResourceMetadata:Type" type:"string" enum:"true"`
 
 	// The version ID of the resource. This is an optional field and is filled for
 	// action on document version.
-	VersionId *string `min:"1" type:"string"`
+	VersionId *string `json:"workdocs:ResourceMetadata:VersionId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -923,7 +923,7 @@ type ResourcePath struct {
 	_ struct{} `type:"structure"`
 
 	// The components of the resource path.
-	Components []ResourcePathComponent `type:"list"`
+	Components []ResourcePathComponent `json:"workdocs:ResourcePath:Components" type:"list"`
 }
 
 // String returns the string representation
@@ -954,10 +954,10 @@ type ResourcePathComponent struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the resource path.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:ResourcePathComponent:Id" min:"1" type:"string"`
 
 	// The name of the resource path.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workdocs:ResourcePathComponent:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -990,17 +990,17 @@ type SharePrincipal struct {
 	// The ID of the recipient.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"workdocs:SharePrincipal:Id" min:"1" type:"string" required:"true"`
 
 	// The role of the recipient.
 	//
 	// Role is a required field
-	Role RoleType `type:"string" required:"true" enum:"true"`
+	Role RoleType `json:"workdocs:SharePrincipal:Role" type:"string" required:"true" enum:"true"`
 
 	// The type of the recipient.
 	//
 	// Type is a required field
-	Type PrincipalType `type:"string" required:"true" enum:"true"`
+	Type PrincipalType `json:"workdocs:SharePrincipal:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1060,22 +1060,22 @@ type ShareResult struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the invited user.
-	InviteePrincipalId *string `min:"1" type:"string"`
+	InviteePrincipalId *string `json:"workdocs:ShareResult:InviteePrincipalId" min:"1" type:"string"`
 
 	// The ID of the principal.
-	PrincipalId *string `min:"1" type:"string"`
+	PrincipalId *string `json:"workdocs:ShareResult:PrincipalId" min:"1" type:"string"`
 
 	// The role.
-	Role RoleType `type:"string" enum:"true"`
+	Role RoleType `json:"workdocs:ShareResult:Role" type:"string" enum:"true"`
 
 	// The ID of the resource that was shared.
-	ShareId *string `min:"1" type:"string"`
+	ShareId *string `json:"workdocs:ShareResult:ShareId" min:"1" type:"string"`
 
 	// The status.
-	Status ShareStatusType `type:"string" enum:"true"`
+	Status ShareStatusType `json:"workdocs:ShareResult:Status" type:"string" enum:"true"`
 
 	// The status message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"workdocs:ShareResult:StatusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -1130,10 +1130,10 @@ type StorageRuleType struct {
 	_ struct{} `type:"structure"`
 
 	// The amount of storage allocated, in bytes.
-	StorageAllocatedInBytes *int64 `type:"long"`
+	StorageAllocatedInBytes *int64 `json:"workdocs:StorageRuleType:StorageAllocatedInBytes" type:"long"`
 
 	// The type of storage.
-	StorageType StorageType `type:"string" enum:"true"`
+	StorageType StorageType `json:"workdocs:StorageRuleType:StorageType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1164,13 +1164,13 @@ type Subscription struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint of the subscription.
-	EndPoint *string `min:"1" type:"string"`
+	EndPoint *string `json:"workdocs:Subscription:EndPoint" min:"1" type:"string"`
 
 	// The protocol of the subscription.
-	Protocol SubscriptionProtocolType `type:"string" enum:"true"`
+	Protocol SubscriptionProtocolType `json:"workdocs:Subscription:Protocol" type:"string" enum:"true"`
 
 	// The ID of the subscription.
-	SubscriptionId *string `min:"1" type:"string"`
+	SubscriptionId *string `json:"workdocs:Subscription:SubscriptionId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1207,10 +1207,10 @@ type UploadMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The signed headers.
-	SignedHeaders map[string]string `type:"map"`
+	SignedHeaders map[string]string `json:"workdocs:UploadMetadata:SignedHeaders" type:"map"`
 
 	// The URL of the upload.
-	UploadUrl *string `min:"1" type:"string"`
+	UploadUrl *string `json:"workdocs:UploadMetadata:UploadUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1247,49 +1247,49 @@ type User struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the user was created.
-	CreatedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"workdocs:User:CreatedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The email address of the user.
-	EmailAddress *string `min:"1" type:"string"`
+	EmailAddress *string `json:"workdocs:User:EmailAddress" min:"1" type:"string"`
 
 	// The given name of the user.
-	GivenName *string `min:"1" type:"string"`
+	GivenName *string `json:"workdocs:User:GivenName" min:"1" type:"string"`
 
 	// The ID of the user.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:User:Id" min:"1" type:"string"`
 
 	// The locale of the user.
-	Locale LocaleType `type:"string" enum:"true"`
+	Locale LocaleType `json:"workdocs:User:Locale" type:"string" enum:"true"`
 
 	// The time when the user was modified.
-	ModifiedTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ModifiedTimestamp *time.Time `json:"workdocs:User:ModifiedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the organization.
-	OrganizationId *string `min:"1" type:"string"`
+	OrganizationId *string `json:"workdocs:User:OrganizationId" min:"1" type:"string"`
 
 	// The ID of the recycle bin folder.
-	RecycleBinFolderId *string `min:"1" type:"string"`
+	RecycleBinFolderId *string `json:"workdocs:User:RecycleBinFolderId" min:"1" type:"string"`
 
 	// The ID of the root folder.
-	RootFolderId *string `min:"1" type:"string"`
+	RootFolderId *string `json:"workdocs:User:RootFolderId" min:"1" type:"string"`
 
 	// The status of the user.
-	Status UserStatusType `type:"string" enum:"true"`
+	Status UserStatusType `json:"workdocs:User:Status" type:"string" enum:"true"`
 
 	// The storage for the user.
-	Storage *UserStorageMetadata `type:"structure"`
+	Storage *UserStorageMetadata `json:"workdocs:User:Storage" type:"structure"`
 
 	// The surname of the user.
-	Surname *string `min:"1" type:"string"`
+	Surname *string `json:"workdocs:User:Surname" min:"1" type:"string"`
 
 	// The time zone ID of the user.
-	TimeZoneId *string `min:"1" type:"string"`
+	TimeZoneId *string `json:"workdocs:User:TimeZoneId" min:"1" type:"string"`
 
 	// The type of user.
-	Type UserType `type:"string" enum:"true"`
+	Type UserType `json:"workdocs:User:Type" type:"string" enum:"true"`
 
 	// The login name of the user.
-	Username *string `min:"1" type:"string"`
+	Username *string `json:"workdocs:User:Username" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1398,19 +1398,19 @@ type UserMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The email address of the user.
-	EmailAddress *string `min:"1" type:"string"`
+	EmailAddress *string `json:"workdocs:UserMetadata:EmailAddress" min:"1" type:"string"`
 
 	// The given name of the user before a rename operation.
-	GivenName *string `min:"1" type:"string"`
+	GivenName *string `json:"workdocs:UserMetadata:GivenName" min:"1" type:"string"`
 
 	// The ID of the user.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"workdocs:UserMetadata:Id" min:"1" type:"string"`
 
 	// The surname of the user.
-	Surname *string `min:"1" type:"string"`
+	Surname *string `json:"workdocs:UserMetadata:Surname" min:"1" type:"string"`
 
 	// The name of the user.
-	Username *string `min:"1" type:"string"`
+	Username *string `json:"workdocs:UserMetadata:Username" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1459,10 +1459,10 @@ type UserStorageMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The storage for a user.
-	StorageRule *StorageRuleType `type:"structure"`
+	StorageRule *StorageRuleType `json:"workdocs:UserStorageMetadata:StorageRule" type:"structure"`
 
 	// The amount of storage used, in bytes.
-	StorageUtilizedInBytes *int64 `type:"long"`
+	StorageUtilizedInBytes *int64 `json:"workdocs:UserStorageMetadata:StorageUtilizedInBytes" type:"long"`
 }
 
 // String returns the string representation

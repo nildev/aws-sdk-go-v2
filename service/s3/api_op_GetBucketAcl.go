@@ -61,9 +61,9 @@ type GetBucketAclOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of grants.
-	Grants []Grant `locationName:"AccessControlList" locationNameList:"Grant" type:"list"`
+	Grants []Grant `json:"s3:GetBucketAclOutput:Grants" locationName:"AccessControlList" locationNameList:"Grant" type:"list"`
 
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:GetBucketAclOutput:Owner" type:"structure"`
 }
 
 // String returns the string representation

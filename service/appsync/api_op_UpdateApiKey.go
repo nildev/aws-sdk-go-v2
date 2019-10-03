@@ -91,7 +91,7 @@ type UpdateApiKeyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The API key.
-	ApiKey *ApiKey `locationName:"apiKey" type:"structure"`
+	ApiKey *ApiKey `json:"appsync:UpdateApiKeyOutput:ApiKey" locationName:"apiKey" type:"structure"`
 }
 
 // String returns the string representation

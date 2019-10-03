@@ -56,7 +56,7 @@ type UpdateDeviceInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about your device instance.
-	DeviceInstance *DeviceInstance `locationName:"deviceInstance" type:"structure"`
+	DeviceInstance *DeviceInstance `json:"devicefarm:UpdateDeviceInstanceOutput:DeviceInstance" locationName:"deviceInstance" type:"structure"`
 }
 
 // String returns the string representation

@@ -23,19 +23,19 @@ type AwsVpcConfiguration struct {
 	// Specifies whether the task's elastic network interface receives a public
 	// IP address. You can specify ENABLED only when LaunchType in EcsParameters
 	// is set to FARGATE.
-	AssignPublicIp AssignPublicIp `type:"string" enum:"true"`
+	AssignPublicIp AssignPublicIp `json:"events:AwsVpcConfiguration:AssignPublicIp" type:"string" enum:"true"`
 
 	// Specifies the security groups associated with the task. These security groups
 	// must all be in the same VPC. You can specify as many as five security groups.
 	// If you don't specify a security group, the default security group for the
 	// VPC is used.
-	SecurityGroups []string `type:"list"`
+	SecurityGroups []string `json:"events:AwsVpcConfiguration:SecurityGroups" type:"list"`
 
 	// Specifies the subnets associated with the task. These subnets must all be
 	// in the same VPC. You can specify as many as 16 subnets.
 	//
 	// Subnets is a required field
-	Subnets []string `type:"list" required:"true"`
+	Subnets []string `json:"events:AwsVpcConfiguration:Subnets" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -67,7 +67,7 @@ type BatchArrayProperties struct {
 
 	// The size of the array, if this is an array batch job. Valid values are integers
 	// between 2 and 10,000.
-	Size *int64 `type:"integer"`
+	Size *int64 `json:"events:BatchArrayProperties:Size" type:"integer"`
 }
 
 // String returns the string representation
@@ -84,25 +84,25 @@ type BatchParameters struct {
 	// The array size can be between 2 and 10,000. If you specify array properties
 	// for a job, it becomes an array job. This parameter is used only if the target
 	// is an AWS Batch job.
-	ArrayProperties *BatchArrayProperties `type:"structure"`
+	ArrayProperties *BatchArrayProperties `json:"events:BatchParameters:ArrayProperties" type:"structure"`
 
 	// The ARN or name of the job definition to use if the event target is an AWS
 	// Batch job. This job definition must already exist.
 	//
 	// JobDefinition is a required field
-	JobDefinition *string `type:"string" required:"true"`
+	JobDefinition *string `json:"events:BatchParameters:JobDefinition" type:"string" required:"true"`
 
 	// The name to use for this execution of the job, if the target is an AWS Batch
 	// job.
 	//
 	// JobName is a required field
-	JobName *string `type:"string" required:"true"`
+	JobName *string `json:"events:BatchParameters:JobName" type:"string" required:"true"`
 
 	// The retry strategy to use for failed jobs if the target is an AWS Batch job.
 	// The retry strategy is the number of times to retry the failed job execution.
 	// Valid values are 1–10. When you specify a retry strategy here, it overrides
 	// the retry strategy defined in the job definition.
-	RetryStrategy *BatchRetryStrategy `type:"structure"`
+	RetryStrategy *BatchRetryStrategy `json:"events:BatchParameters:RetryStrategy" type:"structure"`
 }
 
 // String returns the string representation
@@ -137,7 +137,7 @@ type BatchRetryStrategy struct {
 
 	// The number of times to attempt to retry, if the job fails. Valid values are
 	// 1–10.
-	Attempts *int64 `type:"integer"`
+	Attempts *int64 `json:"events:BatchRetryStrategy:Attempts" type:"integer"`
 }
 
 // String returns the string representation
@@ -159,17 +159,17 @@ type Condition struct {
 	// The key for the condition. Currently, the only supported key is aws:PrincipalOrgID.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"events:Condition:Key" type:"string" required:"true"`
 
 	// The type of condition. Currently, the only supported value is StringEquals.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"events:Condition:Type" type:"string" required:"true"`
 
 	// The value for the key. Currently, this must be the ID of the organization.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"events:Condition:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -205,7 +205,7 @@ type EcsParameters struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
-	Group *string `type:"string"`
+	Group *string `json:"events:EcsParameters:Group" type:"string"`
 
 	// Specifies the launch type on which your task is running. The launch type
 	// that you specify here must match one of the launch type (compatibilities)
@@ -213,7 +213,7 @@ type EcsParameters struct {
 	// AWS Fargate with Amazon ECS is supported. For more information, see AWS Fargate
 	// on Amazon ECS (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	LaunchType LaunchType `type:"string" enum:"true"`
+	LaunchType LaunchType `json:"events:EcsParameters:LaunchType" type:"string" enum:"true"`
 
 	// Use this structure if the ECS task uses the awsvpc network mode. This structure
 	// specifies the VPC subnets and security groups associated with the task and
@@ -222,7 +222,7 @@ type EcsParameters struct {
 	//
 	// If you specify NetworkConfiguration when the target ECS task doesn't use
 	// the awsvpc network mode, the task fails.
-	NetworkConfiguration *NetworkConfiguration `type:"structure"`
+	NetworkConfiguration *NetworkConfiguration `json:"events:EcsParameters:NetworkConfiguration" type:"structure"`
 
 	// Specifies the platform version for the task. Specify only the numeric portion
 	// of the platform version, such as 1.1.0.
@@ -230,16 +230,16 @@ type EcsParameters struct {
 	// This structure is used only if LaunchType is FARGATE. For more information
 	// about valid platform versions, see AWS Fargate Platform Versions (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion *string `type:"string"`
+	PlatformVersion *string `json:"events:EcsParameters:PlatformVersion" type:"string"`
 
 	// The number of tasks to create based on TaskDefinition. The default is 1.
-	TaskCount *int64 `min:"1" type:"integer"`
+	TaskCount *int64 `json:"events:EcsParameters:TaskCount" min:"1" type:"integer"`
 
 	// The ARN of the task definition to use if the event target is an Amazon ECS
 	// task.
 	//
 	// TaskDefinitionArn is a required field
-	TaskDefinitionArn *string `min:"1" type:"string" required:"true"`
+	TaskDefinitionArn *string `json:"events:EcsParameters:TaskDefinitionArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -283,14 +283,14 @@ type EventBus struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the event bus.
-	Arn *string `type:"string"`
+	Arn *string `json:"events:EventBus:Arn" type:"string"`
 
 	// The name of the event bus.
-	Name *string `type:"string"`
+	Name *string `json:"events:EventBus:Name" type:"string"`
 
 	// The permissions policy of the event bus, describing which other AWS accounts
 	// can write events to this event bus.
-	Policy *string `type:"string"`
+	Policy *string `json:"events:EventBus:Policy" type:"string"`
 }
 
 // String returns the string representation
@@ -306,27 +306,27 @@ type EventSource struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the event source.
-	Arn *string `type:"string"`
+	Arn *string `json:"events:EventSource:Arn" type:"string"`
 
 	// The name of the partner that created the event source.
-	CreatedBy *string `type:"string"`
+	CreatedBy *string `json:"events:EventSource:CreatedBy" type:"string"`
 
 	// The date and time when the event source was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"events:EventSource:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the event source will expire if the AWS account doesn't
 	// create a matching event bus for it.
-	ExpirationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationTime *time.Time `json:"events:EventSource:ExpirationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the event source.
-	Name *string `type:"string"`
+	Name *string `json:"events:EventSource:Name" type:"string"`
 
 	// The state of the event source. If it's ACTIVE, you have already created a
 	// matching event bus for this event source, and that event bus is active. If
 	// it's PENDING, either you haven't yet created a matching event bus, or that
 	// event bus is deactivated. If it's DELETED, you have created a matching event
 	// bus, but the event source has since been deleted.
-	State EventSourceState `type:"string" enum:"true"`
+	State EventSourceState `json:"events:EventSource:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -349,7 +349,7 @@ type InputTransformer struct {
 	// not bracket notation.
 	//
 	// The keys can't start with "AWS".
-	InputPathsMap map[string]string `type:"map"`
+	InputPathsMap map[string]string `json:"events:InputTransformer:InputPathsMap" type:"map"`
 
 	// Input template where you specify placeholders that will be filled with the
 	// values of the keys from InputPathsMap to customize the data sent to the target.
@@ -389,7 +389,7 @@ type InputTransformer struct {
 	// }
 	//
 	// InputTemplate is a required field
-	InputTemplate *string `min:"1" type:"string" required:"true"`
+	InputTemplate *string `json:"events:InputTransformer:InputTemplate" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -427,7 +427,7 @@ type KinesisParameters struct {
 	// in the Amazon Kinesis Streams Developer Guide.
 	//
 	// PartitionKeyPath is a required field
-	PartitionKeyPath *string `type:"string" required:"true"`
+	PartitionKeyPath *string `json:"events:KinesisParameters:PartitionKeyPath" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -457,7 +457,7 @@ type NetworkConfiguration struct {
 	// Use this structure to specify the VPC subnets and security groups for the
 	// task and whether a public IP address is to be used. This structure is relevant
 	// only for ECS tasks that use the awsvpc network mode.
-	AwsvpcConfiguration *AwsVpcConfiguration `locationName:"awsvpcConfiguration" type:"structure"`
+	AwsvpcConfiguration *AwsVpcConfiguration `json:"events:NetworkConfiguration:AwsvpcConfiguration" locationName:"awsvpcConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -488,10 +488,10 @@ type PartnerEventSource struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the partner event source.
-	Arn *string `type:"string"`
+	Arn *string `json:"events:PartnerEventSource:Arn" type:"string"`
 
 	// The name of the partner event source.
-	Name *string `type:"string"`
+	Name *string `json:"events:PartnerEventSource:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -505,21 +505,21 @@ type PartnerEventSourceAccount struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID that the partner event source was offered to.
-	Account *string `min:"12" type:"string"`
+	Account *string `json:"events:PartnerEventSourceAccount:Account" min:"12" type:"string"`
 
 	// The date and time when the event source was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"events:PartnerEventSourceAccount:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when the event source will expire if the AWS account doesn't
 	// create a matching event bus for it.
-	ExpirationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationTime *time.Time `json:"events:PartnerEventSourceAccount:ExpirationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The state of the event source. If it's ACTIVE, you have already created a
 	// matching event bus for this event source, and that event bus is active. If
 	// it's PENDING, either you haven't yet created a matching event bus, or that
 	// event bus is deactivated. If it's DELETED, you have created a matching event
 	// bus, but the event source has since been deleted.
-	State EventSourceState `type:"string" enum:"true"`
+	State EventSourceState `json:"events:PartnerEventSourceAccount:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -534,25 +534,25 @@ type PutEventsRequestEntry struct {
 
 	// A valid JSON string. There is no other schema imposed. The JSON string can
 	// contain fields and nested subobjects.
-	Detail *string `type:"string"`
+	Detail *string `json:"events:PutEventsRequestEntry:Detail" type:"string"`
 
 	// Free-form string used to decide which fields to expect in the event detail.
-	DetailType *string `type:"string"`
+	DetailType *string `json:"events:PutEventsRequestEntry:DetailType" type:"string"`
 
 	// The event bus that will receive the event. Only the rules that are associated
 	// with this event bus can match the event.
-	EventBusName *string `min:"1" type:"string"`
+	EventBusName *string `json:"events:PutEventsRequestEntry:EventBusName" min:"1" type:"string"`
 
 	// AWS resources, identified by Amazon Resource Name (ARN), that the event primarily
 	// concerns. Any number, including zero, can be present.
-	Resources []string `type:"list"`
+	Resources []string `json:"events:PutEventsRequestEntry:Resources" type:"list"`
 
 	// The source of the event. This field is required.
-	Source *string `type:"string"`
+	Source *string `json:"events:PutEventsRequestEntry:Source" type:"string"`
 
 	// The timestamp of the event, per RFC3339 (https://www.rfc-editor.org/rfc/rfc3339.txt).
 	// If no timestamp is provided, the timestamp of the PutEvents call is used.
-	Time *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Time *time.Time `json:"events:PutEventsRequestEntry:Time" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -579,13 +579,13 @@ type PutEventsResultEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The error code that indicates why the event submission failed.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"events:PutEventsResultEntry:ErrorCode" type:"string"`
 
 	// The error message that explains why the event submission failed.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"events:PutEventsResultEntry:ErrorMessage" type:"string"`
 
 	// The ID of the event.
-	EventId *string `type:"string"`
+	EventId *string `json:"events:PutEventsResultEntry:EventId" type:"string"`
 }
 
 // String returns the string representation
@@ -600,20 +600,20 @@ type PutPartnerEventsRequestEntry struct {
 
 	// A valid JSON string. There is no other schema imposed. The JSON string can
 	// contain fields and nested subobjects.
-	Detail *string `type:"string"`
+	Detail *string `json:"events:PutPartnerEventsRequestEntry:Detail" type:"string"`
 
 	// A free-form string used to decide which fields to expect in the event detail.
-	DetailType *string `type:"string"`
+	DetailType *string `json:"events:PutPartnerEventsRequestEntry:DetailType" type:"string"`
 
 	// AWS resources, identified by Amazon Resource Name (ARN), that the event primarily
 	// concerns. Any number, including zero, can be present.
-	Resources []string `type:"list"`
+	Resources []string `json:"events:PutPartnerEventsRequestEntry:Resources" type:"list"`
 
 	// The event source that is generating the evntry.
-	Source *string `type:"string"`
+	Source *string `json:"events:PutPartnerEventsRequestEntry:Source" type:"string"`
 
 	// The date and time of the event.
-	Time *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Time *time.Time `json:"events:PutPartnerEventsRequestEntry:Time" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -627,13 +627,13 @@ type PutPartnerEventsResultEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The error code that indicates why the event submission failed.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"events:PutPartnerEventsResultEntry:ErrorCode" type:"string"`
 
 	// The error message that explains why the event submission failed.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"events:PutPartnerEventsResultEntry:ErrorMessage" type:"string"`
 
 	// The ID of the event.
-	EventId *string `type:"string"`
+	EventId *string `json:"events:PutPartnerEventsResultEntry:EventId" type:"string"`
 }
 
 // String returns the string representation
@@ -649,13 +649,13 @@ type PutTargetsResultEntry struct {
 	// The error code that indicates why the target addition failed. If the value
 	// is ConcurrentModificationException, too many requests were made at the same
 	// time.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"events:PutTargetsResultEntry:ErrorCode" type:"string"`
 
 	// The error message that explains why the target addition failed.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"events:PutTargetsResultEntry:ErrorMessage" type:"string"`
 
 	// The ID of the target.
-	TargetId *string `min:"1" type:"string"`
+	TargetId *string `json:"events:PutTargetsResultEntry:TargetId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -671,13 +671,13 @@ type RemoveTargetsResultEntry struct {
 	// The error code that indicates why the target removal failed. If the value
 	// is ConcurrentModificationException, too many requests were made at the same
 	// time.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"events:RemoveTargetsResultEntry:ErrorCode" type:"string"`
 
 	// The error message that explains why the target removal failed.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"events:RemoveTargetsResultEntry:ErrorMessage" type:"string"`
 
 	// The ID of the target.
-	TargetId *string `min:"1" type:"string"`
+	TargetId *string `json:"events:RemoveTargetsResultEntry:TargetId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -691,33 +691,33 @@ type Rule struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the rule.
-	Arn *string `min:"1" type:"string"`
+	Arn *string `json:"events:Rule:Arn" min:"1" type:"string"`
 
 	// The description of the rule.
-	Description *string `type:"string"`
+	Description *string `json:"events:Rule:Description" type:"string"`
 
 	// The event bus associated with the rule.
-	EventBusName *string `min:"1" type:"string"`
+	EventBusName *string `json:"events:Rule:EventBusName" min:"1" type:"string"`
 
 	// The event pattern of the rule. For more information, see Event Patterns (https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html)
 	// in the Amazon EventBridge User Guide.
-	EventPattern *string `type:"string"`
+	EventPattern *string `json:"events:Rule:EventPattern" type:"string"`
 
 	// If an AWS service created the rule on behalf of your account, this field
 	// displays the principal name of the service that created the rule.
-	ManagedBy *string `min:"1" type:"string"`
+	ManagedBy *string `json:"events:Rule:ManagedBy" min:"1" type:"string"`
 
 	// The name of the rule.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"events:Rule:Name" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
-	RoleArn *string `min:"1" type:"string"`
+	RoleArn *string `json:"events:Rule:RoleArn" min:"1" type:"string"`
 
 	// The scheduling expression: for example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
-	ScheduleExpression *string `type:"string"`
+	ScheduleExpression *string `json:"events:Rule:ScheduleExpression" type:"string"`
 
 	// The state of the rule.
-	State RuleState `type:"string" enum:"true"`
+	State RuleState `json:"events:Rule:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -735,7 +735,7 @@ type RunCommandParameters struct {
 	// either an array of InstanceIds or a tag.
 	//
 	// RunCommandTargets is a required field
-	RunCommandTargets []RunCommandTarget `min:"1" type:"list" required:"true"`
+	RunCommandTargets []RunCommandTarget `json:"events:RunCommandParameters:RunCommandTargets" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -777,13 +777,13 @@ type RunCommandTarget struct {
 	// Can be either tag: tag-key or InstanceIds.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"events:RunCommandTarget:Key" min:"1" type:"string" required:"true"`
 
 	// If Key is tag: tag-key, Values is a list of tag values. If Key is InstanceIds,
 	// Values is a list of Amazon EC2 instance IDs.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"events:RunCommandTarget:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -822,7 +822,7 @@ type SqsParameters struct {
 	_ struct{} `type:"structure"`
 
 	// The FIFO message group ID to use as the target.
-	MessageGroupId *string `type:"string"`
+	MessageGroupId *string `json:"events:SqsParameters:MessageGroupId" type:"string"`
 }
 
 // String returns the string representation
@@ -840,12 +840,12 @@ type Tag struct {
 	// and values can help you organize and categorize your resources.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"events:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value for the specified tag key.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"events:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -890,57 +890,57 @@ type Target struct {
 	// The Amazon Resource Name (ARN) of the target.
 	//
 	// Arn is a required field
-	Arn *string `min:"1" type:"string" required:"true"`
+	Arn *string `json:"events:Target:Arn" min:"1" type:"string" required:"true"`
 
 	// If the event target is an AWS Batch job, this contains the job definition,
 	// job name, and other parameters. For more information, see Jobs (https://docs.aws.amazon.com/batch/latest/userguide/jobs.html)
 	// in the AWS Batch User Guide.
-	BatchParameters *BatchParameters `type:"structure"`
+	BatchParameters *BatchParameters `json:"events:Target:BatchParameters" type:"structure"`
 
 	// Contains the Amazon ECS task definition and task count to be used if the
 	// event target is an Amazon ECS task. For more information about Amazon ECS
 	// tasks, see Task Definitions (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html)
 	// in the Amazon EC2 Container Service Developer Guide.
-	EcsParameters *EcsParameters `type:"structure"`
+	EcsParameters *EcsParameters `json:"events:Target:EcsParameters" type:"structure"`
 
 	// The ID of the target.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"events:Target:Id" min:"1" type:"string" required:"true"`
 
 	// Valid JSON text passed to the target. In this case, nothing from the event
 	// itself is passed to the target. For more information, see The JavaScript
 	// Object Notation (JSON) Data Interchange Format (http://www.rfc-editor.org/rfc/rfc7159.txt).
-	Input *string `type:"string"`
+	Input *string `json:"events:Target:Input" type:"string"`
 
 	// The value of the JSONPath that is used for extracting part of the matched
 	// event when passing it to the target. You must use JSON dot notation, not
 	// bracket notation. For more information about JSON paths, see JSONPath (http://goessner.net/articles/JsonPath/).
-	InputPath *string `type:"string"`
+	InputPath *string `json:"events:Target:InputPath" type:"string"`
 
 	// Settings to enable you to provide custom input to a target based on certain
 	// event data. You can extract one or more key-value pairs from the event and
 	// then use that data to send customized input to the target.
-	InputTransformer *InputTransformer `type:"structure"`
+	InputTransformer *InputTransformer `json:"events:Target:InputTransformer" type:"structure"`
 
 	// The custom parameter that you can use to control the shard assignment when
 	// the target is a Kinesis data stream. If you don't include this parameter,
 	// the default is to use the eventId as the partition key.
-	KinesisParameters *KinesisParameters `type:"structure"`
+	KinesisParameters *KinesisParameters `json:"events:Target:KinesisParameters" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target
 	// when the rule is triggered. If one rule triggers multiple targets, you can
 	// use a different IAM role for each target.
-	RoleArn *string `min:"1" type:"string"`
+	RoleArn *string `json:"events:Target:RoleArn" min:"1" type:"string"`
 
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
-	RunCommandParameters *RunCommandParameters `type:"structure"`
+	RunCommandParameters *RunCommandParameters `json:"events:Target:RunCommandParameters" type:"structure"`
 
 	// Contains the message group ID to use when the target is a FIFO queue.
 	//
 	// If you specify an SQS FIFO queue as a target, the queue must have content-based
 	// deduplication enabled.
-	SqsParameters *SqsParameters `type:"structure"`
+	SqsParameters *SqsParameters `json:"events:Target:SqsParameters" type:"structure"`
 }
 
 // String returns the string representation

@@ -72,10 +72,10 @@ type BatchGetImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any failures associated with the call.
-	Failures []ImageFailure `locationName:"failures" type:"list"`
+	Failures []ImageFailure `json:"api.ecr:BatchGetImageOutput:Failures" locationName:"failures" type:"list"`
 
 	// A list of image objects corresponding to the image references in the request.
-	Images []Image `locationName:"images" type:"list"`
+	Images []Image `json:"api.ecr:BatchGetImageOutput:Images" locationName:"images" type:"list"`
 }
 
 // String returns the string representation

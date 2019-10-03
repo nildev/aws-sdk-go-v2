@@ -65,12 +65,12 @@ type ListDevicePoolsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the device pools.
-	DevicePools []DevicePool `locationName:"devicePools" type:"list"`
+	DevicePools []DevicePool `json:"devicefarm:ListDevicePoolsOutput:DevicePools" locationName:"devicePools" type:"list"`
 
 	// If the number of items that are returned is significantly large, this is
 	// an identifier that is also returned, which can be used in a subsequent call
 	// to this operation to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:ListDevicePoolsOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 }
 
 // String returns the string representation

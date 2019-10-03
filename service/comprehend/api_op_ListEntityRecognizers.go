@@ -50,10 +50,10 @@ type ListEntityRecognizersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of properties of an entity recognizer.
-	EntityRecognizerPropertiesList []EntityRecognizerProperties `type:"list"`
+	EntityRecognizerPropertiesList []EntityRecognizerProperties `json:"comprehend:ListEntityRecognizersOutput:EntityRecognizerPropertiesList" type:"list"`
 
 	// Identifies the next page of results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"comprehend:ListEntityRecognizersOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

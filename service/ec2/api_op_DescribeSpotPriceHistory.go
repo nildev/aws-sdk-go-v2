@@ -78,10 +78,10 @@ type DescribeSpotPriceHistoryOutput struct {
 
 	// The token required to retrieve the next set of results. This value is null
 	// or an empty string when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeSpotPriceHistoryOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The historical Spot prices.
-	SpotPriceHistory []SpotPrice `locationName:"spotPriceHistorySet" locationNameList:"item" type:"list"`
+	SpotPriceHistory []SpotPrice `json:"ec2:DescribeSpotPriceHistoryOutput:SpotPriceHistory" locationName:"spotPriceHistorySet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

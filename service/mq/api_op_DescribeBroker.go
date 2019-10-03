@@ -55,56 +55,56 @@ func (s DescribeBrokerInput) MarshalFields(e protocol.FieldEncoder) error {
 type DescribeBrokerOutput struct {
 	_ struct{} `type:"structure"`
 
-	AutoMinorVersionUpgrade *bool `locationName:"autoMinorVersionUpgrade" type:"boolean"`
+	AutoMinorVersionUpgrade *bool `json:"mq:DescribeBrokerOutput:AutoMinorVersionUpgrade" locationName:"autoMinorVersionUpgrade" type:"boolean"`
 
-	BrokerArn *string `locationName:"brokerArn" type:"string"`
+	BrokerArn *string `json:"mq:DescribeBrokerOutput:BrokerArn" locationName:"brokerArn" type:"string"`
 
-	BrokerId *string `locationName:"brokerId" type:"string"`
+	BrokerId *string `json:"mq:DescribeBrokerOutput:BrokerId" locationName:"brokerId" type:"string"`
 
-	BrokerInstances []BrokerInstance `locationName:"brokerInstances" type:"list"`
+	BrokerInstances []BrokerInstance `json:"mq:DescribeBrokerOutput:BrokerInstances" locationName:"brokerInstances" type:"list"`
 
-	BrokerName *string `locationName:"brokerName" type:"string"`
+	BrokerName *string `json:"mq:DescribeBrokerOutput:BrokerName" locationName:"brokerName" type:"string"`
 
 	// The status of the broker.
-	BrokerState BrokerState `locationName:"brokerState" type:"string" enum:"true"`
+	BrokerState BrokerState `json:"mq:DescribeBrokerOutput:BrokerState" locationName:"brokerState" type:"string" enum:"true"`
 
 	// Broker configuration information
-	Configurations *Configurations `locationName:"configurations" type:"structure"`
+	Configurations *Configurations `json:"mq:DescribeBrokerOutput:Configurations" locationName:"configurations" type:"structure"`
 
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"mq:DescribeBrokerOutput:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The deployment mode of the broker.
-	DeploymentMode DeploymentMode `locationName:"deploymentMode" type:"string" enum:"true"`
+	DeploymentMode DeploymentMode `json:"mq:DescribeBrokerOutput:DeploymentMode" locationName:"deploymentMode" type:"string" enum:"true"`
 
 	// Encryption options for the broker.
-	EncryptionOptions *EncryptionOptions `locationName:"encryptionOptions" type:"structure"`
+	EncryptionOptions *EncryptionOptions `json:"mq:DescribeBrokerOutput:EncryptionOptions" locationName:"encryptionOptions" type:"structure"`
 
 	// The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.
-	EngineType EngineType `locationName:"engineType" type:"string" enum:"true"`
+	EngineType EngineType `json:"mq:DescribeBrokerOutput:EngineType" locationName:"engineType" type:"string" enum:"true"`
 
-	EngineVersion *string `locationName:"engineVersion" type:"string"`
+	EngineVersion *string `json:"mq:DescribeBrokerOutput:EngineVersion" locationName:"engineVersion" type:"string"`
 
-	HostInstanceType *string `locationName:"hostInstanceType" type:"string"`
+	HostInstanceType *string `json:"mq:DescribeBrokerOutput:HostInstanceType" locationName:"hostInstanceType" type:"string"`
 
 	// The list of information about logs currently enabled and pending to be deployed
 	// for the specified broker.
-	Logs *LogsSummary `locationName:"logs" type:"structure"`
+	Logs *LogsSummary `json:"mq:DescribeBrokerOutput:Logs" locationName:"logs" type:"structure"`
 
 	// The scheduled time period relative to UTC during which Amazon MQ begins to
 	// apply pending updates or patches to the broker.
-	MaintenanceWindowStartTime *WeeklyStartTime `locationName:"maintenanceWindowStartTime" type:"structure"`
+	MaintenanceWindowStartTime *WeeklyStartTime `json:"mq:DescribeBrokerOutput:MaintenanceWindowStartTime" locationName:"maintenanceWindowStartTime" type:"structure"`
 
-	PendingEngineVersion *string `locationName:"pendingEngineVersion" type:"string"`
+	PendingEngineVersion *string `json:"mq:DescribeBrokerOutput:PendingEngineVersion" locationName:"pendingEngineVersion" type:"string"`
 
-	PubliclyAccessible *bool `locationName:"publiclyAccessible" type:"boolean"`
+	PubliclyAccessible *bool `json:"mq:DescribeBrokerOutput:PubliclyAccessible" locationName:"publiclyAccessible" type:"boolean"`
 
-	SecurityGroups []string `locationName:"securityGroups" type:"list"`
+	SecurityGroups []string `json:"mq:DescribeBrokerOutput:SecurityGroups" locationName:"securityGroups" type:"list"`
 
-	SubnetIds []string `locationName:"subnetIds" type:"list"`
+	SubnetIds []string `json:"mq:DescribeBrokerOutput:SubnetIds" locationName:"subnetIds" type:"list"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mq:DescribeBrokerOutput:Tags" locationName:"tags" type:"map"`
 
-	Users []UserSummary `locationName:"users" type:"list"`
+	Users []UserSummary `json:"mq:DescribeBrokerOutput:Users" locationName:"users" type:"list"`
 }
 
 // String returns the string representation

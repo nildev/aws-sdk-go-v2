@@ -64,7 +64,7 @@ type AcceptReservedInstancesExchangeQuoteOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the successful exchange.
-	ExchangeId *string `locationName:"exchangeId" type:"string"`
+	ExchangeId *string `json:"ec2:AcceptReservedInstancesExchangeQuoteOutput:ExchangeId" locationName:"exchangeId" type:"string"`
 }
 
 // String returns the string representation

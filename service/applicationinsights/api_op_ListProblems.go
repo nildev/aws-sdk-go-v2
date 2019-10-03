@@ -57,10 +57,10 @@ type ListProblemsOutput struct {
 
 	// The token used to retrieve the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"applicationinsights:ListProblemsOutput:NextToken" type:"string"`
 
 	// The list of problems.
-	ProblemList []Problem `type:"list"`
+	ProblemList []Problem `json:"applicationinsights:ListProblemsOutput:ProblemList" type:"list"`
 }
 
 // String returns the string representation

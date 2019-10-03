@@ -79,19 +79,19 @@ type DescribeDomainOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of an issued ACM certificate that is valid for the domain being associated.
-	AcmCertificateArn *string `type:"string"`
+	AcmCertificateArn *string `json:"worklink:DescribeDomainOutput:AcmCertificateArn" type:"string"`
 
 	// The time that the domain was added.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"worklink:DescribeDomainOutput:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name to display.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"worklink:DescribeDomainOutput:DisplayName" type:"string"`
 
 	// The name of the domain.
-	DomainName *string `min:"1" type:"string"`
+	DomainName *string `json:"worklink:DescribeDomainOutput:DomainName" min:"1" type:"string"`
 
 	// The current state for the domain.
-	DomainStatus DomainStatus `type:"string" enum:"true"`
+	DomainStatus DomainStatus `json:"worklink:DescribeDomainOutput:DomainStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

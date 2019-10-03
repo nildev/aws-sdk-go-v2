@@ -27,7 +27,7 @@ type GetSkillGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the skill group requested. Required.
-	SkillGroup *SkillGroup `type:"structure"`
+	SkillGroup *SkillGroup `json:"a4b:GetSkillGroupOutput:SkillGroup" type:"structure"`
 }
 
 // String returns the string representation

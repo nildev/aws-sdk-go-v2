@@ -21,23 +21,23 @@ type AccountModification struct {
 
 	// The IP address range, specified as an IPv4 CIDR block, for the management
 	// network interface used for the account.
-	DedicatedTenancyManagementCidrRange *string `type:"string"`
+	DedicatedTenancyManagementCidrRange *string `json:"workspaces:AccountModification:DedicatedTenancyManagementCidrRange" type:"string"`
 
 	// The status of BYOL (whether BYOL is being enabled or disabled).
-	DedicatedTenancySupport DedicatedTenancySupportResultEnum `type:"string" enum:"true"`
+	DedicatedTenancySupport DedicatedTenancySupportResultEnum `json:"workspaces:AccountModification:DedicatedTenancySupport" type:"string" enum:"true"`
 
 	// The error code that is returned if the configuration of BYOL cannot be modified.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"workspaces:AccountModification:ErrorCode" type:"string"`
 
 	// The text of the error message that is returned if the configuration of BYOL
 	// cannot be modified.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"workspaces:AccountModification:ErrorMessage" type:"string"`
 
 	// The state of the modification to the configuration of BYOL.
-	ModificationState DedicatedTenancyModificationStateEnum `type:"string" enum:"true"`
+	ModificationState DedicatedTenancyModificationStateEnum `json:"workspaces:AccountModification:ModificationState" type:"string" enum:"true"`
 
 	// The timestamp when the modification of the BYOL configuration was started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"workspaces:AccountModification:StartTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -51,7 +51,7 @@ type ComputeType struct {
 	_ struct{} `type:"structure"`
 
 	// The compute type.
-	Name Compute `type:"string" enum:"true"`
+	Name Compute `json:"workspaces:ComputeType:Name" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -66,19 +66,19 @@ type DefaultWorkspaceCreationProperties struct {
 
 	// The identifier of any security groups to apply to WorkSpaces when they are
 	// created.
-	CustomSecurityGroupId *string `type:"string"`
+	CustomSecurityGroupId *string `json:"workspaces:DefaultWorkspaceCreationProperties:CustomSecurityGroupId" type:"string"`
 
 	// The organizational unit (OU) in the directory for the WorkSpace machine accounts.
-	DefaultOu *string `type:"string"`
+	DefaultOu *string `json:"workspaces:DefaultWorkspaceCreationProperties:DefaultOu" type:"string"`
 
 	// The public IP address to attach to all WorkSpaces that are created or rebuilt.
-	EnableInternetAccess *bool `type:"boolean"`
+	EnableInternetAccess *bool `json:"workspaces:DefaultWorkspaceCreationProperties:EnableInternetAccess" type:"boolean"`
 
 	// Specifies whether the directory is enabled for Amazon WorkDocs.
-	EnableWorkDocs *bool `type:"boolean"`
+	EnableWorkDocs *bool `json:"workspaces:DefaultWorkspaceCreationProperties:EnableWorkDocs" type:"boolean"`
 
 	// Specifies whether the WorkSpace user is an administrator on the WorkSpace.
-	UserEnabledAsLocalAdministrator *bool `type:"boolean"`
+	UserEnabledAsLocalAdministrator *bool `json:"workspaces:DefaultWorkspaceCreationProperties:UserEnabledAsLocalAdministrator" type:"boolean"`
 }
 
 // String returns the string representation
@@ -92,14 +92,14 @@ type FailedCreateWorkspaceRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The error code that is returned if the WorkSpace cannot be created.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"workspaces:FailedCreateWorkspaceRequest:ErrorCode" type:"string"`
 
 	// The text of the error message that is returned if the WorkSpace cannot be
 	// created.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"workspaces:FailedCreateWorkspaceRequest:ErrorMessage" type:"string"`
 
 	// Information about the WorkSpace.
-	WorkspaceRequest *WorkspaceRequest `type:"structure"`
+	WorkspaceRequest *WorkspaceRequest `json:"workspaces:FailedCreateWorkspaceRequest:WorkspaceRequest" type:"structure"`
 }
 
 // String returns the string representation
@@ -115,14 +115,14 @@ type FailedWorkspaceChangeRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The error code that is returned if the WorkSpace cannot be rebooted.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"workspaces:FailedWorkspaceChangeRequest:ErrorCode" type:"string"`
 
 	// The text of the error message that is returned if the WorkSpace cannot be
 	// rebooted.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"workspaces:FailedWorkspaceChangeRequest:ErrorMessage" type:"string"`
 
 	// The identifier of the WorkSpace.
-	WorkspaceId *string `type:"string"`
+	WorkspaceId *string `json:"workspaces:FailedWorkspaceChangeRequest:WorkspaceId" type:"string"`
 }
 
 // String returns the string representation
@@ -136,10 +136,10 @@ type IpRuleItem struct {
 	_ struct{} `type:"structure"`
 
 	// The IP address range, in CIDR notation.
-	IpRule *string `locationName:"ipRule" type:"string"`
+	IpRule *string `json:"workspaces:IpRuleItem:IpRule" locationName:"ipRule" type:"string"`
 
 	// The description.
-	RuleDesc *string `locationName:"ruleDesc" type:"string"`
+	RuleDesc *string `json:"workspaces:IpRuleItem:RuleDesc" locationName:"ruleDesc" type:"string"`
 }
 
 // String returns the string representation
@@ -153,10 +153,10 @@ type ModificationState struct {
 	_ struct{} `type:"structure"`
 
 	// The resource.
-	Resource ModificationResourceEnum `type:"string" enum:"true"`
+	Resource ModificationResourceEnum `json:"workspaces:ModificationState:Resource" type:"string" enum:"true"`
 
 	// The modification state.
-	State ModificationStateEnum `type:"string" enum:"true"`
+	State ModificationStateEnum `json:"workspaces:ModificationState:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -170,7 +170,7 @@ type OperatingSystem struct {
 	_ struct{} `type:"structure"`
 
 	// The operating system.
-	Type OperatingSystemType `type:"string" enum:"true"`
+	Type OperatingSystemType `json:"workspaces:OperatingSystem:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -186,7 +186,7 @@ type Properties struct {
 	// Specifies whether users can cache their credentials on the Amazon WorkSpaces
 	// client. When enabled, users can choose to reconnect to their WorkSpaces without
 	// re-entering their credentials.
-	ReconnectEnabled ReconnectEnum `type:"string" enum:"true"`
+	ReconnectEnabled ReconnectEnum `json:"workspaces:Properties:ReconnectEnabled" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -200,10 +200,10 @@ type PropertiesResult struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Amazon WorkSpaces client.
-	ClientProperties *Properties `type:"structure"`
+	ClientProperties *Properties `json:"workspaces:PropertiesResult:ClientProperties" type:"structure"`
 
 	// The resource identifier, in the form of a directory ID.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"workspaces:PropertiesResult:ResourceId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -219,7 +219,7 @@ type RebootRequest struct {
 	// The identifier of the WorkSpace.
 	//
 	// WorkspaceId is a required field
-	WorkspaceId *string `type:"string" required:"true"`
+	WorkspaceId *string `json:"workspaces:RebootRequest:WorkspaceId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -249,7 +249,7 @@ type RebuildRequest struct {
 	// The identifier of the WorkSpace.
 	//
 	// WorkspaceId is a required field
-	WorkspaceId *string `type:"string" required:"true"`
+	WorkspaceId *string `json:"workspaces:RebuildRequest:WorkspaceId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -277,7 +277,7 @@ type RootStorage struct {
 	_ struct{} `type:"structure"`
 
 	// The size of the root volume.
-	Capacity *string `min:"1" type:"string"`
+	Capacity *string `json:"workspaces:RootStorage:Capacity" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -291,7 +291,7 @@ type StartRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the WorkSpace.
-	WorkspaceId *string `type:"string"`
+	WorkspaceId *string `json:"workspaces:StartRequest:WorkspaceId" type:"string"`
 }
 
 // String returns the string representation
@@ -305,7 +305,7 @@ type StopRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the WorkSpace.
-	WorkspaceId *string `type:"string"`
+	WorkspaceId *string `json:"workspaces:StopRequest:WorkspaceId" type:"string"`
 }
 
 // String returns the string representation
@@ -321,10 +321,10 @@ type Tag struct {
 	// The key of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"workspaces:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag.
-	Value *string `type:"string"`
+	Value *string `json:"workspaces:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -357,7 +357,7 @@ type TerminateRequest struct {
 	// The identifier of the WorkSpace.
 	//
 	// WorkspaceId is a required field
-	WorkspaceId *string `type:"string" required:"true"`
+	WorkspaceId *string `json:"workspaces:TerminateRequest:WorkspaceId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -385,7 +385,7 @@ type UserStorage struct {
 	_ struct{} `type:"structure"`
 
 	// The size of the user storage.
-	Capacity *string `min:"1" type:"string"`
+	Capacity *string `json:"workspaces:UserStorage:Capacity" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -399,50 +399,50 @@ type Workspace struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the bundle used to create the WorkSpace.
-	BundleId *string `type:"string"`
+	BundleId *string `json:"workspaces:Workspace:BundleId" type:"string"`
 
 	// The name of the WorkSpace, as seen by the operating system.
-	ComputerName *string `type:"string"`
+	ComputerName *string `json:"workspaces:Workspace:ComputerName" type:"string"`
 
 	// The identifier of the AWS Directory Service directory for the WorkSpace.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"workspaces:Workspace:DirectoryId" type:"string"`
 
 	// The error code that is returned if the WorkSpace cannot be created.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"workspaces:Workspace:ErrorCode" type:"string"`
 
 	// The text of the error message that is returned if the WorkSpace cannot be
 	// created.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"workspaces:Workspace:ErrorMessage" type:"string"`
 
 	// The IP address of the WorkSpace.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"workspaces:Workspace:IpAddress" type:"string"`
 
 	// The modification states of the WorkSpace.
-	ModificationStates []ModificationState `type:"list"`
+	ModificationStates []ModificationState `json:"workspaces:Workspace:ModificationStates" type:"list"`
 
 	// Indicates whether the data stored on the root volume is encrypted.
-	RootVolumeEncryptionEnabled *bool `type:"boolean"`
+	RootVolumeEncryptionEnabled *bool `json:"workspaces:Workspace:RootVolumeEncryptionEnabled" type:"boolean"`
 
 	// The operational state of the WorkSpace.
-	State WorkspaceState `type:"string" enum:"true"`
+	State WorkspaceState `json:"workspaces:Workspace:State" type:"string" enum:"true"`
 
 	// The identifier of the subnet for the WorkSpace.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"workspaces:Workspace:SubnetId" type:"string"`
 
 	// The user for the WorkSpace.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"workspaces:Workspace:UserName" min:"1" type:"string"`
 
 	// Indicates whether the data stored on the user volume is encrypted.
-	UserVolumeEncryptionEnabled *bool `type:"boolean"`
+	UserVolumeEncryptionEnabled *bool `json:"workspaces:Workspace:UserVolumeEncryptionEnabled" type:"boolean"`
 
 	// The KMS key used to encrypt data stored on your WorkSpace.
-	VolumeEncryptionKey *string `type:"string"`
+	VolumeEncryptionKey *string `json:"workspaces:Workspace:VolumeEncryptionKey" type:"string"`
 
 	// The identifier of the WorkSpace.
-	WorkspaceId *string `type:"string"`
+	WorkspaceId *string `json:"workspaces:Workspace:WorkspaceId" type:"string"`
 
 	// The properties of the WorkSpace.
-	WorkspaceProperties *WorkspaceProperties `type:"structure"`
+	WorkspaceProperties *WorkspaceProperties `json:"workspaces:Workspace:WorkspaceProperties" type:"structure"`
 }
 
 // String returns the string representation
@@ -456,26 +456,26 @@ type WorkspaceBundle struct {
 	_ struct{} `type:"structure"`
 
 	// The bundle identifier.
-	BundleId *string `type:"string"`
+	BundleId *string `json:"workspaces:WorkspaceBundle:BundleId" type:"string"`
 
 	// The compute type. For more information, see Amazon WorkSpaces Bundles (http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles).
-	ComputeType *ComputeType `type:"structure"`
+	ComputeType *ComputeType `json:"workspaces:WorkspaceBundle:ComputeType" type:"structure"`
 
 	// A description.
-	Description *string `type:"string"`
+	Description *string `json:"workspaces:WorkspaceBundle:Description" type:"string"`
 
 	// The name of the bundle.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workspaces:WorkspaceBundle:Name" min:"1" type:"string"`
 
 	// The owner of the bundle. This is the account identifier of the owner, or
 	// AMAZON if the bundle is provided by AWS.
-	Owner *string `type:"string"`
+	Owner *string `json:"workspaces:WorkspaceBundle:Owner" type:"string"`
 
 	// The size of the root volume.
-	RootStorage *RootStorage `type:"structure"`
+	RootStorage *RootStorage `json:"workspaces:WorkspaceBundle:RootStorage" type:"structure"`
 
 	// The size of the user storage.
-	UserStorage *UserStorage `type:"structure"`
+	UserStorage *UserStorage `json:"workspaces:WorkspaceBundle:UserStorage" type:"structure"`
 }
 
 // String returns the string representation
@@ -490,16 +490,16 @@ type WorkspaceConnectionStatus struct {
 
 	// The connection state of the WorkSpace. The connection state is unknown if
 	// the WorkSpace is stopped.
-	ConnectionState ConnectionState `type:"string" enum:"true"`
+	ConnectionState ConnectionState `json:"workspaces:WorkspaceConnectionStatus:ConnectionState" type:"string" enum:"true"`
 
 	// The timestamp of the connection status check.
-	ConnectionStateCheckTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ConnectionStateCheckTimestamp *time.Time `json:"workspaces:WorkspaceConnectionStatus:ConnectionStateCheckTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The timestamp of the last known user connection.
-	LastKnownUserConnectionTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastKnownUserConnectionTimestamp *time.Time `json:"workspaces:WorkspaceConnectionStatus:LastKnownUserConnectionTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the WorkSpace.
-	WorkspaceId *string `type:"string"`
+	WorkspaceId *string `json:"workspaces:WorkspaceConnectionStatus:WorkspaceId" type:"string"`
 }
 
 // String returns the string representation
@@ -513,45 +513,45 @@ type WorkspaceDirectory struct {
 	_ struct{} `type:"structure"`
 
 	// The directory alias.
-	Alias *string `type:"string"`
+	Alias *string `json:"workspaces:WorkspaceDirectory:Alias" type:"string"`
 
 	// The user name for the service account.
-	CustomerUserName *string `min:"1" type:"string"`
+	CustomerUserName *string `json:"workspaces:WorkspaceDirectory:CustomerUserName" min:"1" type:"string"`
 
 	// The directory identifier.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"workspaces:WorkspaceDirectory:DirectoryId" type:"string"`
 
 	// The name of the directory.
-	DirectoryName *string `type:"string"`
+	DirectoryName *string `json:"workspaces:WorkspaceDirectory:DirectoryName" type:"string"`
 
 	// The directory type.
-	DirectoryType WorkspaceDirectoryType `type:"string" enum:"true"`
+	DirectoryType WorkspaceDirectoryType `json:"workspaces:WorkspaceDirectory:DirectoryType" type:"string" enum:"true"`
 
 	// The IP addresses of the DNS servers for the directory.
-	DnsIpAddresses []string `type:"list"`
+	DnsIpAddresses []string `json:"workspaces:WorkspaceDirectory:DnsIpAddresses" type:"list"`
 
 	// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces
 	// to make calls to other services, such as Amazon EC2, on your behalf.
-	IamRoleId *string `type:"string"`
+	IamRoleId *string `json:"workspaces:WorkspaceDirectory:IamRoleId" type:"string"`
 
 	// The identifiers of the IP access control groups associated with the directory.
-	IpGroupIds []string `locationName:"ipGroupIds" type:"list"`
+	IpGroupIds []string `json:"workspaces:WorkspaceDirectory:IpGroupIds" locationName:"ipGroupIds" type:"list"`
 
 	// The registration code for the directory. This is the code that users enter
 	// in their Amazon WorkSpaces client application to connect to the directory.
-	RegistrationCode *string `min:"1" type:"string"`
+	RegistrationCode *string `json:"workspaces:WorkspaceDirectory:RegistrationCode" min:"1" type:"string"`
 
 	// The state of the directory's registration with Amazon WorkSpaces
-	State WorkspaceDirectoryState `type:"string" enum:"true"`
+	State WorkspaceDirectoryState `json:"workspaces:WorkspaceDirectory:State" type:"string" enum:"true"`
 
 	// The identifiers of the subnets used with the directory.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"workspaces:WorkspaceDirectory:SubnetIds" type:"list"`
 
 	// The default creation properties for all WorkSpaces in the directory.
-	WorkspaceCreationProperties *DefaultWorkspaceCreationProperties `type:"structure"`
+	WorkspaceCreationProperties *DefaultWorkspaceCreationProperties `json:"workspaces:WorkspaceDirectory:WorkspaceCreationProperties" type:"structure"`
 
 	// The identifier of the security group that is assigned to new WorkSpaces.
-	WorkspaceSecurityGroupId *string `type:"string"`
+	WorkspaceSecurityGroupId *string `json:"workspaces:WorkspaceDirectory:WorkspaceSecurityGroupId" type:"string"`
 }
 
 // String returns the string representation
@@ -565,29 +565,29 @@ type WorkspaceImage struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the image.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"workspaces:WorkspaceImage:Description" min:"1" type:"string"`
 
 	// The error code that is returned for the image.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"workspaces:WorkspaceImage:ErrorCode" type:"string"`
 
 	// The text of the error message that is returned for the image.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"workspaces:WorkspaceImage:ErrorMessage" type:"string"`
 
 	// The identifier of the image.
-	ImageId *string `type:"string"`
+	ImageId *string `json:"workspaces:WorkspaceImage:ImageId" type:"string"`
 
 	// The name of the image.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workspaces:WorkspaceImage:Name" min:"1" type:"string"`
 
 	// The operating system that the image is running.
-	OperatingSystem *OperatingSystem `type:"structure"`
+	OperatingSystem *OperatingSystem `json:"workspaces:WorkspaceImage:OperatingSystem" type:"structure"`
 
 	// Specifies whether the image is running on dedicated hardware. When bring
 	// your own license (BYOL) is enabled, this value is set to DEDICATED.
-	RequiredTenancy WorkspaceImageRequiredTenancy `type:"string" enum:"true"`
+	RequiredTenancy WorkspaceImageRequiredTenancy `json:"workspaces:WorkspaceImage:RequiredTenancy" type:"string" enum:"true"`
 
 	// The status of the image.
-	State WorkspaceImageState `type:"string" enum:"true"`
+	State WorkspaceImageState `json:"workspaces:WorkspaceImage:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -601,21 +601,21 @@ type WorkspaceProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The compute type. For more information, see Amazon WorkSpaces Bundles (http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles).
-	ComputeTypeName Compute `type:"string" enum:"true"`
+	ComputeTypeName Compute `json:"workspaces:WorkspaceProperties:ComputeTypeName" type:"string" enum:"true"`
 
 	// The size of the root volume.
-	RootVolumeSizeGib *int64 `type:"integer"`
+	RootVolumeSizeGib *int64 `json:"workspaces:WorkspaceProperties:RootVolumeSizeGib" type:"integer"`
 
 	// The running mode. For more information, see Manage the WorkSpace Running
 	// Mode (https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html).
-	RunningMode RunningMode `type:"string" enum:"true"`
+	RunningMode RunningMode `json:"workspaces:WorkspaceProperties:RunningMode" type:"string" enum:"true"`
 
 	// The time after a user logs off when WorkSpaces are automatically stopped.
 	// Configured in 60 minute intervals.
-	RunningModeAutoStopTimeoutInMinutes *int64 `type:"integer"`
+	RunningModeAutoStopTimeoutInMinutes *int64 `json:"workspaces:WorkspaceProperties:RunningModeAutoStopTimeoutInMinutes" type:"integer"`
 
 	// The size of the user storage.
-	UserVolumeSizeGib *int64 `type:"integer"`
+	UserVolumeSizeGib *int64 `json:"workspaces:WorkspaceProperties:UserVolumeSizeGib" type:"integer"`
 }
 
 // String returns the string representation
@@ -632,34 +632,34 @@ type WorkspaceRequest struct {
 	// to list the available bundles.
 	//
 	// BundleId is a required field
-	BundleId *string `type:"string" required:"true"`
+	BundleId *string `json:"workspaces:WorkspaceRequest:BundleId" type:"string" required:"true"`
 
 	// The identifier of the AWS Directory Service directory for the WorkSpace.
 	// You can use DescribeWorkspaceDirectories to list the available directories.
 	//
 	// DirectoryId is a required field
-	DirectoryId *string `type:"string" required:"true"`
+	DirectoryId *string `json:"workspaces:WorkspaceRequest:DirectoryId" type:"string" required:"true"`
 
 	// Indicates whether the data stored on the root volume is encrypted.
-	RootVolumeEncryptionEnabled *bool `type:"boolean"`
+	RootVolumeEncryptionEnabled *bool `json:"workspaces:WorkspaceRequest:RootVolumeEncryptionEnabled" type:"boolean"`
 
 	// The tags for the WorkSpace.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"workspaces:WorkspaceRequest:Tags" type:"list"`
 
 	// The username of the user for the WorkSpace. This username must exist in the
 	// AWS Directory Service directory for the WorkSpace.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"workspaces:WorkspaceRequest:UserName" min:"1" type:"string" required:"true"`
 
 	// Indicates whether the data stored on the user volume is encrypted.
-	UserVolumeEncryptionEnabled *bool `type:"boolean"`
+	UserVolumeEncryptionEnabled *bool `json:"workspaces:WorkspaceRequest:UserVolumeEncryptionEnabled" type:"boolean"`
 
 	// The KMS key used to encrypt data stored on your WorkSpace.
-	VolumeEncryptionKey *string `type:"string"`
+	VolumeEncryptionKey *string `json:"workspaces:WorkspaceRequest:VolumeEncryptionKey" type:"string"`
 
 	// The WorkSpace properties.
-	WorkspaceProperties *WorkspaceProperties `type:"structure"`
+	WorkspaceProperties *WorkspaceProperties `json:"workspaces:WorkspaceRequest:WorkspaceProperties" type:"structure"`
 }
 
 // String returns the string representation
@@ -705,16 +705,16 @@ type WorkspacesIpGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the group.
-	GroupDesc *string `locationName:"groupDesc" type:"string"`
+	GroupDesc *string `json:"workspaces:WorkspacesIpGroup:GroupDesc" locationName:"groupDesc" type:"string"`
 
 	// The identifier of the group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"workspaces:WorkspacesIpGroup:GroupId" locationName:"groupId" type:"string"`
 
 	// The name of the group.
-	GroupName *string `locationName:"groupName" type:"string"`
+	GroupName *string `json:"workspaces:WorkspacesIpGroup:GroupName" locationName:"groupName" type:"string"`
 
 	// The rules.
-	UserRules []IpRuleItem `locationName:"userRules" type:"list"`
+	UserRules []IpRuleItem `json:"workspaces:WorkspacesIpGroup:UserRules" locationName:"userRules" type:"list"`
 }
 
 // String returns the string representation

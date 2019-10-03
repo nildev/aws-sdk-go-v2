@@ -54,7 +54,7 @@ func (s ListTagsForResourceInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"greengrass:ListTagsForResourceOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

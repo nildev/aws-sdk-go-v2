@@ -49,7 +49,7 @@ type CreateMembersOutput struct {
 
 	// A list of account ID and email address pairs of the AWS accounts that weren't
 	// processed.
-	UnprocessedAccounts []Result `type:"list"`
+	UnprocessedAccounts []Result `json:"securityhub:CreateMembersOutput:UnprocessedAccounts" type:"list"`
 }
 
 // String returns the string representation

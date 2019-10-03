@@ -76,7 +76,7 @@ type GetVaultNotificationsOutput struct {
 	_ struct{} `type:"structure" payload:"VaultNotificationConfig"`
 
 	// Returns the notification configuration set on the vault.
-	VaultNotificationConfig *VaultNotificationConfig `locationName:"vaultNotificationConfig" type:"structure"`
+	VaultNotificationConfig *VaultNotificationConfig `json:"glacier:GetVaultNotificationsOutput:VaultNotificationConfig" locationName:"vaultNotificationConfig" type:"structure"`
 }
 
 // String returns the string representation

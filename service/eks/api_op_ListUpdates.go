@@ -90,10 +90,10 @@ type ListUpdatesOutput struct {
 	// results of a ListUpdates request exceed maxResults, you can use this value
 	// to retrieve the next page of results. This value is null when there are no
 	// more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"eks:ListUpdatesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of all the updates for the specified cluster and Region.
-	UpdateIds []string `locationName:"updateIds" type:"list"`
+	UpdateIds []string `json:"eks:ListUpdatesOutput:UpdateIds" locationName:"updateIds" type:"list"`
 }
 
 // String returns the string representation

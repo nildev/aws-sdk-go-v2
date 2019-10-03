@@ -51,13 +51,13 @@ type AssociateVpcCidrBlockOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the IPv4 CIDR block association.
-	CidrBlockAssociation *VpcCidrBlockAssociation `locationName:"cidrBlockAssociation" type:"structure"`
+	CidrBlockAssociation *VpcCidrBlockAssociation `json:"ec2:AssociateVpcCidrBlockOutput:CidrBlockAssociation" locationName:"cidrBlockAssociation" type:"structure"`
 
 	// Information about the IPv6 CIDR block association.
-	Ipv6CidrBlockAssociation *VpcIpv6CidrBlockAssociation `locationName:"ipv6CidrBlockAssociation" type:"structure"`
+	Ipv6CidrBlockAssociation *VpcIpv6CidrBlockAssociation `json:"ec2:AssociateVpcCidrBlockOutput:Ipv6CidrBlockAssociation" locationName:"ipv6CidrBlockAssociation" type:"structure"`
 
 	// The ID of the VPC.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"ec2:AssociateVpcCidrBlockOutput:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation

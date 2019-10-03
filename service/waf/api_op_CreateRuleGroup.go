@@ -87,10 +87,10 @@ type CreateRuleGroupOutput struct {
 	// The ChangeToken that you used to submit the CreateRuleGroup request. You
 	// can also use this value to query the status of the request. For more information,
 	// see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf:CreateRuleGroupOutput:ChangeToken" min:"1" type:"string"`
 
 	// An empty RuleGroup.
-	RuleGroup *RuleGroup `type:"structure"`
+	RuleGroup *RuleGroup `json:"waf:CreateRuleGroupOutput:RuleGroup" type:"structure"`
 }
 
 // String returns the string representation

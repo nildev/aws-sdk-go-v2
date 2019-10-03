@@ -91,14 +91,14 @@ type SetIdentityPoolConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Options to apply to this identity pool for Amazon Cognito streams.
-	CognitoStreams *CognitoStreams `type:"structure"`
+	CognitoStreams *CognitoStreams `json:"cognito-sync:SetIdentityPoolConfigurationOutput:CognitoStreams" type:"structure"`
 
 	// A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
 	// created by Amazon Cognito.
-	IdentityPoolId *string `min:"1" type:"string"`
+	IdentityPoolId *string `json:"cognito-sync:SetIdentityPoolConfigurationOutput:IdentityPoolId" min:"1" type:"string"`
 
 	// Options to apply to this identity pool for push synchronization.
-	PushSync *PushSync `type:"structure"`
+	PushSync *PushSync `json:"cognito-sync:SetIdentityPoolConfigurationOutput:PushSync" type:"structure"`
 }
 
 // String returns the string representation

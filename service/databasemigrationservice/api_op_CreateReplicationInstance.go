@@ -133,7 +133,7 @@ type CreateReplicationInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The replication instance that was created.
-	ReplicationInstance *ReplicationInstance `type:"structure"`
+	ReplicationInstance *ReplicationInstance `json:"dms:CreateReplicationInstanceOutput:ReplicationInstance" type:"structure"`
 }
 
 // String returns the string representation

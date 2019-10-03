@@ -54,10 +54,10 @@ type CreateEgressOnlyInternetGatewayOutput struct {
 
 	// Unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:CreateEgressOnlyInternetGatewayOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the egress-only internet gateway.
-	EgressOnlyInternetGateway *EgressOnlyInternetGateway `locationName:"egressOnlyInternetGateway" type:"structure"`
+	EgressOnlyInternetGateway *EgressOnlyInternetGateway `json:"ec2:CreateEgressOnlyInternetGatewayOutput:EgressOnlyInternetGateway" locationName:"egressOnlyInternetGateway" type:"structure"`
 }
 
 // String returns the string representation

@@ -61,7 +61,7 @@ type DetectEntitiesOutput struct {
 	// response provides the entity text, entity type, where the entity text begins
 	// and ends, and the level of confidence that Amazon Comprehend has in the detection.
 	// For a list of entity types, see how-entities.
-	Entities []Entity `type:"list"`
+	Entities []Entity `json:"comprehend:DetectEntitiesOutput:Entities" type:"list"`
 }
 
 // String returns the string representation

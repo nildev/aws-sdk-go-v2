@@ -43,7 +43,7 @@ type GetGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the gateway.
-	Gateway *Gateway `type:"structure"`
+	Gateway *Gateway `json:"a4b:GetGatewayOutput:Gateway" type:"structure"`
 }
 
 // String returns the string representation

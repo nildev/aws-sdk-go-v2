@@ -59,22 +59,22 @@ type DescribeThingTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The thing type ARN.
-	ThingTypeArn *string `locationName:"thingTypeArn" type:"string"`
+	ThingTypeArn *string `json:"iot:DescribeThingTypeOutput:ThingTypeArn" locationName:"thingTypeArn" type:"string"`
 
 	// The thing type ID.
-	ThingTypeId *string `locationName:"thingTypeId" type:"string"`
+	ThingTypeId *string `json:"iot:DescribeThingTypeOutput:ThingTypeId" locationName:"thingTypeId" type:"string"`
 
 	// The ThingTypeMetadata contains additional information about the thing type
 	// including: creation date and time, a value indicating whether the thing type
 	// is deprecated, and a date and time when it was deprecated.
-	ThingTypeMetadata *ThingTypeMetadata `locationName:"thingTypeMetadata" type:"structure"`
+	ThingTypeMetadata *ThingTypeMetadata `json:"iot:DescribeThingTypeOutput:ThingTypeMetadata" locationName:"thingTypeMetadata" type:"structure"`
 
 	// The name of the thing type.
-	ThingTypeName *string `locationName:"thingTypeName" min:"1" type:"string"`
+	ThingTypeName *string `json:"iot:DescribeThingTypeOutput:ThingTypeName" locationName:"thingTypeName" min:"1" type:"string"`
 
 	// The ThingTypeProperties contains information about the thing type including
 	// description, and a list of searchable thing attribute names.
-	ThingTypeProperties *ThingTypeProperties `locationName:"thingTypeProperties" type:"structure"`
+	ThingTypeProperties *ThingTypeProperties `json:"iot:DescribeThingTypeOutput:ThingTypeProperties" locationName:"thingTypeProperties" type:"structure"`
 }
 
 // String returns the string representation

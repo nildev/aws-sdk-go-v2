@@ -56,7 +56,7 @@ type DescribeTrailsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of trail objects.
-	TrailList []Trail `locationName:"trailList" type:"list"`
+	TrailList []Trail `json:"cloudtrail:DescribeTrailsOutput:TrailList" locationName:"trailList" type:"list"`
 }
 
 // String returns the string representation

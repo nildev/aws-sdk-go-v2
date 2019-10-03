@@ -69,7 +69,7 @@ type GetEffectivePoliciesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The effective policies.
-	EffectivePolicies []EffectivePolicy `locationName:"effectivePolicies" type:"list"`
+	EffectivePolicies []EffectivePolicy `json:"iot:GetEffectivePoliciesOutput:EffectivePolicies" locationName:"effectivePolicies" type:"list"`
 }
 
 // String returns the string representation

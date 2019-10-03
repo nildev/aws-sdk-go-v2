@@ -54,13 +54,13 @@ type ListMemberAccountsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of account IDs.
-	MemberAccounts []string `type:"list"`
+	MemberAccounts []string `json:"fms:ListMemberAccountsOutput:MemberAccounts" type:"list"`
 
 	// If you have more member account IDs than the number that you specified for
 	// MaxResults in the request, the response includes a NextToken value. To list
 	// more IDs, submit another ListMemberAccounts request, and specify the NextToken
 	// value from the response in the NextToken value in the next request.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"fms:ListMemberAccountsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

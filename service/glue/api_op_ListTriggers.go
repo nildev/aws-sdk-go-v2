@@ -55,11 +55,11 @@ type ListTriggersOutput struct {
 
 	// A continuation token, if the returned list does not contain the last metric
 	// available.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:ListTriggersOutput:NextToken" type:"string"`
 
 	// The names of all triggers in the account, or the triggers with the specified
 	// tags.
-	TriggerNames []string `type:"list"`
+	TriggerNames []string `json:"glue:ListTriggersOutput:TriggerNames" type:"list"`
 }
 
 // String returns the string representation

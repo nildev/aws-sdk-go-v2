@@ -48,7 +48,7 @@ type GetCorsPolicyOutput struct {
 	// The CORS policy assigned to the container.
 	//
 	// CorsPolicy is a required field
-	CorsPolicy []CorsRule `min:"1" type:"list" required:"true"`
+	CorsPolicy []CorsRule `json:"mediastore:GetCorsPolicyOutput:CorsPolicy" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation

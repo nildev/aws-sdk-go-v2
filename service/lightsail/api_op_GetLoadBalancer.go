@@ -43,7 +43,7 @@ type GetLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about your load balancer.
-	LoadBalancer *LoadBalancer `locationName:"loadBalancer" type:"structure"`
+	LoadBalancer *LoadBalancer `json:"lightsail:GetLoadBalancerOutput:LoadBalancer" locationName:"loadBalancer" type:"structure"`
 }
 
 // String returns the string representation

@@ -57,27 +57,27 @@ type DescribeUserOutput struct {
 
 	// The date and time at which the user was disabled for Amazon WorkMail usage,
 	// in UNIX epoch time format.
-	DisabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DisabledDate *time.Time `json:"workmail:DescribeUserOutput:DisabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The display name of the user.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"workmail:DescribeUserOutput:DisplayName" type:"string"`
 
 	// The email of the user.
-	Email *string `min:"1" type:"string"`
+	Email *string `json:"workmail:DescribeUserOutput:Email" min:"1" type:"string"`
 
 	// The date and time at which the user was enabled for Amazon WorkMail usage,
 	// in UNIX epoch time format.
-	EnabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EnabledDate *time.Time `json:"workmail:DescribeUserOutput:EnabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name for the user.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workmail:DescribeUserOutput:Name" min:"1" type:"string"`
 
 	// The state of a user: enabled (registered to Amazon WorkMail) or disabled
 	// (deregistered or never registered to WorkMail).
-	State EntityState `type:"string" enum:"true"`
+	State EntityState `json:"workmail:DescribeUserOutput:State" type:"string" enum:"true"`
 
 	// The identifier for the described user.
-	UserId *string `min:"12" type:"string"`
+	UserId *string `json:"workmail:DescribeUserOutput:UserId" min:"12" type:"string"`
 
 	// In certain cases, other entities are modeled as users. If interoperability
 	// is enabled, resources are imported into Amazon WorkMail as users. Because
@@ -85,7 +85,7 @@ type DescribeUserOutput struct {
 	// can distinguish between an unregistered user (account is disabled and has
 	// a user role) and the directory administrators. The values are USER, RESOURCE,
 	// and SYSTEM_USER.
-	UserRole UserRole `type:"string" enum:"true"`
+	UserRole UserRole `json:"workmail:DescribeUserOutput:UserRole" type:"string" enum:"true"`
 }
 
 // String returns the string representation

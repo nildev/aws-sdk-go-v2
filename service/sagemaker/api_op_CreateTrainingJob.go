@@ -223,7 +223,7 @@ type CreateTrainingJobOutput struct {
 	// The Amazon Resource Name (ARN) of the training job.
 	//
 	// TrainingJobArn is a required field
-	TrainingJobArn *string `type:"string" required:"true"`
+	TrainingJobArn *string `json:"api.sagemaker:CreateTrainingJobOutput:TrainingJobArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -50,10 +50,10 @@ type ListLicenseSpecificationsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// License configurations associated with a resource.
-	LicenseSpecifications []LicenseSpecification `type:"list"`
+	LicenseSpecifications []LicenseSpecification `json:"license-manager:ListLicenseSpecificationsForResourceOutput:LicenseSpecifications" type:"list"`
 
 	// Token for the next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"license-manager:ListLicenseSpecificationsForResourceOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -123,13 +123,13 @@ type CreateClientVpnEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Client VPN endpoint.
-	ClientVpnEndpointId *string `locationName:"clientVpnEndpointId" type:"string"`
+	ClientVpnEndpointId *string `json:"ec2:CreateClientVpnEndpointOutput:ClientVpnEndpointId" locationName:"clientVpnEndpointId" type:"string"`
 
 	// The DNS name to be used by clients when establishing their VPN session.
-	DnsName *string `locationName:"dnsName" type:"string"`
+	DnsName *string `json:"ec2:CreateClientVpnEndpointOutput:DnsName" locationName:"dnsName" type:"string"`
 
 	// The current state of the Client VPN endpoint.
-	Status *VpnEndpointStatus `locationName:"status" type:"structure"`
+	Status *VpnEndpointStatus `json:"ec2:CreateClientVpnEndpointOutput:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation

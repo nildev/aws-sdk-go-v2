@@ -82,7 +82,7 @@ type ModifyTrafficMirrorSessionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Traffic Mirror session.
-	TrafficMirrorSession *TrafficMirrorSession `locationName:"trafficMirrorSession" type:"structure"`
+	TrafficMirrorSession *TrafficMirrorSession `json:"ec2:ModifyTrafficMirrorSessionOutput:TrafficMirrorSession" locationName:"trafficMirrorSession" type:"structure"`
 }
 
 // String returns the string representation

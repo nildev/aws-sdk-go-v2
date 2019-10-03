@@ -52,12 +52,12 @@ type ListContainersOutput struct {
 	// The names of the containers.
 	//
 	// Containers is a required field
-	Containers []Container `type:"list" required:"true"`
+	Containers []Container `json:"mediastore:ListContainersOutput:Containers" type:"list" required:"true"`
 
 	// NextToken is the token to use in the next call to ListContainers. This token
 	// is returned only if you included the MaxResults tag in the original command,
 	// and only if there are still containers to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"mediastore:ListContainersOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

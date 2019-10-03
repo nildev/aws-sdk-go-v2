@@ -53,11 +53,11 @@ type DetectDocumentTextOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Block objects containing the text detected in the document.
-	Blocks []Block `type:"list"`
+	Blocks []Block `json:"textract:DetectDocumentTextOutput:Blocks" type:"list"`
 
 	// Metadata about the document. Contains the number of pages that are detected
 	// in the document.
-	DocumentMetadata *DocumentMetadata `type:"structure"`
+	DocumentMetadata *DocumentMetadata `json:"textract:DetectDocumentTextOutput:DocumentMetadata" type:"structure"`
 }
 
 // String returns the string representation

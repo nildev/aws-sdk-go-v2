@@ -20,7 +20,7 @@ type AccessLog struct {
 	_ struct{} `type:"structure"`
 
 	// The file object to send virtual node access logs to.
-	File *FileAccessLog `locationName:"file" type:"structure"`
+	File *FileAccessLog `json:"appmesh:AccessLog:File" locationName:"file" type:"structure"`
 }
 
 // String returns the string representation
@@ -64,13 +64,13 @@ type AwsCloudMapInstanceAttribute struct {
 	// Map service instance that contains the specified key and value is returned.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"appmesh:AwsCloudMapInstanceAttribute:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The value of an AWS Cloud Map service instance attribute key. Any AWS Cloud
 	// Map service instance that contains the specified key and value is returned.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"appmesh:AwsCloudMapInstanceAttribute:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -129,17 +129,17 @@ type AwsCloudMapServiceDiscovery struct {
 	// instances by any custom attribute that you specified when you registered
 	// the instance. Only instances that match all of the specified key/value pairs
 	// will be returned.
-	Attributes []AwsCloudMapInstanceAttribute `locationName:"attributes" type:"list"`
+	Attributes []AwsCloudMapInstanceAttribute `json:"appmesh:AwsCloudMapServiceDiscovery:Attributes" locationName:"attributes" type:"list"`
 
 	// The name of the AWS Cloud Map namespace to use.
 	//
 	// NamespaceName is a required field
-	NamespaceName *string `locationName:"namespaceName" min:"1" type:"string" required:"true"`
+	NamespaceName *string `json:"appmesh:AwsCloudMapServiceDiscovery:NamespaceName" locationName:"namespaceName" min:"1" type:"string" required:"true"`
 
 	// The name of the AWS Cloud Map service to use.
 	//
 	// ServiceName is a required field
-	ServiceName *string `locationName:"serviceName" min:"1" type:"string" required:"true"`
+	ServiceName *string `json:"appmesh:AwsCloudMapServiceDiscovery:ServiceName" locationName:"serviceName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -214,7 +214,7 @@ type Backend struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies a virtual service to use as a backend for a virtual node.
-	VirtualService *VirtualServiceBackend `locationName:"virtualService" type:"structure"`
+	VirtualService *VirtualServiceBackend `json:"appmesh:Backend:VirtualService" locationName:"virtualService" type:"structure"`
 }
 
 // String returns the string representation
@@ -257,7 +257,7 @@ type DnsServiceDiscovery struct {
 	// Specifies the DNS service discovery hostname for the virtual node.
 	//
 	// Hostname is a required field
-	Hostname *string `locationName:"hostname" type:"string" required:"true"`
+	Hostname *string `json:"appmesh:DnsServiceDiscovery:Hostname" locationName:"hostname" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -302,7 +302,7 @@ type EgressFilter struct {
 	// of the service mesh.
 	//
 	// Type is a required field
-	Type EgressFilterType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type EgressFilterType `json:"appmesh:EgressFilter:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -349,7 +349,7 @@ type FileAccessLog struct {
 	// here. Otherwise, Envoy fails to bootstrap properly.
 	//
 	// Path is a required field
-	Path *string `locationName:"path" min:"1" type:"string" required:"true"`
+	Path *string `json:"appmesh:FileAccessLog:Path" locationName:"path" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -394,38 +394,38 @@ type HealthCheckPolicy struct {
 	// declaring listener healthy.
 	//
 	// HealthyThreshold is a required field
-	HealthyThreshold *int64 `locationName:"healthyThreshold" min:"2" type:"integer" required:"true"`
+	HealthyThreshold *int64 `json:"appmesh:HealthCheckPolicy:HealthyThreshold" locationName:"healthyThreshold" min:"2" type:"integer" required:"true"`
 
 	// The time period in milliseconds between each health check execution.
 	//
 	// IntervalMillis is a required field
-	IntervalMillis *int64 `locationName:"intervalMillis" min:"5000" type:"long" required:"true"`
+	IntervalMillis *int64 `json:"appmesh:HealthCheckPolicy:IntervalMillis" locationName:"intervalMillis" min:"5000" type:"long" required:"true"`
 
 	// The destination path for the health check request. This is required only
 	// if the specified protocol is HTTP. If the protocol is TCP, this parameter
 	// is ignored.
-	Path *string `locationName:"path" type:"string"`
+	Path *string `json:"appmesh:HealthCheckPolicy:Path" locationName:"path" type:"string"`
 
 	// The destination port for the health check request. This port must match the
 	// port defined in the PortMapping for the listener.
-	Port *int64 `locationName:"port" min:"1" type:"integer"`
+	Port *int64 `json:"appmesh:HealthCheckPolicy:Port" locationName:"port" min:"1" type:"integer"`
 
 	// The protocol for the health check request.
 	//
 	// Protocol is a required field
-	Protocol PortProtocol `locationName:"protocol" type:"string" required:"true" enum:"true"`
+	Protocol PortProtocol `json:"appmesh:HealthCheckPolicy:Protocol" locationName:"protocol" type:"string" required:"true" enum:"true"`
 
 	// The amount of time to wait when receiving a response from the health check,
 	// in milliseconds.
 	//
 	// TimeoutMillis is a required field
-	TimeoutMillis *int64 `locationName:"timeoutMillis" min:"2000" type:"long" required:"true"`
+	TimeoutMillis *int64 `json:"appmesh:HealthCheckPolicy:TimeoutMillis" locationName:"timeoutMillis" min:"2000" type:"long" required:"true"`
 
 	// The number of consecutive failed health checks that must occur before declaring
 	// a virtual node unhealthy.
 	//
 	// UnhealthyThreshold is a required field
-	UnhealthyThreshold *int64 `locationName:"unhealthyThreshold" min:"2" type:"integer" required:"true"`
+	UnhealthyThreshold *int64 `json:"appmesh:HealthCheckPolicy:UnhealthyThreshold" locationName:"unhealthyThreshold" min:"2" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -532,12 +532,12 @@ type HttpRoute struct {
 	// The action to take if a match is determined.
 	//
 	// Action is a required field
-	Action *HttpRouteAction `locationName:"action" type:"structure" required:"true"`
+	Action *HttpRouteAction `json:"appmesh:HttpRoute:Action" locationName:"action" type:"structure" required:"true"`
 
 	// The criteria for determining an HTTP request match.
 	//
 	// Match is a required field
-	Match *HttpRouteMatch `locationName:"match" type:"structure" required:"true"`
+	Match *HttpRouteMatch `json:"appmesh:HttpRoute:Match" locationName:"match" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -601,7 +601,7 @@ type HttpRouteAction struct {
 	// traffic with.
 	//
 	// WeightedTargets is a required field
-	WeightedTargets []WeightedTarget `locationName:"weightedTargets" min:"1" type:"list" required:"true"`
+	WeightedTargets []WeightedTarget `json:"appmesh:HttpRouteAction:WeightedTargets" locationName:"weightedTargets" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -663,7 +663,7 @@ type HttpRouteMatch struct {
 	// requests to my-service.local/metrics, your prefix should be /metrics.
 	//
 	// Prefix is a required field
-	Prefix *string `locationName:"prefix" type:"string" required:"true"`
+	Prefix *string `json:"appmesh:HttpRouteMatch:Prefix" locationName:"prefix" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -702,12 +702,12 @@ type Listener struct {
 	_ struct{} `type:"structure"`
 
 	// The health check information for the listener.
-	HealthCheck *HealthCheckPolicy `locationName:"healthCheck" type:"structure"`
+	HealthCheck *HealthCheckPolicy `json:"appmesh:Listener:HealthCheck" locationName:"healthCheck" type:"structure"`
 
 	// The port mapping information for the listener.
 	//
 	// PortMapping is a required field
-	PortMapping *PortMapping `locationName:"portMapping" type:"structure" required:"true"`
+	PortMapping *PortMapping `json:"appmesh:Listener:PortMapping" locationName:"portMapping" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -762,7 +762,7 @@ type Logging struct {
 	_ struct{} `type:"structure"`
 
 	// The access log configuration for a virtual node.
-	AccessLog *AccessLog `locationName:"accessLog" type:"structure"`
+	AccessLog *AccessLog `json:"appmesh:Logging:AccessLog" locationName:"accessLog" type:"structure"`
 }
 
 // String returns the string representation
@@ -804,22 +804,22 @@ type MeshData struct {
 	// The name of the service mesh.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:MeshData:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// The associated metadata for the service mesh.
 	//
 	// Metadata is a required field
-	Metadata *ResourceMetadata `locationName:"metadata" type:"structure" required:"true"`
+	Metadata *ResourceMetadata `json:"appmesh:MeshData:Metadata" locationName:"metadata" type:"structure" required:"true"`
 
 	// The associated specification for the service mesh.
 	//
 	// Spec is a required field
-	Spec *MeshSpec `locationName:"spec" type:"structure" required:"true"`
+	Spec *MeshSpec `json:"appmesh:MeshData:Spec" locationName:"spec" type:"structure" required:"true"`
 
 	// The status of the service mesh.
 	//
 	// Status is a required field
-	Status *MeshStatus `locationName:"status" type:"structure" required:"true"`
+	Status *MeshStatus `json:"appmesh:MeshData:Status" locationName:"status" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -864,12 +864,12 @@ type MeshRef struct {
 	// The full Amazon Resource Name (ARN) of the service mesh.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"appmesh:MeshRef:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The name of the service mesh.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:MeshRef:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -900,7 +900,7 @@ type MeshSpec struct {
 	_ struct{} `type:"structure"`
 
 	// The egress filter rules for the service mesh.
-	EgressFilter *EgressFilter `locationName:"egressFilter" type:"structure"`
+	EgressFilter *EgressFilter `json:"appmesh:MeshSpec:EgressFilter" locationName:"egressFilter" type:"structure"`
 }
 
 // String returns the string representation
@@ -940,7 +940,7 @@ type MeshStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The current mesh status.
-	Status MeshStatusCode `locationName:"status" type:"string" enum:"true"`
+	Status MeshStatusCode `json:"appmesh:MeshStatus:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -967,12 +967,12 @@ type PortMapping struct {
 	// The port used for the port mapping.
 	//
 	// Port is a required field
-	Port *int64 `locationName:"port" min:"1" type:"integer" required:"true"`
+	Port *int64 `json:"appmesh:PortMapping:Port" locationName:"port" min:"1" type:"integer" required:"true"`
 
 	// The protocol used for the port mapping.
 	//
 	// Protocol is a required field
-	Protocol PortProtocol `locationName:"protocol" type:"string" required:"true" enum:"true"`
+	Protocol PortProtocol `json:"appmesh:PortMapping:Protocol" locationName:"protocol" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1025,28 +1025,28 @@ type ResourceMetadata struct {
 	// The full Amazon Resource Name (ARN) for the resource.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"appmesh:ResourceMetadata:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The Unix epoch timestamp in seconds for when the resource was created.
 	//
 	// CreatedAt is a required field
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedAt *time.Time `json:"appmesh:ResourceMetadata:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Unix epoch timestamp in seconds for when the resource was last updated.
 	//
 	// LastUpdatedAt is a required field
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastUpdatedAt *time.Time `json:"appmesh:ResourceMetadata:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The unique identifier for the resource.
 	//
 	// Uid is a required field
-	Uid *string `locationName:"uid" type:"string" required:"true"`
+	Uid *string `json:"appmesh:ResourceMetadata:Uid" locationName:"uid" type:"string" required:"true"`
 
 	// The version of the resource. Resources are created at version 1, and this
 	// version is incremented each time that they're updated.
 	//
 	// Version is a required field
-	Version *int64 `locationName:"version" type:"long" required:"true"`
+	Version *int64 `json:"appmesh:ResourceMetadata:Version" locationName:"version" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1097,32 +1097,32 @@ type RouteData struct {
 	// The name of the service mesh that the route resides in.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:RouteData:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// The associated metadata for the route.
 	//
 	// Metadata is a required field
-	Metadata *ResourceMetadata `locationName:"metadata" type:"structure" required:"true"`
+	Metadata *ResourceMetadata `json:"appmesh:RouteData:Metadata" locationName:"metadata" type:"structure" required:"true"`
 
 	// The name of the route.
 	//
 	// RouteName is a required field
-	RouteName *string `locationName:"routeName" min:"1" type:"string" required:"true"`
+	RouteName *string `json:"appmesh:RouteData:RouteName" locationName:"routeName" min:"1" type:"string" required:"true"`
 
 	// The specifications of the route.
 	//
 	// Spec is a required field
-	Spec *RouteSpec `locationName:"spec" type:"structure" required:"true"`
+	Spec *RouteSpec `json:"appmesh:RouteData:Spec" locationName:"spec" type:"structure" required:"true"`
 
 	// The status of the route.
 	//
 	// Status is a required field
-	Status *RouteStatus `locationName:"status" type:"structure" required:"true"`
+	Status *RouteStatus `json:"appmesh:RouteData:Status" locationName:"status" type:"structure" required:"true"`
 
 	// The virtual router that the route is associated with.
 	//
 	// VirtualRouterName is a required field
-	VirtualRouterName *string `locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
+	VirtualRouterName *string `json:"appmesh:RouteData:VirtualRouterName" locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1179,22 +1179,22 @@ type RouteRef struct {
 	// The full Amazon Resource Name (ARN) for the route.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"appmesh:RouteRef:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The name of the service mesh that the route resides in.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:RouteRef:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// The name of the route.
 	//
 	// RouteName is a required field
-	RouteName *string `locationName:"routeName" min:"1" type:"string" required:"true"`
+	RouteName *string `json:"appmesh:RouteRef:RouteName" locationName:"routeName" min:"1" type:"string" required:"true"`
 
 	// The virtual router that the route is associated with.
 	//
 	// VirtualRouterName is a required field
-	VirtualRouterName *string `locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
+	VirtualRouterName *string `json:"appmesh:RouteRef:VirtualRouterName" locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1237,10 +1237,10 @@ type RouteSpec struct {
 	_ struct{} `type:"structure"`
 
 	// The HTTP routing information for the route.
-	HttpRoute *HttpRoute `locationName:"httpRoute" type:"structure"`
+	HttpRoute *HttpRoute `json:"appmesh:RouteSpec:HttpRoute" locationName:"httpRoute" type:"structure"`
 
 	// The TCP routing information for the route.
-	TcpRoute *TcpRoute `locationName:"tcpRoute" type:"structure"`
+	TcpRoute *TcpRoute `json:"appmesh:RouteSpec:TcpRoute" locationName:"tcpRoute" type:"structure"`
 }
 
 // String returns the string representation
@@ -1293,7 +1293,7 @@ type RouteStatus struct {
 	// The current status for the route.
 	//
 	// Status is a required field
-	Status RouteStatusCode `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status RouteStatusCode `json:"appmesh:RouteStatus:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1318,10 +1318,10 @@ type ServiceDiscovery struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies any AWS Cloud Map information for the virtual node.
-	AwsCloudMap *AwsCloudMapServiceDiscovery `locationName:"awsCloudMap" type:"structure"`
+	AwsCloudMap *AwsCloudMapServiceDiscovery `json:"appmesh:ServiceDiscovery:AwsCloudMap" locationName:"awsCloudMap" type:"structure"`
 
 	// Specifies the DNS information for the virtual node.
-	Dns *DnsServiceDiscovery `locationName:"dns" type:"structure"`
+	Dns *DnsServiceDiscovery `json:"appmesh:ServiceDiscovery:Dns" locationName:"dns" type:"structure"`
 }
 
 // String returns the string representation
@@ -1378,11 +1378,11 @@ type TagRef struct {
 	// that acts like a category for more specific tag values.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"appmesh:TagRef:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The optional part of a key-value pair that make up a tag. A value acts as
 	// a descriptor within a tag category (key).
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"appmesh:TagRef:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -1432,7 +1432,7 @@ type TcpRoute struct {
 	// The action to take if a match is determined.
 	//
 	// Action is a required field
-	Action *TcpRouteAction `locationName:"action" type:"structure" required:"true"`
+	Action *TcpRouteAction `json:"appmesh:TcpRoute:Action" locationName:"action" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1481,7 +1481,7 @@ type TcpRouteAction struct {
 	// traffic with.
 	//
 	// WeightedTargets is a required field
-	WeightedTargets []WeightedTarget `locationName:"weightedTargets" min:"1" type:"list" required:"true"`
+	WeightedTargets []WeightedTarget `json:"appmesh:TcpRouteAction:WeightedTargets" locationName:"weightedTargets" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1538,27 +1538,27 @@ type VirtualNodeData struct {
 	// The name of the service mesh that the virtual node resides in.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:VirtualNodeData:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// The associated metadata for the virtual node.
 	//
 	// Metadata is a required field
-	Metadata *ResourceMetadata `locationName:"metadata" type:"structure" required:"true"`
+	Metadata *ResourceMetadata `json:"appmesh:VirtualNodeData:Metadata" locationName:"metadata" type:"structure" required:"true"`
 
 	// The specifications of the virtual node.
 	//
 	// Spec is a required field
-	Spec *VirtualNodeSpec `locationName:"spec" type:"structure" required:"true"`
+	Spec *VirtualNodeSpec `json:"appmesh:VirtualNodeData:Spec" locationName:"spec" type:"structure" required:"true"`
 
 	// The current status for the virtual node.
 	//
 	// Status is a required field
-	Status *VirtualNodeStatus `locationName:"status" type:"structure" required:"true"`
+	Status *VirtualNodeStatus `json:"appmesh:VirtualNodeData:Status" locationName:"status" type:"structure" required:"true"`
 
 	// The name of the virtual node.
 	//
 	// VirtualNodeName is a required field
-	VirtualNodeName *string `locationName:"virtualNodeName" min:"1" type:"string" required:"true"`
+	VirtualNodeName *string `json:"appmesh:VirtualNodeData:VirtualNodeName" locationName:"virtualNodeName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1609,17 +1609,17 @@ type VirtualNodeRef struct {
 	// The full Amazon Resource Name (ARN) for the virtual node.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"appmesh:VirtualNodeRef:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The name of the service mesh that the virtual node resides in.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:VirtualNodeRef:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// The name of the virtual node.
 	//
 	// VirtualNodeName is a required field
-	VirtualNodeName *string `locationName:"virtualNodeName" min:"1" type:"string" required:"true"`
+	VirtualNodeName *string `json:"appmesh:VirtualNodeRef:VirtualNodeName" locationName:"virtualNodeName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1658,7 +1658,7 @@ type VirtualNodeServiceProvider struct {
 	// The name of the virtual node that is acting as a service provider.
 	//
 	// VirtualNodeName is a required field
-	VirtualNodeName *string `locationName:"virtualNodeName" min:"1" type:"string" required:"true"`
+	VirtualNodeName *string `json:"appmesh:VirtualNodeServiceProvider:VirtualNodeName" locationName:"virtualNodeName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1700,18 +1700,18 @@ type VirtualNodeSpec struct {
 	_ struct{} `type:"structure"`
 
 	// The backends that the virtual node is expected to send outbound traffic to.
-	Backends []Backend `locationName:"backends" type:"list"`
+	Backends []Backend `json:"appmesh:VirtualNodeSpec:Backends" locationName:"backends" type:"list"`
 
 	// The listeners that the virtual node is expected to receive inbound traffic
 	// from. Currently only one listener is supported per virtual node.
-	Listeners []Listener `locationName:"listeners" type:"list"`
+	Listeners []Listener `json:"appmesh:VirtualNodeSpec:Listeners" locationName:"listeners" type:"list"`
 
 	// The inbound and outbound access logging information for the virtual node.
-	Logging *Logging `locationName:"logging" type:"structure"`
+	Logging *Logging `json:"appmesh:VirtualNodeSpec:Logging" locationName:"logging" type:"structure"`
 
 	// The service discovery information for the virtual node. If your virtual node
 	// does not expect ingress traffic, you can omit this parameter.
-	ServiceDiscovery *ServiceDiscovery `locationName:"serviceDiscovery" type:"structure"`
+	ServiceDiscovery *ServiceDiscovery `json:"appmesh:VirtualNodeSpec:ServiceDiscovery" locationName:"serviceDiscovery" type:"structure"`
 }
 
 // String returns the string representation
@@ -1802,7 +1802,7 @@ type VirtualNodeStatus struct {
 	// The current status of the virtual node.
 	//
 	// Status is a required field
-	Status VirtualNodeStatusCode `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status VirtualNodeStatusCode `json:"appmesh:VirtualNodeStatus:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1829,27 +1829,27 @@ type VirtualRouterData struct {
 	// The name of the service mesh that the virtual router resides in.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:VirtualRouterData:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// The associated metadata for the virtual router.
 	//
 	// Metadata is a required field
-	Metadata *ResourceMetadata `locationName:"metadata" type:"structure" required:"true"`
+	Metadata *ResourceMetadata `json:"appmesh:VirtualRouterData:Metadata" locationName:"metadata" type:"structure" required:"true"`
 
 	// The specifications of the virtual router.
 	//
 	// Spec is a required field
-	Spec *VirtualRouterSpec `locationName:"spec" type:"structure" required:"true"`
+	Spec *VirtualRouterSpec `json:"appmesh:VirtualRouterData:Spec" locationName:"spec" type:"structure" required:"true"`
 
 	// The current status of the virtual router.
 	//
 	// Status is a required field
-	Status *VirtualRouterStatus `locationName:"status" type:"structure" required:"true"`
+	Status *VirtualRouterStatus `json:"appmesh:VirtualRouterData:Status" locationName:"status" type:"structure" required:"true"`
 
 	// The name of the virtual router.
 	//
 	// VirtualRouterName is a required field
-	VirtualRouterName *string `locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
+	VirtualRouterName *string `json:"appmesh:VirtualRouterData:VirtualRouterName" locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1900,7 +1900,7 @@ type VirtualRouterListener struct {
 	// An object representing a virtual node or virtual router listener port mapping.
 	//
 	// PortMapping is a required field
-	PortMapping *PortMapping `locationName:"portMapping" type:"structure" required:"true"`
+	PortMapping *PortMapping `json:"appmesh:VirtualRouterListener:PortMapping" locationName:"portMapping" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1946,17 +1946,17 @@ type VirtualRouterRef struct {
 	// The full Amazon Resource Name (ARN) for the virtual router.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"appmesh:VirtualRouterRef:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The name of the service mesh that the virtual router resides in.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:VirtualRouterRef:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// The name of the virtual router.
 	//
 	// VirtualRouterName is a required field
-	VirtualRouterName *string `locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
+	VirtualRouterName *string `json:"appmesh:VirtualRouterRef:VirtualRouterName" locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1995,7 +1995,7 @@ type VirtualRouterServiceProvider struct {
 	// The name of the virtual router that is acting as a service provider.
 	//
 	// VirtualRouterName is a required field
-	VirtualRouterName *string `locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
+	VirtualRouterName *string `json:"appmesh:VirtualRouterServiceProvider:VirtualRouterName" locationName:"virtualRouterName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2038,7 +2038,7 @@ type VirtualRouterSpec struct {
 
 	// The listeners that the virtual router is expected to receive inbound traffic
 	// from. Currently only one listener is supported per virtual router.
-	Listeners []VirtualRouterListener `locationName:"listeners" min:"1" type:"list"`
+	Listeners []VirtualRouterListener `json:"appmesh:VirtualRouterSpec:Listeners" locationName:"listeners" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -2091,7 +2091,7 @@ type VirtualRouterStatus struct {
 	// The current status of the virtual router.
 	//
 	// Status is a required field
-	Status VirtualRouterStatusCode `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status VirtualRouterStatusCode `json:"appmesh:VirtualRouterStatus:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2118,7 +2118,7 @@ type VirtualServiceBackend struct {
 	// The name of the virtual service that is acting as a virtual node backend.
 	//
 	// VirtualServiceName is a required field
-	VirtualServiceName *string `locationName:"virtualServiceName" type:"string" required:"true"`
+	VirtualServiceName *string `json:"appmesh:VirtualServiceBackend:VirtualServiceName" locationName:"virtualServiceName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2159,27 +2159,27 @@ type VirtualServiceData struct {
 	// The name of the service mesh that the virtual service resides in.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:VirtualServiceData:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// An object representing metadata for a resource.
 	//
 	// Metadata is a required field
-	Metadata *ResourceMetadata `locationName:"metadata" type:"structure" required:"true"`
+	Metadata *ResourceMetadata `json:"appmesh:VirtualServiceData:Metadata" locationName:"metadata" type:"structure" required:"true"`
 
 	// The specifications of the virtual service.
 	//
 	// Spec is a required field
-	Spec *VirtualServiceSpec `locationName:"spec" type:"structure" required:"true"`
+	Spec *VirtualServiceSpec `json:"appmesh:VirtualServiceData:Spec" locationName:"spec" type:"structure" required:"true"`
 
 	// The current status of the virtual service.
 	//
 	// Status is a required field
-	Status *VirtualServiceStatus `locationName:"status" type:"structure" required:"true"`
+	Status *VirtualServiceStatus `json:"appmesh:VirtualServiceData:Status" locationName:"status" type:"structure" required:"true"`
 
 	// The name of the virtual service.
 	//
 	// VirtualServiceName is a required field
-	VirtualServiceName *string `locationName:"virtualServiceName" type:"string" required:"true"`
+	VirtualServiceName *string `json:"appmesh:VirtualServiceData:VirtualServiceName" locationName:"virtualServiceName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2228,10 +2228,10 @@ type VirtualServiceProvider struct {
 	_ struct{} `type:"structure"`
 
 	// The virtual node associated with a virtual service.
-	VirtualNode *VirtualNodeServiceProvider `locationName:"virtualNode" type:"structure"`
+	VirtualNode *VirtualNodeServiceProvider `json:"appmesh:VirtualServiceProvider:VirtualNode" locationName:"virtualNode" type:"structure"`
 
 	// The virtual router associated with a virtual service.
-	VirtualRouter *VirtualRouterServiceProvider `locationName:"virtualRouter" type:"structure"`
+	VirtualRouter *VirtualRouterServiceProvider `json:"appmesh:VirtualServiceProvider:VirtualRouter" locationName:"virtualRouter" type:"structure"`
 }
 
 // String returns the string representation
@@ -2284,17 +2284,17 @@ type VirtualServiceRef struct {
 	// The full Amazon Resource Name (ARN) for the virtual service.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"appmesh:VirtualServiceRef:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The name of the service mesh that the virtual service resides in.
 	//
 	// MeshName is a required field
-	MeshName *string `locationName:"meshName" min:"1" type:"string" required:"true"`
+	MeshName *string `json:"appmesh:VirtualServiceRef:MeshName" locationName:"meshName" min:"1" type:"string" required:"true"`
 
 	// The name of the virtual service.
 	//
 	// VirtualServiceName is a required field
-	VirtualServiceName *string `locationName:"virtualServiceName" type:"string" required:"true"`
+	VirtualServiceName *string `json:"appmesh:VirtualServiceRef:VirtualServiceName" locationName:"virtualServiceName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2332,7 +2332,7 @@ type VirtualServiceSpec struct {
 
 	// The App Mesh object that is acting as the provider for a virtual service.
 	// You can specify a single virtual node or virtual router.
-	Provider *VirtualServiceProvider `locationName:"provider" type:"structure"`
+	Provider *VirtualServiceProvider `json:"appmesh:VirtualServiceSpec:Provider" locationName:"provider" type:"structure"`
 }
 
 // String returns the string representation
@@ -2374,7 +2374,7 @@ type VirtualServiceStatus struct {
 	// The current status of the virtual service.
 	//
 	// Status is a required field
-	Status VirtualServiceStatusCode `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status VirtualServiceStatusCode `json:"appmesh:VirtualServiceStatus:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2404,12 +2404,12 @@ type WeightedTarget struct {
 	// The virtual node to associate with the weighted target.
 	//
 	// VirtualNode is a required field
-	VirtualNode *string `locationName:"virtualNode" min:"1" type:"string" required:"true"`
+	VirtualNode *string `json:"appmesh:WeightedTarget:VirtualNode" locationName:"virtualNode" min:"1" type:"string" required:"true"`
 
 	// The relative weight of the weighted target.
 	//
 	// Weight is a required field
-	Weight *int64 `locationName:"weight" type:"integer" required:"true"`
+	Weight *int64 `json:"appmesh:WeightedTarget:Weight" locationName:"weight" type:"integer" required:"true"`
 }
 
 // String returns the string representation

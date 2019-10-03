@@ -27,7 +27,7 @@ type DescribeExportTasksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the export tasks.
-	ExportTasks []ExportTask `locationName:"exportTaskSet" locationNameList:"item" type:"list"`
+	ExportTasks []ExportTask `json:"ec2:DescribeExportTasksOutput:ExportTasks" locationName:"exportTaskSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

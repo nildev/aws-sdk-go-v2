@@ -146,10 +146,10 @@ type DescribeSecurityGroupsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeSecurityGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the security groups.
-	SecurityGroups []SecurityGroup `locationName:"securityGroupInfo" locationNameList:"item" type:"list"`
+	SecurityGroups []SecurityGroup `json:"ec2:DescribeSecurityGroupsOutput:SecurityGroups" locationName:"securityGroupInfo" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

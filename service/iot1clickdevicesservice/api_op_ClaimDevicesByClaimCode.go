@@ -55,11 +55,11 @@ type ClaimDevicesByClaimCodeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The claim code provided by the device manufacturer.
-	ClaimCode *string `locationName:"claimCode" min:"12" type:"string"`
+	ClaimCode *string `json:"devices.iot1click:ClaimDevicesByClaimCodeOutput:ClaimCode" locationName:"claimCode" min:"12" type:"string"`
 
 	// The total number of devices associated with the claim code that has been
 	// processed in the claim request.
-	Total *int64 `locationName:"total" type:"integer"`
+	Total *int64 `json:"devices.iot1click:ClaimDevicesByClaimCodeOutput:Total" locationName:"total" type:"integer"`
 }
 
 // String returns the string representation

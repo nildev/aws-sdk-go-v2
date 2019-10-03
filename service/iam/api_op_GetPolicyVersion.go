@@ -66,7 +66,7 @@ type GetPolicyVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure containing details about the policy version.
-	PolicyVersion *PolicyVersion `type:"structure"`
+	PolicyVersion *PolicyVersion `json:"iam:GetPolicyVersionOutput:PolicyVersion" type:"structure"`
 }
 
 // String returns the string representation

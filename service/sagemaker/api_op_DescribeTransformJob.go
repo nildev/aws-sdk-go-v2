@@ -52,84 +52,84 @@ type DescribeTransformJobOutput struct {
 	//
 	// To enable the batch strategy, you must set SplitType to Line, RecordIO, or
 	// TFRecord.
-	BatchStrategy BatchStrategy `type:"string" enum:"true"`
+	BatchStrategy BatchStrategy `json:"api.sagemaker:DescribeTransformJobOutput:BatchStrategy" type:"string" enum:"true"`
 
 	// A timestamp that shows when the transform Job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeTransformJobOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The data structure used to combine the input data and transformed data from
 	// the batch transform output into a joined dataset and to store it in an output
 	// file. It also contains information on how to filter the input data and the
 	// joined dataset. For more information, see Batch Transform I/O Join (http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html).
-	DataProcessing *DataProcessing `type:"structure"`
+	DataProcessing *DataProcessing `json:"api.sagemaker:DescribeTransformJobOutput:DataProcessing" type:"structure"`
 
 	// The environment variables to set in the Docker container. We support up to
 	// 16 key and values entries in the map.
-	Environment map[string]string `type:"map"`
+	Environment map[string]string `json:"api.sagemaker:DescribeTransformJobOutput:Environment" type:"map"`
 
 	// If the transform job failed, FailureReason describes why it failed. A transform
 	// job creates a log file, which includes error messages, and stores it as an
 	// Amazon S3 object. For more information, see Log Amazon SageMaker Events with
 	// Amazon CloudWatch (http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html).
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:DescribeTransformJobOutput:FailureReason" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth labeling
 	// job that created the transform or training job.
-	LabelingJobArn *string `type:"string"`
+	LabelingJobArn *string `json:"api.sagemaker:DescribeTransformJobOutput:LabelingJobArn" type:"string"`
 
 	// The maximum number of parallel requests on each instance node that can be
 	// launched in a transform job. The default value is 1.
-	MaxConcurrentTransforms *int64 `type:"integer"`
+	MaxConcurrentTransforms *int64 `json:"api.sagemaker:DescribeTransformJobOutput:MaxConcurrentTransforms" type:"integer"`
 
 	// The maximum payload size, in MB, used in the transform job.
-	MaxPayloadInMB *int64 `type:"integer"`
+	MaxPayloadInMB *int64 `json:"api.sagemaker:DescribeTransformJobOutput:MaxPayloadInMB" type:"integer"`
 
 	// The name of the model used in the transform job.
 	//
 	// ModelName is a required field
-	ModelName *string `type:"string" required:"true"`
+	ModelName *string `json:"api.sagemaker:DescribeTransformJobOutput:ModelName" type:"string" required:"true"`
 
 	// Indicates when the transform job has been completed, or has stopped or failed.
 	// You are billed for the time interval between this time and the value of TransformStartTime.
-	TransformEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TransformEndTime *time.Time `json:"api.sagemaker:DescribeTransformJobOutput:TransformEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Describes the dataset to be transformed and the Amazon S3 location where
 	// it is stored.
 	//
 	// TransformInput is a required field
-	TransformInput *TransformInput `type:"structure" required:"true"`
+	TransformInput *TransformInput `json:"api.sagemaker:DescribeTransformJobOutput:TransformInput" type:"structure" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the transform job.
 	//
 	// TransformJobArn is a required field
-	TransformJobArn *string `type:"string" required:"true"`
+	TransformJobArn *string `json:"api.sagemaker:DescribeTransformJobOutput:TransformJobArn" type:"string" required:"true"`
 
 	// The name of the transform job.
 	//
 	// TransformJobName is a required field
-	TransformJobName *string `min:"1" type:"string" required:"true"`
+	TransformJobName *string `json:"api.sagemaker:DescribeTransformJobOutput:TransformJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the transform job. If the transform job failed, the reason
 	// is returned in the FailureReason field.
 	//
 	// TransformJobStatus is a required field
-	TransformJobStatus TransformJobStatus `type:"string" required:"true" enum:"true"`
+	TransformJobStatus TransformJobStatus `json:"api.sagemaker:DescribeTransformJobOutput:TransformJobStatus" type:"string" required:"true" enum:"true"`
 
 	// Identifies the Amazon S3 location where you want Amazon SageMaker to save
 	// the results from the transform job.
-	TransformOutput *TransformOutput `type:"structure"`
+	TransformOutput *TransformOutput `json:"api.sagemaker:DescribeTransformJobOutput:TransformOutput" type:"structure"`
 
 	// Describes the resources, including ML instance types and ML instance count,
 	// to use for the transform job.
 	//
 	// TransformResources is a required field
-	TransformResources *TransformResources `type:"structure" required:"true"`
+	TransformResources *TransformResources `json:"api.sagemaker:DescribeTransformJobOutput:TransformResources" type:"structure" required:"true"`
 
 	// Indicates when the transform job starts on ML instances. You are billed for
 	// the time interval between this time and the value of TransformEndTime.
-	TransformStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TransformStartTime *time.Time `json:"api.sagemaker:DescribeTransformJobOutput:TransformStartTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

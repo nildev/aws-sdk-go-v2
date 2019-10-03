@@ -19,17 +19,17 @@ type AssociatedGateway struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the associated gateway.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"directconnect:AssociatedGateway:Id" locationName:"id" type:"string"`
 
 	// The ID of the AWS account that owns the associated virtual private gateway
 	// or transit gateway.
-	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
+	OwnerAccount *string `json:"directconnect:AssociatedGateway:OwnerAccount" locationName:"ownerAccount" type:"string"`
 
 	// The Region where the associated gateway is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:AssociatedGateway:Region" locationName:"region" type:"string"`
 
 	// The type of associated gateway.
-	Type GatewayType `locationName:"type" type:"string" enum:"true"`
+	Type GatewayType `json:"directconnect:AssociatedGateway:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -43,23 +43,23 @@ type BGPPeer struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:BGPPeer:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:BGPPeer:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	Asn *int64 `locationName:"asn" type:"integer"`
+	Asn *int64 `json:"directconnect:BGPPeer:Asn" locationName:"asn" type:"integer"`
 
 	// The authentication key for BGP configuration. This string has a minimum length
 	// of 6 characters and and a maximun lenth of 80 characters.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:BGPPeer:AuthKey" locationName:"authKey" type:"string"`
 
 	// The Direct Connect endpoint on which the BGP peer terminates.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:BGPPeer:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The ID of the BGP peer.
-	BgpPeerId *string `locationName:"bgpPeerId" type:"string"`
+	BgpPeerId *string `json:"directconnect:BGPPeer:BgpPeerId" locationName:"bgpPeerId" type:"string"`
 
 	// The state of the BGP peer. The following are the possible values:
 	//
@@ -75,7 +75,7 @@ type BGPPeer struct {
 	//    * deleting: The BGP peer is being deleted.
 	//
 	//    * deleted: The BGP peer is deleted and cannot be established.
-	BgpPeerState BGPPeerState `locationName:"bgpPeerState" type:"string" enum:"true"`
+	BgpPeerState BGPPeerState `json:"directconnect:BGPPeer:BgpPeerState" locationName:"bgpPeerState" type:"string" enum:"true"`
 
 	// The status of the BGP peer. The following are the possible values:
 	//
@@ -86,10 +86,10 @@ type BGPPeer struct {
 	//    * down: The BGP peer is down.
 	//
 	//    * unknown: The BGP peer status is not available.
-	BgpStatus BGPStatus `locationName:"bgpStatus" type:"string" enum:"true"`
+	BgpStatus BGPStatus `json:"directconnect:BGPPeer:BgpStatus" locationName:"bgpStatus" type:"string" enum:"true"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:BGPPeer:CustomerAddress" locationName:"customerAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -103,19 +103,19 @@ type Connection struct {
 	_ struct{} `type:"structure"`
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDevice *string `locationName:"awsDevice" deprecated:"true" type:"string"`
+	AwsDevice *string `json:"directconnect:Connection:AwsDevice" locationName:"awsDevice" deprecated:"true" type:"string"`
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:Connection:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The bandwidth of the connection.
-	Bandwidth *string `locationName:"bandwidth" type:"string"`
+	Bandwidth *string `json:"directconnect:Connection:Bandwidth" locationName:"bandwidth" type:"string"`
 
 	// The ID of the connection.
-	ConnectionId *string `locationName:"connectionId" type:"string"`
+	ConnectionId *string `json:"directconnect:Connection:ConnectionId" locationName:"connectionId" type:"string"`
 
 	// The name of the connection.
-	ConnectionName *string `locationName:"connectionName" type:"string"`
+	ConnectionName *string `json:"directconnect:Connection:ConnectionName" locationName:"connectionName" type:"string"`
 
 	// The state of the connection. The following are the possible values:
 	//
@@ -141,38 +141,38 @@ type Connection struct {
 	//    state if it is deleted by the customer.
 	//
 	//    * unknown: The state of the connection is not available.
-	ConnectionState ConnectionState `locationName:"connectionState" type:"string" enum:"true"`
+	ConnectionState ConnectionState `json:"directconnect:Connection:ConnectionState" locationName:"connectionState" type:"string" enum:"true"`
 
 	// Indicates whether the connection supports a secondary BGP peer in the same
 	// address family (IPv4/IPv6).
-	HasLogicalRedundancy HasLogicalRedundancy `locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
+	HasLogicalRedundancy HasLogicalRedundancy `json:"directconnect:Connection:HasLogicalRedundancy" locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
 
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `locationName:"jumboFrameCapable" type:"boolean"`
+	JumboFrameCapable *bool `json:"directconnect:Connection:JumboFrameCapable" locationName:"jumboFrameCapable" type:"boolean"`
 
 	// The ID of the LAG.
-	LagId *string `locationName:"lagId" type:"string"`
+	LagId *string `json:"directconnect:Connection:LagId" locationName:"lagId" type:"string"`
 
 	// The time of the most recent call to DescribeLoa for this connection.
-	LoaIssueTime *time.Time `locationName:"loaIssueTime" type:"timestamp" timestampFormat:"unix"`
+	LoaIssueTime *time.Time `json:"directconnect:Connection:LoaIssueTime" locationName:"loaIssueTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The location of the connection.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"directconnect:Connection:Location" locationName:"location" type:"string"`
 
 	// The ID of the AWS account that owns the connection.
-	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
+	OwnerAccount *string `json:"directconnect:Connection:OwnerAccount" locationName:"ownerAccount" type:"string"`
 
 	// The name of the AWS Direct Connect service provider associated with the connection.
-	PartnerName *string `locationName:"partnerName" type:"string"`
+	PartnerName *string `json:"directconnect:Connection:PartnerName" locationName:"partnerName" type:"string"`
 
 	// The AWS Region where the connection is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:Connection:Region" locationName:"region" type:"string"`
 
 	// Any tags assigned to the connection.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:Connection:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The ID of the VLAN.
-	Vlan *int64 `locationName:"vlan" type:"integer"`
+	Vlan *int64 `json:"directconnect:Connection:Vlan" locationName:"vlan" type:"integer"`
 }
 
 // String returns the string representation
@@ -187,13 +187,13 @@ type DirectConnectGateway struct {
 	_ struct{} `type:"structure"`
 
 	// The autonomous system number (ASN) for the Amazon side of the connection.
-	AmazonSideAsn *int64 `locationName:"amazonSideAsn" type:"long"`
+	AmazonSideAsn *int64 `json:"directconnect:DirectConnectGateway:AmazonSideAsn" locationName:"amazonSideAsn" type:"long"`
 
 	// The ID of the Direct Connect gateway.
-	DirectConnectGatewayId *string `locationName:"directConnectGatewayId" type:"string"`
+	DirectConnectGatewayId *string `json:"directconnect:DirectConnectGateway:DirectConnectGatewayId" locationName:"directConnectGatewayId" type:"string"`
 
 	// The name of the Direct Connect gateway.
-	DirectConnectGatewayName *string `locationName:"directConnectGatewayName" type:"string"`
+	DirectConnectGatewayName *string `json:"directconnect:DirectConnectGateway:DirectConnectGatewayName" locationName:"directConnectGatewayName" type:"string"`
 
 	// The state of the Direct Connect gateway. The following are the possible values:
 	//
@@ -204,13 +204,13 @@ type DirectConnectGateway struct {
 	//    * deleting: The initial state after calling DeleteDirectConnectGateway.
 	//
 	//    * deleted: The Direct Connect gateway is deleted and cannot pass traffic.
-	DirectConnectGatewayState DirectConnectGatewayState `locationName:"directConnectGatewayState" type:"string" enum:"true"`
+	DirectConnectGatewayState DirectConnectGatewayState `json:"directconnect:DirectConnectGateway:DirectConnectGatewayState" locationName:"directConnectGatewayState" type:"string" enum:"true"`
 
 	// The ID of the AWS account that owns the Direct Connect gateway.
-	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
+	OwnerAccount *string `json:"directconnect:DirectConnectGateway:OwnerAccount" locationName:"ownerAccount" type:"string"`
 
 	// The error message if the state of an object failed to advance.
-	StateChangeError *string `locationName:"stateChangeError" type:"string"`
+	StateChangeError *string `json:"directconnect:DirectConnectGateway:StateChangeError" locationName:"stateChangeError" type:"string"`
 }
 
 // String returns the string representation
@@ -225,13 +225,13 @@ type DirectConnectGatewayAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon VPC prefixes to advertise to the Direct Connect gateway.
-	AllowedPrefixesToDirectConnectGateway []RouteFilterPrefix `locationName:"allowedPrefixesToDirectConnectGateway" type:"list"`
+	AllowedPrefixesToDirectConnectGateway []RouteFilterPrefix `json:"directconnect:DirectConnectGatewayAssociation:AllowedPrefixesToDirectConnectGateway" locationName:"allowedPrefixesToDirectConnectGateway" type:"list"`
 
 	// Information about the associated gateway.
-	AssociatedGateway *AssociatedGateway `locationName:"associatedGateway" type:"structure"`
+	AssociatedGateway *AssociatedGateway `json:"directconnect:DirectConnectGatewayAssociation:AssociatedGateway" locationName:"associatedGateway" type:"structure"`
 
 	// The ID of the Direct Connect gateway association.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"directconnect:DirectConnectGatewayAssociation:AssociationId" locationName:"associationId" type:"string"`
 
 	// The state of the association. The following are the possible values:
 	//
@@ -245,25 +245,25 @@ type DirectConnectGatewayAssociation struct {
 	//    * disassociated: The virtual private gateway or transit gateway is disassociated
 	//    from the Direct Connect gateway. Traffic flow between the Direct Connect
 	//    gateway and virtual private gateway or transit gateway is stopped.
-	AssociationState DirectConnectGatewayAssociationState `locationName:"associationState" type:"string" enum:"true"`
+	AssociationState DirectConnectGatewayAssociationState `json:"directconnect:DirectConnectGatewayAssociation:AssociationState" locationName:"associationState" type:"string" enum:"true"`
 
 	// The ID of the Direct Connect gateway.
-	DirectConnectGatewayId *string `locationName:"directConnectGatewayId" type:"string"`
+	DirectConnectGatewayId *string `json:"directconnect:DirectConnectGatewayAssociation:DirectConnectGatewayId" locationName:"directConnectGatewayId" type:"string"`
 
 	// The ID of the AWS account that owns the associated gateway.
-	DirectConnectGatewayOwnerAccount *string `locationName:"directConnectGatewayOwnerAccount" type:"string"`
+	DirectConnectGatewayOwnerAccount *string `json:"directconnect:DirectConnectGatewayAssociation:DirectConnectGatewayOwnerAccount" locationName:"directConnectGatewayOwnerAccount" type:"string"`
 
 	// The error message if the state of an object failed to advance.
-	StateChangeError *string `locationName:"stateChangeError" type:"string"`
+	StateChangeError *string `json:"directconnect:DirectConnectGatewayAssociation:StateChangeError" locationName:"stateChangeError" type:"string"`
 
 	// The ID of the virtual private gateway. Applies only to private virtual interfaces.
-	VirtualGatewayId *string `locationName:"virtualGatewayId" deprecated:"true" type:"string"`
+	VirtualGatewayId *string `json:"directconnect:DirectConnectGatewayAssociation:VirtualGatewayId" locationName:"virtualGatewayId" deprecated:"true" type:"string"`
 
 	// The ID of the AWS account that owns the virtual private gateway.
-	VirtualGatewayOwnerAccount *string `locationName:"virtualGatewayOwnerAccount" type:"string"`
+	VirtualGatewayOwnerAccount *string `json:"directconnect:DirectConnectGatewayAssociation:VirtualGatewayOwnerAccount" locationName:"virtualGatewayOwnerAccount" type:"string"`
 
 	// The AWS Region where the virtual private gateway is located.
-	VirtualGatewayRegion *string `locationName:"virtualGatewayRegion" deprecated:"true" type:"string"`
+	VirtualGatewayRegion *string `json:"directconnect:DirectConnectGatewayAssociation:VirtualGatewayRegion" locationName:"virtualGatewayRegion" deprecated:"true" type:"string"`
 }
 
 // String returns the string representation
@@ -278,19 +278,19 @@ type DirectConnectGatewayAssociationProposal struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the associated gateway.
-	AssociatedGateway *AssociatedGateway `locationName:"associatedGateway" type:"structure"`
+	AssociatedGateway *AssociatedGateway `json:"directconnect:DirectConnectGatewayAssociationProposal:AssociatedGateway" locationName:"associatedGateway" type:"structure"`
 
 	// The ID of the Direct Connect gateway.
-	DirectConnectGatewayId *string `locationName:"directConnectGatewayId" type:"string"`
+	DirectConnectGatewayId *string `json:"directconnect:DirectConnectGatewayAssociationProposal:DirectConnectGatewayId" locationName:"directConnectGatewayId" type:"string"`
 
 	// The ID of the AWS account that owns the Direct Connect gateway.
-	DirectConnectGatewayOwnerAccount *string `locationName:"directConnectGatewayOwnerAccount" type:"string"`
+	DirectConnectGatewayOwnerAccount *string `json:"directconnect:DirectConnectGatewayAssociationProposal:DirectConnectGatewayOwnerAccount" locationName:"directConnectGatewayOwnerAccount" type:"string"`
 
 	// The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
-	ExistingAllowedPrefixesToDirectConnectGateway []RouteFilterPrefix `locationName:"existingAllowedPrefixesToDirectConnectGateway" type:"list"`
+	ExistingAllowedPrefixesToDirectConnectGateway []RouteFilterPrefix `json:"directconnect:DirectConnectGatewayAssociationProposal:ExistingAllowedPrefixesToDirectConnectGateway" locationName:"existingAllowedPrefixesToDirectConnectGateway" type:"list"`
 
 	// The ID of the association proposal.
-	ProposalId *string `locationName:"proposalId" type:"string"`
+	ProposalId *string `json:"directconnect:DirectConnectGatewayAssociationProposal:ProposalId" locationName:"proposalId" type:"string"`
 
 	// The state of the proposal. The following are possible values:
 	//
@@ -302,10 +302,10 @@ type DirectConnectGatewayAssociationProposal struct {
 	//
 	//    * requested: The proposal has been requested. The Direct Connect gateway
 	//    association cannot be used in this state.
-	ProposalState DirectConnectGatewayAssociationProposalState `locationName:"proposalState" type:"string" enum:"true"`
+	ProposalState DirectConnectGatewayAssociationProposalState `json:"directconnect:DirectConnectGatewayAssociationProposal:ProposalState" locationName:"proposalState" type:"string" enum:"true"`
 
 	// The Amazon VPC prefixes to advertise to the Direct Connect gateway.
-	RequestedAllowedPrefixesToDirectConnectGateway []RouteFilterPrefix `locationName:"requestedAllowedPrefixesToDirectConnectGateway" type:"list"`
+	RequestedAllowedPrefixesToDirectConnectGateway []RouteFilterPrefix `json:"directconnect:DirectConnectGatewayAssociationProposal:RequestedAllowedPrefixesToDirectConnectGateway" locationName:"requestedAllowedPrefixesToDirectConnectGateway" type:"list"`
 }
 
 // String returns the string representation
@@ -332,25 +332,25 @@ type DirectConnectGatewayAttachment struct {
 	//    * detached: The virtual interface is detached from the Direct Connect
 	//    gateway. Traffic flow between the Direct Connect gateway and virtual interface
 	//    is stopped.
-	AttachmentState DirectConnectGatewayAttachmentState `locationName:"attachmentState" type:"string" enum:"true"`
+	AttachmentState DirectConnectGatewayAttachmentState `json:"directconnect:DirectConnectGatewayAttachment:AttachmentState" locationName:"attachmentState" type:"string" enum:"true"`
 
 	// The interface type.
-	AttachmentType DirectConnectGatewayAttachmentType `locationName:"attachmentType" type:"string" enum:"true"`
+	AttachmentType DirectConnectGatewayAttachmentType `json:"directconnect:DirectConnectGatewayAttachment:AttachmentType" locationName:"attachmentType" type:"string" enum:"true"`
 
 	// The ID of the Direct Connect gateway.
-	DirectConnectGatewayId *string `locationName:"directConnectGatewayId" type:"string"`
+	DirectConnectGatewayId *string `json:"directconnect:DirectConnectGatewayAttachment:DirectConnectGatewayId" locationName:"directConnectGatewayId" type:"string"`
 
 	// The error message if the state of an object failed to advance.
-	StateChangeError *string `locationName:"stateChangeError" type:"string"`
+	StateChangeError *string `json:"directconnect:DirectConnectGatewayAttachment:StateChangeError" locationName:"stateChangeError" type:"string"`
 
 	// The ID of the virtual interface.
-	VirtualInterfaceId *string `locationName:"virtualInterfaceId" type:"string"`
+	VirtualInterfaceId *string `json:"directconnect:DirectConnectGatewayAttachment:VirtualInterfaceId" locationName:"virtualInterfaceId" type:"string"`
 
 	// The ID of the AWS account that owns the virtual interface.
-	VirtualInterfaceOwnerAccount *string `locationName:"virtualInterfaceOwnerAccount" type:"string"`
+	VirtualInterfaceOwnerAccount *string `json:"directconnect:DirectConnectGatewayAttachment:VirtualInterfaceOwnerAccount" locationName:"virtualInterfaceOwnerAccount" type:"string"`
 
 	// The AWS Region where the virtual interface is located.
-	VirtualInterfaceRegion *string `locationName:"virtualInterfaceRegion" type:"string"`
+	VirtualInterfaceRegion *string `json:"directconnect:DirectConnectGatewayAttachment:VirtualInterfaceRegion" locationName:"virtualInterfaceRegion" type:"string"`
 }
 
 // String returns the string representation
@@ -364,23 +364,23 @@ type Interconnect struct {
 	_ struct{} `type:"structure"`
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDevice *string `locationName:"awsDevice" deprecated:"true" type:"string"`
+	AwsDevice *string `json:"directconnect:Interconnect:AwsDevice" locationName:"awsDevice" deprecated:"true" type:"string"`
 
 	// The Direct Connect endpoint on which the physical connection terminates.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:Interconnect:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The bandwidth of the connection.
-	Bandwidth *string `locationName:"bandwidth" type:"string"`
+	Bandwidth *string `json:"directconnect:Interconnect:Bandwidth" locationName:"bandwidth" type:"string"`
 
 	// Indicates whether the interconnect supports a secondary BGP in the same address
 	// family (IPv4/IPv6).
-	HasLogicalRedundancy HasLogicalRedundancy `locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
+	HasLogicalRedundancy HasLogicalRedundancy `json:"directconnect:Interconnect:HasLogicalRedundancy" locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
 
 	// The ID of the interconnect.
-	InterconnectId *string `locationName:"interconnectId" type:"string"`
+	InterconnectId *string `json:"directconnect:Interconnect:InterconnectId" locationName:"interconnectId" type:"string"`
 
 	// The name of the interconnect.
-	InterconnectName *string `locationName:"interconnectName" type:"string"`
+	InterconnectName *string `json:"directconnect:Interconnect:InterconnectName" locationName:"interconnectName" type:"string"`
 
 	// The state of the interconnect. The following are the possible values:
 	//
@@ -400,25 +400,25 @@ type Interconnect struct {
 	//    * deleted: The interconnect is deleted.
 	//
 	//    * unknown: The state of the interconnect is not available.
-	InterconnectState InterconnectState `locationName:"interconnectState" type:"string" enum:"true"`
+	InterconnectState InterconnectState `json:"directconnect:Interconnect:InterconnectState" locationName:"interconnectState" type:"string" enum:"true"`
 
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `locationName:"jumboFrameCapable" type:"boolean"`
+	JumboFrameCapable *bool `json:"directconnect:Interconnect:JumboFrameCapable" locationName:"jumboFrameCapable" type:"boolean"`
 
 	// The ID of the LAG.
-	LagId *string `locationName:"lagId" type:"string"`
+	LagId *string `json:"directconnect:Interconnect:LagId" locationName:"lagId" type:"string"`
 
 	// The time of the most recent call to DescribeLoa for this connection.
-	LoaIssueTime *time.Time `locationName:"loaIssueTime" type:"timestamp" timestampFormat:"unix"`
+	LoaIssueTime *time.Time `json:"directconnect:Interconnect:LoaIssueTime" locationName:"loaIssueTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The location of the connection.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"directconnect:Interconnect:Location" locationName:"location" type:"string"`
 
 	// The AWS Region where the connection is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:Interconnect:Region" locationName:"region" type:"string"`
 
 	// Any tags assigned to the interconnect.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:Interconnect:Tags" locationName:"tags" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -432,33 +432,33 @@ type Lag struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the LAG can host other connections.
-	AllowsHostedConnections *bool `locationName:"allowsHostedConnections" type:"boolean"`
+	AllowsHostedConnections *bool `json:"directconnect:Lag:AllowsHostedConnections" locationName:"allowsHostedConnections" type:"boolean"`
 
 	// The AWS Direct Connect endpoint that hosts the LAG.
-	AwsDevice *string `locationName:"awsDevice" deprecated:"true" type:"string"`
+	AwsDevice *string `json:"directconnect:Lag:AwsDevice" locationName:"awsDevice" deprecated:"true" type:"string"`
 
 	// The AWS Direct Connect endpoint that hosts the LAG.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:Lag:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The connections bundled by the LAG.
-	Connections []Connection `locationName:"connections" type:"list"`
+	Connections []Connection `json:"directconnect:Lag:Connections" locationName:"connections" type:"list"`
 
 	// The individual bandwidth of the physical connections bundled by the LAG.
 	// The possible values are 1Gbps and 10Gbps.
-	ConnectionsBandwidth *string `locationName:"connectionsBandwidth" type:"string"`
+	ConnectionsBandwidth *string `json:"directconnect:Lag:ConnectionsBandwidth" locationName:"connectionsBandwidth" type:"string"`
 
 	// Indicates whether the LAG supports a secondary BGP peer in the same address
 	// family (IPv4/IPv6).
-	HasLogicalRedundancy HasLogicalRedundancy `locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
+	HasLogicalRedundancy HasLogicalRedundancy `json:"directconnect:Lag:HasLogicalRedundancy" locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
 
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `locationName:"jumboFrameCapable" type:"boolean"`
+	JumboFrameCapable *bool `json:"directconnect:Lag:JumboFrameCapable" locationName:"jumboFrameCapable" type:"boolean"`
 
 	// The ID of the LAG.
-	LagId *string `locationName:"lagId" type:"string"`
+	LagId *string `json:"directconnect:Lag:LagId" locationName:"lagId" type:"string"`
 
 	// The name of the LAG.
-	LagName *string `locationName:"lagName" type:"string"`
+	LagName *string `json:"directconnect:Lag:LagName" locationName:"lagName" type:"string"`
 
 	// The state of the LAG. The following are the possible values:
 	//
@@ -477,27 +477,27 @@ type Lag struct {
 	//    * deleted: The LAG is deleted.
 	//
 	//    * unknown: The state of the LAG is not available.
-	LagState LagState `locationName:"lagState" type:"string" enum:"true"`
+	LagState LagState `json:"directconnect:Lag:LagState" locationName:"lagState" type:"string" enum:"true"`
 
 	// The location of the LAG.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"directconnect:Lag:Location" locationName:"location" type:"string"`
 
 	// The minimum number of physical connections that must be operational for the
 	// LAG itself to be operational.
-	MinimumLinks *int64 `locationName:"minimumLinks" type:"integer"`
+	MinimumLinks *int64 `json:"directconnect:Lag:MinimumLinks" locationName:"minimumLinks" type:"integer"`
 
 	// The number of physical connections bundled by the LAG, up to a maximum of
 	// 10.
-	NumberOfConnections *int64 `locationName:"numberOfConnections" type:"integer"`
+	NumberOfConnections *int64 `json:"directconnect:Lag:NumberOfConnections" locationName:"numberOfConnections" type:"integer"`
 
 	// The ID of the AWS account that owns the LAG.
-	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
+	OwnerAccount *string `json:"directconnect:Lag:OwnerAccount" locationName:"ownerAccount" type:"string"`
 
 	// The AWS Region where the connection is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:Lag:Region" locationName:"region" type:"string"`
 
 	// Any tags assigned to link aggregation group (LAG).
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:Lag:Tags" locationName:"tags" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -514,11 +514,11 @@ type Loa struct {
 	// The binary contents of the LOA-CFA document.
 	//
 	// LoaContent is automatically base64 encoded/decoded by the SDK.
-	LoaContent []byte `locationName:"loaContent" type:"blob"`
+	LoaContent []byte `json:"directconnect:Loa:LoaContent" locationName:"loaContent" type:"blob"`
 
 	// The standard media type for the LOA-CFA document. The only supported value
 	// is application/pdf.
-	LoaContentType LoaContentType `locationName:"loaContentType" type:"string" enum:"true"`
+	LoaContentType LoaContentType `json:"directconnect:Loa:LoaContentType" locationName:"loaContentType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -532,17 +532,17 @@ type Location struct {
 	_ struct{} `type:"structure"`
 
 	// The available port speeds for the location.
-	AvailablePortSpeeds []string `locationName:"availablePortSpeeds" type:"list"`
+	AvailablePortSpeeds []string `json:"directconnect:Location:AvailablePortSpeeds" locationName:"availablePortSpeeds" type:"list"`
 
 	// The code for the location.
-	LocationCode *string `locationName:"locationCode" type:"string"`
+	LocationCode *string `json:"directconnect:Location:LocationCode" locationName:"locationCode" type:"string"`
 
 	// The name of the location. This includes the name of the colocation partner
 	// and the physical site of the building.
-	LocationName *string `locationName:"locationName" type:"string"`
+	LocationName *string `json:"directconnect:Location:LocationName" locationName:"locationName" type:"string"`
 
 	// The AWS Region for the location.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:Location:Region" locationName:"region" type:"string"`
 }
 
 // String returns the string representation
@@ -556,20 +556,20 @@ type NewBGPPeer struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:NewBGPPeer:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:NewBGPPeer:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	Asn *int64 `locationName:"asn" type:"integer"`
+	Asn *int64 `json:"directconnect:NewBGPPeer:Asn" locationName:"asn" type:"integer"`
 
 	// The authentication key for BGP configuration. This string has a minimum length
 	// of 6 characters and and a maximun lenth of 80 characters.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:NewBGPPeer:AuthKey" locationName:"authKey" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:NewBGPPeer:CustomerAddress" locationName:"customerAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -583,45 +583,45 @@ type NewPrivateVirtualInterface struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:NewPrivateVirtualInterface:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:NewPrivateVirtualInterface:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	//
 	// Asn is a required field
-	Asn *int64 `locationName:"asn" type:"integer" required:"true"`
+	Asn *int64 `json:"directconnect:NewPrivateVirtualInterface:Asn" locationName:"asn" type:"integer" required:"true"`
 
 	// The authentication key for BGP configuration. This string has a minimum length
 	// of 6 characters and and a maximun lenth of 80 characters.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:NewPrivateVirtualInterface:AuthKey" locationName:"authKey" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:NewPrivateVirtualInterface:CustomerAddress" locationName:"customerAddress" type:"string"`
 
 	// The ID of the Direct Connect gateway.
-	DirectConnectGatewayId *string `locationName:"directConnectGatewayId" type:"string"`
+	DirectConnectGatewayId *string `json:"directconnect:NewPrivateVirtualInterface:DirectConnectGatewayId" locationName:"directConnectGatewayId" type:"string"`
 
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500
 	// and 9001. The default value is 1500.
-	Mtu *int64 `locationName:"mtu" type:"integer"`
+	Mtu *int64 `json:"directconnect:NewPrivateVirtualInterface:Mtu" locationName:"mtu" type:"integer"`
 
 	// Any tags assigned to the private virtual interface.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:NewPrivateVirtualInterface:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The ID of the virtual private gateway.
-	VirtualGatewayId *string `locationName:"virtualGatewayId" deprecated:"true" type:"string"`
+	VirtualGatewayId *string `json:"directconnect:NewPrivateVirtualInterface:VirtualGatewayId" locationName:"virtualGatewayId" deprecated:"true" type:"string"`
 
 	// The name of the virtual interface assigned by the customer network.
 	//
 	// VirtualInterfaceName is a required field
-	VirtualInterfaceName *string `locationName:"virtualInterfaceName" type:"string" required:"true"`
+	VirtualInterfaceName *string `json:"directconnect:NewPrivateVirtualInterface:VirtualInterfaceName" locationName:"virtualInterfaceName" type:"string" required:"true"`
 
 	// The ID of the VLAN.
 	//
 	// Vlan is a required field
-	Vlan *int64 `locationName:"vlan" type:"integer" required:"true"`
+	Vlan *int64 `json:"directconnect:NewPrivateVirtualInterface:Vlan" locationName:"vlan" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -667,40 +667,40 @@ type NewPrivateVirtualInterfaceAllocation struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:NewPrivateVirtualInterfaceAllocation:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:NewPrivateVirtualInterfaceAllocation:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	//
 	// Asn is a required field
-	Asn *int64 `locationName:"asn" type:"integer" required:"true"`
+	Asn *int64 `json:"directconnect:NewPrivateVirtualInterfaceAllocation:Asn" locationName:"asn" type:"integer" required:"true"`
 
 	// The authentication key for BGP configuration. This string has a minimum length
 	// of 6 characters and and a maximun lenth of 80 characters.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:NewPrivateVirtualInterfaceAllocation:AuthKey" locationName:"authKey" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:NewPrivateVirtualInterfaceAllocation:CustomerAddress" locationName:"customerAddress" type:"string"`
 
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500
 	// and 9001. The default value is 1500.
-	Mtu *int64 `locationName:"mtu" type:"integer"`
+	Mtu *int64 `json:"directconnect:NewPrivateVirtualInterfaceAllocation:Mtu" locationName:"mtu" type:"integer"`
 
 	// Any tags assigned to the private virtual interface to be provisioned on a
 	// connection.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:NewPrivateVirtualInterfaceAllocation:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The name of the virtual interface assigned by the customer network.
 	//
 	// VirtualInterfaceName is a required field
-	VirtualInterfaceName *string `locationName:"virtualInterfaceName" type:"string" required:"true"`
+	VirtualInterfaceName *string `json:"directconnect:NewPrivateVirtualInterfaceAllocation:VirtualInterfaceName" locationName:"virtualInterfaceName" type:"string" required:"true"`
 
 	// The ID of the VLAN.
 	//
 	// Vlan is a required field
-	Vlan *int64 `locationName:"vlan" type:"integer" required:"true"`
+	Vlan *int64 `json:"directconnect:NewPrivateVirtualInterfaceAllocation:Vlan" locationName:"vlan" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -746,39 +746,39 @@ type NewPublicVirtualInterface struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:NewPublicVirtualInterface:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:NewPublicVirtualInterface:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	//
 	// Asn is a required field
-	Asn *int64 `locationName:"asn" type:"integer" required:"true"`
+	Asn *int64 `json:"directconnect:NewPublicVirtualInterface:Asn" locationName:"asn" type:"integer" required:"true"`
 
 	// The authentication key for BGP configuration. This string has a minimum length
 	// of 6 characters and and a maximun lenth of 80 characters.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:NewPublicVirtualInterface:AuthKey" locationName:"authKey" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:NewPublicVirtualInterface:CustomerAddress" locationName:"customerAddress" type:"string"`
 
 	// The routes to be advertised to the AWS network in this Region. Applies to
 	// public virtual interfaces.
-	RouteFilterPrefixes []RouteFilterPrefix `locationName:"routeFilterPrefixes" type:"list"`
+	RouteFilterPrefixes []RouteFilterPrefix `json:"directconnect:NewPublicVirtualInterface:RouteFilterPrefixes" locationName:"routeFilterPrefixes" type:"list"`
 
 	// Any tags assigned to the public virtual interface.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:NewPublicVirtualInterface:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The name of the virtual interface assigned by the customer network.
 	//
 	// VirtualInterfaceName is a required field
-	VirtualInterfaceName *string `locationName:"virtualInterfaceName" type:"string" required:"true"`
+	VirtualInterfaceName *string `json:"directconnect:NewPublicVirtualInterface:VirtualInterfaceName" locationName:"virtualInterfaceName" type:"string" required:"true"`
 
 	// The ID of the VLAN.
 	//
 	// Vlan is a required field
-	Vlan *int64 `locationName:"vlan" type:"integer" required:"true"`
+	Vlan *int64 `json:"directconnect:NewPublicVirtualInterface:Vlan" locationName:"vlan" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -824,40 +824,40 @@ type NewPublicVirtualInterfaceAllocation struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:NewPublicVirtualInterfaceAllocation:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:NewPublicVirtualInterfaceAllocation:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 	//
 	// Asn is a required field
-	Asn *int64 `locationName:"asn" type:"integer" required:"true"`
+	Asn *int64 `json:"directconnect:NewPublicVirtualInterfaceAllocation:Asn" locationName:"asn" type:"integer" required:"true"`
 
 	// The authentication key for BGP configuration. This string has a minimum length
 	// of 6 characters and and a maximun lenth of 80 characters.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:NewPublicVirtualInterfaceAllocation:AuthKey" locationName:"authKey" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:NewPublicVirtualInterfaceAllocation:CustomerAddress" locationName:"customerAddress" type:"string"`
 
 	// The routes to be advertised to the AWS network in this Region. Applies to
 	// public virtual interfaces.
-	RouteFilterPrefixes []RouteFilterPrefix `locationName:"routeFilterPrefixes" type:"list"`
+	RouteFilterPrefixes []RouteFilterPrefix `json:"directconnect:NewPublicVirtualInterfaceAllocation:RouteFilterPrefixes" locationName:"routeFilterPrefixes" type:"list"`
 
 	// Any tags assigned to the public virtual interface to be provisioned on a
 	// connection.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:NewPublicVirtualInterfaceAllocation:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The name of the virtual interface assigned by the customer network.
 	//
 	// VirtualInterfaceName is a required field
-	VirtualInterfaceName *string `locationName:"virtualInterfaceName" type:"string" required:"true"`
+	VirtualInterfaceName *string `json:"directconnect:NewPublicVirtualInterfaceAllocation:VirtualInterfaceName" locationName:"virtualInterfaceName" type:"string" required:"true"`
 
 	// The ID of the VLAN.
 	//
 	// Vlan is a required field
-	Vlan *int64 `locationName:"vlan" type:"integer" required:"true"`
+	Vlan *int64 `json:"directconnect:NewPublicVirtualInterfaceAllocation:Vlan" locationName:"vlan" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -903,35 +903,35 @@ type NewTransitVirtualInterface struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:NewTransitVirtualInterface:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:NewTransitVirtualInterface:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	Asn *int64 `locationName:"asn" type:"integer"`
+	Asn *int64 `json:"directconnect:NewTransitVirtualInterface:Asn" locationName:"asn" type:"integer"`
 
 	// The authentication key for BGP configuration.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:NewTransitVirtualInterface:AuthKey" locationName:"authKey" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:NewTransitVirtualInterface:CustomerAddress" locationName:"customerAddress" type:"string"`
 
 	// The ID of the Direct Connect gateway.
-	DirectConnectGatewayId *string `locationName:"directConnectGatewayId" type:"string"`
+	DirectConnectGatewayId *string `json:"directconnect:NewTransitVirtualInterface:DirectConnectGatewayId" locationName:"directConnectGatewayId" type:"string"`
 
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500
 	// and 8500. The default value is 1500.
-	Mtu *int64 `locationName:"mtu" type:"integer"`
+	Mtu *int64 `json:"directconnect:NewTransitVirtualInterface:Mtu" locationName:"mtu" type:"integer"`
 
 	// Any tags assigned to the transit virtual interface.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:NewTransitVirtualInterface:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The name of the virtual interface assigned by the customer network.
-	VirtualInterfaceName *string `locationName:"virtualInterfaceName" type:"string"`
+	VirtualInterfaceName *string `json:"directconnect:NewTransitVirtualInterface:VirtualInterfaceName" locationName:"virtualInterfaceName" type:"string"`
 
 	// The ID of the VLAN.
-	Vlan *int64 `locationName:"vlan" type:"integer"`
+	Vlan *int64 `json:"directconnect:NewTransitVirtualInterface:Vlan" locationName:"vlan" type:"integer"`
 }
 
 // String returns the string representation
@@ -965,32 +965,32 @@ type NewTransitVirtualInterfaceAllocation struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:NewTransitVirtualInterfaceAllocation:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:NewTransitVirtualInterfaceAllocation:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	Asn *int64 `locationName:"asn" type:"integer"`
+	Asn *int64 `json:"directconnect:NewTransitVirtualInterfaceAllocation:Asn" locationName:"asn" type:"integer"`
 
 	// The authentication key for BGP configuration.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:NewTransitVirtualInterfaceAllocation:AuthKey" locationName:"authKey" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:NewTransitVirtualInterfaceAllocation:CustomerAddress" locationName:"customerAddress" type:"string"`
 
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500
 	// and 8500. The default value is 1500.
-	Mtu *int64 `locationName:"mtu" type:"integer"`
+	Mtu *int64 `json:"directconnect:NewTransitVirtualInterfaceAllocation:Mtu" locationName:"mtu" type:"integer"`
 
 	// Any tags assigned to the transit virtual interface.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:NewTransitVirtualInterfaceAllocation:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The name of the virtual interface assigned by the customer network.
-	VirtualInterfaceName *string `locationName:"virtualInterfaceName" type:"string"`
+	VirtualInterfaceName *string `json:"directconnect:NewTransitVirtualInterfaceAllocation:VirtualInterfaceName" locationName:"virtualInterfaceName" type:"string"`
 
 	// The ID of the VLAN.
-	Vlan *int64 `locationName:"vlan" type:"integer"`
+	Vlan *int64 `json:"directconnect:NewTransitVirtualInterfaceAllocation:Vlan" locationName:"vlan" type:"integer"`
 }
 
 // String returns the string representation
@@ -1024,10 +1024,10 @@ type ResourceTag struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the resource.
-	ResourceArn *string `locationName:"resourceArn" type:"string"`
+	ResourceArn *string `json:"directconnect:ResourceTag:ResourceArn" locationName:"resourceArn" type:"string"`
 
 	// The tags.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:ResourceTag:Tags" locationName:"tags" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -1043,7 +1043,7 @@ type RouteFilterPrefix struct {
 
 	// The CIDR block for the advertised route. Separate multiple routes using commas.
 	// An IPv6 CIDR must use /64 or shorter.
-	Cidr *string `locationName:"cidr" type:"string"`
+	Cidr *string `json:"directconnect:RouteFilterPrefix:Cidr" locationName:"cidr" type:"string"`
 }
 
 // String returns the string representation
@@ -1059,10 +1059,10 @@ type Tag struct {
 	// The key.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"directconnect:Tag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The value.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"directconnect:Tag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -1093,7 +1093,7 @@ type VirtualGateway struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the virtual private gateway.
-	VirtualGatewayId *string `locationName:"virtualGatewayId" deprecated:"true" type:"string"`
+	VirtualGatewayId *string `json:"directconnect:VirtualGateway:VirtualGatewayId" locationName:"virtualGatewayId" deprecated:"true" type:"string"`
 
 	// The state of the virtual private gateway. The following are the possible
 	// values:
@@ -1106,7 +1106,7 @@ type VirtualGateway struct {
 	//
 	//    * deleted: The virtual private gateway is deleted. The private virtual
 	//    interface is unable to send traffic over this gateway.
-	VirtualGatewayState *string `locationName:"virtualGatewayState" type:"string"`
+	VirtualGatewayState *string `json:"directconnect:VirtualGateway:VirtualGatewayState" locationName:"virtualGatewayState" type:"string"`
 }
 
 // String returns the string representation
@@ -1120,70 +1120,70 @@ type VirtualInterface struct {
 	_ struct{} `type:"structure"`
 
 	// The address family for the BGP peer.
-	AddressFamily AddressFamily `locationName:"addressFamily" type:"string" enum:"true"`
+	AddressFamily AddressFamily `json:"directconnect:VirtualInterface:AddressFamily" locationName:"addressFamily" type:"string" enum:"true"`
 
 	// The IP address assigned to the Amazon interface.
-	AmazonAddress *string `locationName:"amazonAddress" type:"string"`
+	AmazonAddress *string `json:"directconnect:VirtualInterface:AmazonAddress" locationName:"amazonAddress" type:"string"`
 
 	// The autonomous system number (ASN) for the Amazon side of the connection.
-	AmazonSideAsn *int64 `locationName:"amazonSideAsn" type:"long"`
+	AmazonSideAsn *int64 `json:"directconnect:VirtualInterface:AmazonSideAsn" locationName:"amazonSideAsn" type:"long"`
 
 	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	Asn *int64 `locationName:"asn" type:"integer"`
+	Asn *int64 `json:"directconnect:VirtualInterface:Asn" locationName:"asn" type:"integer"`
 
 	// The authentication key for BGP configuration. This string has a minimum length
 	// of 6 characters and and a maximun lenth of 80 characters.
-	AuthKey *string `locationName:"authKey" type:"string"`
+	AuthKey *string `json:"directconnect:VirtualInterface:AuthKey" locationName:"authKey" type:"string"`
 
 	// The Direct Connect endpoint on which the virtual interface terminates.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:VirtualInterface:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The BGP peers configured on this virtual interface.
-	BgpPeers []BGPPeer `locationName:"bgpPeers" type:"list"`
+	BgpPeers []BGPPeer `json:"directconnect:VirtualInterface:BgpPeers" locationName:"bgpPeers" type:"list"`
 
 	// The ID of the connection.
-	ConnectionId *string `locationName:"connectionId" type:"string"`
+	ConnectionId *string `json:"directconnect:VirtualInterface:ConnectionId" locationName:"connectionId" type:"string"`
 
 	// The IP address assigned to the customer interface.
-	CustomerAddress *string `locationName:"customerAddress" type:"string"`
+	CustomerAddress *string `json:"directconnect:VirtualInterface:CustomerAddress" locationName:"customerAddress" type:"string"`
 
 	// The customer router configuration.
-	CustomerRouterConfig *string `locationName:"customerRouterConfig" type:"string"`
+	CustomerRouterConfig *string `json:"directconnect:VirtualInterface:CustomerRouterConfig" locationName:"customerRouterConfig" type:"string"`
 
 	// The ID of the Direct Connect gateway.
-	DirectConnectGatewayId *string `locationName:"directConnectGatewayId" type:"string"`
+	DirectConnectGatewayId *string `json:"directconnect:VirtualInterface:DirectConnectGatewayId" locationName:"directConnectGatewayId" type:"string"`
 
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `locationName:"jumboFrameCapable" type:"boolean"`
+	JumboFrameCapable *bool `json:"directconnect:VirtualInterface:JumboFrameCapable" locationName:"jumboFrameCapable" type:"boolean"`
 
 	// The location of the connection.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"directconnect:VirtualInterface:Location" locationName:"location" type:"string"`
 
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500
 	// and 9001. The default value is 1500.
-	Mtu *int64 `locationName:"mtu" type:"integer"`
+	Mtu *int64 `json:"directconnect:VirtualInterface:Mtu" locationName:"mtu" type:"integer"`
 
 	// The ID of the AWS account that owns the virtual interface.
-	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
+	OwnerAccount *string `json:"directconnect:VirtualInterface:OwnerAccount" locationName:"ownerAccount" type:"string"`
 
 	// The AWS Region where the virtual interface is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:VirtualInterface:Region" locationName:"region" type:"string"`
 
 	// The routes to be advertised to the AWS network in this Region. Applies to
 	// public virtual interfaces.
-	RouteFilterPrefixes []RouteFilterPrefix `locationName:"routeFilterPrefixes" type:"list"`
+	RouteFilterPrefixes []RouteFilterPrefix `json:"directconnect:VirtualInterface:RouteFilterPrefixes" locationName:"routeFilterPrefixes" type:"list"`
 
 	// Any tags assigned to the virtual interface.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:VirtualInterface:Tags" locationName:"tags" min:"1" type:"list"`
 
 	// The ID of the virtual private gateway. Applies only to private virtual interfaces.
-	VirtualGatewayId *string `locationName:"virtualGatewayId" deprecated:"true" type:"string"`
+	VirtualGatewayId *string `json:"directconnect:VirtualInterface:VirtualGatewayId" locationName:"virtualGatewayId" deprecated:"true" type:"string"`
 
 	// The ID of the virtual interface.
-	VirtualInterfaceId *string `locationName:"virtualInterfaceId" type:"string"`
+	VirtualInterfaceId *string `json:"directconnect:VirtualInterface:VirtualInterfaceId" locationName:"virtualInterfaceId" type:"string"`
 
 	// The name of the virtual interface assigned by the customer network.
-	VirtualInterfaceName *string `locationName:"virtualInterfaceName" type:"string"`
+	VirtualInterfaceName *string `json:"directconnect:VirtualInterface:VirtualInterfaceName" locationName:"virtualInterfaceName" type:"string"`
 
 	// The state of the virtual interface. The following are the possible values:
 	//
@@ -1215,13 +1215,13 @@ type VirtualInterface struct {
 	//    state.
 	//
 	//    * unknown: The state of the virtual interface is not available.
-	VirtualInterfaceState VirtualInterfaceState `locationName:"virtualInterfaceState" type:"string" enum:"true"`
+	VirtualInterfaceState VirtualInterfaceState `json:"directconnect:VirtualInterface:VirtualInterfaceState" locationName:"virtualInterfaceState" type:"string" enum:"true"`
 
 	// The type of virtual interface. The possible values are private and public.
-	VirtualInterfaceType *string `locationName:"virtualInterfaceType" type:"string"`
+	VirtualInterfaceType *string `json:"directconnect:VirtualInterface:VirtualInterfaceType" locationName:"virtualInterfaceType" type:"string"`
 
 	// The ID of the VLAN.
-	Vlan *int64 `locationName:"vlan" type:"integer"`
+	Vlan *int64 `json:"directconnect:VirtualInterface:Vlan" locationName:"vlan" type:"integer"`
 }
 
 // String returns the string representation

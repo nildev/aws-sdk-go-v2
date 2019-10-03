@@ -43,7 +43,7 @@ type DescribeSolutionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The solution version.
-	SolutionVersion *SolutionVersion `locationName:"solutionVersion" type:"structure"`
+	SolutionVersion *SolutionVersion `json:"personalize:DescribeSolutionVersionOutput:SolutionVersion" locationName:"solutionVersion" type:"structure"`
 }
 
 // String returns the string representation

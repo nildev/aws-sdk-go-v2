@@ -99,10 +99,10 @@ type DescribeSnapshotsOutput struct {
 	// the results of a DescribeSnapshots request exceed MaxResults, this value
 	// can be used to retrieve the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeSnapshotsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the snapshots.
-	Snapshots []Snapshot `locationName:"snapshotSet" locationNameList:"item" type:"list"`
+	Snapshots []Snapshot `json:"ec2:DescribeSnapshotsOutput:Snapshots" locationName:"snapshotSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

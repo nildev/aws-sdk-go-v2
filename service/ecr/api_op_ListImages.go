@@ -75,13 +75,13 @@ type ListImagesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of image IDs for the requested repository.
-	ImageIds []ImageIdentifier `locationName:"imageIds" min:"1" type:"list"`
+	ImageIds []ImageIdentifier `json:"api.ecr:ListImagesOutput:ImageIds" locationName:"imageIds" min:"1" type:"list"`
 
 	// The nextToken value to include in a future ListImages request. When the results
 	// of a ListImages request exceed maxResults, this value can be used to retrieve
 	// the next page of results. This value is null when there are no more results
 	// to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"api.ecr:ListImagesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

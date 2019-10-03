@@ -24,7 +24,7 @@ type ExportConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier that you can use to query the export status.
-	ExportId *string `locationName:"exportId" type:"string"`
+	ExportId *string `json:"discovery:ExportConfigurationsOutput:ExportId" locationName:"exportId" type:"string"`
 }
 
 // String returns the string representation

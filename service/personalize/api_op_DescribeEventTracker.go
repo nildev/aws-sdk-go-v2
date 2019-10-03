@@ -43,7 +43,7 @@ type DescribeEventTrackerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that describes the event tracker.
-	EventTracker *EventTracker `locationName:"eventTracker" type:"structure"`
+	EventTracker *EventTracker `json:"personalize:DescribeEventTrackerOutput:EventTracker" locationName:"eventTracker" type:"structure"`
 }
 
 // String returns the string representation

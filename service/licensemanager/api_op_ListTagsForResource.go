@@ -43,7 +43,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of tags attached to the resource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"license-manager:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

@@ -54,7 +54,7 @@ type RebuildWorkspacesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the WorkSpace that could not be rebuilt.
-	FailedRequests []FailedWorkspaceChangeRequest `type:"list"`
+	FailedRequests []FailedWorkspaceChangeRequest `json:"workspaces:RebuildWorkspacesOutput:FailedRequests" type:"list"`
 }
 
 // String returns the string representation

@@ -209,14 +209,14 @@ type CreateSecretOutput struct {
 	// a new secret with the same name as an old secret that you previously deleted,
 	// then users with access to the old secret don't automatically get access to
 	// the new secret because the ARNs are different.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:CreateSecretOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret that you just created.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:CreateSecretOutput:Name" min:"1" type:"string"`
 
 	// The unique identifier that's associated with the version of the secret you
 	// just created.
-	VersionId *string `min:"32" type:"string"`
+	VersionId *string `json:"secretsmanager:CreateSecretOutput:VersionId" min:"32" type:"string"`
 }
 
 // String returns the string representation

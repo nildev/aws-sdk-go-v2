@@ -75,7 +75,7 @@ type CreateDeploymentConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique deployment configuration ID.
-	DeploymentConfigId *string `locationName:"deploymentConfigId" type:"string"`
+	DeploymentConfigId *string `json:"codedeploy:CreateDeploymentConfigOutput:DeploymentConfigId" locationName:"deploymentConfigId" type:"string"`
 }
 
 // String returns the string representation

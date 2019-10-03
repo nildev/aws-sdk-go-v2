@@ -48,10 +48,10 @@ type ListBootstrapActionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The bootstrap actions associated with the cluster.
-	BootstrapActions []Command `type:"list"`
+	BootstrapActions []Command `json:"elasticmapreduce:ListBootstrapActionsOutput:BootstrapActions" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticmapreduce:ListBootstrapActionsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

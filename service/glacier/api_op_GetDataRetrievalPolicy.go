@@ -61,7 +61,7 @@ type GetDataRetrievalPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the returned data retrieval policy in JSON format.
-	Policy *DataRetrievalPolicy `type:"structure"`
+	Policy *DataRetrievalPolicy `json:"glacier:GetDataRetrievalPolicyOutput:Policy" type:"structure"`
 }
 
 // String returns the string representation

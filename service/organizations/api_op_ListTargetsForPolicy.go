@@ -70,11 +70,11 @@ type ListTargetsForPolicyOutput struct {
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListTargetsForPolicyOutput:NextToken" type:"string"`
 
 	// A list of structures, each of which contains details about one of the entities
 	// to which the specified policy is attached.
-	Targets []PolicyTargetSummary `type:"list"`
+	Targets []PolicyTargetSummary `json:"organizations:ListTargetsForPolicyOutput:Targets" type:"list"`
 }
 
 // String returns the string representation

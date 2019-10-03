@@ -175,20 +175,20 @@ type CreateAuthorizerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents an Amazon Resource Name (ARN).
-	AuthorizerCredentialsArn *string `locationName:"authorizerCredentialsArn" type:"string"`
+	AuthorizerCredentialsArn *string `json:"apigateway:CreateAuthorizerOutput:AuthorizerCredentialsArn" locationName:"authorizerCredentialsArn" type:"string"`
 
 	// The identifier.
-	AuthorizerId *string `locationName:"authorizerId" type:"string"`
+	AuthorizerId *string `json:"apigateway:CreateAuthorizerOutput:AuthorizerId" locationName:"authorizerId" type:"string"`
 
 	// An integer with a value between [0-3600].
-	AuthorizerResultTtlInSeconds *int64 `locationName:"authorizerResultTtlInSeconds" type:"integer"`
+	AuthorizerResultTtlInSeconds *int64 `json:"apigateway:CreateAuthorizerOutput:AuthorizerResultTtlInSeconds" locationName:"authorizerResultTtlInSeconds" type:"integer"`
 
 	// The authorizer type. Currently the only valid value is REQUEST, for a Lambda
 	// function using incoming request parameters.
-	AuthorizerType AuthorizerType `locationName:"authorizerType" type:"string" enum:"true"`
+	AuthorizerType AuthorizerType `json:"apigateway:CreateAuthorizerOutput:AuthorizerType" locationName:"authorizerType" type:"string" enum:"true"`
 
 	// A string representation of a URI with a length between [1-2048].
-	AuthorizerUri *string `locationName:"authorizerUri" type:"string"`
+	AuthorizerUri *string `json:"apigateway:CreateAuthorizerOutput:AuthorizerUri" locationName:"authorizerUri" type:"string"`
 
 	// The identity source for which authorization is requested. For the REQUEST
 	// authorizer, this is required when authorization caching is enabled. The value
@@ -203,16 +203,16 @@ type CreateAuthorizerOutput struct {
 	// response without calling the Lambda function. The valid value is a string
 	// of comma-separated mapping expressions of the specified request parameters.
 	// When the authorization caching is not enabled, this property is optional.
-	IdentitySource []string `locationName:"identitySource" type:"list"`
+	IdentitySource []string `json:"apigateway:CreateAuthorizerOutput:IdentitySource" locationName:"identitySource" type:"list"`
 
 	// A string with a length between [0-1024].
-	IdentityValidationExpression *string `locationName:"identityValidationExpression" type:"string"`
+	IdentityValidationExpression *string `json:"apigateway:CreateAuthorizerOutput:IdentityValidationExpression" locationName:"identityValidationExpression" type:"string"`
 
 	// A string with a length between [1-128].
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:CreateAuthorizerOutput:Name" locationName:"name" type:"string"`
 
 	// For REQUEST authorizer, this is not defined.
-	ProviderArns []string `locationName:"providerArns" type:"list"`
+	ProviderArns []string `json:"apigateway:CreateAuthorizerOutput:ProviderArns" locationName:"providerArns" type:"list"`
 }
 
 // String returns the string representation

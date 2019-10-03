@@ -50,13 +50,13 @@ type ListIPSetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of IPSetSummary objects.
-	IPSets []IPSetSummary `type:"list"`
+	IPSets []IPSetSummary `json:"waf:ListIPSetsOutput:IPSets" type:"list"`
 
 	// If you have more IPSet objects than the number that you specified for Limit
 	// in the request, the response includes a NextMarker value. To list more IPSet
 	// objects, submit another ListIPSets request, and specify the NextMarker value
 	// from the response in the NextMarker value in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListIPSetsOutput:NextMarker" min:"1" type:"string"`
 }
 
 // String returns the string representation

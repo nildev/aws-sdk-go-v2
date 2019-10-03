@@ -65,11 +65,11 @@ type ListTaskDefinitionsOutput struct {
 	// the results of a ListTaskDefinitions request exceed maxResults, this value
 	// can be used to retrieve the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ecs:ListTaskDefinitionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of task definition Amazon Resource Name (ARN) entries for the ListTaskDefinitions
 	// request.
-	TaskDefinitionArns []string `locationName:"taskDefinitionArns" type:"list"`
+	TaskDefinitionArns []string `json:"ecs:ListTaskDefinitionsOutput:TaskDefinitionArns" locationName:"taskDefinitionArns" type:"list"`
 }
 
 // String returns the string representation

@@ -94,20 +94,20 @@ type CreateBackupPlanOutput struct {
 
 	// An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for
 	// example, arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50.
-	BackupPlanArn *string `type:"string"`
+	BackupPlanArn *string `json:"backup:CreateBackupPlanOutput:BackupPlanArn" type:"string"`
 
 	// Uniquely identifies a backup plan.
-	BackupPlanId *string `type:"string"`
+	BackupPlanId *string `json:"backup:CreateBackupPlanOutput:BackupPlanId" type:"string"`
 
 	// The date and time that a backup plan is created, in Unix format and Coordinated
 	// Universal Time (UTC). The value of CreationDate is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"backup:CreateBackupPlanOutput:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most
 	// 1024 bytes long. They cannot be edited.
-	VersionId *string `type:"string"`
+	VersionId *string `json:"backup:CreateBackupPlanOutput:VersionId" type:"string"`
 }
 
 // String returns the string representation

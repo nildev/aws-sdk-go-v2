@@ -71,7 +71,7 @@ type CreateCustomerGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the customer gateway.
-	CustomerGateway *CustomerGateway `locationName:"customerGateway" type:"structure"`
+	CustomerGateway *CustomerGateway `json:"ec2:CreateCustomerGatewayOutput:CustomerGateway" locationName:"customerGateway" type:"structure"`
 }
 
 // String returns the string representation

@@ -51,7 +51,7 @@ type BuildSuggestersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of field names.
-	FieldNames []string `type:"list"`
+	FieldNames []string `json:"cloudsearch:BuildSuggestersOutput:FieldNames" type:"list"`
 }
 
 // String returns the string representation

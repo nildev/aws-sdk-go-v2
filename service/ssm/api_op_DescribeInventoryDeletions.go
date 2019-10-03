@@ -49,11 +49,11 @@ type DescribeInventoryDeletionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of status items for deleted inventory.
-	InventoryDeletions []InventoryDeletionStatusItem `type:"list"`
+	InventoryDeletions []InventoryDeletionStatusItem `json:"ssm:DescribeInventoryDeletionsOutput:InventoryDeletions" type:"list"`
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeInventoryDeletionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

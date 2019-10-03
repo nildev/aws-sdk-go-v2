@@ -64,31 +64,31 @@ type GetReservedInstancesExchangeQuoteOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The currency of the transaction.
-	CurrencyCode *string `locationName:"currencyCode" type:"string"`
+	CurrencyCode *string `json:"ec2:GetReservedInstancesExchangeQuoteOutput:CurrencyCode" locationName:"currencyCode" type:"string"`
 
 	// If true, the exchange is valid. If false, the exchange cannot be completed.
-	IsValidExchange *bool `locationName:"isValidExchange" type:"boolean"`
+	IsValidExchange *bool `json:"ec2:GetReservedInstancesExchangeQuoteOutput:IsValidExchange" locationName:"isValidExchange" type:"boolean"`
 
 	// The new end date of the reservation term.
-	OutputReservedInstancesWillExpireAt *time.Time `locationName:"outputReservedInstancesWillExpireAt" type:"timestamp" timestampFormat:"iso8601"`
+	OutputReservedInstancesWillExpireAt *time.Time `json:"ec2:GetReservedInstancesExchangeQuoteOutput:OutputReservedInstancesWillExpireAt" locationName:"outputReservedInstancesWillExpireAt" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The total true upfront charge for the exchange.
-	PaymentDue *string `locationName:"paymentDue" type:"string"`
+	PaymentDue *string `json:"ec2:GetReservedInstancesExchangeQuoteOutput:PaymentDue" locationName:"paymentDue" type:"string"`
 
 	// The cost associated with the Reserved Instance.
-	ReservedInstanceValueRollup *ReservationValue `locationName:"reservedInstanceValueRollup" type:"structure"`
+	ReservedInstanceValueRollup *ReservationValue `json:"ec2:GetReservedInstancesExchangeQuoteOutput:ReservedInstanceValueRollup" locationName:"reservedInstanceValueRollup" type:"structure"`
 
 	// The configuration of your Convertible Reserved Instances.
-	ReservedInstanceValueSet []ReservedInstanceReservationValue `locationName:"reservedInstanceValueSet" locationNameList:"item" type:"list"`
+	ReservedInstanceValueSet []ReservedInstanceReservationValue `json:"ec2:GetReservedInstancesExchangeQuoteOutput:ReservedInstanceValueSet" locationName:"reservedInstanceValueSet" locationNameList:"item" type:"list"`
 
 	// The cost associated with the Reserved Instance.
-	TargetConfigurationValueRollup *ReservationValue `locationName:"targetConfigurationValueRollup" type:"structure"`
+	TargetConfigurationValueRollup *ReservationValue `json:"ec2:GetReservedInstancesExchangeQuoteOutput:TargetConfigurationValueRollup" locationName:"targetConfigurationValueRollup" type:"structure"`
 
 	// The values of the target Convertible Reserved Instances.
-	TargetConfigurationValueSet []TargetReservationValue `locationName:"targetConfigurationValueSet" locationNameList:"item" type:"list"`
+	TargetConfigurationValueSet []TargetReservationValue `json:"ec2:GetReservedInstancesExchangeQuoteOutput:TargetConfigurationValueSet" locationName:"targetConfigurationValueSet" locationNameList:"item" type:"list"`
 
 	// Describes the reason why the exchange cannot be completed.
-	ValidationFailureReason *string `locationName:"validationFailureReason" type:"string"`
+	ValidationFailureReason *string `json:"ec2:GetReservedInstancesExchangeQuoteOutput:ValidationFailureReason" locationName:"validationFailureReason" type:"string"`
 }
 
 // String returns the string representation

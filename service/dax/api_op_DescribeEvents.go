@@ -56,10 +56,10 @@ type DescribeEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of events. Each element in the array represents one event.
-	Events []Event `type:"list"`
+	Events []Event `json:"dax:DescribeEventsOutput:Events" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"dax:DescribeEventsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -46,22 +46,22 @@ type DescribeEndpointOutput struct {
 	// A timestamp that shows when the endpoint was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeEndpointOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the endpoint.
 	//
 	// EndpointArn is a required field
-	EndpointArn *string `min:"20" type:"string" required:"true"`
+	EndpointArn *string `json:"api.sagemaker:DescribeEndpointOutput:EndpointArn" min:"20" type:"string" required:"true"`
 
 	// The name of the endpoint configuration associated with this endpoint.
 	//
 	// EndpointConfigName is a required field
-	EndpointConfigName *string `type:"string" required:"true"`
+	EndpointConfigName *string `json:"api.sagemaker:DescribeEndpointOutput:EndpointConfigName" type:"string" required:"true"`
 
 	// Name of the endpoint.
 	//
 	// EndpointName is a required field
-	EndpointName *string `type:"string" required:"true"`
+	EndpointName *string `json:"api.sagemaker:DescribeEndpointOutput:EndpointName" type:"string" required:"true"`
 
 	// The status of the endpoint.
 	//
@@ -93,19 +93,19 @@ type DescribeEndpointOutput struct {
 	//    that can be performed on a failed endpoint.
 	//
 	// EndpointStatus is a required field
-	EndpointStatus EndpointStatus `type:"string" required:"true" enum:"true"`
+	EndpointStatus EndpointStatus `json:"api.sagemaker:DescribeEndpointOutput:EndpointStatus" type:"string" required:"true" enum:"true"`
 
 	// If the status of the endpoint is Failed, the reason why it failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:DescribeEndpointOutput:FailureReason" type:"string"`
 
 	// A timestamp that shows when the endpoint was last modified.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:DescribeEndpointOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// An array of ProductionVariantSummary objects, one for each model hosted behind
 	// this endpoint.
-	ProductionVariants []ProductionVariantSummary `min:"1" type:"list"`
+	ProductionVariants []ProductionVariantSummary `json:"api.sagemaker:DescribeEndpointOutput:ProductionVariants" min:"1" type:"list"`
 }
 
 // String returns the string representation

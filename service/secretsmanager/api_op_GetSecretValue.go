@@ -86,13 +86,13 @@ type GetSecretValueOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:GetSecretValueOutput:ARN" min:"20" type:"string"`
 
 	// The date and time that this version of the secret was created.
-	CreatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"secretsmanager:GetSecretValueOutput:CreatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The friendly name of the secret.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:GetSecretValueOutput:Name" min:"1" type:"string"`
 
 	// The decrypted part of the protected secret information that was originally
 	// provided as binary data in the form of a byte array. The response parameter
@@ -107,7 +107,7 @@ type GetSecretValueOutput struct {
 	// in the SecretString or SecretBinary fields.
 	//
 	// SecretBinary is automatically base64 encoded/decoded by the SDK.
-	SecretBinary []byte `type:"blob"`
+	SecretBinary []byte `json:"secretsmanager:GetSecretValueOutput:SecretBinary" type:"blob"`
 
 	// The decrypted part of the protected secret information that was originally
 	// provided as a string.
@@ -121,14 +121,14 @@ type GetSecretValueOutput struct {
 	// UpdateSecret, or PutSecretValue API operations instead of the Secrets Manager
 	// console, or by using the Other secret type in the console, then you must
 	// code your Lambda rotation function to parse and interpret those values.
-	SecretString *string `type:"string"`
+	SecretString *string `json:"secretsmanager:GetSecretValueOutput:SecretString" type:"string"`
 
 	// The unique identifier of this version of the secret.
-	VersionId *string `min:"32" type:"string"`
+	VersionId *string `json:"secretsmanager:GetSecretValueOutput:VersionId" min:"32" type:"string"`
 
 	// A list of all of the staging labels currently attached to this version of
 	// the secret.
-	VersionStages []string `min:"1" type:"list"`
+	VersionStages []string `json:"secretsmanager:GetSecretValueOutput:VersionStages" min:"1" type:"list"`
 }
 
 // String returns the string representation

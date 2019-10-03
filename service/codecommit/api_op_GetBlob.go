@@ -61,7 +61,7 @@ type GetBlobOutput struct {
 	// Content is automatically base64 encoded/decoded by the SDK.
 	//
 	// Content is a required field
-	Content []byte `locationName:"content" type:"blob" required:"true"`
+	Content []byte `json:"codecommit:GetBlobOutput:Content" locationName:"content" type:"blob" required:"true"`
 }
 
 // String returns the string representation

@@ -28,12 +28,12 @@ type AlgorithmSpecification struct {
 	// be an algorithm resource that you created or subscribe to on AWS Marketplace.
 	// If you specify a value for this parameter, you can't specify a value for
 	// TrainingImage.
-	AlgorithmName *string `min:"1" type:"string"`
+	AlgorithmName *string `json:"api.sagemaker:AlgorithmSpecification:AlgorithmName" min:"1" type:"string"`
 
 	// A list of metric definition objects. Each object specifies the metric name
 	// and regular expressions used to parse algorithm logs. Amazon SageMaker publishes
 	// each metric to Amazon CloudWatch.
-	MetricDefinitions []MetricDefinition `type:"list"`
+	MetricDefinitions []MetricDefinition `json:"api.sagemaker:AlgorithmSpecification:MetricDefinitions" type:"list"`
 
 	// The registry path of the Docker image that contains the training algorithm.
 	// For information about docker registry paths for built-in algorithms, see
@@ -41,7 +41,7 @@ type AlgorithmSpecification struct {
 	// Amazon SageMaker supports both registry/repository[:tag] and registry/repository[@digest]
 	// image path formats. For more information, see Using Your Own Algorithms with
 	// Amazon SageMaker (https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
-	TrainingImage *string `type:"string"`
+	TrainingImage *string `json:"api.sagemaker:AlgorithmSpecification:TrainingImage" type:"string"`
 
 	// The input mode that the algorithm supports. For the input modes that Amazon
 	// SageMaker algorithms support, see Algorithms (https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html).
@@ -64,7 +64,7 @@ type AlgorithmSpecification struct {
 	// cluster is overloaded, thus becoming bottleneck in training.
 	//
 	// TrainingInputMode is a required field
-	TrainingInputMode TrainingInputMode `type:"string" required:"true" enum:"true"`
+	TrainingInputMode TrainingInputMode `json:"api.sagemaker:AlgorithmSpecification:TrainingInputMode" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -101,10 +101,10 @@ type AlgorithmStatusDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the scan of the algorithm's Docker image container.
-	ImageScanStatuses []AlgorithmStatusItem `type:"list"`
+	ImageScanStatuses []AlgorithmStatusItem `json:"api.sagemaker:AlgorithmStatusDetails:ImageScanStatuses" type:"list"`
 
 	// The status of algorithm validation.
-	ValidationStatuses []AlgorithmStatusItem `type:"list"`
+	ValidationStatuses []AlgorithmStatusItem `json:"api.sagemaker:AlgorithmStatusDetails:ValidationStatuses" type:"list"`
 }
 
 // String returns the string representation
@@ -118,17 +118,17 @@ type AlgorithmStatusItem struct {
 	_ struct{} `type:"structure"`
 
 	// if the overall status is Failed, the reason for the failure.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:AlgorithmStatusItem:FailureReason" type:"string"`
 
 	// The name of the algorithm for which the overall status is being reported.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:AlgorithmStatusItem:Name" min:"1" type:"string" required:"true"`
 
 	// The current status.
 	//
 	// Status is a required field
-	Status DetailedAlgorithmStatus `type:"string" required:"true" enum:"true"`
+	Status DetailedAlgorithmStatus `json:"api.sagemaker:AlgorithmStatusItem:Status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -144,25 +144,25 @@ type AlgorithmSummary struct {
 	// The Amazon Resource Name (ARN) of the algorithm.
 	//
 	// AlgorithmArn is a required field
-	AlgorithmArn *string `min:"1" type:"string" required:"true"`
+	AlgorithmArn *string `json:"api.sagemaker:AlgorithmSummary:AlgorithmArn" min:"1" type:"string" required:"true"`
 
 	// A brief description of the algorithm.
-	AlgorithmDescription *string `type:"string"`
+	AlgorithmDescription *string `json:"api.sagemaker:AlgorithmSummary:AlgorithmDescription" type:"string"`
 
 	// The name of the algorithm that is described by the summary.
 	//
 	// AlgorithmName is a required field
-	AlgorithmName *string `min:"1" type:"string" required:"true"`
+	AlgorithmName *string `json:"api.sagemaker:AlgorithmSummary:AlgorithmName" min:"1" type:"string" required:"true"`
 
 	// The overall status of the algorithm.
 	//
 	// AlgorithmStatus is a required field
-	AlgorithmStatus AlgorithmStatus `type:"string" required:"true" enum:"true"`
+	AlgorithmStatus AlgorithmStatus `json:"api.sagemaker:AlgorithmSummary:AlgorithmStatus" type:"string" required:"true" enum:"true"`
 
 	// A timestamp that shows when the algorithm was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:AlgorithmSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -183,17 +183,17 @@ type AlgorithmValidationProfile struct {
 	// Valid characters are a-z, A-Z, 0-9, and - (hyphen).
 	//
 	// ProfileName is a required field
-	ProfileName *string `min:"1" type:"string" required:"true"`
+	ProfileName *string `json:"api.sagemaker:AlgorithmValidationProfile:ProfileName" min:"1" type:"string" required:"true"`
 
 	// The TrainingJobDefinition object that describes the training job that Amazon
 	// SageMaker runs to validate your algorithm.
 	//
 	// TrainingJobDefinition is a required field
-	TrainingJobDefinition *TrainingJobDefinition `type:"structure" required:"true"`
+	TrainingJobDefinition *TrainingJobDefinition `json:"api.sagemaker:AlgorithmValidationProfile:TrainingJobDefinition" type:"structure" required:"true"`
 
 	// The TransformJobDefinition object that describes the transform job that Amazon
 	// SageMaker runs to validate your algorithm.
-	TransformJobDefinition *TransformJobDefinition `type:"structure"`
+	TransformJobDefinition *TransformJobDefinition `json:"api.sagemaker:AlgorithmValidationProfile:TransformJobDefinition" type:"structure"`
 }
 
 // String returns the string representation
@@ -243,12 +243,12 @@ type AlgorithmValidationSpecification struct {
 	// your algorithm.
 	//
 	// ValidationProfiles is a required field
-	ValidationProfiles []AlgorithmValidationProfile `min:"1" type:"list" required:"true"`
+	ValidationProfiles []AlgorithmValidationProfile `json:"api.sagemaker:AlgorithmValidationSpecification:ValidationProfiles" min:"1" type:"list" required:"true"`
 
 	// The IAM roles that Amazon SageMaker uses to run the training jobs.
 	//
 	// ValidationRole is a required field
-	ValidationRole *string `min:"20" type:"string" required:"true"`
+	ValidationRole *string `json:"api.sagemaker:AlgorithmValidationSpecification:ValidationRole" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -331,7 +331,7 @@ type AnnotationConsolidationConfig struct {
 	// For more information, see Annotation Consolidation (http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html).
 	//
 	// AnnotationConsolidationLambdaArn is a required field
-	AnnotationConsolidationLambdaArn *string `type:"string" required:"true"`
+	AnnotationConsolidationLambdaArn *string `json:"api.sagemaker:AnnotationConsolidationConfig:AnnotationConsolidationLambdaArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -361,12 +361,12 @@ type CategoricalParameterRange struct {
 	// The name of the categorical hyperparameter to tune.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:CategoricalParameterRange:Name" type:"string" required:"true"`
 
 	// A list of the categories for the hyperparameter.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"api.sagemaker:CategoricalParameterRange:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -403,7 +403,7 @@ type CategoricalParameterRangeSpecification struct {
 	// The allowed categories for the hyperparameter.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"api.sagemaker:CategoricalParameterRangeSpecification:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -436,20 +436,20 @@ type Channel struct {
 	// The name of the channel.
 	//
 	// ChannelName is a required field
-	ChannelName *string `min:"1" type:"string" required:"true"`
+	ChannelName *string `json:"api.sagemaker:Channel:ChannelName" min:"1" type:"string" required:"true"`
 
 	// If training data is compressed, the compression type. The default value is
 	// None. CompressionType is used only in Pipe input mode. In File mode, leave
 	// this field unset or set it to None.
-	CompressionType CompressionType `type:"string" enum:"true"`
+	CompressionType CompressionType `json:"api.sagemaker:Channel:CompressionType" type:"string" enum:"true"`
 
 	// The MIME type of the data.
-	ContentType *string `type:"string"`
+	ContentType *string `json:"api.sagemaker:Channel:ContentType" type:"string"`
 
 	// The location of the channel data.
 	//
 	// DataSource is a required field
-	DataSource *DataSource `type:"structure" required:"true"`
+	DataSource *DataSource `json:"api.sagemaker:Channel:DataSource" type:"structure" required:"true"`
 
 	// (Optional) The input mode to use for the data channel in a training job.
 	// If you don't set a value for InputMode, Amazon SageMaker uses the value set
@@ -462,7 +462,7 @@ type Channel struct {
 	// input mode.
 	//
 	// To use a model for incremental training, choose File input model.
-	InputMode TrainingInputMode `type:"string" enum:"true"`
+	InputMode TrainingInputMode `json:"api.sagemaker:Channel:InputMode" type:"string" enum:"true"`
 
 	// Specify RecordIO as the value when input data is in raw format but the training
 	// algorithm requires the RecordIO format. In this case, Amazon SageMaker wraps
@@ -471,7 +471,7 @@ type Channel struct {
 	// see Create a Dataset Using RecordIO (https://mxnet.incubator.apache.org/architecture/note_data_loading.html#data-format).
 	//
 	// In File mode, leave this field unset or set it to None.
-	RecordWrapperType RecordWrapper `type:"string" enum:"true"`
+	RecordWrapperType RecordWrapper `json:"api.sagemaker:Channel:RecordWrapperType" type:"string" enum:"true"`
 
 	// A configuration for a shuffle option for input data in a channel. If you
 	// use S3Prefix for S3DataType, this shuffles the results of the S3 key prefix
@@ -487,7 +487,7 @@ type Channel struct {
 	// ShardedByS3Key, the data is shuffled across nodes so that the content sent
 	// to a particular node on the first epoch might be sent to a different node
 	// on the second epoch.
-	ShuffleConfig *ShuffleConfig `type:"structure"`
+	ShuffleConfig *ShuffleConfig `json:"api.sagemaker:Channel:ShuffleConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -532,23 +532,23 @@ type ChannelSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// A brief description of the channel.
-	Description *string `type:"string"`
+	Description *string `json:"api.sagemaker:ChannelSpecification:Description" type:"string"`
 
 	// Indicates whether the channel is required by the algorithm.
-	IsRequired *bool `type:"boolean"`
+	IsRequired *bool `json:"api.sagemaker:ChannelSpecification:IsRequired" type:"boolean"`
 
 	// The name of the channel.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:ChannelSpecification:Name" min:"1" type:"string" required:"true"`
 
 	// The allowed compression types, if data compression is used.
-	SupportedCompressionTypes []CompressionType `type:"list"`
+	SupportedCompressionTypes []CompressionType `json:"api.sagemaker:ChannelSpecification:SupportedCompressionTypes" type:"list"`
 
 	// The supported MIME types for the data.
 	//
 	// SupportedContentTypes is a required field
-	SupportedContentTypes []string `type:"list" required:"true"`
+	SupportedContentTypes []string `json:"api.sagemaker:ChannelSpecification:SupportedContentTypes" type:"list" required:"true"`
 
 	// The allowed input mode, either FILE or PIPE.
 	//
@@ -560,7 +560,7 @@ type ChannelSpecification struct {
 	// to your algorithm without using the EBS volume.
 	//
 	// SupportedInputModes is a required field
-	SupportedInputModes []TrainingInputMode `min:"1" type:"list" required:"true"`
+	SupportedInputModes []TrainingInputMode `json:"api.sagemaker:ChannelSpecification:SupportedInputModes" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -604,27 +604,27 @@ type CodeRepositorySummary struct {
 	// The Amazon Resource Name (ARN) of the Git repository.
 	//
 	// CodeRepositoryArn is a required field
-	CodeRepositoryArn *string `min:"1" type:"string" required:"true"`
+	CodeRepositoryArn *string `json:"api.sagemaker:CodeRepositorySummary:CodeRepositoryArn" min:"1" type:"string" required:"true"`
 
 	// The name of the Git repository.
 	//
 	// CodeRepositoryName is a required field
-	CodeRepositoryName *string `min:"1" type:"string" required:"true"`
+	CodeRepositoryName *string `json:"api.sagemaker:CodeRepositorySummary:CodeRepositoryName" min:"1" type:"string" required:"true"`
 
 	// The date and time that the Git repository was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:CodeRepositorySummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Configuration details for the Git repository, including the URL where it
 	// is located and the ARN of the AWS Secrets Manager secret that contains the
 	// credentials used to access the repository.
-	GitConfig *GitConfig `type:"structure"`
+	GitConfig *GitConfig `json:"api.sagemaker:CodeRepositorySummary:GitConfig" type:"structure"`
 
 	// The date and time that the Git repository was last modified.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:CodeRepositorySummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -642,18 +642,18 @@ type CognitoMemberDefinition struct {
 	// using Amazon Cognito.
 	//
 	// ClientId is a required field
-	ClientId *string `min:"1" type:"string" required:"true"`
+	ClientId *string `json:"api.sagemaker:CognitoMemberDefinition:ClientId" min:"1" type:"string" required:"true"`
 
 	// An identifier for a user group.
 	//
 	// UserGroup is a required field
-	UserGroup *string `min:"1" type:"string" required:"true"`
+	UserGroup *string `json:"api.sagemaker:CognitoMemberDefinition:UserGroup" min:"1" type:"string" required:"true"`
 
 	// An identifier for a user pool. The user pool must be in the same region as
 	// the service that you are calling.
 	//
 	// UserPool is a required field
-	UserPool *string `min:"1" type:"string" required:"true"`
+	UserPool *string `json:"api.sagemaker:CognitoMemberDefinition:UserPool" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -698,38 +698,38 @@ type CompilationJobSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the model compilation job completed.
-	CompilationEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompilationEndTime *time.Time `json:"api.sagemaker:CompilationJobSummary:CompilationEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the model compilation job.
 	//
 	// CompilationJobArn is a required field
-	CompilationJobArn *string `type:"string" required:"true"`
+	CompilationJobArn *string `json:"api.sagemaker:CompilationJobSummary:CompilationJobArn" type:"string" required:"true"`
 
 	// The name of the model compilation job that you want a summary for.
 	//
 	// CompilationJobName is a required field
-	CompilationJobName *string `min:"1" type:"string" required:"true"`
+	CompilationJobName *string `json:"api.sagemaker:CompilationJobSummary:CompilationJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the model compilation job.
 	//
 	// CompilationJobStatus is a required field
-	CompilationJobStatus CompilationJobStatus `type:"string" required:"true" enum:"true"`
+	CompilationJobStatus CompilationJobStatus `json:"api.sagemaker:CompilationJobSummary:CompilationJobStatus" type:"string" required:"true" enum:"true"`
 
 	// The time when the model compilation job started.
-	CompilationStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompilationStartTime *time.Time `json:"api.sagemaker:CompilationJobSummary:CompilationStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The type of device that the model will run on after compilation has completed.
 	//
 	// CompilationTargetDevice is a required field
-	CompilationTargetDevice TargetDevice `type:"string" required:"true" enum:"true"`
+	CompilationTargetDevice TargetDevice `json:"api.sagemaker:CompilationJobSummary:CompilationTargetDevice" type:"string" required:"true" enum:"true"`
 
 	// The time when the model compilation job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:CompilationJobSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The time when the model compilation job was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:CompilationJobSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -754,12 +754,12 @@ type ContainerDefinition struct {
 	// specify a value for the ContainerHostName for any ContainerDefinition that
 	// is part of an inference pipeline, you must specify a value for the ContainerHostName
 	// parameter of every ContainerDefinition in that pipeline.
-	ContainerHostname *string `type:"string"`
+	ContainerHostname *string `json:"api.sagemaker:ContainerDefinition:ContainerHostname" type:"string"`
 
 	// The environment variables to set in the Docker container. Each key and value
 	// in the Environment string to string map can have length of up to 1024. We
 	// support up to 16 entries in the map.
-	Environment map[string]string `type:"map"`
+	Environment map[string]string `json:"api.sagemaker:ContainerDefinition:Environment" type:"map"`
 
 	// The Amazon EC2 Container Registry (Amazon ECR) path where inference code
 	// is stored. If you are using your own custom algorithm instead of an algorithm
@@ -767,7 +767,7 @@ type ContainerDefinition struct {
 	// requirements. Amazon SageMaker supports both registry/repository[:tag] and
 	// registry/repository[@digest] image path formats. For more information, see
 	// Using Your Own Algorithms with Amazon SageMaker (https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html)
-	Image *string `type:"string"`
+	Image *string `json:"api.sagemaker:ContainerDefinition:Image" type:"string"`
 
 	// The S3 path where the model artifacts, which result from model training,
 	// are stored. This path must point to a single gzip compressed tar archive
@@ -785,11 +785,11 @@ type ContainerDefinition struct {
 	//
 	// If you use a built-in algorithm to create a model, Amazon SageMaker requires
 	// that you provide a S3 path to the model artifacts in ModelDataUrl.
-	ModelDataUrl *string `type:"string"`
+	ModelDataUrl *string `json:"api.sagemaker:ContainerDefinition:ModelDataUrl" type:"string"`
 
 	// The name or Amazon Resource Name (ARN) of the model package to use to create
 	// the model.
-	ModelPackageName *string `min:"1" type:"string"`
+	ModelPackageName *string `json:"api.sagemaker:ContainerDefinition:ModelPackageName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -819,18 +819,18 @@ type ContinuousParameterRange struct {
 	// values between MinValue value and this value for tuning.
 	//
 	// MaxValue is a required field
-	MaxValue *string `type:"string" required:"true"`
+	MaxValue *string `json:"api.sagemaker:ContinuousParameterRange:MaxValue" type:"string" required:"true"`
 
 	// The minimum value for the hyperparameter. The tuning job uses floating-point
 	// values between this value and MaxValuefor tuning.
 	//
 	// MinValue is a required field
-	MinValue *string `type:"string" required:"true"`
+	MinValue *string `json:"api.sagemaker:ContinuousParameterRange:MinValue" type:"string" required:"true"`
 
 	// The name of the continuous hyperparameter to tune.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:ContinuousParameterRange:Name" type:"string" required:"true"`
 
 	// The scale that hyperparameter tuning uses to search the hyperparameter range.
 	// For information about choosing a hyperparameter scale, see Hyperparameter
@@ -861,7 +861,7 @@ type ContinuousParameterRange struct {
 	//
 	// Reverse logarithmic scaling works only for ranges that are entirely within
 	// the range 0<=x<1.0.
-	ScalingType HyperParameterScalingType `type:"string" enum:"true"`
+	ScalingType HyperParameterScalingType `json:"api.sagemaker:ContinuousParameterRange:ScalingType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -899,12 +899,12 @@ type ContinuousParameterRangeSpecification struct {
 	// The maximum floating-point value allowed.
 	//
 	// MaxValue is a required field
-	MaxValue *string `type:"string" required:"true"`
+	MaxValue *string `json:"api.sagemaker:ContinuousParameterRangeSpecification:MaxValue" type:"string" required:"true"`
 
 	// The minimum floating-point value allowed.
 	//
 	// MinValue is a required field
-	MinValue *string `type:"string" required:"true"`
+	MinValue *string `json:"api.sagemaker:ContinuousParameterRangeSpecification:MinValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -944,7 +944,7 @@ type DataProcessing struct {
 	// input dataset to the algorithm, accept the default value $.
 	//
 	// Examples: "$", "$[1:]", "$.features"
-	InputFilter *string `type:"string"`
+	InputFilter *string `json:"api.sagemaker:DataProcessing:InputFilter" type:"string"`
 
 	// Specifies the source of the data to join with the transformed data. The valid
 	// values are None and Input The default value is None which specifies not to
@@ -964,7 +964,7 @@ type DataProcessing struct {
 	// data at the end of the input data and stores it in the output file. The joined
 	// data has the joined input data followed by the transformed data and the output
 	// is a CSV file.
-	JoinSource JoinSource `type:"string" enum:"true"`
+	JoinSource JoinSource `json:"api.sagemaker:DataProcessing:JoinSource" type:"string" enum:"true"`
 
 	// A JSONPath expression used to select a portion of the joined dataset to save
 	// in the output file for a batch transform job. If you want Amazon SageMaker
@@ -973,7 +973,7 @@ type DataProcessing struct {
 	// dataset, you get an error.
 	//
 	// Examples: "$", "$[0,5:]", "$.['id','SageMakerOutput']"
-	OutputFilter *string `type:"string"`
+	OutputFilter *string `json:"api.sagemaker:DataProcessing:OutputFilter" type:"string"`
 }
 
 // String returns the string representation
@@ -987,7 +987,7 @@ type DataSource struct {
 	_ struct{} `type:"structure"`
 
 	// The S3 location of the data source that is associated with a channel.
-	S3DataSource *S3DataSource `type:"structure"`
+	S3DataSource *S3DataSource `json:"api.sagemaker:DataSource:S3DataSource" type:"structure"`
 }
 
 // String returns the string representation
@@ -1024,13 +1024,13 @@ type DeployedImage struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the image path for the model resolved to the ResolvedImage
-	ResolutionTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ResolutionTime *time.Time `json:"api.sagemaker:DeployedImage:ResolutionTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The specific digest path of the image hosted in this ProductionVariant.
-	ResolvedImage *string `type:"string"`
+	ResolvedImage *string `json:"api.sagemaker:DeployedImage:ResolvedImage" type:"string"`
 
 	// The image path you specified when you created the model.
-	SpecifiedImage *string `type:"string"`
+	SpecifiedImage *string `json:"api.sagemaker:DeployedImage:SpecifiedImage" type:"string"`
 }
 
 // String returns the string representation
@@ -1044,15 +1044,15 @@ type DesiredWeightAndCapacity struct {
 	_ struct{} `type:"structure"`
 
 	// The variant's capacity.
-	DesiredInstanceCount *int64 `min:"1" type:"integer"`
+	DesiredInstanceCount *int64 `json:"api.sagemaker:DesiredWeightAndCapacity:DesiredInstanceCount" min:"1" type:"integer"`
 
 	// The variant's weight.
-	DesiredWeight *float64 `type:"float"`
+	DesiredWeight *float64 `json:"api.sagemaker:DesiredWeightAndCapacity:DesiredWeight" type:"float"`
 
 	// The name of the variant to update.
 	//
 	// VariantName is a required field
-	VariantName *string `type:"string" required:"true"`
+	VariantName *string `json:"api.sagemaker:DesiredWeightAndCapacity:VariantName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1085,17 +1085,17 @@ type EndpointConfigSummary struct {
 	// A timestamp that shows when the endpoint configuration was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:EndpointConfigSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the endpoint configuration.
 	//
 	// EndpointConfigArn is a required field
-	EndpointConfigArn *string `min:"20" type:"string" required:"true"`
+	EndpointConfigArn *string `json:"api.sagemaker:EndpointConfigSummary:EndpointConfigArn" min:"20" type:"string" required:"true"`
 
 	// The name of the endpoint configuration.
 	//
 	// EndpointConfigName is a required field
-	EndpointConfigName *string `type:"string" required:"true"`
+	EndpointConfigName *string `json:"api.sagemaker:EndpointConfigSummary:EndpointConfigName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1111,17 +1111,17 @@ type EndpointSummary struct {
 	// A timestamp that shows when the endpoint was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:EndpointSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the endpoint.
 	//
 	// EndpointArn is a required field
-	EndpointArn *string `min:"20" type:"string" required:"true"`
+	EndpointArn *string `json:"api.sagemaker:EndpointSummary:EndpointArn" min:"20" type:"string" required:"true"`
 
 	// The name of the endpoint.
 	//
 	// EndpointName is a required field
-	EndpointName *string `type:"string" required:"true"`
+	EndpointName *string `json:"api.sagemaker:EndpointSummary:EndpointName" type:"string" required:"true"`
 
 	// The status of the endpoint.
 	//
@@ -1156,12 +1156,12 @@ type EndpointSummary struct {
 	// filter.
 	//
 	// EndpointStatus is a required field
-	EndpointStatus EndpointStatus `type:"string" required:"true" enum:"true"`
+	EndpointStatus EndpointStatus `json:"api.sagemaker:EndpointSummary:EndpointStatus" type:"string" required:"true" enum:"true"`
 
 	// A timestamp that shows when the endpoint was last modified.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:EndpointSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -1229,7 +1229,7 @@ type Filter struct {
 	// properties. You must specify a valid property name for the resource.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:Filter:Name" min:"1" type:"string" required:"true"`
 
 	// A Boolean binary operator that is used to evaluate the filter. The operator
 	// field contains one of the following values:
@@ -1268,13 +1268,13 @@ type Filter struct {
 	// the specified Value.
 	//
 	// If you have specified a filter Value, the default is Equals.
-	Operator Operator `type:"string" enum:"true"`
+	Operator Operator `json:"api.sagemaker:Filter:Operator" type:"string" enum:"true"`
 
 	// A value used with Resource and Operator to determine if objects satisfy the
 	// filter's condition. For numerical properties, Value must be an integer or
 	// floating-point decimal. For timestamp properties, Value must be an ISO 8601
 	// date-time string of the following format: YYYY-mm-dd'T'HH:MM:SS.
-	Value *string `min:"1" type:"string"`
+	Value *string `json:"api.sagemaker:Filter:Value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1312,16 +1312,16 @@ type FinalHyperParameterTuningJobObjectiveMetric struct {
 	// The name of the objective metric.
 	//
 	// MetricName is a required field
-	MetricName *string `min:"1" type:"string" required:"true"`
+	MetricName *string `json:"api.sagemaker:FinalHyperParameterTuningJobObjectiveMetric:MetricName" min:"1" type:"string" required:"true"`
 
 	// Whether to minimize or maximize the objective metric. Valid values are Minimize
 	// and Maximize.
-	Type HyperParameterTuningJobObjectiveType `type:"string" enum:"true"`
+	Type HyperParameterTuningJobObjectiveType `json:"api.sagemaker:FinalHyperParameterTuningJobObjectiveMetric:Type" type:"string" enum:"true"`
 
 	// The value of the objective metric.
 	//
 	// Value is a required field
-	Value *float64 `type:"float" required:"true"`
+	Value *float64 `json:"api.sagemaker:FinalHyperParameterTuningJobObjectiveMetric:Value" type:"float" required:"true"`
 }
 
 // String returns the string representation
@@ -1335,19 +1335,19 @@ type GitConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The default branch for the Git repository.
-	Branch *string `min:"1" type:"string"`
+	Branch *string `json:"api.sagemaker:GitConfig:Branch" min:"1" type:"string"`
 
 	// The URL where the Git repository is located.
 	//
 	// RepositoryUrl is a required field
-	RepositoryUrl *string `type:"string" required:"true"`
+	RepositoryUrl *string `json:"api.sagemaker:GitConfig:RepositoryUrl" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains
 	// the credentials used to access the git repository. The secret must have a
 	// staging label of AWSCURRENT and must be in the following format:
 	//
 	// {"username": UserName, "password": Password}
-	SecretArn *string `min:"1" type:"string"`
+	SecretArn *string `json:"api.sagemaker:GitConfig:SecretArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1386,7 +1386,7 @@ type GitConfigForUpdate struct {
 	// staging label of AWSCURRENT and must be in the following format:
 	//
 	// {"username": UserName, "password": Password}
-	SecretArn *string `min:"1" type:"string"`
+	SecretArn *string `json:"api.sagemaker:GitConfigForUpdate:SecretArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1415,16 +1415,16 @@ type HumanTaskConfig struct {
 	// Configures how labels are consolidated across human workers.
 	//
 	// AnnotationConsolidationConfig is a required field
-	AnnotationConsolidationConfig *AnnotationConsolidationConfig `type:"structure" required:"true"`
+	AnnotationConsolidationConfig *AnnotationConsolidationConfig `json:"api.sagemaker:HumanTaskConfig:AnnotationConsolidationConfig" type:"structure" required:"true"`
 
 	// Defines the maximum number of data objects that can be labeled by human workers
 	// at the same time. Each object may have more than one worker at one time.
-	MaxConcurrentTaskCount *int64 `min:"1" type:"integer"`
+	MaxConcurrentTaskCount *int64 `json:"api.sagemaker:HumanTaskConfig:MaxConcurrentTaskCount" min:"1" type:"integer"`
 
 	// The number of human workers that will label an object.
 	//
 	// NumberOfHumanWorkersPerDataObject is a required field
-	NumberOfHumanWorkersPerDataObject *int64 `min:"1" type:"integer" required:"true"`
+	NumberOfHumanWorkersPerDataObject *int64 `json:"api.sagemaker:HumanTaskConfig:NumberOfHumanWorkersPerDataObject" min:"1" type:"integer" required:"true"`
 
 	// The Amazon Resource Name (ARN) of a Lambda function that is run before a
 	// data object is sent to a human worker. Use this function to provide input
@@ -1495,44 +1495,44 @@ type HumanTaskConfig struct {
 	//    * arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass
 	//
 	// PreHumanTaskLambdaArn is a required field
-	PreHumanTaskLambdaArn *string `type:"string" required:"true"`
+	PreHumanTaskLambdaArn *string `json:"api.sagemaker:HumanTaskConfig:PreHumanTaskLambdaArn" type:"string" required:"true"`
 
 	// The price that you pay for each task performed by a public worker.
-	PublicWorkforceTaskPrice *PublicWorkforceTaskPrice `type:"structure"`
+	PublicWorkforceTaskPrice *PublicWorkforceTaskPrice `json:"api.sagemaker:HumanTaskConfig:PublicWorkforceTaskPrice" type:"structure"`
 
 	// The length of time that a task remains available for labelling by human workers.
-	TaskAvailabilityLifetimeInSeconds *int64 `min:"1" type:"integer"`
+	TaskAvailabilityLifetimeInSeconds *int64 `json:"api.sagemaker:HumanTaskConfig:TaskAvailabilityLifetimeInSeconds" min:"1" type:"integer"`
 
 	// A description of the task for your human workers.
 	//
 	// TaskDescription is a required field
-	TaskDescription *string `min:"1" type:"string" required:"true"`
+	TaskDescription *string `json:"api.sagemaker:HumanTaskConfig:TaskDescription" min:"1" type:"string" required:"true"`
 
 	// Keywords used to describe the task so that workers on Amazon Mechanical Turk
 	// can discover the task.
-	TaskKeywords []string `min:"1" type:"list"`
+	TaskKeywords []string `json:"api.sagemaker:HumanTaskConfig:TaskKeywords" min:"1" type:"list"`
 
 	// The amount of time that a worker has to complete a task.
 	//
 	// TaskTimeLimitInSeconds is a required field
-	TaskTimeLimitInSeconds *int64 `min:"1" type:"integer" required:"true"`
+	TaskTimeLimitInSeconds *int64 `json:"api.sagemaker:HumanTaskConfig:TaskTimeLimitInSeconds" min:"1" type:"integer" required:"true"`
 
 	// A title for the task for your human workers.
 	//
 	// TaskTitle is a required field
-	TaskTitle *string `min:"1" type:"string" required:"true"`
+	TaskTitle *string `json:"api.sagemaker:HumanTaskConfig:TaskTitle" min:"1" type:"string" required:"true"`
 
 	// Information about the user interface that workers use to complete the labeling
 	// task.
 	//
 	// UiConfig is a required field
-	UiConfig *UiConfig `type:"structure" required:"true"`
+	UiConfig *UiConfig `json:"api.sagemaker:HumanTaskConfig:UiConfig" type:"structure" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the work team assigned to complete the
 	// tasks.
 	//
 	// WorkteamArn is a required field
-	WorkteamArn *string `type:"string" required:"true"`
+	WorkteamArn *string `json:"api.sagemaker:HumanTaskConfig:WorkteamArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1621,11 +1621,11 @@ type HyperParameterAlgorithmSpecification struct {
 
 	// The name of the resource algorithm to use for the hyperparameter tuning job.
 	// If you specify a value for this parameter, do not specify a value for TrainingImage.
-	AlgorithmName *string `min:"1" type:"string"`
+	AlgorithmName *string `json:"api.sagemaker:HyperParameterAlgorithmSpecification:AlgorithmName" min:"1" type:"string"`
 
 	// An array of MetricDefinition objects that specify the metrics that the algorithm
 	// emits.
-	MetricDefinitions []MetricDefinition `type:"list"`
+	MetricDefinitions []MetricDefinition `json:"api.sagemaker:HyperParameterAlgorithmSpecification:MetricDefinitions" type:"list"`
 
 	// The registry path of the Docker image that contains the training algorithm.
 	// For information about Docker registry paths for built-in algorithms, see
@@ -1633,7 +1633,7 @@ type HyperParameterAlgorithmSpecification struct {
 	// Amazon SageMaker supports both registry/repository[:tag] and registry/repository[@digest]
 	// image path formats. For more information, see Using Your Own Algorithms with
 	// Amazon SageMaker (https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
-	TrainingImage *string `type:"string"`
+	TrainingImage *string `json:"api.sagemaker:HyperParameterAlgorithmSpecification:TrainingImage" type:"string"`
 
 	// The input mode that the algorithm supports: File or Pipe. In File input mode,
 	// Amazon SageMaker downloads the training data from Amazon S3 to the storage
@@ -1649,7 +1649,7 @@ type HyperParameterAlgorithmSpecification struct {
 	// For more information about input modes, see Algorithms (https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html).
 	//
 	// TrainingInputMode is a required field
-	TrainingInputMode TrainingInputMode `type:"string" required:"true" enum:"true"`
+	TrainingInputMode TrainingInputMode `json:"api.sagemaker:HyperParameterAlgorithmSpecification:TrainingInputMode" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1687,31 +1687,31 @@ type HyperParameterSpecification struct {
 
 	// The default value for this hyperparameter. If a default value is specified,
 	// a hyperparameter cannot be required.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"api.sagemaker:HyperParameterSpecification:DefaultValue" type:"string"`
 
 	// A brief description of the hyperparameter.
-	Description *string `type:"string"`
+	Description *string `json:"api.sagemaker:HyperParameterSpecification:Description" type:"string"`
 
 	// Indicates whether this hyperparameter is required.
-	IsRequired *bool `type:"boolean"`
+	IsRequired *bool `json:"api.sagemaker:HyperParameterSpecification:IsRequired" type:"boolean"`
 
 	// Indicates whether this hyperparameter is tunable in a hyperparameter tuning
 	// job.
-	IsTunable *bool `type:"boolean"`
+	IsTunable *bool `json:"api.sagemaker:HyperParameterSpecification:IsTunable" type:"boolean"`
 
 	// The name of this hyperparameter. The name must be unique.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:HyperParameterSpecification:Name" type:"string" required:"true"`
 
 	// The allowed range for this hyperparameter.
-	Range *ParameterRange `type:"structure"`
+	Range *ParameterRange `json:"api.sagemaker:HyperParameterSpecification:Range" type:"structure"`
 
 	// The type of this hyperparameter. The valid types are Integer, Continuous,
 	// Categorical, and FreeText.
 	//
 	// Type is a required field
-	Type ParameterType `type:"string" required:"true" enum:"true"`
+	Type ParameterType `json:"api.sagemaker:HyperParameterSpecification:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1750,14 +1750,14 @@ type HyperParameterTrainingJobDefinition struct {
 	// algorithm to use for the training jobs that the tuning job launches.
 	//
 	// AlgorithmSpecification is a required field
-	AlgorithmSpecification *HyperParameterAlgorithmSpecification `type:"structure" required:"true"`
+	AlgorithmSpecification *HyperParameterAlgorithmSpecification `json:"api.sagemaker:HyperParameterTrainingJobDefinition:AlgorithmSpecification" type:"structure" required:"true"`
 
 	// To encrypt all communications between ML compute instances in distributed
 	// training, choose True. Encryption provides greater security for distributed
 	// training, but training might take longer. How long it takes depends on the
 	// amount of communication between compute instances, especially if you use
 	// a deep learning algorithm in distributed training.
-	EnableInterContainerTrafficEncryption *bool `type:"boolean"`
+	EnableInterContainerTrafficEncryption *bool `json:"api.sagemaker:HyperParameterTrainingJobDefinition:EnableInterContainerTrafficEncryption" type:"boolean"`
 
 	// Isolates the training container. No inbound or outbound network calls can
 	// be made, except for calls between peers within a training cluster for distributed
@@ -1767,17 +1767,17 @@ type HyperParameterTrainingJobDefinition struct {
 	// have network access.
 	//
 	// The Semantic Segmentation built-in algorithm does not support network isolation.
-	EnableNetworkIsolation *bool `type:"boolean"`
+	EnableNetworkIsolation *bool `json:"api.sagemaker:HyperParameterTrainingJobDefinition:EnableNetworkIsolation" type:"boolean"`
 
 	// An array of Channel objects that specify the input for the training jobs
 	// that the tuning job launches.
-	InputDataConfig []Channel `min:"1" type:"list"`
+	InputDataConfig []Channel `json:"api.sagemaker:HyperParameterTrainingJobDefinition:InputDataConfig" min:"1" type:"list"`
 
 	// Specifies the path to the Amazon S3 bucket where you store model artifacts
 	// from the training jobs that the tuning job launches.
 	//
 	// OutputDataConfig is a required field
-	OutputDataConfig *OutputDataConfig `type:"structure" required:"true"`
+	OutputDataConfig *OutputDataConfig `json:"api.sagemaker:HyperParameterTrainingJobDefinition:OutputDataConfig" type:"structure" required:"true"`
 
 	// The resources, including the compute instances and storage volumes, to use
 	// for the training jobs that the tuning job launches.
@@ -1789,30 +1789,30 @@ type HyperParameterTrainingJobDefinition struct {
 	// algorithms, specify an instance count greater than 1.
 	//
 	// ResourceConfig is a required field
-	ResourceConfig *ResourceConfig `type:"structure" required:"true"`
+	ResourceConfig *ResourceConfig `json:"api.sagemaker:HyperParameterTrainingJobDefinition:ResourceConfig" type:"structure" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the IAM role associated with the training
 	// jobs that the tuning job launches.
 	//
 	// RoleArn is a required field
-	RoleArn *string `min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"api.sagemaker:HyperParameterTrainingJobDefinition:RoleArn" min:"20" type:"string" required:"true"`
 
 	// Specifies the values of hyperparameters that do not change for the tuning
 	// job.
-	StaticHyperParameters map[string]string `type:"map"`
+	StaticHyperParameters map[string]string `json:"api.sagemaker:HyperParameterTrainingJobDefinition:StaticHyperParameters" type:"map"`
 
 	// Specifies a limit to how long a model hyperparameter training job can run.
 	// When the job reaches the time limit, Amazon SageMaker ends the training job.
 	// Use this API to cap model training costs.
 	//
 	// StoppingCondition is a required field
-	StoppingCondition *StoppingCondition `type:"structure" required:"true"`
+	StoppingCondition *StoppingCondition `json:"api.sagemaker:HyperParameterTrainingJobDefinition:StoppingCondition" type:"structure" required:"true"`
 
 	// The VpcConfig object that specifies the VPC that you want the training jobs
 	// that this hyperparameter tuning job launches to connect to. Control access
 	// to and from your training container by configuring the VPC. For more information,
 	// see Protect Training Jobs by Using an Amazon Virtual Private Cloud (https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"api.sagemaker:HyperParameterTrainingJobDefinition:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -1896,15 +1896,15 @@ type HyperParameterTrainingJobSummary struct {
 	// The date and time that the training job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:HyperParameterTrainingJobSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The reason that the training job failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:HyperParameterTrainingJobSummary:FailureReason" type:"string"`
 
 	// The FinalHyperParameterTuningJobObjectiveMetric object that specifies the
 	// value of the objective metric of the tuning job that launched this training
 	// job.
-	FinalHyperParameterTuningJobObjectiveMetric *FinalHyperParameterTuningJobObjectiveMetric `type:"structure"`
+	FinalHyperParameterTuningJobObjectiveMetric *FinalHyperParameterTuningJobObjectiveMetric `json:"api.sagemaker:HyperParameterTrainingJobSummary:FinalHyperParameterTuningJobObjectiveMetric" type:"structure"`
 
 	// The status of the objective metric for the training job:
 	//
@@ -1918,40 +1918,40 @@ type HyperParameterTrainingJobSummary struct {
 	//    * Failed: The final objective metric for the training job was not evaluated,
 	//    and was not used in the hyperparameter tuning process. This typically
 	//    occurs when the training job failed or did not emit an objective metric.
-	ObjectiveStatus ObjectiveStatus `type:"string" enum:"true"`
+	ObjectiveStatus ObjectiveStatus `json:"api.sagemaker:HyperParameterTrainingJobSummary:ObjectiveStatus" type:"string" enum:"true"`
 
 	// Specifies the time when the training job ends on training instances. You
 	// are billed for the time interval between the value of TrainingStartTime and
 	// this time. For successful jobs and stopped jobs, this is the time after model
 	// artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker
 	// detects a job failure.
-	TrainingEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingEndTime *time.Time `json:"api.sagemaker:HyperParameterTrainingJobSummary:TrainingEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the training job.
 	//
 	// TrainingJobArn is a required field
-	TrainingJobArn *string `type:"string" required:"true"`
+	TrainingJobArn *string `json:"api.sagemaker:HyperParameterTrainingJobSummary:TrainingJobArn" type:"string" required:"true"`
 
 	// The name of the training job.
 	//
 	// TrainingJobName is a required field
-	TrainingJobName *string `min:"1" type:"string" required:"true"`
+	TrainingJobName *string `json:"api.sagemaker:HyperParameterTrainingJobSummary:TrainingJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the training job.
 	//
 	// TrainingJobStatus is a required field
-	TrainingJobStatus TrainingJobStatus `type:"string" required:"true" enum:"true"`
+	TrainingJobStatus TrainingJobStatus `json:"api.sagemaker:HyperParameterTrainingJobSummary:TrainingJobStatus" type:"string" required:"true" enum:"true"`
 
 	// The date and time that the training job started.
-	TrainingStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingStartTime *time.Time `json:"api.sagemaker:HyperParameterTrainingJobSummary:TrainingStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of the hyperparameters for which you specified ranges to search.
 	//
 	// TunedHyperParameters is a required field
-	TunedHyperParameters map[string]string `type:"map" required:"true"`
+	TunedHyperParameters map[string]string `json:"api.sagemaker:HyperParameterTrainingJobSummary:TunedHyperParameters" type:"map" required:"true"`
 
 	// The HyperParameter tuning job that launched the training job.
-	TuningJobName *string `min:"1" type:"string"`
+	TuningJobName *string `json:"api.sagemaker:HyperParameterTrainingJobSummary:TuningJobName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1966,17 +1966,17 @@ type HyperParameterTuningJobConfig struct {
 
 	// The HyperParameterTuningJobObjective object that specifies the objective
 	// metric for this tuning job.
-	HyperParameterTuningJobObjective *HyperParameterTuningJobObjective `type:"structure"`
+	HyperParameterTuningJobObjective *HyperParameterTuningJobObjective `json:"api.sagemaker:HyperParameterTuningJobConfig:HyperParameterTuningJobObjective" type:"structure"`
 
 	// The ParameterRanges object that specifies the ranges of hyperparameters that
 	// this tuning job searches.
-	ParameterRanges *ParameterRanges `type:"structure"`
+	ParameterRanges *ParameterRanges `json:"api.sagemaker:HyperParameterTuningJobConfig:ParameterRanges" type:"structure"`
 
 	// The ResourceLimits object that specifies the maximum number of training jobs
 	// and parallel training jobs for this tuning job.
 	//
 	// ResourceLimits is a required field
-	ResourceLimits *ResourceLimits `type:"structure" required:"true"`
+	ResourceLimits *ResourceLimits `json:"api.sagemaker:HyperParameterTuningJobConfig:ResourceLimits" type:"structure" required:"true"`
 
 	// Specifies how hyperparameter tuning chooses the combinations of hyperparameter
 	// values to use for the training job it launches. To use the Bayesian search
@@ -1985,7 +1985,7 @@ type HyperParameterTuningJobConfig struct {
 	// (http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html).
 	//
 	// Strategy is a required field
-	Strategy HyperParameterTuningJobStrategyType `type:"string" required:"true" enum:"true"`
+	Strategy HyperParameterTuningJobStrategyType `json:"api.sagemaker:HyperParameterTuningJobConfig:Strategy" type:"string" required:"true" enum:"true"`
 
 	// Specifies whether to use early stopping for training jobs launched by the
 	// hyperparameter tuning job. This can be one of the following values (the default
@@ -2001,7 +2001,7 @@ type HyperParameterTuningJobConfig struct {
 	// Amazon SageMaker stops training jobs launched by the hyperparameter tuning
 	// job when they are unlikely to perform better than previously completed training
 	// jobs. For more information, see Stop Training Jobs Early (http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html).
-	TrainingJobEarlyStoppingType TrainingJobEarlyStoppingType `type:"string" enum:"true"`
+	TrainingJobEarlyStoppingType TrainingJobEarlyStoppingType `json:"api.sagemaker:HyperParameterTuningJobConfig:TrainingJobEarlyStoppingType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2052,12 +2052,12 @@ type HyperParameterTuningJobObjective struct {
 	// The name of the metric to use for the objective metric.
 	//
 	// MetricName is a required field
-	MetricName *string `min:"1" type:"string" required:"true"`
+	MetricName *string `json:"api.sagemaker:HyperParameterTuningJobObjective:MetricName" min:"1" type:"string" required:"true"`
 
 	// Whether to minimize or maximize the objective metric.
 	//
 	// Type is a required field
-	Type HyperParameterTuningJobObjectiveType `type:"string" required:"true" enum:"true"`
+	Type HyperParameterTuningJobObjectiveType `json:"api.sagemaker:HyperParameterTuningJobObjective:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2093,51 +2093,51 @@ type HyperParameterTuningJobSummary struct {
 	// The date and time that the tuning job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:HyperParameterTuningJobSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The date and time that the tuning job ended.
-	HyperParameterTuningEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	HyperParameterTuningEndTime *time.Time `json:"api.sagemaker:HyperParameterTuningJobSummary:HyperParameterTuningEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the tuning job.
 	//
 	// HyperParameterTuningJobArn is a required field
-	HyperParameterTuningJobArn *string `type:"string" required:"true"`
+	HyperParameterTuningJobArn *string `json:"api.sagemaker:HyperParameterTuningJobSummary:HyperParameterTuningJobArn" type:"string" required:"true"`
 
 	// The name of the tuning job.
 	//
 	// HyperParameterTuningJobName is a required field
-	HyperParameterTuningJobName *string `min:"1" type:"string" required:"true"`
+	HyperParameterTuningJobName *string `json:"api.sagemaker:HyperParameterTuningJobSummary:HyperParameterTuningJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the tuning job.
 	//
 	// HyperParameterTuningJobStatus is a required field
-	HyperParameterTuningJobStatus HyperParameterTuningJobStatus `type:"string" required:"true" enum:"true"`
+	HyperParameterTuningJobStatus HyperParameterTuningJobStatus `json:"api.sagemaker:HyperParameterTuningJobSummary:HyperParameterTuningJobStatus" type:"string" required:"true" enum:"true"`
 
 	// The date and time that the tuning job was modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:HyperParameterTuningJobSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ObjectiveStatusCounters object that specifies the numbers of training
 	// jobs, categorized by objective metric status, that this tuning job launched.
 	//
 	// ObjectiveStatusCounters is a required field
-	ObjectiveStatusCounters *ObjectiveStatusCounters `type:"structure" required:"true"`
+	ObjectiveStatusCounters *ObjectiveStatusCounters `json:"api.sagemaker:HyperParameterTuningJobSummary:ObjectiveStatusCounters" type:"structure" required:"true"`
 
 	// The ResourceLimits object that specifies the maximum number of training jobs
 	// and parallel training jobs allowed for this tuning job.
-	ResourceLimits *ResourceLimits `type:"structure"`
+	ResourceLimits *ResourceLimits `json:"api.sagemaker:HyperParameterTuningJobSummary:ResourceLimits" type:"structure"`
 
 	// Specifies the search strategy hyperparameter tuning uses to choose which
 	// hyperparameters to use for each iteration. Currently, the only valid value
 	// is Bayesian.
 	//
 	// Strategy is a required field
-	Strategy HyperParameterTuningJobStrategyType `type:"string" required:"true" enum:"true"`
+	Strategy HyperParameterTuningJobStrategyType `json:"api.sagemaker:HyperParameterTuningJobSummary:Strategy" type:"string" required:"true" enum:"true"`
 
 	// The TrainingJobStatusCounters object that specifies the numbers of training
 	// jobs, categorized by status, that this tuning job launched.
 	//
 	// TrainingJobStatusCounters is a required field
-	TrainingJobStatusCounters *TrainingJobStatusCounters `type:"structure" required:"true"`
+	TrainingJobStatusCounters *TrainingJobStatusCounters `json:"api.sagemaker:HyperParameterTuningJobSummary:TrainingJobStatusCounters" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2172,7 +2172,7 @@ type HyperParameterTuningJobWarmStartConfig struct {
 	// as parent jobs for warm start tuning jobs.
 	//
 	// ParentHyperParameterTuningJobs is a required field
-	ParentHyperParameterTuningJobs []ParentHyperParameterTuningJob `min:"1" type:"list" required:"true"`
+	ParentHyperParameterTuningJobs []ParentHyperParameterTuningJob `json:"api.sagemaker:HyperParameterTuningJobWarmStartConfig:ParentHyperParameterTuningJobs" min:"1" type:"list" required:"true"`
 
 	// Specifies one of the following:
 	//
@@ -2202,7 +2202,7 @@ type HyperParameterTuningJobWarmStartConfig struct {
 	// must be the same as for all parent jobs.
 	//
 	// WarmStartType is a required field
-	WarmStartType HyperParameterTuningJobWarmStartType `type:"string" required:"true" enum:"true"`
+	WarmStartType HyperParameterTuningJobWarmStartType `json:"api.sagemaker:HyperParameterTuningJobWarmStartConfig:WarmStartType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2246,28 +2246,28 @@ type InferenceSpecification struct {
 	// code.
 	//
 	// Containers is a required field
-	Containers []ModelPackageContainerDefinition `min:"1" type:"list" required:"true"`
+	Containers []ModelPackageContainerDefinition `json:"api.sagemaker:InferenceSpecification:Containers" min:"1" type:"list" required:"true"`
 
 	// The supported MIME types for the input data.
 	//
 	// SupportedContentTypes is a required field
-	SupportedContentTypes []string `type:"list" required:"true"`
+	SupportedContentTypes []string `json:"api.sagemaker:InferenceSpecification:SupportedContentTypes" type:"list" required:"true"`
 
 	// A list of the instance types that are used to generate inferences in real-time.
 	//
 	// SupportedRealtimeInferenceInstanceTypes is a required field
-	SupportedRealtimeInferenceInstanceTypes []ProductionVariantInstanceType `type:"list" required:"true"`
+	SupportedRealtimeInferenceInstanceTypes []ProductionVariantInstanceType `json:"api.sagemaker:InferenceSpecification:SupportedRealtimeInferenceInstanceTypes" type:"list" required:"true"`
 
 	// The supported MIME types for the output data.
 	//
 	// SupportedResponseMIMETypes is a required field
-	SupportedResponseMIMETypes []string `type:"list" required:"true"`
+	SupportedResponseMIMETypes []string `json:"api.sagemaker:InferenceSpecification:SupportedResponseMIMETypes" type:"list" required:"true"`
 
 	// A list of the instance types on which a transformation job can be run or
 	// on which an endpoint can be deployed.
 	//
 	// SupportedTransformInstanceTypes is a required field
-	SupportedTransformInstanceTypes []TransformInstanceType `min:"1" type:"list" required:"true"`
+	SupportedTransformInstanceTypes []TransformInstanceType `json:"api.sagemaker:InferenceSpecification:SupportedTransformInstanceTypes" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2359,19 +2359,19 @@ type InputConfig struct {
 	//    * XGBOOST: input data name and shape are not needed.
 	//
 	// DataInputConfig is a required field
-	DataInputConfig *string `min:"1" type:"string" required:"true"`
+	DataInputConfig *string `json:"api.sagemaker:InputConfig:DataInputConfig" min:"1" type:"string" required:"true"`
 
 	// Identifies the framework in which the model was trained. For example: TENSORFLOW.
 	//
 	// Framework is a required field
-	Framework Framework `type:"string" required:"true" enum:"true"`
+	Framework Framework `json:"api.sagemaker:InputConfig:Framework" type:"string" required:"true" enum:"true"`
 
 	// The S3 path where the model artifacts, which result from model training,
 	// are stored. This path must point to a single gzip compressed tar archive
 	// (.tar.gz suffix).
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"api.sagemaker:InputConfig:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2412,17 +2412,17 @@ type IntegerParameterRange struct {
 	// The maximum value of the hyperparameter to search.
 	//
 	// MaxValue is a required field
-	MaxValue *string `type:"string" required:"true"`
+	MaxValue *string `json:"api.sagemaker:IntegerParameterRange:MaxValue" type:"string" required:"true"`
 
 	// The minimum value of the hyperparameter to search.
 	//
 	// MinValue is a required field
-	MinValue *string `type:"string" required:"true"`
+	MinValue *string `json:"api.sagemaker:IntegerParameterRange:MinValue" type:"string" required:"true"`
 
 	// The name of the hyperparameter to search.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:IntegerParameterRange:Name" type:"string" required:"true"`
 
 	// The scale that hyperparameter tuning uses to search the hyperparameter range.
 	// For information about choosing a hyperparameter scale, see Hyperparameter
@@ -2445,7 +2445,7 @@ type IntegerParameterRange struct {
 	//
 	// Logarithmic scaling works only for ranges that have only values greater than
 	// 0.
-	ScalingType HyperParameterScalingType `type:"string" enum:"true"`
+	ScalingType HyperParameterScalingType `json:"api.sagemaker:IntegerParameterRange:ScalingType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2483,12 +2483,12 @@ type IntegerParameterRangeSpecification struct {
 	// The maximum integer value allowed.
 	//
 	// MaxValue is a required field
-	MaxValue *string `type:"string" required:"true"`
+	MaxValue *string `json:"api.sagemaker:IntegerParameterRangeSpecification:MaxValue" type:"string" required:"true"`
 
 	// The minimum integer value allowed.
 	//
 	// MinValue is a required field
-	MinValue *string `type:"string" required:"true"`
+	MinValue *string `json:"api.sagemaker:IntegerParameterRangeSpecification:MinValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2520,19 +2520,19 @@ type LabelCounters struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of objects that could not be labeled due to an error.
-	FailedNonRetryableError *int64 `type:"integer"`
+	FailedNonRetryableError *int64 `json:"api.sagemaker:LabelCounters:FailedNonRetryableError" type:"integer"`
 
 	// The total number of objects labeled by a human worker.
-	HumanLabeled *int64 `type:"integer"`
+	HumanLabeled *int64 `json:"api.sagemaker:LabelCounters:HumanLabeled" type:"integer"`
 
 	// The total number of objects labeled by automated data labeling.
-	MachineLabeled *int64 `type:"integer"`
+	MachineLabeled *int64 `json:"api.sagemaker:LabelCounters:MachineLabeled" type:"integer"`
 
 	// The total number of objects labeled.
-	TotalLabeled *int64 `type:"integer"`
+	TotalLabeled *int64 `json:"api.sagemaker:LabelCounters:TotalLabeled" type:"integer"`
 
 	// The total number of objects not yet labeled.
-	Unlabeled *int64 `type:"integer"`
+	Unlabeled *int64 `json:"api.sagemaker:LabelCounters:Unlabeled" type:"integer"`
 }
 
 // String returns the string representation
@@ -2546,13 +2546,13 @@ type LabelCountersForWorkteam struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of data objects labeled by a human worker.
-	HumanLabeled *int64 `type:"integer"`
+	HumanLabeled *int64 `json:"api.sagemaker:LabelCountersForWorkteam:HumanLabeled" type:"integer"`
 
 	// The total number of data objects that need to be labeled by a human worker.
-	PendingHuman *int64 `type:"integer"`
+	PendingHuman *int64 `json:"api.sagemaker:LabelCountersForWorkteam:PendingHuman" type:"integer"`
 
 	// The total number of tasks in the labeling job.
-	Total *int64 `type:"integer"`
+	Total *int64 `json:"api.sagemaker:LabelCountersForWorkteam:Total" type:"integer"`
 }
 
 // String returns the string representation
@@ -2570,7 +2570,7 @@ type LabelingJobAlgorithmsConfig struct {
 	// Resource Nam (ARN) of the final model used for auto-labeling. You can use
 	// this model as the starting point for subsequent similar jobs by providing
 	// the ARN of the model here.
-	InitialActiveLearningModelArn *string `min:"20" type:"string"`
+	InitialActiveLearningModelArn *string `json:"api.sagemaker:LabelingJobAlgorithmsConfig:InitialActiveLearningModelArn" min:"20" type:"string"`
 
 	// Specifies the Amazon Resource Name (ARN) of the algorithm used for auto-labeling.
 	// You must select one of the following ARNs:
@@ -2582,10 +2582,10 @@ type LabelingJobAlgorithmsConfig struct {
 	//    * Object detection arn:aws:sagemaker:region:027400017018:labeling-job-algorithm-specification/object-detection
 	//
 	// LabelingJobAlgorithmSpecificationArn is a required field
-	LabelingJobAlgorithmSpecificationArn *string `type:"string" required:"true"`
+	LabelingJobAlgorithmSpecificationArn *string `json:"api.sagemaker:LabelingJobAlgorithmsConfig:LabelingJobAlgorithmSpecificationArn" type:"string" required:"true"`
 
 	// Provides configuration information for a labeling job.
-	LabelingJobResourceConfig *LabelingJobResourceConfig `type:"structure"`
+	LabelingJobResourceConfig *LabelingJobResourceConfig `json:"api.sagemaker:LabelingJobAlgorithmsConfig:LabelingJobResourceConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -2619,7 +2619,7 @@ type LabelingJobDataAttributes struct {
 	// Declares that your content is free of personally identifiable information
 	// or adult content. Amazon SageMaker may restrict the Amazon Mechanical Turk
 	// workers that can view your task based on this information.
-	ContentClassifiers []ContentClassifier `type:"list"`
+	ContentClassifiers []ContentClassifier `json:"api.sagemaker:LabelingJobDataAttributes:ContentClassifiers" type:"list"`
 }
 
 // String returns the string representation
@@ -2635,7 +2635,7 @@ type LabelingJobDataSource struct {
 	// The Amazon S3 location of the input data objects.
 	//
 	// S3DataSource is a required field
-	S3DataSource *LabelingJobS3DataSource `type:"structure" required:"true"`
+	S3DataSource *LabelingJobS3DataSource `json:"api.sagemaker:LabelingJobDataSource:S3DataSource" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2670,25 +2670,25 @@ type LabelingJobForWorkteamSummary struct {
 	// The date and time that the labeling job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:LabelingJobForWorkteamSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// A unique identifier for a labeling job. You can use this to refer to a specific
 	// labeling job.
 	//
 	// JobReferenceCode is a required field
-	JobReferenceCode *string `min:"1" type:"string" required:"true"`
+	JobReferenceCode *string `json:"api.sagemaker:LabelingJobForWorkteamSummary:JobReferenceCode" min:"1" type:"string" required:"true"`
 
 	// Provides information about the progress of a labeling job.
-	LabelCounters *LabelCountersForWorkteam `type:"structure"`
+	LabelCounters *LabelCountersForWorkteam `json:"api.sagemaker:LabelingJobForWorkteamSummary:LabelCounters" type:"structure"`
 
 	// The name of the labeling job that the work team is assigned to.
-	LabelingJobName *string `min:"1" type:"string"`
+	LabelingJobName *string `json:"api.sagemaker:LabelingJobForWorkteamSummary:LabelingJobName" min:"1" type:"string"`
 
 	// The configured number of workers per data object.
-	NumberOfHumanWorkersPerDataObject *int64 `min:"1" type:"integer"`
+	NumberOfHumanWorkersPerDataObject *int64 `json:"api.sagemaker:LabelingJobForWorkteamSummary:NumberOfHumanWorkersPerDataObject" min:"1" type:"integer"`
 
 	// WorkRequesterAccountId is a required field
-	WorkRequesterAccountId *string `type:"string" required:"true"`
+	WorkRequesterAccountId *string `json:"api.sagemaker:LabelingJobForWorkteamSummary:WorkRequesterAccountId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2702,12 +2702,12 @@ type LabelingJobInputConfig struct {
 	_ struct{} `type:"structure"`
 
 	// Attributes of the data specified by the customer.
-	DataAttributes *LabelingJobDataAttributes `type:"structure"`
+	DataAttributes *LabelingJobDataAttributes `json:"api.sagemaker:LabelingJobInputConfig:DataAttributes" type:"structure"`
 
 	// The location of the input data.
 	//
 	// DataSource is a required field
-	DataSource *LabelingJobDataSource `type:"structure" required:"true"`
+	DataSource *LabelingJobDataSource `json:"api.sagemaker:LabelingJobInputConfig:DataSource" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2741,12 +2741,12 @@ type LabelingJobOutput struct {
 
 	// The Amazon Resource Name (ARN) for the most recent Amazon SageMaker model
 	// trained as part of automated data labeling.
-	FinalActiveLearningModelArn *string `min:"20" type:"string"`
+	FinalActiveLearningModelArn *string `json:"api.sagemaker:LabelingJobOutput:FinalActiveLearningModelArn" min:"20" type:"string"`
 
 	// The Amazon S3 bucket location of the manifest file for labeled data.
 	//
 	// OutputDatasetS3Uri is a required field
-	OutputDatasetS3Uri *string `type:"string" required:"true"`
+	OutputDatasetS3Uri *string `json:"api.sagemaker:LabelingJobOutput:OutputDatasetS3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2776,12 +2776,12 @@ type LabelingJobOutputConfig struct {
 	// in your CreateLabelingJob request. For more information, see Using Key Policies
 	// in AWS KMS (http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
 	// in the AWS Key Management Service Developer Guide.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"api.sagemaker:LabelingJobOutputConfig:KmsKeyId" type:"string"`
 
 	// The Amazon S3 location to write output data.
 	//
 	// S3OutputPath is a required field
-	S3OutputPath *string `type:"string" required:"true"`
+	S3OutputPath *string `json:"api.sagemaker:LabelingJobOutputConfig:S3OutputPath" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2810,7 +2810,7 @@ type LabelingJobResourceConfig struct {
 
 	// The AWS Key Management Service key ID for the key used to encrypt the output
 	// data, if any.
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"api.sagemaker:LabelingJobResourceConfig:VolumeKmsKeyId" type:"string"`
 }
 
 // String returns the string representation
@@ -2827,7 +2827,7 @@ type LabelingJobS3DataSource struct {
 	// objects.
 	//
 	// ManifestS3Uri is a required field
-	ManifestS3Uri *string `type:"string" required:"true"`
+	ManifestS3Uri *string `json:"api.sagemaker:LabelingJobS3DataSource:ManifestS3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2857,10 +2857,10 @@ type LabelingJobStoppingConditions struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of objects that can be labeled by human workers.
-	MaxHumanLabeledObjectCount *int64 `min:"1" type:"integer"`
+	MaxHumanLabeledObjectCount *int64 `json:"api.sagemaker:LabelingJobStoppingConditions:MaxHumanLabeledObjectCount" min:"1" type:"integer"`
 
 	// The maximum number of input data objects that should be labeled.
-	MaxPercentageOfInputDatasetLabeled *int64 `min:"1" type:"integer"`
+	MaxPercentageOfInputDatasetLabeled *int64 `json:"api.sagemaker:LabelingJobStoppingConditions:MaxPercentageOfInputDatasetLabeled" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -2892,58 +2892,58 @@ type LabelingJobSummary struct {
 	// The Amazon Resource Name (ARN) of the Lambda function used to consolidate
 	// the annotations from individual workers into a label for a data object. For
 	// more information, see Annotation Consolidation (http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html).
-	AnnotationConsolidationLambdaArn *string `type:"string"`
+	AnnotationConsolidationLambdaArn *string `json:"api.sagemaker:LabelingJobSummary:AnnotationConsolidationLambdaArn" type:"string"`
 
 	// The date and time that the job was created (timestamp).
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:LabelingJobSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// If the LabelingJobStatus field is Failed, this field contains a description
 	// of the error.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:LabelingJobSummary:FailureReason" type:"string"`
 
 	// Input configuration for the labeling job.
-	InputConfig *LabelingJobInputConfig `type:"structure"`
+	InputConfig *LabelingJobInputConfig `json:"api.sagemaker:LabelingJobSummary:InputConfig" type:"structure"`
 
 	// Counts showing the progress of the labeling job.
 	//
 	// LabelCounters is a required field
-	LabelCounters *LabelCounters `type:"structure" required:"true"`
+	LabelCounters *LabelCounters `json:"api.sagemaker:LabelingJobSummary:LabelCounters" type:"structure" required:"true"`
 
 	// The Amazon Resource Name (ARN) assigned to the labeling job when it was created.
 	//
 	// LabelingJobArn is a required field
-	LabelingJobArn *string `type:"string" required:"true"`
+	LabelingJobArn *string `json:"api.sagemaker:LabelingJobSummary:LabelingJobArn" type:"string" required:"true"`
 
 	// The name of the labeling job.
 	//
 	// LabelingJobName is a required field
-	LabelingJobName *string `min:"1" type:"string" required:"true"`
+	LabelingJobName *string `json:"api.sagemaker:LabelingJobSummary:LabelingJobName" min:"1" type:"string" required:"true"`
 
 	// The location of the output produced by the labeling job.
-	LabelingJobOutput *LabelingJobOutput `type:"structure"`
+	LabelingJobOutput *LabelingJobOutput `json:"api.sagemaker:LabelingJobSummary:LabelingJobOutput" type:"structure"`
 
 	// The current status of the labeling job.
 	//
 	// LabelingJobStatus is a required field
-	LabelingJobStatus LabelingJobStatus `type:"string" required:"true" enum:"true"`
+	LabelingJobStatus LabelingJobStatus `json:"api.sagemaker:LabelingJobSummary:LabelingJobStatus" type:"string" required:"true" enum:"true"`
 
 	// The date and time that the job was last modified (timestamp).
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:LabelingJobSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of a Lambda function. The function is run
 	// before each data object is sent to a worker.
 	//
 	// PreHumanTaskLambdaArn is a required field
-	PreHumanTaskLambdaArn *string `type:"string" required:"true"`
+	PreHumanTaskLambdaArn *string `json:"api.sagemaker:LabelingJobSummary:PreHumanTaskLambdaArn" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the work team assigned to the job.
 	//
 	// WorkteamArn is a required field
-	WorkteamArn *string `type:"string" required:"true"`
+	WorkteamArn *string `json:"api.sagemaker:LabelingJobSummary:WorkteamArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2957,7 +2957,7 @@ type MemberDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Cognito user group that is part of the work team.
-	CognitoMemberDefinition *CognitoMemberDefinition `type:"structure"`
+	CognitoMemberDefinition *CognitoMemberDefinition `json:"api.sagemaker:MemberDefinition:CognitoMemberDefinition" type:"structure"`
 }
 
 // String returns the string representation
@@ -2987,13 +2987,13 @@ type MetricData struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the metric.
-	MetricName *string `min:"1" type:"string"`
+	MetricName *string `json:"api.sagemaker:MetricData:MetricName" min:"1" type:"string"`
 
 	// The date and time that the algorithm emitted the metric.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"api.sagemaker:MetricData:Timestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The value of the metric.
-	Value *float64 `type:"float"`
+	Value *float64 `json:"api.sagemaker:MetricData:Value" type:"float"`
 }
 
 // String returns the string representation
@@ -3012,14 +3012,14 @@ type MetricDefinition struct {
 	// The name of the metric.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:MetricDefinition:Name" min:"1" type:"string" required:"true"`
 
 	// A regular expression that searches the output of a training job and gets
 	// the value of the metric. For more information about using regular expressions
 	// to define metrics, see Defining Objective Metrics (https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html).
 	//
 	// Regex is a required field
-	Regex *string `min:"1" type:"string" required:"true"`
+	Regex *string `json:"api.sagemaker:MetricDefinition:Regex" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3061,7 +3061,7 @@ type ModelArtifacts struct {
 	// s3://bucket-name/keynameprefix/model.tar.gz.
 	//
 	// S3ModelArtifacts is a required field
-	S3ModelArtifacts *string `type:"string" required:"true"`
+	S3ModelArtifacts *string `json:"api.sagemaker:ModelArtifacts:S3ModelArtifacts" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3075,7 +3075,7 @@ type ModelPackageContainerDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// The DNS host name for the Docker container.
-	ContainerHostname *string `type:"string"`
+	ContainerHostname *string `json:"api.sagemaker:ModelPackageContainerDefinition:ContainerHostname" type:"string"`
 
 	// The Amazon EC2 Container Registry (Amazon ECR) path where inference code
 	// is stored.
@@ -3087,19 +3087,19 @@ type ModelPackageContainerDefinition struct {
 	// Amazon SageMaker (https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html).
 	//
 	// Image is a required field
-	Image *string `type:"string" required:"true"`
+	Image *string `json:"api.sagemaker:ModelPackageContainerDefinition:Image" type:"string" required:"true"`
 
 	// An MD5 hash of the training algorithm that identifies the Docker image used
 	// for training.
-	ImageDigest *string `type:"string"`
+	ImageDigest *string `json:"api.sagemaker:ModelPackageContainerDefinition:ImageDigest" type:"string"`
 
 	// The Amazon S3 path where the model artifacts, which result from model training,
 	// are stored. This path must point to a single gzip compressed tar archive
 	// (.tar.gz suffix).
-	ModelDataUrl *string `type:"string"`
+	ModelDataUrl *string `json:"api.sagemaker:ModelPackageContainerDefinition:ModelDataUrl" type:"string"`
 
 	// The AWS Marketplace product ID of the model package.
-	ProductId *string `type:"string"`
+	ProductId *string `json:"api.sagemaker:ModelPackageContainerDefinition:ProductId" type:"string"`
 }
 
 // String returns the string representation
@@ -3127,12 +3127,12 @@ type ModelPackageStatusDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the scan of the Docker image container for the model package.
-	ImageScanStatuses []ModelPackageStatusItem `type:"list"`
+	ImageScanStatuses []ModelPackageStatusItem `json:"api.sagemaker:ModelPackageStatusDetails:ImageScanStatuses" type:"list"`
 
 	// The validation status of the model package.
 	//
 	// ValidationStatuses is a required field
-	ValidationStatuses []ModelPackageStatusItem `type:"list" required:"true"`
+	ValidationStatuses []ModelPackageStatusItem `json:"api.sagemaker:ModelPackageStatusDetails:ValidationStatuses" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -3146,17 +3146,17 @@ type ModelPackageStatusItem struct {
 	_ struct{} `type:"structure"`
 
 	// if the overall status is Failed, the reason for the failure.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:ModelPackageStatusItem:FailureReason" type:"string"`
 
 	// The name of the model package for which the overall status is being reported.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"api.sagemaker:ModelPackageStatusItem:Name" min:"1" type:"string" required:"true"`
 
 	// The current status.
 	//
 	// Status is a required field
-	Status DetailedModelPackageStatus `type:"string" required:"true" enum:"true"`
+	Status DetailedModelPackageStatus `json:"api.sagemaker:ModelPackageStatusItem:Status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -3172,25 +3172,25 @@ type ModelPackageSummary struct {
 	// A timestamp that shows when the model package was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:ModelPackageSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the model package.
 	//
 	// ModelPackageArn is a required field
-	ModelPackageArn *string `min:"1" type:"string" required:"true"`
+	ModelPackageArn *string `json:"api.sagemaker:ModelPackageSummary:ModelPackageArn" min:"1" type:"string" required:"true"`
 
 	// A brief description of the model package.
-	ModelPackageDescription *string `type:"string"`
+	ModelPackageDescription *string `json:"api.sagemaker:ModelPackageSummary:ModelPackageDescription" type:"string"`
 
 	// The name of the model package.
 	//
 	// ModelPackageName is a required field
-	ModelPackageName *string `min:"1" type:"string" required:"true"`
+	ModelPackageName *string `json:"api.sagemaker:ModelPackageSummary:ModelPackageName" min:"1" type:"string" required:"true"`
 
 	// The overall status of the model package.
 	//
 	// ModelPackageStatus is a required field
-	ModelPackageStatus ModelPackageStatus `type:"string" required:"true" enum:"true"`
+	ModelPackageStatus ModelPackageStatus `json:"api.sagemaker:ModelPackageSummary:ModelPackageStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -3210,13 +3210,13 @@ type ModelPackageValidationProfile struct {
 	// The name of the profile for the model package.
 	//
 	// ProfileName is a required field
-	ProfileName *string `min:"1" type:"string" required:"true"`
+	ProfileName *string `json:"api.sagemaker:ModelPackageValidationProfile:ProfileName" min:"1" type:"string" required:"true"`
 
 	// The TransformJobDefinition object that describes the transform job used for
 	// the validation of the model package.
 	//
 	// TransformJobDefinition is a required field
-	TransformJobDefinition *TransformJobDefinition `type:"structure" required:"true"`
+	TransformJobDefinition *TransformJobDefinition `json:"api.sagemaker:ModelPackageValidationProfile:TransformJobDefinition" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3260,12 +3260,12 @@ type ModelPackageValidationSpecification struct {
 	// a batch transform job that Amazon SageMaker runs to validate your model package.
 	//
 	// ValidationProfiles is a required field
-	ValidationProfiles []ModelPackageValidationProfile `min:"1" type:"list" required:"true"`
+	ValidationProfiles []ModelPackageValidationProfile `json:"api.sagemaker:ModelPackageValidationSpecification:ValidationProfiles" min:"1" type:"list" required:"true"`
 
 	// The IAM roles to be used for the validation of the model package.
 	//
 	// ValidationRole is a required field
-	ValidationRole *string `min:"20" type:"string" required:"true"`
+	ValidationRole *string `json:"api.sagemaker:ModelPackageValidationSpecification:ValidationRole" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3312,17 +3312,17 @@ type ModelSummary struct {
 	// A timestamp that indicates when the model was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:ModelSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the model.
 	//
 	// ModelArn is a required field
-	ModelArn *string `min:"20" type:"string" required:"true"`
+	ModelArn *string `json:"api.sagemaker:ModelSummary:ModelArn" min:"20" type:"string" required:"true"`
 
 	// The name of the model that you want a summary for.
 	//
 	// ModelName is a required field
-	ModelName *string `type:"string" required:"true"`
+	ModelName *string `json:"api.sagemaker:ModelSummary:ModelName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3355,13 +3355,13 @@ type NestedFilters struct {
 	// a filter on the PropertyName parameter of the InputDataConfig property: InputDataConfig.DataSource.S3DataSource.S3Uri.
 	//
 	// Filters is a required field
-	Filters []Filter `min:"1" type:"list" required:"true"`
+	Filters []Filter `json:"api.sagemaker:NestedFilters:Filters" min:"1" type:"list" required:"true"`
 
 	// The name of the property to use in the nested filters. The value must match
 	// a listed property name, such as InputDataConfig.
 	//
 	// NestedPropertyName is a required field
-	NestedPropertyName *string `min:"1" type:"string" required:"true"`
+	NestedPropertyName *string `json:"api.sagemaker:NestedFilters:NestedPropertyName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3406,20 +3406,20 @@ type NotebookInstanceLifecycleConfigSummary struct {
 	_ struct{} `type:"structure"`
 
 	// A timestamp that tells when the lifecycle configuration was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"api.sagemaker:NotebookInstanceLifecycleConfigSummary:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A timestamp that tells when the lifecycle configuration was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:NotebookInstanceLifecycleConfigSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the lifecycle configuration.
 	//
 	// NotebookInstanceLifecycleConfigArn is a required field
-	NotebookInstanceLifecycleConfigArn *string `type:"string" required:"true"`
+	NotebookInstanceLifecycleConfigArn *string `json:"api.sagemaker:NotebookInstanceLifecycleConfigSummary:NotebookInstanceLifecycleConfigArn" type:"string" required:"true"`
 
 	// The name of the lifecycle configuration.
 	//
 	// NotebookInstanceLifecycleConfigName is a required field
-	NotebookInstanceLifecycleConfigName *string `type:"string" required:"true"`
+	NotebookInstanceLifecycleConfigName *string `json:"api.sagemaker:NotebookInstanceLifecycleConfigSummary:NotebookInstanceLifecycleConfigName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3449,7 +3449,7 @@ type NotebookInstanceLifecycleHook struct {
 
 	// A base64-encoded string that contains a shell script for a notebook instance
 	// lifecycle configuration.
-	Content *string `min:"1" type:"string"`
+	Content *string `json:"api.sagemaker:NotebookInstanceLifecycleHook:Content" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3482,10 +3482,10 @@ type NotebookInstanceSummary struct {
 	// level as the default repository of your notebook instance. For more information,
 	// see Associating Git Repositories with Amazon SageMaker Notebook Instances
 	// (http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html).
-	AdditionalCodeRepositories []string `type:"list"`
+	AdditionalCodeRepositories []string `json:"api.sagemaker:NotebookInstanceSummary:AdditionalCodeRepositories" type:"list"`
 
 	// A timestamp that shows when the notebook instance was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"api.sagemaker:NotebookInstanceSummary:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Git repository associated with the notebook instance as its default code
 	// repository. This can be either the name of a Git repository stored as a resource
@@ -3493,37 +3493,37 @@ type NotebookInstanceSummary struct {
 	// or in any other Git repository. When you open a notebook instance, it opens
 	// in the directory that contains this repository. For more information, see
 	// Associating Git Repositories with Amazon SageMaker Notebook Instances (http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html).
-	DefaultCodeRepository *string `min:"1" type:"string"`
+	DefaultCodeRepository *string `json:"api.sagemaker:NotebookInstanceSummary:DefaultCodeRepository" min:"1" type:"string"`
 
 	// The type of ML compute instance that the notebook instance is running on.
-	InstanceType InstanceType `type:"string" enum:"true"`
+	InstanceType InstanceType `json:"api.sagemaker:NotebookInstanceSummary:InstanceType" type:"string" enum:"true"`
 
 	// A timestamp that shows when the notebook instance was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:NotebookInstanceSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the notebook instance.
 	//
 	// NotebookInstanceArn is a required field
-	NotebookInstanceArn *string `type:"string" required:"true"`
+	NotebookInstanceArn *string `json:"api.sagemaker:NotebookInstanceSummary:NotebookInstanceArn" type:"string" required:"true"`
 
 	// The name of a notebook instance lifecycle configuration associated with this
 	// notebook instance.
 	//
 	// For information about notebook instance lifestyle configurations, see Step
 	// 2.1: (Optional) Customize a Notebook Instance (https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html).
-	NotebookInstanceLifecycleConfigName *string `type:"string"`
+	NotebookInstanceLifecycleConfigName *string `json:"api.sagemaker:NotebookInstanceSummary:NotebookInstanceLifecycleConfigName" type:"string"`
 
 	// The name of the notebook instance that you want a summary for.
 	//
 	// NotebookInstanceName is a required field
-	NotebookInstanceName *string `type:"string" required:"true"`
+	NotebookInstanceName *string `json:"api.sagemaker:NotebookInstanceSummary:NotebookInstanceName" type:"string" required:"true"`
 
 	// The status of the notebook instance.
-	NotebookInstanceStatus NotebookInstanceStatus `type:"string" enum:"true"`
+	NotebookInstanceStatus NotebookInstanceStatus `json:"api.sagemaker:NotebookInstanceSummary:NotebookInstanceStatus" type:"string" enum:"true"`
 
 	// The URL that you use to connect to the Jupyter instance running in your notebook
 	// instance.
-	Url *string `type:"string"`
+	Url *string `json:"api.sagemaker:NotebookInstanceSummary:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -3538,7 +3538,7 @@ type NotificationConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN for the SNS topic to which notifications should be published.
-	NotificationTopicArn *string `type:"string"`
+	NotificationTopicArn *string `json:"api.sagemaker:NotificationConfiguration:NotificationTopicArn" type:"string"`
 }
 
 // String returns the string representation
@@ -3558,15 +3558,15 @@ type ObjectiveStatusCounters struct {
 	// The number of training jobs whose final objective metric was not evaluated
 	// and used in the hyperparameter tuning process. This typically occurs when
 	// the training job failed or did not emit an objective metric.
-	Failed *int64 `type:"integer"`
+	Failed *int64 `json:"api.sagemaker:ObjectiveStatusCounters:Failed" type:"integer"`
 
 	// The number of training jobs that are in progress and pending evaluation of
 	// their final objective metric.
-	Pending *int64 `type:"integer"`
+	Pending *int64 `json:"api.sagemaker:ObjectiveStatusCounters:Pending" type:"integer"`
 
 	// The number of training jobs whose final objective metric was evaluated by
 	// the hyperparameter tuning job and used in the hyperparameter tuning process.
-	Succeeded *int64 `type:"integer"`
+	Succeeded *int64 `json:"api.sagemaker:ObjectiveStatusCounters:Succeeded" type:"integer"`
 }
 
 // String returns the string representation
@@ -3584,13 +3584,13 @@ type OutputConfig struct {
 	// artifacts. For example, s3://bucket-name/key-name-prefix.
 	//
 	// S3OutputLocation is a required field
-	S3OutputLocation *string `type:"string" required:"true"`
+	S3OutputLocation *string `json:"api.sagemaker:OutputConfig:S3OutputLocation" type:"string" required:"true"`
 
 	// Identifies the device that you want to run your model on after it has been
 	// compiled. For example: ml_c5.
 	//
 	// TargetDevice is a required field
-	TargetDevice TargetDevice `type:"string" required:"true" enum:"true"`
+	TargetDevice TargetDevice `json:"api.sagemaker:OutputConfig:TargetDevice" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -3646,13 +3646,13 @@ type OutputDataConfig struct {
 	// in your CreateTrainingJob, CreateTransformJob, or CreateHyperParameterTuningJob
 	// requests. For more information, see Using Key Policies in AWS KMS (http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
 	// in the AWS Key Management Service Developer Guide.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"api.sagemaker:OutputDataConfig:KmsKeyId" type:"string"`
 
 	// Identifies the S3 path where you want Amazon SageMaker to store the model
 	// artifacts. For example, s3://bucket-name/key-name-prefix.
 	//
 	// S3OutputPath is a required field
-	S3OutputPath *string `type:"string" required:"true"`
+	S3OutputPath *string `json:"api.sagemaker:OutputDataConfig:S3OutputPath" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3682,15 +3682,15 @@ type ParameterRange struct {
 
 	// A CategoricalParameterRangeSpecification object that defines the possible
 	// values for a categorical hyperparameter.
-	CategoricalParameterRangeSpecification *CategoricalParameterRangeSpecification `type:"structure"`
+	CategoricalParameterRangeSpecification *CategoricalParameterRangeSpecification `json:"api.sagemaker:ParameterRange:CategoricalParameterRangeSpecification" type:"structure"`
 
 	// A ContinuousParameterRangeSpecification object that defines the possible
 	// values for a continuous hyperparameter.
-	ContinuousParameterRangeSpecification *ContinuousParameterRangeSpecification `type:"structure"`
+	ContinuousParameterRangeSpecification *ContinuousParameterRangeSpecification `json:"api.sagemaker:ParameterRange:ContinuousParameterRangeSpecification" type:"structure"`
 
 	// A IntegerParameterRangeSpecification object that defines the possible values
 	// for an integer hyperparameter.
-	IntegerParameterRangeSpecification *IntegerParameterRangeSpecification `type:"structure"`
+	IntegerParameterRangeSpecification *IntegerParameterRangeSpecification `json:"api.sagemaker:ParameterRange:IntegerParameterRangeSpecification" type:"structure"`
 }
 
 // String returns the string representation
@@ -3739,15 +3739,15 @@ type ParameterRanges struct {
 
 	// The array of CategoricalParameterRange objects that specify ranges of categorical
 	// hyperparameters that a hyperparameter tuning job searches.
-	CategoricalParameterRanges []CategoricalParameterRange `type:"list"`
+	CategoricalParameterRanges []CategoricalParameterRange `json:"api.sagemaker:ParameterRanges:CategoricalParameterRanges" type:"list"`
 
 	// The array of ContinuousParameterRange objects that specify ranges of continuous
 	// hyperparameters that a hyperparameter tuning job searches.
-	ContinuousParameterRanges []ContinuousParameterRange `type:"list"`
+	ContinuousParameterRanges []ContinuousParameterRange `json:"api.sagemaker:ParameterRanges:ContinuousParameterRanges" type:"list"`
 
 	// The array of IntegerParameterRange objects that specify ranges of integer
 	// hyperparameters that a hyperparameter tuning job searches.
-	IntegerParameterRanges []IntegerParameterRange `type:"list"`
+	IntegerParameterRanges []IntegerParameterRange `json:"api.sagemaker:ParameterRanges:IntegerParameterRanges" type:"list"`
 }
 
 // String returns the string representation
@@ -3794,7 +3794,7 @@ type ParentHyperParameterTuningJob struct {
 
 	// The name of the hyperparameter tuning job to be used as a starting point
 	// for a new hyperparameter tuning job.
-	HyperParameterTuningJobName *string `min:"1" type:"string"`
+	HyperParameterTuningJobName *string `json:"api.sagemaker:ParentHyperParameterTuningJob:HyperParameterTuningJobName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3826,34 +3826,34 @@ type ProductionVariant struct {
 	// variant. EI instances provide on-demand GPU computing for inference. For
 	// more information, see Using Elastic Inference in Amazon SageMaker (http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html).
 	// For more information, see Using Elastic Inference in Amazon SageMaker (http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html).
-	AcceleratorType ProductionVariantAcceleratorType `type:"string" enum:"true"`
+	AcceleratorType ProductionVariantAcceleratorType `json:"api.sagemaker:ProductionVariant:AcceleratorType" type:"string" enum:"true"`
 
 	// Number of instances to launch initially.
 	//
 	// InitialInstanceCount is a required field
-	InitialInstanceCount *int64 `min:"1" type:"integer" required:"true"`
+	InitialInstanceCount *int64 `json:"api.sagemaker:ProductionVariant:InitialInstanceCount" min:"1" type:"integer" required:"true"`
 
 	// Determines initial traffic distribution among all of the models that you
 	// specify in the endpoint configuration. The traffic to a production variant
 	// is determined by the ratio of the VariantWeight to the sum of all VariantWeight
 	// values across all ProductionVariants. If unspecified, it defaults to 1.0.
-	InitialVariantWeight *float64 `type:"float"`
+	InitialVariantWeight *float64 `json:"api.sagemaker:ProductionVariant:InitialVariantWeight" type:"float"`
 
 	// The ML compute instance type.
 	//
 	// InstanceType is a required field
-	InstanceType ProductionVariantInstanceType `type:"string" required:"true" enum:"true"`
+	InstanceType ProductionVariantInstanceType `json:"api.sagemaker:ProductionVariant:InstanceType" type:"string" required:"true" enum:"true"`
 
 	// The name of the model that you want to host. This is the name that you specified
 	// when creating the model.
 	//
 	// ModelName is a required field
-	ModelName *string `type:"string" required:"true"`
+	ModelName *string `json:"api.sagemaker:ProductionVariant:ModelName" type:"string" required:"true"`
 
 	// The name of the production variant.
 	//
 	// VariantName is a required field
-	VariantName *string `type:"string" required:"true"`
+	VariantName *string `json:"api.sagemaker:ProductionVariant:VariantName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3898,27 +3898,27 @@ type ProductionVariantSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The number of instances associated with the variant.
-	CurrentInstanceCount *int64 `min:"1" type:"integer"`
+	CurrentInstanceCount *int64 `json:"api.sagemaker:ProductionVariantSummary:CurrentInstanceCount" min:"1" type:"integer"`
 
 	// The weight associated with the variant.
-	CurrentWeight *float64 `type:"float"`
+	CurrentWeight *float64 `json:"api.sagemaker:ProductionVariantSummary:CurrentWeight" type:"float"`
 
 	// An array of DeployedImage objects that specify the Amazon EC2 Container Registry
 	// paths of the inference images deployed on instances of this ProductionVariant.
-	DeployedImages []DeployedImage `type:"list"`
+	DeployedImages []DeployedImage `json:"api.sagemaker:ProductionVariantSummary:DeployedImages" type:"list"`
 
 	// The number of instances requested in the UpdateEndpointWeightsAndCapacities
 	// request.
-	DesiredInstanceCount *int64 `min:"1" type:"integer"`
+	DesiredInstanceCount *int64 `json:"api.sagemaker:ProductionVariantSummary:DesiredInstanceCount" min:"1" type:"integer"`
 
 	// The requested weight, as specified in the UpdateEndpointWeightsAndCapacities
 	// request.
-	DesiredWeight *float64 `type:"float"`
+	DesiredWeight *float64 `json:"api.sagemaker:ProductionVariantSummary:DesiredWeight" type:"float"`
 
 	// The name of the variant.
 	//
 	// VariantName is a required field
-	VariantName *string `type:"string" required:"true"`
+	VariantName *string `json:"api.sagemaker:ProductionVariantSummary:VariantName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3936,7 +3936,7 @@ type PropertyNameQuery struct {
 	// metric, and tag key names that begin with the specified text in the PropertyNameHint.
 	//
 	// PropertyNameHint is a required field
-	PropertyNameHint *string `type:"string" required:"true"`
+	PropertyNameHint *string `json:"api.sagemaker:PropertyNameQuery:PropertyNameHint" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3966,7 +3966,7 @@ type PropertyNameSuggestion struct {
 
 	// A suggested property name based on what you entered in the search textbox
 	// in the Amazon SageMaker console.
-	PropertyName *string `min:"1" type:"string"`
+	PropertyName *string `json:"api.sagemaker:PropertyNameSuggestion:PropertyName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -4058,7 +4058,7 @@ type PublicWorkforceTaskPrice struct {
 	_ struct{} `type:"structure"`
 
 	// Defines the amount of money paid to a worker in United States dollars.
-	AmountInUsd *USD `type:"structure"`
+	AmountInUsd *USD `json:"api.sagemaker:PublicWorkforceTaskPrice:AmountInUsd" type:"structure"`
 }
 
 // String returns the string representation
@@ -4077,7 +4077,7 @@ type RenderableTask struct {
 	// can supply the variable in the JSON object as "text": "sample text".
 	//
 	// Input is a required field
-	Input *string `min:"2" type:"string" required:"true"`
+	Input *string `json:"api.sagemaker:RenderableTask:Input" min:"2" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4110,12 +4110,12 @@ type RenderingError struct {
 	// A unique identifier for a specific class of errors.
 	//
 	// Code is a required field
-	Code *string `type:"string" required:"true"`
+	Code *string `json:"api.sagemaker:RenderingError:Code" type:"string" required:"true"`
 
 	// A human-readable message describing the error.
 	//
 	// Message is a required field
-	Message *string `type:"string" required:"true"`
+	Message *string `json:"api.sagemaker:RenderingError:Message" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4133,12 +4133,12 @@ type ResourceConfig struct {
 	// a value greater than 1.
 	//
 	// InstanceCount is a required field
-	InstanceCount *int64 `min:"1" type:"integer" required:"true"`
+	InstanceCount *int64 `json:"api.sagemaker:ResourceConfig:InstanceCount" min:"1" type:"integer" required:"true"`
 
 	// The ML compute instance type.
 	//
 	// InstanceType is a required field
-	InstanceType TrainingInstanceType `type:"string" required:"true" enum:"true"`
+	InstanceType TrainingInstanceType `json:"api.sagemaker:ResourceConfig:InstanceType" type:"string" required:"true" enum:"true"`
 
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to
 	// encrypt data on the storage volume attached to the ML compute instance(s)
@@ -4148,7 +4148,7 @@ type ResourceConfig struct {
 	//    * // KMS Key ID "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * // Amazon Resource Name (ARN) of a KMS Key "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"api.sagemaker:ResourceConfig:VolumeKmsKeyId" type:"string"`
 
 	// The size of the ML storage volume that you want to provision.
 	//
@@ -4163,7 +4163,7 @@ type ResourceConfig struct {
 	// type.
 	//
 	// VolumeSizeInGB is a required field
-	VolumeSizeInGB *int64 `min:"1" type:"integer" required:"true"`
+	VolumeSizeInGB *int64 `json:"api.sagemaker:ResourceConfig:VolumeSizeInGB" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -4208,13 +4208,13 @@ type ResourceLimits struct {
 	// launch.
 	//
 	// MaxNumberOfTrainingJobs is a required field
-	MaxNumberOfTrainingJobs *int64 `min:"1" type:"integer" required:"true"`
+	MaxNumberOfTrainingJobs *int64 `json:"api.sagemaker:ResourceLimits:MaxNumberOfTrainingJobs" min:"1" type:"integer" required:"true"`
 
 	// The maximum number of concurrent training jobs that a hyperparameter tuning
 	// job can launch.
 	//
 	// MaxParallelTrainingJobs is a required field
-	MaxParallelTrainingJobs *int64 `min:"1" type:"integer" required:"true"`
+	MaxParallelTrainingJobs *int64 `json:"api.sagemaker:ResourceLimits:MaxParallelTrainingJobs" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -4253,7 +4253,7 @@ type S3DataSource struct {
 
 	// A list of one or more attribute names to use that are found in a specified
 	// augmented manifest file.
-	AttributeNames []string `type:"list"`
+	AttributeNames []string `json:"api.sagemaker:S3DataSource:AttributeNames" type:"list"`
 
 	// If you want Amazon SageMaker to replicate the entire dataset on each ML compute
 	// instance that is launched for model training, specify FullyReplicated.
@@ -4273,7 +4273,7 @@ type S3DataSource struct {
 	// you might choose ShardedByS3Key. If the algorithm requires copying training
 	// data to the ML storage volume (when TrainingInputMode is set to File), this
 	// copies 1/n of the number of objects.
-	S3DataDistributionType S3DataDistribution `type:"string" enum:"true"`
+	S3DataDistributionType S3DataDistribution `json:"api.sagemaker:S3DataSource:S3DataDistributionType" type:"string" enum:"true"`
 
 	// If you choose S3Prefix, S3Uri identifies a key name prefix. Amazon SageMaker
 	// uses all objects that match the specified key name prefix for model training.
@@ -4288,7 +4288,7 @@ type S3DataSource struct {
 	// if the Channel's input mode is Pipe.
 	//
 	// S3DataType is a required field
-	S3DataType S3DataType `type:"string" required:"true" enum:"true"`
+	S3DataType S3DataType `json:"api.sagemaker:S3DataSource:S3DataType" type:"string" required:"true" enum:"true"`
 
 	// Depending on the value specified for the S3DataType, identifies either a
 	// key name prefix or a manifest. For example:
@@ -4306,7 +4306,7 @@ type S3DataSource struct {
 	//    tasks on your behalf.
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"api.sagemaker:S3DataSource:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4354,20 +4354,20 @@ type SearchExpression struct {
 	_ struct{} `type:"structure"`
 
 	// A list of filter objects.
-	Filters []Filter `min:"1" type:"list"`
+	Filters []Filter `json:"api.sagemaker:SearchExpression:Filters" min:"1" type:"list"`
 
 	// A list of nested filter objects.
-	NestedFilters []NestedFilters `min:"1" type:"list"`
+	NestedFilters []NestedFilters `json:"api.sagemaker:SearchExpression:NestedFilters" min:"1" type:"list"`
 
 	// A Boolean operator used to evaluate the search expression. If you want every
 	// conditional statement in all lists to be satisfied for the entire search
 	// expression to be true, specify And. If only a single conditional statement
 	// needs to be true for the entire search expression to be true, specify Or.
 	// The default value is And.
-	Operator BooleanOperator `type:"string" enum:"true"`
+	Operator BooleanOperator `json:"api.sagemaker:SearchExpression:Operator" type:"string" enum:"true"`
 
 	// A list of search expression objects.
-	SubExpressions []SearchExpression `min:"1" type:"list"`
+	SubExpressions []SearchExpression `json:"api.sagemaker:SearchExpression:SubExpressions" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -4421,7 +4421,7 @@ type SearchRecord struct {
 	_ struct{} `type:"structure"`
 
 	// A TrainingJob object that is returned as part of a Search request.
-	TrainingJob *TrainingJob `type:"structure"`
+	TrainingJob *TrainingJob `json:"api.sagemaker:SearchRecord:TrainingJob" type:"structure"`
 }
 
 // String returns the string representation
@@ -4443,13 +4443,13 @@ type SecondaryStatusTransition struct {
 	// A timestamp that shows when the training job transitioned out of this secondary
 	// status state into another secondary status state or when the training job
 	// has ended.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"api.sagemaker:SecondaryStatusTransition:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A timestamp that shows when the training job transitioned to the current
 	// secondary status state.
 	//
 	// StartTime is a required field
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartTime *time.Time `json:"api.sagemaker:SecondaryStatusTransition:StartTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Contains a secondary status information from a training job.
 	//
@@ -4497,7 +4497,7 @@ type SecondaryStatusTransition struct {
 	//    * DownloadingTrainingImage
 	//
 	// Status is a required field
-	Status SecondaryStatus `type:"string" required:"true" enum:"true"`
+	Status SecondaryStatus `json:"api.sagemaker:SecondaryStatusTransition:Status" type:"string" required:"true" enum:"true"`
 
 	// A detailed description of the progress within a secondary status.
 	//
@@ -4535,7 +4535,7 @@ type SecondaryStatusTransition struct {
 	//    * SecondaryStatus - Training
 	//
 	//    * StatusMessage - Downloading the training image
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"api.sagemaker:SecondaryStatusTransition:StatusMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -4564,7 +4564,7 @@ type ShuffleConfig struct {
 	// Determines the shuffling order in ShuffleConfig value.
 	//
 	// Seed is a required field
-	Seed *int64 `type:"long" required:"true"`
+	Seed *int64 `json:"api.sagemaker:ShuffleConfig:Seed" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -4598,12 +4598,12 @@ type SourceAlgorithm struct {
 	// an algorithm in AWS Marketplace that you are subscribed to.
 	//
 	// AlgorithmName is a required field
-	AlgorithmName *string `min:"1" type:"string" required:"true"`
+	AlgorithmName *string `json:"api.sagemaker:SourceAlgorithm:AlgorithmName" min:"1" type:"string" required:"true"`
 
 	// The Amazon S3 path where the model artifacts, which result from model training,
 	// are stored. This path must point to a single gzip compressed tar archive
 	// (.tar.gz suffix).
-	ModelDataUrl *string `type:"string"`
+	ModelDataUrl *string `json:"api.sagemaker:SourceAlgorithm:ModelDataUrl" type:"string"`
 }
 
 // String returns the string representation
@@ -4636,7 +4636,7 @@ type SourceAlgorithmSpecification struct {
 	// A list of the algorithms that were used to create a model package.
 	//
 	// SourceAlgorithms is a required field
-	SourceAlgorithms []SourceAlgorithm `min:"1" type:"list" required:"true"`
+	SourceAlgorithms []SourceAlgorithm `json:"api.sagemaker:SourceAlgorithmSpecification:SourceAlgorithms" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -4694,7 +4694,7 @@ type StoppingCondition struct {
 	// job can run. If job does not complete during this time, Amazon SageMaker
 	// ends the job. If value is not specified, default value is 1 day. The maximum
 	// value is 28 days.
-	MaxRuntimeInSeconds *int64 `min:"1" type:"integer"`
+	MaxRuntimeInSeconds *int64 `json:"api.sagemaker:StoppingCondition:MaxRuntimeInSeconds" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -4720,21 +4720,21 @@ func (s *StoppingCondition) Validate() error {
 type SubscribedWorkteam struct {
 	_ struct{} `type:"structure"`
 
-	ListingId *string `type:"string"`
+	ListingId *string `json:"api.sagemaker:SubscribedWorkteam:ListingId" type:"string"`
 
 	// The description of the vendor from the Amazon Marketplace.
-	MarketplaceDescription *string `min:"1" type:"string"`
+	MarketplaceDescription *string `json:"api.sagemaker:SubscribedWorkteam:MarketplaceDescription" min:"1" type:"string"`
 
 	// The title of the service provided by the vendor in the Amazon Marketplace.
-	MarketplaceTitle *string `min:"1" type:"string"`
+	MarketplaceTitle *string `json:"api.sagemaker:SubscribedWorkteam:MarketplaceTitle" min:"1" type:"string"`
 
 	// The name of the vendor in the Amazon Marketplace.
-	SellerName *string `type:"string"`
+	SellerName *string `json:"api.sagemaker:SubscribedWorkteam:SellerName" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the vendor that you have subscribed.
 	//
 	// WorkteamArn is a required field
-	WorkteamArn *string `type:"string" required:"true"`
+	WorkteamArn *string `json:"api.sagemaker:SubscribedWorkteam:WorkteamArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4749,7 +4749,7 @@ type SuggestionQuery struct {
 
 	// A type of SuggestionQuery. Defines a property name hint. Only property names
 	// that match the specified hint are included in the response.
-	PropertyNameQuery *PropertyNameQuery `type:"structure"`
+	PropertyNameQuery *PropertyNameQuery `json:"api.sagemaker:SuggestionQuery:PropertyNameQuery" type:"structure"`
 }
 
 // String returns the string representation
@@ -4780,12 +4780,12 @@ type Tag struct {
 	// The tag key.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"api.sagemaker:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The tag value.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"api.sagemaker:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4820,57 +4820,57 @@ type TrainingJob struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the algorithm used for training, and algorithm metadata.
-	AlgorithmSpecification *AlgorithmSpecification `type:"structure"`
+	AlgorithmSpecification *AlgorithmSpecification `json:"api.sagemaker:TrainingJob:AlgorithmSpecification" type:"structure"`
 
 	// A timestamp that indicates when the training job was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"api.sagemaker:TrainingJob:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// To encrypt all communications between ML compute instances in distributed
 	// training, choose True. Encryption provides greater security for distributed
 	// training, but training might take longer. How long it takes depends on the
 	// amount of communication between compute instances, especially if you use
 	// a deep learning algorithm in distributed training.
-	EnableInterContainerTrafficEncryption *bool `type:"boolean"`
+	EnableInterContainerTrafficEncryption *bool `json:"api.sagemaker:TrainingJob:EnableInterContainerTrafficEncryption" type:"boolean"`
 
 	// If the TrainingJob was created with network isolation, the value is set to
 	// true. If network isolation is enabled, nodes can't communicate beyond the
 	// VPC they run in.
-	EnableNetworkIsolation *bool `type:"boolean"`
+	EnableNetworkIsolation *bool `json:"api.sagemaker:TrainingJob:EnableNetworkIsolation" type:"boolean"`
 
 	// If the training job failed, the reason it failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:TrainingJob:FailureReason" type:"string"`
 
 	// A list of final metric values that are set when the training job completes.
 	// Used only if the training job was configured to use metrics.
-	FinalMetricDataList []MetricData `type:"list"`
+	FinalMetricDataList []MetricData `json:"api.sagemaker:TrainingJob:FinalMetricDataList" type:"list"`
 
 	// Algorithm-specific parameters.
-	HyperParameters map[string]string `type:"map"`
+	HyperParameters map[string]string `json:"api.sagemaker:TrainingJob:HyperParameters" type:"map"`
 
 	// An array of Channel objects that describes each data input channel.
-	InputDataConfig []Channel `min:"1" type:"list"`
+	InputDataConfig []Channel `json:"api.sagemaker:TrainingJob:InputDataConfig" min:"1" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the labeling job.
-	LabelingJobArn *string `type:"string"`
+	LabelingJobArn *string `json:"api.sagemaker:TrainingJob:LabelingJobArn" type:"string"`
 
 	// A timestamp that indicates when the status of the training job was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:TrainingJob:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the Amazon S3 location that is configured for storing model
 	// artifacts.
-	ModelArtifacts *ModelArtifacts `type:"structure"`
+	ModelArtifacts *ModelArtifacts `json:"api.sagemaker:TrainingJob:ModelArtifacts" type:"structure"`
 
 	// The S3 path where model artifacts that you configured when creating the job
 	// are stored. Amazon SageMaker creates subfolders for model artifacts.
-	OutputDataConfig *OutputDataConfig `type:"structure"`
+	OutputDataConfig *OutputDataConfig `json:"api.sagemaker:TrainingJob:OutputDataConfig" type:"structure"`
 
 	// Resources, including ML compute instances and ML storage volumes, that are
 	// configured for model training.
-	ResourceConfig *ResourceConfig `type:"structure"`
+	ResourceConfig *ResourceConfig `json:"api.sagemaker:TrainingJob:ResourceConfig" type:"structure"`
 
 	// The AWS Identity and Access Management (IAM) role configured for the training
 	// job.
-	RoleArn *string `min:"20" type:"string"`
+	RoleArn *string `json:"api.sagemaker:TrainingJob:RoleArn" min:"20" type:"string"`
 
 	// Provides detailed information about the state of the training job. For detailed
 	// information about the secondary status of the training job, see StatusMessage
@@ -4921,11 +4921,11 @@ type TrainingJob struct {
 	//    * PreparingTrainingStack
 	//
 	//    * DownloadingTrainingImage
-	SecondaryStatus SecondaryStatus `type:"string" enum:"true"`
+	SecondaryStatus SecondaryStatus `json:"api.sagemaker:TrainingJob:SecondaryStatus" type:"string" enum:"true"`
 
 	// A history of all of the secondary statuses that the training job has transitioned
 	// through.
-	SecondaryStatusTransitions []SecondaryStatusTransition `type:"list"`
+	SecondaryStatusTransitions []SecondaryStatusTransition `json:"api.sagemaker:TrainingJob:SecondaryStatusTransitions" type:"list"`
 
 	// Specifies a limit to how long a model training job can run. When the job
 	// reaches the time limit, Amazon SageMaker ends the training job. Use this
@@ -4934,25 +4934,25 @@ type TrainingJob struct {
 	// To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which
 	// delays job termination for 120 seconds. Algorithms can use this 120-second
 	// window to save the model artifacts, so the results of training are not lost.
-	StoppingCondition *StoppingCondition `type:"structure"`
+	StoppingCondition *StoppingCondition `json:"api.sagemaker:TrainingJob:StoppingCondition" type:"structure"`
 
 	// An array of key-value pairs. For more information, see Using Cost Allocation
 	// Tags (https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what)
 	// in the AWS Billing and Cost Management User Guide.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"api.sagemaker:TrainingJob:Tags" type:"list"`
 
 	// Indicates the time when the training job ends on training instances. You
 	// are billed for the time interval between the value of TrainingStartTime and
 	// this time. For successful jobs and stopped jobs, this is the time after model
 	// artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker
 	// detects a job failure.
-	TrainingEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingEndTime *time.Time `json:"api.sagemaker:TrainingJob:TrainingEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the training job.
-	TrainingJobArn *string `type:"string"`
+	TrainingJobArn *string `json:"api.sagemaker:TrainingJob:TrainingJobArn" type:"string"`
 
 	// The name of the training job.
-	TrainingJobName *string `min:"1" type:"string"`
+	TrainingJobName *string `json:"api.sagemaker:TrainingJob:TrainingJobName" min:"1" type:"string"`
 
 	// The status of the training job.
 	//
@@ -4971,23 +4971,23 @@ type TrainingJob struct {
 	//    * Stopped - The training job has stopped.
 	//
 	// For more detailed information, see SecondaryStatus.
-	TrainingJobStatus TrainingJobStatus `type:"string" enum:"true"`
+	TrainingJobStatus TrainingJobStatus `json:"api.sagemaker:TrainingJob:TrainingJobStatus" type:"string" enum:"true"`
 
 	// Indicates the time when the training job starts on training instances. You
 	// are billed for the time interval between this time and the value of TrainingEndTime.
 	// The start time in CloudWatch Logs might be later than this time. The difference
 	// is due to the time it takes to download the training data and to the size
 	// of the training container.
-	TrainingStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingStartTime *time.Time `json:"api.sagemaker:TrainingJob:TrainingStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the associated hyperparameter tuning job
 	// if the training job was launched by a hyperparameter tuning job.
-	TuningJobArn *string `type:"string"`
+	TuningJobArn *string `json:"api.sagemaker:TrainingJob:TuningJobArn" type:"string"`
 
 	// A VpcConfig object that specifies the VPC that this training job has access
 	// to. For more information, see Protect Training Jobs by Using an Amazon Virtual
 	// Private Cloud (https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html).
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"api.sagemaker:TrainingJob:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -5001,24 +5001,24 @@ type TrainingJobDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// The hyperparameters used for the training job.
-	HyperParameters map[string]string `type:"map"`
+	HyperParameters map[string]string `json:"api.sagemaker:TrainingJobDefinition:HyperParameters" type:"map"`
 
 	// An array of Channel objects, each of which specifies an input source.
 	//
 	// InputDataConfig is a required field
-	InputDataConfig []Channel `min:"1" type:"list" required:"true"`
+	InputDataConfig []Channel `json:"api.sagemaker:TrainingJobDefinition:InputDataConfig" min:"1" type:"list" required:"true"`
 
 	// the path to the S3 bucket where you want to store model artifacts. Amazon
 	// SageMaker creates subfolders for the artifacts.
 	//
 	// OutputDataConfig is a required field
-	OutputDataConfig *OutputDataConfig `type:"structure" required:"true"`
+	OutputDataConfig *OutputDataConfig `json:"api.sagemaker:TrainingJobDefinition:OutputDataConfig" type:"structure" required:"true"`
 
 	// The resources, including the ML compute instances and ML storage volumes,
 	// to use for model training.
 	//
 	// ResourceConfig is a required field
-	ResourceConfig *ResourceConfig `type:"structure" required:"true"`
+	ResourceConfig *ResourceConfig `json:"api.sagemaker:TrainingJobDefinition:ResourceConfig" type:"structure" required:"true"`
 
 	// Specifies a limit to how long a model training job can run. When the job
 	// reaches the time limit, Amazon SageMaker ends the training job. Use this
@@ -5029,7 +5029,7 @@ type TrainingJobDefinition struct {
 	// window to save the model artifacts.
 	//
 	// StoppingCondition is a required field
-	StoppingCondition *StoppingCondition `type:"structure" required:"true"`
+	StoppingCondition *StoppingCondition `json:"api.sagemaker:TrainingJobDefinition:StoppingCondition" type:"structure" required:"true"`
 
 	// The input mode used by the algorithm for the training job. For the input
 	// modes that Amazon SageMaker algorithms support, see Algorithms (https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html).
@@ -5041,7 +5041,7 @@ type TrainingJobDefinition struct {
 	// container.
 	//
 	// TrainingInputMode is a required field
-	TrainingInputMode TrainingInputMode `type:"string" required:"true" enum:"true"`
+	TrainingInputMode TrainingInputMode `json:"api.sagemaker:TrainingJobDefinition:TrainingInputMode" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -5111,23 +5111,23 @@ type TrainingJobStatusCounters struct {
 
 	// The number of completed training jobs launched by the hyperparameter tuning
 	// job.
-	Completed *int64 `type:"integer"`
+	Completed *int64 `json:"api.sagemaker:TrainingJobStatusCounters:Completed" type:"integer"`
 
 	// The number of in-progress training jobs launched by a hyperparameter tuning
 	// job.
-	InProgress *int64 `type:"integer"`
+	InProgress *int64 `json:"api.sagemaker:TrainingJobStatusCounters:InProgress" type:"integer"`
 
 	// The number of training jobs that failed and can't be retried. A failed training
 	// job can't be retried if it failed because a client error occurred.
-	NonRetryableError *int64 `type:"integer"`
+	NonRetryableError *int64 `json:"api.sagemaker:TrainingJobStatusCounters:NonRetryableError" type:"integer"`
 
 	// The number of training jobs that failed, but can be retried. A failed training
 	// job can be retried only if it failed because an internal service error occurred.
-	RetryableError *int64 `type:"integer"`
+	RetryableError *int64 `json:"api.sagemaker:TrainingJobStatusCounters:RetryableError" type:"integer"`
 
 	// The number of training jobs launched by a hyperparameter tuning job that
 	// were manually stopped.
-	Stopped *int64 `type:"integer"`
+	Stopped *int64 `json:"api.sagemaker:TrainingJobStatusCounters:Stopped" type:"integer"`
 }
 
 // String returns the string representation
@@ -5143,30 +5143,30 @@ type TrainingJobSummary struct {
 	// A timestamp that shows when the training job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:TrainingJobSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Timestamp when the training job was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:TrainingJobSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A timestamp that shows when the training job ended. This field is set only
 	// if the training job has one of the terminal statuses (Completed, Failed,
 	// or Stopped).
-	TrainingEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TrainingEndTime *time.Time `json:"api.sagemaker:TrainingJobSummary:TrainingEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the training job.
 	//
 	// TrainingJobArn is a required field
-	TrainingJobArn *string `type:"string" required:"true"`
+	TrainingJobArn *string `json:"api.sagemaker:TrainingJobSummary:TrainingJobArn" type:"string" required:"true"`
 
 	// The name of the training job that you want a summary for.
 	//
 	// TrainingJobName is a required field
-	TrainingJobName *string `min:"1" type:"string" required:"true"`
+	TrainingJobName *string `json:"api.sagemaker:TrainingJobSummary:TrainingJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the training job.
 	//
 	// TrainingJobStatus is a required field
-	TrainingJobStatus TrainingJobStatus `type:"string" required:"true" enum:"true"`
+	TrainingJobStatus TrainingJobStatus `json:"api.sagemaker:TrainingJobSummary:TrainingJobStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -5181,41 +5181,41 @@ type TrainingSpecification struct {
 
 	// A list of MetricDefinition objects, which are used for parsing metrics generated
 	// by the algorithm.
-	MetricDefinitions []MetricDefinition `type:"list"`
+	MetricDefinitions []MetricDefinition `json:"api.sagemaker:TrainingSpecification:MetricDefinitions" type:"list"`
 
 	// A list of the HyperParameterSpecification objects, that define the supported
 	// hyperparameters. This is required if the algorithm supports automatic model
 	// tuning.>
-	SupportedHyperParameters []HyperParameterSpecification `type:"list"`
+	SupportedHyperParameters []HyperParameterSpecification `json:"api.sagemaker:TrainingSpecification:SupportedHyperParameters" type:"list"`
 
 	// A list of the instance types that this algorithm can use for training.
 	//
 	// SupportedTrainingInstanceTypes is a required field
-	SupportedTrainingInstanceTypes []TrainingInstanceType `type:"list" required:"true"`
+	SupportedTrainingInstanceTypes []TrainingInstanceType `json:"api.sagemaker:TrainingSpecification:SupportedTrainingInstanceTypes" type:"list" required:"true"`
 
 	// A list of the metrics that the algorithm emits that can be used as the objective
 	// metric in a hyperparameter tuning job.
-	SupportedTuningJobObjectiveMetrics []HyperParameterTuningJobObjective `type:"list"`
+	SupportedTuningJobObjectiveMetrics []HyperParameterTuningJobObjective `json:"api.sagemaker:TrainingSpecification:SupportedTuningJobObjectiveMetrics" type:"list"`
 
 	// Indicates whether the algorithm supports distributed training. If set to
 	// false, buyers can’t request more than one instance during training.
-	SupportsDistributedTraining *bool `type:"boolean"`
+	SupportsDistributedTraining *bool `json:"api.sagemaker:TrainingSpecification:SupportsDistributedTraining" type:"boolean"`
 
 	// A list of ChannelSpecification objects, which specify the input sources to
 	// be used by the algorithm.
 	//
 	// TrainingChannels is a required field
-	TrainingChannels []ChannelSpecification `min:"1" type:"list" required:"true"`
+	TrainingChannels []ChannelSpecification `json:"api.sagemaker:TrainingSpecification:TrainingChannels" min:"1" type:"list" required:"true"`
 
 	// The Amazon ECR registry path of the Docker image that contains the training
 	// algorithm.
 	//
 	// TrainingImage is a required field
-	TrainingImage *string `type:"string" required:"true"`
+	TrainingImage *string `json:"api.sagemaker:TrainingSpecification:TrainingImage" type:"string" required:"true"`
 
 	// An MD5 hash of the training algorithm that identifies the Docker image used
 	// for training.
-	TrainingImageDigest *string `type:"string"`
+	TrainingImageDigest *string `json:"api.sagemaker:TrainingSpecification:TrainingImageDigest" type:"string"`
 }
 
 // String returns the string representation
@@ -5284,7 +5284,7 @@ type TransformDataSource struct {
 	// The S3 location of the data source that is associated with a channel.
 	//
 	// S3DataSource is a required field
-	S3DataSource *TransformS3DataSource `type:"structure" required:"true"`
+	S3DataSource *TransformS3DataSource `json:"api.sagemaker:TransformDataSource:S3DataSource" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -5320,18 +5320,18 @@ type TransformInput struct {
 	// If your transform data is compressed, specify the compression type. Amazon
 	// SageMaker automatically decompresses the data for the transform job accordingly.
 	// The default value is None.
-	CompressionType CompressionType `type:"string" enum:"true"`
+	CompressionType CompressionType `json:"api.sagemaker:TransformInput:CompressionType" type:"string" enum:"true"`
 
 	// The multipurpose internet mail extension (MIME) type of the data. Amazon
 	// SageMaker uses the MIME type with each http call to transfer data to the
 	// transform job.
-	ContentType *string `type:"string"`
+	ContentType *string `json:"api.sagemaker:TransformInput:ContentType" type:"string"`
 
 	// Describes the location of the channel data, which is, the S3 location of
 	// the input data that the model can consume.
 	//
 	// DataSource is a required field
-	DataSource *TransformDataSource `type:"structure" required:"true"`
+	DataSource *TransformDataSource `json:"api.sagemaker:TransformInput:DataSource" type:"structure" required:"true"`
 
 	// The method to use to split the transform job's data files into smaller batches.
 	// Splitting is necessary when the total size of each object is too large to
@@ -5357,7 +5357,7 @@ type TransformInput struct {
 	// in the MXNet documentation. For more information about the TFRecord, see
 	// Consuming TFRecord data (https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data)
 	// in the TensorFlow documentation.
-	SplitType SplitType `type:"string" enum:"true"`
+	SplitType SplitType `json:"api.sagemaker:TransformInput:SplitType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5395,36 +5395,36 @@ type TransformJobDefinition struct {
 	// SingleRecord means only one record is used per mini-batch. MultiRecord means
 	// a mini-batch is set to contain as many records that can fit within the MaxPayloadInMB
 	// limit.
-	BatchStrategy BatchStrategy `type:"string" enum:"true"`
+	BatchStrategy BatchStrategy `json:"api.sagemaker:TransformJobDefinition:BatchStrategy" type:"string" enum:"true"`
 
 	// The environment variables to set in the Docker container. We support up to
 	// 16 key and values entries in the map.
-	Environment map[string]string `type:"map"`
+	Environment map[string]string `json:"api.sagemaker:TransformJobDefinition:Environment" type:"map"`
 
 	// The maximum number of parallel requests that can be sent to each instance
 	// in a transform job. The default value is 1.
-	MaxConcurrentTransforms *int64 `type:"integer"`
+	MaxConcurrentTransforms *int64 `json:"api.sagemaker:TransformJobDefinition:MaxConcurrentTransforms" type:"integer"`
 
 	// The maximum payload size allowed, in MB. A payload is the data portion of
 	// a record (without metadata).
-	MaxPayloadInMB *int64 `type:"integer"`
+	MaxPayloadInMB *int64 `json:"api.sagemaker:TransformJobDefinition:MaxPayloadInMB" type:"integer"`
 
 	// A description of the input source and the way the transform job consumes
 	// it.
 	//
 	// TransformInput is a required field
-	TransformInput *TransformInput `type:"structure" required:"true"`
+	TransformInput *TransformInput `json:"api.sagemaker:TransformJobDefinition:TransformInput" type:"structure" required:"true"`
 
 	// Identifies the Amazon S3 location where you want Amazon SageMaker to save
 	// the results from the transform job.
 	//
 	// TransformOutput is a required field
-	TransformOutput *TransformOutput `type:"structure" required:"true"`
+	TransformOutput *TransformOutput `json:"api.sagemaker:TransformJobDefinition:TransformOutput" type:"structure" required:"true"`
 
 	// Identifies the ML compute instances for the transform job.
 	//
 	// TransformResources is a required field
-	TransformResources *TransformResources `type:"structure" required:"true"`
+	TransformResources *TransformResources `json:"api.sagemaker:TransformJobDefinition:TransformResources" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -5478,34 +5478,34 @@ type TransformJobSummary struct {
 	// A timestamp that shows when the transform Job was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:TransformJobSummary:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// If the transform job failed, the reason it failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:TransformJobSummary:FailureReason" type:"string"`
 
 	// Indicates when the transform job was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:TransformJobSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Indicates when the transform job ends on compute instances. For successful
 	// jobs and stopped jobs, this is the exact time recorded after the results
 	// are uploaded. For failed jobs, this is when Amazon SageMaker detected that
 	// the job failed.
-	TransformEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TransformEndTime *time.Time `json:"api.sagemaker:TransformJobSummary:TransformEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the transform job.
 	//
 	// TransformJobArn is a required field
-	TransformJobArn *string `type:"string" required:"true"`
+	TransformJobArn *string `json:"api.sagemaker:TransformJobSummary:TransformJobArn" type:"string" required:"true"`
 
 	// The name of the transform job.
 	//
 	// TransformJobName is a required field
-	TransformJobName *string `min:"1" type:"string" required:"true"`
+	TransformJobName *string `json:"api.sagemaker:TransformJobSummary:TransformJobName" min:"1" type:"string" required:"true"`
 
 	// The status of the transform job.
 	//
 	// TransformJobStatus is a required field
-	TransformJobStatus TransformJobStatus `type:"string" required:"true" enum:"true"`
+	TransformJobStatus TransformJobStatus `json:"api.sagemaker:TransformJobSummary:TransformJobStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -5520,13 +5520,13 @@ type TransformOutput struct {
 
 	// The MIME type used to specify the output data. Amazon SageMaker uses the
 	// MIME type with each http call to transfer data from the transform job.
-	Accept *string `type:"string"`
+	Accept *string `json:"api.sagemaker:TransformOutput:Accept" type:"string"`
 
 	// Defines how to assemble the results of the transform job as a single S3 object.
 	// Choose a format that is most convenient to you. To concatenate the results
 	// in binary format, specify None. To add a newline character at the end of
 	// every transformed record, specify Line.
-	AssembleWith AssemblyType `type:"string" enum:"true"`
+	AssembleWith AssemblyType `json:"api.sagemaker:TransformOutput:AssembleWith" type:"string" enum:"true"`
 
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to
 	// encrypt the model artifacts at rest using Amazon S3 server-side encryption.
@@ -5549,7 +5549,7 @@ type TransformOutput struct {
 	// in your CreateTramsformJob request. For more information, see Using Key Policies
 	// in AWS KMS (http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html)
 	// in the AWS Key Management Service Developer Guide.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"api.sagemaker:TransformOutput:KmsKeyId" type:"string"`
 
 	// The Amazon S3 path where you want Amazon SageMaker to store the results of
 	// the transform job. For example, s3://bucket-name/key-name-prefix.
@@ -5567,7 +5567,7 @@ type TransformOutput struct {
 	// the transform job batch transform marks the job as failed to prompt investigation.
 	//
 	// S3OutputPath is a required field
-	S3OutputPath *string `type:"string" required:"true"`
+	S3OutputPath *string `json:"api.sagemaker:TransformOutput:S3OutputPath" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5599,14 +5599,14 @@ type TransformResources struct {
 	// transform jobs, specify a value greater than 1. The default value is 1.
 	//
 	// InstanceCount is a required field
-	InstanceCount *int64 `min:"1" type:"integer" required:"true"`
+	InstanceCount *int64 `json:"api.sagemaker:TransformResources:InstanceCount" min:"1" type:"integer" required:"true"`
 
 	// The ML compute instance type for the transform job. If you are using built-in
 	// algorithms to transform moderately sized datasets, we recommend using ml.m4.xlarge
 	// or ml.m5.largeinstance types.
 	//
 	// InstanceType is a required field
-	InstanceType TransformInstanceType `type:"string" required:"true" enum:"true"`
+	InstanceType TransformInstanceType `json:"api.sagemaker:TransformResources:InstanceType" type:"string" required:"true" enum:"true"`
 
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to
 	// encrypt data on the storage volume attached to the ML compute instance(s)
@@ -5616,7 +5616,7 @@ type TransformResources struct {
 	//    * // KMS Key ID "1234abcd-12ab-34cd-56ef-1234567890ab"
 	//
 	//    * // Amazon Resource Name (ARN) of a KMS Key "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-	VolumeKmsKeyId *string `type:"string"`
+	VolumeKmsKeyId *string `json:"api.sagemaker:TransformResources:VolumeKmsKeyId" type:"string"`
 }
 
 // String returns the string representation
@@ -5661,7 +5661,7 @@ type TransformS3DataSource struct {
 	// The following value is not compatible: AugmentedManifestFile
 	//
 	// S3DataType is a required field
-	S3DataType S3DataType `type:"string" required:"true" enum:"true"`
+	S3DataType S3DataType `json:"api.sagemaker:TransformS3DataSource:S3DataType" type:"string" required:"true" enum:"true"`
 
 	// Depending on the value specified for the S3DataType, identifies either a
 	// key name prefix or a manifest. For example:
@@ -5679,7 +5679,7 @@ type TransformS3DataSource struct {
 	//    to perform tasks on your behalf.
 	//
 	// S3Uri is a required field
-	S3Uri *string `type:"string" required:"true"`
+	S3Uri *string `json:"api.sagemaker:TransformS3DataSource:S3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5710,13 +5710,13 @@ type USD struct {
 	_ struct{} `type:"structure"`
 
 	// The fractional portion, in cents, of the amount.
-	Cents *int64 `type:"integer"`
+	Cents *int64 `json:"api.sagemaker:USD:Cents" type:"integer"`
 
 	// The whole number of dollars in the amount.
-	Dollars *int64 `type:"integer"`
+	Dollars *int64 `json:"api.sagemaker:USD:Dollars" type:"integer"`
 
 	// Fractions of a cent, in tenths.
-	TenthFractionsOfACent *int64 `type:"integer"`
+	TenthFractionsOfACent *int64 `json:"api.sagemaker:USD:TenthFractionsOfACent" type:"integer"`
 }
 
 // String returns the string representation
@@ -5734,7 +5734,7 @@ type UiConfig struct {
 	// (http://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html).
 	//
 	// UiTemplateS3Uri is a required field
-	UiTemplateS3Uri *string `type:"string" required:"true"`
+	UiTemplateS3Uri *string `json:"api.sagemaker:UiConfig:UiTemplateS3Uri" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5764,7 +5764,7 @@ type UiTemplate struct {
 	// The content of the Liquid template for the worker user interface.
 	//
 	// Content is a required field
-	Content *string `min:"1" type:"string" required:"true"`
+	Content *string `json:"api.sagemaker:UiTemplate:Content" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5802,7 +5802,7 @@ type VpcConfig struct {
 	// groups for the VPC that is specified in the Subnets field.
 	//
 	// SecurityGroupIds is a required field
-	SecurityGroupIds []string `min:"1" type:"list" required:"true"`
+	SecurityGroupIds []string `json:"api.sagemaker:VpcConfig:SecurityGroupIds" min:"1" type:"list" required:"true"`
 
 	// The ID of the subnets in the VPC to which you want to connect your training
 	// job or model.
@@ -5813,7 +5813,7 @@ type VpcConfig struct {
 	// zones instead.
 	//
 	// Subnets is a required field
-	Subnets []string `min:"1" type:"list" required:"true"`
+	Subnets []string `json:"api.sagemaker:VpcConfig:Subnets" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -5851,41 +5851,41 @@ type Workteam struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the work team was created (timestamp).
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateDate *time.Time `json:"api.sagemaker:Workteam:CreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the work team.
 	//
 	// Description is a required field
-	Description *string `min:"1" type:"string" required:"true"`
+	Description *string `json:"api.sagemaker:Workteam:Description" min:"1" type:"string" required:"true"`
 
 	// The date and time that the work team was last updated (timestamp).
-	LastUpdatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"api.sagemaker:Workteam:LastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Cognito user groups that make up the work team.
 	//
 	// MemberDefinitions is a required field
-	MemberDefinitions []MemberDefinition `min:"1" type:"list" required:"true"`
+	MemberDefinitions []MemberDefinition `json:"api.sagemaker:Workteam:MemberDefinitions" min:"1" type:"list" required:"true"`
 
 	// Configures SNS notifications of available or expiring work items for work
 	// teams.
-	NotificationConfiguration *NotificationConfiguration `type:"structure"`
+	NotificationConfiguration *NotificationConfiguration `json:"api.sagemaker:Workteam:NotificationConfiguration" type:"structure"`
 
 	// The Amazon Marketplace identifier for a vendor's work team.
-	ProductListingIds []string `type:"list"`
+	ProductListingIds []string `json:"api.sagemaker:Workteam:ProductListingIds" type:"list"`
 
 	// The URI of the labeling job's user interface. Workers open this URI to start
 	// labeling your data objects.
-	SubDomain *string `type:"string"`
+	SubDomain *string `json:"api.sagemaker:Workteam:SubDomain" type:"string"`
 
 	// The Amazon Resource Name (ARN) that identifies the work team.
 	//
 	// WorkteamArn is a required field
-	WorkteamArn *string `type:"string" required:"true"`
+	WorkteamArn *string `json:"api.sagemaker:Workteam:WorkteamArn" type:"string" required:"true"`
 
 	// The name of the work team.
 	//
 	// WorkteamName is a required field
-	WorkteamName *string `min:"1" type:"string" required:"true"`
+	WorkteamName *string `json:"api.sagemaker:Workteam:WorkteamName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

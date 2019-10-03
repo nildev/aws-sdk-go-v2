@@ -44,11 +44,11 @@ type DescribeAccountLimitsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the limits.
-	Limits []Limit `type:"list"`
+	Limits []Limit `json:"elasticloadbalancing:DescribeAccountLimitsOutput:Limits" type:"list"`
 
 	// If there are additional results, this is the marker for the next set of results.
 	// Otherwise, this is null.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"elasticloadbalancing:DescribeAccountLimitsOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

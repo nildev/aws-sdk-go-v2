@@ -21,17 +21,17 @@ type Attachment struct {
 	// Details of the attachment. For elastic network interfaces, this includes
 	// the network interface ID, the MAC address, the subnet ID, and the private
 	// IPv4 address.
-	Details []KeyValuePair `locationName:"details" type:"list"`
+	Details []KeyValuePair `json:"ecs:Attachment:Details" locationName:"details" type:"list"`
 
 	// The unique identifier for the attachment.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"ecs:Attachment:Id" locationName:"id" type:"string"`
 
 	// The status of the attachment. Valid values are PRECREATED, CREATED, ATTACHING,
 	// ATTACHED, DETACHING, DETACHED, and DELETED.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ecs:Attachment:Status" locationName:"status" type:"string"`
 
 	// The type of the attachment, such as ElasticNetworkInterface.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"ecs:Attachment:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -47,12 +47,12 @@ type AttachmentStateChange struct {
 	// The Amazon Resource Name (ARN) of the attachment.
 	//
 	// AttachmentArn is a required field
-	AttachmentArn *string `locationName:"attachmentArn" type:"string" required:"true"`
+	AttachmentArn *string `json:"ecs:AttachmentStateChange:AttachmentArn" locationName:"attachmentArn" type:"string" required:"true"`
 
 	// The status of the attachment.
 	//
 	// Status is a required field
-	Status *string `locationName:"status" type:"string" required:"true"`
+	Status *string `json:"ecs:AttachmentStateChange:Status" locationName:"status" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -90,21 +90,21 @@ type Attribute struct {
 	// hyphens, underscores, and periods are allowed.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"ecs:Attribute:Name" locationName:"name" type:"string" required:"true"`
 
 	// The ID of the target. You can specify the short form ID for a resource or
 	// the full Amazon Resource Name (ARN).
-	TargetId *string `locationName:"targetId" type:"string"`
+	TargetId *string `json:"ecs:Attribute:TargetId" locationName:"targetId" type:"string"`
 
 	// The type of the target with which to attach the attribute. This parameter
 	// is required if you use the short form ID for a resource instead of the full
 	// ARN.
-	TargetType TargetType `locationName:"targetType" type:"string" enum:"true"`
+	TargetType TargetType `json:"ecs:Attribute:TargetType" locationName:"targetType" type:"string" enum:"true"`
 
 	// The value of the attribute. Up to 128 letters (uppercase and lowercase),
 	// numbers, hyphens, underscores, periods, at signs (@), forward slashes, colons,
 	// and spaces are allowed.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ecs:Attribute:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -133,14 +133,14 @@ type AwsVpcConfiguration struct {
 
 	// Whether the task's elastic network interface receives a public IP address.
 	// The default value is DISABLED.
-	AssignPublicIp AssignPublicIp `locationName:"assignPublicIp" type:"string" enum:"true"`
+	AssignPublicIp AssignPublicIp `json:"ecs:AwsVpcConfiguration:AssignPublicIp" locationName:"assignPublicIp" type:"string" enum:"true"`
 
 	// The security groups associated with the task or service. If you do not specify
 	// a security group, the default security group for the VPC is used. There is
 	// a limit of 5 security groups that can be specified per AwsVpcConfiguration.
 	//
 	// All specified security groups must be from the same VPC.
-	SecurityGroups []string `locationName:"securityGroups" type:"list"`
+	SecurityGroups []string `json:"ecs:AwsVpcConfiguration:SecurityGroups" locationName:"securityGroups" type:"list"`
 
 	// The subnets associated with the task or service. There is a limit of 16 subnets
 	// that can be specified per AwsVpcConfiguration.
@@ -148,7 +148,7 @@ type AwsVpcConfiguration struct {
 	// All specified subnets must be from the same VPC.
 	//
 	// Subnets is a required field
-	Subnets []string `locationName:"subnets" type:"list" required:"true"`
+	Subnets []string `json:"ecs:AwsVpcConfiguration:Subnets" locationName:"subnets" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -180,30 +180,30 @@ type Cluster struct {
 
 	// The number of services that are running on the cluster in an ACTIVE state.
 	// You can view these services with ListServices.
-	ActiveServicesCount *int64 `locationName:"activeServicesCount" type:"integer"`
+	ActiveServicesCount *int64 `json:"ecs:Cluster:ActiveServicesCount" locationName:"activeServicesCount" type:"integer"`
 
 	// The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains
 	// the arn:aws:ecs namespace, followed by the Region of the cluster, the AWS
 	// account ID of the cluster owner, the cluster namespace, and then the cluster
 	// name. For example, arn:aws:ecs:region:012345678910:cluster/test.
-	ClusterArn *string `locationName:"clusterArn" type:"string"`
+	ClusterArn *string `json:"ecs:Cluster:ClusterArn" locationName:"clusterArn" type:"string"`
 
 	// A user-generated string that you use to identify your cluster.
-	ClusterName *string `locationName:"clusterName" type:"string"`
+	ClusterName *string `json:"ecs:Cluster:ClusterName" locationName:"clusterName" type:"string"`
 
 	// The number of tasks in the cluster that are in the PENDING state.
-	PendingTasksCount *int64 `locationName:"pendingTasksCount" type:"integer"`
+	PendingTasksCount *int64 `json:"ecs:Cluster:PendingTasksCount" locationName:"pendingTasksCount" type:"integer"`
 
 	// The number of container instances registered into the cluster. This includes
 	// container instances in both ACTIVE and DRAINING status.
-	RegisteredContainerInstancesCount *int64 `locationName:"registeredContainerInstancesCount" type:"integer"`
+	RegisteredContainerInstancesCount *int64 `json:"ecs:Cluster:RegisteredContainerInstancesCount" locationName:"registeredContainerInstancesCount" type:"integer"`
 
 	// The number of tasks in the cluster that are in the RUNNING state.
-	RunningTasksCount *int64 `locationName:"runningTasksCount" type:"integer"`
+	RunningTasksCount *int64 `json:"ecs:Cluster:RunningTasksCount" locationName:"runningTasksCount" type:"integer"`
 
 	// The settings for the cluster. This parameter indicates whether CloudWatch
 	// Container Insights is enabled or disabled for a cluster.
-	Settings []ClusterSetting `locationName:"settings" type:"list"`
+	Settings []ClusterSetting `json:"ecs:Cluster:Settings" locationName:"settings" type:"list"`
 
 	// Additional information about your clusters that are separated by launch type,
 	// including:
@@ -223,18 +223,18 @@ type Cluster struct {
 	//    * drainingEC2ServiceCount
 	//
 	//    * drainingFargateServiceCount
-	Statistics []KeyValuePair `locationName:"statistics" type:"list"`
+	Statistics []KeyValuePair `json:"ecs:Cluster:Statistics" locationName:"statistics" type:"list"`
 
 	// The status of the cluster. The valid values are ACTIVE or INACTIVE. ACTIVE
 	// indicates that you can register container instances with the cluster and
 	// the associated instances can accept tasks.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ecs:Cluster:Status" locationName:"status" type:"string"`
 
 	// The metadata that you apply to the cluster to help you categorize and organize
 	// them. Each tag consists of a key and an optional value, both of which you
 	// define. Tag keys can have a maximum character length of 128 characters, and
 	// tag values can have a maximum length of 256 characters.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"ecs:Cluster:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -249,14 +249,14 @@ type ClusterSetting struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cluster setting. The only supported value is containerInsights.
-	Name ClusterSettingName `locationName:"name" type:"string" enum:"true"`
+	Name ClusterSettingName `json:"ecs:ClusterSetting:Name" locationName:"name" type:"string" enum:"true"`
 
 	// The value to set for the cluster setting. The supported values are enabled
 	// and disabled. If enabled is specified, CloudWatch Container Insights will
 	// be enabled for the cluster, otherwise it will be disabled unless the containerInsights
 	// account setting is enabled. If a cluster value is specified, it will override
 	// the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ecs:ClusterSetting:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -270,48 +270,48 @@ type Container struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the container.
-	ContainerArn *string `locationName:"containerArn" type:"string"`
+	ContainerArn *string `json:"ecs:Container:ContainerArn" locationName:"containerArn" type:"string"`
 
 	// The number of CPU units set for the container. The value will be 0 if no
 	// value was specified in the container definition when the task definition
 	// was registered.
-	Cpu *string `locationName:"cpu" type:"string"`
+	Cpu *string `json:"ecs:Container:Cpu" locationName:"cpu" type:"string"`
 
 	// The exit code returned from the container.
-	ExitCode *int64 `locationName:"exitCode" type:"integer"`
+	ExitCode *int64 `json:"ecs:Container:ExitCode" locationName:"exitCode" type:"integer"`
 
 	// The IDs of each GPU assigned to the container.
-	GpuIds []string `locationName:"gpuIds" type:"list"`
+	GpuIds []string `json:"ecs:Container:GpuIds" locationName:"gpuIds" type:"list"`
 
 	// The health status of the container. If health checks are not configured for
 	// this container in its task definition, then it reports the health status
 	// as UNKNOWN.
-	HealthStatus HealthStatus `locationName:"healthStatus" type:"string" enum:"true"`
+	HealthStatus HealthStatus `json:"ecs:Container:HealthStatus" locationName:"healthStatus" type:"string" enum:"true"`
 
 	// The last known status of the container.
-	LastStatus *string `locationName:"lastStatus" type:"string"`
+	LastStatus *string `json:"ecs:Container:LastStatus" locationName:"lastStatus" type:"string"`
 
 	// The hard limit (in MiB) of memory set for the container.
-	Memory *string `locationName:"memory" type:"string"`
+	Memory *string `json:"ecs:Container:Memory" locationName:"memory" type:"string"`
 
 	// The soft limit (in MiB) of memory set for the container.
-	MemoryReservation *string `locationName:"memoryReservation" type:"string"`
+	MemoryReservation *string `json:"ecs:Container:MemoryReservation" locationName:"memoryReservation" type:"string"`
 
 	// The name of the container.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ecs:Container:Name" locationName:"name" type:"string"`
 
 	// The network bindings associated with the container.
-	NetworkBindings []NetworkBinding `locationName:"networkBindings" type:"list"`
+	NetworkBindings []NetworkBinding `json:"ecs:Container:NetworkBindings" locationName:"networkBindings" type:"list"`
 
 	// The network interfaces associated with the container.
-	NetworkInterfaces []NetworkInterface `locationName:"networkInterfaces" type:"list"`
+	NetworkInterfaces []NetworkInterface `json:"ecs:Container:NetworkInterfaces" locationName:"networkInterfaces" type:"list"`
 
 	// A short (255 max characters) human-readable string to provide additional
 	// details about a running or stopped container.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"ecs:Container:Reason" locationName:"reason" type:"string"`
 
 	// The ARN of the task.
-	TaskArn *string `locationName:"taskArn" type:"string"`
+	TaskArn *string `json:"ecs:Container:TaskArn" locationName:"taskArn" type:"string"`
 }
 
 // String returns the string representation
@@ -332,7 +332,7 @@ type ContainerDefinition struct {
 	// For more information, see https://docs.docker.com/engine/reference/builder/#cmd
 	// (https://docs.docker.com/engine/reference/builder/#cmd). If there are multiple
 	// arguments, each argument should be a separated string in the array.
-	Command []string `locationName:"command" type:"list"`
+	Command []string `json:"ecs:ContainerDefinition:Command" locationName:"command" type:"list"`
 
 	// The number of cpu units reserved for the container. This parameter maps to
 	// CpuShares in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -388,7 +388,7 @@ type ContainerDefinition struct {
 	// On Windows container instances, the CPU limit is enforced as an absolute
 	// limit, or a quota. Windows containers only have access to the specified amount
 	// of CPU that is described in the task definition.
-	Cpu *int64 `locationName:"cpu" type:"integer"`
+	Cpu *int64 `json:"ecs:ContainerDefinition:Cpu" locationName:"cpu" type:"integer"`
 
 	// The dependencies defined for container startup and shutdown. A container
 	// can contain multiple dependencies. When a dependency is defined for container
@@ -410,14 +410,14 @@ type ContainerDefinition struct {
 	// This parameter is available for tasks using the Fargate launch type in the
 	// Ohio (us-east-2) region only and the task or service requires platform version
 	// 1.3.0 or later.
-	DependsOn []ContainerDependency `locationName:"dependsOn" type:"list"`
+	DependsOn []ContainerDependency `json:"ecs:ContainerDefinition:DependsOn" locationName:"dependsOn" type:"list"`
 
 	// When this parameter is true, networking is disabled within the container.
 	// This parameter maps to NetworkDisabled in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/).
 	//
 	// This parameter is not supported for Windows containers.
-	DisableNetworking *bool `locationName:"disableNetworking" type:"boolean"`
+	DisableNetworking *bool `json:"ecs:ContainerDefinition:DisableNetworking" locationName:"disableNetworking" type:"boolean"`
 
 	// A list of DNS search domains that are presented to the container. This parameter
 	// maps to DnsSearch in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -425,7 +425,7 @@ type ContainerDefinition struct {
 	// and the --dns-search option to docker run (https://docs.docker.com/engine/reference/run/).
 	//
 	// This parameter is not supported for Windows containers.
-	DnsSearchDomains []string `locationName:"dnsSearchDomains" type:"list"`
+	DnsSearchDomains []string `json:"ecs:ContainerDefinition:DnsSearchDomains" locationName:"dnsSearchDomains" type:"list"`
 
 	// A list of DNS servers that are presented to the container. This parameter
 	// maps to Dns in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -433,7 +433,7 @@ type ContainerDefinition struct {
 	// and the --dns option to docker run (https://docs.docker.com/engine/reference/run/).
 	//
 	// This parameter is not supported for Windows containers.
-	DnsServers []string `locationName:"dnsServers" type:"list"`
+	DnsServers []string `json:"ecs:ContainerDefinition:DnsServers" locationName:"dnsServers" type:"list"`
 
 	// A key/value map of labels to add to the container. This parameter maps to
 	// Labels in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -443,7 +443,7 @@ type ContainerDefinition struct {
 	// on your container instance. To check the Docker Remote API version on your
 	// container instance, log in to your container instance and run the following
 	// command: sudo docker version --format '{{.Server.APIVersion}}'
-	DockerLabels map[string]string `locationName:"dockerLabels" type:"map"`
+	DockerLabels map[string]string `json:"ecs:ContainerDefinition:DockerLabels" locationName:"dockerLabels" type:"map"`
 
 	// A list of strings to provide custom labels for SELinux and AppArmor multi-level
 	// security systems. This field is not valid for containers in tasks using the
@@ -461,7 +461,7 @@ type ContainerDefinition struct {
 	// in the Amazon Elastic Container Service Developer Guide.
 	//
 	// This parameter is not supported for Windows containers.
-	DockerSecurityOptions []string `locationName:"dockerSecurityOptions" type:"list"`
+	DockerSecurityOptions []string `json:"ecs:ContainerDefinition:DockerSecurityOptions" locationName:"dockerSecurityOptions" type:"list"`
 
 	//
 	// Early versions of the Amazon ECS container agent do not properly handle entryPoint
@@ -474,7 +474,7 @@ type ContainerDefinition struct {
 	// and the --entrypoint option to docker run (https://docs.docker.com/engine/reference/run/).
 	// For more information, see https://docs.docker.com/engine/reference/builder/#entrypoint
 	// (https://docs.docker.com/engine/reference/builder/#entrypoint).
-	EntryPoint []string `locationName:"entryPoint" type:"list"`
+	EntryPoint []string `json:"ecs:ContainerDefinition:EntryPoint" locationName:"entryPoint" type:"list"`
 
 	// The environment variables to pass to a container. This parameter maps to
 	// Env in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -483,7 +483,7 @@ type ContainerDefinition struct {
 	//
 	// We do not recommend using plaintext environment variables for sensitive information,
 	// such as credential data.
-	Environment []KeyValuePair `locationName:"environment" type:"list"`
+	Environment []KeyValuePair `json:"ecs:ContainerDefinition:Environment" locationName:"environment" type:"list"`
 
 	// If the essential parameter of a container is marked as true, and that container
 	// fails or stops for any reason, all other containers that are part of the
@@ -497,7 +497,7 @@ type ContainerDefinition struct {
 	// components into multiple task definitions. For more information, see Application
 	// Architecture (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	Essential *bool `locationName:"essential" type:"boolean"`
+	Essential *bool `json:"ecs:ContainerDefinition:Essential" locationName:"essential" type:"boolean"`
 
 	// A list of hostnames and IP address mappings to append to the /etc/hosts file
 	// on the container. This parameter maps to ExtraHosts in the Create a container
@@ -507,13 +507,13 @@ type ContainerDefinition struct {
 	//
 	// This parameter is not supported for Windows containers or tasks that use
 	// the awsvpc network mode.
-	ExtraHosts []HostEntry `locationName:"extraHosts" type:"list"`
+	ExtraHosts []HostEntry `json:"ecs:ContainerDefinition:ExtraHosts" locationName:"extraHosts" type:"list"`
 
 	// The health check command and associated configuration parameters for the
 	// container. This parameter maps to HealthCheck in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the HEALTHCHECK parameter of docker run (https://docs.docker.com/engine/reference/run/).
-	HealthCheck *HealthCheck `locationName:"healthCheck" type:"structure"`
+	HealthCheck *HealthCheck `json:"ecs:ContainerDefinition:HealthCheck" locationName:"healthCheck" type:"structure"`
 
 	// The hostname to use for your container. This parameter maps to Hostname in
 	// the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -522,7 +522,7 @@ type ContainerDefinition struct {
 	//
 	// The hostname parameter is not supported if you are using the awsvpc network
 	// mode.
-	Hostname *string `locationName:"hostname" type:"string"`
+	Hostname *string `json:"ecs:ContainerDefinition:Hostname" locationName:"hostname" type:"string"`
 
 	// The image used to start a container. This string is passed directly to the
 	// Docker daemon. Images in the Docker Hub registry are available by default.
@@ -552,14 +552,14 @@ type ContainerDefinition struct {
 	//
 	//    * Images in other online repositories are qualified further by a domain
 	//    name (for example, quay.io/assemblyline/ubuntu).
-	Image *string `locationName:"image" type:"string"`
+	Image *string `json:"ecs:ContainerDefinition:Image" locationName:"image" type:"string"`
 
 	// When this parameter is true, this allows you to deploy containerized applications
 	// that require stdin or a tty to be allocated. This parameter maps to OpenStdin
 	// in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the --interactive option to docker run (https://docs.docker.com/engine/reference/run/).
-	Interactive *bool `locationName:"interactive" type:"boolean"`
+	Interactive *bool `json:"ecs:ContainerDefinition:Interactive" locationName:"interactive" type:"boolean"`
 
 	// The links parameter allows containers to communicate with each other without
 	// the need for port mappings. This parameter is only supported if the network
@@ -578,13 +578,13 @@ type ContainerDefinition struct {
 	// to communicate with each other without requiring links or host port mappings.
 	// Network isolation is achieved on the container instance using security groups
 	// and VPC settings.
-	Links []string `locationName:"links" type:"list"`
+	Links []string `json:"ecs:ContainerDefinition:Links" locationName:"links" type:"list"`
 
 	// Linux-specific modifications that are applied to the container, such as Linux
 	// kernel capabilities. For more information see KernelCapabilities.
 	//
 	// This parameter is not supported for Windows containers.
-	LinuxParameters *LinuxParameters `locationName:"linuxParameters" type:"structure"`
+	LinuxParameters *LinuxParameters `json:"ecs:ContainerDefinition:LinuxParameters" locationName:"linuxParameters" type:"structure"`
 
 	// The log configuration specification for the container.
 	//
@@ -621,7 +621,7 @@ type ContainerDefinition struct {
 	// log configuration options. For more information, see Amazon ECS Container
 	// Agent Configuration (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	LogConfiguration *LogConfiguration `locationName:"logConfiguration" type:"structure"`
+	LogConfiguration *LogConfiguration `json:"ecs:ContainerDefinition:LogConfiguration" locationName:"logConfiguration" type:"structure"`
 
 	// The amount (in MiB) of memory to present to the container. If your container
 	// attempts to exceed the memory specified here, the container is killed. The
@@ -643,7 +643,7 @@ type ContainerDefinition struct {
 	//
 	// The Docker daemon reserves a minimum of 4 MiB of memory for a container,
 	// so you should not specify fewer than 4 MiB of memory for your containers.
-	Memory *int64 `locationName:"memory" type:"integer"`
+	Memory *int64 `json:"ecs:ContainerDefinition:Memory" locationName:"memory" type:"integer"`
 
 	// The soft limit (in MiB) of memory to reserve for the container. When system
 	// memory is under heavy contention, Docker attempts to keep the container memory
@@ -670,7 +670,7 @@ type ContainerDefinition struct {
 	//
 	// The Docker daemon reserves a minimum of 4 MiB of memory for a container,
 	// so you should not specify fewer than 4 MiB of memory for your containers.
-	MemoryReservation *int64 `locationName:"memoryReservation" type:"integer"`
+	MemoryReservation *int64 `json:"ecs:ContainerDefinition:MemoryReservation" locationName:"memoryReservation" type:"integer"`
 
 	// The mount points for data volumes in your container.
 	//
@@ -681,7 +681,7 @@ type ContainerDefinition struct {
 	// Windows containers can mount whole directories on the same drive as $env:ProgramData.
 	// Windows containers cannot mount directories on a different drive, and mount
 	// point cannot be across drives.
-	MountPoints []MountPoint `locationName:"mountPoints" type:"list"`
+	MountPoints []MountPoint `json:"ecs:ContainerDefinition:MountPoints" locationName:"mountPoints" type:"list"`
 
 	// The name of a container. If you are linking multiple containers together
 	// in a task definition, the name of one container can be entered in the links
@@ -690,7 +690,7 @@ type ContainerDefinition struct {
 	// name in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the --name option to docker run (https://docs.docker.com/engine/reference/run/).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ecs:ContainerDefinition:Name" locationName:"name" type:"string"`
 
 	// The list of port mappings for the container. Port mappings allow containers
 	// to access ports on the host container instance to send or receive traffic.
@@ -715,7 +715,7 @@ type ContainerDefinition struct {
 	// port assignments are visible in the Network Bindings section of a container
 	// description for a selected task in the Amazon ECS console. The assignments
 	// are also visible in the networkBindings section DescribeTasks responses.
-	PortMappings []PortMapping `locationName:"portMappings" type:"list"`
+	PortMappings []PortMapping `json:"ecs:ContainerDefinition:PortMappings" locationName:"portMappings" type:"list"`
 
 	// When this parameter is true, the container is given elevated privileges on
 	// the host container instance (similar to the root user). This parameter maps
@@ -725,13 +725,13 @@ type ContainerDefinition struct {
 	//
 	// This parameter is not supported for Windows containers or tasks using the
 	// Fargate launch type.
-	Privileged *bool `locationName:"privileged" type:"boolean"`
+	Privileged *bool `json:"ecs:ContainerDefinition:Privileged" locationName:"privileged" type:"boolean"`
 
 	// When this parameter is true, a TTY is allocated. This parameter maps to Tty
 	// in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the --tty option to docker run (https://docs.docker.com/engine/reference/run/).
-	PseudoTerminal *bool `locationName:"pseudoTerminal" type:"boolean"`
+	PseudoTerminal *bool `json:"ecs:ContainerDefinition:PseudoTerminal" locationName:"pseudoTerminal" type:"boolean"`
 
 	// When this parameter is true, the container is given read-only access to its
 	// root file system. This parameter maps to ReadonlyRootfs in the Create a container
@@ -740,19 +740,19 @@ type ContainerDefinition struct {
 	// the --read-only option to docker run (https://docs.docker.com/engine/reference/run/).
 	//
 	// This parameter is not supported for Windows containers.
-	ReadonlyRootFilesystem *bool `locationName:"readonlyRootFilesystem" type:"boolean"`
+	ReadonlyRootFilesystem *bool `json:"ecs:ContainerDefinition:ReadonlyRootFilesystem" locationName:"readonlyRootFilesystem" type:"boolean"`
 
 	// The private repository authentication credentials to use.
-	RepositoryCredentials *RepositoryCredentials `locationName:"repositoryCredentials" type:"structure"`
+	RepositoryCredentials *RepositoryCredentials `json:"ecs:ContainerDefinition:RepositoryCredentials" locationName:"repositoryCredentials" type:"structure"`
 
 	// The type and amount of a resource to assign to a container. The only supported
 	// resource is a GPU.
-	ResourceRequirements []ResourceRequirement `locationName:"resourceRequirements" type:"list"`
+	ResourceRequirements []ResourceRequirement `json:"ecs:ContainerDefinition:ResourceRequirements" locationName:"resourceRequirements" type:"list"`
 
 	// The secrets to pass to the container. For more information, see Specifying
 	// Sensitive Data (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	Secrets []Secret `locationName:"secrets" type:"list"`
+	Secrets []Secret `json:"ecs:ContainerDefinition:Secrets" locationName:"secrets" type:"list"`
 
 	// Time duration to wait before giving up on resolving dependencies for a container.
 	// For example, you specify two containers in a task definition with containerA
@@ -777,7 +777,7 @@ type ContainerDefinition struct {
 	// This parameter is available for tasks using the Fargate launch type in the
 	// Ohio (us-east-2) region only and the task or service requires platform version
 	// 1.3.0 or later.
-	StartTimeout *int64 `locationName:"startTimeout" type:"integer"`
+	StartTimeout *int64 `json:"ecs:ContainerDefinition:StartTimeout" locationName:"startTimeout" type:"integer"`
 
 	// Time duration to wait before the container is forcefully killed if it doesn't
 	// exit normally on its own. For tasks using the Fargate launch type, the max
@@ -799,7 +799,7 @@ type ContainerDefinition struct {
 	// agent and ecs-init. For more information, see Amazon ECS-optimized Linux
 	// AMI (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	StopTimeout *int64 `locationName:"stopTimeout" type:"integer"`
+	StopTimeout *int64 `json:"ecs:ContainerDefinition:StopTimeout" locationName:"stopTimeout" type:"integer"`
 
 	// A list of namespaced kernel parameters to set in the container. This parameter
 	// maps to Sysctls in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -812,7 +812,7 @@ type ContainerDefinition struct {
 	// that is started last determines which systemControls parameters take effect.
 	// For tasks that use the host network mode, it changes the container instance's
 	// namespaced kernel parameters as well as the containers.
-	SystemControls []SystemControl `locationName:"systemControls" type:"list"`
+	SystemControls []SystemControl `json:"ecs:ContainerDefinition:SystemControls" locationName:"systemControls" type:"list"`
 
 	// A list of ulimits to set in the container. This parameter maps to Ulimits
 	// in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -825,7 +825,7 @@ type ContainerDefinition struct {
 	// version --format '{{.Server.APIVersion}}'
 	//
 	// This parameter is not supported for Windows containers.
-	Ulimits []Ulimit `locationName:"ulimits" type:"list"`
+	Ulimits []Ulimit `json:"ecs:ContainerDefinition:Ulimits" locationName:"ulimits" type:"list"`
 
 	// The user name to use inside the container. This parameter maps to User in
 	// the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -848,19 +848,19 @@ type ContainerDefinition struct {
 	//    * uid:group
 	//
 	// This parameter is not supported for Windows containers.
-	User *string `locationName:"user" type:"string"`
+	User *string `json:"ecs:ContainerDefinition:User" locationName:"user" type:"string"`
 
 	// Data volumes to mount from another container. This parameter maps to VolumesFrom
 	// in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the --volumes-from option to docker run (https://docs.docker.com/engine/reference/run/).
-	VolumesFrom []VolumeFrom `locationName:"volumesFrom" type:"list"`
+	VolumesFrom []VolumeFrom `json:"ecs:ContainerDefinition:VolumesFrom" locationName:"volumesFrom" type:"list"`
 
 	// The working directory in which to run commands inside the container. This
 	// parameter maps to WorkingDir in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the --workdir option to docker run (https://docs.docker.com/engine/reference/run/).
-	WorkingDirectory *string `locationName:"workingDirectory" type:"string"`
+	WorkingDirectory *string `json:"ecs:ContainerDefinition:WorkingDirectory" locationName:"workingDirectory" type:"string"`
 }
 
 // String returns the string representation
@@ -976,12 +976,12 @@ type ContainerDependency struct {
 	//    condition is confirmed only at task startup.
 	//
 	// Condition is a required field
-	Condition ContainerCondition `locationName:"condition" type:"string" required:"true" enum:"true"`
+	Condition ContainerCondition `json:"ecs:ContainerDependency:Condition" locationName:"condition" type:"string" required:"true" enum:"true"`
 
 	// The name of a container.
 	//
 	// ContainerName is a required field
-	ContainerName *string `locationName:"containerName" type:"string" required:"true"`
+	ContainerName *string `json:"ecs:ContainerDependency:ContainerName" locationName:"containerName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1015,33 +1015,33 @@ type ContainerInstance struct {
 	// This parameter returns true if the agent is connected to Amazon ECS. Registered
 	// instances with an agent that may be unhealthy or stopped return false. Only
 	// instances connected to an agent can accept placement requests.
-	AgentConnected *bool `locationName:"agentConnected" type:"boolean"`
+	AgentConnected *bool `json:"ecs:ContainerInstance:AgentConnected" locationName:"agentConnected" type:"boolean"`
 
 	// The status of the most recent agent update. If an update has never been requested,
 	// this value is NULL.
-	AgentUpdateStatus AgentUpdateStatus `locationName:"agentUpdateStatus" type:"string" enum:"true"`
+	AgentUpdateStatus AgentUpdateStatus `json:"ecs:ContainerInstance:AgentUpdateStatus" locationName:"agentUpdateStatus" type:"string" enum:"true"`
 
 	// The resources attached to a container instance, such as elastic network interfaces.
-	Attachments []Attachment `locationName:"attachments" type:"list"`
+	Attachments []Attachment `json:"ecs:ContainerInstance:Attachments" locationName:"attachments" type:"list"`
 
 	// The attributes set for the container instance, either by the Amazon ECS container
 	// agent at instance registration or manually with the PutAttributes operation.
-	Attributes []Attribute `locationName:"attributes" type:"list"`
+	Attributes []Attribute `json:"ecs:ContainerInstance:Attributes" locationName:"attributes" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the container instance. The ARN contains
 	// the arn:aws:ecs namespace, followed by the Region of the container instance,
 	// the AWS account ID of the container instance owner, the container-instance
 	// namespace, and then the container instance ID. For example, arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID.
-	ContainerInstanceArn *string `locationName:"containerInstanceArn" type:"string"`
+	ContainerInstanceArn *string `json:"ecs:ContainerInstance:ContainerInstanceArn" locationName:"containerInstanceArn" type:"string"`
 
 	// The EC2 instance ID of the container instance.
-	Ec2InstanceId *string `locationName:"ec2InstanceId" type:"string"`
+	Ec2InstanceId *string `json:"ecs:ContainerInstance:Ec2InstanceId" locationName:"ec2InstanceId" type:"string"`
 
 	// The number of tasks on the container instance that are in the PENDING status.
-	PendingTasksCount *int64 `locationName:"pendingTasksCount" type:"integer"`
+	PendingTasksCount *int64 `json:"ecs:ContainerInstance:PendingTasksCount" locationName:"pendingTasksCount" type:"integer"`
 
 	// The Unix timestamp for when the container instance was registered.
-	RegisteredAt *time.Time `locationName:"registeredAt" type:"timestamp" timestampFormat:"unix"`
+	RegisteredAt *time.Time `json:"ecs:ContainerInstance:RegisteredAt" locationName:"registeredAt" type:"timestamp" timestampFormat:"unix"`
 
 	// For CPU and memory resource types, this parameter describes the amount of
 	// each resource that was available on the container instance when the container
@@ -1050,7 +1050,7 @@ type ContainerInstance struct {
 	// For port resource types, this parameter describes the ports that were reserved
 	// by the Amazon ECS container agent when it registered the container instance
 	// with Amazon ECS.
-	RegisteredResources []Resource `locationName:"registeredResources" type:"list"`
+	RegisteredResources []Resource `json:"ecs:ContainerInstance:RegisteredResources" locationName:"registeredResources" type:"list"`
 
 	// For CPU and memory resource types, this parameter describes the remaining
 	// CPU and memory that has not already been allocated to tasks and is therefore
@@ -1059,10 +1059,10 @@ type ContainerInstance struct {
 	// registration time) and any task containers that have reserved port mappings
 	// on the host (with the host or bridge network mode). Any port that is not
 	// specified here is available for new tasks.
-	RemainingResources []Resource `locationName:"remainingResources" type:"list"`
+	RemainingResources []Resource `json:"ecs:ContainerInstance:RemainingResources" locationName:"remainingResources" type:"list"`
 
 	// The number of tasks on the container instance that are in the RUNNING status.
-	RunningTasksCount *int64 `locationName:"runningTasksCount" type:"integer"`
+	RunningTasksCount *int64 `json:"ecs:ContainerInstance:RunningTasksCount" locationName:"runningTasksCount" type:"integer"`
 
 	// The status of the container instance. The valid values are REGISTERING, REGISTRATION_FAILED,
 	// ACTIVE, INACTIVE, DEREGISTERING, or DRAINING.
@@ -1082,16 +1082,16 @@ type ContainerInstance struct {
 	// and any service tasks running on the container instance are removed if possible.
 	// For more information, see Container Instance Draining (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ecs:ContainerInstance:Status" locationName:"status" type:"string"`
 
 	// The reason that the container instance reached its current status.
-	StatusReason *string `locationName:"statusReason" type:"string"`
+	StatusReason *string `json:"ecs:ContainerInstance:StatusReason" locationName:"statusReason" type:"string"`
 
 	// The metadata that you apply to the container instance to help you categorize
 	// and organize them. Each tag consists of a key and an optional value, both
 	// of which you define. Tag keys can have a maximum character length of 128
 	// characters, and tag values can have a maximum length of 256 characters.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"ecs:ContainerInstance:Tags" locationName:"tags" type:"list"`
 
 	// The version counter for the container instance. Every time a container instance
 	// experiences a change that triggers a CloudWatch event, the version counter
@@ -1100,11 +1100,11 @@ type ContainerInstance struct {
 	// instance reported by the Amazon ECS APIs with the version reported in CloudWatch
 	// Events for the container instance (inside the detail object) to verify that
 	// the version in your event stream is current.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"ecs:ContainerInstance:Version" locationName:"version" type:"long"`
 
 	// The version information for the Amazon ECS container agent and Docker daemon
 	// running on the container instance.
-	VersionInfo *VersionInfo `locationName:"versionInfo" type:"structure"`
+	VersionInfo *VersionInfo `json:"ecs:ContainerInstance:VersionInfo" locationName:"versionInfo" type:"structure"`
 }
 
 // String returns the string representation
@@ -1123,37 +1123,37 @@ type ContainerOverride struct {
 	// The command to send to the container that overrides the default command from
 	// the Docker image or the task definition. You must also specify a container
 	// name.
-	Command []string `locationName:"command" type:"list"`
+	Command []string `json:"ecs:ContainerOverride:Command" locationName:"command" type:"list"`
 
 	// The number of cpu units reserved for the container, instead of the default
 	// value from the task definition. You must also specify a container name.
-	Cpu *int64 `locationName:"cpu" type:"integer"`
+	Cpu *int64 `json:"ecs:ContainerOverride:Cpu" locationName:"cpu" type:"integer"`
 
 	// The environment variables to send to the container. You can add new environment
 	// variables, which are added to the container at launch, or you can override
 	// the existing environment variables from the Docker image or the task definition.
 	// You must also specify a container name.
-	Environment []KeyValuePair `locationName:"environment" type:"list"`
+	Environment []KeyValuePair `json:"ecs:ContainerOverride:Environment" locationName:"environment" type:"list"`
 
 	// The hard limit (in MiB) of memory to present to the container, instead of
 	// the default value from the task definition. If your container attempts to
 	// exceed the memory specified here, the container is killed. You must also
 	// specify a container name.
-	Memory *int64 `locationName:"memory" type:"integer"`
+	Memory *int64 `json:"ecs:ContainerOverride:Memory" locationName:"memory" type:"integer"`
 
 	// The soft limit (in MiB) of memory to reserve for the container, instead of
 	// the default value from the task definition. You must also specify a container
 	// name.
-	MemoryReservation *int64 `locationName:"memoryReservation" type:"integer"`
+	MemoryReservation *int64 `json:"ecs:ContainerOverride:MemoryReservation" locationName:"memoryReservation" type:"integer"`
 
 	// The name of the container that receives the override. This parameter is required
 	// if any override is specified.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ecs:ContainerOverride:Name" locationName:"name" type:"string"`
 
 	// The type and amount of a resource to assign to a container, instead of the
 	// default value from the task definition. The only supported resource is a
 	// GPU.
-	ResourceRequirements []ResourceRequirement `locationName:"resourceRequirements" type:"list"`
+	ResourceRequirements []ResourceRequirement `json:"ecs:ContainerOverride:ResourceRequirements" locationName:"resourceRequirements" type:"list"`
 }
 
 // String returns the string representation
@@ -1184,20 +1184,20 @@ type ContainerStateChange struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the container.
-	ContainerName *string `locationName:"containerName" type:"string"`
+	ContainerName *string `json:"ecs:ContainerStateChange:ContainerName" locationName:"containerName" type:"string"`
 
 	// The exit code for the container, if the state change is a result of the container
 	// exiting.
-	ExitCode *int64 `locationName:"exitCode" type:"integer"`
+	ExitCode *int64 `json:"ecs:ContainerStateChange:ExitCode" locationName:"exitCode" type:"integer"`
 
 	// Any network bindings associated with the container.
-	NetworkBindings []NetworkBinding `locationName:"networkBindings" type:"list"`
+	NetworkBindings []NetworkBinding `json:"ecs:ContainerStateChange:NetworkBindings" locationName:"networkBindings" type:"list"`
 
 	// The reason for the state change.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"ecs:ContainerStateChange:Reason" locationName:"reason" type:"string"`
 
 	// The status of the container.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ecs:ContainerStateChange:Status" locationName:"status" type:"string"`
 }
 
 // String returns the string representation
@@ -1212,36 +1212,36 @@ type Deployment struct {
 	_ struct{} `type:"structure"`
 
 	// The Unix timestamp for when the service deployment was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"ecs:Deployment:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The most recent desired count of tasks that was specified for the service
 	// to deploy or maintain.
-	DesiredCount *int64 `locationName:"desiredCount" type:"integer"`
+	DesiredCount *int64 `json:"ecs:Deployment:DesiredCount" locationName:"desiredCount" type:"integer"`
 
 	// The ID of the deployment.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"ecs:Deployment:Id" locationName:"id" type:"string"`
 
 	// The launch type the tasks in the service are using. For more information,
 	// see Amazon ECS Launch Types (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	LaunchType LaunchType `locationName:"launchType" type:"string" enum:"true"`
+	LaunchType LaunchType `json:"ecs:Deployment:LaunchType" locationName:"launchType" type:"string" enum:"true"`
 
 	// The VPC subnet and security group configuration for tasks that receive their
 	// own elastic network interface by using the awsvpc networking mode.
-	NetworkConfiguration *NetworkConfiguration `locationName:"networkConfiguration" type:"structure"`
+	NetworkConfiguration *NetworkConfiguration `json:"ecs:Deployment:NetworkConfiguration" locationName:"networkConfiguration" type:"structure"`
 
 	// The number of tasks in the deployment that are in the PENDING status.
-	PendingCount *int64 `locationName:"pendingCount" type:"integer"`
+	PendingCount *int64 `json:"ecs:Deployment:PendingCount" locationName:"pendingCount" type:"integer"`
 
 	// The platform version on which your tasks in the service are running. A platform
 	// version is only specified for tasks using the Fargate launch type. If one
 	// is not specified, the LATEST platform version is used by default. For more
 	// information, see AWS Fargate Platform Versions (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion *string `locationName:"platformVersion" type:"string"`
+	PlatformVersion *string `json:"ecs:Deployment:PlatformVersion" locationName:"platformVersion" type:"string"`
 
 	// The number of tasks in the deployment that are in the RUNNING status.
-	RunningCount *int64 `locationName:"runningCount" type:"integer"`
+	RunningCount *int64 `json:"ecs:Deployment:RunningCount" locationName:"runningCount" type:"integer"`
 
 	// The status of the deployment. The following describes each state:
 	//
@@ -1257,14 +1257,14 @@ type Deployment struct {
 	// INACTIVE
 	//
 	// A deployment that has been completely replaced.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ecs:Deployment:Status" locationName:"status" type:"string"`
 
 	// The most recent task definition that was specified for the tasks in the service
 	// to use.
-	TaskDefinition *string `locationName:"taskDefinition" type:"string"`
+	TaskDefinition *string `json:"ecs:Deployment:TaskDefinition" locationName:"taskDefinition" type:"string"`
 
 	// The Unix timestamp for when the service deployment was last updated.
-	UpdatedAt *time.Time `locationName:"updatedAt" type:"timestamp" timestampFormat:"unix"`
+	UpdatedAt *time.Time `json:"ecs:Deployment:UpdatedAt" locationName:"updatedAt" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1297,7 +1297,7 @@ type DeploymentConfiguration struct {
 	// instances are in the DRAINING state. If the tasks in the service use the
 	// Fargate launch type, the maximum percent value is not used, although it is
 	// returned when describing your service.
-	MaximumPercent *int64 `locationName:"maximumPercent" type:"integer"`
+	MaximumPercent *int64 `json:"ecs:DeploymentConfiguration:MaximumPercent" locationName:"maximumPercent" type:"integer"`
 
 	// If a service is using the rolling update (ECS) deployment type, the minimum
 	// healthy percent represents a lower limit on the number of tasks in a service
@@ -1321,7 +1321,7 @@ type DeploymentConfiguration struct {
 	// the container instances are in the DRAINING state. If the tasks in the service
 	// use the Fargate launch type, the minimum healthy percent value is not used,
 	// although it is returned when describing your service.
-	MinimumHealthyPercent *int64 `locationName:"minimumHealthyPercent" type:"integer"`
+	MinimumHealthyPercent *int64 `json:"ecs:DeploymentConfiguration:MinimumHealthyPercent" locationName:"minimumHealthyPercent" type:"integer"`
 }
 
 // String returns the string representation
@@ -1361,7 +1361,7 @@ type DeploymentController struct {
 	// Amazon ECS service.
 	//
 	// Type is a required field
-	Type DeploymentControllerType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type DeploymentControllerType `json:"ecs:DeploymentController:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1388,16 +1388,16 @@ type Device struct {
 	_ struct{} `type:"structure"`
 
 	// The path inside the container at which to expose the host device.
-	ContainerPath *string `locationName:"containerPath" type:"string"`
+	ContainerPath *string `json:"ecs:Device:ContainerPath" locationName:"containerPath" type:"string"`
 
 	// The path for the device on the host container instance.
 	//
 	// HostPath is a required field
-	HostPath *string `locationName:"hostPath" type:"string" required:"true"`
+	HostPath *string `json:"ecs:Device:HostPath" locationName:"hostPath" type:"string" required:"true"`
 
 	// The explicit permissions to provide to the container for the device. By default,
 	// the container has permissions for read, write, and mknod for the device.
-	Permissions []DeviceCgroupPermission `locationName:"permissions" type:"list"`
+	Permissions []DeviceCgroupPermission `json:"ecs:Device:Permissions" locationName:"permissions" type:"list"`
 }
 
 // String returns the string representation
@@ -1431,7 +1431,7 @@ type DockerVolumeConfiguration struct {
 	// exist.
 	//
 	// This field is only used if the scope is shared.
-	Autoprovision *bool `locationName:"autoprovision" type:"boolean"`
+	Autoprovision *bool `json:"ecs:DockerVolumeConfiguration:Autoprovision" locationName:"autoprovision" type:"boolean"`
 
 	// The Docker volume driver to use. The driver value must match the driver name
 	// provided by Docker because it is used for task placement. If the driver was
@@ -1442,25 +1442,25 @@ type DockerVolumeConfiguration struct {
 	// This parameter maps to Driver in the Create a volume (https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the xxdriver option to docker volume create (https://docs.docker.com/engine/reference/commandline/volume_create/).
-	Driver *string `locationName:"driver" type:"string"`
+	Driver *string `json:"ecs:DockerVolumeConfiguration:Driver" locationName:"driver" type:"string"`
 
 	// A map of Docker driver-specific options passed through. This parameter maps
 	// to DriverOpts in the Create a volume (https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the xxopt option to docker volume create (https://docs.docker.com/engine/reference/commandline/volume_create/).
-	DriverOpts map[string]string `locationName:"driverOpts" type:"map"`
+	DriverOpts map[string]string `json:"ecs:DockerVolumeConfiguration:DriverOpts" locationName:"driverOpts" type:"map"`
 
 	// Custom metadata to add to your Docker volume. This parameter maps to Labels
 	// in the Create a volume (https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate)
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/)
 	// and the xxlabel option to docker volume create (https://docs.docker.com/engine/reference/commandline/volume_create/).
-	Labels map[string]string `locationName:"labels" type:"map"`
+	Labels map[string]string `json:"ecs:DockerVolumeConfiguration:Labels" locationName:"labels" type:"map"`
 
 	// The scope for the Docker volume that determines its lifecycle. Docker volumes
 	// that are scoped to a task are automatically provisioned when the task starts
 	// and destroyed when the task stops. Docker volumes that are scoped as shared
 	// persist after the task stops.
-	Scope Scope `locationName:"scope" type:"string" enum:"true"`
+	Scope Scope `json:"ecs:DockerVolumeConfiguration:Scope" locationName:"scope" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1474,10 +1474,10 @@ type Failure struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the failed resource.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"ecs:Failure:Arn" locationName:"arn" type:"string"`
 
 	// The reason for the failure.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"ecs:Failure:Reason" locationName:"reason" type:"string"`
 }
 
 // String returns the string representation
@@ -1518,16 +1518,16 @@ type HealthCheck struct {
 	// section of the Docker Remote API (https://docs.docker.com/engine/api/v1.35/).
 	//
 	// Command is a required field
-	Command []string `locationName:"command" type:"list" required:"true"`
+	Command []string `json:"ecs:HealthCheck:Command" locationName:"command" type:"list" required:"true"`
 
 	// The time period in seconds between each health check execution. You may specify
 	// between 5 and 300 seconds. The default value is 30 seconds.
-	Interval *int64 `locationName:"interval" type:"integer"`
+	Interval *int64 `json:"ecs:HealthCheck:Interval" locationName:"interval" type:"integer"`
 
 	// The number of times to retry a failed health check before the container is
 	// considered unhealthy. You may specify between 1 and 10 retries. The default
 	// value is 3.
-	Retries *int64 `locationName:"retries" type:"integer"`
+	Retries *int64 `json:"ecs:HealthCheck:Retries" locationName:"retries" type:"integer"`
 
 	// The optional grace period within which to provide containers time to bootstrap
 	// before failed health checks count towards the maximum number of retries.
@@ -1537,12 +1537,12 @@ type HealthCheck struct {
 	// If a health check succeeds within the startPeriod, then the container is
 	// considered healthy and any subsequent failures count toward the maximum number
 	// of retries.
-	StartPeriod *int64 `locationName:"startPeriod" type:"integer"`
+	StartPeriod *int64 `json:"ecs:HealthCheck:StartPeriod" locationName:"startPeriod" type:"integer"`
 
 	// The time period in seconds to wait for a health check to succeed before it
 	// is considered a failure. You may specify between 2 and 60 seconds. The default
 	// value is 5.
-	Timeout *int64 `locationName:"timeout" type:"integer"`
+	Timeout *int64 `json:"ecs:HealthCheck:Timeout" locationName:"timeout" type:"integer"`
 }
 
 // String returns the string representation
@@ -1573,12 +1573,12 @@ type HostEntry struct {
 	// The hostname to use in the /etc/hosts entry.
 	//
 	// Hostname is a required field
-	Hostname *string `locationName:"hostname" type:"string" required:"true"`
+	Hostname *string `json:"ecs:HostEntry:Hostname" locationName:"hostname" type:"string" required:"true"`
 
 	// The IP address to use in the /etc/hosts entry.
 	//
 	// IpAddress is a required field
-	IpAddress *string `locationName:"ipAddress" type:"string" required:"true"`
+	IpAddress *string `json:"ecs:HostEntry:IpAddress" locationName:"ipAddress" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1620,7 +1620,7 @@ type HostVolumeProperties struct {
 	//
 	// If you are using the Fargate launch type, the sourcePath parameter is not
 	// supported.
-	SourcePath *string `locationName:"sourcePath" type:"string"`
+	SourcePath *string `json:"ecs:HostVolumeProperties:SourcePath" locationName:"sourcePath" type:"string"`
 }
 
 // String returns the string representation
@@ -1656,7 +1656,7 @@ type KernelCapabilities struct {
 	// | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" |
 	// "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" |
 	// "WAKE_ALARM"
-	Add []string `locationName:"add" type:"list"`
+	Add []string `json:"ecs:KernelCapabilities:Add" locationName:"add" type:"list"`
 
 	// The Linux capabilities for the container that have been removed from the
 	// default configuration provided by Docker. This parameter maps to CapDrop
@@ -1672,7 +1672,7 @@ type KernelCapabilities struct {
 	// | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" |
 	// "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" |
 	// "WAKE_ALARM"
-	Drop []string `locationName:"drop" type:"list"`
+	Drop []string `json:"ecs:KernelCapabilities:Drop" locationName:"drop" type:"list"`
 }
 
 // String returns the string representation
@@ -1687,11 +1687,11 @@ type KeyValuePair struct {
 
 	// The name of the key-value pair. For environment variables, this is the name
 	// of the environment variable.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ecs:KeyValuePair:Name" locationName:"name" type:"string"`
 
 	// The value of the key-value pair. For environment variables, this is the value
 	// of the environment variable.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ecs:KeyValuePair:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -1709,7 +1709,7 @@ type LinuxParameters struct {
 	//
 	// If you are using tasks that use the Fargate launch type, capabilities is
 	// supported but the add parameter is not supported.
-	Capabilities *KernelCapabilities `locationName:"capabilities" type:"structure"`
+	Capabilities *KernelCapabilities `json:"ecs:LinuxParameters:Capabilities" locationName:"capabilities" type:"structure"`
 
 	// Any host devices to expose to the container. This parameter maps to Devices
 	// in the Create a container (https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate)
@@ -1718,7 +1718,7 @@ type LinuxParameters struct {
 	//
 	// If you are using tasks that use the Fargate launch type, the devices parameter
 	// is not supported.
-	Devices []Device `locationName:"devices" type:"list"`
+	Devices []Device `json:"ecs:LinuxParameters:Devices" locationName:"devices" type:"list"`
 
 	// Run an init process inside the container that forwards signals and reaps
 	// processes. This parameter maps to the --init option to docker run (https://docs.docker.com/engine/reference/run/).
@@ -1726,21 +1726,21 @@ type LinuxParameters struct {
 	// on your container instance. To check the Docker Remote API version on your
 	// container instance, log in to your container instance and run the following
 	// command: sudo docker version --format '{{.Server.APIVersion}}'
-	InitProcessEnabled *bool `locationName:"initProcessEnabled" type:"boolean"`
+	InitProcessEnabled *bool `json:"ecs:LinuxParameters:InitProcessEnabled" locationName:"initProcessEnabled" type:"boolean"`
 
 	// The value for the size (in MiB) of the /dev/shm volume. This parameter maps
 	// to the --shm-size option to docker run (https://docs.docker.com/engine/reference/run/).
 	//
 	// If you are using tasks that use the Fargate launch type, the sharedMemorySize
 	// parameter is not supported.
-	SharedMemorySize *int64 `locationName:"sharedMemorySize" type:"integer"`
+	SharedMemorySize *int64 `json:"ecs:LinuxParameters:SharedMemorySize" locationName:"sharedMemorySize" type:"integer"`
 
 	// The container path, mount options, and size (in MiB) of the tmpfs mount.
 	// This parameter maps to the --tmpfs option to docker run (https://docs.docker.com/engine/reference/run/).
 	//
 	// If you are using tasks that use the Fargate launch type, the tmpfs parameter
 	// is not supported.
-	Tmpfs []Tmpfs `locationName:"tmpfs" type:"list"`
+	Tmpfs []Tmpfs `json:"ecs:LinuxParameters:Tmpfs" locationName:"tmpfs" type:"list"`
 }
 
 // String returns the string representation
@@ -1798,13 +1798,13 @@ type LoadBalancer struct {
 
 	// The name of the container (as it appears in a container definition) to associate
 	// with the load balancer.
-	ContainerName *string `locationName:"containerName" type:"string"`
+	ContainerName *string `json:"ecs:LoadBalancer:ContainerName" locationName:"containerName" type:"string"`
 
 	// The port on the container to associate with the load balancer. This port
 	// must correspond to a containerPort in the service's task definition. Your
 	// container instances must allow ingress traffic on the hostPort of the port
 	// mapping.
-	ContainerPort *int64 `locationName:"containerPort" type:"integer"`
+	ContainerPort *int64 `json:"ecs:LoadBalancer:ContainerPort" locationName:"containerPort" type:"integer"`
 
 	// The name of the load balancer to associate with the Amazon ECS service or
 	// task set.
@@ -1812,7 +1812,7 @@ type LoadBalancer struct {
 	// A load balancer name is only specified when using a classic load balancer.
 	// If you are using an application load balancer or a network load balancer
 	// this should be omitted.
-	LoadBalancerName *string `locationName:"loadBalancerName" type:"string"`
+	LoadBalancerName *string `json:"ecs:LoadBalancer:LoadBalancerName" locationName:"loadBalancerName" type:"string"`
 
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target
 	// group or groups associated with a service or task set.
@@ -1829,7 +1829,7 @@ type LoadBalancer struct {
 	// required for the Fargate launch type), you must choose ip as the target type,
 	// not instance, because tasks that use the awsvpc network mode are associated
 	// with an elastic network interface, not an Amazon EC2 instance.
-	TargetGroupArn *string `locationName:"targetGroupArn" type:"string"`
+	TargetGroupArn *string `json:"ecs:LoadBalancer:TargetGroupArn" locationName:"targetGroupArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1869,17 +1869,17 @@ type LogConfiguration struct {
 	// command: sudo docker version --format '{{.Server.APIVersion}}'
 	//
 	// LogDriver is a required field
-	LogDriver LogDriver `locationName:"logDriver" type:"string" required:"true" enum:"true"`
+	LogDriver LogDriver `json:"ecs:LogConfiguration:LogDriver" locationName:"logDriver" type:"string" required:"true" enum:"true"`
 
 	// The configuration options to send to the log driver. This parameter requires
 	// version 1.19 of the Docker Remote API or greater on your container instance.
 	// To check the Docker Remote API version on your container instance, log in
 	// to your container instance and run the following command: sudo docker version
 	// --format '{{.Server.APIVersion}}'
-	Options map[string]string `locationName:"options" type:"map"`
+	Options map[string]string `json:"ecs:LogConfiguration:Options" locationName:"options" type:"map"`
 
 	// The secrets to pass to the log configuration.
-	SecretOptions []Secret `locationName:"secretOptions" type:"list"`
+	SecretOptions []Secret `json:"ecs:LogConfiguration:SecretOptions" locationName:"secretOptions" type:"list"`
 }
 
 // String returns the string representation
@@ -1913,16 +1913,16 @@ type MountPoint struct {
 	_ struct{} `type:"structure"`
 
 	// The path on the container to mount the host volume at.
-	ContainerPath *string `locationName:"containerPath" type:"string"`
+	ContainerPath *string `json:"ecs:MountPoint:ContainerPath" locationName:"containerPath" type:"string"`
 
 	// If this value is true, the container has read-only access to the volume.
 	// If this value is false, then the container can write to the volume. The default
 	// value is false.
-	ReadOnly *bool `locationName:"readOnly" type:"boolean"`
+	ReadOnly *bool `json:"ecs:MountPoint:ReadOnly" locationName:"readOnly" type:"boolean"`
 
 	// The name of the volume to mount. Must be a volume name referenced in the
 	// name parameter of task definition volume.
-	SourceVolume *string `locationName:"sourceVolume" type:"string"`
+	SourceVolume *string `json:"ecs:MountPoint:SourceVolume" locationName:"sourceVolume" type:"string"`
 }
 
 // String returns the string representation
@@ -1939,16 +1939,16 @@ type NetworkBinding struct {
 	_ struct{} `type:"structure"`
 
 	// The IP address that the container is bound to on the container instance.
-	BindIP *string `locationName:"bindIP" type:"string"`
+	BindIP *string `json:"ecs:NetworkBinding:BindIP" locationName:"bindIP" type:"string"`
 
 	// The port number on the container that is used with the network binding.
-	ContainerPort *int64 `locationName:"containerPort" type:"integer"`
+	ContainerPort *int64 `json:"ecs:NetworkBinding:ContainerPort" locationName:"containerPort" type:"integer"`
 
 	// The port number on the host that is used with the network binding.
-	HostPort *int64 `locationName:"hostPort" type:"integer"`
+	HostPort *int64 `json:"ecs:NetworkBinding:HostPort" locationName:"hostPort" type:"integer"`
 
 	// The protocol used for the network binding.
-	Protocol TransportProtocol `locationName:"protocol" type:"string" enum:"true"`
+	Protocol TransportProtocol `json:"ecs:NetworkBinding:Protocol" locationName:"protocol" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1964,7 +1964,7 @@ type NetworkConfiguration struct {
 	// The VPC subnets and security groups associated with a task.
 	//
 	// All specified subnets and security groups must be from the same VPC.
-	AwsvpcConfiguration *AwsVpcConfiguration `locationName:"awsvpcConfiguration" type:"structure"`
+	AwsvpcConfiguration *AwsVpcConfiguration `json:"ecs:NetworkConfiguration:AwsvpcConfiguration" locationName:"awsvpcConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -1994,13 +1994,13 @@ type NetworkInterface struct {
 	_ struct{} `type:"structure"`
 
 	// The attachment ID for the network interface.
-	AttachmentId *string `locationName:"attachmentId" type:"string"`
+	AttachmentId *string `json:"ecs:NetworkInterface:AttachmentId" locationName:"attachmentId" type:"string"`
 
 	// The private IPv6 address for the network interface.
-	Ipv6Address *string `locationName:"ipv6Address" type:"string"`
+	Ipv6Address *string `json:"ecs:NetworkInterface:Ipv6Address" locationName:"ipv6Address" type:"string"`
 
 	// The private IPv4 address for the network interface.
-	PrivateIpv4Address *string `locationName:"privateIpv4Address" type:"string"`
+	PrivateIpv4Address *string `json:"ecs:NetworkInterface:PrivateIpv4Address" locationName:"privateIpv4Address" type:"string"`
 }
 
 // String returns the string representation
@@ -2019,13 +2019,13 @@ type PlacementConstraint struct {
 	// specify an expression if the constraint type is distinctInstance. For more
 	// information, see Cluster Query Language (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	Expression *string `locationName:"expression" type:"string"`
+	Expression *string `json:"ecs:PlacementConstraint:Expression" locationName:"expression" type:"string"`
 
 	// The type of constraint. Use distinctInstance to ensure that each task in
 	// a particular group is running on a different container instance. Use memberOf
 	// to restrict the selection to a group of valid candidates. The value distinctInstance
 	// is not supported in task definitions.
-	Type PlacementConstraintType `locationName:"type" type:"string" enum:"true"`
+	Type PlacementConstraintType `json:"ecs:PlacementConstraint:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2046,7 +2046,7 @@ type PlacementStrategy struct {
 	// such as attribute:ecs.availability-zone. For the binpack placement strategy,
 	// valid values are cpu and memory. For the random placement strategy, this
 	// field is not used.
-	Field *string `locationName:"field" type:"string"`
+	Field *string `json:"ecs:PlacementStrategy:Field" locationName:"field" type:"string"`
 
 	// The type of placement strategy. The random placement strategy randomly places
 	// tasks on available candidates. The spread placement strategy spreads placement
@@ -2055,7 +2055,7 @@ type PlacementStrategy struct {
 	// amount of the resource that is specified with the field parameter. For example,
 	// if you binpack on memory, a task is placed on the instance with the least
 	// amount of remaining memory (but still enough to run the task).
-	Type PlacementStrategyType `locationName:"type" type:"string" enum:"true"`
+	Type PlacementStrategyType `json:"ecs:PlacementStrategy:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2074,13 +2074,13 @@ type PlatformDevice struct {
 	// file.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" type:"string" required:"true"`
+	Id *string `json:"ecs:PlatformDevice:Id" locationName:"id" type:"string" required:"true"`
 
 	// The type of device that is available on the container instance. The only
 	// supported value is GPU.
 	//
 	// Type is a required field
-	Type PlatformDeviceType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type PlatformDeviceType `json:"ecs:PlatformDevice:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2134,7 +2134,7 @@ type PortMapping struct {
 	//
 	// You cannot expose the same container port for multiple protocols. An error
 	// will be returned if this is attempted.
-	ContainerPort *int64 `locationName:"containerPort" type:"integer"`
+	ContainerPort *int64 `json:"ecs:PortMapping:ContainerPort" locationName:"containerPort" type:"integer"`
 
 	// The port number on the container instance to reserve for your container.
 	//
@@ -2165,11 +2165,11 @@ type PortMapping struct {
 	// output. A container instance can have up to 100 reserved ports at a time,
 	// including the default reserved ports. Automatically assigned ports don't
 	// count toward the 100 reserved ports limit.
-	HostPort *int64 `locationName:"hostPort" type:"integer"`
+	HostPort *int64 `json:"ecs:PortMapping:HostPort" locationName:"hostPort" type:"integer"`
 
 	// The protocol used for the port mapping. Valid values are tcp and udp. The
 	// default is tcp.
-	Protocol TransportProtocol `locationName:"protocol" type:"string" enum:"true"`
+	Protocol TransportProtocol `json:"ecs:PortMapping:Protocol" locationName:"protocol" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2196,7 +2196,7 @@ type ProxyConfiguration struct {
 	// The name of the container that will serve as the App Mesh proxy.
 	//
 	// ContainerName is a required field
-	ContainerName *string `locationName:"containerName" type:"string" required:"true"`
+	ContainerName *string `json:"ecs:ProxyConfiguration:ContainerName" locationName:"containerName" type:"string" required:"true"`
 
 	// The set of network configuration parameters to provide the Container Network
 	// Interface (CNI) plugin, specified as key-value pairs.
@@ -2227,10 +2227,10 @@ type ProxyConfiguration struct {
 	//    * EgressIgnoredIPs - (Required) The egress traffic going to the specified
 	//    IP addresses is ignored and not redirected to the ProxyEgressPort. It
 	//    can be an empty list.
-	Properties []KeyValuePair `locationName:"properties" type:"list"`
+	Properties []KeyValuePair `json:"ecs:ProxyConfiguration:Properties" locationName:"properties" type:"list"`
 
 	// The proxy type. The only supported value is APPMESH.
-	Type ProxyConfigurationType `locationName:"type" type:"string" enum:"true"`
+	Type ProxyConfigurationType `json:"ecs:ProxyConfiguration:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2266,7 +2266,7 @@ type RepositoryCredentials struct {
 	// AWS Management Console, you must specify the full ARN of the secret.
 	//
 	// CredentialsParameter is a required field
-	CredentialsParameter *string `locationName:"credentialsParameter" type:"string" required:"true"`
+	CredentialsParameter *string `json:"ecs:RepositoryCredentials:CredentialsParameter" locationName:"credentialsParameter" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2295,25 +2295,25 @@ type Resource struct {
 
 	// When the doubleValue type is set, the value of the resource must be a double
 	// precision floating-point type.
-	DoubleValue *float64 `locationName:"doubleValue" type:"double"`
+	DoubleValue *float64 `json:"ecs:Resource:DoubleValue" locationName:"doubleValue" type:"double"`
 
 	// When the integerValue type is set, the value of the resource must be an integer.
-	IntegerValue *int64 `locationName:"integerValue" type:"integer"`
+	IntegerValue *int64 `json:"ecs:Resource:IntegerValue" locationName:"integerValue" type:"integer"`
 
 	// When the longValue type is set, the value of the resource must be an extended
 	// precision floating-point type.
-	LongValue *int64 `locationName:"longValue" type:"long"`
+	LongValue *int64 `json:"ecs:Resource:LongValue" locationName:"longValue" type:"long"`
 
 	// The name of the resource, such as CPU, MEMORY, PORTS, PORTS_UDP, or a user-defined
 	// resource.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ecs:Resource:Name" locationName:"name" type:"string"`
 
 	// When the stringSetValue type is set, the value of the resource must be a
 	// string type.
-	StringSetValue []string `locationName:"stringSetValue" type:"list"`
+	StringSetValue []string `json:"ecs:Resource:StringSetValue" locationName:"stringSetValue" type:"list"`
 
 	// The type of the resource, such as INTEGER, DOUBLE, LONG, or STRINGSET.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"ecs:Resource:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -2333,7 +2333,7 @@ type ResourceRequirement struct {
 	// GPU.
 	//
 	// Type is a required field
-	Type ResourceType `locationName:"type" type:"string" required:"true" enum:"true"`
+	Type ResourceType `json:"ecs:ResourceRequirement:Type" locationName:"type" type:"string" required:"true" enum:"true"`
 
 	// The number of physical GPUs the Amazon ECS container agent will reserve for
 	// the container. The number of GPUs reserved for all containers in a task should
@@ -2341,7 +2341,7 @@ type ResourceRequirement struct {
 	// is launched on.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" type:"string" required:"true"`
+	Value *string `json:"ecs:ResourceRequirement:Value" locationName:"value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2373,11 +2373,11 @@ type Scale struct {
 	_ struct{} `type:"structure"`
 
 	// The unit of measure for the scale value.
-	Unit ScaleUnit `locationName:"unit" type:"string" enum:"true"`
+	Unit ScaleUnit `json:"ecs:Scale:Unit" locationName:"unit" type:"string" enum:"true"`
 
 	// The value, specified as a percent total of a service's desiredCount, to scale
 	// the task set. Accepted values are numbers between 0 and 100.
-	Value *float64 `locationName:"value" type:"double"`
+	Value *float64 `json:"ecs:Scale:Value" locationName:"value" type:"double"`
 }
 
 // String returns the string representation
@@ -2403,7 +2403,7 @@ type Secret struct {
 	// The name of the secret.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"ecs:Secret:Name" locationName:"name" type:"string" required:"true"`
 
 	// The secret to expose to the container. The supported values are either the
 	// full ARN of the AWS Secrets Manager secret or the full ARN of the parameter
@@ -2415,7 +2415,7 @@ type Secret struct {
 	// full ARN must be specified.
 	//
 	// ValueFrom is a required field
-	ValueFrom *string `locationName:"valueFrom" type:"string" required:"true"`
+	ValueFrom *string `json:"ecs:Secret:ValueFrom" locationName:"valueFrom" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2447,48 +2447,48 @@ type Service struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the cluster that hosts the service.
-	ClusterArn *string `locationName:"clusterArn" type:"string"`
+	ClusterArn *string `json:"ecs:Service:ClusterArn" locationName:"clusterArn" type:"string"`
 
 	// The Unix timestamp for when the service was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"ecs:Service:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The principal that created the service.
-	CreatedBy *string `locationName:"createdBy" type:"string"`
+	CreatedBy *string `json:"ecs:Service:CreatedBy" locationName:"createdBy" type:"string"`
 
 	// Optional deployment parameters that control how many tasks run during the
 	// deployment and the ordering of stopping and starting tasks.
-	DeploymentConfiguration *DeploymentConfiguration `locationName:"deploymentConfiguration" type:"structure"`
+	DeploymentConfiguration *DeploymentConfiguration `json:"ecs:Service:DeploymentConfiguration" locationName:"deploymentConfiguration" type:"structure"`
 
 	// The deployment controller type the service is using.
-	DeploymentController *DeploymentController `locationName:"deploymentController" type:"structure"`
+	DeploymentController *DeploymentController `json:"ecs:Service:DeploymentController" locationName:"deploymentController" type:"structure"`
 
 	// The current state of deployments for the service.
-	Deployments []Deployment `locationName:"deployments" type:"list"`
+	Deployments []Deployment `json:"ecs:Service:Deployments" locationName:"deployments" type:"list"`
 
 	// The desired number of instantiations of the task definition to keep running
 	// on the service. This value is specified when the service is created with
 	// CreateService, and it can be modified with UpdateService.
-	DesiredCount *int64 `locationName:"desiredCount" type:"integer"`
+	DesiredCount *int64 `json:"ecs:Service:DesiredCount" locationName:"desiredCount" type:"integer"`
 
 	// Specifies whether to enable Amazon ECS managed tags for the tasks in the
 	// service. For more information, see Tagging Your Amazon ECS Resources (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	EnableECSManagedTags *bool `locationName:"enableECSManagedTags" type:"boolean"`
+	EnableECSManagedTags *bool `json:"ecs:Service:EnableECSManagedTags" locationName:"enableECSManagedTags" type:"boolean"`
 
 	// The event stream for your service. A maximum of 100 of the latest events
 	// are displayed.
-	Events []ServiceEvent `locationName:"events" type:"list"`
+	Events []ServiceEvent `json:"ecs:Service:Events" locationName:"events" type:"list"`
 
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores
 	// unhealthy Elastic Load Balancing target health checks after a task has first
 	// started.
-	HealthCheckGracePeriodSeconds *int64 `locationName:"healthCheckGracePeriodSeconds" type:"integer"`
+	HealthCheckGracePeriodSeconds *int64 `json:"ecs:Service:HealthCheckGracePeriodSeconds" locationName:"healthCheckGracePeriodSeconds" type:"integer"`
 
 	// The launch type on which your service is running. If no value is specified,
 	// it will default to EC2. Valid values include EC2 and FARGATE. For more information,
 	// see Amazon ECS Launch Types (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	LaunchType LaunchType `locationName:"launchType" type:"string" enum:"true"`
+	LaunchType LaunchType `json:"ecs:Service:LaunchType" locationName:"launchType" type:"string" enum:"true"`
 
 	// A list of Elastic Load Balancing load balancer objects, containing the load
 	// balancer name, the container name (as it appears in a container definition),
@@ -2500,39 +2500,39 @@ type Service struct {
 	// you create any target groups for these services, you must choose ip as the
 	// target type, not instance. Tasks that use the awsvpc network mode are associated
 	// with an elastic network interface, not an Amazon EC2 instance.
-	LoadBalancers []LoadBalancer `locationName:"loadBalancers" type:"list"`
+	LoadBalancers []LoadBalancer `json:"ecs:Service:LoadBalancers" locationName:"loadBalancers" type:"list"`
 
 	// The VPC subnet and security group configuration for tasks that receive their
 	// own elastic network interface by using the awsvpc networking mode.
-	NetworkConfiguration *NetworkConfiguration `locationName:"networkConfiguration" type:"structure"`
+	NetworkConfiguration *NetworkConfiguration `json:"ecs:Service:NetworkConfiguration" locationName:"networkConfiguration" type:"structure"`
 
 	// The number of tasks in the cluster that are in the PENDING state.
-	PendingCount *int64 `locationName:"pendingCount" type:"integer"`
+	PendingCount *int64 `json:"ecs:Service:PendingCount" locationName:"pendingCount" type:"integer"`
 
 	// The placement constraints for the tasks in the service.
-	PlacementConstraints []PlacementConstraint `locationName:"placementConstraints" type:"list"`
+	PlacementConstraints []PlacementConstraint `json:"ecs:Service:PlacementConstraints" locationName:"placementConstraints" type:"list"`
 
 	// The placement strategy that determines how tasks for the service are placed.
-	PlacementStrategy []PlacementStrategy `locationName:"placementStrategy" type:"list"`
+	PlacementStrategy []PlacementStrategy `json:"ecs:Service:PlacementStrategy" locationName:"placementStrategy" type:"list"`
 
 	// The platform version on which to run your service. A platform version is
 	// only specified for tasks using the Fargate launch type. If one is not specified,
 	// the LATEST platform version is used by default. For more information, see
 	// AWS Fargate Platform Versions (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion *string `locationName:"platformVersion" type:"string"`
+	PlatformVersion *string `json:"ecs:Service:PlatformVersion" locationName:"platformVersion" type:"string"`
 
 	// Specifies whether to propagate the tags from the task definition or the service
 	// to the task. If no value is specified, the tags are not propagated.
-	PropagateTags PropagateTags `locationName:"propagateTags" type:"string" enum:"true"`
+	PropagateTags PropagateTags `json:"ecs:Service:PropagateTags" locationName:"propagateTags" type:"string" enum:"true"`
 
 	// The ARN of the IAM role associated with the service that allows the Amazon
 	// ECS container agent to register container instances with an Elastic Load
 	// Balancing load balancer.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"ecs:Service:RoleArn" locationName:"roleArn" type:"string"`
 
 	// The number of tasks in the cluster that are in the RUNNING state.
-	RunningCount *int64 `locationName:"runningCount" type:"integer"`
+	RunningCount *int64 `json:"ecs:Service:RunningCount" locationName:"runningCount" type:"integer"`
 
 	// The scheduling strategy to use for the service. For more information, see
 	// Services (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
@@ -2548,42 +2548,42 @@ type Service struct {
 	//    container instance in your cluster. When you are using this strategy,
 	//    do not specify a desired number of tasks or any task placement strategies.
 	//    Fargate tasks do not support the DAEMON scheduling strategy.
-	SchedulingStrategy SchedulingStrategy `locationName:"schedulingStrategy" type:"string" enum:"true"`
+	SchedulingStrategy SchedulingStrategy `json:"ecs:Service:SchedulingStrategy" locationName:"schedulingStrategy" type:"string" enum:"true"`
 
 	// The ARN that identifies the service. The ARN contains the arn:aws:ecs namespace,
 	// followed by the Region of the service, the AWS account ID of the service
 	// owner, the service namespace, and then the service name. For example, arn:aws:ecs:region:012345678910:service/my-service.
-	ServiceArn *string `locationName:"serviceArn" type:"string"`
+	ServiceArn *string `json:"ecs:Service:ServiceArn" locationName:"serviceArn" type:"string"`
 
 	// The name of your service. Up to 255 letters (uppercase and lowercase), numbers,
 	// and hyphens are allowed. Service names must be unique within a cluster, but
 	// you can have similarly named services in multiple clusters within a Region
 	// or across multiple Regions.
-	ServiceName *string `locationName:"serviceName" type:"string"`
+	ServiceName *string `json:"ecs:Service:ServiceName" locationName:"serviceName" type:"string"`
 
 	// The details of the service discovery registries to assign to this service.
 	// For more information, see Service Discovery (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
-	ServiceRegistries []ServiceRegistry `locationName:"serviceRegistries" type:"list"`
+	ServiceRegistries []ServiceRegistry `json:"ecs:Service:ServiceRegistries" locationName:"serviceRegistries" type:"list"`
 
 	// The status of the service. The valid values are ACTIVE, DRAINING, or INACTIVE.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ecs:Service:Status" locationName:"status" type:"string"`
 
 	// The metadata that you apply to the service to help you categorize and organize
 	// them. Each tag consists of a key and an optional value, both of which you
 	// define. Tag keys can have a maximum character length of 128 characters, and
 	// tag values can have a maximum length of 256 characters.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"ecs:Service:Tags" locationName:"tags" type:"list"`
 
 	// The task definition to use for tasks in the service. This value is specified
 	// when the service is created with CreateService, and it can be modified with
 	// UpdateService.
-	TaskDefinition *string `locationName:"taskDefinition" type:"string"`
+	TaskDefinition *string `json:"ecs:Service:TaskDefinition" locationName:"taskDefinition" type:"string"`
 
 	// Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or
 	// an EXTERNAL deployment. An Amazon ECS task set includes details such as the
 	// desired number of tasks, how many tasks are running, and whether the task
 	// set serves production traffic.
-	TaskSets []TaskSet `locationName:"taskSets" type:"list"`
+	TaskSets []TaskSet `json:"ecs:Service:TaskSets" locationName:"taskSets" type:"list"`
 }
 
 // String returns the string representation
@@ -2597,13 +2597,13 @@ type ServiceEvent struct {
 	_ struct{} `type:"structure"`
 
 	// The Unix timestamp for when the event was triggered.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"ecs:ServiceEvent:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID string of the event.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"ecs:ServiceEvent:Id" locationName:"id" type:"string"`
 
 	// The event message.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"ecs:ServiceEvent:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -2623,7 +2623,7 @@ type ServiceRegistry struct {
 	// the task definition that your service task specifies uses the awsvpc network
 	// mode and a type SRV DNS record is used, you must specify either a containerName
 	// and containerPort combination or a port value, but not both.
-	ContainerName *string `locationName:"containerName" type:"string"`
+	ContainerName *string `json:"ecs:ServiceRegistry:ContainerName" locationName:"containerName" type:"string"`
 
 	// The port value, already specified in the task definition, to be used for
 	// your service discovery service. If the task definition your service task
@@ -2632,17 +2632,17 @@ type ServiceRegistry struct {
 	// your service task specifies uses the awsvpc network mode and a type SRV DNS
 	// record is used, you must specify either a containerName and containerPort
 	// combination or a port value, but not both.
-	ContainerPort *int64 `locationName:"containerPort" type:"integer"`
+	ContainerPort *int64 `json:"ecs:ServiceRegistry:ContainerPort" locationName:"containerPort" type:"integer"`
 
 	// The port value used if your service discovery service specified an SRV record.
 	// This field may be used if both the awsvpc network mode and SRV records are
 	// used.
-	Port *int64 `locationName:"port" type:"integer"`
+	Port *int64 `json:"ecs:ServiceRegistry:Port" locationName:"port" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the service registry. The currently supported
 	// service registry is AWS Cloud Map. For more information, see CreateService
 	// (https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html).
-	RegistryArn *string `locationName:"registryArn" type:"string"`
+	RegistryArn *string `json:"ecs:ServiceRegistry:RegistryArn" locationName:"registryArn" type:"string"`
 }
 
 // String returns the string representation
@@ -2656,14 +2656,14 @@ type Setting struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon ECS resource name.
-	Name SettingName `locationName:"name" type:"string" enum:"true"`
+	Name SettingName `json:"ecs:Setting:Name" locationName:"name" type:"string" enum:"true"`
 
 	// The ARN of the principal, which can be an IAM user, IAM role, or the root
 	// user. If this field is omitted, the authenticated user is assumed.
-	PrincipalArn *string `locationName:"principalArn" type:"string"`
+	PrincipalArn *string `json:"ecs:Setting:PrincipalArn" locationName:"principalArn" type:"string"`
 
 	// Whether the account setting is enabled or disabled for the specified resource.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ecs:Setting:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -2693,10 +2693,10 @@ type SystemControl struct {
 	_ struct{} `type:"structure"`
 
 	// The namespaced kernel parameter for which to set a value.
-	Namespace *string `locationName:"namespace" type:"string"`
+	Namespace *string `json:"ecs:SystemControl:Namespace" locationName:"namespace" type:"string"`
 
 	// The value for the namespaced kernel parameter specified in namespace.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ecs:SystemControl:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -2714,11 +2714,11 @@ type Tag struct {
 
 	// One part of a key-value pair that make up a tag. A key is a general label
 	// that acts like a category for more specific tag values.
-	Key *string `locationName:"key" min:"1" type:"string"`
+	Key *string `json:"ecs:Tag:Key" locationName:"key" min:"1" type:"string"`
 
 	// The optional part of a key-value pair that make up a tag. A value acts as
 	// a descriptor within a tag category (key).
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"ecs:Tag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -2746,22 +2746,22 @@ type Task struct {
 
 	// The Elastic Network Adapter associated with the task if the task uses the
 	// awsvpc network mode.
-	Attachments []Attachment `locationName:"attachments" type:"list"`
+	Attachments []Attachment `json:"ecs:Task:Attachments" locationName:"attachments" type:"list"`
 
 	// The ARN of the cluster that hosts the task.
-	ClusterArn *string `locationName:"clusterArn" type:"string"`
+	ClusterArn *string `json:"ecs:Task:ClusterArn" locationName:"clusterArn" type:"string"`
 
 	// The connectivity status of a task.
-	Connectivity Connectivity `locationName:"connectivity" type:"string" enum:"true"`
+	Connectivity Connectivity `json:"ecs:Task:Connectivity" locationName:"connectivity" type:"string" enum:"true"`
 
 	// The Unix timestamp for when the task last went into CONNECTED status.
-	ConnectivityAt *time.Time `locationName:"connectivityAt" type:"timestamp" timestampFormat:"unix"`
+	ConnectivityAt *time.Time `json:"ecs:Task:ConnectivityAt" locationName:"connectivityAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the container instances that host the task.
-	ContainerInstanceArn *string `locationName:"containerInstanceArn" type:"string"`
+	ContainerInstanceArn *string `json:"ecs:Task:ContainerInstanceArn" locationName:"containerInstanceArn" type:"string"`
 
 	// The containers associated with the task.
-	Containers []Container `locationName:"containers" type:"list"`
+	Containers []Container `json:"ecs:Task:Containers" locationName:"containers" type:"list"`
 
 	// The number of CPU units used by the task as expressed in a task definition.
 	// It can be expressed as an integer using CPU units, for example 1024. It can
@@ -2790,21 +2790,21 @@ type Task struct {
 	//
 	//    * 4096 (4 vCPU) - Available memory values: Between 8192 (8 GB) and 30720
 	//    (30 GB) in increments of 1024 (1 GB)
-	Cpu *string `locationName:"cpu" type:"string"`
+	Cpu *string `json:"ecs:Task:Cpu" locationName:"cpu" type:"string"`
 
 	// The Unix timestamp for when the task was created (the task entered the PENDING
 	// state).
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"ecs:Task:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The desired status of the task. For more information, see Task Lifecycle
 	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html).
-	DesiredStatus *string `locationName:"desiredStatus" type:"string"`
+	DesiredStatus *string `json:"ecs:Task:DesiredStatus" locationName:"desiredStatus" type:"string"`
 
 	// The Unix timestamp for when the task execution stopped.
-	ExecutionStoppedAt *time.Time `locationName:"executionStoppedAt" type:"timestamp" timestampFormat:"unix"`
+	ExecutionStoppedAt *time.Time `json:"ecs:Task:ExecutionStoppedAt" locationName:"executionStoppedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the task group associated with the task.
-	Group *string `locationName:"group" type:"string"`
+	Group *string `json:"ecs:Task:Group" locationName:"group" type:"string"`
 
 	// The health status for the task, which is determined by the health of the
 	// essential containers in the task. If all essential containers in the task
@@ -2817,16 +2817,16 @@ type Task struct {
 	// a parent image or from the image's Dockerfile) and not specified in the container
 	// definition. Health check parameters that are specified in a container definition
 	// override any Docker health checks that exist in the container image.
-	HealthStatus HealthStatus `locationName:"healthStatus" type:"string" enum:"true"`
+	HealthStatus HealthStatus `json:"ecs:Task:HealthStatus" locationName:"healthStatus" type:"string" enum:"true"`
 
 	// The last known status of the task. For more information, see Task Lifecycle
 	// (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html).
-	LastStatus *string `locationName:"lastStatus" type:"string"`
+	LastStatus *string `json:"ecs:Task:LastStatus" locationName:"lastStatus" type:"string"`
 
 	// The launch type on which your task is running. For more information, see
 	// Amazon ECS Launch Types (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	LaunchType LaunchType `locationName:"launchType" type:"string" enum:"true"`
+	LaunchType LaunchType `json:"ecs:Task:LaunchType" locationName:"launchType" type:"string" enum:"true"`
 
 	// The amount of memory (in MiB) used by the task as expressed in a task definition.
 	// It can be expressed as an integer using MiB, for example 1024. It can also
@@ -2854,59 +2854,59 @@ type Task struct {
 	//
 	//    * Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 	//    Available cpu values: 4096 (4 vCPU)
-	Memory *string `locationName:"memory" type:"string"`
+	Memory *string `json:"ecs:Task:Memory" locationName:"memory" type:"string"`
 
 	// One or more container overrides.
-	Overrides *TaskOverride `locationName:"overrides" type:"structure"`
+	Overrides *TaskOverride `json:"ecs:Task:Overrides" locationName:"overrides" type:"structure"`
 
 	// The platform version on which your task is running. A platform version is
 	// only specified for tasks using the Fargate launch type. If one is not specified,
 	// the LATEST platform version is used by default. For more information, see
 	// AWS Fargate Platform Versions (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion *string `locationName:"platformVersion" type:"string"`
+	PlatformVersion *string `json:"ecs:Task:PlatformVersion" locationName:"platformVersion" type:"string"`
 
 	// The Unix timestamp for when the container image pull began.
-	PullStartedAt *time.Time `locationName:"pullStartedAt" type:"timestamp" timestampFormat:"unix"`
+	PullStartedAt *time.Time `json:"ecs:Task:PullStartedAt" locationName:"pullStartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The Unix timestamp for when the container image pull completed.
-	PullStoppedAt *time.Time `locationName:"pullStoppedAt" type:"timestamp" timestampFormat:"unix"`
+	PullStoppedAt *time.Time `json:"ecs:Task:PullStoppedAt" locationName:"pullStoppedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The Unix timestamp for when the task started (the task transitioned from
 	// the PENDING state to the RUNNING state).
-	StartedAt *time.Time `locationName:"startedAt" type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"ecs:Task:StartedAt" locationName:"startedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The tag specified when a task is started. If the task is started by an Amazon
 	// ECS service, then the startedBy parameter contains the deployment ID of the
 	// service that starts it.
-	StartedBy *string `locationName:"startedBy" type:"string"`
+	StartedBy *string `json:"ecs:Task:StartedBy" locationName:"startedBy" type:"string"`
 
 	// The stop code indicating why a task was stopped. The stoppedReason may contain
 	// additional details.
-	StopCode TaskStopCode `locationName:"stopCode" type:"string" enum:"true"`
+	StopCode TaskStopCode `json:"ecs:Task:StopCode" locationName:"stopCode" type:"string" enum:"true"`
 
 	// The Unix timestamp for when the task was stopped (the task transitioned from
 	// the RUNNING state to the STOPPED state).
-	StoppedAt *time.Time `locationName:"stoppedAt" type:"timestamp" timestampFormat:"unix"`
+	StoppedAt *time.Time `json:"ecs:Task:StoppedAt" locationName:"stoppedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The reason that the task was stopped.
-	StoppedReason *string `locationName:"stoppedReason" type:"string"`
+	StoppedReason *string `json:"ecs:Task:StoppedReason" locationName:"stoppedReason" type:"string"`
 
 	// The Unix timestamp for when the task stops (transitions from the RUNNING
 	// state to STOPPED).
-	StoppingAt *time.Time `locationName:"stoppingAt" type:"timestamp" timestampFormat:"unix"`
+	StoppingAt *time.Time `json:"ecs:Task:StoppingAt" locationName:"stoppingAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The metadata that you apply to the task to help you categorize and organize
 	// them. Each tag consists of a key and an optional value, both of which you
 	// define. Tag keys can have a maximum character length of 128 characters, and
 	// tag values can have a maximum length of 256 characters.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"ecs:Task:Tags" locationName:"tags" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the task.
-	TaskArn *string `locationName:"taskArn" type:"string"`
+	TaskArn *string `json:"ecs:Task:TaskArn" locationName:"taskArn" type:"string"`
 
 	// The ARN of the task definition that creates the task.
-	TaskDefinitionArn *string `locationName:"taskDefinitionArn" type:"string"`
+	TaskDefinitionArn *string `json:"ecs:Task:TaskDefinitionArn" locationName:"taskDefinitionArn" type:"string"`
 
 	// The version counter for the task. Every time a task experiences a change
 	// that triggers a CloudWatch event, the version counter is incremented. If
@@ -2914,7 +2914,7 @@ type Task struct {
 	// can compare the version of a task reported by the Amazon ECS API actionss
 	// with the version reported in CloudWatch Events for the task (inside the detail
 	// object) to verify that the version in your event stream is current.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"ecs:Task:Version" locationName:"version" type:"long"`
 }
 
 // String returns the string representation
@@ -2934,13 +2934,13 @@ type TaskDefinition struct {
 	// The launch type to use with your task. For more information, see Amazon ECS
 	// Launch Types (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	Compatibilities []Compatibility `locationName:"compatibilities" type:"list"`
+	Compatibilities []Compatibility `json:"ecs:TaskDefinition:Compatibilities" locationName:"compatibilities" type:"list"`
 
 	// A list of container definitions in JSON format that describe the different
 	// containers that make up your task. For more information about container definition
 	// parameters and defaults, see Amazon ECS Task Definitions (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	ContainerDefinitions []ContainerDefinition `locationName:"containerDefinitions" type:"list"`
+	ContainerDefinitions []ContainerDefinition `json:"ecs:TaskDefinition:ContainerDefinitions" locationName:"containerDefinitions" type:"list"`
 
 	// The number of cpu units used by the task. If you are using the EC2 launch
 	// type, this field is optional and any value can be used. If you are using
@@ -2962,18 +2962,18 @@ type TaskDefinition struct {
 	//
 	//    * 4096 (4 vCPU) - Available memory values: Between 8192 (8 GB) and 30720
 	//    (30 GB) in increments of 1024 (1 GB)
-	Cpu *string `locationName:"cpu" type:"string"`
+	Cpu *string `json:"ecs:TaskDefinition:Cpu" locationName:"cpu" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the task execution role that containers
 	// in this task can assume. All containers in this task are granted the permissions
 	// that are specified in this role.
-	ExecutionRoleArn *string `locationName:"executionRoleArn" type:"string"`
+	ExecutionRoleArn *string `json:"ecs:TaskDefinition:ExecutionRoleArn" locationName:"executionRoleArn" type:"string"`
 
 	// The name of a family that this task definition is registered to. A family
 	// groups multiple versions of a task definition. Amazon ECS gives the first
 	// task definition that you registered to a family a revision number of 1. Amazon
 	// ECS gives sequential revision numbers to each task definition that you add.
-	Family *string `locationName:"family" type:"string"`
+	Family *string `json:"ecs:TaskDefinition:Family" locationName:"family" type:"string"`
 
 	// The IPC resource namespace to use for the containers in the task. The valid
 	// values are host, task, or none. If host is specified, then all containers
@@ -3004,7 +3004,7 @@ type TaskDefinition struct {
 	//
 	// This parameter is not supported for Windows containers or tasks using the
 	// Fargate launch type.
-	IpcMode IpcMode `locationName:"ipcMode" type:"string" enum:"true"`
+	IpcMode IpcMode `json:"ecs:TaskDefinition:IpcMode" locationName:"ipcMode" type:"string" enum:"true"`
 
 	// The amount (in MiB) of memory used by the task. If using the EC2 launch type,
 	// this field is optional and any value can be used. If using the Fargate launch
@@ -3025,7 +3025,7 @@ type TaskDefinition struct {
 	//
 	//    * Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 	//    Available cpu values: 4096 (4 vCPU)
-	Memory *string `locationName:"memory" type:"string"`
+	Memory *string `json:"ecs:TaskDefinition:Memory" locationName:"memory" type:"string"`
 
 	// The Docker networking mode to use for the containers in the task. The valid
 	// values are none, bridge, awsvpc, and host. The default Docker network mode
@@ -3062,7 +3062,7 @@ type TaskDefinition struct {
 	//
 	// For more information, see Network settings (https://docs.docker.com/engine/reference/run/#network-settings)
 	// in the Docker run reference.
-	NetworkMode NetworkMode `locationName:"networkMode" type:"string" enum:"true"`
+	NetworkMode NetworkMode `json:"ecs:TaskDefinition:NetworkMode" locationName:"networkMode" type:"string" enum:"true"`
 
 	// The process namespace to use for the containers in the task. The valid values
 	// are host or task. If host is specified, then all containers within the tasks
@@ -3079,11 +3079,11 @@ type TaskDefinition struct {
 	//
 	// This parameter is not supported for Windows containers or tasks using the
 	// Fargate launch type.
-	PidMode PidMode `locationName:"pidMode" type:"string" enum:"true"`
+	PidMode PidMode `json:"ecs:TaskDefinition:PidMode" locationName:"pidMode" type:"string" enum:"true"`
 
 	// An array of placement constraint objects to use for tasks. This field is
 	// not valid if you are using the Fargate launch type for your task.
-	PlacementConstraints []TaskDefinitionPlacementConstraint `locationName:"placementConstraints" type:"list"`
+	PlacementConstraints []TaskDefinitionPlacementConstraint `json:"ecs:TaskDefinition:PlacementConstraints" locationName:"placementConstraints" type:"list"`
 
 	// The configuration details for the App Mesh proxy.
 	//
@@ -3094,15 +3094,15 @@ type TaskDefinition struct {
 	// the required versions of the container agent and ecs-init. For more information,
 	// see Amazon ECS-optimized Linux AMI (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	ProxyConfiguration *ProxyConfiguration `locationName:"proxyConfiguration" type:"structure"`
+	ProxyConfiguration *ProxyConfiguration `json:"ecs:TaskDefinition:ProxyConfiguration" locationName:"proxyConfiguration" type:"structure"`
 
 	// The container instance attributes required by your task. This field is not
 	// valid if you are using the Fargate launch type for your task.
-	RequiresAttributes []Attribute `locationName:"requiresAttributes" type:"list"`
+	RequiresAttributes []Attribute `json:"ecs:TaskDefinition:RequiresAttributes" locationName:"requiresAttributes" type:"list"`
 
 	// The launch type the task requires. If no value is specified, it will default
 	// to EC2. Valid values include EC2 and FARGATE.
-	RequiresCompatibilities []Compatibility `locationName:"requiresCompatibilities" type:"list"`
+	RequiresCompatibilities []Compatibility `json:"ecs:TaskDefinition:RequiresCompatibilities" locationName:"requiresCompatibilities" type:"list"`
 
 	// The revision of the task in a particular family. The revision is a version
 	// number of a task definition in a family. When you register a task definition
@@ -3110,13 +3110,13 @@ type TaskDefinition struct {
 	// revision of a task definition in the same family, the revision value always
 	// increases by one, even if you have deregistered previous revisions in this
 	// family.
-	Revision *int64 `locationName:"revision" type:"integer"`
+	Revision *int64 `json:"ecs:TaskDefinition:Revision" locationName:"revision" type:"integer"`
 
 	// The status of the task definition.
-	Status TaskDefinitionStatus `locationName:"status" type:"string" enum:"true"`
+	Status TaskDefinitionStatus `json:"ecs:TaskDefinition:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The full Amazon Resource Name (ARN) of the task definition.
-	TaskDefinitionArn *string `locationName:"taskDefinitionArn" type:"string"`
+	TaskDefinitionArn *string `json:"ecs:TaskDefinition:TaskDefinitionArn" locationName:"taskDefinitionArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
 	// role that grants containers in the task permission to call AWS APIs on your
@@ -3128,7 +3128,7 @@ type TaskDefinition struct {
 	// must also run some configuration code in order to take advantage of the feature.
 	// For more information, see Windows IAM Roles for Tasks (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	TaskRoleArn *string `locationName:"taskRoleArn" type:"string"`
+	TaskRoleArn *string `json:"ecs:TaskDefinition:TaskRoleArn" locationName:"taskRoleArn" type:"string"`
 
 	// The list of volume definitions for the task.
 	//
@@ -3138,7 +3138,7 @@ type TaskDefinition struct {
 	// For more information about volume definition parameters and defaults, see
 	// Amazon ECS Task Definitions (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	Volumes []Volume `locationName:"volumes" type:"list"`
+	Volumes []Volume `json:"ecs:TaskDefinition:Volumes" locationName:"volumes" type:"list"`
 }
 
 // String returns the string representation
@@ -3160,12 +3160,12 @@ type TaskDefinitionPlacementConstraint struct {
 	// A cluster query language expression to apply to the constraint. For more
 	// information, see Cluster Query Language (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	Expression *string `locationName:"expression" type:"string"`
+	Expression *string `json:"ecs:TaskDefinitionPlacementConstraint:Expression" locationName:"expression" type:"string"`
 
 	// The type of constraint. The DistinctInstance constraint ensures that each
 	// task in a particular group is running on a different container instance.
 	// The MemberOf constraint restricts selection to be from a group of valid candidates.
-	Type TaskDefinitionPlacementConstraintType `locationName:"type" type:"string" enum:"true"`
+	Type TaskDefinitionPlacementConstraintType `json:"ecs:TaskDefinitionPlacementConstraint:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3179,16 +3179,16 @@ type TaskOverride struct {
 	_ struct{} `type:"structure"`
 
 	// One or more container overrides sent to a task.
-	ContainerOverrides []ContainerOverride `locationName:"containerOverrides" type:"list"`
+	ContainerOverrides []ContainerOverride `json:"ecs:TaskOverride:ContainerOverrides" locationName:"containerOverrides" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon
 	// ECS container agent and the Docker daemon can assume.
-	ExecutionRoleArn *string `locationName:"executionRoleArn" type:"string"`
+	ExecutionRoleArn *string `json:"ecs:TaskOverride:ExecutionRoleArn" locationName:"executionRoleArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role that containers in this task
 	// can assume. All containers in this task are granted the permissions that
 	// are specified in this role.
-	TaskRoleArn *string `locationName:"taskRoleArn" type:"string"`
+	TaskRoleArn *string `json:"ecs:TaskOverride:TaskRoleArn" locationName:"taskRoleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -3223,16 +3223,16 @@ type TaskSet struct {
 
 	// The Amazon Resource Name (ARN) of the cluster that the service that hosts
 	// the task set exists in.
-	ClusterArn *string `locationName:"clusterArn" type:"string"`
+	ClusterArn *string `json:"ecs:TaskSet:ClusterArn" locationName:"clusterArn" type:"string"`
 
 	// The computed desired count for the task set. This is calculated by multiplying
 	// the service's desiredCount by the task set's scale percentage. The result
 	// is always rounded up. For example, if the computed desired count is 1.2,
 	// it rounds up to 2 tasks.
-	ComputedDesiredCount *int64 `locationName:"computedDesiredCount" type:"integer"`
+	ComputedDesiredCount *int64 `json:"ecs:TaskSet:ComputedDesiredCount" locationName:"computedDesiredCount" type:"integer"`
 
 	// The Unix timestamp for when the task set was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"ecs:TaskSet:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The external ID associated with the task set.
 	//
@@ -3242,49 +3242,49 @@ type TaskSet struct {
 	// If a task set is created for an external deployment and is associated with
 	// a service discovery registry, the externalId parameter contains the ECS_TASK_SET_EXTERNAL_ID
 	// AWS Cloud Map attribute.
-	ExternalId *string `locationName:"externalId" type:"string"`
+	ExternalId *string `json:"ecs:TaskSet:ExternalId" locationName:"externalId" type:"string"`
 
 	// The ID of the task set.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"ecs:TaskSet:Id" locationName:"id" type:"string"`
 
 	// The launch type the tasks in the task set are using. For more information,
 	// see Amazon ECS Launch Types (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	LaunchType LaunchType `locationName:"launchType" type:"string" enum:"true"`
+	LaunchType LaunchType `json:"ecs:TaskSet:LaunchType" locationName:"launchType" type:"string" enum:"true"`
 
 	// Details on a load balancer that is used with a task set.
-	LoadBalancers []LoadBalancer `locationName:"loadBalancers" type:"list"`
+	LoadBalancers []LoadBalancer `json:"ecs:TaskSet:LoadBalancers" locationName:"loadBalancers" type:"list"`
 
 	// The network configuration for the task set.
-	NetworkConfiguration *NetworkConfiguration `locationName:"networkConfiguration" type:"structure"`
+	NetworkConfiguration *NetworkConfiguration `json:"ecs:TaskSet:NetworkConfiguration" locationName:"networkConfiguration" type:"structure"`
 
 	// The number of tasks in the task set that are in the PENDING status during
 	// a deployment. A task in the PENDING state is preparing to enter the RUNNING
 	// state. A task set enters the PENDING status when it launches for the first
 	// time or when it is restarted after being in the STOPPED state.
-	PendingCount *int64 `locationName:"pendingCount" type:"integer"`
+	PendingCount *int64 `json:"ecs:TaskSet:PendingCount" locationName:"pendingCount" type:"integer"`
 
 	// The platform version on which the tasks in the task set are running. A platform
 	// version is only specified for tasks using the Fargate launch type. If one
 	// is not specified, the LATEST platform version is used by default. For more
 	// information, see AWS Fargate Platform Versions (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html)
 	// in the Amazon Elastic Container Service Developer Guide.
-	PlatformVersion *string `locationName:"platformVersion" type:"string"`
+	PlatformVersion *string `json:"ecs:TaskSet:PlatformVersion" locationName:"platformVersion" type:"string"`
 
 	// The number of tasks in the task set that are in the RUNNING status during
 	// a deployment. A task in the RUNNING state is running and ready for use.
-	RunningCount *int64 `locationName:"runningCount" type:"integer"`
+	RunningCount *int64 `json:"ecs:TaskSet:RunningCount" locationName:"runningCount" type:"integer"`
 
 	// A floating-point percentage of the desired number of tasks to place and keep
 	// running in the task set.
-	Scale *Scale `locationName:"scale" type:"structure"`
+	Scale *Scale `json:"ecs:TaskSet:Scale" locationName:"scale" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the service the task set exists in.
-	ServiceArn *string `locationName:"serviceArn" type:"string"`
+	ServiceArn *string `json:"ecs:TaskSet:ServiceArn" locationName:"serviceArn" type:"string"`
 
 	// The details of the service discovery registries to assign to this task set.
 	// For more information, see Service Discovery (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
-	ServiceRegistries []ServiceRegistry `locationName:"serviceRegistries" type:"list"`
+	ServiceRegistries []ServiceRegistry `json:"ecs:TaskSet:ServiceRegistries" locationName:"serviceRegistries" type:"list"`
 
 	// The stability status, which indicates whether the task set has reached a
 	// steady state. If the following conditions are met, the task set will be in
@@ -3303,16 +3303,16 @@ type TaskSet struct {
 	//    be ignored until it expires.
 	//
 	// If any of those conditions are not met, the stability status returns STABILIZING.
-	StabilityStatus StabilityStatus `locationName:"stabilityStatus" type:"string" enum:"true"`
+	StabilityStatus StabilityStatus `json:"ecs:TaskSet:StabilityStatus" locationName:"stabilityStatus" type:"string" enum:"true"`
 
 	// The Unix timestamp for when the task set stability status was retrieved.
-	StabilityStatusAt *time.Time `locationName:"stabilityStatusAt" type:"timestamp" timestampFormat:"unix"`
+	StabilityStatusAt *time.Time `json:"ecs:TaskSet:StabilityStatusAt" locationName:"stabilityStatusAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The tag specified when a task set is started. If the task set is created
 	// by an AWS CodeDeploy deployment, the startedBy parameter is CODE_DEPLOY.
 	// For a task set created for an external deployment, the startedBy field isn't
 	// used.
-	StartedBy *string `locationName:"startedBy" type:"string"`
+	StartedBy *string `json:"ecs:TaskSet:StartedBy" locationName:"startedBy" type:"string"`
 
 	// The status of the task set. The following describes each state:
 	//
@@ -3328,16 +3328,16 @@ type TaskSet struct {
 	//
 	// The tasks in the task set are being stopped and their corresponding targets
 	// are being deregistered from their target group.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ecs:TaskSet:Status" locationName:"status" type:"string"`
 
 	// The task definition the task set is using.
-	TaskDefinition *string `locationName:"taskDefinition" type:"string"`
+	TaskDefinition *string `json:"ecs:TaskSet:TaskDefinition" locationName:"taskDefinition" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the task set.
-	TaskSetArn *string `locationName:"taskSetArn" type:"string"`
+	TaskSetArn *string `json:"ecs:TaskSet:TaskSetArn" locationName:"taskSetArn" type:"string"`
 
 	// The Unix timestamp for when the task set was last updated.
-	UpdatedAt *time.Time `locationName:"updatedAt" type:"timestamp" timestampFormat:"unix"`
+	UpdatedAt *time.Time `json:"ecs:TaskSet:UpdatedAt" locationName:"updatedAt" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -3353,7 +3353,7 @@ type Tmpfs struct {
 	// The absolute file path where the tmpfs volume is to be mounted.
 	//
 	// ContainerPath is a required field
-	ContainerPath *string `locationName:"containerPath" type:"string" required:"true"`
+	ContainerPath *string `json:"ecs:Tmpfs:ContainerPath" locationName:"containerPath" type:"string" required:"true"`
 
 	// The list of tmpfs volume mount options.
 	//
@@ -3363,12 +3363,12 @@ type Tmpfs struct {
 	// | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared"
 	// | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime"
 	// | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"
-	MountOptions []string `locationName:"mountOptions" type:"list"`
+	MountOptions []string `json:"ecs:Tmpfs:MountOptions" locationName:"mountOptions" type:"list"`
 
 	// The size (in MiB) of the tmpfs volume.
 	//
 	// Size is a required field
-	Size *int64 `locationName:"size" type:"integer" required:"true"`
+	Size *int64 `json:"ecs:Tmpfs:Size" locationName:"size" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3402,17 +3402,17 @@ type Ulimit struct {
 	// The hard limit for the ulimit type.
 	//
 	// HardLimit is a required field
-	HardLimit *int64 `locationName:"hardLimit" type:"integer" required:"true"`
+	HardLimit *int64 `json:"ecs:Ulimit:HardLimit" locationName:"hardLimit" type:"integer" required:"true"`
 
 	// The type of the ulimit.
 	//
 	// Name is a required field
-	Name UlimitName `locationName:"name" type:"string" required:"true" enum:"true"`
+	Name UlimitName `json:"ecs:Ulimit:Name" locationName:"name" type:"string" required:"true" enum:"true"`
 
 	// The soft limit for the ulimit type.
 	//
 	// SoftLimit is a required field
-	SoftLimit *int64 `locationName:"softLimit" type:"integer" required:"true"`
+	SoftLimit *int64 `json:"ecs:Ulimit:SoftLimit" locationName:"softLimit" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3449,13 +3449,13 @@ type VersionInfo struct {
 
 	// The Git commit hash for the Amazon ECS container agent build on the amazon-ecs-agent
 	// (https://github.com/aws/amazon-ecs-agent/commits/master) GitHub repository.
-	AgentHash *string `locationName:"agentHash" type:"string"`
+	AgentHash *string `json:"ecs:VersionInfo:AgentHash" locationName:"agentHash" type:"string"`
 
 	// The version number of the Amazon ECS container agent.
-	AgentVersion *string `locationName:"agentVersion" type:"string"`
+	AgentVersion *string `json:"ecs:VersionInfo:AgentVersion" locationName:"agentVersion" type:"string"`
 
 	// The Docker version running on the container instance.
-	DockerVersion *string `locationName:"dockerVersion" type:"string"`
+	DockerVersion *string `json:"ecs:VersionInfo:DockerVersion" locationName:"dockerVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -3475,7 +3475,7 @@ type Volume struct {
 	// are only supported when you are using the EC2 launch type. Windows containers
 	// only support the use of the local driver. To use bind mounts, specify a host
 	// instead.
-	DockerVolumeConfiguration *DockerVolumeConfiguration `locationName:"dockerVolumeConfiguration" type:"structure"`
+	DockerVolumeConfiguration *DockerVolumeConfiguration `json:"ecs:Volume:DockerVolumeConfiguration" locationName:"dockerVolumeConfiguration" type:"structure"`
 
 	// This parameter is specified when you are using bind mount host volumes. Bind
 	// mount host volumes are supported when you are using either the EC2 or Fargate
@@ -3489,12 +3489,12 @@ type Volume struct {
 	// Windows containers cannot mount directories on a different drive, and mount
 	// point cannot be across drives. For example, you can mount C:\my\path:C:\my\path
 	// and D:\:D:\, but not D:\my\path:C:\my\path or D:\:C:\my\path.
-	Host *HostVolumeProperties `locationName:"host" type:"structure"`
+	Host *HostVolumeProperties `json:"ecs:Volume:Host" locationName:"host" type:"structure"`
 
 	// The name of the volume. Up to 255 letters (uppercase and lowercase), numbers,
 	// and hyphens are allowed. This name is referenced in the sourceVolume parameter
 	// of container definition mountPoints.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"ecs:Volume:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -3510,11 +3510,11 @@ type VolumeFrom struct {
 	// If this value is true, the container has read-only access to the volume.
 	// If this value is false, then the container can write to the volume. The default
 	// value is false.
-	ReadOnly *bool `locationName:"readOnly" type:"boolean"`
+	ReadOnly *bool `json:"ecs:VolumeFrom:ReadOnly" locationName:"readOnly" type:"boolean"`
 
 	// The name of another container within the same task definition from which
 	// to mount volumes.
-	SourceContainer *string `locationName:"sourceContainer" type:"string"`
+	SourceContainer *string `json:"ecs:VolumeFrom:SourceContainer" locationName:"sourceContainer" type:"string"`
 }
 
 // String returns the string representation

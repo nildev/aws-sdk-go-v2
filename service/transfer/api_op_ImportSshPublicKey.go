@@ -66,18 +66,18 @@ type ImportSshPublicKeyOutput struct {
 	// A system-assigned unique identifier for an SFTP server.
 	//
 	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `json:"transfer:ImportSshPublicKeyOutput:ServerId" type:"string" required:"true"`
 
 	// This identifier is the name given to a public key by the system that was
 	// imported.
 	//
 	// SshPublicKeyId is a required field
-	SshPublicKeyId *string `type:"string" required:"true"`
+	SshPublicKeyId *string `json:"transfer:ImportSshPublicKeyOutput:SshPublicKeyId" type:"string" required:"true"`
 
 	// A user name assigned to the ServerID value that you specified.
 	//
 	// UserName is a required field
-	UserName *string `type:"string" required:"true"`
+	UserName *string `json:"transfer:ImportSshPublicKeyOutput:UserName" type:"string" required:"true"`
 }
 
 // String returns the string representation

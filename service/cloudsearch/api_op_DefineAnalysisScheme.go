@@ -70,7 +70,7 @@ type DefineAnalysisSchemeOutput struct {
 	// The status and configuration of an AnalysisScheme.
 	//
 	// AnalysisScheme is a required field
-	AnalysisScheme *AnalysisSchemeStatus `type:"structure" required:"true"`
+	AnalysisScheme *AnalysisSchemeStatus `json:"cloudsearch:DefineAnalysisSchemeOutput:AnalysisScheme" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -48,7 +48,7 @@ type GetSigningCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The signing certificate.
-	Certificate *string `type:"string"`
+	Certificate *string `json:"cognito-idp:GetSigningCertificateOutput:Certificate" type:"string"`
 }
 
 // String returns the string representation

@@ -58,10 +58,10 @@ type GetWorkflowRunsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A continuation token, if not all requested workflow runs have been returned.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetWorkflowRunsOutput:NextToken" type:"string"`
 
 	// A list of workflow run metadata objects.
-	Runs []WorkflowRun `min:"1" type:"list"`
+	Runs []WorkflowRun `json:"glue:GetWorkflowRunsOutput:Runs" min:"1" type:"list"`
 }
 
 // String returns the string representation

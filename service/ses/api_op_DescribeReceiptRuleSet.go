@@ -48,10 +48,10 @@ type DescribeReceiptRuleSetOutput struct {
 
 	// The metadata for the receipt rule set, which consists of the rule set name
 	// and the timestamp of when the rule set was created.
-	Metadata *ReceiptRuleSetMetadata `type:"structure"`
+	Metadata *ReceiptRuleSetMetadata `json:"email:DescribeReceiptRuleSetOutput:Metadata" type:"structure"`
 
 	// A list of the receipt rules that belong to the specified receipt rule set.
-	Rules []ReceiptRule `type:"list"`
+	Rules []ReceiptRule `json:"email:DescribeReceiptRuleSetOutput:Rules" type:"list"`
 }
 
 // String returns the string representation

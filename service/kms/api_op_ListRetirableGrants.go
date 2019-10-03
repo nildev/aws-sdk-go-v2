@@ -72,17 +72,17 @@ type ListRetirableGrantsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of grants.
-	Grants []GrantListEntry `type:"list"`
+	Grants []GrantListEntry `json:"kms:ListRetirableGrantsOutput:Grants" type:"list"`
 
 	// When Truncated is true, this element is present and contains the value to
 	// use for the Marker parameter in a subsequent request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"kms:ListRetirableGrantsOutput:NextMarker" min:"1" type:"string"`
 
 	// A flag that indicates whether there are more items in the list. When this
 	// value is true, the list in this response is truncated. To get more items,
 	// pass the value of the NextMarker element in thisresponse to the Marker parameter
 	// in a subsequent request.
-	Truncated *bool `type:"boolean"`
+	Truncated *bool `json:"kms:ListRetirableGrantsOutput:Truncated" type:"boolean"`
 }
 
 // String returns the string representation

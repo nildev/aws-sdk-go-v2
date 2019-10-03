@@ -55,7 +55,7 @@ type ModifyReplicationSubnetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The modified replication subnet group.
-	ReplicationSubnetGroup *ReplicationSubnetGroup `type:"structure"`
+	ReplicationSubnetGroup *ReplicationSubnetGroup `json:"dms:ModifyReplicationSubnetGroupOutput:ReplicationSubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

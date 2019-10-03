@@ -65,11 +65,11 @@ type ListModelsOutput struct {
 	// An array of ModelSummary objects, each of which lists a model.
 	//
 	// Models is a required field
-	Models []ModelSummary `type:"list" required:"true"`
+	Models []ModelSummary `json:"api.sagemaker:ListModelsOutput:Models" type:"list" required:"true"`
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of models, use it in the subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListModelsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

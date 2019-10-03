@@ -18,10 +18,10 @@ type Attribute struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the attribute.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"ds:Attribute:Name" min:"1" type:"string"`
 
 	// The value of the attribute.
-	Value *string `type:"string"`
+	Value *string `json:"ds:Attribute:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -49,13 +49,13 @@ type Computer struct {
 
 	// An array of Attribute objects containing the LDAP attributes that belong
 	// to the computer account.
-	ComputerAttributes []Attribute `type:"list"`
+	ComputerAttributes []Attribute `json:"ds:Computer:ComputerAttributes" type:"list"`
 
 	// The identifier of the computer.
-	ComputerId *string `min:"1" type:"string"`
+	ComputerId *string `json:"ds:Computer:ComputerId" min:"1" type:"string"`
 
 	// The computer name.
-	ComputerName *string `min:"1" type:"string"`
+	ComputerName *string `json:"ds:Computer:ComputerName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -73,16 +73,16 @@ type ConditionalForwarder struct {
 	// The IP addresses of the remote DNS server associated with RemoteDomainName.
 	// This is the IP address of the DNS server that your conditional forwarder
 	// points to.
-	DnsIpAddrs []string `type:"list"`
+	DnsIpAddrs []string `json:"ds:ConditionalForwarder:DnsIpAddrs" type:"list"`
 
 	// The fully qualified domain name (FQDN) of the remote domains pointed to by
 	// the conditional forwarder.
-	RemoteDomainName *string `type:"string"`
+	RemoteDomainName *string `json:"ds:ConditionalForwarder:RemoteDomainName" type:"string"`
 
 	// The replication scope of the conditional forwarder. The only allowed value
 	// is Domain, which will replicate the conditional forwarder to all of the domain
 	// controllers for your AWS directory.
-	ReplicationScope ReplicationScope `type:"string" enum:"true"`
+	ReplicationScope ReplicationScope `json:"ds:ConditionalForwarder:ReplicationScope" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -100,7 +100,7 @@ type DirectoryConnectSettings struct {
 	// the on-premises directory.
 	//
 	// CustomerDnsIps is a required field
-	CustomerDnsIps []string `type:"list" required:"true"`
+	CustomerDnsIps []string `json:"ds:DirectoryConnectSettings:CustomerDnsIps" type:"list" required:"true"`
 
 	// The user name of an account in the on-premises directory that is used to
 	// connect to the directory. This account must have the following permissions:
@@ -112,17 +112,17 @@ type DirectoryConnectSettings struct {
 	//    * Join computers to the domain
 	//
 	// CustomerUserName is a required field
-	CustomerUserName *string `min:"1" type:"string" required:"true"`
+	CustomerUserName *string `json:"ds:DirectoryConnectSettings:CustomerUserName" min:"1" type:"string" required:"true"`
 
 	// A list of subnet identifiers in the VPC in which the AD Connector is created.
 	//
 	// SubnetIds is a required field
-	SubnetIds []string `type:"list" required:"true"`
+	SubnetIds []string `json:"ds:DirectoryConnectSettings:SubnetIds" type:"list" required:"true"`
 
 	// The identifier of the VPC in which the AD Connector is created.
 	//
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `json:"ds:DirectoryConnectSettings:VpcId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -165,22 +165,22 @@ type DirectoryConnectSettingsDescription struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the Availability Zones that the directory is in.
-	AvailabilityZones []string `type:"list"`
+	AvailabilityZones []string `json:"ds:DirectoryConnectSettingsDescription:AvailabilityZones" type:"list"`
 
 	// The IP addresses of the AD Connector servers.
-	ConnectIps []string `type:"list"`
+	ConnectIps []string `json:"ds:DirectoryConnectSettingsDescription:ConnectIps" type:"list"`
 
 	// The user name of the service account in the on-premises directory.
-	CustomerUserName *string `min:"1" type:"string"`
+	CustomerUserName *string `json:"ds:DirectoryConnectSettingsDescription:CustomerUserName" min:"1" type:"string"`
 
 	// The security group identifier for the AD Connector directory.
-	SecurityGroupId *string `type:"string"`
+	SecurityGroupId *string `json:"ds:DirectoryConnectSettingsDescription:SecurityGroupId" type:"string"`
 
 	// A list of subnet identifiers in the VPC that the AD connector is in.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"ds:DirectoryConnectSettingsDescription:SubnetIds" type:"list"`
 
 	// The identifier of the VPC that the AD Connector is in.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"ds:DirectoryConnectSettingsDescription:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -196,92 +196,92 @@ type DirectoryDescription struct {
 	// The access URL for the directory, such as http://<alias>.awsapps.com. If
 	// no alias has been created for the directory, <alias> is the directory identifier,
 	// such as d-XXXXXXXXXX.
-	AccessUrl *string `min:"1" type:"string"`
+	AccessUrl *string `json:"ds:DirectoryDescription:AccessUrl" min:"1" type:"string"`
 
 	// The alias for the directory. If no alias has been created for the directory,
 	// the alias is the directory identifier, such as d-XXXXXXXXXX.
-	Alias *string `min:"1" type:"string"`
+	Alias *string `json:"ds:DirectoryDescription:Alias" min:"1" type:"string"`
 
 	// A DirectoryConnectSettingsDescription object that contains additional information
 	// about an AD Connector directory. This member is only present if the directory
 	// is an AD Connector directory.
-	ConnectSettings *DirectoryConnectSettingsDescription `type:"structure"`
+	ConnectSettings *DirectoryConnectSettingsDescription `json:"ds:DirectoryDescription:ConnectSettings" type:"structure"`
 
 	// The textual description for the directory.
-	Description *string `type:"string"`
+	Description *string `json:"ds:DirectoryDescription:Description" type:"string"`
 
 	// The desired number of domain controllers in the directory if the directory
 	// is Microsoft AD.
-	DesiredNumberOfDomainControllers *int64 `min:"2" type:"integer"`
+	DesiredNumberOfDomainControllers *int64 `json:"ds:DirectoryDescription:DesiredNumberOfDomainControllers" min:"2" type:"integer"`
 
 	// The directory identifier.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:DirectoryDescription:DirectoryId" type:"string"`
 
 	// The IP addresses of the DNS servers for the directory. For a Simple AD or
 	// Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft
 	// AD directory servers. For an AD Connector directory, these are the IP addresses
 	// of the DNS servers or domain controllers in the on-premises directory to
 	// which the AD Connector is connected.
-	DnsIpAddrs []string `type:"list"`
+	DnsIpAddrs []string `json:"ds:DirectoryDescription:DnsIpAddrs" type:"list"`
 
 	// The edition associated with this directory.
-	Edition DirectoryEdition `type:"string" enum:"true"`
+	Edition DirectoryEdition `json:"ds:DirectoryDescription:Edition" type:"string" enum:"true"`
 
 	// Specifies when the directory was created.
-	LaunchTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LaunchTime *time.Time `json:"ds:DirectoryDescription:LaunchTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The fully qualified name of the directory.
-	Name *string `type:"string"`
+	Name *string `json:"ds:DirectoryDescription:Name" type:"string"`
 
 	// Describes the AWS Managed Microsoft AD directory in the directory owner account.
-	OwnerDirectoryDescription *OwnerDirectoryDescription `type:"structure"`
+	OwnerDirectoryDescription *OwnerDirectoryDescription `json:"ds:DirectoryDescription:OwnerDirectoryDescription" type:"structure"`
 
 	// A RadiusSettings object that contains information about the RADIUS server
 	// configured for this directory.
-	RadiusSettings *RadiusSettings `type:"structure"`
+	RadiusSettings *RadiusSettings `json:"ds:DirectoryDescription:RadiusSettings" type:"structure"`
 
 	// The status of the RADIUS MFA server connection.
-	RadiusStatus RadiusStatus `type:"string" enum:"true"`
+	RadiusStatus RadiusStatus `json:"ds:DirectoryDescription:RadiusStatus" type:"string" enum:"true"`
 
 	// The method used when sharing a directory to determine whether the directory
 	// should be shared within your AWS organization (ORGANIZATIONS) or with any
 	// AWS account by sending a shared directory request (HANDSHAKE).
-	ShareMethod ShareMethod `type:"string" enum:"true"`
+	ShareMethod ShareMethod `json:"ds:DirectoryDescription:ShareMethod" type:"string" enum:"true"`
 
 	// A directory share request that is sent by the directory owner to the directory
 	// consumer. The request includes a typed message to help the directory consumer
 	// administrator determine whether to approve or reject the share invitation.
-	ShareNotes *string `type:"string"`
+	ShareNotes *string `json:"ds:DirectoryDescription:ShareNotes" type:"string"`
 
 	// Current directory status of the shared AWS Managed Microsoft AD directory.
-	ShareStatus ShareStatus `type:"string" enum:"true"`
+	ShareStatus ShareStatus `json:"ds:DirectoryDescription:ShareStatus" type:"string" enum:"true"`
 
 	// The short name of the directory.
-	ShortName *string `type:"string"`
+	ShortName *string `json:"ds:DirectoryDescription:ShortName" type:"string"`
 
 	// The directory size.
-	Size DirectorySize `type:"string" enum:"true"`
+	Size DirectorySize `json:"ds:DirectoryDescription:Size" type:"string" enum:"true"`
 
 	// Indicates if single sign-on is enabled for the directory. For more information,
 	// see EnableSso and DisableSso.
-	SsoEnabled *bool `type:"boolean"`
+	SsoEnabled *bool `json:"ds:DirectoryDescription:SsoEnabled" type:"boolean"`
 
 	// The current stage of the directory.
-	Stage DirectoryStage `type:"string" enum:"true"`
+	Stage DirectoryStage `json:"ds:DirectoryDescription:Stage" type:"string" enum:"true"`
 
 	// The date and time that the stage was last updated.
-	StageLastUpdatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StageLastUpdatedDateTime *time.Time `json:"ds:DirectoryDescription:StageLastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Additional information about the directory stage.
-	StageReason *string `type:"string"`
+	StageReason *string `json:"ds:DirectoryDescription:StageReason" type:"string"`
 
 	// The directory size.
-	Type DirectoryType `type:"string" enum:"true"`
+	Type DirectoryType `json:"ds:DirectoryDescription:Type" type:"string" enum:"true"`
 
 	// A DirectoryVpcSettingsDescription object that contains additional information
 	// about a directory. This member is only present if the directory is a Simple
 	// AD or Managed AD directory.
-	VpcSettings *DirectoryVpcSettingsDescription `type:"structure"`
+	VpcSettings *DirectoryVpcSettingsDescription `json:"ds:DirectoryDescription:VpcSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -295,32 +295,32 @@ type DirectoryLimits struct {
 	_ struct{} `type:"structure"`
 
 	// The current number of cloud directories in the region.
-	CloudOnlyDirectoriesCurrentCount *int64 `type:"integer"`
+	CloudOnlyDirectoriesCurrentCount *int64 `json:"ds:DirectoryLimits:CloudOnlyDirectoriesCurrentCount" type:"integer"`
 
 	// The maximum number of cloud directories allowed in the region.
-	CloudOnlyDirectoriesLimit *int64 `type:"integer"`
+	CloudOnlyDirectoriesLimit *int64 `json:"ds:DirectoryLimits:CloudOnlyDirectoriesLimit" type:"integer"`
 
 	// Indicates if the cloud directory limit has been reached.
-	CloudOnlyDirectoriesLimitReached *bool `type:"boolean"`
+	CloudOnlyDirectoriesLimitReached *bool `json:"ds:DirectoryLimits:CloudOnlyDirectoriesLimitReached" type:"boolean"`
 
 	// The current number of AWS Managed Microsoft AD directories in the region.
-	CloudOnlyMicrosoftADCurrentCount *int64 `type:"integer"`
+	CloudOnlyMicrosoftADCurrentCount *int64 `json:"ds:DirectoryLimits:CloudOnlyMicrosoftADCurrentCount" type:"integer"`
 
 	// The maximum number of AWS Managed Microsoft AD directories allowed in the
 	// region.
-	CloudOnlyMicrosoftADLimit *int64 `type:"integer"`
+	CloudOnlyMicrosoftADLimit *int64 `json:"ds:DirectoryLimits:CloudOnlyMicrosoftADLimit" type:"integer"`
 
 	// Indicates if the AWS Managed Microsoft AD directory limit has been reached.
-	CloudOnlyMicrosoftADLimitReached *bool `type:"boolean"`
+	CloudOnlyMicrosoftADLimitReached *bool `json:"ds:DirectoryLimits:CloudOnlyMicrosoftADLimitReached" type:"boolean"`
 
 	// The current number of connected directories in the region.
-	ConnectedDirectoriesCurrentCount *int64 `type:"integer"`
+	ConnectedDirectoriesCurrentCount *int64 `json:"ds:DirectoryLimits:ConnectedDirectoriesCurrentCount" type:"integer"`
 
 	// The maximum number of connected directories allowed in the region.
-	ConnectedDirectoriesLimit *int64 `type:"integer"`
+	ConnectedDirectoriesLimit *int64 `json:"ds:DirectoryLimits:ConnectedDirectoriesLimit" type:"integer"`
 
 	// Indicates if the connected directory limit has been reached.
-	ConnectedDirectoriesLimitReached *bool `type:"boolean"`
+	ConnectedDirectoriesLimitReached *bool `json:"ds:DirectoryLimits:ConnectedDirectoriesLimitReached" type:"boolean"`
 }
 
 // String returns the string representation
@@ -338,12 +338,12 @@ type DirectoryVpcSettings struct {
 	// directory server and a DNS server in each of these subnets.
 	//
 	// SubnetIds is a required field
-	SubnetIds []string `type:"list" required:"true"`
+	SubnetIds []string `json:"ds:DirectoryVpcSettings:SubnetIds" type:"list" required:"true"`
 
 	// The identifier of the VPC in which to create the directory.
 	//
 	// VpcId is a required field
-	VpcId *string `type:"string" required:"true"`
+	VpcId *string `json:"ds:DirectoryVpcSettings:VpcId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -375,16 +375,16 @@ type DirectoryVpcSettingsDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The list of Availability Zones that the directory is in.
-	AvailabilityZones []string `type:"list"`
+	AvailabilityZones []string `json:"ds:DirectoryVpcSettingsDescription:AvailabilityZones" type:"list"`
 
 	// The domain controller security group identifier for the directory.
-	SecurityGroupId *string `type:"string"`
+	SecurityGroupId *string `json:"ds:DirectoryVpcSettingsDescription:SecurityGroupId" type:"string"`
 
 	// The identifiers of the subnets for the directory servers.
-	SubnetIds []string `type:"list"`
+	SubnetIds []string `json:"ds:DirectoryVpcSettingsDescription:SubnetIds" type:"list"`
 
 	// The identifier of the VPC that the directory is in.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"ds:DirectoryVpcSettingsDescription:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -398,34 +398,34 @@ type DomainController struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone where the domain controller is located.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"ds:DomainController:AvailabilityZone" type:"string"`
 
 	// Identifier of the directory where the domain controller resides.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:DomainController:DirectoryId" type:"string"`
 
 	// The IP address of the domain controller.
-	DnsIpAddr *string `type:"string"`
+	DnsIpAddr *string `json:"ds:DomainController:DnsIpAddr" type:"string"`
 
 	// Identifies a specific domain controller in the directory.
-	DomainControllerId *string `type:"string"`
+	DomainControllerId *string `json:"ds:DomainController:DomainControllerId" type:"string"`
 
 	// Specifies when the domain controller was created.
-	LaunchTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LaunchTime *time.Time `json:"ds:DomainController:LaunchTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the domain controller.
-	Status DomainControllerStatus `type:"string" enum:"true"`
+	Status DomainControllerStatus `json:"ds:DomainController:Status" type:"string" enum:"true"`
 
 	// The date and time that the status was last updated.
-	StatusLastUpdatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StatusLastUpdatedDateTime *time.Time `json:"ds:DomainController:StatusLastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the domain controller state.
-	StatusReason *string `type:"string"`
+	StatusReason *string `json:"ds:DomainController:StatusReason" type:"string"`
 
 	// Identifier of the subnet in the VPC that contains the domain controller.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"ds:DomainController:SubnetId" type:"string"`
 
 	// The identifier of the VPC that contains the domain controller.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"ds:DomainController:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -439,20 +439,20 @@ type EventTopic struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time of when you associated your directory with the SNS topic.
-	CreatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDateTime *time.Time `json:"ds:EventTopic:CreatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Directory ID of an AWS Directory Service directory that will publish
 	// status messages to an SNS topic.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:EventTopic:DirectoryId" type:"string"`
 
 	// The topic registration status.
-	Status TopicStatus `type:"string" enum:"true"`
+	Status TopicStatus `json:"ds:EventTopic:Status" type:"string" enum:"true"`
 
 	// The SNS topic ARN (Amazon Resource Name).
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"ds:EventTopic:TopicArn" type:"string"`
 
 	// The name of an AWS SNS topic the receives status messages from the directory.
-	TopicName *string `min:"1" type:"string"`
+	TopicName *string `json:"ds:EventTopic:TopicName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -469,10 +469,10 @@ type IpRoute struct {
 	// IP address block using CIDR format, for example 10.0.0.0/24. This is often
 	// the address block of the DNS server used for your on-premises domain. For
 	// a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
-	CidrIp *string `type:"string"`
+	CidrIp *string `json:"ds:IpRoute:CidrIp" type:"string"`
 
 	// Description of the address block.
-	Description *string `type:"string"`
+	Description *string `json:"ds:IpRoute:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -486,22 +486,22 @@ type IpRouteInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the address block was added to the directory.
-	AddedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AddedDateTime *time.Time `json:"ds:IpRouteInfo:AddedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// IP address block in the IpRoute.
-	CidrIp *string `type:"string"`
+	CidrIp *string `json:"ds:IpRouteInfo:CidrIp" type:"string"`
 
 	// Description of the IpRouteInfo.
-	Description *string `type:"string"`
+	Description *string `json:"ds:IpRouteInfo:Description" type:"string"`
 
 	// Identifier (ID) of the directory associated with the IP addresses.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:IpRouteInfo:DirectoryId" type:"string"`
 
 	// The status of the IP address block.
-	IpRouteStatusMsg IpRouteStatusMsg `type:"string" enum:"true"`
+	IpRouteStatusMsg IpRouteStatusMsg `json:"ds:IpRouteInfo:IpRouteStatusMsg" type:"string" enum:"true"`
 
 	// The reason for the IpRouteStatusMsg.
-	IpRouteStatusReason *string `type:"string"`
+	IpRouteStatusReason *string `json:"ds:IpRouteInfo:IpRouteStatusReason" type:"string"`
 }
 
 // String returns the string representation
@@ -517,13 +517,13 @@ type LogSubscription struct {
 
 	// Identifier (ID) of the directory that you want to associate with the log
 	// subscription.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:LogSubscription:DirectoryId" type:"string"`
 
 	// The name of the log group.
-	LogGroupName *string `min:"1" type:"string"`
+	LogGroupName *string `json:"ds:LogSubscription:LogGroupName" min:"1" type:"string"`
 
 	// The date and time that the log subscription was created.
-	SubscriptionCreatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubscriptionCreatedDateTime *time.Time `json:"ds:LogSubscription:SubscriptionCreatedDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -538,23 +538,23 @@ type OwnerDirectoryDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Identifier of the directory owner account.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"ds:OwnerDirectoryDescription:AccountId" type:"string"`
 
 	// Identifier of the AWS Managed Microsoft AD directory in the directory owner
 	// account.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:OwnerDirectoryDescription:DirectoryId" type:"string"`
 
 	// IP address of the directory’s domain controllers.
-	DnsIpAddrs []string `type:"list"`
+	DnsIpAddrs []string `json:"ds:OwnerDirectoryDescription:DnsIpAddrs" type:"list"`
 
 	// A RadiusSettings object that contains information about the RADIUS server.
-	RadiusSettings *RadiusSettings `type:"structure"`
+	RadiusSettings *RadiusSettings `json:"ds:OwnerDirectoryDescription:RadiusSettings" type:"structure"`
 
 	// Information about the status of the RADIUS server.
-	RadiusStatus RadiusStatus `type:"string" enum:"true"`
+	RadiusStatus RadiusStatus `json:"ds:OwnerDirectoryDescription:RadiusStatus" type:"string" enum:"true"`
 
 	// Information about the VPC settings for the directory.
-	VpcSettings *DirectoryVpcSettingsDescription `type:"structure"`
+	VpcSettings *DirectoryVpcSettingsDescription `json:"ds:OwnerDirectoryDescription:VpcSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -569,32 +569,32 @@ type RadiusSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The protocol specified for your RADIUS endpoints.
-	AuthenticationProtocol RadiusAuthenticationProtocol `type:"string" enum:"true"`
+	AuthenticationProtocol RadiusAuthenticationProtocol `json:"ds:RadiusSettings:AuthenticationProtocol" type:"string" enum:"true"`
 
 	// Not currently used.
-	DisplayLabel *string `min:"1" type:"string"`
+	DisplayLabel *string `json:"ds:RadiusSettings:DisplayLabel" min:"1" type:"string"`
 
 	// The port that your RADIUS server is using for communications. Your on-premises
 	// network must allow inbound traffic over this port from the AWS Directory
 	// Service servers.
-	RadiusPort *int64 `min:"1025" type:"integer"`
+	RadiusPort *int64 `json:"ds:RadiusSettings:RadiusPort" min:"1025" type:"integer"`
 
 	// The maximum number of times that communication with the RADIUS server is
 	// attempted.
-	RadiusRetries *int64 `type:"integer"`
+	RadiusRetries *int64 `json:"ds:RadiusSettings:RadiusRetries" type:"integer"`
 
 	// An array of strings that contains the IP addresses of the RADIUS server endpoints,
 	// or the IP addresses of your RADIUS server load balancer.
-	RadiusServers []string `type:"list"`
+	RadiusServers []string `json:"ds:RadiusSettings:RadiusServers" type:"list"`
 
 	// The amount of time, in seconds, to wait for the RADIUS server to respond.
-	RadiusTimeout *int64 `min:"1" type:"integer"`
+	RadiusTimeout *int64 `json:"ds:RadiusSettings:RadiusTimeout" min:"1" type:"integer"`
 
 	// Required for enabling RADIUS on the directory.
-	SharedSecret *string `min:"8" type:"string"`
+	SharedSecret *string `json:"ds:RadiusSettings:SharedSecret" min:"8" type:"string"`
 
 	// Not currently used.
-	UseSameUsername *bool `type:"boolean"`
+	UseSameUsername *bool `json:"ds:RadiusSettings:UseSameUsername" type:"boolean"`
 }
 
 // String returns the string representation
@@ -630,26 +630,26 @@ type SchemaExtensionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the schema extension.
-	Description *string `type:"string"`
+	Description *string `json:"ds:SchemaExtensionInfo:Description" type:"string"`
 
 	// The identifier of the directory to which the schema extension is applied.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:SchemaExtensionInfo:DirectoryId" type:"string"`
 
 	// The date and time that the schema extension was completed.
-	EndDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDateTime *time.Time `json:"ds:SchemaExtensionInfo:EndDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the schema extension.
-	SchemaExtensionId *string `type:"string"`
+	SchemaExtensionId *string `json:"ds:SchemaExtensionInfo:SchemaExtensionId" type:"string"`
 
 	// The current status of the schema extension.
-	SchemaExtensionStatus SchemaExtensionStatus `type:"string" enum:"true"`
+	SchemaExtensionStatus SchemaExtensionStatus `json:"ds:SchemaExtensionInfo:SchemaExtensionStatus" type:"string" enum:"true"`
 
 	// The reason for the SchemaExtensionStatus.
-	SchemaExtensionStatusReason *string `type:"string"`
+	SchemaExtensionStatusReason *string `json:"ds:SchemaExtensionInfo:SchemaExtensionStatusReason" type:"string"`
 
 	// The date and time that the schema extension started being applied to the
 	// directory.
-	StartDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartDateTime *time.Time `json:"ds:SchemaExtensionInfo:StartDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -665,12 +665,12 @@ type ShareTarget struct {
 	// Identifier of the directory consumer account.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"ds:ShareTarget:Id" min:"1" type:"string" required:"true"`
 
 	// Type of identifier to be used in the Id field.
 	//
 	// Type is a required field
-	Type TargetType `type:"string" required:"true" enum:"true"`
+	Type TargetType `json:"ds:ShareTarget:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -705,38 +705,38 @@ type SharedDirectory struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the shared directory was created.
-	CreatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDateTime *time.Time `json:"ds:SharedDirectory:CreatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time that the shared directory was last updated.
-	LastUpdatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"ds:SharedDirectory:LastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Identifier of the directory owner account, which contains the directory that
 	// has been shared to the consumer account.
-	OwnerAccountId *string `type:"string"`
+	OwnerAccountId *string `json:"ds:SharedDirectory:OwnerAccountId" type:"string"`
 
 	// Identifier of the directory in the directory owner account.
-	OwnerDirectoryId *string `type:"string"`
+	OwnerDirectoryId *string `json:"ds:SharedDirectory:OwnerDirectoryId" type:"string"`
 
 	// The method used when sharing a directory to determine whether the directory
 	// should be shared within your AWS organization (ORGANIZATIONS) or with any
 	// AWS account by sending a shared directory request (HANDSHAKE).
-	ShareMethod ShareMethod `type:"string" enum:"true"`
+	ShareMethod ShareMethod `json:"ds:SharedDirectory:ShareMethod" type:"string" enum:"true"`
 
 	// A directory share request that is sent by the directory owner to the directory
 	// consumer. The request includes a typed message to help the directory consumer
 	// administrator determine whether to approve or reject the share invitation.
-	ShareNotes *string `type:"string"`
+	ShareNotes *string `json:"ds:SharedDirectory:ShareNotes" type:"string"`
 
 	// Current directory status of the shared AWS Managed Microsoft AD directory.
-	ShareStatus ShareStatus `type:"string" enum:"true"`
+	ShareStatus ShareStatus `json:"ds:SharedDirectory:ShareStatus" type:"string" enum:"true"`
 
 	// Identifier of the directory consumer account that has access to the shared
 	// directory (OwnerDirectoryId) in the directory owner account.
-	SharedAccountId *string `type:"string"`
+	SharedAccountId *string `json:"ds:SharedDirectory:SharedAccountId" type:"string"`
 
 	// Identifier of the shared directory in the directory consumer account. This
 	// identifier is different for each directory owner account.
-	SharedDirectoryId *string `type:"string"`
+	SharedDirectoryId *string `json:"ds:SharedDirectory:SharedDirectoryId" type:"string"`
 }
 
 // String returns the string representation
@@ -750,22 +750,22 @@ type Snapshot struct {
 	_ struct{} `type:"structure"`
 
 	// The directory identifier.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:Snapshot:DirectoryId" type:"string"`
 
 	// The descriptive name of the snapshot.
-	Name *string `type:"string"`
+	Name *string `json:"ds:Snapshot:Name" type:"string"`
 
 	// The snapshot identifier.
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"ds:Snapshot:SnapshotId" type:"string"`
 
 	// The date and time that the snapshot was taken.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"ds:Snapshot:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The snapshot status.
-	Status SnapshotStatus `type:"string" enum:"true"`
+	Status SnapshotStatus `json:"ds:Snapshot:Status" type:"string" enum:"true"`
 
 	// The snapshot type.
-	Type SnapshotType `type:"string" enum:"true"`
+	Type SnapshotType `json:"ds:Snapshot:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -779,13 +779,13 @@ type SnapshotLimits struct {
 	_ struct{} `type:"structure"`
 
 	// The current number of manual snapshots of the directory.
-	ManualSnapshotsCurrentCount *int64 `type:"integer"`
+	ManualSnapshotsCurrentCount *int64 `json:"ds:SnapshotLimits:ManualSnapshotsCurrentCount" type:"integer"`
 
 	// The maximum number of manual snapshots allowed.
-	ManualSnapshotsLimit *int64 `type:"integer"`
+	ManualSnapshotsLimit *int64 `json:"ds:SnapshotLimits:ManualSnapshotsLimit" type:"integer"`
 
 	// Indicates if the manual snapshot limit has been reached.
-	ManualSnapshotsLimitReached *bool `type:"boolean"`
+	ManualSnapshotsLimitReached *bool `json:"ds:SnapshotLimits:ManualSnapshotsLimitReached" type:"boolean"`
 }
 
 // String returns the string representation
@@ -803,14 +803,14 @@ type Tag struct {
 	// letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"ds:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The optional value of the tag. The string value can be Unicode characters.
 	// The string can contain only the set of Unicode letters, digits, white-space,
 	// '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"ds:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -846,38 +846,38 @@ type Trust struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the trust relationship was created.
-	CreatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDateTime *time.Time `json:"ds:Trust:CreatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Directory ID of the AWS directory involved in the trust relationship.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:Trust:DirectoryId" type:"string"`
 
 	// The date and time that the trust relationship was last updated.
-	LastUpdatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDateTime *time.Time `json:"ds:Trust:LastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Fully Qualified Domain Name (FQDN) of the external domain involved in
 	// the trust relationship.
-	RemoteDomainName *string `type:"string"`
+	RemoteDomainName *string `json:"ds:Trust:RemoteDomainName" type:"string"`
 
 	// Current state of selective authentication for the trust.
-	SelectiveAuth SelectiveAuth `type:"string" enum:"true"`
+	SelectiveAuth SelectiveAuth `json:"ds:Trust:SelectiveAuth" type:"string" enum:"true"`
 
 	// The date and time that the TrustState was last updated.
-	StateLastUpdatedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StateLastUpdatedDateTime *time.Time `json:"ds:Trust:StateLastUpdatedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The trust relationship direction.
-	TrustDirection TrustDirection `type:"string" enum:"true"`
+	TrustDirection TrustDirection `json:"ds:Trust:TrustDirection" type:"string" enum:"true"`
 
 	// The unique ID of the trust relationship.
-	TrustId *string `type:"string"`
+	TrustId *string `json:"ds:Trust:TrustId" type:"string"`
 
 	// The trust relationship state.
-	TrustState TrustState `type:"string" enum:"true"`
+	TrustState TrustState `json:"ds:Trust:TrustState" type:"string" enum:"true"`
 
 	// The reason for the TrustState.
-	TrustStateReason *string `type:"string"`
+	TrustStateReason *string `json:"ds:Trust:TrustStateReason" type:"string"`
 
 	// The trust relationship type. Forest is the default.
-	TrustType TrustType `type:"string" enum:"true"`
+	TrustType TrustType `json:"ds:Trust:TrustType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -894,12 +894,12 @@ type UnshareTarget struct {
 	// Identifier of the directory consumer account.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"ds:UnshareTarget:Id" min:"1" type:"string" required:"true"`
 
 	// Type of identifier to be used in the Id field.
 	//
 	// Type is a required field
-	Type TargetType `type:"string" required:"true" enum:"true"`
+	Type TargetType `json:"ds:UnshareTarget:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

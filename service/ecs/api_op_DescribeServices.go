@@ -55,10 +55,10 @@ type DescribeServicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any failures associated with the call.
-	Failures []Failure `locationName:"failures" type:"list"`
+	Failures []Failure `json:"ecs:DescribeServicesOutput:Failures" locationName:"failures" type:"list"`
 
 	// The list of services described.
-	Services []Service `locationName:"services" type:"list"`
+	Services []Service `json:"ecs:DescribeServicesOutput:Services" locationName:"services" type:"list"`
 }
 
 // String returns the string representation

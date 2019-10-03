@@ -43,7 +43,7 @@ type GetDevEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A DevEndpoint definition.
-	DevEndpoint *DevEndpoint `type:"structure"`
+	DevEndpoint *DevEndpoint `json:"glue:GetDevEndpointOutput:DevEndpoint" type:"structure"`
 }
 
 // String returns the string representation

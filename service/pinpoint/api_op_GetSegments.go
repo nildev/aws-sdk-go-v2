@@ -73,7 +73,7 @@ type GetSegmentsOutput struct {
 	// Provides information about all the segments that are associated with an application.
 	//
 	// SegmentsResponse is a required field
-	SegmentsResponse *SegmentsResponse `type:"structure" required:"true"`
+	SegmentsResponse *SegmentsResponse `json:"pinpoint:GetSegmentsOutput:SegmentsResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

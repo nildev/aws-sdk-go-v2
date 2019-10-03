@@ -34,10 +34,10 @@ type DiscoverPollEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint for the Amazon ECS agent to poll.
-	Endpoint *string `locationName:"endpoint" type:"string"`
+	Endpoint *string `json:"ecs:DiscoverPollEndpointOutput:Endpoint" locationName:"endpoint" type:"string"`
 
 	// The telemetry endpoint for the Amazon ECS agent.
-	TelemetryEndpoint *string `locationName:"telemetryEndpoint" type:"string"`
+	TelemetryEndpoint *string `json:"ecs:DiscoverPollEndpointOutput:TelemetryEndpoint" locationName:"telemetryEndpoint" type:"string"`
 }
 
 // String returns the string representation

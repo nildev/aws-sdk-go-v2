@@ -132,7 +132,7 @@ type GetQueueAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A map of attributes to their respective values.
-	Attributes map[string]string `locationName:"Attribute" locationNameKey:"Name" locationNameValue:"Value" type:"map" flattened:"true"`
+	Attributes map[string]string `json:"sqs:GetQueueAttributesOutput:Attributes" locationName:"Attribute" locationNameKey:"Name" locationNameValue:"Value" type:"map" flattened:"true"`
 }
 
 // String returns the string representation

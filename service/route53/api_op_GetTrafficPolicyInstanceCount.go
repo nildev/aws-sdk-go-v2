@@ -38,7 +38,7 @@ type GetTrafficPolicyInstanceCountOutput struct {
 	// AWS account.
 	//
 	// TrafficPolicyInstanceCount is a required field
-	TrafficPolicyInstanceCount *int64 `type:"integer" required:"true"`
+	TrafficPolicyInstanceCount *int64 `json:"route53:GetTrafficPolicyInstanceCountOutput:TrafficPolicyInstanceCount" type:"integer" required:"true"`
 }
 
 // String returns the string representation

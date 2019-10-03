@@ -48,7 +48,7 @@ type GetUploadOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An app or a set of one or more tests to upload or that have been uploaded.
-	Upload *Upload `locationName:"upload" type:"structure"`
+	Upload *Upload `json:"devicefarm:GetUploadOutput:Upload" locationName:"upload" type:"structure"`
 }
 
 // String returns the string representation

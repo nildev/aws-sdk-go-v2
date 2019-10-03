@@ -95,10 +95,10 @@ type AttachVolumeOutput struct {
 
 	// The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI
 	// name for the initiator that was used to connect to the target.
-	TargetARN *string `min:"50" type:"string"`
+	TargetARN *string `json:"storagegateway:AttachVolumeOutput:TargetARN" min:"50" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the volume that was attached to the gateway.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:AttachVolumeOutput:VolumeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

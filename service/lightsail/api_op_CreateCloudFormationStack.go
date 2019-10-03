@@ -54,7 +54,7 @@ type CreateCloudFormationStackOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of objects describing the API operation.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:CreateCloudFormationStackOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

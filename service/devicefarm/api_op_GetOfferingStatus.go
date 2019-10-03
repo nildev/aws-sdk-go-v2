@@ -44,14 +44,14 @@ type GetOfferingStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// When specified, gets the offering status for the current period.
-	Current map[string]OfferingStatus `locationName:"current" type:"map"`
+	Current map[string]OfferingStatus `json:"devicefarm:GetOfferingStatusOutput:Current" locationName:"current" type:"map"`
 
 	// When specified, gets the offering status for the next period.
-	NextPeriod map[string]OfferingStatus `locationName:"nextPeriod" type:"map"`
+	NextPeriod map[string]OfferingStatus `json:"devicefarm:GetOfferingStatusOutput:NextPeriod" locationName:"nextPeriod" type:"map"`
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:GetOfferingStatusOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 }
 
 // String returns the string representation

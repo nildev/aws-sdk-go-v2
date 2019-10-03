@@ -49,7 +49,7 @@ type DeleteTransitGatewayVpcAttachmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the deleted VPC attachment.
-	TransitGatewayVpcAttachment *TransitGatewayVpcAttachment `locationName:"transitGatewayVpcAttachment" type:"structure"`
+	TransitGatewayVpcAttachment *TransitGatewayVpcAttachment `json:"ec2:DeleteTransitGatewayVpcAttachmentOutput:TransitGatewayVpcAttachment" locationName:"transitGatewayVpcAttachment" type:"structure"`
 }
 
 // String returns the string representation

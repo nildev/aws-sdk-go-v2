@@ -78,7 +78,7 @@ type GetMemberOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The properties of a member.
-	Member *Member `type:"structure"`
+	Member *Member `json:"managedblockchain:GetMemberOutput:Member" type:"structure"`
 }
 
 // String returns the string representation

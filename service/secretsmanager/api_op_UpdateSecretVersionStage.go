@@ -93,10 +93,10 @@ type UpdateSecretVersionStageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret with the staging label that was modified.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:UpdateSecretVersionStageOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret with the staging label that was modified.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:UpdateSecretVersionStageOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

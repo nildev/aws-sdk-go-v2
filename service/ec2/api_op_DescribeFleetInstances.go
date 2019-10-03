@@ -63,13 +63,13 @@ type DescribeFleetInstancesOutput struct {
 
 	// The running instances. This list is refreshed periodically and might be out
 	// of date.
-	ActiveInstances []ActiveInstance `locationName:"activeInstanceSet" locationNameList:"item" type:"list"`
+	ActiveInstances []ActiveInstance `json:"ec2:DescribeFleetInstancesOutput:ActiveInstances" locationName:"activeInstanceSet" locationNameList:"item" type:"list"`
 
 	// The ID of the EC2 Fleet.
-	FleetId *string `locationName:"fleetId" type:"string"`
+	FleetId *string `json:"ec2:DescribeFleetInstancesOutput:FleetId" locationName:"fleetId" type:"string"`
 
 	// The token for the next set of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeFleetInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -61,7 +61,7 @@ type GetBucketRequestPaymentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies who pays for the download and request fees.
-	Payer Payer `type:"string" enum:"true"`
+	Payer Payer `json:"s3:GetBucketRequestPaymentOutput:Payer" type:"string" enum:"true"`
 }
 
 // String returns the string representation

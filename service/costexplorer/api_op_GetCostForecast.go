@@ -96,10 +96,10 @@ type GetCostForecastOutput struct {
 
 	// The forecasts for your query, in order. For DAILY forecasts, this is a list
 	// of days. For MONTHLY forecasts, this is a list of months.
-	ForecastResultsByTime []ForecastResult `type:"list"`
+	ForecastResultsByTime []ForecastResult `json:"ce:GetCostForecastOutput:ForecastResultsByTime" type:"list"`
 
 	// How much you are forecasted to spend over the forecast period, in USD.
-	Total *MetricValue `type:"structure"`
+	Total *MetricValue `json:"ce:GetCostForecastOutput:Total" type:"structure"`
 }
 
 // String returns the string representation

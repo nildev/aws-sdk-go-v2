@@ -52,10 +52,10 @@ type UnassignIpv6AddressesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:UnassignIpv6AddressesOutput:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// The IPv6 addresses that have been unassigned from the network interface.
-	UnassignedIpv6Addresses []string `locationName:"unassignedIpv6Addresses" locationNameList:"item" type:"list"`
+	UnassignedIpv6Addresses []string `json:"ec2:UnassignIpv6AddressesOutput:UnassignedIpv6Addresses" locationName:"unassignedIpv6Addresses" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

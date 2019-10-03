@@ -74,7 +74,7 @@ type BatchPutMessageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of any errors encountered when sending the messages.
-	BatchPutMessageErrorEntries []BatchPutMessageErrorEntry `type:"list"`
+	BatchPutMessageErrorEntries []BatchPutMessageErrorEntry `json:"data.iotevents:BatchPutMessageOutput:BatchPutMessageErrorEntries" type:"list"`
 }
 
 // String returns the string representation

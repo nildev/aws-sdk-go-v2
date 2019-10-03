@@ -84,7 +84,7 @@ type CreateServerOutput struct {
 	// The service-assigned ID of the SFTP server that is created.
 	//
 	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `json:"transfer:CreateServerOutput:ServerId" type:"string" required:"true"`
 }
 
 // String returns the string representation

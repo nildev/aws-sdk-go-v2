@@ -62,10 +62,10 @@ type ListPhoneNumberOrdersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token to use to retrieve the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"chime:ListPhoneNumberOrdersOutput:NextToken" type:"string"`
 
 	// The phone number order details.
-	PhoneNumberOrders []PhoneNumberOrder `type:"list"`
+	PhoneNumberOrders []PhoneNumberOrder `json:"chime:ListPhoneNumberOrdersOutput:PhoneNumberOrders" type:"list"`
 }
 
 // String returns the string representation

@@ -92,20 +92,20 @@ type RespondToAuthChallengeOutput struct {
 
 	// The result returned by the server in response to the request to respond to
 	// the authentication challenge.
-	AuthenticationResult *AuthenticationResultType `type:"structure"`
+	AuthenticationResult *AuthenticationResultType `json:"cognito-idp:RespondToAuthChallengeOutput:AuthenticationResult" type:"structure"`
 
 	// The challenge name. For more information, see .
-	ChallengeName ChallengeNameType `type:"string" enum:"true"`
+	ChallengeName ChallengeNameType `json:"cognito-idp:RespondToAuthChallengeOutput:ChallengeName" type:"string" enum:"true"`
 
 	// The challenge parameters. For more information, see .
-	ChallengeParameters map[string]string `type:"map"`
+	ChallengeParameters map[string]string `json:"cognito-idp:RespondToAuthChallengeOutput:ChallengeParameters" type:"map"`
 
 	// The session which should be passed both ways in challenge-response calls
 	// to the service. If the or API call determines that the caller needs to go
 	// through another challenge, they return a session with other challenge parameters.
 	// This session should be passed as it is to the next RespondToAuthChallenge
 	// API call.
-	Session *string `min:"20" type:"string"`
+	Session *string `json:"cognito-idp:RespondToAuthChallengeOutput:Session" min:"20" type:"string"`
 }
 
 // String returns the string representation

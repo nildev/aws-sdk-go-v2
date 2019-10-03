@@ -62,7 +62,7 @@ type DescribeDeliveryStreamOutput struct {
 	// Information about the delivery stream.
 	//
 	// DeliveryStreamDescription is a required field
-	DeliveryStreamDescription *DeliveryStreamDescription `type:"structure" required:"true"`
+	DeliveryStreamDescription *DeliveryStreamDescription `json:"firehose:DescribeDeliveryStreamOutput:DeliveryStreamDescription" type:"structure" required:"true"`
 }
 
 // String returns the string representation

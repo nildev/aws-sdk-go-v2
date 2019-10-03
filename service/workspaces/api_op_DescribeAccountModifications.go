@@ -41,11 +41,11 @@ type DescribeAccountModificationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of modifications to the configuration of BYOL.
-	AccountModifications []AccountModification `type:"list"`
+	AccountModifications []AccountModification `json:"workspaces:DescribeAccountModificationsOutput:AccountModifications" type:"list"`
 
 	// The token to use to retrieve the next set of results, or null if no more
 	// results are available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workspaces:DescribeAccountModificationsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

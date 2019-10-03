@@ -66,7 +66,7 @@ type ModifyHsmOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the HSM.
-	HsmArn *string `type:"string"`
+	HsmArn *string `json:"cloudhsm:ModifyHsmOutput:HsmArn" type:"string"`
 }
 
 // String returns the string representation

@@ -44,11 +44,11 @@ type DescribeFleetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the fleets.
-	Fleets []Fleet `type:"list"`
+	Fleets []Fleet `json:"appstream2:DescribeFleetsOutput:Fleets" type:"list"`
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:DescribeFleetsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

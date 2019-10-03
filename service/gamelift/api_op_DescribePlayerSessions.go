@@ -89,11 +89,11 @@ type DescribePlayerSessionsOutput struct {
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:DescribePlayerSessionsOutput:NextToken" min:"1" type:"string"`
 
 	// Collection of objects containing properties for each player session that
 	// matches the request.
-	PlayerSessions []PlayerSession `type:"list"`
+	PlayerSessions []PlayerSession `json:"gamelift:DescribePlayerSessionsOutput:PlayerSessions" type:"list"`
 }
 
 // String returns the string representation

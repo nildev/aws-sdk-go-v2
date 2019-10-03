@@ -140,7 +140,7 @@ type CreateAssociationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the association.
-	AssociationDescription *AssociationDescription `type:"structure"`
+	AssociationDescription *AssociationDescription `json:"ssm:CreateAssociationOutput:AssociationDescription" type:"structure"`
 }
 
 // String returns the string representation

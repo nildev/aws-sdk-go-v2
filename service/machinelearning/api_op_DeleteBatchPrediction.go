@@ -49,7 +49,7 @@ type DeleteBatchPredictionOutput struct {
 
 	// A user-supplied ID that uniquely identifies the BatchPrediction. This value
 	// should be identical to the value of the BatchPredictionID in the request.
-	BatchPredictionId *string `min:"1" type:"string"`
+	BatchPredictionId *string `json:"machinelearning:DeleteBatchPredictionOutput:BatchPredictionId" min:"1" type:"string"`
 }
 
 // String returns the string representation

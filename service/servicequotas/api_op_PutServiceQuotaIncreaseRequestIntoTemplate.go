@@ -79,7 +79,7 @@ type PutServiceQuotaIncreaseRequestIntoTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains information about one service quota increase request.
-	ServiceQuotaIncreaseRequestInTemplate *ServiceQuotaIncreaseRequestInTemplate `type:"structure"`
+	ServiceQuotaIncreaseRequestInTemplate *ServiceQuotaIncreaseRequestInTemplate `json:"servicequotas:PutServiceQuotaIncreaseRequestIntoTemplateOutput:ServiceQuotaIncreaseRequestInTemplate" type:"structure"`
 }
 
 // String returns the string representation

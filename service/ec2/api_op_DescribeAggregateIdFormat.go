@@ -30,12 +30,12 @@ type DescribeAggregateIdFormatOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about each resource's ID format.
-	Statuses []IdFormat `locationName:"statusSet" locationNameList:"item" type:"list"`
+	Statuses []IdFormat `json:"ec2:DescribeAggregateIdFormatOutput:Statuses" locationName:"statusSet" locationNameList:"item" type:"list"`
 
 	// Indicates whether all resource types in the Region are configured to use
 	// longer IDs. This value is only true if all users are configured to use longer
 	// IDs for all resources types in the Region.
-	UseLongIdsAggregated *bool `locationName:"useLongIdsAggregated" type:"boolean"`
+	UseLongIdsAggregated *bool `json:"ec2:DescribeAggregateIdFormatOutput:UseLongIdsAggregated" locationName:"useLongIdsAggregated" type:"boolean"`
 }
 
 // String returns the string representation

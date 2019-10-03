@@ -20,14 +20,14 @@ type AacSettings struct {
 
 	// Average bitrate in bits/second. Valid values depend on rate control mode
 	// and profile.
-	Bitrate *float64 `locationName:"bitrate" type:"double"`
+	Bitrate *float64 `json:"medialive:AacSettings:Bitrate" locationName:"bitrate" type:"double"`
 
 	// Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control
 	// mode and profile. The adReceiverMix setting receives a stereo description
 	// plus control track and emits a mono AAC encode of the description track,
 	// with control data emitted in the PES header as per ETSI TS 101 154 Annex
 	// E.
-	CodingMode AacCodingMode `locationName:"codingMode" type:"string" enum:"true"`
+	CodingMode AacCodingMode `json:"medialive:AacSettings:CodingMode" locationName:"codingMode" type:"string" enum:"true"`
 
 	// Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD
 	// (narration) as a stereo pair. The Audio Type field (audioType) will be set
@@ -36,26 +36,26 @@ type AacSettings struct {
 	// audio; the encoder does not perform the mixing. The values in audioTypeControl
 	// and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.Leave
 	// set to "normal" when input does not contain pre-mixed audio + AD.
-	InputType AacInputType `locationName:"inputType" type:"string" enum:"true"`
+	InputType AacInputType `json:"medialive:AacSettings:InputType" locationName:"inputType" type:"string" enum:"true"`
 
 	// AAC Profile.
-	Profile AacProfile `locationName:"profile" type:"string" enum:"true"`
+	Profile AacProfile `json:"medialive:AacSettings:Profile" locationName:"profile" type:"string" enum:"true"`
 
 	// Rate Control Mode.
-	RateControlMode AacRateControlMode `locationName:"rateControlMode" type:"string" enum:"true"`
+	RateControlMode AacRateControlMode `json:"medialive:AacSettings:RateControlMode" locationName:"rateControlMode" type:"string" enum:"true"`
 
 	// Sets LATM / LOAS AAC output for raw containers.
-	RawFormat AacRawFormat `locationName:"rawFormat" type:"string" enum:"true"`
+	RawFormat AacRawFormat `json:"medialive:AacSettings:RawFormat" locationName:"rawFormat" type:"string" enum:"true"`
 
 	// Sample rate in Hz. Valid values depend on rate control mode and profile.
-	SampleRate *float64 `locationName:"sampleRate" type:"double"`
+	SampleRate *float64 `json:"medialive:AacSettings:SampleRate" locationName:"sampleRate" type:"double"`
 
 	// Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport
 	// Stream containers.
-	Spec AacSpec `locationName:"spec" type:"string" enum:"true"`
+	Spec AacSpec `json:"medialive:AacSettings:Spec" locationName:"spec" type:"string" enum:"true"`
 
 	// VBR Quality Level - Only used if rateControlMode is VBR.
-	VbrQuality AacVbrQuality `locationName:"vbrQuality" type:"string" enum:"true"`
+	VbrQuality AacVbrQuality `json:"medialive:AacSettings:VbrQuality" locationName:"vbrQuality" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -128,31 +128,31 @@ type Ac3Settings struct {
 	_ struct{} `type:"structure"`
 
 	// Average bitrate in bits/second. Valid bitrates depend on the coding mode.
-	Bitrate *float64 `locationName:"bitrate" type:"double"`
+	Bitrate *float64 `json:"medialive:Ac3Settings:Bitrate" locationName:"bitrate" type:"double"`
 
 	// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC
 	// A/52-2012 for background on these values.
-	BitstreamMode Ac3BitstreamMode `locationName:"bitstreamMode" type:"string" enum:"true"`
+	BitstreamMode Ac3BitstreamMode `json:"medialive:Ac3Settings:BitstreamMode" locationName:"bitstreamMode" type:"string" enum:"true"`
 
 	// Dolby Digital coding mode. Determines number of channels.
-	CodingMode Ac3CodingMode `locationName:"codingMode" type:"string" enum:"true"`
+	CodingMode Ac3CodingMode `json:"medialive:Ac3Settings:CodingMode" locationName:"codingMode" type:"string" enum:"true"`
 
 	// Sets the dialnorm for the output. If excluded and input audio is Dolby Digital,
 	// dialnorm will be passed through.
-	Dialnorm *int64 `locationName:"dialnorm" min:"1" type:"integer"`
+	Dialnorm *int64 `json:"medialive:Ac3Settings:Dialnorm" locationName:"dialnorm" min:"1" type:"integer"`
 
 	// If set to filmStandard, adds dynamic range compression signaling to the output
 	// bitstream as defined in the Dolby Digital specification.
-	DrcProfile Ac3DrcProfile `locationName:"drcProfile" type:"string" enum:"true"`
+	DrcProfile Ac3DrcProfile `json:"medialive:Ac3Settings:DrcProfile" locationName:"drcProfile" type:"string" enum:"true"`
 
 	// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior
 	// to encoding. Only valid in codingMode32Lfe mode.
-	LfeFilter Ac3LfeFilter `locationName:"lfeFilter" type:"string" enum:"true"`
+	LfeFilter Ac3LfeFilter `json:"medialive:Ac3Settings:LfeFilter" locationName:"lfeFilter" type:"string" enum:"true"`
 
 	// When set to "followInput", encoder metadata will be sourced from the DD,
 	// DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied
 	// from one of these streams, then the static metadata settings will be used.
-	MetadataControl Ac3MetadataControl `locationName:"metadataControl" type:"string" enum:"true"`
+	MetadataControl Ac3MetadataControl `json:"medialive:Ac3Settings:MetadataControl" locationName:"metadataControl" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -226,7 +226,7 @@ type ArchiveContainerSettings struct {
 	_ struct{} `type:"structure"`
 
 	// M2ts Settings
-	M2tsSettings *M2tsSettings `locationName:"m2tsSettings" type:"structure"`
+	M2tsSettings *M2tsSettings `json:"medialive:ArchiveContainerSettings:M2tsSettings" locationName:"m2tsSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -268,11 +268,11 @@ type ArchiveGroupSettings struct {
 	// A directory and base filename where archive files should be written.
 	//
 	// Destination is a required field
-	Destination *OutputLocationRef `locationName:"destination" type:"structure" required:"true"`
+	Destination *OutputLocationRef `json:"medialive:ArchiveGroupSettings:Destination" locationName:"destination" type:"structure" required:"true"`
 
 	// Number of seconds to write to archive file before closing and starting a
 	// new one.
-	RolloverInterval *int64 `locationName:"rolloverInterval" min:"1" type:"integer"`
+	RolloverInterval *int64 `json:"medialive:ArchiveGroupSettings:RolloverInterval" locationName:"rolloverInterval" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -322,15 +322,15 @@ type ArchiveOutputSettings struct {
 	// Settings specific to the container type of the file.
 	//
 	// ContainerSettings is a required field
-	ContainerSettings *ArchiveContainerSettings `locationName:"containerSettings" type:"structure" required:"true"`
+	ContainerSettings *ArchiveContainerSettings `json:"medialive:ArchiveOutputSettings:ContainerSettings" locationName:"containerSettings" type:"structure" required:"true"`
 
 	// Output file extension. If excluded, this will be auto-selected from the container
 	// type.
-	Extension *string `locationName:"extension" type:"string"`
+	Extension *string `json:"medialive:ArchiveOutputSettings:Extension" locationName:"extension" type:"string"`
 
 	// String concatenated to the end of the destination filename. Required for
 	// multiple outputs of the same type.
-	NameModifier *string `locationName:"nameModifier" type:"string"`
+	NameModifier *string `json:"medialive:ArchiveOutputSettings:NameModifier" locationName:"nameModifier" type:"string"`
 }
 
 // String returns the string representation
@@ -421,12 +421,12 @@ type AudioChannelMapping struct {
 	// this output channel.
 	//
 	// InputChannelLevels is a required field
-	InputChannelLevels []InputChannelLevel `locationName:"inputChannelLevels" type:"list" required:"true"`
+	InputChannelLevels []InputChannelLevel `json:"medialive:AudioChannelMapping:InputChannelLevels" locationName:"inputChannelLevels" type:"list" required:"true"`
 
 	// The index of the output channel being produced.
 	//
 	// OutputChannel is a required field
-	OutputChannel *int64 `locationName:"outputChannel" type:"integer" required:"true"`
+	OutputChannel *int64 `json:"medialive:AudioChannelMapping:OutputChannel" locationName:"outputChannel" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -488,19 +488,19 @@ type AudioCodecSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Aac Settings
-	AacSettings *AacSettings `locationName:"aacSettings" type:"structure"`
+	AacSettings *AacSettings `json:"medialive:AudioCodecSettings:AacSettings" locationName:"aacSettings" type:"structure"`
 
 	// Ac3 Settings
-	Ac3Settings *Ac3Settings `locationName:"ac3Settings" type:"structure"`
+	Ac3Settings *Ac3Settings `json:"medialive:AudioCodecSettings:Ac3Settings" locationName:"ac3Settings" type:"structure"`
 
 	// Eac3 Settings
-	Eac3Settings *Eac3Settings `locationName:"eac3Settings" type:"structure"`
+	Eac3Settings *Eac3Settings `json:"medialive:AudioCodecSettings:Eac3Settings" locationName:"eac3Settings" type:"structure"`
 
 	// Mp2 Settings
-	Mp2Settings *Mp2Settings `locationName:"mp2Settings" type:"structure"`
+	Mp2Settings *Mp2Settings `json:"medialive:AudioCodecSettings:Mp2Settings" locationName:"mp2Settings" type:"structure"`
 
 	// Pass Through Settings
-	PassThroughSettings *PassThroughSettings `locationName:"passThroughSettings" type:"structure"`
+	PassThroughSettings *PassThroughSettings `json:"medialive:AudioCodecSettings:PassThroughSettings" locationName:"passThroughSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -569,16 +569,16 @@ type AudioDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Advanced audio normalization settings.
-	AudioNormalizationSettings *AudioNormalizationSettings `locationName:"audioNormalizationSettings" type:"structure"`
+	AudioNormalizationSettings *AudioNormalizationSettings `json:"medialive:AudioDescription:AudioNormalizationSettings" locationName:"audioNormalizationSettings" type:"structure"`
 
 	// The name of the AudioSelector used as the source for this AudioDescription.
 	//
 	// AudioSelectorName is a required field
-	AudioSelectorName *string `locationName:"audioSelectorName" type:"string" required:"true"`
+	AudioSelectorName *string `json:"medialive:AudioDescription:AudioSelectorName" locationName:"audioSelectorName" type:"string" required:"true"`
 
 	// Applies only if audioTypeControl is useConfigured. The values for audioType
 	// are defined in ISO-IEC 13818-1.
-	AudioType AudioType `locationName:"audioType" type:"string" enum:"true"`
+	AudioType AudioType `json:"medialive:AudioDescription:AudioType" locationName:"audioType" type:"string" enum:"true"`
 
 	// Determines how audio type is determined. followInput: If the input contains
 	// an ISO 639 audioType, then that value is passed through to the output. If
@@ -586,35 +586,35 @@ type AudioDescription struct {
 	// in the output. useConfigured: The value in Audio Type is included in the
 	// output.Note that this field and audioType are both ignored if inputType is
 	// broadcasterMixedAd.
-	AudioTypeControl AudioDescriptionAudioTypeControl `locationName:"audioTypeControl" type:"string" enum:"true"`
+	AudioTypeControl AudioDescriptionAudioTypeControl `json:"medialive:AudioDescription:AudioTypeControl" locationName:"audioTypeControl" type:"string" enum:"true"`
 
 	// Audio codec settings.
-	CodecSettings *AudioCodecSettings `locationName:"codecSettings" type:"structure"`
+	CodecSettings *AudioCodecSettings `json:"medialive:AudioDescription:CodecSettings" locationName:"codecSettings" type:"structure"`
 
 	// Indicates the language of the audio output track. Only used if languageControlMode
 	// is useConfigured, or there is no ISO 639 language code specified in the input.
-	LanguageCode *string `locationName:"languageCode" min:"3" type:"string"`
+	LanguageCode *string `json:"medialive:AudioDescription:LanguageCode" locationName:"languageCode" min:"3" type:"string"`
 
 	// Choosing followInput will cause the ISO 639 language code of the output to
 	// follow the ISO 639 language code of the input. The languageCode will be used
 	// when useConfigured is set, or when followInput is selected but there is no
 	// ISO 639 language code specified by the input.
-	LanguageCodeControl AudioDescriptionLanguageCodeControl `locationName:"languageCodeControl" type:"string" enum:"true"`
+	LanguageCodeControl AudioDescriptionLanguageCodeControl `json:"medialive:AudioDescription:LanguageCodeControl" locationName:"languageCodeControl" type:"string" enum:"true"`
 
 	// The name of this AudioDescription. Outputs will use this name to uniquely
 	// identify this AudioDescription. Description names should be unique within
 	// this Live Event.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"medialive:AudioDescription:Name" locationName:"name" type:"string" required:"true"`
 
 	// Settings that control how input audio channels are remixed into the output
 	// audio channels.
-	RemixSettings *RemixSettings `locationName:"remixSettings" type:"structure"`
+	RemixSettings *RemixSettings `json:"medialive:AudioDescription:RemixSettings" locationName:"remixSettings" type:"structure"`
 
 	// Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by
 	// the player (eg. English, or Director Commentary).
-	StreamName *string `locationName:"streamName" type:"string"`
+	StreamName *string `json:"medialive:AudioDescription:StreamName" locationName:"streamName" type:"string"`
 }
 
 // String returns the string representation
@@ -726,7 +726,7 @@ type AudioLanguageSelection struct {
 	// Selects a specific three-letter language code from within an audio source.
 	//
 	// LanguageCode is a required field
-	LanguageCode *string `locationName:"languageCode" type:"string" required:"true"`
+	LanguageCode *string `json:"medialive:AudioLanguageSelection:LanguageCode" locationName:"languageCode" type:"string" required:"true"`
 
 	// When set to "strict", the transport stream demux strictly identifies audio
 	// streams by their language descriptor. If a PMT update occurs such that an
@@ -734,7 +734,7 @@ type AudioLanguageSelection struct {
 	// then mute will be encoded until the language returns. If "loose", then on
 	// a PMT update the demux will choose another audio stream in the program with
 	// the same stream type if it can't find one with the same language.
-	LanguageSelectionPolicy AudioLanguageSelectionPolicy `locationName:"languageSelectionPolicy" type:"string" enum:"true"`
+	LanguageSelectionPolicy AudioLanguageSelectionPolicy `json:"medialive:AudioLanguageSelection:LanguageSelectionPolicy" locationName:"languageSelectionPolicy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -780,17 +780,17 @@ type AudioNormalizationSettings struct {
 
 	// Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification,
 	// itu17702 conforms to the EBU R-128 specification.
-	Algorithm AudioNormalizationAlgorithm `locationName:"algorithm" type:"string" enum:"true"`
+	Algorithm AudioNormalizationAlgorithm `json:"medialive:AudioNormalizationSettings:Algorithm" locationName:"algorithm" type:"string" enum:"true"`
 
 	// When set to correctAudio the output audio is corrected using the chosen algorithm.
 	// If set to measureOnly, the audio will be measured but not adjusted.
-	AlgorithmControl AudioNormalizationAlgorithmControl `locationName:"algorithmControl" type:"string" enum:"true"`
+	AlgorithmControl AudioNormalizationAlgorithmControl `json:"medialive:AudioNormalizationSettings:AlgorithmControl" locationName:"algorithmControl" type:"string" enum:"true"`
 
 	// Target LKFS(loudness) to adjust volume to. If no value is entered, a default
 	// value will be used according to the chosen algorithm. The CALM Act (1770-1)
 	// recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends
 	// a target of -23 LKFS.
-	TargetLkfs *float64 `locationName:"targetLkfs" type:"double"`
+	TargetLkfs *float64 `json:"medialive:AudioNormalizationSettings:TargetLkfs" locationName:"targetLkfs" type:"double"`
 }
 
 // String returns the string representation
@@ -827,7 +827,7 @@ type AudioOnlyHlsSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the group to which the audio Rendition belongs.
-	AudioGroupId *string `locationName:"audioGroupId" type:"string"`
+	AudioGroupId *string `json:"medialive:AudioOnlyHlsSettings:AudioGroupId" locationName:"audioGroupId" type:"string"`
 
 	// For use with an audio only Stream. Must be a .jpg or .png file. If given,
 	// this image will be used as the cover-art for the audio only output. Ideally,
@@ -836,7 +836,7 @@ type AudioOnlyHlsSettings struct {
 	// Additionally, this image file gets saved bit-for-bit into every 10-second
 	// segment file, so will increase bandwidth by {image file size} * {segment
 	// count} * {user count.}.
-	AudioOnlyImage *InputLocation `locationName:"audioOnlyImage" type:"structure"`
+	AudioOnlyImage *InputLocation `json:"medialive:AudioOnlyHlsSettings:AudioOnlyImage" locationName:"audioOnlyImage" type:"structure"`
 
 	// Four types of audio-only tracks are supported:Audio-Only Variant StreamThe
 	// client can play back this audio-only stream instead of video in low-bandwidth
@@ -849,7 +849,7 @@ type AudioOnlyHlsSettings struct {
 	// Audio, not Auto SelectAlternate rendition that the client will not try to
 	// play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
 	// DEFAULT=NO, AUTOSELECT=NO
-	AudioTrackType AudioOnlyHlsTrackType `locationName:"audioTrackType" type:"string" enum:"true"`
+	AudioTrackType AudioOnlyHlsTrackType `json:"medialive:AudioOnlyHlsSettings:AudioTrackType" locationName:"audioTrackType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -903,7 +903,7 @@ type AudioPidSelection struct {
 	// Selects a specific PID from within a source.
 	//
 	// Pid is a required field
-	Pid *int64 `locationName:"pid" type:"integer" required:"true"`
+	Pid *int64 `json:"medialive:AudioPidSelection:Pid" locationName:"pid" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -945,10 +945,10 @@ type AudioSelector struct {
 	// identify this Selector. Selector names should be unique per input.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"medialive:AudioSelector:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The audio selector settings.
-	SelectorSettings *AudioSelectorSettings `locationName:"selectorSettings" type:"structure"`
+	SelectorSettings *AudioSelectorSettings `json:"medialive:AudioSelector:SelectorSettings" locationName:"selectorSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -1001,10 +1001,10 @@ type AudioSelectorSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Audio Language Selection
-	AudioLanguageSelection *AudioLanguageSelection `locationName:"audioLanguageSelection" type:"structure"`
+	AudioLanguageSelection *AudioLanguageSelection `json:"medialive:AudioSelectorSettings:AudioLanguageSelection" locationName:"audioLanguageSelection" type:"structure"`
 
 	// Audio Pid Selection
-	AudioPidSelection *AudioPidSelection `locationName:"audioPidSelection" type:"structure"`
+	AudioPidSelection *AudioPidSelection `json:"medialive:AudioSelectorSettings:AudioPidSelection" locationName:"audioPidSelection" type:"structure"`
 }
 
 // String returns the string representation
@@ -1056,11 +1056,11 @@ type AvailBlanking struct {
 
 	// Blanking image to be used. Leave empty for solid black. Only bmp and png
 	// images are supported.
-	AvailBlankingImage *InputLocation `locationName:"availBlankingImage" type:"structure"`
+	AvailBlankingImage *InputLocation `json:"medialive:AvailBlanking:AvailBlankingImage" locationName:"availBlankingImage" type:"structure"`
 
 	// When set to enabled, causes video, audio and captions to be blanked when
 	// insertion metadata is added.
-	State AvailBlankingState `locationName:"state" type:"string" enum:"true"`
+	State AvailBlankingState `json:"medialive:AvailBlanking:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1106,7 +1106,7 @@ type AvailConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Ad avail settings.
-	AvailSettings *AvailSettings `locationName:"availSettings" type:"structure"`
+	AvailSettings *AvailSettings `json:"medialive:AvailConfiguration:AvailSettings" locationName:"availSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -1146,10 +1146,10 @@ type AvailSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Scte35 Splice Insert
-	Scte35SpliceInsert *Scte35SpliceInsert `locationName:"scte35SpliceInsert" type:"structure"`
+	Scte35SpliceInsert *Scte35SpliceInsert `json:"medialive:AvailSettings:Scte35SpliceInsert" locationName:"scte35SpliceInsert" type:"structure"`
 
 	// Scte35 Time Signal Apos
-	Scte35TimeSignalApos *Scte35TimeSignalApos `locationName:"scte35TimeSignalApos" type:"structure"`
+	Scte35TimeSignalApos *Scte35TimeSignalApos `json:"medialive:AvailSettings:Scte35TimeSignalApos" locationName:"scte35TimeSignalApos" type:"structure"`
 }
 
 // String returns the string representation
@@ -1203,7 +1203,7 @@ type BatchScheduleActionCreateRequest struct {
 	// A list of schedule actions to create.
 	//
 	// ScheduleActions is a required field
-	ScheduleActions []ScheduleAction `locationName:"scheduleActions" type:"list" required:"true"`
+	ScheduleActions []ScheduleAction `json:"medialive:BatchScheduleActionCreateRequest:ScheduleActions" locationName:"scheduleActions" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1257,7 +1257,7 @@ type BatchScheduleActionCreateResult struct {
 	// List of actions that have been created in the schedule.
 	//
 	// ScheduleActions is a required field
-	ScheduleActions []ScheduleAction `locationName:"scheduleActions" type:"list" required:"true"`
+	ScheduleActions []ScheduleAction `json:"medialive:BatchScheduleActionCreateResult:ScheduleActions" locationName:"scheduleActions" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1290,7 +1290,7 @@ type BatchScheduleActionDeleteRequest struct {
 	// A list of schedule actions to delete.
 	//
 	// ActionNames is a required field
-	ActionNames []string `locationName:"actionNames" type:"list" required:"true"`
+	ActionNames []string `json:"medialive:BatchScheduleActionDeleteRequest:ActionNames" locationName:"actionNames" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1337,7 +1337,7 @@ type BatchScheduleActionDeleteResult struct {
 	// List of actions that have been deleted from the schedule.
 	//
 	// ScheduleActions is a required field
-	ScheduleActions []ScheduleAction `locationName:"scheduleActions" type:"list" required:"true"`
+	ScheduleActions []ScheduleAction `json:"medialive:BatchScheduleActionDeleteResult:ScheduleActions" locationName:"scheduleActions" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1369,7 +1369,7 @@ type BlackoutSlate struct {
 
 	// Blackout slate image to be used. Leave empty for solid black. Only bmp and
 	// png images are supported.
-	BlackoutSlateImage *InputLocation `locationName:"blackoutSlateImage" type:"structure"`
+	BlackoutSlateImage *InputLocation `json:"medialive:BlackoutSlate:BlackoutSlateImage" locationName:"blackoutSlateImage" type:"structure"`
 
 	// Setting to enabled causes the encoder to blackout the video, audio, and captions,
 	// and raise the "Network Blackout Image" slate when an SCTE104/35 Network End
@@ -1377,18 +1377,18 @@ type BlackoutSlate struct {
 	// the Network Start Segmentation Descriptor is encountered. The Network End
 	// and Network Start descriptors must contain a network ID that matches the
 	// value entered in "Network ID".
-	NetworkEndBlackout BlackoutSlateNetworkEndBlackout `locationName:"networkEndBlackout" type:"string" enum:"true"`
+	NetworkEndBlackout BlackoutSlateNetworkEndBlackout `json:"medialive:BlackoutSlate:NetworkEndBlackout" locationName:"networkEndBlackout" type:"string" enum:"true"`
 
 	// Path to local file to use as Network End Blackout image. Image will be scaled
 	// to fill the entire output raster.
-	NetworkEndBlackoutImage *InputLocation `locationName:"networkEndBlackoutImage" type:"structure"`
+	NetworkEndBlackoutImage *InputLocation `json:"medialive:BlackoutSlate:NetworkEndBlackoutImage" locationName:"networkEndBlackoutImage" type:"structure"`
 
 	// Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
-	NetworkId *string `locationName:"networkId" min:"34" type:"string"`
+	NetworkId *string `json:"medialive:BlackoutSlate:NetworkId" locationName:"networkId" min:"34" type:"string"`
 
 	// When set to enabled, causes video, audio and captions to be blanked when
 	// indicated by program metadata.
-	State BlackoutSlateState `locationName:"state" type:"string" enum:"true"`
+	State BlackoutSlateState `json:"medialive:BlackoutSlate:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1466,91 +1466,91 @@ type BurnInDestinationSettings struct {
 	// the font will be justified (either left or centered) relative to those coordinates.
 	// Selecting "smart" justification will left-justify live subtitles and center-justify
 	// pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
-	Alignment BurnInAlignment `locationName:"alignment" type:"string" enum:"true"`
+	Alignment BurnInAlignment `json:"medialive:BurnInDestinationSettings:Alignment" locationName:"alignment" type:"string" enum:"true"`
 
 	// Specifies the color of the rectangle behind the captions. All burn-in and
 	// DVB-Sub font settings must match.
-	BackgroundColor BurnInBackgroundColor `locationName:"backgroundColor" type:"string" enum:"true"`
+	BackgroundColor BurnInBackgroundColor `json:"medialive:BurnInDestinationSettings:BackgroundColor" locationName:"backgroundColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent.
 	// Leaving this parameter out is equivalent to setting it to 0 (transparent).
 	// All burn-in and DVB-Sub font settings must match.
-	BackgroundOpacity *int64 `locationName:"backgroundOpacity" type:"integer"`
+	BackgroundOpacity *int64 `json:"medialive:BurnInDestinationSettings:BackgroundOpacity" locationName:"backgroundOpacity" type:"integer"`
 
 	// External font file used for caption burn-in. File extension must be 'ttf'
 	// or 'tte'. Although the user can select output fonts for many different types
 	// of input captions, embedded, STL and teletext sources use a strict grid system.
 	// Using external fonts with these caption sources could cause unexpected display
 	// of proportional fonts. All burn-in and DVB-Sub font settings must match.
-	Font *InputLocation `locationName:"font" type:"structure"`
+	Font *InputLocation `json:"medialive:BurnInDestinationSettings:Font" locationName:"font" type:"structure"`
 
 	// Specifies the color of the burned-in captions. This option is not valid for
 	// source captions that are STL, 608/embedded or teletext. These source settings
 	// are already pre-defined by the caption stream. All burn-in and DVB-Sub font
 	// settings must match.
-	FontColor BurnInFontColor `locationName:"fontColor" type:"string" enum:"true"`
+	FontColor BurnInFontColor `json:"medialive:BurnInDestinationSettings:FontColor" locationName:"fontColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
 	// All burn-in and DVB-Sub font settings must match.
-	FontOpacity *int64 `locationName:"fontOpacity" type:"integer"`
+	FontOpacity *int64 `json:"medialive:BurnInDestinationSettings:FontOpacity" locationName:"fontOpacity" type:"integer"`
 
 	// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and
 	// DVB-Sub font settings must match.
-	FontResolution *int64 `locationName:"fontResolution" min:"96" type:"integer"`
+	FontResolution *int64 `json:"medialive:BurnInDestinationSettings:FontResolution" locationName:"fontResolution" min:"96" type:"integer"`
 
 	// When set to 'auto' fontSize will scale depending on the size of the output.
 	// Giving a positive integer will specify the exact font size in points. All
 	// burn-in and DVB-Sub font settings must match.
-	FontSize *string `locationName:"fontSize" type:"string"`
+	FontSize *string `json:"medialive:BurnInDestinationSettings:FontSize" locationName:"fontSize" type:"string"`
 
 	// Specifies font outline color. This option is not valid for source captions
 	// that are either 608/embedded or teletext. These source settings are already
 	// pre-defined by the caption stream. All burn-in and DVB-Sub font settings
 	// must match.
-	OutlineColor BurnInOutlineColor `locationName:"outlineColor" type:"string" enum:"true"`
+	OutlineColor BurnInOutlineColor `json:"medialive:BurnInDestinationSettings:OutlineColor" locationName:"outlineColor" type:"string" enum:"true"`
 
 	// Specifies font outline size in pixels. This option is not valid for source
 	// captions that are either 608/embedded or teletext. These source settings
 	// are already pre-defined by the caption stream. All burn-in and DVB-Sub font
 	// settings must match.
-	OutlineSize *int64 `locationName:"outlineSize" type:"integer"`
+	OutlineSize *int64 `json:"medialive:BurnInDestinationSettings:OutlineSize" locationName:"outlineSize" type:"integer"`
 
 	// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub
 	// font settings must match.
-	ShadowColor BurnInShadowColor `locationName:"shadowColor" type:"string" enum:"true"`
+	ShadowColor BurnInShadowColor `json:"medialive:BurnInDestinationSettings:ShadowColor" locationName:"shadowColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving
 	// this parameter out is equivalent to setting it to 0 (transparent). All burn-in
 	// and DVB-Sub font settings must match.
-	ShadowOpacity *int64 `locationName:"shadowOpacity" type:"integer"`
+	ShadowOpacity *int64 `json:"medialive:BurnInDestinationSettings:ShadowOpacity" locationName:"shadowOpacity" type:"integer"`
 
 	// Specifies the horizontal offset of the shadow relative to the captions in
 	// pixels. A value of -2 would result in a shadow offset 2 pixels to the left.
 	// All burn-in and DVB-Sub font settings must match.
-	ShadowXOffset *int64 `locationName:"shadowXOffset" type:"integer"`
+	ShadowXOffset *int64 `json:"medialive:BurnInDestinationSettings:ShadowXOffset" locationName:"shadowXOffset" type:"integer"`
 
 	// Specifies the vertical offset of the shadow relative to the captions in pixels.
 	// A value of -2 would result in a shadow offset 2 pixels above the text. All
 	// burn-in and DVB-Sub font settings must match.
-	ShadowYOffset *int64 `locationName:"shadowYOffset" type:"integer"`
+	ShadowYOffset *int64 `json:"medialive:BurnInDestinationSettings:ShadowYOffset" locationName:"shadowYOffset" type:"integer"`
 
 	// Controls whether a fixed grid size will be used to generate the output subtitles
 	// bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
-	TeletextGridControl BurnInTeletextGridControl `locationName:"teletextGridControl" type:"string" enum:"true"`
+	TeletextGridControl BurnInTeletextGridControl `json:"medialive:BurnInDestinationSettings:TeletextGridControl" locationName:"teletextGridControl" type:"string" enum:"true"`
 
 	// Specifies the horizontal position of the caption relative to the left side
 	// of the output in pixels. A value of 10 would result in the captions starting
 	// 10 pixels from the left of the output. If no explicit xPosition is provided,
 	// the horizontal caption position will be determined by the alignment parameter.
 	// All burn-in and DVB-Sub font settings must match.
-	XPosition *int64 `locationName:"xPosition" type:"integer"`
+	XPosition *int64 `json:"medialive:BurnInDestinationSettings:XPosition" locationName:"xPosition" type:"integer"`
 
 	// Specifies the vertical position of the caption relative to the top of the
 	// output in pixels. A value of 10 would result in the captions starting 10
 	// pixels from the top of the output. If no explicit yPosition is provided,
 	// the caption will be positioned towards the bottom of the output. All burn-in
 	// and DVB-Sub font settings must match.
-	YPosition *int64 `locationName:"yPosition" type:"integer"`
+	YPosition *int64 `json:"medialive:BurnInDestinationSettings:YPosition" locationName:"yPosition" type:"integer"`
 }
 
 // String returns the string representation
@@ -1693,24 +1693,24 @@ type CaptionDescription struct {
 	// output captions. This field should match a captionSelector name.
 	//
 	// CaptionSelectorName is a required field
-	CaptionSelectorName *string `locationName:"captionSelectorName" type:"string" required:"true"`
+	CaptionSelectorName *string `json:"medialive:CaptionDescription:CaptionSelectorName" locationName:"captionSelectorName" type:"string" required:"true"`
 
 	// Additional settings for captions destination that depend on the destination
 	// type.
-	DestinationSettings *CaptionDestinationSettings `locationName:"destinationSettings" type:"structure"`
+	DestinationSettings *CaptionDestinationSettings `json:"medialive:CaptionDescription:DestinationSettings" locationName:"destinationSettings" type:"structure"`
 
 	// ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
-	LanguageCode *string `locationName:"languageCode" type:"string"`
+	LanguageCode *string `json:"medialive:CaptionDescription:LanguageCode" locationName:"languageCode" type:"string"`
 
 	// Human readable information to indicate captions available for players (eg.
 	// English, or Spanish).
-	LanguageDescription *string `locationName:"languageDescription" type:"string"`
+	LanguageDescription *string `json:"medialive:CaptionDescription:LanguageDescription" locationName:"languageDescription" type:"string"`
 
 	// Name of the caption description. Used to associate a caption description
 	// with an output. Names must be unique within an event.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"medialive:CaptionDescription:Name" locationName:"name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1782,40 +1782,40 @@ type CaptionDestinationSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Arib Destination Settings
-	AribDestinationSettings *AribDestinationSettings `locationName:"aribDestinationSettings" type:"structure"`
+	AribDestinationSettings *AribDestinationSettings `json:"medialive:CaptionDestinationSettings:AribDestinationSettings" locationName:"aribDestinationSettings" type:"structure"`
 
 	// Burn In Destination Settings
-	BurnInDestinationSettings *BurnInDestinationSettings `locationName:"burnInDestinationSettings" type:"structure"`
+	BurnInDestinationSettings *BurnInDestinationSettings `json:"medialive:CaptionDestinationSettings:BurnInDestinationSettings" locationName:"burnInDestinationSettings" type:"structure"`
 
 	// Dvb Sub Destination Settings
-	DvbSubDestinationSettings *DvbSubDestinationSettings `locationName:"dvbSubDestinationSettings" type:"structure"`
+	DvbSubDestinationSettings *DvbSubDestinationSettings `json:"medialive:CaptionDestinationSettings:DvbSubDestinationSettings" locationName:"dvbSubDestinationSettings" type:"structure"`
 
 	// Embedded Destination Settings
-	EmbeddedDestinationSettings *EmbeddedDestinationSettings `locationName:"embeddedDestinationSettings" type:"structure"`
+	EmbeddedDestinationSettings *EmbeddedDestinationSettings `json:"medialive:CaptionDestinationSettings:EmbeddedDestinationSettings" locationName:"embeddedDestinationSettings" type:"structure"`
 
 	// Embedded Plus Scte20 Destination Settings
-	EmbeddedPlusScte20DestinationSettings *EmbeddedPlusScte20DestinationSettings `locationName:"embeddedPlusScte20DestinationSettings" type:"structure"`
+	EmbeddedPlusScte20DestinationSettings *EmbeddedPlusScte20DestinationSettings `json:"medialive:CaptionDestinationSettings:EmbeddedPlusScte20DestinationSettings" locationName:"embeddedPlusScte20DestinationSettings" type:"structure"`
 
 	// Rtmp Caption Info Destination Settings
-	RtmpCaptionInfoDestinationSettings *RtmpCaptionInfoDestinationSettings `locationName:"rtmpCaptionInfoDestinationSettings" type:"structure"`
+	RtmpCaptionInfoDestinationSettings *RtmpCaptionInfoDestinationSettings `json:"medialive:CaptionDestinationSettings:RtmpCaptionInfoDestinationSettings" locationName:"rtmpCaptionInfoDestinationSettings" type:"structure"`
 
 	// Scte20 Plus Embedded Destination Settings
-	Scte20PlusEmbeddedDestinationSettings *Scte20PlusEmbeddedDestinationSettings `locationName:"scte20PlusEmbeddedDestinationSettings" type:"structure"`
+	Scte20PlusEmbeddedDestinationSettings *Scte20PlusEmbeddedDestinationSettings `json:"medialive:CaptionDestinationSettings:Scte20PlusEmbeddedDestinationSettings" locationName:"scte20PlusEmbeddedDestinationSettings" type:"structure"`
 
 	// Scte27 Destination Settings
-	Scte27DestinationSettings *Scte27DestinationSettings `locationName:"scte27DestinationSettings" type:"structure"`
+	Scte27DestinationSettings *Scte27DestinationSettings `json:"medialive:CaptionDestinationSettings:Scte27DestinationSettings" locationName:"scte27DestinationSettings" type:"structure"`
 
 	// Smpte Tt Destination Settings
-	SmpteTtDestinationSettings *SmpteTtDestinationSettings `locationName:"smpteTtDestinationSettings" type:"structure"`
+	SmpteTtDestinationSettings *SmpteTtDestinationSettings `json:"medialive:CaptionDestinationSettings:SmpteTtDestinationSettings" locationName:"smpteTtDestinationSettings" type:"structure"`
 
 	// Teletext Destination Settings
-	TeletextDestinationSettings *TeletextDestinationSettings `locationName:"teletextDestinationSettings" type:"structure"`
+	TeletextDestinationSettings *TeletextDestinationSettings `json:"medialive:CaptionDestinationSettings:TeletextDestinationSettings" locationName:"teletextDestinationSettings" type:"structure"`
 
 	// Ttml Destination Settings
-	TtmlDestinationSettings *TtmlDestinationSettings `locationName:"ttmlDestinationSettings" type:"structure"`
+	TtmlDestinationSettings *TtmlDestinationSettings `json:"medialive:CaptionDestinationSettings:TtmlDestinationSettings" locationName:"ttmlDestinationSettings" type:"structure"`
 
 	// Webvtt Destination Settings
-	WebvttDestinationSettings *WebvttDestinationSettings `locationName:"webvttDestinationSettings" type:"structure"`
+	WebvttDestinationSettings *WebvttDestinationSettings `json:"medialive:CaptionDestinationSettings:WebvttDestinationSettings" locationName:"webvttDestinationSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -1930,17 +1930,17 @@ type CaptionLanguageMapping struct {
 	// Each channel mapping must have a unique channel number (maximum of 4)
 	//
 	// CaptionChannel is a required field
-	CaptionChannel *int64 `locationName:"captionChannel" min:"1" type:"integer" required:"true"`
+	CaptionChannel *int64 `json:"medialive:CaptionLanguageMapping:CaptionChannel" locationName:"captionChannel" min:"1" type:"integer" required:"true"`
 
 	// Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
 	//
 	// LanguageCode is a required field
-	LanguageCode *string `locationName:"languageCode" min:"3" type:"string" required:"true"`
+	LanguageCode *string `json:"medialive:CaptionLanguageMapping:LanguageCode" locationName:"languageCode" min:"3" type:"string" required:"true"`
 
 	// Textual description of language
 	//
 	// LanguageDescription is a required field
-	LanguageDescription *string `locationName:"languageDescription" min:"1" type:"string" required:"true"`
+	LanguageDescription *string `json:"medialive:CaptionLanguageMapping:LanguageDescription" locationName:"languageDescription" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2010,17 +2010,17 @@ type CaptionSelector struct {
 
 	// When specified this field indicates the three letter language code of the
 	// caption track to extract from the source.
-	LanguageCode *string `locationName:"languageCode" type:"string"`
+	LanguageCode *string `json:"medialive:CaptionSelector:LanguageCode" locationName:"languageCode" type:"string"`
 
 	// Name identifier for a caption selector. This name is used to associate this
 	// caption selector with one or more caption descriptions. Names must be unique
 	// within an event.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"medialive:CaptionSelector:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// Caption selector settings.
-	SelectorSettings *CaptionSelectorSettings `locationName:"selectorSettings" type:"structure"`
+	SelectorSettings *CaptionSelectorSettings `json:"medialive:CaptionSelector:SelectorSettings" locationName:"selectorSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -2079,22 +2079,22 @@ type CaptionSelectorSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Arib Source Settings
-	AribSourceSettings *AribSourceSettings `locationName:"aribSourceSettings" type:"structure"`
+	AribSourceSettings *AribSourceSettings `json:"medialive:CaptionSelectorSettings:AribSourceSettings" locationName:"aribSourceSettings" type:"structure"`
 
 	// Dvb Sub Source Settings
-	DvbSubSourceSettings *DvbSubSourceSettings `locationName:"dvbSubSourceSettings" type:"structure"`
+	DvbSubSourceSettings *DvbSubSourceSettings `json:"medialive:CaptionSelectorSettings:DvbSubSourceSettings" locationName:"dvbSubSourceSettings" type:"structure"`
 
 	// Embedded Source Settings
-	EmbeddedSourceSettings *EmbeddedSourceSettings `locationName:"embeddedSourceSettings" type:"structure"`
+	EmbeddedSourceSettings *EmbeddedSourceSettings `json:"medialive:CaptionSelectorSettings:EmbeddedSourceSettings" locationName:"embeddedSourceSettings" type:"structure"`
 
 	// Scte20 Source Settings
-	Scte20SourceSettings *Scte20SourceSettings `locationName:"scte20SourceSettings" type:"structure"`
+	Scte20SourceSettings *Scte20SourceSettings `json:"medialive:CaptionSelectorSettings:Scte20SourceSettings" locationName:"scte20SourceSettings" type:"structure"`
 
 	// Scte27 Source Settings
-	Scte27SourceSettings *Scte27SourceSettings `locationName:"scte27SourceSettings" type:"structure"`
+	Scte27SourceSettings *Scte27SourceSettings `json:"medialive:CaptionSelectorSettings:Scte27SourceSettings" locationName:"scte27SourceSettings" type:"structure"`
 
 	// Teletext Source Settings
-	TeletextSourceSettings *TeletextSourceSettings `locationName:"teletextSourceSettings" type:"structure"`
+	TeletextSourceSettings *TeletextSourceSettings `json:"medialive:CaptionSelectorSettings:TeletextSourceSettings" locationName:"teletextSourceSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -2178,47 +2178,47 @@ type Channel struct {
 	_ struct{} `type:"structure"`
 
 	// The unique arn of the channel.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:Channel:Arn" locationName:"arn" type:"string"`
 
 	// The class for this channel. STANDARD for a channel with two pipelines or
 	// SINGLE_PIPELINE for a channel with one pipeline.
-	ChannelClass ChannelClass `locationName:"channelClass" type:"string" enum:"true"`
+	ChannelClass ChannelClass `json:"medialive:Channel:ChannelClass" locationName:"channelClass" type:"string" enum:"true"`
 
 	// A list of destinations of the channel. For UDP outputs, there is onedestination
 	// per output. For other types (HLS, for example), there isone destination per
 	// packager.
-	Destinations []OutputDestination `locationName:"destinations" type:"list"`
+	Destinations []OutputDestination `json:"medialive:Channel:Destinations" locationName:"destinations" type:"list"`
 
 	// The endpoints where outgoing connections initiate from
-	EgressEndpoints []ChannelEgressEndpoint `locationName:"egressEndpoints" type:"list"`
+	EgressEndpoints []ChannelEgressEndpoint `json:"medialive:Channel:EgressEndpoints" locationName:"egressEndpoints" type:"list"`
 
 	// Encoder Settings
-	EncoderSettings *EncoderSettings `locationName:"encoderSettings" type:"structure"`
+	EncoderSettings *EncoderSettings `json:"medialive:Channel:EncoderSettings" locationName:"encoderSettings" type:"structure"`
 
 	// The unique id of the channel.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"medialive:Channel:Id" locationName:"id" type:"string"`
 
 	// List of input attachments for channel.
-	InputAttachments []InputAttachment `locationName:"inputAttachments" type:"list"`
+	InputAttachments []InputAttachment `json:"medialive:Channel:InputAttachments" locationName:"inputAttachments" type:"list"`
 
-	InputSpecification *InputSpecification `locationName:"inputSpecification" type:"structure"`
+	InputSpecification *InputSpecification `json:"medialive:Channel:InputSpecification" locationName:"inputSpecification" type:"structure"`
 
 	// The log level being written to CloudWatch Logs.
-	LogLevel LogLevel `locationName:"logLevel" type:"string" enum:"true"`
+	LogLevel LogLevel `json:"medialive:Channel:LogLevel" locationName:"logLevel" type:"string" enum:"true"`
 
 	// The name of the channel. (user-mutable)
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"medialive:Channel:Name" locationName:"name" type:"string"`
 
 	// The number of currently healthy pipelines.
-	PipelinesRunningCount *int64 `locationName:"pipelinesRunningCount" type:"integer"`
+	PipelinesRunningCount *int64 `json:"medialive:Channel:PipelinesRunningCount" locationName:"pipelinesRunningCount" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"medialive:Channel:RoleArn" locationName:"roleArn" type:"string"`
 
-	State ChannelState `locationName:"state" type:"string" enum:"true"`
+	State ChannelState `json:"medialive:Channel:State" locationName:"state" type:"string" enum:"true"`
 
 	// A collection of key-value pairs.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:Channel:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -2344,7 +2344,7 @@ type ChannelEgressEndpoint struct {
 	_ struct{} `type:"structure"`
 
 	// Public IP of where a channel's output comes from
-	SourceIp *string `locationName:"sourceIp" type:"string"`
+	SourceIp *string `json:"medialive:ChannelEgressEndpoint:SourceIp" locationName:"sourceIp" type:"string"`
 }
 
 // String returns the string representation
@@ -2368,44 +2368,44 @@ type ChannelSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The unique arn of the channel.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:ChannelSummary:Arn" locationName:"arn" type:"string"`
 
 	// The class for this channel. STANDARD for a channel with two pipelines or
 	// SINGLE_PIPELINE for a channel with one pipeline.
-	ChannelClass ChannelClass `locationName:"channelClass" type:"string" enum:"true"`
+	ChannelClass ChannelClass `json:"medialive:ChannelSummary:ChannelClass" locationName:"channelClass" type:"string" enum:"true"`
 
 	// A list of destinations of the channel. For UDP outputs, there is onedestination
 	// per output. For other types (HLS, for example), there isone destination per
 	// packager.
-	Destinations []OutputDestination `locationName:"destinations" type:"list"`
+	Destinations []OutputDestination `json:"medialive:ChannelSummary:Destinations" locationName:"destinations" type:"list"`
 
 	// The endpoints where outgoing connections initiate from
-	EgressEndpoints []ChannelEgressEndpoint `locationName:"egressEndpoints" type:"list"`
+	EgressEndpoints []ChannelEgressEndpoint `json:"medialive:ChannelSummary:EgressEndpoints" locationName:"egressEndpoints" type:"list"`
 
 	// The unique id of the channel.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"medialive:ChannelSummary:Id" locationName:"id" type:"string"`
 
 	// List of input attachments for channel.
-	InputAttachments []InputAttachment `locationName:"inputAttachments" type:"list"`
+	InputAttachments []InputAttachment `json:"medialive:ChannelSummary:InputAttachments" locationName:"inputAttachments" type:"list"`
 
-	InputSpecification *InputSpecification `locationName:"inputSpecification" type:"structure"`
+	InputSpecification *InputSpecification `json:"medialive:ChannelSummary:InputSpecification" locationName:"inputSpecification" type:"structure"`
 
 	// The log level being written to CloudWatch Logs.
-	LogLevel LogLevel `locationName:"logLevel" type:"string" enum:"true"`
+	LogLevel LogLevel `json:"medialive:ChannelSummary:LogLevel" locationName:"logLevel" type:"string" enum:"true"`
 
 	// The name of the channel. (user-mutable)
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"medialive:ChannelSummary:Name" locationName:"name" type:"string"`
 
 	// The number of currently healthy pipelines.
-	PipelinesRunningCount *int64 `locationName:"pipelinesRunningCount" type:"integer"`
+	PipelinesRunningCount *int64 `json:"medialive:ChannelSummary:PipelinesRunningCount" locationName:"pipelinesRunningCount" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"medialive:ChannelSummary:RoleArn" locationName:"roleArn" type:"string"`
 
-	State ChannelState `locationName:"state" type:"string" enum:"true"`
+	State ChannelState `json:"medialive:ChannelSummary:State" locationName:"state" type:"string" enum:"true"`
 
 	// A collection of key-value pairs.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:ChannelSummary:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -2528,17 +2528,17 @@ type DvbNitSettings struct {
 	// The numeric value placed in the Network Information Table (NIT).
 	//
 	// NetworkId is a required field
-	NetworkId *int64 `locationName:"networkId" type:"integer" required:"true"`
+	NetworkId *int64 `json:"medialive:DvbNitSettings:NetworkId" locationName:"networkId" type:"integer" required:"true"`
 
 	// The network name text placed in the networkNameDescriptor inside the Network
 	// Information Table. Maximum length is 256 characters.
 	//
 	// NetworkName is a required field
-	NetworkName *string `locationName:"networkName" min:"1" type:"string" required:"true"`
+	NetworkName *string `json:"medialive:DvbNitSettings:NetworkName" locationName:"networkName" min:"1" type:"string" required:"true"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	RepInterval *int64 `locationName:"repInterval" min:"25" type:"integer"`
+	RepInterval *int64 `json:"medialive:DvbNitSettings:RepInterval" locationName:"repInterval" min:"25" type:"integer"`
 }
 
 // String returns the string representation
@@ -2604,19 +2604,19 @@ type DvbSdtSettings struct {
 	// information is present in the input, otherwise it will fall back on the user-defined
 	// values. The sdtManual setting means user will enter the SDT information.
 	// The sdtNone setting means output stream will not contain SDT information.
-	OutputSdt DvbSdtOutputSdt `locationName:"outputSdt" type:"string" enum:"true"`
+	OutputSdt DvbSdtOutputSdt `json:"medialive:DvbSdtSettings:OutputSdt" locationName:"outputSdt" type:"string" enum:"true"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	RepInterval *int64 `locationName:"repInterval" min:"25" type:"integer"`
+	RepInterval *int64 `json:"medialive:DvbSdtSettings:RepInterval" locationName:"repInterval" min:"25" type:"integer"`
 
 	// The service name placed in the serviceDescriptor in the Service Description
 	// Table. Maximum length is 256 characters.
-	ServiceName *string `locationName:"serviceName" min:"1" type:"string"`
+	ServiceName *string `json:"medialive:DvbSdtSettings:ServiceName" locationName:"serviceName" min:"1" type:"string"`
 
 	// The service provider name placed in the serviceDescriptor in the Service
 	// Description Table. Maximum length is 256 characters.
-	ServiceProviderName *string `locationName:"serviceProviderName" min:"1" type:"string"`
+	ServiceProviderName *string `json:"medialive:DvbSdtSettings:ServiceProviderName" locationName:"serviceProviderName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2686,77 +2686,77 @@ type DvbSubDestinationSettings struct {
 	// pre-recorded subtitles. This option is not valid for source captions that
 	// are STL or 608/embedded. These source settings are already pre-defined by
 	// the caption stream. All burn-in and DVB-Sub font settings must match.
-	Alignment DvbSubDestinationAlignment `locationName:"alignment" type:"string" enum:"true"`
+	Alignment DvbSubDestinationAlignment `json:"medialive:DvbSubDestinationSettings:Alignment" locationName:"alignment" type:"string" enum:"true"`
 
 	// Specifies the color of the rectangle behind the captions. All burn-in and
 	// DVB-Sub font settings must match.
-	BackgroundColor DvbSubDestinationBackgroundColor `locationName:"backgroundColor" type:"string" enum:"true"`
+	BackgroundColor DvbSubDestinationBackgroundColor `json:"medialive:DvbSubDestinationSettings:BackgroundColor" locationName:"backgroundColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent.
 	// Leaving this parameter blank is equivalent to setting it to 0 (transparent).
 	// All burn-in and DVB-Sub font settings must match.
-	BackgroundOpacity *int64 `locationName:"backgroundOpacity" type:"integer"`
+	BackgroundOpacity *int64 `json:"medialive:DvbSubDestinationSettings:BackgroundOpacity" locationName:"backgroundOpacity" type:"integer"`
 
 	// External font file used for caption burn-in. File extension must be 'ttf'
 	// or 'tte'. Although the user can select output fonts for many different types
 	// of input captions, embedded, STL and teletext sources use a strict grid system.
 	// Using external fonts with these caption sources could cause unexpected display
 	// of proportional fonts. All burn-in and DVB-Sub font settings must match.
-	Font *InputLocation `locationName:"font" type:"structure"`
+	Font *InputLocation `json:"medialive:DvbSubDestinationSettings:Font" locationName:"font" type:"structure"`
 
 	// Specifies the color of the burned-in captions. This option is not valid for
 	// source captions that are STL, 608/embedded or teletext. These source settings
 	// are already pre-defined by the caption stream. All burn-in and DVB-Sub font
 	// settings must match.
-	FontColor DvbSubDestinationFontColor `locationName:"fontColor" type:"string" enum:"true"`
+	FontColor DvbSubDestinationFontColor `json:"medialive:DvbSubDestinationSettings:FontColor" locationName:"fontColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
 	// All burn-in and DVB-Sub font settings must match.
-	FontOpacity *int64 `locationName:"fontOpacity" type:"integer"`
+	FontOpacity *int64 `json:"medialive:DvbSubDestinationSettings:FontOpacity" locationName:"fontOpacity" type:"integer"`
 
 	// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and
 	// DVB-Sub font settings must match.
-	FontResolution *int64 `locationName:"fontResolution" min:"96" type:"integer"`
+	FontResolution *int64 `json:"medialive:DvbSubDestinationSettings:FontResolution" locationName:"fontResolution" min:"96" type:"integer"`
 
 	// When set to auto fontSize will scale depending on the size of the output.
 	// Giving a positive integer will specify the exact font size in points. All
 	// burn-in and DVB-Sub font settings must match.
-	FontSize *string `locationName:"fontSize" type:"string"`
+	FontSize *string `json:"medialive:DvbSubDestinationSettings:FontSize" locationName:"fontSize" type:"string"`
 
 	// Specifies font outline color. This option is not valid for source captions
 	// that are either 608/embedded or teletext. These source settings are already
 	// pre-defined by the caption stream. All burn-in and DVB-Sub font settings
 	// must match.
-	OutlineColor DvbSubDestinationOutlineColor `locationName:"outlineColor" type:"string" enum:"true"`
+	OutlineColor DvbSubDestinationOutlineColor `json:"medialive:DvbSubDestinationSettings:OutlineColor" locationName:"outlineColor" type:"string" enum:"true"`
 
 	// Specifies font outline size in pixels. This option is not valid for source
 	// captions that are either 608/embedded or teletext. These source settings
 	// are already pre-defined by the caption stream. All burn-in and DVB-Sub font
 	// settings must match.
-	OutlineSize *int64 `locationName:"outlineSize" type:"integer"`
+	OutlineSize *int64 `json:"medialive:DvbSubDestinationSettings:OutlineSize" locationName:"outlineSize" type:"integer"`
 
 	// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub
 	// font settings must match.
-	ShadowColor DvbSubDestinationShadowColor `locationName:"shadowColor" type:"string" enum:"true"`
+	ShadowColor DvbSubDestinationShadowColor `json:"medialive:DvbSubDestinationSettings:ShadowColor" locationName:"shadowColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving
 	// this parameter blank is equivalent to setting it to 0 (transparent). All
 	// burn-in and DVB-Sub font settings must match.
-	ShadowOpacity *int64 `locationName:"shadowOpacity" type:"integer"`
+	ShadowOpacity *int64 `json:"medialive:DvbSubDestinationSettings:ShadowOpacity" locationName:"shadowOpacity" type:"integer"`
 
 	// Specifies the horizontal offset of the shadow relative to the captions in
 	// pixels. A value of -2 would result in a shadow offset 2 pixels to the left.
 	// All burn-in and DVB-Sub font settings must match.
-	ShadowXOffset *int64 `locationName:"shadowXOffset" type:"integer"`
+	ShadowXOffset *int64 `json:"medialive:DvbSubDestinationSettings:ShadowXOffset" locationName:"shadowXOffset" type:"integer"`
 
 	// Specifies the vertical offset of the shadow relative to the captions in pixels.
 	// A value of -2 would result in a shadow offset 2 pixels above the text. All
 	// burn-in and DVB-Sub font settings must match.
-	ShadowYOffset *int64 `locationName:"shadowYOffset" type:"integer"`
+	ShadowYOffset *int64 `json:"medialive:DvbSubDestinationSettings:ShadowYOffset" locationName:"shadowYOffset" type:"integer"`
 
 	// Controls whether a fixed grid size will be used to generate the output subtitles
 	// bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
-	TeletextGridControl DvbSubDestinationTeletextGridControl `locationName:"teletextGridControl" type:"string" enum:"true"`
+	TeletextGridControl DvbSubDestinationTeletextGridControl `json:"medialive:DvbSubDestinationSettings:TeletextGridControl" locationName:"teletextGridControl" type:"string" enum:"true"`
 
 	// Specifies the horizontal position of the caption relative to the left side
 	// of the output in pixels. A value of 10 would result in the captions starting
@@ -2765,7 +2765,7 @@ type DvbSubDestinationSettings struct {
 	// This option is not valid for source captions that are STL, 608/embedded or
 	// teletext. These source settings are already pre-defined by the caption stream.
 	// All burn-in and DVB-Sub font settings must match.
-	XPosition *int64 `locationName:"xPosition" type:"integer"`
+	XPosition *int64 `json:"medialive:DvbSubDestinationSettings:XPosition" locationName:"xPosition" type:"integer"`
 
 	// Specifies the vertical position of the caption relative to the top of the
 	// output in pixels. A value of 10 would result in the captions starting 10
@@ -2774,7 +2774,7 @@ type DvbSubDestinationSettings struct {
 	// is not valid for source captions that are STL, 608/embedded or teletext.
 	// These source settings are already pre-defined by the caption stream. All
 	// burn-in and DVB-Sub font settings must match.
-	YPosition *int64 `locationName:"yPosition" type:"integer"`
+	YPosition *int64 `json:"medialive:DvbSubDestinationSettings:YPosition" locationName:"yPosition" type:"integer"`
 }
 
 // String returns the string representation
@@ -2915,7 +2915,7 @@ type DvbSubSourceSettings struct {
 	// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
 	// content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through,
 	// regardless of selectors.
-	Pid *int64 `locationName:"pid" min:"1" type:"integer"`
+	Pid *int64 `json:"medialive:DvbSubSourceSettings:Pid" locationName:"pid" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -2954,7 +2954,7 @@ type DvbTdtSettings struct {
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	RepInterval *int64 `locationName:"repInterval" min:"1000" type:"integer"`
+	RepInterval *int64 `json:"medialive:DvbTdtSettings:RepInterval" locationName:"repInterval" min:"1000" type:"integer"`
 }
 
 // String returns the string representation
@@ -2993,76 +2993,76 @@ type Eac3Settings struct {
 
 	// When set to attenuate3Db, applies a 3 dB attenuation to the surround channels.
 	// Only used for 3/2 coding mode.
-	AttenuationControl Eac3AttenuationControl `locationName:"attenuationControl" type:"string" enum:"true"`
+	AttenuationControl Eac3AttenuationControl `json:"medialive:Eac3Settings:AttenuationControl" locationName:"attenuationControl" type:"string" enum:"true"`
 
 	// Average bitrate in bits/second. Valid bitrates depend on the coding mode.
-	Bitrate *float64 `locationName:"bitrate" type:"double"`
+	Bitrate *float64 `json:"medialive:Eac3Settings:Bitrate" locationName:"bitrate" type:"double"`
 
 	// Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC
 	// A/52-2012 (Annex E) for background on these values.
-	BitstreamMode Eac3BitstreamMode `locationName:"bitstreamMode" type:"string" enum:"true"`
+	BitstreamMode Eac3BitstreamMode `json:"medialive:Eac3Settings:BitstreamMode" locationName:"bitstreamMode" type:"string" enum:"true"`
 
 	// Dolby Digital Plus coding mode. Determines number of channels.
-	CodingMode Eac3CodingMode `locationName:"codingMode" type:"string" enum:"true"`
+	CodingMode Eac3CodingMode `json:"medialive:Eac3Settings:CodingMode" locationName:"codingMode" type:"string" enum:"true"`
 
 	// When set to enabled, activates a DC highpass filter for all input channels.
-	DcFilter Eac3DcFilter `locationName:"dcFilter" type:"string" enum:"true"`
+	DcFilter Eac3DcFilter `json:"medialive:Eac3Settings:DcFilter" locationName:"dcFilter" type:"string" enum:"true"`
 
 	// Sets the dialnorm for the output. If blank and input audio is Dolby Digital
 	// Plus, dialnorm will be passed through.
-	Dialnorm *int64 `locationName:"dialnorm" min:"1" type:"integer"`
+	Dialnorm *int64 `json:"medialive:Eac3Settings:Dialnorm" locationName:"dialnorm" min:"1" type:"integer"`
 
 	// Sets the Dolby dynamic range compression profile.
-	DrcLine Eac3DrcLine `locationName:"drcLine" type:"string" enum:"true"`
+	DrcLine Eac3DrcLine `json:"medialive:Eac3Settings:DrcLine" locationName:"drcLine" type:"string" enum:"true"`
 
 	// Sets the profile for heavy Dolby dynamic range compression, ensures that
 	// the instantaneous signal peaks do not exceed specified levels.
-	DrcRf Eac3DrcRf `locationName:"drcRf" type:"string" enum:"true"`
+	DrcRf Eac3DrcRf `json:"medialive:Eac3Settings:DrcRf" locationName:"drcRf" type:"string" enum:"true"`
 
 	// When encoding 3/2 audio, setting to lfe enables the LFE channel
-	LfeControl Eac3LfeControl `locationName:"lfeControl" type:"string" enum:"true"`
+	LfeControl Eac3LfeControl `json:"medialive:Eac3Settings:LfeControl" locationName:"lfeControl" type:"string" enum:"true"`
 
 	// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior
 	// to encoding. Only valid with codingMode32 coding mode.
-	LfeFilter Eac3LfeFilter `locationName:"lfeFilter" type:"string" enum:"true"`
+	LfeFilter Eac3LfeFilter `json:"medialive:Eac3Settings:LfeFilter" locationName:"lfeFilter" type:"string" enum:"true"`
 
 	// Left only/Right only center mix level. Only used for 3/2 coding mode.
-	LoRoCenterMixLevel *float64 `locationName:"loRoCenterMixLevel" type:"double"`
+	LoRoCenterMixLevel *float64 `json:"medialive:Eac3Settings:LoRoCenterMixLevel" locationName:"loRoCenterMixLevel" type:"double"`
 
 	// Left only/Right only surround mix level. Only used for 3/2 coding mode.
-	LoRoSurroundMixLevel *float64 `locationName:"loRoSurroundMixLevel" type:"double"`
+	LoRoSurroundMixLevel *float64 `json:"medialive:Eac3Settings:LoRoSurroundMixLevel" locationName:"loRoSurroundMixLevel" type:"double"`
 
 	// Left total/Right total center mix level. Only used for 3/2 coding mode.
-	LtRtCenterMixLevel *float64 `locationName:"ltRtCenterMixLevel" type:"double"`
+	LtRtCenterMixLevel *float64 `json:"medialive:Eac3Settings:LtRtCenterMixLevel" locationName:"ltRtCenterMixLevel" type:"double"`
 
 	// Left total/Right total surround mix level. Only used for 3/2 coding mode.
-	LtRtSurroundMixLevel *float64 `locationName:"ltRtSurroundMixLevel" type:"double"`
+	LtRtSurroundMixLevel *float64 `json:"medialive:Eac3Settings:LtRtSurroundMixLevel" locationName:"ltRtSurroundMixLevel" type:"double"`
 
 	// When set to followInput, encoder metadata will be sourced from the DD, DD+,
 	// or DolbyE decoder that supplied this audio data. If audio was not supplied
 	// from one of these streams, then the static metadata settings will be used.
-	MetadataControl Eac3MetadataControl `locationName:"metadataControl" type:"string" enum:"true"`
+	MetadataControl Eac3MetadataControl `json:"medialive:Eac3Settings:MetadataControl" locationName:"metadataControl" type:"string" enum:"true"`
 
 	// When set to whenPossible, input DD+ audio will be passed through if it is
 	// present on the input. This detection is dynamic over the life of the transcode.
 	// Inputs that alternate between DD+ and non-DD+ content will have a consistent
 	// DD+ output as the system alternates between passthrough and encoding.
-	PassthroughControl Eac3PassthroughControl `locationName:"passthroughControl" type:"string" enum:"true"`
+	PassthroughControl Eac3PassthroughControl `json:"medialive:Eac3Settings:PassthroughControl" locationName:"passthroughControl" type:"string" enum:"true"`
 
 	// When set to shift90Degrees, applies a 90-degree phase shift to the surround
 	// channels. Only used for 3/2 coding mode.
-	PhaseControl Eac3PhaseControl `locationName:"phaseControl" type:"string" enum:"true"`
+	PhaseControl Eac3PhaseControl `json:"medialive:Eac3Settings:PhaseControl" locationName:"phaseControl" type:"string" enum:"true"`
 
 	// Stereo downmix preference. Only used for 3/2 coding mode.
-	StereoDownmix Eac3StereoDownmix `locationName:"stereoDownmix" type:"string" enum:"true"`
+	StereoDownmix Eac3StereoDownmix `json:"medialive:Eac3Settings:StereoDownmix" locationName:"stereoDownmix" type:"string" enum:"true"`
 
 	// When encoding 3/2 audio, sets whether an extra center back surround channel
 	// is matrix encoded into the left and right surround channels.
-	SurroundExMode Eac3SurroundExMode `locationName:"surroundExMode" type:"string" enum:"true"`
+	SurroundExMode Eac3SurroundExMode `json:"medialive:Eac3Settings:SurroundExMode" locationName:"surroundExMode" type:"string" enum:"true"`
 
 	// When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into
 	// the two channels.
-	SurroundMode Eac3SurroundMode `locationName:"surroundMode" type:"string" enum:"true"`
+	SurroundMode Eac3SurroundMode `json:"medialive:Eac3Settings:SurroundMode" locationName:"surroundMode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3248,18 +3248,18 @@ type EmbeddedSourceSettings struct {
 	// If upconvert, 608 data is both passed through via the "608 compatibility
 	// bytes" fields of the 708 wrapper as well as translated into 708. 708 data
 	// present in the source content will be discarded.
-	Convert608To708 EmbeddedConvert608To708 `locationName:"convert608To708" type:"string" enum:"true"`
+	Convert608To708 EmbeddedConvert608To708 `json:"medialive:EmbeddedSourceSettings:Convert608To708" locationName:"convert608To708" type:"string" enum:"true"`
 
 	// Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20
 	// and Embedded captions.
-	Scte20Detection EmbeddedScte20Detection `locationName:"scte20Detection" type:"string" enum:"true"`
+	Scte20Detection EmbeddedScte20Detection `json:"medialive:EmbeddedSourceSettings:Scte20Detection" locationName:"scte20Detection" type:"string" enum:"true"`
 
 	// Specifies the 608/708 channel number within the video track from which to
 	// extract captions. Unused for passthrough.
-	Source608ChannelNumber *int64 `locationName:"source608ChannelNumber" min:"1" type:"integer"`
+	Source608ChannelNumber *int64 `json:"medialive:EmbeddedSourceSettings:Source608ChannelNumber" locationName:"source608ChannelNumber" min:"1" type:"integer"`
 
 	// This field is unused and deprecated.
-	Source608TrackNumber *int64 `locationName:"source608TrackNumber" min:"1" type:"integer"`
+	Source608TrackNumber *int64 `json:"medialive:EmbeddedSourceSettings:Source608TrackNumber" locationName:"source608TrackNumber" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -3318,33 +3318,33 @@ type EncoderSettings struct {
 	_ struct{} `type:"structure"`
 
 	// AudioDescriptions is a required field
-	AudioDescriptions []AudioDescription `locationName:"audioDescriptions" type:"list" required:"true"`
+	AudioDescriptions []AudioDescription `json:"medialive:EncoderSettings:AudioDescriptions" locationName:"audioDescriptions" type:"list" required:"true"`
 
 	// Settings for ad avail blanking.
-	AvailBlanking *AvailBlanking `locationName:"availBlanking" type:"structure"`
+	AvailBlanking *AvailBlanking `json:"medialive:EncoderSettings:AvailBlanking" locationName:"availBlanking" type:"structure"`
 
 	// Event-wide configuration settings for ad avail insertion.
-	AvailConfiguration *AvailConfiguration `locationName:"availConfiguration" type:"structure"`
+	AvailConfiguration *AvailConfiguration `json:"medialive:EncoderSettings:AvailConfiguration" locationName:"availConfiguration" type:"structure"`
 
 	// Settings for blackout slate.
-	BlackoutSlate *BlackoutSlate `locationName:"blackoutSlate" type:"structure"`
+	BlackoutSlate *BlackoutSlate `json:"medialive:EncoderSettings:BlackoutSlate" locationName:"blackoutSlate" type:"structure"`
 
 	// Settings for caption decriptions
-	CaptionDescriptions []CaptionDescription `locationName:"captionDescriptions" type:"list"`
+	CaptionDescriptions []CaptionDescription `json:"medialive:EncoderSettings:CaptionDescriptions" locationName:"captionDescriptions" type:"list"`
 
 	// Configuration settings that apply to the event as a whole.
-	GlobalConfiguration *GlobalConfiguration `locationName:"globalConfiguration" type:"structure"`
+	GlobalConfiguration *GlobalConfiguration `json:"medialive:EncoderSettings:GlobalConfiguration" locationName:"globalConfiguration" type:"structure"`
 
 	// OutputGroups is a required field
-	OutputGroups []OutputGroup `locationName:"outputGroups" type:"list" required:"true"`
+	OutputGroups []OutputGroup `json:"medialive:EncoderSettings:OutputGroups" locationName:"outputGroups" type:"list" required:"true"`
 
 	// Contains settings used to acquire and adjust timecode information from inputs.
 	//
 	// TimecodeConfig is a required field
-	TimecodeConfig *TimecodeConfig `locationName:"timecodeConfig" type:"structure" required:"true"`
+	TimecodeConfig *TimecodeConfig `json:"medialive:EncoderSettings:TimecodeConfig" locationName:"timecodeConfig" type:"structure" required:"true"`
 
 	// VideoDescriptions is a required field
-	VideoDescriptions []VideoDescription `locationName:"videoDescriptions" type:"list" required:"true"`
+	VideoDescriptions []VideoDescription `json:"medialive:EncoderSettings:VideoDescriptions" locationName:"videoDescriptions" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -3522,10 +3522,10 @@ type FecOutputSettings struct {
 	// Parameter D from SMPTE 2022-1. The height of the FEC protection matrix. The
 	// number of transport stream packets per column error correction packet. Must
 	// be between 4 and 20, inclusive.
-	ColumnDepth *int64 `locationName:"columnDepth" min:"4" type:"integer"`
+	ColumnDepth *int64 `json:"medialive:FecOutputSettings:ColumnDepth" locationName:"columnDepth" min:"4" type:"integer"`
 
 	// Enables column only or column and row based FEC
-	IncludeFec FecOutputIncludeFec `locationName:"includeFec" type:"string" enum:"true"`
+	IncludeFec FecOutputIncludeFec `json:"medialive:FecOutputSettings:IncludeFec" locationName:"includeFec" type:"string" enum:"true"`
 
 	// Parameter L from SMPTE 2022-1. The width of the FEC protection matrix. Must
 	// be between 1 and 20, inclusive. If only Column FEC is used, then larger values
@@ -3533,7 +3533,7 @@ type FecOutputSettings struct {
 	// stream packets per row error correction packet, and the value must be between
 	// 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column,
 	// this value must be 1 to 20, inclusive.
-	RowLength *int64 `locationName:"rowLength" min:"1" type:"integer"`
+	RowLength *int64 `json:"medialive:FecOutputSettings:RowLength" locationName:"rowLength" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -3592,7 +3592,7 @@ type FixedModeScheduleActionStartSettings struct {
 	// "Z" for "UTC format".
 	//
 	// Time is a required field
-	Time *string `locationName:"time" type:"string" required:"true"`
+	Time *string `json:"medialive:FixedModeScheduleActionStartSettings:Time" locationName:"time" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3634,12 +3634,12 @@ type FollowModeScheduleActionStartSettings struct {
 	// the end of the reference action.
 	//
 	// FollowPoint is a required field
-	FollowPoint FollowPoint `locationName:"followPoint" type:"string" required:"true" enum:"true"`
+	FollowPoint FollowPoint `json:"medialive:FollowModeScheduleActionStartSettings:FollowPoint" locationName:"followPoint" type:"string" required:"true" enum:"true"`
 
 	// The action name of another action that this one refers to.
 	//
 	// ReferenceActionName is a required field
-	ReferenceActionName *string `locationName:"referenceActionName" type:"string" required:"true"`
+	ReferenceActionName *string `json:"medialive:FollowModeScheduleActionStartSettings:ReferenceActionName" locationName:"referenceActionName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3695,7 +3695,7 @@ type FrameCaptureGroupSettings struct {
 	// is always .jpg). For example, curlingLow.00001.jpg
 	//
 	// Destination is a required field
-	Destination *OutputLocationRef `locationName:"destination" type:"structure" required:"true"`
+	Destination *OutputLocationRef `json:"medialive:FrameCaptureGroupSettings:Destination" locationName:"destination" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3735,7 +3735,7 @@ type FrameCaptureOutputSettings struct {
 
 	// Required if the output group contains more than one output. This modifier
 	// forms part of the output file name.
-	NameModifier *string `locationName:"nameModifier" type:"string"`
+	NameModifier *string `json:"medialive:FrameCaptureOutputSettings:NameModifier" locationName:"nameModifier" type:"string"`
 }
 
 // String returns the string representation
@@ -3763,7 +3763,7 @@ type FrameCaptureSettings struct {
 	// For example, "10" means capture a frame every 10 seconds.
 	//
 	// CaptureInterval is a required field
-	CaptureInterval *int64 `locationName:"captureInterval" min:"1" type:"integer" required:"true"`
+	CaptureInterval *int64 `json:"medialive:FrameCaptureSettings:CaptureInterval" locationName:"captureInterval" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3805,7 +3805,7 @@ type GlobalConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Value to set the initial audio gain for the Live Event.
-	InitialAudioGain *int64 `locationName:"initialAudioGain" type:"integer"`
+	InitialAudioGain *int64 `json:"medialive:GlobalConfiguration:InitialAudioGain" locationName:"initialAudioGain" type:"integer"`
 
 	// Indicates the action to take when the current input completes (e.g. end-of-file).
 	// When switchAndLoopInputs is configured the encoder will restart at the beginning
@@ -3813,27 +3813,27 @@ type GlobalConfiguration struct {
 	// either black, a solid color, or a user specified slate images per the "Input
 	// Loss Behavior" configuration until the next input switch occurs (which is
 	// controlled through the Channel Schedule API).
-	InputEndAction GlobalConfigurationInputEndAction `locationName:"inputEndAction" type:"string" enum:"true"`
+	InputEndAction GlobalConfigurationInputEndAction `json:"medialive:GlobalConfiguration:InputEndAction" locationName:"inputEndAction" type:"string" enum:"true"`
 
 	// Settings for system actions when input is lost.
-	InputLossBehavior *InputLossBehavior `locationName:"inputLossBehavior" type:"structure"`
+	InputLossBehavior *InputLossBehavior `json:"medialive:GlobalConfiguration:InputLossBehavior" locationName:"inputLossBehavior" type:"structure"`
 
 	// Indicates how MediaLive pipelines are synchronized.PIPELINELOCKING - MediaLive
 	// will attempt to synchronize the output of each pipeline to the other.EPOCHLOCKING
 	// - MediaLive will attempt to synchronize the output of each pipeline to the
 	// Unix epoch.
-	OutputLockingMode GlobalConfigurationOutputLockingMode `locationName:"outputLockingMode" type:"string" enum:"true"`
+	OutputLockingMode GlobalConfigurationOutputLockingMode `json:"medialive:GlobalConfiguration:OutputLockingMode" locationName:"outputLockingMode" type:"string" enum:"true"`
 
 	// Indicates whether the rate of frames emitted by the Live encoder should be
 	// paced by its system clock (which optionally may be locked to another source
 	// via NTP) or should be locked to the clock of the source that is providing
 	// the input stream.
-	OutputTimingSource GlobalConfigurationOutputTimingSource `locationName:"outputTimingSource" type:"string" enum:"true"`
+	OutputTimingSource GlobalConfigurationOutputTimingSource `json:"medialive:GlobalConfiguration:OutputTimingSource" locationName:"outputTimingSource" type:"string" enum:"true"`
 
 	// Adjusts video input buffer for streams with very low video framerates. This
 	// is commonly set to enabled for music channels with less than one video frame
 	// per second.
-	SupportLowFramerateInputs GlobalConfigurationLowFramerateInputs `locationName:"supportLowFramerateInputs" type:"string" enum:"true"`
+	SupportLowFramerateInputs GlobalConfigurationLowFramerateInputs `json:"medialive:GlobalConfiguration:SupportLowFramerateInputs" locationName:"supportLowFramerateInputs" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3907,84 +3907,84 @@ type H264Settings struct {
 
 	// Adaptive quantization. Allows intra-frame quantizers to vary to improve visual
 	// quality.
-	AdaptiveQuantization H264AdaptiveQuantization `locationName:"adaptiveQuantization" type:"string" enum:"true"`
+	AdaptiveQuantization H264AdaptiveQuantization `json:"medialive:H264Settings:AdaptiveQuantization" locationName:"adaptiveQuantization" type:"string" enum:"true"`
 
 	// Indicates that AFD values will be written into the output stream. If afdSignaling
 	// is "auto", the system will try to preserve the input AFD value (in cases
 	// where multiple AFD values are valid). If set to "fixed", the AFD value will
 	// be the value configured in the fixedAfd parameter.
-	AfdSignaling AfdSignaling `locationName:"afdSignaling" type:"string" enum:"true"`
+	AfdSignaling AfdSignaling `json:"medialive:H264Settings:AfdSignaling" locationName:"afdSignaling" type:"string" enum:"true"`
 
 	// Average bitrate in bits/second. Required when the rate control mode is VBR
 	// or CBR. Not used for QVBR. In an MS Smooth output group, each output must
 	// have a unique value when its bitrate is rounded down to the nearest multiple
 	// of 1000.
-	Bitrate *int64 `locationName:"bitrate" min:"1000" type:"integer"`
+	Bitrate *int64 `json:"medialive:H264Settings:Bitrate" locationName:"bitrate" min:"1000" type:"integer"`
 
 	// Percentage of the buffer that should initially be filled (HRD buffer model).
-	BufFillPct *int64 `locationName:"bufFillPct" type:"integer"`
+	BufFillPct *int64 `json:"medialive:H264Settings:BufFillPct" locationName:"bufFillPct" type:"integer"`
 
 	// Size of buffer (HRD buffer model) in bits/second.
-	BufSize *int64 `locationName:"bufSize" type:"integer"`
+	BufSize *int64 `json:"medialive:H264Settings:BufSize" locationName:"bufSize" type:"integer"`
 
 	// Includes colorspace metadata in the output.
-	ColorMetadata H264ColorMetadata `locationName:"colorMetadata" type:"string" enum:"true"`
+	ColorMetadata H264ColorMetadata `json:"medialive:H264Settings:ColorMetadata" locationName:"colorMetadata" type:"string" enum:"true"`
 
 	// Entropy encoding mode. Use cabac (must be in Main or High profile) or cavlc.
-	EntropyEncoding H264EntropyEncoding `locationName:"entropyEncoding" type:"string" enum:"true"`
+	EntropyEncoding H264EntropyEncoding `json:"medialive:H264Settings:EntropyEncoding" locationName:"entropyEncoding" type:"string" enum:"true"`
 
 	// Four bit AFD value to write on all frames of video in the output stream.
 	// Only valid when afdSignaling is set to 'Fixed'.
-	FixedAfd FixedAfd `locationName:"fixedAfd" type:"string" enum:"true"`
+	FixedAfd FixedAfd `json:"medialive:H264Settings:FixedAfd" locationName:"fixedAfd" type:"string" enum:"true"`
 
 	// If set to enabled, adjust quantization within each frame to reduce flicker
 	// or 'pop' on I-frames.
-	FlickerAq H264FlickerAq `locationName:"flickerAq" type:"string" enum:"true"`
+	FlickerAq H264FlickerAq `json:"medialive:H264Settings:FlickerAq" locationName:"flickerAq" type:"string" enum:"true"`
 
 	// This field indicates how the output video frame rate is specified. If "specified"
 	// is selected then the output video frame rate is determined by framerateNumerator
 	// and framerateDenominator, else if "initializeFromSource" is selected then
 	// the output video frame rate will be set equal to the input video frame rate
 	// of the first input.
-	FramerateControl H264FramerateControl `locationName:"framerateControl" type:"string" enum:"true"`
+	FramerateControl H264FramerateControl `json:"medialive:H264Settings:FramerateControl" locationName:"framerateControl" type:"string" enum:"true"`
 
 	// Framerate denominator.
-	FramerateDenominator *int64 `locationName:"framerateDenominator" min:"1" type:"integer"`
+	FramerateDenominator *int64 `json:"medialive:H264Settings:FramerateDenominator" locationName:"framerateDenominator" min:"1" type:"integer"`
 
 	// Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976
 	// fps.
-	FramerateNumerator *int64 `locationName:"framerateNumerator" min:"1" type:"integer"`
+	FramerateNumerator *int64 `json:"medialive:H264Settings:FramerateNumerator" locationName:"framerateNumerator" min:"1" type:"integer"`
 
 	// If enabled, use reference B frames for GOP structures that have B frames
 	// > 1.
-	GopBReference H264GopBReference `locationName:"gopBReference" type:"string" enum:"true"`
+	GopBReference H264GopBReference `json:"medialive:H264Settings:GopBReference" locationName:"gopBReference" type:"string" enum:"true"`
 
 	// Frequency of closed GOPs. In streaming applications, it is recommended that
 	// this be set to 1 so a decoder joining mid-stream will receive an IDR frame
 	// as quickly as possible. Setting this value to 0 will break output segmenting.
-	GopClosedCadence *int64 `locationName:"gopClosedCadence" type:"integer"`
+	GopClosedCadence *int64 `json:"medialive:H264Settings:GopClosedCadence" locationName:"gopClosedCadence" type:"integer"`
 
 	// Number of B-frames between reference frames.
-	GopNumBFrames *int64 `locationName:"gopNumBFrames" type:"integer"`
+	GopNumBFrames *int64 `json:"medialive:H264Settings:GopNumBFrames" locationName:"gopNumBFrames" type:"integer"`
 
 	// GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
 	// Must be greater than zero.
-	GopSize *float64 `locationName:"gopSize" type:"double"`
+	GopSize *float64 `json:"medialive:H264Settings:GopSize" locationName:"gopSize" type:"double"`
 
 	// Indicates if the gopSize is specified in frames or seconds. If seconds the
 	// system will convert the gopSize into a frame count at run time.
-	GopSizeUnits H264GopSizeUnits `locationName:"gopSizeUnits" type:"string" enum:"true"`
+	GopSizeUnits H264GopSizeUnits `json:"medialive:H264Settings:GopSizeUnits" locationName:"gopSizeUnits" type:"string" enum:"true"`
 
 	// H.264 Level.
-	Level H264Level `locationName:"level" type:"string" enum:"true"`
+	Level H264Level `json:"medialive:H264Settings:Level" locationName:"level" type:"string" enum:"true"`
 
 	// Amount of lookahead. A value of low can decrease latency and memory usage,
 	// while high can produce better quality for certain content.
-	LookAheadRateControl H264LookAheadRateControl `locationName:"lookAheadRateControl" type:"string" enum:"true"`
+	LookAheadRateControl H264LookAheadRateControl `json:"medialive:H264Settings:LookAheadRateControl" locationName:"lookAheadRateControl" type:"string" enum:"true"`
 
 	// For QVBR: See the tooltip for Quality level For VBR: Set the maximum bitrate
 	// in order to accommodate expected spikes in the complexity of the video.
-	MaxBitrate *int64 `locationName:"maxBitrate" min:"1000" type:"integer"`
+	MaxBitrate *int64 `json:"medialive:H264Settings:MaxBitrate" locationName:"maxBitrate" min:"1000" type:"integer"`
 
 	// Only meaningful if sceneChangeDetect is set to enabled. Enforces separation
 	// between repeated (cadence) I-frames and I-frames inserted by Scene Change
@@ -3993,27 +3993,27 @@ type H264Settings struct {
 	// GOP stretch requires enabling lookahead as well as setting I-interval. The
 	// normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP
 	// size + Min-I-interval - 1
-	MinIInterval *int64 `locationName:"minIInterval" type:"integer"`
+	MinIInterval *int64 `json:"medialive:H264Settings:MinIInterval" locationName:"minIInterval" type:"integer"`
 
 	// Number of reference frames to use. The encoder may use more than requested
 	// if using B-frames and/or interlaced encoding.
-	NumRefFrames *int64 `locationName:"numRefFrames" min:"1" type:"integer"`
+	NumRefFrames *int64 `json:"medialive:H264Settings:NumRefFrames" locationName:"numRefFrames" min:"1" type:"integer"`
 
 	// This field indicates how the output pixel aspect ratio is specified. If "specified"
 	// is selected then the output video pixel aspect ratio is determined by parNumerator
 	// and parDenominator, else if "initializeFromSource" is selected then the output
 	// pixsel aspect ratio will be set equal to the input video pixel aspect ratio
 	// of the first input.
-	ParControl H264ParControl `locationName:"parControl" type:"string" enum:"true"`
+	ParControl H264ParControl `json:"medialive:H264Settings:ParControl" locationName:"parControl" type:"string" enum:"true"`
 
 	// Pixel Aspect Ratio denominator.
-	ParDenominator *int64 `locationName:"parDenominator" min:"1" type:"integer"`
+	ParDenominator *int64 `json:"medialive:H264Settings:ParDenominator" locationName:"parDenominator" min:"1" type:"integer"`
 
 	// Pixel Aspect Ratio numerator.
-	ParNumerator *int64 `locationName:"parNumerator" type:"integer"`
+	ParNumerator *int64 `json:"medialive:H264Settings:ParNumerator" locationName:"parNumerator" type:"integer"`
 
 	// H.264 Profile.
-	Profile H264Profile `locationName:"profile" type:"string" enum:"true"`
+	Profile H264Profile `json:"medialive:H264Settings:Profile" locationName:"profile" type:"string" enum:"true"`
 
 	// Controls the target quality for the video encode. Applies only when the rate
 	// control mode is QVBR. Set values for the QVBR quality level field and Max
@@ -4021,7 +4021,7 @@ type H264Settings struct {
 	// values are:- Primary screen: Quality level: 8 to 10. Max bitrate: 4M- PC
 	// or tablet: Quality level: 7. Max bitrate: 1.5M to 3M- Smartphone: Quality
 	// level: 6. Max bitrate: 1M to 1.5M
-	QvbrQualityLevel *int64 `locationName:"qvbrQualityLevel" min:"1" type:"integer"`
+	QvbrQualityLevel *int64 `json:"medialive:H264Settings:QvbrQualityLevel" locationName:"qvbrQualityLevel" min:"1" type:"integer"`
 
 	// Rate control mode. QVBR: Quality will match the specified quality level except
 	// when it is constrained by themaximum bitrate. Recommended if you or your
@@ -4030,45 +4030,45 @@ type H264Settings struct {
 	// average bitrate over the duration of the channel.CBR: Quality varies, depending
 	// on the video complexity. Recommended only if you distributeyour assets to
 	// devices that cannot handle variable bitrates.
-	RateControlMode H264RateControlMode `locationName:"rateControlMode" type:"string" enum:"true"`
+	RateControlMode H264RateControlMode `json:"medialive:H264Settings:RateControlMode" locationName:"rateControlMode" type:"string" enum:"true"`
 
 	// Sets the scan type of the output to progressive or top-field-first interlaced.
-	ScanType H264ScanType `locationName:"scanType" type:"string" enum:"true"`
+	ScanType H264ScanType `json:"medialive:H264Settings:ScanType" locationName:"scanType" type:"string" enum:"true"`
 
 	// Scene change detection.- On: inserts I-frames when scene change is detected.-
 	// Off: does not force an I-frame when scene change is detected.
-	SceneChangeDetect H264SceneChangeDetect `locationName:"sceneChangeDetect" type:"string" enum:"true"`
+	SceneChangeDetect H264SceneChangeDetect `json:"medialive:H264Settings:SceneChangeDetect" locationName:"sceneChangeDetect" type:"string" enum:"true"`
 
 	// Number of slices per picture. Must be less than or equal to the number of
 	// macroblock rows for progressive pictures, and less than or equal to half
 	// the number of macroblock rows for interlaced pictures.This field is optional;
 	// when no value is specified the encoder will choose the number of slices based
 	// on encode resolution.
-	Slices *int64 `locationName:"slices" min:"1" type:"integer"`
+	Slices *int64 `json:"medialive:H264Settings:Slices" locationName:"slices" min:"1" type:"integer"`
 
 	// Softness. Selects quantizer matrix, larger values reduce high-frequency content
 	// in the encoded image.
-	Softness *int64 `locationName:"softness" type:"integer"`
+	Softness *int64 `json:"medialive:H264Settings:Softness" locationName:"softness" type:"integer"`
 
 	// If set to enabled, adjust quantization within each frame based on spatial
 	// variation of content complexity.
-	SpatialAq H264SpatialAq `locationName:"spatialAq" type:"string" enum:"true"`
+	SpatialAq H264SpatialAq `json:"medialive:H264Settings:SpatialAq" locationName:"spatialAq" type:"string" enum:"true"`
 
 	// If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic,
 	// optimize the number of B-frames used for each sub-GOP to improve visual quality.
-	SubgopLength H264SubGopLength `locationName:"subgopLength" type:"string" enum:"true"`
+	SubgopLength H264SubGopLength `json:"medialive:H264Settings:SubgopLength" locationName:"subgopLength" type:"string" enum:"true"`
 
 	// Produces a bitstream compliant with SMPTE RP-2027.
-	Syntax H264Syntax `locationName:"syntax" type:"string" enum:"true"`
+	Syntax H264Syntax `json:"medialive:H264Settings:Syntax" locationName:"syntax" type:"string" enum:"true"`
 
 	// If set to enabled, adjust quantization within each frame based on temporal
 	// variation of content complexity.
-	TemporalAq H264TemporalAq `locationName:"temporalAq" type:"string" enum:"true"`
+	TemporalAq H264TemporalAq `json:"medialive:H264Settings:TemporalAq" locationName:"temporalAq" type:"string" enum:"true"`
 
 	// Determines how timecodes should be inserted into the video elementary stream.-
 	// 'disabled': Do not include timecodes- 'picTimingSei': Pass through picture
 	// timing SEI messages from the source specified in Timecode Config
-	TimecodeInsertion H264TimecodeInsertionBehavior `locationName:"timecodeInsertion" type:"string" enum:"true"`
+	TimecodeInsertion H264TimecodeInsertionBehavior `json:"medialive:H264Settings:TimecodeInsertion" locationName:"timecodeInsertion" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4344,28 +4344,28 @@ type HlsAkamaiSettings struct {
 
 	// Number of seconds to wait before retrying connection to the CDN if the connection
 	// is lost.
-	ConnectionRetryInterval *int64 `locationName:"connectionRetryInterval" type:"integer"`
+	ConnectionRetryInterval *int64 `json:"medialive:HlsAkamaiSettings:ConnectionRetryInterval" locationName:"connectionRetryInterval" type:"integer"`
 
 	// Size in seconds of file cache for streaming outputs.
-	FilecacheDuration *int64 `locationName:"filecacheDuration" type:"integer"`
+	FilecacheDuration *int64 `json:"medialive:HlsAkamaiSettings:FilecacheDuration" locationName:"filecacheDuration" type:"integer"`
 
 	// Specify whether or not to use chunked transfer encoding to Akamai. User should
 	// contact Akamai to enable this feature.
-	HttpTransferMode HlsAkamaiHttpTransferMode `locationName:"httpTransferMode" type:"string" enum:"true"`
+	HttpTransferMode HlsAkamaiHttpTransferMode `json:"medialive:HlsAkamaiSettings:HttpTransferMode" locationName:"httpTransferMode" type:"string" enum:"true"`
 
 	// Number of retry attempts that will be made before the Live Event is put into
 	// an error state.
-	NumRetries *int64 `locationName:"numRetries" type:"integer"`
+	NumRetries *int64 `json:"medialive:HlsAkamaiSettings:NumRetries" locationName:"numRetries" type:"integer"`
 
 	// If a streaming output fails, number of seconds to wait until a restart is
 	// initiated. A value of 0 means never restart.
-	RestartDelay *int64 `locationName:"restartDelay" type:"integer"`
+	RestartDelay *int64 `json:"medialive:HlsAkamaiSettings:RestartDelay" locationName:"restartDelay" type:"integer"`
 
 	// Salt for authenticated Akamai.
-	Salt *string `locationName:"salt" type:"string"`
+	Salt *string `json:"medialive:HlsAkamaiSettings:Salt" locationName:"salt" type:"string"`
 
 	// Token parameter for authenticated akamai. If not specified, _gda_ is used.
-	Token *string `locationName:"token" type:"string"`
+	Token *string `json:"medialive:HlsAkamaiSettings:Token" locationName:"token" type:"string"`
 }
 
 // String returns the string representation
@@ -4427,18 +4427,18 @@ type HlsBasicPutSettings struct {
 
 	// Number of seconds to wait before retrying connection to the CDN if the connection
 	// is lost.
-	ConnectionRetryInterval *int64 `locationName:"connectionRetryInterval" type:"integer"`
+	ConnectionRetryInterval *int64 `json:"medialive:HlsBasicPutSettings:ConnectionRetryInterval" locationName:"connectionRetryInterval" type:"integer"`
 
 	// Size in seconds of file cache for streaming outputs.
-	FilecacheDuration *int64 `locationName:"filecacheDuration" type:"integer"`
+	FilecacheDuration *int64 `json:"medialive:HlsBasicPutSettings:FilecacheDuration" locationName:"filecacheDuration" type:"integer"`
 
 	// Number of retry attempts that will be made before the Live Event is put into
 	// an error state.
-	NumRetries *int64 `locationName:"numRetries" type:"integer"`
+	NumRetries *int64 `json:"medialive:HlsBasicPutSettings:NumRetries" locationName:"numRetries" type:"integer"`
 
 	// If a streaming output fails, number of seconds to wait until a restart is
 	// initiated. A value of 0 means never restart.
-	RestartDelay *int64 `locationName:"restartDelay" type:"integer"`
+	RestartDelay *int64 `json:"medialive:HlsBasicPutSettings:RestartDelay" locationName:"restartDelay" type:"integer"`
 }
 
 // String returns the string representation
@@ -4481,16 +4481,16 @@ type HlsCdnSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Hls Akamai Settings
-	HlsAkamaiSettings *HlsAkamaiSettings `locationName:"hlsAkamaiSettings" type:"structure"`
+	HlsAkamaiSettings *HlsAkamaiSettings `json:"medialive:HlsCdnSettings:HlsAkamaiSettings" locationName:"hlsAkamaiSettings" type:"structure"`
 
 	// Hls Basic Put Settings
-	HlsBasicPutSettings *HlsBasicPutSettings `locationName:"hlsBasicPutSettings" type:"structure"`
+	HlsBasicPutSettings *HlsBasicPutSettings `json:"medialive:HlsCdnSettings:HlsBasicPutSettings" locationName:"hlsBasicPutSettings" type:"structure"`
 
 	// Hls Media Store Settings
-	HlsMediaStoreSettings *HlsMediaStoreSettings `locationName:"hlsMediaStoreSettings" type:"structure"`
+	HlsMediaStoreSettings *HlsMediaStoreSettings `json:"medialive:HlsCdnSettings:HlsMediaStoreSettings" locationName:"hlsMediaStoreSettings" type:"structure"`
 
 	// Hls Webdav Settings
-	HlsWebdavSettings *HlsWebdavSettings `locationName:"hlsWebdavSettings" type:"structure"`
+	HlsWebdavSettings *HlsWebdavSettings `json:"medialive:HlsCdnSettings:HlsWebdavSettings" locationName:"hlsWebdavSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -4534,21 +4534,21 @@ type HlsGroupSettings struct {
 
 	// Choose one or more ad marker types to pass SCTE35 signals through to this
 	// group of Apple HLS outputs.
-	AdMarkers []HlsAdMarkers `locationName:"adMarkers" type:"list"`
+	AdMarkers []HlsAdMarkers `json:"medialive:HlsGroupSettings:AdMarkers" locationName:"adMarkers" type:"list"`
 
 	// A partial URI prefix that will be prepended to each output in the media .m3u8
 	// file. Can be used if base manifest is delivered from a different URL than
 	// the main .m3u8 file.
-	BaseUrlContent *string `locationName:"baseUrlContent" type:"string"`
+	BaseUrlContent *string `json:"medialive:HlsGroupSettings:BaseUrlContent" locationName:"baseUrlContent" type:"string"`
 
 	// A partial URI prefix that will be prepended to each output in the media .m3u8
 	// file. Can be used if base manifest is delivered from a different URL than
 	// the main .m3u8 file.
-	BaseUrlManifest *string `locationName:"baseUrlManifest" type:"string"`
+	BaseUrlManifest *string `json:"medialive:HlsGroupSettings:BaseUrlManifest" locationName:"baseUrlManifest" type:"string"`
 
 	// Mapping of up to 4 caption channels to caption languages. Is only meaningful
 	// if captionLanguageSetting is set to "insert".
-	CaptionLanguageMappings []CaptionLanguageMapping `locationName:"captionLanguageMappings" type:"list"`
+	CaptionLanguageMappings []CaptionLanguageMapping `json:"medialive:HlsGroupSettings:CaptionLanguageMappings" locationName:"captionLanguageMappings" type:"list"`
 
 	// Applies only to 608 Embedded output captions.insert: Include CLOSED-CAPTIONS
 	// lines in the manifest. Specify at least one language in the CC1 Language
@@ -4559,36 +4559,36 @@ type HlsGroupSettings struct {
 	// the manifest will not match up properly with the output captions.none: Include
 	// CLOSED-CAPTIONS=NONE line in the manifest.omit: Omit any CLOSED-CAPTIONS
 	// line from the manifest.
-	CaptionLanguageSetting HlsCaptionLanguageSetting `locationName:"captionLanguageSetting" type:"string" enum:"true"`
+	CaptionLanguageSetting HlsCaptionLanguageSetting `json:"medialive:HlsGroupSettings:CaptionLanguageSetting" locationName:"captionLanguageSetting" type:"string" enum:"true"`
 
 	// When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest,
 	// which prevents clients from saving media segments for later replay.
-	ClientCache HlsClientCache `locationName:"clientCache" type:"string" enum:"true"`
+	ClientCache HlsClientCache `json:"medialive:HlsGroupSettings:ClientCache" locationName:"clientCache" type:"string" enum:"true"`
 
 	// Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist
 	// generation.
-	CodecSpecification HlsCodecSpecification `locationName:"codecSpecification" type:"string" enum:"true"`
+	CodecSpecification HlsCodecSpecification `json:"medialive:HlsGroupSettings:CodecSpecification" locationName:"codecSpecification" type:"string" enum:"true"`
 
 	// For use with encryptionType. This is a 128-bit, 16-byte hex value represented
 	// by a 32-character text string. If ivSource is set to "explicit" then this
 	// parameter is required and is used as the IV for encryption.
-	ConstantIv *string `locationName:"constantIv" min:"32" type:"string"`
+	ConstantIv *string `json:"medialive:HlsGroupSettings:ConstantIv" locationName:"constantIv" min:"32" type:"string"`
 
 	// A directory or HTTP destination for the HLS segments, manifest files, and
 	// encryption keys (if enabled).
 	//
 	// Destination is a required field
-	Destination *OutputLocationRef `locationName:"destination" type:"structure" required:"true"`
+	Destination *OutputLocationRef `json:"medialive:HlsGroupSettings:Destination" locationName:"destination" type:"structure" required:"true"`
 
 	// Place segments in subdirectories.
-	DirectoryStructure HlsDirectoryStructure `locationName:"directoryStructure" type:"string" enum:"true"`
+	DirectoryStructure HlsDirectoryStructure `json:"medialive:HlsGroupSettings:DirectoryStructure" locationName:"directoryStructure" type:"string" enum:"true"`
 
 	// Encrypts the segments with the given encryption scheme. Exclude this parameter
 	// if no encryption is desired.
-	EncryptionType HlsEncryptionType `locationName:"encryptionType" type:"string" enum:"true"`
+	EncryptionType HlsEncryptionType `json:"medialive:HlsGroupSettings:EncryptionType" locationName:"encryptionType" type:"string" enum:"true"`
 
 	// Parameters that control interactions with the CDN.
-	HlsCdnSettings *HlsCdnSettings `locationName:"hlsCdnSettings" type:"structure"`
+	HlsCdnSettings *HlsCdnSettings `json:"medialive:HlsGroupSettings:HlsCdnSettings" locationName:"hlsCdnSettings" type:"structure"`
 
 	// DISABLED: Do not create an I-frame-only manifest, but do create the master
 	// and media manifests (according to the Output Selection field).STANDARD: Create
@@ -4597,56 +4597,56 @@ type HlsGroupSettings struct {
 	// manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only,
 	// and one or more #EXT-X-BYTERANGE entries identifying the I-frame position.
 	// For example, #EXT-X-BYTERANGE:160364@1461888"
-	IFrameOnlyPlaylists IFrameOnlyPlaylistType `locationName:"iFrameOnlyPlaylists" type:"string" enum:"true"`
+	IFrameOnlyPlaylists IFrameOnlyPlaylistType `json:"medialive:HlsGroupSettings:IFrameOnlyPlaylists" locationName:"iFrameOnlyPlaylists" type:"string" enum:"true"`
 
 	// Applies only if Mode field is LIVE. Specifies the maximum number of segments
 	// in the media manifest file. After this maximum, older segments are removed
 	// from the media manifest. This number must be less than or equal to the Keep
 	// Segments field.
-	IndexNSegments *int64 `locationName:"indexNSegments" min:"3" type:"integer"`
+	IndexNSegments *int64 `json:"medialive:HlsGroupSettings:IndexNSegments" locationName:"indexNSegments" min:"3" type:"integer"`
 
 	// Parameter that control output group behavior on input loss.
-	InputLossAction InputLossActionForHlsOut `locationName:"inputLossAction" type:"string" enum:"true"`
+	InputLossAction InputLossActionForHlsOut `json:"medialive:HlsGroupSettings:InputLossAction" locationName:"inputLossAction" type:"string" enum:"true"`
 
 	// For use with encryptionType. The IV (Initialization Vector) is a 128-bit
 	// number used in conjunction with the key for encrypting blocks. If set to
 	// "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
-	IvInManifest HlsIvInManifest `locationName:"ivInManifest" type:"string" enum:"true"`
+	IvInManifest HlsIvInManifest `json:"medialive:HlsGroupSettings:IvInManifest" locationName:"ivInManifest" type:"string" enum:"true"`
 
 	// For use with encryptionType. The IV (Initialization Vector) is a 128-bit
 	// number used in conjunction with the key for encrypting blocks. If this setting
 	// is "followsSegmentNumber", it will cause the IV to change every segment (to
 	// match the segment number). If this is set to "explicit", you must enter a
 	// constantIv value.
-	IvSource HlsIvSource `locationName:"ivSource" type:"string" enum:"true"`
+	IvSource HlsIvSource `json:"medialive:HlsGroupSettings:IvSource" locationName:"ivSource" type:"string" enum:"true"`
 
 	// Applies only if Mode field is LIVE. Specifies the number of media segments
 	// (.ts files) to retain in the destination directory.
-	KeepSegments *int64 `locationName:"keepSegments" min:"1" type:"integer"`
+	KeepSegments *int64 `json:"medialive:HlsGroupSettings:KeepSegments" locationName:"keepSegments" min:"1" type:"integer"`
 
 	// The value specifies how the key is represented in the resource identified
 	// by the URI. If parameter is absent, an implicit value of "identity" is used.
 	// A reverse DNS string can also be given.
-	KeyFormat *string `locationName:"keyFormat" type:"string"`
+	KeyFormat *string `json:"medialive:HlsGroupSettings:KeyFormat" locationName:"keyFormat" type:"string"`
 
 	// Either a single positive integer version value or a slash delimited list
 	// of version values (1/2/3).
-	KeyFormatVersions *string `locationName:"keyFormatVersions" type:"string"`
+	KeyFormatVersions *string `json:"medialive:HlsGroupSettings:KeyFormatVersions" locationName:"keyFormatVersions" type:"string"`
 
 	// The key provider settings.
-	KeyProviderSettings *KeyProviderSettings `locationName:"keyProviderSettings" type:"structure"`
+	KeyProviderSettings *KeyProviderSettings `json:"medialive:HlsGroupSettings:KeyProviderSettings" locationName:"keyProviderSettings" type:"structure"`
 
 	// When set to gzip, compresses HLS playlist.
-	ManifestCompression HlsManifestCompression `locationName:"manifestCompression" type:"string" enum:"true"`
+	ManifestCompression HlsManifestCompression `json:"medialive:HlsGroupSettings:ManifestCompression" locationName:"manifestCompression" type:"string" enum:"true"`
 
 	// Indicates whether the output manifest should use floating point or integer
 	// values for segment duration.
-	ManifestDurationFormat HlsManifestDurationFormat `locationName:"manifestDurationFormat" type:"string" enum:"true"`
+	ManifestDurationFormat HlsManifestDurationFormat `json:"medialive:HlsGroupSettings:ManifestDurationFormat" locationName:"manifestDurationFormat" type:"string" enum:"true"`
 
 	// When set, minimumSegmentLength is enforced by looking ahead and back within
 	// the specified range for a nearby avail and extending the segment size if
 	// needed.
-	MinSegmentLength *int64 `locationName:"minSegmentLength" type:"integer"`
+	MinSegmentLength *int64 `json:"medialive:HlsGroupSettings:MinSegmentLength" locationName:"minSegmentLength" type:"integer"`
 
 	// If "vod", all segments are indexed and kept permanently in the destination
 	// and manifest. If "live", only the number segments specified in keepSegments
@@ -4654,21 +4654,21 @@ type HlsGroupSettings struct {
 	// may prevent players from rewinding all the way to the beginning of the event.VOD
 	// mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running,
 	// converting it to a "VOD" type manifest on completion of the stream.
-	Mode HlsMode `locationName:"mode" type:"string" enum:"true"`
+	Mode HlsMode `json:"medialive:HlsGroupSettings:Mode" locationName:"mode" type:"string" enum:"true"`
 
 	// MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable,
 	// and media manifests) for this output group.SEGMENTSONLY: Does not generate
 	// any manifests for this output group.
-	OutputSelection HlsOutputSelection `locationName:"outputSelection" type:"string" enum:"true"`
+	OutputSelection HlsOutputSelection `json:"medialive:HlsGroupSettings:OutputSelection" locationName:"outputSelection" type:"string" enum:"true"`
 
 	// Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files.
 	// The value is calculated as follows: either the program date and time are
 	// initialized using the input timecode source, or the time is initialized using
 	// the input timecode source and the date is initialized using the timestampOffset.
-	ProgramDateTime HlsProgramDateTime `locationName:"programDateTime" type:"string" enum:"true"`
+	ProgramDateTime HlsProgramDateTime `json:"medialive:HlsGroupSettings:ProgramDateTime" locationName:"programDateTime" type:"string" enum:"true"`
 
 	// Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-	ProgramDateTimePeriod *int64 `locationName:"programDateTimePeriod" type:"integer"`
+	ProgramDateTimePeriod *int64 `json:"medialive:HlsGroupSettings:ProgramDateTimePeriod" locationName:"programDateTimePeriod" type:"integer"`
 
 	// ENABLED: The master manifest (.m3u8 file) for each pipeline includes information
 	// about both pipelines: first its own media files, then the media files of
@@ -4681,34 +4681,34 @@ type HlsGroupSettings struct {
 	// as the destination, the DISABLED behavior is always followed. MediaPackage
 	// regenerates the manifests it serves to players so a redundant manifest from
 	// MediaLive is irrelevant.
-	RedundantManifest HlsRedundantManifest `locationName:"redundantManifest" type:"string" enum:"true"`
+	RedundantManifest HlsRedundantManifest `json:"medialive:HlsGroupSettings:RedundantManifest" locationName:"redundantManifest" type:"string" enum:"true"`
 
 	// Length of MPEG-2 Transport Stream segments to create (in seconds). Note that
 	// segments will end on the next keyframe after this number of seconds, so actual
 	// segment length may be longer.
-	SegmentLength *int64 `locationName:"segmentLength" min:"1" type:"integer"`
+	SegmentLength *int64 `json:"medialive:HlsGroupSettings:SegmentLength" locationName:"segmentLength" min:"1" type:"integer"`
 
 	// useInputSegmentation has been deprecated. The configured segment size is
 	// always used.
-	SegmentationMode HlsSegmentationMode `locationName:"segmentationMode" type:"string" enum:"true"`
+	SegmentationMode HlsSegmentationMode `json:"medialive:HlsGroupSettings:SegmentationMode" locationName:"segmentationMode" type:"string" enum:"true"`
 
 	// Number of segments to write to a subdirectory before starting a new one.
 	// directoryStructure must be subdirectoryPerStream for this setting to have
 	// an effect.
-	SegmentsPerSubdirectory *int64 `locationName:"segmentsPerSubdirectory" min:"1" type:"integer"`
+	SegmentsPerSubdirectory *int64 `json:"medialive:HlsGroupSettings:SegmentsPerSubdirectory" locationName:"segmentsPerSubdirectory" min:"1" type:"integer"`
 
 	// Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag
 	// of variant manifest.
-	StreamInfResolution HlsStreamInfResolution `locationName:"streamInfResolution" type:"string" enum:"true"`
+	StreamInfResolution HlsStreamInfResolution `json:"medialive:HlsGroupSettings:StreamInfResolution" locationName:"streamInfResolution" type:"string" enum:"true"`
 
 	// Indicates ID3 frame that has the timecode.
-	TimedMetadataId3Frame HlsTimedMetadataId3Frame `locationName:"timedMetadataId3Frame" type:"string" enum:"true"`
+	TimedMetadataId3Frame HlsTimedMetadataId3Frame `json:"medialive:HlsGroupSettings:TimedMetadataId3Frame" locationName:"timedMetadataId3Frame" type:"string" enum:"true"`
 
 	// Timed Metadata interval in seconds.
-	TimedMetadataId3Period *int64 `locationName:"timedMetadataId3Period" type:"integer"`
+	TimedMetadataId3Period *int64 `json:"medialive:HlsGroupSettings:TimedMetadataId3Period" locationName:"timedMetadataId3Period" type:"integer"`
 
 	// Provides an extra millisecond delta offset to fine tune the timestamps.
-	TimestampDeltaMilliseconds *int64 `locationName:"timestampDeltaMilliseconds" type:"integer"`
+	TimestampDeltaMilliseconds *int64 `json:"medialive:HlsGroupSettings:TimestampDeltaMilliseconds" locationName:"timestampDeltaMilliseconds" type:"integer"`
 
 	// SEGMENTEDFILES: Emit the program as segments - multiple .ts media files.SINGLEFILE:
 	// Applies only if Mode field is VOD. Emit the program as a single .ts media
@@ -4716,7 +4716,7 @@ type HlsGroupSettings struct {
 	// for playback. A typical use for this value is when sending the output to
 	// AWS Elemental MediaConvert, which can accept only a single media file. Playback
 	// while the channel is running is not guaranteed due to HTTP server caching.
-	TsFileMode HlsTsFileMode `locationName:"tsFileMode" type:"string" enum:"true"`
+	TsFileMode HlsTsFileMode `json:"medialive:HlsGroupSettings:TsFileMode" locationName:"tsFileMode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5013,20 +5013,20 @@ type HlsInputSettings struct {
 	// this value will be chosen, otherwise the highest bandwidth stream in the
 	// m3u8 will be chosen. The bitrate is specified in bits per second, as in an
 	// HLS manifest.
-	Bandwidth *int64 `locationName:"bandwidth" type:"integer"`
+	Bandwidth *int64 `json:"medialive:HlsInputSettings:Bandwidth" locationName:"bandwidth" type:"integer"`
 
 	// When specified, reading of the HLS input will begin this many buffer segments
 	// from the end (most recently written segment). When not specified, the HLS
 	// input will begin with the first segment specified in the m3u8.
-	BufferSegments *int64 `locationName:"bufferSegments" type:"integer"`
+	BufferSegments *int64 `json:"medialive:HlsInputSettings:BufferSegments" locationName:"bufferSegments" type:"integer"`
 
 	// The number of consecutive times that attempts to read a manifest or segment
 	// must fail before the input is considered unavailable.
-	Retries *int64 `locationName:"retries" type:"integer"`
+	Retries *int64 `json:"medialive:HlsInputSettings:Retries" locationName:"retries" type:"integer"`
 
 	// The number of seconds between retries when an attempt to read a manifest
 	// or segment fails.
-	RetryInterval *int64 `locationName:"retryInterval" type:"integer"`
+	RetryInterval *int64 `json:"medialive:HlsInputSettings:RetryInterval" locationName:"retryInterval" type:"integer"`
 }
 
 // String returns the string representation
@@ -5070,22 +5070,22 @@ type HlsMediaStoreSettings struct {
 
 	// Number of seconds to wait before retrying connection to the CDN if the connection
 	// is lost.
-	ConnectionRetryInterval *int64 `locationName:"connectionRetryInterval" type:"integer"`
+	ConnectionRetryInterval *int64 `json:"medialive:HlsMediaStoreSettings:ConnectionRetryInterval" locationName:"connectionRetryInterval" type:"integer"`
 
 	// Size in seconds of file cache for streaming outputs.
-	FilecacheDuration *int64 `locationName:"filecacheDuration" type:"integer"`
+	FilecacheDuration *int64 `json:"medialive:HlsMediaStoreSettings:FilecacheDuration" locationName:"filecacheDuration" type:"integer"`
 
 	// When set to temporal, output files are stored in non-persistent memory for
 	// faster reading and writing.
-	MediaStoreStorageClass HlsMediaStoreStorageClass `locationName:"mediaStoreStorageClass" type:"string" enum:"true"`
+	MediaStoreStorageClass HlsMediaStoreStorageClass `json:"medialive:HlsMediaStoreSettings:MediaStoreStorageClass" locationName:"mediaStoreStorageClass" type:"string" enum:"true"`
 
 	// Number of retry attempts that will be made before the Live Event is put into
 	// an error state.
-	NumRetries *int64 `locationName:"numRetries" type:"integer"`
+	NumRetries *int64 `json:"medialive:HlsMediaStoreSettings:NumRetries" locationName:"numRetries" type:"integer"`
 
 	// If a streaming output fails, number of seconds to wait until a restart is
 	// initiated. A value of 0 means never restart.
-	RestartDelay *int64 `locationName:"restartDelay" type:"integer"`
+	RestartDelay *int64 `json:"medialive:HlsMediaStoreSettings:RestartDelay" locationName:"restartDelay" type:"integer"`
 }
 
 // String returns the string representation
@@ -5137,14 +5137,14 @@ type HlsOutputSettings struct {
 	// audio-only outputs.
 	//
 	// HlsSettings is a required field
-	HlsSettings *HlsSettings `locationName:"hlsSettings" type:"structure" required:"true"`
+	HlsSettings *HlsSettings `json:"medialive:HlsOutputSettings:HlsSettings" locationName:"hlsSettings" type:"structure" required:"true"`
 
 	// String concatenated to the end of the destination filename. Accepts \"Format
 	// Identifiers\":#formatIdentifierParameters.
-	NameModifier *string `locationName:"nameModifier" min:"1" type:"string"`
+	NameModifier *string `json:"medialive:HlsOutputSettings:NameModifier" locationName:"nameModifier" min:"1" type:"string"`
 
 	// String concatenated to end of segment filenames.
-	SegmentModifier *string `locationName:"segmentModifier" type:"string"`
+	SegmentModifier *string `json:"medialive:HlsOutputSettings:SegmentModifier" locationName:"segmentModifier" type:"string"`
 }
 
 // String returns the string representation
@@ -5203,10 +5203,10 @@ type HlsSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Audio Only Hls Settings
-	AudioOnlyHlsSettings *AudioOnlyHlsSettings `locationName:"audioOnlyHlsSettings" type:"structure"`
+	AudioOnlyHlsSettings *AudioOnlyHlsSettings `json:"medialive:HlsSettings:AudioOnlyHlsSettings" locationName:"audioOnlyHlsSettings" type:"structure"`
 
 	// Standard Hls Settings
-	StandardHlsSettings *StandardHlsSettings `locationName:"standardHlsSettings" type:"structure"`
+	StandardHlsSettings *StandardHlsSettings `json:"medialive:HlsSettings:StandardHlsSettings" locationName:"standardHlsSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -5259,7 +5259,7 @@ type HlsTimedMetadataScheduleActionSettings struct {
 	// Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
 	//
 	// Id3 is a required field
-	Id3 *string `locationName:"id3" type:"string" required:"true"`
+	Id3 *string `json:"medialive:HlsTimedMetadataScheduleActionSettings:Id3" locationName:"id3" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5299,21 +5299,21 @@ type HlsWebdavSettings struct {
 
 	// Number of seconds to wait before retrying connection to the CDN if the connection
 	// is lost.
-	ConnectionRetryInterval *int64 `locationName:"connectionRetryInterval" type:"integer"`
+	ConnectionRetryInterval *int64 `json:"medialive:HlsWebdavSettings:ConnectionRetryInterval" locationName:"connectionRetryInterval" type:"integer"`
 
 	// Size in seconds of file cache for streaming outputs.
-	FilecacheDuration *int64 `locationName:"filecacheDuration" type:"integer"`
+	FilecacheDuration *int64 `json:"medialive:HlsWebdavSettings:FilecacheDuration" locationName:"filecacheDuration" type:"integer"`
 
 	// Specify whether or not to use chunked transfer encoding to WebDAV.
-	HttpTransferMode HlsWebdavHttpTransferMode `locationName:"httpTransferMode" type:"string" enum:"true"`
+	HttpTransferMode HlsWebdavHttpTransferMode `json:"medialive:HlsWebdavSettings:HttpTransferMode" locationName:"httpTransferMode" type:"string" enum:"true"`
 
 	// Number of retry attempts that will be made before the Live Event is put into
 	// an error state.
-	NumRetries *int64 `locationName:"numRetries" type:"integer"`
+	NumRetries *int64 `json:"medialive:HlsWebdavSettings:NumRetries" locationName:"numRetries" type:"integer"`
 
 	// If a streaming output fails, number of seconds to wait until a restart is
 	// initiated. A value of 0 means never restart.
-	RestartDelay *int64 `locationName:"restartDelay" type:"integer"`
+	RestartDelay *int64 `json:"medialive:HlsWebdavSettings:RestartDelay" locationName:"restartDelay" type:"integer"`
 }
 
 // String returns the string representation
@@ -5361,17 +5361,17 @@ type Input struct {
 	_ struct{} `type:"structure"`
 
 	// The Unique ARN of the input (generated, immutable).
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:Input:Arn" locationName:"arn" type:"string"`
 
 	// A list of channel IDs that that input is attached to (currently an input
 	// can only be attached to one channel).
-	AttachedChannels []string `locationName:"attachedChannels" type:"list"`
+	AttachedChannels []string `json:"medialive:Input:AttachedChannels" locationName:"attachedChannels" type:"list"`
 
 	// A list of the destinations of the input (PUSH-type).
-	Destinations []InputDestination `locationName:"destinations" type:"list"`
+	Destinations []InputDestination `json:"medialive:Input:Destinations" locationName:"destinations" type:"list"`
 
 	// The generated ID of the input (unique for user account, immutable).
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"medialive:Input:Id" locationName:"id" type:"string"`
 
 	// STANDARD - MediaLive expects two sources to be connected to this input. If
 	// the channel is also STANDARD, both sources will be ingested. If the channel
@@ -5380,30 +5380,30 @@ type Input struct {
 	// You can connect only one source to this input. If the ChannelClass is also
 	// SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this
 	// value is not valid because the channel requires two sources in the input.
-	InputClass InputClass `locationName:"inputClass" type:"string" enum:"true"`
+	InputClass InputClass `json:"medialive:Input:InputClass" locationName:"inputClass" type:"string" enum:"true"`
 
 	// A list of MediaConnect Flows for this input.
-	MediaConnectFlows []MediaConnectFlow `locationName:"mediaConnectFlows" type:"list"`
+	MediaConnectFlows []MediaConnectFlow `json:"medialive:Input:MediaConnectFlows" locationName:"mediaConnectFlows" type:"list"`
 
 	// The user-assigned name (This is a mutable value).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"medialive:Input:Name" locationName:"name" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the role this input assumes during and
 	// after creation.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"medialive:Input:RoleArn" locationName:"roleArn" type:"string"`
 
 	// A list of IDs for all the Input Security Groups attached to the input.
-	SecurityGroups []string `locationName:"securityGroups" type:"list"`
+	SecurityGroups []string `json:"medialive:Input:SecurityGroups" locationName:"securityGroups" type:"list"`
 
 	// A list of the sources of the input (PULL-type).
-	Sources []InputSource `locationName:"sources" type:"list"`
+	Sources []InputSource `json:"medialive:Input:Sources" locationName:"sources" type:"list"`
 
-	State InputState `locationName:"state" type:"string" enum:"true"`
+	State InputState `json:"medialive:Input:State" locationName:"state" type:"string" enum:"true"`
 
 	// A collection of key-value pairs.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:Input:Tags" locationName:"tags" type:"map"`
 
-	Type InputType `locationName:"type" type:"string" enum:"true"`
+	Type InputType `json:"medialive:Input:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5536,13 +5536,13 @@ type InputAttachment struct {
 
 	// User-specified name for the attachment. This is required if the user wants
 	// to use this input in an input switch action.
-	InputAttachmentName *string `locationName:"inputAttachmentName" type:"string"`
+	InputAttachmentName *string `json:"medialive:InputAttachment:InputAttachmentName" locationName:"inputAttachmentName" type:"string"`
 
 	// The ID of the input
-	InputId *string `locationName:"inputId" type:"string"`
+	InputId *string `json:"medialive:InputAttachment:InputId" locationName:"inputId" type:"string"`
 
 	// Settings of an input (caption selector, etc.)
-	InputSettings *InputSettings `locationName:"inputSettings" type:"structure"`
+	InputSettings *InputSettings `json:"medialive:InputAttachment:InputSettings" locationName:"inputSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -5597,12 +5597,12 @@ type InputChannelLevel struct {
 	// from -60 (mute) and 6 dB.
 	//
 	// Gain is a required field
-	Gain *int64 `locationName:"gain" type:"integer" required:"true"`
+	Gain *int64 `json:"medialive:InputChannelLevel:Gain" locationName:"gain" type:"integer" required:"true"`
 
 	// The index of the input channel used as a source.
 	//
 	// InputChannel is a required field
-	InputChannel *int64 `locationName:"inputChannel" type:"integer" required:"true"`
+	InputChannel *int64 `json:"medialive:InputChannelLevel:InputChannel" locationName:"inputChannel" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5655,16 +5655,16 @@ type InputDestination struct {
 
 	// The system-generated static IP address of endpoint.It remains fixed for the
 	// lifetime of the input.
-	Ip *string `locationName:"ip" type:"string"`
+	Ip *string `json:"medialive:InputDestination:Ip" locationName:"ip" type:"string"`
 
 	// The port number for the input.
-	Port *string `locationName:"port" type:"string"`
+	Port *string `json:"medialive:InputDestination:Port" locationName:"port" type:"string"`
 
 	// This represents the endpoint that the customer stream will bepushed to.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"medialive:InputDestination:Url" locationName:"url" type:"string"`
 
 	// The properties for a VPC type input destination.
-	Vpc *InputDestinationVpc `locationName:"vpc" type:"structure"`
+	Vpc *InputDestinationVpc `json:"medialive:InputDestination:Vpc" locationName:"vpc" type:"structure"`
 }
 
 // String returns the string representation
@@ -5707,7 +5707,7 @@ type InputDestinationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// A unique name for the location the RTMP stream is being pushedto.
-	StreamName *string `locationName:"streamName" type:"string"`
+	StreamName *string `json:"medialive:InputDestinationRequest:StreamName" locationName:"streamName" type:"string"`
 }
 
 // String returns the string representation
@@ -5732,10 +5732,10 @@ type InputDestinationVpc struct {
 	_ struct{} `type:"structure"`
 
 	// The availability zone of the Input destination.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"medialive:InputDestinationVpc:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The network interface ID of the Input destination in the VPC.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"medialive:InputDestinationVpc:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 }
 
 // String returns the string representation
@@ -5766,20 +5766,20 @@ type InputLocation struct {
 	_ struct{} `type:"structure"`
 
 	// key used to extract the password from EC2 Parameter store
-	PasswordParam *string `locationName:"passwordParam" type:"string"`
+	PasswordParam *string `json:"medialive:InputLocation:PasswordParam" locationName:"passwordParam" type:"string"`
 
 	// Uniform Resource Identifier - This should be a path to a file accessible
 	// to the Live system (eg. a http:// URI) depending on the output type. For
 	// example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
 	//
 	// Uri is a required field
-	Uri *string `locationName:"uri" type:"string" required:"true"`
+	Uri *string `json:"medialive:InputLocation:Uri" locationName:"uri" type:"string" required:"true"`
 
 	// Username if credentials are required to access a file or publishing point.
 	// This can be either a plaintext username, or a reference to an AWS parameter
 	// store name from which the username can be retrieved. AWS Parameter store
 	// format: "ssm://"
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"medialive:InputLocation:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -5833,24 +5833,24 @@ type InputLossBehavior struct {
 	// before switching to the frame specified by inputLossImageType. A value x,
 	// where 0 <= x <= 1,000,000 and a value of 1,000,000 will be interpreted as
 	// infinite.
-	BlackFrameMsec *int64 `locationName:"blackFrameMsec" type:"integer"`
+	BlackFrameMsec *int64 `json:"medialive:InputLossBehavior:BlackFrameMsec" locationName:"blackFrameMsec" type:"integer"`
 
 	// When input loss image type is "color" this field specifies the color to use.
 	// Value: 6 hex characters representing the values of RGB.
-	InputLossImageColor *string `locationName:"inputLossImageColor" min:"6" type:"string"`
+	InputLossImageColor *string `json:"medialive:InputLossBehavior:InputLossImageColor" locationName:"inputLossImageColor" min:"6" type:"string"`
 
 	// When input loss image type is "slate" these fields specify the parameters
 	// for accessing the slate.
-	InputLossImageSlate *InputLocation `locationName:"inputLossImageSlate" type:"structure"`
+	InputLossImageSlate *InputLocation `json:"medialive:InputLossBehavior:InputLossImageSlate" locationName:"inputLossImageSlate" type:"structure"`
 
 	// Indicates whether to substitute a solid color or a slate into the output
 	// after input loss exceeds blackFrameMsec.
-	InputLossImageType InputLossImageType `locationName:"inputLossImageType" type:"string" enum:"true"`
+	InputLossImageType InputLossImageType `json:"medialive:InputLossBehavior:InputLossImageType" locationName:"inputLossImageType" type:"string" enum:"true"`
 
 	// On input loss, the number of milliseconds to repeat the previous picture
 	// before substituting black into the output. A value x, where 0 <= x <= 1,000,000
 	// and a value of 1,000,000 will be interpreted as infinite.
-	RepeatFrameMsec *int64 `locationName:"repeatFrameMsec" type:"integer"`
+	RepeatFrameMsec *int64 `json:"medialive:InputLossBehavior:RepeatFrameMsec" locationName:"repeatFrameMsec" type:"integer"`
 }
 
 // String returns the string representation
@@ -5917,22 +5917,22 @@ type InputSecurityGroup struct {
 	_ struct{} `type:"structure"`
 
 	// Unique ARN of Input Security Group
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:InputSecurityGroup:Arn" locationName:"arn" type:"string"`
 
 	// The Id of the Input Security Group
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"medialive:InputSecurityGroup:Id" locationName:"id" type:"string"`
 
 	// The list of inputs currently using this Input Security Group.
-	Inputs []string `locationName:"inputs" type:"list"`
+	Inputs []string `json:"medialive:InputSecurityGroup:Inputs" locationName:"inputs" type:"list"`
 
 	// The current state of the Input Security Group.
-	State InputSecurityGroupState `locationName:"state" type:"string" enum:"true"`
+	State InputSecurityGroupState `json:"medialive:InputSecurityGroup:State" locationName:"state" type:"string" enum:"true"`
 
 	// A collection of key-value pairs.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:InputSecurityGroup:Tags" locationName:"tags" type:"map"`
 
 	// Whitelist rules and their sync status
-	WhitelistRules []InputWhitelistRule `locationName:"whitelistRules" type:"list"`
+	WhitelistRules []InputWhitelistRule `json:"medialive:InputSecurityGroup:WhitelistRules" locationName:"whitelistRules" type:"list"`
 }
 
 // String returns the string representation
@@ -6006,35 +6006,35 @@ type InputSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Used to select the audio stream to decode for inputs that have multiple available.
-	AudioSelectors []AudioSelector `locationName:"audioSelectors" type:"list"`
+	AudioSelectors []AudioSelector `json:"medialive:InputSettings:AudioSelectors" locationName:"audioSelectors" type:"list"`
 
 	// Used to select the caption input to use for inputs that have multiple available.
-	CaptionSelectors []CaptionSelector `locationName:"captionSelectors" type:"list"`
+	CaptionSelectors []CaptionSelector `json:"medialive:InputSettings:CaptionSelectors" locationName:"captionSelectors" type:"list"`
 
 	// Enable or disable the deblock filter when filtering.
-	DeblockFilter InputDeblockFilter `locationName:"deblockFilter" type:"string" enum:"true"`
+	DeblockFilter InputDeblockFilter `json:"medialive:InputSettings:DeblockFilter" locationName:"deblockFilter" type:"string" enum:"true"`
 
 	// Enable or disable the denoise filter when filtering.
-	DenoiseFilter InputDenoiseFilter `locationName:"denoiseFilter" type:"string" enum:"true"`
+	DenoiseFilter InputDenoiseFilter `json:"medialive:InputSettings:DenoiseFilter" locationName:"denoiseFilter" type:"string" enum:"true"`
 
 	// Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-	FilterStrength *int64 `locationName:"filterStrength" min:"1" type:"integer"`
+	FilterStrength *int64 `json:"medialive:InputSettings:FilterStrength" locationName:"filterStrength" min:"1" type:"integer"`
 
 	// Turns on the filter for this input. MPEG-2 inputs have the deblocking filter
 	// enabled by default.1) auto - filtering will be applied depending on input
 	// type/quality2) disabled - no filtering will be applied to the input3) forced
 	// - filtering will be applied regardless of input type
-	InputFilter InputFilter `locationName:"inputFilter" type:"string" enum:"true"`
+	InputFilter InputFilter `json:"medialive:InputSettings:InputFilter" locationName:"inputFilter" type:"string" enum:"true"`
 
 	// Input settings.
-	NetworkInputSettings *NetworkInputSettings `locationName:"networkInputSettings" type:"structure"`
+	NetworkInputSettings *NetworkInputSettings `json:"medialive:InputSettings:NetworkInputSettings" locationName:"networkInputSettings" type:"structure"`
 
 	// Loop input if it is a file. This allows a file input to be streamed indefinitely.
-	SourceEndBehavior InputSourceEndBehavior `locationName:"sourceEndBehavior" type:"string" enum:"true"`
+	SourceEndBehavior InputSourceEndBehavior `json:"medialive:InputSettings:SourceEndBehavior" locationName:"sourceEndBehavior" type:"string" enum:"true"`
 
 	// Informs which video elementary stream to decode for input types that have
 	// multiple available.
-	VideoSelector *VideoSelector `locationName:"videoSelector" type:"structure"`
+	VideoSelector *VideoSelector `json:"medialive:InputSettings:VideoSelector" locationName:"videoSelector" type:"structure"`
 }
 
 // String returns the string representation
@@ -6146,13 +6146,13 @@ type InputSource struct {
 	_ struct{} `type:"structure"`
 
 	// The key used to extract the password from EC2 Parameter store.
-	PasswordParam *string `locationName:"passwordParam" type:"string"`
+	PasswordParam *string `json:"medialive:InputSource:PasswordParam" locationName:"passwordParam" type:"string"`
 
 	// This represents the customer's source URL where stream ispulled from.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"medialive:InputSource:Url" locationName:"url" type:"string"`
 
 	// The username for the input source.
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"medialive:InputSource:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -6189,13 +6189,13 @@ type InputSourceRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The key used to extract the password from EC2 Parameter store.
-	PasswordParam *string `locationName:"passwordParam" type:"string"`
+	PasswordParam *string `json:"medialive:InputSourceRequest:PasswordParam" locationName:"passwordParam" type:"string"`
 
 	// This represents the customer's source URL where stream ispulled from.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"medialive:InputSourceRequest:Url" locationName:"url" type:"string"`
 
 	// The username for the input source.
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"medialive:InputSourceRequest:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -6231,13 +6231,13 @@ type InputSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// Input codec
-	Codec InputCodec `locationName:"codec" type:"string" enum:"true"`
+	Codec InputCodec `json:"medialive:InputSpecification:Codec" locationName:"codec" type:"string" enum:"true"`
 
 	// Maximum input bitrate, categorized coarsely
-	MaximumBitrate InputMaximumBitrate `locationName:"maximumBitrate" type:"string" enum:"true"`
+	MaximumBitrate InputMaximumBitrate `json:"medialive:InputSpecification:MaximumBitrate" locationName:"maximumBitrate" type:"string" enum:"true"`
 
 	// Input resolution, categorized coarsely
-	Resolution InputResolution `locationName:"resolution" type:"string" enum:"true"`
+	Resolution InputResolution `json:"medialive:InputSpecification:Resolution" locationName:"resolution" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6276,7 +6276,7 @@ type InputSwitchScheduleActionSettings struct {
 	// The name of the input attachment that should be switched to by this action.
 	//
 	// InputAttachmentNameReference is a required field
-	InputAttachmentNameReference *string `locationName:"inputAttachmentNameReference" type:"string" required:"true"`
+	InputAttachmentNameReference *string `json:"medialive:InputSwitchScheduleActionSettings:InputAttachmentNameReference" locationName:"inputAttachmentNameReference" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -6320,13 +6320,13 @@ type InputVpcRequest struct {
 	// A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network
 	// interfaces.Requires subnetIds. If none are specified then the VPC default
 	// security group will be used.
-	SecurityGroupIds []string `locationName:"securityGroupIds" type:"list"`
+	SecurityGroupIds []string `json:"medialive:InputVpcRequest:SecurityGroupIds" locationName:"securityGroupIds" type:"list"`
 
 	// A list of 2 VPC subnet IDs from the same VPC.Subnet IDs must be mapped to
 	// two unique availability zones (AZ).
 	//
 	// SubnetIds is a required field
-	SubnetIds []string `locationName:"subnetIds" type:"list" required:"true"`
+	SubnetIds []string `json:"medialive:InputVpcRequest:SubnetIds" locationName:"subnetIds" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -6383,7 +6383,7 @@ type InputWhitelistRule struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv4 CIDR that's whitelisted.
-	Cidr *string `locationName:"cidr" type:"string"`
+	Cidr *string `json:"medialive:InputWhitelistRule:Cidr" locationName:"cidr" type:"string"`
 }
 
 // String returns the string representation
@@ -6408,7 +6408,7 @@ type InputWhitelistRuleCidr struct {
 	_ struct{} `type:"structure"`
 
 	// The IPv4 CIDR to whitelist.
-	Cidr *string `locationName:"cidr" type:"string"`
+	Cidr *string `json:"medialive:InputWhitelistRuleCidr:Cidr" locationName:"cidr" type:"string"`
 }
 
 // String returns the string representation
@@ -6433,7 +6433,7 @@ type KeyProviderSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Static Key Settings
-	StaticKeySettings *StaticKeySettings `locationName:"staticKeySettings" type:"structure"`
+	StaticKeySettings *StaticKeySettings `json:"medialive:KeyProviderSettings:StaticKeySettings" locationName:"staticKeySettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -6477,82 +6477,82 @@ type M2tsSettings struct {
 	// output audio configuration to dynamically change based on input configuration.
 	// If this is set to encodeSilence, all output audio streams will output encoded
 	// silence when not connected to an active input stream.
-	AbsentInputAudioBehavior M2tsAbsentInputAudioBehavior `locationName:"absentInputAudioBehavior" type:"string" enum:"true"`
+	AbsentInputAudioBehavior M2tsAbsentInputAudioBehavior `json:"medialive:M2tsSettings:AbsentInputAudioBehavior" locationName:"absentInputAudioBehavior" type:"string" enum:"true"`
 
 	// When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
-	Arib M2tsArib `locationName:"arib" type:"string" enum:"true"`
+	Arib M2tsArib `json:"medialive:M2tsSettings:Arib" locationName:"arib" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) for ARIB Captions in the transport stream. Can be
 	// entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182
 	// (or 0x1ff6).
-	AribCaptionsPid *string `locationName:"aribCaptionsPid" type:"string"`
+	AribCaptionsPid *string `json:"medialive:M2tsSettings:AribCaptionsPid" locationName:"aribCaptionsPid" type:"string"`
 
 	// If set to auto, pid number used for ARIB Captions will be auto-selected from
 	// unused pids. If set to useConfigured, ARIB Captions will be on the configured
 	// pid number.
-	AribCaptionsPidControl M2tsAribCaptionsPidControl `locationName:"aribCaptionsPidControl" type:"string" enum:"true"`
+	AribCaptionsPidControl M2tsAribCaptionsPidControl `json:"medialive:M2tsSettings:AribCaptionsPidControl" locationName:"aribCaptionsPidControl" type:"string" enum:"true"`
 
 	// When set to dvb, uses DVB buffer model for Dolby Digital audio. When set
 	// to atsc, the ATSC model is used.
-	AudioBufferModel M2tsAudioBufferModel `locationName:"audioBufferModel" type:"string" enum:"true"`
+	AudioBufferModel M2tsAudioBufferModel `json:"medialive:M2tsSettings:AudioBufferModel" locationName:"audioBufferModel" type:"string" enum:"true"`
 
 	// The number of audio frames to insert for each PES packet.
-	AudioFramesPerPes *int64 `locationName:"audioFramesPerPes" type:"integer"`
+	AudioFramesPerPes *int64 `json:"medialive:M2tsSettings:AudioFramesPerPes" locationName:"audioFramesPerPes" type:"integer"`
 
 	// Packet Identifier (PID) of the elementary audio stream(s) in the transport
 	// stream. Multiple values are accepted, and can be entered in ranges and/or
 	// by comma separation. Can be entered as decimal or hexadecimal values. Each
 	// PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-	AudioPids *string `locationName:"audioPids" type:"string"`
+	AudioPids *string `json:"medialive:M2tsSettings:AudioPids" locationName:"audioPids" type:"string"`
 
 	// When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87
 	// for EAC3. When set to dvb, uses stream type = 0x06.
-	AudioStreamType M2tsAudioStreamType `locationName:"audioStreamType" type:"string" enum:"true"`
+	AudioStreamType M2tsAudioStreamType `json:"medialive:M2tsSettings:AudioStreamType" locationName:"audioStreamType" type:"string" enum:"true"`
 
 	// The output bitrate of the transport stream in bits per second. Setting to
 	// 0 lets the muxer automatically determine the appropriate bitrate.
-	Bitrate *int64 `locationName:"bitrate" type:"integer"`
+	Bitrate *int64 `json:"medialive:M2tsSettings:Bitrate" locationName:"bitrate" type:"integer"`
 
 	// If set to multiplex, use multiplex buffer model for accurate interleaving.
 	// Setting to bufferModel to none can lead to lower latency, but low-memory
 	// devices may not be able to play back the stream without interruptions.
-	BufferModel M2tsBufferModel `locationName:"bufferModel" type:"string" enum:"true"`
+	BufferModel M2tsBufferModel `json:"medialive:M2tsSettings:BufferModel" locationName:"bufferModel" type:"string" enum:"true"`
 
 	// When set to enabled, generates captionServiceDescriptor in PMT.
-	CcDescriptor M2tsCcDescriptor `locationName:"ccDescriptor" type:"string" enum:"true"`
+	CcDescriptor M2tsCcDescriptor `json:"medialive:M2tsSettings:CcDescriptor" locationName:"ccDescriptor" type:"string" enum:"true"`
 
 	// Inserts DVB Network Information Table (NIT) at the specified table repetition
 	// interval.
-	DvbNitSettings *DvbNitSettings `locationName:"dvbNitSettings" type:"structure"`
+	DvbNitSettings *DvbNitSettings `json:"medialive:M2tsSettings:DvbNitSettings" locationName:"dvbNitSettings" type:"structure"`
 
 	// Inserts DVB Service Description Table (SDT) at the specified table repetition
 	// interval.
-	DvbSdtSettings *DvbSdtSettings `locationName:"dvbSdtSettings" type:"structure"`
+	DvbSdtSettings *DvbSdtSettings `json:"medialive:M2tsSettings:DvbSdtSettings" locationName:"dvbSdtSettings" type:"structure"`
 
 	// Packet Identifier (PID) for input source DVB Subtitle data to this output.
 	// Multiple values are accepted, and can be entered in ranges and/or by comma
 	// separation. Can be entered as decimal or hexadecimal values. Each PID specified
 	// must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-	DvbSubPids *string `locationName:"dvbSubPids" type:"string"`
+	DvbSubPids *string `json:"medialive:M2tsSettings:DvbSubPids" locationName:"dvbSubPids" type:"string"`
 
 	// Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
-	DvbTdtSettings *DvbTdtSettings `locationName:"dvbTdtSettings" type:"structure"`
+	DvbTdtSettings *DvbTdtSettings `json:"medialive:M2tsSettings:DvbTdtSettings" locationName:"dvbTdtSettings" type:"structure"`
 
 	// Packet Identifier (PID) for input source DVB Teletext data to this output.
 	// Can be entered as a decimal or hexadecimal value. Valid values are 32 (or
 	// 0x20)..8182 (or 0x1ff6).
-	DvbTeletextPid *string `locationName:"dvbTeletextPid" type:"string"`
+	DvbTeletextPid *string `json:"medialive:M2tsSettings:DvbTeletextPid" locationName:"dvbTeletextPid" type:"string"`
 
 	// If set to passthrough, passes any EBIF data from the input source to this
 	// output.
-	Ebif M2tsEbifControl `locationName:"ebif" type:"string" enum:"true"`
+	Ebif M2tsEbifControl `json:"medialive:M2tsSettings:Ebif" locationName:"ebif" type:"string" enum:"true"`
 
 	// When videoAndFixedIntervals is selected, audio EBP markers will be added
 	// to partitions 3 and 4. The interval between these additional markers will
 	// be fixed, and will be slightly shorter than the video EBP marker interval.
 	// Only available when EBP Cablelabs segmentation markers are selected. Partitions
 	// 1 and 2 will always follow the video interval.
-	EbpAudioInterval M2tsAudioInterval `locationName:"ebpAudioInterval" type:"string" enum:"true"`
+	EbpAudioInterval M2tsAudioInterval `json:"medialive:M2tsSettings:EbpAudioInterval" locationName:"ebpAudioInterval" type:"string" enum:"true"`
 
 	// When set, enforces that Encoder Boundary Points do not come within the specified
 	// time interval of each other by looking ahead at input video. If another EBP
@@ -6560,95 +6560,95 @@ type M2tsSettings struct {
 	// not emitted, and the segment is "stretched" to the next marker. The lookahead
 	// value does not add latency to the system. The Live Event must be configured
 	// elsewhere to create sufficient latency to make the lookahead accurate.
-	EbpLookaheadMs *int64 `locationName:"ebpLookaheadMs" type:"integer"`
+	EbpLookaheadMs *int64 `json:"medialive:M2tsSettings:EbpLookaheadMs" locationName:"ebpLookaheadMs" type:"integer"`
 
 	// Controls placement of EBP on Audio PIDs. If set to videoAndAudioPids, EBP
 	// markers will be placed on the video PID and all audio PIDs. If set to videoPid,
 	// EBP markers will be placed on only the video PID.
-	EbpPlacement M2tsEbpPlacement `locationName:"ebpPlacement" type:"string" enum:"true"`
+	EbpPlacement M2tsEbpPlacement `json:"medialive:M2tsSettings:EbpPlacement" locationName:"ebpPlacement" type:"string" enum:"true"`
 
 	// This field is unused and deprecated.
-	EcmPid *string `locationName:"ecmPid" type:"string"`
+	EcmPid *string `json:"medialive:M2tsSettings:EcmPid" locationName:"ecmPid" type:"string"`
 
 	// Include or exclude the ES Rate field in the PES header.
-	EsRateInPes M2tsEsRateInPes `locationName:"esRateInPes" type:"string" enum:"true"`
+	EsRateInPes M2tsEsRateInPes `json:"medialive:M2tsSettings:EsRateInPes" locationName:"esRateInPes" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) for input source ETV Platform data to this output.
 	// Can be entered as a decimal or hexadecimal value. Valid values are 32 (or
 	// 0x20)..8182 (or 0x1ff6).
-	EtvPlatformPid *string `locationName:"etvPlatformPid" type:"string"`
+	EtvPlatformPid *string `json:"medialive:M2tsSettings:EtvPlatformPid" locationName:"etvPlatformPid" type:"string"`
 
 	// Packet Identifier (PID) for input source ETV Signal data to this output.
 	// Can be entered as a decimal or hexadecimal value. Valid values are 32 (or
 	// 0x20)..8182 (or 0x1ff6).
-	EtvSignalPid *string `locationName:"etvSignalPid" type:"string"`
+	EtvSignalPid *string `json:"medialive:M2tsSettings:EtvSignalPid" locationName:"etvSignalPid" type:"string"`
 
 	// The length in seconds of each fragment. Only used with EBP markers.
-	FragmentTime *float64 `locationName:"fragmentTime" type:"double"`
+	FragmentTime *float64 `json:"medialive:M2tsSettings:FragmentTime" locationName:"fragmentTime" type:"double"`
 
 	// If set to passthrough, passes any KLV data from the input source to this
 	// output.
-	Klv M2tsKlv `locationName:"klv" type:"string" enum:"true"`
+	Klv M2tsKlv `json:"medialive:M2tsSettings:Klv" locationName:"klv" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) for input source KLV data to this output. Multiple
 	// values are accepted, and can be entered in ranges and/or by comma separation.
 	// Can be entered as decimal or hexadecimal values. Each PID specified must
 	// be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-	KlvDataPids *string `locationName:"klvDataPids" type:"string"`
+	KlvDataPids *string `json:"medialive:M2tsSettings:KlvDataPids" locationName:"klvDataPids" type:"string"`
 
 	// Value in bits per second of extra null packets to insert into the transport
 	// stream. This can be used if a downstream encryption system requires periodic
 	// null packets.
-	NullPacketBitrate *float64 `locationName:"nullPacketBitrate" type:"double"`
+	NullPacketBitrate *float64 `json:"medialive:M2tsSettings:NullPacketBitrate" locationName:"nullPacketBitrate" type:"double"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream. Valid values are 0, 10..1000.
-	PatInterval *int64 `locationName:"patInterval" type:"integer"`
+	PatInterval *int64 `json:"medialive:M2tsSettings:PatInterval" locationName:"patInterval" type:"integer"`
 
 	// When set to pcrEveryPesPacket, a Program Clock Reference value is inserted
 	// for every Packetized Elementary Stream (PES) header. This parameter is effective
 	// only when the PCR PID is the same as the video or audio elementary stream.
-	PcrControl M2tsPcrControl `locationName:"pcrControl" type:"string" enum:"true"`
+	PcrControl M2tsPcrControl `json:"medialive:M2tsSettings:PcrControl" locationName:"pcrControl" type:"string" enum:"true"`
 
 	// Maximum time in milliseconds between Program Clock Reference (PCRs) inserted
 	// into the transport stream.
-	PcrPeriod *int64 `locationName:"pcrPeriod" type:"integer"`
+	PcrPeriod *int64 `json:"medialive:M2tsSettings:PcrPeriod" locationName:"pcrPeriod" type:"integer"`
 
 	// Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport
 	// stream. When no value is given, the encoder will assign the same value as
 	// the Video PID. Can be entered as a decimal or hexadecimal value. Valid values
 	// are 32 (or 0x20)..8182 (or 0x1ff6).
-	PcrPid *string `locationName:"pcrPid" type:"string"`
+	PcrPid *string `json:"medialive:M2tsSettings:PcrPid" locationName:"pcrPid" type:"string"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream. Valid values are 0, 10..1000.
-	PmtInterval *int64 `locationName:"pmtInterval" type:"integer"`
+	PmtInterval *int64 `json:"medialive:M2tsSettings:PmtInterval" locationName:"pmtInterval" type:"integer"`
 
 	// Packet Identifier (PID) for the Program Map Table (PMT) in the transport
 	// stream. Can be entered as a decimal or hexadecimal value. Valid values are
 	// 32 (or 0x20)..8182 (or 0x1ff6).
-	PmtPid *string `locationName:"pmtPid" type:"string"`
+	PmtPid *string `json:"medialive:M2tsSettings:PmtPid" locationName:"pmtPid" type:"string"`
 
 	// The value of the program number field in the Program Map Table.
-	ProgramNum *int64 `locationName:"programNum" type:"integer"`
+	ProgramNum *int64 `json:"medialive:M2tsSettings:ProgramNum" locationName:"programNum" type:"integer"`
 
 	// When vbr, does not insert null packets into transport stream to fill specified
 	// bitrate. The bitrate setting acts as the maximum bitrate when vbr is set.
-	RateMode M2tsRateMode `locationName:"rateMode" type:"string" enum:"true"`
+	RateMode M2tsRateMode `json:"medialive:M2tsSettings:RateMode" locationName:"rateMode" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) for input source SCTE-27 data to this output. Multiple
 	// values are accepted, and can be entered in ranges and/or by comma separation.
 	// Can be entered as decimal or hexadecimal values. Each PID specified must
 	// be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
-	Scte27Pids *string `locationName:"scte27Pids" type:"string"`
+	Scte27Pids *string `json:"medialive:M2tsSettings:Scte27Pids" locationName:"scte27Pids" type:"string"`
 
 	// Optionally pass SCTE-35 signals from the input source to this output.
-	Scte35Control M2tsScte35Control `locationName:"scte35Control" type:"string" enum:"true"`
+	Scte35Control M2tsScte35Control `json:"medialive:M2tsSettings:Scte35Control" locationName:"scte35Control" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can
 	// be entered as a decimal or hexadecimal value. Valid values are 32 (or 0x20)..8182
 	// (or 0x1ff6).
-	Scte35Pid *string `locationName:"scte35Pid" type:"string"`
+	Scte35Pid *string `json:"medialive:M2tsSettings:Scte35Pid" locationName:"scte35Pid" type:"string"`
 
 	// Inserts segmentation markers at each segmentationTime period. raiSegstart
 	// sets the Random Access Indicator bit in the adaptation field. raiAdapt sets
@@ -6657,7 +6657,7 @@ type M2tsSettings struct {
 	// Point information to the adaptation field as per OpenCable specification
 	// OC-SP-EBP-I01-130118. ebpLegacy adds Encoder Boundary Point information to
 	// the adaptation field using a legacy proprietary format.
-	SegmentationMarkers M2tsSegmentationMarkers `locationName:"segmentationMarkers" type:"string" enum:"true"`
+	SegmentationMarkers M2tsSegmentationMarkers `json:"medialive:M2tsSettings:SegmentationMarkers" locationName:"segmentationMarkers" type:"string" enum:"true"`
 
 	// The segmentation style parameter controls how segmentation markers are inserted
 	// into the transport stream. With avails, it is possible that segments may
@@ -6670,28 +6670,28 @@ type M2tsSettings struct {
 	// segment will likely be truncated as well. However, all segments after that
 	// will have a duration of $segmentationTime seconds. Note that EBP lookahead
 	// is a slight exception to this rule.
-	SegmentationStyle M2tsSegmentationStyle `locationName:"segmentationStyle" type:"string" enum:"true"`
+	SegmentationStyle M2tsSegmentationStyle `json:"medialive:M2tsSettings:SegmentationStyle" locationName:"segmentationStyle" type:"string" enum:"true"`
 
 	// The length in seconds of each segment. Required unless markers is set to
 	// None_.
-	SegmentationTime *float64 `locationName:"segmentationTime" type:"double"`
+	SegmentationTime *float64 `json:"medialive:M2tsSettings:SegmentationTime" locationName:"segmentationTime" type:"double"`
 
 	// When set to passthrough, timed metadata will be passed through from input
 	// to output.
-	TimedMetadataBehavior M2tsTimedMetadataBehavior `locationName:"timedMetadataBehavior" type:"string" enum:"true"`
+	TimedMetadataBehavior M2tsTimedMetadataBehavior `json:"medialive:M2tsSettings:TimedMetadataBehavior" locationName:"timedMetadataBehavior" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) of the timed metadata stream in the transport stream.
 	// Can be entered as a decimal or hexadecimal value. Valid values are 32 (or
 	// 0x20)..8182 (or 0x1ff6).
-	TimedMetadataPid *string `locationName:"timedMetadataPid" type:"string"`
+	TimedMetadataPid *string `json:"medialive:M2tsSettings:TimedMetadataPid" locationName:"timedMetadataPid" type:"string"`
 
 	// The value of the transport stream ID field in the Program Map Table.
-	TransportStreamId *int64 `locationName:"transportStreamId" type:"integer"`
+	TransportStreamId *int64 `json:"medialive:M2tsSettings:TransportStreamId" locationName:"transportStreamId" type:"integer"`
 
 	// Packet Identifier (PID) of the elementary video stream in the transport stream.
 	// Can be entered as a decimal or hexadecimal value. Valid values are 32 (or
 	// 0x20)..8182 (or 0x1ff6).
-	VideoPid *string `locationName:"videoPid" type:"string"`
+	VideoPid *string `json:"medialive:M2tsSettings:VideoPid" locationName:"videoPid" type:"string"`
 }
 
 // String returns the string representation
@@ -7011,67 +7011,67 @@ type M3u8Settings struct {
 	_ struct{} `type:"structure"`
 
 	// The number of audio frames to insert for each PES packet.
-	AudioFramesPerPes *int64 `locationName:"audioFramesPerPes" type:"integer"`
+	AudioFramesPerPes *int64 `json:"medialive:M3u8Settings:AudioFramesPerPes" locationName:"audioFramesPerPes" type:"integer"`
 
 	// Packet Identifier (PID) of the elementary audio stream(s) in the transport
 	// stream. Multiple values are accepted, and can be entered in ranges and/or
 	// by comma separation. Can be entered as decimal or hexadecimal values.
-	AudioPids *string `locationName:"audioPids" type:"string"`
+	AudioPids *string `json:"medialive:M3u8Settings:AudioPids" locationName:"audioPids" type:"string"`
 
 	// This parameter is unused and deprecated.
-	EcmPid *string `locationName:"ecmPid" type:"string"`
+	EcmPid *string `json:"medialive:M3u8Settings:EcmPid" locationName:"ecmPid" type:"string"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream. A value of \"0\" writes out the PMT once per segment file.
-	PatInterval *int64 `locationName:"patInterval" type:"integer"`
+	PatInterval *int64 `json:"medialive:M3u8Settings:PatInterval" locationName:"patInterval" type:"integer"`
 
 	// When set to pcrEveryPesPacket, a Program Clock Reference value is inserted
 	// for every Packetized Elementary Stream (PES) header. This parameter is effective
 	// only when the PCR PID is the same as the video or audio elementary stream.
-	PcrControl M3u8PcrControl `locationName:"pcrControl" type:"string" enum:"true"`
+	PcrControl M3u8PcrControl `json:"medialive:M3u8Settings:PcrControl" locationName:"pcrControl" type:"string" enum:"true"`
 
 	// Maximum time in milliseconds between Program Clock References (PCRs) inserted
 	// into the transport stream.
-	PcrPeriod *int64 `locationName:"pcrPeriod" type:"integer"`
+	PcrPeriod *int64 `json:"medialive:M3u8Settings:PcrPeriod" locationName:"pcrPeriod" type:"integer"`
 
 	// Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport
 	// stream. When no value is given, the encoder will assign the same value as
 	// the Video PID. Can be entered as a decimal or hexadecimal value.
-	PcrPid *string `locationName:"pcrPid" type:"string"`
+	PcrPid *string `json:"medialive:M3u8Settings:PcrPid" locationName:"pcrPid" type:"string"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream. A value of \"0\" writes out the PMT once per segment file.
-	PmtInterval *int64 `locationName:"pmtInterval" type:"integer"`
+	PmtInterval *int64 `json:"medialive:M3u8Settings:PmtInterval" locationName:"pmtInterval" type:"integer"`
 
 	// Packet Identifier (PID) for the Program Map Table (PMT) in the transport
 	// stream. Can be entered as a decimal or hexadecimal value.
-	PmtPid *string `locationName:"pmtPid" type:"string"`
+	PmtPid *string `json:"medialive:M3u8Settings:PmtPid" locationName:"pmtPid" type:"string"`
 
 	// The value of the program number field in the Program Map Table.
-	ProgramNum *int64 `locationName:"programNum" type:"integer"`
+	ProgramNum *int64 `json:"medialive:M3u8Settings:ProgramNum" locationName:"programNum" type:"integer"`
 
 	// If set to passthrough, passes any SCTE-35 signals from the input source to
 	// this output.
-	Scte35Behavior M3u8Scte35Behavior `locationName:"scte35Behavior" type:"string" enum:"true"`
+	Scte35Behavior M3u8Scte35Behavior `json:"medialive:M3u8Settings:Scte35Behavior" locationName:"scte35Behavior" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can
 	// be entered as a decimal or hexadecimal value.
-	Scte35Pid *string `locationName:"scte35Pid" type:"string"`
+	Scte35Pid *string `json:"medialive:M3u8Settings:Scte35Pid" locationName:"scte35Pid" type:"string"`
 
 	// When set to passthrough, timed metadata is passed through from input to output.
-	TimedMetadataBehavior M3u8TimedMetadataBehavior `locationName:"timedMetadataBehavior" type:"string" enum:"true"`
+	TimedMetadataBehavior M3u8TimedMetadataBehavior `json:"medialive:M3u8Settings:TimedMetadataBehavior" locationName:"timedMetadataBehavior" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) of the timed metadata stream in the transport stream.
 	// Can be entered as a decimal or hexadecimal value. Valid values are 32 (or
 	// 0x20)..8182 (or 0x1ff6).
-	TimedMetadataPid *string `locationName:"timedMetadataPid" type:"string"`
+	TimedMetadataPid *string `json:"medialive:M3u8Settings:TimedMetadataPid" locationName:"timedMetadataPid" type:"string"`
 
 	// The value of the transport stream ID field in the Program Map Table.
-	TransportStreamId *int64 `locationName:"transportStreamId" type:"integer"`
+	TransportStreamId *int64 `json:"medialive:M3u8Settings:TransportStreamId" locationName:"transportStreamId" type:"integer"`
 
 	// Packet Identifier (PID) of the elementary video stream in the transport stream.
 	// Can be entered as a decimal or hexadecimal value.
-	VideoPid *string `locationName:"videoPid" type:"string"`
+	VideoPid *string `json:"medialive:M3u8Settings:VideoPid" locationName:"videoPid" type:"string"`
 }
 
 // String returns the string representation
@@ -7186,7 +7186,7 @@ type MediaConnectFlow struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ARN of the MediaConnect Flow being used as a source.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"medialive:MediaConnectFlow:FlowArn" locationName:"flowArn" type:"string"`
 }
 
 // String returns the string representation
@@ -7211,7 +7211,7 @@ type MediaConnectFlowRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the MediaConnect Flow that you want to use as a source.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"medialive:MediaConnectFlowRequest:FlowArn" locationName:"flowArn" type:"string"`
 }
 
 // String returns the string representation
@@ -7238,7 +7238,7 @@ type MediaPackageGroupSettings struct {
 	// MediaPackage channel destination.
 	//
 	// Destination is a required field
-	Destination *OutputLocationRef `locationName:"destination" type:"structure" required:"true"`
+	Destination *OutputLocationRef `json:"medialive:MediaPackageGroupSettings:Destination" locationName:"destination" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -7281,7 +7281,7 @@ type MediaPackageOutputDestinationSettings struct {
 	// MediaLive will handle the connection of the two MediaLive pipelines to the
 	// two MediaPackage inputs. The MediaPackage channel and MediaLive channel must
 	// be in the same region.
-	ChannelId *string `locationName:"channelId" min:"1" type:"string"`
+	ChannelId *string `json:"medialive:MediaPackageOutputDestinationSettings:ChannelId" locationName:"channelId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -7335,14 +7335,14 @@ type Mp2Settings struct {
 	_ struct{} `type:"structure"`
 
 	// Average bitrate in bits/second.
-	Bitrate *float64 `locationName:"bitrate" type:"double"`
+	Bitrate *float64 `json:"medialive:Mp2Settings:Bitrate" locationName:"bitrate" type:"double"`
 
 	// The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or
 	// codingMode20 (for stereo).
-	CodingMode Mp2CodingMode `locationName:"codingMode" type:"string" enum:"true"`
+	CodingMode Mp2CodingMode `json:"medialive:Mp2Settings:CodingMode" locationName:"codingMode" type:"string" enum:"true"`
 
 	// Sample rate in Hz.
-	SampleRate *float64 `locationName:"sampleRate" type:"double"`
+	SampleRate *float64 `json:"medialive:Mp2Settings:SampleRate" locationName:"sampleRate" type:"double"`
 }
 
 // String returns the string representation
@@ -7380,32 +7380,32 @@ type MsSmoothGroupSettings struct {
 
 	// The value of the "Acquisition Point Identity" element used in each message
 	// placed in the sparse track. Only enabled if sparseTrackType is not "none".
-	AcquisitionPointId *string `locationName:"acquisitionPointId" type:"string"`
+	AcquisitionPointId *string `json:"medialive:MsSmoothGroupSettings:AcquisitionPointId" locationName:"acquisitionPointId" type:"string"`
 
 	// If set to passthrough for an audio-only MS Smooth output, the fragment absolute
 	// time will be set to the current timecode. This option does not write timecodes
 	// to the audio elementary stream.
-	AudioOnlyTimecodeControl SmoothGroupAudioOnlyTimecodeControl `locationName:"audioOnlyTimecodeControl" type:"string" enum:"true"`
+	AudioOnlyTimecodeControl SmoothGroupAudioOnlyTimecodeControl `json:"medialive:MsSmoothGroupSettings:AudioOnlyTimecodeControl" locationName:"audioOnlyTimecodeControl" type:"string" enum:"true"`
 
 	// If set to verifyAuthenticity, verify the https certificate chain to a trusted
 	// Certificate Authority (CA). This will cause https outputs to self-signed
 	// certificates to fail.
-	CertificateMode SmoothGroupCertificateMode `locationName:"certificateMode" type:"string" enum:"true"`
+	CertificateMode SmoothGroupCertificateMode `json:"medialive:MsSmoothGroupSettings:CertificateMode" locationName:"certificateMode" type:"string" enum:"true"`
 
 	// Number of seconds to wait before retrying connection to the IIS server if
 	// the connection is lost. Content will be cached during this time and the cache
 	// will be be delivered to the IIS server once the connection is re-established.
-	ConnectionRetryInterval *int64 `locationName:"connectionRetryInterval" type:"integer"`
+	ConnectionRetryInterval *int64 `json:"medialive:MsSmoothGroupSettings:ConnectionRetryInterval" locationName:"connectionRetryInterval" type:"integer"`
 
 	// Smooth Streaming publish point on an IIS server. Elemental Live acts as a
 	// "Push" encoder to IIS.
 	//
 	// Destination is a required field
-	Destination *OutputLocationRef `locationName:"destination" type:"structure" required:"true"`
+	Destination *OutputLocationRef `json:"medialive:MsSmoothGroupSettings:Destination" locationName:"destination" type:"structure" required:"true"`
 
 	// MS Smooth event ID to be sent to the IIS server.Should only be specified
 	// if eventIdMode is set to useConfigured.
-	EventId *string `locationName:"eventId" type:"string"`
+	EventId *string `json:"medialive:MsSmoothGroupSettings:EventId" locationName:"eventId" type:"string"`
 
 	// Specifies whether or not to send an event ID to the IIS server. If no event
 	// ID is sent and the same Live Event is used without changing the publishing
@@ -7413,51 +7413,51 @@ type MsSmoothGroupSettings struct {
 	// - use the value provided in eventId- "useTimestamp" - generate and send an
 	// event ID based on the current timestamp- "noEventId" - do not send an event
 	// ID to the IIS server.
-	EventIdMode SmoothGroupEventIdMode `locationName:"eventIdMode" type:"string" enum:"true"`
+	EventIdMode SmoothGroupEventIdMode `json:"medialive:MsSmoothGroupSettings:EventIdMode" locationName:"eventIdMode" type:"string" enum:"true"`
 
 	// When set to sendEos, send EOS signal to IIS server when stopping the event
-	EventStopBehavior SmoothGroupEventStopBehavior `locationName:"eventStopBehavior" type:"string" enum:"true"`
+	EventStopBehavior SmoothGroupEventStopBehavior `json:"medialive:MsSmoothGroupSettings:EventStopBehavior" locationName:"eventStopBehavior" type:"string" enum:"true"`
 
 	// Size in seconds of file cache for streaming outputs.
-	FilecacheDuration *int64 `locationName:"filecacheDuration" type:"integer"`
+	FilecacheDuration *int64 `json:"medialive:MsSmoothGroupSettings:FilecacheDuration" locationName:"filecacheDuration" type:"integer"`
 
 	// Length of mp4 fragments to generate (in seconds). Fragment length must be
 	// compatible with GOP size and framerate.
-	FragmentLength *int64 `locationName:"fragmentLength" min:"1" type:"integer"`
+	FragmentLength *int64 `json:"medialive:MsSmoothGroupSettings:FragmentLength" locationName:"fragmentLength" min:"1" type:"integer"`
 
 	// Parameter that control output group behavior on input loss.
-	InputLossAction InputLossActionForMsSmoothOut `locationName:"inputLossAction" type:"string" enum:"true"`
+	InputLossAction InputLossActionForMsSmoothOut `json:"medialive:MsSmoothGroupSettings:InputLossAction" locationName:"inputLossAction" type:"string" enum:"true"`
 
 	// Number of retry attempts.
-	NumRetries *int64 `locationName:"numRetries" type:"integer"`
+	NumRetries *int64 `json:"medialive:MsSmoothGroupSettings:NumRetries" locationName:"numRetries" type:"integer"`
 
 	// Number of seconds before initiating a restart due to output failure, due
 	// to exhausting the numRetries on one segment, or exceeding filecacheDuration.
-	RestartDelay *int64 `locationName:"restartDelay" type:"integer"`
+	RestartDelay *int64 `json:"medialive:MsSmoothGroupSettings:RestartDelay" locationName:"restartDelay" type:"integer"`
 
 	// useInputSegmentation has been deprecated. The configured segment size is
 	// always used.
-	SegmentationMode SmoothGroupSegmentationMode `locationName:"segmentationMode" type:"string" enum:"true"`
+	SegmentationMode SmoothGroupSegmentationMode `json:"medialive:MsSmoothGroupSettings:SegmentationMode" locationName:"segmentationMode" type:"string" enum:"true"`
 
 	// Number of milliseconds to delay the output from the second pipeline.
-	SendDelayMs *int64 `locationName:"sendDelayMs" type:"integer"`
+	SendDelayMs *int64 `json:"medialive:MsSmoothGroupSettings:SendDelayMs" locationName:"sendDelayMs" type:"integer"`
 
 	// If set to scte35, use incoming SCTE-35 messages to generate a sparse track
 	// in this group of MS-Smooth outputs.
-	SparseTrackType SmoothGroupSparseTrackType `locationName:"sparseTrackType" type:"string" enum:"true"`
+	SparseTrackType SmoothGroupSparseTrackType `json:"medialive:MsSmoothGroupSettings:SparseTrackType" locationName:"sparseTrackType" type:"string" enum:"true"`
 
 	// When set to send, send stream manifest so publishing point doesn't start
 	// until all streams start.
-	StreamManifestBehavior SmoothGroupStreamManifestBehavior `locationName:"streamManifestBehavior" type:"string" enum:"true"`
+	StreamManifestBehavior SmoothGroupStreamManifestBehavior `json:"medialive:MsSmoothGroupSettings:StreamManifestBehavior" locationName:"streamManifestBehavior" type:"string" enum:"true"`
 
 	// Timestamp offset for the event. Only used if timestampOffsetMode is set to
 	// useConfiguredOffset.
-	TimestampOffset *string `locationName:"timestampOffset" type:"string"`
+	TimestampOffset *string `json:"medialive:MsSmoothGroupSettings:TimestampOffset" locationName:"timestampOffset" type:"string"`
 
 	// Type of timestamp date offset to use.- useEventStartDate: Use the date the
 	// event was started as the offset- useConfiguredOffset: Use an explicitly configured
 	// date as the offset
-	TimestampOffsetMode SmoothGroupTimestampOffsetMode `locationName:"timestampOffsetMode" type:"string" enum:"true"`
+	TimestampOffsetMode SmoothGroupTimestampOffsetMode `json:"medialive:MsSmoothGroupSettings:TimestampOffsetMode" locationName:"timestampOffsetMode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -7608,7 +7608,7 @@ type MsSmoothOutputSettings struct {
 
 	// String concatenated to the end of the destination filename. Required for
 	// multiple outputs of the same type.
-	NameModifier *string `locationName:"nameModifier" type:"string"`
+	NameModifier *string `json:"medialive:MsSmoothOutputSettings:NameModifier" locationName:"nameModifier" type:"string"`
 }
 
 // String returns the string representation
@@ -7634,7 +7634,7 @@ type NetworkInputSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies HLS input settings when the uri is for a HLS manifest.
-	HlsInputSettings *HlsInputSettings `locationName:"hlsInputSettings" type:"structure"`
+	HlsInputSettings *HlsInputSettings `json:"medialive:NetworkInputSettings:HlsInputSettings" locationName:"hlsInputSettings" type:"structure"`
 
 	// Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography
 	// in the certificate will be checked, but not the server's name. Certain subdomains
@@ -7642,7 +7642,7 @@ type NetworkInputSettings struct {
 	// the corresponding certificate's wildcard pattern and would otherwise cause
 	// the event to error. This setting is ignored for protocols that do not use
 	// https.
-	ServerValidation NetworkInputServerValidation `locationName:"serverValidation" type:"string" enum:"true"`
+	ServerValidation NetworkInputServerValidation `json:"medialive:NetworkInputSettings:ServerValidation" locationName:"serverValidation" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -7673,38 +7673,38 @@ type Offering struct {
 	_ struct{} `type:"structure"`
 
 	// Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:Offering:Arn" locationName:"arn" type:"string"`
 
 	// Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-	CurrencyCode *string `locationName:"currencyCode" type:"string"`
+	CurrencyCode *string `json:"medialive:Offering:CurrencyCode" locationName:"currencyCode" type:"string"`
 
 	// Lease duration, e.g. '12'
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"medialive:Offering:Duration" locationName:"duration" type:"integer"`
 
 	// Units for duration, e.g. 'MONTHS'
-	DurationUnits OfferingDurationUnits `locationName:"durationUnits" type:"string" enum:"true"`
+	DurationUnits OfferingDurationUnits `json:"medialive:Offering:DurationUnits" locationName:"durationUnits" type:"string" enum:"true"`
 
 	// One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
-	FixedPrice *float64 `locationName:"fixedPrice" type:"double"`
+	FixedPrice *float64 `json:"medialive:Offering:FixedPrice" locationName:"fixedPrice" type:"double"`
 
 	// Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard
 	// VQ in US West (Oregon)'
-	OfferingDescription *string `locationName:"offeringDescription" type:"string"`
+	OfferingDescription *string `json:"medialive:Offering:OfferingDescription" locationName:"offeringDescription" type:"string"`
 
 	// Unique offering ID, e.g. '87654321'
-	OfferingId *string `locationName:"offeringId" type:"string"`
+	OfferingId *string `json:"medialive:Offering:OfferingId" locationName:"offeringId" type:"string"`
 
 	// Offering type, e.g. 'NO_UPFRONT'
-	OfferingType OfferingType `locationName:"offeringType" type:"string" enum:"true"`
+	OfferingType OfferingType `json:"medialive:Offering:OfferingType" locationName:"offeringType" type:"string" enum:"true"`
 
 	// AWS region, e.g. 'us-west-2'
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"medialive:Offering:Region" locationName:"region" type:"string"`
 
 	// Resource configuration details
-	ResourceSpecification *ReservationResourceSpecification `locationName:"resourceSpecification" type:"structure"`
+	ResourceSpecification *ReservationResourceSpecification `json:"medialive:Offering:ResourceSpecification" locationName:"resourceSpecification" type:"structure"`
 
 	// Recurring usage charge for each reserved resource, e.g. '157.0'
-	UsagePrice *float64 `locationName:"usagePrice" type:"double"`
+	UsagePrice *float64 `json:"medialive:Offering:UsagePrice" locationName:"usagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -7789,21 +7789,21 @@ type Output struct {
 	_ struct{} `type:"structure"`
 
 	// The names of the AudioDescriptions used as audio sources for this output.
-	AudioDescriptionNames []string `locationName:"audioDescriptionNames" type:"list"`
+	AudioDescriptionNames []string `json:"medialive:Output:AudioDescriptionNames" locationName:"audioDescriptionNames" type:"list"`
 
 	// The names of the CaptionDescriptions used as caption sources for this output.
-	CaptionDescriptionNames []string `locationName:"captionDescriptionNames" type:"list"`
+	CaptionDescriptionNames []string `json:"medialive:Output:CaptionDescriptionNames" locationName:"captionDescriptionNames" type:"list"`
 
 	// The name used to identify an output.
-	OutputName *string `locationName:"outputName" min:"1" type:"string"`
+	OutputName *string `json:"medialive:Output:OutputName" locationName:"outputName" min:"1" type:"string"`
 
 	// Output type-specific settings.
 	//
 	// OutputSettings is a required field
-	OutputSettings *OutputSettings `locationName:"outputSettings" type:"structure" required:"true"`
+	OutputSettings *OutputSettings `json:"medialive:Output:OutputSettings" locationName:"outputSettings" type:"structure" required:"true"`
 
 	// The name of the VideoDescription used as the source for this output.
-	VideoDescriptionName *string `locationName:"videoDescriptionName" type:"string"`
+	VideoDescriptionName *string `json:"medialive:Output:VideoDescriptionName" locationName:"videoDescriptionName" type:"string"`
 }
 
 // String returns the string representation
@@ -7885,15 +7885,15 @@ type OutputDestination struct {
 	_ struct{} `type:"structure"`
 
 	// User-specified id. This is used in an output group or an output.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"medialive:OutputDestination:Id" locationName:"id" type:"string"`
 
 	// Destination settings for a MediaPackage output; one destination for both
 	// encoders.
-	MediaPackageSettings []MediaPackageOutputDestinationSettings `locationName:"mediaPackageSettings" type:"list"`
+	MediaPackageSettings []MediaPackageOutputDestinationSettings `json:"medialive:OutputDestination:MediaPackageSettings" locationName:"mediaPackageSettings" type:"list"`
 
 	// Destination settings for a standard output; one destination for each redundant
 	// encoder.
-	Settings []OutputDestinationSettings `locationName:"settings" type:"list"`
+	Settings []OutputDestinationSettings `json:"medialive:OutputDestination:Settings" locationName:"settings" type:"list"`
 }
 
 // String returns the string representation
@@ -7958,16 +7958,16 @@ type OutputDestinationSettings struct {
 	_ struct{} `type:"structure"`
 
 	// key used to extract the password from EC2 Parameter store
-	PasswordParam *string `locationName:"passwordParam" type:"string"`
+	PasswordParam *string `json:"medialive:OutputDestinationSettings:PasswordParam" locationName:"passwordParam" type:"string"`
 
 	// Stream name for RTMP destinations (URLs of type rtmp://)
-	StreamName *string `locationName:"streamName" type:"string"`
+	StreamName *string `json:"medialive:OutputDestinationSettings:StreamName" locationName:"streamName" type:"string"`
 
 	// A URL specifying a destination
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"medialive:OutputDestinationSettings:Url" locationName:"url" type:"string"`
 
 	// username for destination
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"medialive:OutputDestinationSettings:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -8012,15 +8012,15 @@ type OutputGroup struct {
 
 	// Custom output group name optionally defined by the user. Only letters, numbers,
 	// and the underscore character allowed; only 32 characters allowed.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"medialive:OutputGroup:Name" locationName:"name" type:"string"`
 
 	// Settings associated with the output group.
 	//
 	// OutputGroupSettings is a required field
-	OutputGroupSettings *OutputGroupSettings `locationName:"outputGroupSettings" type:"structure" required:"true"`
+	OutputGroupSettings *OutputGroupSettings `json:"medialive:OutputGroup:OutputGroupSettings" locationName:"outputGroupSettings" type:"structure" required:"true"`
 
 	// Outputs is a required field
-	Outputs []Output `locationName:"outputs" type:"list" required:"true"`
+	Outputs []Output `json:"medialive:OutputGroup:Outputs" locationName:"outputs" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -8093,25 +8093,25 @@ type OutputGroupSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Archive Group Settings
-	ArchiveGroupSettings *ArchiveGroupSettings `locationName:"archiveGroupSettings" type:"structure"`
+	ArchiveGroupSettings *ArchiveGroupSettings `json:"medialive:OutputGroupSettings:ArchiveGroupSettings" locationName:"archiveGroupSettings" type:"structure"`
 
 	// Frame Capture Group Settings
-	FrameCaptureGroupSettings *FrameCaptureGroupSettings `locationName:"frameCaptureGroupSettings" type:"structure"`
+	FrameCaptureGroupSettings *FrameCaptureGroupSettings `json:"medialive:OutputGroupSettings:FrameCaptureGroupSettings" locationName:"frameCaptureGroupSettings" type:"structure"`
 
 	// Hls Group Settings
-	HlsGroupSettings *HlsGroupSettings `locationName:"hlsGroupSettings" type:"structure"`
+	HlsGroupSettings *HlsGroupSettings `json:"medialive:OutputGroupSettings:HlsGroupSettings" locationName:"hlsGroupSettings" type:"structure"`
 
 	// Media Package Group Settings
-	MediaPackageGroupSettings *MediaPackageGroupSettings `locationName:"mediaPackageGroupSettings" type:"structure"`
+	MediaPackageGroupSettings *MediaPackageGroupSettings `json:"medialive:OutputGroupSettings:MediaPackageGroupSettings" locationName:"mediaPackageGroupSettings" type:"structure"`
 
 	// Ms Smooth Group Settings
-	MsSmoothGroupSettings *MsSmoothGroupSettings `locationName:"msSmoothGroupSettings" type:"structure"`
+	MsSmoothGroupSettings *MsSmoothGroupSettings `json:"medialive:OutputGroupSettings:MsSmoothGroupSettings" locationName:"msSmoothGroupSettings" type:"structure"`
 
 	// Rtmp Group Settings
-	RtmpGroupSettings *RtmpGroupSettings `locationName:"rtmpGroupSettings" type:"structure"`
+	RtmpGroupSettings *RtmpGroupSettings `json:"medialive:OutputGroupSettings:RtmpGroupSettings" locationName:"rtmpGroupSettings" type:"structure"`
 
 	// Udp Group Settings
-	UdpGroupSettings *UdpGroupSettings `locationName:"udpGroupSettings" type:"structure"`
+	UdpGroupSettings *UdpGroupSettings `json:"medialive:OutputGroupSettings:UdpGroupSettings" locationName:"udpGroupSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -8211,7 +8211,7 @@ func (s OutputGroupSettings) MarshalFields(e protocol.FieldEncoder) error {
 type OutputLocationRef struct {
 	_ struct{} `type:"structure"`
 
-	DestinationRefId *string `locationName:"destinationRefId" type:"string"`
+	DestinationRefId *string `json:"medialive:OutputLocationRef:DestinationRefId" locationName:"destinationRefId" type:"string"`
 }
 
 // String returns the string representation
@@ -8236,25 +8236,25 @@ type OutputSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Archive Output Settings
-	ArchiveOutputSettings *ArchiveOutputSettings `locationName:"archiveOutputSettings" type:"structure"`
+	ArchiveOutputSettings *ArchiveOutputSettings `json:"medialive:OutputSettings:ArchiveOutputSettings" locationName:"archiveOutputSettings" type:"structure"`
 
 	// Frame Capture Output Settings
-	FrameCaptureOutputSettings *FrameCaptureOutputSettings `locationName:"frameCaptureOutputSettings" type:"structure"`
+	FrameCaptureOutputSettings *FrameCaptureOutputSettings `json:"medialive:OutputSettings:FrameCaptureOutputSettings" locationName:"frameCaptureOutputSettings" type:"structure"`
 
 	// Hls Output Settings
-	HlsOutputSettings *HlsOutputSettings `locationName:"hlsOutputSettings" type:"structure"`
+	HlsOutputSettings *HlsOutputSettings `json:"medialive:OutputSettings:HlsOutputSettings" locationName:"hlsOutputSettings" type:"structure"`
 
 	// Media Package Output Settings
-	MediaPackageOutputSettings *MediaPackageOutputSettings `locationName:"mediaPackageOutputSettings" type:"structure"`
+	MediaPackageOutputSettings *MediaPackageOutputSettings `json:"medialive:OutputSettings:MediaPackageOutputSettings" locationName:"mediaPackageOutputSettings" type:"structure"`
 
 	// Ms Smooth Output Settings
-	MsSmoothOutputSettings *MsSmoothOutputSettings `locationName:"msSmoothOutputSettings" type:"structure"`
+	MsSmoothOutputSettings *MsSmoothOutputSettings `json:"medialive:OutputSettings:MsSmoothOutputSettings" locationName:"msSmoothOutputSettings" type:"structure"`
 
 	// Rtmp Output Settings
-	RtmpOutputSettings *RtmpOutputSettings `locationName:"rtmpOutputSettings" type:"structure"`
+	RtmpOutputSettings *RtmpOutputSettings `json:"medialive:OutputSettings:RtmpOutputSettings" locationName:"rtmpOutputSettings" type:"structure"`
 
 	// Udp Output Settings
-	UdpOutputSettings *UdpOutputSettings `locationName:"udpOutputSettings" type:"structure"`
+	UdpOutputSettings *UdpOutputSettings `json:"medialive:OutputSettings:UdpOutputSettings" locationName:"udpOutputSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -8360,7 +8360,7 @@ func (s PassThroughSettings) MarshalFields(e protocol.FieldEncoder) error {
 type PauseStateScheduleActionSettings struct {
 	_ struct{} `type:"structure"`
 
-	Pipelines []PipelinePauseStateSettings `locationName:"pipelines" type:"list"`
+	Pipelines []PipelinePauseStateSettings `json:"medialive:PauseStateScheduleActionSettings:Pipelines" locationName:"pipelines" type:"list"`
 }
 
 // String returns the string representation
@@ -8410,7 +8410,7 @@ type PipelinePauseStateSettings struct {
 	// Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
 	//
 	// PipelineId is a required field
-	PipelineId PipelineId `locationName:"pipelineId" type:"string" required:"true" enum:"true"`
+	PipelineId PipelineId `json:"medialive:PipelinePauseStateSettings:PipelineId" locationName:"pipelineId" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -8450,13 +8450,13 @@ type RemixSettings struct {
 	// Mapping of input channels to output channels, with appropriate gain adjustments.
 	//
 	// ChannelMappings is a required field
-	ChannelMappings []AudioChannelMapping `locationName:"channelMappings" type:"list" required:"true"`
+	ChannelMappings []AudioChannelMapping `json:"medialive:RemixSettings:ChannelMappings" locationName:"channelMappings" type:"list" required:"true"`
 
 	// Number of input channels to be used.
-	ChannelsIn *int64 `locationName:"channelsIn" min:"1" type:"integer"`
+	ChannelsIn *int64 `json:"medialive:RemixSettings:ChannelsIn" locationName:"channelsIn" min:"1" type:"integer"`
 
 	// Number of output channels to be produced.Valid values: 1, 2, 4, 6, 8
-	ChannelsOut *int64 `locationName:"channelsOut" min:"1" type:"integer"`
+	ChannelsOut *int64 `json:"medialive:RemixSettings:ChannelsOut" locationName:"channelsOut" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -8526,59 +8526,59 @@ type Reservation struct {
 	_ struct{} `type:"structure"`
 
 	// Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:Reservation:Arn" locationName:"arn" type:"string"`
 
 	// Number of reserved resources
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"medialive:Reservation:Count" locationName:"count" type:"integer"`
 
 	// Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
-	CurrencyCode *string `locationName:"currencyCode" type:"string"`
+	CurrencyCode *string `json:"medialive:Reservation:CurrencyCode" locationName:"currencyCode" type:"string"`
 
 	// Lease duration, e.g. '12'
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"medialive:Reservation:Duration" locationName:"duration" type:"integer"`
 
 	// Units for duration, e.g. 'MONTHS'
-	DurationUnits OfferingDurationUnits `locationName:"durationUnits" type:"string" enum:"true"`
+	DurationUnits OfferingDurationUnits `json:"medialive:Reservation:DurationUnits" locationName:"durationUnits" type:"string" enum:"true"`
 
 	// Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
-	End *string `locationName:"end" type:"string"`
+	End *string `json:"medialive:Reservation:End" locationName:"end" type:"string"`
 
 	// One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
-	FixedPrice *float64 `locationName:"fixedPrice" type:"double"`
+	FixedPrice *float64 `json:"medialive:Reservation:FixedPrice" locationName:"fixedPrice" type:"double"`
 
 	// User specified reservation name
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"medialive:Reservation:Name" locationName:"name" type:"string"`
 
 	// Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard
 	// VQ in US West (Oregon)'
-	OfferingDescription *string `locationName:"offeringDescription" type:"string"`
+	OfferingDescription *string `json:"medialive:Reservation:OfferingDescription" locationName:"offeringDescription" type:"string"`
 
 	// Unique offering ID, e.g. '87654321'
-	OfferingId *string `locationName:"offeringId" type:"string"`
+	OfferingId *string `json:"medialive:Reservation:OfferingId" locationName:"offeringId" type:"string"`
 
 	// Offering type, e.g. 'NO_UPFRONT'
-	OfferingType OfferingType `locationName:"offeringType" type:"string" enum:"true"`
+	OfferingType OfferingType `json:"medialive:Reservation:OfferingType" locationName:"offeringType" type:"string" enum:"true"`
 
 	// AWS region, e.g. 'us-west-2'
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"medialive:Reservation:Region" locationName:"region" type:"string"`
 
 	// Unique reservation ID, e.g. '1234567'
-	ReservationId *string `locationName:"reservationId" type:"string"`
+	ReservationId *string `json:"medialive:Reservation:ReservationId" locationName:"reservationId" type:"string"`
 
 	// Resource configuration details
-	ResourceSpecification *ReservationResourceSpecification `locationName:"resourceSpecification" type:"structure"`
+	ResourceSpecification *ReservationResourceSpecification `json:"medialive:Reservation:ResourceSpecification" locationName:"resourceSpecification" type:"structure"`
 
 	// Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
-	Start *string `locationName:"start" type:"string"`
+	Start *string `json:"medialive:Reservation:Start" locationName:"start" type:"string"`
 
 	// Current state of reservation, e.g. 'ACTIVE'
-	State ReservationState `locationName:"state" type:"string" enum:"true"`
+	State ReservationState `json:"medialive:Reservation:State" locationName:"state" type:"string" enum:"true"`
 
 	// A collection of key-value pairs
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:Reservation:Tags" locationName:"tags" type:"map"`
 
 	// Recurring usage charge for each reserved resource, e.g. '157.0'
-	UsagePrice *float64 `locationName:"usagePrice" type:"double"`
+	UsagePrice *float64 `json:"medialive:Reservation:UsagePrice" locationName:"usagePrice" type:"double"`
 }
 
 // String returns the string representation
@@ -8711,28 +8711,28 @@ type ReservationResourceSpecification struct {
 	_ struct{} `type:"structure"`
 
 	// Channel class, e.g. 'STANDARD'
-	ChannelClass ChannelClass `locationName:"channelClass" type:"string" enum:"true"`
+	ChannelClass ChannelClass `json:"medialive:ReservationResourceSpecification:ChannelClass" locationName:"channelClass" type:"string" enum:"true"`
 
 	// Codec, e.g. 'AVC'
-	Codec ReservationCodec `locationName:"codec" type:"string" enum:"true"`
+	Codec ReservationCodec `json:"medialive:ReservationResourceSpecification:Codec" locationName:"codec" type:"string" enum:"true"`
 
 	// Maximum bitrate, e.g. 'MAX_20_MBPS'
-	MaximumBitrate ReservationMaximumBitrate `locationName:"maximumBitrate" type:"string" enum:"true"`
+	MaximumBitrate ReservationMaximumBitrate `json:"medialive:ReservationResourceSpecification:MaximumBitrate" locationName:"maximumBitrate" type:"string" enum:"true"`
 
 	// Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
-	MaximumFramerate ReservationMaximumFramerate `locationName:"maximumFramerate" type:"string" enum:"true"`
+	MaximumFramerate ReservationMaximumFramerate `json:"medialive:ReservationResourceSpecification:MaximumFramerate" locationName:"maximumFramerate" type:"string" enum:"true"`
 
 	// Resolution, e.g. 'HD'
-	Resolution ReservationResolution `locationName:"resolution" type:"string" enum:"true"`
+	Resolution ReservationResolution `json:"medialive:ReservationResourceSpecification:Resolution" locationName:"resolution" type:"string" enum:"true"`
 
 	// Resource type, 'INPUT', 'OUTPUT', or 'CHANNEL'
-	ResourceType ReservationResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ReservationResourceType `json:"medialive:ReservationResourceSpecification:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
-	SpecialFeature ReservationSpecialFeature `locationName:"specialFeature" type:"string" enum:"true"`
+	SpecialFeature ReservationSpecialFeature `json:"medialive:ReservationResourceSpecification:SpecialFeature" locationName:"specialFeature" type:"string" enum:"true"`
 
 	// Video quality, e.g. 'STANDARD' (Outputs only)
-	VideoQuality ReservationVideoQuality `locationName:"videoQuality" type:"string" enum:"true"`
+	VideoQuality ReservationVideoQuality `json:"medialive:ReservationResourceSpecification:VideoQuality" locationName:"videoQuality" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -8815,7 +8815,7 @@ type RtmpGroupSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Authentication scheme to use when connecting with CDN
-	AuthenticationScheme AuthenticationScheme `locationName:"authenticationScheme" type:"string" enum:"true"`
+	AuthenticationScheme AuthenticationScheme `json:"medialive:RtmpGroupSettings:AuthenticationScheme" locationName:"authenticationScheme" type:"string" enum:"true"`
 
 	// Controls behavior when content cache fills up. If remote origin server stalls
 	// the RTMP connection and does not accept content fast enough the 'Media Cache'
@@ -8824,26 +8824,26 @@ type RtmpGroupSettings struct {
 	// the RTMP output will force a disconnect. Clear the media cache, and reconnect
 	// after restartDelay seconds. If set to waitForServer, the RTMP output will
 	// wait up to 5 minutes to allow the origin server to begin accepting data again.
-	CacheFullBehavior RtmpCacheFullBehavior `locationName:"cacheFullBehavior" type:"string" enum:"true"`
+	CacheFullBehavior RtmpCacheFullBehavior `json:"medialive:RtmpGroupSettings:CacheFullBehavior" locationName:"cacheFullBehavior" type:"string" enum:"true"`
 
 	// Cache length, in seconds, is used to calculate buffer size.
-	CacheLength *int64 `locationName:"cacheLength" min:"30" type:"integer"`
+	CacheLength *int64 `json:"medialive:RtmpGroupSettings:CacheLength" locationName:"cacheLength" min:"30" type:"integer"`
 
 	// Controls the types of data that passes to onCaptionInfo outputs. If set to
 	// 'all' then 608 and 708 carried DTVCC data will be passed. If set to 'field1AndField2608'
 	// then DTVCC data will be stripped out, but 608 data from both fields will
 	// be passed. If set to 'field1608' then only the data carried in 608 from field
 	// 1 video will be passed.
-	CaptionData RtmpCaptionData `locationName:"captionData" type:"string" enum:"true"`
+	CaptionData RtmpCaptionData `json:"medialive:RtmpGroupSettings:CaptionData" locationName:"captionData" type:"string" enum:"true"`
 
 	// Controls the behavior of this RTMP group if input becomes unavailable.- emitOutput:
 	// Emit a slate until input returns.- pauseOutput: Stop transmitting data until
 	// input returns. This does not close the underlying RTMP connection.
-	InputLossAction InputLossActionForRtmpOut `locationName:"inputLossAction" type:"string" enum:"true"`
+	InputLossAction InputLossActionForRtmpOut `json:"medialive:RtmpGroupSettings:InputLossAction" locationName:"inputLossAction" type:"string" enum:"true"`
 
 	// If a streaming output fails, number of seconds to wait until a restart is
 	// initiated. A value of 0 means never restart.
-	RestartDelay *int64 `locationName:"restartDelay" type:"integer"`
+	RestartDelay *int64 `json:"medialive:RtmpGroupSettings:RestartDelay" locationName:"restartDelay" type:"integer"`
 }
 
 // String returns the string representation
@@ -8913,21 +8913,21 @@ type RtmpOutputSettings struct {
 	// If set to verifyAuthenticity, verify the tls certificate chain to a trusted
 	// Certificate Authority (CA). This will cause rtmps outputs with self-signed
 	// certificates to fail.
-	CertificateMode RtmpOutputCertificateMode `locationName:"certificateMode" type:"string" enum:"true"`
+	CertificateMode RtmpOutputCertificateMode `json:"medialive:RtmpOutputSettings:CertificateMode" locationName:"certificateMode" type:"string" enum:"true"`
 
 	// Number of seconds to wait before retrying a connection to the Flash Media
 	// server if the connection is lost.
-	ConnectionRetryInterval *int64 `locationName:"connectionRetryInterval" min:"1" type:"integer"`
+	ConnectionRetryInterval *int64 `json:"medialive:RtmpOutputSettings:ConnectionRetryInterval" locationName:"connectionRetryInterval" min:"1" type:"integer"`
 
 	// The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For
 	// connection to Akamai, a username and password must be supplied. URI fields
 	// accept format identifiers.
 	//
 	// Destination is a required field
-	Destination *OutputLocationRef `locationName:"destination" type:"structure" required:"true"`
+	Destination *OutputLocationRef `json:"medialive:RtmpOutputSettings:Destination" locationName:"destination" type:"structure" required:"true"`
 
 	// Number of retry attempts.
-	NumRetries *int64 `locationName:"numRetries" type:"integer"`
+	NumRetries *int64 `json:"medialive:RtmpOutputSettings:NumRetries" locationName:"numRetries" type:"integer"`
 }
 
 // String returns the string representation
@@ -8993,17 +8993,17 @@ type ScheduleAction struct {
 	// so at that point a name can be reused.
 	//
 	// ActionName is a required field
-	ActionName *string `locationName:"actionName" type:"string" required:"true"`
+	ActionName *string `json:"medialive:ScheduleAction:ActionName" locationName:"actionName" type:"string" required:"true"`
 
 	// Settings for this schedule action.
 	//
 	// ScheduleActionSettings is a required field
-	ScheduleActionSettings *ScheduleActionSettings `locationName:"scheduleActionSettings" type:"structure" required:"true"`
+	ScheduleActionSettings *ScheduleActionSettings `json:"medialive:ScheduleAction:ScheduleActionSettings" locationName:"scheduleActionSettings" type:"structure" required:"true"`
 
 	// The time for the action to start in the channel.
 	//
 	// ScheduleActionStartSettings is a required field
-	ScheduleActionStartSettings *ScheduleActionStartSettings `locationName:"scheduleActionStartSettings" type:"structure" required:"true"`
+	ScheduleActionStartSettings *ScheduleActionStartSettings `json:"medialive:ScheduleAction:ScheduleActionStartSettings" locationName:"scheduleActionStartSettings" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -9072,28 +9072,28 @@ type ScheduleActionSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Action to insert HLS metadata
-	HlsTimedMetadataSettings *HlsTimedMetadataScheduleActionSettings `locationName:"hlsTimedMetadataSettings" type:"structure"`
+	HlsTimedMetadataSettings *HlsTimedMetadataScheduleActionSettings `json:"medialive:ScheduleActionSettings:HlsTimedMetadataSettings" locationName:"hlsTimedMetadataSettings" type:"structure"`
 
 	// Action to switch the input
-	InputSwitchSettings *InputSwitchScheduleActionSettings `locationName:"inputSwitchSettings" type:"structure"`
+	InputSwitchSettings *InputSwitchScheduleActionSettings `json:"medialive:ScheduleActionSettings:InputSwitchSettings" locationName:"inputSwitchSettings" type:"structure"`
 
 	// Action to pause or unpause one or both channel pipelines
-	PauseStateSettings *PauseStateScheduleActionSettings `locationName:"pauseStateSettings" type:"structure"`
+	PauseStateSettings *PauseStateScheduleActionSettings `json:"medialive:ScheduleActionSettings:PauseStateSettings" locationName:"pauseStateSettings" type:"structure"`
 
 	// Action to insert SCTE-35 return_to_network message
-	Scte35ReturnToNetworkSettings *Scte35ReturnToNetworkScheduleActionSettings `locationName:"scte35ReturnToNetworkSettings" type:"structure"`
+	Scte35ReturnToNetworkSettings *Scte35ReturnToNetworkScheduleActionSettings `json:"medialive:ScheduleActionSettings:Scte35ReturnToNetworkSettings" locationName:"scte35ReturnToNetworkSettings" type:"structure"`
 
 	// Action to insert SCTE-35 splice_insert message
-	Scte35SpliceInsertSettings *Scte35SpliceInsertScheduleActionSettings `locationName:"scte35SpliceInsertSettings" type:"structure"`
+	Scte35SpliceInsertSettings *Scte35SpliceInsertScheduleActionSettings `json:"medialive:ScheduleActionSettings:Scte35SpliceInsertSettings" locationName:"scte35SpliceInsertSettings" type:"structure"`
 
 	// Action to insert SCTE-35 time_signal message
-	Scte35TimeSignalSettings *Scte35TimeSignalScheduleActionSettings `locationName:"scte35TimeSignalSettings" type:"structure"`
+	Scte35TimeSignalSettings *Scte35TimeSignalScheduleActionSettings `json:"medialive:ScheduleActionSettings:Scte35TimeSignalSettings" locationName:"scte35TimeSignalSettings" type:"structure"`
 
 	// Action to activate a static image overlay
-	StaticImageActivateSettings *StaticImageActivateScheduleActionSettings `locationName:"staticImageActivateSettings" type:"structure"`
+	StaticImageActivateSettings *StaticImageActivateScheduleActionSettings `json:"medialive:ScheduleActionSettings:StaticImageActivateSettings" locationName:"staticImageActivateSettings" type:"structure"`
 
 	// Action to deactivate a static image overlay
-	StaticImageDeactivateSettings *StaticImageDeactivateScheduleActionSettings `locationName:"staticImageDeactivateSettings" type:"structure"`
+	StaticImageDeactivateSettings *StaticImageDeactivateScheduleActionSettings `json:"medialive:ScheduleActionSettings:StaticImageDeactivateSettings" locationName:"staticImageDeactivateSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -9205,10 +9205,10 @@ type ScheduleActionStartSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Holds the start time for the action.
-	FixedModeScheduleActionStartSettings *FixedModeScheduleActionStartSettings `locationName:"fixedModeScheduleActionStartSettings" type:"structure"`
+	FixedModeScheduleActionStartSettings *FixedModeScheduleActionStartSettings `json:"medialive:ScheduleActionStartSettings:FixedModeScheduleActionStartSettings" locationName:"fixedModeScheduleActionStartSettings" type:"structure"`
 
 	// Specifies an action to follow for scheduling this action.
-	FollowModeScheduleActionStartSettings *FollowModeScheduleActionStartSettings `locationName:"followModeScheduleActionStartSettings" type:"structure"`
+	FollowModeScheduleActionStartSettings *FollowModeScheduleActionStartSettings `json:"medialive:ScheduleActionStartSettings:FollowModeScheduleActionStartSettings" locationName:"followModeScheduleActionStartSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -9277,11 +9277,11 @@ type Scte20SourceSettings struct {
 	// If upconvert, 608 data is both passed through via the "608 compatibility
 	// bytes" fields of the 708 wrapper as well as translated into 708. 708 data
 	// present in the source content will be discarded.
-	Convert608To708 Scte20Convert608To708 `locationName:"convert608To708" type:"string" enum:"true"`
+	Convert608To708 Scte20Convert608To708 `json:"medialive:Scte20SourceSettings:Convert608To708" locationName:"convert608To708" type:"string" enum:"true"`
 
 	// Specifies the 608/708 channel number within the video track from which to
 	// extract captions. Unused for passthrough.
-	Source608ChannelNumber *int64 `locationName:"source608ChannelNumber" min:"1" type:"integer"`
+	Source608ChannelNumber *int64 `json:"medialive:Scte20SourceSettings:Source608ChannelNumber" locationName:"source608ChannelNumber" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -9347,7 +9347,7 @@ type Scte27SourceSettings struct {
 	// language, whichever PID that happens to be. - Omit PID and omit Language:
 	// Valid only if source is DVB-Sub that is being passed through; all languages
 	// will be passed through.
-	Pid *int64 `locationName:"pid" min:"1" type:"integer"`
+	Pid *int64 `json:"medialive:Scte27SourceSettings:Pid" locationName:"pid" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -9389,22 +9389,22 @@ type Scte35DeliveryRestrictions struct {
 	// Corresponds to SCTE-35 archive_allowed_flag.
 	//
 	// ArchiveAllowedFlag is a required field
-	ArchiveAllowedFlag Scte35ArchiveAllowedFlag `locationName:"archiveAllowedFlag" type:"string" required:"true" enum:"true"`
+	ArchiveAllowedFlag Scte35ArchiveAllowedFlag `json:"medialive:Scte35DeliveryRestrictions:ArchiveAllowedFlag" locationName:"archiveAllowedFlag" type:"string" required:"true" enum:"true"`
 
 	// Corresponds to SCTE-35 device_restrictions parameter.
 	//
 	// DeviceRestrictions is a required field
-	DeviceRestrictions Scte35DeviceRestrictions `locationName:"deviceRestrictions" type:"string" required:"true" enum:"true"`
+	DeviceRestrictions Scte35DeviceRestrictions `json:"medialive:Scte35DeliveryRestrictions:DeviceRestrictions" locationName:"deviceRestrictions" type:"string" required:"true" enum:"true"`
 
 	// Corresponds to SCTE-35 no_regional_blackout_flag parameter.
 	//
 	// NoRegionalBlackoutFlag is a required field
-	NoRegionalBlackoutFlag Scte35NoRegionalBlackoutFlag `locationName:"noRegionalBlackoutFlag" type:"string" required:"true" enum:"true"`
+	NoRegionalBlackoutFlag Scte35NoRegionalBlackoutFlag `json:"medialive:Scte35DeliveryRestrictions:NoRegionalBlackoutFlag" locationName:"noRegionalBlackoutFlag" type:"string" required:"true" enum:"true"`
 
 	// Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
 	//
 	// WebDeliveryAllowedFlag is a required field
-	WebDeliveryAllowedFlag Scte35WebDeliveryAllowedFlag `locationName:"webDeliveryAllowedFlag" type:"string" required:"true" enum:"true"`
+	WebDeliveryAllowedFlag Scte35WebDeliveryAllowedFlag `json:"medialive:Scte35DeliveryRestrictions:WebDeliveryAllowedFlag" locationName:"webDeliveryAllowedFlag" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -9471,7 +9471,7 @@ type Scte35Descriptor struct {
 	// SCTE-35 Descriptor Settings.
 	//
 	// Scte35DescriptorSettings is a required field
-	Scte35DescriptorSettings *Scte35DescriptorSettings `locationName:"scte35DescriptorSettings" type:"structure" required:"true"`
+	Scte35DescriptorSettings *Scte35DescriptorSettings `json:"medialive:Scte35Descriptor:Scte35DescriptorSettings" locationName:"scte35DescriptorSettings" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -9517,7 +9517,7 @@ type Scte35DescriptorSettings struct {
 	// SCTE-35 Segmentation Descriptor.
 	//
 	// SegmentationDescriptorScte35DescriptorSettings is a required field
-	SegmentationDescriptorScte35DescriptorSettings *Scte35SegmentationDescriptor `locationName:"segmentationDescriptorScte35DescriptorSettings" type:"structure" required:"true"`
+	SegmentationDescriptorScte35DescriptorSettings *Scte35SegmentationDescriptor `json:"medialive:Scte35DescriptorSettings:SegmentationDescriptorScte35DescriptorSettings" locationName:"segmentationDescriptorScte35DescriptorSettings" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -9563,7 +9563,7 @@ type Scte35ReturnToNetworkScheduleActionSettings struct {
 	// The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
 	//
 	// SpliceEventId is a required field
-	SpliceEventId *int64 `locationName:"spliceEventId" type:"long" required:"true"`
+	SpliceEventId *int64 `json:"medialive:Scte35ReturnToNetworkScheduleActionSettings:SpliceEventId" locationName:"spliceEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -9602,60 +9602,60 @@ type Scte35SegmentationDescriptor struct {
 	_ struct{} `type:"structure"`
 
 	// Holds the four SCTE-35 delivery restriction parameters.
-	DeliveryRestrictions *Scte35DeliveryRestrictions `locationName:"deliveryRestrictions" type:"structure"`
+	DeliveryRestrictions *Scte35DeliveryRestrictions `json:"medialive:Scte35SegmentationDescriptor:DeliveryRestrictions" locationName:"deliveryRestrictions" type:"structure"`
 
 	// Corresponds to SCTE-35 segment_num. A value that is valid for the specified
 	// segmentation_type_id.
-	SegmentNum *int64 `locationName:"segmentNum" type:"integer"`
+	SegmentNum *int64 `json:"medialive:Scte35SegmentationDescriptor:SegmentNum" locationName:"segmentNum" type:"integer"`
 
 	// Corresponds to SCTE-35 segmentation_event_cancel_indicator.
 	//
 	// SegmentationCancelIndicator is a required field
-	SegmentationCancelIndicator Scte35SegmentationCancelIndicator `locationName:"segmentationCancelIndicator" type:"string" required:"true" enum:"true"`
+	SegmentationCancelIndicator Scte35SegmentationCancelIndicator `json:"medialive:Scte35SegmentationDescriptor:SegmentationCancelIndicator" locationName:"segmentationCancelIndicator" type:"string" required:"true" enum:"true"`
 
 	// Corresponds to SCTE-35 segmentation_duration. Optional. The duration for
 	// the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the
 	// seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter
 	// a duration, the time_signal will continue until you insert a cancellation
 	// message.
-	SegmentationDuration *int64 `locationName:"segmentationDuration" type:"long"`
+	SegmentationDuration *int64 `json:"medialive:Scte35SegmentationDescriptor:SegmentationDuration" locationName:"segmentationDuration" type:"long"`
 
 	// Corresponds to SCTE-35 segmentation_event_id.
 	//
 	// SegmentationEventId is a required field
-	SegmentationEventId *int64 `locationName:"segmentationEventId" type:"long" required:"true"`
+	SegmentationEventId *int64 `json:"medialive:Scte35SegmentationDescriptor:SegmentationEventId" locationName:"segmentationEventId" type:"long" required:"true"`
 
 	// Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id
 	// values listed in the SCTE-35 specification. On the console, enter the ID
 	// in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID
 	// in hex (for example, "0x34") or decimal (for example, "52").
-	SegmentationTypeId *int64 `locationName:"segmentationTypeId" type:"integer"`
+	SegmentationTypeId *int64 `json:"medialive:Scte35SegmentationDescriptor:SegmentationTypeId" locationName:"segmentationTypeId" type:"integer"`
 
 	// Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal
 	// representation of the characters that make up the SCTE-35 segmentation_upid
 	// value. Must contain an even number of hex characters. Do not include spaces
 	// between each hex pair. For example, the ASCII "ADS Information" becomes hex
 	// "41445320496e666f726d6174696f6e.
-	SegmentationUpid *string `locationName:"segmentationUpid" type:"string"`
+	SegmentationUpid *string `json:"medialive:Scte35SegmentationDescriptor:SegmentationUpid" locationName:"segmentationUpid" type:"string"`
 
 	// Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
 	// of the types listed in the SCTE-35 specification, converted to a decimal.
 	// For example, "0x0C" hex from the specification is "12" in decimal. In the
 	// CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification,
 	// in either hex (for example, "0x0C" ) or in decimal (for example, "12").
-	SegmentationUpidType *int64 `locationName:"segmentationUpidType" type:"integer"`
+	SegmentationUpidType *int64 `json:"medialive:Scte35SegmentationDescriptor:SegmentationUpidType" locationName:"segmentationUpidType" type:"integer"`
 
 	// Corresponds to SCTE-35 segments_expected. A value that is valid for the specified
 	// segmentation_type_id.
-	SegmentsExpected *int64 `locationName:"segmentsExpected" type:"integer"`
+	SegmentsExpected *int64 `json:"medialive:Scte35SegmentationDescriptor:SegmentsExpected" locationName:"segmentsExpected" type:"integer"`
 
 	// Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified
 	// segmentation_type_id.
-	SubSegmentNum *int64 `locationName:"subSegmentNum" type:"integer"`
+	SubSegmentNum *int64 `json:"medialive:Scte35SegmentationDescriptor:SubSegmentNum" locationName:"subSegmentNum" type:"integer"`
 
 	// Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the
 	// specified segmentation_type_id.
-	SubSegmentsExpected *int64 `locationName:"subSegmentsExpected" type:"integer"`
+	SubSegmentsExpected *int64 `json:"medialive:Scte35SegmentationDescriptor:SubSegmentsExpected" locationName:"subSegmentsExpected" type:"integer"`
 }
 
 // String returns the string representation
@@ -9764,15 +9764,15 @@ type Scte35SpliceInsert struct {
 	// When specified, this offset (in milliseconds) is added to the input Ad Avail
 	// PTS time. This only applies to embedded SCTE 104/35 messages and does not
 	// apply to OOB messages.
-	AdAvailOffset *int64 `locationName:"adAvailOffset" type:"integer"`
+	AdAvailOffset *int64 `json:"medialive:Scte35SpliceInsert:AdAvailOffset" locationName:"adAvailOffset" type:"integer"`
 
 	// When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to
 	// 0 will no longer trigger blackouts or Ad Avail slates
-	NoRegionalBlackoutFlag Scte35SpliceInsertNoRegionalBlackoutBehavior `locationName:"noRegionalBlackoutFlag" type:"string" enum:"true"`
+	NoRegionalBlackoutFlag Scte35SpliceInsertNoRegionalBlackoutBehavior `json:"medialive:Scte35SpliceInsert:NoRegionalBlackoutFlag" locationName:"noRegionalBlackoutFlag" type:"string" enum:"true"`
 
 	// When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to
 	// 0 will no longer trigger blackouts or Ad Avail slates
-	WebDeliveryAllowedFlag Scte35SpliceInsertWebDeliveryAllowedBehavior `locationName:"webDeliveryAllowedFlag" type:"string" enum:"true"`
+	WebDeliveryAllowedFlag Scte35SpliceInsertWebDeliveryAllowedBehavior `json:"medialive:Scte35SpliceInsert:WebDeliveryAllowedFlag" locationName:"webDeliveryAllowedFlag" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9827,12 +9827,12 @@ type Scte35SpliceInsertScheduleActionSettings struct {
 	// and cue in at that time. If you do not enter a duration, the splice_insert
 	// will continue indefinitely and there is an expectation that you will enter
 	// a return_to_network to end the splice_insert at the appropriate time.
-	Duration *int64 `locationName:"duration" type:"long"`
+	Duration *int64 `json:"medialive:Scte35SpliceInsertScheduleActionSettings:Duration" locationName:"duration" type:"long"`
 
 	// The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
 	//
 	// SpliceEventId is a required field
-	SpliceEventId *int64 `locationName:"spliceEventId" type:"long" required:"true"`
+	SpliceEventId *int64 `json:"medialive:Scte35SpliceInsertScheduleActionSettings:SpliceEventId" locationName:"spliceEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -9879,15 +9879,15 @@ type Scte35TimeSignalApos struct {
 	// When specified, this offset (in milliseconds) is added to the input Ad Avail
 	// PTS time. This only applies to embedded SCTE 104/35 messages and does not
 	// apply to OOB messages.
-	AdAvailOffset *int64 `locationName:"adAvailOffset" type:"integer"`
+	AdAvailOffset *int64 `json:"medialive:Scte35TimeSignalApos:AdAvailOffset" locationName:"adAvailOffset" type:"integer"`
 
 	// When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to
 	// 0 will no longer trigger blackouts or Ad Avail slates
-	NoRegionalBlackoutFlag Scte35AposNoRegionalBlackoutBehavior `locationName:"noRegionalBlackoutFlag" type:"string" enum:"true"`
+	NoRegionalBlackoutFlag Scte35AposNoRegionalBlackoutBehavior `json:"medialive:Scte35TimeSignalApos:NoRegionalBlackoutFlag" locationName:"noRegionalBlackoutFlag" type:"string" enum:"true"`
 
 	// When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to
 	// 0 will no longer trigger blackouts or Ad Avail slates
-	WebDeliveryAllowedFlag Scte35AposWebDeliveryAllowedBehavior `locationName:"webDeliveryAllowedFlag" type:"string" enum:"true"`
+	WebDeliveryAllowedFlag Scte35AposWebDeliveryAllowedBehavior `json:"medialive:Scte35TimeSignalApos:WebDeliveryAllowedFlag" locationName:"webDeliveryAllowedFlag" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9939,7 +9939,7 @@ type Scte35TimeSignalScheduleActionSettings struct {
 	// The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
 	//
 	// Scte35Descriptors is a required field
-	Scte35Descriptors []Scte35Descriptor `locationName:"scte35Descriptors" type:"list" required:"true"`
+	Scte35Descriptors []Scte35Descriptor `json:"medialive:Scte35TimeSignalScheduleActionSettings:Scte35Descriptors" locationName:"scte35Descriptors" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -10008,12 +10008,12 @@ type StandardHlsSettings struct {
 
 	// List all the audio groups that are used with the video output stream. Input
 	// all the audio GROUP-IDs that are associated to the video, separate by ','.
-	AudioRenditionSets *string `locationName:"audioRenditionSets" type:"string"`
+	AudioRenditionSets *string `json:"medialive:StandardHlsSettings:AudioRenditionSets" locationName:"audioRenditionSets" type:"string"`
 
 	// Settings information for the .m3u8 container
 	//
 	// M3u8Settings is a required field
-	M3u8Settings *M3u8Settings `locationName:"m3u8Settings" type:"structure" required:"true"`
+	M3u8Settings *M3u8Settings `json:"medialive:StandardHlsSettings:M3u8Settings" locationName:"m3u8Settings" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -10060,55 +10060,55 @@ type StaticImageActivateScheduleActionSettings struct {
 	// The duration in milliseconds for the image to remain on the video. If omitted
 	// or set to 0 the duration is unlimited and the image will remain until it
 	// is explicitly deactivated.
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:Duration" locationName:"duration" type:"integer"`
 
 	// The time in milliseconds for the image to fade in. The fade-in starts at
 	// the start time of the overlay. Default is 0 (no fade-in).
-	FadeIn *int64 `locationName:"fadeIn" type:"integer"`
+	FadeIn *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:FadeIn" locationName:"fadeIn" type:"integer"`
 
 	// Applies only if a duration is specified. The time in milliseconds for the
 	// image to fade out. The fade-out starts when the duration time is hit, so
 	// it effectively extends the duration. Default is 0 (no fade-out).
-	FadeOut *int64 `locationName:"fadeOut" type:"integer"`
+	FadeOut *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:FadeOut" locationName:"fadeOut" type:"integer"`
 
 	// The height of the image when inserted into the video, in pixels. The overlay
 	// will be scaled up or down to the specified height. Leave blank to use the
 	// native height of the overlay.
-	Height *int64 `locationName:"height" min:"1" type:"integer"`
+	Height *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:Height" locationName:"height" min:"1" type:"integer"`
 
 	// The location and filename of the image file to overlay on the video. The
 	// file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels)
 	// than the input video.
 	//
 	// Image is a required field
-	Image *InputLocation `locationName:"image" type:"structure" required:"true"`
+	Image *InputLocation `json:"medialive:StaticImageActivateScheduleActionSettings:Image" locationName:"image" type:"structure" required:"true"`
 
 	// Placement of the left edge of the overlay relative to the left edge of the
 	// video frame, in pixels. 0 (the default) is the left edge of the frame. If
 	// the placement causes the overlay to extend beyond the right edge of the underlying
 	// video, then the overlay is cropped on the right.
-	ImageX *int64 `locationName:"imageX" type:"integer"`
+	ImageX *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:ImageX" locationName:"imageX" type:"integer"`
 
 	// Placement of the top edge of the overlay relative to the top edge of the
 	// video frame, in pixels. 0 (the default) is the top edge of the frame. If
 	// the placement causes the overlay to extend beyond the bottom edge of the
 	// underlying video, then the overlay is cropped on the bottom.
-	ImageY *int64 `locationName:"imageY" type:"integer"`
+	ImageY *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:ImageY" locationName:"imageY" type:"integer"`
 
 	// The number of the layer, 0 to 7. There are 8 layers that can be overlaid
 	// on the video, each layer with a different image. The layers are in Z order,
 	// which means that overlays with higher values of layer are inserted on top
 	// of overlays with lower values of layer. Default is 0.
-	Layer *int64 `locationName:"layer" type:"integer"`
+	Layer *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:Layer" locationName:"layer" type:"integer"`
 
 	// Opacity of image where 0 is transparent and 100 is fully opaque. Default
 	// is 100.
-	Opacity *int64 `locationName:"opacity" type:"integer"`
+	Opacity *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:Opacity" locationName:"opacity" type:"integer"`
 
 	// The width of the image when inserted into the video, in pixels. The overlay
 	// will be scaled up or down to the specified width. Leave blank to use the
 	// native width of the overlay.
-	Width *int64 `locationName:"width" min:"1" type:"integer"`
+	Width *int64 `json:"medialive:StaticImageActivateScheduleActionSettings:Width" locationName:"width" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -10212,10 +10212,10 @@ type StaticImageDeactivateScheduleActionSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
-	FadeOut *int64 `locationName:"fadeOut" type:"integer"`
+	FadeOut *int64 `json:"medialive:StaticImageDeactivateScheduleActionSettings:FadeOut" locationName:"fadeOut" type:"integer"`
 
 	// The image overlay layer to deactivate, 0 to 7. Default is 0.
-	Layer *int64 `locationName:"layer" type:"integer"`
+	Layer *int64 `json:"medialive:StaticImageDeactivateScheduleActionSettings:Layer" locationName:"layer" type:"integer"`
 }
 
 // String returns the string representation
@@ -10246,12 +10246,12 @@ type StaticKeySettings struct {
 	_ struct{} `type:"structure"`
 
 	// The URL of the license server used for protecting content.
-	KeyProviderServer *InputLocation `locationName:"keyProviderServer" type:"structure"`
+	KeyProviderServer *InputLocation `json:"medialive:StaticKeySettings:KeyProviderServer" locationName:"keyProviderServer" type:"structure"`
 
 	// Static key value as a 32 character hexadecimal string.
 	//
 	// StaticKeyValue is a required field
-	StaticKeyValue *string `locationName:"staticKeyValue" min:"32" type:"string" required:"true"`
+	StaticKeyValue *string `json:"medialive:StaticKeySettings:StaticKeyValue" locationName:"staticKeyValue" min:"32" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -10322,7 +10322,7 @@ type TeletextSourceSettings struct {
 	// Specifies the teletext page number within the data stream from which to extract
 	// captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should
 	// be specified as a hexadecimal string with no "0x" prefix.
-	PageNumber *string `locationName:"pageNumber" type:"string"`
+	PageNumber *string `json:"medialive:TeletextSourceSettings:PageNumber" locationName:"pageNumber" type:"string"`
 }
 
 // String returns the string representation
@@ -10354,13 +10354,13 @@ type TimecodeConfig struct {
 	// the event will be 00:00:00:00.
 	//
 	// Source is a required field
-	Source TimecodeConfigSource `locationName:"source" type:"string" required:"true" enum:"true"`
+	Source TimecodeConfigSource `json:"medialive:TimecodeConfig:Source" locationName:"source" type:"string" required:"true" enum:"true"`
 
 	// Threshold in frames beyond which output timecode is resynchronized to the
 	// input timecode. Discrepancies below this threshold are permitted to avoid
 	// unnecessary discontinuities in the output timecode. No timecode sync when
 	// this is not specified.
-	SyncThreshold *int64 `locationName:"syncThreshold" min:"1" type:"integer"`
+	SyncThreshold *int64 `json:"medialive:TimecodeConfig:SyncThreshold" locationName:"syncThreshold" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -10409,7 +10409,7 @@ type TtmlDestinationSettings struct {
 	// When set to passthrough, passes through style and position information from
 	// a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or
 	// TTML output.
-	StyleControl TtmlDestinationStyleControl `locationName:"styleControl" type:"string" enum:"true"`
+	StyleControl TtmlDestinationStyleControl `json:"medialive:TtmlDestinationSettings:StyleControl" locationName:"styleControl" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10434,7 +10434,7 @@ type UdpContainerSettings struct {
 	_ struct{} `type:"structure"`
 
 	// M2ts Settings
-	M2tsSettings *M2tsSettings `locationName:"m2tsSettings" type:"structure"`
+	M2tsSettings *M2tsSettings `json:"medialive:UdpContainerSettings:M2tsSettings" locationName:"m2tsSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -10480,13 +10480,13 @@ type UdpGroupSettings struct {
 	// the TS bitrate requirement). Or, when emitProgram is chosen the transport
 	// stream will continue to be produced normally with repeat frames, black frames,
 	// or slate frames substituted for the absent input video.
-	InputLossAction InputLossActionForUdpOut `locationName:"inputLossAction" type:"string" enum:"true"`
+	InputLossAction InputLossActionForUdpOut `json:"medialive:UdpGroupSettings:InputLossAction" locationName:"inputLossAction" type:"string" enum:"true"`
 
 	// Indicates ID3 frame that has the timecode.
-	TimedMetadataId3Frame UdpTimedMetadataId3Frame `locationName:"timedMetadataId3Frame" type:"string" enum:"true"`
+	TimedMetadataId3Frame UdpTimedMetadataId3Frame `json:"medialive:UdpGroupSettings:TimedMetadataId3Frame" locationName:"timedMetadataId3Frame" type:"string" enum:"true"`
 
 	// Timed Metadata interval in seconds.
-	TimedMetadataId3Period *int64 `locationName:"timedMetadataId3Period" type:"integer"`
+	TimedMetadataId3Period *int64 `json:"medialive:UdpGroupSettings:TimedMetadataId3Period" locationName:"timedMetadataId3Period" type:"integer"`
 }
 
 // String returns the string representation
@@ -10526,21 +10526,21 @@ type UdpOutputSettings struct {
 	// the transcoder but simultaneously assist the transcoder in maintaining a
 	// constant, low-jitter UDP/RTP output while accommodating clock recovery, input
 	// switching, input disruptions, picture reordering, etc.
-	BufferMsec *int64 `locationName:"bufferMsec" type:"integer"`
+	BufferMsec *int64 `json:"medialive:UdpOutputSettings:BufferMsec" locationName:"bufferMsec" type:"integer"`
 
 	// Udp Container Settings
 	//
 	// ContainerSettings is a required field
-	ContainerSettings *UdpContainerSettings `locationName:"containerSettings" type:"structure" required:"true"`
+	ContainerSettings *UdpContainerSettings `json:"medialive:UdpOutputSettings:ContainerSettings" locationName:"containerSettings" type:"structure" required:"true"`
 
 	// Destination address and port number for RTP or UDP packets. Can be unicast
 	// or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
 	//
 	// Destination is a required field
-	Destination *OutputLocationRef `locationName:"destination" type:"structure" required:"true"`
+	Destination *OutputLocationRef `json:"medialive:UdpOutputSettings:Destination" locationName:"destination" type:"structure" required:"true"`
 
 	// Settings for enabling and adjusting Forward Error Correction on UDP outputs.
-	FecOutputSettings *FecOutputSettings `locationName:"fecOutputSettings" type:"structure"`
+	FecOutputSettings *FecOutputSettings `json:"medialive:UdpOutputSettings:FecOutputSettings" locationName:"fecOutputSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -10609,9 +10609,9 @@ func (s UdpOutputSettings) MarshalFields(e protocol.FieldEncoder) error {
 type ValidationError struct {
 	_ struct{} `type:"structure"`
 
-	ElementPath *string `locationName:"elementPath" type:"string"`
+	ElementPath *string `json:"medialive:ValidationError:ElementPath" locationName:"elementPath" type:"string"`
 
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"medialive:ValidationError:ErrorMessage" locationName:"errorMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -10642,10 +10642,10 @@ type VideoCodecSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Frame Capture Settings
-	FrameCaptureSettings *FrameCaptureSettings `locationName:"frameCaptureSettings" type:"structure"`
+	FrameCaptureSettings *FrameCaptureSettings `json:"medialive:VideoCodecSettings:FrameCaptureSettings" locationName:"frameCaptureSettings" type:"structure"`
 
 	// H264 Settings
-	H264Settings *H264Settings `locationName:"h264Settings" type:"structure"`
+	H264Settings *H264Settings `json:"medialive:VideoCodecSettings:H264Settings" locationName:"h264Settings" type:"structure"`
 }
 
 // String returns the string representation
@@ -10696,20 +10696,20 @@ type VideoDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Video codec settings.
-	CodecSettings *VideoCodecSettings `locationName:"codecSettings" type:"structure"`
+	CodecSettings *VideoCodecSettings `json:"medialive:VideoDescription:CodecSettings" locationName:"codecSettings" type:"structure"`
 
 	// Output video height, in pixels. Must be an even number. For most codecs,
 	// you can leave this field and width blank in order to use the height and width
 	// (resolution) from the source. Note, however, that leaving blank is not recommended.
 	// For the Frame Capture codec, height and width are required.
-	Height *int64 `locationName:"height" type:"integer"`
+	Height *int64 `json:"medialive:VideoDescription:Height" locationName:"height" type:"integer"`
 
 	// The name of this VideoDescription. Outputs will use this name to uniquely
 	// identify this Description. Description names should be unique within this
 	// Live Event.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"medialive:VideoDescription:Name" locationName:"name" type:"string" required:"true"`
 
 	// Indicates how to respond to the AFD values in the input stream. RESPOND causes
 	// input video to be clipped, depending on the AFD value, input display aspect
@@ -10718,24 +10718,24 @@ type VideoDescription struct {
 	// codec) ignores the AFD values and includes the values in the output, so input
 	// video is not clipped. NONE ignores the AFD values and does not include the
 	// values through to the output, so input video is not clipped.
-	RespondToAfd VideoDescriptionRespondToAfd `locationName:"respondToAfd" type:"string" enum:"true"`
+	RespondToAfd VideoDescriptionRespondToAfd `json:"medialive:VideoDescription:RespondToAfd" locationName:"respondToAfd" type:"string" enum:"true"`
 
 	// STRETCHTOOUTPUT configures the output position to stretch the video to the
 	// specified output resolution (height and width). This option will override
 	// any position value. DEFAULT may insert black boxes (pillar boxes or letter
 	// boxes) around the video to provide the specified output resolution.
-	ScalingBehavior VideoDescriptionScalingBehavior `locationName:"scalingBehavior" type:"string" enum:"true"`
+	ScalingBehavior VideoDescriptionScalingBehavior `json:"medialive:VideoDescription:ScalingBehavior" locationName:"scalingBehavior" type:"string" enum:"true"`
 
 	// Changes the strength of the anti-alias filter used for scaling. 0 is the
 	// softest setting, 100 is the sharpest. A setting of 50 is recommended for
 	// most content.
-	Sharpness *int64 `locationName:"sharpness" type:"integer"`
+	Sharpness *int64 `json:"medialive:VideoDescription:Sharpness" locationName:"sharpness" type:"integer"`
 
 	// Output video width, in pixels. Must be an even number. For most codecs, you
 	// can leave this field and height blank in order to use the height and width
 	// (resolution) from the source. Note, however, that leaving blank is not recommended.
 	// For the Frame Capture codec, height and width are required.
-	Width *int64 `locationName:"width" type:"integer"`
+	Width *int64 `json:"medialive:VideoDescription:Width" locationName:"width" type:"integer"`
 }
 
 // String returns the string representation
@@ -10817,7 +10817,7 @@ type VideoSelector struct {
 
 	// Specifies the colorspace of an input. This setting works in tandem with colorSpaceConversion
 	// to determine if any conversion will be performed.
-	ColorSpace VideoSelectorColorSpace `locationName:"colorSpace" type:"string" enum:"true"`
+	ColorSpace VideoSelectorColorSpace `json:"medialive:VideoSelector:ColorSpace" locationName:"colorSpace" type:"string" enum:"true"`
 
 	// Applies only if colorSpace is a value other than follow. This field controls
 	// how the value in the colorSpace field will be used. fallback means that when
@@ -10827,10 +10827,10 @@ type VideoSelector struct {
 	// when it does have color space data, that data is correct. force means to
 	// always use the value in colorSpace. Choose force if your input usually has
 	// no color space data or might have unreliable color space data.
-	ColorSpaceUsage VideoSelectorColorSpaceUsage `locationName:"colorSpaceUsage" type:"string" enum:"true"`
+	ColorSpaceUsage VideoSelectorColorSpaceUsage `json:"medialive:VideoSelector:ColorSpaceUsage" locationName:"colorSpaceUsage" type:"string" enum:"true"`
 
 	// The video selector settings.
-	SelectorSettings *VideoSelectorSettings `locationName:"selectorSettings" type:"structure"`
+	SelectorSettings *VideoSelectorSettings `json:"medialive:VideoSelector:SelectorSettings" locationName:"selectorSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -10867,7 +10867,7 @@ type VideoSelectorPid struct {
 	_ struct{} `type:"structure"`
 
 	// Selects a specific PID from within a video source.
-	Pid *int64 `locationName:"pid" type:"integer"`
+	Pid *int64 `json:"medialive:VideoSelectorPid:Pid" locationName:"pid" type:"integer"`
 }
 
 // String returns the string representation
@@ -10894,7 +10894,7 @@ type VideoSelectorProgramId struct {
 	// Selects a specific program from within a multi-program transport stream.
 	// If the program doesn't exist, the first program within the transport stream
 	// will be selected by default.
-	ProgramId *int64 `locationName:"programId" type:"integer"`
+	ProgramId *int64 `json:"medialive:VideoSelectorProgramId:ProgramId" locationName:"programId" type:"integer"`
 }
 
 // String returns the string representation
@@ -10919,10 +10919,10 @@ type VideoSelectorSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Video Selector Pid
-	VideoSelectorPid *VideoSelectorPid `locationName:"videoSelectorPid" type:"structure"`
+	VideoSelectorPid *VideoSelectorPid `json:"medialive:VideoSelectorSettings:VideoSelectorPid" locationName:"videoSelectorPid" type:"structure"`
 
 	// Video Selector Program Id
-	VideoSelectorProgramId *VideoSelectorProgramId `locationName:"videoSelectorProgramId" type:"structure"`
+	VideoSelectorProgramId *VideoSelectorProgramId `json:"medialive:VideoSelectorSettings:VideoSelectorProgramId" locationName:"videoSelectorProgramId" type:"structure"`
 }
 
 // String returns the string representation

@@ -151,7 +151,7 @@ type PublishOutput struct {
 	// Unique identifier assigned to the published message.
 	//
 	// Length Constraint: Maximum 100 characters
-	MessageId *string `type:"string"`
+	MessageId *string `json:"sns:PublishOutput:MessageId" type:"string"`
 }
 
 // String returns the string representation

@@ -88,11 +88,11 @@ type GetSlotTypeVersionsOutput struct {
 	// response to this call is truncated, Amazon Lex returns a pagination token
 	// in the response. To fetch the next page of versions, specify the pagination
 	// token in the next request.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetSlotTypeVersionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of SlotTypeMetadata objects, one for each numbered version of the
 	// slot type plus one for the $LATEST version.
-	SlotTypes []SlotTypeMetadata `locationName:"slotTypes" type:"list"`
+	SlotTypes []SlotTypeMetadata `json:"models.lex:GetSlotTypeVersionsOutput:SlotTypes" locationName:"slotTypes" type:"list"`
 }
 
 // String returns the string representation

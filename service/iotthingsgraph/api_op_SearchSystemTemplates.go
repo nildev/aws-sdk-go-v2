@@ -55,11 +55,11 @@ type SearchSystemTemplatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The string to specify as nextToken when you request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:SearchSystemTemplatesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of objects that contain summary information about each system deployment
 	// in the result set.
-	Summaries []SystemTemplateSummary `locationName:"summaries" type:"list"`
+	Summaries []SystemTemplateSummary `json:"iotthingsgraph:SearchSystemTemplatesOutput:Summaries" locationName:"summaries" type:"list"`
 }
 
 // String returns the string representation

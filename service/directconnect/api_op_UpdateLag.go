@@ -51,33 +51,33 @@ type UpdateLagOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the LAG can host other connections.
-	AllowsHostedConnections *bool `locationName:"allowsHostedConnections" type:"boolean"`
+	AllowsHostedConnections *bool `json:"directconnect:UpdateLagOutput:AllowsHostedConnections" locationName:"allowsHostedConnections" type:"boolean"`
 
 	// The AWS Direct Connect endpoint that hosts the LAG.
-	AwsDevice *string `locationName:"awsDevice" deprecated:"true" type:"string"`
+	AwsDevice *string `json:"directconnect:UpdateLagOutput:AwsDevice" locationName:"awsDevice" deprecated:"true" type:"string"`
 
 	// The AWS Direct Connect endpoint that hosts the LAG.
-	AwsDeviceV2 *string `locationName:"awsDeviceV2" type:"string"`
+	AwsDeviceV2 *string `json:"directconnect:UpdateLagOutput:AwsDeviceV2" locationName:"awsDeviceV2" type:"string"`
 
 	// The connections bundled by the LAG.
-	Connections []Connection `locationName:"connections" type:"list"`
+	Connections []Connection `json:"directconnect:UpdateLagOutput:Connections" locationName:"connections" type:"list"`
 
 	// The individual bandwidth of the physical connections bundled by the LAG.
 	// The possible values are 1Gbps and 10Gbps.
-	ConnectionsBandwidth *string `locationName:"connectionsBandwidth" type:"string"`
+	ConnectionsBandwidth *string `json:"directconnect:UpdateLagOutput:ConnectionsBandwidth" locationName:"connectionsBandwidth" type:"string"`
 
 	// Indicates whether the LAG supports a secondary BGP peer in the same address
 	// family (IPv4/IPv6).
-	HasLogicalRedundancy HasLogicalRedundancy `locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
+	HasLogicalRedundancy HasLogicalRedundancy `json:"directconnect:UpdateLagOutput:HasLogicalRedundancy" locationName:"hasLogicalRedundancy" type:"string" enum:"true"`
 
 	// Indicates whether jumbo frames (9001 MTU) are supported.
-	JumboFrameCapable *bool `locationName:"jumboFrameCapable" type:"boolean"`
+	JumboFrameCapable *bool `json:"directconnect:UpdateLagOutput:JumboFrameCapable" locationName:"jumboFrameCapable" type:"boolean"`
 
 	// The ID of the LAG.
-	LagId *string `locationName:"lagId" type:"string"`
+	LagId *string `json:"directconnect:UpdateLagOutput:LagId" locationName:"lagId" type:"string"`
 
 	// The name of the LAG.
-	LagName *string `locationName:"lagName" type:"string"`
+	LagName *string `json:"directconnect:UpdateLagOutput:LagName" locationName:"lagName" type:"string"`
 
 	// The state of the LAG. The following are the possible values:
 	//
@@ -96,27 +96,27 @@ type UpdateLagOutput struct {
 	//    * deleted: The LAG is deleted.
 	//
 	//    * unknown: The state of the LAG is not available.
-	LagState LagState `locationName:"lagState" type:"string" enum:"true"`
+	LagState LagState `json:"directconnect:UpdateLagOutput:LagState" locationName:"lagState" type:"string" enum:"true"`
 
 	// The location of the LAG.
-	Location *string `locationName:"location" type:"string"`
+	Location *string `json:"directconnect:UpdateLagOutput:Location" locationName:"location" type:"string"`
 
 	// The minimum number of physical connections that must be operational for the
 	// LAG itself to be operational.
-	MinimumLinks *int64 `locationName:"minimumLinks" type:"integer"`
+	MinimumLinks *int64 `json:"directconnect:UpdateLagOutput:MinimumLinks" locationName:"minimumLinks" type:"integer"`
 
 	// The number of physical connections bundled by the LAG, up to a maximum of
 	// 10.
-	NumberOfConnections *int64 `locationName:"numberOfConnections" type:"integer"`
+	NumberOfConnections *int64 `json:"directconnect:UpdateLagOutput:NumberOfConnections" locationName:"numberOfConnections" type:"integer"`
 
 	// The ID of the AWS account that owns the LAG.
-	OwnerAccount *string `locationName:"ownerAccount" type:"string"`
+	OwnerAccount *string `json:"directconnect:UpdateLagOutput:OwnerAccount" locationName:"ownerAccount" type:"string"`
 
 	// The AWS Region where the connection is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"directconnect:UpdateLagOutput:Region" locationName:"region" type:"string"`
 
 	// Any tags assigned to link aggregation group (LAG).
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"directconnect:UpdateLagOutput:Tags" locationName:"tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

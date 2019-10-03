@@ -55,14 +55,14 @@ type GetConsoleOutputOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the instance.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"ec2:GetConsoleOutputOutput:InstanceId" locationName:"instanceId" type:"string"`
 
 	// The console output, base64-encoded. If you are using a command line tool,
 	// the tool decodes the output for you.
-	Output *string `locationName:"output" type:"string"`
+	Output *string `json:"ec2:GetConsoleOutputOutput:Output" locationName:"output" type:"string"`
 
 	// The time at which the output was last updated.
-	Timestamp *time.Time `locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"ec2:GetConsoleOutputOutput:Timestamp" locationName:"timestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation

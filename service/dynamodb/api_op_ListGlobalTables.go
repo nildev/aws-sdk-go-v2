@@ -49,10 +49,10 @@ type ListGlobalTablesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of global table names.
-	GlobalTables []GlobalTable `type:"list"`
+	GlobalTables []GlobalTable `json:"dynamodb:ListGlobalTablesOutput:GlobalTables" type:"list"`
 
 	// Last evaluated global table name.
-	LastEvaluatedGlobalTableName *string `min:"3" type:"string"`
+	LastEvaluatedGlobalTableName *string `json:"dynamodb:ListGlobalTablesOutput:LastEvaluatedGlobalTableName" min:"3" type:"string"`
 }
 
 // String returns the string representation

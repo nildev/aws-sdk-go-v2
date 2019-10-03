@@ -79,7 +79,7 @@ type ImportCertificateOutput struct {
 
 	// The Amazon Resource Name (ARN) (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// of the imported certificate.
-	CertificateArn *string `min:"20" type:"string"`
+	CertificateArn *string `json:"acm:ImportCertificateOutput:CertificateArn" min:"20" type:"string"`
 }
 
 // String returns the string representation

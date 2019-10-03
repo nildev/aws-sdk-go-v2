@@ -62,10 +62,10 @@ type DescribeScalingPlansOutput struct {
 
 	// The token required to get the next set of results. This value is null if
 	// there are no more results to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeScalingPlansOutput:NextToken" type:"string"`
 
 	// Information about the scaling plans.
-	ScalingPlans []ScalingPlan `type:"list"`
+	ScalingPlans []ScalingPlan `json:"autoscaling:DescribeScalingPlansOutput:ScalingPlans" type:"list"`
 }
 
 // String returns the string representation

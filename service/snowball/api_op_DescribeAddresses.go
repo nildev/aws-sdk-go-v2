@@ -45,12 +45,12 @@ type DescribeAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Snowball shipping addresses that were created for this account.
-	Addresses []Address `type:"list"`
+	Addresses []Address `json:"snowball:DescribeAddressesOutput:Addresses" type:"list"`
 
 	// HTTP requests are stateless. If you use the automatically generated NextToken
 	// value in your next DescribeAddresses call, your list of returned addresses
 	// will start from this point in the array.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"snowball:DescribeAddressesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

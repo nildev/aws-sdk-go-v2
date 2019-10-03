@@ -93,10 +93,10 @@ type ListTypedLinkFacetAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An ordered set of attributes associate with the typed link.
-	Attributes []TypedLinkAttributeDefinition `type:"list"`
+	Attributes []TypedLinkAttributeDefinition `json:"clouddirectory:ListTypedLinkFacetAttributesOutput:Attributes" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListTypedLinkFacetAttributesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

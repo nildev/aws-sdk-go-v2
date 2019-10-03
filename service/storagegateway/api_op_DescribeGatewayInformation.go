@@ -49,54 +49,54 @@ type DescribeGatewayInformationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the Amazon EC2 instance that was used to launch the gateway.
-	Ec2InstanceId *string `type:"string"`
+	Ec2InstanceId *string `json:"storagegateway:DescribeGatewayInformationOutput:Ec2InstanceId" type:"string"`
 
 	// The AWS Region where the Amazon EC2 instance is located.
-	Ec2InstanceRegion *string `type:"string"`
+	Ec2InstanceRegion *string `json:"storagegateway:DescribeGatewayInformationOutput:Ec2InstanceRegion" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:DescribeGatewayInformationOutput:GatewayARN" min:"50" type:"string"`
 
 	// The unique identifier assigned to your gateway during activation. This ID
 	// becomes part of the gateway Amazon Resource Name (ARN), which you use as
 	// input for other operations.
-	GatewayId *string `min:"12" type:"string"`
+	GatewayId *string `json:"storagegateway:DescribeGatewayInformationOutput:GatewayId" min:"12" type:"string"`
 
 	// The name you configured for your gateway.
-	GatewayName *string `type:"string"`
+	GatewayName *string `json:"storagegateway:DescribeGatewayInformationOutput:GatewayName" type:"string"`
 
 	// A NetworkInterface array that contains descriptions of the gateway network
 	// interfaces.
-	GatewayNetworkInterfaces []NetworkInterface `type:"list"`
+	GatewayNetworkInterfaces []NetworkInterface `json:"storagegateway:DescribeGatewayInformationOutput:GatewayNetworkInterfaces" type:"list"`
 
 	// A value that indicates the operating state of the gateway.
-	GatewayState *string `min:"2" type:"string"`
+	GatewayState *string `json:"storagegateway:DescribeGatewayInformationOutput:GatewayState" min:"2" type:"string"`
 
 	// A value that indicates the time zone configured for the gateway.
-	GatewayTimezone *string `min:"3" type:"string"`
+	GatewayTimezone *string `json:"storagegateway:DescribeGatewayInformationOutput:GatewayTimezone" min:"3" type:"string"`
 
 	// The type of the gateway.
-	GatewayType *string `min:"2" type:"string"`
+	GatewayType *string `json:"storagegateway:DescribeGatewayInformationOutput:GatewayType" min:"2" type:"string"`
 
 	// The date on which the last software update was applied to the gateway. If
 	// the gateway has never been updated, this field does not return a value in
 	// the response.
-	LastSoftwareUpdate *string `min:"1" type:"string"`
+	LastSoftwareUpdate *string `json:"storagegateway:DescribeGatewayInformationOutput:LastSoftwareUpdate" min:"1" type:"string"`
 
 	// The date on which an update to the gateway is available. This date is in
 	// the time zone of the gateway. If the gateway is not available for an update
 	// this field is not returned in the response.
-	NextUpdateAvailabilityDate *string `min:"1" type:"string"`
+	NextUpdateAvailabilityDate *string `json:"storagegateway:DescribeGatewayInformationOutput:NextUpdateAvailabilityDate" min:"1" type:"string"`
 
 	// A list of up to 50 tags assigned to the gateway, sorted alphabetically by
 	// key name. Each tag is a key-value pair. For a gateway with more than 10 tags
 	// assigned, you can view all tags using the ListTagsForResource API operation.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"storagegateway:DescribeGatewayInformationOutput:Tags" type:"list"`
 
 	// The configuration settings for the virtual private cloud (VPC) endpoint for
 	// your gateway.
-	VPCEndpoint *string `type:"string"`
+	VPCEndpoint *string `json:"storagegateway:DescribeGatewayInformationOutput:VPCEndpoint" type:"string"`
 }
 
 // String returns the string representation

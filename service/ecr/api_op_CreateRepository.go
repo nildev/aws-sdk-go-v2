@@ -50,7 +50,7 @@ type CreateRepositoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The repository that was created.
-	Repository *Repository `locationName:"repository" type:"structure"`
+	Repository *Repository `json:"api.ecr:CreateRepositoryOutput:Repository" locationName:"repository" type:"structure"`
 }
 
 // String returns the string representation

@@ -28,17 +28,17 @@ type ListCollectionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of collection IDs.
-	CollectionIds []string `type:"list"`
+	CollectionIds []string `json:"rekognition:ListCollectionsOutput:CollectionIds" type:"list"`
 
 	// Version numbers of the face detection models associated with the collections
 	// in the array CollectionIds. For example, the value of FaceModelVersions[2]
 	// is the version number for the face detection model used by the collection
 	// in CollectionId[2].
-	FaceModelVersions []string `type:"list"`
+	FaceModelVersions []string `json:"rekognition:ListCollectionsOutput:FaceModelVersions" type:"list"`
 
 	// If the result is truncated, the response provides a NextToken that you can
 	// use in the subsequent request to fetch the next set of collection IDs.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:ListCollectionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

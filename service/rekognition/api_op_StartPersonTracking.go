@@ -73,7 +73,7 @@ type StartPersonTrackingOutput struct {
 
 	// The identifier for the person detection job. Use JobId to identify the job
 	// in a subsequent call to GetPersonTracking.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"rekognition:StartPersonTrackingOutput:JobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

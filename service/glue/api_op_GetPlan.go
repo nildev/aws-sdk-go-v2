@@ -79,10 +79,10 @@ type GetPlanOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A Python script to perform the mapping.
-	PythonScript *string `type:"string"`
+	PythonScript *string `json:"glue:GetPlanOutput:PythonScript" type:"string"`
 
 	// The Scala code to perform the mapping.
-	ScalaCode *string `type:"string"`
+	ScalaCode *string `json:"glue:GetPlanOutput:ScalaCode" type:"string"`
 }
 
 // String returns the string representation

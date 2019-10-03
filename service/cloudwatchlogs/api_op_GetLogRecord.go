@@ -46,7 +46,7 @@ type GetLogRecordOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested log event, as a JSON string.
-	LogRecord map[string]string `locationName:"logRecord" type:"map"`
+	LogRecord map[string]string `json:"logs:GetLogRecordOutput:LogRecord" locationName:"logRecord" type:"map"`
 }
 
 // String returns the string representation

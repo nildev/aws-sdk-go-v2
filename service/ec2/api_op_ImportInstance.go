@@ -65,7 +65,7 @@ type ImportInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the conversion task.
-	ConversionTask *ConversionTask `locationName:"conversionTask" type:"structure"`
+	ConversionTask *ConversionTask `json:"ec2:ImportInstanceOutput:ConversionTask" locationName:"conversionTask" type:"structure"`
 }
 
 // String returns the string representation

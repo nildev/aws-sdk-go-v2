@@ -83,7 +83,7 @@ type UpdateResourceServerOutput struct {
 	// The resource server.
 	//
 	// ResourceServer is a required field
-	ResourceServer *ResourceServerType `type:"structure" required:"true"`
+	ResourceServer *ResourceServerType `json:"cognito-idp:UpdateResourceServerOutput:ResourceServer" type:"structure" required:"true"`
 }
 
 // String returns the string representation

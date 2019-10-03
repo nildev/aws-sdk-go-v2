@@ -57,7 +57,7 @@ type GenerateOrganizationsAccessReportOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The job identifier that you can use in the GetOrganizationsAccessReport operation.
-	JobId *string `min:"36" type:"string"`
+	JobId *string `json:"iam:GenerateOrganizationsAccessReportOutput:JobId" min:"36" type:"string"`
 }
 
 // String returns the string representation

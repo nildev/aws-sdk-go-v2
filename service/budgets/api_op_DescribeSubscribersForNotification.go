@@ -85,10 +85,10 @@ type DescribeSubscribersForNotificationOutput struct {
 
 	// The pagination token in the service response that indicates the next set
 	// of results that you can retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"budgets:DescribeSubscribersForNotificationOutput:NextToken" type:"string"`
 
 	// A list of subscribers that are associated with a notification.
-	Subscribers []Subscriber `min:"1" type:"list"`
+	Subscribers []Subscriber `json:"budgets:DescribeSubscribersForNotificationOutput:Subscribers" min:"1" type:"list"`
 }
 
 // String returns the string representation

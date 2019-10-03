@@ -102,7 +102,7 @@ type GetShardIteratorOutput struct {
 	// The position in the shard from which to start reading data records sequentially.
 	// A shard iterator specifies this position using the sequence number of a data
 	// record in a shard.
-	ShardIterator *string `min:"1" type:"string"`
+	ShardIterator *string `json:"kinesis:GetShardIteratorOutput:ShardIterator" min:"1" type:"string"`
 }
 
 // String returns the string representation

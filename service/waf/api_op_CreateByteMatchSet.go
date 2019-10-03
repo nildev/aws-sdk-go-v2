@@ -59,12 +59,12 @@ type CreateByteMatchSetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A ByteMatchSet that contains no ByteMatchTuple objects.
-	ByteMatchSet *ByteMatchSet `type:"structure"`
+	ByteMatchSet *ByteMatchSet `json:"waf:CreateByteMatchSetOutput:ByteMatchSet" type:"structure"`
 
 	// The ChangeToken that you used to submit the CreateByteMatchSet request. You
 	// can also use this value to query the status of the request. For more information,
 	// see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf:CreateByteMatchSetOutput:ChangeToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

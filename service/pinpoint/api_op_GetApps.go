@@ -50,7 +50,7 @@ type GetAppsOutput struct {
 	// Provides information about all of your applications.
 	//
 	// ApplicationsResponse is a required field
-	ApplicationsResponse *ApplicationsResponse `type:"structure" required:"true"`
+	ApplicationsResponse *ApplicationsResponse `json:"pinpoint:GetAppsOutput:ApplicationsResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

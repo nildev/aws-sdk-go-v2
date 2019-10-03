@@ -56,11 +56,11 @@ type ListServicesOutput struct {
 	// results of a ListServices request exceed maxResults, this value can be used
 	// to retrieve the next page of results. This value is null when there are no
 	// more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ecs:ListServicesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of full ARN entries for each service associated with the specified
 	// cluster.
-	ServiceArns []string `locationName:"serviceArns" type:"list"`
+	ServiceArns []string `json:"ecs:ListServicesOutput:ServiceArns" locationName:"serviceArns" type:"list"`
 }
 
 // String returns the string representation

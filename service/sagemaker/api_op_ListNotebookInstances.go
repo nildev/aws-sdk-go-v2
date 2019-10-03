@@ -99,10 +99,10 @@ type ListNotebookInstancesOutput struct {
 	// If the response to the previous ListNotebookInstances request was truncated,
 	// Amazon SageMaker returns this token. To retrieve the next set of notebook
 	// instances, use the token in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListNotebookInstancesOutput:NextToken" type:"string"`
 
 	// An array of NotebookInstanceSummary objects, one for each notebook instance.
-	NotebookInstances []NotebookInstanceSummary `type:"list"`
+	NotebookInstances []NotebookInstanceSummary `json:"api.sagemaker:ListNotebookInstancesOutput:NotebookInstances" type:"list"`
 }
 
 // String returns the string representation

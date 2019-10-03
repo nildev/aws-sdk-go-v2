@@ -80,11 +80,11 @@ type DescribeMaintenanceWindowScheduleOutput struct {
 
 	// The token for the next set of items to return. (You use this token in the
 	// next call.)
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeMaintenanceWindowScheduleOutput:NextToken" type:"string"`
 
 	// Information about maintenance window executions scheduled for the specified
 	// time range.
-	ScheduledWindowExecutions []ScheduledWindowExecution `type:"list"`
+	ScheduledWindowExecutions []ScheduledWindowExecution `json:"ssm:DescribeMaintenanceWindowScheduleOutput:ScheduledWindowExecutions" type:"list"`
 }
 
 // String returns the string representation

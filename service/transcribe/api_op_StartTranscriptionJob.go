@@ -109,7 +109,7 @@ type StartTranscriptionJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing details of the asynchronous transcription job.
-	TranscriptionJob *TranscriptionJob `type:"structure"`
+	TranscriptionJob *TranscriptionJob `json:"transcribe:StartTranscriptionJobOutput:TranscriptionJob" type:"structure"`
 }
 
 // String returns the string representation

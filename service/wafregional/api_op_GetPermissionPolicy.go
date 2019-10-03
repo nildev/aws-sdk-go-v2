@@ -47,7 +47,7 @@ type GetPermissionPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IAM policy attached to the specified RuleGroup.
-	Policy *string `min:"1" type:"string"`
+	Policy *string `json:"waf-regional:GetPermissionPolicyOutput:Policy" min:"1" type:"string"`
 }
 
 // String returns the string representation

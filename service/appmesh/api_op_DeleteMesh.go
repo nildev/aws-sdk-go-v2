@@ -62,7 +62,7 @@ type DeleteMeshOutput struct {
 	// The service mesh that was deleted.
 	//
 	// Mesh is a required field
-	Mesh *MeshData `locationName:"mesh" type:"structure" required:"true"`
+	Mesh *MeshData `json:"appmesh:DeleteMeshOutput:Mesh" locationName:"mesh" type:"structure" required:"true"`
 }
 
 // String returns the string representation

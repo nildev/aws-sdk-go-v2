@@ -70,7 +70,7 @@ type UpdateGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of the resource group after it has been updated.
-	Group *Group `type:"structure"`
+	Group *Group `json:"resource-groups:UpdateGroupOutput:Group" type:"structure"`
 }
 
 // String returns the string representation

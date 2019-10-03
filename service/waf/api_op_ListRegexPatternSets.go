@@ -55,10 +55,10 @@ type ListRegexPatternSetsOutput struct {
 	// more RegexPatternSet objects, submit another ListRegexPatternSets request,
 	// and specify the NextMarker value from the response in the NextMarker value
 	// in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListRegexPatternSetsOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of RegexPatternSetSummary objects.
-	RegexPatternSets []RegexPatternSetSummary `type:"list"`
+	RegexPatternSets []RegexPatternSetSummary `json:"waf:ListRegexPatternSetsOutput:RegexPatternSets" type:"list"`
 }
 
 // String returns the string representation

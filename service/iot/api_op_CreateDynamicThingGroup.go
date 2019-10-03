@@ -128,22 +128,22 @@ type CreateDynamicThingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The dynamic thing group index name.
-	IndexName *string `locationName:"indexName" min:"1" type:"string"`
+	IndexName *string `json:"iot:CreateDynamicThingGroupOutput:IndexName" locationName:"indexName" min:"1" type:"string"`
 
 	// The dynamic thing group search query string.
-	QueryString *string `locationName:"queryString" min:"1" type:"string"`
+	QueryString *string `json:"iot:CreateDynamicThingGroupOutput:QueryString" locationName:"queryString" min:"1" type:"string"`
 
 	// The dynamic thing group query version.
-	QueryVersion *string `locationName:"queryVersion" type:"string"`
+	QueryVersion *string `json:"iot:CreateDynamicThingGroupOutput:QueryVersion" locationName:"queryVersion" type:"string"`
 
 	// The dynamic thing group ARN.
-	ThingGroupArn *string `locationName:"thingGroupArn" type:"string"`
+	ThingGroupArn *string `json:"iot:CreateDynamicThingGroupOutput:ThingGroupArn" locationName:"thingGroupArn" type:"string"`
 
 	// The dynamic thing group ID.
-	ThingGroupId *string `locationName:"thingGroupId" min:"1" type:"string"`
+	ThingGroupId *string `json:"iot:CreateDynamicThingGroupOutput:ThingGroupId" locationName:"thingGroupId" min:"1" type:"string"`
 
 	// The dynamic thing group name.
-	ThingGroupName *string `locationName:"thingGroupName" min:"1" type:"string"`
+	ThingGroupName *string `json:"iot:CreateDynamicThingGroupOutput:ThingGroupName" locationName:"thingGroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation

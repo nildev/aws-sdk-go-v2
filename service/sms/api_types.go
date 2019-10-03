@@ -18,52 +18,52 @@ type AppSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Unique ID of the application.
-	AppId *string `locationName:"appId" type:"string"`
+	AppId *string `json:"sms:AppSummary:AppId" locationName:"appId" type:"string"`
 
 	// Time of creation of this application.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"sms:AppSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Description of the application.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"sms:AppSummary:Description" locationName:"description" type:"string"`
 
 	// Timestamp of the application's creation.
-	LastModified *time.Time `locationName:"lastModified" type:"timestamp" timestampFormat:"unix"`
+	LastModified *time.Time `json:"sms:AppSummary:LastModified" locationName:"lastModified" type:"timestamp" timestampFormat:"unix"`
 
 	// Timestamp of the application's most recent successful replication.
-	LatestReplicationTime *time.Time `locationName:"latestReplicationTime" type:"timestamp" timestampFormat:"unix"`
+	LatestReplicationTime *time.Time `json:"sms:AppSummary:LatestReplicationTime" locationName:"latestReplicationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Details about the latest launch of the application.
-	LaunchDetails *LaunchDetails `locationName:"launchDetails" type:"structure"`
+	LaunchDetails *LaunchDetails `json:"sms:AppSummary:LaunchDetails" locationName:"launchDetails" type:"structure"`
 
 	// Launch status of the application.
-	LaunchStatus AppLaunchStatus `locationName:"launchStatus" type:"string" enum:"true"`
+	LaunchStatus AppLaunchStatus `json:"sms:AppSummary:LaunchStatus" locationName:"launchStatus" type:"string" enum:"true"`
 
 	// A message related to the launch status of the application.
-	LaunchStatusMessage *string `locationName:"launchStatusMessage" type:"string"`
+	LaunchStatusMessage *string `json:"sms:AppSummary:LaunchStatusMessage" locationName:"launchStatusMessage" type:"string"`
 
 	// Name of the application.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"sms:AppSummary:Name" locationName:"name" type:"string"`
 
 	// Replication status of the application.
-	ReplicationStatus AppReplicationStatus `locationName:"replicationStatus" type:"string" enum:"true"`
+	ReplicationStatus AppReplicationStatus `json:"sms:AppSummary:ReplicationStatus" locationName:"replicationStatus" type:"string" enum:"true"`
 
 	// A message related to the replication status of the application.
-	ReplicationStatusMessage *string `locationName:"replicationStatusMessage" type:"string"`
+	ReplicationStatusMessage *string `json:"sms:AppSummary:ReplicationStatusMessage" locationName:"replicationStatusMessage" type:"string"`
 
 	// Name of the service role in the customer's account used by AWS SMS.
-	RoleName *string `locationName:"roleName" type:"string"`
+	RoleName *string `json:"sms:AppSummary:RoleName" locationName:"roleName" type:"string"`
 
 	// Status of the application.
-	Status AppStatus `locationName:"status" type:"string" enum:"true"`
+	Status AppStatus `json:"sms:AppSummary:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A message related to the status of the application
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"sms:AppSummary:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// Number of server groups present in the application.
-	TotalServerGroups *int64 `locationName:"totalServerGroups" type:"integer"`
+	TotalServerGroups *int64 `json:"sms:AppSummary:TotalServerGroups" locationName:"totalServerGroups" type:"integer"`
 
 	// Number of servers present in the application.
-	TotalServers *int64 `locationName:"totalServers" type:"integer"`
+	TotalServers *int64 `json:"sms:AppSummary:TotalServers" locationName:"totalServers" type:"integer"`
 }
 
 // String returns the string representation
@@ -77,34 +77,34 @@ type Connector struct {
 	_ struct{} `type:"structure"`
 
 	// The time the connector was associated.
-	AssociatedOn *time.Time `locationName:"associatedOn" type:"timestamp" timestampFormat:"unix"`
+	AssociatedOn *time.Time `json:"sms:Connector:AssociatedOn" locationName:"associatedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The capabilities of the connector.
-	CapabilityList []ConnectorCapability `locationName:"capabilityList" type:"list"`
+	CapabilityList []ConnectorCapability `json:"sms:Connector:CapabilityList" locationName:"capabilityList" type:"list"`
 
 	// The identifier of the connector.
-	ConnectorId *string `locationName:"connectorId" type:"string"`
+	ConnectorId *string `json:"sms:Connector:ConnectorId" locationName:"connectorId" type:"string"`
 
 	// The IP address of the connector.
-	IpAddress *string `locationName:"ipAddress" type:"string"`
+	IpAddress *string `json:"sms:Connector:IpAddress" locationName:"ipAddress" type:"string"`
 
 	// The MAC address of the connector.
-	MacAddress *string `locationName:"macAddress" type:"string"`
+	MacAddress *string `json:"sms:Connector:MacAddress" locationName:"macAddress" type:"string"`
 
 	// The status of the connector.
-	Status ConnectorStatus `locationName:"status" type:"string" enum:"true"`
+	Status ConnectorStatus `json:"sms:Connector:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The connector version.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"sms:Connector:Version" locationName:"version" type:"string"`
 
 	// The identifier of the VM manager.
-	VmManagerId *string `locationName:"vmManagerId" type:"string"`
+	VmManagerId *string `json:"sms:Connector:VmManagerId" locationName:"vmManagerId" type:"string"`
 
 	// The name of the VM manager.
-	VmManagerName *string `locationName:"vmManagerName" type:"string"`
+	VmManagerName *string `json:"sms:Connector:VmManagerName" locationName:"vmManagerName" type:"string"`
 
 	// The VM management product.
-	VmManagerType VmManagerType `locationName:"vmManagerType" type:"string" enum:"true"`
+	VmManagerType VmManagerType `json:"sms:Connector:VmManagerType" locationName:"vmManagerType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -118,13 +118,13 @@ type LaunchDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Latest time this application was launched successfully.
-	LatestLaunchTime *time.Time `locationName:"latestLaunchTime" type:"timestamp" timestampFormat:"unix"`
+	LatestLaunchTime *time.Time `json:"sms:LaunchDetails:LatestLaunchTime" locationName:"latestLaunchTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Identifier of the latest stack launched for this application.
-	StackId *string `locationName:"stackId" type:"string"`
+	StackId *string `json:"sms:LaunchDetails:StackId" locationName:"stackId" type:"string"`
 
 	// Name of the latest stack launched for this application.
-	StackName *string `locationName:"stackName" type:"string"`
+	StackName *string `json:"sms:LaunchDetails:StackName" locationName:"stackName" type:"string"`
 }
 
 // String returns the string representation
@@ -138,14 +138,14 @@ type ReplicationJob struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the replication job.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"sms:ReplicationJob:Description" locationName:"description" type:"string"`
 
 	// Whether the replication job should produce encrypted AMIs or not. See also
 	// KmsKeyId below.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"sms:ReplicationJob:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The time between consecutive replication runs, in hours.
-	Frequency *int64 `locationName:"frequency" type:"integer"`
+	Frequency *int64 `json:"sms:ReplicationJob:Frequency" locationName:"frequency" type:"integer"`
 
 	// KMS key ID for replication jobs that produce encrypted AMIs. Can be any of
 	// the following:
@@ -160,50 +160,50 @@ type ReplicationJob struct {
 	//
 	// If encrypted is true but a KMS key id is not specified, the customer's default
 	// KMS key for EBS is used.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"sms:ReplicationJob:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The ID of the latest Amazon Machine Image (AMI).
-	LatestAmiId *string `locationName:"latestAmiId" type:"string"`
+	LatestAmiId *string `json:"sms:ReplicationJob:LatestAmiId" locationName:"latestAmiId" type:"string"`
 
 	// The license type to be used for the AMI created by a successful replication
 	// run.
-	LicenseType LicenseType `locationName:"licenseType" type:"string" enum:"true"`
+	LicenseType LicenseType `json:"sms:ReplicationJob:LicenseType" locationName:"licenseType" type:"string" enum:"true"`
 
 	// The start time of the next replication run.
-	NextReplicationRunStartTime *time.Time `locationName:"nextReplicationRunStartTime" type:"timestamp" timestampFormat:"unix"`
+	NextReplicationRunStartTime *time.Time `json:"sms:ReplicationJob:NextReplicationRunStartTime" locationName:"nextReplicationRunStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Number of recent AMIs to keep in the customer's account for a replication
 	// job. By default the value is set to zero, meaning that all AMIs are kept.
-	NumberOfRecentAmisToKeep *int64 `locationName:"numberOfRecentAmisToKeep" type:"integer"`
+	NumberOfRecentAmisToKeep *int64 `json:"sms:ReplicationJob:NumberOfRecentAmisToKeep" locationName:"numberOfRecentAmisToKeep" type:"integer"`
 
 	// The identifier of the replication job.
-	ReplicationJobId *string `locationName:"replicationJobId" type:"string"`
+	ReplicationJobId *string `json:"sms:ReplicationJob:ReplicationJobId" locationName:"replicationJobId" type:"string"`
 
 	// Information about the replication runs.
-	ReplicationRunList []ReplicationRun `locationName:"replicationRunList" type:"list"`
+	ReplicationRunList []ReplicationRun `json:"sms:ReplicationJob:ReplicationRunList" locationName:"replicationRunList" type:"list"`
 
 	// The name of the IAM role to be used by the Server Migration Service.
-	RoleName *string `locationName:"roleName" type:"string"`
+	RoleName *string `json:"sms:ReplicationJob:RoleName" locationName:"roleName" type:"string"`
 
-	RunOnce *bool `locationName:"runOnce" type:"boolean"`
+	RunOnce *bool `json:"sms:ReplicationJob:RunOnce" locationName:"runOnce" type:"boolean"`
 
 	// The seed replication time.
-	SeedReplicationTime *time.Time `locationName:"seedReplicationTime" type:"timestamp" timestampFormat:"unix"`
+	SeedReplicationTime *time.Time `json:"sms:ReplicationJob:SeedReplicationTime" locationName:"seedReplicationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the server.
-	ServerId *string `locationName:"serverId" type:"string"`
+	ServerId *string `json:"sms:ReplicationJob:ServerId" locationName:"serverId" type:"string"`
 
 	// The type of server.
-	ServerType ServerType `locationName:"serverType" type:"string" enum:"true"`
+	ServerType ServerType `json:"sms:ReplicationJob:ServerType" locationName:"serverType" type:"string" enum:"true"`
 
 	// The state of the replication job.
-	State ReplicationJobState `locationName:"state" type:"string" enum:"true"`
+	State ReplicationJobState `json:"sms:ReplicationJob:State" locationName:"state" type:"string" enum:"true"`
 
 	// The description of the current status of the replication job.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"sms:ReplicationJob:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// Information about the VM server.
-	VmServer *VmServer `locationName:"vmServer" type:"structure"`
+	VmServer *VmServer `json:"sms:ReplicationJob:VmServer" locationName:"vmServer" type:"structure"`
 }
 
 // String returns the string representation
@@ -217,17 +217,17 @@ type ReplicationRun struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the Amazon Machine Image (AMI) from the replication run.
-	AmiId *string `locationName:"amiId" type:"string"`
+	AmiId *string `json:"sms:ReplicationRun:AmiId" locationName:"amiId" type:"string"`
 
 	// The completion time of the last replication run.
-	CompletedTime *time.Time `locationName:"completedTime" type:"timestamp" timestampFormat:"unix"`
+	CompletedTime *time.Time `json:"sms:ReplicationRun:CompletedTime" locationName:"completedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the replication run.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"sms:ReplicationRun:Description" locationName:"description" type:"string"`
 
 	// Whether the replication run should produce encrypted AMI or not. See also
 	// KmsKeyId below.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"sms:ReplicationRun:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// KMS key ID for replication jobs that produce encrypted AMIs. Can be any of
 	// the following:
@@ -242,25 +242,25 @@ type ReplicationRun struct {
 	//
 	// If encrypted is true but a KMS key id is not specified, the customer's default
 	// KMS key for EBS is used.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"sms:ReplicationRun:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The identifier of the replication run.
-	ReplicationRunId *string `locationName:"replicationRunId" type:"string"`
+	ReplicationRunId *string `json:"sms:ReplicationRun:ReplicationRunId" locationName:"replicationRunId" type:"string"`
 
 	// The start time of the next replication run.
-	ScheduledStartTime *time.Time `locationName:"scheduledStartTime" type:"timestamp" timestampFormat:"unix"`
+	ScheduledStartTime *time.Time `json:"sms:ReplicationRun:ScheduledStartTime" locationName:"scheduledStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Details of the current stage of the replication run.
-	StageDetails *ReplicationRunStageDetails `locationName:"stageDetails" type:"structure"`
+	StageDetails *ReplicationRunStageDetails `json:"sms:ReplicationRun:StageDetails" locationName:"stageDetails" type:"structure"`
 
 	// The state of the replication run.
-	State ReplicationRunState `locationName:"state" type:"string" enum:"true"`
+	State ReplicationRunState `json:"sms:ReplicationRun:State" locationName:"state" type:"string" enum:"true"`
 
 	// The description of the current status of the replication job.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"sms:ReplicationRun:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The type of replication run.
-	Type ReplicationRunType `locationName:"type" type:"string" enum:"true"`
+	Type ReplicationRunType `json:"sms:ReplicationRun:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -274,10 +274,10 @@ type ReplicationRunStageDetails struct {
 	_ struct{} `type:"structure"`
 
 	// String describing the current stage of a replication run.
-	Stage *string `locationName:"stage" type:"string"`
+	Stage *string `json:"sms:ReplicationRunStageDetails:Stage" locationName:"stage" type:"string"`
 
 	// String describing the progress of the current stage of a replication run.
-	StageProgress *string `locationName:"stageProgress" type:"string"`
+	StageProgress *string `json:"sms:ReplicationRunStageDetails:StageProgress" locationName:"stageProgress" type:"string"`
 }
 
 // String returns the string representation
@@ -291,10 +291,10 @@ type S3Location struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon S3 bucket name.
-	Bucket *string `locationName:"bucket" type:"string"`
+	Bucket *string `json:"sms:S3Location:Bucket" locationName:"bucket" type:"string"`
 
 	// Amazon S3 bucket key.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"sms:S3Location:Key" locationName:"key" type:"string"`
 }
 
 // String returns the string representation
@@ -308,19 +308,19 @@ type Server struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the replication job.
-	ReplicationJobId *string `locationName:"replicationJobId" type:"string"`
+	ReplicationJobId *string `json:"sms:Server:ReplicationJobId" locationName:"replicationJobId" type:"string"`
 
 	// Indicates whether the replication job is deleted or failed.
-	ReplicationJobTerminated *bool `locationName:"replicationJobTerminated" type:"boolean"`
+	ReplicationJobTerminated *bool `json:"sms:Server:ReplicationJobTerminated" locationName:"replicationJobTerminated" type:"boolean"`
 
 	// The identifier of the server.
-	ServerId *string `locationName:"serverId" type:"string"`
+	ServerId *string `json:"sms:Server:ServerId" locationName:"serverId" type:"string"`
 
 	// The type of server.
-	ServerType ServerType `locationName:"serverType" type:"string" enum:"true"`
+	ServerType ServerType `json:"sms:Server:ServerType" locationName:"serverType" type:"string" enum:"true"`
 
 	// Information about the VM server.
-	VmServer *VmServer `locationName:"vmServer" type:"structure"`
+	VmServer *VmServer `json:"sms:Server:VmServer" locationName:"vmServer" type:"structure"`
 }
 
 // String returns the string representation
@@ -334,13 +334,13 @@ type ServerGroup struct {
 	_ struct{} `type:"structure"`
 
 	// Name of a server group.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"sms:ServerGroup:Name" locationName:"name" type:"string"`
 
 	// Identifier of a server group.
-	ServerGroupId *string `locationName:"serverGroupId" type:"string"`
+	ServerGroupId *string `json:"sms:ServerGroup:ServerGroupId" locationName:"serverGroupId" type:"string"`
 
 	// List of servers belonging to a server group.
-	ServerList []Server `locationName:"serverList" type:"list"`
+	ServerList []Server `json:"sms:ServerGroup:ServerList" locationName:"serverList" type:"list"`
 }
 
 // String returns the string representation
@@ -354,13 +354,13 @@ type ServerGroupLaunchConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Launch order of servers in the server group.
-	LaunchOrder *int64 `locationName:"launchOrder" type:"integer"`
+	LaunchOrder *int64 `json:"sms:ServerGroupLaunchConfiguration:LaunchOrder" locationName:"launchOrder" type:"integer"`
 
 	// Identifier of the server group the launch configuration is associated with.
-	ServerGroupId *string `locationName:"serverGroupId" type:"string"`
+	ServerGroupId *string `json:"sms:ServerGroupLaunchConfiguration:ServerGroupId" locationName:"serverGroupId" type:"string"`
 
 	// Launch configuration for servers in the server group.
-	ServerLaunchConfigurations []ServerLaunchConfiguration `locationName:"serverLaunchConfigurations" type:"list"`
+	ServerLaunchConfigurations []ServerLaunchConfiguration `json:"sms:ServerGroupLaunchConfiguration:ServerLaunchConfigurations" locationName:"serverLaunchConfigurations" type:"list"`
 }
 
 // String returns the string representation
@@ -375,10 +375,10 @@ type ServerGroupReplicationConfiguration struct {
 
 	// Identifier of the server group this replication configuration is associated
 	// with.
-	ServerGroupId *string `locationName:"serverGroupId" type:"string"`
+	ServerGroupId *string `json:"sms:ServerGroupReplicationConfiguration:ServerGroupId" locationName:"serverGroupId" type:"string"`
 
 	// Replication configuration for servers in the server group.
-	ServerReplicationConfigurations []ServerReplicationConfiguration `locationName:"serverReplicationConfigurations" type:"list"`
+	ServerReplicationConfigurations []ServerReplicationConfiguration `json:"sms:ServerGroupReplicationConfiguration:ServerReplicationConfigurations" locationName:"serverReplicationConfigurations" type:"list"`
 }
 
 // String returns the string representation
@@ -392,31 +392,31 @@ type ServerLaunchConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// If true, a publicly accessible IP address is created when launching the server.
-	AssociatePublicIpAddress *bool `locationName:"associatePublicIpAddress" type:"boolean"`
+	AssociatePublicIpAddress *bool `json:"sms:ServerLaunchConfiguration:AssociatePublicIpAddress" locationName:"associatePublicIpAddress" type:"boolean"`
 
 	// Name of the EC2 SSH Key to be used for connecting to the launched server.
-	Ec2KeyName *string `locationName:"ec2KeyName" type:"string"`
+	Ec2KeyName *string `json:"sms:ServerLaunchConfiguration:Ec2KeyName" locationName:"ec2KeyName" type:"string"`
 
 	// Instance type to be used for launching the server.
-	InstanceType *string `locationName:"instanceType" type:"string"`
+	InstanceType *string `json:"sms:ServerLaunchConfiguration:InstanceType" locationName:"instanceType" type:"string"`
 
 	// Logical ID of the server in the Amazon CloudFormation template.
-	LogicalId *string `locationName:"logicalId" type:"string"`
+	LogicalId *string `json:"sms:ServerLaunchConfiguration:LogicalId" locationName:"logicalId" type:"string"`
 
 	// Identifier of the security group that applies to the launched server.
-	SecurityGroup *string `locationName:"securityGroup" type:"string"`
+	SecurityGroup *string `json:"sms:ServerLaunchConfiguration:SecurityGroup" locationName:"securityGroup" type:"string"`
 
 	// Identifier of the server the launch configuration is associated with.
-	Server *Server `locationName:"server" type:"structure"`
+	Server *Server `json:"sms:ServerLaunchConfiguration:Server" locationName:"server" type:"structure"`
 
 	// Identifier of the subnet the server should be launched into.
-	Subnet *string `locationName:"subnet" type:"string"`
+	Subnet *string `json:"sms:ServerLaunchConfiguration:Subnet" locationName:"subnet" type:"string"`
 
 	// Location of the user-data script to be executed when launching the server.
-	UserData *UserData `locationName:"userData" type:"structure"`
+	UserData *UserData `json:"sms:ServerLaunchConfiguration:UserData" locationName:"userData" type:"structure"`
 
 	// Identifier of the VPC the server should be launched into.
-	Vpc *string `locationName:"vpc" type:"string"`
+	Vpc *string `json:"sms:ServerLaunchConfiguration:Vpc" locationName:"vpc" type:"string"`
 }
 
 // String returns the string representation
@@ -430,10 +430,10 @@ type ServerReplicationConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Identifier of the server this replication configuration is associated with.
-	Server *Server `locationName:"server" type:"structure"`
+	Server *Server `json:"sms:ServerReplicationConfiguration:Server" locationName:"server" type:"structure"`
 
 	// Parameters for replicating the server.
-	ServerReplicationParameters *ServerReplicationParameters `locationName:"serverReplicationParameters" type:"structure"`
+	ServerReplicationParameters *ServerReplicationParameters `json:"sms:ServerReplicationConfiguration:ServerReplicationParameters" locationName:"serverReplicationParameters" type:"structure"`
 }
 
 // String returns the string representation
@@ -448,10 +448,10 @@ type ServerReplicationParameters struct {
 
 	// When true, the replication job produces encrypted AMIs. See also KmsKeyId
 	// below.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"sms:ServerReplicationParameters:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// Frequency of creating replication jobs for the server.
-	Frequency *int64 `locationName:"frequency" type:"integer"`
+	Frequency *int64 `json:"sms:ServerReplicationParameters:Frequency" locationName:"frequency" type:"integer"`
 
 	// KMS key ID for replication jobs that produce encrypted AMIs. Can be any of
 	// the following:
@@ -466,18 +466,18 @@ type ServerReplicationParameters struct {
 	//
 	// If encrypted is true but a KMS key id is not specified, the customer's default
 	// KMS key for EBS is used.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"sms:ServerReplicationParameters:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// License type for creating a replication job for the server.
-	LicenseType LicenseType `locationName:"licenseType" type:"string" enum:"true"`
+	LicenseType LicenseType `json:"sms:ServerReplicationParameters:LicenseType" locationName:"licenseType" type:"string" enum:"true"`
 
 	// Number of recent AMIs to keep when creating a replication job for this server.
-	NumberOfRecentAmisToKeep *int64 `locationName:"numberOfRecentAmisToKeep" type:"integer"`
+	NumberOfRecentAmisToKeep *int64 `json:"sms:ServerReplicationParameters:NumberOfRecentAmisToKeep" locationName:"numberOfRecentAmisToKeep" type:"integer"`
 
-	RunOnce *bool `locationName:"runOnce" type:"boolean"`
+	RunOnce *bool `json:"sms:ServerReplicationParameters:RunOnce" locationName:"runOnce" type:"boolean"`
 
 	// Seed time for creating a replication job for the server.
-	SeedTime *time.Time `locationName:"seedTime" type:"timestamp" timestampFormat:"unix"`
+	SeedTime *time.Time `json:"sms:ServerReplicationParameters:SeedTime" locationName:"seedTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -491,10 +491,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// Tag key.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"sms:Tag:Key" locationName:"key" type:"string"`
 
 	// Tag value.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"sms:Tag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -509,7 +509,7 @@ type UserData struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon S3 location of the user-data script.
-	S3Location *S3Location `locationName:"s3Location" type:"structure"`
+	S3Location *S3Location `json:"sms:UserData:S3Location" locationName:"s3Location" type:"structure"`
 }
 
 // String returns the string representation
@@ -523,19 +523,19 @@ type VmServer struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the VM manager.
-	VmManagerName *string `locationName:"vmManagerName" type:"string"`
+	VmManagerName *string `json:"sms:VmServer:VmManagerName" locationName:"vmManagerName" type:"string"`
 
 	// The type of VM management product.
-	VmManagerType VmManagerType `locationName:"vmManagerType" type:"string" enum:"true"`
+	VmManagerType VmManagerType `json:"sms:VmServer:VmManagerType" locationName:"vmManagerType" type:"string" enum:"true"`
 
 	// The name of the VM.
-	VmName *string `locationName:"vmName" type:"string"`
+	VmName *string `json:"sms:VmServer:VmName" locationName:"vmName" type:"string"`
 
 	// The VM folder path in the vCenter Server virtual machine inventory tree.
-	VmPath *string `locationName:"vmPath" type:"string"`
+	VmPath *string `json:"sms:VmServer:VmPath" locationName:"vmPath" type:"string"`
 
 	// Information about the VM server location.
-	VmServerAddress *VmServerAddress `locationName:"vmServerAddress" type:"structure"`
+	VmServerAddress *VmServerAddress `json:"sms:VmServer:VmServerAddress" locationName:"vmServerAddress" type:"structure"`
 }
 
 // String returns the string representation
@@ -549,10 +549,10 @@ type VmServerAddress struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the VM.
-	VmId *string `locationName:"vmId" type:"string"`
+	VmId *string `json:"sms:VmServerAddress:VmId" locationName:"vmId" type:"string"`
 
 	// The identifier of the VM manager.
-	VmManagerId *string `locationName:"vmManagerId" type:"string"`
+	VmManagerId *string `json:"sms:VmServerAddress:VmManagerId" locationName:"vmManagerId" type:"string"`
 }
 
 // String returns the string representation

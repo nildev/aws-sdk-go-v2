@@ -48,11 +48,11 @@ type DescribeWorkspaceDirectoriesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the directories.
-	Directories []WorkspaceDirectory `type:"list"`
+	Directories []WorkspaceDirectory `json:"workspaces:DescribeWorkspaceDirectoriesOutput:Directories" type:"list"`
 
 	// The token to use to retrieve the next set of results, or null if no more
 	// results are available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workspaces:DescribeWorkspaceDirectoriesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

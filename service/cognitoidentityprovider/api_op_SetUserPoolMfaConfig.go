@@ -60,13 +60,13 @@ type SetUserPoolMfaConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The MFA configuration.
-	MfaConfiguration UserPoolMfaType `type:"string" enum:"true"`
+	MfaConfiguration UserPoolMfaType `json:"cognito-idp:SetUserPoolMfaConfigOutput:MfaConfiguration" type:"string" enum:"true"`
 
 	// The SMS text message MFA configuration.
-	SmsMfaConfiguration *SmsMfaConfigType `type:"structure"`
+	SmsMfaConfiguration *SmsMfaConfigType `json:"cognito-idp:SetUserPoolMfaConfigOutput:SmsMfaConfiguration" type:"structure"`
 
 	// The software token MFA configuration.
-	SoftwareTokenMfaConfiguration *SoftwareTokenMfaConfigType `type:"structure"`
+	SoftwareTokenMfaConfiguration *SoftwareTokenMfaConfigType `json:"cognito-idp:SetUserPoolMfaConfigOutput:SoftwareTokenMfaConfiguration" type:"structure"`
 }
 
 // String returns the string representation

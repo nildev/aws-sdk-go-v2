@@ -65,10 +65,10 @@ type ListPipelinesOutput struct {
 
 	// The token to retrieve the next set of results, or null if there are no more
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotanalytics:ListPipelinesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of "PipelineSummary" objects.
-	PipelineSummaries []PipelineSummary `locationName:"pipelineSummaries" type:"list"`
+	PipelineSummaries []PipelineSummary `json:"iotanalytics:ListPipelinesOutput:PipelineSummaries" locationName:"pipelineSummaries" type:"list"`
 }
 
 // String returns the string representation

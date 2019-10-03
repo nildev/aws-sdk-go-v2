@@ -85,10 +85,10 @@ type DescribeVolumeStatusOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVolumeStatusOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the status of the volumes.
-	VolumeStatuses []VolumeStatusItem `locationName:"volumeStatusSet" locationNameList:"item" type:"list"`
+	VolumeStatuses []VolumeStatusItem `json:"ec2:DescribeVolumeStatusOutput:VolumeStatuses" locationName:"volumeStatusSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

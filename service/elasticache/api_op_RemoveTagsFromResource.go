@@ -60,7 +60,7 @@ type RemoveTagsFromResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of cost allocation tags as key-value pairs.
-	TagList []Tag `locationNameList:"Tag" type:"list"`
+	TagList []Tag `json:"elasticache:RemoveTagsFromResourceOutput:TagList" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation

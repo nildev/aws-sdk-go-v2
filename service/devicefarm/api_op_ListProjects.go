@@ -53,10 +53,10 @@ type ListProjectsOutput struct {
 	// If the number of items that are returned is significantly large, this is
 	// an identifier that is also returned, which can be used in a subsequent call
 	// to this operation to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:ListProjectsOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 
 	// Information about the projects.
-	Projects []Project `locationName:"projects" type:"list"`
+	Projects []Project `json:"devicefarm:ListProjectsOutput:Projects" locationName:"projects" type:"list"`
 }
 
 // String returns the string representation

@@ -52,11 +52,11 @@ type AccountGateResult struct {
 	//    with the stack set operation in this account and region. Either no action
 	//    is necessary, or no action is possible, on the stack. AWS CloudFormation
 	//    skips the stack set operation in this account and region.
-	Status AccountGateStatus `type:"string" enum:"true"`
+	Status AccountGateStatus `json:"cloudformation:AccountGateResult:Status" type:"string" enum:"true"`
 
 	// The reason for the account gate status assigned to this account and region
 	// for the stack set operation.
-	StatusReason *string `type:"string"`
+	StatusReason *string `json:"cloudformation:AccountGateResult:StatusReason" type:"string"`
 }
 
 // String returns the string representation
@@ -72,10 +72,10 @@ type AccountLimit struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the account limit.
-	Name *string `type:"string"`
+	Name *string `json:"cloudformation:AccountLimit:Name" type:"string"`
 
 	// The value that is associated with the account limit name.
-	Value *int64 `type:"integer"`
+	Value *int64 `json:"cloudformation:AccountLimit:Value" type:"integer"`
 }
 
 // String returns the string representation
@@ -91,11 +91,11 @@ type Change struct {
 
 	// A ResourceChange structure that describes the resource and action that AWS
 	// CloudFormation will perform.
-	ResourceChange *ResourceChange `type:"structure"`
+	ResourceChange *ResourceChange `json:"cloudformation:Change:ResourceChange" type:"structure"`
 
 	// The type of entity that AWS CloudFormation changes. Currently, the only entity
 	// type is Resource.
-	Type ChangeType `type:"string" enum:"true"`
+	Type ChangeType `json:"cloudformation:Change:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -110,37 +110,37 @@ type ChangeSetSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the change set.
-	ChangeSetId *string `min:"1" type:"string"`
+	ChangeSetId *string `json:"cloudformation:ChangeSetSummary:ChangeSetId" min:"1" type:"string"`
 
 	// The name of the change set.
-	ChangeSetName *string `min:"1" type:"string"`
+	ChangeSetName *string `json:"cloudformation:ChangeSetSummary:ChangeSetName" min:"1" type:"string"`
 
 	// The start time when the change set was created, in UTC.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"cloudformation:ChangeSetSummary:CreationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Descriptive information about the change set.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:ChangeSetSummary:Description" min:"1" type:"string"`
 
 	// If the change set execution status is AVAILABLE, you can execute the change
 	// set. If you can’t execute the change set, the status indicates why. For
 	// example, a change set might be in an UNAVAILABLE state because AWS CloudFormation
 	// is still creating it or in an OBSOLETE state because the stack was already
 	// updated.
-	ExecutionStatus ExecutionStatus `type:"string" enum:"true"`
+	ExecutionStatus ExecutionStatus `json:"cloudformation:ChangeSetSummary:ExecutionStatus" type:"string" enum:"true"`
 
 	// The ID of the stack with which the change set is associated.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:ChangeSetSummary:StackId" type:"string"`
 
 	// The name of the stack with which the change set is associated.
-	StackName *string `type:"string"`
+	StackName *string `json:"cloudformation:ChangeSetSummary:StackName" type:"string"`
 
 	// The state of the change set, such as CREATE_IN_PROGRESS, CREATE_COMPLETE,
 	// or FAILED.
-	Status ChangeSetStatus `type:"string" enum:"true"`
+	Status ChangeSetStatus `json:"cloudformation:ChangeSetSummary:Status" type:"string" enum:"true"`
 
 	// A description of the change set's status. For example, if your change set
 	// is in the FAILED state, AWS CloudFormation shows the error message.
-	StatusReason *string `type:"string"`
+	StatusReason *string `json:"cloudformation:ChangeSetSummary:StatusReason" type:"string"`
 }
 
 // String returns the string representation
@@ -154,16 +154,16 @@ type Export struct {
 	_ struct{} `type:"structure"`
 
 	// The stack that contains the exported output name and value.
-	ExportingStackId *string `type:"string"`
+	ExportingStackId *string `json:"cloudformation:Export:ExportingStackId" type:"string"`
 
 	// The name of exported output value. Use this name and the Fn::ImportValue
 	// function to import the associated value into other stacks. The name is defined
 	// in the Export field in the associated stack's Outputs section.
-	Name *string `type:"string"`
+	Name *string `json:"cloudformation:Export:Name" type:"string"`
 
 	// The value of the exported output, such as a resource physical ID. This value
 	// is defined in the Export field in the associated stack's Outputs section.
-	Value *string `type:"string"`
+	Value *string `json:"cloudformation:Export:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -177,16 +177,16 @@ type Output struct {
 	_ struct{} `type:"structure"`
 
 	// User defined description associated with the output.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:Output:Description" min:"1" type:"string"`
 
 	// The name of the export associated with the output.
-	ExportName *string `type:"string"`
+	ExportName *string `json:"cloudformation:Output:ExportName" type:"string"`
 
 	// The key associated with the output.
-	OutputKey *string `type:"string"`
+	OutputKey *string `json:"cloudformation:Output:OutputKey" type:"string"`
 
 	// The value associated with the output.
-	OutputValue *string `type:"string"`
+	OutputValue *string `json:"cloudformation:Output:OutputValue" type:"string"`
 }
 
 // String returns the string representation
@@ -202,20 +202,20 @@ type Parameter struct {
 	// The key associated with the parameter. If you don't specify a key and value
 	// for a particular parameter, AWS CloudFormation uses the default value that
 	// is specified in your template.
-	ParameterKey *string `type:"string"`
+	ParameterKey *string `json:"cloudformation:Parameter:ParameterKey" type:"string"`
 
 	// The input value associated with the parameter.
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `json:"cloudformation:Parameter:ParameterValue" type:"string"`
 
 	// Read-only. The value that corresponds to a Systems Manager parameter key.
 	// This field is returned only for SSM parameter types (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types)
 	// in the template.
-	ResolvedValue *string `type:"string"`
+	ResolvedValue *string `json:"cloudformation:Parameter:ResolvedValue" type:"string"`
 
 	// During a stack update, use the existing parameter value that the stack is
 	// using for a given parameter key. If you specify true, do not specify a parameter
 	// value.
-	UsePreviousValue *bool `type:"boolean"`
+	UsePreviousValue *bool `json:"cloudformation:Parameter:UsePreviousValue" type:"boolean"`
 }
 
 // String returns the string representation
@@ -231,7 +231,7 @@ type ParameterConstraints struct {
 	_ struct{} `type:"structure"`
 
 	// A list of values that are permitted for a parameter.
-	AllowedValues []string `type:"list"`
+	AllowedValues []string `json:"cloudformation:ParameterConstraints:AllowedValues" type:"list"`
 }
 
 // String returns the string representation
@@ -245,23 +245,23 @@ type ParameterDeclaration struct {
 	_ struct{} `type:"structure"`
 
 	// The default value of the parameter.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudformation:ParameterDeclaration:DefaultValue" type:"string"`
 
 	// The description that is associate with the parameter.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:ParameterDeclaration:Description" min:"1" type:"string"`
 
 	// Flag that indicates whether the parameter value is shown as plain text in
 	// logs and in the AWS Management Console.
-	NoEcho *bool `type:"boolean"`
+	NoEcho *bool `json:"cloudformation:ParameterDeclaration:NoEcho" type:"boolean"`
 
 	// The criteria that AWS CloudFormation uses to validate parameter values.
-	ParameterConstraints *ParameterConstraints `type:"structure"`
+	ParameterConstraints *ParameterConstraints `json:"cloudformation:ParameterDeclaration:ParameterConstraints" type:"structure"`
 
 	// The name that is associated with the parameter.
-	ParameterKey *string `type:"string"`
+	ParameterKey *string `json:"cloudformation:ParameterDeclaration:ParameterKey" type:"string"`
 
 	// The type of parameter.
-	ParameterType *string `type:"string"`
+	ParameterType *string `json:"cloudformation:ParameterDeclaration:ParameterType" type:"string"`
 }
 
 // String returns the string representation
@@ -281,12 +281,12 @@ type PhysicalResourceIdContextKeyValuePair struct {
 	// The resource context key.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"cloudformation:PhysicalResourceIdContextKeyValuePair:Key" type:"string" required:"true"`
 
 	// The resource context value.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"cloudformation:PhysicalResourceIdContextKeyValuePair:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -306,7 +306,7 @@ type PropertyDifference struct {
 	// The actual property value of the resource property.
 	//
 	// ActualValue is a required field
-	ActualValue *string `type:"string" required:"true"`
+	ActualValue *string `json:"cloudformation:PropertyDifference:ActualValue" type:"string" required:"true"`
 
 	// The type of property difference.
 	//
@@ -320,18 +320,18 @@ type PropertyDifference struct {
 	//    parameters).
 	//
 	// DifferenceType is a required field
-	DifferenceType DifferenceType `type:"string" required:"true" enum:"true"`
+	DifferenceType DifferenceType `json:"cloudformation:PropertyDifference:DifferenceType" type:"string" required:"true" enum:"true"`
 
 	// The expected property value of the resource property, as defined in the stack
 	// template and any values specified as template parameters.
 	//
 	// ExpectedValue is a required field
-	ExpectedValue *string `type:"string" required:"true"`
+	ExpectedValue *string `json:"cloudformation:PropertyDifference:ExpectedValue" type:"string" required:"true"`
 
 	// The fully-qualified path to the resource property.
 	//
 	// PropertyPath is a required field
-	PropertyPath *string `type:"string" required:"true"`
+	PropertyPath *string `json:"cloudformation:PropertyDifference:PropertyPath" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -347,18 +347,18 @@ type ResourceChange struct {
 
 	// The action that AWS CloudFormation takes on the resource, such as Add (adds
 	// a new resource), Modify (changes a resource), or Remove (deletes a resource).
-	Action ChangeAction `type:"string" enum:"true"`
+	Action ChangeAction `json:"cloudformation:ResourceChange:Action" type:"string" enum:"true"`
 
 	// For the Modify action, a list of ResourceChangeDetail structures that describes
 	// the changes that AWS CloudFormation will make to the resource.
-	Details []ResourceChangeDetail `type:"list"`
+	Details []ResourceChangeDetail `json:"cloudformation:ResourceChange:Details" type:"list"`
 
 	// The resource's logical ID, which is defined in the stack's template.
-	LogicalResourceId *string `type:"string"`
+	LogicalResourceId *string `json:"cloudformation:ResourceChange:LogicalResourceId" type:"string"`
 
 	// The resource's physical ID (resource name). Resources that you are adding
 	// don't have physical IDs because they haven't been created.
-	PhysicalResourceId *string `type:"string"`
+	PhysicalResourceId *string `json:"cloudformation:ResourceChange:PhysicalResourceId" type:"string"`
 
 	// For the Modify action, indicates whether AWS CloudFormation will replace
 	// the resource by creating a new one and deleting the old one. This value depends
@@ -371,15 +371,15 @@ type ResourceChange struct {
 	// Replacement value depends on the change with the most impact. A RequiresRecreation
 	// value of Always has the most impact, followed by Conditionally, and then
 	// Never.
-	Replacement Replacement `type:"string" enum:"true"`
+	Replacement Replacement `json:"cloudformation:ResourceChange:Replacement" type:"string" enum:"true"`
 
 	// The type of AWS CloudFormation resource, such as AWS::S3::Bucket.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"cloudformation:ResourceChange:ResourceType" min:"1" type:"string"`
 
 	// For the Modify action, indicates which resource attribute is triggering this
 	// update, such as a change in the resource attribute's Metadata, Properties,
 	// or Tags.
-	Scope []ResourceAttribute `type:"list"`
+	Scope []ResourceAttribute `json:"cloudformation:ResourceChange:Scope" type:"list"`
 }
 
 // String returns the string representation
@@ -399,7 +399,7 @@ type ResourceChangeDetail struct {
 	// the name of the parameter (KeyPairName).
 	//
 	// If the ChangeSource value is DirectModification, no value is given for CausingEntity.
-	CausingEntity *string `type:"string"`
+	CausingEntity *string `json:"cloudformation:ResourceChangeDetail:CausingEntity" type:"string"`
 
 	// The group to which the CausingEntity value belongs. There are five entity
 	// groups:
@@ -423,7 +423,7 @@ type ResourceChangeDetail struct {
 	//    the nested stack's template might have changed. Changes to a nested stack's
 	//    template aren't visible to AWS CloudFormation until you run an update
 	//    on the parent stack.
-	ChangeSource ChangeSource `type:"string" enum:"true"`
+	ChangeSource ChangeSource `json:"cloudformation:ResourceChangeDetail:ChangeSource" type:"string" enum:"true"`
 
 	// Indicates whether AWS CloudFormation can determine the target value, and
 	// whether the target value will change before you execute a change set.
@@ -440,11 +440,11 @@ type ResourceChangeDetail struct {
 	// reference (the physical ID of the resource) might change, depending on if
 	// the resource is recreated. If the resource is recreated, it will have a new
 	// physical ID, so all references to that resource will also be updated.
-	Evaluation EvaluationType `type:"string" enum:"true"`
+	Evaluation EvaluationType `json:"cloudformation:ResourceChangeDetail:Evaluation" type:"string" enum:"true"`
 
 	// A ResourceTargetDefinition structure that describes the field that AWS CloudFormation
 	// will change and whether the resource will be recreated.
-	Target *ResourceTargetDefinition `type:"structure"`
+	Target *ResourceTargetDefinition `json:"cloudformation:ResourceChangeDetail:Target" type:"structure"`
 }
 
 // String returns the string representation
@@ -460,18 +460,18 @@ type ResourceTargetDefinition struct {
 
 	// Indicates which resource attribute is triggering this update, such as a change
 	// in the resource attribute's Metadata, Properties, or Tags.
-	Attribute ResourceAttribute `type:"string" enum:"true"`
+	Attribute ResourceAttribute `json:"cloudformation:ResourceTargetDefinition:Attribute" type:"string" enum:"true"`
 
 	// If the Attribute value is Properties, the name of the property. For all other
 	// attributes, the value is null.
-	Name *string `type:"string"`
+	Name *string `json:"cloudformation:ResourceTargetDefinition:Name" type:"string"`
 
 	// If the Attribute value is Properties, indicates whether a change to this
 	// property causes the resource to be recreated. The value can be Never, Always,
 	// or Conditionally. To determine the conditions for a Conditionally recreation,
 	// see the update behavior for that property (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	// in the AWS CloudFormation User Guide.
-	RequiresRecreation RequiresRecreation `type:"string" enum:"true"`
+	RequiresRecreation RequiresRecreation `json:"cloudformation:ResourceTargetDefinition:RequiresRecreation" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -509,7 +509,7 @@ type RollbackConfiguration struct {
 	// rollback triggers during stack creation and update operations. Then, for
 	// update operations, it begins disposing of old resources immediately once
 	// the operation completes.
-	MonitoringTimeInMinutes *int64 `type:"integer"`
+	MonitoringTimeInMinutes *int64 `json:"cloudformation:RollbackConfiguration:MonitoringTimeInMinutes" type:"integer"`
 
 	// The triggers to monitor during stack creation or update actions.
 	//
@@ -533,7 +533,7 @@ type RollbackConfiguration struct {
 	//
 	// If a specified trigger is missing, the entire stack operation fails and is
 	// rolled back.
-	RollbackTriggers []RollbackTrigger `type:"list"`
+	RollbackTriggers []RollbackTrigger `json:"cloudformation:RollbackConfiguration:RollbackTriggers" type:"list"`
 }
 
 // String returns the string representation
@@ -572,14 +572,14 @@ type RollbackTrigger struct {
 	// rolled back.
 	//
 	// Arn is a required field
-	Arn *string `type:"string" required:"true"`
+	Arn *string `json:"cloudformation:RollbackTrigger:Arn" type:"string" required:"true"`
 
 	// The resource type of the rollback trigger. Currently, AWS::CloudWatch::Alarm
 	// (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html)
 	// is the only supported resource type.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"cloudformation:RollbackTrigger:Type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -611,34 +611,34 @@ type Stack struct {
 	_ struct{} `type:"structure"`
 
 	// The capabilities allowed in the stack.
-	Capabilities []Capability `type:"list"`
+	Capabilities []Capability `json:"cloudformation:Stack:Capabilities" type:"list"`
 
 	// The unique ID of the change set.
-	ChangeSetId *string `min:"1" type:"string"`
+	ChangeSetId *string `json:"cloudformation:Stack:ChangeSetId" min:"1" type:"string"`
 
 	// The time at which the stack was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreationTime *time.Time `json:"cloudformation:Stack:CreationTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The time the stack was deleted.
-	DeletionTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DeletionTime *time.Time `json:"cloudformation:Stack:DeletionTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A user-defined description associated with the stack.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:Stack:Description" min:"1" type:"string"`
 
 	// Boolean to enable or disable rollback on stack creation failures:
 	//
 	//    * true: disable rollback
 	//
 	//    * false: enable rollback
-	DisableRollback *bool `type:"boolean"`
+	DisableRollback *bool `json:"cloudformation:Stack:DisableRollback" type:"boolean"`
 
 	// Information on whether a stack's actual configuration differs, or has drifted,
 	// from it's expected configuration, as defined in the stack template and any
 	// values specified as template parameters. For more information, see Detecting
 	// Unregulated Configuration Changes to Stacks and Resources (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
-	DriftInformation *StackDriftInformation `type:"structure"`
+	DriftInformation *StackDriftInformation `json:"cloudformation:Stack:DriftInformation" type:"structure"`
 
 	// Whether termination protection is enabled for the stack.
 	//
@@ -647,20 +647,20 @@ type Stack struct {
 	// on the nested stack. For more information, see Protecting a Stack From Being
 	// Deleted (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html)
 	// in the AWS CloudFormation User Guide.
-	EnableTerminationProtection *bool `type:"boolean"`
+	EnableTerminationProtection *bool `json:"cloudformation:Stack:EnableTerminationProtection" type:"boolean"`
 
 	// The time the stack was last updated. This field will only be returned if
 	// the stack has been updated at least once.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastUpdatedTime *time.Time `json:"cloudformation:Stack:LastUpdatedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// SNS topic ARNs to which stack related events are published.
-	NotificationARNs []string `type:"list"`
+	NotificationARNs []string `json:"cloudformation:Stack:NotificationARNs" type:"list"`
 
 	// A list of output structures.
-	Outputs []Output `type:"list"`
+	Outputs []Output `json:"cloudformation:Stack:Outputs" type:"list"`
 
 	// A list of Parameter structures.
-	Parameters []Parameter `type:"list"`
+	Parameters []Parameter `json:"cloudformation:Stack:Parameters" type:"list"`
 
 	// For nested stacks--stacks created as resources for another stack--the stack
 	// ID of the direct parent of this stack. For the first level of nested stacks,
@@ -668,45 +668,45 @@ type Stack struct {
 	//
 	// For more information, see Working with Nested Stacks (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html)
 	// in the AWS CloudFormation User Guide.
-	ParentId *string `type:"string"`
+	ParentId *string `json:"cloudformation:Stack:ParentId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
 	// role that is associated with the stack. During a stack operation, AWS CloudFormation
 	// uses this role's credentials to make calls on your behalf.
-	RoleARN *string `min:"20" type:"string"`
+	RoleARN *string `json:"cloudformation:Stack:RoleARN" min:"20" type:"string"`
 
 	// The rollback triggers for AWS CloudFormation to monitor during stack creation
 	// and updating operations, and for the specified monitoring period afterwards.
-	RollbackConfiguration *RollbackConfiguration `type:"structure"`
+	RollbackConfiguration *RollbackConfiguration `json:"cloudformation:Stack:RollbackConfiguration" type:"structure"`
 
 	// For nested stacks--stacks created as resources for another stack--the stack
 	// ID of the the top-level stack to which the nested stack ultimately belongs.
 	//
 	// For more information, see Working with Nested Stacks (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html)
 	// in the AWS CloudFormation User Guide.
-	RootId *string `type:"string"`
+	RootId *string `json:"cloudformation:Stack:RootId" type:"string"`
 
 	// Unique identifier of the stack.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:Stack:StackId" type:"string"`
 
 	// The name associated with the stack.
 	//
 	// StackName is a required field
-	StackName *string `type:"string" required:"true"`
+	StackName *string `json:"cloudformation:Stack:StackName" type:"string" required:"true"`
 
 	// Current status of the stack.
 	//
 	// StackStatus is a required field
-	StackStatus StackStatus `type:"string" required:"true" enum:"true"`
+	StackStatus StackStatus `json:"cloudformation:Stack:StackStatus" type:"string" required:"true" enum:"true"`
 
 	// Success/failure message associated with the stack status.
-	StackStatusReason *string `type:"string"`
+	StackStatusReason *string `json:"cloudformation:Stack:StackStatusReason" type:"string"`
 
 	// A list of Tags that specify information about the stack.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"cloudformation:Stack:Tags" type:"list"`
 
 	// The amount of time within which stack creation should complete.
-	TimeoutInMinutes *int64 `min:"1" type:"integer"`
+	TimeoutInMinutes *int64 `json:"cloudformation:Stack:TimeoutInMinutes" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -724,7 +724,7 @@ type StackDriftInformation struct {
 
 	// Most recent time when a drift detection operation was initiated on the stack,
 	// or any of its individual resources that support drift detection.
-	LastCheckTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastCheckTimestamp *time.Time `json:"cloudformation:StackDriftInformation:LastCheckTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Status of the stack's actual configuration compared to its expected template
 	// configuration.
@@ -742,7 +742,7 @@ type StackDriftInformation struct {
 	//    * UNKNOWN: This value is reserved for future use.
 	//
 	// StackDriftStatus is a required field
-	StackDriftStatus StackDriftStatus `type:"string" required:"true" enum:"true"`
+	StackDriftStatus StackDriftStatus `json:"cloudformation:StackDriftInformation:StackDriftStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -760,7 +760,7 @@ type StackDriftInformationSummary struct {
 
 	// Most recent time when a drift detection operation was initiated on the stack,
 	// or any of its individual resources that support drift detection.
-	LastCheckTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastCheckTimestamp *time.Time `json:"cloudformation:StackDriftInformationSummary:LastCheckTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Status of the stack's actual configuration compared to its expected template
 	// configuration.
@@ -778,7 +778,7 @@ type StackDriftInformationSummary struct {
 	//    * UNKNOWN: This value is reserved for future use.
 	//
 	// StackDriftStatus is a required field
-	StackDriftStatus StackDriftStatus `type:"string" required:"true" enum:"true"`
+	StackDriftStatus StackDriftStatus `json:"cloudformation:StackDriftInformationSummary:StackDriftStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -803,48 +803,48 @@ type StackEvent struct {
 	// token format Console-StackOperation-ID, which helps you easily identify the
 	// stack operation . For example, if you create a stack using the console, each
 	// stack event would be assigned the same token in the following format: Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002.
-	ClientRequestToken *string `min:"1" type:"string"`
+	ClientRequestToken *string `json:"cloudformation:StackEvent:ClientRequestToken" min:"1" type:"string"`
 
 	// The unique ID of this event.
 	//
 	// EventId is a required field
-	EventId *string `type:"string" required:"true"`
+	EventId *string `json:"cloudformation:StackEvent:EventId" type:"string" required:"true"`
 
 	// The logical name of the resource specified in the template.
-	LogicalResourceId *string `type:"string"`
+	LogicalResourceId *string `json:"cloudformation:StackEvent:LogicalResourceId" type:"string"`
 
 	// The name or unique identifier associated with the physical instance of the
 	// resource.
-	PhysicalResourceId *string `type:"string"`
+	PhysicalResourceId *string `json:"cloudformation:StackEvent:PhysicalResourceId" type:"string"`
 
 	// BLOB of the properties used to create the resource.
-	ResourceProperties *string `type:"string"`
+	ResourceProperties *string `json:"cloudformation:StackEvent:ResourceProperties" type:"string"`
 
 	// Current status of the resource.
-	ResourceStatus ResourceStatus `type:"string" enum:"true"`
+	ResourceStatus ResourceStatus `json:"cloudformation:StackEvent:ResourceStatus" type:"string" enum:"true"`
 
 	// Success/failure message associated with the resource.
-	ResourceStatusReason *string `type:"string"`
+	ResourceStatusReason *string `json:"cloudformation:StackEvent:ResourceStatusReason" type:"string"`
 
 	// Type of resource. (For more information, go to AWS Resource Types Reference
 	// (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	// in the AWS CloudFormation User Guide.)
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"cloudformation:StackEvent:ResourceType" min:"1" type:"string"`
 
 	// The unique ID name of the instance of the stack.
 	//
 	// StackId is a required field
-	StackId *string `type:"string" required:"true"`
+	StackId *string `json:"cloudformation:StackEvent:StackId" type:"string" required:"true"`
 
 	// The name associated with a stack.
 	//
 	// StackName is a required field
-	StackName *string `type:"string" required:"true"`
+	StackName *string `json:"cloudformation:StackEvent:StackName" type:"string" required:"true"`
 
 	// Time the status was updated.
 	//
 	// Timestamp is a required field
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	Timestamp *time.Time `json:"cloudformation:StackEvent:Timestamp" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation
@@ -864,21 +864,21 @@ type StackInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the AWS account that the stack instance is associated with.
-	Account *string `type:"string"`
+	Account *string `json:"cloudformation:StackInstance:Account" type:"string"`
 
 	// A list of parameters from the stack set template whose values have been overridden
 	// in this stack instance.
-	ParameterOverrides []Parameter `type:"list"`
+	ParameterOverrides []Parameter `json:"cloudformation:StackInstance:ParameterOverrides" type:"list"`
 
 	// The name of the AWS region that the stack instance is associated with.
-	Region *string `type:"string"`
+	Region *string `json:"cloudformation:StackInstance:Region" type:"string"`
 
 	// The ID of the stack instance.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:StackInstance:StackId" type:"string"`
 
 	// The name or unique ID of the stack set that the stack instance is associated
 	// with.
-	StackSetId *string `type:"string"`
+	StackSetId *string `json:"cloudformation:StackInstance:StackSetId" type:"string"`
 
 	// The status of the stack instance, in terms of its synchronization with its
 	// associated stack set.
@@ -895,11 +895,11 @@ type StackInstance struct {
 	//    that failed or was stopped before the stack was created or updated.
 	//
 	//    * CURRENT: The stack is currently up to date with the stack set.
-	Status StackInstanceStatus `type:"string" enum:"true"`
+	Status StackInstanceStatus `json:"cloudformation:StackInstance:Status" type:"string" enum:"true"`
 
 	// The explanation for the specific status code that is assigned to this stack
 	// instance.
-	StatusReason *string `type:"string"`
+	StatusReason *string `json:"cloudformation:StackInstance:StatusReason" type:"string"`
 }
 
 // String returns the string representation
@@ -913,17 +913,17 @@ type StackInstanceSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the AWS account that the stack instance is associated with.
-	Account *string `type:"string"`
+	Account *string `json:"cloudformation:StackInstanceSummary:Account" type:"string"`
 
 	// The name of the AWS region that the stack instance is associated with.
-	Region *string `type:"string"`
+	Region *string `json:"cloudformation:StackInstanceSummary:Region" type:"string"`
 
 	// The ID of the stack instance.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:StackInstanceSummary:StackId" type:"string"`
 
 	// The name or unique ID of the stack set that the stack instance is associated
 	// with.
-	StackSetId *string `type:"string"`
+	StackSetId *string `json:"cloudformation:StackInstanceSummary:StackSetId" type:"string"`
 
 	// The status of the stack instance, in terms of its synchronization with its
 	// associated stack set.
@@ -940,10 +940,10 @@ type StackInstanceSummary struct {
 	//    that failed or was stopped before the stack was created or updated.
 	//
 	//    * CURRENT: The stack is currently up to date with the stack set.
-	Status StackInstanceStatus `type:"string" enum:"true"`
+	Status StackInstanceStatus `json:"cloudformation:StackInstanceSummary:Status" type:"string" enum:"true"`
 
 	// The explanation for the specific status code assigned to this stack instance.
-	StatusReason *string `type:"string"`
+	StatusReason *string `json:"cloudformation:StackInstanceSummary:StatusReason" type:"string"`
 }
 
 // String returns the string representation
@@ -957,48 +957,48 @@ type StackResource struct {
 	_ struct{} `type:"structure"`
 
 	// User defined description associated with the resource.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:StackResource:Description" min:"1" type:"string"`
 
 	// Information about whether the resource's actual configuration differs, or
 	// has drifted, from its expected configuration, as defined in the stack template
 	// and any values specified as template parameters. For more information, see
 	// Detecting Unregulated Configuration Changes to Stacks and Resources (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
-	DriftInformation *StackResourceDriftInformation `type:"structure"`
+	DriftInformation *StackResourceDriftInformation `json:"cloudformation:StackResource:DriftInformation" type:"structure"`
 
 	// The logical name of the resource specified in the template.
 	//
 	// LogicalResourceId is a required field
-	LogicalResourceId *string `type:"string" required:"true"`
+	LogicalResourceId *string `json:"cloudformation:StackResource:LogicalResourceId" type:"string" required:"true"`
 
 	// The name or unique identifier that corresponds to a physical instance ID
 	// of a resource supported by AWS CloudFormation.
-	PhysicalResourceId *string `type:"string"`
+	PhysicalResourceId *string `json:"cloudformation:StackResource:PhysicalResourceId" type:"string"`
 
 	// Current status of the resource.
 	//
 	// ResourceStatus is a required field
-	ResourceStatus ResourceStatus `type:"string" required:"true" enum:"true"`
+	ResourceStatus ResourceStatus `json:"cloudformation:StackResource:ResourceStatus" type:"string" required:"true" enum:"true"`
 
 	// Success/failure message associated with the resource.
-	ResourceStatusReason *string `type:"string"`
+	ResourceStatusReason *string `json:"cloudformation:StackResource:ResourceStatusReason" type:"string"`
 
 	// Type of resource. (For more information, go to AWS Resource Types Reference
 	// (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	// in the AWS CloudFormation User Guide.)
 	//
 	// ResourceType is a required field
-	ResourceType *string `min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"cloudformation:StackResource:ResourceType" min:"1" type:"string" required:"true"`
 
 	// Unique identifier of the stack.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:StackResource:StackId" type:"string"`
 
 	// The name associated with the stack.
-	StackName *string `type:"string"`
+	StackName *string `json:"cloudformation:StackResource:StackName" type:"string"`
 
 	// Time the status was updated.
 	//
 	// Timestamp is a required field
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	Timestamp *time.Time `json:"cloudformation:StackResource:Timestamp" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation
@@ -1012,53 +1012,53 @@ type StackResourceDetail struct {
 	_ struct{} `type:"structure"`
 
 	// User defined description associated with the resource.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:StackResourceDetail:Description" min:"1" type:"string"`
 
 	// Information about whether the resource's actual configuration differs, or
 	// has drifted, from its expected configuration, as defined in the stack template
 	// and any values specified as template parameters. For more information, see
 	// Detecting Unregulated Configuration Changes to Stacks and Resources (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
-	DriftInformation *StackResourceDriftInformation `type:"structure"`
+	DriftInformation *StackResourceDriftInformation `json:"cloudformation:StackResourceDetail:DriftInformation" type:"structure"`
 
 	// Time the status was updated.
 	//
 	// LastUpdatedTimestamp is a required field
-	LastUpdatedTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastUpdatedTimestamp *time.Time `json:"cloudformation:StackResourceDetail:LastUpdatedTimestamp" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The logical name of the resource specified in the template.
 	//
 	// LogicalResourceId is a required field
-	LogicalResourceId *string `type:"string" required:"true"`
+	LogicalResourceId *string `json:"cloudformation:StackResourceDetail:LogicalResourceId" type:"string" required:"true"`
 
 	// The content of the Metadata attribute declared for the resource. For more
 	// information, see Metadata Attribute (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html)
 	// in the AWS CloudFormation User Guide.
-	Metadata *string `type:"string"`
+	Metadata *string `json:"cloudformation:StackResourceDetail:Metadata" type:"string"`
 
 	// The name or unique identifier that corresponds to a physical instance ID
 	// of a resource supported by AWS CloudFormation.
-	PhysicalResourceId *string `type:"string"`
+	PhysicalResourceId *string `json:"cloudformation:StackResourceDetail:PhysicalResourceId" type:"string"`
 
 	// Current status of the resource.
 	//
 	// ResourceStatus is a required field
-	ResourceStatus ResourceStatus `type:"string" required:"true" enum:"true"`
+	ResourceStatus ResourceStatus `json:"cloudformation:StackResourceDetail:ResourceStatus" type:"string" required:"true" enum:"true"`
 
 	// Success/failure message associated with the resource.
-	ResourceStatusReason *string `type:"string"`
+	ResourceStatusReason *string `json:"cloudformation:StackResourceDetail:ResourceStatusReason" type:"string"`
 
 	// Type of resource. ((For more information, go to AWS Resource Types Reference
 	// (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	// in the AWS CloudFormation User Guide.)
 	//
 	// ResourceType is a required field
-	ResourceType *string `min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"cloudformation:StackResourceDetail:ResourceType" min:"1" type:"string" required:"true"`
 
 	// Unique identifier of the stack.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:StackResourceDetail:StackId" type:"string"`
 
 	// The name associated with the stack.
-	StackName *string `type:"string"`
+	StackName *string `json:"cloudformation:StackResourceDetail:StackName" type:"string"`
 }
 
 // String returns the string representation
@@ -1087,45 +1087,45 @@ type StackResourceDrift struct {
 	//
 	// For resources whose StackResourceDriftStatus is DELETED, this structure will
 	// not be present.
-	ActualProperties *string `type:"string"`
+	ActualProperties *string `json:"cloudformation:StackResourceDrift:ActualProperties" type:"string"`
 
 	// A JSON structure containing the expected property values of the stack resource,
 	// as defined in the stack template and any values specified as template parameters.
 	//
 	// For resources whose StackResourceDriftStatus is DELETED, this structure will
 	// not be present.
-	ExpectedProperties *string `type:"string"`
+	ExpectedProperties *string `json:"cloudformation:StackResourceDrift:ExpectedProperties" type:"string"`
 
 	// The logical name of the resource specified in the template.
 	//
 	// LogicalResourceId is a required field
-	LogicalResourceId *string `type:"string" required:"true"`
+	LogicalResourceId *string `json:"cloudformation:StackResourceDrift:LogicalResourceId" type:"string" required:"true"`
 
 	// The name or unique identifier that corresponds to a physical instance ID
 	// of a resource supported by AWS CloudFormation.
-	PhysicalResourceId *string `type:"string"`
+	PhysicalResourceId *string `json:"cloudformation:StackResourceDrift:PhysicalResourceId" type:"string"`
 
 	// Context information that enables AWS CloudFormation to uniquely identify
 	// a resource. AWS CloudFormation uses context key-value pairs in cases where
 	// a resource's logical and physical IDs are not enough to uniquely identify
 	// that resource. Each context key-value pair specifies a unique resource that
 	// contains the targeted resource.
-	PhysicalResourceIdContext []PhysicalResourceIdContextKeyValuePair `type:"list"`
+	PhysicalResourceIdContext []PhysicalResourceIdContextKeyValuePair `json:"cloudformation:StackResourceDrift:PhysicalResourceIdContext" type:"list"`
 
 	// A collection of the resource properties whose actual values differ from their
 	// expected values. These will be present only for resources whose StackResourceDriftStatus
 	// is MODIFIED.
-	PropertyDifferences []PropertyDifference `type:"list"`
+	PropertyDifferences []PropertyDifference `json:"cloudformation:StackResourceDrift:PropertyDifferences" type:"list"`
 
 	// The type of the resource.
 	//
 	// ResourceType is a required field
-	ResourceType *string `min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"cloudformation:StackResourceDrift:ResourceType" min:"1" type:"string" required:"true"`
 
 	// The ID of the stack.
 	//
 	// StackId is a required field
-	StackId *string `type:"string" required:"true"`
+	StackId *string `json:"cloudformation:StackResourceDrift:StackId" type:"string" required:"true"`
 
 	// Status of the resource's actual configuration compared to its expected configuration
 	//
@@ -1142,12 +1142,12 @@ type StackResourceDrift struct {
 	//    * NOT_CHECKED: AWS CloudFormation does not currently return this value.
 	//
 	// StackResourceDriftStatus is a required field
-	StackResourceDriftStatus StackResourceDriftStatus `type:"string" required:"true" enum:"true"`
+	StackResourceDriftStatus StackResourceDriftStatus `json:"cloudformation:StackResourceDrift:StackResourceDriftStatus" type:"string" required:"true" enum:"true"`
 
 	// Time at which AWS CloudFormation performed drift detection on the stack resource.
 	//
 	// Timestamp is a required field
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	Timestamp *time.Time `json:"cloudformation:StackResourceDrift:Timestamp" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation
@@ -1163,7 +1163,7 @@ type StackResourceDriftInformation struct {
 
 	// When AWS CloudFormation last checked if the resource had drifted from its
 	// expected configuration.
-	LastCheckTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastCheckTimestamp *time.Time `json:"cloudformation:StackResourceDriftInformation:LastCheckTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Status of the resource's actual configuration compared to its expected configuration
 	//
@@ -1180,7 +1180,7 @@ type StackResourceDriftInformation struct {
 	//    * IN_SYNC: The resources's actual configuration matches its expected configuration.
 	//
 	// StackResourceDriftStatus is a required field
-	StackResourceDriftStatus StackResourceDriftStatus `type:"string" required:"true" enum:"true"`
+	StackResourceDriftStatus StackResourceDriftStatus `json:"cloudformation:StackResourceDriftInformation:StackResourceDriftStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1196,7 +1196,7 @@ type StackResourceDriftInformationSummary struct {
 
 	// When AWS CloudFormation last checked if the resource had drifted from its
 	// expected configuration.
-	LastCheckTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastCheckTimestamp *time.Time `json:"cloudformation:StackResourceDriftInformationSummary:LastCheckTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Status of the resource's actual configuration compared to its expected configuration
 	//
@@ -1218,7 +1218,7 @@ type StackResourceDriftInformationSummary struct {
 	//    * IN_SYNC: The resources's actual configuration matches its expected configuration.
 	//
 	// StackResourceDriftStatus is a required field
-	StackResourceDriftStatus StackResourceDriftStatus `type:"string" required:"true" enum:"true"`
+	StackResourceDriftStatus StackResourceDriftStatus `json:"cloudformation:StackResourceDriftInformationSummary:StackResourceDriftStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1235,36 +1235,36 @@ type StackResourceSummary struct {
 	// has drifted, from its expected configuration, as defined in the stack template
 	// and any values specified as template parameters. For more information, see
 	// Detecting Unregulated Configuration Changes to Stacks and Resources (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
-	DriftInformation *StackResourceDriftInformationSummary `type:"structure"`
+	DriftInformation *StackResourceDriftInformationSummary `json:"cloudformation:StackResourceSummary:DriftInformation" type:"structure"`
 
 	// Time the status was updated.
 	//
 	// LastUpdatedTimestamp is a required field
-	LastUpdatedTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastUpdatedTimestamp *time.Time `json:"cloudformation:StackResourceSummary:LastUpdatedTimestamp" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The logical name of the resource specified in the template.
 	//
 	// LogicalResourceId is a required field
-	LogicalResourceId *string `type:"string" required:"true"`
+	LogicalResourceId *string `json:"cloudformation:StackResourceSummary:LogicalResourceId" type:"string" required:"true"`
 
 	// The name or unique identifier that corresponds to a physical instance ID
 	// of the resource.
-	PhysicalResourceId *string `type:"string"`
+	PhysicalResourceId *string `json:"cloudformation:StackResourceSummary:PhysicalResourceId" type:"string"`
 
 	// Current status of the resource.
 	//
 	// ResourceStatus is a required field
-	ResourceStatus ResourceStatus `type:"string" required:"true" enum:"true"`
+	ResourceStatus ResourceStatus `json:"cloudformation:StackResourceSummary:ResourceStatus" type:"string" required:"true" enum:"true"`
 
 	// Success/failure message associated with the resource.
-	ResourceStatusReason *string `type:"string"`
+	ResourceStatusReason *string `json:"cloudformation:StackResourceSummary:ResourceStatusReason" type:"string"`
 
 	// Type of resource. (For more information, go to AWS Resource Types Reference
 	// (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	// in the AWS CloudFormation User Guide.)
 	//
 	// ResourceType is a required field
-	ResourceType *string `min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"cloudformation:StackResourceSummary:ResourceType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1287,47 +1287,47 @@ type StackSet struct {
 	// specific stack sets within the same administrator account. For more information,
 	// see Prerequisites: Granting Permissions for Stack Set Operations (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html)
 	// in the AWS CloudFormation User Guide.
-	AdministrationRoleARN *string `min:"20" type:"string"`
+	AdministrationRoleARN *string `json:"cloudformation:StackSet:AdministrationRoleARN" min:"20" type:"string"`
 
 	// The capabilities that are allowed in the stack set. Some stack set templates
 	// might include resources that can affect permissions in your AWS account—for
 	// example, by creating new AWS Identity and Access Management (IAM) users.
 	// For more information, see Acknowledging IAM Resources in AWS CloudFormation
 	// Templates. (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities)
-	Capabilities []Capability `type:"list"`
+	Capabilities []Capability `json:"cloudformation:StackSet:Capabilities" type:"list"`
 
 	// A description of the stack set that you specify when the stack set is created
 	// or updated.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:StackSet:Description" min:"1" type:"string"`
 
 	// The name of the IAM execution role used to create or update the stack set.
 	//
 	// Use customized execution roles to control which stack resources users and
 	// groups can include in their stack sets.
-	ExecutionRoleName *string `min:"1" type:"string"`
+	ExecutionRoleName *string `json:"cloudformation:StackSet:ExecutionRoleName" min:"1" type:"string"`
 
 	// A list of input parameters for a stack set.
-	Parameters []Parameter `type:"list"`
+	Parameters []Parameter `json:"cloudformation:StackSet:Parameters" type:"list"`
 
 	// The Amazon Resource Number (ARN) of the stack set.
-	StackSetARN *string `type:"string"`
+	StackSetARN *string `json:"cloudformation:StackSet:StackSetARN" type:"string"`
 
 	// The ID of the stack set.
-	StackSetId *string `type:"string"`
+	StackSetId *string `json:"cloudformation:StackSet:StackSetId" type:"string"`
 
 	// The name that's associated with the stack set.
-	StackSetName *string `type:"string"`
+	StackSetName *string `json:"cloudformation:StackSet:StackSetName" type:"string"`
 
 	// The status of the stack set.
-	Status StackSetStatus `type:"string" enum:"true"`
+	Status StackSetStatus `json:"cloudformation:StackSet:Status" type:"string" enum:"true"`
 
 	// A list of tags that specify information about the stack set. A maximum number
 	// of 50 tags can be specified.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"cloudformation:StackSet:Tags" type:"list"`
 
 	// The structure that contains the body of the template that was used to create
 	// or update the stack set.
-	TemplateBody *string `min:"1" type:"string"`
+	TemplateBody *string `json:"cloudformation:StackSet:TemplateBody" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1344,7 +1344,7 @@ type StackSetOperation struct {
 	// operations affect only the specified stack set instances that are associated
 	// with the specified stack set. Update operations affect both the stack set
 	// itself, as well as all associated stack set instances.
-	Action StackSetOperationAction `type:"string" enum:"true"`
+	Action StackSetOperationAction `json:"cloudformation:StackSetOperation:Action" type:"string" enum:"true"`
 
 	// The Amazon Resource Number (ARN) of the IAM role used to perform this stack
 	// set operation.
@@ -1353,40 +1353,40 @@ type StackSetOperation struct {
 	// specific stack sets within the same administrator account. For more information,
 	// see Define Permissions for Multiple Administrators (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html)
 	// in the AWS CloudFormation User Guide.
-	AdministrationRoleARN *string `min:"20" type:"string"`
+	AdministrationRoleARN *string `json:"cloudformation:StackSetOperation:AdministrationRoleARN" min:"20" type:"string"`
 
 	// The time at which the operation was initiated. Note that the creation times
 	// for the stack set operation might differ from the creation time of the individual
 	// stacks themselves. This is because AWS CloudFormation needs to perform preparatory
 	// work for the operation, such as dispatching the work to the requested regions,
 	// before actually creating the first stacks.
-	CreationTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreationTimestamp *time.Time `json:"cloudformation:StackSetOperation:CreationTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The time at which the stack set operation ended, across all accounts and
 	// regions specified. Note that this doesn't necessarily mean that the stack
 	// set operation was successful, or even attempted, in each account or region.
-	EndTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EndTimestamp *time.Time `json:"cloudformation:StackSetOperation:EndTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The name of the IAM execution role used to create or update the stack set.
 	//
 	// Use customized execution roles to control which stack resources users and
 	// groups can include in their stack sets.
-	ExecutionRoleName *string `min:"1" type:"string"`
+	ExecutionRoleName *string `json:"cloudformation:StackSetOperation:ExecutionRoleName" min:"1" type:"string"`
 
 	// The unique ID of a stack set operation.
-	OperationId *string `min:"1" type:"string"`
+	OperationId *string `json:"cloudformation:StackSetOperation:OperationId" min:"1" type:"string"`
 
 	// The preferences for how AWS CloudFormation performs this stack set operation.
-	OperationPreferences *StackSetOperationPreferences `type:"structure"`
+	OperationPreferences *StackSetOperationPreferences `json:"cloudformation:StackSetOperation:OperationPreferences" type:"structure"`
 
 	// For stack set operations of action type DELETE, specifies whether to remove
 	// the stack instances from the specified stack set, but doesn't delete the
 	// stacks. You can't reassociate a retained stack, or add an existing, saved
 	// stack to a new stack set.
-	RetainStacks *bool `type:"boolean"`
+	RetainStacks *bool `json:"cloudformation:StackSetOperation:RetainStacks" type:"boolean"`
 
 	// The ID of the stack set.
-	StackSetId *string `type:"string"`
+	StackSetId *string `json:"cloudformation:StackSetOperation:StackSetId" type:"string"`
 
 	// The status of the operation.
 	//
@@ -1406,7 +1406,7 @@ type StackSetOperation struct {
 	//
 	//    * SUCCEEDED: The operation completed creating or updating all the specified
 	//    stacks without exceeding the failure tolerance for the operation.
-	Status StackSetOperationStatus `type:"string" enum:"true"`
+	Status StackSetOperationStatus `json:"cloudformation:StackSetOperation:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1430,7 +1430,7 @@ type StackSetOperationPreferences struct {
 	//
 	// Conditional: You must specify either FailureToleranceCount or FailureTolerancePercentage
 	// (but not both).
-	FailureToleranceCount *int64 `type:"integer"`
+	FailureToleranceCount *int64 `json:"cloudformation:StackSetOperationPreferences:FailureToleranceCount" type:"integer"`
 
 	// The percentage of accounts, per region, for which this stack operation can
 	// fail before AWS CloudFormation stops the operation in that region. If the
@@ -1442,7 +1442,7 @@ type StackSetOperationPreferences struct {
 	//
 	// Conditional: You must specify either FailureToleranceCount or FailureTolerancePercentage,
 	// but not both.
-	FailureTolerancePercentage *int64 `type:"integer"`
+	FailureTolerancePercentage *int64 `json:"cloudformation:StackSetOperationPreferences:FailureTolerancePercentage" type:"integer"`
 
 	// The maximum number of accounts in which to perform this operation at one
 	// time. This is dependent on the value of FailureToleranceCount—MaxConcurrentCount
@@ -1454,7 +1454,7 @@ type StackSetOperationPreferences struct {
 	//
 	// Conditional: You must specify either MaxConcurrentCount or MaxConcurrentPercentage,
 	// but not both.
-	MaxConcurrentCount *int64 `min:"1" type:"integer"`
+	MaxConcurrentCount *int64 `json:"cloudformation:StackSetOperationPreferences:MaxConcurrentCount" min:"1" type:"integer"`
 
 	// The maximum percentage of accounts in which to perform this operation at
 	// one time.
@@ -1470,10 +1470,10 @@ type StackSetOperationPreferences struct {
 	//
 	// Conditional: You must specify either MaxConcurrentCount or MaxConcurrentPercentage,
 	// but not both.
-	MaxConcurrentPercentage *int64 `min:"1" type:"integer"`
+	MaxConcurrentPercentage *int64 `json:"cloudformation:StackSetOperationPreferences:MaxConcurrentPercentage" min:"1" type:"integer"`
 
 	// The order of the regions in where you want to perform the stack operation.
-	RegionOrder []string `type:"list"`
+	RegionOrder []string `json:"cloudformation:StackSetOperationPreferences:RegionOrder" type:"list"`
 }
 
 // String returns the string representation
@@ -1504,14 +1504,14 @@ type StackSetOperationResultSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the AWS account for this operation result.
-	Account *string `type:"string"`
+	Account *string `json:"cloudformation:StackSetOperationResultSummary:Account" type:"string"`
 
 	// The results of the account gate function AWS CloudFormation invokes, if present,
 	// before proceeding with stack set operations in an account
-	AccountGateResult *AccountGateResult `type:"structure"`
+	AccountGateResult *AccountGateResult `json:"cloudformation:StackSetOperationResultSummary:AccountGateResult" type:"structure"`
 
 	// The name of the AWS region for this operation result.
-	Region *string `type:"string"`
+	Region *string `json:"cloudformation:StackSetOperationResultSummary:Region" type:"string"`
 
 	// The result status of the stack set operation for the given account in the
 	// given region.
@@ -1532,10 +1532,10 @@ type StackSetOperationResultSummary struct {
 	//
 	//    * SUCCEEDED: The operation in the specified account and region completed
 	//    successfully.
-	Status StackSetOperationResultStatus `type:"string" enum:"true"`
+	Status StackSetOperationResultStatus `json:"cloudformation:StackSetOperationResultSummary:Status" type:"string" enum:"true"`
 
 	// The reason for the assigned result status.
-	StatusReason *string `type:"string"`
+	StatusReason *string `json:"cloudformation:StackSetOperationResultSummary:StatusReason" type:"string"`
 }
 
 // String returns the string representation
@@ -1552,22 +1552,22 @@ type StackSetOperationSummary struct {
 	// affect only the specified stack instances that are associated with the specified
 	// stack set. Update operations affect both the stack set itself as well as
 	// all associated stack set instances.
-	Action StackSetOperationAction `type:"string" enum:"true"`
+	Action StackSetOperationAction `json:"cloudformation:StackSetOperationSummary:Action" type:"string" enum:"true"`
 
 	// The time at which the operation was initiated. Note that the creation times
 	// for the stack set operation might differ from the creation time of the individual
 	// stacks themselves. This is because AWS CloudFormation needs to perform preparatory
 	// work for the operation, such as dispatching the work to the requested regions,
 	// before actually creating the first stacks.
-	CreationTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreationTimestamp *time.Time `json:"cloudformation:StackSetOperationSummary:CreationTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The time at which the stack set operation ended, across all accounts and
 	// regions specified. Note that this doesn't necessarily mean that the stack
 	// set operation was successful, or even attempted, in each account or region.
-	EndTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EndTimestamp *time.Time `json:"cloudformation:StackSetOperationSummary:EndTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The unique ID of the stack set operation.
-	OperationId *string `min:"1" type:"string"`
+	OperationId *string `json:"cloudformation:StackSetOperationSummary:OperationId" min:"1" type:"string"`
 
 	// The overall status of the operation.
 	//
@@ -1587,7 +1587,7 @@ type StackSetOperationSummary struct {
 	//
 	//    * SUCCEEDED: The operation completed creating or updating all the specified
 	//    stacks without exceeding the failure tolerance for the operation.
-	Status StackSetOperationStatus `type:"string" enum:"true"`
+	Status StackSetOperationStatus `json:"cloudformation:StackSetOperationSummary:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1603,16 +1603,16 @@ type StackSetSummary struct {
 
 	// A description of the stack set that you specify when the stack set is created
 	// or updated.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:StackSetSummary:Description" min:"1" type:"string"`
 
 	// The ID of the stack set.
-	StackSetId *string `type:"string"`
+	StackSetId *string `json:"cloudformation:StackSetSummary:StackSetId" type:"string"`
 
 	// The name of the stack set.
-	StackSetName *string `type:"string"`
+	StackSetName *string `json:"cloudformation:StackSetSummary:StackSetName" type:"string"`
 
 	// The status of the stack set.
-	Status StackSetStatus `type:"string" enum:"true"`
+	Status StackSetStatus `json:"cloudformation:StackSetSummary:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1628,20 +1628,20 @@ type StackSummary struct {
 	// The time the stack was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreationTime *time.Time `json:"cloudformation:StackSummary:CreationTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The time the stack was deleted.
-	DeletionTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DeletionTime *time.Time `json:"cloudformation:StackSummary:DeletionTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Summarizes information on whether a stack's actual configuration differs,
 	// or has drifted, from it's expected configuration, as defined in the stack
 	// template and any values specified as template parameters. For more information,
 	// see Detecting Unregulated Configuration Changes to Stacks and Resources (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
-	DriftInformation *StackDriftInformationSummary `type:"structure"`
+	DriftInformation *StackDriftInformationSummary `json:"cloudformation:StackSummary:DriftInformation" type:"structure"`
 
 	// The time the stack was last updated. This field will only be returned if
 	// the stack has been updated at least once.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastUpdatedTime *time.Time `json:"cloudformation:StackSummary:LastUpdatedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// For nested stacks--stacks created as resources for another stack--the stack
 	// ID of the direct parent of this stack. For the first level of nested stacks,
@@ -1649,33 +1649,33 @@ type StackSummary struct {
 	//
 	// For more information, see Working with Nested Stacks (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html)
 	// in the AWS CloudFormation User Guide.
-	ParentId *string `type:"string"`
+	ParentId *string `json:"cloudformation:StackSummary:ParentId" type:"string"`
 
 	// For nested stacks--stacks created as resources for another stack--the stack
 	// ID of the the top-level stack to which the nested stack ultimately belongs.
 	//
 	// For more information, see Working with Nested Stacks (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html)
 	// in the AWS CloudFormation User Guide.
-	RootId *string `type:"string"`
+	RootId *string `json:"cloudformation:StackSummary:RootId" type:"string"`
 
 	// Unique stack identifier.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:StackSummary:StackId" type:"string"`
 
 	// The name associated with the stack.
 	//
 	// StackName is a required field
-	StackName *string `type:"string" required:"true"`
+	StackName *string `json:"cloudformation:StackSummary:StackName" type:"string" required:"true"`
 
 	// The current status of the stack.
 	//
 	// StackStatus is a required field
-	StackStatus StackStatus `type:"string" required:"true" enum:"true"`
+	StackStatus StackStatus `json:"cloudformation:StackSummary:StackStatus" type:"string" required:"true" enum:"true"`
 
 	// Success/Failure message associated with the stack status.
-	StackStatusReason *string `type:"string"`
+	StackStatusReason *string `json:"cloudformation:StackSummary:StackStatusReason" type:"string"`
 
 	// The template description of the template used to create the stack.
-	TemplateDescription *string `type:"string"`
+	TemplateDescription *string `json:"cloudformation:StackSummary:TemplateDescription" type:"string"`
 }
 
 // String returns the string representation
@@ -1694,13 +1694,13 @@ type Tag struct {
 	// the reserved prefix: aws:.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"cloudformation:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// Required. A string containing the value for this tag. You can specify a maximum
 	// of 256 characters for a tag value.
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"cloudformation:Tag:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1738,17 +1738,17 @@ type TemplateParameter struct {
 	_ struct{} `type:"structure"`
 
 	// The default value associated with the parameter.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"cloudformation:TemplateParameter:DefaultValue" type:"string"`
 
 	// User defined description associated with the parameter.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:TemplateParameter:Description" min:"1" type:"string"`
 
 	// Flag indicating whether the parameter should be displayed as plain text in
 	// logs and UIs.
-	NoEcho *bool `type:"boolean"`
+	NoEcho *bool `json:"cloudformation:TemplateParameter:NoEcho" type:"boolean"`
 
 	// The name associated with the parameter.
-	ParameterKey *string `type:"string"`
+	ParameterKey *string `json:"cloudformation:TemplateParameter:ParameterKey" type:"string"`
 }
 
 // String returns the string representation

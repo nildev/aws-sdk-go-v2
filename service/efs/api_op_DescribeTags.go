@@ -82,17 +82,17 @@ type DescribeTagsOutput struct {
 
 	// If the request included a Marker, the response returns that value in this
 	// field.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticfilesystem:DescribeTagsOutput:Marker" type:"string"`
 
 	// If a value is present, there are more tags to return. In a subsequent request,
 	// you can provide the value of NextMarker as the value of the Marker parameter
 	// in your next request to retrieve the next set of tags.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"elasticfilesystem:DescribeTagsOutput:NextMarker" type:"string"`
 
 	// Returns tags associated with the file system as an array of Tag objects.
 	//
 	// Tags is a required field
-	Tags []Tag `type:"list" required:"true"`
+	Tags []Tag `json:"elasticfilesystem:DescribeTagsOutput:Tags" type:"list" required:"true"`
 }
 
 // String returns the string representation

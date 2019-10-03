@@ -63,12 +63,12 @@ type DescribeProductsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token that is required for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"securityhub:DescribeProductsOutput:NextToken" type:"string"`
 
 	// A list of products, including details for each product.
 	//
 	// Products is a required field
-	Products []Product `type:"list" required:"true"`
+	Products []Product `json:"securityhub:DescribeProductsOutput:Products" type:"list" required:"true"`
 }
 
 // String returns the string representation

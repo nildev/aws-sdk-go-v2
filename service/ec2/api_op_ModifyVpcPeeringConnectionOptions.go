@@ -55,10 +55,10 @@ type ModifyVpcPeeringConnectionOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the VPC peering connection options for the accepter VPC.
-	AccepterPeeringConnectionOptions *PeeringConnectionOptions `locationName:"accepterPeeringConnectionOptions" type:"structure"`
+	AccepterPeeringConnectionOptions *PeeringConnectionOptions `json:"ec2:ModifyVpcPeeringConnectionOptionsOutput:AccepterPeeringConnectionOptions" locationName:"accepterPeeringConnectionOptions" type:"structure"`
 
 	// Information about the VPC peering connection options for the requester VPC.
-	RequesterPeeringConnectionOptions *PeeringConnectionOptions `locationName:"requesterPeeringConnectionOptions" type:"structure"`
+	RequesterPeeringConnectionOptions *PeeringConnectionOptions `json:"ec2:ModifyVpcPeeringConnectionOptionsOutput:RequesterPeeringConnectionOptions" locationName:"requesterPeeringConnectionOptions" type:"structure"`
 }
 
 // String returns the string representation

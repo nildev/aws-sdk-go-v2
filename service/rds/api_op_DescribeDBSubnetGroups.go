@@ -64,12 +64,12 @@ type DescribeDBSubnetGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of DBSubnetGroup instances.
-	DBSubnetGroups []DBSubnetGroup `locationNameList:"DBSubnetGroup" type:"list"`
+	DBSubnetGroups []DBSubnetGroup `json:"rds:DescribeDBSubnetGroupsOutput:DBSubnetGroups" locationNameList:"DBSubnetGroup" type:"list"`
 
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeDBSubnetGroupsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

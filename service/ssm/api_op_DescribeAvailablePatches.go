@@ -56,10 +56,10 @@ type DescribeAvailablePatchesOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeAvailablePatchesOutput:NextToken" type:"string"`
 
 	// An array of patches. Each entry in the array is a patch structure.
-	Patches []Patch `type:"list"`
+	Patches []Patch `json:"ssm:DescribeAvailablePatchesOutput:Patches" type:"list"`
 }
 
 // String returns the string representation

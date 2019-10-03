@@ -75,22 +75,22 @@ type ModifyCurrentDBClusterCapacityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current capacity of the DB cluster.
-	CurrentCapacity *int64 `type:"integer"`
+	CurrentCapacity *int64 `json:"rds:ModifyCurrentDBClusterCapacityOutput:CurrentCapacity" type:"integer"`
 
 	// A user-supplied DB cluster identifier. This identifier is the unique key
 	// that identifies a DB cluster.
-	DBClusterIdentifier *string `type:"string"`
+	DBClusterIdentifier *string `json:"rds:ModifyCurrentDBClusterCapacityOutput:DBClusterIdentifier" type:"string"`
 
 	// A value that specifies the capacity that the DB cluster scales to next.
-	PendingCapacity *int64 `type:"integer"`
+	PendingCapacity *int64 `json:"rds:ModifyCurrentDBClusterCapacityOutput:PendingCapacity" type:"integer"`
 
 	// The number of seconds before a call to ModifyCurrentDBClusterCapacity times
 	// out.
-	SecondsBeforeTimeout *int64 `type:"integer"`
+	SecondsBeforeTimeout *int64 `json:"rds:ModifyCurrentDBClusterCapacityOutput:SecondsBeforeTimeout" type:"integer"`
 
 	// The timeout action of a call to ModifyCurrentDBClusterCapacity, either ForceApplyCapacityChange
 	// or RollbackCapacityChange.
-	TimeoutAction *string `type:"string"`
+	TimeoutAction *string `json:"rds:ModifyCurrentDBClusterCapacityOutput:TimeoutAction" type:"string"`
 }
 
 // String returns the string representation

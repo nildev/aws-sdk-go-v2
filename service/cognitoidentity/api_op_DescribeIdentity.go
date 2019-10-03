@@ -49,16 +49,16 @@ type DescribeIdentityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Date on which the identity was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-identity:DescribeIdentityOutput:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A unique identifier in the format REGION:GUID.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-identity:DescribeIdentityOutput:IdentityId" min:"1" type:"string"`
 
 	// Date on which the identity was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-identity:DescribeIdentityOutput:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The provider names.
-	Logins []string `type:"list"`
+	Logins []string `json:"cognito-identity:DescribeIdentityOutput:Logins" type:"list"`
 }
 
 // String returns the string representation

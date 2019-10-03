@@ -72,7 +72,7 @@ type CreateBusinessReportScheduleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the business report schedule.
-	ScheduleArn *string `type:"string"`
+	ScheduleArn *string `json:"a4b:CreateBusinessReportScheduleOutput:ScheduleArn" type:"string"`
 }
 
 // String returns the string representation

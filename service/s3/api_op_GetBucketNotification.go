@@ -62,11 +62,11 @@ func (s GetBucketNotificationInput) MarshalFields(e protocol.FieldEncoder) error
 type GetBucketNotificationOutput struct {
 	_ struct{} `type:"structure"`
 
-	CloudFunctionConfiguration *CloudFunctionConfiguration `type:"structure"`
+	CloudFunctionConfiguration *CloudFunctionConfiguration `json:"s3:GetBucketNotificationOutput:CloudFunctionConfiguration" type:"structure"`
 
-	QueueConfiguration *QueueConfigurationDeprecated `type:"structure"`
+	QueueConfiguration *QueueConfigurationDeprecated `json:"s3:GetBucketNotificationOutput:QueueConfiguration" type:"structure"`
 
-	TopicConfiguration *TopicConfigurationDeprecated `type:"structure"`
+	TopicConfiguration *TopicConfigurationDeprecated `json:"s3:GetBucketNotificationOutput:TopicConfiguration" type:"structure"`
 }
 
 // String returns the string representation

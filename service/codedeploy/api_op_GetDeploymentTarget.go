@@ -33,7 +33,7 @@ type GetDeploymentTargetOutput struct {
 	// its status, lifecyle events, and when it was last updated. It also contains
 	// metadata about the deployment target. The deployment target metadata depends
 	// on the deployment target's type (instanceTarget, lambdaTarget, or ecsTarget).
-	DeploymentTarget *DeploymentTarget `locationName:"deploymentTarget" type:"structure"`
+	DeploymentTarget *DeploymentTarget `json:"codedeploy:GetDeploymentTargetOutput:DeploymentTarget" locationName:"deploymentTarget" type:"structure"`
 }
 
 // String returns the string representation

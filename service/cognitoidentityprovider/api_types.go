@@ -30,12 +30,12 @@ type AccountTakeoverActionType struct {
 	//    * NO_ACTION Allow the user sign-in.
 	//
 	// EventAction is a required field
-	EventAction AccountTakeoverEventActionType `type:"string" required:"true" enum:"true"`
+	EventAction AccountTakeoverEventActionType `json:"cognito-idp:AccountTakeoverActionType:EventAction" type:"string" required:"true" enum:"true"`
 
 	// Flag specifying whether to send a notification.
 	//
 	// Notify is a required field
-	Notify *bool `type:"boolean" required:"true"`
+	Notify *bool `json:"cognito-idp:AccountTakeoverActionType:Notify" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -66,13 +66,13 @@ type AccountTakeoverActionsType struct {
 	_ struct{} `type:"structure"`
 
 	// Action to take for a high risk.
-	HighAction *AccountTakeoverActionType `type:"structure"`
+	HighAction *AccountTakeoverActionType `json:"cognito-idp:AccountTakeoverActionsType:HighAction" type:"structure"`
 
 	// Action to take for a low risk.
-	LowAction *AccountTakeoverActionType `type:"structure"`
+	LowAction *AccountTakeoverActionType `json:"cognito-idp:AccountTakeoverActionsType:LowAction" type:"structure"`
 
 	// Action to take for a medium risk.
-	MediumAction *AccountTakeoverActionType `type:"structure"`
+	MediumAction *AccountTakeoverActionType `json:"cognito-idp:AccountTakeoverActionsType:MediumAction" type:"structure"`
 }
 
 // String returns the string representation
@@ -114,10 +114,10 @@ type AccountTakeoverRiskConfigurationType struct {
 	// Account takeover risk configuration actions
 	//
 	// Actions is a required field
-	Actions *AccountTakeoverActionsType `type:"structure" required:"true"`
+	Actions *AccountTakeoverActionsType `json:"cognito-idp:AccountTakeoverRiskConfigurationType:Actions" type:"structure" required:"true"`
 
 	// The notify configuration used to construct email notifications.
-	NotifyConfiguration *NotifyConfigurationType `type:"structure"`
+	NotifyConfiguration *NotifyConfigurationType `json:"cognito-idp:AccountTakeoverRiskConfigurationType:NotifyConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -156,12 +156,12 @@ type AdminCreateUserConfigType struct {
 
 	// Set to True if only the administrator is allowed to create user profiles.
 	// Set to False if users can sign themselves up via an app.
-	AllowAdminCreateUserOnly *bool `type:"boolean"`
+	AllowAdminCreateUserOnly *bool `json:"cognito-idp:AdminCreateUserConfigType:AllowAdminCreateUserOnly" type:"boolean"`
 
 	// The message template to be used for the welcome message to new users.
 	//
 	// See also Customizing User Invitation Messages (http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization).
-	InviteMessageTemplate *MessageTemplateType `type:"structure"`
+	InviteMessageTemplate *MessageTemplateType `json:"cognito-idp:AdminCreateUserConfigType:InviteMessageTemplate" type:"structure"`
 
 	// The user account expiration limit, in days, after which the account is no
 	// longer usable. To reset the account after that time limit, you must call
@@ -171,7 +171,7 @@ type AdminCreateUserConfigType struct {
 	// If you set a value for TemporaryPasswordValidityDays in PasswordPolicy, that
 	// value will be used and UnusedAccountValidityDays will be deprecated for that
 	// user pool.
-	UnusedAccountValidityDays *int64 `type:"integer"`
+	UnusedAccountValidityDays *int64 `json:"cognito-idp:AdminCreateUserConfigType:UnusedAccountValidityDays" type:"integer"`
 }
 
 // String returns the string representation
@@ -203,22 +203,22 @@ type AnalyticsConfigurationType struct {
 	// The application ID for an Amazon Pinpoint application.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"cognito-idp:AnalyticsConfigurationType:ApplicationId" type:"string" required:"true"`
 
 	// The external ID.
 	//
 	// ExternalId is a required field
-	ExternalId *string `type:"string" required:"true"`
+	ExternalId *string `json:"cognito-idp:AnalyticsConfigurationType:ExternalId" type:"string" required:"true"`
 
 	// The ARN of an IAM role that authorizes Amazon Cognito to publish events to
 	// Amazon Pinpoint analytics.
 	//
 	// RoleArn is a required field
-	RoleArn *string `min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"cognito-idp:AnalyticsConfigurationType:RoleArn" min:"20" type:"string" required:"true"`
 
 	// If UserDataShared is true, Amazon Cognito will include user data in the events
 	// it publishes to Amazon Pinpoint analytics.
-	UserDataShared *bool `type:"boolean"`
+	UserDataShared *bool `json:"cognito-idp:AnalyticsConfigurationType:UserDataShared" type:"boolean"`
 }
 
 // String returns the string representation
@@ -260,7 +260,7 @@ type AnalyticsMetadataType struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint ID.
-	AnalyticsEndpointId *string `type:"string"`
+	AnalyticsEndpointId *string `json:"cognito-idp:AnalyticsMetadataType:AnalyticsEndpointId" type:"string"`
 }
 
 // String returns the string representation
@@ -276,10 +276,10 @@ type AttributeType struct {
 	// The name of the attribute.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"cognito-idp:AttributeType:Name" min:"1" type:"string" required:"true"`
 
 	// The value of the attribute.
-	Value *string `type:"string"`
+	Value *string `json:"cognito-idp:AttributeType:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -310,30 +310,30 @@ type AuthEventType struct {
 	_ struct{} `type:"structure"`
 
 	// The challenge responses.
-	ChallengeResponses []ChallengeResponseType `type:"list"`
+	ChallengeResponses []ChallengeResponseType `json:"cognito-idp:AuthEventType:ChallengeResponses" type:"list"`
 
 	// The creation date
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:AuthEventType:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The user context data captured at the time of an event request. It provides
 	// additional information about the client from which event the request is received.
-	EventContextData *EventContextDataType `type:"structure"`
+	EventContextData *EventContextDataType `json:"cognito-idp:AuthEventType:EventContextData" type:"structure"`
 
 	// A flag specifying the user feedback captured at the time of an event request
 	// is good or bad.
-	EventFeedback *EventFeedbackType `type:"structure"`
+	EventFeedback *EventFeedbackType `json:"cognito-idp:AuthEventType:EventFeedback" type:"structure"`
 
 	// The event ID.
-	EventId *string `type:"string"`
+	EventId *string `json:"cognito-idp:AuthEventType:EventId" type:"string"`
 
 	// The event response.
-	EventResponse EventResponseType `type:"string" enum:"true"`
+	EventResponse EventResponseType `json:"cognito-idp:AuthEventType:EventResponse" type:"string" enum:"true"`
 
 	// The event risk.
-	EventRisk *EventRiskType `type:"structure"`
+	EventRisk *EventRiskType `json:"cognito-idp:AuthEventType:EventRisk" type:"structure"`
 
 	// The event type.
-	EventType EventType `type:"string" enum:"true"`
+	EventType EventType `json:"cognito-idp:AuthEventType:EventType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -347,22 +347,22 @@ type AuthenticationResultType struct {
 	_ struct{} `type:"structure"`
 
 	// The access token.
-	AccessToken *string `type:"string"`
+	AccessToken *string `json:"cognito-idp:AuthenticationResultType:AccessToken" type:"string"`
 
 	// The expiration period of the authentication result in seconds.
-	ExpiresIn *int64 `type:"integer"`
+	ExpiresIn *int64 `json:"cognito-idp:AuthenticationResultType:ExpiresIn" type:"integer"`
 
 	// The ID token.
-	IdToken *string `type:"string"`
+	IdToken *string `json:"cognito-idp:AuthenticationResultType:IdToken" type:"string"`
 
 	// The new device metadata from an authentication result.
-	NewDeviceMetadata *NewDeviceMetadataType `type:"structure"`
+	NewDeviceMetadata *NewDeviceMetadataType `json:"cognito-idp:AuthenticationResultType:NewDeviceMetadata" type:"structure"`
 
 	// The refresh token.
-	RefreshToken *string `type:"string"`
+	RefreshToken *string `json:"cognito-idp:AuthenticationResultType:RefreshToken" type:"string"`
 
 	// The token type.
-	TokenType *string `type:"string"`
+	TokenType *string `json:"cognito-idp:AuthenticationResultType:TokenType" type:"string"`
 }
 
 // String returns the string representation
@@ -376,10 +376,10 @@ type ChallengeResponseType struct {
 	_ struct{} `type:"structure"`
 
 	// The challenge name
-	ChallengeName ChallengeName `type:"string" enum:"true"`
+	ChallengeName ChallengeName `json:"cognito-idp:ChallengeResponseType:ChallengeName" type:"string" enum:"true"`
 
 	// The challenge response.
-	ChallengeResponse ChallengeResponse `type:"string" enum:"true"`
+	ChallengeResponse ChallengeResponse `json:"cognito-idp:ChallengeResponseType:ChallengeResponse" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -393,13 +393,13 @@ type CodeDeliveryDetailsType struct {
 	_ struct{} `type:"structure"`
 
 	// The attribute name.
-	AttributeName *string `min:"1" type:"string"`
+	AttributeName *string `json:"cognito-idp:CodeDeliveryDetailsType:AttributeName" min:"1" type:"string"`
 
 	// The delivery medium (email message or phone number).
-	DeliveryMedium DeliveryMediumType `type:"string" enum:"true"`
+	DeliveryMedium DeliveryMediumType `json:"cognito-idp:CodeDeliveryDetailsType:DeliveryMedium" type:"string" enum:"true"`
 
 	// The destination for the code delivery details.
-	Destination *string `type:"string"`
+	Destination *string `json:"cognito-idp:CodeDeliveryDetailsType:Destination" type:"string"`
 }
 
 // String returns the string representation
@@ -415,7 +415,7 @@ type CompromisedCredentialsActionsType struct {
 	// The event action.
 	//
 	// EventAction is a required field
-	EventAction CompromisedCredentialsEventActionType `type:"string" required:"true" enum:"true"`
+	EventAction CompromisedCredentialsEventActionType `json:"cognito-idp:CompromisedCredentialsActionsType:EventAction" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -444,11 +444,11 @@ type CompromisedCredentialsRiskConfigurationType struct {
 	// The compromised credentials risk configuration actions.
 	//
 	// Actions is a required field
-	Actions *CompromisedCredentialsActionsType `type:"structure" required:"true"`
+	Actions *CompromisedCredentialsActionsType `json:"cognito-idp:CompromisedCredentialsRiskConfigurationType:Actions" type:"structure" required:"true"`
 
 	// Perform the action for these events. The default is to perform all events
 	// if no event filter is specified.
-	EventFilter []EventFilterType `type:"list"`
+	EventFilter []EventFilterType `json:"cognito-idp:CompromisedCredentialsRiskConfigurationType:EventFilter" type:"list"`
 }
 
 // String returns the string representation
@@ -483,27 +483,27 @@ type ContextDataType struct {
 
 	// Encoded data containing device fingerprinting details, collected using the
 	// Amazon Cognito context data collection library.
-	EncodedData *string `type:"string"`
+	EncodedData *string `json:"cognito-idp:ContextDataType:EncodedData" type:"string"`
 
 	// HttpHeaders received on your server in same order.
 	//
 	// HttpHeaders is a required field
-	HttpHeaders []HttpHeader `type:"list" required:"true"`
+	HttpHeaders []HttpHeader `json:"cognito-idp:ContextDataType:HttpHeaders" type:"list" required:"true"`
 
 	// Source IP address of your user.
 	//
 	// IpAddress is a required field
-	IpAddress *string `type:"string" required:"true"`
+	IpAddress *string `json:"cognito-idp:ContextDataType:IpAddress" type:"string" required:"true"`
 
 	// Your server endpoint where this API is invoked.
 	//
 	// ServerName is a required field
-	ServerName *string `type:"string" required:"true"`
+	ServerName *string `json:"cognito-idp:ContextDataType:ServerName" type:"string" required:"true"`
 
 	// Your server path where this API is invoked.
 	//
 	// ServerPath is a required field
-	ServerPath *string `type:"string" required:"true"`
+	ServerPath *string `json:"cognito-idp:ContextDataType:ServerPath" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -547,7 +547,7 @@ type CustomDomainConfigType struct {
 	// You use this certificate for the subdomain of your custom domain.
 	//
 	// CertificateArn is a required field
-	CertificateArn *string `min:"20" type:"string" required:"true"`
+	CertificateArn *string `json:"cognito-idp:CustomDomainConfigType:CertificateArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -579,10 +579,10 @@ type DeviceConfigurationType struct {
 
 	// Indicates whether a challenge is required on a new device. Only applicable
 	// to a new device.
-	ChallengeRequiredOnNewDevice *bool `type:"boolean"`
+	ChallengeRequiredOnNewDevice *bool `json:"cognito-idp:DeviceConfigurationType:ChallengeRequiredOnNewDevice" type:"boolean"`
 
 	// If true, a device is only remembered on user prompt.
-	DeviceOnlyRememberedOnUserPrompt *bool `type:"boolean"`
+	DeviceOnlyRememberedOnUserPrompt *bool `json:"cognito-idp:DeviceConfigurationType:DeviceOnlyRememberedOnUserPrompt" type:"boolean"`
 }
 
 // String returns the string representation
@@ -596,10 +596,10 @@ type DeviceSecretVerifierConfigType struct {
 	_ struct{} `type:"structure"`
 
 	// The password verifier.
-	PasswordVerifier *string `type:"string"`
+	PasswordVerifier *string `json:"cognito-idp:DeviceSecretVerifierConfigType:PasswordVerifier" type:"string"`
 
 	// The salt.
-	Salt *string `type:"string"`
+	Salt *string `json:"cognito-idp:DeviceSecretVerifierConfigType:Salt" type:"string"`
 }
 
 // String returns the string representation
@@ -613,19 +613,19 @@ type DeviceType struct {
 	_ struct{} `type:"structure"`
 
 	// The device attributes.
-	DeviceAttributes []AttributeType `type:"list"`
+	DeviceAttributes []AttributeType `json:"cognito-idp:DeviceType:DeviceAttributes" type:"list"`
 
 	// The creation date of the device.
-	DeviceCreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeviceCreateDate *time.Time `json:"cognito-idp:DeviceType:DeviceCreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The device key.
-	DeviceKey *string `min:"1" type:"string"`
+	DeviceKey *string `json:"cognito-idp:DeviceType:DeviceKey" min:"1" type:"string"`
 
 	// The date in which the device was last authenticated.
-	DeviceLastAuthenticatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeviceLastAuthenticatedDate *time.Time `json:"cognito-idp:DeviceType:DeviceLastAuthenticatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The last modified date of the device.
-	DeviceLastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeviceLastModifiedDate *time.Time `json:"cognito-idp:DeviceType:DeviceLastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -639,29 +639,29 @@ type DomainDescriptionType struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID for the user pool owner.
-	AWSAccountId *string `type:"string"`
+	AWSAccountId *string `json:"cognito-idp:DomainDescriptionType:AWSAccountId" type:"string"`
 
 	// The ARN of the CloudFront distribution.
-	CloudFrontDistribution *string `type:"string"`
+	CloudFrontDistribution *string `json:"cognito-idp:DomainDescriptionType:CloudFrontDistribution" type:"string"`
 
 	// The configuration for a custom domain that hosts the sign-up and sign-in
 	// webpages for your application.
-	CustomDomainConfig *CustomDomainConfigType `type:"structure"`
+	CustomDomainConfig *CustomDomainConfigType `json:"cognito-idp:DomainDescriptionType:CustomDomainConfig" type:"structure"`
 
 	// The domain string.
-	Domain *string `min:"1" type:"string"`
+	Domain *string `json:"cognito-idp:DomainDescriptionType:Domain" min:"1" type:"string"`
 
 	// The S3 bucket where the static files for this domain are stored.
-	S3Bucket *string `min:"3" type:"string"`
+	S3Bucket *string `json:"cognito-idp:DomainDescriptionType:S3Bucket" min:"3" type:"string"`
 
 	// The domain status.
-	Status DomainStatusType `type:"string" enum:"true"`
+	Status DomainStatusType `json:"cognito-idp:DomainDescriptionType:Status" type:"string" enum:"true"`
 
 	// The user pool ID.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:DomainDescriptionType:UserPoolId" min:"1" type:"string"`
 
 	// The app version.
-	Version *string `min:"1" type:"string"`
+	Version *string `json:"cognito-idp:DomainDescriptionType:Version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -714,10 +714,10 @@ type EmailConfigurationType struct {
 	// For more information about the service-linked role that Amazon Cognito creates,
 	// see Using Service-Linked Roles for Amazon Cognito (https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html)
 	// in the Amazon Cognito Developer Guide.
-	EmailSendingAccount EmailSendingAccountType `type:"string" enum:"true"`
+	EmailSendingAccount EmailSendingAccountType `json:"cognito-idp:EmailConfigurationType:EmailSendingAccount" type:"string" enum:"true"`
 
 	// The destination to which the receiver of the email should reply to.
-	ReplyToEmailAddress *string `type:"string"`
+	ReplyToEmailAddress *string `json:"cognito-idp:EmailConfigurationType:ReplyToEmailAddress" type:"string"`
 
 	// The Amazon Resource Name (ARN) of a verified email address in Amazon SES.
 	// This email address is used in one of the following ways, depending on the
@@ -729,7 +729,7 @@ type EmailConfigurationType struct {
 	//
 	//    * If you specify DEVELOPER, Amazon Cognito emails your users with this
 	//    address by calling Amazon SES on your behalf.
-	SourceArn *string `min:"20" type:"string"`
+	SourceArn *string `json:"cognito-idp:EmailConfigurationType:SourceArn" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -756,19 +756,19 @@ type EventContextDataType struct {
 	_ struct{} `type:"structure"`
 
 	// The user's city.
-	City *string `type:"string"`
+	City *string `json:"cognito-idp:EventContextDataType:City" type:"string"`
 
 	// The user's country.
-	Country *string `type:"string"`
+	Country *string `json:"cognito-idp:EventContextDataType:Country" type:"string"`
 
 	// The user's device name.
-	DeviceName *string `type:"string"`
+	DeviceName *string `json:"cognito-idp:EventContextDataType:DeviceName" type:"string"`
 
 	// The user's IP address.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"cognito-idp:EventContextDataType:IpAddress" type:"string"`
 
 	// The user's time zone.
-	Timezone *string `type:"string"`
+	Timezone *string `json:"cognito-idp:EventContextDataType:Timezone" type:"string"`
 }
 
 // String returns the string representation
@@ -782,17 +782,17 @@ type EventFeedbackType struct {
 	_ struct{} `type:"structure"`
 
 	// The event feedback date.
-	FeedbackDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FeedbackDate *time.Time `json:"cognito-idp:EventFeedbackType:FeedbackDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The event feedback value.
 	//
 	// FeedbackValue is a required field
-	FeedbackValue FeedbackValueType `type:"string" required:"true" enum:"true"`
+	FeedbackValue FeedbackValueType `json:"cognito-idp:EventFeedbackType:FeedbackValue" type:"string" required:"true" enum:"true"`
 
 	// The provider.
 	//
 	// Provider is a required field
-	Provider *string `type:"string" required:"true"`
+	Provider *string `json:"cognito-idp:EventFeedbackType:Provider" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -806,10 +806,10 @@ type EventRiskType struct {
 	_ struct{} `type:"structure"`
 
 	// The risk decision.
-	RiskDecision RiskDecisionType `type:"string" enum:"true"`
+	RiskDecision RiskDecisionType `json:"cognito-idp:EventRiskType:RiskDecision" type:"string" enum:"true"`
 
 	// The risk level.
-	RiskLevel RiskLevelType `type:"string" enum:"true"`
+	RiskLevel RiskLevelType `json:"cognito-idp:EventRiskType:RiskLevel" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -823,16 +823,16 @@ type GroupType struct {
 	_ struct{} `type:"structure"`
 
 	// The date the group was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:GroupType:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A string containing the description of the group.
-	Description *string `type:"string"`
+	Description *string `json:"cognito-idp:GroupType:Description" type:"string"`
 
 	// The name of the group.
-	GroupName *string `min:"1" type:"string"`
+	GroupName *string `json:"cognito-idp:GroupType:GroupName" min:"1" type:"string"`
 
 	// The date the group was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-idp:GroupType:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A nonnegative integer value that specifies the precedence of this group relative
 	// to the other groups that a user can belong to in the user pool. If a user
@@ -848,13 +848,13 @@ type GroupType struct {
 	// ARNs, the cognito:preferred_role claim is not set in users' tokens.
 	//
 	// The default Precedence value is null.
-	Precedence *int64 `type:"integer"`
+	Precedence *int64 `json:"cognito-idp:GroupType:Precedence" type:"integer"`
 
 	// The role ARN for the group.
-	RoleArn *string `min:"20" type:"string"`
+	RoleArn *string `json:"cognito-idp:GroupType:RoleArn" min:"20" type:"string"`
 
 	// The user pool ID for the user pool.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:GroupType:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -868,10 +868,10 @@ type HttpHeader struct {
 	_ struct{} `type:"structure"`
 
 	// The header name
-	HeaderName *string `locationName:"headerName" type:"string"`
+	HeaderName *string `json:"cognito-idp:HttpHeader:HeaderName" locationName:"headerName" type:"string"`
 
 	// The header value.
-	HeaderValue *string `locationName:"headerValue" type:"string"`
+	HeaderValue *string `json:"cognito-idp:HttpHeader:HeaderValue" locationName:"headerValue" type:"string"`
 }
 
 // String returns the string representation
@@ -886,28 +886,28 @@ type IdentityProviderType struct {
 
 	// A mapping of identity provider attributes to standard and custom user pool
 	// attributes.
-	AttributeMapping map[string]string `type:"map"`
+	AttributeMapping map[string]string `json:"cognito-idp:IdentityProviderType:AttributeMapping" type:"map"`
 
 	// The date the identity provider was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:IdentityProviderType:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of identity provider identifiers.
-	IdpIdentifiers []string `type:"list"`
+	IdpIdentifiers []string `json:"cognito-idp:IdentityProviderType:IdpIdentifiers" type:"list"`
 
 	// The date the identity provider was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-idp:IdentityProviderType:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identity provider details, such as MetadataURL and MetadataFile.
-	ProviderDetails map[string]string `type:"map"`
+	ProviderDetails map[string]string `json:"cognito-idp:IdentityProviderType:ProviderDetails" type:"map"`
 
 	// The identity provider name.
-	ProviderName *string `min:"1" type:"string"`
+	ProviderName *string `json:"cognito-idp:IdentityProviderType:ProviderName" min:"1" type:"string"`
 
 	// The identity provider type.
-	ProviderType IdentityProviderTypeType `type:"string" enum:"true"`
+	ProviderType IdentityProviderTypeType `json:"cognito-idp:IdentityProviderType:ProviderType" type:"string" enum:"true"`
 
 	// The user pool ID.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:IdentityProviderType:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -921,34 +921,34 @@ type LambdaConfigType struct {
 	_ struct{} `type:"structure"`
 
 	// Creates an authentication challenge.
-	CreateAuthChallenge *string `min:"20" type:"string"`
+	CreateAuthChallenge *string `json:"cognito-idp:LambdaConfigType:CreateAuthChallenge" min:"20" type:"string"`
 
 	// A custom Message AWS Lambda trigger.
-	CustomMessage *string `min:"20" type:"string"`
+	CustomMessage *string `json:"cognito-idp:LambdaConfigType:CustomMessage" min:"20" type:"string"`
 
 	// Defines the authentication challenge.
-	DefineAuthChallenge *string `min:"20" type:"string"`
+	DefineAuthChallenge *string `json:"cognito-idp:LambdaConfigType:DefineAuthChallenge" min:"20" type:"string"`
 
 	// A post-authentication AWS Lambda trigger.
-	PostAuthentication *string `min:"20" type:"string"`
+	PostAuthentication *string `json:"cognito-idp:LambdaConfigType:PostAuthentication" min:"20" type:"string"`
 
 	// A post-confirmation AWS Lambda trigger.
-	PostConfirmation *string `min:"20" type:"string"`
+	PostConfirmation *string `json:"cognito-idp:LambdaConfigType:PostConfirmation" min:"20" type:"string"`
 
 	// A pre-authentication AWS Lambda trigger.
-	PreAuthentication *string `min:"20" type:"string"`
+	PreAuthentication *string `json:"cognito-idp:LambdaConfigType:PreAuthentication" min:"20" type:"string"`
 
 	// A pre-registration AWS Lambda trigger.
-	PreSignUp *string `min:"20" type:"string"`
+	PreSignUp *string `json:"cognito-idp:LambdaConfigType:PreSignUp" min:"20" type:"string"`
 
 	// A Lambda trigger that is invoked before token generation.
-	PreTokenGeneration *string `min:"20" type:"string"`
+	PreTokenGeneration *string `json:"cognito-idp:LambdaConfigType:PreTokenGeneration" min:"20" type:"string"`
 
 	// The user migration Lambda config type.
-	UserMigration *string `min:"20" type:"string"`
+	UserMigration *string `json:"cognito-idp:LambdaConfigType:UserMigration" min:"20" type:"string"`
 
 	// Verifies the authentication challenge response.
-	VerifyAuthChallengeResponse *string `min:"20" type:"string"`
+	VerifyAuthChallengeResponse *string `json:"cognito-idp:LambdaConfigType:VerifyAuthChallengeResponse" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -1002,10 +1002,10 @@ type MFAOptionType struct {
 	_ struct{} `type:"structure"`
 
 	// The attribute name of the MFA option type.
-	AttributeName *string `min:"1" type:"string"`
+	AttributeName *string `json:"cognito-idp:MFAOptionType:AttributeName" min:"1" type:"string"`
 
 	// The delivery medium (email message or SMS message) to send the MFA code.
-	DeliveryMedium DeliveryMediumType `type:"string" enum:"true"`
+	DeliveryMedium DeliveryMediumType `json:"cognito-idp:MFAOptionType:DeliveryMedium" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1032,13 +1032,13 @@ type MessageTemplateType struct {
 	_ struct{} `type:"structure"`
 
 	// The message template for email messages.
-	EmailMessage *string `min:"6" type:"string"`
+	EmailMessage *string `json:"cognito-idp:MessageTemplateType:EmailMessage" min:"6" type:"string"`
 
 	// The subject line for email messages.
-	EmailSubject *string `min:"1" type:"string"`
+	EmailSubject *string `json:"cognito-idp:MessageTemplateType:EmailSubject" min:"1" type:"string"`
 
 	// The message template for SMS messages.
-	SMSMessage *string `min:"6" type:"string"`
+	SMSMessage *string `json:"cognito-idp:MessageTemplateType:SMSMessage" min:"6" type:"string"`
 }
 
 // String returns the string representation
@@ -1071,10 +1071,10 @@ type NewDeviceMetadataType struct {
 	_ struct{} `type:"structure"`
 
 	// The device group key.
-	DeviceGroupKey *string `type:"string"`
+	DeviceGroupKey *string `json:"cognito-idp:NewDeviceMetadataType:DeviceGroupKey" type:"string"`
 
 	// The device key.
-	DeviceKey *string `min:"1" type:"string"`
+	DeviceKey *string `json:"cognito-idp:NewDeviceMetadataType:DeviceKey" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1088,29 +1088,29 @@ type NotifyConfigurationType struct {
 	_ struct{} `type:"structure"`
 
 	// Email template used when a detected risk event is blocked.
-	BlockEmail *NotifyEmailType `type:"structure"`
+	BlockEmail *NotifyEmailType `json:"cognito-idp:NotifyConfigurationType:BlockEmail" type:"structure"`
 
 	// The email address that is sending the email. It must be either individually
 	// verified with Amazon SES, or from a domain that has been verified with Amazon
 	// SES.
-	From *string `type:"string"`
+	From *string `json:"cognito-idp:NotifyConfigurationType:From" type:"string"`
 
 	// The MFA email template used when MFA is challenged as part of a detected
 	// risk.
-	MfaEmail *NotifyEmailType `type:"structure"`
+	MfaEmail *NotifyEmailType `json:"cognito-idp:NotifyConfigurationType:MfaEmail" type:"structure"`
 
 	// The email template used when a detected risk event is allowed.
-	NoActionEmail *NotifyEmailType `type:"structure"`
+	NoActionEmail *NotifyEmailType `json:"cognito-idp:NotifyConfigurationType:NoActionEmail" type:"structure"`
 
 	// The destination to which the receiver of an email should reply to.
-	ReplyTo *string `type:"string"`
+	ReplyTo *string `json:"cognito-idp:NotifyConfigurationType:ReplyTo" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the identity that is associated with the
 	// sending authorization policy. It permits Amazon Cognito to send for the email
 	// address specified in the From parameter.
 	//
 	// SourceArn is a required field
-	SourceArn *string `min:"20" type:"string" required:"true"`
+	SourceArn *string `json:"cognito-idp:NotifyConfigurationType:SourceArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1156,15 +1156,15 @@ type NotifyEmailType struct {
 	_ struct{} `type:"structure"`
 
 	// The HTML body.
-	HtmlBody *string `min:"6" type:"string"`
+	HtmlBody *string `json:"cognito-idp:NotifyEmailType:HtmlBody" min:"6" type:"string"`
 
 	// The subject.
 	//
 	// Subject is a required field
-	Subject *string `min:"1" type:"string" required:"true"`
+	Subject *string `json:"cognito-idp:NotifyEmailType:Subject" min:"1" type:"string" required:"true"`
 
 	// The text body.
-	TextBody *string `min:"6" type:"string"`
+	TextBody *string `json:"cognito-idp:NotifyEmailType:TextBody" min:"6" type:"string"`
 }
 
 // String returns the string representation
@@ -1202,10 +1202,10 @@ type NumberAttributeConstraintsType struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum value of an attribute that is of the number data type.
-	MaxValue *string `type:"string"`
+	MaxValue *string `json:"cognito-idp:NumberAttributeConstraintsType:MaxValue" type:"string"`
 
 	// The minimum value of an attribute that is of the number data type.
-	MinValue *string `type:"string"`
+	MinValue *string `json:"cognito-idp:NumberAttributeConstraintsType:MinValue" type:"string"`
 }
 
 // String returns the string representation
@@ -1220,25 +1220,25 @@ type PasswordPolicyType struct {
 
 	// The minimum length of the password policy that you have set. Cannot be less
 	// than 6.
-	MinimumLength *int64 `min:"6" type:"integer"`
+	MinimumLength *int64 `json:"cognito-idp:PasswordPolicyType:MinimumLength" min:"6" type:"integer"`
 
 	// In the password policy that you have set, refers to whether you have required
 	// users to use at least one lowercase letter in their password.
-	RequireLowercase *bool `type:"boolean"`
+	RequireLowercase *bool `json:"cognito-idp:PasswordPolicyType:RequireLowercase" type:"boolean"`
 
 	// In the password policy that you have set, refers to whether you have required
 	// users to use at least one number in their password.
-	RequireNumbers *bool `type:"boolean"`
+	RequireNumbers *bool `json:"cognito-idp:PasswordPolicyType:RequireNumbers" type:"boolean"`
 
 	// In the password policy that you have set, refers to whether you have required
 	// users to use at least one symbol in their password.
-	RequireSymbols *bool `type:"boolean"`
+	RequireSymbols *bool `json:"cognito-idp:PasswordPolicyType:RequireSymbols" type:"boolean"`
 
 	// In the password policy that you have set, refers to whether you have required
 	// users to use at least one uppercase letter in their password.
-	RequireUppercase *bool `type:"boolean"`
+	RequireUppercase *bool `json:"cognito-idp:PasswordPolicyType:RequireUppercase" type:"boolean"`
 
-	TemporaryPasswordValidityDays *int64 `type:"integer"`
+	TemporaryPasswordValidityDays *int64 `json:"cognito-idp:PasswordPolicyType:TemporaryPasswordValidityDays" type:"integer"`
 }
 
 // String returns the string representation
@@ -1265,16 +1265,16 @@ type ProviderDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The date the provider was added to the user pool.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:ProviderDescription:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date the provider was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-idp:ProviderDescription:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identity provider name.
-	ProviderName *string `min:"1" type:"string"`
+	ProviderName *string `json:"cognito-idp:ProviderDescription:ProviderName" min:"1" type:"string"`
 
 	// The identity provider type.
-	ProviderType IdentityProviderTypeType `type:"string" enum:"true"`
+	ProviderType IdentityProviderTypeType `json:"cognito-idp:ProviderDescription:ProviderType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1288,13 +1288,13 @@ type ProviderUserIdentifierType struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the provider attribute to link to, for example, NameID.
-	ProviderAttributeName *string `type:"string"`
+	ProviderAttributeName *string `json:"cognito-idp:ProviderUserIdentifierType:ProviderAttributeName" type:"string"`
 
 	// The value of the provider attribute to link to, for example, xxxxx_account.
-	ProviderAttributeValue *string `type:"string"`
+	ProviderAttributeValue *string `json:"cognito-idp:ProviderUserIdentifierType:ProviderAttributeValue" type:"string"`
 
 	// The name of the provider, for example, Facebook, Google, or Login with Amazon.
-	ProviderName *string `min:"1" type:"string"`
+	ProviderName *string `json:"cognito-idp:ProviderUserIdentifierType:ProviderName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1323,12 +1323,12 @@ type ResourceServerScopeType struct {
 	// A description of the scope.
 	//
 	// ScopeDescription is a required field
-	ScopeDescription *string `min:"1" type:"string" required:"true"`
+	ScopeDescription *string `json:"cognito-idp:ResourceServerScopeType:ScopeDescription" min:"1" type:"string" required:"true"`
 
 	// The name of the scope.
 	//
 	// ScopeName is a required field
-	ScopeName *string `min:"1" type:"string" required:"true"`
+	ScopeName *string `json:"cognito-idp:ResourceServerScopeType:ScopeName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1366,16 +1366,16 @@ type ResourceServerType struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier for the resource server.
-	Identifier *string `min:"1" type:"string"`
+	Identifier *string `json:"cognito-idp:ResourceServerType:Identifier" min:"1" type:"string"`
 
 	// The name of the resource server.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"cognito-idp:ResourceServerType:Name" min:"1" type:"string"`
 
 	// A list of scopes that are defined for the resource server.
-	Scopes []ResourceServerScopeType `type:"list"`
+	Scopes []ResourceServerScopeType `json:"cognito-idp:ResourceServerType:Scopes" type:"list"`
 
 	// The user pool ID for the user pool that hosts the resource server.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:ResourceServerType:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1390,23 +1390,23 @@ type RiskConfigurationType struct {
 
 	// The account takeover risk configuration object including the NotifyConfiguration
 	// object and Actions to take in the case of an account takeover.
-	AccountTakeoverRiskConfiguration *AccountTakeoverRiskConfigurationType `type:"structure"`
+	AccountTakeoverRiskConfiguration *AccountTakeoverRiskConfigurationType `json:"cognito-idp:RiskConfigurationType:AccountTakeoverRiskConfiguration" type:"structure"`
 
 	// The app client ID.
-	ClientId *string `min:"1" type:"string"`
+	ClientId *string `json:"cognito-idp:RiskConfigurationType:ClientId" min:"1" type:"string"`
 
 	// The compromised credentials risk configuration object including the EventFilter
 	// and the EventAction
-	CompromisedCredentialsRiskConfiguration *CompromisedCredentialsRiskConfigurationType `type:"structure"`
+	CompromisedCredentialsRiskConfiguration *CompromisedCredentialsRiskConfigurationType `json:"cognito-idp:RiskConfigurationType:CompromisedCredentialsRiskConfiguration" type:"structure"`
 
 	// The last modified date.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-idp:RiskConfigurationType:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The configuration to override the risk decision.
-	RiskExceptionConfiguration *RiskExceptionConfigurationType `type:"structure"`
+	RiskExceptionConfiguration *RiskExceptionConfigurationType `json:"cognito-idp:RiskConfigurationType:RiskExceptionConfiguration" type:"structure"`
 
 	// The user pool ID.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:RiskConfigurationType:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1422,11 +1422,11 @@ type RiskExceptionConfigurationType struct {
 	// Overrides the risk decision to always block the pre-authentication requests.
 	// The IP range is in CIDR notation: a compact representation of an IP address
 	// and its associated routing prefix.
-	BlockedIPRangeList []string `type:"list"`
+	BlockedIPRangeList []string `json:"cognito-idp:RiskExceptionConfigurationType:BlockedIPRangeList" type:"list"`
 
 	// Risk detection is not performed on the IP addresses in the range list. The
 	// IP range is in CIDR notation.
-	SkippedIPRangeList []string `type:"list"`
+	SkippedIPRangeList []string `json:"cognito-idp:RiskExceptionConfigurationType:SkippedIPRangeList" type:"list"`
 }
 
 // String returns the string representation
@@ -1440,10 +1440,10 @@ type SMSMfaSettingsType struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether SMS text message MFA is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"cognito-idp:SMSMfaSettingsType:Enabled" type:"boolean"`
 
 	// The preferred MFA method.
-	PreferredMfa *bool `type:"boolean"`
+	PreferredMfa *bool `json:"cognito-idp:SMSMfaSettingsType:PreferredMfa" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1457,10 +1457,10 @@ type SchemaAttributeType struct {
 	_ struct{} `type:"structure"`
 
 	// The attribute data type.
-	AttributeDataType AttributeDataType `type:"string" enum:"true"`
+	AttributeDataType AttributeDataType `json:"cognito-idp:SchemaAttributeType:AttributeDataType" type:"string" enum:"true"`
 
 	// Specifies whether the attribute type is developer only.
-	DeveloperOnlyAttribute *bool `type:"boolean"`
+	DeveloperOnlyAttribute *bool `json:"cognito-idp:SchemaAttributeType:DeveloperOnlyAttribute" type:"boolean"`
 
 	// Specifies whether the value of the attribute can be changed.
 	//
@@ -1470,21 +1470,21 @@ type SchemaAttributeType struct {
 	// attribute is immutable, Amazon Cognito throws an error when it attempts to
 	// update the attribute. For more information, see Specifying Identity Provider
 	// Attribute Mappings for Your User Pool (https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html).
-	Mutable *bool `type:"boolean"`
+	Mutable *bool `json:"cognito-idp:SchemaAttributeType:Mutable" type:"boolean"`
 
 	// A schema attribute of the name type.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"cognito-idp:SchemaAttributeType:Name" min:"1" type:"string"`
 
 	// Specifies the constraints for an attribute of the number type.
-	NumberAttributeConstraints *NumberAttributeConstraintsType `type:"structure"`
+	NumberAttributeConstraints *NumberAttributeConstraintsType `json:"cognito-idp:SchemaAttributeType:NumberAttributeConstraints" type:"structure"`
 
 	// Specifies whether a user pool attribute is required. If the attribute is
 	// required and the user does not provide a value, registration or sign-in will
 	// fail.
-	Required *bool `type:"boolean"`
+	Required *bool `json:"cognito-idp:SchemaAttributeType:Required" type:"boolean"`
 
 	// Specifies the constraints for an attribute of the string type.
-	StringAttributeConstraints *StringAttributeConstraintsType `type:"structure"`
+	StringAttributeConstraints *StringAttributeConstraintsType `json:"cognito-idp:SchemaAttributeType:StringAttributeConstraints" type:"structure"`
 }
 
 // String returns the string representation
@@ -1511,13 +1511,13 @@ type SmsConfigurationType struct {
 	_ struct{} `type:"structure"`
 
 	// The external ID.
-	ExternalId *string `type:"string"`
+	ExternalId *string `json:"cognito-idp:SmsConfigurationType:ExternalId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 	// (SNS) caller.
 	//
 	// SnsCallerArn is a required field
-	SnsCallerArn *string `min:"20" type:"string" required:"true"`
+	SnsCallerArn *string `json:"cognito-idp:SmsConfigurationType:SnsCallerArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1548,10 +1548,10 @@ type SmsMfaConfigType struct {
 	_ struct{} `type:"structure"`
 
 	// The SMS authentication message.
-	SmsAuthenticationMessage *string `min:"6" type:"string"`
+	SmsAuthenticationMessage *string `json:"cognito-idp:SmsMfaConfigType:SmsAuthenticationMessage" min:"6" type:"string"`
 
 	// The SMS configuration.
-	SmsConfiguration *SmsConfigurationType `type:"structure"`
+	SmsConfiguration *SmsConfigurationType `json:"cognito-idp:SmsMfaConfigType:SmsConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -1583,7 +1583,7 @@ type SoftwareTokenMfaConfigType struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether software token MFA is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"cognito-idp:SoftwareTokenMfaConfigType:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1597,10 +1597,10 @@ type SoftwareTokenMfaSettingsType struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether software token MFA is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"cognito-idp:SoftwareTokenMfaSettingsType:Enabled" type:"boolean"`
 
 	// The preferred MFA method.
-	PreferredMfa *bool `type:"boolean"`
+	PreferredMfa *bool `json:"cognito-idp:SoftwareTokenMfaSettingsType:PreferredMfa" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1614,10 +1614,10 @@ type StringAttributeConstraintsType struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum length.
-	MaxLength *string `type:"string"`
+	MaxLength *string `json:"cognito-idp:StringAttributeConstraintsType:MaxLength" type:"string"`
 
 	// The minimum length.
-	MinLength *string `type:"string"`
+	MinLength *string `json:"cognito-idp:StringAttributeConstraintsType:MinLength" type:"string"`
 }
 
 // String returns the string representation
@@ -1632,25 +1632,25 @@ type UICustomizationType struct {
 	_ struct{} `type:"structure"`
 
 	// The CSS values in the UI customization.
-	CSS *string `type:"string"`
+	CSS *string `json:"cognito-idp:UICustomizationType:CSS" type:"string"`
 
 	// The CSS version number.
-	CSSVersion *string `type:"string"`
+	CSSVersion *string `json:"cognito-idp:UICustomizationType:CSSVersion" type:"string"`
 
 	// The client ID for the client app.
-	ClientId *string `min:"1" type:"string"`
+	ClientId *string `json:"cognito-idp:UICustomizationType:ClientId" min:"1" type:"string"`
 
 	// The creation date for the UI customization.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:UICustomizationType:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The logo image for the UI customization.
-	ImageUrl *string `type:"string"`
+	ImageUrl *string `json:"cognito-idp:UICustomizationType:ImageUrl" type:"string"`
 
 	// The last-modified date for the UI customization.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-idp:UICustomizationType:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The user pool ID for the user pool.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:UICustomizationType:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1668,7 +1668,7 @@ type UserContextDataType struct {
 	// Contextual data such as the user's device fingerprint, IP address, or location
 	// used for evaluating the risk of an unexpected event by Amazon Cognito advanced
 	// security.
-	EncodedData *string `type:"string"`
+	EncodedData *string `json:"cognito-idp:UserContextDataType:EncodedData" type:"string"`
 }
 
 // String returns the string representation
@@ -1684,37 +1684,37 @@ type UserImportJobType struct {
 	// The role ARN for the Amazon CloudWatch Logging role for the user import job.
 	// For more information, see "Creating the CloudWatch Logs IAM Role" in the
 	// Amazon Cognito Developer Guide.
-	CloudWatchLogsRoleArn *string `min:"20" type:"string"`
+	CloudWatchLogsRoleArn *string `json:"cognito-idp:UserImportJobType:CloudWatchLogsRoleArn" min:"20" type:"string"`
 
 	// The date when the user import job was completed.
-	CompletionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CompletionDate *time.Time `json:"cognito-idp:UserImportJobType:CompletionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The message returned when the user import job is completed.
-	CompletionMessage *string `min:"1" type:"string"`
+	CompletionMessage *string `json:"cognito-idp:UserImportJobType:CompletionMessage" min:"1" type:"string"`
 
 	// The date the user import job was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:UserImportJobType:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The number of users that could not be imported.
-	FailedUsers *int64 `type:"long"`
+	FailedUsers *int64 `json:"cognito-idp:UserImportJobType:FailedUsers" type:"long"`
 
 	// The number of users that were successfully imported.
-	ImportedUsers *int64 `type:"long"`
+	ImportedUsers *int64 `json:"cognito-idp:UserImportJobType:ImportedUsers" type:"long"`
 
 	// The job ID for the user import job.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"cognito-idp:UserImportJobType:JobId" min:"1" type:"string"`
 
 	// The job name for the user import job.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"cognito-idp:UserImportJobType:JobName" min:"1" type:"string"`
 
 	// The pre-signed URL to be used to upload the .csv file.
-	PreSignedUrl *string `type:"string"`
+	PreSignedUrl *string `json:"cognito-idp:UserImportJobType:PreSignedUrl" type:"string"`
 
 	// The number of users that were skipped.
-	SkippedUsers *int64 `type:"long"`
+	SkippedUsers *int64 `json:"cognito-idp:UserImportJobType:SkippedUsers" type:"long"`
 
 	// The date when the user import job was started.
-	StartDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartDate *time.Time `json:"cognito-idp:UserImportJobType:StartDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the user import job. One of the following:
 	//
@@ -1738,10 +1738,10 @@ type UserImportJobType struct {
 	//    * Expired - You created a job, but did not start the job within 24-48
 	//    hours. All data associated with the job was deleted, and the job cannot
 	//    be started.
-	Status UserImportJobStatusType `type:"string" enum:"true"`
+	Status UserImportJobStatusType `json:"cognito-idp:UserImportJobType:Status" type:"string" enum:"true"`
 
 	// The user pool ID for the user pool that the users are being imported into.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:UserImportJobType:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1757,7 +1757,7 @@ type UserPoolAddOnsType struct {
 	// The advanced security mode.
 	//
 	// AdvancedSecurityMode is a required field
-	AdvancedSecurityMode AdvancedSecurityModeType `type:"string" required:"true" enum:"true"`
+	AdvancedSecurityMode AdvancedSecurityModeType `json:"cognito-idp:UserPoolAddOnsType:AdvancedSecurityMode" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1784,14 +1784,14 @@ type UserPoolClientDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the client associated with the user pool.
-	ClientId *string `min:"1" type:"string"`
+	ClientId *string `json:"cognito-idp:UserPoolClientDescription:ClientId" min:"1" type:"string"`
 
 	// The client name from the user pool client description.
-	ClientName *string `min:"1" type:"string"`
+	ClientName *string `json:"cognito-idp:UserPoolClientDescription:ClientName" min:"1" type:"string"`
 
 	// The user pool ID for the user pool where you want to describe the user pool
 	// client.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:UserPoolClientDescription:UserPoolId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1810,18 +1810,18 @@ type UserPoolClientType struct {
 	//
 	// Set to token to specify that the client should get the access token (and,
 	// optionally, ID token, based on scopes) directly.
-	AllowedOAuthFlows []OAuthFlowType `type:"list"`
+	AllowedOAuthFlows []OAuthFlowType `json:"cognito-idp:UserPoolClientType:AllowedOAuthFlows" type:"list"`
 
 	// Set to TRUE if the client is allowed to follow the OAuth protocol when interacting
 	// with Cognito user pools.
-	AllowedOAuthFlowsUserPoolClient *bool `type:"boolean"`
+	AllowedOAuthFlowsUserPoolClient *bool `json:"cognito-idp:UserPoolClientType:AllowedOAuthFlowsUserPoolClient" type:"boolean"`
 
 	// A list of allowed OAuth scopes. Currently supported values are "phone", "email",
 	// "openid", and "Cognito".
-	AllowedOAuthScopes []string `type:"list"`
+	AllowedOAuthScopes []string `json:"cognito-idp:UserPoolClientType:AllowedOAuthScopes" type:"list"`
 
 	// The Amazon Pinpoint analytics configuration for the user pool client.
-	AnalyticsConfiguration *AnalyticsConfigurationType `type:"structure"`
+	AnalyticsConfiguration *AnalyticsConfigurationType `json:"cognito-idp:UserPoolClientType:AnalyticsConfiguration" type:"structure"`
 
 	// A list of allowed redirect (callback) URLs for the identity providers.
 	//
@@ -1839,19 +1839,19 @@ type UserPoolClientType struct {
 	// purposes only.
 	//
 	// App callback URLs such as myapp://example are also supported.
-	CallbackURLs []string `type:"list"`
+	CallbackURLs []string `json:"cognito-idp:UserPoolClientType:CallbackURLs" type:"list"`
 
 	// The ID of the client associated with the user pool.
-	ClientId *string `min:"1" type:"string"`
+	ClientId *string `json:"cognito-idp:UserPoolClientType:ClientId" min:"1" type:"string"`
 
 	// The client name from the user pool request of the client type.
-	ClientName *string `min:"1" type:"string"`
+	ClientName *string `json:"cognito-idp:UserPoolClientType:ClientName" min:"1" type:"string"`
 
 	// The client secret from the user pool request of the client type.
-	ClientSecret *string `min:"1" type:"string"`
+	ClientSecret *string `json:"cognito-idp:UserPoolClientType:ClientSecret" min:"1" type:"string"`
 
 	// The date the user pool client was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:UserPoolClientType:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The default redirect URI. Must be in the CallbackURLs list.
 	//
@@ -1869,33 +1869,33 @@ type UserPoolClientType struct {
 	// purposes only.
 	//
 	// App callback URLs such as myapp://example are also supported.
-	DefaultRedirectURI *string `min:"1" type:"string"`
+	DefaultRedirectURI *string `json:"cognito-idp:UserPoolClientType:DefaultRedirectURI" min:"1" type:"string"`
 
 	// The explicit authentication flows.
-	ExplicitAuthFlows []ExplicitAuthFlowsType `type:"list"`
+	ExplicitAuthFlows []ExplicitAuthFlowsType `json:"cognito-idp:UserPoolClientType:ExplicitAuthFlows" type:"list"`
 
 	// The date the user pool client was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-idp:UserPoolClientType:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of allowed logout URLs for the identity providers.
-	LogoutURLs []string `type:"list"`
+	LogoutURLs []string `json:"cognito-idp:UserPoolClientType:LogoutURLs" type:"list"`
 
 	// The Read-only attributes.
-	ReadAttributes []string `type:"list"`
+	ReadAttributes []string `json:"cognito-idp:UserPoolClientType:ReadAttributes" type:"list"`
 
 	// The time limit, in days, after which the refresh token is no longer valid
 	// and cannot be used.
-	RefreshTokenValidity *int64 `type:"integer"`
+	RefreshTokenValidity *int64 `json:"cognito-idp:UserPoolClientType:RefreshTokenValidity" type:"integer"`
 
 	// A list of provider names for the identity providers that are supported on
 	// this client.
-	SupportedIdentityProviders []string `type:"list"`
+	SupportedIdentityProviders []string `json:"cognito-idp:UserPoolClientType:SupportedIdentityProviders" type:"list"`
 
 	// The user pool ID for the user pool client.
-	UserPoolId *string `min:"1" type:"string"`
+	UserPoolId *string `json:"cognito-idp:UserPoolClientType:UserPoolId" min:"1" type:"string"`
 
 	// The writeable attributes.
-	WriteAttributes []string `type:"list"`
+	WriteAttributes []string `json:"cognito-idp:UserPoolClientType:WriteAttributes" type:"list"`
 }
 
 // String returns the string representation
@@ -1909,22 +1909,22 @@ type UserPoolDescriptionType struct {
 	_ struct{} `type:"structure"`
 
 	// The date the user pool description was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:UserPoolDescriptionType:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID in a user pool description.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"cognito-idp:UserPoolDescriptionType:Id" min:"1" type:"string"`
 
 	// The AWS Lambda configuration information in a user pool description.
-	LambdaConfig *LambdaConfigType `type:"structure"`
+	LambdaConfig *LambdaConfigType `json:"cognito-idp:UserPoolDescriptionType:LambdaConfig" type:"structure"`
 
 	// The date the user pool description was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-idp:UserPoolDescriptionType:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name in a user pool description.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"cognito-idp:UserPoolDescriptionType:Name" min:"1" type:"string"`
 
 	// The user pool status in a user pool description.
-	Status StatusType `type:"string" enum:"true"`
+	Status StatusType `json:"cognito-idp:UserPoolDescriptionType:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1938,7 +1938,7 @@ type UserPoolPolicyType struct {
 	_ struct{} `type:"structure"`
 
 	// The password policy.
-	PasswordPolicy *PasswordPolicyType `type:"structure"`
+	PasswordPolicy *PasswordPolicyType `json:"cognito-idp:UserPoolPolicyType:PasswordPolicy" type:"structure"`
 }
 
 // String returns the string representation
@@ -1967,19 +1967,19 @@ type UserPoolType struct {
 	_ struct{} `type:"structure"`
 
 	// The configuration for AdminCreateUser requests.
-	AdminCreateUserConfig *AdminCreateUserConfigType `type:"structure"`
+	AdminCreateUserConfig *AdminCreateUserConfigType `json:"cognito-idp:UserPoolType:AdminCreateUserConfig" type:"structure"`
 
 	// Specifies the attributes that are aliased in a user pool.
-	AliasAttributes []AliasAttributeType `type:"list"`
+	AliasAttributes []AliasAttributeType `json:"cognito-idp:UserPoolType:AliasAttributes" type:"list"`
 
 	// The Amazon Resource Name (ARN) for the user pool.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"cognito-idp:UserPoolType:Arn" min:"20" type:"string"`
 
 	// Specifies the attributes that are auto-verified in a user pool.
-	AutoVerifiedAttributes []VerifiedAttributeType `type:"list"`
+	AutoVerifiedAttributes []VerifiedAttributeType `json:"cognito-idp:UserPoolType:AutoVerifiedAttributes" type:"list"`
 
 	// The date the user pool was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"cognito-idp:UserPoolType:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A custom domain name that you provide to Amazon Cognito. This parameter applies
 	// only if you use a custom domain to host the sign-up and sign-in pages for
@@ -1987,37 +1987,37 @@ type UserPoolType struct {
 	//
 	// For more information about adding a custom domain to your user pool, see
 	// Using Your Own Domain for the Hosted UI (https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html).
-	CustomDomain *string `min:"1" type:"string"`
+	CustomDomain *string `json:"cognito-idp:UserPoolType:CustomDomain" min:"1" type:"string"`
 
 	// The device configuration.
-	DeviceConfiguration *DeviceConfigurationType `type:"structure"`
+	DeviceConfiguration *DeviceConfigurationType `json:"cognito-idp:UserPoolType:DeviceConfiguration" type:"structure"`
 
 	// Holds the domain prefix if the user pool has a domain associated with it.
-	Domain *string `min:"1" type:"string"`
+	Domain *string `json:"cognito-idp:UserPoolType:Domain" min:"1" type:"string"`
 
 	// The email configuration.
-	EmailConfiguration *EmailConfigurationType `type:"structure"`
+	EmailConfiguration *EmailConfigurationType `json:"cognito-idp:UserPoolType:EmailConfiguration" type:"structure"`
 
 	// The reason why the email configuration cannot send the messages to your users.
-	EmailConfigurationFailure *string `type:"string"`
+	EmailConfigurationFailure *string `json:"cognito-idp:UserPoolType:EmailConfigurationFailure" type:"string"`
 
 	// The contents of the email verification message.
-	EmailVerificationMessage *string `min:"6" type:"string"`
+	EmailVerificationMessage *string `json:"cognito-idp:UserPoolType:EmailVerificationMessage" min:"6" type:"string"`
 
 	// The subject of the email verification message.
-	EmailVerificationSubject *string `min:"1" type:"string"`
+	EmailVerificationSubject *string `json:"cognito-idp:UserPoolType:EmailVerificationSubject" min:"1" type:"string"`
 
 	// A number estimating the size of the user pool.
-	EstimatedNumberOfUsers *int64 `type:"integer"`
+	EstimatedNumberOfUsers *int64 `json:"cognito-idp:UserPoolType:EstimatedNumberOfUsers" type:"integer"`
 
 	// The ID of the user pool.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"cognito-idp:UserPoolType:Id" min:"1" type:"string"`
 
 	// The AWS Lambda triggers associated with the user pool.
-	LambdaConfig *LambdaConfigType `type:"structure"`
+	LambdaConfig *LambdaConfigType `json:"cognito-idp:UserPoolType:LambdaConfig" type:"structure"`
 
 	// The date the user pool was last modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"cognito-idp:UserPoolType:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Can be one of the following values:
 	//
@@ -2028,46 +2028,46 @@ type UserPoolType struct {
 	//    specify required when you are initially creating a user pool.
 	//
 	//    * OPTIONAL - Users have the option when registering to create an MFA token.
-	MfaConfiguration UserPoolMfaType `type:"string" enum:"true"`
+	MfaConfiguration UserPoolMfaType `json:"cognito-idp:UserPoolType:MfaConfiguration" type:"string" enum:"true"`
 
 	// The name of the user pool.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"cognito-idp:UserPoolType:Name" min:"1" type:"string"`
 
 	// The policies associated with the user pool.
-	Policies *UserPoolPolicyType `type:"structure"`
+	Policies *UserPoolPolicyType `json:"cognito-idp:UserPoolType:Policies" type:"structure"`
 
 	// A container with the schema attributes of a user pool.
-	SchemaAttributes []SchemaAttributeType `min:"1" type:"list"`
+	SchemaAttributes []SchemaAttributeType `json:"cognito-idp:UserPoolType:SchemaAttributes" min:"1" type:"list"`
 
 	// The contents of the SMS authentication message.
-	SmsAuthenticationMessage *string `min:"6" type:"string"`
+	SmsAuthenticationMessage *string `json:"cognito-idp:UserPoolType:SmsAuthenticationMessage" min:"6" type:"string"`
 
 	// The SMS configuration.
-	SmsConfiguration *SmsConfigurationType `type:"structure"`
+	SmsConfiguration *SmsConfigurationType `json:"cognito-idp:UserPoolType:SmsConfiguration" type:"structure"`
 
 	// The reason why the SMS configuration cannot send the messages to your users.
-	SmsConfigurationFailure *string `type:"string"`
+	SmsConfigurationFailure *string `json:"cognito-idp:UserPoolType:SmsConfigurationFailure" type:"string"`
 
 	// The contents of the SMS verification message.
-	SmsVerificationMessage *string `min:"6" type:"string"`
+	SmsVerificationMessage *string `json:"cognito-idp:UserPoolType:SmsVerificationMessage" min:"6" type:"string"`
 
 	// The status of a user pool.
-	Status StatusType `type:"string" enum:"true"`
+	Status StatusType `json:"cognito-idp:UserPoolType:Status" type:"string" enum:"true"`
 
 	// The user pool add-ons.
-	UserPoolAddOns *UserPoolAddOnsType `type:"structure"`
+	UserPoolAddOns *UserPoolAddOnsType `json:"cognito-idp:UserPoolType:UserPoolAddOns" type:"structure"`
 
 	// The tags that are assigned to the user pool. A tag is a label that you can
 	// apply to user pools to categorize and manage them in different ways, such
 	// as by purpose, owner, environment, or other criteria.
-	UserPoolTags map[string]string `type:"map"`
+	UserPoolTags map[string]string `json:"cognito-idp:UserPoolType:UserPoolTags" type:"map"`
 
 	// Specifies whether email addresses or phone numbers can be specified as usernames
 	// when a user signs up.
-	UsernameAttributes []UsernameAttributeType `type:"list"`
+	UsernameAttributes []UsernameAttributeType `json:"cognito-idp:UserPoolType:UsernameAttributes" type:"list"`
 
 	// The template for verification messages.
-	VerificationMessageTemplate *VerificationMessageTemplateType `type:"structure"`
+	VerificationMessageTemplate *VerificationMessageTemplateType `json:"cognito-idp:UserPoolType:VerificationMessageTemplate" type:"structure"`
 }
 
 // String returns the string representation
@@ -2081,19 +2081,19 @@ type UserType struct {
 	_ struct{} `type:"structure"`
 
 	// A container with information about the user type attributes.
-	Attributes []AttributeType `type:"list"`
+	Attributes []AttributeType `json:"cognito-idp:UserType:Attributes" type:"list"`
 
 	// Specifies whether the user is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"cognito-idp:UserType:Enabled" type:"boolean"`
 
 	// The MFA options for the user.
-	MFAOptions []MFAOptionType `type:"list"`
+	MFAOptions []MFAOptionType `json:"cognito-idp:UserType:MFAOptions" type:"list"`
 
 	// The creation date of the user.
-	UserCreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UserCreateDate *time.Time `json:"cognito-idp:UserType:UserCreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The last modified date of the user.
-	UserLastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UserLastModifiedDate *time.Time `json:"cognito-idp:UserType:UserLastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The user status. Can be one of the following:
 	//
@@ -2113,10 +2113,10 @@ type UserType struct {
 	//    * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign
 	//    in using a temporary password, but on first sign-in, the user must change
 	//    his or her password to a new value before doing anything else.
-	UserStatus UserStatusType `type:"string" enum:"true"`
+	UserStatus UserStatusType `json:"cognito-idp:UserType:UserStatus" type:"string" enum:"true"`
 
 	// The user name of the user you wish to describe.
-	Username *string `min:"1" type:"string"`
+	Username *string `json:"cognito-idp:UserType:Username" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2130,23 +2130,23 @@ type VerificationMessageTemplateType struct {
 	_ struct{} `type:"structure"`
 
 	// The default email option.
-	DefaultEmailOption DefaultEmailOptionType `type:"string" enum:"true"`
+	DefaultEmailOption DefaultEmailOptionType `json:"cognito-idp:VerificationMessageTemplateType:DefaultEmailOption" type:"string" enum:"true"`
 
 	// The email message template.
-	EmailMessage *string `min:"6" type:"string"`
+	EmailMessage *string `json:"cognito-idp:VerificationMessageTemplateType:EmailMessage" min:"6" type:"string"`
 
 	// The email message template for sending a confirmation link to the user.
-	EmailMessageByLink *string `min:"6" type:"string"`
+	EmailMessageByLink *string `json:"cognito-idp:VerificationMessageTemplateType:EmailMessageByLink" min:"6" type:"string"`
 
 	// The subject line for the email message template.
-	EmailSubject *string `min:"1" type:"string"`
+	EmailSubject *string `json:"cognito-idp:VerificationMessageTemplateType:EmailSubject" min:"1" type:"string"`
 
 	// The subject line for the email message template for sending a confirmation
 	// link to the user.
-	EmailSubjectByLink *string `min:"1" type:"string"`
+	EmailSubjectByLink *string `json:"cognito-idp:VerificationMessageTemplateType:EmailSubjectByLink" min:"1" type:"string"`
 
 	// The SMS message template.
-	SmsMessage *string `min:"6" type:"string"`
+	SmsMessage *string `json:"cognito-idp:VerificationMessageTemplateType:SmsMessage" min:"6" type:"string"`
 }
 
 // String returns the string representation

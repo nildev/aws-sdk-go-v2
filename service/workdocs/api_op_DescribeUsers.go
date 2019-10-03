@@ -157,13 +157,13 @@ type DescribeUsersOutput struct {
 
 	// The marker to use when requesting the next set of results. If there are no
 	// additional results, the string is empty.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeUsersOutput:Marker" min:"1" type:"string"`
 
 	// The total number of users included in the results.
-	TotalNumberOfUsers *int64 `deprecated:"true" type:"long"`
+	TotalNumberOfUsers *int64 `json:"workdocs:DescribeUsersOutput:TotalNumberOfUsers" deprecated:"true" type:"long"`
 
 	// The users.
-	Users []User `type:"list"`
+	Users []User `json:"workdocs:DescribeUsersOutput:Users" type:"list"`
 }
 
 // String returns the string representation

@@ -44,10 +44,10 @@ type BatchGetJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of job definitions.
-	Jobs []Job `type:"list"`
+	Jobs []Job `json:"glue:BatchGetJobsOutput:Jobs" type:"list"`
 
 	// A list of names of jobs not found.
-	JobsNotFound []string `type:"list"`
+	JobsNotFound []string `json:"glue:BatchGetJobsOutput:JobsNotFound" type:"list"`
 }
 
 // String returns the string representation

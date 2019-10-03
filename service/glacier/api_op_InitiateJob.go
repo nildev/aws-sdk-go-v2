@@ -89,13 +89,13 @@ type InitiateJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the job.
-	JobId *string `location:"header" locationName:"x-amz-job-id" type:"string"`
+	JobId *string `json:"glacier:InitiateJobOutput:JobId" location:"header" locationName:"x-amz-job-id" type:"string"`
 
 	// The path to the location of where the select results are stored.
-	JobOutputPath *string `location:"header" locationName:"x-amz-job-output-path" type:"string"`
+	JobOutputPath *string `json:"glacier:InitiateJobOutput:JobOutputPath" location:"header" locationName:"x-amz-job-output-path" type:"string"`
 
 	// The relative URI path of the job.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"glacier:InitiateJobOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

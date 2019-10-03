@@ -54,19 +54,19 @@ type DescribeNetworkInterfaceAttributeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attachment (if any) of the network interface.
-	Attachment *NetworkInterfaceAttachment `locationName:"attachment" type:"structure"`
+	Attachment *NetworkInterfaceAttachment `json:"ec2:DescribeNetworkInterfaceAttributeOutput:Attachment" locationName:"attachment" type:"structure"`
 
 	// The description of the network interface.
-	Description *AttributeValue `locationName:"description" type:"structure"`
+	Description *AttributeValue `json:"ec2:DescribeNetworkInterfaceAttributeOutput:Description" locationName:"description" type:"structure"`
 
 	// The security groups associated with the network interface.
-	Groups []GroupIdentifier `locationName:"groupSet" locationNameList:"item" type:"list"`
+	Groups []GroupIdentifier `json:"ec2:DescribeNetworkInterfaceAttributeOutput:Groups" locationName:"groupSet" locationNameList:"item" type:"list"`
 
 	// The ID of the network interface.
-	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+	NetworkInterfaceId *string `json:"ec2:DescribeNetworkInterfaceAttributeOutput:NetworkInterfaceId" locationName:"networkInterfaceId" type:"string"`
 
 	// Indicates whether source/destination checking is enabled.
-	SourceDestCheck *AttributeBooleanValue `locationName:"sourceDestCheck" type:"structure"`
+	SourceDestCheck *AttributeBooleanValue `json:"ec2:DescribeNetworkInterfaceAttributeOutput:SourceDestCheck" locationName:"sourceDestCheck" type:"structure"`
 }
 
 // String returns the string representation

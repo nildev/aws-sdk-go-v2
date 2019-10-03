@@ -81,13 +81,13 @@ type GetBasePathMappingOutput struct {
 
 	// The base path name that callers of the API must provide as part of the URL
 	// after the domain name.
-	BasePath *string `locationName:"basePath" type:"string"`
+	BasePath *string `json:"apigateway:GetBasePathMappingOutput:BasePath" locationName:"basePath" type:"string"`
 
 	// The string identifier of the associated RestApi.
-	RestApiId *string `locationName:"restApiId" type:"string"`
+	RestApiId *string `json:"apigateway:GetBasePathMappingOutput:RestApiId" locationName:"restApiId" type:"string"`
 
 	// The name of the associated stage.
-	Stage *string `locationName:"stage" type:"string"`
+	Stage *string `json:"apigateway:GetBasePathMappingOutput:Stage" locationName:"stage" type:"string"`
 }
 
 // String returns the string representation

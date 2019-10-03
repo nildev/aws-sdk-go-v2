@@ -36,10 +36,10 @@ type DescribeDefaultParametersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"dax:DescribeDefaultParametersOutput:NextToken" type:"string"`
 
 	// A list of parameters. Each element in the list represents one parameter.
-	Parameters []Parameter `type:"list"`
+	Parameters []Parameter `json:"dax:DescribeDefaultParametersOutput:Parameters" type:"list"`
 }
 
 // String returns the string representation

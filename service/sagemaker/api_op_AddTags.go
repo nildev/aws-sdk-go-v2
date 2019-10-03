@@ -62,7 +62,7 @@ type AddTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of tags associated with the Amazon SageMaker resource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"api.sagemaker:AddTagsOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

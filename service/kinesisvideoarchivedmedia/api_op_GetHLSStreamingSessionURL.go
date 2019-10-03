@@ -248,7 +248,7 @@ type GetHLSStreamingSessionURLOutput struct {
 
 	// The URL (containing the session token) that a media player can use to retrieve
 	// the HLS master playlist.
-	HLSStreamingSessionURL *string `type:"string"`
+	HLSStreamingSessionURL *string `json:"kinesisvideo:GetHLSStreamingSessionURLOutput:HLSStreamingSessionURL" type:"string"`
 }
 
 // String returns the string representation

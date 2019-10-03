@@ -56,16 +56,16 @@ type ListQualificationRequestsOutput struct {
 	// If the previous response was incomplete (because there is more data to retrieve),
 	// Amazon Mechanical Turk returns a pagination token in the response. You can
 	// use this pagination token to retrieve the next set of results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"mturk-requester:ListQualificationRequestsOutput:NextToken" min:"1" type:"string"`
 
 	// The number of Qualification requests on this page in the filtered results
 	// list, equivalent to the number of Qualification requests being returned by
 	// this call.
-	NumResults *int64 `type:"integer"`
+	NumResults *int64 `json:"mturk-requester:ListQualificationRequestsOutput:NumResults" type:"integer"`
 
 	// The Qualification request. The response includes one QualificationRequest
 	// element for each Qualification request returned by the query.
-	QualificationRequests []QualificationRequest `type:"list"`
+	QualificationRequests []QualificationRequest `json:"mturk-requester:ListQualificationRequestsOutput:QualificationRequests" type:"list"`
 }
 
 // String returns the string representation

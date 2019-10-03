@@ -64,10 +64,10 @@ type CreateXssMatchSetOutput struct {
 	// The ChangeToken that you used to submit the CreateXssMatchSet request. You
 	// can also use this value to query the status of the request. For more information,
 	// see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf-regional:CreateXssMatchSetOutput:ChangeToken" min:"1" type:"string"`
 
 	// An XssMatchSet.
-	XssMatchSet *waf.XssMatchSet `type:"structure"`
+	XssMatchSet *waf.XssMatchSet `json:"waf-regional:CreateXssMatchSetOutput:XssMatchSet" type:"structure"`
 }
 
 // String returns the string representation

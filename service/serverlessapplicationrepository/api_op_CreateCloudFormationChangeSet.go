@@ -208,13 +208,13 @@ func (s CreateCloudFormationChangeSetInput) MarshalFields(e protocol.FieldEncode
 type CreateCloudFormationChangeSetOutput struct {
 	_ struct{} `type:"structure"`
 
-	ApplicationId *string `locationName:"applicationId" type:"string"`
+	ApplicationId *string `json:"serverlessrepo:CreateCloudFormationChangeSetOutput:ApplicationId" locationName:"applicationId" type:"string"`
 
-	ChangeSetId *string `locationName:"changeSetId" type:"string"`
+	ChangeSetId *string `json:"serverlessrepo:CreateCloudFormationChangeSetOutput:ChangeSetId" locationName:"changeSetId" type:"string"`
 
-	SemanticVersion *string `locationName:"semanticVersion" type:"string"`
+	SemanticVersion *string `json:"serverlessrepo:CreateCloudFormationChangeSetOutput:SemanticVersion" locationName:"semanticVersion" type:"string"`
 
-	StackId *string `locationName:"stackId" type:"string"`
+	StackId *string `json:"serverlessrepo:CreateCloudFormationChangeSetOutput:StackId" locationName:"stackId" type:"string"`
 }
 
 // String returns the string representation

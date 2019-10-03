@@ -138,12 +138,12 @@ type ListResourceRecordSetsOutput struct {
 	// by using the NextRecordName element.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListResourceRecordSetsOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// The maximum number of records you requested.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListResourceRecordSetsOutput:MaxItems" type:"string" required:"true"`
 
 	// Resource record sets that have a routing policy other than simple: If results
 	// were truncated for a given DNS name and type, the value of SetIdentifier
@@ -151,22 +151,22 @@ type ListResourceRecordSetsOutput struct {
 	//
 	// For information about routing policies, see Choosing a Routing Policy (https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html)
 	// in the Amazon Route 53 Developer Guide.
-	NextRecordIdentifier *string `min:"1" type:"string"`
+	NextRecordIdentifier *string `json:"route53:ListResourceRecordSetsOutput:NextRecordIdentifier" min:"1" type:"string"`
 
 	// If the results were truncated, the name of the next record in the list.
 	//
 	// This element is present only if IsTruncated is true.
-	NextRecordName *string `type:"string"`
+	NextRecordName *string `json:"route53:ListResourceRecordSetsOutput:NextRecordName" type:"string"`
 
 	// If the results were truncated, the type of the next record in the list.
 	//
 	// This element is present only if IsTruncated is true.
-	NextRecordType RRType `type:"string" enum:"true"`
+	NextRecordType RRType `json:"route53:ListResourceRecordSetsOutput:NextRecordType" type:"string" enum:"true"`
 
 	// Information about multiple resource record sets.
 	//
 	// ResourceRecordSets is a required field
-	ResourceRecordSets []ResourceRecordSet `locationNameList:"ResourceRecordSet" type:"list" required:"true"`
+	ResourceRecordSets []ResourceRecordSet `json:"route53:ListResourceRecordSetsOutput:ResourceRecordSets" locationNameList:"ResourceRecordSet" type:"list" required:"true"`
 }
 
 // String returns the string representation

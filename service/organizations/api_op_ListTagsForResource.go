@@ -53,10 +53,10 @@ type ListTagsForResourceOutput struct {
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListTagsForResourceOutput:NextToken" type:"string"`
 
 	// The tags that are assigned to the resource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"organizations:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

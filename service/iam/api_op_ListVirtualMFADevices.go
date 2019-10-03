@@ -68,17 +68,17 @@ type ListVirtualMFADevicesOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListVirtualMFADevicesOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListVirtualMFADevicesOutput:Marker" type:"string"`
 
 	// The list of virtual MFA devices in the current account that match the AssignmentStatus
 	// value that was passed in the request.
 	//
 	// VirtualMFADevices is a required field
-	VirtualMFADevices []VirtualMFADevice `type:"list" required:"true"`
+	VirtualMFADevices []VirtualMFADevice `json:"iam:ListVirtualMFADevicesOutput:VirtualMFADevices" type:"list" required:"true"`
 }
 
 // String returns the string representation

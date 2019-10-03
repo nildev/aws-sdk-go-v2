@@ -57,7 +57,7 @@ type GetJobDocumentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The job document content.
-	Document *string `locationName:"document" type:"string"`
+	Document *string `json:"iot:GetJobDocumentOutput:Document" locationName:"document" type:"string"`
 }
 
 // String returns the string representation

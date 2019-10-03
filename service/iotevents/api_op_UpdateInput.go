@@ -88,7 +88,7 @@ type UpdateInputOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the configuration of the input.
-	InputConfiguration *InputConfiguration `locationName:"inputConfiguration" type:"structure"`
+	InputConfiguration *InputConfiguration `json:"iotevents:UpdateInputOutput:InputConfiguration" locationName:"inputConfiguration" type:"structure"`
 }
 
 // String returns the string representation

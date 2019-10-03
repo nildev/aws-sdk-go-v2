@@ -60,7 +60,7 @@ type AuthorizeSnapshotAccessOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes a snapshot.
-	Snapshot *Snapshot `type:"structure"`
+	Snapshot *Snapshot `json:"redshift:AuthorizeSnapshotAccessOutput:Snapshot" type:"structure"`
 }
 
 // String returns the string representation

@@ -56,7 +56,7 @@ type AttachLoadBalancerTlsCertificateOutput struct {
 	//
 	// These SSL/TLS certificates are only usable by Lightsail load balancers. You
 	// can't get the certificate and use it for another purpose.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:AttachLoadBalancerTlsCertificateOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

@@ -88,7 +88,7 @@ type UpdateScriptOutput struct {
 	// that was provided in the CreateScript request; (2) If the script file was
 	// uploaded from a local zip file, the storage location reflects an S3 location
 	// controls by the Amazon GameLift service.
-	Script *Script `type:"structure"`
+	Script *Script `json:"gamelift:UpdateScriptOutput:Script" type:"structure"`
 }
 
 // String returns the string representation

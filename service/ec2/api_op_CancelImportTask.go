@@ -36,13 +36,13 @@ type CancelImportTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the task being canceled.
-	ImportTaskId *string `locationName:"importTaskId" type:"string"`
+	ImportTaskId *string `json:"ec2:CancelImportTaskOutput:ImportTaskId" locationName:"importTaskId" type:"string"`
 
 	// The current state of the task being canceled.
-	PreviousState *string `locationName:"previousState" type:"string"`
+	PreviousState *string `json:"ec2:CancelImportTaskOutput:PreviousState" locationName:"previousState" type:"string"`
 
 	// The current state of the task being canceled.
-	State *string `locationName:"state" type:"string"`
+	State *string `json:"ec2:CancelImportTaskOutput:State" locationName:"state" type:"string"`
 }
 
 // String returns the string representation

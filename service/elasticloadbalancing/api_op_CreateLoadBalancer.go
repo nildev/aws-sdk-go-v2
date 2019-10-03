@@ -113,7 +113,7 @@ type CreateLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The DNS name of the load balancer.
-	DNSName *string `type:"string"`
+	DNSName *string `json:"elasticloadbalancing:CreateLoadBalancerOutput:DNSName" type:"string"`
 }
 
 // String returns the string representation

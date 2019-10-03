@@ -98,10 +98,10 @@ type ListJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of jobs
-	Jobs []Job `locationName:"jobs" type:"list"`
+	Jobs []Job `json:"mediaconvert:ListJobsOutput:Jobs" locationName:"jobs" type:"list"`
 
 	// Use this string to request the next batch of jobs.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediaconvert:ListJobsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

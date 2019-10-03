@@ -82,7 +82,7 @@ type GetDataEndpointOutput struct {
 
 	// The endpoint value. To read data from the stream or to write data to it,
 	// specify this endpoint in your application.
-	DataEndpoint *string `type:"string"`
+	DataEndpoint *string `json:"kinesisvideo:GetDataEndpointOutput:DataEndpoint" type:"string"`
 }
 
 // String returns the string representation

@@ -49,10 +49,10 @@ type MoveAddressToVpcOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The allocation ID for the Elastic IP address.
-	AllocationId *string `locationName:"allocationId" type:"string"`
+	AllocationId *string `json:"ec2:MoveAddressToVpcOutput:AllocationId" locationName:"allocationId" type:"string"`
 
 	// The status of the move of the IP address.
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"ec2:MoveAddressToVpcOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

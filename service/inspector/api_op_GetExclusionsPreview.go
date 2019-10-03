@@ -73,18 +73,18 @@ type GetExclusionsPreviewOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the exclusions included in the preview.
-	ExclusionPreviews []ExclusionPreview `locationName:"exclusionPreviews" type:"list"`
+	ExclusionPreviews []ExclusionPreview `json:"inspector:GetExclusionsPreviewOutput:ExclusionPreviews" locationName:"exclusionPreviews" type:"list"`
 
 	// When a response is generated, if there is more data to be listed, this parameters
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"inspector:GetExclusionsPreviewOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// Specifies the status of the request to generate an exclusions preview.
 	//
 	// PreviewStatus is a required field
-	PreviewStatus PreviewStatus `locationName:"previewStatus" type:"string" required:"true" enum:"true"`
+	PreviewStatus PreviewStatus `json:"inspector:GetExclusionsPreviewOutput:PreviewStatus" locationName:"previewStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

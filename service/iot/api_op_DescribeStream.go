@@ -57,7 +57,7 @@ type DescribeStreamOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the stream.
-	StreamInfo *StreamInfo `locationName:"streamInfo" type:"structure"`
+	StreamInfo *StreamInfo `json:"iot:DescribeStreamOutput:StreamInfo" locationName:"streamInfo" type:"structure"`
 }
 
 // String returns the string representation

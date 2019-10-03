@@ -109,10 +109,10 @@ type RegisterCACertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The CA certificate ARN.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:RegisterCACertificateOutput:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The CA certificate identifier.
-	CertificateId *string `locationName:"certificateId" min:"64" type:"string"`
+	CertificateId *string `json:"iot:RegisterCACertificateOutput:CertificateId" locationName:"certificateId" min:"64" type:"string"`
 }
 
 // String returns the string representation

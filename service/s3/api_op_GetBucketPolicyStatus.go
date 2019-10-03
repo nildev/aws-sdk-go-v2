@@ -63,7 +63,7 @@ type GetBucketPolicyStatusOutput struct {
 	_ struct{} `type:"structure" payload:"PolicyStatus"`
 
 	// The policy status for the specified bucket.
-	PolicyStatus *PolicyStatus `type:"structure"`
+	PolicyStatus *PolicyStatus `json:"s3:GetBucketPolicyStatusOutput:PolicyStatus" type:"structure"`
 }
 
 // String returns the string representation

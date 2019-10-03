@@ -73,7 +73,7 @@ type UpdateSmsChannelOutput struct {
 	// an application.
 	//
 	// SMSChannelResponse is a required field
-	SMSChannelResponse *SMSChannelResponse `type:"structure" required:"true"`
+	SMSChannelResponse *SMSChannelResponse `json:"pinpoint:UpdateSmsChannelOutput:SMSChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -81,28 +81,28 @@ type GetLifecyclePolicyPreviewOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON lifecycle policy text.
-	LifecyclePolicyText *string `locationName:"lifecyclePolicyText" min:"100" type:"string"`
+	LifecyclePolicyText *string `json:"api.ecr:GetLifecyclePolicyPreviewOutput:LifecyclePolicyText" locationName:"lifecyclePolicyText" min:"100" type:"string"`
 
 	// The nextToken value to include in a future GetLifecyclePolicyPreview request.
 	// When the results of a GetLifecyclePolicyPreview request exceed maxResults,
 	// this value can be used to retrieve the next page of results. This value is
 	// null when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"api.ecr:GetLifecyclePolicyPreviewOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The results of the lifecycle policy preview request.
-	PreviewResults []LifecyclePolicyPreviewResult `locationName:"previewResults" type:"list"`
+	PreviewResults []LifecyclePolicyPreviewResult `json:"api.ecr:GetLifecyclePolicyPreviewOutput:PreviewResults" locationName:"previewResults" type:"list"`
 
 	// The registry ID associated with the request.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:GetLifecyclePolicyPreviewOutput:RegistryId" locationName:"registryId" type:"string"`
 
 	// The repository name associated with the request.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:GetLifecyclePolicyPreviewOutput:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 
 	// The status of the lifecycle policy preview request.
-	Status LifecyclePolicyPreviewStatus `locationName:"status" type:"string" enum:"true"`
+	Status LifecyclePolicyPreviewStatus `json:"api.ecr:GetLifecyclePolicyPreviewOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The list of images that is returned as a result of the action.
-	Summary *LifecyclePolicyPreviewSummary `locationName:"summary" type:"structure"`
+	Summary *LifecyclePolicyPreviewSummary `json:"api.ecr:GetLifecyclePolicyPreviewOutput:Summary" locationName:"summary" type:"structure"`
 }
 
 // String returns the string representation

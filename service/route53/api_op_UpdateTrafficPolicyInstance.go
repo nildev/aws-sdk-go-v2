@@ -122,7 +122,7 @@ type UpdateTrafficPolicyInstanceOutput struct {
 	// A complex type that contains settings for the updated traffic policy instance.
 	//
 	// TrafficPolicyInstance is a required field
-	TrafficPolicyInstance *TrafficPolicyInstance `type:"structure" required:"true"`
+	TrafficPolicyInstance *TrafficPolicyInstance `json:"route53:UpdateTrafficPolicyInstanceOutput:TrafficPolicyInstance" type:"structure" required:"true"`
 }
 
 // String returns the string representation

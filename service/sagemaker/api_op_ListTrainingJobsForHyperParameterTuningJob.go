@@ -71,13 +71,13 @@ type ListTrainingJobsForHyperParameterTuningJobOutput struct {
 	// If the result of this ListTrainingJobsForHyperParameterTuningJob request
 	// was truncated, the response includes a NextToken. To retrieve the next set
 	// of training jobs, use the token in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListTrainingJobsForHyperParameterTuningJobOutput:NextToken" type:"string"`
 
 	// A list of TrainingJobSummary objects that describe the training jobs that
 	// the ListTrainingJobsForHyperParameterTuningJob request returned.
 	//
 	// TrainingJobSummaries is a required field
-	TrainingJobSummaries []HyperParameterTrainingJobSummary `type:"list" required:"true"`
+	TrainingJobSummaries []HyperParameterTrainingJobSummary `json:"api.sagemaker:ListTrainingJobsForHyperParameterTuningJobOutput:TrainingJobSummaries" type:"list" required:"true"`
 }
 
 // String returns the string representation

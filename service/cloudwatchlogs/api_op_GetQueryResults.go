@@ -48,12 +48,12 @@ type GetQueryResultsOutput struct {
 	// The results value is an array of arrays. Each log event is one object in
 	// the top-level array. Each of these log event objects is an array of field/value
 	// pairs.
-	Results [][]ResultField `locationName:"results" type:"list"`
+	Results [][]ResultField `json:"logs:GetQueryResultsOutput:Results" locationName:"results" type:"list"`
 
 	// Includes the number of log events scanned by the query, the number of log
 	// events that matched the query criteria, and the total number of bytes in
 	// the log events that were scanned.
-	Statistics *QueryStatistics `locationName:"statistics" type:"structure"`
+	Statistics *QueryStatistics `json:"logs:GetQueryResultsOutput:Statistics" locationName:"statistics" type:"structure"`
 
 	// The status of the most recent running of the query. Possible values are Cancelled,
 	// Complete, Failed, Running, Scheduled, Timeout, and Unknown.
@@ -61,7 +61,7 @@ type GetQueryResultsOutput struct {
 	// Queries time out after 15 minutes of execution. To avoid having your queries
 	// time out, reduce the time range being searched, or partition your query into
 	// a number of queries.
-	Status QueryStatus `locationName:"status" type:"string" enum:"true"`
+	Status QueryStatus `json:"logs:GetQueryResultsOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

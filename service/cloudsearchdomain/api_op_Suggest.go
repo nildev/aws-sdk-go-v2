@@ -82,10 +82,10 @@ type SuggestOutput struct {
 
 	// The status of a SuggestRequest. Contains the resource ID (rid) and how long
 	// it took to process the request (timems).
-	Status *SuggestStatus `locationName:"status" type:"structure"`
+	Status *SuggestStatus `json:"cloudsearchdomain:SuggestOutput:Status" locationName:"status" type:"structure"`
 
 	// Container for the matching search suggestion information.
-	Suggest *SuggestModel `locationName:"suggest" type:"structure"`
+	Suggest *SuggestModel `json:"cloudsearchdomain:SuggestOutput:Suggest" locationName:"suggest" type:"structure"`
 }
 
 // String returns the string representation

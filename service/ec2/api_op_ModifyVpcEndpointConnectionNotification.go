@@ -56,7 +56,7 @@ type ModifyVpcEndpointConnectionNotificationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns true if the request succeeds; otherwise, it returns an error.
-	ReturnValue *bool `locationName:"return" type:"boolean"`
+	ReturnValue *bool `json:"ec2:ModifyVpcEndpointConnectionNotificationOutput:ReturnValue" locationName:"return" type:"boolean"`
 }
 
 // String returns the string representation

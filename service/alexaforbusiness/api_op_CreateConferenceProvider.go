@@ -90,7 +90,7 @@ type CreateConferenceProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the newly-created conference provider.
-	ConferenceProviderArn *string `type:"string"`
+	ConferenceProviderArn *string `json:"a4b:CreateConferenceProviderOutput:ConferenceProviderArn" type:"string"`
 }
 
 // String returns the string representation

@@ -43,7 +43,7 @@ type DescribeSchemaOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested schema.
-	Schema *DatasetSchema `locationName:"schema" type:"structure"`
+	Schema *DatasetSchema `json:"personalize:DescribeSchemaOutput:Schema" locationName:"schema" type:"structure"`
 }
 
 // String returns the string representation

@@ -27,16 +27,16 @@ type GetCallerIdentityOutput struct {
 
 	// The AWS account ID number of the account that owns or contains the calling
 	// entity.
-	Account *string `type:"string"`
+	Account *string `json:"sts:GetCallerIdentityOutput:Account" type:"string"`
 
 	// The AWS ARN associated with the calling entity.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"sts:GetCallerIdentityOutput:Arn" min:"20" type:"string"`
 
 	// The unique identifier of the calling entity. The exact value depends on the
 	// type of entity that is making the call. The values returned are those listed
 	// in the aws:userid column in the Principal table (https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable)
 	// found on the Policy Variables reference page in the IAM User Guide.
-	UserId *string `type:"string"`
+	UserId *string `json:"sts:GetCallerIdentityOutput:UserId" type:"string"`
 }
 
 // String returns the string representation

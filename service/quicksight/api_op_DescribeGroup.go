@@ -94,13 +94,13 @@ type DescribeGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the group.
-	Group *Group `type:"structure"`
+	Group *Group `json:"quicksight:DescribeGroupOutput:Group" type:"structure"`
 
 	// The AWS request ID for this operation.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"quicksight:DescribeGroupOutput:RequestId" type:"string"`
 
 	// The http status of the request.
-	Status *int64 `location:"statusCode" type:"integer"`
+	Status *int64 `json:"quicksight:DescribeGroupOutput:Status" location:"statusCode" type:"integer"`
 }
 
 // String returns the string representation

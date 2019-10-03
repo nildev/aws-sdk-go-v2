@@ -75,7 +75,7 @@ type AcknowledgeThirdPartyJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status information for the third party job, if any.
-	Status JobStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobStatus `json:"codepipeline:AcknowledgeThirdPartyJobOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

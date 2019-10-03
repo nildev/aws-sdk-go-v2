@@ -81,7 +81,7 @@ type GetRandomPasswordOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A string with the generated password.
-	RandomPassword *string `type:"string"`
+	RandomPassword *string `json:"secretsmanager:GetRandomPasswordOutput:RandomPassword" type:"string"`
 }
 
 // String returns the string representation

@@ -22,18 +22,18 @@ type AttributeKey struct {
 	// The name of the facet that the attribute exists within.
 	//
 	// FacetName is a required field
-	FacetName *string `min:"1" type:"string" required:"true"`
+	FacetName *string `json:"clouddirectory:AttributeKey:FacetName" min:"1" type:"string" required:"true"`
 
 	// The name of the attribute.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"clouddirectory:AttributeKey:Name" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the schema that contains the facet and
 	// attribute.
 	//
 	// SchemaArn is a required field
-	SchemaArn *string `type:"string" required:"true"`
+	SchemaArn *string `json:"clouddirectory:AttributeKey:SchemaArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -100,12 +100,12 @@ type AttributeKeyAndValue struct {
 	// The key of the attribute.
 	//
 	// Key is a required field
-	Key *AttributeKey `type:"structure" required:"true"`
+	Key *AttributeKey `json:"clouddirectory:AttributeKeyAndValue:Key" type:"structure" required:"true"`
 
 	// The value of the attribute.
 	//
 	// Value is a required field
-	Value *TypedAttributeValue `type:"structure" required:"true"`
+	Value *TypedAttributeValue `json:"clouddirectory:AttributeKeyAndValue:Value" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -161,12 +161,12 @@ type AttributeNameAndValue struct {
 	// The attribute name of the typed link.
 	//
 	// AttributeName is a required field
-	AttributeName *string `min:"1" type:"string" required:"true"`
+	AttributeName *string `json:"clouddirectory:AttributeNameAndValue:AttributeName" min:"1" type:"string" required:"true"`
 
 	// The value for the typed link.
 	//
 	// Value is a required field
-	Value *TypedAttributeValue `type:"structure" required:"true"`
+	Value *TypedAttributeValue `json:"clouddirectory:AttributeNameAndValue:Value" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -220,17 +220,17 @@ type BatchAddFacetToObject struct {
 	// The attributes to set on the object.
 	//
 	// ObjectAttributeList is a required field
-	ObjectAttributeList []AttributeKeyAndValue `type:"list" required:"true"`
+	ObjectAttributeList []AttributeKeyAndValue `json:"clouddirectory:BatchAddFacetToObject:ObjectAttributeList" type:"list" required:"true"`
 
 	// A reference to the object being mutated.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchAddFacetToObject:ObjectReference" type:"structure" required:"true"`
 
 	// Represents the facet being added to the object.
 	//
 	// SchemaFacet is a required field
-	SchemaFacet *SchemaFacet `type:"structure" required:"true"`
+	SchemaFacet *SchemaFacet `json:"clouddirectory:BatchAddFacetToObject:SchemaFacet" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -325,17 +325,17 @@ type BatchAttachObject struct {
 	// The child object reference that is to be attached to the object.
 	//
 	// ChildReference is a required field
-	ChildReference *ObjectReference `type:"structure" required:"true"`
+	ChildReference *ObjectReference `json:"clouddirectory:BatchAttachObject:ChildReference" type:"structure" required:"true"`
 
 	// The name of the link.
 	//
 	// LinkName is a required field
-	LinkName *string `min:"1" type:"string" required:"true"`
+	LinkName *string `json:"clouddirectory:BatchAttachObject:LinkName" min:"1" type:"string" required:"true"`
 
 	// The parent object reference.
 	//
 	// ParentReference is a required field
-	ParentReference *ObjectReference `type:"structure" required:"true"`
+	ParentReference *ObjectReference `json:"clouddirectory:BatchAttachObject:ParentReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -397,7 +397,7 @@ type BatchAttachObjectResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the object that has been attached.
-	AttachedObjectIdentifier *string `locationName:"attachedObjectIdentifier" type:"string"`
+	AttachedObjectIdentifier *string `json:"clouddirectory:BatchAttachObjectResponse:AttachedObjectIdentifier" locationName:"attachedObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -425,12 +425,12 @@ type BatchAttachPolicy struct {
 	// The reference that identifies the object to which the policy will be attached.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchAttachPolicy:ObjectReference" type:"structure" required:"true"`
 
 	// The reference that is associated with the policy object.
 	//
 	// PolicyReference is a required field
-	PolicyReference *ObjectReference `type:"structure" required:"true"`
+	PolicyReference *ObjectReference `json:"clouddirectory:BatchAttachPolicy:PolicyReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -498,12 +498,12 @@ type BatchAttachToIndex struct {
 	// A reference to the index that you are attaching the object to.
 	//
 	// IndexReference is a required field
-	IndexReference *ObjectReference `type:"structure" required:"true"`
+	IndexReference *ObjectReference `json:"clouddirectory:BatchAttachToIndex:IndexReference" type:"structure" required:"true"`
 
 	// A reference to the object that you are attaching to the index.
 	//
 	// TargetReference is a required field
-	TargetReference *ObjectReference `type:"structure" required:"true"`
+	TargetReference *ObjectReference `json:"clouddirectory:BatchAttachToIndex:TargetReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -552,7 +552,7 @@ type BatchAttachToIndexResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the object that was attached to the index.
-	AttachedObjectIdentifier *string `type:"string"`
+	AttachedObjectIdentifier *string `json:"clouddirectory:BatchAttachToIndexResponse:AttachedObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -580,22 +580,22 @@ type BatchAttachTypedLink struct {
 	// A set of attributes that are associated with the typed link.
 	//
 	// Attributes is a required field
-	Attributes []AttributeNameAndValue `type:"list" required:"true"`
+	Attributes []AttributeNameAndValue `json:"clouddirectory:BatchAttachTypedLink:Attributes" type:"list" required:"true"`
 
 	// Identifies the source object that the typed link will attach to.
 	//
 	// SourceObjectReference is a required field
-	SourceObjectReference *ObjectReference `type:"structure" required:"true"`
+	SourceObjectReference *ObjectReference `json:"clouddirectory:BatchAttachTypedLink:SourceObjectReference" type:"structure" required:"true"`
 
 	// Identifies the target object that the typed link will attach to.
 	//
 	// TargetObjectReference is a required field
-	TargetObjectReference *ObjectReference `type:"structure" required:"true"`
+	TargetObjectReference *ObjectReference `json:"clouddirectory:BatchAttachTypedLink:TargetObjectReference" type:"structure" required:"true"`
 
 	// Identifies the typed link facet that is associated with the typed link.
 	//
 	// TypedLinkFacet is a required field
-	TypedLinkFacet *TypedLinkSchemaAndFacetName `type:"structure" required:"true"`
+	TypedLinkFacet *TypedLinkSchemaAndFacetName `json:"clouddirectory:BatchAttachTypedLink:TypedLinkFacet" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -682,7 +682,7 @@ type BatchAttachTypedLinkResponse struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a typed link specifier as output.
-	TypedLinkSpecifier *TypedLinkSpecifier `type:"structure"`
+	TypedLinkSpecifier *TypedLinkSpecifier `json:"clouddirectory:BatchAttachTypedLinkResponse:TypedLinkSpecifier" type:"structure"`
 }
 
 // String returns the string representation
@@ -709,25 +709,25 @@ type BatchCreateIndex struct {
 
 	// The batch reference name. See Transaction Support (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html)
 	// for more information.
-	BatchReferenceName *string `type:"string"`
+	BatchReferenceName *string `json:"clouddirectory:BatchCreateIndex:BatchReferenceName" type:"string"`
 
 	// Indicates whether the attribute that is being indexed has unique values or
 	// not.
 	//
 	// IsUnique is a required field
-	IsUnique *bool `type:"boolean" required:"true"`
+	IsUnique *bool `json:"clouddirectory:BatchCreateIndex:IsUnique" type:"boolean" required:"true"`
 
 	// The name of the link between the parent object and the index object.
-	LinkName *string `min:"1" type:"string"`
+	LinkName *string `json:"clouddirectory:BatchCreateIndex:LinkName" min:"1" type:"string"`
 
 	// Specifies the attributes that should be indexed on. Currently only a single
 	// attribute is supported.
 	//
 	// OrderedIndexedAttributeList is a required field
-	OrderedIndexedAttributeList []AttributeKey `type:"list" required:"true"`
+	OrderedIndexedAttributeList []AttributeKey `json:"clouddirectory:BatchCreateIndex:OrderedIndexedAttributeList" type:"list" required:"true"`
 
 	// A reference to the parent object that contains the index object.
-	ParentReference *ObjectReference `type:"structure"`
+	ParentReference *ObjectReference `json:"clouddirectory:BatchCreateIndex:ParentReference" type:"structure"`
 }
 
 // String returns the string representation
@@ -810,7 +810,7 @@ type BatchCreateIndexResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the index created by this operation.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:BatchCreateIndexResponse:ObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -836,25 +836,25 @@ type BatchCreateObject struct {
 
 	// The batch reference name. See Transaction Support (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html)
 	// for more information.
-	BatchReferenceName *string `type:"string"`
+	BatchReferenceName *string `json:"clouddirectory:BatchCreateObject:BatchReferenceName" type:"string"`
 
 	// The name of the link.
-	LinkName *string `min:"1" type:"string"`
+	LinkName *string `json:"clouddirectory:BatchCreateObject:LinkName" min:"1" type:"string"`
 
 	// An attribute map, which contains an attribute ARN as the key and attribute
 	// value as the map value.
 	//
 	// ObjectAttributeList is a required field
-	ObjectAttributeList []AttributeKeyAndValue `type:"list" required:"true"`
+	ObjectAttributeList []AttributeKeyAndValue `json:"clouddirectory:BatchCreateObject:ObjectAttributeList" type:"list" required:"true"`
 
 	// If specified, the parent reference to which this object will be attached.
-	ParentReference *ObjectReference `type:"structure"`
+	ParentReference *ObjectReference `json:"clouddirectory:BatchCreateObject:ParentReference" type:"structure"`
 
 	// A list of FacetArns that will be associated with the object. For more information,
 	// see arns.
 	//
 	// SchemaFacet is a required field
-	SchemaFacet []SchemaFacet `type:"list" required:"true"`
+	SchemaFacet []SchemaFacet `json:"clouddirectory:BatchCreateObject:SchemaFacet" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -950,7 +950,7 @@ type BatchCreateObjectResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ID that is associated with the object.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:BatchCreateObjectResponse:ObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -977,7 +977,7 @@ type BatchDeleteObject struct {
 	// The reference that identifies the object.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchDeleteObject:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1035,12 +1035,12 @@ type BatchDetachFromIndex struct {
 	// A reference to the index object.
 	//
 	// IndexReference is a required field
-	IndexReference *ObjectReference `type:"structure" required:"true"`
+	IndexReference *ObjectReference `json:"clouddirectory:BatchDetachFromIndex:IndexReference" type:"structure" required:"true"`
 
 	// A reference to the object being detached from the index.
 	//
 	// TargetReference is a required field
-	TargetReference *ObjectReference `type:"structure" required:"true"`
+	TargetReference *ObjectReference `json:"clouddirectory:BatchDetachFromIndex:TargetReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1089,7 +1089,7 @@ type BatchDetachFromIndexResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the object that was detached from the index.
-	DetachedObjectIdentifier *string `type:"string"`
+	DetachedObjectIdentifier *string `json:"clouddirectory:BatchDetachFromIndexResponse:DetachedObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -1115,17 +1115,17 @@ type BatchDetachObject struct {
 
 	// The batch reference name. See Transaction Support (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html)
 	// for more information.
-	BatchReferenceName *string `type:"string"`
+	BatchReferenceName *string `json:"clouddirectory:BatchDetachObject:BatchReferenceName" type:"string"`
 
 	// The name of the link.
 	//
 	// LinkName is a required field
-	LinkName *string `min:"1" type:"string" required:"true"`
+	LinkName *string `json:"clouddirectory:BatchDetachObject:LinkName" min:"1" type:"string" required:"true"`
 
 	// Parent reference from which the object with the specified link name is detached.
 	//
 	// ParentReference is a required field
-	ParentReference *ObjectReference `type:"structure" required:"true"`
+	ParentReference *ObjectReference `json:"clouddirectory:BatchDetachObject:ParentReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1183,7 +1183,7 @@ type BatchDetachObjectResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the detached object.
-	DetachedObjectIdentifier *string `locationName:"detachedObjectIdentifier" type:"string"`
+	DetachedObjectIdentifier *string `json:"clouddirectory:BatchDetachObjectResponse:DetachedObjectIdentifier" locationName:"detachedObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -1211,12 +1211,12 @@ type BatchDetachPolicy struct {
 	// Reference that identifies the object whose policy object will be detached.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchDetachPolicy:ObjectReference" type:"structure" required:"true"`
 
 	// Reference that identifies the policy object.
 	//
 	// PolicyReference is a required field
-	PolicyReference *ObjectReference `type:"structure" required:"true"`
+	PolicyReference *ObjectReference `json:"clouddirectory:BatchDetachPolicy:PolicyReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1284,7 +1284,7 @@ type BatchDetachTypedLink struct {
 	// Used to accept a typed link specifier as input.
 	//
 	// TypedLinkSpecifier is a required field
-	TypedLinkSpecifier *TypedLinkSpecifier `type:"structure" required:"true"`
+	TypedLinkSpecifier *TypedLinkSpecifier `json:"clouddirectory:BatchDetachTypedLink:TypedLinkSpecifier" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1347,12 +1347,12 @@ type BatchGetLinkAttributes struct {
 	// A list of attribute names whose values will be retrieved.
 	//
 	// AttributeNames is a required field
-	AttributeNames []string `type:"list" required:"true"`
+	AttributeNames []string `json:"clouddirectory:BatchGetLinkAttributes:AttributeNames" type:"list" required:"true"`
 
 	// Allows a typed link specifier to be accepted as input.
 	//
 	// TypedLinkSpecifier is a required field
-	TypedLinkSpecifier *TypedLinkSpecifier `type:"structure" required:"true"`
+	TypedLinkSpecifier *TypedLinkSpecifier `json:"clouddirectory:BatchGetLinkAttributes:TypedLinkSpecifier" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1412,7 +1412,7 @@ type BatchGetLinkAttributesResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes that are associated with the typed link.
-	Attributes []AttributeKeyAndValue `type:"list"`
+	Attributes []AttributeKeyAndValue `json:"clouddirectory:BatchGetLinkAttributesResponse:Attributes" type:"list"`
 }
 
 // String returns the string representation
@@ -1447,18 +1447,18 @@ type BatchGetObjectAttributes struct {
 	// List of attribute names whose values will be retrieved.
 	//
 	// AttributeNames is a required field
-	AttributeNames []string `type:"list" required:"true"`
+	AttributeNames []string `json:"clouddirectory:BatchGetObjectAttributes:AttributeNames" type:"list" required:"true"`
 
 	// Reference that identifies the object whose attributes will be retrieved.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchGetObjectAttributes:ObjectReference" type:"structure" required:"true"`
 
 	// Identifier for the facet whose attributes will be retrieved. See SchemaFacet
 	// for details.
 	//
 	// SchemaFacet is a required field
-	SchemaFacet *SchemaFacet `type:"structure" required:"true"`
+	SchemaFacet *SchemaFacet `json:"clouddirectory:BatchGetObjectAttributes:SchemaFacet" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1528,7 +1528,7 @@ type BatchGetObjectAttributesResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The attribute values that are associated with an object.
-	Attributes []AttributeKeyAndValue `type:"list"`
+	Attributes []AttributeKeyAndValue `json:"clouddirectory:BatchGetObjectAttributesResponse:Attributes" type:"list"`
 }
 
 // String returns the string representation
@@ -1562,7 +1562,7 @@ type BatchGetObjectInformation struct {
 	// A reference to the object.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchGetObjectInformation:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1601,10 +1601,10 @@ type BatchGetObjectInformationResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier of the specified object.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:BatchGetObjectInformationResponse:ObjectIdentifier" type:"string"`
 
 	// The facets attached to the specified object.
-	SchemaFacets []SchemaFacet `type:"list"`
+	SchemaFacets []SchemaFacet `json:"clouddirectory:BatchGetObjectInformationResponse:SchemaFacets" type:"list"`
 }
 
 // String returns the string representation
@@ -1642,15 +1642,15 @@ type BatchListAttachedIndices struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of results to retrieve.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListAttachedIndices:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListAttachedIndices:NextToken" type:"string"`
 
 	// A reference to the object that has indices attached.
 	//
 	// TargetReference is a required field
-	TargetReference *ObjectReference `type:"structure" required:"true"`
+	TargetReference *ObjectReference `json:"clouddirectory:BatchListAttachedIndices:TargetReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1704,10 +1704,10 @@ type BatchListAttachedIndicesResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The indices attached to the specified object.
-	IndexAttachments []IndexAttachment `type:"list"`
+	IndexAttachments []IndexAttachment `json:"clouddirectory:BatchListAttachedIndicesResponse:IndexAttachments" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListAttachedIndicesResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -1749,22 +1749,22 @@ type BatchListIncomingTypedLinks struct {
 	// typed link selection, any inexact ranges must be specified at the end. Any
 	// attributes that do not have a range specified are presumed to match the entire
 	// range.
-	FilterAttributeRanges []TypedLinkAttributeRange `type:"list"`
+	FilterAttributeRanges []TypedLinkAttributeRange `json:"clouddirectory:BatchListIncomingTypedLinks:FilterAttributeRanges" type:"list"`
 
 	// Filters are interpreted in the order of the attributes on the typed link
 	// facet, not the order in which they are supplied to any API calls.
-	FilterTypedLink *TypedLinkSchemaAndFacetName `type:"structure"`
+	FilterTypedLink *TypedLinkSchemaAndFacetName `json:"clouddirectory:BatchListIncomingTypedLinks:FilterTypedLink" type:"structure"`
 
 	// The maximum number of results to retrieve.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListIncomingTypedLinks:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListIncomingTypedLinks:NextToken" type:"string"`
 
 	// The reference that identifies the object whose attributes will be listed.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchListIncomingTypedLinks:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1848,10 +1848,10 @@ type BatchListIncomingTypedLinksResponse struct {
 	_ struct{} `type:"structure"`
 
 	// Returns one or more typed link specifiers as output.
-	LinkSpecifiers []TypedLinkSpecifier `type:"list"`
+	LinkSpecifiers []TypedLinkSpecifier `json:"clouddirectory:BatchListIncomingTypedLinksResponse:LinkSpecifiers" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListIncomingTypedLinksResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -1891,16 +1891,16 @@ type BatchListIndex struct {
 	// The reference to the index to list.
 	//
 	// IndexReference is a required field
-	IndexReference *ObjectReference `type:"structure" required:"true"`
+	IndexReference *ObjectReference `json:"clouddirectory:BatchListIndex:IndexReference" type:"structure" required:"true"`
 
 	// The maximum number of results to retrieve.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListIndex:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListIndex:NextToken" type:"string"`
 
 	// Specifies the ranges of indexed values that you want to query.
-	RangesOnIndexedValues []ObjectAttributeRange `type:"list"`
+	RangesOnIndexedValues []ObjectAttributeRange `json:"clouddirectory:BatchListIndex:RangesOnIndexedValues" type:"list"`
 }
 
 // String returns the string representation
@@ -1973,10 +1973,10 @@ type BatchListIndexResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The objects and indexed values attached to the index.
-	IndexAttachments []IndexAttachment `type:"list"`
+	IndexAttachments []IndexAttachment `json:"clouddirectory:BatchListIndexResponse:IndexAttachments" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListIndexResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -2014,19 +2014,19 @@ type BatchListObjectAttributes struct {
 
 	// Used to filter the list of object attributes that are associated with a certain
 	// facet.
-	FacetFilter *SchemaFacet `type:"structure"`
+	FacetFilter *SchemaFacet `json:"clouddirectory:BatchListObjectAttributes:FacetFilter" type:"structure"`
 
 	// The maximum number of items to be retrieved in a single call. This is an
 	// approximate number.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListObjectAttributes:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectAttributes:NextToken" type:"string"`
 
 	// Reference of the object whose attributes need to be listed.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchListObjectAttributes:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2092,10 +2092,10 @@ type BatchListObjectAttributesResponse struct {
 
 	// The attributes map that is associated with the object. AttributeArn is the
 	// key; attribute value is the value.
-	Attributes []AttributeKeyAndValue `type:"list"`
+	Attributes []AttributeKeyAndValue `json:"clouddirectory:BatchListObjectAttributesResponse:Attributes" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectAttributesResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -2133,15 +2133,15 @@ type BatchListObjectChildren struct {
 
 	// Maximum number of items to be retrieved in a single call. This is an approximate
 	// number.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListObjectChildren:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectChildren:NextToken" type:"string"`
 
 	// Reference of the object for which child objects are being listed.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchListObjectChildren:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2196,10 +2196,10 @@ type BatchListObjectChildrenResponse struct {
 
 	// The children structure, which is a map with the key as the LinkName and ObjectIdentifier
 	// as the value.
-	Children map[string]string `type:"map"`
+	Children map[string]string `json:"clouddirectory:BatchListObjectChildrenResponse:Children" type:"map"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectChildrenResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -2238,15 +2238,15 @@ type BatchListObjectParentPaths struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of results to retrieve.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListObjectParentPaths:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectParentPaths:NextToken" type:"string"`
 
 	// The reference that identifies the object whose attributes will be listed.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchListObjectParentPaths:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2300,10 +2300,10 @@ type BatchListObjectParentPathsResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectParentPathsResponse:NextToken" type:"string"`
 
 	// Returns the path to the ObjectIdentifiers that are associated with the directory.
-	PathToObjectIdentifiersList []PathToObjectIdentifiers `type:"list"`
+	PathToObjectIdentifiersList []PathToObjectIdentifiers `json:"clouddirectory:BatchListObjectParentPathsResponse:PathToObjectIdentifiersList" type:"list"`
 }
 
 // String returns the string representation
@@ -2338,14 +2338,14 @@ func (s BatchListObjectParentPathsResponse) MarshalFields(e protocol.FieldEncode
 type BatchListObjectParents struct {
 	_ struct{} `type:"structure"`
 
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListObjectParents:MaxResults" min:"1" type:"integer"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectParents:NextToken" type:"string"`
 
 	// The reference that identifies an object.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchListObjectParents:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2397,9 +2397,9 @@ func (s BatchListObjectParents) MarshalFields(e protocol.FieldEncoder) error {
 type BatchListObjectParentsResponse struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectParentsResponse:NextToken" type:"string"`
 
-	ParentLinks []ObjectIdentifierAndLinkNameTuple `type:"list"`
+	ParentLinks []ObjectIdentifierAndLinkNameTuple `json:"clouddirectory:BatchListObjectParentsResponse:ParentLinks" type:"list"`
 }
 
 // String returns the string representation
@@ -2437,15 +2437,15 @@ type BatchListObjectPolicies struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of results to retrieve.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListObjectPolicies:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectPolicies:NextToken" type:"string"`
 
 	// The reference that identifies the object whose attributes will be listed.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchListObjectPolicies:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2499,10 +2499,10 @@ type BatchListObjectPoliciesResponse struct {
 	_ struct{} `type:"structure"`
 
 	// A list of policy ObjectIdentifiers, that are attached to the object.
-	AttachedPolicyIds []string `type:"list"`
+	AttachedPolicyIds []string `json:"clouddirectory:BatchListObjectPoliciesResponse:AttachedPolicyIds" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListObjectPoliciesResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -2544,22 +2544,22 @@ type BatchListOutgoingTypedLinks struct {
 	// typed link selection, any inexact ranges must be specified at the end. Any
 	// attributes that do not have a range specified are presumed to match the entire
 	// range.
-	FilterAttributeRanges []TypedLinkAttributeRange `type:"list"`
+	FilterAttributeRanges []TypedLinkAttributeRange `json:"clouddirectory:BatchListOutgoingTypedLinks:FilterAttributeRanges" type:"list"`
 
 	// Filters are interpreted in the order of the attributes defined on the typed
 	// link facet, not the order they are supplied to any API calls.
-	FilterTypedLink *TypedLinkSchemaAndFacetName `type:"structure"`
+	FilterTypedLink *TypedLinkSchemaAndFacetName `json:"clouddirectory:BatchListOutgoingTypedLinks:FilterTypedLink" type:"structure"`
 
 	// The maximum number of results to retrieve.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListOutgoingTypedLinks:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListOutgoingTypedLinks:NextToken" type:"string"`
 
 	// The reference that identifies the object whose attributes will be listed.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchListOutgoingTypedLinks:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2643,10 +2643,10 @@ type BatchListOutgoingTypedLinksResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListOutgoingTypedLinksResponse:NextToken" type:"string"`
 
 	// Returns a typed link specifier as output.
-	TypedLinkSpecifiers []TypedLinkSpecifier `type:"list"`
+	TypedLinkSpecifiers []TypedLinkSpecifier `json:"clouddirectory:BatchListOutgoingTypedLinksResponse:TypedLinkSpecifiers" type:"list"`
 }
 
 // String returns the string representation
@@ -2685,15 +2685,15 @@ type BatchListPolicyAttachments struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of results to retrieve.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchListPolicyAttachments:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListPolicyAttachments:NextToken" type:"string"`
 
 	// The reference that identifies the policy object.
 	//
 	// PolicyReference is a required field
-	PolicyReference *ObjectReference `type:"structure" required:"true"`
+	PolicyReference *ObjectReference `json:"clouddirectory:BatchListPolicyAttachments:PolicyReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2747,10 +2747,10 @@ type BatchListPolicyAttachmentsResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchListPolicyAttachmentsResponse:NextToken" type:"string"`
 
 	// A list of ObjectIdentifiers to which the policy is attached.
-	ObjectIdentifiers []string `type:"list"`
+	ObjectIdentifiers []string `json:"clouddirectory:BatchListPolicyAttachmentsResponse:ObjectIdentifiers" type:"list"`
 }
 
 // String returns the string representation
@@ -2789,15 +2789,15 @@ type BatchLookupPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of results to retrieve.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"clouddirectory:BatchLookupPolicy:MaxResults" min:"1" type:"integer"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchLookupPolicy:NextToken" type:"string"`
 
 	// Reference that identifies the object whose policies will be looked up.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchLookupPolicy:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2851,11 +2851,11 @@ type BatchLookupPolicyResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:BatchLookupPolicyResponse:NextToken" type:"string"`
 
 	// Provides list of path to policies. Policies contain PolicyId, ObjectIdentifier,
 	// and PolicyType. For more information, see Policies (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies).
-	PolicyToPathList []PolicyToPath `type:"list"`
+	PolicyToPathList []PolicyToPath `json:"clouddirectory:BatchLookupPolicyResponse:PolicyToPathList" type:"list"`
 }
 
 // String returns the string representation
@@ -2893,10 +2893,10 @@ type BatchReadException struct {
 	_ struct{} `type:"structure"`
 
 	// An exception message that is associated with the failure.
-	Message *string `type:"string"`
+	Message *string `json:"clouddirectory:BatchReadException:Message" type:"string"`
 
 	// A type of exception, such as InvalidArnException.
-	Type BatchReadExceptionType `type:"string" enum:"true"`
+	Type BatchReadExceptionType `json:"clouddirectory:BatchReadException:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2927,49 +2927,49 @@ type BatchReadOperation struct {
 	_ struct{} `type:"structure"`
 
 	// Retrieves attributes that are associated with a typed link.
-	GetLinkAttributes *BatchGetLinkAttributes `type:"structure"`
+	GetLinkAttributes *BatchGetLinkAttributes `json:"clouddirectory:BatchReadOperation:GetLinkAttributes" type:"structure"`
 
 	// Retrieves attributes within a facet that are associated with an object.
-	GetObjectAttributes *BatchGetObjectAttributes `type:"structure"`
+	GetObjectAttributes *BatchGetObjectAttributes `json:"clouddirectory:BatchReadOperation:GetObjectAttributes" type:"structure"`
 
 	// Retrieves metadata about an object.
-	GetObjectInformation *BatchGetObjectInformation `type:"structure"`
+	GetObjectInformation *BatchGetObjectInformation `json:"clouddirectory:BatchReadOperation:GetObjectInformation" type:"structure"`
 
 	// Lists indices attached to an object.
-	ListAttachedIndices *BatchListAttachedIndices `type:"structure"`
+	ListAttachedIndices *BatchListAttachedIndices `json:"clouddirectory:BatchReadOperation:ListAttachedIndices" type:"structure"`
 
 	// Returns a paginated list of all the incoming TypedLinkSpecifier information
 	// for an object. It also supports filtering by typed link facet and identity
 	// attributes. For more information, see Typed Links (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
-	ListIncomingTypedLinks *BatchListIncomingTypedLinks `type:"structure"`
+	ListIncomingTypedLinks *BatchListIncomingTypedLinks `json:"clouddirectory:BatchReadOperation:ListIncomingTypedLinks" type:"structure"`
 
 	// Lists objects attached to the specified index.
-	ListIndex *BatchListIndex `type:"structure"`
+	ListIndex *BatchListIndex `json:"clouddirectory:BatchReadOperation:ListIndex" type:"structure"`
 
 	// Lists all attributes that are associated with an object.
-	ListObjectAttributes *BatchListObjectAttributes `type:"structure"`
+	ListObjectAttributes *BatchListObjectAttributes `json:"clouddirectory:BatchReadOperation:ListObjectAttributes" type:"structure"`
 
 	// Returns a paginated list of child objects that are associated with a given
 	// object.
-	ListObjectChildren *BatchListObjectChildren `type:"structure"`
+	ListObjectChildren *BatchListObjectChildren `json:"clouddirectory:BatchReadOperation:ListObjectChildren" type:"structure"`
 
 	// Retrieves all available parent paths for any object type such as node, leaf
 	// node, policy node, and index node objects. For more information about objects,
 	// see Directory Structure (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html).
-	ListObjectParentPaths *BatchListObjectParentPaths `type:"structure"`
+	ListObjectParentPaths *BatchListObjectParentPaths `json:"clouddirectory:BatchReadOperation:ListObjectParentPaths" type:"structure"`
 
-	ListObjectParents *BatchListObjectParents `type:"structure"`
+	ListObjectParents *BatchListObjectParents `json:"clouddirectory:BatchReadOperation:ListObjectParents" type:"structure"`
 
 	// Returns policies attached to an object in pagination fashion.
-	ListObjectPolicies *BatchListObjectPolicies `type:"structure"`
+	ListObjectPolicies *BatchListObjectPolicies `json:"clouddirectory:BatchReadOperation:ListObjectPolicies" type:"structure"`
 
 	// Returns a paginated list of all the outgoing TypedLinkSpecifier information
 	// for an object. It also supports filtering by typed link facet and identity
 	// attributes. For more information, see Typed Links (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
-	ListOutgoingTypedLinks *BatchListOutgoingTypedLinks `type:"structure"`
+	ListOutgoingTypedLinks *BatchListOutgoingTypedLinks `json:"clouddirectory:BatchReadOperation:ListOutgoingTypedLinks" type:"structure"`
 
 	// Returns all of the ObjectIdentifiers to which a given policy is attached.
-	ListPolicyAttachments *BatchListPolicyAttachments `type:"structure"`
+	ListPolicyAttachments *BatchListPolicyAttachments `json:"clouddirectory:BatchReadOperation:ListPolicyAttachments" type:"structure"`
 
 	// Lists all policies from the root of the Directory to the object specified.
 	// If there are no policies present, an empty list is returned. If policies
@@ -2978,7 +2978,7 @@ type BatchReadOperation struct {
 	// ObjectIdentifier, policyId, and policyType. Paths that don't lead to the
 	// root from the target object are ignored. For more information, see Policies
 	// (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies).
-	LookupPolicy *BatchLookupPolicy `type:"structure"`
+	LookupPolicy *BatchLookupPolicy `json:"clouddirectory:BatchReadOperation:LookupPolicy" type:"structure"`
 }
 
 // String returns the string representation
@@ -3161,10 +3161,10 @@ type BatchReadOperationResponse struct {
 	_ struct{} `type:"structure"`
 
 	// Identifies which operation in a batch has failed.
-	ExceptionResponse *BatchReadException `type:"structure"`
+	ExceptionResponse *BatchReadException `json:"clouddirectory:BatchReadOperationResponse:ExceptionResponse" type:"structure"`
 
 	// Identifies which operation in a batch has succeeded.
-	SuccessfulResponse *BatchReadSuccessfulResponse `type:"structure"`
+	SuccessfulResponse *BatchReadSuccessfulResponse `json:"clouddirectory:BatchReadOperationResponse:SuccessfulResponse" type:"structure"`
 }
 
 // String returns the string representation
@@ -3195,49 +3195,49 @@ type BatchReadSuccessfulResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The list of attributes to retrieve from the typed link.
-	GetLinkAttributes *BatchGetLinkAttributesResponse `type:"structure"`
+	GetLinkAttributes *BatchGetLinkAttributesResponse `json:"clouddirectory:BatchReadSuccessfulResponse:GetLinkAttributes" type:"structure"`
 
 	// Retrieves attributes within a facet that are associated with an object.
-	GetObjectAttributes *BatchGetObjectAttributesResponse `type:"structure"`
+	GetObjectAttributes *BatchGetObjectAttributesResponse `json:"clouddirectory:BatchReadSuccessfulResponse:GetObjectAttributes" type:"structure"`
 
 	// Retrieves metadata about an object.
-	GetObjectInformation *BatchGetObjectInformationResponse `type:"structure"`
+	GetObjectInformation *BatchGetObjectInformationResponse `json:"clouddirectory:BatchReadSuccessfulResponse:GetObjectInformation" type:"structure"`
 
 	// Lists indices attached to an object.
-	ListAttachedIndices *BatchListAttachedIndicesResponse `type:"structure"`
+	ListAttachedIndices *BatchListAttachedIndicesResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListAttachedIndices" type:"structure"`
 
 	// Returns a paginated list of all the incoming TypedLinkSpecifier information
 	// for an object. It also supports filtering by typed link facet and identity
 	// attributes. For more information, see Typed Links (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
-	ListIncomingTypedLinks *BatchListIncomingTypedLinksResponse `type:"structure"`
+	ListIncomingTypedLinks *BatchListIncomingTypedLinksResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListIncomingTypedLinks" type:"structure"`
 
 	// Lists objects attached to the specified index.
-	ListIndex *BatchListIndexResponse `type:"structure"`
+	ListIndex *BatchListIndexResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListIndex" type:"structure"`
 
 	// Lists all attributes that are associated with an object.
-	ListObjectAttributes *BatchListObjectAttributesResponse `type:"structure"`
+	ListObjectAttributes *BatchListObjectAttributesResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListObjectAttributes" type:"structure"`
 
 	// Returns a paginated list of child objects that are associated with a given
 	// object.
-	ListObjectChildren *BatchListObjectChildrenResponse `type:"structure"`
+	ListObjectChildren *BatchListObjectChildrenResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListObjectChildren" type:"structure"`
 
 	// Retrieves all available parent paths for any object type such as node, leaf
 	// node, policy node, and index node objects. For more information about objects,
 	// see Directory Structure (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html).
-	ListObjectParentPaths *BatchListObjectParentPathsResponse `type:"structure"`
+	ListObjectParentPaths *BatchListObjectParentPathsResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListObjectParentPaths" type:"structure"`
 
-	ListObjectParents *BatchListObjectParentsResponse `type:"structure"`
+	ListObjectParents *BatchListObjectParentsResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListObjectParents" type:"structure"`
 
 	// Returns policies attached to an object in pagination fashion.
-	ListObjectPolicies *BatchListObjectPoliciesResponse `type:"structure"`
+	ListObjectPolicies *BatchListObjectPoliciesResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListObjectPolicies" type:"structure"`
 
 	// Returns a paginated list of all the outgoing TypedLinkSpecifier information
 	// for an object. It also supports filtering by typed link facet and identity
 	// attributes. For more information, see Typed Links (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
-	ListOutgoingTypedLinks *BatchListOutgoingTypedLinksResponse `type:"structure"`
+	ListOutgoingTypedLinks *BatchListOutgoingTypedLinksResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListOutgoingTypedLinks" type:"structure"`
 
 	// Returns all of the ObjectIdentifiers to which a given policy is attached.
-	ListPolicyAttachments *BatchListPolicyAttachmentsResponse `type:"structure"`
+	ListPolicyAttachments *BatchListPolicyAttachmentsResponse `json:"clouddirectory:BatchReadSuccessfulResponse:ListPolicyAttachments" type:"structure"`
 
 	// Lists all policies from the root of the Directory to the object specified.
 	// If there are no policies present, an empty list is returned. If policies
@@ -3246,7 +3246,7 @@ type BatchReadSuccessfulResponse struct {
 	// ObjectIdentifier, policyId, and policyType. Paths that don't lead to the
 	// root from the target object are ignored. For more information, see Policies
 	// (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies).
-	LookupPolicy *BatchLookupPolicyResponse `type:"structure"`
+	LookupPolicy *BatchLookupPolicyResponse `json:"clouddirectory:BatchReadSuccessfulResponse:LookupPolicy" type:"structure"`
 }
 
 // String returns the string representation
@@ -3351,12 +3351,12 @@ type BatchRemoveFacetFromObject struct {
 	// A reference to the object whose facet will be removed.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchRemoveFacetFromObject:ObjectReference" type:"structure" required:"true"`
 
 	// The facet to remove from the object.
 	//
 	// SchemaFacet is a required field
-	SchemaFacet *SchemaFacet `type:"structure" required:"true"`
+	SchemaFacet *SchemaFacet `json:"clouddirectory:BatchRemoveFacetFromObject:SchemaFacet" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3431,12 +3431,12 @@ type BatchUpdateLinkAttributes struct {
 	// The attributes update structure.
 	//
 	// AttributeUpdates is a required field
-	AttributeUpdates []LinkAttributeUpdate `type:"list" required:"true"`
+	AttributeUpdates []LinkAttributeUpdate `json:"clouddirectory:BatchUpdateLinkAttributes:AttributeUpdates" type:"list" required:"true"`
 
 	// Allows a typed link specifier to be accepted as input.
 	//
 	// TypedLinkSpecifier is a required field
-	TypedLinkSpecifier *TypedLinkSpecifier `type:"structure" required:"true"`
+	TypedLinkSpecifier *TypedLinkSpecifier `json:"clouddirectory:BatchUpdateLinkAttributes:TypedLinkSpecifier" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3521,12 +3521,12 @@ type BatchUpdateObjectAttributes struct {
 	// Attributes update structure.
 	//
 	// AttributeUpdates is a required field
-	AttributeUpdates []ObjectAttributeUpdate `type:"list" required:"true"`
+	AttributeUpdates []ObjectAttributeUpdate `json:"clouddirectory:BatchUpdateObjectAttributes:AttributeUpdates" type:"list" required:"true"`
 
 	// Reference that identifies the object.
 	//
 	// ObjectReference is a required field
-	ObjectReference *ObjectReference `type:"structure" required:"true"`
+	ObjectReference *ObjectReference `json:"clouddirectory:BatchUpdateObjectAttributes:ObjectReference" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3588,7 +3588,7 @@ type BatchUpdateObjectAttributesResponse struct {
 	_ struct{} `type:"structure"`
 
 	// ID that is associated with the object.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:BatchUpdateObjectAttributesResponse:ObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -3613,53 +3613,53 @@ type BatchWriteOperation struct {
 	_ struct{} `type:"structure"`
 
 	// A batch operation that adds a facet to an object.
-	AddFacetToObject *BatchAddFacetToObject `type:"structure"`
+	AddFacetToObject *BatchAddFacetToObject `json:"clouddirectory:BatchWriteOperation:AddFacetToObject" type:"structure"`
 
 	// Attaches an object to a Directory.
-	AttachObject *BatchAttachObject `type:"structure"`
+	AttachObject *BatchAttachObject `json:"clouddirectory:BatchWriteOperation:AttachObject" type:"structure"`
 
 	// Attaches a policy object to a regular object. An object can have a limited
 	// number of attached policies.
-	AttachPolicy *BatchAttachPolicy `type:"structure"`
+	AttachPolicy *BatchAttachPolicy `json:"clouddirectory:BatchWriteOperation:AttachPolicy" type:"structure"`
 
 	// Attaches the specified object to the specified index.
-	AttachToIndex *BatchAttachToIndex `type:"structure"`
+	AttachToIndex *BatchAttachToIndex `json:"clouddirectory:BatchWriteOperation:AttachToIndex" type:"structure"`
 
 	// Attaches a typed link to a specified source and target object. For more information,
 	// see Typed Links (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
-	AttachTypedLink *BatchAttachTypedLink `type:"structure"`
+	AttachTypedLink *BatchAttachTypedLink `json:"clouddirectory:BatchWriteOperation:AttachTypedLink" type:"structure"`
 
 	// Creates an index object. See Indexing and search (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm)
 	// for more information.
-	CreateIndex *BatchCreateIndex `type:"structure"`
+	CreateIndex *BatchCreateIndex `json:"clouddirectory:BatchWriteOperation:CreateIndex" type:"structure"`
 
 	// Creates an object.
-	CreateObject *BatchCreateObject `type:"structure"`
+	CreateObject *BatchCreateObject `json:"clouddirectory:BatchWriteOperation:CreateObject" type:"structure"`
 
 	// Deletes an object in a Directory.
-	DeleteObject *BatchDeleteObject `type:"structure"`
+	DeleteObject *BatchDeleteObject `json:"clouddirectory:BatchWriteOperation:DeleteObject" type:"structure"`
 
 	// Detaches the specified object from the specified index.
-	DetachFromIndex *BatchDetachFromIndex `type:"structure"`
+	DetachFromIndex *BatchDetachFromIndex `json:"clouddirectory:BatchWriteOperation:DetachFromIndex" type:"structure"`
 
 	// Detaches an object from a Directory.
-	DetachObject *BatchDetachObject `type:"structure"`
+	DetachObject *BatchDetachObject `json:"clouddirectory:BatchWriteOperation:DetachObject" type:"structure"`
 
 	// Detaches a policy from a Directory.
-	DetachPolicy *BatchDetachPolicy `type:"structure"`
+	DetachPolicy *BatchDetachPolicy `json:"clouddirectory:BatchWriteOperation:DetachPolicy" type:"structure"`
 
 	// Detaches a typed link from a specified source and target object. For more
 	// information, see Typed Links (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
-	DetachTypedLink *BatchDetachTypedLink `type:"structure"`
+	DetachTypedLink *BatchDetachTypedLink `json:"clouddirectory:BatchWriteOperation:DetachTypedLink" type:"structure"`
 
 	// A batch operation that removes a facet from an object.
-	RemoveFacetFromObject *BatchRemoveFacetFromObject `type:"structure"`
+	RemoveFacetFromObject *BatchRemoveFacetFromObject `json:"clouddirectory:BatchWriteOperation:RemoveFacetFromObject" type:"structure"`
 
 	// Updates a given object's attributes.
-	UpdateLinkAttributes *BatchUpdateLinkAttributes `type:"structure"`
+	UpdateLinkAttributes *BatchUpdateLinkAttributes `json:"clouddirectory:BatchWriteOperation:UpdateLinkAttributes" type:"structure"`
 
 	// Updates a given object's attributes.
-	UpdateObjectAttributes *BatchUpdateObjectAttributes `type:"structure"`
+	UpdateObjectAttributes *BatchUpdateObjectAttributes `json:"clouddirectory:BatchWriteOperation:UpdateObjectAttributes" type:"structure"`
 }
 
 // String returns the string representation
@@ -3853,53 +3853,53 @@ type BatchWriteOperationResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The result of an add facet to object batch operation.
-	AddFacetToObject *BatchAddFacetToObjectResponse `type:"structure"`
+	AddFacetToObject *BatchAddFacetToObjectResponse `json:"clouddirectory:BatchWriteOperationResponse:AddFacetToObject" type:"structure"`
 
 	// Attaches an object to a Directory.
-	AttachObject *BatchAttachObjectResponse `type:"structure"`
+	AttachObject *BatchAttachObjectResponse `json:"clouddirectory:BatchWriteOperationResponse:AttachObject" type:"structure"`
 
 	// Attaches a policy object to a regular object. An object can have a limited
 	// number of attached policies.
-	AttachPolicy *BatchAttachPolicyResponse `type:"structure"`
+	AttachPolicy *BatchAttachPolicyResponse `json:"clouddirectory:BatchWriteOperationResponse:AttachPolicy" type:"structure"`
 
 	// Attaches the specified object to the specified index.
-	AttachToIndex *BatchAttachToIndexResponse `type:"structure"`
+	AttachToIndex *BatchAttachToIndexResponse `json:"clouddirectory:BatchWriteOperationResponse:AttachToIndex" type:"structure"`
 
 	// Attaches a typed link to a specified source and target object. For more information,
 	// see Typed Links (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
-	AttachTypedLink *BatchAttachTypedLinkResponse `type:"structure"`
+	AttachTypedLink *BatchAttachTypedLinkResponse `json:"clouddirectory:BatchWriteOperationResponse:AttachTypedLink" type:"structure"`
 
 	// Creates an index object. See Indexing and search (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm)
 	// for more information.
-	CreateIndex *BatchCreateIndexResponse `type:"structure"`
+	CreateIndex *BatchCreateIndexResponse `json:"clouddirectory:BatchWriteOperationResponse:CreateIndex" type:"structure"`
 
 	// Creates an object in a Directory.
-	CreateObject *BatchCreateObjectResponse `type:"structure"`
+	CreateObject *BatchCreateObjectResponse `json:"clouddirectory:BatchWriteOperationResponse:CreateObject" type:"structure"`
 
 	// Deletes an object in a Directory.
-	DeleteObject *BatchDeleteObjectResponse `type:"structure"`
+	DeleteObject *BatchDeleteObjectResponse `json:"clouddirectory:BatchWriteOperationResponse:DeleteObject" type:"structure"`
 
 	// Detaches the specified object from the specified index.
-	DetachFromIndex *BatchDetachFromIndexResponse `type:"structure"`
+	DetachFromIndex *BatchDetachFromIndexResponse `json:"clouddirectory:BatchWriteOperationResponse:DetachFromIndex" type:"structure"`
 
 	// Detaches an object from a Directory.
-	DetachObject *BatchDetachObjectResponse `type:"structure"`
+	DetachObject *BatchDetachObjectResponse `json:"clouddirectory:BatchWriteOperationResponse:DetachObject" type:"structure"`
 
 	// Detaches a policy from a Directory.
-	DetachPolicy *BatchDetachPolicyResponse `type:"structure"`
+	DetachPolicy *BatchDetachPolicyResponse `json:"clouddirectory:BatchWriteOperationResponse:DetachPolicy" type:"structure"`
 
 	// Detaches a typed link from a specified source and target object. For more
 	// information, see Typed Links (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink).
-	DetachTypedLink *BatchDetachTypedLinkResponse `type:"structure"`
+	DetachTypedLink *BatchDetachTypedLinkResponse `json:"clouddirectory:BatchWriteOperationResponse:DetachTypedLink" type:"structure"`
 
 	// The result of a batch remove facet from object operation.
-	RemoveFacetFromObject *BatchRemoveFacetFromObjectResponse `type:"structure"`
+	RemoveFacetFromObject *BatchRemoveFacetFromObjectResponse `json:"clouddirectory:BatchWriteOperationResponse:RemoveFacetFromObject" type:"structure"`
 
 	// Represents the output of a BatchWrite response operation.
-	UpdateLinkAttributes *BatchUpdateLinkAttributesResponse `type:"structure"`
+	UpdateLinkAttributes *BatchUpdateLinkAttributesResponse `json:"clouddirectory:BatchWriteOperationResponse:UpdateLinkAttributes" type:"structure"`
 
 	// Updates a given object’s attributes.
-	UpdateObjectAttributes *BatchUpdateObjectAttributesResponse `type:"structure"`
+	UpdateObjectAttributes *BatchUpdateObjectAttributesResponse `json:"clouddirectory:BatchWriteOperationResponse:UpdateObjectAttributes" type:"structure"`
 }
 
 // String returns the string representation
@@ -4008,17 +4008,17 @@ type Directory struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the directory was created.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"clouddirectory:Directory:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) that is associated with the directory. For
 	// more information, see arns.
-	DirectoryArn *string `type:"string"`
+	DirectoryArn *string `json:"clouddirectory:Directory:DirectoryArn" type:"string"`
 
 	// The name of the directory.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"clouddirectory:Directory:Name" min:"1" type:"string"`
 
 	// The state of the directory. Can be either Enabled, Disabled, or Deleted.
-	State DirectoryState `type:"string" enum:"true"`
+	State DirectoryState `json:"clouddirectory:Directory:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4065,14 +4065,14 @@ type Facet struct {
 	// There are two different styles that you can define on any given facet, Static
 	// and Dynamic. For static facets, all attributes must be defined in the schema.
 	// For dynamic facets, attributes can be defined during data plane operations.
-	FacetStyle FacetStyle `type:"string" enum:"true"`
+	FacetStyle FacetStyle `json:"clouddirectory:Facet:FacetStyle" type:"string" enum:"true"`
 
 	// The name of the Facet.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"clouddirectory:Facet:Name" min:"1" type:"string"`
 
 	// The object type that is associated with the facet. See CreateFacetRequest$ObjectType
 	// for more details.
-	ObjectType ObjectType `type:"string" enum:"true"`
+	ObjectType ObjectType `json:"clouddirectory:Facet:ObjectType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4111,20 +4111,20 @@ type FacetAttribute struct {
 	// A facet attribute consists of either a definition or a reference. This structure
 	// contains the attribute definition. See Attribute References (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html)
 	// for more information.
-	AttributeDefinition *FacetAttributeDefinition `type:"structure"`
+	AttributeDefinition *FacetAttributeDefinition `json:"clouddirectory:FacetAttribute:AttributeDefinition" type:"structure"`
 
 	// An attribute reference that is associated with the attribute. See Attribute
 	// References (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html)
 	// for more information.
-	AttributeReference *FacetAttributeReference `type:"structure"`
+	AttributeReference *FacetAttributeReference `json:"clouddirectory:FacetAttribute:AttributeReference" type:"structure"`
 
 	// The name of the facet attribute.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"clouddirectory:FacetAttribute:Name" min:"1" type:"string" required:"true"`
 
 	// The required behavior of the FacetAttribute.
-	RequiredBehavior RequiredAttributeBehavior `type:"string" enum:"true"`
+	RequiredBehavior RequiredAttributeBehavior `json:"clouddirectory:FacetAttribute:RequiredBehavior" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4195,18 +4195,18 @@ type FacetAttributeDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// The default value of the attribute (if configured).
-	DefaultValue *TypedAttributeValue `type:"structure"`
+	DefaultValue *TypedAttributeValue `json:"clouddirectory:FacetAttributeDefinition:DefaultValue" type:"structure"`
 
 	// Whether the attribute is mutable or not.
-	IsImmutable *bool `type:"boolean"`
+	IsImmutable *bool `json:"clouddirectory:FacetAttributeDefinition:IsImmutable" type:"boolean"`
 
 	// Validation rules attached to the attribute definition.
-	Rules map[string]Rule `type:"map"`
+	Rules map[string]Rule `json:"clouddirectory:FacetAttributeDefinition:Rules" type:"map"`
 
 	// The type of the attribute.
 	//
 	// Type is a required field
-	Type FacetAttributeType `type:"string" required:"true" enum:"true"`
+	Type FacetAttributeType `json:"clouddirectory:FacetAttributeDefinition:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -4273,14 +4273,14 @@ type FacetAttributeReference struct {
 	// for more information.
 	//
 	// TargetAttributeName is a required field
-	TargetAttributeName *string `min:"1" type:"string" required:"true"`
+	TargetAttributeName *string `json:"clouddirectory:FacetAttributeReference:TargetAttributeName" min:"1" type:"string" required:"true"`
 
 	// The target facet name that is associated with the facet reference. See Attribute
 	// References (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html)
 	// for more information.
 	//
 	// TargetFacetName is a required field
-	TargetFacetName *string `min:"1" type:"string" required:"true"`
+	TargetFacetName *string `json:"clouddirectory:FacetAttributeReference:TargetFacetName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4335,10 +4335,10 @@ type FacetAttributeUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// The action to perform when updating the attribute.
-	Action UpdateActionType `type:"string" enum:"true"`
+	Action UpdateActionType `json:"clouddirectory:FacetAttributeUpdate:Action" type:"string" enum:"true"`
 
 	// The attribute to update.
-	Attribute *FacetAttribute `type:"structure"`
+	Attribute *FacetAttribute `json:"clouddirectory:FacetAttributeUpdate:Attribute" type:"structure"`
 }
 
 // String returns the string representation
@@ -4384,13 +4384,13 @@ type IndexAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The indexed attribute values.
-	IndexedAttributes []AttributeKeyAndValue `type:"list"`
+	IndexedAttributes []AttributeKeyAndValue `json:"clouddirectory:IndexAttachment:IndexedAttributes" type:"list"`
 
 	// In response to ListIndex, the ObjectIdentifier of the object attached to
 	// the index. In response to ListAttachedIndices, the ObjectIdentifier of the
 	// index attached to the object. This field will always contain the ObjectIdentifier
 	// of the object on the opposite side of the attachment specified in the query.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:IndexAttachment:ObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -4428,10 +4428,10 @@ type LinkAttributeAction struct {
 	_ struct{} `type:"structure"`
 
 	// A type that can be either UPDATE_OR_CREATE or DELETE.
-	AttributeActionType UpdateActionType `type:"string" enum:"true"`
+	AttributeActionType UpdateActionType `json:"clouddirectory:LinkAttributeAction:AttributeActionType" type:"string" enum:"true"`
 
 	// The value that you want to update to.
-	AttributeUpdateValue *TypedAttributeValue `type:"structure"`
+	AttributeUpdateValue *TypedAttributeValue `json:"clouddirectory:LinkAttributeAction:AttributeUpdateValue" type:"structure"`
 }
 
 // String returns the string representation
@@ -4462,10 +4462,10 @@ type LinkAttributeUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// The action to perform as part of the attribute update.
-	AttributeAction *LinkAttributeAction `type:"structure"`
+	AttributeAction *LinkAttributeAction `json:"clouddirectory:LinkAttributeUpdate:AttributeAction" type:"structure"`
 
 	// The key of the attribute being updated.
-	AttributeKey *AttributeKey `type:"structure"`
+	AttributeKey *AttributeKey `json:"clouddirectory:LinkAttributeUpdate:AttributeKey" type:"structure"`
 }
 
 // String returns the string representation
@@ -4511,10 +4511,10 @@ type ObjectAttributeAction struct {
 	_ struct{} `type:"structure"`
 
 	// A type that can be either Update or Delete.
-	ObjectAttributeActionType UpdateActionType `type:"string" enum:"true"`
+	ObjectAttributeActionType UpdateActionType `json:"clouddirectory:ObjectAttributeAction:ObjectAttributeActionType" type:"string" enum:"true"`
 
 	// The value that you want to update to.
-	ObjectAttributeUpdateValue *TypedAttributeValue `type:"structure"`
+	ObjectAttributeUpdateValue *TypedAttributeValue `json:"clouddirectory:ObjectAttributeAction:ObjectAttributeUpdateValue" type:"structure"`
 }
 
 // String returns the string representation
@@ -4545,10 +4545,10 @@ type ObjectAttributeRange struct {
 	_ struct{} `type:"structure"`
 
 	// The key of the attribute that the attribute range covers.
-	AttributeKey *AttributeKey `type:"structure"`
+	AttributeKey *AttributeKey `json:"clouddirectory:ObjectAttributeRange:AttributeKey" type:"structure"`
 
 	// The range of attribute values being selected.
-	Range *TypedAttributeValueRange `type:"structure"`
+	Range *TypedAttributeValueRange `json:"clouddirectory:ObjectAttributeRange:Range" type:"structure"`
 }
 
 // String returns the string representation
@@ -4599,10 +4599,10 @@ type ObjectAttributeUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// The action to perform as part of the attribute update.
-	ObjectAttributeAction *ObjectAttributeAction `type:"structure"`
+	ObjectAttributeAction *ObjectAttributeAction `json:"clouddirectory:ObjectAttributeUpdate:ObjectAttributeAction" type:"structure"`
 
 	// The key of the attribute being updated.
-	ObjectAttributeKey *AttributeKey `type:"structure"`
+	ObjectAttributeKey *AttributeKey `json:"clouddirectory:ObjectAttributeUpdate:ObjectAttributeKey" type:"structure"`
 }
 
 // String returns the string representation
@@ -4648,10 +4648,10 @@ type ObjectIdentifierAndLinkNameTuple struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the link between the parent and the child object.
-	LinkName *string `min:"1" type:"string"`
+	LinkName *string `json:"clouddirectory:ObjectIdentifierAndLinkNameTuple:LinkName" min:"1" type:"string"`
 
 	// The ID that is associated with the object.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:ObjectIdentifierAndLinkNameTuple:ObjectIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -4696,7 +4696,7 @@ type ObjectReference struct {
 	//    * /some/path - Identifies the object based on path
 	//
 	//    * #SomeBatchReference - Identifies the object in a batch call
-	Selector *string `type:"string"`
+	Selector *string `json:"clouddirectory:ObjectReference:Selector" type:"string"`
 }
 
 // String returns the string representation
@@ -4722,10 +4722,10 @@ type PathToObjectIdentifiers struct {
 
 	// Lists ObjectIdentifiers starting from directory root to the object in the
 	// request.
-	ObjectIdentifiers []string `type:"list"`
+	ObjectIdentifiers []string `json:"clouddirectory:PathToObjectIdentifiers:ObjectIdentifiers" type:"list"`
 
 	// The path that is used to identify the object starting from directory root.
-	Path *string `type:"string"`
+	Path *string `json:"clouddirectory:PathToObjectIdentifiers:Path" type:"string"`
 }
 
 // String returns the string representation
@@ -4763,13 +4763,13 @@ type PolicyAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The ObjectIdentifier that is associated with PolicyAttachment.
-	ObjectIdentifier *string `type:"string"`
+	ObjectIdentifier *string `json:"clouddirectory:PolicyAttachment:ObjectIdentifier" type:"string"`
 
 	// The ID of PolicyAttachment.
-	PolicyId *string `type:"string"`
+	PolicyId *string `json:"clouddirectory:PolicyAttachment:PolicyId" type:"string"`
 
 	// The type of policy that can be associated with PolicyAttachment.
-	PolicyType *string `type:"string"`
+	PolicyType *string `json:"clouddirectory:PolicyAttachment:PolicyType" type:"string"`
 }
 
 // String returns the string representation
@@ -4808,10 +4808,10 @@ type PolicyToPath struct {
 	_ struct{} `type:"structure"`
 
 	// The path that is referenced from the root.
-	Path *string `type:"string"`
+	Path *string `json:"clouddirectory:PolicyToPath:Path" type:"string"`
 
 	// List of policy objects.
-	Policies []PolicyAttachment `type:"list"`
+	Policies []PolicyAttachment `json:"clouddirectory:PolicyToPath:Policies" type:"list"`
 }
 
 // String returns the string representation
@@ -4849,10 +4849,10 @@ type Rule struct {
 	_ struct{} `type:"structure"`
 
 	// The minimum and maximum parameters that are associated with the rule.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"clouddirectory:Rule:Parameters" type:"map"`
 
 	// The type of attribute validation rule.
-	Type RuleType `type:"string" enum:"true"`
+	Type RuleType `json:"clouddirectory:Rule:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4889,12 +4889,12 @@ type SchemaFacet struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the facet.
-	FacetName *string `min:"1" type:"string"`
+	FacetName *string `json:"clouddirectory:SchemaFacet:FacetName" min:"1" type:"string"`
 
 	// The ARN of the schema that contains the facet with no minor component. See
 	// arns and In-Place Schema Upgrade (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html)
 	// for a description of when to provide minor versions.
-	SchemaArn *string `type:"string"`
+	SchemaArn *string `json:"clouddirectory:SchemaFacet:SchemaArn" type:"string"`
 }
 
 // String returns the string representation
@@ -4938,10 +4938,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The key that is associated with the tag.
-	Key *string `type:"string"`
+	Key *string `json:"clouddirectory:Tag:Key" type:"string"`
 
 	// The value that is associated with the tag.
-	Value *string `type:"string"`
+	Value *string `json:"clouddirectory:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -4976,19 +4976,19 @@ type TypedAttributeValue struct {
 	// A binary data value.
 	//
 	// BinaryValue is automatically base64 encoded/decoded by the SDK.
-	BinaryValue []byte `type:"blob"`
+	BinaryValue []byte `json:"clouddirectory:TypedAttributeValue:BinaryValue" type:"blob"`
 
 	// A Boolean data value.
-	BooleanValue *bool `type:"boolean"`
+	BooleanValue *bool `json:"clouddirectory:TypedAttributeValue:BooleanValue" type:"boolean"`
 
 	// A date and time value.
-	DatetimeValue *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DatetimeValue *time.Time `json:"clouddirectory:TypedAttributeValue:DatetimeValue" type:"timestamp" timestampFormat:"unix"`
 
 	// A number data value.
-	NumberValue *string `type:"string"`
+	NumberValue *string `json:"clouddirectory:TypedAttributeValue:NumberValue" type:"string"`
 
 	// A string data value.
-	StringValue *string `type:"string"`
+	StringValue *string `json:"clouddirectory:TypedAttributeValue:StringValue" type:"string"`
 }
 
 // String returns the string representation
@@ -5039,18 +5039,18 @@ type TypedAttributeValueRange struct {
 	// The inclusive or exclusive range end.
 	//
 	// EndMode is a required field
-	EndMode RangeMode `type:"string" required:"true" enum:"true"`
+	EndMode RangeMode `json:"clouddirectory:TypedAttributeValueRange:EndMode" type:"string" required:"true" enum:"true"`
 
 	// The attribute value to terminate the range at.
-	EndValue *TypedAttributeValue `type:"structure"`
+	EndValue *TypedAttributeValue `json:"clouddirectory:TypedAttributeValueRange:EndValue" type:"structure"`
 
 	// The inclusive or exclusive range start.
 	//
 	// StartMode is a required field
-	StartMode RangeMode `type:"string" required:"true" enum:"true"`
+	StartMode RangeMode `json:"clouddirectory:TypedAttributeValueRange:StartMode" type:"string" required:"true" enum:"true"`
 
 	// The value to start the range at.
-	StartValue *TypedAttributeValue `type:"structure"`
+	StartValue *TypedAttributeValue `json:"clouddirectory:TypedAttributeValueRange:StartValue" type:"structure"`
 }
 
 // String returns the string representation
@@ -5109,28 +5109,28 @@ type TypedLinkAttributeDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// The default value of the attribute (if configured).
-	DefaultValue *TypedAttributeValue `type:"structure"`
+	DefaultValue *TypedAttributeValue `json:"clouddirectory:TypedLinkAttributeDefinition:DefaultValue" type:"structure"`
 
 	// Whether the attribute is mutable or not.
-	IsImmutable *bool `type:"boolean"`
+	IsImmutable *bool `json:"clouddirectory:TypedLinkAttributeDefinition:IsImmutable" type:"boolean"`
 
 	// The unique name of the typed link attribute.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"clouddirectory:TypedLinkAttributeDefinition:Name" min:"1" type:"string" required:"true"`
 
 	// The required behavior of the TypedLinkAttributeDefinition.
 	//
 	// RequiredBehavior is a required field
-	RequiredBehavior RequiredAttributeBehavior `type:"string" required:"true" enum:"true"`
+	RequiredBehavior RequiredAttributeBehavior `json:"clouddirectory:TypedLinkAttributeDefinition:RequiredBehavior" type:"string" required:"true" enum:"true"`
 
 	// Validation rules that are attached to the attribute definition.
-	Rules map[string]Rule `type:"map"`
+	Rules map[string]Rule `json:"clouddirectory:TypedLinkAttributeDefinition:Rules" type:"map"`
 
 	// The type of the attribute.
 	//
 	// Type is a required field
-	Type FacetAttributeType `type:"string" required:"true" enum:"true"`
+	Type FacetAttributeType `json:"clouddirectory:TypedLinkAttributeDefinition:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -5214,12 +5214,12 @@ type TypedLinkAttributeRange struct {
 	_ struct{} `type:"structure"`
 
 	// The unique name of the typed link attribute.
-	AttributeName *string `min:"1" type:"string"`
+	AttributeName *string `json:"clouddirectory:TypedLinkAttributeRange:AttributeName" min:"1" type:"string"`
 
 	// The range of attribute values that are being selected.
 	//
 	// Range is a required field
-	Range *TypedAttributeValueRange `type:"structure" required:"true"`
+	Range *TypedAttributeValueRange `json:"clouddirectory:TypedLinkAttributeRange:Range" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -5278,7 +5278,7 @@ type TypedLinkFacet struct {
 	// to distinguish the link from others of the same type between the same objects.
 	//
 	// Attributes is a required field
-	Attributes []TypedLinkAttributeDefinition `type:"list" required:"true"`
+	Attributes []TypedLinkAttributeDefinition `json:"clouddirectory:TypedLinkFacet:Attributes" type:"list" required:"true"`
 
 	// The set of attributes that distinguish links made from this facet from each
 	// other, in the order of significance. Listing typed links can filter on the
@@ -5286,12 +5286,12 @@ type TypedLinkFacet struct {
 	// for details.
 	//
 	// IdentityAttributeOrder is a required field
-	IdentityAttributeOrder []string `type:"list" required:"true"`
+	IdentityAttributeOrder []string `json:"clouddirectory:TypedLinkFacet:IdentityAttributeOrder" type:"list" required:"true"`
 
 	// The unique name of the typed link facet.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"clouddirectory:TypedLinkFacet:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5371,12 +5371,12 @@ type TypedLinkFacetAttributeUpdate struct {
 	// The action to perform when updating the attribute.
 	//
 	// Action is a required field
-	Action UpdateActionType `type:"string" required:"true" enum:"true"`
+	Action UpdateActionType `json:"clouddirectory:TypedLinkFacetAttributeUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// The attribute to update.
 	//
 	// Attribute is a required field
-	Attribute *TypedLinkAttributeDefinition `type:"structure" required:"true"`
+	Attribute *TypedLinkAttributeDefinition `json:"clouddirectory:TypedLinkFacetAttributeUpdate:Attribute" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -5433,12 +5433,12 @@ type TypedLinkSchemaAndFacetName struct {
 	// information, see arns.
 	//
 	// SchemaArn is a required field
-	SchemaArn *string `type:"string" required:"true"`
+	SchemaArn *string `json:"clouddirectory:TypedLinkSchemaAndFacetName:SchemaArn" type:"string" required:"true"`
 
 	// The unique name of the typed link facet.
 	//
 	// TypedLinkName is a required field
-	TypedLinkName *string `type:"string" required:"true"`
+	TypedLinkName *string `json:"clouddirectory:TypedLinkSchemaAndFacetName:TypedLinkName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5494,22 +5494,22 @@ type TypedLinkSpecifier struct {
 	// Identifies the attribute value to update.
 	//
 	// IdentityAttributeValues is a required field
-	IdentityAttributeValues []AttributeNameAndValue `type:"list" required:"true"`
+	IdentityAttributeValues []AttributeNameAndValue `json:"clouddirectory:TypedLinkSpecifier:IdentityAttributeValues" type:"list" required:"true"`
 
 	// Identifies the source object that the typed link will attach to.
 	//
 	// SourceObjectReference is a required field
-	SourceObjectReference *ObjectReference `type:"structure" required:"true"`
+	SourceObjectReference *ObjectReference `json:"clouddirectory:TypedLinkSpecifier:SourceObjectReference" type:"structure" required:"true"`
 
 	// Identifies the target object that the typed link will attach to.
 	//
 	// TargetObjectReference is a required field
-	TargetObjectReference *ObjectReference `type:"structure" required:"true"`
+	TargetObjectReference *ObjectReference `json:"clouddirectory:TypedLinkSpecifier:TargetObjectReference" type:"structure" required:"true"`
 
 	// Identifies the typed link facet that is associated with the typed link.
 	//
 	// TypedLinkFacet is a required field
-	TypedLinkFacet *TypedLinkSchemaAndFacetName `type:"structure" required:"true"`
+	TypedLinkFacet *TypedLinkSchemaAndFacetName `json:"clouddirectory:TypedLinkSpecifier:TypedLinkFacet" type:"structure" required:"true"`
 }
 
 // String returns the string representation

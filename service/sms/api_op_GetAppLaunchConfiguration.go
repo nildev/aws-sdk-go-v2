@@ -27,14 +27,14 @@ type GetAppLaunchConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ID of the application associated with the launch configuration.
-	AppId *string `locationName:"appId" type:"string"`
+	AppId *string `json:"sms:GetAppLaunchConfigurationOutput:AppId" locationName:"appId" type:"string"`
 
 	// Name of the service role in the customer's account that Amazon CloudFormation
 	// uses to launch the application.
-	RoleName *string `locationName:"roleName" type:"string"`
+	RoleName *string `json:"sms:GetAppLaunchConfigurationOutput:RoleName" locationName:"roleName" type:"string"`
 
 	// List of launch configurations for server groups in this application.
-	ServerGroupLaunchConfigurations []ServerGroupLaunchConfiguration `locationName:"serverGroupLaunchConfigurations" type:"list"`
+	ServerGroupLaunchConfigurations []ServerGroupLaunchConfiguration `json:"sms:GetAppLaunchConfigurationOutput:ServerGroupLaunchConfigurations" locationName:"serverGroupLaunchConfigurations" type:"list"`
 }
 
 // String returns the string representation

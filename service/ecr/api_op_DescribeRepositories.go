@@ -73,10 +73,10 @@ type DescribeRepositoriesOutput struct {
 	// When the results of a DescribeRepositories request exceed maxResults, this
 	// value can be used to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"api.ecr:DescribeRepositoriesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of repository objects corresponding to valid repositories.
-	Repositories []Repository `locationName:"repositories" type:"list"`
+	Repositories []Repository `json:"api.ecr:DescribeRepositoriesOutput:Repositories" locationName:"repositories" type:"list"`
 }
 
 // String returns the string representation

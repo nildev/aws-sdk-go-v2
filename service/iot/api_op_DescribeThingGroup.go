@@ -57,34 +57,34 @@ type DescribeThingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The dynamic thing group index name.
-	IndexName *string `locationName:"indexName" min:"1" type:"string"`
+	IndexName *string `json:"iot:DescribeThingGroupOutput:IndexName" locationName:"indexName" min:"1" type:"string"`
 
 	// The dynamic thing group search query string.
-	QueryString *string `locationName:"queryString" min:"1" type:"string"`
+	QueryString *string `json:"iot:DescribeThingGroupOutput:QueryString" locationName:"queryString" min:"1" type:"string"`
 
 	// The dynamic thing group query version.
-	QueryVersion *string `locationName:"queryVersion" type:"string"`
+	QueryVersion *string `json:"iot:DescribeThingGroupOutput:QueryVersion" locationName:"queryVersion" type:"string"`
 
 	// The dynamic thing group status.
-	Status DynamicGroupStatus `locationName:"status" type:"string" enum:"true"`
+	Status DynamicGroupStatus `json:"iot:DescribeThingGroupOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The thing group ARN.
-	ThingGroupArn *string `locationName:"thingGroupArn" type:"string"`
+	ThingGroupArn *string `json:"iot:DescribeThingGroupOutput:ThingGroupArn" locationName:"thingGroupArn" type:"string"`
 
 	// The thing group ID.
-	ThingGroupId *string `locationName:"thingGroupId" min:"1" type:"string"`
+	ThingGroupId *string `json:"iot:DescribeThingGroupOutput:ThingGroupId" locationName:"thingGroupId" min:"1" type:"string"`
 
 	// Thing group metadata.
-	ThingGroupMetadata *ThingGroupMetadata `locationName:"thingGroupMetadata" type:"structure"`
+	ThingGroupMetadata *ThingGroupMetadata `json:"iot:DescribeThingGroupOutput:ThingGroupMetadata" locationName:"thingGroupMetadata" type:"structure"`
 
 	// The name of the thing group.
-	ThingGroupName *string `locationName:"thingGroupName" min:"1" type:"string"`
+	ThingGroupName *string `json:"iot:DescribeThingGroupOutput:ThingGroupName" locationName:"thingGroupName" min:"1" type:"string"`
 
 	// The thing group properties.
-	ThingGroupProperties *ThingGroupProperties `locationName:"thingGroupProperties" type:"structure"`
+	ThingGroupProperties *ThingGroupProperties `json:"iot:DescribeThingGroupOutput:ThingGroupProperties" locationName:"thingGroupProperties" type:"structure"`
 
 	// The version of the thing group.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"iot:DescribeThingGroupOutput:Version" locationName:"version" type:"long"`
 }
 
 // String returns the string representation

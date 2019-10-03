@@ -52,7 +52,7 @@ type ReplaceIamInstanceProfileAssociationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the IAM instance profile association.
-	IamInstanceProfileAssociation *IamInstanceProfileAssociation `locationName:"iamInstanceProfileAssociation" type:"structure"`
+	IamInstanceProfileAssociation *IamInstanceProfileAssociation `json:"ec2:ReplaceIamInstanceProfileAssociationOutput:IamInstanceProfileAssociation" locationName:"iamInstanceProfileAssociation" type:"structure"`
 }
 
 // String returns the string representation

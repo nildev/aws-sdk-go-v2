@@ -50,31 +50,31 @@ type GetUploadStatusOutput struct {
 	// The date at which the upload was created.
 	//
 	// CreatedDate is a required field
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedDate *time.Time `json:"iotthingsgraph:GetUploadStatusOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The reason for an upload failure.
-	FailureReason []string `locationName:"failureReason" type:"list"`
+	FailureReason []string `json:"iotthingsgraph:GetUploadStatusOutput:FailureReason" locationName:"failureReason" type:"list"`
 
 	// The ARN of the upload.
-	NamespaceArn *string `locationName:"namespaceArn" type:"string"`
+	NamespaceArn *string `json:"iotthingsgraph:GetUploadStatusOutput:NamespaceArn" locationName:"namespaceArn" type:"string"`
 
 	// The name of the upload's namespace.
-	NamespaceName *string `locationName:"namespaceName" type:"string"`
+	NamespaceName *string `json:"iotthingsgraph:GetUploadStatusOutput:NamespaceName" locationName:"namespaceName" type:"string"`
 
 	// The version of the user's namespace. Defaults to the latest version of the
 	// user's namespace.
-	NamespaceVersion *int64 `locationName:"namespaceVersion" type:"long"`
+	NamespaceVersion *int64 `json:"iotthingsgraph:GetUploadStatusOutput:NamespaceVersion" locationName:"namespaceVersion" type:"long"`
 
 	// The ID of the upload.
 	//
 	// UploadId is a required field
-	UploadId *string `locationName:"uploadId" min:"1" type:"string" required:"true"`
+	UploadId *string `json:"iotthingsgraph:GetUploadStatusOutput:UploadId" locationName:"uploadId" min:"1" type:"string" required:"true"`
 
 	// The status of the upload. The initial status is IN_PROGRESS. The response
 	// show all validation failures if the upload fails.
 	//
 	// UploadStatus is a required field
-	UploadStatus UploadStatus `locationName:"uploadStatus" type:"string" required:"true" enum:"true"`
+	UploadStatus UploadStatus `json:"iotthingsgraph:GetUploadStatusOutput:UploadStatus" locationName:"uploadStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

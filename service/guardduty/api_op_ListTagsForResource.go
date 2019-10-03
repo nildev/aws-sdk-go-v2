@@ -56,7 +56,7 @@ func (s ListTagsForResourceInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"guardduty:ListTagsForResourceOutput:Tags" locationName:"tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

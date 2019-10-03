@@ -53,7 +53,7 @@ type UpdateParameterGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The parameter group that has been modified.
-	ParameterGroup *ParameterGroup `type:"structure"`
+	ParameterGroup *ParameterGroup `json:"dax:UpdateParameterGroupOutput:ParameterGroup" type:"structure"`
 }
 
 // String returns the string representation

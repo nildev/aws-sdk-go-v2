@@ -69,7 +69,7 @@ type GetKeyPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A key policy document in JSON format.
-	Policy *string `min:"1" type:"string"`
+	Policy *string `json:"kms:GetKeyPolicyOutput:Policy" min:"1" type:"string"`
 }
 
 // String returns the string representation

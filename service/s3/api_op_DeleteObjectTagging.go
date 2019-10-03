@@ -86,7 +86,7 @@ type DeleteObjectTaggingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The versionId of the object the tag-set was removed from.
-	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+	VersionId *string `json:"s3:DeleteObjectTaggingOutput:VersionId" location:"header" locationName:"x-amz-version-id" type:"string"`
 }
 
 // String returns the string representation

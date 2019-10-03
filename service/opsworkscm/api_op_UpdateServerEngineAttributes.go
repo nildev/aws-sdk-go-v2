@@ -61,7 +61,7 @@ type UpdateServerEngineAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the response to an UpdateServerEngineAttributes request.
-	Server *Server `type:"structure"`
+	Server *Server `json:"opsworks-cm:UpdateServerEngineAttributesOutput:Server" type:"structure"`
 }
 
 // String returns the string representation

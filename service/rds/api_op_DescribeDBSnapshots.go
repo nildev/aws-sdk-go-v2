@@ -131,12 +131,12 @@ type DescribeDBSnapshotsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of DBSnapshot instances.
-	DBSnapshots []DBSnapshot `locationNameList:"DBSnapshot" type:"list"`
+	DBSnapshots []DBSnapshot `json:"rds:DescribeDBSnapshotsOutput:DBSnapshots" locationNameList:"DBSnapshot" type:"list"`
 
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeDBSnapshotsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

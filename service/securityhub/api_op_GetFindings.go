@@ -93,10 +93,10 @@ type GetFindingsOutput struct {
 	// The findings that matched the filters specified in the request.
 	//
 	// Findings is a required field
-	Findings []AwsSecurityFinding `type:"list" required:"true"`
+	Findings []AwsSecurityFinding `json:"securityhub:GetFindingsOutput:Findings" type:"list" required:"true"`
 
 	// The token that is required for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"securityhub:GetFindingsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

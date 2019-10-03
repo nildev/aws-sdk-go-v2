@@ -55,11 +55,11 @@ type ListTagsOutput struct {
 	// parameter is set to a token that you can assign to the request object's NextToken
 	// parameter to get the next set of results. If the previous paginated request
 	// returned all of the remaining results, this parameter is set to null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"opsworks:ListTagsOutput:NextToken" type:"string"`
 
 	// A set of key-value pairs that contain tag keys and tag values that are attached
 	// to a stack or layer.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"opsworks:ListTagsOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

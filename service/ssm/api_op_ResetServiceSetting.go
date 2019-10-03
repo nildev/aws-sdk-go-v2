@@ -49,7 +49,7 @@ type ResetServiceSettingOutput struct {
 
 	// The current, effective service setting after calling the ResetServiceSetting
 	// API action.
-	ServiceSetting *ServiceSetting `type:"structure"`
+	ServiceSetting *ServiceSetting `json:"ssm:ResetServiceSettingOutput:ServiceSetting" type:"structure"`
 }
 
 // String returns the string representation

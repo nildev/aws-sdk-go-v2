@@ -63,7 +63,7 @@ type RegisterInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The registered instance's AWS OpsWorks Stacks ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"opsworks:RegisterInstanceOutput:InstanceId" type:"string"`
 }
 
 // String returns the string representation

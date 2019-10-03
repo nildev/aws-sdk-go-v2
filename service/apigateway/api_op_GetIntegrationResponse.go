@@ -115,7 +115,7 @@ type GetIntegrationResponseOutput struct {
 	//
 	// If this property is not defined, the response payload will be passed through
 	// from the integration response to the method response without modification.
-	ContentHandling ContentHandlingStrategy `locationName:"contentHandling" type:"string" enum:"true"`
+	ContentHandling ContentHandlingStrategy `json:"apigateway:GetIntegrationResponseOutput:ContentHandling" locationName:"contentHandling" type:"string" enum:"true"`
 
 	// A key-value map specifying response parameters that are passed to the method
 	// response from the back end. The key is a method response header parameter
@@ -127,12 +127,12 @@ type GetIntegrationResponseOutput struct {
 	// or integration.response.body.{JSON-expression}, where name is a valid and
 	// unique response header name and JSON-expression is a valid JSON expression
 	// without the $ prefix.
-	ResponseParameters map[string]string `locationName:"responseParameters" type:"map"`
+	ResponseParameters map[string]string `json:"apigateway:GetIntegrationResponseOutput:ResponseParameters" locationName:"responseParameters" type:"map"`
 
 	// Specifies the templates used to transform the integration response body.
 	// Response templates are represented as a key/value map, with a content-type
 	// as the key and a template as the value.
-	ResponseTemplates map[string]string `locationName:"responseTemplates" type:"map"`
+	ResponseTemplates map[string]string `json:"apigateway:GetIntegrationResponseOutput:ResponseTemplates" locationName:"responseTemplates" type:"map"`
 
 	// Specifies the regular expression (regex) pattern used to choose an integration
 	// response based on the response from the back end. For example, if the success
@@ -142,11 +142,11 @@ type GetIntegrationResponseOutput struct {
 	// If the back end is an AWS Lambda function, the AWS Lambda function error
 	// header is matched. For all other HTTP and AWS back ends, the HTTP status
 	// code is matched.
-	SelectionPattern *string `locationName:"selectionPattern" type:"string"`
+	SelectionPattern *string `json:"apigateway:GetIntegrationResponseOutput:SelectionPattern" locationName:"selectionPattern" type:"string"`
 
 	// Specifies the status code that is used to map the integration response to
 	// an existing MethodResponse.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"apigateway:GetIntegrationResponseOutput:StatusCode" locationName:"statusCode" type:"string"`
 }
 
 // String returns the string representation

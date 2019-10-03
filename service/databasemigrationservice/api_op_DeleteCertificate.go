@@ -43,7 +43,7 @@ type DeleteCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Secure Sockets Layer (SSL) certificate.
-	Certificate *Certificate `type:"structure"`
+	Certificate *Certificate `json:"dms:DeleteCertificateOutput:Certificate" type:"structure"`
 }
 
 // String returns the string representation

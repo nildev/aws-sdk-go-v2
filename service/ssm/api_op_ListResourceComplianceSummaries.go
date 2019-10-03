@@ -57,12 +57,12 @@ type ListResourceComplianceSummariesOutput struct {
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListResourceComplianceSummariesOutput:NextToken" type:"string"`
 
 	// A summary count for specified or targeted managed instances. Summary count
 	// includes information about compliant and non-compliant State Manager associations,
 	// patch status, or custom items according to the filter criteria that you specify.
-	ResourceComplianceSummaryItems []ResourceComplianceSummaryItem `type:"list"`
+	ResourceComplianceSummaryItems []ResourceComplianceSummaryItem `json:"ssm:ListResourceComplianceSummariesOutput:ResourceComplianceSummaryItems" type:"list"`
 }
 
 // String returns the string representation

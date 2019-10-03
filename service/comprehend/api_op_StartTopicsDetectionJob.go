@@ -119,7 +119,7 @@ type StartTopicsDetectionJobOutput struct {
 
 	// The identifier generated for the job. To get the status of the job, use this
 	// identifier with the DescribeTopicDetectionJob operation.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"comprehend:StartTopicsDetectionJobOutput:JobId" min:"1" type:"string"`
 
 	// The status of the job:
 	//
@@ -131,7 +131,7 @@ type StartTopicsDetectionJobOutput struct {
 	//
 	//    * FAILED - The job did not complete. To get details, use the DescribeTopicDetectionJob
 	//    operation.
-	JobStatus JobStatus `type:"string" enum:"true"`
+	JobStatus JobStatus `json:"comprehend:StartTopicsDetectionJobOutput:JobStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

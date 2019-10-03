@@ -60,7 +60,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of all tags added to the specified resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:ListTagsForResourceOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

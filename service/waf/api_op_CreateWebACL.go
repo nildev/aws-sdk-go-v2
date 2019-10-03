@@ -103,10 +103,10 @@ type CreateWebACLOutput struct {
 	// The ChangeToken that you used to submit the CreateWebACL request. You can
 	// also use this value to query the status of the request. For more information,
 	// see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf:CreateWebACLOutput:ChangeToken" min:"1" type:"string"`
 
 	// The WebACL returned in the CreateWebACL response.
-	WebACL *WebACL `type:"structure"`
+	WebACL *WebACL `json:"waf:CreateWebACLOutput:WebACL" type:"structure"`
 }
 
 // String returns the string representation

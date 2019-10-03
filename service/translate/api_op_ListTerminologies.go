@@ -45,10 +45,10 @@ type ListTerminologiesOutput struct {
 
 	// If the response to the ListTerminologies was truncated, the NextToken fetches
 	// the next group of custom terminologies.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"translate:ListTerminologiesOutput:NextToken" type:"string"`
 
 	// The properties list of the custom terminologies returned on the list request.
-	TerminologyPropertiesList []TerminologyProperties `type:"list"`
+	TerminologyPropertiesList []TerminologyProperties `json:"translate:ListTerminologiesOutput:TerminologyPropertiesList" type:"list"`
 }
 
 // String returns the string representation

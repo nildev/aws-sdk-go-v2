@@ -66,7 +66,7 @@ type UpdateUserAttributesOutput struct {
 
 	// The code delivery details list from the server for the request to update
 	// user attributes.
-	CodeDeliveryDetailsList []CodeDeliveryDetailsType `type:"list"`
+	CodeDeliveryDetailsList []CodeDeliveryDetailsType `json:"cognito-idp:UpdateUserAttributesOutput:CodeDeliveryDetailsList" type:"list"`
 }
 
 // String returns the string representation

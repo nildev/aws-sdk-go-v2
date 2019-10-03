@@ -60,10 +60,10 @@ type VerifySoftwareTokenOutput struct {
 
 	// The session which should be passed both ways in challenge-response calls
 	// to the service.
-	Session *string `min:"20" type:"string"`
+	Session *string `json:"cognito-idp:VerifySoftwareTokenOutput:Session" min:"20" type:"string"`
 
 	// The status of the verify software token.
-	Status VerifySoftwareTokenResponseType `type:"string" enum:"true"`
+	Status VerifySoftwareTokenResponseType `json:"cognito-idp:VerifySoftwareTokenOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

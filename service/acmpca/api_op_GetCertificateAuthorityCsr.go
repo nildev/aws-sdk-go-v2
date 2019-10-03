@@ -50,7 +50,7 @@ type GetCertificateAuthorityCsrOutput struct {
 
 	// The base64 PEM-encoded certificate signing request (CSR) for your private
 	// CA certificate.
-	Csr *string `type:"string"`
+	Csr *string `json:"acm-pca:GetCertificateAuthorityCsrOutput:Csr" type:"string"`
 }
 
 // String returns the string representation

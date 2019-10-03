@@ -137,31 +137,31 @@ type ListRecordsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Total number of records.
-	Count *int64 `type:"integer"`
+	Count *int64 `json:"cognito-sync:ListRecordsOutput:Count" type:"integer"`
 
 	// A boolean value specifying whether to delete the dataset locally.
-	DatasetDeletedAfterRequestedSyncCount *bool `type:"boolean"`
+	DatasetDeletedAfterRequestedSyncCount *bool `json:"cognito-sync:ListRecordsOutput:DatasetDeletedAfterRequestedSyncCount" type:"boolean"`
 
 	// Indicates whether the dataset exists.
-	DatasetExists *bool `type:"boolean"`
+	DatasetExists *bool `json:"cognito-sync:ListRecordsOutput:DatasetExists" type:"boolean"`
 
 	// Server sync count for this dataset.
-	DatasetSyncCount *int64 `type:"long"`
+	DatasetSyncCount *int64 `json:"cognito-sync:ListRecordsOutput:DatasetSyncCount" type:"long"`
 
 	// The user/device that made the last change to this record.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"cognito-sync:ListRecordsOutput:LastModifiedBy" type:"string"`
 
 	// Names of merged datasets.
-	MergedDatasetNames []string `type:"list"`
+	MergedDatasetNames []string `json:"cognito-sync:ListRecordsOutput:MergedDatasetNames" type:"list"`
 
 	// A pagination token for obtaining the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cognito-sync:ListRecordsOutput:NextToken" type:"string"`
 
 	// A list of all records.
-	Records []Record `type:"list"`
+	Records []Record `json:"cognito-sync:ListRecordsOutput:Records" type:"list"`
 
 	// A token containing a session ID, identity ID, and expiration.
-	SyncSessionToken *string `type:"string"`
+	SyncSessionToken *string `json:"cognito-sync:ListRecordsOutput:SyncSessionToken" type:"string"`
 }
 
 // String returns the string representation

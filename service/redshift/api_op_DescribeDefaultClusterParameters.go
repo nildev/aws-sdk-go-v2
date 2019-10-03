@@ -61,7 +61,7 @@ type DescribeDefaultClusterParametersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the default cluster parameters for a parameter group family.
-	DefaultClusterParameters *DefaultClusterParameters `type:"structure"`
+	DefaultClusterParameters *DefaultClusterParameters `json:"redshift:DescribeDefaultClusterParametersOutput:DefaultClusterParameters" type:"structure"`
 }
 
 // String returns the string representation

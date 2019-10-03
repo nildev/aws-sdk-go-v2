@@ -64,26 +64,26 @@ type GetContentModerationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current status of the content moderation job.
-	JobStatus VideoJobStatus `type:"string" enum:"true"`
+	JobStatus VideoJobStatus `json:"rekognition:GetContentModerationOutput:JobStatus" type:"string" enum:"true"`
 
 	// The detected moderation labels and the time(s) they were detected.
-	ModerationLabels []ContentModerationDetection `type:"list"`
+	ModerationLabels []ContentModerationDetection `json:"rekognition:GetContentModerationOutput:ModerationLabels" type:"list"`
 
 	// Version number of the moderation detection model that was used to detect
 	// unsafe content.
-	ModerationModelVersion *string `type:"string"`
+	ModerationModelVersion *string `json:"rekognition:GetContentModerationOutput:ModerationModelVersion" type:"string"`
 
 	// If the response is truncated, Amazon Rekognition Video returns this token
 	// that you can use in the subsequent request to retrieve the next set of moderation
 	// labels.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:GetContentModerationOutput:NextToken" type:"string"`
 
 	// If the job fails, StatusMessage provides a descriptive error message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"rekognition:GetContentModerationOutput:StatusMessage" type:"string"`
 
 	// Information about a video that Amazon Rekognition analyzed. Videometadata
 	// is returned in every page of paginated responses from GetContentModeration.
-	VideoMetadata *VideoMetadata `type:"structure"`
+	VideoMetadata *VideoMetadata `json:"rekognition:GetContentModerationOutput:VideoMetadata" type:"structure"`
 }
 
 // String returns the string representation

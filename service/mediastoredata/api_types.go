@@ -19,22 +19,22 @@ type Item struct {
 	_ struct{} `type:"structure"`
 
 	// The length of the item in bytes.
-	ContentLength *int64 `type:"long"`
+	ContentLength *int64 `json:"data.mediastore:Item:ContentLength" type:"long"`
 
 	// The content type of the item.
-	ContentType *string `type:"string"`
+	ContentType *string `json:"data.mediastore:Item:ContentType" type:"string"`
 
 	// The ETag that represents a unique instance of the item.
-	ETag *string `min:"1" type:"string"`
+	ETag *string `json:"data.mediastore:Item:ETag" min:"1" type:"string"`
 
 	// The date and time that the item was last modified.
-	LastModified *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModified *time.Time `json:"data.mediastore:Item:LastModified" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the item.
-	Name *string `type:"string"`
+	Name *string `json:"data.mediastore:Item:Name" type:"string"`
 
 	// The item type (folder or object).
-	Type ItemType `type:"string" enum:"true"`
+	Type ItemType `json:"data.mediastore:Item:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation

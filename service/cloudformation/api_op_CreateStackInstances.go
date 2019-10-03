@@ -118,7 +118,7 @@ type CreateStackInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for this stack set operation.
-	OperationId *string `min:"1" type:"string"`
+	OperationId *string `json:"cloudformation:CreateStackInstancesOutput:OperationId" min:"1" type:"string"`
 }
 
 // String returns the string representation

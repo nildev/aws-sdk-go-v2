@@ -43,15 +43,15 @@ type DescribeReplicationTaskAssessmentResultsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// - The Amazon S3 bucket where the task assessment report is located.
-	BucketName *string `type:"string"`
+	BucketName *string `json:"dms:DescribeReplicationTaskAssessmentResultsOutput:BucketName" type:"string"`
 
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"dms:DescribeReplicationTaskAssessmentResultsOutput:Marker" type:"string"`
 
 	// The task assessment report.
-	ReplicationTaskAssessmentResults []ReplicationTaskAssessmentResult `type:"list"`
+	ReplicationTaskAssessmentResults []ReplicationTaskAssessmentResult `json:"dms:DescribeReplicationTaskAssessmentResultsOutput:ReplicationTaskAssessmentResults" type:"list"`
 }
 
 // String returns the string representation

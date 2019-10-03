@@ -73,7 +73,7 @@ type DescribeJobOutput struct {
 
 	// Contains the configuration parameters and status for the job specified in
 	// the Describe Job request.
-	Job *JobDescriptor `type:"structure"`
+	Job *JobDescriptor `json:"s3-control:DescribeJobOutput:Job" type:"structure"`
 }
 
 // String returns the string representation

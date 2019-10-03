@@ -95,10 +95,10 @@ type CreatePortfolioOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the portfolio.
-	PortfolioDetail *PortfolioDetail `type:"structure"`
+	PortfolioDetail *PortfolioDetail `json:"servicecatalog:CreatePortfolioOutput:PortfolioDetail" type:"structure"`
 
 	// Information about the tags associated with the portfolio.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"servicecatalog:CreatePortfolioOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

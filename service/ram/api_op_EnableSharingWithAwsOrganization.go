@@ -32,7 +32,7 @@ type EnableSharingWithAwsOrganizationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the request succeeded.
-	ReturnValue *bool `locationName:"returnValue" type:"boolean"`
+	ReturnValue *bool `json:"ram:EnableSharingWithAwsOrganizationOutput:ReturnValue" locationName:"returnValue" type:"boolean"`
 }
 
 // String returns the string representation

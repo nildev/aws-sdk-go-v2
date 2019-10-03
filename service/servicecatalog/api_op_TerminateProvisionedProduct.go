@@ -76,7 +76,7 @@ type TerminateProvisionedProductOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the result of this request.
-	RecordDetail *RecordDetail `type:"structure"`
+	RecordDetail *RecordDetail `json:"servicecatalog:TerminateProvisionedProductOutput:RecordDetail" type:"structure"`
 }
 
 // String returns the string representation

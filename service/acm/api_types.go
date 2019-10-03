@@ -21,112 +21,112 @@ type CertificateDetail struct {
 	// The Amazon Resource Name (ARN) of the certificate. For more information about
 	// ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	CertificateArn *string `min:"20" type:"string"`
+	CertificateArn *string `json:"acm:CertificateDetail:CertificateArn" min:"20" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the ACM PCA private certificate authority
 	// (CA) that issued the certificate. This has the following format:
 	//
 	// arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012
-	CertificateAuthorityArn *string `min:"20" type:"string"`
+	CertificateAuthorityArn *string `json:"acm:CertificateDetail:CertificateAuthorityArn" min:"20" type:"string"`
 
 	// The time at which the certificate was requested. This value exists only when
 	// the certificate type is AMAZON_ISSUED.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"acm:CertificateDetail:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The fully qualified domain name for the certificate, such as www.example.com
 	// or example.com.
-	DomainName *string `min:"1" type:"string"`
+	DomainName *string `json:"acm:CertificateDetail:DomainName" min:"1" type:"string"`
 
 	// Contains information about the initial validation of each domain name that
 	// occurs as a result of the RequestCertificate request. This field exists only
 	// when the certificate type is AMAZON_ISSUED.
-	DomainValidationOptions []DomainValidation `min:"1" type:"list"`
+	DomainValidationOptions []DomainValidation `json:"acm:CertificateDetail:DomainValidationOptions" min:"1" type:"list"`
 
 	// Contains a list of Extended Key Usage X.509 v3 extension objects. Each object
 	// specifies a purpose for which the certificate public key can be used and
 	// consists of a name and an object identifier (OID).
-	ExtendedKeyUsages []ExtendedKeyUsage `type:"list"`
+	ExtendedKeyUsages []ExtendedKeyUsage `json:"acm:CertificateDetail:ExtendedKeyUsages" type:"list"`
 
 	// The reason the certificate request failed. This value exists only when the
 	// certificate status is FAILED. For more information, see Certificate Request
 	// Failed (https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed)
 	// in the AWS Certificate Manager User Guide.
-	FailureReason FailureReason `type:"string" enum:"true"`
+	FailureReason FailureReason `json:"acm:CertificateDetail:FailureReason" type:"string" enum:"true"`
 
 	// The date and time at which the certificate was imported. This value exists
 	// only when the certificate type is IMPORTED.
-	ImportedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ImportedAt *time.Time `json:"acm:CertificateDetail:ImportedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of ARNs for the AWS resources that are using the certificate. A certificate
 	// can be used by multiple AWS resources.
-	InUseBy []string `type:"list"`
+	InUseBy []string `json:"acm:CertificateDetail:InUseBy" type:"list"`
 
 	// The time at which the certificate was issued. This value exists only when
 	// the certificate type is AMAZON_ISSUED.
-	IssuedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	IssuedAt *time.Time `json:"acm:CertificateDetail:IssuedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the certificate authority that issued and signed the certificate.
-	Issuer *string `type:"string"`
+	Issuer *string `json:"acm:CertificateDetail:Issuer" type:"string"`
 
 	// The algorithm that was used to generate the public-private key pair.
-	KeyAlgorithm KeyAlgorithm `type:"string" enum:"true"`
+	KeyAlgorithm KeyAlgorithm `json:"acm:CertificateDetail:KeyAlgorithm" type:"string" enum:"true"`
 
 	// A list of Key Usage X.509 v3 extension objects. Each object is a string value
 	// that identifies the purpose of the public key contained in the certificate.
 	// Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION,
 	// and more.
-	KeyUsages []KeyUsage `type:"list"`
+	KeyUsages []KeyUsage `json:"acm:CertificateDetail:KeyUsages" type:"list"`
 
 	// The time after which the certificate is not valid.
-	NotAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	NotAfter *time.Time `json:"acm:CertificateDetail:NotAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// The time before which the certificate is not valid.
-	NotBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	NotBefore *time.Time `json:"acm:CertificateDetail:NotBefore" type:"timestamp" timestampFormat:"unix"`
 
 	// Value that specifies whether to add the certificate to a transparency log.
 	// Certificate transparency makes it possible to detect SSL certificates that
 	// have been mistakenly or maliciously issued. A browser might respond to certificate
 	// that has not been logged by showing an error message. The logs are cryptographically
 	// secure.
-	Options *CertificateOptions `type:"structure"`
+	Options *CertificateOptions `json:"acm:CertificateDetail:Options" type:"structure"`
 
 	// Specifies whether the certificate is eligible for renewal. At this time,
 	// only exported private certificates can be renewed with the RenewCertificate
 	// command.
-	RenewalEligibility RenewalEligibility `type:"string" enum:"true"`
+	RenewalEligibility RenewalEligibility `json:"acm:CertificateDetail:RenewalEligibility" type:"string" enum:"true"`
 
 	// Contains information about the status of ACM's managed renewal (https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html)
 	// for the certificate. This field exists only when the certificate type is
 	// AMAZON_ISSUED.
-	RenewalSummary *RenewalSummary `type:"structure"`
+	RenewalSummary *RenewalSummary `json:"acm:CertificateDetail:RenewalSummary" type:"structure"`
 
 	// The reason the certificate was revoked. This value exists only when the certificate
 	// status is REVOKED.
-	RevocationReason RevocationReason `type:"string" enum:"true"`
+	RevocationReason RevocationReason `json:"acm:CertificateDetail:RevocationReason" type:"string" enum:"true"`
 
 	// The time at which the certificate was revoked. This value exists only when
 	// the certificate status is REVOKED.
-	RevokedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RevokedAt *time.Time `json:"acm:CertificateDetail:RevokedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The serial number of the certificate.
-	Serial *string `type:"string"`
+	Serial *string `json:"acm:CertificateDetail:Serial" type:"string"`
 
 	// The algorithm that was used to sign the certificate.
-	SignatureAlgorithm *string `type:"string"`
+	SignatureAlgorithm *string `json:"acm:CertificateDetail:SignatureAlgorithm" type:"string"`
 
 	// The status of the certificate.
-	Status CertificateStatus `type:"string" enum:"true"`
+	Status CertificateStatus `json:"acm:CertificateDetail:Status" type:"string" enum:"true"`
 
 	// The name of the entity that is associated with the public key contained in
 	// the certificate.
-	Subject *string `type:"string"`
+	Subject *string `json:"acm:CertificateDetail:Subject" type:"string"`
 
 	// One or more domain names (subject alternative names) included in the certificate.
 	// This list contains the domain names that are bound to the public key that
 	// is contained in the certificate. The subject alternative names include the
 	// canonical domain name (CN) of the certificate and additional domain names
 	// that can be used to connect to the website.
-	SubjectAlternativeNames []string `min:"1" type:"list"`
+	SubjectAlternativeNames []string `json:"acm:CertificateDetail:SubjectAlternativeNames" min:"1" type:"list"`
 
 	// The source of the certificate. For certificates provided by ACM, this value
 	// is AMAZON_ISSUED. For certificates that you imported with ImportCertificate,
@@ -135,7 +135,7 @@ type CertificateDetail struct {
 	// certificates that you import and those that ACM provides, see Importing Certificates
 	// (https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html)
 	// in the AWS Certificate Manager User Guide.
-	Type CertificateType `type:"string" enum:"true"`
+	Type CertificateType `json:"acm:CertificateDetail:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -156,7 +156,7 @@ type CertificateOptions struct {
 
 	// You can opt out of certificate transparency logging by specifying the DISABLED
 	// option. Opt in by specifying ENABLED.
-	CertificateTransparencyLoggingPreference CertificateTransparencyLoggingPreference `type:"string" enum:"true"`
+	CertificateTransparencyLoggingPreference CertificateTransparencyLoggingPreference `json:"acm:CertificateOptions:CertificateTransparencyLoggingPreference" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -175,11 +175,11 @@ type CertificateSummary struct {
 	//
 	// For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
-	CertificateArn *string `min:"20" type:"string"`
+	CertificateArn *string `json:"acm:CertificateSummary:CertificateArn" min:"20" type:"string"`
 
 	// Fully qualified domain name (FQDN), such as www.example.com or example.com,
 	// for the certificate.
-	DomainName *string `min:"1" type:"string"`
+	DomainName *string `json:"acm:CertificateSummary:DomainName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -196,20 +196,20 @@ type DomainValidation struct {
 	// or example.com.
 	//
 	// DomainName is a required field
-	DomainName *string `min:"1" type:"string" required:"true"`
+	DomainName *string `json:"acm:DomainValidation:DomainName" min:"1" type:"string" required:"true"`
 
 	// Contains the CNAME record that you add to your DNS database for domain validation.
 	// For more information, see Use DNS to Validate Domain Ownership (https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html).
-	ResourceRecord *ResourceRecord `type:"structure"`
+	ResourceRecord *ResourceRecord `json:"acm:DomainValidation:ResourceRecord" type:"structure"`
 
 	// The domain name that ACM used to send domain validation emails.
-	ValidationDomain *string `min:"1" type:"string"`
+	ValidationDomain *string `json:"acm:DomainValidation:ValidationDomain" min:"1" type:"string"`
 
 	// A list of email addresses that ACM used to send domain validation emails.
-	ValidationEmails []string `type:"list"`
+	ValidationEmails []string `json:"acm:DomainValidation:ValidationEmails" type:"list"`
 
 	// Specifies the domain validation method.
-	ValidationMethod ValidationMethod `type:"string" enum:"true"`
+	ValidationMethod ValidationMethod `json:"acm:DomainValidation:ValidationMethod" type:"string" enum:"true"`
 
 	// The validation status of the domain name. This can be one of the following
 	// values:
@@ -219,7 +219,7 @@ type DomainValidation struct {
 	//    * SUCCESS
 	//
 	//    * FAILED
-	ValidationStatus DomainStatus `type:"string" enum:"true"`
+	ValidationStatus DomainStatus `json:"acm:DomainValidation:ValidationStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -236,7 +236,7 @@ type DomainValidationOption struct {
 	// A fully qualified domain name (FQDN) in the certificate request.
 	//
 	// DomainName is a required field
-	DomainName *string `min:"1" type:"string" required:"true"`
+	DomainName *string `json:"acm:DomainValidationOption:DomainName" min:"1" type:"string" required:"true"`
 
 	// The domain name that you want ACM to use to send you validation emails. This
 	// domain name is the suffix of the email addresses that you want ACM to use.
@@ -256,7 +256,7 @@ type DomainValidationOption struct {
 	//    * webmaster@example.com
 	//
 	// ValidationDomain is a required field
-	ValidationDomain *string `min:"1" type:"string" required:"true"`
+	ValidationDomain *string `json:"acm:DomainValidationOption:ValidationDomain" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -296,7 +296,7 @@ type ExtendedKeyUsage struct {
 	_ struct{} `type:"structure"`
 
 	// The name of an Extended Key Usage value.
-	Name ExtendedKeyUsageName `type:"string" enum:"true"`
+	Name ExtendedKeyUsageName `json:"acm:ExtendedKeyUsage:Name" type:"string" enum:"true"`
 
 	// An object identifier (OID) for the extension value. OIDs are strings of numbers
 	// separated by periods. The following OIDs are defined in RFC 3280 and RFC
@@ -319,7 +319,7 @@ type ExtendedKeyUsage struct {
 	//    * 1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)
 	//
 	//    * 1.3.6.1.5.5.7.3.7 (IPSEC_USER)
-	OID *string `type:"string"`
+	OID *string `json:"acm:ExtendedKeyUsage:OID" type:"string"`
 }
 
 // String returns the string representation
@@ -334,13 +334,13 @@ type Filters struct {
 	_ struct{} `type:"structure"`
 
 	// Specify one or more ExtendedKeyUsage extension values.
-	ExtendedKeyUsage []ExtendedKeyUsageName `locationName:"extendedKeyUsage" type:"list"`
+	ExtendedKeyUsage []ExtendedKeyUsageName `json:"acm:Filters:ExtendedKeyUsage" locationName:"extendedKeyUsage" type:"list"`
 
 	// Specify one or more algorithms that can be used to generate key pairs.
-	KeyTypes []KeyAlgorithm `locationName:"keyTypes" type:"list"`
+	KeyTypes []KeyAlgorithm `json:"acm:Filters:KeyTypes" locationName:"keyTypes" type:"list"`
 
 	// Specify one or more KeyUsage extension values.
-	KeyUsage []KeyUsageName `locationName:"keyUsage" type:"list"`
+	KeyUsage []KeyUsageName `json:"acm:Filters:KeyUsage" locationName:"keyUsage" type:"list"`
 }
 
 // String returns the string representation
@@ -355,7 +355,7 @@ type KeyUsage struct {
 	_ struct{} `type:"structure"`
 
 	// A string value that contains a Key Usage extension name.
-	Name KeyUsageName `type:"string" enum:"true"`
+	Name KeyUsageName `json:"acm:KeyUsage:Name" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -377,21 +377,21 @@ type RenewalSummary struct {
 	// type is AMAZON_ISSUED.
 	//
 	// DomainValidationOptions is a required field
-	DomainValidationOptions []DomainValidation `min:"1" type:"list" required:"true"`
+	DomainValidationOptions []DomainValidation `json:"acm:RenewalSummary:DomainValidationOptions" min:"1" type:"list" required:"true"`
 
 	// The status of ACM's managed renewal (https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html)
 	// of the certificate.
 	//
 	// RenewalStatus is a required field
-	RenewalStatus RenewalStatus `type:"string" required:"true" enum:"true"`
+	RenewalStatus RenewalStatus `json:"acm:RenewalSummary:RenewalStatus" type:"string" required:"true" enum:"true"`
 
 	// The reason that a renewal request was unsuccessful.
-	RenewalStatusReason FailureReason `type:"string" enum:"true"`
+	RenewalStatusReason FailureReason `json:"acm:RenewalSummary:RenewalStatusReason" type:"string" enum:"true"`
 
 	// The time at which the renewal summary was last updated.
 	//
 	// UpdatedAt is a required field
-	UpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdatedAt *time.Time `json:"acm:RenewalSummary:UpdatedAt" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -409,18 +409,18 @@ type ResourceRecord struct {
 	// ACM.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"acm:ResourceRecord:Name" type:"string" required:"true"`
 
 	// The type of DNS record. Currently this can be CNAME.
 	//
 	// Type is a required field
-	Type RecordType `type:"string" required:"true" enum:"true"`
+	Type RecordType `json:"acm:ResourceRecord:Type" type:"string" required:"true" enum:"true"`
 
 	// The value of the CNAME record to add to your DNS database. This is supplied
 	// by ACM.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"acm:ResourceRecord:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -436,10 +436,10 @@ type Tag struct {
 	// The key of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"acm:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag.
-	Value *string `type:"string"`
+	Value *string `json:"acm:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

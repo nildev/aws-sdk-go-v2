@@ -61,14 +61,14 @@ type CreateSnapshotFromVolumeRecoveryPointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the snapshot.
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"storagegateway:CreateSnapshotFromVolumeRecoveryPointOutput:SnapshotId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the iSCSI volume target. Use the DescribeStorediSCSIVolumes
 	// operation to return to retrieve the TargetARN for specified VolumeARN.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:CreateSnapshotFromVolumeRecoveryPointOutput:VolumeARN" min:"50" type:"string"`
 
 	// The time the volume was created from the recovery point.
-	VolumeRecoveryPointTime *string `type:"string"`
+	VolumeRecoveryPointTime *string `json:"storagegateway:CreateSnapshotFromVolumeRecoveryPointOutput:VolumeRecoveryPointTime" type:"string"`
 }
 
 // String returns the string representation

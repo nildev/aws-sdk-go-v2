@@ -60,7 +60,7 @@ type UpdateOrganizationalUnitOutput struct {
 
 	// A structure that contains the details about the specified OU, including its
 	// new name.
-	OrganizationalUnit *OrganizationalUnit `type:"structure"`
+	OrganizationalUnit *OrganizationalUnit `json:"organizations:UpdateOrganizationalUnitOutput:OrganizationalUnit" type:"structure"`
 }
 
 // String returns the string representation

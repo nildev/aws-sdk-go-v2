@@ -19,31 +19,31 @@ type Event struct {
 	// The key-value pairs are specified by the developer.
 	//
 	// This collection can be empty or the attribute object can be omitted.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"mobileanalytics:Event:Attributes" locationName:"attributes" type:"map"`
 
 	// A name signifying an event that occurred in your app. This is used for grouping
 	// and aggregating like events together for reporting purposes.
 	//
 	// EventType is a required field
-	EventType *string `locationName:"eventType" min:"1" type:"string" required:"true"`
+	EventType *string `json:"mobileanalytics:Event:EventType" locationName:"eventType" min:"1" type:"string" required:"true"`
 
 	// A collection of key-value pairs that gives additional, measurable context
 	// to the event. The key-value pairs are specified by the developer.
 	//
 	// This collection can be empty or the attribute object can be omitted.
-	Metrics map[string]float64 `locationName:"metrics" type:"map"`
+	Metrics map[string]float64 `json:"mobileanalytics:Event:Metrics" locationName:"metrics" type:"map"`
 
 	// The session the event occured within.
-	Session *Session `locationName:"session" type:"structure"`
+	Session *Session `json:"mobileanalytics:Event:Session" locationName:"session" type:"structure"`
 
 	// The time the event occurred in ISO 8601 standard date time format. For example,
 	// 2014-06-30T19:07:47.885Z
 	//
 	// Timestamp is a required field
-	Timestamp *string `locationName:"timestamp" type:"string" required:"true"`
+	Timestamp *string `json:"mobileanalytics:Event:Timestamp" locationName:"timestamp" type:"string" required:"true"`
 
 	// The version of the event.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"mobileanalytics:Event:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -138,18 +138,18 @@ type Session struct {
 	_ struct{} `type:"structure"`
 
 	// The duration of the session.
-	Duration *int64 `locationName:"duration" type:"long"`
+	Duration *int64 `json:"mobileanalytics:Session:Duration" locationName:"duration" type:"long"`
 
 	// A unique identifier for the session
-	Id *string `locationName:"id" min:"1" type:"string"`
+	Id *string `json:"mobileanalytics:Session:Id" locationName:"id" min:"1" type:"string"`
 
 	// The time the event started in ISO 8601 standard date time format. For example,
 	// 2014-06-30T19:07:47.885Z
-	StartTimestamp *string `locationName:"startTimestamp" type:"string"`
+	StartTimestamp *string `json:"mobileanalytics:Session:StartTimestamp" locationName:"startTimestamp" type:"string"`
 
 	// The time the event terminated in ISO 8601 standard date time format. For
 	// example, 2014-06-30T19:07:47.885Z
-	StopTimestamp *string `locationName:"stopTimestamp" type:"string"`
+	StopTimestamp *string `json:"mobileanalytics:Session:StopTimestamp" locationName:"stopTimestamp" type:"string"`
 }
 
 // String returns the string representation

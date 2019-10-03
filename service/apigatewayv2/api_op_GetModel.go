@@ -68,19 +68,19 @@ type GetModelOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A string with a length between [1-256].
-	ContentType *string `locationName:"contentType" type:"string"`
+	ContentType *string `json:"apigateway:GetModelOutput:ContentType" locationName:"contentType" type:"string"`
 
 	// A string with a length between [0-1024].
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:GetModelOutput:Description" locationName:"description" type:"string"`
 
 	// The identifier.
-	ModelId *string `locationName:"modelId" type:"string"`
+	ModelId *string `json:"apigateway:GetModelOutput:ModelId" locationName:"modelId" type:"string"`
 
 	// A string with a length between [1-128].
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:GetModelOutput:Name" locationName:"name" type:"string"`
 
 	// A string with a length between [0-32768].
-	Schema *string `locationName:"schema" type:"string"`
+	Schema *string `json:"apigateway:GetModelOutput:Schema" locationName:"schema" type:"string"`
 }
 
 // String returns the string representation

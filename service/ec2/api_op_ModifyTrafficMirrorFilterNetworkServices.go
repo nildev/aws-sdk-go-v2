@@ -55,7 +55,7 @@ type ModifyTrafficMirrorFilterNetworkServicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Traffic Mirror filter that the network service is associated with.
-	TrafficMirrorFilter *TrafficMirrorFilter `locationName:"trafficMirrorFilter" type:"structure"`
+	TrafficMirrorFilter *TrafficMirrorFilter `json:"ec2:ModifyTrafficMirrorFilterNetworkServicesOutput:TrafficMirrorFilter" locationName:"trafficMirrorFilter" type:"structure"`
 }
 
 // String returns the string representation

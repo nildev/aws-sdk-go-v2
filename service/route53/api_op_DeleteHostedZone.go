@@ -61,7 +61,7 @@ type DeleteHostedZoneOutput struct {
 	// a request to delete a hosted zone.
 	//
 	// ChangeInfo is a required field
-	ChangeInfo *ChangeInfo `type:"structure" required:"true"`
+	ChangeInfo *ChangeInfo `json:"route53:DeleteHostedZoneOutput:ChangeInfo" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -43,7 +43,7 @@ type DeleteClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the DAX cluster that is being deleted.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"dax:DeleteClusterOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

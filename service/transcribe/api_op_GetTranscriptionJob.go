@@ -46,7 +46,7 @@ type GetTranscriptionJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that contains the results of the transcription job.
-	TranscriptionJob *TranscriptionJob `type:"structure"`
+	TranscriptionJob *TranscriptionJob `json:"transcribe:GetTranscriptionJobOutput:TranscriptionJob" type:"structure"`
 }
 
 // String returns the string representation

@@ -59,7 +59,7 @@ type VerifyDomainIdentityOutput struct {
 	// process from the beginning.
 	//
 	// VerificationToken is a required field
-	VerificationToken *string `type:"string" required:"true"`
+	VerificationToken *string `json:"email:VerifyDomainIdentityOutput:VerificationToken" type:"string" required:"true"`
 }
 
 // String returns the string representation

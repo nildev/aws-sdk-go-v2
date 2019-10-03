@@ -86,7 +86,7 @@ type GetCampaignActivitiesOutput struct {
 	// Provides information about the activities that were performed by a campaign.
 	//
 	// ActivitiesResponse is a required field
-	ActivitiesResponse *ActivitiesResponse `type:"structure" required:"true"`
+	ActivitiesResponse *ActivitiesResponse `json:"pinpoint:GetCampaignActivitiesOutput:ActivitiesResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

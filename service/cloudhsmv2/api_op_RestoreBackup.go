@@ -44,7 +44,7 @@ type RestoreBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information on the Backup object created.
-	Backup *Backup `type:"structure"`
+	Backup *Backup `json:"cloudhsmv2:RestoreBackupOutput:Backup" type:"structure"`
 }
 
 // String returns the string representation

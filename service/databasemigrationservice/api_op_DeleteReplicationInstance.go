@@ -43,7 +43,7 @@ type DeleteReplicationInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The replication instance that was deleted.
-	ReplicationInstance *ReplicationInstance `type:"structure"`
+	ReplicationInstance *ReplicationInstance `json:"dms:DeleteReplicationInstanceOutput:ReplicationInstance" type:"structure"`
 }
 
 // String returns the string representation

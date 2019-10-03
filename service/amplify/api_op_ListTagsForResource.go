@@ -59,7 +59,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Tags result for response.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"amplify:ListTagsForResourceOutput:Tags" locationName:"tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

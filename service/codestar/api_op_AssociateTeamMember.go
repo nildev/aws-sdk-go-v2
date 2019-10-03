@@ -82,7 +82,7 @@ type AssociateTeamMemberOutput struct {
 
 	// The user- or system-generated token from the initial request that can be
 	// used to repeat the request.
-	ClientRequestToken *string `locationName:"clientRequestToken" min:"1" type:"string"`
+	ClientRequestToken *string `json:"codestar:AssociateTeamMemberOutput:ClientRequestToken" locationName:"clientRequestToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

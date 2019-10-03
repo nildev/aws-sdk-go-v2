@@ -57,10 +57,10 @@ type DescribeIndexOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The index name.
-	IndexName *string `locationName:"indexName" min:"1" type:"string"`
+	IndexName *string `json:"iot:DescribeIndexOutput:IndexName" locationName:"indexName" min:"1" type:"string"`
 
 	// The index status.
-	IndexStatus IndexStatus `locationName:"indexStatus" type:"string" enum:"true"`
+	IndexStatus IndexStatus `json:"iot:DescribeIndexOutput:IndexStatus" locationName:"indexStatus" type:"string" enum:"true"`
 
 	// Contains a value that specifies the type of indexing performed. Valid values
 	// are:
@@ -75,7 +75,7 @@ type DescribeIndexOutput struct {
 	//
 	//    * REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains
 	//    registry data, shadow data, and thing connectivity status data.
-	Schema *string `locationName:"schema" type:"string"`
+	Schema *string `json:"iot:DescribeIndexOutput:Schema" locationName:"schema" type:"string"`
 }
 
 // String returns the string representation

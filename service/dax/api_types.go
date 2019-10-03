@@ -19,66 +19,66 @@ type Cluster struct {
 
 	// The number of nodes in the cluster that are active (i.e., capable of serving
 	// requests).
-	ActiveNodes *int64 `type:"integer"`
+	ActiveNodes *int64 `json:"dax:Cluster:ActiveNodes" type:"integer"`
 
 	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-	ClusterArn *string `type:"string"`
+	ClusterArn *string `json:"dax:Cluster:ClusterArn" type:"string"`
 
 	// The configuration endpoint for this DAX cluster, consisting of a DNS name
 	// and a port number. Client applications can specify this endpoint, rather
 	// than an individual node endpoint, and allow the DAX client software to intelligently
 	// route requests and responses to nodes in the DAX cluster.
-	ClusterDiscoveryEndpoint *Endpoint `type:"structure"`
+	ClusterDiscoveryEndpoint *Endpoint `json:"dax:Cluster:ClusterDiscoveryEndpoint" type:"structure"`
 
 	// The name of the DAX cluster.
-	ClusterName *string `type:"string"`
+	ClusterName *string `json:"dax:Cluster:ClusterName" type:"string"`
 
 	// The description of the cluster.
-	Description *string `type:"string"`
+	Description *string `json:"dax:Cluster:Description" type:"string"`
 
 	// A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime,
 	// DAX will assume this role and use the role's permissions to access DynamoDB
 	// on your behalf.
-	IamRoleArn *string `type:"string"`
+	IamRoleArn *string `json:"dax:Cluster:IamRoleArn" type:"string"`
 
 	// A list of nodes to be removed from the cluster.
-	NodeIdsToRemove []string `type:"list"`
+	NodeIdsToRemove []string `json:"dax:Cluster:NodeIdsToRemove" type:"list"`
 
 	// The node type for the nodes in the cluster. (All nodes in a DAX cluster are
 	// of the same type.)
-	NodeType *string `type:"string"`
+	NodeType *string `json:"dax:Cluster:NodeType" type:"string"`
 
 	// A list of nodes that are currently in the cluster.
-	Nodes []Node `type:"list"`
+	Nodes []Node `json:"dax:Cluster:Nodes" type:"list"`
 
 	// Describes a notification topic and its status. Notification topics are used
 	// for publishing DAX events to subscribers using Amazon Simple Notification
 	// Service (SNS).
-	NotificationConfiguration *NotificationConfiguration `type:"structure"`
+	NotificationConfiguration *NotificationConfiguration `json:"dax:Cluster:NotificationConfiguration" type:"structure"`
 
 	// The parameter group being used by nodes in the cluster.
-	ParameterGroup *ParameterGroupStatus `type:"structure"`
+	ParameterGroup *ParameterGroupStatus `json:"dax:Cluster:ParameterGroup" type:"structure"`
 
 	// A range of time when maintenance of DAX cluster software will be performed.
 	// For example: sun:01:00-sun:09:00. Cluster maintenance normally takes less
 	// than 30 minutes, and is performed automatically within the maintenance window.
-	PreferredMaintenanceWindow *string `type:"string"`
+	PreferredMaintenanceWindow *string `json:"dax:Cluster:PreferredMaintenanceWindow" type:"string"`
 
 	// The description of the server-side encryption status on the specified DAX
 	// cluster.
-	SSEDescription *SSEDescription `type:"structure"`
+	SSEDescription *SSEDescription `json:"dax:Cluster:SSEDescription" type:"structure"`
 
 	// A list of security groups, and the status of each, for the nodes in the cluster.
-	SecurityGroups []SecurityGroupMembership `type:"list"`
+	SecurityGroups []SecurityGroupMembership `json:"dax:Cluster:SecurityGroups" type:"list"`
 
 	// The current status of the cluster.
-	Status *string `type:"string"`
+	Status *string `json:"dax:Cluster:Status" type:"string"`
 
 	// The subnet group where the DAX cluster is running.
-	SubnetGroup *string `type:"string"`
+	SubnetGroup *string `json:"dax:Cluster:SubnetGroup" type:"string"`
 
 	// The total number of nodes in the cluster.
-	TotalNodes *int64 `type:"integer"`
+	TotalNodes *int64 `json:"dax:Cluster:TotalNodes" type:"integer"`
 }
 
 // String returns the string representation
@@ -94,10 +94,10 @@ type Endpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The DNS hostname of the endpoint.
-	Address *string `type:"string"`
+	Address *string `json:"dax:Endpoint:Address" type:"string"`
 
 	// The port number that applications should use to connect to the endpoint.
-	Port *int64 `type:"integer"`
+	Port *int64 `json:"dax:Endpoint:Port" type:"integer"`
 }
 
 // String returns the string representation
@@ -113,18 +113,18 @@ type Event struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the event occurred.
-	Date *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Date *time.Time `json:"dax:Event:Date" type:"timestamp" timestampFormat:"unix"`
 
 	// A user-defined message associated with the event.
-	Message *string `type:"string"`
+	Message *string `json:"dax:Event:Message" type:"string"`
 
 	// The source of the event. For example, if the event occurred at the node level,
 	// the source would be the node ID.
-	SourceName *string `type:"string"`
+	SourceName *string `json:"dax:Event:SourceName" type:"string"`
 
 	// Specifies the origin of this event - a cluster, a parameter group, a node
 	// ID, etc.
-	SourceType SourceType `type:"string" enum:"true"`
+	SourceType SourceType `json:"dax:Event:SourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -138,26 +138,26 @@ type Node struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone (AZ) in which the node has been deployed.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"dax:Node:AvailabilityZone" type:"string"`
 
 	// The endpoint for the node, consisting of a DNS name and a port number. Client
 	// applications can connect directly to a node endpoint, if desired (as an alternative
 	// to allowing DAX client software to intelligently route requests and responses
 	// to nodes in the DAX cluster.
-	Endpoint *Endpoint `type:"structure"`
+	Endpoint *Endpoint `json:"dax:Node:Endpoint" type:"structure"`
 
 	// The date and time (in UNIX epoch format) when the node was launched.
-	NodeCreateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	NodeCreateTime *time.Time `json:"dax:Node:NodeCreateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A system-generated identifier for the node.
-	NodeId *string `type:"string"`
+	NodeId *string `json:"dax:Node:NodeId" type:"string"`
 
 	// The current status of the node. For example: available.
-	NodeStatus *string `type:"string"`
+	NodeStatus *string `json:"dax:Node:NodeStatus" type:"string"`
 
 	// The status of the parameter group associated with this node. For example,
 	// in-sync.
-	ParameterGroupStatus *string `type:"string"`
+	ParameterGroupStatus *string `json:"dax:Node:ParameterGroupStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -171,10 +171,10 @@ type NodeTypeSpecificValue struct {
 	_ struct{} `type:"structure"`
 
 	// A node type to which the parameter value applies.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"dax:NodeTypeSpecificValue:NodeType" type:"string"`
 
 	// The parameter value for this node type.
-	Value *string `type:"string"`
+	Value *string `json:"dax:NodeTypeSpecificValue:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -190,10 +190,10 @@ type NotificationConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) that identifies the topic.
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"dax:NotificationConfiguration:TopicArn" type:"string"`
 
 	// The current state of the topic.
-	TopicStatus *string `type:"string"`
+	TopicStatus *string `json:"dax:NotificationConfiguration:TopicStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -207,38 +207,38 @@ type Parameter struct {
 	_ struct{} `type:"structure"`
 
 	// A range of values within which the parameter can be set.
-	AllowedValues *string `type:"string"`
+	AllowedValues *string `json:"dax:Parameter:AllowedValues" type:"string"`
 
 	// The conditions under which changes to this parameter can be applied. For
 	// example, requires-reboot indicates that a new value for this parameter will
 	// only take effect if a node is rebooted.
-	ChangeType ChangeType `type:"string" enum:"true"`
+	ChangeType ChangeType `json:"dax:Parameter:ChangeType" type:"string" enum:"true"`
 
 	// The data type of the parameter. For example, integer:
-	DataType *string `type:"string"`
+	DataType *string `json:"dax:Parameter:DataType" type:"string"`
 
 	// A description of the parameter
-	Description *string `type:"string"`
+	Description *string `json:"dax:Parameter:Description" type:"string"`
 
 	// Whether the customer is allowed to modify the parameter.
-	IsModifiable IsModifiable `type:"string" enum:"true"`
+	IsModifiable IsModifiable `json:"dax:Parameter:IsModifiable" type:"string" enum:"true"`
 
 	// A list of node types, and specific parameter values for each node.
-	NodeTypeSpecificValues []NodeTypeSpecificValue `type:"list"`
+	NodeTypeSpecificValues []NodeTypeSpecificValue `json:"dax:Parameter:NodeTypeSpecificValues" type:"list"`
 
 	// The name of the parameter.
-	ParameterName *string `type:"string"`
+	ParameterName *string `json:"dax:Parameter:ParameterName" type:"string"`
 
 	// Determines whether the parameter can be applied to any nodes, or only nodes
 	// of a particular type.
-	ParameterType ParameterType `type:"string" enum:"true"`
+	ParameterType ParameterType `json:"dax:Parameter:ParameterType" type:"string" enum:"true"`
 
 	// The value for the parameter.
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `json:"dax:Parameter:ParameterValue" type:"string"`
 
 	// How the parameter is defined. For example, system denotes a system-defined
 	// parameter.
-	Source *string `type:"string"`
+	Source *string `json:"dax:Parameter:Source" type:"string"`
 }
 
 // String returns the string representation
@@ -252,10 +252,10 @@ type ParameterGroup struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the parameter group.
-	Description *string `type:"string"`
+	Description *string `json:"dax:ParameterGroup:Description" type:"string"`
 
 	// The name of the parameter group.
-	ParameterGroupName *string `type:"string"`
+	ParameterGroupName *string `json:"dax:ParameterGroup:ParameterGroupName" type:"string"`
 }
 
 // String returns the string representation
@@ -269,13 +269,13 @@ type ParameterGroupStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The node IDs of one or more nodes to be rebooted.
-	NodeIdsToReboot []string `type:"list"`
+	NodeIdsToReboot []string `json:"dax:ParameterGroupStatus:NodeIdsToReboot" type:"list"`
 
 	// The status of parameter updates.
-	ParameterApplyStatus *string `type:"string"`
+	ParameterApplyStatus *string `json:"dax:ParameterGroupStatus:ParameterApplyStatus" type:"string"`
 
 	// The name of the parameter group.
-	ParameterGroupName *string `type:"string"`
+	ParameterGroupName *string `json:"dax:ParameterGroupStatus:ParameterGroupName" type:"string"`
 }
 
 // String returns the string representation
@@ -289,10 +289,10 @@ type ParameterNameValue struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the parameter.
-	ParameterName *string `type:"string"`
+	ParameterName *string `json:"dax:ParameterNameValue:ParameterName" type:"string"`
 
 	// The value of the parameter.
-	ParameterValue *string `type:"string"`
+	ParameterValue *string `json:"dax:ParameterNameValue:ParameterValue" type:"string"`
 }
 
 // String returns the string representation
@@ -315,7 +315,7 @@ type SSEDescription struct {
 	//    * DISABLING - Server-side encryption is being disabled.
 	//
 	//    * DISABLED - Server-side encryption is disabled.
-	Status SSEStatus `type:"string" enum:"true"`
+	Status SSEStatus `json:"dax:SSEDescription:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -332,7 +332,7 @@ type SSESpecification struct {
 	// on the cluster.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"dax:SSESpecification:Enabled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -360,10 +360,10 @@ type SecurityGroupMembership struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID for this security group.
-	SecurityGroupIdentifier *string `type:"string"`
+	SecurityGroupIdentifier *string `json:"dax:SecurityGroupMembership:SecurityGroupIdentifier" type:"string"`
 
 	// The status of this security group.
-	Status *string `type:"string"`
+	Status *string `json:"dax:SecurityGroupMembership:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -379,10 +379,10 @@ type Subnet struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone (AZ) for subnet subnet.
-	SubnetAvailabilityZone *string `type:"string"`
+	SubnetAvailabilityZone *string `json:"dax:Subnet:SubnetAvailabilityZone" type:"string"`
 
 	// The system-assigned identifier for the subnet.
-	SubnetIdentifier *string `type:"string"`
+	SubnetIdentifier *string `json:"dax:Subnet:SubnetIdentifier" type:"string"`
 }
 
 // String returns the string representation
@@ -400,16 +400,16 @@ type SubnetGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the subnet group.
-	Description *string `type:"string"`
+	Description *string `json:"dax:SubnetGroup:Description" type:"string"`
 
 	// The name of the subnet group.
-	SubnetGroupName *string `type:"string"`
+	SubnetGroupName *string `json:"dax:SubnetGroup:SubnetGroupName" type:"string"`
 
 	// A list of subnets associated with the subnet group.
-	Subnets []Subnet `type:"list"`
+	Subnets []Subnet `json:"dax:SubnetGroup:Subnets" type:"list"`
 
 	// The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"dax:SubnetGroup:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -432,10 +432,10 @@ type Tag struct {
 	// The key for the tag. Tag keys are case sensitive. Every DAX cluster can only
 	// have one tag with the same key. If you try to add an existing tag (same key),
 	// the existing tag value will be updated to the new value.
-	Key *string `type:"string"`
+	Key *string `json:"dax:Tag:Key" type:"string"`
 
 	// The value of the tag. Tag values are case-sensitive and can be null.
-	Value *string `type:"string"`
+	Value *string `json:"dax:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

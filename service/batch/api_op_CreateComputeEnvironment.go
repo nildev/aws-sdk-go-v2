@@ -128,10 +128,10 @@ type CreateComputeEnvironmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the compute environment.
-	ComputeEnvironmentArn *string `locationName:"computeEnvironmentArn" type:"string"`
+	ComputeEnvironmentArn *string `json:"batch:CreateComputeEnvironmentOutput:ComputeEnvironmentArn" locationName:"computeEnvironmentArn" type:"string"`
 
 	// The name of the compute environment.
-	ComputeEnvironmentName *string `locationName:"computeEnvironmentName" type:"string"`
+	ComputeEnvironmentName *string `json:"batch:CreateComputeEnvironmentOutput:ComputeEnvironmentName" locationName:"computeEnvironmentName" type:"string"`
 }
 
 // String returns the string representation

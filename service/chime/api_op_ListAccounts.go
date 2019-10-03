@@ -83,10 +83,10 @@ type ListAccountsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of Amazon Chime accounts and account details.
-	Accounts []Account `type:"list"`
+	Accounts []Account `json:"chime:ListAccountsOutput:Accounts" type:"list"`
 
 	// The token to use to retrieve the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"chime:ListAccountsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

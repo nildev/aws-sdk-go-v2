@@ -75,7 +75,7 @@ type ApplyPendingMaintenanceActionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the pending maintenance actions for a resource.
-	ResourcePendingMaintenanceActions *ResourcePendingMaintenanceActions `type:"structure"`
+	ResourcePendingMaintenanceActions *ResourcePendingMaintenanceActions `json:"rds:ApplyPendingMaintenanceActionOutput:ResourcePendingMaintenanceActions" type:"structure"`
 }
 
 // String returns the string representation

@@ -24,10 +24,10 @@ type GetAdminAccountOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account that is set as the AWS Firewall Manager administrator.
-	AdminAccount *string `min:"1" type:"string"`
+	AdminAccount *string `json:"fms:GetAdminAccountOutput:AdminAccount" min:"1" type:"string"`
 
 	// The status of the AWS account that you set as the AWS Firewall Manager administrator.
-	RoleStatus AccountRoleStatus `type:"string" enum:"true"`
+	RoleStatus AccountRoleStatus `json:"fms:GetAdminAccountOutput:RoleStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

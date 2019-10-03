@@ -28,11 +28,11 @@ type GetCloudFormationStackRecordsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of objects describing the CloudFormation stack records.
-	CloudFormationStackRecords []CloudFormationStackRecord `locationName:"cloudFormationStackRecords" type:"list"`
+	CloudFormationStackRecords []CloudFormationStackRecord `json:"lightsail:GetCloudFormationStackRecordsOutput:CloudFormationStackRecords" locationName:"cloudFormationStackRecords" type:"list"`
 
 	// A token used for advancing to the next page of results of your get relational
 	// database bundles request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetCloudFormationStackRecordsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

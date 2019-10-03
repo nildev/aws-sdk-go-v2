@@ -82,29 +82,29 @@ type UpdateVpcLinkOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the VPC link.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:UpdateVpcLinkOutput:Description" locationName:"description" type:"string"`
 
 	// The identifier of the VpcLink. It is used in an Integration to reference
 	// this VpcLink.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:UpdateVpcLinkOutput:Id" locationName:"id" type:"string"`
 
 	// The name used to label and identify the VPC link.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:UpdateVpcLinkOutput:Name" locationName:"name" type:"string"`
 
 	// The status of the VPC link. The valid values are AVAILABLE, PENDING, DELETING,
 	// or FAILED. Deploying an API will wait if the status is PENDING and will fail
 	// if the status is DELETING.
-	Status VpcLinkStatus `locationName:"status" type:"string" enum:"true"`
+	Status VpcLinkStatus `json:"apigateway:UpdateVpcLinkOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A description about the VPC link status.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"apigateway:UpdateVpcLinkOutput:StatusMessage" locationName:"statusMessage" type:"string"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:UpdateVpcLinkOutput:Tags" locationName:"tags" type:"map"`
 
 	// The ARNs of network load balancers of the VPC targeted by the VPC link. The
 	// network load balancers must be owned by the same AWS account of the API owner.
-	TargetArns []string `locationName:"targetArns" type:"list"`
+	TargetArns []string `json:"apigateway:UpdateVpcLinkOutput:TargetArns" locationName:"targetArns" type:"list"`
 }
 
 // String returns the string representation

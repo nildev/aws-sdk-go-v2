@@ -68,11 +68,11 @@ type ListAliasesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The entity's paginated aliases.
-	Aliases []string `type:"list"`
+	Aliases []string `json:"workmail:ListAliasesOutput:Aliases" type:"list"`
 
 	// The token to use to retrieve the next page of results. The value is "null"
 	// when there are no more results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workmail:ListAliasesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -212,7 +212,7 @@ type PutParameterOutput struct {
 	// Systems Manager documents (SSM documents). By default, if you don't specify
 	// a specific version, the system returns the latest parameter value when a
 	// parameter is called.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"ssm:PutParameterOutput:Version" type:"long"`
 }
 
 // String returns the string representation

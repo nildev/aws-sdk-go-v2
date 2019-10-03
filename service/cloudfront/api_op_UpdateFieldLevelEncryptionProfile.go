@@ -86,10 +86,10 @@ type UpdateFieldLevelEncryptionProfileOutput struct {
 	_ struct{} `type:"structure" payload:"FieldLevelEncryptionProfile"`
 
 	// The result of the field-level encryption profile request.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:UpdateFieldLevelEncryptionProfileOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// Return the results of updating the profile.
-	FieldLevelEncryptionProfile *FieldLevelEncryptionProfile `type:"structure"`
+	FieldLevelEncryptionProfile *FieldLevelEncryptionProfile `json:"cloudfront:UpdateFieldLevelEncryptionProfileOutput:FieldLevelEncryptionProfile" type:"structure"`
 }
 
 // String returns the string representation

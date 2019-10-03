@@ -43,7 +43,7 @@ type GetQueryExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the query execution.
-	QueryExecution *QueryExecution `type:"structure"`
+	QueryExecution *QueryExecution `json:"athena:GetQueryExecutionOutput:QueryExecution" type:"structure"`
 }
 
 // String returns the string representation

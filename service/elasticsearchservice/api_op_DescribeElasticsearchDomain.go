@@ -62,7 +62,7 @@ type DescribeElasticsearchDomainOutput struct {
 	// The current status of the Elasticsearch domain.
 	//
 	// DomainStatus is a required field
-	DomainStatus *ElasticsearchDomainStatus `type:"structure" required:"true"`
+	DomainStatus *ElasticsearchDomainStatus `json:"es:DescribeElasticsearchDomainOutput:DomainStatus" type:"structure" required:"true"`
 }
 
 // String returns the string representation

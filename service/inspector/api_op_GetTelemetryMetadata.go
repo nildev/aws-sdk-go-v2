@@ -49,7 +49,7 @@ type GetTelemetryMetadataOutput struct {
 	// Telemetry details.
 	//
 	// TelemetryMetadata is a required field
-	TelemetryMetadata []TelemetryMetadata `locationName:"telemetryMetadata" type:"list" required:"true"`
+	TelemetryMetadata []TelemetryMetadata `json:"inspector:GetTelemetryMetadataOutput:TelemetryMetadata" locationName:"telemetryMetadata" type:"list" required:"true"`
 }
 
 // String returns the string representation

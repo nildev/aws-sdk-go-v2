@@ -45,7 +45,7 @@ type UpdateAcceleratorAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Updated attributes for the accelerator.
-	AcceleratorAttributes *AcceleratorAttributes `type:"structure"`
+	AcceleratorAttributes *AcceleratorAttributes `json:"globalaccelerator:UpdateAcceleratorAttributesOutput:AcceleratorAttributes" type:"structure"`
 }
 
 // String returns the string representation

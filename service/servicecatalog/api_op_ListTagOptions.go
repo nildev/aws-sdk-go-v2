@@ -51,10 +51,10 @@ type ListTagOptionsOutput struct {
 
 	// The page token for the next set of results. To retrieve the first set of
 	// results, use null.
-	PageToken *string `type:"string"`
+	PageToken *string `json:"servicecatalog:ListTagOptionsOutput:PageToken" type:"string"`
 
 	// Information about the TagOptions.
-	TagOptionDetails []TagOptionDetail `type:"list"`
+	TagOptionDetails []TagOptionDetail `json:"servicecatalog:ListTagOptionsOutput:TagOptionDetails" type:"list"`
 }
 
 // String returns the string representation

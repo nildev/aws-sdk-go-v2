@@ -130,7 +130,7 @@ type UpdateMatchmakingConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that describes the updated matchmaking configuration.
-	Configuration *MatchmakingConfiguration `type:"structure"`
+	Configuration *MatchmakingConfiguration `json:"gamelift:UpdateMatchmakingConfigurationOutput:Configuration" type:"structure"`
 }
 
 // String returns the string representation

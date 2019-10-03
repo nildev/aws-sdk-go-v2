@@ -148,17 +148,17 @@ type CreateIntegrationResponseOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies how to handle response payload content type conversions.
-	ContentHandlingStrategy ContentHandlingStrategy `locationName:"contentHandlingStrategy" type:"string" enum:"true"`
+	ContentHandlingStrategy ContentHandlingStrategy `json:"apigateway:CreateIntegrationResponseOutput:ContentHandlingStrategy" locationName:"contentHandlingStrategy" type:"string" enum:"true"`
 
 	// The identifier.
-	IntegrationResponseId *string `locationName:"integrationResponseId" type:"string"`
+	IntegrationResponseId *string `json:"apigateway:CreateIntegrationResponseOutput:IntegrationResponseId" locationName:"integrationResponseId" type:"string"`
 
 	// After evaulating a selection expression, the result is compared against one
 	// or more selection keys to find a matching key. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for a list of expressions and each expression's associated selection key
 	// type.
-	IntegrationResponseKey *string `locationName:"integrationResponseKey" type:"string"`
+	IntegrationResponseKey *string `json:"apigateway:CreateIntegrationResponseOutput:IntegrationResponseKey" locationName:"integrationResponseKey" type:"string"`
 
 	// A key-value map specifying response parameters that are passed to the method
 	// response from the backend. The key is a method response header parameter
@@ -170,17 +170,17 @@ type CreateIntegrationResponseOutput struct {
 	// or integration.response.body.{JSON-expression}, where name is a valid and
 	// unique response header name and JSON-expression is a valid JSON expression
 	// without the $ prefix.
-	ResponseParameters map[string]string `locationName:"responseParameters" type:"map"`
+	ResponseParameters map[string]string `json:"apigateway:CreateIntegrationResponseOutput:ResponseParameters" locationName:"responseParameters" type:"map"`
 
 	// A mapping of identifier keys to templates. The value is an actual template
 	// script. The key is typically a SelectionKey which is chosen based on evaluating
 	// a selection expression.
-	ResponseTemplates map[string]string `locationName:"responseTemplates" type:"map"`
+	ResponseTemplates map[string]string `json:"apigateway:CreateIntegrationResponseOutput:ResponseTemplates" locationName:"responseTemplates" type:"map"`
 
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	TemplateSelectionExpression *string `locationName:"templateSelectionExpression" type:"string"`
+	TemplateSelectionExpression *string `json:"apigateway:CreateIntegrationResponseOutput:TemplateSelectionExpression" locationName:"templateSelectionExpression" type:"string"`
 }
 
 // String returns the string representation

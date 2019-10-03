@@ -112,11 +112,11 @@ type CreateUnreferencedMergeCommitOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full commit ID of the commit that contains your merge results.
-	CommitId *string `locationName:"commitId" type:"string"`
+	CommitId *string `json:"codecommit:CreateUnreferencedMergeCommitOutput:CommitId" locationName:"commitId" type:"string"`
 
 	// The full SHA-1 pointer of the tree information for the commit that contains
 	// the merge results.
-	TreeId *string `locationName:"treeId" type:"string"`
+	TreeId *string `json:"codecommit:CreateUnreferencedMergeCommitOutput:TreeId" locationName:"treeId" type:"string"`
 }
 
 // String returns the string representation

@@ -74,11 +74,11 @@ type ListCommandInvocationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// (Optional) A list of all invocations.
-	CommandInvocations []CommandInvocation `type:"list"`
+	CommandInvocations []CommandInvocation `json:"ssm:ListCommandInvocationsOutput:CommandInvocations" type:"list"`
 
 	// (Optional) The token for the next set of items to return. (You received this
 	// token from a previous call.)
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListCommandInvocationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

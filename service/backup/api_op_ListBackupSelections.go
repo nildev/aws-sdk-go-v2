@@ -82,13 +82,13 @@ type ListBackupSelectionsOutput struct {
 
 	// An array of backup selection list items containing metadata about each resource
 	// in the list.
-	BackupSelectionsList []BackupSelectionsListMember `type:"list"`
+	BackupSelectionsList []BackupSelectionsListMember `json:"backup:ListBackupSelectionsOutput:BackupSelectionsList" type:"list"`
 
 	// The next item following a partial list of returned items. For example, if
 	// a request is made to return maxResults number of items, NextToken allows
 	// you to return more items in your list starting at the location pointed to
 	// by the next token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"backup:ListBackupSelectionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

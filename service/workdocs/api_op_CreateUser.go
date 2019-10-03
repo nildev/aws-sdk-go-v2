@@ -172,7 +172,7 @@ type CreateUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user information.
-	User *User `type:"structure"`
+	User *User `json:"workdocs:CreateUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

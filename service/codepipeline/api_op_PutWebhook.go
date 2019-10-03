@@ -64,7 +64,7 @@ type PutWebhookOutput struct {
 
 	// The detail returned from creating the webhook, such as the webhook name,
 	// webhook URL, and webhook ARN.
-	Webhook *ListWebhookItem `locationName:"webhook" type:"structure"`
+	Webhook *ListWebhookItem `json:"codepipeline:PutWebhookOutput:Webhook" locationName:"webhook" type:"structure"`
 }
 
 // String returns the string representation

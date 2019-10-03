@@ -59,7 +59,7 @@ type ExportProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// URL which can be used to download the exported project configuation file(s).
-	DownloadUrl *string `locationName:"downloadUrl" type:"string"`
+	DownloadUrl *string `json:"mobile:ExportProjectOutput:DownloadUrl" locationName:"downloadUrl" type:"string"`
 
 	// URL which can be shared to allow other AWS users to create their own project
 	// in AWS Mobile Hub with the same configuration as the specified project. This
@@ -67,11 +67,11 @@ type ExportProjectOutput struct {
 	// when this API is called. If you want to share additional changes to your
 	// project configuration, then you will need to create and share a new snapshot
 	// by calling this method again.
-	ShareUrl *string `locationName:"shareUrl" type:"string"`
+	ShareUrl *string `json:"mobile:ExportProjectOutput:ShareUrl" locationName:"shareUrl" type:"string"`
 
 	// Unique identifier for the exported snapshot of the project configuration.
 	// This snapshot identifier is included in the share URL.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"mobile:ExportProjectOutput:SnapshotId" locationName:"snapshotId" type:"string"`
 }
 
 // String returns the string representation

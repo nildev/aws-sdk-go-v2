@@ -76,7 +76,7 @@ type GetGroupOutput struct {
 	// A structure that contains details about the group.
 	//
 	// Group is a required field
-	Group *Group `type:"structure" required:"true"`
+	Group *Group `json:"iam:GetGroupOutput:Group" type:"structure" required:"true"`
 
 	// A flag that indicates whether there are more items to return. If your results
 	// were truncated, you can make a subsequent pagination request using the Marker
@@ -84,16 +84,16 @@ type GetGroupOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:GetGroupOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:GetGroupOutput:Marker" type:"string"`
 
 	// A list of users in the group.
 	//
 	// Users is a required field
-	Users []User `type:"list" required:"true"`
+	Users []User `json:"iam:GetGroupOutput:Users" type:"list" required:"true"`
 }
 
 // String returns the string representation

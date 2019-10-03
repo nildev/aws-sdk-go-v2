@@ -168,7 +168,7 @@ type PutMethodResponseOutput struct {
 	// Specifies the Model resources used for the response's content-type. Response
 	// models are represented as a key/value map, with a content-type as the key
 	// and a Model name as the value.
-	ResponseModels map[string]string `locationName:"responseModels" type:"map"`
+	ResponseModels map[string]string `json:"apigateway:PutMethodResponseOutput:ResponseModels" locationName:"responseModels" type:"map"`
 
 	// A key-value map specifying required or optional response parameters that
 	// API Gateway can send back to the caller. A key defines a method response
@@ -182,10 +182,10 @@ type PutMethodResponseOutput struct {
 	// of single quotes (e.g., 'application/json'), or a JSON expression from the
 	// back-end response payload in the form of integration.response.body.{JSON-expression},
 	// where JSON-expression is a valid JSON expression without the $ prefix.)
-	ResponseParameters map[string]bool `locationName:"responseParameters" type:"map"`
+	ResponseParameters map[string]bool `json:"apigateway:PutMethodResponseOutput:ResponseParameters" locationName:"responseParameters" type:"map"`
 
 	// The method response's status code.
-	StatusCode *string `locationName:"statusCode" type:"string"`
+	StatusCode *string `json:"apigateway:PutMethodResponseOutput:StatusCode" locationName:"statusCode" type:"string"`
 }
 
 // String returns the string representation

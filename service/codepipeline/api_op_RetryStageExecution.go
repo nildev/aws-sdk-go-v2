@@ -79,7 +79,7 @@ type RetryStageExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the current workflow execution in the failed stage.
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+	PipelineExecutionId *string `json:"codepipeline:RetryStageExecutionOutput:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string"`
 }
 
 // String returns the string representation

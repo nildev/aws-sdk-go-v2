@@ -57,7 +57,7 @@ type CancelKeyDeletionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the master key for which deletion is canceled.
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"kms:CancelKeyDeletionOutput:KeyId" min:"1" type:"string"`
 }
 
 // String returns the string representation

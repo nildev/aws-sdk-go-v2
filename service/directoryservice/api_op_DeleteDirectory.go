@@ -45,7 +45,7 @@ type DeleteDirectoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The directory identifier.
-	DirectoryId *string `type:"string"`
+	DirectoryId *string `json:"ds:DeleteDirectoryOutput:DirectoryId" type:"string"`
 }
 
 // String returns the string representation

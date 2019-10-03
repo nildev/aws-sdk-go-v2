@@ -47,10 +47,10 @@ type ListRecordHistoryOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListRecordHistoryOutput:NextPageToken" type:"string"`
 
 	// The records, in reverse chronological order.
-	RecordDetails []RecordDetail `type:"list"`
+	RecordDetails []RecordDetail `json:"servicecatalog:ListRecordHistoryOutput:RecordDetails" type:"list"`
 }
 
 // String returns the string representation

@@ -163,7 +163,7 @@ type AdminCreateUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The newly created user.
-	User *UserType `type:"structure"`
+	User *UserType `json:"cognito-idp:AdminCreateUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

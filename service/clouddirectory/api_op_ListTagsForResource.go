@@ -81,10 +81,10 @@ type ListTagsForResourceOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListTagsForResourceOutput:NextToken" type:"string"`
 
 	// A list of tag key value pairs that are associated with the response.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"clouddirectory:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

@@ -58,7 +58,7 @@ type UpdateEvaluationOutput struct {
 
 	// The ID assigned to the Evaluation during creation. This value should be identical
 	// to the value of the Evaluation in the request.
-	EvaluationId *string `min:"1" type:"string"`
+	EvaluationId *string `json:"machinelearning:UpdateEvaluationOutput:EvaluationId" min:"1" type:"string"`
 }
 
 // String returns the string representation

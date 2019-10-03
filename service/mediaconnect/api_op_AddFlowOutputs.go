@@ -87,10 +87,10 @@ type AddFlowOutputsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the flow that these outputs were added to.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:AddFlowOutputsOutput:FlowArn" locationName:"flowArn" type:"string"`
 
 	// The details of the newly added outputs.
-	Outputs []Output `locationName:"outputs" type:"list"`
+	Outputs []Output `json:"mediaconnect:AddFlowOutputsOutput:Outputs" locationName:"outputs" type:"list"`
 }
 
 // String returns the string representation

@@ -45,10 +45,10 @@ type DescribeVolumesModificationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Token for pagination, null if there are no more results
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVolumesModificationsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the volume modifications.
-	VolumesModifications []VolumeModification `locationName:"volumeModificationSet" locationNameList:"item" type:"list"`
+	VolumesModifications []VolumeModification `json:"ec2:DescribeVolumesModificationsOutput:VolumesModifications" locationName:"volumeModificationSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

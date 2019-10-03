@@ -56,11 +56,11 @@ type DescribeHostReservationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Details about the reservation's configuration.
-	HostReservationSet []HostReservation `locationName:"hostReservationSet" locationNameList:"item" type:"list"`
+	HostReservationSet []HostReservation `json:"ec2:DescribeHostReservationsOutput:HostReservationSet" locationName:"hostReservationSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeHostReservationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

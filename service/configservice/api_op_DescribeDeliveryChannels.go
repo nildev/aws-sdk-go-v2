@@ -29,7 +29,7 @@ type DescribeDeliveryChannelsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list that contains the descriptions of the specified delivery channel.
-	DeliveryChannels []DeliveryChannel `type:"list"`
+	DeliveryChannels []DeliveryChannel `json:"config:DescribeDeliveryChannelsOutput:DeliveryChannels" type:"list"`
 }
 
 // String returns the string representation

@@ -78,7 +78,7 @@ type GetBucketAnalyticsConfigurationOutput struct {
 	_ struct{} `type:"structure" payload:"AnalyticsConfiguration"`
 
 	// The configuration and any analyses for the analytics filter.
-	AnalyticsConfiguration *AnalyticsConfiguration `type:"structure"`
+	AnalyticsConfiguration *AnalyticsConfiguration `json:"s3:GetBucketAnalyticsConfigurationOutput:AnalyticsConfiguration" type:"structure"`
 }
 
 // String returns the string representation

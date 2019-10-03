@@ -56,21 +56,21 @@ type GetBulkDeploymentStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Relevant metrics on input records processed during bulk deployment.
-	BulkDeploymentMetrics *BulkDeploymentMetrics `type:"structure"`
+	BulkDeploymentMetrics *BulkDeploymentMetrics `json:"greengrass:GetBulkDeploymentStatusOutput:BulkDeploymentMetrics" type:"structure"`
 
 	// The status of the bulk deployment.
-	BulkDeploymentStatus BulkDeploymentStatus `type:"string" enum:"true"`
+	BulkDeploymentStatus BulkDeploymentStatus `json:"greengrass:GetBulkDeploymentStatusOutput:BulkDeploymentStatus" type:"string" enum:"true"`
 
 	// The time, in ISO format, when the deployment was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"greengrass:GetBulkDeploymentStatusOutput:CreatedAt" type:"string"`
 
 	// Error details
-	ErrorDetails []ErrorDetail `type:"list"`
+	ErrorDetails []ErrorDetail `json:"greengrass:GetBulkDeploymentStatusOutput:ErrorDetails" type:"list"`
 
 	// Error message
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"greengrass:GetBulkDeploymentStatusOutput:ErrorMessage" type:"string"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"greengrass:GetBulkDeploymentStatusOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

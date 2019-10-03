@@ -61,7 +61,7 @@ type GetCurrentUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Metadata of the user.
-	User *User `type:"structure"`
+	User *User `json:"workdocs:GetCurrentUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

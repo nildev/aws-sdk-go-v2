@@ -91,7 +91,7 @@ type UpdateCampaignOutput struct {
 	// for a campaign.
 	//
 	// CampaignResponse is a required field
-	CampaignResponse *CampaignResponse `type:"structure" required:"true"`
+	CampaignResponse *CampaignResponse `json:"pinpoint:UpdateCampaignOutput:CampaignResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

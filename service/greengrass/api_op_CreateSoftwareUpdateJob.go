@@ -104,10 +104,10 @@ type CreateSoftwareUpdateJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IoT Job ARN corresponding to this update.
-	IotJobArn *string `type:"string"`
+	IotJobArn *string `json:"greengrass:CreateSoftwareUpdateJobOutput:IotJobArn" type:"string"`
 
 	// The IoT Job Id corresponding to this update.
-	IotJobId *string `type:"string"`
+	IotJobId *string `json:"greengrass:CreateSoftwareUpdateJobOutput:IotJobId" type:"string"`
 }
 
 // String returns the string representation

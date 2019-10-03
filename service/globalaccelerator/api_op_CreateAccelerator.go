@@ -66,7 +66,7 @@ type CreateAcceleratorOutput struct {
 
 	// The accelerator that is created by specifying a listener and the supported
 	// IP address types.
-	Accelerator *Accelerator `type:"structure"`
+	Accelerator *Accelerator `json:"globalaccelerator:CreateAcceleratorOutput:Accelerator" type:"structure"`
 }
 
 // String returns the string representation

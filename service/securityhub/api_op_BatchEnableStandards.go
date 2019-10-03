@@ -78,7 +78,7 @@ type BatchEnableStandardsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the standards subscriptions that were enabled.
-	StandardsSubscriptions []StandardsSubscription `type:"list"`
+	StandardsSubscriptions []StandardsSubscription `json:"securityhub:BatchEnableStandardsOutput:StandardsSubscriptions" type:"list"`
 }
 
 // String returns the string representation

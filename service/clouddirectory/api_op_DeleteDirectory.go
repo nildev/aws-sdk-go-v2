@@ -58,7 +58,7 @@ type DeleteDirectoryOutput struct {
 	// The ARN of the deleted directory.
 	//
 	// DirectoryArn is a required field
-	DirectoryArn *string `type:"string" required:"true"`
+	DirectoryArn *string `json:"clouddirectory:DeleteDirectoryOutput:DirectoryArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

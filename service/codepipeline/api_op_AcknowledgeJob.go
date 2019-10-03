@@ -59,7 +59,7 @@ type AcknowledgeJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the job worker has received the specified job.
-	Status JobStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobStatus `json:"codepipeline:AcknowledgeJobOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

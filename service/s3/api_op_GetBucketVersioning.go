@@ -63,10 +63,10 @@ type GetBucketVersioningOutput struct {
 	// Specifies whether MFA delete is enabled in the bucket versioning configuration.
 	// This element is only returned if the bucket has been configured with MFA
 	// delete. If the bucket has never been so configured, this element is not returned.
-	MFADelete MFADeleteStatus `locationName:"MfaDelete" type:"string" enum:"true"`
+	MFADelete MFADeleteStatus `json:"s3:GetBucketVersioningOutput:MFADelete" locationName:"MfaDelete" type:"string" enum:"true"`
 
 	// The versioning state of the bucket.
-	Status BucketVersioningStatus `type:"string" enum:"true"`
+	Status BucketVersioningStatus `json:"s3:GetBucketVersioningOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

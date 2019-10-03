@@ -61,26 +61,26 @@ type DescribeFleetMetadataOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier used by users to sign in to the Amazon WorkLink app.
-	CompanyCode *string `min:"1" type:"string"`
+	CompanyCode *string `json:"worklink:DescribeFleetMetadataOutput:CompanyCode" min:"1" type:"string"`
 
 	// The time that the fleet was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"worklink:DescribeFleetMetadataOutput:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name to display.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"worklink:DescribeFleetMetadataOutput:DisplayName" type:"string"`
 
 	// The name of the fleet.
-	FleetName *string `min:"1" type:"string"`
+	FleetName *string `json:"worklink:DescribeFleetMetadataOutput:FleetName" min:"1" type:"string"`
 
 	// The current state of the fleet.
-	FleetStatus FleetStatus `type:"string" enum:"true"`
+	FleetStatus FleetStatus `json:"worklink:DescribeFleetMetadataOutput:FleetStatus" type:"string" enum:"true"`
 
 	// The time that the fleet was last updated.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"worklink:DescribeFleetMetadataOutput:LastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The option to optimize for better performance by routing traffic through
 	// the closest AWS Region to users, which may be outside of your home Region.
-	OptimizeForEndUserLocation *bool `type:"boolean"`
+	OptimizeForEndUserLocation *bool `json:"worklink:DescribeFleetMetadataOutput:OptimizeForEndUserLocation" type:"boolean"`
 }
 
 // String returns the string representation

@@ -79,7 +79,7 @@ type UpdateAdmChannelOutput struct {
 	// Messaging) channel for an application.
 	//
 	// ADMChannelResponse is a required field
-	ADMChannelResponse *ADMChannelResponse `type:"structure" required:"true"`
+	ADMChannelResponse *ADMChannelResponse `json:"pinpoint:UpdateAdmChannelOutput:ADMChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

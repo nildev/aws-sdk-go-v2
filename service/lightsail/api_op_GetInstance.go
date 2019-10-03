@@ -43,7 +43,7 @@ type GetInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key-value pairs containing information about the specified instance.
-	Instance *Instance `locationName:"instance" type:"structure"`
+	Instance *Instance `json:"lightsail:GetInstanceOutput:Instance" locationName:"instance" type:"structure"`
 }
 
 // String returns the string representation

@@ -23,17 +23,17 @@ type CreateRule struct {
 	// and 24.
 	//
 	// Interval is a required field
-	Interval *int64 `min:"1" type:"integer" required:"true"`
+	Interval *int64 `json:"dlm:CreateRule:Interval" min:"1" type:"integer" required:"true"`
 
 	// The interval unit.
 	//
 	// IntervalUnit is a required field
-	IntervalUnit IntervalUnitValues `type:"string" required:"true" enum:"true"`
+	IntervalUnit IntervalUnitValues `json:"dlm:CreateRule:IntervalUnit" type:"string" required:"true" enum:"true"`
 
 	// The time, in UTC, to start the operation. The supported format is hh:mm.
 	//
 	// The operation occurs within a one-hour window following the specified time.
-	Times []string `type:"list"`
+	Times []string `json:"dlm:CreateRule:Times" type:"list"`
 }
 
 // String returns the string representation
@@ -96,26 +96,26 @@ type LifecyclePolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The local date and time when the lifecycle policy was created.
-	DateCreated *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DateCreated *time.Time `json:"dlm:LifecyclePolicy:DateCreated" type:"timestamp" timestampFormat:"unix"`
 
 	// The local date and time when the lifecycle policy was last modified.
-	DateModified *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DateModified *time.Time `json:"dlm:LifecyclePolicy:DateModified" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the lifecycle policy.
-	Description *string `type:"string"`
+	Description *string `json:"dlm:LifecyclePolicy:Description" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the IAM role used to run the operations
 	// specified by the lifecycle policy.
-	ExecutionRoleArn *string `type:"string"`
+	ExecutionRoleArn *string `json:"dlm:LifecyclePolicy:ExecutionRoleArn" type:"string"`
 
 	// The configuration of the lifecycle policy
-	PolicyDetails *PolicyDetails `type:"structure"`
+	PolicyDetails *PolicyDetails `json:"dlm:LifecyclePolicy:PolicyDetails" type:"structure"`
 
 	// The identifier of the lifecycle policy.
-	PolicyId *string `type:"string"`
+	PolicyId *string `json:"dlm:LifecyclePolicy:PolicyId" type:"string"`
 
 	// The activation state of the lifecycle policy.
-	State GettablePolicyStateValues `type:"string" enum:"true"`
+	State GettablePolicyStateValues `json:"dlm:LifecyclePolicy:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -176,13 +176,13 @@ type LifecyclePolicySummary struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the lifecycle policy.
-	Description *string `type:"string"`
+	Description *string `json:"dlm:LifecyclePolicySummary:Description" type:"string"`
 
 	// The identifier of the lifecycle policy.
-	PolicyId *string `type:"string"`
+	PolicyId *string `json:"dlm:LifecyclePolicySummary:PolicyId" type:"string"`
 
 	// The activation state of the lifecycle policy.
-	State GettablePolicyStateValues `type:"string" enum:"true"`
+	State GettablePolicyStateValues `json:"dlm:LifecyclePolicySummary:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -222,7 +222,7 @@ type Parameters struct {
 	// When executing an EBS Snapshot Management – Instance policy, execute all
 	// CreateSnapshots calls with the excludeBootVolume set to the supplied field.
 	// Defaults to false. Only valid for EBS Snapshot Management – Instance policies.
-	ExcludeBootVolume *bool `type:"boolean"`
+	ExcludeBootVolume *bool `json:"dlm:Parameters:ExcludeBootVolume" type:"boolean"`
 }
 
 // String returns the string representation
@@ -247,20 +247,20 @@ type PolicyDetails struct {
 	_ struct{} `type:"structure"`
 
 	// A set of optional parameters that can be provided by the policy.
-	Parameters *Parameters `type:"structure"`
+	Parameters *Parameters `json:"dlm:PolicyDetails:Parameters" type:"structure"`
 
 	// This field determines the valid target resource types and actions a policy
 	// can manage. This field defaults to EBS_SNAPSHOT_MANAGEMENT if not present.
-	PolicyType PolicyTypeValues `type:"string" enum:"true"`
+	PolicyType PolicyTypeValues `json:"dlm:PolicyDetails:PolicyType" type:"string" enum:"true"`
 
 	// The resource type.
-	ResourceTypes []ResourceTypeValues `min:"1" type:"list"`
+	ResourceTypes []ResourceTypeValues `json:"dlm:PolicyDetails:ResourceTypes" min:"1" type:"list"`
 
 	// The schedule of policy-defined actions.
-	Schedules []Schedule `min:"1" type:"list"`
+	Schedules []Schedule `json:"dlm:PolicyDetails:Schedules" min:"1" type:"list"`
 
 	// The single tag that identifies targeted resources for this policy.
-	TargetTags []Tag `min:"1" type:"list"`
+	TargetTags []Tag `json:"dlm:PolicyDetails:TargetTags" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -362,7 +362,7 @@ type RetainRule struct {
 	// The number of snapshots to keep for each volume, up to a maximum of 1000.
 	//
 	// Count is a required field
-	Count *int64 `min:"1" type:"integer" required:"true"`
+	Count *int64 `json:"dlm:RetainRule:Count" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -405,26 +405,26 @@ type Schedule struct {
 
 	// Copy all user-defined tags on a source volume to snapshots of the volume
 	// created by this policy.
-	CopyTags *bool `type:"boolean"`
+	CopyTags *bool `json:"dlm:Schedule:CopyTags" type:"boolean"`
 
 	// The create rule.
-	CreateRule *CreateRule `type:"structure"`
+	CreateRule *CreateRule `json:"dlm:Schedule:CreateRule" type:"structure"`
 
 	// The name of the schedule.
-	Name *string `type:"string"`
+	Name *string `json:"dlm:Schedule:Name" type:"string"`
 
 	// The retain rule.
-	RetainRule *RetainRule `type:"structure"`
+	RetainRule *RetainRule `json:"dlm:Schedule:RetainRule" type:"structure"`
 
 	// The tags to apply to policy-created resources. These user-defined tags are
 	// in addition to the AWS-added lifecycle tags.
-	TagsToAdd []Tag `type:"list"`
+	TagsToAdd []Tag `json:"dlm:Schedule:TagsToAdd" type:"list"`
 
 	// A collection of key/value pairs with values determined dynamically when the
 	// policy is executed. Keys may be any valid Amazon EC2 tag key. Values must
 	// be in one of the two following formats: $(instance-id) or $(timestamp). Variable
 	// tags are only valid for EBS Snapshot Management – Instance policies.
-	VariableTags []Tag `type:"list"`
+	VariableTags []Tag `json:"dlm:Schedule:VariableTags" type:"list"`
 }
 
 // String returns the string representation
@@ -527,12 +527,12 @@ type Tag struct {
 	// The tag key.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"dlm:Tag:Key" type:"string" required:"true"`
 
 	// The tag value.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"dlm:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation

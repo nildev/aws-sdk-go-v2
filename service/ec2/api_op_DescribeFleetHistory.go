@@ -70,22 +70,22 @@ type DescribeFleetHistoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the EC Fleet.
-	FleetId *string `locationName:"fleetId" type:"string"`
+	FleetId *string `json:"ec2:DescribeFleetHistoryOutput:FleetId" locationName:"fleetId" type:"string"`
 
 	// Information about the events in the history of the EC2 Fleet.
-	HistoryRecords []HistoryRecordEntry `locationName:"historyRecordSet" locationNameList:"item" type:"list"`
+	HistoryRecords []HistoryRecordEntry `json:"ec2:DescribeFleetHistoryOutput:HistoryRecords" locationName:"historyRecordSet" locationNameList:"item" type:"list"`
 
 	// The last date and time for the events, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
 	// All records up to this time were retrieved.
 	//
 	// If nextToken indicates that there are more results, this value is not present.
-	LastEvaluatedTime *time.Time `locationName:"lastEvaluatedTime" type:"timestamp" timestampFormat:"iso8601"`
+	LastEvaluatedTime *time.Time `json:"ec2:DescribeFleetHistoryOutput:LastEvaluatedTime" locationName:"lastEvaluatedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The token for the next set of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeFleetHistoryOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The start date and time for the events, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"ec2:DescribeFleetHistoryOutput:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation

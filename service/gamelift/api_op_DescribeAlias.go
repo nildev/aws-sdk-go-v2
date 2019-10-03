@@ -45,7 +45,7 @@ type DescribeAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that contains the requested alias.
-	Alias *Alias `type:"structure"`
+	Alias *Alias `json:"gamelift:DescribeAliasOutput:Alias" type:"structure"`
 }
 
 // String returns the string representation

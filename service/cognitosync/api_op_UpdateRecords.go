@@ -163,7 +163,7 @@ type UpdateRecordsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of records that have been updated.
-	Records []Record `type:"list"`
+	Records []Record `json:"cognito-sync:UpdateRecordsOutput:Records" type:"list"`
 }
 
 // String returns the string representation

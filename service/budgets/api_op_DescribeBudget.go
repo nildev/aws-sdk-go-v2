@@ -59,7 +59,7 @@ type DescribeBudgetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the budget.
-	Budget *Budget `type:"structure"`
+	Budget *Budget `json:"budgets:DescribeBudgetOutput:Budget" type:"structure"`
 }
 
 // String returns the string representation

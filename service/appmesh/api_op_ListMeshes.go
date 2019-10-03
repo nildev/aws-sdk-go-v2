@@ -77,13 +77,13 @@ type ListMeshesOutput struct {
 	// The list of existing service meshes.
 	//
 	// Meshes is a required field
-	Meshes []MeshRef `locationName:"meshes" type:"list" required:"true"`
+	Meshes []MeshRef `json:"appmesh:ListMeshesOutput:Meshes" locationName:"meshes" type:"list" required:"true"`
 
 	// The nextToken value to include in a future ListMeshes request. When the results
 	// of a ListMeshes request exceed limit, you can use this value to retrieve
 	// the next page of results. This value is null when there are no more results
 	// to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appmesh:ListMeshesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -47,10 +47,10 @@ type DescribeApplicationStateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Status of the application - Not Started, In-Progress, Complete.
-	ApplicationStatus ApplicationStatus `type:"string" enum:"true"`
+	ApplicationStatus ApplicationStatus `json:"mgh:DescribeApplicationStateOutput:ApplicationStatus" type:"string" enum:"true"`
 
 	// The timestamp when the application status was last updated.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"mgh:DescribeApplicationStateOutput:LastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

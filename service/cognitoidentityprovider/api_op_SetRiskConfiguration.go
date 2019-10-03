@@ -79,7 +79,7 @@ type SetRiskConfigurationOutput struct {
 	// The risk configuration.
 	//
 	// RiskConfiguration is a required field
-	RiskConfiguration *RiskConfigurationType `type:"structure" required:"true"`
+	RiskConfiguration *RiskConfigurationType `json:"cognito-idp:SetRiskConfigurationOutput:RiskConfiguration" type:"structure" required:"true"`
 }
 
 // String returns the string representation

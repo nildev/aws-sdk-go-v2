@@ -45,7 +45,7 @@ type CancelReservedInstancesListingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Reserved Instance listing.
-	ReservedInstancesListings []ReservedInstancesListing `locationName:"reservedInstancesListingsSet" locationNameList:"item" type:"list"`
+	ReservedInstancesListings []ReservedInstancesListing `json:"ec2:CancelReservedInstancesListingOutput:ReservedInstancesListings" locationName:"reservedInstancesListingsSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

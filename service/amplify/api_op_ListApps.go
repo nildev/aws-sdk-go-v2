@@ -68,12 +68,12 @@ type ListAppsOutput struct {
 	// List of Amplify Apps.
 	//
 	// Apps is a required field
-	Apps []App `locationName:"apps" type:"list" required:"true"`
+	Apps []App `json:"amplify:ListAppsOutput:Apps" locationName:"apps" type:"list" required:"true"`
 
 	// Pagination token. Set to null to start listing Apps from start. If non-null
 	// pagination token is returned in a result, then pass its value in here to
 	// list more projects.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"amplify:ListAppsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

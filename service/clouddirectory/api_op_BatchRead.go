@@ -96,7 +96,7 @@ type BatchReadOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of all the responses for each batch read.
-	Responses []BatchReadOperationResponse `type:"list"`
+	Responses []BatchReadOperationResponse `json:"clouddirectory:BatchReadOutput:Responses" type:"list"`
 }
 
 // String returns the string representation

@@ -56,7 +56,7 @@ type GetAccountSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Chime account settings.
-	AccountSettings *AccountSettings `type:"structure"`
+	AccountSettings *AccountSettings `json:"chime:GetAccountSettingsOutput:AccountSettings" type:"structure"`
 }
 
 // String returns the string representation

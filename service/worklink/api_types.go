@@ -19,10 +19,10 @@ type DeviceSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the device.
-	DeviceId *string `min:"1" type:"string"`
+	DeviceId *string `json:"worklink:DeviceSummary:DeviceId" min:"1" type:"string"`
 
 	// The status of the device.
-	DeviceStatus DeviceStatus `type:"string" enum:"true"`
+	DeviceStatus DeviceStatus `json:"worklink:DeviceSummary:DeviceStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -55,20 +55,20 @@ type DomainSummary struct {
 	// The time that the domain was created.
 	//
 	// CreatedTime is a required field
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedTime *time.Time `json:"worklink:DomainSummary:CreatedTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name to display.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"worklink:DomainSummary:DisplayName" type:"string"`
 
 	// The name of the domain.
 	//
 	// DomainName is a required field
-	DomainName *string `min:"1" type:"string" required:"true"`
+	DomainName *string `json:"worklink:DomainSummary:DomainName" min:"1" type:"string" required:"true"`
 
 	// The status of the domain.
 	//
 	// DomainStatus is a required field
-	DomainStatus DomainStatus `type:"string" required:"true" enum:"true"`
+	DomainStatus DomainStatus `json:"worklink:DomainSummary:DomainStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -111,25 +111,25 @@ type FleetSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier used by users to sign into the Amazon WorkLink app.
-	CompanyCode *string `min:"1" type:"string"`
+	CompanyCode *string `json:"worklink:FleetSummary:CompanyCode" min:"1" type:"string"`
 
 	// The time when the fleet was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"worklink:FleetSummary:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name to display.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"worklink:FleetSummary:DisplayName" type:"string"`
 
 	// The ARN of the fleet.
-	FleetArn *string `min:"20" type:"string"`
+	FleetArn *string `json:"worklink:FleetSummary:FleetArn" min:"20" type:"string"`
 
 	// The name of the fleet.
-	FleetName *string `min:"1" type:"string"`
+	FleetName *string `json:"worklink:FleetSummary:FleetName" min:"1" type:"string"`
 
 	// The status of the fleet.
-	FleetStatus FleetStatus `type:"string" enum:"true"`
+	FleetStatus FleetStatus `json:"worklink:FleetSummary:FleetStatus" type:"string" enum:"true"`
 
 	// The time when the fleet was last updated.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"worklink:FleetSummary:LastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -190,19 +190,19 @@ type WebsiteAuthorizationProviderSummary struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier for the authorization provider.
-	AuthorizationProviderId *string `min:"1" type:"string"`
+	AuthorizationProviderId *string `json:"worklink:WebsiteAuthorizationProviderSummary:AuthorizationProviderId" min:"1" type:"string"`
 
 	// The authorization provider type.
 	//
 	// AuthorizationProviderType is a required field
-	AuthorizationProviderType AuthorizationProviderType `type:"string" required:"true" enum:"true"`
+	AuthorizationProviderType AuthorizationProviderType `json:"worklink:WebsiteAuthorizationProviderSummary:AuthorizationProviderType" type:"string" required:"true" enum:"true"`
 
 	// The time of creation.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"worklink:WebsiteAuthorizationProviderSummary:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The domain name of the authorization provider. This applies only to SAML-based
 	// authorization providers.
-	DomainName *string `min:"1" type:"string"`
+	DomainName *string `json:"worklink:WebsiteAuthorizationProviderSummary:DomainName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -245,13 +245,13 @@ type WebsiteCaSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the CA was added.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"worklink:WebsiteCaSummary:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name to display.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"worklink:WebsiteCaSummary:DisplayName" type:"string"`
 
 	// A unique identifier for the CA.
-	WebsiteCaId *string `min:"1" type:"string"`
+	WebsiteCaId *string `json:"worklink:WebsiteCaSummary:WebsiteCaId" min:"1" type:"string"`
 }
 
 // String returns the string representation

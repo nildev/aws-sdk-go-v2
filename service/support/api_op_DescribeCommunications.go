@@ -62,10 +62,10 @@ type DescribeCommunicationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The communications for the case.
-	Communications []Communication `locationName:"communications" type:"list"`
+	Communications []Communication `json:"support:DescribeCommunicationsOutput:Communications" locationName:"communications" type:"list"`
 
 	// A resumption point for pagination.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"support:DescribeCommunicationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

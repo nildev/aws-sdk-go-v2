@@ -73,7 +73,7 @@ type CreateUserImportJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The job object that represents the user import job.
-	UserImportJob *UserImportJobType `type:"structure"`
+	UserImportJob *UserImportJobType `json:"cognito-idp:CreateUserImportJobOutput:UserImportJob" type:"structure"`
 }
 
 // String returns the string representation

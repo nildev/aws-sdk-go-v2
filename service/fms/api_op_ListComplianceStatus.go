@@ -71,10 +71,10 @@ type ListComplianceStatusOutput struct {
 	// value. To list more PolicyComplianceStatus objects, submit another ListComplianceStatus
 	// request, and specify the NextToken value from the response in the NextToken
 	// value in the next request.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"fms:ListComplianceStatusOutput:NextToken" min:"1" type:"string"`
 
 	// An array of PolicyComplianceStatus objects.
-	PolicyComplianceStatusList []PolicyComplianceStatus `type:"list"`
+	PolicyComplianceStatusList []PolicyComplianceStatus `json:"fms:ListComplianceStatusOutput:PolicyComplianceStatusList" type:"list"`
 }
 
 // String returns the string representation

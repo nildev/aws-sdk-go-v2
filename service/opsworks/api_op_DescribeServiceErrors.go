@@ -38,7 +38,7 @@ type DescribeServiceErrorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of ServiceError objects that describe the specified service errors.
-	ServiceErrors []ServiceError `type:"list"`
+	ServiceErrors []ServiceError `json:"opsworks:DescribeServiceErrorsOutput:ServiceErrors" type:"list"`
 }
 
 // String returns the string representation

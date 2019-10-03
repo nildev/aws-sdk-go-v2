@@ -71,7 +71,7 @@ type UpdateGameSessionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that contains the updated game session metadata.
-	GameSession *GameSession `type:"structure"`
+	GameSession *GameSession `json:"gamelift:UpdateGameSessionOutput:GameSession" type:"structure"`
 }
 
 // String returns the string representation

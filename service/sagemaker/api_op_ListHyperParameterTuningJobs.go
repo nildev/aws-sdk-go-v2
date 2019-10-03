@@ -78,12 +78,12 @@ type ListHyperParameterTuningJobsOutput struct {
 	// jobs that the ListHyperParameterTuningJobs request returned.
 	//
 	// HyperParameterTuningJobSummaries is a required field
-	HyperParameterTuningJobSummaries []HyperParameterTuningJobSummary `type:"list" required:"true"`
+	HyperParameterTuningJobSummaries []HyperParameterTuningJobSummary `json:"api.sagemaker:ListHyperParameterTuningJobsOutput:HyperParameterTuningJobSummaries" type:"list" required:"true"`
 
 	// If the result of this ListHyperParameterTuningJobs request was truncated,
 	// the response includes a NextToken. To retrieve the next set of tuning jobs,
 	// use the token in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListHyperParameterTuningJobsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

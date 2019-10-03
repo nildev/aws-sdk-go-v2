@@ -76,11 +76,11 @@ func (s DescribeBrokerInstanceOptionsInput) MarshalFields(e protocol.FieldEncode
 type DescribeBrokerInstanceOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	BrokerInstanceOptions []BrokerInstanceOption `locationName:"brokerInstanceOptions" type:"list"`
+	BrokerInstanceOptions []BrokerInstanceOption `json:"mq:DescribeBrokerInstanceOptionsOutput:BrokerInstanceOptions" locationName:"brokerInstanceOptions" type:"list"`
 
-	MaxResults *int64 `locationName:"maxResults" min:"5" type:"integer"`
+	MaxResults *int64 `json:"mq:DescribeBrokerInstanceOptionsOutput:MaxResults" locationName:"maxResults" min:"5" type:"integer"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mq:DescribeBrokerInstanceOptionsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

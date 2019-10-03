@@ -46,7 +46,7 @@ type DeleteMaintenanceWindowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the deleted maintenance window.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:DeleteMaintenanceWindowOutput:WindowId" min:"20" type:"string"`
 }
 
 // String returns the string representation

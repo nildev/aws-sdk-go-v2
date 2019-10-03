@@ -75,7 +75,7 @@ type GetVaultAccessPolicyOutput struct {
 	_ struct{} `type:"structure" payload:"Policy"`
 
 	// Contains the returned vault access policy as a JSON string.
-	Policy *VaultAccessPolicy `locationName:"policy" type:"structure"`
+	Policy *VaultAccessPolicy `json:"glacier:GetVaultAccessPolicyOutput:Policy" locationName:"policy" type:"structure"`
 }
 
 // String returns the string representation

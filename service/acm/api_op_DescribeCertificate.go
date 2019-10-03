@@ -52,7 +52,7 @@ type DescribeCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Metadata about an ACM certificate.
-	Certificate *CertificateDetail `type:"structure"`
+	Certificate *CertificateDetail `json:"acm:DescribeCertificateOutput:Certificate" type:"structure"`
 }
 
 // String returns the string representation

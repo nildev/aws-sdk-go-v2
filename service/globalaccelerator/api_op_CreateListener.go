@@ -103,7 +103,7 @@ type CreateListenerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The listener that you've created.
-	Listener *Listener `type:"structure"`
+	Listener *Listener `json:"globalaccelerator:CreateListenerOutput:Listener" type:"structure"`
 }
 
 // String returns the string representation

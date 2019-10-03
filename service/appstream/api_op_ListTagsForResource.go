@@ -43,7 +43,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The information about the tags.
-	Tags map[string]string `min:"1" type:"map"`
+	Tags map[string]string `json:"appstream2:ListTagsForResourceOutput:Tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

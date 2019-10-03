@@ -126,10 +126,10 @@ type ListIndexOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The objects and indexed values attached to the index.
-	IndexAttachments []IndexAttachment `type:"list"`
+	IndexAttachments []IndexAttachment `json:"clouddirectory:ListIndexOutput:IndexAttachments" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListIndexOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

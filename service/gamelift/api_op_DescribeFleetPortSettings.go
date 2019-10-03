@@ -45,7 +45,7 @@ type DescribeFleetPortSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that contains port settings for the requested fleet ID.
-	InboundPermissions []IpPermission `type:"list"`
+	InboundPermissions []IpPermission `json:"gamelift:DescribeFleetPortSettingsOutput:InboundPermissions" type:"list"`
 }
 
 // String returns the string representation

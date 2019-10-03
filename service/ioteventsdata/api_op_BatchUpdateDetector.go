@@ -74,7 +74,7 @@ type BatchUpdateDetectorOutput struct {
 
 	// A list of those detector updates that resulted in errors. (If an error is
 	// listed here, the specific update did not occur.)
-	BatchUpdateDetectorErrorEntries []BatchUpdateDetectorErrorEntry `locationName:"batchUpdateDetectorErrorEntries" type:"list"`
+	BatchUpdateDetectorErrorEntries []BatchUpdateDetectorErrorEntry `json:"data.iotevents:BatchUpdateDetectorOutput:BatchUpdateDetectorErrorEntries" locationName:"batchUpdateDetectorErrorEntries" type:"list"`
 }
 
 // String returns the string representation

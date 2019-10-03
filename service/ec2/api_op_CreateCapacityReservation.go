@@ -149,7 +149,7 @@ type CreateCapacityReservationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Capacity Reservation.
-	CapacityReservation *CapacityReservation `locationName:"capacityReservation" type:"structure"`
+	CapacityReservation *CapacityReservation `json:"ec2:CreateCapacityReservationOutput:CapacityReservation" locationName:"capacityReservation" type:"structure"`
 }
 
 // String returns the string representation

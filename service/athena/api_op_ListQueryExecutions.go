@@ -47,10 +47,10 @@ type ListQueryExecutionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token to be used by the next request if this request is truncated.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"athena:ListQueryExecutionsOutput:NextToken" min:"1" type:"string"`
 
 	// The unique IDs of each query execution as an array of strings.
-	QueryExecutionIds []string `min:"1" type:"list"`
+	QueryExecutionIds []string `json:"athena:ListQueryExecutionsOutput:QueryExecutionIds" min:"1" type:"list"`
 }
 
 // String returns the string representation

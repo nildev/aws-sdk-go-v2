@@ -56,7 +56,7 @@ type GetFileUploadURLOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A temporary URL for the file that the Worker uploaded for the answer.
-	FileUploadURL *string `type:"string"`
+	FileUploadURL *string `json:"mturk-requester:GetFileUploadURLOutput:FileUploadURL" type:"string"`
 }
 
 // String returns the string representation

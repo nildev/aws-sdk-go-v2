@@ -21,7 +21,7 @@ type Certificate struct {
 	// The Base64-encoded certificate data required to communicate with your cluster.
 	// Add this to the certificate-authority-data section of the kubeconfig file
 	// for your cluster.
-	Data *string `locationName:"data" type:"string"`
+	Data *string `json:"eks:Certificate:Data" locationName:"data" type:"string"`
 }
 
 // String returns the string representation
@@ -46,49 +46,49 @@ type Cluster struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the cluster.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"eks:Cluster:Arn" locationName:"arn" type:"string"`
 
 	// The certificate-authority-data for your cluster.
-	CertificateAuthority *Certificate `locationName:"certificateAuthority" type:"structure"`
+	CertificateAuthority *Certificate `json:"eks:Cluster:CertificateAuthority" locationName:"certificateAuthority" type:"structure"`
 
 	// Unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request.
-	ClientRequestToken *string `locationName:"clientRequestToken" type:"string"`
+	ClientRequestToken *string `json:"eks:Cluster:ClientRequestToken" locationName:"clientRequestToken" type:"string"`
 
 	// The Unix epoch timestamp in seconds for when the cluster was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"eks:Cluster:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The endpoint for your Kubernetes API server.
-	Endpoint *string `locationName:"endpoint" type:"string"`
+	Endpoint *string `json:"eks:Cluster:Endpoint" locationName:"endpoint" type:"string"`
 
 	// The logging configuration for your cluster.
-	Logging *Logging `locationName:"logging" type:"structure"`
+	Logging *Logging `json:"eks:Cluster:Logging" locationName:"logging" type:"structure"`
 
 	// The name of the cluster.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"eks:Cluster:Name" locationName:"name" type:"string"`
 
 	// The platform version of your Amazon EKS cluster. For more information, see
 	// Platform Versions (https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html)
 	// in the Amazon EKS User Guide .
-	PlatformVersion *string `locationName:"platformVersion" type:"string"`
+	PlatformVersion *string `json:"eks:Cluster:PlatformVersion" locationName:"platformVersion" type:"string"`
 
 	// The VPC configuration used by the cluster control plane. Amazon EKS VPC resources
 	// have specific requirements to work properly with Kubernetes. For more information,
 	// see Cluster VPC Considerations (https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html)
 	// and Cluster Security Group Considerations (https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html)
 	// in the Amazon EKS User Guide.
-	ResourcesVpcConfig *VpcConfigResponse `locationName:"resourcesVpcConfig" type:"structure"`
+	ResourcesVpcConfig *VpcConfigResponse `json:"eks:Cluster:ResourcesVpcConfig" locationName:"resourcesVpcConfig" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions
 	// for the Kubernetes control plane to make calls to AWS API operations on your
 	// behalf.
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"eks:Cluster:RoleArn" locationName:"roleArn" type:"string"`
 
 	// The current status of the cluster.
-	Status ClusterStatus `locationName:"status" type:"string" enum:"true"`
+	Status ClusterStatus `json:"eks:Cluster:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The Kubernetes server version for the cluster.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"eks:Cluster:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -198,13 +198,13 @@ type ErrorDetail struct {
 	//    doesn't have the required access permissions for Amazon EKS.
 	//
 	//    * VpcIdNotFound: We couldn't find the VPC associated with the cluster.
-	ErrorCode ErrorCode `locationName:"errorCode" type:"string" enum:"true"`
+	ErrorCode ErrorCode `json:"eks:ErrorDetail:ErrorCode" locationName:"errorCode" type:"string" enum:"true"`
 
 	// A more complete description of the error.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"eks:ErrorDetail:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// An optional field that contains the resource IDs associated with the error.
-	ResourceIds []string `locationName:"resourceIds" type:"list"`
+	ResourceIds []string `json:"eks:ErrorDetail:ResourceIds" locationName:"resourceIds" type:"list"`
 }
 
 // String returns the string representation
@@ -251,10 +251,10 @@ type LogSetup struct {
 	// CloudWatch Logs. If a log type isn't enabled, that log type doesn't export
 	// its control plane logs. Each individual log type can be enabled or disabled
 	// independently.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"eks:LogSetup:Enabled" locationName:"enabled" type:"boolean"`
 
 	// The available cluster control plane log types.
-	Types []LogType `locationName:"types" type:"list"`
+	Types []LogType `json:"eks:LogSetup:Types" locationName:"types" type:"list"`
 }
 
 // String returns the string representation
@@ -291,7 +291,7 @@ type Logging struct {
 	_ struct{} `type:"structure"`
 
 	// The cluster control plane logging configuration for your cluster.
-	ClusterLogging []LogSetup `locationName:"clusterLogging" type:"list"`
+	ClusterLogging []LogSetup `json:"eks:Logging:ClusterLogging" locationName:"clusterLogging" type:"list"`
 }
 
 // String returns the string representation
@@ -322,22 +322,22 @@ type Update struct {
 	_ struct{} `type:"structure"`
 
 	// The Unix epoch timestamp in seconds for when the update was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"eks:Update:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Any errors associated with a Failed update.
-	Errors []ErrorDetail `locationName:"errors" type:"list"`
+	Errors []ErrorDetail `json:"eks:Update:Errors" locationName:"errors" type:"list"`
 
 	// A UUID that is used to track the update.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"eks:Update:Id" locationName:"id" type:"string"`
 
 	// A key-value map that contains the parameters associated with the update.
-	Params []UpdateParam `locationName:"params" type:"list"`
+	Params []UpdateParam `json:"eks:Update:Params" locationName:"params" type:"list"`
 
 	// The current status of the update.
-	Status UpdateStatus `locationName:"status" type:"string" enum:"true"`
+	Status UpdateStatus `json:"eks:Update:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The type of the update.
-	Type UpdateType `locationName:"type" type:"string" enum:"true"`
+	Type UpdateType `json:"eks:Update:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -404,10 +404,10 @@ type UpdateParam struct {
 	_ struct{} `type:"structure"`
 
 	// The keys associated with an update request.
-	Type UpdateParamType `locationName:"type" type:"string" enum:"true"`
+	Type UpdateParamType `json:"eks:UpdateParam:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The value of the keys submitted as part of an update request.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"eks:UpdateParam:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -444,7 +444,7 @@ type VpcConfigRequest struct {
 	// Kubernetes API server. For more information, see Amazon EKS Cluster Endpoint
 	// Access Control (https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
 	// in the Amazon EKS User Guide .
-	EndpointPrivateAccess *bool `locationName:"endpointPrivateAccess" type:"boolean"`
+	EndpointPrivateAccess *bool `json:"eks:VpcConfigRequest:EndpointPrivateAccess" locationName:"endpointPrivateAccess" type:"boolean"`
 
 	// Set this value to false to disable public access for your cluster's Kubernetes
 	// API server endpoint. If you disable public access, your cluster's Kubernetes
@@ -453,18 +453,18 @@ type VpcConfigRequest struct {
 	// API server. For more information, see Amazon EKS Cluster Endpoint Access
 	// Control (https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html)
 	// in the Amazon EKS User Guide .
-	EndpointPublicAccess *bool `locationName:"endpointPublicAccess" type:"boolean"`
+	EndpointPublicAccess *bool `json:"eks:VpcConfigRequest:EndpointPublicAccess" locationName:"endpointPublicAccess" type:"boolean"`
 
 	// Specify one or more security groups for the cross-account elastic network
 	// interfaces that Amazon EKS creates to use to allow communication between
 	// your worker nodes and the Kubernetes control plane. If you don't specify
 	// a security group, the default security group for your VPC is used.
-	SecurityGroupIds []string `locationName:"securityGroupIds" type:"list"`
+	SecurityGroupIds []string `json:"eks:VpcConfigRequest:SecurityGroupIds" locationName:"securityGroupIds" type:"list"`
 
 	// Specify subnets for your Amazon EKS worker nodes. Amazon EKS creates cross-account
 	// elastic network interfaces in these subnets to allow communication between
 	// your worker nodes and the Kubernetes control plane.
-	SubnetIds []string `locationName:"subnetIds" type:"list"`
+	SubnetIds []string `json:"eks:VpcConfigRequest:SubnetIds" locationName:"subnetIds" type:"list"`
 }
 
 // String returns the string representation
@@ -522,24 +522,24 @@ type VpcConfigResponse struct {
 	// is enabled. If the Amazon EKS private API server endpoint is enabled, Kubernetes
 	// API requests that originate from within your cluster's VPC use the private
 	// VPC endpoint instead of traversing the internet.
-	EndpointPrivateAccess *bool `locationName:"endpointPrivateAccess" type:"boolean"`
+	EndpointPrivateAccess *bool `json:"eks:VpcConfigResponse:EndpointPrivateAccess" locationName:"endpointPrivateAccess" type:"boolean"`
 
 	// This parameter indicates whether the Amazon EKS public API server endpoint
 	// is enabled. If the Amazon EKS public API server endpoint is disabled, your
 	// cluster's Kubernetes API server can receive only requests that originate
 	// from within the cluster VPC.
-	EndpointPublicAccess *bool `locationName:"endpointPublicAccess" type:"boolean"`
+	EndpointPublicAccess *bool `json:"eks:VpcConfigResponse:EndpointPublicAccess" locationName:"endpointPublicAccess" type:"boolean"`
 
 	// The security groups associated with the cross-account elastic network interfaces
 	// that are used to allow communication between your worker nodes and the Kubernetes
 	// control plane.
-	SecurityGroupIds []string `locationName:"securityGroupIds" type:"list"`
+	SecurityGroupIds []string `json:"eks:VpcConfigResponse:SecurityGroupIds" locationName:"securityGroupIds" type:"list"`
 
 	// The subnets associated with your cluster.
-	SubnetIds []string `locationName:"subnetIds" type:"list"`
+	SubnetIds []string `json:"eks:VpcConfigResponse:SubnetIds" locationName:"subnetIds" type:"list"`
 
 	// The VPC associated with your cluster.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"eks:VpcConfigResponse:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation

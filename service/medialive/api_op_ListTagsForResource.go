@@ -54,7 +54,7 @@ func (s ListTagsForResourceInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:ListTagsForResourceOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

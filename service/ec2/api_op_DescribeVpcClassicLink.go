@@ -49,7 +49,7 @@ type DescribeVpcClassicLinkOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ClassicLink status of one or more VPCs.
-	Vpcs []VpcClassicLink `locationName:"vpcSet" locationNameList:"item" type:"list"`
+	Vpcs []VpcClassicLink `json:"ec2:DescribeVpcClassicLinkOutput:Vpcs" locationName:"vpcSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

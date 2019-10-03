@@ -60,7 +60,7 @@ type CreateVpnGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the virtual private gateway.
-	VpnGateway *VpnGateway `locationName:"vpnGateway" type:"structure"`
+	VpnGateway *VpnGateway `json:"ec2:CreateVpnGatewayOutput:VpnGateway" locationName:"vpnGateway" type:"structure"`
 }
 
 // String returns the string representation

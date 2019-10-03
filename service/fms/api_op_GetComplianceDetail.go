@@ -61,7 +61,7 @@ type GetComplianceDetailOutput struct {
 
 	// Information about the resources and the policy that you specified in the
 	// GetComplianceDetail request.
-	PolicyComplianceDetail *PolicyComplianceDetail `type:"structure"`
+	PolicyComplianceDetail *PolicyComplianceDetail `json:"fms:GetComplianceDetailOutput:PolicyComplianceDetail" type:"structure"`
 }
 
 // String returns the string representation

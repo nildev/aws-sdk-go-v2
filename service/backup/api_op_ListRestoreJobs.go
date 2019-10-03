@@ -69,11 +69,11 @@ type ListRestoreJobsOutput struct {
 	// a request is made to return maxResults number of items, NextToken allows
 	// you to return more items in your list starting at the location pointed to
 	// by the next token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"backup:ListRestoreJobsOutput:NextToken" type:"string"`
 
 	// An array of objects that contain detailed information about jobs to restore
 	// saved resources.
-	RestoreJobs []RestoreJobsListMember `type:"list"`
+	RestoreJobs []RestoreJobsListMember `json:"backup:ListRestoreJobsOutput:RestoreJobs" type:"list"`
 }
 
 // String returns the string representation

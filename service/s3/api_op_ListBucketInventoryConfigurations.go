@@ -76,19 +76,19 @@ type ListBucketInventoryConfigurationsOutput struct {
 
 	// If sent in the request, the marker that is used as a starting point for this
 	// inventory configuration list response.
-	ContinuationToken *string `type:"string"`
+	ContinuationToken *string `json:"s3:ListBucketInventoryConfigurationsOutput:ContinuationToken" type:"string"`
 
 	// The list of inventory configurations for a bucket.
-	InventoryConfigurationList []InventoryConfiguration `locationName:"InventoryConfiguration" type:"list" flattened:"true"`
+	InventoryConfigurationList []InventoryConfiguration `json:"s3:ListBucketInventoryConfigurationsOutput:InventoryConfigurationList" locationName:"InventoryConfiguration" type:"list" flattened:"true"`
 
 	// Indicates whether the returned list of inventory configurations is truncated
 	// in this response. A value of true indicates that the list is truncated.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"s3:ListBucketInventoryConfigurationsOutput:IsTruncated" type:"boolean"`
 
 	// The marker used to continue this inventory configuration listing. Use the
 	// NextContinuationToken from this response to continue the listing in a subsequent
 	// request. The continuation token is an opaque value that Amazon S3 understands.
-	NextContinuationToken *string `type:"string"`
+	NextContinuationToken *string `json:"s3:ListBucketInventoryConfigurationsOutput:NextContinuationToken" type:"string"`
 }
 
 // String returns the string representation

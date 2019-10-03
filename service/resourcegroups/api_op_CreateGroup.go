@@ -112,13 +112,13 @@ type CreateGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A full description of the resource group after it is created.
-	Group *Group `type:"structure"`
+	Group *Group `json:"resource-groups:CreateGroupOutput:Group" type:"structure"`
 
 	// The resource query associated with the group.
-	ResourceQuery *ResourceQuery `type:"structure"`
+	ResourceQuery *ResourceQuery `json:"resource-groups:CreateGroupOutput:ResourceQuery" type:"structure"`
 
 	// The tags associated with the group.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"resource-groups:CreateGroupOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

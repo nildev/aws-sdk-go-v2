@@ -130,10 +130,10 @@ type DescribeScalableTargetsOutput struct {
 
 	// The token required to get the next set of results. This value is null if
 	// there are no more results to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeScalableTargetsOutput:NextToken" type:"string"`
 
 	// The scalable targets that match the request parameters.
-	ScalableTargets []ScalableTarget `type:"list"`
+	ScalableTargets []ScalableTarget `json:"autoscaling:DescribeScalableTargetsOutput:ScalableTargets" type:"list"`
 }
 
 // String returns the string representation

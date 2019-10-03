@@ -64,7 +64,7 @@ type AssociateAddressOutput struct {
 
 	// [EC2-VPC] The ID that represents the association of the Elastic IP address
 	// with an instance.
-	AssociationId *string `locationName:"associationId" type:"string"`
+	AssociationId *string `json:"ec2:AssociateAddressOutput:AssociationId" locationName:"associationId" type:"string"`
 }
 
 // String returns the string representation

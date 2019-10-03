@@ -91,20 +91,20 @@ type BacktrackDBClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the backtrack identifier.
-	BacktrackIdentifier *string `type:"string"`
+	BacktrackIdentifier *string `json:"rds:BacktrackDBClusterOutput:BacktrackIdentifier" type:"string"`
 
 	// The timestamp of the time at which the backtrack was requested.
-	BacktrackRequestCreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	BacktrackRequestCreationTime *time.Time `json:"rds:BacktrackDBClusterOutput:BacktrackRequestCreationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The timestamp of the time to which the DB cluster was backtracked.
-	BacktrackTo *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	BacktrackTo *time.Time `json:"rds:BacktrackDBClusterOutput:BacktrackTo" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The timestamp of the time from which the DB cluster was backtracked.
-	BacktrackedFrom *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	BacktrackedFrom *time.Time `json:"rds:BacktrackDBClusterOutput:BacktrackedFrom" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Contains a user-supplied DB cluster identifier. This identifier is the unique
 	// key that identifies a DB cluster.
-	DBClusterIdentifier *string `type:"string"`
+	DBClusterIdentifier *string `json:"rds:BacktrackDBClusterOutput:DBClusterIdentifier" type:"string"`
 
 	// The status of the backtrack. This property returns one of the following values:
 	//
@@ -119,7 +119,7 @@ type BacktrackDBClusterOutput struct {
 	//
 	//    * pending - The backtrack is currently pending application to or rollback
 	//    from the DB cluster.
-	Status *string `type:"string"`
+	Status *string `json:"rds:BacktrackDBClusterOutput:Status" type:"string"`
 }
 
 // String returns the string representation

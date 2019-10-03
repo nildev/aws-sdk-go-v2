@@ -46,7 +46,7 @@ type GetTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested tags.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"glue:GetTagsOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

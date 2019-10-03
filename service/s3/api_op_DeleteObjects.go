@@ -111,13 +111,13 @@ func (s DeleteObjectsInput) MarshalFields(e protocol.FieldEncoder) error {
 type DeleteObjectsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Deleted []DeletedObject `type:"list" flattened:"true"`
+	Deleted []DeletedObject `json:"s3:DeleteObjectsOutput:Deleted" type:"list" flattened:"true"`
 
-	Errors []Error `locationName:"Error" type:"list" flattened:"true"`
+	Errors []Error `json:"s3:DeleteObjectsOutput:Errors" locationName:"Error" type:"list" flattened:"true"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:DeleteObjectsOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 }
 
 // String returns the string representation

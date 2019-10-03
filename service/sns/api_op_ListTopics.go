@@ -29,10 +29,10 @@ type ListTopicsOutput struct {
 
 	// Token to pass along to the next ListTopics request. This element is returned
 	// if there are additional topics to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"sns:ListTopicsOutput:NextToken" type:"string"`
 
 	// A list of topic ARNs.
-	Topics []Topic `type:"list"`
+	Topics []Topic `json:"sns:ListTopicsOutput:Topics" type:"list"`
 }
 
 // String returns the string representation

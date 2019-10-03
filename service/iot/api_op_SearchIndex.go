@@ -101,13 +101,13 @@ type SearchIndexOutput struct {
 
 	// The token used to get the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:SearchIndexOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The thing groups that match the search query.
-	ThingGroups []ThingGroupDocument `locationName:"thingGroups" type:"list"`
+	ThingGroups []ThingGroupDocument `json:"iot:SearchIndexOutput:ThingGroups" locationName:"thingGroups" type:"list"`
 
 	// The things that match the search query.
-	Things []ThingDocument `locationName:"things" type:"list"`
+	Things []ThingDocument `json:"iot:SearchIndexOutput:Things" locationName:"things" type:"list"`
 }
 
 // String returns the string representation

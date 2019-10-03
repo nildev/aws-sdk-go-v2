@@ -146,7 +146,7 @@ type UpdateGraphqlApiOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated GraphqlApi object.
-	GraphqlApi *GraphqlApi `locationName:"graphqlApi" type:"structure"`
+	GraphqlApi *GraphqlApi `json:"appsync:UpdateGraphqlApiOutput:GraphqlApi" locationName:"graphqlApi" type:"structure"`
 }
 
 // String returns the string representation

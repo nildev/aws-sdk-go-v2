@@ -64,11 +64,11 @@ type ListDatasetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of "DatasetSummary" objects.
-	DatasetSummaries []DatasetSummary `locationName:"datasetSummaries" type:"list"`
+	DatasetSummaries []DatasetSummary `json:"iotanalytics:ListDatasetsOutput:DatasetSummaries" locationName:"datasetSummaries" type:"list"`
 
 	// The token to retrieve the next set of results, or null if there are no more
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotanalytics:ListDatasetsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

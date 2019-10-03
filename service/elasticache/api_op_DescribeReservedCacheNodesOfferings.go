@@ -101,11 +101,11 @@ type DescribeReservedCacheNodesOfferingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeReservedCacheNodesOfferingsOutput:Marker" type:"string"`
 
 	// A list of reserved cache node offerings. Each element in the list contains
 	// detailed information about one offering.
-	ReservedCacheNodesOfferings []ReservedCacheNodesOffering `locationNameList:"ReservedCacheNodesOffering" type:"list"`
+	ReservedCacheNodesOfferings []ReservedCacheNodesOffering `json:"elasticache:DescribeReservedCacheNodesOfferingsOutput:ReservedCacheNodesOfferings" locationNameList:"ReservedCacheNodesOffering" type:"list"`
 }
 
 // String returns the string representation

@@ -67,10 +67,10 @@ type DescribeTransitGatewayVpcAttachmentsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeTransitGatewayVpcAttachmentsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the VPC attachments.
-	TransitGatewayVpcAttachments []TransitGatewayVpcAttachment `locationName:"transitGatewayVpcAttachments" locationNameList:"item" type:"list"`
+	TransitGatewayVpcAttachments []TransitGatewayVpcAttachment `json:"ec2:DescribeTransitGatewayVpcAttachmentsOutput:TransitGatewayVpcAttachments" locationName:"transitGatewayVpcAttachments" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

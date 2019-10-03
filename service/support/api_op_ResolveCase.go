@@ -29,10 +29,10 @@ type ResolveCaseOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the case after the ResolveCase request was processed.
-	FinalCaseStatus *string `locationName:"finalCaseStatus" type:"string"`
+	FinalCaseStatus *string `json:"support:ResolveCaseOutput:FinalCaseStatus" locationName:"finalCaseStatus" type:"string"`
 
 	// The status of the case when the ResolveCase request was sent.
-	InitialCaseStatus *string `locationName:"initialCaseStatus" type:"string"`
+	InitialCaseStatus *string `json:"support:ResolveCaseOutput:InitialCaseStatus" locationName:"initialCaseStatus" type:"string"`
 }
 
 // String returns the string representation

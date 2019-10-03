@@ -43,7 +43,7 @@ type GetConferenceProviderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The conference provider.
-	ConferenceProvider *ConferenceProvider `type:"structure"`
+	ConferenceProvider *ConferenceProvider `json:"a4b:GetConferenceProviderOutput:ConferenceProvider" type:"structure"`
 }
 
 // String returns the string representation

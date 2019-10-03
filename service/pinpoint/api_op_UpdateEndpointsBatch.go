@@ -78,7 +78,7 @@ type UpdateEndpointsBatchOutput struct {
 	// Provides information about an API request or response.
 	//
 	// MessageBody is a required field
-	MessageBody *MessageBody `type:"structure" required:"true"`
+	MessageBody *MessageBody `json:"pinpoint:UpdateEndpointsBatchOutput:MessageBody" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -106,15 +106,15 @@ type FilterLogEventsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The matched events.
-	Events []FilteredLogEvent `locationName:"events" type:"list"`
+	Events []FilteredLogEvent `json:"logs:FilterLogEventsOutput:Events" locationName:"events" type:"list"`
 
 	// The token to use when requesting the next set of items. The token expires
 	// after 24 hours.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"logs:FilterLogEventsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// Indicates which log streams have been searched and whether each has been
 	// searched completely.
-	SearchedLogStreams []SearchedLogStream `locationName:"searchedLogStreams" type:"list"`
+	SearchedLogStreams []SearchedLogStream `json:"logs:FilterLogEventsOutput:SearchedLogStreams" locationName:"searchedLogStreams" type:"list"`
 }
 
 // String returns the string representation

@@ -64,7 +64,7 @@ type CreateCodeRepositoryOutput struct {
 	// The Amazon Resource Name (ARN) of the new repository.
 	//
 	// CodeRepositoryArn is a required field
-	CodeRepositoryArn *string `min:"1" type:"string" required:"true"`
+	CodeRepositoryArn *string `json:"api.sagemaker:CreateCodeRepositoryOutput:CodeRepositoryArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

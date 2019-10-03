@@ -25,7 +25,7 @@ type AbortIncompleteMultipartUpload struct {
 
 	// Specifies the number of days after which Amazon S3 aborts an incomplete multipart
 	// upload.
-	DaysAfterInitiation *int64 `type:"integer"`
+	DaysAfterInitiation *int64 `json:"s3:AbortIncompleteMultipartUpload:DaysAfterInitiation" type:"integer"`
 }
 
 // String returns the string representation
@@ -52,7 +52,7 @@ type AccelerateConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the transfer acceleration status of the bucket.
-	Status BucketAccelerateStatus `type:"string" enum:"true"`
+	Status BucketAccelerateStatus `json:"s3:AccelerateConfiguration:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -77,10 +77,10 @@ type AccessControlPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// A list of grants.
-	Grants []Grant `locationName:"AccessControlList" locationNameList:"Grant" type:"list"`
+	Grants []Grant `json:"s3:AccessControlPolicy:Grants" locationName:"AccessControlList" locationNameList:"Grant" type:"list"`
 
 	// Container for the bucket owner's display name and ID.
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:AccessControlPolicy:Owner" type:"structure"`
 }
 
 // String returns the string representation
@@ -138,7 +138,7 @@ type AccessControlTranslation struct {
 	// in the Amazon Simple Storage Service API Reference.
 	//
 	// Owner is a required field
-	Owner OwnerOverride `type:"string" required:"true" enum:"true"`
+	Owner OwnerOverride `json:"s3:AccessControlTranslation:Owner" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -179,10 +179,10 @@ type AnalyticsAndOperator struct {
 
 	// The prefix to use when evaluating an AND predicate: The prefix that an object
 	// must have to be included in the metrics results.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:AnalyticsAndOperator:Prefix" type:"string"`
 
 	// The list of tags to use when evaluating an AND predicate.
-	Tags []Tag `locationName:"Tag" locationNameList:"Tag" type:"list" flattened:"true"`
+	Tags []Tag `json:"s3:AnalyticsAndOperator:Tags" locationName:"Tag" locationNameList:"Tag" type:"list" flattened:"true"`
 }
 
 // String returns the string representation
@@ -242,18 +242,18 @@ type AnalyticsConfiguration struct {
 	// The filter used to describe a set of objects for analyses. A filter must
 	// have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator).
 	// If no filter is provided, all objects will be considered in any analysis.
-	Filter *AnalyticsFilter `type:"structure"`
+	Filter *AnalyticsFilter `json:"s3:AnalyticsConfiguration:Filter" type:"structure"`
 
 	// The ID that identifies the analytics configuration.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"s3:AnalyticsConfiguration:Id" type:"string" required:"true"`
 
 	// Contains data related to access patterns to be collected and made available
 	// to analyze the tradeoffs between different storage classes.
 	//
 	// StorageClassAnalysis is a required field
-	StorageClassAnalysis *StorageClassAnalysis `type:"structure" required:"true"`
+	StorageClassAnalysis *StorageClassAnalysis `json:"s3:AnalyticsConfiguration:StorageClassAnalysis" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -320,7 +320,7 @@ type AnalyticsExportDestination struct {
 	// A destination signifying output to an S3 bucket.
 	//
 	// S3BucketDestination is a required field
-	S3BucketDestination *AnalyticsS3BucketDestination `type:"structure" required:"true"`
+	S3BucketDestination *AnalyticsS3BucketDestination `json:"s3:AnalyticsExportDestination:S3BucketDestination" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -364,13 +364,13 @@ type AnalyticsFilter struct {
 
 	// A conjunction (logical AND) of predicates, which is used in evaluating an
 	// analytics filter. The operator must have at least two predicates.
-	And *AnalyticsAndOperator `type:"structure"`
+	And *AnalyticsAndOperator `json:"s3:AnalyticsFilter:And" type:"structure"`
 
 	// The prefix to use when evaluating an analytics filter.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:AnalyticsFilter:Prefix" type:"string"`
 
 	// The tag to use when evaluating an analytics filter.
-	Tag *Tag `type:"structure"`
+	Tag *Tag `json:"s3:AnalyticsFilter:Tag" type:"structure"`
 }
 
 // String returns the string representation
@@ -428,19 +428,19 @@ type AnalyticsS3BucketDestination struct {
 	// The Amazon Resource Name (ARN) of the bucket to which data is exported.
 	//
 	// Bucket is a required field
-	Bucket *string `type:"string" required:"true"`
+	Bucket *string `json:"s3:AnalyticsS3BucketDestination:Bucket" type:"string" required:"true"`
 
 	// The account ID that owns the destination bucket. If no account ID is provided,
 	// the owner will not be validated prior to exporting data.
-	BucketAccountId *string `type:"string"`
+	BucketAccountId *string `json:"s3:AnalyticsS3BucketDestination:BucketAccountId" type:"string"`
 
 	// Specifies the file format used when exporting data to Amazon S3.
 	//
 	// Format is a required field
-	Format AnalyticsS3ExportFileFormat `type:"string" required:"true" enum:"true"`
+	Format AnalyticsS3ExportFileFormat `json:"s3:AnalyticsS3BucketDestination:Format" type:"string" required:"true" enum:"true"`
 
 	// The prefix to use when exporting data. The prefix is prepended to all results.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:AnalyticsS3BucketDestination:Prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -506,10 +506,10 @@ type Bucket struct {
 	_ struct{} `type:"structure"`
 
 	// Date the bucket was created.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreationDate *time.Time `json:"s3:Bucket:CreationDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The name of the bucket.
-	Name *string `type:"string"`
+	Name *string `json:"s3:Bucket:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -544,7 +544,7 @@ type BucketLifecycleConfiguration struct {
 	// A lifecycle rule for individual objects in an Amazon S3 bucket.
 	//
 	// Rules is a required field
-	Rules []LifecycleRule `locationName:"Rule" type:"list" flattened:"true" required:"true"`
+	Rules []LifecycleRule `json:"s3:BucketLifecycleConfiguration:Rules" locationName:"Rule" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation
@@ -598,7 +598,7 @@ type BucketLoggingStatus struct {
 	// all log object keys for a bucket. For more information, see PUT Bucket logging
 	// (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html)
 	// in the Amazon Simple Storage Service API Reference.
-	LoggingEnabled *LoggingEnabled `type:"structure"`
+	LoggingEnabled *LoggingEnabled `json:"s3:BucketLoggingStatus:LoggingEnabled" type:"structure"`
 }
 
 // String returns the string representation
@@ -643,7 +643,7 @@ type CORSConfiguration struct {
 	// A set of allowed origins and methods.
 	//
 	// CORSRules is a required field
-	CORSRules []CORSRule `locationName:"CORSRule" type:"list" flattened:"true" required:"true"`
+	CORSRules []CORSRule `json:"s3:CORSConfiguration:CORSRules" locationName:"CORSRule" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation
@@ -698,27 +698,27 @@ type CORSRule struct {
 	// These headers are allowed in a preflight OPTIONS request. In response to
 	// any preflight OPTIONS request, Amazon S3 returns any requested headers that
 	// are allowed.
-	AllowedHeaders []string `locationName:"AllowedHeader" type:"list" flattened:"true"`
+	AllowedHeaders []string `json:"s3:CORSRule:AllowedHeaders" locationName:"AllowedHeader" type:"list" flattened:"true"`
 
 	// An HTTP method that you allow the origin to execute. Valid values are GET,
 	// PUT, HEAD, POST, and DELETE.
 	//
 	// AllowedMethods is a required field
-	AllowedMethods []string `locationName:"AllowedMethod" type:"list" flattened:"true" required:"true"`
+	AllowedMethods []string `json:"s3:CORSRule:AllowedMethods" locationName:"AllowedMethod" type:"list" flattened:"true" required:"true"`
 
 	// One or more origins you want customers to be able to access the bucket from.
 	//
 	// AllowedOrigins is a required field
-	AllowedOrigins []string `locationName:"AllowedOrigin" type:"list" flattened:"true" required:"true"`
+	AllowedOrigins []string `json:"s3:CORSRule:AllowedOrigins" locationName:"AllowedOrigin" type:"list" flattened:"true" required:"true"`
 
 	// One or more headers in the response that you want customers to be able to
 	// access from their applications (for example, from a JavaScript XMLHttpRequest
 	// object).
-	ExposeHeaders []string `locationName:"ExposeHeader" type:"list" flattened:"true"`
+	ExposeHeaders []string `json:"s3:CORSRule:ExposeHeaders" locationName:"ExposeHeader" type:"list" flattened:"true"`
 
 	// The time in seconds that your browser is to cache the preflight response
 	// for the specified resource.
-	MaxAgeSeconds *int64 `type:"integer"`
+	MaxAgeSeconds *int64 `json:"s3:CORSRule:MaxAgeSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -811,27 +811,27 @@ type CSVInput struct {
 	// Specifies that CSV field values may contain quoted record delimiters and
 	// such records should be allowed. Default value is FALSE. Setting this value
 	// to TRUE may lower performance.
-	AllowQuotedRecordDelimiter *bool `type:"boolean"`
+	AllowQuotedRecordDelimiter *bool `json:"s3:CSVInput:AllowQuotedRecordDelimiter" type:"boolean"`
 
 	// The single character used to indicate a row should be ignored when present
 	// at the start of a row.
-	Comments *string `type:"string"`
+	Comments *string `json:"s3:CSVInput:Comments" type:"string"`
 
 	// The value used to separate individual fields in a record.
-	FieldDelimiter *string `type:"string"`
+	FieldDelimiter *string `json:"s3:CSVInput:FieldDelimiter" type:"string"`
 
 	// Describes the first line of input. Valid values: None, Ignore, Use.
-	FileHeaderInfo FileHeaderInfo `type:"string" enum:"true"`
+	FileHeaderInfo FileHeaderInfo `json:"s3:CSVInput:FileHeaderInfo" type:"string" enum:"true"`
 
 	// Value used for escaping where the field delimiter is part of the value.
-	QuoteCharacter *string `type:"string"`
+	QuoteCharacter *string `json:"s3:CSVInput:QuoteCharacter" type:"string"`
 
 	// The single character used for escaping the quote character inside an already
 	// escaped value.
-	QuoteEscapeCharacter *string `type:"string"`
+	QuoteEscapeCharacter *string `json:"s3:CSVInput:QuoteEscapeCharacter" type:"string"`
 
 	// The value used to separate individual records.
-	RecordDelimiter *string `type:"string"`
+	RecordDelimiter *string `json:"s3:CSVInput:RecordDelimiter" type:"string"`
 }
 
 // String returns the string representation
@@ -892,20 +892,20 @@ type CSVOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The value used to separate individual fields in a record.
-	FieldDelimiter *string `type:"string"`
+	FieldDelimiter *string `json:"s3:CSVOutput:FieldDelimiter" type:"string"`
 
 	// The value used for escaping where the field delimiter is part of the value.
-	QuoteCharacter *string `type:"string"`
+	QuoteCharacter *string `json:"s3:CSVOutput:QuoteCharacter" type:"string"`
 
 	// Th single character used for escaping the quote character inside an already
 	// escaped value.
-	QuoteEscapeCharacter *string `type:"string"`
+	QuoteEscapeCharacter *string `json:"s3:CSVOutput:QuoteEscapeCharacter" type:"string"`
 
 	// Indicates whether or not all output fields should be quoted.
-	QuoteFields QuoteFields `type:"string" enum:"true"`
+	QuoteFields QuoteFields `json:"s3:CSVOutput:QuoteFields" type:"string" enum:"true"`
 
 	// The value used to separate individual records.
-	RecordDelimiter *string `type:"string"`
+	RecordDelimiter *string `json:"s3:CSVOutput:RecordDelimiter" type:"string"`
 }
 
 // String returns the string representation
@@ -952,18 +952,18 @@ func (s CSVOutput) MarshalFields(e protocol.FieldEncoder) error {
 type CloudFunctionConfiguration struct {
 	_ struct{} `type:"structure"`
 
-	CloudFunction *string `type:"string"`
+	CloudFunction *string `json:"s3:CloudFunctionConfiguration:CloudFunction" type:"string"`
 
 	// The bucket event for which to send notifications.
-	Event Event `deprecated:"true" type:"string" enum:"true"`
+	Event Event `json:"s3:CloudFunctionConfiguration:Event" deprecated:"true" type:"string" enum:"true"`
 
-	Events []Event `locationName:"Event" type:"list" flattened:"true"`
+	Events []Event `json:"s3:CloudFunctionConfiguration:Events" locationName:"Event" type:"list" flattened:"true"`
 
 	// An optional unique identifier for configurations in a notification configuration.
 	// If you don't provide one, Amazon S3 will assign an ID.
-	Id *string `type:"string"`
+	Id *string `json:"s3:CloudFunctionConfiguration:Id" type:"string"`
 
-	InvocationRole *string `type:"string"`
+	InvocationRole *string `json:"s3:CloudFunctionConfiguration:InvocationRole" type:"string"`
 }
 
 // String returns the string representation
@@ -1016,7 +1016,7 @@ func (s CloudFunctionConfiguration) MarshalFields(e protocol.FieldEncoder) error
 type CommonPrefix struct {
 	_ struct{} `type:"structure"`
 
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:CommonPrefix:Prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -1039,7 +1039,7 @@ func (s CommonPrefix) MarshalFields(e protocol.FieldEncoder) error {
 type CompletedMultipartUpload struct {
 	_ struct{} `type:"structure"`
 
-	Parts []CompletedPart `locationName:"Part" type:"list" flattened:"true"`
+	Parts []CompletedPart `json:"s3:CompletedMultipartUpload:Parts" locationName:"Part" type:"list" flattened:"true"`
 }
 
 // String returns the string representation
@@ -1069,11 +1069,11 @@ type CompletedPart struct {
 	_ struct{} `type:"structure"`
 
 	// Entity tag returned when the part was uploaded.
-	ETag *string `type:"string"`
+	ETag *string `json:"s3:CompletedPart:ETag" type:"string"`
 
 	// Part number that identifies the part. This is a positive integer between
 	// 1 and 10,000.
-	PartNumber *int64 `type:"integer"`
+	PartNumber *int64 `json:"s3:CompletedPart:PartNumber" type:"integer"`
 }
 
 // String returns the string representation
@@ -1108,7 +1108,7 @@ type Condition struct {
 	// Required when parent element Condition is specified and sibling KeyPrefixEquals
 	// is not specified. If both are specified, then both must be true for the redirect
 	// to be applied.
-	HttpErrorCodeReturnedEquals *string `type:"string"`
+	HttpErrorCodeReturnedEquals *string `json:"s3:Condition:HttpErrorCodeReturnedEquals" type:"string"`
 
 	// The object key name prefix when the redirect is applied. For example, to
 	// redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html.
@@ -1117,7 +1117,7 @@ type Condition struct {
 	// the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals
 	// is not specified. If both conditions are specified, both must be true for
 	// the redirect to be applied.
-	KeyPrefixEquals *string `type:"string"`
+	KeyPrefixEquals *string `json:"s3:Condition:KeyPrefixEquals" type:"string"`
 }
 
 // String returns the string representation
@@ -1146,9 +1146,9 @@ func (s Condition) MarshalFields(e protocol.FieldEncoder) error {
 type CopyObjectResult struct {
 	_ struct{} `type:"structure"`
 
-	ETag *string `type:"string"`
+	ETag *string `json:"s3:CopyObjectResult:ETag" type:"string"`
 
-	LastModified *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastModified *time.Time `json:"s3:CopyObjectResult:LastModified" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1178,10 +1178,10 @@ type CopyPartResult struct {
 	_ struct{} `type:"structure"`
 
 	// Entity tag of the object.
-	ETag *string `type:"string"`
+	ETag *string `json:"s3:CopyPartResult:ETag" type:"string"`
 
 	// Date and time at which the object was uploaded.
-	LastModified *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastModified *time.Time `json:"s3:CopyPartResult:LastModified" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1212,7 +1212,7 @@ type CreateBucketConfiguration struct {
 
 	// Specifies the region where the bucket will be created. If you don't specify
 	// a region, the bucket is created in US East (N. Virginia) Region (us-east-1).
-	LocationConstraint BucketLocationConstraint `type:"string" enum:"true"`
+	LocationConstraint BucketLocationConstraint `json:"s3:CreateBucketConfiguration:LocationConstraint" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1238,14 +1238,14 @@ type DefaultRetention struct {
 	_ struct{} `type:"structure"`
 
 	// The number of days that you want to specify for the default retention period.
-	Days *int64 `type:"integer"`
+	Days *int64 `json:"s3:DefaultRetention:Days" type:"integer"`
 
 	// The default object lock retention mode you want to apply to new objects placed
 	// in the specified bucket.
-	Mode ObjectLockRetentionMode `type:"string" enum:"true"`
+	Mode ObjectLockRetentionMode `json:"s3:DefaultRetention:Mode" type:"string" enum:"true"`
 
 	// The number of years that you want to specify for the default retention period.
-	Years *int64 `type:"integer"`
+	Years *int64 `json:"s3:DefaultRetention:Years" type:"integer"`
 }
 
 // String returns the string representation
@@ -1281,11 +1281,11 @@ type Delete struct {
 	_ struct{} `type:"structure"`
 
 	// Objects is a required field
-	Objects []ObjectIdentifier `locationName:"Object" type:"list" flattened:"true" required:"true"`
+	Objects []ObjectIdentifier `json:"s3:Delete:Objects" locationName:"Object" type:"list" flattened:"true" required:"true"`
 
 	// Element to enable quiet mode for the request. When you add this element,
 	// you must set its value to true.
-	Quiet *bool `type:"boolean"`
+	Quiet *bool `json:"s3:Delete:Quiet" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1343,18 +1343,18 @@ type DeleteMarkerEntry struct {
 
 	// Specifies whether the object is (true) or is not (false) the latest version
 	// of an object.
-	IsLatest *bool `type:"boolean"`
+	IsLatest *bool `json:"s3:DeleteMarkerEntry:IsLatest" type:"boolean"`
 
 	// The object key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"s3:DeleteMarkerEntry:Key" min:"1" type:"string"`
 
 	// Date and time the object was last modified.
-	LastModified *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastModified *time.Time `json:"s3:DeleteMarkerEntry:LastModified" type:"timestamp" timestampFormat:"iso8601"`
 
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:DeleteMarkerEntry:Owner" type:"structure"`
 
 	// Version ID of an object.
-	VersionId *string `type:"string"`
+	VersionId *string `json:"s3:DeleteMarkerEntry:VersionId" type:"string"`
 }
 
 // String returns the string representation
@@ -1406,7 +1406,7 @@ type DeleteMarkerReplication struct {
 	//
 	// In the current implementation, Amazon S3 doesn't replicate the delete markers.
 	// The status must be Disabled.
-	Status DeleteMarkerReplicationStatus `type:"string" enum:"true"`
+	Status DeleteMarkerReplicationStatus `json:"s3:DeleteMarkerReplication:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1429,13 +1429,13 @@ func (s DeleteMarkerReplication) MarshalFields(e protocol.FieldEncoder) error {
 type DeletedObject struct {
 	_ struct{} `type:"structure"`
 
-	DeleteMarker *bool `type:"boolean"`
+	DeleteMarker *bool `json:"s3:DeletedObject:DeleteMarker" type:"boolean"`
 
-	DeleteMarkerVersionId *string `type:"string"`
+	DeleteMarkerVersionId *string `json:"s3:DeletedObject:DeleteMarkerVersionId" type:"string"`
 
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"s3:DeletedObject:Key" min:"1" type:"string"`
 
-	VersionId *string `type:"string"`
+	VersionId *string `json:"s3:DeletedObject:VersionId" type:"string"`
 }
 
 // String returns the string representation
@@ -1483,7 +1483,7 @@ type Destination struct {
 	// to the AWS account that owns the destination bucket. If this is not specified
 	// in the replication configuration, the replicas are owned by same AWS account
 	// that owns the source object.
-	AccessControlTranslation *AccessControlTranslation `type:"structure"`
+	AccessControlTranslation *AccessControlTranslation `json:"s3:Destination:AccessControlTranslation" type:"structure"`
 
 	// Destination bucket owner account ID. In a cross-account scenario, if you
 	// direct Amazon S3 to change replica ownership to the AWS account that owns
@@ -1492,7 +1492,7 @@ type Destination struct {
 	// see Cross-Region Replication Additional Configuration: Change Replica Owner
 	// (https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in
 	// the Amazon Simple Storage Service Developer Guide.
-	Account *string `type:"string"`
+	Account *string `json:"s3:Destination:Account" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to
 	// store replicas of the object identified by the rule.
@@ -1502,11 +1502,11 @@ type Destination struct {
 	// rules must specify the same destination bucket.
 	//
 	// Bucket is a required field
-	Bucket *string `type:"string" required:"true"`
+	Bucket *string `json:"s3:Destination:Bucket" type:"string" required:"true"`
 
 	// A container that provides information about encryption. If SourceSelectionCriteria
 	// is specified, you must specify this element.
-	EncryptionConfiguration *EncryptionConfiguration `type:"structure"`
+	EncryptionConfiguration *EncryptionConfiguration `json:"s3:Destination:EncryptionConfiguration" type:"structure"`
 
 	// The storage class to use when replicating objects, such as standard or reduced
 	// redundancy. By default, Amazon S3 uses the storage class of the source object
@@ -1515,7 +1515,7 @@ type Destination struct {
 	// For valid values, see the StorageClass element of the PUT Bucket replication
 	// (https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html)
 	// action in the Amazon Simple Storage Service API Reference.
-	StorageClass StorageClass `type:"string" enum:"true"`
+	StorageClass StorageClass `json:"s3:Destination:StorageClass" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1594,15 +1594,15 @@ type Encryption struct {
 	// S3 (e.g., AES256, aws:kms).
 	//
 	// EncryptionType is a required field
-	EncryptionType ServerSideEncryption `type:"string" required:"true" enum:"true"`
+	EncryptionType ServerSideEncryption `json:"s3:Encryption:EncryptionType" type:"string" required:"true" enum:"true"`
 
 	// If the encryption type is aws:kms, this optional value can be used to specify
 	// the encryption context for the restore results.
-	KMSContext *string `type:"string"`
+	KMSContext *string `json:"s3:Encryption:KMSContext" type:"string"`
 
 	// If the encryption type is aws:kms, this optional value specifies the AWS
 	// KMS key ID to use for encryption of job results.
-	KMSKeyId *string `type:"string"`
+	KMSKeyId *string `json:"s3:Encryption:KMSKeyId" type:"string"`
 }
 
 // String returns the string representation
@@ -1654,7 +1654,7 @@ type EncryptionConfiguration struct {
 
 	// Specifies the AWS KMS Key ID (Key ARN or Alias ARN) for the destination bucket.
 	// Amazon S3 uses this key to encrypt replica objects.
-	ReplicaKmsKeyID *string `type:"string"`
+	ReplicaKmsKeyID *string `json:"s3:EncryptionConfiguration:ReplicaKmsKeyID" type:"string"`
 }
 
 // String returns the string representation
@@ -1677,13 +1677,13 @@ func (s EncryptionConfiguration) MarshalFields(e protocol.FieldEncoder) error {
 type Error struct {
 	_ struct{} `type:"structure"`
 
-	Code *string `type:"string"`
+	Code *string `json:"s3:Error:Code" type:"string"`
 
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"s3:Error:Key" min:"1" type:"string"`
 
-	Message *string `type:"string"`
+	Message *string `json:"s3:Error:Message" type:"string"`
 
-	VersionId *string `type:"string"`
+	VersionId *string `json:"s3:Error:VersionId" type:"string"`
 }
 
 // String returns the string representation
@@ -1727,7 +1727,7 @@ type ErrorDocument struct {
 	// The object key name to use when a 4XX class error occurs.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"s3:ErrorDocument:Key" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1774,10 +1774,10 @@ type FilterRule struct {
 	// prefixes and suffixes are not supported. For more information, see Configuring
 	// Event Notifications (https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html)
 	// in the Amazon Simple Storage Service Developer Guide.
-	Name FilterRuleName `type:"string" enum:"true"`
+	Name FilterRuleName `json:"s3:FilterRule:Name" type:"string" enum:"true"`
 
 	// The value that the filter searches for in object key names.
-	Value *string `type:"string"`
+	Value *string `json:"s3:FilterRule:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1809,7 +1809,7 @@ type GlacierJobParameters struct {
 	// Glacier retrieval tier at which the restore will be processed.
 	//
 	// Tier is a required field
-	Tier Tier `type:"string" required:"true" enum:"true"`
+	Tier Tier `json:"s3:GlacierJobParameters:Tier" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1845,10 +1845,10 @@ func (s GlacierJobParameters) MarshalFields(e protocol.FieldEncoder) error {
 type Grant struct {
 	_ struct{} `type:"structure"`
 
-	Grantee *Grantee `type:"structure" xmlPrefix:"xsi" xmlURI:"http://www.w3.org/2001/XMLSchema-instance"`
+	Grantee *Grantee `json:"s3:Grant:Grantee" type:"structure" xmlPrefix:"xsi" xmlURI:"http://www.w3.org/2001/XMLSchema-instance"`
 
 	// Specifies the permission given to the grantee.
-	Permission Permission `type:"string" enum:"true"`
+	Permission Permission `json:"s3:Grant:Permission" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1899,21 +1899,21 @@ type Grantee struct {
 	_ struct{} `type:"structure" xmlPrefix:"xsi" xmlURI:"http://www.w3.org/2001/XMLSchema-instance"`
 
 	// Screen name of the grantee.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"s3:Grantee:DisplayName" type:"string"`
 
 	// Email address of the grantee.
-	EmailAddress *string `type:"string"`
+	EmailAddress *string `json:"s3:Grantee:EmailAddress" type:"string"`
 
 	// The canonical user ID of the grantee.
-	ID *string `type:"string"`
+	ID *string `json:"s3:Grantee:ID" type:"string"`
 
 	// Type of grantee
 	//
 	// Type is a required field
-	Type Type `locationName:"xsi:type" type:"string" xmlAttribute:"true" required:"true" enum:"true"`
+	Type Type `json:"s3:Grantee:Type" locationName:"xsi:type" type:"string" xmlAttribute:"true" required:"true" enum:"true"`
 
 	// URI of the grantee group.
-	URI *string `type:"string"`
+	URI *string `json:"s3:Grantee:URI" type:"string"`
 }
 
 // String returns the string representation
@@ -1974,7 +1974,7 @@ type IndexDocument struct {
 	// The suffix must not be empty and must not include a slash character.
 	//
 	// Suffix is a required field
-	Suffix *string `type:"string" required:"true"`
+	Suffix *string `json:"s3:IndexDocument:Suffix" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2012,11 +2012,11 @@ type Initiator struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the Principal.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"s3:Initiator:DisplayName" type:"string"`
 
 	// If the principal is an AWS account, it provides the Canonical User ID. If
 	// the principal is an IAM User, it provides a user ARN value.
-	ID *string `type:"string"`
+	ID *string `json:"s3:Initiator:ID" type:"string"`
 }
 
 // String returns the string representation
@@ -2047,17 +2047,17 @@ type InputSerialization struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the serialization of a CSV-encoded object.
-	CSV *CSVInput `type:"structure"`
+	CSV *CSVInput `json:"s3:InputSerialization:CSV" type:"structure"`
 
 	// Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default
 	// Value: NONE.
-	CompressionType CompressionType `type:"string" enum:"true"`
+	CompressionType CompressionType `json:"s3:InputSerialization:CompressionType" type:"string" enum:"true"`
 
 	// Specifies JSON as object's input serialization format.
-	JSON *JSONInput `type:"structure"`
+	JSON *JSONInput `json:"s3:InputSerialization:JSON" type:"structure"`
 
 	// Specifies Parquet as object's input serialization format.
-	Parquet *ParquetInput `type:"structure"`
+	Parquet *ParquetInput `json:"s3:InputSerialization:Parquet" type:"structure"`
 }
 
 // String returns the string representation
@@ -2104,16 +2104,16 @@ type InventoryConfiguration struct {
 	// Contains information about where to publish the inventory results.
 	//
 	// Destination is a required field
-	Destination *InventoryDestination `type:"structure" required:"true"`
+	Destination *InventoryDestination `json:"s3:InventoryConfiguration:Destination" type:"structure" required:"true"`
 
 	// Specifies an inventory filter. The inventory only includes objects that meet
 	// the filter's criteria.
-	Filter *InventoryFilter `type:"structure"`
+	Filter *InventoryFilter `json:"s3:InventoryConfiguration:Filter" type:"structure"`
 
 	// The ID used to identify the inventory configuration.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"s3:InventoryConfiguration:Id" type:"string" required:"true"`
 
 	// Object versions to include in the inventory list. If set to All, the list
 	// includes all the object versions, which adds the version-related fields VersionId,
@@ -2121,21 +2121,21 @@ type InventoryConfiguration struct {
 	// not contain these version-related fields.
 	//
 	// IncludedObjectVersions is a required field
-	IncludedObjectVersions InventoryIncludedObjectVersions `type:"string" required:"true" enum:"true"`
+	IncludedObjectVersions InventoryIncludedObjectVersions `json:"s3:InventoryConfiguration:IncludedObjectVersions" type:"string" required:"true" enum:"true"`
 
 	// Specifies whether the inventory is enabled or disabled. If set to True, an
 	// inventory list is generated. If set to False, no inventory list is generated.
 	//
 	// IsEnabled is a required field
-	IsEnabled *bool `type:"boolean" required:"true"`
+	IsEnabled *bool `json:"s3:InventoryConfiguration:IsEnabled" type:"boolean" required:"true"`
 
 	// Contains the optional fields that are included in the inventory results.
-	OptionalFields []InventoryOptionalField `locationNameList:"Field" type:"list"`
+	OptionalFields []InventoryOptionalField `json:"s3:InventoryConfiguration:OptionalFields" locationNameList:"Field" type:"list"`
 
 	// Specifies the schedule for generating inventory results.
 	//
 	// Schedule is a required field
-	Schedule *InventorySchedule `type:"structure" required:"true"`
+	Schedule *InventorySchedule `json:"s3:InventoryConfiguration:Schedule" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2248,7 +2248,7 @@ type InventoryDestination struct {
 	// (optional) where inventory results are published.
 	//
 	// S3BucketDestination is a required field
-	S3BucketDestination *InventoryS3BucketDestination `type:"structure" required:"true"`
+	S3BucketDestination *InventoryS3BucketDestination `json:"s3:InventoryDestination:S3BucketDestination" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2293,10 +2293,10 @@ type InventoryEncryption struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the use of SSE-KMS to encrypt delivered Inventory reports.
-	SSEKMS *SSEKMS `locationName:"SSE-KMS" type:"structure"`
+	SSEKMS *SSEKMS `json:"s3:InventoryEncryption:SSEKMS" locationName:"SSE-KMS" type:"structure"`
 
 	// Specifies the use of SSE-S3 to encrypt delivered Inventory reports.
-	SSES3 *SSES3 `locationName:"SSE-S3" type:"structure"`
+	SSES3 *SSES3 `json:"s3:InventoryEncryption:SSES3" locationName:"SSE-S3" type:"structure"`
 }
 
 // String returns the string representation
@@ -2343,7 +2343,7 @@ type InventoryFilter struct {
 	// The prefix that an object must have to be included in the inventory results.
 	//
 	// Prefix is a required field
-	Prefix *string `type:"string" required:"true"`
+	Prefix *string `json:"s3:InventoryFilter:Prefix" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2381,25 +2381,25 @@ type InventoryS3BucketDestination struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the account that owns the destination bucket.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"s3:InventoryS3BucketDestination:AccountId" type:"string"`
 
 	// The Amazon resource name (ARN) of the bucket where inventory results will
 	// be published.
 	//
 	// Bucket is a required field
-	Bucket *string `type:"string" required:"true"`
+	Bucket *string `json:"s3:InventoryS3BucketDestination:Bucket" type:"string" required:"true"`
 
 	// Contains the type of server-side encryption used to encrypt the inventory
 	// results.
-	Encryption *InventoryEncryption `type:"structure"`
+	Encryption *InventoryEncryption `json:"s3:InventoryS3BucketDestination:Encryption" type:"structure"`
 
 	// Specifies the output format of the inventory results.
 	//
 	// Format is a required field
-	Format InventoryFormat `type:"string" required:"true" enum:"true"`
+	Format InventoryFormat `json:"s3:InventoryS3BucketDestination:Format" type:"string" required:"true" enum:"true"`
 
 	// The prefix that is prepended to all inventory results.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:InventoryS3BucketDestination:Prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -2478,7 +2478,7 @@ type InventorySchedule struct {
 	// Specifies how frequently inventory results are produced.
 	//
 	// Frequency is a required field
-	Frequency InventoryFrequency `type:"string" required:"true" enum:"true"`
+	Frequency InventoryFrequency `json:"s3:InventorySchedule:Frequency" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2515,7 +2515,7 @@ type JSONInput struct {
 	_ struct{} `type:"structure"`
 
 	// The type of JSON. Valid values: Document, Lines.
-	Type JSONType `type:"string" enum:"true"`
+	Type JSONType `json:"s3:JSONInput:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2539,7 +2539,7 @@ type JSONOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The value used to separate individual records in the output.
-	RecordDelimiter *string `type:"string"`
+	RecordDelimiter *string `json:"s3:JSONOutput:RecordDelimiter" type:"string"`
 }
 
 // String returns the string representation
@@ -2568,22 +2568,22 @@ type LambdaFunctionConfiguration struct {
 	// in the Amazon Simple Storage Service Developer Guide.
 	//
 	// Events is a required field
-	Events []Event `locationName:"Event" type:"list" flattened:"true" required:"true"`
+	Events []Event `json:"s3:LambdaFunctionConfiguration:Events" locationName:"Event" type:"list" flattened:"true" required:"true"`
 
 	// Specifies object key name filtering rules. For information about key name
 	// filtering, see Configuring Event Notifications (https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html)
 	// in the Amazon Simple Storage Service Developer Guide.
-	Filter *NotificationConfigurationFilter `type:"structure"`
+	Filter *NotificationConfigurationFilter `json:"s3:LambdaFunctionConfiguration:Filter" type:"structure"`
 
 	// An optional unique identifier for configurations in a notification configuration.
 	// If you don't provide one, Amazon S3 will assign an ID.
-	Id *string `type:"string"`
+	Id *string `json:"s3:LambdaFunctionConfiguration:Id" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3
 	// invokes when the specified event type occurs.
 	//
 	// LambdaFunctionArn is a required field
-	LambdaFunctionArn *string `locationName:"CloudFunction" type:"string" required:"true"`
+	LambdaFunctionArn *string `json:"s3:LambdaFunctionConfiguration:LambdaFunctionArn" locationName:"CloudFunction" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2649,7 +2649,7 @@ type LifecycleConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Rules is a required field
-	Rules []Rule `locationName:"Rule" type:"list" flattened:"true" required:"true"`
+	Rules []Rule `json:"s3:LifecycleConfiguration:Rules" locationName:"Rule" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation
@@ -2701,17 +2701,17 @@ type LifecycleExpiration struct {
 
 	// Indicates at what date the object is to be moved or deleted. Should be in
 	// GMT ISO 8601 Format.
-	Date *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Date *time.Time `json:"s3:LifecycleExpiration:Date" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates the lifetime, in days, of the objects that are subject to the rule.
 	// The value must be a non-zero positive integer.
-	Days *int64 `type:"integer"`
+	Days *int64 `json:"s3:LifecycleExpiration:Days" type:"integer"`
 
 	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent
 	// versions. If set to true, the delete marker will be expired; if set to false
 	// the policy takes no action. This cannot be specified with Days or Date in
 	// a Lifecycle Expiration Policy.
-	ExpiredObjectDeleteMarker *bool `type:"boolean"`
+	ExpiredObjectDeleteMarker *bool `json:"s3:LifecycleExpiration:ExpiredObjectDeleteMarker" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2751,37 +2751,37 @@ type LifecycleRule struct {
 	// For more information, see Aborting Incomplete Multipart Uploads Using a Bucket
 	// Lifecycle Policy (https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config)
 	// in the Amazon Simple Storage Service Developer Guide.
-	AbortIncompleteMultipartUpload *AbortIncompleteMultipartUpload `type:"structure"`
+	AbortIncompleteMultipartUpload *AbortIncompleteMultipartUpload `json:"s3:LifecycleRule:AbortIncompleteMultipartUpload" type:"structure"`
 
-	Expiration *LifecycleExpiration `type:"structure"`
+	Expiration *LifecycleExpiration `json:"s3:LifecycleRule:Expiration" type:"structure"`
 
 	// The Filter is used to identify objects that a Lifecycle Rule applies to.
 	// A Filter must have exactly one of Prefix, Tag, or And specified.
-	Filter *LifecycleRuleFilter `type:"structure"`
+	Filter *LifecycleRuleFilter `json:"s3:LifecycleRule:Filter" type:"structure"`
 
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
-	ID *string `type:"string"`
+	ID *string `json:"s3:LifecycleRule:ID" type:"string"`
 
 	// Specifies when noncurrent object versions expire. Upon expiration, Amazon
 	// S3 permanently deletes the noncurrent object versions. You set this lifecycle
 	// configuration action on a bucket that has versioning enabled (or suspended)
 	// to request that Amazon S3 delete noncurrent object versions at a specific
 	// period in the object's lifetime.
-	NoncurrentVersionExpiration *NoncurrentVersionExpiration `type:"structure"`
+	NoncurrentVersionExpiration *NoncurrentVersionExpiration `json:"s3:LifecycleRule:NoncurrentVersionExpiration" type:"structure"`
 
-	NoncurrentVersionTransitions []NoncurrentVersionTransition `locationName:"NoncurrentVersionTransition" type:"list" flattened:"true"`
+	NoncurrentVersionTransitions []NoncurrentVersionTransition `json:"s3:LifecycleRule:NoncurrentVersionTransitions" locationName:"NoncurrentVersionTransition" type:"list" flattened:"true"`
 
 	// Prefix identifying one or more objects to which the rule applies. This is
 	// No longer used; use Filter instead.
-	Prefix *string `deprecated:"true" type:"string"`
+	Prefix *string `json:"s3:LifecycleRule:Prefix" deprecated:"true" type:"string"`
 
 	// If 'Enabled', the rule is currently being applied. If 'Disabled', the rule
 	// is not currently being applied.
 	//
 	// Status is a required field
-	Status ExpirationStatus `type:"string" required:"true" enum:"true"`
+	Status ExpirationStatus `json:"s3:LifecycleRule:Status" type:"string" required:"true" enum:"true"`
 
-	Transitions []Transition `locationName:"Transition" type:"list" flattened:"true"`
+	Transitions []Transition `json:"s3:LifecycleRule:Transitions" locationName:"Transition" type:"list" flattened:"true"`
 }
 
 // String returns the string representation
@@ -2885,11 +2885,11 @@ func (s LifecycleRule) MarshalFields(e protocol.FieldEncoder) error {
 type LifecycleRuleAndOperator struct {
 	_ struct{} `type:"structure"`
 
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:LifecycleRuleAndOperator:Prefix" type:"string"`
 
 	// All of these tags must exist in the object's tag set in order for the rule
 	// to apply.
-	Tags []Tag `locationName:"Tag" locationNameList:"Tag" type:"list" flattened:"true"`
+	Tags []Tag `json:"s3:LifecycleRuleAndOperator:Tags" locationName:"Tag" locationNameList:"Tag" type:"list" flattened:"true"`
 }
 
 // String returns the string representation
@@ -2946,13 +2946,13 @@ type LifecycleRuleFilter struct {
 	// This is used in a Lifecycle Rule Filter to apply a logical AND to two or
 	// more predicates. The Lifecycle Rule will apply to any object matching all
 	// of the predicates configured inside the And operator.
-	And *LifecycleRuleAndOperator `type:"structure"`
+	And *LifecycleRuleAndOperator `json:"s3:LifecycleRuleFilter:And" type:"structure"`
 
 	// Prefix identifying one or more objects to which the rule applies.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:LifecycleRuleFilter:Prefix" type:"string"`
 
 	// This tag must exist in the object's tag set in order for the rule to apply.
-	Tag *Tag `type:"structure"`
+	Tag *Tag `json:"s3:LifecycleRuleFilter:Tag" type:"structure"`
 }
 
 // String returns the string representation
@@ -3019,16 +3019,16 @@ type LoggingEnabled struct {
 	// log files can be distinguished by key.
 	//
 	// TargetBucket is a required field
-	TargetBucket *string `type:"string" required:"true"`
+	TargetBucket *string `json:"s3:LoggingEnabled:TargetBucket" type:"string" required:"true"`
 
-	TargetGrants []TargetGrant `locationNameList:"Grant" type:"list"`
+	TargetGrants []TargetGrant `json:"s3:LoggingEnabled:TargetGrants" locationNameList:"Grant" type:"list"`
 
 	// A prefix for all log object keys. If you store log files from multiple Amazon
 	// S3 buckets in a single bucket, you can use a prefix to distinguish which
 	// log files came from which bucket.
 	//
 	// TargetPrefix is a required field
-	TargetPrefix *string `type:"string" required:"true"`
+	TargetPrefix *string `json:"s3:LoggingEnabled:TargetPrefix" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3095,9 +3095,9 @@ func (s LoggingEnabled) MarshalFields(e protocol.FieldEncoder) error {
 type MetadataEntry struct {
 	_ struct{} `type:"structure"`
 
-	Name *string `type:"string"`
+	Name *string `json:"s3:MetadataEntry:Name" type:"string"`
 
-	Value *string `type:"string"`
+	Value *string `json:"s3:MetadataEntry:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -3127,10 +3127,10 @@ type MetricsAndOperator struct {
 	_ struct{} `type:"structure"`
 
 	// The prefix used when evaluating an AND predicate.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:MetricsAndOperator:Prefix" type:"string"`
 
 	// The list of tags used when evaluating an AND predicate.
-	Tags []Tag `locationName:"Tag" locationNameList:"Tag" type:"list" flattened:"true"`
+	Tags []Tag `json:"s3:MetricsAndOperator:Tags" locationName:"Tag" locationNameList:"Tag" type:"list" flattened:"true"`
 }
 
 // String returns the string representation
@@ -3192,12 +3192,12 @@ type MetricsConfiguration struct {
 	// Specifies a metrics configuration filter. The metrics configuration will
 	// only include objects that meet the filter's criteria. A filter must be a
 	// prefix, a tag, or a conjunction (MetricsAndOperator).
-	Filter *MetricsFilter `type:"structure"`
+	Filter *MetricsFilter `json:"s3:MetricsConfiguration:Filter" type:"structure"`
 
 	// The ID used to identify the metrics configuration.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"s3:MetricsConfiguration:Id" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3248,13 +3248,13 @@ type MetricsFilter struct {
 	// A conjunction (logical AND) of predicates, which is used in evaluating a
 	// metrics filter. The operator must have at least two predicates, and an object
 	// must match all of the predicates in order for the filter to apply.
-	And *MetricsAndOperator `type:"structure"`
+	And *MetricsAndOperator `json:"s3:MetricsFilter:And" type:"structure"`
 
 	// The prefix used when evaluating a metrics filter.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:MetricsFilter:Prefix" type:"string"`
 
 	// The tag used when evaluating a metrics filter.
-	Tag *Tag `type:"structure"`
+	Tag *Tag `json:"s3:MetricsFilter:Tag" type:"structure"`
 }
 
 // String returns the string representation
@@ -3310,21 +3310,21 @@ type MultipartUpload struct {
 	_ struct{} `type:"structure"`
 
 	// Date and time at which the multipart upload was initiated.
-	Initiated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Initiated *time.Time `json:"s3:MultipartUpload:Initiated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Identifies who initiated the multipart upload.
-	Initiator *Initiator `type:"structure"`
+	Initiator *Initiator `json:"s3:MultipartUpload:Initiator" type:"structure"`
 
 	// Key of the object for which the multipart upload was initiated.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"s3:MultipartUpload:Key" min:"1" type:"string"`
 
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:MultipartUpload:Owner" type:"structure"`
 
 	// The class of storage used to store the object.
-	StorageClass StorageClass `type:"string" enum:"true"`
+	StorageClass StorageClass `json:"s3:MultipartUpload:StorageClass" type:"string" enum:"true"`
 
 	// Upload ID that identifies the multipart upload.
-	UploadId *string `type:"string"`
+	UploadId *string `json:"s3:MultipartUpload:UploadId" type:"string"`
 }
 
 // String returns the string representation
@@ -3387,7 +3387,7 @@ type NoncurrentVersionExpiration struct {
 	// calculations, see How Amazon S3 Calculates When an Object Became Noncurrent
 	// (https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations)
 	// in the Amazon Simple Storage Service Developer Guide.
-	NoncurrentDays *int64 `type:"integer"`
+	NoncurrentDays *int64 `json:"s3:NoncurrentVersionExpiration:NoncurrentDays" type:"integer"`
 }
 
 // String returns the string representation
@@ -3422,10 +3422,10 @@ type NoncurrentVersionTransition struct {
 	// calculations, see How Amazon S3 Calculates When an Object Became Noncurrent
 	// (https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html)
 	// in the Amazon Simple Storage Service Developer Guide.
-	NoncurrentDays *int64 `type:"integer"`
+	NoncurrentDays *int64 `json:"s3:NoncurrentVersionTransition:NoncurrentDays" type:"integer"`
 
 	// The class of storage used to store the object.
-	StorageClass TransitionStorageClass `type:"string" enum:"true"`
+	StorageClass TransitionStorageClass `json:"s3:NoncurrentVersionTransition:StorageClass" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3458,15 +3458,15 @@ type NotificationConfiguration struct {
 
 	// Describes the AWS Lambda functions to invoke and the events for which to
 	// invoke them.
-	LambdaFunctionConfigurations []LambdaFunctionConfiguration `locationName:"CloudFunctionConfiguration" type:"list" flattened:"true"`
+	LambdaFunctionConfigurations []LambdaFunctionConfiguration `json:"s3:NotificationConfiguration:LambdaFunctionConfigurations" locationName:"CloudFunctionConfiguration" type:"list" flattened:"true"`
 
 	// The Amazon Simple Queue Service queues to publish messages to and the events
 	// for which to publish messages.
-	QueueConfigurations []QueueConfiguration `locationName:"QueueConfiguration" type:"list" flattened:"true"`
+	QueueConfigurations []QueueConfiguration `json:"s3:NotificationConfiguration:QueueConfigurations" locationName:"QueueConfiguration" type:"list" flattened:"true"`
 
 	// The topic to which notifications are sent and the events for which notifications
 	// are generated.
-	TopicConfigurations []TopicConfiguration `locationName:"TopicConfiguration" type:"list" flattened:"true"`
+	TopicConfigurations []TopicConfiguration `json:"s3:NotificationConfiguration:TopicConfigurations" locationName:"TopicConfiguration" type:"list" flattened:"true"`
 }
 
 // String returns the string representation
@@ -3550,11 +3550,11 @@ func (s NotificationConfiguration) MarshalFields(e protocol.FieldEncoder) error 
 type NotificationConfigurationDeprecated struct {
 	_ struct{} `type:"structure"`
 
-	CloudFunctionConfiguration *CloudFunctionConfiguration `type:"structure"`
+	CloudFunctionConfiguration *CloudFunctionConfiguration `json:"s3:NotificationConfigurationDeprecated:CloudFunctionConfiguration" type:"structure"`
 
-	QueueConfiguration *QueueConfigurationDeprecated `type:"structure"`
+	QueueConfiguration *QueueConfigurationDeprecated `json:"s3:NotificationConfigurationDeprecated:QueueConfiguration" type:"structure"`
 
-	TopicConfiguration *TopicConfigurationDeprecated `type:"structure"`
+	TopicConfiguration *TopicConfigurationDeprecated `json:"s3:NotificationConfigurationDeprecated:TopicConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -3593,7 +3593,7 @@ type NotificationConfigurationFilter struct {
 	_ struct{} `type:"structure"`
 
 	// A container for object key name prefix and suffix filtering rules.
-	Key *S3KeyFilter `locationName:"S3Key" type:"structure"`
+	Key *S3KeyFilter `json:"s3:NotificationConfigurationFilter:Key" locationName:"S3Key" type:"structure"`
 }
 
 // String returns the string representation
@@ -3616,18 +3616,18 @@ func (s NotificationConfigurationFilter) MarshalFields(e protocol.FieldEncoder) 
 type Object struct {
 	_ struct{} `type:"structure"`
 
-	ETag *string `type:"string"`
+	ETag *string `json:"s3:Object:ETag" type:"string"`
 
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"s3:Object:Key" min:"1" type:"string"`
 
-	LastModified *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastModified *time.Time `json:"s3:Object:LastModified" type:"timestamp" timestampFormat:"iso8601"`
 
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:Object:Owner" type:"structure"`
 
-	Size *int64 `type:"integer"`
+	Size *int64 `json:"s3:Object:Size" type:"integer"`
 
 	// The class of storage used to store the object.
-	StorageClass ObjectStorageClass `type:"string" enum:"true"`
+	StorageClass ObjectStorageClass `json:"s3:Object:StorageClass" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3683,10 +3683,10 @@ type ObjectIdentifier struct {
 	// Key name of the object to delete.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"s3:ObjectIdentifier:Key" min:"1" type:"string" required:"true"`
 
 	// VersionId for the specific version of the object to delete.
-	VersionId *string `type:"string"`
+	VersionId *string `json:"s3:ObjectIdentifier:VersionId" type:"string"`
 }
 
 // String returns the string representation
@@ -3734,10 +3734,10 @@ type ObjectLockConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether this bucket has an object lock configuration enabled.
-	ObjectLockEnabled ObjectLockEnabled `type:"string" enum:"true"`
+	ObjectLockEnabled ObjectLockEnabled `json:"s3:ObjectLockConfiguration:ObjectLockEnabled" type:"string" enum:"true"`
 
 	// The object lock rule in place for the specified object.
-	Rule *ObjectLockRule `type:"structure"`
+	Rule *ObjectLockRule `json:"s3:ObjectLockConfiguration:Rule" type:"structure"`
 }
 
 // String returns the string representation
@@ -3768,7 +3768,7 @@ type ObjectLockLegalHold struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the specified object has a Legal Hold in place.
-	Status ObjectLockLegalHoldStatus `type:"string" enum:"true"`
+	Status ObjectLockLegalHoldStatus `json:"s3:ObjectLockLegalHold:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3793,10 +3793,10 @@ type ObjectLockRetention struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates the Retention mode for the specified object.
-	Mode ObjectLockRetentionMode `type:"string" enum:"true"`
+	Mode ObjectLockRetentionMode `json:"s3:ObjectLockRetention:Mode" type:"string" enum:"true"`
 
 	// The date on which this object lock retention expires.
-	RetainUntilDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	RetainUntilDate *time.Time `json:"s3:ObjectLockRetention:RetainUntilDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -3828,7 +3828,7 @@ type ObjectLockRule struct {
 
 	// The default retention period that you want to apply to new objects placed
 	// in the specified bucket.
-	DefaultRetention *DefaultRetention `type:"structure"`
+	DefaultRetention *DefaultRetention `json:"s3:ObjectLockRule:DefaultRetention" type:"structure"`
 }
 
 // String returns the string representation
@@ -3851,28 +3851,28 @@ func (s ObjectLockRule) MarshalFields(e protocol.FieldEncoder) error {
 type ObjectVersion struct {
 	_ struct{} `type:"structure"`
 
-	ETag *string `type:"string"`
+	ETag *string `json:"s3:ObjectVersion:ETag" type:"string"`
 
 	// Specifies whether the object is (true) or is not (false) the latest version
 	// of an object.
-	IsLatest *bool `type:"boolean"`
+	IsLatest *bool `json:"s3:ObjectVersion:IsLatest" type:"boolean"`
 
 	// The object key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"s3:ObjectVersion:Key" min:"1" type:"string"`
 
 	// Date and time the object was last modified.
-	LastModified *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastModified *time.Time `json:"s3:ObjectVersion:LastModified" type:"timestamp" timestampFormat:"iso8601"`
 
-	Owner *Owner `type:"structure"`
+	Owner *Owner `json:"s3:ObjectVersion:Owner" type:"structure"`
 
 	// Size in bytes of the object.
-	Size *int64 `type:"integer"`
+	Size *int64 `json:"s3:ObjectVersion:Size" type:"integer"`
 
 	// The class of storage used to store the object.
-	StorageClass ObjectVersionStorageClass `type:"string" enum:"true"`
+	StorageClass ObjectVersionStorageClass `json:"s3:ObjectVersion:StorageClass" type:"string" enum:"true"`
 
 	// Version ID of an object.
-	VersionId *string `type:"string"`
+	VersionId *string `json:"s3:ObjectVersion:VersionId" type:"string"`
 }
 
 // String returns the string representation
@@ -3939,7 +3939,7 @@ type OutputLocation struct {
 	_ struct{} `type:"structure"`
 
 	// Describes an S3 location that will receive the results of the restore request.
-	S3 *S3Location `type:"structure"`
+	S3 *S3Location `json:"s3:OutputLocation:S3" type:"structure"`
 }
 
 // String returns the string representation
@@ -3979,10 +3979,10 @@ type OutputSerialization struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the serialization of CSV-encoded Select results.
-	CSV *CSVOutput `type:"structure"`
+	CSV *CSVOutput `json:"s3:OutputSerialization:CSV" type:"structure"`
 
 	// Specifies JSON as request's output serialization format.
-	JSON *JSONOutput `type:"structure"`
+	JSON *JSONOutput `json:"s3:OutputSerialization:JSON" type:"structure"`
 }
 
 // String returns the string representation
@@ -4011,9 +4011,9 @@ func (s OutputSerialization) MarshalFields(e protocol.FieldEncoder) error {
 type Owner struct {
 	_ struct{} `type:"structure"`
 
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"s3:Owner:DisplayName" type:"string"`
 
-	ID *string `type:"string"`
+	ID *string `json:"s3:Owner:ID" type:"string"`
 }
 
 // String returns the string representation
@@ -4058,17 +4058,17 @@ type Part struct {
 	_ struct{} `type:"structure"`
 
 	// Entity tag returned when the part was uploaded.
-	ETag *string `type:"string"`
+	ETag *string `json:"s3:Part:ETag" type:"string"`
 
 	// Date and time at which the part was uploaded.
-	LastModified *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastModified *time.Time `json:"s3:Part:LastModified" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Part number identifying the part. This is a positive integer between 1 and
 	// 10,000.
-	PartNumber *int64 `type:"integer"`
+	PartNumber *int64 `json:"s3:Part:PartNumber" type:"integer"`
 
 	// Size in bytes of the uploaded part data.
-	Size *int64 `type:"integer"`
+	Size *int64 `json:"s3:Part:Size" type:"integer"`
 }
 
 // String returns the string representation
@@ -4112,7 +4112,7 @@ type PolicyStatus struct {
 
 	// The policy status for this bucket. TRUE indicates that this bucket is public.
 	// FALSE indicates that the bucket is not public.
-	IsPublic *bool `locationName:"IsPublic" type:"boolean"`
+	IsPublic *bool `json:"s3:PolicyStatus:IsPublic" locationName:"IsPublic" type:"boolean"`
 }
 
 // String returns the string representation
@@ -4146,14 +4146,14 @@ type PublicAccessBlockConfiguration struct {
 	//    * PUT Object calls fail if the request includes a public ACL.
 	//
 	// Enabling this setting doesn't affect existing policies or ACLs.
-	BlockPublicAcls *bool `locationName:"BlockPublicAcls" type:"boolean"`
+	BlockPublicAcls *bool `json:"s3:PublicAccessBlockConfiguration:BlockPublicAcls" locationName:"BlockPublicAcls" type:"boolean"`
 
 	// Specifies whether Amazon S3 should block public bucket policies for this
 	// bucket. Setting this element to TRUE causes Amazon S3 to reject calls to
 	// PUT Bucket policy if the specified bucket policy allows public access.
 	//
 	// Enabling this setting doesn't affect existing bucket policies.
-	BlockPublicPolicy *bool `locationName:"BlockPublicPolicy" type:"boolean"`
+	BlockPublicPolicy *bool `json:"s3:PublicAccessBlockConfiguration:BlockPublicPolicy" locationName:"BlockPublicPolicy" type:"boolean"`
 
 	// Specifies whether Amazon S3 should ignore public ACLs for this bucket and
 	// objects in this bucket. Setting this element to TRUE causes Amazon S3 to
@@ -4161,7 +4161,7 @@ type PublicAccessBlockConfiguration struct {
 	//
 	// Enabling this setting doesn't affect the persistence of any existing ACLs
 	// and doesn't prevent new public ACLs from being set.
-	IgnorePublicAcls *bool `locationName:"IgnorePublicAcls" type:"boolean"`
+	IgnorePublicAcls *bool `json:"s3:PublicAccessBlockConfiguration:IgnorePublicAcls" locationName:"IgnorePublicAcls" type:"boolean"`
 
 	// Specifies whether Amazon S3 should restrict public bucket policies for this
 	// bucket. Setting this element to TRUE restricts access to this bucket to only
@@ -4171,7 +4171,7 @@ type PublicAccessBlockConfiguration struct {
 	// Enabling this setting doesn't affect previously stored bucket policies, except
 	// that public and cross-account access within any public bucket policy, including
 	// non-public delegation to specific accounts, is blocked.
-	RestrictPublicBuckets *bool `locationName:"RestrictPublicBuckets" type:"boolean"`
+	RestrictPublicBuckets *bool `json:"s3:PublicAccessBlockConfiguration:RestrictPublicBuckets" locationName:"RestrictPublicBuckets" type:"boolean"`
 }
 
 // String returns the string representation
@@ -4215,22 +4215,22 @@ type QueueConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Events is a required field
-	Events []Event `locationName:"Event" type:"list" flattened:"true" required:"true"`
+	Events []Event `json:"s3:QueueConfiguration:Events" locationName:"Event" type:"list" flattened:"true" required:"true"`
 
 	// Specifies object key name filtering rules. For information about key name
 	// filtering, see Configuring Event Notifications (https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html)
 	// in the Amazon Simple Storage Service Developer Guide.
-	Filter *NotificationConfigurationFilter `type:"structure"`
+	Filter *NotificationConfigurationFilter `json:"s3:QueueConfiguration:Filter" type:"structure"`
 
 	// An optional unique identifier for configurations in a notification configuration.
 	// If you don't provide one, Amazon S3 will assign an ID.
-	Id *string `type:"string"`
+	Id *string `json:"s3:QueueConfiguration:Id" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3
 	// publishes a message when it detects events of the specified type.
 	//
 	// QueueArn is a required field
-	QueueArn *string `locationName:"Queue" type:"string" required:"true"`
+	QueueArn *string `json:"s3:QueueConfiguration:QueueArn" locationName:"Queue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4296,15 +4296,15 @@ type QueueConfigurationDeprecated struct {
 	_ struct{} `type:"structure"`
 
 	// The bucket event for which to send notifications.
-	Event Event `deprecated:"true" type:"string" enum:"true"`
+	Event Event `json:"s3:QueueConfigurationDeprecated:Event" deprecated:"true" type:"string" enum:"true"`
 
-	Events []Event `locationName:"Event" type:"list" flattened:"true"`
+	Events []Event `json:"s3:QueueConfigurationDeprecated:Events" locationName:"Event" type:"list" flattened:"true"`
 
 	// An optional unique identifier for configurations in a notification configuration.
 	// If you don't provide one, Amazon S3 will assign an ID.
-	Id *string `type:"string"`
+	Id *string `json:"s3:QueueConfigurationDeprecated:Id" type:"string"`
 
-	Queue *string `type:"string"`
+	Queue *string `json:"s3:QueueConfigurationDeprecated:Queue" type:"string"`
 }
 
 // String returns the string representation
@@ -4354,15 +4354,15 @@ type Redirect struct {
 	_ struct{} `type:"structure"`
 
 	// The host name to use in the redirect request.
-	HostName *string `type:"string"`
+	HostName *string `json:"s3:Redirect:HostName" type:"string"`
 
 	// The HTTP redirect code to use on the response. Not required if one of the
 	// siblings is present.
-	HttpRedirectCode *string `type:"string"`
+	HttpRedirectCode *string `json:"s3:Redirect:HttpRedirectCode" type:"string"`
 
 	// Protocol to use when redirecting requests. The default is the protocol that
 	// is used in the original request.
-	Protocol Protocol `type:"string" enum:"true"`
+	Protocol Protocol `json:"s3:Redirect:Protocol" type:"string" enum:"true"`
 
 	// The object key prefix to use in the redirect request. For example, to redirect
 	// requests for all pages with prefix docs/ (objects in the docs/ folder) to
@@ -4370,12 +4370,12 @@ type Redirect struct {
 	// and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required
 	// if one of the siblings is present. Can be present only if ReplaceKeyWith
 	// is not provided.
-	ReplaceKeyPrefixWith *string `type:"string"`
+	ReplaceKeyPrefixWith *string `json:"s3:Redirect:ReplaceKeyPrefixWith" type:"string"`
 
 	// The specific object key to use in the redirect request. For example, redirect
 	// request to error.html. Not required if one of the siblings is present. Can
 	// be present only if ReplaceKeyPrefixWith is not provided.
-	ReplaceKeyWith *string `type:"string"`
+	ReplaceKeyWith *string `json:"s3:Redirect:ReplaceKeyWith" type:"string"`
 }
 
 // String returns the string representation
@@ -4427,11 +4427,11 @@ type RedirectAllRequestsTo struct {
 	// Name of the host where requests are redirected.
 	//
 	// HostName is a required field
-	HostName *string `type:"string" required:"true"`
+	HostName *string `json:"s3:RedirectAllRequestsTo:HostName" type:"string" required:"true"`
 
 	// Protocol to use when redirecting requests. The default is the protocol that
 	// is used in the original request.
-	Protocol Protocol `type:"string" enum:"true"`
+	Protocol Protocol `json:"s3:RedirectAllRequestsTo:Protocol" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4482,13 +4482,13 @@ type ReplicationConfiguration struct {
 	// in the Amazon Simple Storage Service Developer Guide.
 	//
 	// Role is a required field
-	Role *string `type:"string" required:"true"`
+	Role *string `json:"s3:ReplicationConfiguration:Role" type:"string" required:"true"`
 
 	// A container for one or more replication rules. A replication configuration
 	// must have at least one rule and can contain a maximum of 1,000 rules.
 	//
 	// Rules is a required field
-	Rules []ReplicationRule `locationName:"Rule" type:"list" flattened:"true" required:"true"`
+	Rules []ReplicationRule `json:"s3:ReplicationConfiguration:Rules" locationName:"Rule" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation
@@ -4550,24 +4550,24 @@ type ReplicationRule struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether Amazon S3 should replicate delete makers.
-	DeleteMarkerReplication *DeleteMarkerReplication `type:"structure"`
+	DeleteMarkerReplication *DeleteMarkerReplication `json:"s3:ReplicationRule:DeleteMarkerReplication" type:"structure"`
 
 	// A container for information about the replication destination.
 	//
 	// Destination is a required field
-	Destination *Destination `type:"structure" required:"true"`
+	Destination *Destination `json:"s3:ReplicationRule:Destination" type:"structure" required:"true"`
 
 	// A filter that identifies the subset of objects to which the replication rule
 	// applies. A Filter must specify exactly one Prefix, Tag, or an And child element.
-	Filter *ReplicationRuleFilter `type:"structure"`
+	Filter *ReplicationRuleFilter `json:"s3:ReplicationRule:Filter" type:"structure"`
 
 	// A unique identifier for the rule. The maximum value is 255 characters.
-	ID *string `type:"string"`
+	ID *string `json:"s3:ReplicationRule:ID" type:"string"`
 
 	// An object keyname prefix that identifies the object or objects to which the
 	// rule applies. The maximum prefix length is 1,024 characters. To include all
 	// objects in a bucket, specify an empty string.
-	Prefix *string `deprecated:"true" type:"string"`
+	Prefix *string `json:"s3:ReplicationRule:Prefix" deprecated:"true" type:"string"`
 
 	// The priority associated with the rule. If you specify multiple rules in a
 	// replication configuration, Amazon S3 prioritizes the rules to prevent conflicts
@@ -4582,19 +4582,19 @@ type ReplicationRule struct {
 	//
 	// For more information, see Cross-Region Replication (CRR) (https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html)
 	// in the Amazon S3 Developer Guide.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"s3:ReplicationRule:Priority" type:"integer"`
 
 	// A container that describes additional filters for identifying the source
 	// objects that you want to replicate. You can choose to enable or disable the
 	// replication of these objects. Currently, Amazon S3 supports only the filter
 	// that you can specify for objects created with server-side encryption using
 	// an AWS KMS-Managed Key (SSE-KMS).
-	SourceSelectionCriteria *SourceSelectionCriteria `type:"structure"`
+	SourceSelectionCriteria *SourceSelectionCriteria `json:"s3:ReplicationRule:SourceSelectionCriteria" type:"structure"`
 
 	// Specifies whether the rule is enabled.
 	//
 	// Status is a required field
-	Status ReplicationRuleStatus `type:"string" required:"true" enum:"true"`
+	Status ReplicationRuleStatus `json:"s3:ReplicationRule:Status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -4691,9 +4691,9 @@ func (s ReplicationRule) MarshalFields(e protocol.FieldEncoder) error {
 type ReplicationRuleAndOperator struct {
 	_ struct{} `type:"structure"`
 
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:ReplicationRuleAndOperator:Prefix" type:"string"`
 
-	Tags []Tag `locationName:"Tag" locationNameList:"Tag" type:"list" flattened:"true"`
+	Tags []Tag `json:"s3:ReplicationRuleAndOperator:Tags" locationName:"Tag" locationNameList:"Tag" type:"list" flattened:"true"`
 }
 
 // String returns the string representation
@@ -4756,16 +4756,16 @@ type ReplicationRuleFilter struct {
 	//
 	//    * If you specify a filter based on multiple tags, wrap the Tag elements
 	//    in an And tag.
-	And *ReplicationRuleAndOperator `type:"structure"`
+	And *ReplicationRuleAndOperator `json:"s3:ReplicationRuleFilter:And" type:"structure"`
 
 	// An object keyname prefix that identifies the subset of objects to which the
 	// rule applies.
-	Prefix *string `type:"string"`
+	Prefix *string `json:"s3:ReplicationRuleFilter:Prefix" type:"string"`
 
 	// A container for specifying a tag key and value.
 	//
 	// The rule applies only to objects that have the tag in their tag set.
-	Tag *Tag `type:"structure"`
+	Tag *Tag `json:"s3:ReplicationRuleFilter:Tag" type:"structure"`
 }
 
 // String returns the string representation
@@ -4823,7 +4823,7 @@ type RequestPaymentConfiguration struct {
 	// Specifies who pays for the download and request fees.
 	//
 	// Payer is a required field
-	Payer Payer `type:"string" required:"true" enum:"true"`
+	Payer Payer `json:"s3:RequestPaymentConfiguration:Payer" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -4862,26 +4862,26 @@ type RestoreRequest struct {
 
 	// Lifetime of the active copy in days. Do not use with restores that specify
 	// OutputLocation.
-	Days *int64 `type:"integer"`
+	Days *int64 `json:"s3:RestoreRequest:Days" type:"integer"`
 
 	// The optional description for the job.
-	Description *string `type:"string"`
+	Description *string `json:"s3:RestoreRequest:Description" type:"string"`
 
 	// Glacier related parameters pertaining to this job. Do not use with restores
 	// that specify OutputLocation.
-	GlacierJobParameters *GlacierJobParameters `type:"structure"`
+	GlacierJobParameters *GlacierJobParameters `json:"s3:RestoreRequest:GlacierJobParameters" type:"structure"`
 
 	// Describes the location where the restore job's output is stored.
-	OutputLocation *OutputLocation `type:"structure"`
+	OutputLocation *OutputLocation `json:"s3:RestoreRequest:OutputLocation" type:"structure"`
 
 	// Describes the parameters for Select job types.
-	SelectParameters *SelectParameters `type:"structure"`
+	SelectParameters *SelectParameters `json:"s3:RestoreRequest:SelectParameters" type:"structure"`
 
 	// Glacier retrieval tier at which the restore will be processed.
-	Tier Tier `type:"string" enum:"true"`
+	Tier Tier `json:"s3:RestoreRequest:Tier" type:"string" enum:"true"`
 
 	// Type of restore request.
-	Type RestoreRequestType `type:"string" enum:"true"`
+	Type RestoreRequestType `json:"s3:RestoreRequest:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4970,14 +4970,14 @@ type RoutingRule struct {
 	// redirect to apply. For example, 1. If request is for pages in the /docs folder,
 	// redirect to the /documents folder. 2. If request results in HTTP error 4xx,
 	// redirect request to another host where you might process the error.
-	Condition *Condition `type:"structure"`
+	Condition *Condition `json:"s3:RoutingRule:Condition" type:"structure"`
 
 	// Container for redirect information. You can redirect requests to another
 	// host, to another page, or with another protocol. In the event of an error,
 	// you can specify a different error code to return.
 	//
 	// Redirect is a required field
-	Redirect *Redirect `type:"structure" required:"true"`
+	Redirect *Redirect `json:"s3:RoutingRule:Redirect" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -5028,19 +5028,19 @@ type Rule struct {
 	// For more information, see Aborting Incomplete Multipart Uploads Using a Bucket
 	// Lifecycle Policy (https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config)
 	// in the Amazon Simple Storage Service Developer Guide.
-	AbortIncompleteMultipartUpload *AbortIncompleteMultipartUpload `type:"structure"`
+	AbortIncompleteMultipartUpload *AbortIncompleteMultipartUpload `json:"s3:Rule:AbortIncompleteMultipartUpload" type:"structure"`
 
-	Expiration *LifecycleExpiration `type:"structure"`
+	Expiration *LifecycleExpiration `json:"s3:Rule:Expiration" type:"structure"`
 
 	// Unique identifier for the rule. The value can't be longer than 255 characters.
-	ID *string `type:"string"`
+	ID *string `json:"s3:Rule:ID" type:"string"`
 
 	// Specifies when noncurrent object versions expire. Upon expiration, Amazon
 	// S3 permanently deletes the noncurrent object versions. You set this lifecycle
 	// configuration action on a bucket that has versioning enabled (or suspended)
 	// to request that Amazon S3 delete noncurrent object versions at a specific
 	// period in the object's lifetime.
-	NoncurrentVersionExpiration *NoncurrentVersionExpiration `type:"structure"`
+	NoncurrentVersionExpiration *NoncurrentVersionExpiration `json:"s3:Rule:NoncurrentVersionExpiration" type:"structure"`
 
 	// Container for the transition rule that describes when noncurrent objects
 	// transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER,
@@ -5049,22 +5049,22 @@ type Rule struct {
 	// noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING,
 	// GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's
 	// lifetime.
-	NoncurrentVersionTransition *NoncurrentVersionTransition `type:"structure"`
+	NoncurrentVersionTransition *NoncurrentVersionTransition `json:"s3:Rule:NoncurrentVersionTransition" type:"structure"`
 
 	// Object key prefix that identifies one or more objects to which this rule
 	// applies.
 	//
 	// Prefix is a required field
-	Prefix *string `type:"string" required:"true"`
+	Prefix *string `json:"s3:Rule:Prefix" type:"string" required:"true"`
 
 	// If Enabled, the rule is currently being applied. If Disabled, the rule is
 	// not currently being applied.
 	//
 	// Status is a required field
-	Status ExpirationStatus `type:"string" required:"true" enum:"true"`
+	Status ExpirationStatus `json:"s3:Rule:Status" type:"string" required:"true" enum:"true"`
 
 	// Specifies when an object transitions to a specified storage class.
-	Transition *Transition `type:"structure"`
+	Transition *Transition `json:"s3:Rule:Transition" type:"structure"`
 }
 
 // String returns the string representation
@@ -5149,7 +5149,7 @@ type S3KeyFilter struct {
 
 	// A list of containers for the key value pair that defines the criteria for
 	// the filter rule.
-	FilterRules []FilterRule `locationName:"FilterRule" type:"list" flattened:"true"`
+	FilterRules []FilterRule `json:"s3:S3KeyFilter:FilterRules" locationName:"FilterRule" type:"list" flattened:"true"`
 }
 
 // String returns the string representation
@@ -5180,33 +5180,33 @@ type S3Location struct {
 	_ struct{} `type:"structure"`
 
 	// A list of grants that control access to the staged results.
-	AccessControlList []Grant `locationNameList:"Grant" type:"list"`
+	AccessControlList []Grant `json:"s3:S3Location:AccessControlList" locationNameList:"Grant" type:"list"`
 
 	// The name of the bucket where the restore results will be placed.
 	//
 	// BucketName is a required field
-	BucketName *string `type:"string" required:"true"`
+	BucketName *string `json:"s3:S3Location:BucketName" type:"string" required:"true"`
 
 	// The canned ACL to apply to the restore results.
-	CannedACL ObjectCannedACL `type:"string" enum:"true"`
+	CannedACL ObjectCannedACL `json:"s3:S3Location:CannedACL" type:"string" enum:"true"`
 
 	// Describes the server-side encryption that will be applied to the restore
 	// results.
-	Encryption *Encryption `type:"structure"`
+	Encryption *Encryption `json:"s3:S3Location:Encryption" type:"structure"`
 
 	// The prefix that is prepended to the restore results for this request.
 	//
 	// Prefix is a required field
-	Prefix *string `type:"string" required:"true"`
+	Prefix *string `json:"s3:S3Location:Prefix" type:"string" required:"true"`
 
 	// The class of storage used to store the restore results.
-	StorageClass StorageClass `type:"string" enum:"true"`
+	StorageClass StorageClass `json:"s3:S3Location:StorageClass" type:"string" enum:"true"`
 
 	// The tag-set that is applied to the restore results.
-	Tagging *Tagging `type:"structure"`
+	Tagging *Tagging `json:"s3:S3Location:Tagging" type:"structure"`
 
 	// A list of metadata to store with the restore results in S3.
-	UserMetadata []MetadataEntry `locationNameList:"MetadataEntry" type:"list"`
+	UserMetadata []MetadataEntry `json:"s3:S3Location:UserMetadata" locationNameList:"MetadataEntry" type:"list"`
 }
 
 // String returns the string representation
@@ -5323,7 +5323,7 @@ type SSEKMS struct {
 	// key to use for encrypting Inventory reports.
 	//
 	// KeyId is a required field
-	KeyId *string `type:"string" required:"true"`
+	KeyId *string `json:"s3:SSEKMS:KeyId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5383,22 +5383,22 @@ type SelectParameters struct {
 	// The expression that is used to query the object.
 	//
 	// Expression is a required field
-	Expression *string `type:"string" required:"true"`
+	Expression *string `json:"s3:SelectParameters:Expression" type:"string" required:"true"`
 
 	// The type of the provided expression (e.g., SQL).
 	//
 	// ExpressionType is a required field
-	ExpressionType ExpressionType `type:"string" required:"true" enum:"true"`
+	ExpressionType ExpressionType `json:"s3:SelectParameters:ExpressionType" type:"string" required:"true" enum:"true"`
 
 	// Describes the serialization format of the object.
 	//
 	// InputSerialization is a required field
-	InputSerialization *InputSerialization `type:"structure" required:"true"`
+	InputSerialization *InputSerialization `json:"s3:SelectParameters:InputSerialization" type:"structure" required:"true"`
 
 	// Describes how the results of the Select job are serialized.
 	//
 	// OutputSerialization is a required field
-	OutputSerialization *OutputSerialization `type:"structure" required:"true"`
+	OutputSerialization *OutputSerialization `json:"s3:SelectParameters:OutputSerialization" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -5471,12 +5471,12 @@ type ServerSideEncryptionByDefault struct {
 
 	// KMS master key ID to use for the default encryption. This parameter is allowed
 	// if and only if SSEAlgorithm is set to aws:kms.
-	KMSMasterKeyID *string `type:"string"`
+	KMSMasterKeyID *string `json:"s3:ServerSideEncryptionByDefault:KMSMasterKeyID" type:"string"`
 
 	// Server-side encryption algorithm to use for the default encryption.
 	//
 	// SSEAlgorithm is a required field
-	SSEAlgorithm ServerSideEncryption `type:"string" required:"true" enum:"true"`
+	SSEAlgorithm ServerSideEncryption `json:"s3:ServerSideEncryptionByDefault:SSEAlgorithm" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -5523,7 +5523,7 @@ type ServerSideEncryptionConfiguration struct {
 	// rule.
 	//
 	// Rules is a required field
-	Rules []ServerSideEncryptionRule `locationName:"Rule" type:"list" flattened:"true" required:"true"`
+	Rules []ServerSideEncryptionRule `json:"s3:ServerSideEncryptionConfiguration:Rules" locationName:"Rule" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation
@@ -5577,7 +5577,7 @@ type ServerSideEncryptionRule struct {
 	// Specifies the default server-side encryption to apply to new objects in the
 	// bucket. If a PUT Object request doesn't specify any server-side encryption,
 	// this default encryption will be applied.
-	ApplyServerSideEncryptionByDefault *ServerSideEncryptionByDefault `type:"structure"`
+	ApplyServerSideEncryptionByDefault *ServerSideEncryptionByDefault `json:"s3:ServerSideEncryptionRule:ApplyServerSideEncryptionByDefault" type:"structure"`
 }
 
 // String returns the string representation
@@ -5623,7 +5623,7 @@ type SourceSelectionCriteria struct {
 	// A container for filter information for the selection of Amazon S3 objects
 	// encrypted with AWS KMS. If you include SourceSelectionCriteria in the replication
 	// configuration, this element is required.
-	SseKmsEncryptedObjects *SseKmsEncryptedObjects `type:"structure"`
+	SseKmsEncryptedObjects *SseKmsEncryptedObjects `json:"s3:SourceSelectionCriteria:SseKmsEncryptedObjects" type:"structure"`
 }
 
 // String returns the string representation
@@ -5667,7 +5667,7 @@ type SseKmsEncryptedObjects struct {
 	// using an AWS KMS-managed key.
 	//
 	// Status is a required field
-	Status SseKmsEncryptedObjectsStatus `type:"string" required:"true" enum:"true"`
+	Status SseKmsEncryptedObjectsStatus `json:"s3:SseKmsEncryptedObjects:Status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -5708,7 +5708,7 @@ type StorageClassAnalysis struct {
 
 	// Specifies how data related to the storage class analysis for an Amazon S3
 	// bucket should be exported.
-	DataExport *StorageClassAnalysisDataExport `type:"structure"`
+	DataExport *StorageClassAnalysisDataExport `json:"s3:StorageClassAnalysis:DataExport" type:"structure"`
 }
 
 // String returns the string representation
@@ -5749,12 +5749,12 @@ type StorageClassAnalysisDataExport struct {
 	// The place to store the data for an analysis.
 	//
 	// Destination is a required field
-	Destination *AnalyticsExportDestination `type:"structure" required:"true"`
+	Destination *AnalyticsExportDestination `json:"s3:StorageClassAnalysisDataExport:Destination" type:"structure" required:"true"`
 
 	// The version of the output schema to use when exporting data. Must be V_1.
 	//
 	// OutputSchemaVersion is a required field
-	OutputSchemaVersion StorageClassAnalysisSchemaVersion `type:"string" required:"true" enum:"true"`
+	OutputSchemaVersion StorageClassAnalysisSchemaVersion `json:"s3:StorageClassAnalysisDataExport:OutputSchemaVersion" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -5808,12 +5808,12 @@ type Tag struct {
 	// Name of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"s3:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// Value of the tag.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"s3:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5864,7 +5864,7 @@ type Tagging struct {
 	_ struct{} `type:"structure"`
 
 	// TagSet is a required field
-	TagSet []Tag `locationNameList:"Tag" type:"list" required:"true"`
+	TagSet []Tag `json:"s3:Tagging:TagSet" locationNameList:"Tag" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -5914,10 +5914,10 @@ func (s Tagging) MarshalFields(e protocol.FieldEncoder) error {
 type TargetGrant struct {
 	_ struct{} `type:"structure"`
 
-	Grantee *Grantee `type:"structure" xmlPrefix:"xsi" xmlURI:"http://www.w3.org/2001/XMLSchema-instance"`
+	Grantee *Grantee `json:"s3:TargetGrant:Grantee" type:"structure" xmlPrefix:"xsi" xmlURI:"http://www.w3.org/2001/XMLSchema-instance"`
 
 	// Logging permissions assigned to the Grantee for the bucket.
-	Permission BucketLogsPermission `type:"string" enum:"true"`
+	Permission BucketLogsPermission `json:"s3:TargetGrant:Permission" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5975,22 +5975,22 @@ type TopicConfiguration struct {
 	// in the Amazon Simple Storage Service Developer Guide.
 	//
 	// Events is a required field
-	Events []Event `locationName:"Event" type:"list" flattened:"true" required:"true"`
+	Events []Event `json:"s3:TopicConfiguration:Events" locationName:"Event" type:"list" flattened:"true" required:"true"`
 
 	// Specifies object key name filtering rules. For information about key name
 	// filtering, see Configuring Event Notifications (https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html)
 	// in the Amazon Simple Storage Service Developer Guide.
-	Filter *NotificationConfigurationFilter `type:"structure"`
+	Filter *NotificationConfigurationFilter `json:"s3:TopicConfiguration:Filter" type:"structure"`
 
 	// An optional unique identifier for configurations in a notification configuration.
 	// If you don't provide one, Amazon S3 will assign an ID.
-	Id *string `type:"string"`
+	Id *string `json:"s3:TopicConfiguration:Id" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3
 	// publishes a message when it detects events of the specified type.
 	//
 	// TopicArn is a required field
-	TopicArn *string `locationName:"Topic" type:"string" required:"true"`
+	TopicArn *string `json:"s3:TopicConfiguration:TopicArn" locationName:"Topic" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -6056,17 +6056,17 @@ type TopicConfigurationDeprecated struct {
 	_ struct{} `type:"structure"`
 
 	// Bucket event for which to send notifications.
-	Event Event `deprecated:"true" type:"string" enum:"true"`
+	Event Event `json:"s3:TopicConfigurationDeprecated:Event" deprecated:"true" type:"string" enum:"true"`
 
-	Events []Event `locationName:"Event" type:"list" flattened:"true"`
+	Events []Event `json:"s3:TopicConfigurationDeprecated:Events" locationName:"Event" type:"list" flattened:"true"`
 
 	// An optional unique identifier for configurations in a notification configuration.
 	// If you don't provide one, Amazon S3 will assign an ID.
-	Id *string `type:"string"`
+	Id *string `json:"s3:TopicConfigurationDeprecated:Id" type:"string"`
 
 	// Amazon SNS topic to which Amazon S3 will publish a message to report the
 	// specified events for the bucket.
-	Topic *string `type:"string"`
+	Topic *string `json:"s3:TopicConfigurationDeprecated:Topic" type:"string"`
 }
 
 // String returns the string representation
@@ -6116,14 +6116,14 @@ type Transition struct {
 
 	// Indicates when objects are transitioned to the specified storage class. The
 	// date value must be in ISO 8601 format. The time is always midnight UTC.
-	Date *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Date *time.Time `json:"s3:Transition:Date" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Indicates the number of days after creation when objects are transitioned
 	// to the specified storage class. The value must be a positive integer.
-	Days *int64 `type:"integer"`
+	Days *int64 `json:"s3:Transition:Days" type:"integer"`
 
 	// The storage class to which you want the object to transition.
-	StorageClass TransitionStorageClass `type:"string" enum:"true"`
+	StorageClass TransitionStorageClass `json:"s3:Transition:StorageClass" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6164,10 +6164,10 @@ type VersioningConfiguration struct {
 	// Specifies whether MFA delete is enabled in the bucket versioning configuration.
 	// This element is only returned if the bucket has been configured with MFA
 	// delete. If the bucket has never been so configured, this element is not returned.
-	MFADelete MFADelete `locationName:"MfaDelete" type:"string" enum:"true"`
+	MFADelete MFADelete `json:"s3:VersioningConfiguration:MFADelete" locationName:"MfaDelete" type:"string" enum:"true"`
 
 	// The versioning state of the bucket.
-	Status BucketVersioningStatus `type:"string" enum:"true"`
+	Status BucketVersioningStatus `json:"s3:VersioningConfiguration:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6198,18 +6198,18 @@ type WebsiteConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the error document for the website.
-	ErrorDocument *ErrorDocument `type:"structure"`
+	ErrorDocument *ErrorDocument `json:"s3:WebsiteConfiguration:ErrorDocument" type:"structure"`
 
 	// The name of the index document for the website.
-	IndexDocument *IndexDocument `type:"structure"`
+	IndexDocument *IndexDocument `json:"s3:WebsiteConfiguration:IndexDocument" type:"structure"`
 
 	// The redirect behavior for every request to this bucket's website endpoint.
 	//
 	// If you specify this property, you can't specify any other property.
-	RedirectAllRequestsTo *RedirectAllRequestsTo `type:"structure"`
+	RedirectAllRequestsTo *RedirectAllRequestsTo `json:"s3:WebsiteConfiguration:RedirectAllRequestsTo" type:"structure"`
 
 	// Rules that define when a redirect is applied and the redirect behavior.
-	RoutingRules []RoutingRule `locationNameList:"RoutingRule" type:"list"`
+	RoutingRules []RoutingRule `json:"s3:WebsiteConfiguration:RoutingRules" locationNameList:"RoutingRule" type:"list"`
 }
 
 // String returns the string representation

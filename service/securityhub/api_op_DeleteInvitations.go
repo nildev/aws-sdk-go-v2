@@ -48,7 +48,7 @@ type DeleteInvitationsOutput struct {
 
 	// A list of account ID and email address pairs of the AWS accounts that invitations
 	// weren't deleted for.
-	UnprocessedAccounts []Result `type:"list"`
+	UnprocessedAccounts []Result `json:"securityhub:DeleteInvitationsOutput:UnprocessedAccounts" type:"list"`
 }
 
 // String returns the string representation

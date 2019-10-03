@@ -56,10 +56,10 @@ type ListStateMachinesOutput struct {
 	// using the returned token to retrieve the next page. Keep all other arguments
 	// unchanged. Each pagination token expires after 24 hours. Using an expired
 	// pagination token will return an HTTP 400 InvalidToken error.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"states:ListStateMachinesOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// StateMachines is a required field
-	StateMachines []StateMachineListItem `locationName:"stateMachines" type:"list" required:"true"`
+	StateMachines []StateMachineListItem `json:"states:ListStateMachinesOutput:StateMachines" locationName:"stateMachines" type:"list" required:"true"`
 }
 
 // String returns the string representation

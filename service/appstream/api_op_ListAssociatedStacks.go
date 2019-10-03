@@ -53,11 +53,11 @@ type ListAssociatedStacksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the stack.
-	Names []string `type:"list"`
+	Names []string `json:"appstream2:ListAssociatedStacksOutput:Names" type:"list"`
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:ListAssociatedStacksOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

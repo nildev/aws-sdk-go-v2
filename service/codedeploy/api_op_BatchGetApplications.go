@@ -46,7 +46,7 @@ type BatchGetApplicationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the applications.
-	ApplicationsInfo []ApplicationInfo `locationName:"applicationsInfo" type:"list"`
+	ApplicationsInfo []ApplicationInfo `json:"codedeploy:BatchGetApplicationsOutput:ApplicationsInfo" locationName:"applicationsInfo" type:"list"`
 }
 
 // String returns the string representation

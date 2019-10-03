@@ -28,11 +28,11 @@ type GetKeyPairsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key-value pairs containing information about the key pairs.
-	KeyPairs []KeyPair `locationName:"keyPairs" type:"list"`
+	KeyPairs []KeyPair `json:"lightsail:GetKeyPairsOutput:KeyPairs" locationName:"keyPairs" type:"list"`
 
 	// A token used for advancing to the next page of results from your get key
 	// pairs request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetKeyPairsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

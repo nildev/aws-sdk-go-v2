@@ -48,7 +48,7 @@ type DeleteTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the properties of a table.
-	TableDescription *TableDescription `type:"structure"`
+	TableDescription *TableDescription `json:"dynamodb:DeleteTableOutput:TableDescription" type:"structure"`
 }
 
 // String returns the string representation

@@ -64,7 +64,7 @@ type GetFederationTokenOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The credentials to use for federation.
-	Credentials *Credentials `type:"structure"`
+	Credentials *Credentials `json:"connect:GetFederationTokenOutput:Credentials" type:"structure"`
 }
 
 // String returns the string representation

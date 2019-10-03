@@ -101,15 +101,15 @@ type GetReservationUtilizationOutput struct {
 	// The token for the next set of retrievable results. AWS provides the token
 	// when the response from a previous call has more results than the maximum
 	// page size.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"ce:GetReservationUtilizationOutput:NextPageToken" type:"string"`
 
 	// The total amount of time that you used your RIs.
-	Total *ReservationAggregates `type:"structure"`
+	Total *ReservationAggregates `json:"ce:GetReservationUtilizationOutput:Total" type:"structure"`
 
 	// The amount of time that you used your RIs.
 	//
 	// UtilizationsByTime is a required field
-	UtilizationsByTime []UtilizationByTime `type:"list" required:"true"`
+	UtilizationsByTime []UtilizationByTime `json:"ce:GetReservationUtilizationOutput:UtilizationsByTime" type:"list" required:"true"`
 }
 
 // String returns the string representation

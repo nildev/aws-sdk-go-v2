@@ -198,19 +198,19 @@ type CreateOTAUpdateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS IoT job ARN associated with the OTA update.
-	AwsIotJobArn *string `locationName:"awsIotJobArn" type:"string"`
+	AwsIotJobArn *string `json:"iot:CreateOTAUpdateOutput:AwsIotJobArn" locationName:"awsIotJobArn" type:"string"`
 
 	// The AWS IoT job ID associated with the OTA update.
-	AwsIotJobId *string `locationName:"awsIotJobId" type:"string"`
+	AwsIotJobId *string `json:"iot:CreateOTAUpdateOutput:AwsIotJobId" locationName:"awsIotJobId" type:"string"`
 
 	// The OTA update ARN.
-	OtaUpdateArn *string `locationName:"otaUpdateArn" type:"string"`
+	OtaUpdateArn *string `json:"iot:CreateOTAUpdateOutput:OtaUpdateArn" locationName:"otaUpdateArn" type:"string"`
 
 	// The OTA update ID.
-	OtaUpdateId *string `locationName:"otaUpdateId" min:"1" type:"string"`
+	OtaUpdateId *string `json:"iot:CreateOTAUpdateOutput:OtaUpdateId" locationName:"otaUpdateId" min:"1" type:"string"`
 
 	// The OTA update status.
-	OtaUpdateStatus OTAUpdateStatus `locationName:"otaUpdateStatus" type:"string" enum:"true"`
+	OtaUpdateStatus OTAUpdateStatus `json:"iot:CreateOTAUpdateOutput:OtaUpdateStatus" locationName:"otaUpdateStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

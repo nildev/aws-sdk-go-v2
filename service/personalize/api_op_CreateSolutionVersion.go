@@ -44,7 +44,7 @@ type CreateSolutionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the new solution version.
-	SolutionVersionArn *string `locationName:"solutionVersionArn" type:"string"`
+	SolutionVersionArn *string `json:"personalize:CreateSolutionVersionOutput:SolutionVersionArn" locationName:"solutionVersionArn" type:"string"`
 }
 
 // String returns the string representation

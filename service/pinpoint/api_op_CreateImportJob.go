@@ -81,7 +81,7 @@ type CreateImportJobOutput struct {
 	// a computer by using the Amazon Pinpoint console.
 	//
 	// ImportJobResponse is a required field
-	ImportJobResponse *ImportJobResponse `type:"structure" required:"true"`
+	ImportJobResponse *ImportJobResponse `json:"pinpoint:CreateImportJobOutput:ImportJobResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

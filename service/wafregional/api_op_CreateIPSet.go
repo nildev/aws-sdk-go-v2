@@ -62,10 +62,10 @@ type CreateIPSetOutput struct {
 	// The ChangeToken that you used to submit the CreateIPSet request. You can
 	// also use this value to query the status of the request. For more information,
 	// see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf-regional:CreateIPSetOutput:ChangeToken" min:"1" type:"string"`
 
 	// The IPSet returned in the CreateIPSet response.
-	IPSet *waf.IPSet `type:"structure"`
+	IPSet *waf.IPSet `json:"waf-regional:CreateIPSetOutput:IPSet" type:"structure"`
 }
 
 // String returns the string representation

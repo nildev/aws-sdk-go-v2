@@ -79,7 +79,7 @@ type SendMessagesOutput struct {
 	// an endpoint address.
 	//
 	// MessageResponse is a required field
-	MessageResponse *MessageResponse `type:"structure" required:"true"`
+	MessageResponse *MessageResponse `json:"pinpoint:SendMessagesOutput:MessageResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

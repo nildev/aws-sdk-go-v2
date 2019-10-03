@@ -65,7 +65,7 @@ type DescribeStreamOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that describes the stream.
-	StreamInfo *StreamInfo `type:"structure"`
+	StreamInfo *StreamInfo `json:"kinesisvideo:DescribeStreamOutput:StreamInfo" type:"structure"`
 }
 
 // String returns the string representation

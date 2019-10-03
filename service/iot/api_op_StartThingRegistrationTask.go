@@ -110,7 +110,7 @@ type StartThingRegistrationTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The bulk thing provisioning task ID.
-	TaskId *string `locationName:"taskId" type:"string"`
+	TaskId *string `json:"iot:StartThingRegistrationTaskOutput:TaskId" locationName:"taskId" type:"string"`
 }
 
 // String returns the string representation

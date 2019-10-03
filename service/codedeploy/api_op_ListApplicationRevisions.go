@@ -98,10 +98,10 @@ type ListApplicationRevisionsOutput struct {
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent list application revisions call to return
 	// the next set of application revisions in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListApplicationRevisionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of locations that contain the matching revisions.
-	Revisions []RevisionLocation `locationName:"revisions" type:"list"`
+	Revisions []RevisionLocation `json:"codedeploy:ListApplicationRevisionsOutput:Revisions" locationName:"revisions" type:"list"`
 }
 
 // String returns the string representation

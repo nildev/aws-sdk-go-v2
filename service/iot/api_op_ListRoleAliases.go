@@ -69,10 +69,10 @@ type ListRoleAliasesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A marker used to get the next set of results.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListRoleAliasesOutput:NextMarker" locationName:"nextMarker" type:"string"`
 
 	// The role aliases.
-	RoleAliases []string `locationName:"roleAliases" type:"list"`
+	RoleAliases []string `json:"iot:ListRoleAliasesOutput:RoleAliases" locationName:"roleAliases" type:"list"`
 }
 
 // String returns the string representation

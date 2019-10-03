@@ -164,10 +164,10 @@ type DescribeActivitiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The marker for the next set of results.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeActivitiesOutput:Marker" min:"1" type:"string"`
 
 	// The list of activities for the specified user and time period.
-	UserActivities []Activity `type:"list"`
+	UserActivities []Activity `json:"workdocs:DescribeActivitiesOutput:UserActivities" type:"list"`
 }
 
 // String returns the string representation

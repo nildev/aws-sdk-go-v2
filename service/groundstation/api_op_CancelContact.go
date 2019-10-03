@@ -57,7 +57,7 @@ type CancelContactOutput struct {
 	_ struct{} `type:"structure"`
 
 	// UUID of a contact.
-	ContactId *string `locationName:"contactId" type:"string"`
+	ContactId *string `json:"groundstation:CancelContactOutput:ContactId" locationName:"contactId" type:"string"`
 }
 
 // String returns the string representation

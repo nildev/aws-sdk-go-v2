@@ -55,7 +55,7 @@ type SubmitAttachmentStateChangesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Acknowledgement of the state change.
-	Acknowledgment *string `locationName:"acknowledgment" type:"string"`
+	Acknowledgment *string `json:"ecs:SubmitAttachmentStateChangesOutput:Acknowledgment" locationName:"acknowledgment" type:"string"`
 }
 
 // String returns the string representation

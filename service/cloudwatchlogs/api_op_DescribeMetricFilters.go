@@ -70,11 +70,11 @@ type DescribeMetricFiltersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The metric filters.
-	MetricFilters []MetricFilter `locationName:"metricFilters" type:"list"`
+	MetricFilters []MetricFilter `json:"logs:DescribeMetricFiltersOutput:MetricFilters" locationName:"metricFilters" type:"list"`
 
 	// The token for the next set of items to return. The token expires after 24
 	// hours.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"logs:DescribeMetricFiltersOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -69,10 +69,10 @@ type DescribeVpcEndpointsOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVpcEndpointsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the endpoints.
-	VpcEndpoints []VpcEndpoint `locationName:"vpcEndpointSet" locationNameList:"item" type:"list"`
+	VpcEndpoints []VpcEndpoint `json:"ec2:DescribeVpcEndpointsOutput:VpcEndpoints" locationName:"vpcEndpointSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

@@ -29,18 +29,18 @@ type DescribeAccountAuditConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Which audit checks are enabled and disabled for this account.
-	AuditCheckConfigurations map[string]AuditCheckConfiguration `locationName:"auditCheckConfigurations" type:"map"`
+	AuditCheckConfigurations map[string]AuditCheckConfiguration `json:"iot:DescribeAccountAuditConfigurationOutput:AuditCheckConfigurations" locationName:"auditCheckConfigurations" type:"map"`
 
 	// Information about the targets to which audit notifications are sent for this
 	// account.
-	AuditNotificationTargetConfigurations map[string]AuditNotificationTarget `locationName:"auditNotificationTargetConfigurations" type:"map"`
+	AuditNotificationTargetConfigurations map[string]AuditNotificationTarget `json:"iot:DescribeAccountAuditConfigurationOutput:AuditNotificationTargetConfigurations" locationName:"auditNotificationTargetConfigurations" type:"map"`
 
 	// The ARN of the role that grants permission to AWS IoT to access information
 	// about your devices, policies, certificates and other items as necessary when
 	// performing an audit.
 	//
 	// On the first call to UpdateAccountAuditConfiguration this parameter is required.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iot:DescribeAccountAuditConfigurationOutput:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 }
 
 // String returns the string representation

@@ -25,7 +25,7 @@ type ListCuratedEnvironmentImagesOutput struct {
 
 	// Information about supported platforms for Docker images that are managed
 	// by AWS CodeBuild.
-	Platforms []EnvironmentPlatform `locationName:"platforms" type:"list"`
+	Platforms []EnvironmentPlatform `json:"codebuild:ListCuratedEnvironmentImagesOutput:Platforms" locationName:"platforms" type:"list"`
 }
 
 // String returns the string representation

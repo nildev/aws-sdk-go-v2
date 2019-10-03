@@ -35,7 +35,7 @@ type CancelStepsOutput struct {
 
 	// A list of CancelStepsInfo, which shows the status of specified cancel requests
 	// for each StepID specified.
-	CancelStepsInfoList []CancelStepsInfo `type:"list"`
+	CancelStepsInfoList []CancelStepsInfo `json:"elasticmapreduce:CancelStepsOutput:CancelStepsInfoList" type:"list"`
 }
 
 // String returns the string representation

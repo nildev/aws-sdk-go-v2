@@ -45,38 +45,38 @@ type DescribeStreamProcessorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Date and time the stream processor was created
-	CreationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTimestamp *time.Time `json:"rekognition:DescribeStreamProcessorOutput:CreationTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// Kinesis video stream that provides the source streaming video.
-	Input *StreamProcessorInput `type:"structure"`
+	Input *StreamProcessorInput `json:"rekognition:DescribeStreamProcessorOutput:Input" type:"structure"`
 
 	// The time, in Unix format, the stream processor was last updated. For example,
 	// when the stream processor moves from a running state to a failed state, or
 	// when the user starts or stops the stream processor.
-	LastUpdateTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTimestamp *time.Time `json:"rekognition:DescribeStreamProcessorOutput:LastUpdateTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// Name of the stream processor.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"rekognition:DescribeStreamProcessorOutput:Name" min:"1" type:"string"`
 
 	// Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
-	Output *StreamProcessorOutput `type:"structure"`
+	Output *StreamProcessorOutput `json:"rekognition:DescribeStreamProcessorOutput:Output" type:"structure"`
 
 	// ARN of the IAM role that allows access to the stream processor.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"rekognition:DescribeStreamProcessorOutput:RoleArn" type:"string"`
 
 	// Face recognition input parameters that are being used by the stream processor.
 	// Includes the collection to use for face recognition and the face attributes
 	// to detect.
-	Settings *StreamProcessorSettings `type:"structure"`
+	Settings *StreamProcessorSettings `json:"rekognition:DescribeStreamProcessorOutput:Settings" type:"structure"`
 
 	// Current status of the stream processor.
-	Status StreamProcessorStatus `type:"string" enum:"true"`
+	Status StreamProcessorStatus `json:"rekognition:DescribeStreamProcessorOutput:Status" type:"string" enum:"true"`
 
 	// Detailed status message about the stream processor.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"rekognition:DescribeStreamProcessorOutput:StatusMessage" type:"string"`
 
 	// ARN of the stream processor.
-	StreamProcessorArn *string `type:"string"`
+	StreamProcessorArn *string `json:"rekognition:DescribeStreamProcessorOutput:StreamProcessorArn" type:"string"`
 }
 
 // String returns the string representation

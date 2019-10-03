@@ -76,7 +76,7 @@ type ModifyCapacityReservationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Capacity Reservation.
-	Return *bool `locationName:"return" type:"boolean"`
+	Return *bool `json:"ec2:ModifyCapacityReservationOutput:Return" locationName:"return" type:"boolean"`
 }
 
 // String returns the string representation

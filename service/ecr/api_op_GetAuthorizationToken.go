@@ -43,7 +43,7 @@ type GetAuthorizationTokenOutput struct {
 
 	// A list of authorization token data objects that correspond to the registryIds
 	// values in the request.
-	AuthorizationData []AuthorizationData `locationName:"authorizationData" type:"list"`
+	AuthorizationData []AuthorizationData `json:"api.ecr:GetAuthorizationTokenOutput:AuthorizationData" locationName:"authorizationData" type:"list"`
 }
 
 // String returns the string representation

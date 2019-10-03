@@ -22,27 +22,27 @@ type Entitlement struct {
 	// The customer identifier is a handle to each unique customer in an application.
 	// Customer identifiers are obtained through the ResolveCustomer operation in
 	// AWS Marketplace Metering Service.
-	CustomerIdentifier *string `type:"string"`
+	CustomerIdentifier *string `json:"entitlement.marketplace:Entitlement:CustomerIdentifier" type:"string"`
 
 	// The dimension for which the given entitlement applies. Dimensions represent
 	// categories of capacity in a product and are specified when the product is
 	// listed in AWS Marketplace.
-	Dimension *string `type:"string"`
+	Dimension *string `json:"entitlement.marketplace:Entitlement:Dimension" type:"string"`
 
 	// The expiration date represents the minimum date through which this entitlement
 	// is expected to remain valid. For contractual products listed on AWS Marketplace,
 	// the expiration date is the date at which the customer will renew or cancel
 	// their contract. Customers who are opting to renew their contract will still
 	// have entitlements with an expiration date.
-	ExpirationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationDate *time.Time `json:"entitlement.marketplace:Entitlement:ExpirationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The product code for which the given entitlement applies. Product codes are
 	// provided by AWS Marketplace when the product listing is created.
-	ProductCode *string `min:"1" type:"string"`
+	ProductCode *string `json:"entitlement.marketplace:Entitlement:ProductCode" min:"1" type:"string"`
 
 	// The EntitlementValue represents the amount of capacity that the customer
 	// is entitled to for the product.
-	Value *EntitlementValue `type:"structure"`
+	Value *EntitlementValue `json:"entitlement.marketplace:Entitlement:Value" type:"structure"`
 }
 
 // String returns the string representation
@@ -58,19 +58,19 @@ type EntitlementValue struct {
 
 	// The BooleanValue field will be populated with a boolean value when the entitlement
 	// is a boolean type. Otherwise, the field will not be set.
-	BooleanValue *bool `type:"boolean"`
+	BooleanValue *bool `json:"entitlement.marketplace:EntitlementValue:BooleanValue" type:"boolean"`
 
 	// The DoubleValue field will be populated with a double value when the entitlement
 	// is a double type. Otherwise, the field will not be set.
-	DoubleValue *float64 `type:"double"`
+	DoubleValue *float64 `json:"entitlement.marketplace:EntitlementValue:DoubleValue" type:"double"`
 
 	// The IntegerValue field will be populated with an integer value when the entitlement
 	// is an integer type. Otherwise, the field will not be set.
-	IntegerValue *int64 `type:"integer"`
+	IntegerValue *int64 `json:"entitlement.marketplace:EntitlementValue:IntegerValue" type:"integer"`
 
 	// The StringValue field will be populated with a string value when the entitlement
 	// is a string type. Otherwise, the field will not be set.
-	StringValue *string `type:"string"`
+	StringValue *string `json:"entitlement.marketplace:EntitlementValue:StringValue" type:"string"`
 }
 
 // String returns the string representation

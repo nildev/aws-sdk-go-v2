@@ -43,7 +43,7 @@ type DeleteClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of the deleted cluster.
-	Cluster *Cluster `locationName:"cluster" type:"structure"`
+	Cluster *Cluster `json:"ecs:DeleteClusterOutput:Cluster" locationName:"cluster" type:"structure"`
 }
 
 // String returns the string representation

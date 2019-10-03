@@ -91,11 +91,11 @@ type ListCertificatesByCAOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The device certificates signed by the specified CA certificate.
-	Certificates []Certificate `locationName:"certificates" type:"list"`
+	Certificates []Certificate `json:"iot:ListCertificatesByCAOutput:Certificates" locationName:"certificates" type:"list"`
 
 	// The marker for the next set of results, or null if there are no additional
 	// results.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListCertificatesByCAOutput:NextMarker" locationName:"nextMarker" type:"string"`
 }
 
 // String returns the string representation

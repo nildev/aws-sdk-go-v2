@@ -59,10 +59,10 @@ type CreateVpcEndpointServiceConfigurationOutput struct {
 
 	// Unique, case-sensitive identifier you provide to ensure the idempotency of
 	// the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:CreateVpcEndpointServiceConfigurationOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the service configuration.
-	ServiceConfiguration *ServiceConfiguration `locationName:"serviceConfiguration" type:"structure"`
+	ServiceConfiguration *ServiceConfiguration `json:"ec2:CreateVpcEndpointServiceConfigurationOutput:ServiceConfiguration" locationName:"serviceConfiguration" type:"structure"`
 }
 
 // String returns the string representation

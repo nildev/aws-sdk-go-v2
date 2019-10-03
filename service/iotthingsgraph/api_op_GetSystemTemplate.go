@@ -50,7 +50,7 @@ type GetSystemTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that contains summary data about the system.
-	Description *SystemTemplateDescription `locationName:"description" type:"structure"`
+	Description *SystemTemplateDescription `json:"iotthingsgraph:GetSystemTemplateOutput:Description" locationName:"description" type:"structure"`
 }
 
 // String returns the string representation

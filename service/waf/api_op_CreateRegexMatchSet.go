@@ -61,10 +61,10 @@ type CreateRegexMatchSetOutput struct {
 	// The ChangeToken that you used to submit the CreateRegexMatchSet request.
 	// You can also use this value to query the status of the request. For more
 	// information, see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf:CreateRegexMatchSetOutput:ChangeToken" min:"1" type:"string"`
 
 	// A RegexMatchSet that contains no RegexMatchTuple objects.
-	RegexMatchSet *RegexMatchSet `type:"structure"`
+	RegexMatchSet *RegexMatchSet `json:"waf:CreateRegexMatchSetOutput:RegexMatchSet" type:"structure"`
 }
 
 // String returns the string representation

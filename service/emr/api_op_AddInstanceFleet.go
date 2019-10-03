@@ -57,10 +57,10 @@ type AddInstanceFleetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the cluster.
-	ClusterId *string `type:"string"`
+	ClusterId *string `json:"elasticmapreduce:AddInstanceFleetOutput:ClusterId" type:"string"`
 
 	// The unique identifier of the instance fleet.
-	InstanceFleetId *string `type:"string"`
+	InstanceFleetId *string `json:"elasticmapreduce:AddInstanceFleetOutput:InstanceFleetId" type:"string"`
 }
 
 // String returns the string representation

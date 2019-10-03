@@ -46,7 +46,7 @@ type BatchGetDeploymentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the deployments.
-	DeploymentsInfo []DeploymentInfo `locationName:"deploymentsInfo" type:"list"`
+	DeploymentsInfo []DeploymentInfo `json:"codedeploy:BatchGetDeploymentsOutput:DeploymentsInfo" locationName:"deploymentsInfo" type:"list"`
 }
 
 // String returns the string representation

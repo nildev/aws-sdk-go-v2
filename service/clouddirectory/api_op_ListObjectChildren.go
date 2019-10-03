@@ -106,10 +106,10 @@ type ListObjectChildrenOutput struct {
 
 	// Children structure, which is a map with key as the LinkName and ObjectIdentifier
 	// as the value.
-	Children map[string]string `type:"map"`
+	Children map[string]string `json:"clouddirectory:ListObjectChildrenOutput:Children" type:"map"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListObjectChildrenOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

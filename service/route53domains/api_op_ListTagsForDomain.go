@@ -47,7 +47,7 @@ type ListTagsForDomainOutput struct {
 	// A list of the tags that are associated with the specified domain.
 	//
 	// TagList is a required field
-	TagList []Tag `type:"list" required:"true"`
+	TagList []Tag `json:"route53domains:ListTagsForDomainOutput:TagList" type:"list" required:"true"`
 }
 
 // String returns the string representation

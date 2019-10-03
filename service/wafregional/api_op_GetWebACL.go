@@ -59,7 +59,7 @@ type GetWebACLOutput struct {
 	//    Priority, and RuleId
 	//
 	//    * Action: Contains Type
-	WebACL *waf.WebACL `type:"structure"`
+	WebACL *waf.WebACL `json:"waf-regional:GetWebACLOutput:WebACL" type:"structure"`
 }
 
 // String returns the string representation

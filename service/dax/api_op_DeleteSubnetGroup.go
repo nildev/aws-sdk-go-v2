@@ -44,7 +44,7 @@ type DeleteSubnetGroupOutput struct {
 
 	// A user-specified message for this action (i.e., a reason for deleting the
 	// subnet group).
-	DeletionMessage *string `type:"string"`
+	DeletionMessage *string `json:"dax:DeleteSubnetGroupOutput:DeletionMessage" type:"string"`
 }
 
 // String returns the string representation

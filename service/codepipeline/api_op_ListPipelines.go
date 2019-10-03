@@ -45,10 +45,10 @@ type ListPipelinesOutput struct {
 	// If the amount of returned information is significantly large, an identifier
 	// is also returned which can be used in a subsequent list pipelines call to
 	// return the next set of pipelines in the list.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codepipeline:ListPipelinesOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// The list of pipelines.
-	Pipelines []PipelineSummary `locationName:"pipelines" type:"list"`
+	Pipelines []PipelineSummary `json:"codepipeline:ListPipelinesOutput:Pipelines" locationName:"pipelines" type:"list"`
 }
 
 // String returns the string representation

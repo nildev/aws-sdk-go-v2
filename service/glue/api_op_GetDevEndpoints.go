@@ -43,10 +43,10 @@ type GetDevEndpointsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of DevEndpoint definitions.
-	DevEndpoints []DevEndpoint `type:"list"`
+	DevEndpoints []DevEndpoint `json:"glue:GetDevEndpointsOutput:DevEndpoints" type:"list"`
 
 	// A continuation token, if not all DevEndpoint definitions have yet been returned.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetDevEndpointsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

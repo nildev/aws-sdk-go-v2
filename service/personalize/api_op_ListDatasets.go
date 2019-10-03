@@ -48,10 +48,10 @@ type ListDatasetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Dataset objects. Each object provides metadata information.
-	Datasets []DatasetSummary `locationName:"datasets" type:"list"`
+	Datasets []DatasetSummary `json:"personalize:ListDatasetsOutput:Datasets" locationName:"datasets" type:"list"`
 
 	// A token for getting the next set of datasets (if they exist).
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"personalize:ListDatasetsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

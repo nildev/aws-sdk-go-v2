@@ -92,7 +92,7 @@ type CreateSolutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the solution.
-	SolutionArn *string `locationName:"solutionArn" type:"string"`
+	SolutionArn *string `json:"personalize:CreateSolutionOutput:SolutionArn" locationName:"solutionArn" type:"string"`
 }
 
 // String returns the string representation

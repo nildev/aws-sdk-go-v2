@@ -66,11 +66,11 @@ type ListModelPackagesOutput struct {
 	// An array of ModelPackageSummary objects, each of which lists a model package.
 	//
 	// ModelPackageSummaryList is a required field
-	ModelPackageSummaryList []ModelPackageSummary `type:"list" required:"true"`
+	ModelPackageSummaryList []ModelPackageSummary `json:"api.sagemaker:ListModelPackagesOutput:ModelPackageSummaryList" type:"list" required:"true"`
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of model packages, use it in the subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListModelPackagesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

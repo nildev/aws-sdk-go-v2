@@ -48,7 +48,7 @@ type DeliverConfigSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the snapshot that is being created.
-	ConfigSnapshotId *string `locationName:"configSnapshotId" type:"string"`
+	ConfigSnapshotId *string `json:"config:DeliverConfigSnapshotOutput:ConfigSnapshotId" locationName:"configSnapshotId" type:"string"`
 }
 
 // String returns the string representation

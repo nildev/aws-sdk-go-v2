@@ -70,14 +70,14 @@ type ListExecutionsOutput struct {
 	// The list of matching executions.
 	//
 	// Executions is a required field
-	Executions []ExecutionListItem `locationName:"executions" type:"list" required:"true"`
+	Executions []ExecutionListItem `json:"states:ListExecutionsOutput:Executions" locationName:"executions" type:"list" required:"true"`
 
 	// If nextToken is returned, there are more results available. The value of
 	// nextToken is a unique pagination token for each page. Make the call again
 	// using the returned token to retrieve the next page. Keep all other arguments
 	// unchanged. Each pagination token expires after 24 hours. Using an expired
 	// pagination token will return an HTTP 400 InvalidToken error.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"states:ListExecutionsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

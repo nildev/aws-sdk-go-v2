@@ -42,10 +42,10 @@ type ListOfferingPromotionsOutput struct {
 
 	// An identifier to be used in the next call to this operation, to return the
 	// next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:ListOfferingPromotionsOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 
 	// Information about the offering promotions.
-	OfferingPromotions []OfferingPromotion `locationName:"offeringPromotions" type:"list"`
+	OfferingPromotions []OfferingPromotion `json:"devicefarm:ListOfferingPromotionsOutput:OfferingPromotions" locationName:"offeringPromotions" type:"list"`
 }
 
 // String returns the string representation

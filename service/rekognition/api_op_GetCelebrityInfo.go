@@ -42,10 +42,10 @@ type GetCelebrityInfoOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the celebrity.
-	Name *string `type:"string"`
+	Name *string `json:"rekognition:GetCelebrityInfoOutput:Name" type:"string"`
 
 	// An array of URLs pointing to additional celebrity information.
-	Urls []string `type:"list"`
+	Urls []string `json:"rekognition:GetCelebrityInfoOutput:Urls" type:"list"`
 }
 
 // String returns the string representation

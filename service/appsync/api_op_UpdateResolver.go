@@ -152,7 +152,7 @@ type UpdateResolverOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated Resolver object.
-	Resolver *Resolver `locationName:"resolver" type:"structure"`
+	Resolver *Resolver `json:"appsync:UpdateResolverOutput:Resolver" locationName:"resolver" type:"structure"`
 }
 
 // String returns the string representation

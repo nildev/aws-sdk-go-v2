@@ -191,7 +191,7 @@ type CreateFleetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Properties for the newly created fleet.
-	FleetAttributes *FleetAttributes `type:"structure"`
+	FleetAttributes *FleetAttributes `json:"gamelift:CreateFleetOutput:FleetAttributes" type:"structure"`
 }
 
 // String returns the string representation

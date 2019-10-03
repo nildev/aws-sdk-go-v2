@@ -71,11 +71,11 @@ type ListBulkDeploymentDetailedReportsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the individual group deployments in the bulk deployment operation.
-	Deployments []BulkDeploymentResult `type:"list"`
+	Deployments []BulkDeploymentResult `json:"greengrass:ListBulkDeploymentDetailedReportsOutput:Deployments" type:"list"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListBulkDeploymentDetailedReportsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

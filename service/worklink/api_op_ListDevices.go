@@ -85,11 +85,11 @@ type ListDevicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the devices.
-	Devices []DeviceSummary `type:"list"`
+	Devices []DeviceSummary `json:"worklink:ListDevicesOutput:Devices" type:"list"`
 
 	// The pagination token used to retrieve the next page of results for this operation.
 	// If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"worklink:ListDevicesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

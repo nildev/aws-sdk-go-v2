@@ -77,24 +77,24 @@ type GetSubscriptionDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the subscription definition version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetSubscriptionDefinitionVersionOutput:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the subscription definition
 	// version was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetSubscriptionDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
 	// Information about the subscription definition version.
-	Definition *SubscriptionDefinitionVersion `type:"structure"`
+	Definition *SubscriptionDefinitionVersion `json:"greengrass:GetSubscriptionDefinitionVersionOutput:Definition" type:"structure"`
 
 	// The ID of the subscription definition version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetSubscriptionDefinitionVersionOutput:Id" type:"string"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:GetSubscriptionDefinitionVersionOutput:NextToken" type:"string"`
 
 	// The version of the subscription definition version.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:GetSubscriptionDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

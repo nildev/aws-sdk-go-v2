@@ -66,20 +66,20 @@ type PutRecordBatchOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether server-side encryption (SSE) was enabled during this operation.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"firehose:PutRecordBatchOutput:Encrypted" type:"boolean"`
 
 	// The number of records that might have failed processing. This number might
 	// be greater than 0 even if the PutRecordBatch call succeeds. Check FailedPutCount
 	// to determine whether there are records that you need to resend.
 	//
 	// FailedPutCount is a required field
-	FailedPutCount *int64 `type:"integer" required:"true"`
+	FailedPutCount *int64 `json:"firehose:PutRecordBatchOutput:FailedPutCount" type:"integer" required:"true"`
 
 	// The results array. For each record, the index of the response element is
 	// the same as the index used in the request array.
 	//
 	// RequestResponses is a required field
-	RequestResponses []PutRecordBatchResponseEntry `min:"1" type:"list" required:"true"`
+	RequestResponses []PutRecordBatchResponseEntry `json:"firehose:PutRecordBatchOutput:RequestResponses" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation

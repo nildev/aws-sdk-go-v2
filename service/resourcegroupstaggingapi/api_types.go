@@ -18,13 +18,13 @@ type FailureInfo struct {
 	// The code of the common error. Valid values include InternalServiceException,
 	// InvalidParameterException, and any valid error code returned by the AWS service
 	// that hosts the resource that you want to tag.
-	ErrorCode ErrorCode `type:"string" enum:"true"`
+	ErrorCode ErrorCode `json:"tagging:FailureInfo:ErrorCode" type:"string" enum:"true"`
 
 	// The message of the common error.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"tagging:FailureInfo:ErrorMessage" type:"string"`
 
 	// The HTTP status code of the common error.
-	StatusCode *int64 `type:"integer"`
+	StatusCode *int64 `json:"tagging:FailureInfo:StatusCode" type:"integer"`
 }
 
 // String returns the string representation
@@ -39,10 +39,10 @@ type ResourceTagMapping struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the resource.
-	ResourceARN *string `min:"1" type:"string"`
+	ResourceARN *string `json:"tagging:ResourceTagMapping:ResourceARN" min:"1" type:"string"`
 
 	// The tags that have been applied to one or more AWS resources.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"tagging:ResourceTagMapping:Tags" type:"list"`
 }
 
 // String returns the string representation
@@ -62,13 +62,13 @@ type Tag struct {
 	// that acts like a category for more specific tag values.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"tagging:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The optional part of a key-value pair that make up a tag. A value acts as
 	// a descriptor within a tag category (key).
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"tagging:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -84,11 +84,11 @@ type TagFilter struct {
 
 	// One part of a key-value pair that make up a tag. A key is a general label
 	// that acts like a category for more specific tag values.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"tagging:TagFilter:Key" min:"1" type:"string"`
 
 	// The optional part of a key-value pair that make up a tag. A value acts as
 	// a descriptor within a tag category (key).
-	Values []string `type:"list"`
+	Values []string `json:"tagging:TagFilter:Values" type:"list"`
 }
 
 // String returns the string representation

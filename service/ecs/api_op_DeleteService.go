@@ -53,7 +53,7 @@ type DeleteServiceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of the deleted service.
-	Service *Service `locationName:"service" type:"structure"`
+	Service *Service `json:"ecs:DeleteServiceOutput:Service" locationName:"service" type:"structure"`
 }
 
 // String returns the string representation

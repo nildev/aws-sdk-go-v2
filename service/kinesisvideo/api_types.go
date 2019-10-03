@@ -19,32 +19,32 @@ type StreamInfo struct {
 	_ struct{} `type:"structure"`
 
 	// A time stamp that indicates when the stream was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"kinesisvideo:StreamInfo:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// How long the stream retains data, in hours.
-	DataRetentionInHours *int64 `type:"integer"`
+	DataRetentionInHours *int64 `json:"kinesisvideo:StreamInfo:DataRetentionInHours" type:"integer"`
 
 	// The name of the device that is associated with the stream.
-	DeviceName *string `min:"1" type:"string"`
+	DeviceName *string `json:"kinesisvideo:StreamInfo:DeviceName" min:"1" type:"string"`
 
 	// The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video
 	// Streams uses to encrypt data on the stream.
-	KmsKeyId *string `min:"1" type:"string"`
+	KmsKeyId *string `json:"kinesisvideo:StreamInfo:KmsKeyId" min:"1" type:"string"`
 
 	// The MediaType of the stream.
-	MediaType *string `min:"1" type:"string"`
+	MediaType *string `json:"kinesisvideo:StreamInfo:MediaType" min:"1" type:"string"`
 
 	// The status of the stream.
-	Status Status `type:"string" enum:"true"`
+	Status Status `json:"kinesisvideo:StreamInfo:Status" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the stream.
-	StreamARN *string `min:"1" type:"string"`
+	StreamARN *string `json:"kinesisvideo:StreamInfo:StreamARN" min:"1" type:"string"`
 
 	// The name of the stream.
-	StreamName *string `min:"1" type:"string"`
+	StreamName *string `json:"kinesisvideo:StreamInfo:StreamName" min:"1" type:"string"`
 
 	// The version of the stream.
-	Version *string `min:"1" type:"string"`
+	Version *string `json:"kinesisvideo:StreamInfo:Version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -121,10 +121,10 @@ type StreamNameCondition struct {
 
 	// A comparison operator. Currently, you can specify only the BEGINS_WITH operator,
 	// which finds streams whose names start with a given prefix.
-	ComparisonOperator ComparisonOperator `type:"string" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"kinesisvideo:StreamNameCondition:ComparisonOperator" type:"string" enum:"true"`
 
 	// A value to compare.
-	ComparisonValue *string `min:"1" type:"string"`
+	ComparisonValue *string `json:"kinesisvideo:StreamNameCondition:ComparisonValue" min:"1" type:"string"`
 }
 
 // String returns the string representation

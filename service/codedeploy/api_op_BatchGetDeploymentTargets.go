@@ -51,7 +51,7 @@ type BatchGetDeploymentTargetsOutput struct {
 	//    function.
 	//
 	//    * Amazon ECS: The target object is an Amazon ECS service.
-	DeploymentTargets []DeploymentTarget `locationName:"deploymentTargets" type:"list"`
+	DeploymentTargets []DeploymentTarget `json:"codedeploy:BatchGetDeploymentTargetsOutput:DeploymentTargets" locationName:"deploymentTargets" type:"list"`
 }
 
 // String returns the string representation

@@ -86,10 +86,10 @@ type GrantFlowEntitlementsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The entitlements that were just granted.
-	Entitlements []Entitlement `locationName:"entitlements" type:"list"`
+	Entitlements []Entitlement `json:"mediaconnect:GrantFlowEntitlementsOutput:Entitlements" locationName:"entitlements" type:"list"`
 
 	// The ARN of the flow that these entitlements were granted to.
-	FlowArn *string `locationName:"flowArn" type:"string"`
+	FlowArn *string `json:"mediaconnect:GrantFlowEntitlementsOutput:FlowArn" locationName:"flowArn" type:"string"`
 }
 
 // String returns the string representation

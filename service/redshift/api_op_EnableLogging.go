@@ -73,22 +73,22 @@ type EnableLoggingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the S3 bucket where the log files are stored.
-	BucketName *string `type:"string"`
+	BucketName *string `json:"redshift:EnableLoggingOutput:BucketName" type:"string"`
 
 	// The message indicating that logs failed to be delivered.
-	LastFailureMessage *string `type:"string"`
+	LastFailureMessage *string `json:"redshift:EnableLoggingOutput:LastFailureMessage" type:"string"`
 
 	// The last time when logs failed to be delivered.
-	LastFailureTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastFailureTime *time.Time `json:"redshift:EnableLoggingOutput:LastFailureTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The last time that logs were delivered.
-	LastSuccessfulDeliveryTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastSuccessfulDeliveryTime *time.Time `json:"redshift:EnableLoggingOutput:LastSuccessfulDeliveryTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// true if logging is on, false if logging is off.
-	LoggingEnabled *bool `type:"boolean"`
+	LoggingEnabled *bool `json:"redshift:EnableLoggingOutput:LoggingEnabled" type:"boolean"`
 
 	// The prefix applied to the log file names.
-	S3KeyPrefix *string `type:"string"`
+	S3KeyPrefix *string `json:"redshift:EnableLoggingOutput:S3KeyPrefix" type:"string"`
 }
 
 // String returns the string representation

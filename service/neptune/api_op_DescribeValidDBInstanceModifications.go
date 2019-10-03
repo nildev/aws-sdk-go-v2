@@ -45,7 +45,7 @@ type DescribeValidDBInstanceModificationsOutput struct {
 	// Information about valid modifications that you can make to your DB instance.
 	// Contains the result of a successful call to the DescribeValidDBInstanceModifications
 	// action. You can use this information when you call ModifyDBInstance.
-	ValidDBInstanceModificationsMessage *ValidDBInstanceModificationsMessage `type:"structure"`
+	ValidDBInstanceModificationsMessage *ValidDBInstanceModificationsMessage `json:"rds:DescribeValidDBInstanceModificationsOutput:ValidDBInstanceModificationsMessage" type:"structure"`
 }
 
 // String returns the string representation

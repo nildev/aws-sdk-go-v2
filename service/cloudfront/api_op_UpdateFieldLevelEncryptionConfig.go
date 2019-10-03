@@ -87,10 +87,10 @@ type UpdateFieldLevelEncryptionConfigOutput struct {
 
 	// The value of the ETag header that you received when updating the configuration.
 	// For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:UpdateFieldLevelEncryptionConfigOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// Return the results of updating the configuration.
-	FieldLevelEncryption *FieldLevelEncryption `type:"structure"`
+	FieldLevelEncryption *FieldLevelEncryption `json:"cloudfront:UpdateFieldLevelEncryptionConfigOutput:FieldLevelEncryption" type:"structure"`
 }
 
 // String returns the string representation

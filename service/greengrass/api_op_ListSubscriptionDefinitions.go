@@ -47,9 +47,9 @@ func (s ListSubscriptionDefinitionsInput) MarshalFields(e protocol.FieldEncoder)
 type ListSubscriptionDefinitionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Definitions []DefinitionInformation `type:"list"`
+	Definitions []DefinitionInformation `json:"greengrass:ListSubscriptionDefinitionsOutput:Definitions" type:"list"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListSubscriptionDefinitionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

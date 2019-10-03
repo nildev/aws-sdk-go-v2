@@ -49,7 +49,7 @@ type GetLaunchTemplateDataOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The instance data.
-	LaunchTemplateData *ResponseLaunchTemplateData `locationName:"launchTemplateData" type:"structure"`
+	LaunchTemplateData *ResponseLaunchTemplateData `json:"ec2:GetLaunchTemplateDataOutput:LaunchTemplateData" locationName:"launchTemplateData" type:"structure"`
 }
 
 // String returns the string representation

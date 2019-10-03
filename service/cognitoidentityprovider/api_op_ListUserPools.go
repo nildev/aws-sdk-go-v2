@@ -57,10 +57,10 @@ type ListUserPoolsOutput struct {
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-idp:ListUserPoolsOutput:NextToken" min:"1" type:"string"`
 
 	// The user pools from the response to list users.
-	UserPools []UserPoolDescriptionType `type:"list"`
+	UserPools []UserPoolDescriptionType `json:"cognito-idp:ListUserPoolsOutput:UserPools" type:"list"`
 }
 
 // String returns the string representation

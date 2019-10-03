@@ -30,7 +30,7 @@ type GetEbsEncryptionByDefaultOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether encryption by default is enabled.
-	EbsEncryptionByDefault *bool `locationName:"ebsEncryptionByDefault" type:"boolean"`
+	EbsEncryptionByDefault *bool `json:"ec2:GetEbsEncryptionByDefaultOutput:EbsEncryptionByDefault" locationName:"ebsEncryptionByDefault" type:"boolean"`
 }
 
 // String returns the string representation

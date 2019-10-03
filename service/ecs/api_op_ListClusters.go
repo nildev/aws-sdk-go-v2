@@ -43,13 +43,13 @@ type ListClustersOutput struct {
 
 	// The list of full Amazon Resource Name (ARN) entries for each cluster associated
 	// with your account.
-	ClusterArns []string `locationName:"clusterArns" type:"list"`
+	ClusterArns []string `json:"ecs:ListClustersOutput:ClusterArns" locationName:"clusterArns" type:"list"`
 
 	// The nextToken value to include in a future ListClusters request. When the
 	// results of a ListClusters request exceed maxResults, this value can be used
 	// to retrieve the next page of results. This value is null when there are no
 	// more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ecs:ListClustersOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

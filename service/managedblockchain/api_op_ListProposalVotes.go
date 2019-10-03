@@ -99,10 +99,10 @@ type ListProposalVotesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"managedblockchain:ListProposalVotesOutput:NextToken" type:"string"`
 
 	// The listing of votes.
-	ProposalVotes []VoteSummary `type:"list"`
+	ProposalVotes []VoteSummary `json:"managedblockchain:ListProposalVotesOutput:ProposalVotes" type:"list"`
 }
 
 // String returns the string representation

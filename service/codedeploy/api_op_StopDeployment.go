@@ -54,10 +54,10 @@ type StopDeploymentOutput struct {
 	//    * Pending: The stop operation is pending.
 	//
 	//    * Succeeded: The stop operation was successful.
-	Status StopStatus `locationName:"status" type:"string" enum:"true"`
+	Status StopStatus `json:"codedeploy:StopDeploymentOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// An accompanying status message.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"codedeploy:StopDeploymentOutput:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation

@@ -32,7 +32,7 @@ type DescribeDomainsOutput struct {
 	// A list that contains the status of each requested domain.
 	//
 	// DomainStatusList is a required field
-	DomainStatusList []DomainStatus `type:"list" required:"true"`
+	DomainStatusList []DomainStatus `json:"cloudsearch:DescribeDomainsOutput:DomainStatusList" type:"list" required:"true"`
 }
 
 // String returns the string representation

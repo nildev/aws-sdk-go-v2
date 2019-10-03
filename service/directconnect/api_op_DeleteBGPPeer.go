@@ -36,7 +36,7 @@ type DeleteBGPPeerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The virtual interface.
-	VirtualInterface *VirtualInterface `locationName:"virtualInterface" type:"structure"`
+	VirtualInterface *VirtualInterface `json:"directconnect:DeleteBGPPeerOutput:VirtualInterface" locationName:"virtualInterface" type:"structure"`
 }
 
 // String returns the string representation

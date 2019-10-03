@@ -49,12 +49,12 @@ type DescribeResourceGroupsOutput struct {
 	// for each failed item.
 	//
 	// FailedItems is a required field
-	FailedItems map[string]FailedItemDetails `locationName:"failedItems" type:"map" required:"true"`
+	FailedItems map[string]FailedItemDetails `json:"inspector:DescribeResourceGroupsOutput:FailedItems" locationName:"failedItems" type:"map" required:"true"`
 
 	// Information about a resource group.
 	//
 	// ResourceGroups is a required field
-	ResourceGroups []ResourceGroup `locationName:"resourceGroups" type:"list" required:"true"`
+	ResourceGroups []ResourceGroup `json:"inspector:DescribeResourceGroupsOutput:ResourceGroups" locationName:"resourceGroups" type:"list" required:"true"`
 }
 
 // String returns the string representation

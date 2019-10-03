@@ -51,7 +51,7 @@ type DeleteVpcEndpointsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the VPC endpoints that were not successfully deleted.
-	Unsuccessful []UnsuccessfulItem `locationName:"unsuccessful" locationNameList:"item" type:"list"`
+	Unsuccessful []UnsuccessfulItem `json:"ec2:DeleteVpcEndpointsOutput:Unsuccessful" locationName:"unsuccessful" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

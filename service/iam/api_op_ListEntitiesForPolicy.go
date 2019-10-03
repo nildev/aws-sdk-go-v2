@@ -110,20 +110,20 @@ type ListEntitiesForPolicyOutput struct {
 	// than the MaxItems number of results even when there are more results available.
 	// We recommend that you check IsTruncated after every call to ensure that you
 	// receive all your results.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"iam:ListEntitiesForPolicyOutput:IsTruncated" type:"boolean"`
 
 	// When IsTruncated is true, this element is present and contains the value
 	// to use for the Marker parameter in a subsequent pagination request.
-	Marker *string `type:"string"`
+	Marker *string `json:"iam:ListEntitiesForPolicyOutput:Marker" type:"string"`
 
 	// A list of IAM groups that the policy is attached to.
-	PolicyGroups []PolicyGroup `type:"list"`
+	PolicyGroups []PolicyGroup `json:"iam:ListEntitiesForPolicyOutput:PolicyGroups" type:"list"`
 
 	// A list of IAM roles that the policy is attached to.
-	PolicyRoles []PolicyRole `type:"list"`
+	PolicyRoles []PolicyRole `json:"iam:ListEntitiesForPolicyOutput:PolicyRoles" type:"list"`
 
 	// A list of IAM users that the policy is attached to.
-	PolicyUsers []PolicyUser `type:"list"`
+	PolicyUsers []PolicyUser `json:"iam:ListEntitiesForPolicyOutput:PolicyUsers" type:"list"`
 }
 
 // String returns the string representation

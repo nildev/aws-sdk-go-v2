@@ -29,7 +29,7 @@ type DescribeStacksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Stack objects that describe the stacks.
-	Stacks []Stack `type:"list"`
+	Stacks []Stack `json:"opsworks:DescribeStacksOutput:Stacks" type:"list"`
 }
 
 // String returns the string representation

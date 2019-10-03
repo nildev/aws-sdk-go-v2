@@ -54,11 +54,11 @@ type ListEndpointGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of the endpoint groups associated with a listener.
-	EndpointGroups []EndpointGroup `type:"list"`
+	EndpointGroups []EndpointGroup `json:"globalaccelerator:ListEndpointGroupsOutput:EndpointGroups" type:"list"`
 
 	// The token for the next set of results. You receive this token from a previous
 	// call.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"globalaccelerator:ListEndpointGroupsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

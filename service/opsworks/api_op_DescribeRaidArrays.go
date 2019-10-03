@@ -37,7 +37,7 @@ type DescribeRaidArraysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A RaidArrays object that describes the specified RAID arrays.
-	RaidArrays []RaidArray `type:"list"`
+	RaidArrays []RaidArray `json:"opsworks:DescribeRaidArraysOutput:RaidArrays" type:"list"`
 }
 
 // String returns the string representation

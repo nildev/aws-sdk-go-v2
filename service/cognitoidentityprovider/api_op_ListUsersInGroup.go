@@ -69,10 +69,10 @@ type ListUsersInGroupOutput struct {
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-idp:ListUsersInGroupOutput:NextToken" min:"1" type:"string"`
 
 	// The users returned in the request to list users.
-	Users []UserType `type:"list"`
+	Users []UserType `json:"cognito-idp:ListUsersInGroupOutput:Users" type:"list"`
 }
 
 // String returns the string representation

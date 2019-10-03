@@ -56,10 +56,10 @@ type GetTerminologyOutput struct {
 
 	// The data location of the custom terminology being retrieved. The custom terminology
 	// file is returned in a presigned url that has a 30 minute expiration.
-	TerminologyDataLocation *TerminologyDataLocation `type:"structure"`
+	TerminologyDataLocation *TerminologyDataLocation `json:"translate:GetTerminologyOutput:TerminologyDataLocation" type:"structure"`
 
 	// The properties of the custom terminology being retrieved.
-	TerminologyProperties *TerminologyProperties `type:"structure"`
+	TerminologyProperties *TerminologyProperties `json:"translate:GetTerminologyOutput:TerminologyProperties" type:"structure"`
 }
 
 // String returns the string representation

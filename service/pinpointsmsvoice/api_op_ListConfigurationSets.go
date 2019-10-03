@@ -51,11 +51,11 @@ type ListConfigurationSetsOutput struct {
 
 	// An object that contains a list of configuration sets for your account in
 	// the current region.
-	ConfigurationSets []string `type:"list"`
+	ConfigurationSets []string `json:"sms-voice.pinpoint:ListConfigurationSetsOutput:ConfigurationSets" type:"list"`
 
 	// A token returned from a previous call to ListConfigurationSets to indicate
 	// the position in the list of configuration sets.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"sms-voice.pinpoint:ListConfigurationSetsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

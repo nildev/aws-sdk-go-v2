@@ -67,11 +67,11 @@ type ListInvitationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of invitation descriptions.
-	Invitations []Invitation `locationName:"invitations" type:"list"`
+	Invitations []Invitation `json:"guardduty:ListInvitationsOutput:Invitations" locationName:"invitations" type:"list"`
 
 	// Pagination parameter to be used on the next list operation to retrieve more
 	// items.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"guardduty:ListInvitationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

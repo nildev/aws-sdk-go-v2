@@ -67,7 +67,7 @@ type InviteAccountToOrganizationOutput struct {
 
 	// A structure that contains details about the handshake that is created to
 	// support this invitation request.
-	Handshake *Handshake `type:"structure"`
+	Handshake *Handshake `json:"organizations:InviteAccountToOrganizationOutput:Handshake" type:"structure"`
 }
 
 // String returns the string representation

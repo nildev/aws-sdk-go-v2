@@ -51,7 +51,7 @@ type GetIdentityNotificationAttributesOutput struct {
 	// A map of Identity to IdentityNotificationAttributes.
 	//
 	// NotificationAttributes is a required field
-	NotificationAttributes map[string]IdentityNotificationAttributes `type:"map" required:"true"`
+	NotificationAttributes map[string]IdentityNotificationAttributes `json:"email:GetIdentityNotificationAttributesOutput:NotificationAttributes" type:"map" required:"true"`
 }
 
 // String returns the string representation

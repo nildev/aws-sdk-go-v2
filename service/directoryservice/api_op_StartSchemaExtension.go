@@ -77,7 +77,7 @@ type StartSchemaExtensionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the schema extension that will be applied.
-	SchemaExtensionId *string `type:"string"`
+	SchemaExtensionId *string `json:"ds:StartSchemaExtensionOutput:SchemaExtensionId" type:"string"`
 }
 
 // String returns the string representation

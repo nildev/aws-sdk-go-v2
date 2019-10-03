@@ -66,15 +66,15 @@ type GetBucketNotificationConfigurationOutput struct {
 
 	// Describes the AWS Lambda functions to invoke and the events for which to
 	// invoke them.
-	LambdaFunctionConfigurations []LambdaFunctionConfiguration `locationName:"CloudFunctionConfiguration" type:"list" flattened:"true"`
+	LambdaFunctionConfigurations []LambdaFunctionConfiguration `json:"s3:GetBucketNotificationConfigurationOutput:LambdaFunctionConfigurations" locationName:"CloudFunctionConfiguration" type:"list" flattened:"true"`
 
 	// The Amazon Simple Queue Service queues to publish messages to and the events
 	// for which to publish messages.
-	QueueConfigurations []QueueConfiguration `locationName:"QueueConfiguration" type:"list" flattened:"true"`
+	QueueConfigurations []QueueConfiguration `json:"s3:GetBucketNotificationConfigurationOutput:QueueConfigurations" locationName:"QueueConfiguration" type:"list" flattened:"true"`
 
 	// The topic to which notifications are sent and the events for which notifications
 	// are generated.
-	TopicConfigurations []TopicConfiguration `locationName:"TopicConfiguration" type:"list" flattened:"true"`
+	TopicConfigurations []TopicConfiguration `json:"s3:GetBucketNotificationConfigurationOutput:TopicConfigurations" locationName:"TopicConfiguration" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

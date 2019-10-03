@@ -38,7 +38,7 @@ type ActivatedRule struct {
 	// ActivatedRule|OverrideAction applies only when updating or adding a RuleGroup
 	// to a WebACL. In this case, you do not use ActivatedRule|Action. For all other
 	// update requests, ActivatedRule|Action is used instead of ActivatedRule|OverrideAction.
-	Action *WafAction `type:"structure"`
+	Action *WafAction `json:"waf:ActivatedRule:Action" type:"structure"`
 
 	// An array of rules to exclude from a rule group. This is applicable only when
 	// the ActivatedRule refers to a RuleGroup.
@@ -73,7 +73,7 @@ type ActivatedRule struct {
 	//    the rules to exclude. That is, the second Updates:Action should be INSERT,
 	//    Updates:ActivatedRule:RuleId should be the rule group that you just removed,
 	//    and ExcludedRules should contain the rules that you want to exclude.
-	ExcludedRules []ExcludedRule `type:"list"`
+	ExcludedRules []ExcludedRule `json:"waf:ActivatedRule:ExcludedRules" type:"list"`
 
 	// Use the OverrideAction to test your RuleGroup.
 	//
@@ -89,7 +89,7 @@ type ActivatedRule struct {
 	// ActivatedRule|OverrideAction applies only when updating or adding a RuleGroup
 	// to a WebACL. In this case you do not use ActivatedRule|Action. For all other
 	// update requests, ActivatedRule|Action is used instead of ActivatedRule|OverrideAction.
-	OverrideAction *WafOverrideAction `type:"structure"`
+	OverrideAction *WafOverrideAction `json:"waf:ActivatedRule:OverrideAction" type:"structure"`
 
 	// Specifies the order in which the Rules in a WebACL are evaluated. Rules with
 	// a lower value for Priority are evaluated before Rules with a higher value.
@@ -97,7 +97,7 @@ type ActivatedRule struct {
 	// the values don't need to be consecutive.
 	//
 	// Priority is a required field
-	Priority *int64 `type:"integer" required:"true"`
+	Priority *int64 `json:"waf:ActivatedRule:Priority" type:"integer" required:"true"`
 
 	// The RuleId for a Rule. You use RuleId to get more information about a Rule
 	// (see GetRule), update a Rule (see UpdateRule), insert a Rule into a WebACL
@@ -107,7 +107,7 @@ type ActivatedRule struct {
 	// RuleId is returned by CreateRule and by ListRules.
 	//
 	// RuleId is a required field
-	RuleId *string `min:"1" type:"string" required:"true"`
+	RuleId *string `json:"waf:ActivatedRule:RuleId" min:"1" type:"string" required:"true"`
 
 	// The rule type, either REGULAR, as defined by Rule, RATE_BASED, as defined
 	// by RateBasedRule, or GROUP, as defined by RuleGroup. The default is REGULAR.
@@ -115,7 +115,7 @@ type ActivatedRule struct {
 	// rule to a web ACL without setting the type, the UpdateWebACL request will
 	// fail because the request tries to add a REGULAR rule with the specified ID,
 	// which does not exist.
-	Type WafRuleType `type:"string" enum:"true"`
+	Type WafRuleType `json:"waf:ActivatedRule:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -182,18 +182,18 @@ type ByteMatchSet struct {
 	// ByteMatchSetId is returned by CreateByteMatchSet and by ListByteMatchSets.
 	//
 	// ByteMatchSetId is a required field
-	ByteMatchSetId *string `min:"1" type:"string" required:"true"`
+	ByteMatchSetId *string `json:"waf:ByteMatchSet:ByteMatchSetId" min:"1" type:"string" required:"true"`
 
 	// Specifies the bytes (typically a string that corresponds with ASCII characters)
 	// that you want AWS WAF to search for in web requests, the location in requests
 	// that you want AWS WAF to search, and other settings.
 	//
 	// ByteMatchTuples is a required field
-	ByteMatchTuples []ByteMatchTuple `type:"list" required:"true"`
+	ByteMatchTuples []ByteMatchTuple `json:"waf:ByteMatchSet:ByteMatchTuples" type:"list" required:"true"`
 
 	// A friendly name or description of the ByteMatchSet. You can't change Name
 	// after you create a ByteMatchSet.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:ByteMatchSet:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -214,13 +214,13 @@ type ByteMatchSetSummary struct {
 	// ByteMatchSetId is returned by CreateByteMatchSet and by ListByteMatchSets.
 	//
 	// ByteMatchSetId is a required field
-	ByteMatchSetId *string `min:"1" type:"string" required:"true"`
+	ByteMatchSetId *string `json:"waf:ByteMatchSetSummary:ByteMatchSetId" min:"1" type:"string" required:"true"`
 
 	// A friendly name or description of the ByteMatchSet. You can't change Name
 	// after you create a ByteMatchSet.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:ByteMatchSetSummary:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -237,7 +237,7 @@ type ByteMatchSetUpdate struct {
 	// Specifies whether to insert or delete a ByteMatchTuple.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:ByteMatchSetUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// Information about the part of a web request that you want AWS WAF to inspect
 	// and the value that you want AWS WAF to search for. If you specify DELETE
@@ -245,7 +245,7 @@ type ByteMatchSetUpdate struct {
 	// values in the ByteMatchTuple that you want to delete from the ByteMatchSet.
 	//
 	// ByteMatchTuple is a required field
-	ByteMatchTuple *ByteMatchTuple `type:"structure" required:"true"`
+	ByteMatchTuple *ByteMatchTuple `json:"waf:ByteMatchSetUpdate:ByteMatchTuple" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -286,7 +286,7 @@ type ByteMatchTuple struct {
 	// header or a query string. For more information, see FieldToMatch.
 	//
 	// FieldToMatch is a required field
-	FieldToMatch *FieldToMatch `type:"structure" required:"true"`
+	FieldToMatch *FieldToMatch `json:"waf:ByteMatchTuple:FieldToMatch" type:"structure" required:"true"`
 
 	// Within the portion of a web request that you want to search (for example,
 	// in the query string, if any), specify where you want AWS WAF to search. Valid
@@ -335,7 +335,7 @@ type ByteMatchTuple struct {
 	// the web request.
 	//
 	// PositionalConstraint is a required field
-	PositionalConstraint PositionalConstraint `type:"string" required:"true" enum:"true"`
+	PositionalConstraint PositionalConstraint `json:"waf:ByteMatchTuple:PositionalConstraint" type:"string" required:"true" enum:"true"`
 
 	// The value that you want AWS WAF to search for. AWS WAF searches for the specified
 	// string in the part of web requests that you specified in FieldToMatch. The
@@ -394,7 +394,7 @@ type ByteMatchTuple struct {
 	// TargetString is automatically base64 encoded/decoded by the SDK.
 	//
 	// TargetString is a required field
-	TargetString []byte `type:"blob" required:"true"`
+	TargetString []byte `json:"waf:ByteMatchTuple:TargetString" type:"blob" required:"true"`
 
 	// Text transformations eliminate some of the unusual formatting that attackers
 	// use in web requests in an effort to bypass AWS WAF. If you specify a transformation,
@@ -470,7 +470,7 @@ type ByteMatchTuple struct {
 	// Specify NONE if you don't want to perform any text transformations.
 	//
 	// TextTransformation is a required field
-	TextTransformation TextTransformation `type:"string" required:"true" enum:"true"`
+	TextTransformation TextTransformation `json:"waf:ByteMatchTuple:TextTransformation" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -517,7 +517,7 @@ type ExcludedRule struct {
 	// The unique identifier for the rule to exclude from the rule group.
 	//
 	// RuleId is a required field
-	RuleId *string `min:"1" type:"string" required:"true"`
+	RuleId *string `json:"waf:ExcludedRule:RuleId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -556,7 +556,7 @@ type FieldToMatch struct {
 	// parameter name is not case sensitive.
 	//
 	// If the value of Type is any other value, omit Data.
-	Data *string `type:"string"`
+	Data *string `json:"waf:FieldToMatch:Data" type:"string"`
 
 	// The part of the web request that you want AWS WAF to search for a specified
 	// string. Parts of a request that you can search include the following:
@@ -592,7 +592,7 @@ type FieldToMatch struct {
 	//    for the value or regex pattern that you specify in TargetString.
 	//
 	// Type is a required field
-	Type MatchFieldType `type:"string" required:"true" enum:"true"`
+	Type MatchFieldType `json:"waf:FieldToMatch:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -623,12 +623,12 @@ type GeoMatchConstraint struct {
 	// is the only valid value.
 	//
 	// Type is a required field
-	Type GeoMatchConstraintType `type:"string" required:"true" enum:"true"`
+	Type GeoMatchConstraintType `json:"waf:GeoMatchConstraint:Type" type:"string" required:"true" enum:"true"`
 
 	// The country that you want AWS WAF to search for.
 	//
 	// Value is a required field
-	Value GeoMatchConstraintValue `type:"string" required:"true" enum:"true"`
+	Value GeoMatchConstraintValue `json:"waf:GeoMatchConstraint:Value" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -661,7 +661,7 @@ type GeoMatchSet struct {
 	// want AWS WAF to search for.
 	//
 	// GeoMatchConstraints is a required field
-	GeoMatchConstraints []GeoMatchConstraint `type:"list" required:"true"`
+	GeoMatchConstraints []GeoMatchConstraint `json:"waf:GeoMatchSet:GeoMatchConstraints" type:"list" required:"true"`
 
 	// The GeoMatchSetId for an GeoMatchSet. You use GeoMatchSetId to get information
 	// about a GeoMatchSet (see GeoMatchSet), update a GeoMatchSet (see UpdateGeoMatchSet),
@@ -671,11 +671,11 @@ type GeoMatchSet struct {
 	// GeoMatchSetId is returned by CreateGeoMatchSet and by ListGeoMatchSets.
 	//
 	// GeoMatchSetId is a required field
-	GeoMatchSetId *string `min:"1" type:"string" required:"true"`
+	GeoMatchSetId *string `json:"waf:GeoMatchSet:GeoMatchSetId" min:"1" type:"string" required:"true"`
 
 	// A friendly name or description of the GeoMatchSet. You can't change the name
 	// of an GeoMatchSet after you create it.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:GeoMatchSet:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -692,13 +692,13 @@ type GeoMatchSetSummary struct {
 	// request to get detailed information about an GeoMatchSet.
 	//
 	// GeoMatchSetId is a required field
-	GeoMatchSetId *string `min:"1" type:"string" required:"true"`
+	GeoMatchSetId *string `json:"waf:GeoMatchSetSummary:GeoMatchSetId" min:"1" type:"string" required:"true"`
 
 	// A friendly name or description of the GeoMatchSet. You can't change the name
 	// of an GeoMatchSet after you create it.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:GeoMatchSetSummary:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -714,13 +714,13 @@ type GeoMatchSetUpdate struct {
 	// Specifies whether to insert or delete a country with UpdateGeoMatchSet.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:GeoMatchSetUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// The country from which web requests originate that you want AWS WAF to search
 	// for.
 	//
 	// GeoMatchConstraint is a required field
-	GeoMatchConstraint *GeoMatchConstraint `type:"structure" required:"true"`
+	GeoMatchConstraint *GeoMatchConstraint `json:"waf:GeoMatchSetUpdate:GeoMatchConstraint" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -759,10 +759,10 @@ type HTTPHeader struct {
 	_ struct{} `type:"structure"`
 
 	// The name of one of the headers in the sampled web request.
-	Name *string `type:"string"`
+	Name *string `json:"waf:HTTPHeader:Name" type:"string"`
 
 	// The value of one of the headers in the sampled web request.
-	Value *string `type:"string"`
+	Value *string `json:"waf:HTTPHeader:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -786,26 +786,26 @@ type HTTPRequest struct {
 	//
 	//    * x-forwarded-for, if the viewer did use an HTTP proxy or a load balancer
 	//    to send the request
-	ClientIP *string `type:"string"`
+	ClientIP *string `json:"waf:HTTPRequest:ClientIP" type:"string"`
 
 	// The two-letter country code for the country that the request originated from.
 	// For a current list of country codes, see the Wikipedia entry ISO 3166-1 alpha-2
 	// (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-	Country *string `type:"string"`
+	Country *string `json:"waf:HTTPRequest:Country" type:"string"`
 
 	// The HTTP version specified in the sampled web request, for example, HTTP/1.1.
-	HTTPVersion *string `type:"string"`
+	HTTPVersion *string `json:"waf:HTTPRequest:HTTPVersion" type:"string"`
 
 	// A complex type that contains two values for each header in the sampled web
 	// request: the name of the header and the value of the header.
-	Headers []HTTPHeader `type:"list"`
+	Headers []HTTPHeader `json:"waf:HTTPRequest:Headers" type:"list"`
 
 	// The HTTP method specified in the sampled web request. CloudFront supports
 	// the following methods: DELETE, GET, HEAD, OPTIONS, PATCH, POST, and PUT.
-	Method *string `type:"string"`
+	Method *string `json:"waf:HTTPRequest:Method" type:"string"`
 
 	// The part of a web request that identifies the resource, for example, /images/daily-ad.jpg.
-	URI *string `type:"string"`
+	URI *string `json:"waf:HTTPRequest:URI" type:"string"`
 }
 
 // String returns the string representation
@@ -834,7 +834,7 @@ type IPSet struct {
 	// access logs.
 	//
 	// IPSetDescriptors is a required field
-	IPSetDescriptors []IPSetDescriptor `type:"list" required:"true"`
+	IPSetDescriptors []IPSetDescriptor `json:"waf:IPSet:IPSetDescriptors" type:"list" required:"true"`
 
 	// The IPSetId for an IPSet. You use IPSetId to get information about an IPSet
 	// (see GetIPSet), update an IPSet (see UpdateIPSet), insert an IPSet into a
@@ -844,11 +844,11 @@ type IPSet struct {
 	// IPSetId is returned by CreateIPSet and by ListIPSets.
 	//
 	// IPSetId is a required field
-	IPSetId *string `min:"1" type:"string" required:"true"`
+	IPSetId *string `json:"waf:IPSet:IPSetId" min:"1" type:"string" required:"true"`
 
 	// A friendly name or description of the IPSet. You can't change the name of
 	// an IPSet after you create it.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:IPSet:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -865,7 +865,7 @@ type IPSetDescriptor struct {
 	// Specify IPV4 or IPV6.
 	//
 	// Type is a required field
-	Type IPSetDescriptorType `type:"string" required:"true" enum:"true"`
+	Type IPSetDescriptorType `json:"waf:IPSetDescriptor:Type" type:"string" required:"true" enum:"true"`
 
 	// Specify an IPv4 address by using CIDR notation. For example:
 	//
@@ -888,7 +888,7 @@ type IPSetDescriptor struct {
 	//    specify 1111:0000:0000:0000:0000:0000:0000:0000/64.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"waf:IPSetDescriptor:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -922,13 +922,13 @@ type IPSetSummary struct {
 	// detailed information about an IPSet.
 	//
 	// IPSetId is a required field
-	IPSetId *string `min:"1" type:"string" required:"true"`
+	IPSetId *string `json:"waf:IPSetSummary:IPSetId" min:"1" type:"string" required:"true"`
 
 	// A friendly name or description of the IPSet. You can't change the name of
 	// an IPSet after you create it.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:IPSetSummary:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -944,13 +944,13 @@ type IPSetUpdate struct {
 	// Specifies whether to insert or delete an IP address with UpdateIPSet.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:IPSetUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// The IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation)
 	// that web requests originate from.
 	//
 	// IPSetDescriptor is a required field
-	IPSetDescriptor *IPSetDescriptor `type:"structure" required:"true"`
+	IPSetDescriptor *IPSetDescriptor `json:"waf:IPSetUpdate:IPSetDescriptor" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -989,18 +989,18 @@ type LoggingConfiguration struct {
 	// An array of Amazon Kinesis Data Firehose ARNs.
 	//
 	// LogDestinationConfigs is a required field
-	LogDestinationConfigs []string `min:"1" type:"list" required:"true"`
+	LogDestinationConfigs []string `json:"waf:LoggingConfiguration:LogDestinationConfigs" min:"1" type:"list" required:"true"`
 
 	// The parts of the request that you want redacted from the logs. For example,
 	// if you redact the cookie field, the cookie field in the firehose will be
 	// xxx.
-	RedactedFields []FieldToMatch `type:"list"`
+	RedactedFields []FieldToMatch `json:"waf:LoggingConfiguration:RedactedFields" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate
 	// with LogDestinationConfigs.
 	//
 	// ResourceArn is a required field
-	ResourceArn *string `min:"1" type:"string" required:"true"`
+	ResourceArn *string `json:"waf:LoggingConfiguration:ResourceArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1051,7 +1051,7 @@ type Predicate struct {
 	// IPSetId. The ID is returned by the corresponding Create or List command.
 	//
 	// DataId is a required field
-	DataId *string `min:"1" type:"string" required:"true"`
+	DataId *string `json:"waf:Predicate:DataId" min:"1" type:"string" required:"true"`
 
 	// Set Negated to False if you want AWS WAF to allow, block, or count requests
 	// based on the settings in the specified ByteMatchSet, IPSet, SqlInjectionMatchSet,
@@ -1066,12 +1066,12 @@ type Predicate struct {
 	// or count requests based on all IP addresses except 192.0.2.44.
 	//
 	// Negated is a required field
-	Negated *bool `type:"boolean" required:"true"`
+	Negated *bool `json:"waf:Predicate:Negated" type:"boolean" required:"true"`
 
 	// The type of predicate in a Rule, such as ByteMatch or IPSet.
 	//
 	// Type is a required field
-	Type PredicateType `type:"string" required:"true" enum:"true"`
+	Type PredicateType `json:"waf:Predicate:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1126,18 +1126,18 @@ type RateBasedRule struct {
 	// IPSet, or SqlInjectionMatchSet object that you want to include in a RateBasedRule.
 	//
 	// MatchPredicates is a required field
-	MatchPredicates []Predicate `type:"list" required:"true"`
+	MatchPredicates []Predicate `json:"waf:RateBasedRule:MatchPredicates" type:"list" required:"true"`
 
 	// A friendly name or description for the metrics for a RateBasedRule. The name
 	// can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length
 	// 128 and minimum length one. It can't contain whitespace or metric names reserved
 	// for AWS WAF, including "All" and "Default_Action." You can't change the name
 	// of the metric after you create the RateBasedRule.
-	MetricName *string `type:"string"`
+	MetricName *string `json:"waf:RateBasedRule:MetricName" type:"string"`
 
 	// A friendly name or description for a RateBasedRule. You can't change the
 	// name of a RateBasedRule after you create it.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:RateBasedRule:Name" min:"1" type:"string"`
 
 	// The field that AWS WAF uses to determine if requests are likely arriving
 	// from single source and thus subject to rate monitoring. The only valid value
@@ -1145,7 +1145,7 @@ type RateBasedRule struct {
 	// are subject to the RateLimit that is specified in the RateBasedRule.
 	//
 	// RateKey is a required field
-	RateKey RateKey `type:"string" required:"true" enum:"true"`
+	RateKey RateKey `json:"waf:RateBasedRule:RateKey" type:"string" required:"true" enum:"true"`
 
 	// The maximum number of requests, which have an identical value in the field
 	// specified by the RateKey, allowed in a five-minute period. If the number
@@ -1154,7 +1154,7 @@ type RateBasedRule struct {
 	// rule.
 	//
 	// RateLimit is a required field
-	RateLimit *int64 `min:"2000" type:"long" required:"true"`
+	RateLimit *int64 `json:"waf:RateBasedRule:RateLimit" min:"2000" type:"long" required:"true"`
 
 	// A unique identifier for a RateBasedRule. You use RuleId to get more information
 	// about a RateBasedRule (see GetRateBasedRule), update a RateBasedRule (see
@@ -1163,7 +1163,7 @@ type RateBasedRule struct {
 	// (see DeleteRateBasedRule).
 	//
 	// RuleId is a required field
-	RuleId *string `min:"1" type:"string" required:"true"`
+	RuleId *string `json:"waf:RateBasedRule:RuleId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1186,7 +1186,7 @@ type RegexMatchSet struct {
 
 	// A friendly name or description of the RegexMatchSet. You can't change Name
 	// after you create a RegexMatchSet.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:RegexMatchSet:Name" min:"1" type:"string"`
 
 	// The RegexMatchSetId for a RegexMatchSet. You use RegexMatchSetId to get information
 	// about a RegexMatchSet (see GetRegexMatchSet), update a RegexMatchSet (see
@@ -1194,7 +1194,7 @@ type RegexMatchSet struct {
 	// a Rule (see UpdateRule), and delete a RegexMatchSet from AWS WAF (see DeleteRegexMatchSet).
 	//
 	// RegexMatchSetId is returned by CreateRegexMatchSet and by ListRegexMatchSets.
-	RegexMatchSetId *string `min:"1" type:"string"`
+	RegexMatchSetId *string `json:"waf:RegexMatchSet:RegexMatchSetId" min:"1" type:"string"`
 
 	// Contains an array of RegexMatchTuple objects. Each RegexMatchTuple object
 	// contains:
@@ -1207,7 +1207,7 @@ type RegexMatchSet struct {
 	//
 	//    * Whether to perform any conversions on the request, such as converting
 	//    it to lowercase, before inspecting it for the specified string.
-	RegexMatchTuples []RegexMatchTuple `type:"list"`
+	RegexMatchTuples []RegexMatchTuple `json:"waf:RegexMatchSet:RegexMatchTuples" type:"list"`
 }
 
 // String returns the string representation
@@ -1225,7 +1225,7 @@ type RegexMatchSetSummary struct {
 	// after you create a RegexMatchSet.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:RegexMatchSetSummary:Name" min:"1" type:"string" required:"true"`
 
 	// The RegexMatchSetId for a RegexMatchSet. You use RegexMatchSetId to get information
 	// about a RegexMatchSet, update a RegexMatchSet, remove a RegexMatchSet from
@@ -1234,7 +1234,7 @@ type RegexMatchSetSummary struct {
 	// RegexMatchSetId is returned by CreateRegexMatchSet and by ListRegexMatchSets.
 	//
 	// RegexMatchSetId is a required field
-	RegexMatchSetId *string `min:"1" type:"string" required:"true"`
+	RegexMatchSetId *string `json:"waf:RegexMatchSetSummary:RegexMatchSetId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1251,7 +1251,7 @@ type RegexMatchSetUpdate struct {
 	// Specifies whether to insert or delete a RegexMatchTuple.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:RegexMatchSetUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// Information about the part of a web request that you want AWS WAF to inspect
 	// and the identifier of the regular expression (regex) pattern that you want
@@ -1260,7 +1260,7 @@ type RegexMatchSetUpdate struct {
 	// that you want to delete from the RegexMatchSet.
 	//
 	// RegexMatchTuple is a required field
-	RegexMatchTuple *RegexMatchTuple `type:"structure" required:"true"`
+	RegexMatchTuple *RegexMatchTuple `json:"waf:RegexMatchSetUpdate:RegexMatchTuple" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1309,7 +1309,7 @@ type RegexMatchTuple struct {
 	// Specifies where in a web request to look for the RegexPatternSet.
 	//
 	// FieldToMatch is a required field
-	FieldToMatch *FieldToMatch `type:"structure" required:"true"`
+	FieldToMatch *FieldToMatch `json:"waf:RegexMatchTuple:FieldToMatch" type:"structure" required:"true"`
 
 	// The RegexPatternSetId for a RegexPatternSet. You use RegexPatternSetId to
 	// get information about a RegexPatternSet (see GetRegexPatternSet), update
@@ -1320,7 +1320,7 @@ type RegexMatchTuple struct {
 	// RegexPatternSetId is returned by CreateRegexPatternSet and by ListRegexPatternSets.
 	//
 	// RegexPatternSetId is a required field
-	RegexPatternSetId *string `min:"1" type:"string" required:"true"`
+	RegexPatternSetId *string `json:"waf:RegexMatchTuple:RegexPatternSetId" min:"1" type:"string" required:"true"`
 
 	// Text transformations eliminate some of the unusual formatting that attackers
 	// use in web requests in an effort to bypass AWS WAF. If you specify a transformation,
@@ -1396,7 +1396,7 @@ type RegexMatchTuple struct {
 	// Specify NONE if you don't want to perform any text transformations.
 	//
 	// TextTransformation is a required field
-	TextTransformation TextTransformation `type:"string" required:"true" enum:"true"`
+	TextTransformation TextTransformation `json:"waf:RegexMatchTuple:TextTransformation" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1442,7 +1442,7 @@ type RegexPatternSet struct {
 
 	// A friendly name or description of the RegexPatternSet. You can't change Name
 	// after you create a RegexPatternSet.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:RegexPatternSet:Name" min:"1" type:"string"`
 
 	// The identifier for the RegexPatternSet. You use RegexPatternSetId to get
 	// information about a RegexPatternSet, update a RegexPatternSet, remove a RegexPatternSet
@@ -1451,13 +1451,13 @@ type RegexPatternSet struct {
 	// RegexMatchSetId is returned by CreateRegexPatternSet and by ListRegexPatternSets.
 	//
 	// RegexPatternSetId is a required field
-	RegexPatternSetId *string `min:"1" type:"string" required:"true"`
+	RegexPatternSetId *string `json:"waf:RegexPatternSet:RegexPatternSetId" min:"1" type:"string" required:"true"`
 
 	// Specifies the regular expression (regex) patterns that you want AWS WAF to
 	// search for, such as B[a@]dB[o0]t.
 	//
 	// RegexPatternStrings is a required field
-	RegexPatternStrings []string `type:"list" required:"true"`
+	RegexPatternStrings []string `json:"waf:RegexPatternSet:RegexPatternStrings" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1475,7 +1475,7 @@ type RegexPatternSetSummary struct {
 	// after you create a RegexPatternSet.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:RegexPatternSetSummary:Name" min:"1" type:"string" required:"true"`
 
 	// The RegexPatternSetId for a RegexPatternSet. You use RegexPatternSetId to
 	// get information about a RegexPatternSet, update a RegexPatternSet, remove
@@ -1485,7 +1485,7 @@ type RegexPatternSetSummary struct {
 	// RegexPatternSetId is returned by CreateRegexPatternSet and by ListRegexPatternSets.
 	//
 	// RegexPatternSetId is a required field
-	RegexPatternSetId *string `min:"1" type:"string" required:"true"`
+	RegexPatternSetId *string `json:"waf:RegexPatternSetSummary:RegexPatternSetId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1503,13 +1503,13 @@ type RegexPatternSetUpdate struct {
 	// Specifies whether to insert or delete a RegexPatternString.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:RegexPatternSetUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// Specifies the regular expression (regex) pattern that you want AWS WAF to
 	// search for, such as B[a@]dB[o0]t.
 	//
 	// RegexPatternString is a required field
-	RegexPatternString *string `min:"1" type:"string" required:"true"`
+	RegexPatternString *string `json:"waf:RegexPatternSetUpdate:RegexPatternString" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1558,17 +1558,17 @@ type Rule struct {
 	// 128 and minimum length one. It can't contain whitespace or metric names reserved
 	// for AWS WAF, including "All" and "Default_Action." You can't change MetricName
 	// after you create the Rule.
-	MetricName *string `type:"string"`
+	MetricName *string `json:"waf:Rule:MetricName" type:"string"`
 
 	// The friendly name or description for the Rule. You can't change the name
 	// of a Rule after you create it.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:Rule:Name" min:"1" type:"string"`
 
 	// The Predicates object contains one Predicate element for each ByteMatchSet,
 	// IPSet, or SqlInjectionMatchSet object that you want to include in a Rule.
 	//
 	// Predicates is a required field
-	Predicates []Predicate `type:"list" required:"true"`
+	Predicates []Predicate `json:"waf:Rule:Predicates" type:"list" required:"true"`
 
 	// A unique identifier for a Rule. You use RuleId to get more information about
 	// a Rule (see GetRule), update a Rule (see UpdateRule), insert a Rule into
@@ -1578,7 +1578,7 @@ type Rule struct {
 	// RuleId is returned by CreateRule and by ListRules.
 	//
 	// RuleId is a required field
-	RuleId *string `min:"1" type:"string" required:"true"`
+	RuleId *string `json:"waf:Rule:RuleId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1605,11 +1605,11 @@ type RuleGroup struct {
 	// 128 and minimum length one. It can't contain whitespace or metric names reserved
 	// for AWS WAF, including "All" and "Default_Action." You can't change the name
 	// of the metric after you create the RuleGroup.
-	MetricName *string `type:"string"`
+	MetricName *string `json:"waf:RuleGroup:MetricName" type:"string"`
 
 	// The friendly name or description for the RuleGroup. You can't change the
 	// name of a RuleGroup after you create it.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:RuleGroup:Name" min:"1" type:"string"`
 
 	// A unique identifier for a RuleGroup. You use RuleGroupId to get more information
 	// about a RuleGroup (see GetRuleGroup), update a RuleGroup (see UpdateRuleGroup),
@@ -1619,7 +1619,7 @@ type RuleGroup struct {
 	// RuleGroupId is returned by CreateRuleGroup and by ListRuleGroups.
 	//
 	// RuleGroupId is a required field
-	RuleGroupId *string `min:"1" type:"string" required:"true"`
+	RuleGroupId *string `json:"waf:RuleGroup:RuleGroupId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1636,7 +1636,7 @@ type RuleGroupSummary struct {
 	// of a RuleGroup after you create it.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:RuleGroupSummary:Name" min:"1" type:"string" required:"true"`
 
 	// A unique identifier for a RuleGroup. You use RuleGroupId to get more information
 	// about a RuleGroup (see GetRuleGroup), update a RuleGroup (see UpdateRuleGroup),
@@ -1646,7 +1646,7 @@ type RuleGroupSummary struct {
 	// RuleGroupId is returned by CreateRuleGroup and by ListRuleGroups.
 	//
 	// RuleGroupId is a required field
-	RuleGroupId *string `min:"1" type:"string" required:"true"`
+	RuleGroupId *string `json:"waf:RuleGroupSummary:RuleGroupId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1664,14 +1664,14 @@ type RuleGroupUpdate struct {
 	// an ActivatedRule from a RuleGroup.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:RuleGroupUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// The ActivatedRule object specifies a Rule that you want to insert or delete,
 	// the priority of the Rule in the WebACL, and the action that you want AWS
 	// WAF to take when a web request matches the Rule (ALLOW, BLOCK, or COUNT).
 	//
 	// ActivatedRule is a required field
-	ActivatedRule *ActivatedRule `type:"structure" required:"true"`
+	ActivatedRule *ActivatedRule `json:"waf:RuleGroupUpdate:ActivatedRule" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1710,7 +1710,7 @@ type RuleSummary struct {
 	// a Rule after you create it.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:RuleSummary:Name" min:"1" type:"string" required:"true"`
 
 	// A unique identifier for a Rule. You use RuleId to get more information about
 	// a Rule (see GetRule), update a Rule (see UpdateRule), insert a Rule into
@@ -1720,7 +1720,7 @@ type RuleSummary struct {
 	// RuleId is returned by CreateRule and by ListRules.
 	//
 	// RuleId is a required field
-	RuleId *string `min:"1" type:"string" required:"true"`
+	RuleId *string `json:"waf:RuleSummary:RuleId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1738,12 +1738,12 @@ type RuleUpdate struct {
 	// from a Rule.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:RuleUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// The ID of the Predicate (such as an IPSet) that you want to add to a Rule.
 	//
 	// Predicate is a required field
-	Predicate *Predicate `type:"structure" required:"true"`
+	Predicate *Predicate `json:"waf:RuleUpdate:Predicate" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1782,22 +1782,22 @@ type SampledHTTPRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The action for the Rule that the request matched: ALLOW, BLOCK, or COUNT.
-	Action *string `type:"string"`
+	Action *string `json:"waf:SampledHTTPRequest:Action" type:"string"`
 
 	// A complex type that contains detailed information about the request.
 	//
 	// Request is a required field
-	Request *HTTPRequest `type:"structure" required:"true"`
+	Request *HTTPRequest `json:"waf:SampledHTTPRequest:Request" type:"structure" required:"true"`
 
 	// This value is returned if the GetSampledRequests request specifies the ID
 	// of a RuleGroup rather than the ID of an individual rule. RuleWithinRuleGroup
 	// is the rule within the specified RuleGroup that matched the request listed
 	// in the response.
-	RuleWithinRuleGroup *string `min:"1" type:"string"`
+	RuleWithinRuleGroup *string `json:"waf:SampledHTTPRequest:RuleWithinRuleGroup" min:"1" type:"string"`
 
 	// The time at which AWS WAF received the request from your AWS resource, in
 	// Unix time format (in seconds).
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Timestamp *time.Time `json:"waf:SampledHTTPRequest:Timestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// A value that indicates how one result in the response relates proportionally
 	// to other results in the response. A result that has a weight of 2 represents
@@ -1805,7 +1805,7 @@ type SampledHTTPRequest struct {
 	// of 1.
 	//
 	// Weight is a required field
-	Weight *int64 `type:"long" required:"true"`
+	Weight *int64 `json:"waf:SampledHTTPRequest:Weight" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1840,12 +1840,12 @@ type SizeConstraint struct {
 	// GT: Used to test if the Size is strictly greater than the size of the FieldToMatch
 	//
 	// ComparisonOperator is a required field
-	ComparisonOperator ComparisonOperator `type:"string" required:"true" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"waf:SizeConstraint:ComparisonOperator" type:"string" required:"true" enum:"true"`
 
 	// Specifies where in a web request to look for the size constraint.
 	//
 	// FieldToMatch is a required field
-	FieldToMatch *FieldToMatch `type:"structure" required:"true"`
+	FieldToMatch *FieldToMatch `json:"waf:SizeConstraint:FieldToMatch" type:"structure" required:"true"`
 
 	// The size in bytes that you want AWS WAF to compare against the size of the
 	// specified FieldToMatch. AWS WAF uses this in combination with ComparisonOperator
@@ -1859,7 +1859,7 @@ type SizeConstraint struct {
 	// character. For example, the URI /logo.jpg is nine characters long.
 	//
 	// Size is a required field
-	Size *int64 `type:"long" required:"true"`
+	Size *int64 `json:"waf:SizeConstraint:Size" type:"long" required:"true"`
 
 	// Text transformations eliminate some of the unusual formatting that attackers
 	// use in web requests in an effort to bypass AWS WAF. If you specify a transformation,
@@ -1939,7 +1939,7 @@ type SizeConstraint struct {
 	// Use this option to decode a URL-encoded value.
 	//
 	// TextTransformation is a required field
-	TextTransformation TextTransformation `type:"string" required:"true" enum:"true"`
+	TextTransformation TextTransformation `json:"waf:SizeConstraint:TextTransformation" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1985,7 +1985,7 @@ type SizeConstraintSet struct {
 	_ struct{} `type:"structure"`
 
 	// The name, if any, of the SizeConstraintSet.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:SizeConstraintSet:Name" min:"1" type:"string"`
 
 	// A unique identifier for a SizeConstraintSet. You use SizeConstraintSetId
 	// to get information about a SizeConstraintSet (see GetSizeConstraintSet),
@@ -1996,12 +1996,12 @@ type SizeConstraintSet struct {
 	// SizeConstraintSetId is returned by CreateSizeConstraintSet and by ListSizeConstraintSets.
 	//
 	// SizeConstraintSetId is a required field
-	SizeConstraintSetId *string `min:"1" type:"string" required:"true"`
+	SizeConstraintSetId *string `json:"waf:SizeConstraintSet:SizeConstraintSetId" min:"1" type:"string" required:"true"`
 
 	// Specifies the parts of web requests that you want to inspect the size of.
 	//
 	// SizeConstraints is a required field
-	SizeConstraints []SizeConstraint `type:"list" required:"true"`
+	SizeConstraints []SizeConstraint `json:"waf:SizeConstraintSet:SizeConstraints" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2017,7 +2017,7 @@ type SizeConstraintSetSummary struct {
 	// The name of the SizeConstraintSet, if any.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:SizeConstraintSetSummary:Name" min:"1" type:"string" required:"true"`
 
 	// A unique identifier for a SizeConstraintSet. You use SizeConstraintSetId
 	// to get information about a SizeConstraintSet (see GetSizeConstraintSet),
@@ -2028,7 +2028,7 @@ type SizeConstraintSetSummary struct {
 	// SizeConstraintSetId is returned by CreateSizeConstraintSet and by ListSizeConstraintSets.
 	//
 	// SizeConstraintSetId is a required field
-	SizeConstraintSetId *string `min:"1" type:"string" required:"true"`
+	SizeConstraintSetId *string `json:"waf:SizeConstraintSetSummary:SizeConstraintSetId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2047,7 +2047,7 @@ type SizeConstraintSetUpdate struct {
 	// DELETE to remove a SizeConstraintSetUpdate from a SizeConstraintSet.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:SizeConstraintSetUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// Specifies a constraint on the size of a part of the web request. AWS WAF
 	// uses the Size, ComparisonOperator, and FieldToMatch to build an expression
@@ -2055,7 +2055,7 @@ type SizeConstraintSetUpdate struct {
 	// that expression is true, the SizeConstraint is considered to match.
 	//
 	// SizeConstraint is a required field
-	SizeConstraint *SizeConstraint `type:"structure" required:"true"`
+	SizeConstraint *SizeConstraint `json:"waf:SizeConstraintSetUpdate:SizeConstraint" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2096,7 +2096,7 @@ type SqlInjectionMatchSet struct {
 	_ struct{} `type:"structure"`
 
 	// The name, if any, of the SqlInjectionMatchSet.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:SqlInjectionMatchSet:Name" min:"1" type:"string"`
 
 	// A unique identifier for a SqlInjectionMatchSet. You use SqlInjectionMatchSetId
 	// to get information about a SqlInjectionMatchSet (see GetSqlInjectionMatchSet),
@@ -2107,13 +2107,13 @@ type SqlInjectionMatchSet struct {
 	// SqlInjectionMatchSetId is returned by CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
 	//
 	// SqlInjectionMatchSetId is a required field
-	SqlInjectionMatchSetId *string `min:"1" type:"string" required:"true"`
+	SqlInjectionMatchSetId *string `json:"waf:SqlInjectionMatchSet:SqlInjectionMatchSetId" min:"1" type:"string" required:"true"`
 
 	// Specifies the parts of web requests that you want to inspect for snippets
 	// of malicious SQL code.
 	//
 	// SqlInjectionMatchTuples is a required field
-	SqlInjectionMatchTuples []SqlInjectionMatchTuple `type:"list" required:"true"`
+	SqlInjectionMatchTuples []SqlInjectionMatchTuple `json:"waf:SqlInjectionMatchSet:SqlInjectionMatchTuples" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2129,7 +2129,7 @@ type SqlInjectionMatchSetSummary struct {
 	// The name of the SqlInjectionMatchSet, if any, specified by Id.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:SqlInjectionMatchSetSummary:Name" min:"1" type:"string" required:"true"`
 
 	// A unique identifier for a SqlInjectionMatchSet. You use SqlInjectionMatchSetId
 	// to get information about a SqlInjectionMatchSet (see GetSqlInjectionMatchSet),
@@ -2140,7 +2140,7 @@ type SqlInjectionMatchSetSummary struct {
 	// SqlInjectionMatchSetId is returned by CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
 	//
 	// SqlInjectionMatchSetId is a required field
-	SqlInjectionMatchSetId *string `min:"1" type:"string" required:"true"`
+	SqlInjectionMatchSetId *string `json:"waf:SqlInjectionMatchSetSummary:SqlInjectionMatchSetId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2159,14 +2159,14 @@ type SqlInjectionMatchSetUpdate struct {
 	// Use DELETE to remove a SqlInjectionMatchSetUpdate from a SqlInjectionMatchSet.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:SqlInjectionMatchSetUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// Specifies the part of a web request that you want AWS WAF to inspect for
 	// snippets of malicious SQL code and, if you want AWS WAF to inspect a header,
 	// the name of the header.
 	//
 	// SqlInjectionMatchTuple is a required field
-	SqlInjectionMatchTuple *SqlInjectionMatchTuple `type:"structure" required:"true"`
+	SqlInjectionMatchTuple *SqlInjectionMatchTuple `json:"waf:SqlInjectionMatchSetUpdate:SqlInjectionMatchTuple" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2206,7 +2206,7 @@ type SqlInjectionMatchTuple struct {
 	// Specifies where in a web request to look for snippets of malicious SQL code.
 	//
 	// FieldToMatch is a required field
-	FieldToMatch *FieldToMatch `type:"structure" required:"true"`
+	FieldToMatch *FieldToMatch `json:"waf:SqlInjectionMatchTuple:FieldToMatch" type:"structure" required:"true"`
 
 	// Text transformations eliminate some of the unusual formatting that attackers
 	// use in web requests in an effort to bypass AWS WAF. If you specify a transformation,
@@ -2282,7 +2282,7 @@ type SqlInjectionMatchTuple struct {
 	// Specify NONE if you don't want to perform any text transformations.
 	//
 	// TextTransformation is a required field
-	TextTransformation TextTransformation `type:"string" required:"true" enum:"true"`
+	TextTransformation TextTransformation `json:"waf:SqlInjectionMatchTuple:TextTransformation" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2324,18 +2324,18 @@ type SubscribedRuleGroupSummary struct {
 	// of the metric after you create the RuleGroup.
 	//
 	// MetricName is a required field
-	MetricName *string `type:"string" required:"true"`
+	MetricName *string `json:"waf:SubscribedRuleGroupSummary:MetricName" type:"string" required:"true"`
 
 	// A friendly name or description of the RuleGroup. You can't change the name
 	// of a RuleGroup after you create it.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:SubscribedRuleGroupSummary:Name" min:"1" type:"string" required:"true"`
 
 	// A unique identifier for a RuleGroup.
 	//
 	// RuleGroupId is a required field
-	RuleGroupId *string `min:"1" type:"string" required:"true"`
+	RuleGroupId *string `json:"waf:SubscribedRuleGroupSummary:RuleGroupId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2347,9 +2347,9 @@ func (s SubscribedRuleGroupSummary) String() string {
 type Tag struct {
 	_ struct{} `type:"structure"`
 
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"waf:Tag:Key" min:"1" type:"string"`
 
-	Value *string `type:"string"`
+	Value *string `json:"waf:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2374,9 +2374,9 @@ func (s *Tag) Validate() error {
 type TagInfoForResource struct {
 	_ struct{} `type:"structure"`
 
-	ResourceARN *string `min:"1" type:"string"`
+	ResourceARN *string `json:"waf:TagInfoForResource:ResourceARN" min:"1" type:"string"`
 
-	TagList []Tag `min:"1" type:"list"`
+	TagList []Tag `json:"waf:TagInfoForResource:TagList" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -2404,7 +2404,7 @@ type TimeWindow struct {
 	// time range in the previous three hours.
 	//
 	// EndTime is a required field
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	EndTime *time.Time `json:"waf:TimeWindow:EndTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The beginning of the time range from which you want GetSampledRequests to
 	// return a sample of the requests that your AWS resource received. Specify
@@ -2412,7 +2412,7 @@ type TimeWindow struct {
 	// any time range in the previous three hours.
 	//
 	// StartTime is a required field
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartTime *time.Time `json:"waf:TimeWindow:StartTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -2460,7 +2460,7 @@ type WafAction struct {
 	//    COUNT for the default action for a WebACL.
 	//
 	// Type is a required field
-	Type WafActionType `type:"string" required:"true" enum:"true"`
+	Type WafActionType `json:"waf:WafAction:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2490,7 +2490,7 @@ type WafOverrideAction struct {
 	// . If set to NONE, the rule's action will take place.
 	//
 	// Type is a required field
-	Type WafOverrideActionType `type:"string" required:"true" enum:"true"`
+	Type WafOverrideActionType `json:"waf:WafOverrideAction:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2527,27 +2527,27 @@ type WebACL struct {
 	// The action is specified by the WafAction object.
 	//
 	// DefaultAction is a required field
-	DefaultAction *WafAction `type:"structure" required:"true"`
+	DefaultAction *WafAction `json:"waf:WebACL:DefaultAction" type:"structure" required:"true"`
 
 	// A friendly name or description for the metrics for this WebACL. The name
 	// can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length
 	// 128 and minimum length one. It can't contain whitespace or metric names reserved
 	// for AWS WAF, including "All" and "Default_Action." You can't change MetricName
 	// after you create the WebACL.
-	MetricName *string `type:"string"`
+	MetricName *string `json:"waf:WebACL:MetricName" type:"string"`
 
 	// A friendly name or description of the WebACL. You can't change the name of
 	// a WebACL after you create it.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:WebACL:Name" min:"1" type:"string"`
 
 	// An array that contains the action for each Rule in a WebACL, the priority
 	// of the Rule, and the ID of the Rule.
 	//
 	// Rules is a required field
-	Rules []ActivatedRule `type:"list" required:"true"`
+	Rules []ActivatedRule `json:"waf:WebACL:Rules" type:"list" required:"true"`
 
 	// Tha Amazon Resource Name (ARN) of the web ACL.
-	WebACLArn *string `min:"1" type:"string"`
+	WebACLArn *string `json:"waf:WebACL:WebACLArn" min:"1" type:"string"`
 
 	// A unique identifier for a WebACL. You use WebACLId to get information about
 	// a WebACL (see GetWebACL), update a WebACL (see UpdateWebACL), and delete
@@ -2556,7 +2556,7 @@ type WebACL struct {
 	// WebACLId is returned by CreateWebACL and by ListWebACLs.
 	//
 	// WebACLId is a required field
-	WebACLId *string `min:"1" type:"string" required:"true"`
+	WebACLId *string `json:"waf:WebACL:WebACLId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2573,7 +2573,7 @@ type WebACLSummary struct {
 	// a WebACL after you create it.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:WebACLSummary:Name" min:"1" type:"string" required:"true"`
 
 	// A unique identifier for a WebACL. You use WebACLId to get information about
 	// a WebACL (see GetWebACL), update a WebACL (see UpdateWebACL), and delete
@@ -2582,7 +2582,7 @@ type WebACLSummary struct {
 	// WebACLId is returned by CreateWebACL and by ListWebACLs.
 	//
 	// WebACLId is a required field
-	WebACLId *string `min:"1" type:"string" required:"true"`
+	WebACLId *string `json:"waf:WebACLSummary:WebACLId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2598,7 +2598,7 @@ type WebACLUpdate struct {
 	// Specifies whether to insert a Rule into or delete a Rule from a WebACL.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:WebACLUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// The ActivatedRule object in an UpdateWebACL request specifies a Rule that
 	// you want to insert or delete, the priority of the Rule in the WebACL, and
@@ -2606,7 +2606,7 @@ type WebACLUpdate struct {
 	// (ALLOW, BLOCK, or COUNT).
 	//
 	// ActivatedRule is a required field
-	ActivatedRule *ActivatedRule `type:"structure" required:"true"`
+	ActivatedRule *ActivatedRule `json:"waf:WebACLUpdate:ActivatedRule" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2647,7 +2647,7 @@ type XssMatchSet struct {
 	_ struct{} `type:"structure"`
 
 	// The name, if any, of the XssMatchSet.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"waf:XssMatchSet:Name" min:"1" type:"string"`
 
 	// A unique identifier for an XssMatchSet. You use XssMatchSetId to get information
 	// about an XssMatchSet (see GetXssMatchSet), update an XssMatchSet (see UpdateXssMatchSet),
@@ -2657,13 +2657,13 @@ type XssMatchSet struct {
 	// XssMatchSetId is returned by CreateXssMatchSet and by ListXssMatchSets.
 	//
 	// XssMatchSetId is a required field
-	XssMatchSetId *string `min:"1" type:"string" required:"true"`
+	XssMatchSetId *string `json:"waf:XssMatchSet:XssMatchSetId" min:"1" type:"string" required:"true"`
 
 	// Specifies the parts of web requests that you want to inspect for cross-site
 	// scripting attacks.
 	//
 	// XssMatchTuples is a required field
-	XssMatchTuples []XssMatchTuple `type:"list" required:"true"`
+	XssMatchTuples []XssMatchTuple `json:"waf:XssMatchSet:XssMatchTuples" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2679,7 +2679,7 @@ type XssMatchSetSummary struct {
 	// The name of the XssMatchSet, if any, specified by Id.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"waf:XssMatchSetSummary:Name" min:"1" type:"string" required:"true"`
 
 	// A unique identifier for an XssMatchSet. You use XssMatchSetId to get information
 	// about a XssMatchSet (see GetXssMatchSet), update an XssMatchSet (see UpdateXssMatchSet),
@@ -2689,7 +2689,7 @@ type XssMatchSetSummary struct {
 	// XssMatchSetId is returned by CreateXssMatchSet and by ListXssMatchSets.
 	//
 	// XssMatchSetId is a required field
-	XssMatchSetId *string `min:"1" type:"string" required:"true"`
+	XssMatchSetId *string `json:"waf:XssMatchSetSummary:XssMatchSetId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2708,14 +2708,14 @@ type XssMatchSetUpdate struct {
 	// to remove an XssMatchSetUpdate from an XssMatchSet.
 	//
 	// Action is a required field
-	Action ChangeAction `type:"string" required:"true" enum:"true"`
+	Action ChangeAction `json:"waf:XssMatchSetUpdate:Action" type:"string" required:"true" enum:"true"`
 
 	// Specifies the part of a web request that you want AWS WAF to inspect for
 	// cross-site scripting attacks and, if you want AWS WAF to inspect a header,
 	// the name of the header.
 	//
 	// XssMatchTuple is a required field
-	XssMatchTuple *XssMatchTuple `type:"structure" required:"true"`
+	XssMatchTuple *XssMatchTuple `json:"waf:XssMatchSetUpdate:XssMatchTuple" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2755,7 +2755,7 @@ type XssMatchTuple struct {
 	// Specifies where in a web request to look for cross-site scripting attacks.
 	//
 	// FieldToMatch is a required field
-	FieldToMatch *FieldToMatch `type:"structure" required:"true"`
+	FieldToMatch *FieldToMatch `json:"waf:XssMatchTuple:FieldToMatch" type:"structure" required:"true"`
 
 	// Text transformations eliminate some of the unusual formatting that attackers
 	// use in web requests in an effort to bypass AWS WAF. If you specify a transformation,
@@ -2831,7 +2831,7 @@ type XssMatchTuple struct {
 	// Specify NONE if you don't want to perform any text transformations.
 	//
 	// TextTransformation is a required field
-	TextTransformation TextTransformation `type:"string" required:"true" enum:"true"`
+	TextTransformation TextTransformation `json:"waf:XssMatchTuple:TextTransformation" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

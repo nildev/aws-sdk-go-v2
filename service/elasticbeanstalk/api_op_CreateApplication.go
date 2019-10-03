@@ -77,7 +77,7 @@ type CreateApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ApplicationDescription of the application.
-	Application *ApplicationDescription `type:"structure"`
+	Application *ApplicationDescription `json:"elasticbeanstalk:CreateApplicationOutput:Application" type:"structure"`
 }
 
 // String returns the string representation

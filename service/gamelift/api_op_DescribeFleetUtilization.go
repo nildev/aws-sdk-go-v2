@@ -61,12 +61,12 @@ type DescribeFleetUtilizationOutput struct {
 
 	// Collection of objects containing utilization information for each requested
 	// fleet ID.
-	FleetUtilization []FleetUtilization `type:"list"`
+	FleetUtilization []FleetUtilization `json:"gamelift:DescribeFleetUtilizationOutput:FleetUtilization" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:DescribeFleetUtilizationOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

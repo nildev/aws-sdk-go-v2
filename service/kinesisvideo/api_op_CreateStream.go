@@ -149,7 +149,7 @@ type CreateStreamOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the stream.
-	StreamARN *string `min:"1" type:"string"`
+	StreamARN *string `json:"kinesisvideo:CreateStreamOutput:StreamARN" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -72,7 +72,7 @@ type GetFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Function object.
-	FunctionConfiguration *FunctionConfiguration `locationName:"functionConfiguration" type:"structure"`
+	FunctionConfiguration *FunctionConfiguration `json:"appsync:GetFunctionOutput:FunctionConfiguration" locationName:"functionConfiguration" type:"structure"`
 }
 
 // String returns the string representation

@@ -73,17 +73,17 @@ type GetUserPolicyOutput struct {
 	// always converts a YAML policy to JSON format before submitting it to IAM.
 	//
 	// PolicyDocument is a required field
-	PolicyDocument *string `min:"1" type:"string" required:"true"`
+	PolicyDocument *string `json:"iam:GetUserPolicyOutput:PolicyDocument" min:"1" type:"string" required:"true"`
 
 	// The name of the policy.
 	//
 	// PolicyName is a required field
-	PolicyName *string `min:"1" type:"string" required:"true"`
+	PolicyName *string `json:"iam:GetUserPolicyOutput:PolicyName" min:"1" type:"string" required:"true"`
 
 	// The user the policy is associated with.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:GetUserPolicyOutput:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

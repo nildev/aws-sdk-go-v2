@@ -67,20 +67,20 @@ type ValidateTemplateOutput struct {
 	//
 	// For more information, see Acknowledging IAM Resources in AWS CloudFormation
 	// Templates (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities).
-	Capabilities []Capability `type:"list"`
+	Capabilities []Capability `json:"cloudformation:ValidateTemplateOutput:Capabilities" type:"list"`
 
 	// The list of resources that generated the values in the Capabilities response
 	// element.
-	CapabilitiesReason *string `type:"string"`
+	CapabilitiesReason *string `json:"cloudformation:ValidateTemplateOutput:CapabilitiesReason" type:"string"`
 
 	// A list of the transforms that are declared in the template.
-	DeclaredTransforms []string `type:"list"`
+	DeclaredTransforms []string `json:"cloudformation:ValidateTemplateOutput:DeclaredTransforms" type:"list"`
 
 	// The description found within the template.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:ValidateTemplateOutput:Description" min:"1" type:"string"`
 
 	// A list of TemplateParameter structures.
-	Parameters []TemplateParameter `type:"list"`
+	Parameters []TemplateParameter `json:"cloudformation:ValidateTemplateOutput:Parameters" type:"list"`
 }
 
 // String returns the string representation

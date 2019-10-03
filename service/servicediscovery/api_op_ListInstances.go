@@ -59,12 +59,12 @@ type ListInstancesOutput struct {
 
 	// Summary information about the instances that are associated with the specified
 	// service.
-	Instances []InstanceSummary `type:"list"`
+	Instances []InstanceSummary `json:"servicediscovery:ListInstancesOutput:Instances" type:"list"`
 
 	// If more than MaxResults instances match the specified criteria, you can submit
 	// another ListInstances request to get the next group of results. Specify the
 	// value of NextToken from the previous response in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicediscovery:ListInstancesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

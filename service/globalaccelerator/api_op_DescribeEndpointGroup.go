@@ -43,7 +43,7 @@ type DescribeEndpointGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of an endpoint group.
-	EndpointGroup *EndpointGroup `type:"structure"`
+	EndpointGroup *EndpointGroup `json:"globalaccelerator:DescribeEndpointGroupOutput:EndpointGroup" type:"structure"`
 }
 
 // String returns the string representation

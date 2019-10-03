@@ -82,10 +82,10 @@ type StartBulkDeploymentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the bulk deployment.
-	BulkDeploymentArn *string `type:"string"`
+	BulkDeploymentArn *string `json:"greengrass:StartBulkDeploymentOutput:BulkDeploymentArn" type:"string"`
 
 	// The ID of the bulk deployment.
-	BulkDeploymentId *string `type:"string"`
+	BulkDeploymentId *string `json:"greengrass:StartBulkDeploymentOutput:BulkDeploymentId" type:"string"`
 }
 
 // String returns the string representation

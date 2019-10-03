@@ -46,20 +46,20 @@ type DescribeLocationS3Output struct {
 	_ struct{} `type:"structure"`
 
 	// The time that the Amazon S3 bucket location was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"datasync:DescribeLocationS3Output:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
-	LocationArn *string `type:"string"`
+	LocationArn *string `json:"datasync:DescribeLocationS3Output:LocationArn" type:"string"`
 
 	// The URL of the Amazon S3 location that was described.
-	LocationUri *string `type:"string"`
+	LocationUri *string `json:"datasync:DescribeLocationS3Output:LocationUri" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 	// (IAM) role that is used to access an Amazon S3 bucket.
 	//
 	// For detailed information about using such a role, see "https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location"
 	// (Creating a Location for Amazon S3) in the AWS DataSync User Guide.
-	S3Config *S3Config `type:"structure"`
+	S3Config *S3Config `json:"datasync:DescribeLocationS3Output:S3Config" type:"structure"`
 }
 
 // String returns the string representation

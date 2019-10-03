@@ -84,7 +84,7 @@ type CreateDBClusterParameterGroupOutput struct {
 	//
 	// This data type is used as a response element in the DescribeDBClusterParameterGroups
 	// action.
-	DBClusterParameterGroup *DBClusterParameterGroup `type:"structure"`
+	DBClusterParameterGroup *DBClusterParameterGroup `json:"rds:CreateDBClusterParameterGroupOutput:DBClusterParameterGroup" type:"structure"`
 }
 
 // String returns the string representation

@@ -60,10 +60,10 @@ type DeleteLaunchTemplateVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the launch template versions that were successfully deleted.
-	SuccessfullyDeletedLaunchTemplateVersions []DeleteLaunchTemplateVersionsResponseSuccessItem `locationName:"successfullyDeletedLaunchTemplateVersionSet" locationNameList:"item" type:"list"`
+	SuccessfullyDeletedLaunchTemplateVersions []DeleteLaunchTemplateVersionsResponseSuccessItem `json:"ec2:DeleteLaunchTemplateVersionsOutput:SuccessfullyDeletedLaunchTemplateVersions" locationName:"successfullyDeletedLaunchTemplateVersionSet" locationNameList:"item" type:"list"`
 
 	// Information about the launch template versions that could not be deleted.
-	UnsuccessfullyDeletedLaunchTemplateVersions []DeleteLaunchTemplateVersionsResponseErrorItem `locationName:"unsuccessfullyDeletedLaunchTemplateVersionSet" locationNameList:"item" type:"list"`
+	UnsuccessfullyDeletedLaunchTemplateVersions []DeleteLaunchTemplateVersionsResponseErrorItem `json:"ec2:DeleteLaunchTemplateVersionsOutput:UnsuccessfullyDeletedLaunchTemplateVersions" locationName:"unsuccessfullyDeletedLaunchTemplateVersionSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

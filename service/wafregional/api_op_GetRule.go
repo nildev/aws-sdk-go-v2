@@ -54,7 +54,7 @@ type GetRuleOutput struct {
 	//    RuleId
 	//
 	//    * Predicate: Each Predicate object contains DataId, Negated, and Type
-	Rule *waf.Rule `type:"structure"`
+	Rule *waf.Rule `json:"waf-regional:GetRuleOutput:Rule" type:"structure"`
 }
 
 // String returns the string representation

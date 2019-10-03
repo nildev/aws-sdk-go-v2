@@ -68,10 +68,10 @@ type DeleteResourceShareOutput struct {
 
 	// A unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ram:DeleteResourceShareOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Indicates whether the request succeeded.
-	ReturnValue *bool `locationName:"returnValue" type:"boolean"`
+	ReturnValue *bool `json:"ram:DeleteResourceShareOutput:ReturnValue" locationName:"returnValue" type:"boolean"`
 }
 
 // String returns the string representation

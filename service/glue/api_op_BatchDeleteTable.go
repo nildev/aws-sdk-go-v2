@@ -63,7 +63,7 @@ type BatchDeleteTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of errors encountered in attempting to delete the specified tables.
-	Errors []TableError `type:"list"`
+	Errors []TableError `json:"glue:BatchDeleteTableOutput:Errors" type:"list"`
 }
 
 // String returns the string representation

@@ -43,7 +43,7 @@ type DeleteEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint that was deleted.
-	Endpoint *Endpoint `type:"structure"`
+	Endpoint *Endpoint `json:"dms:DeleteEndpointOutput:Endpoint" type:"structure"`
 }
 
 // String returns the string representation

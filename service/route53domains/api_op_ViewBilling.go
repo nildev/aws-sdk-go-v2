@@ -52,12 +52,12 @@ type ViewBillingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A summary of billing records.
-	BillingRecords []BillingRecord `type:"list"`
+	BillingRecords []BillingRecord `json:"route53domains:ViewBillingOutput:BillingRecords" type:"list"`
 
 	// If there are more billing records than you specified for MaxItems in the
 	// request, submit another request and include the value of NextPageMarker in
 	// the value of Marker.
-	NextPageMarker *string `type:"string"`
+	NextPageMarker *string `json:"route53domains:ViewBillingOutput:NextPageMarker" type:"string"`
 }
 
 // String returns the string representation

@@ -59,11 +59,11 @@ type ComposeEnvironmentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns an EnvironmentDescription list.
-	Environments []EnvironmentDescription `type:"list"`
+	Environments []EnvironmentDescription `json:"elasticbeanstalk:ComposeEnvironmentsOutput:Environments" type:"list"`
 
 	// In a paginated request, the token that you can pass in a subsequent request
 	// to get the next response page.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"elasticbeanstalk:ComposeEnvironmentsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

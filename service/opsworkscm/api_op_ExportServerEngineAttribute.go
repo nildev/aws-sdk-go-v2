@@ -78,10 +78,10 @@ type ExportServerEngineAttributeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested engine attribute pair with attribute name and value.
-	EngineAttribute *EngineAttribute `type:"structure"`
+	EngineAttribute *EngineAttribute `json:"opsworks-cm:ExportServerEngineAttributeOutput:EngineAttribute" type:"structure"`
 
 	// The server name used in the request.
-	ServerName *string `min:"1" type:"string"`
+	ServerName *string `json:"opsworks-cm:ExportServerEngineAttributeOutput:ServerName" min:"1" type:"string"`
 }
 
 // String returns the string representation

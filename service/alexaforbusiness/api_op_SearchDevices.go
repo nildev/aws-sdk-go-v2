@@ -76,13 +76,13 @@ type SearchDevicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The devices that meet the specified set of filter criteria, in sort order.
-	Devices []DeviceData `type:"list"`
+	Devices []DeviceData `json:"a4b:SearchDevicesOutput:Devices" type:"list"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:SearchDevicesOutput:NextToken" min:"1" type:"string"`
 
 	// The total number of devices returned.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"a4b:SearchDevicesOutput:TotalCount" type:"integer"`
 }
 
 // String returns the string representation

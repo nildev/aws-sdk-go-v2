@@ -23,64 +23,64 @@ type JobDescriptor struct {
 	// Indicates whether confirmation is required before Amazon S3 begins running
 	// the specified job. Confirmation is required only for jobs created through
 	// the Amazon S3 console.
-	ConfirmationRequired *bool `type:"boolean"`
+	ConfirmationRequired *bool `json:"s3-control:JobDescriptor:ConfirmationRequired" type:"boolean"`
 
 	// A timestamp indicating when this job was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"s3-control:JobDescriptor:CreationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The description for this job, if one was provided in this job's Create Job
 	// request.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"s3-control:JobDescriptor:Description" min:"1" type:"string"`
 
 	// If the specified job failed, this field contains information describing the
 	// failure.
-	FailureReasons []JobFailure `type:"list"`
+	FailureReasons []JobFailure `json:"s3-control:JobDescriptor:FailureReasons" type:"list"`
 
 	// The Amazon Resource Name (ARN) for this job.
-	JobArn *string `min:"1" type:"string"`
+	JobArn *string `json:"s3-control:JobDescriptor:JobArn" min:"1" type:"string"`
 
 	// The ID for the specified job.
-	JobId *string `min:"5" type:"string"`
+	JobId *string `json:"s3-control:JobDescriptor:JobId" min:"5" type:"string"`
 
 	// The configuration information for the specified job's manifest object.
-	Manifest *JobManifest `type:"structure"`
+	Manifest *JobManifest `json:"s3-control:JobDescriptor:Manifest" type:"structure"`
 
 	// The operation that the specified job is configured to execute on the objects
 	// listed in the manifest.
-	Operation *JobOperation `type:"structure"`
+	Operation *JobOperation `json:"s3-control:JobDescriptor:Operation" type:"structure"`
 
 	// The priority of the specified job.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"s3-control:JobDescriptor:Priority" type:"integer"`
 
 	// Describes the total number of tasks that the specified job has executed,
 	// the number of tasks that succeeded, and the number of tasks that failed.
-	ProgressSummary *JobProgressSummary `type:"structure"`
+	ProgressSummary *JobProgressSummary `json:"s3-control:JobDescriptor:ProgressSummary" type:"structure"`
 
 	// Contains the configuration information for the job-completion report if you
 	// requested one in the Create Job request.
-	Report *JobReport `type:"structure"`
+	Report *JobReport `json:"s3-control:JobDescriptor:Report" type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the Identity and Access Management (IAM)
 	// Role assigned to execute the tasks for this job.
-	RoleArn *string `min:"1" type:"string"`
+	RoleArn *string `json:"s3-control:JobDescriptor:RoleArn" min:"1" type:"string"`
 
 	// The current status of the specified job.
-	Status JobStatus `type:"string" enum:"true"`
+	Status JobStatus `json:"s3-control:JobDescriptor:Status" type:"string" enum:"true"`
 
-	StatusUpdateReason *string `min:"1" type:"string"`
+	StatusUpdateReason *string `json:"s3-control:JobDescriptor:StatusUpdateReason" min:"1" type:"string"`
 
 	// The reason why the specified job was suspended. A job is only suspended if
 	// you create it through the Amazon S3 console. When you create the job, it
 	// enters the Suspended state to await confirmation before running. After you
 	// confirm the job, it automatically exits the Suspended state.
-	SuspendedCause *string `min:"1" type:"string"`
+	SuspendedCause *string `json:"s3-control:JobDescriptor:SuspendedCause" min:"1" type:"string"`
 
 	// The timestamp when this job was suspended, if it has been suspended.
-	SuspendedDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	SuspendedDate *time.Time `json:"s3-control:JobDescriptor:SuspendedDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A timestamp indicating when this job terminated. A job's termination date
 	// is the date and time when it succeeded, failed, or was canceled.
-	TerminationDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	TerminationDate *time.Time `json:"s3-control:JobDescriptor:TerminationDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -207,10 +207,10 @@ type JobFailure struct {
 	_ struct{} `type:"structure"`
 
 	// The failure code, if any, for the specified job.
-	FailureCode *string `min:"1" type:"string"`
+	FailureCode *string `json:"s3-control:JobFailure:FailureCode" min:"1" type:"string"`
 
 	// The failure reason, if any, for the specified job.
-	FailureReason *string `min:"1" type:"string"`
+	FailureReason *string `json:"s3-control:JobFailure:FailureReason" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -242,32 +242,32 @@ type JobListDescriptor struct {
 	_ struct{} `type:"structure"`
 
 	// A timestamp indicating when the specified job was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"s3-control:JobListDescriptor:CreationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The user-specified description that was included in the specified job's Create
 	// Job request.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"s3-control:JobListDescriptor:Description" min:"1" type:"string"`
 
 	// The ID for the specified job.
-	JobId *string `min:"5" type:"string"`
+	JobId *string `json:"s3-control:JobListDescriptor:JobId" min:"5" type:"string"`
 
 	// The operation that the specified job is configured to run on each object
 	// listed in the manifest.
-	Operation OperationName `type:"string" enum:"true"`
+	Operation OperationName `json:"s3-control:JobListDescriptor:Operation" type:"string" enum:"true"`
 
 	// The current priority for the specified job.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"s3-control:JobListDescriptor:Priority" type:"integer"`
 
 	// Describes the total number of tasks that the specified job has executed,
 	// the number of tasks that succeeded, and the number of tasks that failed.
-	ProgressSummary *JobProgressSummary `type:"structure"`
+	ProgressSummary *JobProgressSummary `json:"s3-control:JobListDescriptor:ProgressSummary" type:"structure"`
 
 	// The specified job's current status.
-	Status JobStatus `type:"string" enum:"true"`
+	Status JobStatus `json:"s3-control:JobListDescriptor:Status" type:"string" enum:"true"`
 
 	// A timestamp indicating when the specified job terminated. A job's termination
 	// date is the date and time when it succeeded, failed, or was canceled.
-	TerminationDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	TerminationDate *time.Time `json:"s3-control:JobListDescriptor:TerminationDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -336,13 +336,13 @@ type JobManifest struct {
 	// Contains the information required to locate the specified job's manifest.
 	//
 	// Location is a required field
-	Location *JobManifestLocation `type:"structure" required:"true"`
+	Location *JobManifestLocation `json:"s3-control:JobManifest:Location" type:"structure" required:"true"`
 
 	// Describes the format of the specified job's manifest. If the manifest is
 	// in CSV format, also describes the columns contained within the manifest.
 	//
 	// Spec is a required field
-	Spec *JobManifestSpec `type:"structure" required:"true"`
+	Spec *JobManifestSpec `json:"s3-control:JobManifest:Spec" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -403,15 +403,15 @@ type JobManifestLocation struct {
 	// The ETag for the specified manifest object.
 	//
 	// ETag is a required field
-	ETag *string `min:"1" type:"string" required:"true"`
+	ETag *string `json:"s3-control:JobManifestLocation:ETag" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) for a manifest object.
 	//
 	// ObjectArn is a required field
-	ObjectArn *string `min:"1" type:"string" required:"true"`
+	ObjectArn *string `json:"s3-control:JobManifestLocation:ObjectArn" min:"1" type:"string" required:"true"`
 
 	// The optional version ID to identify a specific version of the manifest object.
-	ObjectVersionId *string `min:"1" type:"string"`
+	ObjectVersionId *string `json:"s3-control:JobManifestLocation:ObjectVersionId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -477,12 +477,12 @@ type JobManifestSpec struct {
 
 	// If the specified manifest object is in the S3BatchOperations_CSV_20180820
 	// format, this element describes which columns contain the required data.
-	Fields []JobManifestFieldName `type:"list"`
+	Fields []JobManifestFieldName `json:"s3-control:JobManifestSpec:Fields" type:"list"`
 
 	// Indicates which of the available formats the specified manifest uses.
 	//
 	// Format is a required field
-	Format JobManifestFormat `type:"string" required:"true" enum:"true"`
+	Format JobManifestFormat `json:"s3-control:JobManifestSpec:Format" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -536,23 +536,23 @@ type JobOperation struct {
 
 	// Directs the specified job to invoke an AWS Lambda function on each object
 	// in the manifest.
-	LambdaInvoke *LambdaInvokeOperation `type:"structure"`
+	LambdaInvoke *LambdaInvokeOperation `json:"s3-control:JobOperation:LambdaInvoke" type:"structure"`
 
 	// Directs the specified job to execute an Initiate Glacier Restore call on
 	// each object in the manifest.
-	S3InitiateRestoreObject *S3InitiateRestoreObjectOperation `type:"structure"`
+	S3InitiateRestoreObject *S3InitiateRestoreObjectOperation `json:"s3-control:JobOperation:S3InitiateRestoreObject" type:"structure"`
 
 	// Directs the specified job to execute a PUT Object acl call on each object
 	// in the manifest.
-	S3PutObjectAcl *S3SetObjectAclOperation `type:"structure"`
+	S3PutObjectAcl *S3SetObjectAclOperation `json:"s3-control:JobOperation:S3PutObjectAcl" type:"structure"`
 
 	// Directs the specified job to execute a PUT Copy object call on each object
 	// in the manifest.
-	S3PutObjectCopy *S3CopyObjectOperation `type:"structure"`
+	S3PutObjectCopy *S3CopyObjectOperation `json:"s3-control:JobOperation:S3PutObjectCopy" type:"structure"`
 
 	// Directs the specified job to execute a PUT Object tagging call on each object
 	// in the manifest.
-	S3PutObjectTagging *S3SetObjectTaggingOperation `type:"structure"`
+	S3PutObjectTagging *S3SetObjectTaggingOperation `json:"s3-control:JobOperation:S3PutObjectTagging" type:"structure"`
 }
 
 // String returns the string representation
@@ -631,11 +631,11 @@ func (s JobOperation) MarshalFields(e protocol.FieldEncoder) error {
 type JobProgressSummary struct {
 	_ struct{} `type:"structure"`
 
-	NumberOfTasksFailed *int64 `type:"long"`
+	NumberOfTasksFailed *int64 `json:"s3-control:JobProgressSummary:NumberOfTasksFailed" type:"long"`
 
-	NumberOfTasksSucceeded *int64 `type:"long"`
+	NumberOfTasksSucceeded *int64 `json:"s3-control:JobProgressSummary:NumberOfTasksSucceeded" type:"long"`
 
-	TotalNumberOfTasks *int64 `type:"long"`
+	TotalNumberOfTasks *int64 `json:"s3-control:JobProgressSummary:TotalNumberOfTasks" type:"long"`
 }
 
 // String returns the string representation
@@ -672,24 +672,24 @@ type JobReport struct {
 	_ struct{} `type:"structure"`
 
 	// The bucket where specified job-completion report will be stored.
-	Bucket *string `min:"1" type:"string"`
+	Bucket *string `json:"s3-control:JobReport:Bucket" min:"1" type:"string"`
 
 	// Indicates whether the specified job will generate a job-completion report.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"s3-control:JobReport:Enabled" type:"boolean" required:"true"`
 
 	// The format of the specified job-completion report.
-	Format JobReportFormat `type:"string" enum:"true"`
+	Format JobReportFormat `json:"s3-control:JobReport:Format" type:"string" enum:"true"`
 
 	// An optional prefix to describe where in the specified bucket the job-completion
 	// report will be stored. Amazon S3 will store the job-completion report at
 	// <prefix>/job-<job-id>/report.json.
-	Prefix *string `min:"1" type:"string"`
+	Prefix *string `json:"s3-control:JobReport:Prefix" min:"1" type:"string"`
 
 	// Indicates whether the job-completion report will include details of all tasks
 	// or only failed tasks.
-	ReportScope JobReportScope `type:"string" enum:"true"`
+	ReportScope JobReportScope `json:"s3-control:JobReport:ReportScope" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -759,7 +759,7 @@ type LambdaInvokeOperation struct {
 
 	// The Amazon Resource Name (ARN) for the AWS Lambda function that the specified
 	// job will invoke for each object in the manifest.
-	FunctionArn *string `min:"1" type:"string"`
+	FunctionArn *string `json:"s3-control:LambdaInvokeOperation:FunctionArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -795,13 +795,13 @@ func (s LambdaInvokeOperation) MarshalFields(e protocol.FieldEncoder) error {
 type PublicAccessBlockConfiguration struct {
 	_ struct{} `type:"structure"`
 
-	BlockPublicAcls *bool `locationName:"BlockPublicAcls" type:"boolean"`
+	BlockPublicAcls *bool `json:"s3-control:PublicAccessBlockConfiguration:BlockPublicAcls" locationName:"BlockPublicAcls" type:"boolean"`
 
-	BlockPublicPolicy *bool `locationName:"BlockPublicPolicy" type:"boolean"`
+	BlockPublicPolicy *bool `json:"s3-control:PublicAccessBlockConfiguration:BlockPublicPolicy" locationName:"BlockPublicPolicy" type:"boolean"`
 
-	IgnorePublicAcls *bool `locationName:"IgnorePublicAcls" type:"boolean"`
+	IgnorePublicAcls *bool `json:"s3-control:PublicAccessBlockConfiguration:IgnorePublicAcls" locationName:"IgnorePublicAcls" type:"boolean"`
 
-	RestrictPublicBuckets *bool `locationName:"RestrictPublicBuckets" type:"boolean"`
+	RestrictPublicBuckets *bool `json:"s3-control:PublicAccessBlockConfiguration:RestrictPublicBuckets" locationName:"RestrictPublicBuckets" type:"boolean"`
 }
 
 // String returns the string representation
@@ -842,10 +842,10 @@ func (s PublicAccessBlockConfiguration) MarshalFields(e protocol.FieldEncoder) e
 type S3AccessControlList struct {
 	_ struct{} `type:"structure"`
 
-	Grants []S3Grant `type:"list"`
+	Grants []S3Grant `json:"s3-control:S3AccessControlList:Grants" type:"list"`
 
 	// Owner is a required field
-	Owner *S3ObjectOwner `type:"structure" required:"true"`
+	Owner *S3ObjectOwner `json:"s3-control:S3AccessControlList:Owner" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -906,9 +906,9 @@ func (s S3AccessControlList) MarshalFields(e protocol.FieldEncoder) error {
 type S3AccessControlPolicy struct {
 	_ struct{} `type:"structure"`
 
-	AccessControlList *S3AccessControlList `type:"structure"`
+	AccessControlList *S3AccessControlList `json:"s3-control:S3AccessControlPolicy:AccessControlList" type:"structure"`
 
-	CannedAccessControlList S3CannedAccessControlList `type:"string" enum:"true"`
+	CannedAccessControlList S3CannedAccessControlList `json:"s3-control:S3AccessControlPolicy:CannedAccessControlList" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -956,37 +956,37 @@ func (s S3AccessControlPolicy) MarshalFields(e protocol.FieldEncoder) error {
 type S3CopyObjectOperation struct {
 	_ struct{} `type:"structure"`
 
-	AccessControlGrants []S3Grant `type:"list"`
+	AccessControlGrants []S3Grant `json:"s3-control:S3CopyObjectOperation:AccessControlGrants" type:"list"`
 
-	CannedAccessControlList S3CannedAccessControlList `type:"string" enum:"true"`
+	CannedAccessControlList S3CannedAccessControlList `json:"s3-control:S3CopyObjectOperation:CannedAccessControlList" type:"string" enum:"true"`
 
-	MetadataDirective S3MetadataDirective `type:"string" enum:"true"`
+	MetadataDirective S3MetadataDirective `json:"s3-control:S3CopyObjectOperation:MetadataDirective" type:"string" enum:"true"`
 
-	ModifiedSinceConstraint *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ModifiedSinceConstraint *time.Time `json:"s3-control:S3CopyObjectOperation:ModifiedSinceConstraint" type:"timestamp" timestampFormat:"iso8601"`
 
-	NewObjectMetadata *S3ObjectMetadata `type:"structure"`
+	NewObjectMetadata *S3ObjectMetadata `json:"s3-control:S3CopyObjectOperation:NewObjectMetadata" type:"structure"`
 
-	NewObjectTagging []S3Tag `type:"list"`
+	NewObjectTagging []S3Tag `json:"s3-control:S3CopyObjectOperation:NewObjectTagging" type:"list"`
 
-	ObjectLockLegalHoldStatus S3ObjectLockLegalHoldStatus `type:"string" enum:"true"`
+	ObjectLockLegalHoldStatus S3ObjectLockLegalHoldStatus `json:"s3-control:S3CopyObjectOperation:ObjectLockLegalHoldStatus" type:"string" enum:"true"`
 
-	ObjectLockMode S3ObjectLockMode `type:"string" enum:"true"`
+	ObjectLockMode S3ObjectLockMode `json:"s3-control:S3CopyObjectOperation:ObjectLockMode" type:"string" enum:"true"`
 
-	ObjectLockRetainUntilDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ObjectLockRetainUntilDate *time.Time `json:"s3-control:S3CopyObjectOperation:ObjectLockRetainUntilDate" type:"timestamp" timestampFormat:"iso8601"`
 
-	RedirectLocation *string `min:"1" type:"string"`
+	RedirectLocation *string `json:"s3-control:S3CopyObjectOperation:RedirectLocation" min:"1" type:"string"`
 
-	RequesterPays *bool `type:"boolean"`
+	RequesterPays *bool `json:"s3-control:S3CopyObjectOperation:RequesterPays" type:"boolean"`
 
-	SSEAwsKmsKeyId *string `min:"1" type:"string"`
+	SSEAwsKmsKeyId *string `json:"s3-control:S3CopyObjectOperation:SSEAwsKmsKeyId" min:"1" type:"string"`
 
-	StorageClass S3StorageClass `type:"string" enum:"true"`
+	StorageClass S3StorageClass `json:"s3-control:S3CopyObjectOperation:StorageClass" type:"string" enum:"true"`
 
-	TargetKeyPrefix *string `min:"1" type:"string"`
+	TargetKeyPrefix *string `json:"s3-control:S3CopyObjectOperation:TargetKeyPrefix" min:"1" type:"string"`
 
-	TargetResource *string `min:"1" type:"string"`
+	TargetResource *string `json:"s3-control:S3CopyObjectOperation:TargetResource" min:"1" type:"string"`
 
-	UnModifiedSinceConstraint *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UnModifiedSinceConstraint *time.Time `json:"s3-control:S3CopyObjectOperation:UnModifiedSinceConstraint" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1152,9 +1152,9 @@ func (s S3CopyObjectOperation) MarshalFields(e protocol.FieldEncoder) error {
 type S3Grant struct {
 	_ struct{} `type:"structure"`
 
-	Grantee *S3Grantee `type:"structure"`
+	Grantee *S3Grantee `json:"s3-control:S3Grant:Grantee" type:"structure"`
 
-	Permission S3Permission `type:"string" enum:"true"`
+	Permission S3Permission `json:"s3-control:S3Grant:Permission" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1198,11 +1198,11 @@ func (s S3Grant) MarshalFields(e protocol.FieldEncoder) error {
 type S3Grantee struct {
 	_ struct{} `type:"structure"`
 
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"s3-control:S3Grantee:DisplayName" min:"1" type:"string"`
 
-	Identifier *string `min:"1" type:"string"`
+	Identifier *string `json:"s3-control:S3Grantee:Identifier" min:"1" type:"string"`
 
-	TypeIdentifier S3GranteeTypeIdentifier `type:"string" enum:"true"`
+	TypeIdentifier S3GranteeTypeIdentifier `json:"s3-control:S3Grantee:TypeIdentifier" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1257,9 +1257,9 @@ func (s S3Grantee) MarshalFields(e protocol.FieldEncoder) error {
 type S3InitiateRestoreObjectOperation struct {
 	_ struct{} `type:"structure"`
 
-	ExpirationInDays *int64 `type:"integer"`
+	ExpirationInDays *int64 `json:"s3-control:S3InitiateRestoreObjectOperation:ExpirationInDays" type:"integer"`
 
-	GlacierJobTier S3GlacierJobTier `type:"string" enum:"true"`
+	GlacierJobTier S3GlacierJobTier `json:"s3-control:S3InitiateRestoreObjectOperation:GlacierJobTier" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1288,27 +1288,27 @@ func (s S3InitiateRestoreObjectOperation) MarshalFields(e protocol.FieldEncoder)
 type S3ObjectMetadata struct {
 	_ struct{} `type:"structure"`
 
-	CacheControl *string `min:"1" type:"string"`
+	CacheControl *string `json:"s3-control:S3ObjectMetadata:CacheControl" min:"1" type:"string"`
 
-	ContentDisposition *string `min:"1" type:"string"`
+	ContentDisposition *string `json:"s3-control:S3ObjectMetadata:ContentDisposition" min:"1" type:"string"`
 
-	ContentEncoding *string `min:"1" type:"string"`
+	ContentEncoding *string `json:"s3-control:S3ObjectMetadata:ContentEncoding" min:"1" type:"string"`
 
-	ContentLanguage *string `min:"1" type:"string"`
+	ContentLanguage *string `json:"s3-control:S3ObjectMetadata:ContentLanguage" min:"1" type:"string"`
 
-	ContentLength *int64 `type:"long"`
+	ContentLength *int64 `json:"s3-control:S3ObjectMetadata:ContentLength" type:"long"`
 
-	ContentMD5 *string `min:"1" type:"string"`
+	ContentMD5 *string `json:"s3-control:S3ObjectMetadata:ContentMD5" min:"1" type:"string"`
 
-	ContentType *string `min:"1" type:"string"`
+	ContentType *string `json:"s3-control:S3ObjectMetadata:ContentType" min:"1" type:"string"`
 
-	HttpExpiresDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	HttpExpiresDate *time.Time `json:"s3-control:S3ObjectMetadata:HttpExpiresDate" type:"timestamp" timestampFormat:"iso8601"`
 
-	RequesterCharged *bool `type:"boolean"`
+	RequesterCharged *bool `json:"s3-control:S3ObjectMetadata:RequesterCharged" type:"boolean"`
 
-	SSEAlgorithm S3SSEAlgorithm `type:"string" enum:"true"`
+	SSEAlgorithm S3SSEAlgorithm `json:"s3-control:S3ObjectMetadata:SSEAlgorithm" type:"string" enum:"true"`
 
-	UserMetadata map[string]string `type:"map"`
+	UserMetadata map[string]string `json:"s3-control:S3ObjectMetadata:UserMetadata" type:"map"`
 }
 
 // String returns the string representation
@@ -1425,9 +1425,9 @@ func (s S3ObjectMetadata) MarshalFields(e protocol.FieldEncoder) error {
 type S3ObjectOwner struct {
 	_ struct{} `type:"structure"`
 
-	DisplayName *string `min:"1" type:"string"`
+	DisplayName *string `json:"s3-control:S3ObjectOwner:DisplayName" min:"1" type:"string"`
 
-	ID *string `min:"1" type:"string"`
+	ID *string `json:"s3-control:S3ObjectOwner:ID" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1476,7 +1476,7 @@ func (s S3ObjectOwner) MarshalFields(e protocol.FieldEncoder) error {
 type S3SetObjectAclOperation struct {
 	_ struct{} `type:"structure"`
 
-	AccessControlPolicy *S3AccessControlPolicy `type:"structure"`
+	AccessControlPolicy *S3AccessControlPolicy `json:"s3-control:S3SetObjectAclOperation:AccessControlPolicy" type:"structure"`
 }
 
 // String returns the string representation
@@ -1518,7 +1518,7 @@ func (s S3SetObjectAclOperation) MarshalFields(e protocol.FieldEncoder) error {
 type S3SetObjectTaggingOperation struct {
 	_ struct{} `type:"structure"`
 
-	TagSet []S3Tag `type:"list"`
+	TagSet []S3Tag `json:"s3-control:S3SetObjectTaggingOperation:TagSet" type:"list"`
 }
 
 // String returns the string representation
@@ -1565,10 +1565,10 @@ type S3Tag struct {
 	_ struct{} `type:"structure"`
 
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"s3-control:S3Tag:Key" min:"1" type:"string" required:"true"`
 
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"s3-control:S3Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation

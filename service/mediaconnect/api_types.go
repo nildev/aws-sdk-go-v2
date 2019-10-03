@@ -18,39 +18,39 @@ type AddOutputRequest struct {
 
 	// A description of the output. This description appears only on the AWS Elemental
 	// MediaConnect console and will not be seen by the end user.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconnect:AddOutputRequest:Description" locationName:"description" type:"string"`
 
 	// The IP address from which video will be sent to output destinations.
 	//
 	// Destination is a required field
-	Destination *string `locationName:"destination" type:"string" required:"true"`
+	Destination *string `json:"mediaconnect:AddOutputRequest:Destination" locationName:"destination" type:"string" required:"true"`
 
 	// The type of key used for the encryption. If no keyType is provided, the service
 	// will use the default setting (static-key).
-	Encryption *Encryption `locationName:"encryption" type:"structure"`
+	Encryption *Encryption `json:"mediaconnect:AddOutputRequest:Encryption" locationName:"encryption" type:"structure"`
 
 	// The maximum latency in milliseconds for Zixi-based streams.
-	MaxLatency *int64 `locationName:"maxLatency" type:"integer"`
+	MaxLatency *int64 `json:"mediaconnect:AddOutputRequest:MaxLatency" locationName:"maxLatency" type:"integer"`
 
 	// The name of the output. This value must be unique within the current flow.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mediaconnect:AddOutputRequest:Name" locationName:"name" type:"string"`
 
 	// The port to use when content is distributed to this output.
 	//
 	// Port is a required field
-	Port *int64 `locationName:"port" type:"integer" required:"true"`
+	Port *int64 `json:"mediaconnect:AddOutputRequest:Port" locationName:"port" type:"integer" required:"true"`
 
 	// The protocol to use for the output.
 	//
 	// Protocol is a required field
-	Protocol Protocol `locationName:"protocol" type:"string" required:"true" enum:"true"`
+	Protocol Protocol `json:"mediaconnect:AddOutputRequest:Protocol" locationName:"protocol" type:"string" required:"true" enum:"true"`
 
 	// The smoothing latency in milliseconds for RTP and RTP-FEC streams.
-	SmoothingLatency *int64 `locationName:"smoothingLatency" type:"integer"`
+	SmoothingLatency *int64 `json:"mediaconnect:AddOutputRequest:SmoothingLatency" locationName:"smoothingLatency" type:"integer"`
 
 	// The stream ID that you want to use for this transport. This parameter applies
 	// only to Zixi-based streams.
-	StreamId *string `locationName:"streamId" type:"string"`
+	StreamId *string `json:"mediaconnect:AddOutputRequest:StreamId" locationName:"streamId" type:"string"`
 }
 
 // String returns the string representation
@@ -152,47 +152,47 @@ type Encryption struct {
 	// or aes256).
 	//
 	// Algorithm is a required field
-	Algorithm Algorithm `locationName:"algorithm" type:"string" required:"true" enum:"true"`
+	Algorithm Algorithm `json:"mediaconnect:Encryption:Algorithm" locationName:"algorithm" type:"string" required:"true" enum:"true"`
 
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be
 	// used with the key for encrypting content. This parameter is not valid for
 	// static key encryption.
-	ConstantInitializationVector *string `locationName:"constantInitializationVector" type:"string"`
+	ConstantInitializationVector *string `json:"mediaconnect:Encryption:ConstantInitializationVector" locationName:"constantInitializationVector" type:"string"`
 
 	// The value of one of the devices that you configured with your digital rights
 	// management (DRM) platform key provider. This parameter is required for SPEKE
 	// encryption and is not valid for static key encryption.
-	DeviceId *string `locationName:"deviceId" type:"string"`
+	DeviceId *string `json:"mediaconnect:Encryption:DeviceId" locationName:"deviceId" type:"string"`
 
 	// The type of key that is used for the encryption. If no keyType is provided,
 	// the service will use the default setting (static-key).
-	KeyType KeyType `locationName:"keyType" type:"string" enum:"true"`
+	KeyType KeyType `json:"mediaconnect:Encryption:KeyType" locationName:"keyType" type:"string" enum:"true"`
 
 	// The AWS Region that the API Gateway proxy endpoint was created in. This parameter
 	// is required for SPEKE encryption and is not valid for static key encryption.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"mediaconnect:Encryption:Region" locationName:"region" type:"string"`
 
 	// An identifier for the content. The service sends this value to the key server
 	// to identify the current endpoint. The resource ID is also known as the content
 	// ID. This parameter is required for SPEKE encryption and is not valid for
 	// static key encryption.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"mediaconnect:Encryption:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The ARN of the role that you created during setup (when you set up AWS Elemental
 	// MediaConnect as a trusted entity).
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"mediaconnect:Encryption:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The ARN of the secret that you created in AWS Secrets Manager to store the
 	// encryption key. This parameter is required for static key encryption and
 	// is not valid for SPEKE encryption.
-	SecretArn *string `locationName:"secretArn" type:"string"`
+	SecretArn *string `json:"mediaconnect:Encryption:SecretArn" locationName:"secretArn" type:"string"`
 
 	// The URL from the API Gateway proxy that you set up to talk to your key server.
 	// This parameter is required for SPEKE encryption and is not valid for static
 	// key encryption.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediaconnect:Encryption:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -282,28 +282,28 @@ type Entitlement struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the entitlement.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconnect:Entitlement:Description" locationName:"description" type:"string"`
 
 	// The type of encryption that will be used on the output that is associated
 	// with this entitlement.
-	Encryption *Encryption `locationName:"encryption" type:"structure"`
+	Encryption *Encryption `json:"mediaconnect:Entitlement:Encryption" locationName:"encryption" type:"structure"`
 
 	// The ARN of the entitlement.
 	//
 	// EntitlementArn is a required field
-	EntitlementArn *string `locationName:"entitlementArn" type:"string" required:"true"`
+	EntitlementArn *string `json:"mediaconnect:Entitlement:EntitlementArn" locationName:"entitlementArn" type:"string" required:"true"`
 
 	// The name of the entitlement.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"mediaconnect:Entitlement:Name" locationName:"name" type:"string" required:"true"`
 
 	// The AWS account IDs that you want to share your content with. The receiving
 	// accounts (subscribers) will be allowed to create their own flow using your
 	// content as the source.
 	//
 	// Subscribers is a required field
-	Subscribers []string `locationName:"subscribers" type:"list" required:"true"`
+	Subscribers []string `json:"mediaconnect:Entitlement:Subscribers" locationName:"subscribers" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -361,45 +361,45 @@ type Flow struct {
 	// are limited to the Availability Zones within the current AWS.
 	//
 	// AvailabilityZone is a required field
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string" required:"true"`
+	AvailabilityZone *string `json:"mediaconnect:Flow:AvailabilityZone" locationName:"availabilityZone" type:"string" required:"true"`
 
 	// A description of the flow. This value is not used or seen outside of the
 	// current AWS Elemental MediaConnect account.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconnect:Flow:Description" locationName:"description" type:"string"`
 
 	// The IP address from which video will be sent to output destinations.
-	EgressIp *string `locationName:"egressIp" type:"string"`
+	EgressIp *string `json:"mediaconnect:Flow:EgressIp" locationName:"egressIp" type:"string"`
 
 	// The entitlements in this flow.
 	//
 	// Entitlements is a required field
-	Entitlements []Entitlement `locationName:"entitlements" type:"list" required:"true"`
+	Entitlements []Entitlement `json:"mediaconnect:Flow:Entitlements" locationName:"entitlements" type:"list" required:"true"`
 
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource,
 	// of the flow.
 	//
 	// FlowArn is a required field
-	FlowArn *string `locationName:"flowArn" type:"string" required:"true"`
+	FlowArn *string `json:"mediaconnect:Flow:FlowArn" locationName:"flowArn" type:"string" required:"true"`
 
 	// The name of the flow.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"mediaconnect:Flow:Name" locationName:"name" type:"string" required:"true"`
 
 	// The outputs in this flow.
 	//
 	// Outputs is a required field
-	Outputs []Output `locationName:"outputs" type:"list" required:"true"`
+	Outputs []Output `json:"mediaconnect:Flow:Outputs" locationName:"outputs" type:"list" required:"true"`
 
 	// The settings for the source of the flow.
 	//
 	// Source is a required field
-	Source *Source `locationName:"source" type:"structure" required:"true"`
+	Source *Source `json:"mediaconnect:Flow:Source" locationName:"source" type:"structure" required:"true"`
 
 	// The current status of the flow.
 	//
 	// Status is a required field
-	Status Status `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status Status `json:"mediaconnect:Flow:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -486,22 +486,22 @@ type GrantEntitlementRequest struct {
 	// A description of the entitlement. This description appears only on the AWS
 	// Elemental MediaConnect console and will not be seen by the subscriber or
 	// end user.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconnect:GrantEntitlementRequest:Description" locationName:"description" type:"string"`
 
 	// The type of encryption that will be used on the output that is associated
 	// with this entitlement.
-	Encryption *Encryption `locationName:"encryption" type:"structure"`
+	Encryption *Encryption `json:"mediaconnect:GrantEntitlementRequest:Encryption" locationName:"encryption" type:"structure"`
 
 	// The name of the entitlement. This value must be unique within the current
 	// flow.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mediaconnect:GrantEntitlementRequest:Name" locationName:"name" type:"string"`
 
 	// The AWS account IDs that you want to share your content with. The receiving
 	// accounts (subscribers) will be allowed to create their own flows using your
 	// content as the source.
 	//
 	// Subscribers is a required field
-	Subscribers []string `locationName:"subscribers" type:"list" required:"true"`
+	Subscribers []string `json:"mediaconnect:GrantEntitlementRequest:Subscribers" locationName:"subscribers" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -571,12 +571,12 @@ type ListedEntitlement struct {
 	// The ARN of the entitlement.
 	//
 	// EntitlementArn is a required field
-	EntitlementArn *string `locationName:"entitlementArn" type:"string" required:"true"`
+	EntitlementArn *string `json:"mediaconnect:ListedEntitlement:EntitlementArn" locationName:"entitlementArn" type:"string" required:"true"`
 
 	// The name of the entitlement.
 	//
 	// EntitlementName is a required field
-	EntitlementName *string `locationName:"entitlementName" type:"string" required:"true"`
+	EntitlementName *string `json:"mediaconnect:ListedEntitlement:EntitlementName" locationName:"entitlementName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -610,22 +610,22 @@ type ListedFlow struct {
 	// The Availability Zone that the flow was created in.
 	//
 	// AvailabilityZone is a required field
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string" required:"true"`
+	AvailabilityZone *string `json:"mediaconnect:ListedFlow:AvailabilityZone" locationName:"availabilityZone" type:"string" required:"true"`
 
 	// A description of the flow.
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"mediaconnect:ListedFlow:Description" locationName:"description" type:"string" required:"true"`
 
 	// The ARN of the flow.
 	//
 	// FlowArn is a required field
-	FlowArn *string `locationName:"flowArn" type:"string" required:"true"`
+	FlowArn *string `json:"mediaconnect:ListedFlow:FlowArn" locationName:"flowArn" type:"string" required:"true"`
 
 	// The name of the flow.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"mediaconnect:ListedFlow:Name" locationName:"name" type:"string" required:"true"`
 
 	// The type of source. This value is either owned (originated somewhere other
 	// than an AWS Elemental MediaConnect flow owned by another AWS account) or
@@ -633,12 +633,12 @@ type ListedFlow struct {
 	// AWS account).
 	//
 	// SourceType is a required field
-	SourceType SourceType `locationName:"sourceType" type:"string" required:"true" enum:"true"`
+	SourceType SourceType `json:"mediaconnect:ListedFlow:SourceType" locationName:"sourceType" type:"string" required:"true" enum:"true"`
 
 	// The current status of the flow.
 	//
 	// Status is a required field
-	Status Status `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status Status `json:"mediaconnect:ListedFlow:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -695,7 +695,7 @@ type Messages struct {
 	// A list of errors that might have been generated from processes on this flow.
 	//
 	// Errors is a required field
-	Errors []string `locationName:"errors" type:"list" required:"true"`
+	Errors []string `json:"mediaconnect:Messages:Errors" locationName:"errors" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -726,38 +726,38 @@ type Output struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the output.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconnect:Output:Description" locationName:"description" type:"string"`
 
 	// The address where you want to send the output.
-	Destination *string `locationName:"destination" type:"string"`
+	Destination *string `json:"mediaconnect:Output:Destination" locationName:"destination" type:"string"`
 
 	// The type of key used for the encryption. If no keyType is provided, the service
 	// will use the default setting (static-key).
-	Encryption *Encryption `locationName:"encryption" type:"structure"`
+	Encryption *Encryption `json:"mediaconnect:Output:Encryption" locationName:"encryption" type:"structure"`
 
 	// The ARN of the entitlement on the originator''s flow. This value is relevant
 	// only on entitled flows.
-	EntitlementArn *string `locationName:"entitlementArn" type:"string"`
+	EntitlementArn *string `json:"mediaconnect:Output:EntitlementArn" locationName:"entitlementArn" type:"string"`
 
 	// The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant
 	// only for outputs that were added by creating a MediaLive input.
-	MediaLiveInputArn *string `locationName:"mediaLiveInputArn" type:"string"`
+	MediaLiveInputArn *string `json:"mediaconnect:Output:MediaLiveInputArn" locationName:"mediaLiveInputArn" type:"string"`
 
 	// The name of the output. This value must be unique within the current flow.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"mediaconnect:Output:Name" locationName:"name" type:"string" required:"true"`
 
 	// The ARN of the output.
 	//
 	// OutputArn is a required field
-	OutputArn *string `locationName:"outputArn" type:"string" required:"true"`
+	OutputArn *string `json:"mediaconnect:Output:OutputArn" locationName:"outputArn" type:"string" required:"true"`
 
 	// The port to use when content is distributed to this output.
-	Port *int64 `locationName:"port" type:"integer"`
+	Port *int64 `json:"mediaconnect:Output:Port" locationName:"port" type:"integer"`
 
 	// Attributes related to the transport stream that are used in the output.
-	Transport *Transport `locationName:"transport" type:"structure"`
+	Transport *Transport `json:"mediaconnect:Output:Transport" locationName:"transport" type:"structure"`
 }
 
 // String returns the string representation
@@ -830,40 +830,40 @@ type SetSourceRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The type of encryption that is used on the content ingested from this source.
-	Decryption *Encryption `locationName:"decryption" type:"structure"`
+	Decryption *Encryption `json:"mediaconnect:SetSourceRequest:Decryption" locationName:"decryption" type:"structure"`
 
 	// A description for the source. This value is not used or seen outside of the
 	// current AWS Elemental MediaConnect account.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconnect:SetSourceRequest:Description" locationName:"description" type:"string"`
 
 	// The ARN of the entitlement that allows you to subscribe to this flow. The
 	// entitlement is set by the flow originator, and the ARN is generated as part
 	// of the originator's flow.
-	EntitlementArn *string `locationName:"entitlementArn" type:"string"`
+	EntitlementArn *string `json:"mediaconnect:SetSourceRequest:EntitlementArn" locationName:"entitlementArn" type:"string"`
 
 	// The port that the flow will be listening on for incoming content.
-	IngestPort *int64 `locationName:"ingestPort" type:"integer"`
+	IngestPort *int64 `json:"mediaconnect:SetSourceRequest:IngestPort" locationName:"ingestPort" type:"integer"`
 
 	// The smoothing max bitrate for RTP and RTP-FEC streams.
-	MaxBitrate *int64 `locationName:"maxBitrate" type:"integer"`
+	MaxBitrate *int64 `json:"mediaconnect:SetSourceRequest:MaxBitrate" locationName:"maxBitrate" type:"integer"`
 
 	// The maximum latency in milliseconds for Zixi-based streams.
-	MaxLatency *int64 `locationName:"maxLatency" type:"integer"`
+	MaxLatency *int64 `json:"mediaconnect:SetSourceRequest:MaxLatency" locationName:"maxLatency" type:"integer"`
 
 	// The name of the source.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mediaconnect:SetSourceRequest:Name" locationName:"name" type:"string"`
 
 	// The protocol that is used by the source.
-	Protocol Protocol `locationName:"protocol" type:"string" enum:"true"`
+	Protocol Protocol `json:"mediaconnect:SetSourceRequest:Protocol" locationName:"protocol" type:"string" enum:"true"`
 
 	// The stream ID that you want to use for this transport. This parameter applies
 	// only to Zixi-based streams.
-	StreamId *string `locationName:"streamId" type:"string"`
+	StreamId *string `json:"mediaconnect:SetSourceRequest:StreamId" locationName:"streamId" type:"string"`
 
 	// The range of IP addresses that should be allowed to contribute content to
 	// your source. These IP addresses should in the form of a Classless Inter-Domain
 	// Routing (CIDR) block; for example, 10.0.0.0/16.
-	WhitelistCidr *string `locationName:"whitelistCidr" type:"string"`
+	WhitelistCidr *string `json:"mediaconnect:SetSourceRequest:WhitelistCidr" locationName:"whitelistCidr" type:"string"`
 }
 
 // String returns the string representation
@@ -957,40 +957,40 @@ type Source struct {
 	_ struct{} `type:"structure"`
 
 	// The type of encryption that is used on the content ingested from this source.
-	Decryption *Encryption `locationName:"decryption" type:"structure"`
+	Decryption *Encryption `json:"mediaconnect:Source:Decryption" locationName:"decryption" type:"structure"`
 
 	// A description for the source. This value is not used or seen outside of the
 	// current AWS Elemental MediaConnect account.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconnect:Source:Description" locationName:"description" type:"string"`
 
 	// The ARN of the entitlement that allows you to subscribe to content that comes
 	// from another AWS account. The entitlement is set by the content originator
 	// and the ARN is generated as part of the originator's flow.
-	EntitlementArn *string `locationName:"entitlementArn" type:"string"`
+	EntitlementArn *string `json:"mediaconnect:Source:EntitlementArn" locationName:"entitlementArn" type:"string"`
 
 	// The IP address that the flow will be listening on for incoming content.
-	IngestIp *string `locationName:"ingestIp" type:"string"`
+	IngestIp *string `json:"mediaconnect:Source:IngestIp" locationName:"ingestIp" type:"string"`
 
 	// The port that the flow will be listening on for incoming content.
-	IngestPort *int64 `locationName:"ingestPort" type:"integer"`
+	IngestPort *int64 `json:"mediaconnect:Source:IngestPort" locationName:"ingestPort" type:"integer"`
 
 	// The name of the source.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"mediaconnect:Source:Name" locationName:"name" type:"string" required:"true"`
 
 	// The ARN of the source.
 	//
 	// SourceArn is a required field
-	SourceArn *string `locationName:"sourceArn" type:"string" required:"true"`
+	SourceArn *string `json:"mediaconnect:Source:SourceArn" locationName:"sourceArn" type:"string" required:"true"`
 
 	// Attributes related to the transport stream that are used in the source.
-	Transport *Transport `locationName:"transport" type:"structure"`
+	Transport *Transport `json:"mediaconnect:Source:Transport" locationName:"transport" type:"structure"`
 
 	// The range of IP addresses that should be allowed to contribute content to
 	// your source. These IP addresses should in the form of a Classless Inter-Domain
 	// Routing (CIDR) block; for example, 10.0.0.0/16.
-	WhitelistCidr *string `locationName:"whitelistCidr" type:"string"`
+	WhitelistCidr *string `json:"mediaconnect:Source:WhitelistCidr" locationName:"whitelistCidr" type:"string"`
 }
 
 // String returns the string representation
@@ -1063,22 +1063,22 @@ type Transport struct {
 	_ struct{} `type:"structure"`
 
 	// The smoothing max bitrate for RTP and RTP-FEC streams.
-	MaxBitrate *int64 `locationName:"maxBitrate" type:"integer"`
+	MaxBitrate *int64 `json:"mediaconnect:Transport:MaxBitrate" locationName:"maxBitrate" type:"integer"`
 
 	// The maximum latency in milliseconds for Zixi-based streams.
-	MaxLatency *int64 `locationName:"maxLatency" type:"integer"`
+	MaxLatency *int64 `json:"mediaconnect:Transport:MaxLatency" locationName:"maxLatency" type:"integer"`
 
 	// The protocol that is used by the source or output.
 	//
 	// Protocol is a required field
-	Protocol Protocol `locationName:"protocol" type:"string" required:"true" enum:"true"`
+	Protocol Protocol `json:"mediaconnect:Transport:Protocol" locationName:"protocol" type:"string" required:"true" enum:"true"`
 
 	// The smoothing latency in milliseconds for RTP and RTP-FEC streams.
-	SmoothingLatency *int64 `locationName:"smoothingLatency" type:"integer"`
+	SmoothingLatency *int64 `json:"mediaconnect:Transport:SmoothingLatency" locationName:"smoothingLatency" type:"integer"`
 
 	// The stream ID that you want to use for this transport. This parameter applies
 	// only to Zixi-based streams.
-	StreamId *string `locationName:"streamId" type:"string"`
+	StreamId *string `json:"mediaconnect:Transport:StreamId" locationName:"streamId" type:"string"`
 }
 
 // String returns the string representation
@@ -1128,45 +1128,45 @@ type UpdateEncryption struct {
 
 	// The type of algorithm that is used for the encryption (such as aes128, aes192,
 	// or aes256).
-	Algorithm Algorithm `locationName:"algorithm" type:"string" enum:"true"`
+	Algorithm Algorithm `json:"mediaconnect:UpdateEncryption:Algorithm" locationName:"algorithm" type:"string" enum:"true"`
 
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be
 	// used with the key for encrypting content. This parameter is not valid for
 	// static key encryption.
-	ConstantInitializationVector *string `locationName:"constantInitializationVector" type:"string"`
+	ConstantInitializationVector *string `json:"mediaconnect:UpdateEncryption:ConstantInitializationVector" locationName:"constantInitializationVector" type:"string"`
 
 	// The value of one of the devices that you configured with your digital rights
 	// management (DRM) platform key provider. This parameter is required for SPEKE
 	// encryption and is not valid for static key encryption.
-	DeviceId *string `locationName:"deviceId" type:"string"`
+	DeviceId *string `json:"mediaconnect:UpdateEncryption:DeviceId" locationName:"deviceId" type:"string"`
 
 	// The type of key that is used for the encryption. If no keyType is provided,
 	// the service will use the default setting (static-key).
-	KeyType KeyType `locationName:"keyType" type:"string" enum:"true"`
+	KeyType KeyType `json:"mediaconnect:UpdateEncryption:KeyType" locationName:"keyType" type:"string" enum:"true"`
 
 	// The AWS Region that the API Gateway proxy endpoint was created in. This parameter
 	// is required for SPEKE encryption and is not valid for static key encryption.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"mediaconnect:UpdateEncryption:Region" locationName:"region" type:"string"`
 
 	// An identifier for the content. The service sends this value to the key server
 	// to identify the current endpoint. The resource ID is also known as the content
 	// ID. This parameter is required for SPEKE encryption and is not valid for
 	// static key encryption.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"mediaconnect:UpdateEncryption:ResourceId" locationName:"resourceId" type:"string"`
 
 	// The ARN of the role that you created during setup (when you set up AWS Elemental
 	// MediaConnect as a trusted entity).
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"mediaconnect:UpdateEncryption:RoleArn" locationName:"roleArn" type:"string"`
 
 	// The ARN of the secret that you created in AWS Secrets Manager to store the
 	// encryption key. This parameter is required for static key encryption and
 	// is not valid for SPEKE encryption.
-	SecretArn *string `locationName:"secretArn" type:"string"`
+	SecretArn *string `json:"mediaconnect:UpdateEncryption:SecretArn" locationName:"secretArn" type:"string"`
 
 	// The URL from the API Gateway proxy that you set up to talk to your key server.
 	// This parameter is required for SPEKE encryption and is not valid for static
 	// key encryption.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediaconnect:UpdateEncryption:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation

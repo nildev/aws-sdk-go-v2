@@ -69,10 +69,10 @@ type ListDevicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of devices.
-	Devices []DeviceDescription `locationName:"devices" type:"list"`
+	Devices []DeviceDescription `json:"devices.iot1click:ListDevicesOutput:Devices" locationName:"devices" type:"list"`
 
 	// The token to retrieve the next set of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"devices.iot1click:ListDevicesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -67,10 +67,10 @@ type ListRequestedServiceQuotaChangeHistoryOutput struct {
 	// a subsequent call to the operation to continue processing and get the next
 	// part of the output. You should repeat this until the NextToken response element
 	// comes back empty (as null).
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicequotas:ListRequestedServiceQuotaChangeHistoryOutput:NextToken" type:"string"`
 
 	// Returns a list of service quota requests.
-	RequestedQuotas []RequestedServiceQuotaChange `type:"list"`
+	RequestedQuotas []RequestedServiceQuotaChange `json:"servicequotas:ListRequestedServiceQuotaChangeHistoryOutput:RequestedQuotas" type:"list"`
 }
 
 // String returns the string representation

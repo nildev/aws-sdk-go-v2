@@ -60,7 +60,7 @@ type GetNetworkOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing network configuration parameters.
-	Network *Network `type:"structure"`
+	Network *Network `json:"managedblockchain:GetNetworkOutput:Network" type:"structure"`
 }
 
 // String returns the string representation

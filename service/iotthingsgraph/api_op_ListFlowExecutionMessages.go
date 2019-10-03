@@ -54,10 +54,10 @@ type ListFlowExecutionMessagesOutput struct {
 
 	// A list of objects that contain information about events in the specified
 	// flow execution.
-	Messages []FlowExecutionMessage `locationName:"messages" type:"list"`
+	Messages []FlowExecutionMessage `json:"iotthingsgraph:ListFlowExecutionMessagesOutput:Messages" locationName:"messages" type:"list"`
 
 	// The string to specify as nextToken when you request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:ListFlowExecutionMessagesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

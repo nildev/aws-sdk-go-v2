@@ -62,10 +62,10 @@ type DeleteTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the ML object from which tags were deleted.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"machinelearning:DeleteTagsOutput:ResourceId" min:"1" type:"string"`
 
 	// The type of the ML object from which tags were deleted.
-	ResourceType TaggableResourceType `type:"string" enum:"true"`
+	ResourceType TaggableResourceType `json:"machinelearning:DeleteTagsOutput:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

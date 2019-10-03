@@ -46,10 +46,10 @@ type GetAssignmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The assignment. The response includes one Assignment element.
-	Assignment *Assignment `type:"structure"`
+	Assignment *Assignment `json:"mturk-requester:GetAssignmentOutput:Assignment" type:"structure"`
 
 	// The HIT associated with this assignment. The response includes one HIT element.
-	HIT *HIT `type:"structure"`
+	HIT *HIT `json:"mturk-requester:GetAssignmentOutput:HIT" type:"structure"`
 }
 
 // String returns the string representation

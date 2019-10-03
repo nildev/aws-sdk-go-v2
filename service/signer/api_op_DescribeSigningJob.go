@@ -58,44 +58,44 @@ type DescribeSigningJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Date and time that the signing job was completed.
-	CompletedAt *time.Time `locationName:"completedAt" type:"timestamp" timestampFormat:"unix"`
+	CompletedAt *time.Time `json:"signer:DescribeSigningJobOutput:CompletedAt" locationName:"completedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Date and time that the signing job was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"signer:DescribeSigningJobOutput:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the signing job on output.
-	JobId *string `locationName:"jobId" type:"string"`
+	JobId *string `json:"signer:DescribeSigningJobOutput:JobId" locationName:"jobId" type:"string"`
 
 	// A list of any overrides that were applied to the signing operation.
-	Overrides *SigningPlatformOverrides `locationName:"overrides" type:"structure"`
+	Overrides *SigningPlatformOverrides `json:"signer:DescribeSigningJobOutput:Overrides" locationName:"overrides" type:"structure"`
 
 	// The microcontroller platform to which your signed code image will be distributed.
-	PlatformId *string `locationName:"platformId" type:"string"`
+	PlatformId *string `json:"signer:DescribeSigningJobOutput:PlatformId" locationName:"platformId" type:"string"`
 
 	// The name of the profile that initiated the signing operation.
-	ProfileName *string `locationName:"profileName" min:"2" type:"string"`
+	ProfileName *string `json:"signer:DescribeSigningJobOutput:ProfileName" locationName:"profileName" min:"2" type:"string"`
 
 	// The IAM principal that requested the signing job.
-	RequestedBy *string `locationName:"requestedBy" type:"string"`
+	RequestedBy *string `json:"signer:DescribeSigningJobOutput:RequestedBy" locationName:"requestedBy" type:"string"`
 
 	// Name of the S3 bucket where the signed code image is saved by AWS Signer.
-	SignedObject *SignedObject `locationName:"signedObject" type:"structure"`
+	SignedObject *SignedObject `json:"signer:DescribeSigningJobOutput:SignedObject" locationName:"signedObject" type:"structure"`
 
 	// Amazon Resource Name (ARN) of your code signing certificate.
-	SigningMaterial *SigningMaterial `locationName:"signingMaterial" type:"structure"`
+	SigningMaterial *SigningMaterial `json:"signer:DescribeSigningJobOutput:SigningMaterial" locationName:"signingMaterial" type:"structure"`
 
 	// Map of user-assigned key-value pairs used during signing. These values contain
 	// any information that you specified for use in your signing job.
-	SigningParameters map[string]string `locationName:"signingParameters" type:"map"`
+	SigningParameters map[string]string `json:"signer:DescribeSigningJobOutput:SigningParameters" locationName:"signingParameters" type:"map"`
 
 	// The object that contains the name of your S3 bucket or your raw code.
-	Source *Source `locationName:"source" type:"structure"`
+	Source *Source `json:"signer:DescribeSigningJobOutput:Source" locationName:"source" type:"structure"`
 
 	// Status of the signing job.
-	Status SigningStatus `locationName:"status" type:"string" enum:"true"`
+	Status SigningStatus `json:"signer:DescribeSigningJobOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// String value that contains the status reason.
-	StatusReason *string `locationName:"statusReason" type:"string"`
+	StatusReason *string `json:"signer:DescribeSigningJobOutput:StatusReason" locationName:"statusReason" type:"string"`
 }
 
 // String returns the string representation

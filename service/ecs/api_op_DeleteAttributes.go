@@ -59,7 +59,7 @@ type DeleteAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of attribute objects that were successfully deleted from your resource.
-	Attributes []Attribute `locationName:"attributes" type:"list"`
+	Attributes []Attribute `json:"ecs:DeleteAttributesOutput:Attributes" locationName:"attributes" type:"list"`
 }
 
 // String returns the string representation

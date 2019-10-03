@@ -20,56 +20,56 @@ type BatchPrediction struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the DataSource that points to the group of observations to predict.
-	BatchPredictionDataSourceId *string `min:"1" type:"string"`
+	BatchPredictionDataSourceId *string `json:"machinelearning:BatchPrediction:BatchPredictionDataSourceId" min:"1" type:"string"`
 
 	// The ID assigned to the BatchPrediction at creation. This value should be
 	// identical to the value of the BatchPredictionID in the request.
-	BatchPredictionId *string `min:"1" type:"string"`
+	BatchPredictionId *string `json:"machinelearning:BatchPrediction:BatchPredictionId" min:"1" type:"string"`
 
 	// Long integer type that is a 64-bit signed number.
-	ComputeTime *int64 `type:"long"`
+	ComputeTime *int64 `json:"machinelearning:BatchPrediction:ComputeTime" type:"long"`
 
 	// The time that the BatchPrediction was created. The time is expressed in epoch
 	// time.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"machinelearning:BatchPrediction:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS user account that invoked the BatchPrediction. The account type can
 	// be either an AWS root account or an AWS Identity and Access Management (IAM)
 	// user account.
-	CreatedByIamUser *string `type:"string"`
+	CreatedByIamUser *string `json:"machinelearning:BatchPrediction:CreatedByIamUser" type:"string"`
 
 	// A timestamp represented in epoch time.
-	FinishedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FinishedAt *time.Time `json:"machinelearning:BatchPrediction:FinishedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The location of the data file or directory in Amazon Simple Storage Service
 	// (Amazon S3).
-	InputDataLocationS3 *string `type:"string"`
+	InputDataLocationS3 *string `json:"machinelearning:BatchPrediction:InputDataLocationS3" type:"string"`
 
 	// Long integer type that is a 64-bit signed number.
-	InvalidRecordCount *int64 `type:"long"`
+	InvalidRecordCount *int64 `json:"machinelearning:BatchPrediction:InvalidRecordCount" type:"long"`
 
 	// The time of the most recent edit to the BatchPrediction. The time is expressed
 	// in epoch time.
-	LastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"machinelearning:BatchPrediction:LastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the MLModel that generated predictions for the BatchPrediction
 	// request.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:BatchPrediction:MLModelId" min:"1" type:"string"`
 
 	// A description of the most recent details about processing the batch prediction
 	// request.
-	Message *string `type:"string"`
+	Message *string `json:"machinelearning:BatchPrediction:Message" type:"string"`
 
 	// A user-supplied name or description of the BatchPrediction.
-	Name *string `type:"string"`
+	Name *string `json:"machinelearning:BatchPrediction:Name" type:"string"`
 
 	// The location of an Amazon S3 bucket or directory to receive the operation
 	// results. The following substrings are not allowed in the s3 key portion of
 	// the outputURI field: ':', '//', '/./', '/../'.
-	OutputUri *string `type:"string"`
+	OutputUri *string `json:"machinelearning:BatchPrediction:OutputUri" type:"string"`
 
 	// A timestamp represented in epoch time.
-	StartedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"machinelearning:BatchPrediction:StartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the BatchPrediction. This element can have one of the following
 	// values:
@@ -85,10 +85,10 @@ type BatchPrediction struct {
 	//    * COMPLETED - The batch prediction process completed successfully.
 	//
 	//    * DELETED - The BatchPrediction is marked as deleted. It is not usable.
-	Status EntityStatus `type:"string" enum:"true"`
+	Status EntityStatus `json:"machinelearning:BatchPrediction:Status" type:"string" enum:"true"`
 
 	// Long integer type that is a 64-bit signed number.
-	TotalRecordCount *int64 `type:"long"`
+	TotalRecordCount *int64 `json:"machinelearning:BatchPrediction:TotalRecordCount" type:"long"`
 }
 
 // String returns the string representation
@@ -105,63 +105,63 @@ type DataSource struct {
 
 	// The parameter is true if statistics need to be generated from the observation
 	// data.
-	ComputeStatistics *bool `type:"boolean"`
+	ComputeStatistics *bool `json:"machinelearning:DataSource:ComputeStatistics" type:"boolean"`
 
 	// Long integer type that is a 64-bit signed number.
-	ComputeTime *int64 `type:"long"`
+	ComputeTime *int64 `json:"machinelearning:DataSource:ComputeTime" type:"long"`
 
 	// The time that the DataSource was created. The time is expressed in epoch
 	// time.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"machinelearning:DataSource:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS user account from which the DataSource was created. The account type
 	// can be either an AWS root account or an AWS Identity and Access Management
 	// (IAM) user account.
-	CreatedByIamUser *string `type:"string"`
+	CreatedByIamUser *string `json:"machinelearning:DataSource:CreatedByIamUser" type:"string"`
 
 	// The location and name of the data in Amazon Simple Storage Service (Amazon
 	// S3) that is used by a DataSource.
-	DataLocationS3 *string `type:"string"`
+	DataLocationS3 *string `json:"machinelearning:DataSource:DataLocationS3" type:"string"`
 
 	// A JSON string that represents the splitting and rearrangement requirement
 	// used when this DataSource was created.
-	DataRearrangement *string `type:"string"`
+	DataRearrangement *string `json:"machinelearning:DataSource:DataRearrangement" type:"string"`
 
 	// The total number of observations contained in the data files that the DataSource
 	// references.
-	DataSizeInBytes *int64 `type:"long"`
+	DataSizeInBytes *int64 `json:"machinelearning:DataSource:DataSizeInBytes" type:"long"`
 
 	// The ID that is assigned to the DataSource during creation.
-	DataSourceId *string `min:"1" type:"string"`
+	DataSourceId *string `json:"machinelearning:DataSource:DataSourceId" min:"1" type:"string"`
 
 	// A timestamp represented in epoch time.
-	FinishedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FinishedAt *time.Time `json:"machinelearning:DataSource:FinishedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time of the most recent edit to the BatchPrediction. The time is expressed
 	// in epoch time.
-	LastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"machinelearning:DataSource:LastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the most recent details about creating the DataSource.
-	Message *string `type:"string"`
+	Message *string `json:"machinelearning:DataSource:Message" type:"string"`
 
 	// A user-supplied name or description of the DataSource.
-	Name *string `type:"string"`
+	Name *string `json:"machinelearning:DataSource:Name" type:"string"`
 
 	// The number of data files referenced by the DataSource.
-	NumberOfFiles *int64 `type:"long"`
+	NumberOfFiles *int64 `json:"machinelearning:DataSource:NumberOfFiles" type:"long"`
 
 	// The datasource details that are specific to Amazon RDS.
-	RDSMetadata *RDSMetadata `type:"structure"`
+	RDSMetadata *RDSMetadata `json:"machinelearning:DataSource:RDSMetadata" type:"structure"`
 
 	// Describes the DataSource details specific to Amazon Redshift.
-	RedshiftMetadata *RedshiftMetadata `type:"structure"`
+	RedshiftMetadata *RedshiftMetadata `json:"machinelearning:DataSource:RedshiftMetadata" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of an AWS IAM Role (http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html#roles-about-termsandconcepts),
 	// such as the following: arn:aws:iam::account:role/rolename.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"machinelearning:DataSource:RoleARN" min:"1" type:"string"`
 
 	// A timestamp represented in epoch time.
-	StartedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"machinelearning:DataSource:StartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The current status of the DataSource. This element can have one of the following
 	// values:
@@ -177,7 +177,7 @@ type DataSource struct {
 	//    * COMPLETED - The creation process completed successfully.
 	//
 	//    * DELETED - The DataSource is marked as deleted. It is not usable.
-	Status EntityStatus `type:"string" enum:"true"`
+	Status EntityStatus `json:"machinelearning:DataSource:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -193,42 +193,42 @@ type Evaluation struct {
 	_ struct{} `type:"structure"`
 
 	// Long integer type that is a 64-bit signed number.
-	ComputeTime *int64 `type:"long"`
+	ComputeTime *int64 `json:"machinelearning:Evaluation:ComputeTime" type:"long"`
 
 	// The time that the Evaluation was created. The time is expressed in epoch
 	// time.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"machinelearning:Evaluation:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS user account that invoked the evaluation. The account type can be
 	// either an AWS root account or an AWS Identity and Access Management (IAM)
 	// user account.
-	CreatedByIamUser *string `type:"string"`
+	CreatedByIamUser *string `json:"machinelearning:Evaluation:CreatedByIamUser" type:"string"`
 
 	// The ID of the DataSource that is used to evaluate the MLModel.
-	EvaluationDataSourceId *string `min:"1" type:"string"`
+	EvaluationDataSourceId *string `json:"machinelearning:Evaluation:EvaluationDataSourceId" min:"1" type:"string"`
 
 	// The ID that is assigned to the Evaluation at creation.
-	EvaluationId *string `min:"1" type:"string"`
+	EvaluationId *string `json:"machinelearning:Evaluation:EvaluationId" min:"1" type:"string"`
 
 	// A timestamp represented in epoch time.
-	FinishedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FinishedAt *time.Time `json:"machinelearning:Evaluation:FinishedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The location and name of the data in Amazon Simple Storage Server (Amazon
 	// S3) that is used in the evaluation.
-	InputDataLocationS3 *string `type:"string"`
+	InputDataLocationS3 *string `json:"machinelearning:Evaluation:InputDataLocationS3" type:"string"`
 
 	// The time of the most recent edit to the Evaluation. The time is expressed
 	// in epoch time.
-	LastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"machinelearning:Evaluation:LastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the MLModel that is the focus of the evaluation.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:Evaluation:MLModelId" min:"1" type:"string"`
 
 	// A description of the most recent details about evaluating the MLModel.
-	Message *string `type:"string"`
+	Message *string `json:"machinelearning:Evaluation:Message" type:"string"`
 
 	// A user-supplied name or description of the Evaluation.
-	Name *string `type:"string"`
+	Name *string `json:"machinelearning:Evaluation:Name" type:"string"`
 
 	// Measurements of how well the MLModel performed, using observations referenced
 	// by the DataSource. One of the following metrics is returned, based on the
@@ -246,10 +246,10 @@ type Evaluation struct {
 	//
 	// For more information about performance metrics, please see the Amazon Machine
 	// Learning Developer Guide (http://docs.aws.amazon.com/machine-learning/latest/dg).
-	PerformanceMetrics *PerformanceMetrics `type:"structure"`
+	PerformanceMetrics *PerformanceMetrics `json:"machinelearning:Evaluation:PerformanceMetrics" type:"structure"`
 
 	// A timestamp represented in epoch time.
-	StartedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"machinelearning:Evaluation:StartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the evaluation. This element can have one of the following
 	// values:
@@ -265,7 +265,7 @@ type Evaluation struct {
 	//    * COMPLETED - The evaluation process completed successfully.
 	//
 	//    * DELETED - The Evaluation is marked as deleted. It is not usable.
-	Status EntityStatus `type:"string" enum:"true"`
+	Status EntityStatus `json:"machinelearning:Evaluation:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -284,35 +284,35 @@ type MLModel struct {
 	//
 	//    * SGD -- Stochastic gradient descent. The goal of SGD is to minimize the
 	//    gradient of the loss function.
-	Algorithm Algorithm `type:"string" enum:"true"`
+	Algorithm Algorithm `json:"machinelearning:MLModel:Algorithm" type:"string" enum:"true"`
 
 	// Long integer type that is a 64-bit signed number.
-	ComputeTime *int64 `type:"long"`
+	ComputeTime *int64 `json:"machinelearning:MLModel:ComputeTime" type:"long"`
 
 	// The time that the MLModel was created. The time is expressed in epoch time.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"machinelearning:MLModel:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS user account from which the MLModel was created. The account type
 	// can be either an AWS root account or an AWS Identity and Access Management
 	// (IAM) user account.
-	CreatedByIamUser *string `type:"string"`
+	CreatedByIamUser *string `json:"machinelearning:MLModel:CreatedByIamUser" type:"string"`
 
 	// The current endpoint of the MLModel.
-	EndpointInfo *RealtimeEndpointInfo `type:"structure"`
+	EndpointInfo *RealtimeEndpointInfo `json:"machinelearning:MLModel:EndpointInfo" type:"structure"`
 
 	// A timestamp represented in epoch time.
-	FinishedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FinishedAt *time.Time `json:"machinelearning:MLModel:FinishedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The location of the data file or directory in Amazon Simple Storage Service
 	// (Amazon S3).
-	InputDataLocationS3 *string `type:"string"`
+	InputDataLocationS3 *string `json:"machinelearning:MLModel:InputDataLocationS3" type:"string"`
 
 	// The time of the most recent edit to the MLModel. The time is expressed in
 	// epoch time.
-	LastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"machinelearning:MLModel:LastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID assigned to the MLModel at creation.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:MLModel:MLModelId" min:"1" type:"string"`
 
 	// Identifies the MLModel category. The following are the available types:
 	//
@@ -324,25 +324,25 @@ type MLModel struct {
 	//
 	//    * MULTICLASS - Produces one of several possible results. For example,
 	//    "Is this a HIGH-, LOW-, or MEDIUM-risk trade?".
-	MLModelType MLModelType `type:"string" enum:"true"`
+	MLModelType MLModelType `json:"machinelearning:MLModel:MLModelType" type:"string" enum:"true"`
 
 	// A description of the most recent details about accessing the MLModel.
-	Message *string `type:"string"`
+	Message *string `json:"machinelearning:MLModel:Message" type:"string"`
 
 	// A user-supplied name or description of the MLModel.
-	Name *string `type:"string"`
+	Name *string `json:"machinelearning:MLModel:Name" type:"string"`
 
-	ScoreThreshold *float64 `type:"float"`
+	ScoreThreshold *float64 `json:"machinelearning:MLModel:ScoreThreshold" type:"float"`
 
 	// The time of the most recent edit to the ScoreThreshold. The time is expressed
 	// in epoch time.
-	ScoreThresholdLastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ScoreThresholdLastUpdatedAt *time.Time `json:"machinelearning:MLModel:ScoreThresholdLastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Long integer type that is a 64-bit signed number.
-	SizeInBytes *int64 `type:"long"`
+	SizeInBytes *int64 `json:"machinelearning:MLModel:SizeInBytes" type:"long"`
 
 	// A timestamp represented in epoch time.
-	StartedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"machinelearning:MLModel:StartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The current status of an MLModel. This element can have one of the following
 	// values:
@@ -358,10 +358,10 @@ type MLModel struct {
 	//    * COMPLETED - The creation process completed successfully.
 	//
 	//    * DELETED - The MLModel is marked as deleted. It isn't usable.
-	Status EntityStatus `type:"string" enum:"true"`
+	Status EntityStatus `json:"machinelearning:MLModel:Status" type:"string" enum:"true"`
 
 	// The ID of the training DataSource. The CreateMLModel operation uses the TrainingDataSourceId.
-	TrainingDataSourceId *string `min:"1" type:"string"`
+	TrainingDataSourceId *string `json:"machinelearning:MLModel:TrainingDataSourceId" min:"1" type:"string"`
 
 	// A list of the training parameters in the MLModel. The list is implemented
 	// as a map of key-value pairs.
@@ -397,7 +397,7 @@ type MLModel struct {
 	//    value is a double that ranges from 0 to MAX_DOUBLE. The default is to
 	//    not use L2 normalization. This parameter can't be used when L1 is specified.
 	//    Use this parameter sparingly.
-	TrainingParameters map[string]string `type:"map"`
+	TrainingParameters map[string]string `json:"machinelearning:MLModel:TrainingParameters" type:"map"`
 }
 
 // String returns the string representation
@@ -423,7 +423,7 @@ func (s MLModel) String() string {
 type PerformanceMetrics struct {
 	_ struct{} `type:"structure"`
 
-	Properties map[string]string `type:"map"`
+	Properties map[string]string `json:"machinelearning:PerformanceMetrics:Properties" type:"map"`
 }
 
 // String returns the string representation
@@ -446,20 +446,20 @@ type Prediction struct {
 	_ struct{} `type:"structure"`
 
 	// Provides any additional details regarding the prediction.
-	Details map[string]string `locationName:"details" type:"map"`
+	Details map[string]string `json:"machinelearning:Prediction:Details" locationName:"details" type:"map"`
 
 	// The prediction label for either a BINARY or MULTICLASS MLModel.
-	PredictedLabel *string `locationName:"predictedLabel" min:"1" type:"string"`
+	PredictedLabel *string `json:"machinelearning:Prediction:PredictedLabel" locationName:"predictedLabel" min:"1" type:"string"`
 
 	// Provides the raw classification score corresponding to each label.
-	PredictedScores map[string]float64 `locationName:"predictedScores" type:"map"`
+	PredictedScores map[string]float64 `json:"machinelearning:Prediction:PredictedScores" locationName:"predictedScores" type:"map"`
 
 	// The prediction value for
 	//    REGRESSION
 	//
 	//    MLModel
 	// .
-	PredictedValue *float64 `locationName:"predictedValue" type:"float"`
+	PredictedValue *float64 `json:"machinelearning:Prediction:PredictedValue" locationName:"predictedValue" type:"float"`
 }
 
 // String returns the string representation
@@ -527,7 +527,7 @@ type RDSDataSpec struct {
 	//    "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}
 	//    Datasource for training: {"splitting":{"percentBegin":70, "percentEnd":100,
 	//    "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}
-	DataRearrangement *string `type:"string"`
+	DataRearrangement *string `json:"machinelearning:RDSDataSpec:DataRearrangement" type:"string"`
 
 	// A JSON string that represents the schema for an Amazon RDS DataSource. The
 	// DataSchema defines the structure of the observation data in the data file(s)
@@ -561,21 +561,21 @@ type RDSDataSpec struct {
 	// } ],
 	//
 	// "excludedVariableNames": [ "F6" ] }
-	DataSchema *string `type:"string"`
+	DataSchema *string `json:"machinelearning:RDSDataSpec:DataSchema" type:"string"`
 
 	// The Amazon S3 location of the DataSchema.
-	DataSchemaUri *string `type:"string"`
+	DataSchemaUri *string `json:"machinelearning:RDSDataSpec:DataSchemaUri" type:"string"`
 
 	// The AWS Identity and Access Management (IAM) credentials that are used connect
 	// to the Amazon RDS database.
 	//
 	// DatabaseCredentials is a required field
-	DatabaseCredentials *RDSDatabaseCredentials `type:"structure" required:"true"`
+	DatabaseCredentials *RDSDatabaseCredentials `json:"machinelearning:RDSDataSpec:DatabaseCredentials" type:"structure" required:"true"`
 
 	// Describes the DatabaseName and InstanceIdentifier of an Amazon RDS database.
 	//
 	// DatabaseInformation is a required field
-	DatabaseInformation *RDSDatabase `type:"structure" required:"true"`
+	DatabaseInformation *RDSDatabase `json:"machinelearning:RDSDataSpec:DatabaseInformation" type:"structure" required:"true"`
 
 	// The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic Compute
 	// Cloud (Amazon EC2) instance to carry out the copy operation from Amazon RDS
@@ -583,13 +583,13 @@ type RDSDataSpec struct {
 	// for data pipelines.
 	//
 	// ResourceRole is a required field
-	ResourceRole *string `min:"1" type:"string" required:"true"`
+	ResourceRole *string `json:"machinelearning:RDSDataSpec:ResourceRole" min:"1" type:"string" required:"true"`
 
 	// The Amazon S3 location for staging Amazon RDS data. The data retrieved from
 	// Amazon RDS using SelectSqlQuery is stored in this location.
 	//
 	// S3StagingLocation is a required field
-	S3StagingLocation *string `type:"string" required:"true"`
+	S3StagingLocation *string `json:"machinelearning:RDSDataSpec:S3StagingLocation" type:"string" required:"true"`
 
 	// The security group IDs to be used to access a VPC-based RDS DB instance.
 	// Ensure that there are appropriate ingress rules set up to allow access to
@@ -597,12 +597,12 @@ type RDSDataSpec struct {
 	// the copy operation from Amazon RDS to an Amazon S3 task.
 	//
 	// SecurityGroupIds is a required field
-	SecurityGroupIds []string `type:"list" required:"true"`
+	SecurityGroupIds []string `json:"machinelearning:RDSDataSpec:SecurityGroupIds" type:"list" required:"true"`
 
 	// The query that is used to retrieve the observation data for the DataSource.
 	//
 	// SelectSqlQuery is a required field
-	SelectSqlQuery *string `min:"1" type:"string" required:"true"`
+	SelectSqlQuery *string `json:"machinelearning:RDSDataSpec:SelectSqlQuery" min:"1" type:"string" required:"true"`
 
 	// The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to
 	// monitor the progress of the copy task from Amazon RDS to Amazon S3. For more
@@ -610,14 +610,14 @@ type RDSDataSpec struct {
 	// for data pipelines.
 	//
 	// ServiceRole is a required field
-	ServiceRole *string `min:"1" type:"string" required:"true"`
+	ServiceRole *string `json:"machinelearning:RDSDataSpec:ServiceRole" min:"1" type:"string" required:"true"`
 
 	// The subnet ID to be used to access a VPC-based RDS DB instance. This attribute
 	// is used by Data Pipeline to carry out the copy task from Amazon RDS to Amazon
 	// S3.
 	//
 	// SubnetId is a required field
-	SubnetId *string `min:"1" type:"string" required:"true"`
+	SubnetId *string `json:"machinelearning:RDSDataSpec:SubnetId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -696,12 +696,12 @@ type RDSDatabase struct {
 	// The name of a database hosted on an RDS DB instance.
 	//
 	// DatabaseName is a required field
-	DatabaseName *string `min:"1" type:"string" required:"true"`
+	DatabaseName *string `json:"machinelearning:RDSDatabase:DatabaseName" min:"1" type:"string" required:"true"`
 
 	// The ID of an RDS DB instance.
 	//
 	// InstanceIdentifier is a required field
-	InstanceIdentifier *string `min:"1" type:"string" required:"true"`
+	InstanceIdentifier *string `json:"machinelearning:RDSDatabase:InstanceIdentifier" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -742,14 +742,14 @@ type RDSDatabaseCredentials struct {
 	// RDSSelectQuery query.
 	//
 	// Password is a required field
-	Password *string `min:"8" type:"string" required:"true"`
+	Password *string `json:"machinelearning:RDSDatabaseCredentials:Password" min:"8" type:"string" required:"true"`
 
 	// The username to be used by Amazon ML to connect to database on an Amazon
 	// RDS instance. The username should have sufficient permissions to execute
 	// an RDSSelectSqlQuery query.
 	//
 	// Username is a required field
-	Username *string `min:"1" type:"string" required:"true"`
+	Username *string `json:"machinelearning:RDSDatabaseCredentials:Username" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -788,31 +788,31 @@ type RDSMetadata struct {
 	// The ID of the Data Pipeline instance that is used to carry to copy data from
 	// Amazon RDS to Amazon S3. You can use the ID to find details about the instance
 	// in the Data Pipeline console.
-	DataPipelineId *string `min:"1" type:"string"`
+	DataPipelineId *string `json:"machinelearning:RDSMetadata:DataPipelineId" min:"1" type:"string"`
 
 	// The database details required to connect to an Amazon RDS.
-	Database *RDSDatabase `type:"structure"`
+	Database *RDSDatabase `json:"machinelearning:RDSMetadata:Database" type:"structure"`
 
 	// The username to be used by Amazon ML to connect to database on an Amazon
 	// RDS instance. The username should have sufficient permissions to execute
 	// an RDSSelectSqlQuery query.
-	DatabaseUserName *string `min:"1" type:"string"`
+	DatabaseUserName *string `json:"machinelearning:RDSMetadata:DatabaseUserName" min:"1" type:"string"`
 
 	// The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance
 	// to carry out the copy task from Amazon RDS to Amazon S3. For more information,
 	// see Role templates (http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html)
 	// for data pipelines.
-	ResourceRole *string `min:"1" type:"string"`
+	ResourceRole *string `json:"machinelearning:RDSMetadata:ResourceRole" min:"1" type:"string"`
 
 	// The SQL query that is supplied during CreateDataSourceFromRDS. Returns only
 	// if Verbose is true in GetDataSourceInput.
-	SelectSqlQuery *string `min:"1" type:"string"`
+	SelectSqlQuery *string `json:"machinelearning:RDSMetadata:SelectSqlQuery" min:"1" type:"string"`
 
 	// The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to
 	// monitor the progress of the copy task from Amazon RDS to Amazon S3. For more
 	// information, see Role templates (http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html)
 	// for data pipelines.
-	ServiceRole *string `min:"1" type:"string"`
+	ServiceRole *string `json:"machinelearning:RDSMetadata:ServiceRole" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -826,7 +826,7 @@ type RealtimeEndpointInfo struct {
 
 	// The time that the request to create the real-time endpoint for the MLModel
 	// was received. The time is expressed in epoch time.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"machinelearning:RealtimeEndpointInfo:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The current status of the real-time endpoint for the MLModel. This element
 	// can have one of the following values:
@@ -836,18 +836,18 @@ type RealtimeEndpointInfo struct {
 	//    * READY - Endpoint is ready to be used for real-time predictions.
 	//
 	//    * UPDATING - Updating/creating the endpoint.
-	EndpointStatus RealtimeEndpointStatus `type:"string" enum:"true"`
+	EndpointStatus RealtimeEndpointStatus `json:"machinelearning:RealtimeEndpointInfo:EndpointStatus" type:"string" enum:"true"`
 
 	// The URI that specifies where to send real-time prediction requests for the
 	// MLModel.
 	//  Note
 	// The application must wait until the real-time endpoint is ready before using
 	// this URI.
-	EndpointUrl *string `type:"string"`
+	EndpointUrl *string `json:"machinelearning:RealtimeEndpointInfo:EndpointUrl" type:"string"`
 
 	// The maximum processing rate for the real-time endpoint for MLModel, measured
 	// in incoming requests per second.
-	PeakRequestsPerSecond *int64 `type:"integer"`
+	PeakRequestsPerSecond *int64 `json:"machinelearning:RealtimeEndpointInfo:PeakRequestsPerSecond" type:"integer"`
 }
 
 // String returns the string representation
@@ -914,7 +914,7 @@ type RedshiftDataSpec struct {
 	//    "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}
 	//    Datasource for training: {"splitting":{"percentBegin":70, "percentEnd":100,
 	//    "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}
-	DataRearrangement *string `type:"string"`
+	DataRearrangement *string `json:"machinelearning:RedshiftDataSpec:DataRearrangement" type:"string"`
 
 	// A JSON string that represents the schema for an Amazon Redshift DataSource.
 	// The DataSchema defines the structure of the observation data in the data
@@ -948,33 +948,33 @@ type RedshiftDataSpec struct {
 	// } ],
 	//
 	// "excludedVariableNames": [ "F6" ] }
-	DataSchema *string `type:"string"`
+	DataSchema *string `json:"machinelearning:RedshiftDataSpec:DataSchema" type:"string"`
 
 	// Describes the schema location for an Amazon Redshift DataSource.
-	DataSchemaUri *string `type:"string"`
+	DataSchemaUri *string `json:"machinelearning:RedshiftDataSpec:DataSchemaUri" type:"string"`
 
 	// Describes AWS Identity and Access Management (IAM) credentials that are used
 	// connect to the Amazon Redshift database.
 	//
 	// DatabaseCredentials is a required field
-	DatabaseCredentials *RedshiftDatabaseCredentials `type:"structure" required:"true"`
+	DatabaseCredentials *RedshiftDatabaseCredentials `json:"machinelearning:RedshiftDataSpec:DatabaseCredentials" type:"structure" required:"true"`
 
 	// Describes the DatabaseName and ClusterIdentifier for an Amazon Redshift DataSource.
 	//
 	// DatabaseInformation is a required field
-	DatabaseInformation *RedshiftDatabase `type:"structure" required:"true"`
+	DatabaseInformation *RedshiftDatabase `json:"machinelearning:RedshiftDataSpec:DatabaseInformation" type:"structure" required:"true"`
 
 	// Describes an Amazon S3 location to store the result set of the SelectSqlQuery
 	// query.
 	//
 	// S3StagingLocation is a required field
-	S3StagingLocation *string `type:"string" required:"true"`
+	S3StagingLocation *string `json:"machinelearning:RedshiftDataSpec:S3StagingLocation" type:"string" required:"true"`
 
 	// Describes the SQL Query to execute on an Amazon Redshift database for an
 	// Amazon Redshift DataSource.
 	//
 	// SelectSqlQuery is a required field
-	SelectSqlQuery *string `min:"1" type:"string" required:"true"`
+	SelectSqlQuery *string `json:"machinelearning:RedshiftDataSpec:SelectSqlQuery" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1029,12 +1029,12 @@ type RedshiftDatabase struct {
 	// The ID of an Amazon Redshift cluster.
 	//
 	// ClusterIdentifier is a required field
-	ClusterIdentifier *string `min:"1" type:"string" required:"true"`
+	ClusterIdentifier *string `json:"machinelearning:RedshiftDatabase:ClusterIdentifier" min:"1" type:"string" required:"true"`
 
 	// The name of a database hosted on an Amazon Redshift cluster.
 	//
 	// DatabaseName is a required field
-	DatabaseName *string `min:"1" type:"string" required:"true"`
+	DatabaseName *string `json:"machinelearning:RedshiftDatabase:DatabaseName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1077,7 +1077,7 @@ type RedshiftDatabaseCredentials struct {
 	// Redshift USER (http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html).
 	//
 	// Password is a required field
-	Password *string `min:"8" type:"string" required:"true"`
+	Password *string `json:"machinelearning:RedshiftDatabaseCredentials:Password" min:"8" type:"string" required:"true"`
 
 	// A username to be used by Amazon Machine Learning (Amazon ML)to connect to
 	// a database on an Amazon Redshift cluster. The username should have sufficient
@@ -1085,7 +1085,7 @@ type RedshiftDatabaseCredentials struct {
 	// be valid for an Amazon Redshift USER (http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html).
 	//
 	// Username is a required field
-	Username *string `min:"1" type:"string" required:"true"`
+	Username *string `json:"machinelearning:RedshiftDatabaseCredentials:Username" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1125,15 +1125,15 @@ type RedshiftMetadata struct {
 	// a database on an Amazon Redshift cluster. The username should have sufficient
 	// permissions to execute the RedshiftSelectSqlQuery query. The username should
 	// be valid for an Amazon Redshift USER (http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html).
-	DatabaseUserName *string `min:"1" type:"string"`
+	DatabaseUserName *string `json:"machinelearning:RedshiftMetadata:DatabaseUserName" min:"1" type:"string"`
 
 	// Describes the database details required to connect to an Amazon Redshift
 	// database.
-	RedshiftDatabase *RedshiftDatabase `type:"structure"`
+	RedshiftDatabase *RedshiftDatabase `json:"machinelearning:RedshiftMetadata:RedshiftDatabase" type:"structure"`
 
 	// The SQL query that is specified during CreateDataSourceFromRedshift. Returns
 	// only if Verbose is true in GetDataSourceInput.
-	SelectSqlQuery *string `min:"1" type:"string"`
+	SelectSqlQuery *string `json:"machinelearning:RedshiftMetadata:SelectSqlQuery" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1150,7 +1150,7 @@ type S3DataSpec struct {
 	// bucket containing data files.
 	//
 	// DataLocationS3 is a required field
-	DataLocationS3 *string `type:"string" required:"true"`
+	DataLocationS3 *string `json:"machinelearning:S3DataSpec:DataLocationS3" type:"string" required:"true"`
 
 	// A JSON string that represents the splitting and rearrangement processing
 	// to be applied to a DataSource. If the DataRearrangement parameter is not
@@ -1207,7 +1207,7 @@ type S3DataSpec struct {
 	//    "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}
 	//    Datasource for training: {"splitting":{"percentBegin":70, "percentEnd":100,
 	//    "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}
-	DataRearrangement *string `type:"string"`
+	DataRearrangement *string `json:"machinelearning:S3DataSpec:DataRearrangement" type:"string"`
 
 	// A JSON string that represents the schema for an Amazon S3 DataSource. The
 	// DataSchema defines the structure of the observation data in the data file(s)
@@ -1241,11 +1241,11 @@ type S3DataSpec struct {
 	// } ],
 	//
 	// "excludedVariableNames": [ "F6" ] }
-	DataSchema *string `type:"string"`
+	DataSchema *string `json:"machinelearning:S3DataSpec:DataSchema" type:"string"`
 
 	// Describes the schema location in Amazon S3. You must provide either the DataSchema
 	// or the DataSchemaLocationS3.
-	DataSchemaLocationS3 *string `type:"string"`
+	DataSchemaLocationS3 *string `json:"machinelearning:S3DataSpec:DataSchemaLocationS3" type:"string"`
 }
 
 // String returns the string representation
@@ -1273,11 +1273,11 @@ type Tag struct {
 
 	// A unique identifier for the tag. Valid characters include Unicode letters,
 	// digits, white space, _, ., /, =, +, -, %, and @.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"machinelearning:Tag:Key" min:"1" type:"string"`
 
 	// An optional string, typically used to describe or define the tag. Valid characters
 	// include Unicode letters, digits, white space, _, ., /, =, +, -, %, and @.
-	Value *string `type:"string"`
+	Value *string `json:"machinelearning:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

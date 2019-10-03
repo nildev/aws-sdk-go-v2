@@ -96,7 +96,7 @@ type DisassociateVPCFromHostedZoneOutput struct {
 	// zone.
 	//
 	// ChangeInfo is a required field
-	ChangeInfo *ChangeInfo `type:"structure" required:"true"`
+	ChangeInfo *ChangeInfo `json:"route53:DisassociateVPCFromHostedZoneOutput:ChangeInfo" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -82,28 +82,28 @@ type PostCommentForComparedCommitOutput struct {
 	_ struct{} `type:"structure"`
 
 	// In the directionality you established, the blob ID of the 'after' blob.
-	AfterBlobId *string `locationName:"afterBlobId" type:"string"`
+	AfterBlobId *string `json:"codecommit:PostCommentForComparedCommitOutput:AfterBlobId" locationName:"afterBlobId" type:"string"`
 
 	// In the directionality you established, the full commit ID of the 'after'
 	// commit.
-	AfterCommitId *string `locationName:"afterCommitId" type:"string"`
+	AfterCommitId *string `json:"codecommit:PostCommentForComparedCommitOutput:AfterCommitId" locationName:"afterCommitId" type:"string"`
 
 	// In the directionality you established, the blob ID of the 'before' blob.
-	BeforeBlobId *string `locationName:"beforeBlobId" type:"string"`
+	BeforeBlobId *string `json:"codecommit:PostCommentForComparedCommitOutput:BeforeBlobId" locationName:"beforeBlobId" type:"string"`
 
 	// In the directionality you established, the full commit ID of the 'before'
 	// commit.
-	BeforeCommitId *string `locationName:"beforeCommitId" type:"string"`
+	BeforeCommitId *string `json:"codecommit:PostCommentForComparedCommitOutput:BeforeCommitId" locationName:"beforeCommitId" type:"string"`
 
 	// The content of the comment you posted.
-	Comment *Comment `locationName:"comment" type:"structure"`
+	Comment *Comment `json:"codecommit:PostCommentForComparedCommitOutput:Comment" locationName:"comment" type:"structure"`
 
 	// The location of the comment in the comparison between the two commits.
-	Location *Location `locationName:"location" type:"structure"`
+	Location *Location `json:"codecommit:PostCommentForComparedCommitOutput:Location" locationName:"location" type:"structure"`
 
 	// The name of the repository where you posted a comment on the comparison between
 	// commits.
-	RepositoryName *string `locationName:"repositoryName" min:"1" type:"string"`
+	RepositoryName *string `json:"codecommit:PostCommentForComparedCommitOutput:RepositoryName" locationName:"repositoryName" min:"1" type:"string"`
 }
 
 // String returns the string representation

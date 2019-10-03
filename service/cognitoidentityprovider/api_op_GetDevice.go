@@ -53,7 +53,7 @@ type GetDeviceOutput struct {
 	// The device.
 	//
 	// Device is a required field
-	Device *DeviceType `type:"structure" required:"true"`
+	Device *DeviceType `json:"cognito-idp:GetDeviceOutput:Device" type:"structure" required:"true"`
 }
 
 // String returns the string representation

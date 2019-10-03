@@ -77,13 +77,13 @@ type GetReservationPurchaseRecommendationOutput struct {
 
 	// Information about this specific recommendation call, such as the time stamp
 	// for when Cost Explorer generated this recommendation.
-	Metadata *ReservationPurchaseRecommendationMetadata `type:"structure"`
+	Metadata *ReservationPurchaseRecommendationMetadata `json:"ce:GetReservationPurchaseRecommendationOutput:Metadata" type:"structure"`
 
 	// The pagination token for the next set of retrievable results.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"ce:GetReservationPurchaseRecommendationOutput:NextPageToken" type:"string"`
 
 	// Recommendations for reservations to purchase.
-	Recommendations []ReservationPurchaseRecommendation `type:"list"`
+	Recommendations []ReservationPurchaseRecommendation `json:"ce:GetReservationPurchaseRecommendationOutput:Recommendations" type:"list"`
 }
 
 // String returns the string representation

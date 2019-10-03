@@ -46,7 +46,7 @@ type StopTriggerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the trigger that was stopped.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:StopTriggerOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

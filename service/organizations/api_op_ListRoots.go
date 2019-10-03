@@ -58,10 +58,10 @@ type ListRootsOutput struct {
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListRootsOutput:NextToken" type:"string"`
 
 	// A list of roots that are defined in an organization.
-	Roots []Root `type:"list"`
+	Roots []Root `json:"organizations:ListRootsOutput:Roots" type:"list"`
 }
 
 // String returns the string representation

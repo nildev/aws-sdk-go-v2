@@ -45,11 +45,11 @@ type ListDeviceInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about your device instances.
-	DeviceInstances []DeviceInstance `locationName:"deviceInstances" type:"list"`
+	DeviceInstances []DeviceInstance `json:"devicefarm:ListDeviceInstancesOutput:DeviceInstances" locationName:"deviceInstances" type:"list"`
 
 	// An identifier that can be used in the next call to this operation to return
 	// the next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:ListDeviceInstancesOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 }
 
 // String returns the string representation

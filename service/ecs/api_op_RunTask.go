@@ -146,11 +146,11 @@ type RunTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any failures associated with the call.
-	Failures []Failure `locationName:"failures" type:"list"`
+	Failures []Failure `json:"ecs:RunTaskOutput:Failures" locationName:"failures" type:"list"`
 
 	// A full description of the tasks that were run. The tasks that were successfully
 	// placed on your cluster are described here.
-	Tasks []Task `locationName:"tasks" type:"list"`
+	Tasks []Task `json:"ecs:RunTaskOutput:Tasks" locationName:"tasks" type:"list"`
 }
 
 // String returns the string representation

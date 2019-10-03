@@ -71,7 +71,7 @@ type CreateVpnConnectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the VPN connection.
-	VpnConnection *VpnConnection `locationName:"vpnConnection" type:"structure"`
+	VpnConnection *VpnConnection `json:"ec2:CreateVpnConnectionOutput:VpnConnection" locationName:"vpnConnection" type:"structure"`
 }
 
 // String returns the string representation

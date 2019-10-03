@@ -43,7 +43,7 @@ type DescribeProblemObservationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Observations related to the problem.
-	RelatedObservations *RelatedObservations `type:"structure"`
+	RelatedObservations *RelatedObservations `json:"applicationinsights:DescribeProblemObservationsOutput:RelatedObservations" type:"structure"`
 }
 
 // String returns the string representation

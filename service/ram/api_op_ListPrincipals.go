@@ -127,10 +127,10 @@ type ListPrincipalsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ram:ListPrincipalsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The principals.
-	Principals []Principal `locationName:"principals" type:"list"`
+	Principals []Principal `json:"ram:ListPrincipalsOutput:Principals" locationName:"principals" type:"list"`
 }
 
 // String returns the string representation

@@ -46,12 +46,12 @@ type AssociateSoftwareTokenOutput struct {
 
 	// A unique generated shared secret code that is used in the TOTP algorithm
 	// to generate a one time code.
-	SecretCode *string `min:"16" type:"string"`
+	SecretCode *string `json:"cognito-idp:AssociateSoftwareTokenOutput:SecretCode" min:"16" type:"string"`
 
 	// The session which should be passed both ways in challenge-response calls
 	// to the service. This allows authentication of the user as part of the MFA
 	// setup process.
-	Session *string `min:"20" type:"string"`
+	Session *string `json:"cognito-idp:AssociateSoftwareTokenOutput:Session" min:"20" type:"string"`
 }
 
 // String returns the string representation

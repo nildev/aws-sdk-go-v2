@@ -59,10 +59,10 @@ type DeleteFleetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the EC2 Fleets that are successfully deleted.
-	SuccessfulFleetDeletions []DeleteFleetSuccessItem `locationName:"successfulFleetDeletionSet" locationNameList:"item" type:"list"`
+	SuccessfulFleetDeletions []DeleteFleetSuccessItem `json:"ec2:DeleteFleetsOutput:SuccessfulFleetDeletions" locationName:"successfulFleetDeletionSet" locationNameList:"item" type:"list"`
 
 	// Information about the EC2 Fleets that are not successfully deleted.
-	UnsuccessfulFleetDeletions []DeleteFleetErrorItem `locationName:"unsuccessfulFleetDeletionSet" locationNameList:"item" type:"list"`
+	UnsuccessfulFleetDeletions []DeleteFleetErrorItem `json:"ec2:DeleteFleetsOutput:UnsuccessfulFleetDeletions" locationName:"unsuccessfulFleetDeletionSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

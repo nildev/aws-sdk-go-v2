@@ -55,7 +55,7 @@ type AttachLoadBalancerToSubnetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the subnets attached to the load balancer.
-	Subnets []string `type:"list"`
+	Subnets []string `json:"elasticloadbalancing:AttachLoadBalancerToSubnetsOutput:Subnets" type:"list"`
 }
 
 // String returns the string representation

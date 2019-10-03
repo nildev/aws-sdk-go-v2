@@ -90,7 +90,7 @@ type PutEventsConfigurationOutput struct {
 
 	// The configuration that allows a bot to receive outgoing events. Can be either
 	// an HTTPS endpoint or a Lambda function ARN.
-	EventsConfiguration *EventsConfiguration `type:"structure"`
+	EventsConfiguration *EventsConfiguration `json:"chime:PutEventsConfigurationOutput:EventsConfiguration" type:"structure"`
 }
 
 // String returns the string representation

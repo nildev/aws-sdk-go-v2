@@ -99,7 +99,7 @@ type CreateDetectorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of the created detector.
-	DetectorId *string `locationName:"detectorId" min:"1" type:"string"`
+	DetectorId *string `json:"guardduty:CreateDetectorOutput:DetectorId" locationName:"detectorId" min:"1" type:"string"`
 }
 
 // String returns the string representation

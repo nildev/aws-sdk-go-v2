@@ -46,7 +46,7 @@ type DescribeAttackOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attack that is described.
-	Attack *AttackDetail `type:"structure"`
+	Attack *AttackDetail `json:"shield:DescribeAttackOutput:Attack" type:"structure"`
 }
 
 // String returns the string representation

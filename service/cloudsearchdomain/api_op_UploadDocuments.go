@@ -76,16 +76,16 @@ type UploadDocumentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of documents that were added to the search domain.
-	Adds *int64 `locationName:"adds" type:"long"`
+	Adds *int64 `json:"cloudsearchdomain:UploadDocumentsOutput:Adds" locationName:"adds" type:"long"`
 
 	// The number of documents that were deleted from the search domain.
-	Deletes *int64 `locationName:"deletes" type:"long"`
+	Deletes *int64 `json:"cloudsearchdomain:UploadDocumentsOutput:Deletes" locationName:"deletes" type:"long"`
 
 	// The status of an UploadDocumentsRequest.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"cloudsearchdomain:UploadDocumentsOutput:Status" locationName:"status" type:"string"`
 
 	// Any warnings returned by the document service about the documents being uploaded.
-	Warnings []DocumentServiceWarning `locationName:"warnings" type:"list"`
+	Warnings []DocumentServiceWarning `json:"cloudsearchdomain:UploadDocumentsOutput:Warnings" locationName:"warnings" type:"list"`
 }
 
 // String returns the string representation

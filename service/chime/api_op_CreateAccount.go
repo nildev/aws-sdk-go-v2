@@ -59,7 +59,7 @@ type CreateAccountOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Chime account details.
-	Account *Account `type:"structure"`
+	Account *Account `json:"chime:CreateAccountOutput:Account" type:"structure"`
 }
 
 // String returns the string representation

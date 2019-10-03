@@ -86,10 +86,10 @@ type UpdatePublicKeyOutput struct {
 	_ struct{} `type:"structure" payload:"PublicKey"`
 
 	// The current version of the update public key result. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:UpdatePublicKeyOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// Return the results of updating the public key.
-	PublicKey *PublicKey `type:"structure"`
+	PublicKey *PublicKey `json:"cloudfront:UpdatePublicKeyOutput:PublicKey" type:"structure"`
 }
 
 // String returns the string representation

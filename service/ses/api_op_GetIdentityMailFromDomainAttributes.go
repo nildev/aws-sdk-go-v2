@@ -49,7 +49,7 @@ type GetIdentityMailFromDomainAttributesOutput struct {
 	// A map of identities to custom MAIL FROM attributes.
 	//
 	// MailFromDomainAttributes is a required field
-	MailFromDomainAttributes map[string]IdentityMailFromDomainAttributes `type:"map" required:"true"`
+	MailFromDomainAttributes map[string]IdentityMailFromDomainAttributes `json:"email:GetIdentityMailFromDomainAttributesOutput:MailFromDomainAttributes" type:"map" required:"true"`
 }
 
 // String returns the string representation

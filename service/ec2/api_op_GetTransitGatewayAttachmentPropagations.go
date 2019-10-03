@@ -66,10 +66,10 @@ type GetTransitGatewayAttachmentPropagationsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:GetTransitGatewayAttachmentPropagationsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the propagation route tables.
-	TransitGatewayAttachmentPropagations []TransitGatewayAttachmentPropagation `locationName:"transitGatewayAttachmentPropagations" locationNameList:"item" type:"list"`
+	TransitGatewayAttachmentPropagations []TransitGatewayAttachmentPropagation `json:"ec2:GetTransitGatewayAttachmentPropagationsOutput:TransitGatewayAttachmentPropagations" locationName:"transitGatewayAttachmentPropagations" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

@@ -90,19 +90,19 @@ type AddApplicationInputProcessingConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the application.
-	ApplicationARN *string `min:"1" type:"string"`
+	ApplicationARN *string `json:"kinesisanalytics:AddApplicationInputProcessingConfigurationOutput:ApplicationARN" min:"1" type:"string"`
 
 	// Provides the current application version.
-	ApplicationVersionId *int64 `min:"1" type:"long"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:AddApplicationInputProcessingConfigurationOutput:ApplicationVersionId" min:"1" type:"long"`
 
 	// The input ID that is associated with the application input. This is the ID
 	// that Amazon Kinesis Data Analytics assigns to each input configuration that
 	// you add to your application.
-	InputId *string `min:"1" type:"string"`
+	InputId *string `json:"kinesisanalytics:AddApplicationInputProcessingConfigurationOutput:InputId" min:"1" type:"string"`
 
 	// The description of the preprocessor that executes on records in this input
 	// before the application's code is run.
-	InputProcessingConfigurationDescription *InputProcessingConfigurationDescription `type:"structure"`
+	InputProcessingConfigurationDescription *InputProcessingConfigurationDescription `json:"kinesisanalytics:AddApplicationInputProcessingConfigurationOutput:InputProcessingConfigurationDescription" type:"structure"`
 }
 
 // String returns the string representation

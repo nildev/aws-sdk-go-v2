@@ -86,12 +86,12 @@ type ListPlacementsOutput struct {
 
 	// The token used to retrieve the next set of results - will be effectively
 	// empty if there are no further results.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"projects.iot1click:ListPlacementsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// An object listing the requested placements.
 	//
 	// Placements is a required field
-	Placements []PlacementSummary `locationName:"placements" type:"list" required:"true"`
+	Placements []PlacementSummary `json:"projects.iot1click:ListPlacementsOutput:Placements" locationName:"placements" type:"list" required:"true"`
 }
 
 // String returns the string representation

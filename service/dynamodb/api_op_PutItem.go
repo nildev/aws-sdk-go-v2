@@ -196,7 +196,7 @@ type PutItemOutput struct {
 	// The attribute values as they appeared before the PutItem operation, but only
 	// if ReturnValues is specified as ALL_OLD in the request. Each element consists
 	// of an attribute name and an attribute value.
-	Attributes map[string]AttributeValue `type:"map"`
+	Attributes map[string]AttributeValue `json:"dynamodb:PutItemOutput:Attributes" type:"map"`
 
 	// The capacity units consumed by the PutItem operation. The data returned includes
 	// the total provisioned throughput consumed, along with statistics for the
@@ -204,7 +204,7 @@ type PutItemOutput struct {
 	// returned if the ReturnConsumedCapacity parameter was specified. For more
 	// information, see Read/Write Capacity Mode (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ConsumedCapacity *ConsumedCapacity `type:"structure"`
+	ConsumedCapacity *ConsumedCapacity `json:"dynamodb:PutItemOutput:ConsumedCapacity" type:"structure"`
 
 	// Information about item collections, if any, that were affected by the PutItem
 	// operation. ItemCollectionMetrics is only returned if the ReturnItemCollectionMetrics
@@ -224,7 +224,7 @@ type PutItemOutput struct {
 	//    a local secondary index is approaching its size limit. The estimate is
 	//    subject to change over time; therefore, do not rely on the precision or
 	//    accuracy of the estimate.
-	ItemCollectionMetrics *ItemCollectionMetrics `type:"structure"`
+	ItemCollectionMetrics *ItemCollectionMetrics `json:"dynamodb:PutItemOutput:ItemCollectionMetrics" type:"structure"`
 }
 
 // String returns the string representation

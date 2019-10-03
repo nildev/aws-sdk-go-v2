@@ -128,7 +128,7 @@ type StartRestoreJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Uniquely identifies the job that restores a recovery point.
-	RestoreJobId *string `type:"string"`
+	RestoreJobId *string `json:"backup:StartRestoreJobOutput:RestoreJobId" type:"string"`
 }
 
 // String returns the string representation

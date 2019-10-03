@@ -119,7 +119,7 @@ type UpdateFilterOutput struct {
 	// The name of the filter.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"3" type:"string" required:"true"`
+	Name *string `json:"guardduty:UpdateFilterOutput:Name" locationName:"name" min:"3" type:"string" required:"true"`
 }
 
 // String returns the string representation

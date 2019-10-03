@@ -147,18 +147,18 @@ type PutSecretValueOutput struct {
 
 	// The Amazon Resource Name (ARN) for the secret for which you just created
 	// a version.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:PutSecretValueOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret for which you just created or updated a version.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:PutSecretValueOutput:Name" min:"1" type:"string"`
 
 	// The unique identifier of the version of the secret you just created or updated.
-	VersionId *string `min:"32" type:"string"`
+	VersionId *string `json:"secretsmanager:PutSecretValueOutput:VersionId" min:"32" type:"string"`
 
 	// The list of staging labels that are currently attached to this version of
 	// the secret. Staging labels are used to track a version as it progresses through
 	// the secret rotation process.
-	VersionStages []string `min:"1" type:"list"`
+	VersionStages []string `json:"secretsmanager:PutSecretValueOutput:VersionStages" min:"1" type:"list"`
 }
 
 // String returns the string representation

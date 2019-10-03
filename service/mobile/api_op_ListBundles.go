@@ -54,11 +54,11 @@ type ListBundlesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of bundles.
-	BundleList []BundleDetails `locationName:"bundleList" type:"list"`
+	BundleList []BundleDetails `json:"mobile:ListBundlesOutput:BundleList" locationName:"bundleList" type:"list"`
 
 	// Pagination token. If non-null pagination token is returned in a result, then
 	// pass its value in another request to fetch more entries.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mobile:ListBundlesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

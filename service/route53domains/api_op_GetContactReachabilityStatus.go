@@ -28,7 +28,7 @@ type GetContactReachabilityStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The domain name for which you requested the reachability status.
-	DomainName *string `locationName:"domainName" type:"string"`
+	DomainName *string `json:"route53domains:GetContactReachabilityStatusOutput:DomainName" locationName:"domainName" type:"string"`
 
 	// Whether the registrant contact has responded. Values include the following:
 	//
@@ -43,7 +43,7 @@ type GetContactReachabilityStatusOutput struct {
 	// EXPIRED
 	//
 	// The time limit expired before the registrant contact responded.
-	Status ReachabilityStatus `locationName:"status" type:"string" enum:"true"`
+	Status ReachabilityStatus `json:"route53domains:GetContactReachabilityStatusOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

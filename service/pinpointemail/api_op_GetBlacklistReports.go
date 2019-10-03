@@ -71,7 +71,7 @@ type GetBlacklistReportsOutput struct {
 	// IP addresses appears on.
 	//
 	// BlacklistReport is a required field
-	BlacklistReport map[string][]BlacklistEntry `type:"map" required:"true"`
+	BlacklistReport map[string][]BlacklistEntry `json:"email:GetBlacklistReportsOutput:BlacklistReport" type:"map" required:"true"`
 }
 
 // String returns the string representation

@@ -73,14 +73,14 @@ type DeleteApplicationCloudWatchLoggingOptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The application's Amazon Resource Name (ARN).
-	ApplicationARN *string `min:"1" type:"string"`
+	ApplicationARN *string `json:"kinesisanalytics:DeleteApplicationCloudWatchLoggingOptionOutput:ApplicationARN" min:"1" type:"string"`
 
 	// The version ID of the application. Kinesis Data Analytics updates the ApplicationVersionId
 	// each time you change the CloudWatch logging options.
-	ApplicationVersionId *int64 `min:"1" type:"long"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:DeleteApplicationCloudWatchLoggingOptionOutput:ApplicationVersionId" min:"1" type:"long"`
 
 	// The descriptions of the remaining CloudWatch logging options for the application.
-	CloudWatchLoggingOptionDescriptions []CloudWatchLoggingOptionDescription `type:"list"`
+	CloudWatchLoggingOptionDescriptions []CloudWatchLoggingOptionDescription `json:"kinesisanalytics:DeleteApplicationCloudWatchLoggingOptionOutput:CloudWatchLoggingOptionDescriptions" type:"list"`
 }
 
 // String returns the string representation

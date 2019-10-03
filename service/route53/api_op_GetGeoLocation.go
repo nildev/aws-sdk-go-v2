@@ -102,7 +102,7 @@ type GetGeoLocationOutput struct {
 	// names for the specified geolocation code.
 	//
 	// GeoLocationDetails is a required field
-	GeoLocationDetails *GeoLocationDetails `type:"structure" required:"true"`
+	GeoLocationDetails *GeoLocationDetails `json:"route53:GetGeoLocationOutput:GeoLocationDetails" type:"structure" required:"true"`
 }
 
 // String returns the string representation

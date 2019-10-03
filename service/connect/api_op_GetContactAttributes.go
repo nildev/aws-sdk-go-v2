@@ -79,7 +79,7 @@ type GetContactAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes to update.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"connect:GetContactAttributesOutput:Attributes" type:"map"`
 }
 
 // String returns the string representation

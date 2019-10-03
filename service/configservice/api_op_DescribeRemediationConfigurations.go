@@ -44,7 +44,7 @@ type DescribeRemediationConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a remediation configuration object.
-	RemediationConfigurations []RemediationConfiguration `type:"list"`
+	RemediationConfigurations []RemediationConfiguration `json:"config:DescribeRemediationConfigurationsOutput:RemediationConfigurations" type:"list"`
 }
 
 // String returns the string representation

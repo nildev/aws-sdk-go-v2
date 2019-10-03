@@ -54,7 +54,7 @@ func (s GetTagsInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetTagsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:GetTagsOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

@@ -36,10 +36,10 @@ type ListLogSubscriptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of active LogSubscription objects for calling the AWS account.
-	LogSubscriptions []LogSubscription `type:"list"`
+	LogSubscriptions []LogSubscription `json:"ds:ListLogSubscriptionsOutput:LogSubscriptions" type:"list"`
 
 	// The token for the next set of items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ds:ListLogSubscriptionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

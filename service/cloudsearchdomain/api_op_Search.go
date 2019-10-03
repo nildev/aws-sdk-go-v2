@@ -441,16 +441,16 @@ type SearchOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested facet information.
-	Facets map[string]BucketInfo `locationName:"facets" type:"map"`
+	Facets map[string]BucketInfo `json:"cloudsearchdomain:SearchOutput:Facets" locationName:"facets" type:"map"`
 
 	// The documents that match the search criteria.
-	Hits *Hits `locationName:"hits" type:"structure"`
+	Hits *Hits `json:"cloudsearchdomain:SearchOutput:Hits" locationName:"hits" type:"structure"`
 
 	// The requested field statistics information.
-	Stats map[string]FieldStats `locationName:"stats" type:"map"`
+	Stats map[string]FieldStats `json:"cloudsearchdomain:SearchOutput:Stats" locationName:"stats" type:"map"`
 
 	// The status information returned for the search request.
-	Status *SearchStatus `locationName:"status" type:"structure"`
+	Status *SearchStatus `json:"cloudsearchdomain:SearchOutput:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation

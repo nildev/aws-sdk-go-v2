@@ -94,34 +94,34 @@ type GetMergeConflictsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The commit ID of the merge base.
-	BaseCommitId *string `locationName:"baseCommitId" type:"string"`
+	BaseCommitId *string `json:"codecommit:GetMergeConflictsOutput:BaseCommitId" locationName:"baseCommitId" type:"string"`
 
 	// A list of metadata for any conflicting files. If the specified merge strategy
 	// is FAST_FORWARD_MERGE, this list will always be empty.
 	//
 	// ConflictMetadataList is a required field
-	ConflictMetadataList []ConflictMetadata `locationName:"conflictMetadataList" type:"list" required:"true"`
+	ConflictMetadataList []ConflictMetadata `json:"codecommit:GetMergeConflictsOutput:ConflictMetadataList" locationName:"conflictMetadataList" type:"list" required:"true"`
 
 	// The commit ID of the destination commit specifier that was used in the merge
 	// evaluation.
 	//
 	// DestinationCommitId is a required field
-	DestinationCommitId *string `locationName:"destinationCommitId" type:"string" required:"true"`
+	DestinationCommitId *string `json:"codecommit:GetMergeConflictsOutput:DestinationCommitId" locationName:"destinationCommitId" type:"string" required:"true"`
 
 	// A Boolean value that indicates whether the code is mergeable by the specified
 	// merge option.
 	//
 	// Mergeable is a required field
-	Mergeable *bool `locationName:"mergeable" type:"boolean" required:"true"`
+	Mergeable *bool `json:"codecommit:GetMergeConflictsOutput:Mergeable" locationName:"mergeable" type:"boolean" required:"true"`
 
 	// An enumeration token that can be used in a request to return the next batch
 	// of the results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:GetMergeConflictsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The commit ID of the source commit specifier that was used in the merge evaluation.
 	//
 	// SourceCommitId is a required field
-	SourceCommitId *string `locationName:"sourceCommitId" type:"string" required:"true"`
+	SourceCommitId *string `json:"codecommit:GetMergeConflictsOutput:SourceCommitId" locationName:"sourceCommitId" type:"string" required:"true"`
 }
 
 // String returns the string representation

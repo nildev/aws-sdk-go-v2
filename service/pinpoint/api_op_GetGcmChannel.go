@@ -60,7 +60,7 @@ type GetGcmChannelOutput struct {
 	// (GCM), service.
 	//
 	// GCMChannelResponse is a required field
-	GCMChannelResponse *GCMChannelResponse `type:"structure" required:"true"`
+	GCMChannelResponse *GCMChannelResponse `json:"pinpoint:GetGcmChannelOutput:GCMChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

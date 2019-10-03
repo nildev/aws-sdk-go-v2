@@ -58,10 +58,10 @@ type DescribeQueriesOutput struct {
 
 	// The token for the next set of items to return. The token expires after 24
 	// hours.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"logs:DescribeQueriesOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// The list of queries that match the request.
-	Queries []QueryInfo `locationName:"queries" type:"list"`
+	Queries []QueryInfo `json:"logs:DescribeQueriesOutput:Queries" locationName:"queries" type:"list"`
 }
 
 // String returns the string representation

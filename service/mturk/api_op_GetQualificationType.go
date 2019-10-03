@@ -46,7 +46,7 @@ type GetQualificationTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The returned Qualification Type
-	QualificationType *QualificationType `type:"structure"`
+	QualificationType *QualificationType `json:"mturk-requester:GetQualificationTypeOutput:QualificationType" type:"structure"`
 }
 
 // String returns the string representation

@@ -73,13 +73,13 @@ func (s ListUsersInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListUsersOutput struct {
 	_ struct{} `type:"structure"`
 
-	BrokerId *string `locationName:"brokerId" type:"string"`
+	BrokerId *string `json:"mq:ListUsersOutput:BrokerId" locationName:"brokerId" type:"string"`
 
-	MaxResults *int64 `locationName:"maxResults" min:"5" type:"integer"`
+	MaxResults *int64 `json:"mq:ListUsersOutput:MaxResults" locationName:"maxResults" min:"5" type:"integer"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mq:ListUsersOutput:NextToken" locationName:"nextToken" type:"string"`
 
-	Users []UserSummary `locationName:"users" type:"list"`
+	Users []UserSummary `json:"mq:ListUsersOutput:Users" locationName:"users" type:"list"`
 }
 
 // String returns the string representation

@@ -21,7 +21,7 @@ type AbortConfig struct {
 	// The list of abort criteria to define rules to abort the job.
 	//
 	// CriteriaList is a required field
-	CriteriaList []AbortCriteria `locationName:"criteriaList" min:"1" type:"list" required:"true"`
+	CriteriaList []AbortCriteria `json:"iot:AbortConfig:CriteriaList" locationName:"criteriaList" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -77,17 +77,17 @@ type AbortCriteria struct {
 	// The type of abort action to initiate a job abort.
 	//
 	// Action is a required field
-	Action AbortAction `locationName:"action" type:"string" required:"true" enum:"true"`
+	Action AbortAction `json:"iot:AbortCriteria:Action" locationName:"action" type:"string" required:"true" enum:"true"`
 
 	// The type of job execution failure to define a rule to initiate a job abort.
 	//
 	// FailureType is a required field
-	FailureType JobExecutionFailureType `locationName:"failureType" type:"string" required:"true" enum:"true"`
+	FailureType JobExecutionFailureType `json:"iot:AbortCriteria:FailureType" locationName:"failureType" type:"string" required:"true" enum:"true"`
 
 	// Minimum number of executed things before evaluating an abort rule.
 	//
 	// MinNumberOfExecutedThings is a required field
-	MinNumberOfExecutedThings *int64 `locationName:"minNumberOfExecutedThings" min:"1" type:"integer" required:"true"`
+	MinNumberOfExecutedThings *int64 `json:"iot:AbortCriteria:MinNumberOfExecutedThings" locationName:"minNumberOfExecutedThings" min:"1" type:"integer" required:"true"`
 
 	// The threshold as a percentage of the total number of executed things that
 	// will initiate a job abort.
@@ -96,7 +96,7 @@ type AbortCriteria struct {
 	// 10.99, but not 10.999).
 	//
 	// ThresholdPercentage is a required field
-	ThresholdPercentage *float64 `locationName:"thresholdPercentage" type:"double" required:"true"`
+	ThresholdPercentage *float64 `json:"iot:AbortCriteria:ThresholdPercentage" locationName:"thresholdPercentage" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -165,54 +165,54 @@ type Action struct {
 	_ struct{} `type:"structure"`
 
 	// Change the state of a CloudWatch alarm.
-	CloudwatchAlarm *CloudwatchAlarmAction `locationName:"cloudwatchAlarm" type:"structure"`
+	CloudwatchAlarm *CloudwatchAlarmAction `json:"iot:Action:CloudwatchAlarm" locationName:"cloudwatchAlarm" type:"structure"`
 
 	// Capture a CloudWatch metric.
-	CloudwatchMetric *CloudwatchMetricAction `locationName:"cloudwatchMetric" type:"structure"`
+	CloudwatchMetric *CloudwatchMetricAction `json:"iot:Action:CloudwatchMetric" locationName:"cloudwatchMetric" type:"structure"`
 
 	// Write to a DynamoDB table.
-	DynamoDB *DynamoDBAction `locationName:"dynamoDB" type:"structure"`
+	DynamoDB *DynamoDBAction `json:"iot:Action:DynamoDB" locationName:"dynamoDB" type:"structure"`
 
 	// Write to a DynamoDB table. This is a new version of the DynamoDB action.
 	// It allows you to write each attribute in an MQTT message payload into a separate
 	// DynamoDB column.
-	DynamoDBv2 *DynamoDBv2Action `locationName:"dynamoDBv2" type:"structure"`
+	DynamoDBv2 *DynamoDBv2Action `json:"iot:Action:DynamoDBv2" locationName:"dynamoDBv2" type:"structure"`
 
 	// Write data to an Amazon Elasticsearch Service domain.
-	Elasticsearch *ElasticsearchAction `locationName:"elasticsearch" type:"structure"`
+	Elasticsearch *ElasticsearchAction `json:"iot:Action:Elasticsearch" locationName:"elasticsearch" type:"structure"`
 
 	// Write to an Amazon Kinesis Firehose stream.
-	Firehose *FirehoseAction `locationName:"firehose" type:"structure"`
+	Firehose *FirehoseAction `json:"iot:Action:Firehose" locationName:"firehose" type:"structure"`
 
 	// Sends message data to an AWS IoT Analytics channel.
-	IotAnalytics *IotAnalyticsAction `locationName:"iotAnalytics" type:"structure"`
+	IotAnalytics *IotAnalyticsAction `json:"iot:Action:IotAnalytics" locationName:"iotAnalytics" type:"structure"`
 
 	// Sends an input to an AWS IoT Events detector.
-	IotEvents *IotEventsAction `locationName:"iotEvents" type:"structure"`
+	IotEvents *IotEventsAction `json:"iot:Action:IotEvents" locationName:"iotEvents" type:"structure"`
 
 	// Write data to an Amazon Kinesis stream.
-	Kinesis *KinesisAction `locationName:"kinesis" type:"structure"`
+	Kinesis *KinesisAction `json:"iot:Action:Kinesis" locationName:"kinesis" type:"structure"`
 
 	// Invoke a Lambda function.
-	Lambda *LambdaAction `locationName:"lambda" type:"structure"`
+	Lambda *LambdaAction `json:"iot:Action:Lambda" locationName:"lambda" type:"structure"`
 
 	// Publish to another MQTT topic.
-	Republish *RepublishAction `locationName:"republish" type:"structure"`
+	Republish *RepublishAction `json:"iot:Action:Republish" locationName:"republish" type:"structure"`
 
 	// Write to an Amazon S3 bucket.
-	S3 *S3Action `locationName:"s3" type:"structure"`
+	S3 *S3Action `json:"iot:Action:S3" locationName:"s3" type:"structure"`
 
 	// Send a message to a Salesforce IoT Cloud Input Stream.
-	Salesforce *SalesforceAction `locationName:"salesforce" type:"structure"`
+	Salesforce *SalesforceAction `json:"iot:Action:Salesforce" locationName:"salesforce" type:"structure"`
 
 	// Publish to an Amazon SNS topic.
-	Sns *SnsAction `locationName:"sns" type:"structure"`
+	Sns *SnsAction `json:"iot:Action:Sns" locationName:"sns" type:"structure"`
 
 	// Publish to an Amazon SQS queue.
-	Sqs *SqsAction `locationName:"sqs" type:"structure"`
+	Sqs *SqsAction `json:"iot:Action:Sqs" locationName:"sqs" type:"structure"`
 
 	// Starts execution of a Step Functions state machine.
-	StepFunctions *StepFunctionsAction `locationName:"stepFunctions" type:"structure"`
+	StepFunctions *StepFunctionsAction `json:"iot:Action:StepFunctions" locationName:"stepFunctions" type:"structure"`
 }
 
 // String returns the string representation
@@ -411,25 +411,25 @@ type ActiveViolation struct {
 	_ struct{} `type:"structure"`
 
 	// The behavior which is being violated.
-	Behavior *Behavior `locationName:"behavior" type:"structure"`
+	Behavior *Behavior `json:"iot:ActiveViolation:Behavior" locationName:"behavior" type:"structure"`
 
 	// The time the most recent violation occurred.
-	LastViolationTime *time.Time `locationName:"lastViolationTime" type:"timestamp" timestampFormat:"unix"`
+	LastViolationTime *time.Time `json:"iot:ActiveViolation:LastViolationTime" locationName:"lastViolationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The value of the metric (the measurement) which caused the most recent violation.
-	LastViolationValue *MetricValue `locationName:"lastViolationValue" type:"structure"`
+	LastViolationValue *MetricValue `json:"iot:ActiveViolation:LastViolationValue" locationName:"lastViolationValue" type:"structure"`
 
 	// The security profile whose behavior is in violation.
-	SecurityProfileName *string `locationName:"securityProfileName" min:"1" type:"string"`
+	SecurityProfileName *string `json:"iot:ActiveViolation:SecurityProfileName" locationName:"securityProfileName" min:"1" type:"string"`
 
 	// The name of the thing responsible for the active violation.
-	ThingName *string `locationName:"thingName" min:"1" type:"string"`
+	ThingName *string `json:"iot:ActiveViolation:ThingName" locationName:"thingName" min:"1" type:"string"`
 
 	// The ID of the active violation.
-	ViolationId *string `locationName:"violationId" min:"1" type:"string"`
+	ViolationId *string `json:"iot:ActiveViolation:ViolationId" locationName:"violationId" min:"1" type:"string"`
 
 	// The time the violation started.
-	ViolationStartTime *time.Time `locationName:"violationStartTime" type:"timestamp" timestampFormat:"unix"`
+	ViolationStartTime *time.Time `json:"iot:ActiveViolation:ViolationStartTime" locationName:"violationStartTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -491,13 +491,13 @@ type AlertTarget struct {
 	// The ARN of the notification target to which alerts are sent.
 	//
 	// AlertTargetArn is a required field
-	AlertTargetArn *string `locationName:"alertTargetArn" type:"string" required:"true"`
+	AlertTargetArn *string `json:"iot:AlertTarget:AlertTargetArn" locationName:"alertTargetArn" type:"string" required:"true"`
 
 	// The ARN of the role that grants permission to send alerts to the notification
 	// target.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"iot:AlertTarget:RoleArn" locationName:"roleArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -548,7 +548,7 @@ type Allowed struct {
 	_ struct{} `type:"structure"`
 
 	// A list of policies that allowed the authentication.
-	Policies []Policy `locationName:"policies" type:"list"`
+	Policies []Policy `json:"iot:Allowed:Policies" locationName:"policies" type:"list"`
 }
 
 // String returns the string representation
@@ -580,7 +580,7 @@ type AttributePayload struct {
 	// A JSON string containing up to three key-value pair in JSON format. For example:
 	//
 	// {\"attributes\":{\"string1\":\"string2\"}}
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"iot:AttributePayload:Attributes" locationName:"attributes" type:"map"`
 
 	// Specifies whether the list of attributes provided in the AttributePayload
 	// is merged with the attributes stored in the registry, instead of overwriting
@@ -589,7 +589,7 @@ type AttributePayload struct {
 	// To remove an attribute, call UpdateThing with an empty attribute value.
 	//
 	// The merge attribute is only valid when calling UpdateThing.
-	Merge *bool `locationName:"merge" type:"boolean"`
+	Merge *bool `json:"iot:AttributePayload:Merge" locationName:"merge" type:"boolean"`
 }
 
 // String returns the string representation
@@ -625,7 +625,7 @@ type AuditCheckConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// True if this audit check is enabled for this account.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"iot:AuditCheckConfiguration:Enabled" locationName:"enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -649,25 +649,25 @@ type AuditCheckDetails struct {
 	_ struct{} `type:"structure"`
 
 	// True if the check completed and found all resources compliant.
-	CheckCompliant *bool `locationName:"checkCompliant" type:"boolean"`
+	CheckCompliant *bool `json:"iot:AuditCheckDetails:CheckCompliant" locationName:"checkCompliant" type:"boolean"`
 
 	// The completion status of this check, one of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
 	// "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".
-	CheckRunStatus AuditCheckRunStatus `locationName:"checkRunStatus" type:"string" enum:"true"`
+	CheckRunStatus AuditCheckRunStatus `json:"iot:AuditCheckDetails:CheckRunStatus" locationName:"checkRunStatus" type:"string" enum:"true"`
 
 	// The code of any error encountered when performing this check during this
 	// audit. One of "INSUFFICIENT_PERMISSIONS", or "AUDIT_CHECK_DISABLED".
-	ErrorCode *string `locationName:"errorCode" type:"string"`
+	ErrorCode *string `json:"iot:AuditCheckDetails:ErrorCode" locationName:"errorCode" type:"string"`
 
 	// The message associated with any error encountered when performing this check
 	// during this audit.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"iot:AuditCheckDetails:Message" locationName:"message" type:"string"`
 
 	// The number of resources that the check found non-compliant.
-	NonCompliantResourcesCount *int64 `locationName:"nonCompliantResourcesCount" type:"long"`
+	NonCompliantResourcesCount *int64 `json:"iot:AuditCheckDetails:NonCompliantResourcesCount" locationName:"nonCompliantResourcesCount" type:"long"`
 
 	// The number of resources on which the check was performed.
-	TotalResourcesCount *int64 `locationName:"totalResourcesCount" type:"long"`
+	TotalResourcesCount *int64 `json:"iot:AuditCheckDetails:TotalResourcesCount" locationName:"totalResourcesCount" type:"long"`
 }
 
 // String returns the string representation
@@ -721,31 +721,31 @@ type AuditFinding struct {
 	_ struct{} `type:"structure"`
 
 	// The audit check that generated this result.
-	CheckName *string `locationName:"checkName" type:"string"`
+	CheckName *string `json:"iot:AuditFinding:CheckName" locationName:"checkName" type:"string"`
 
 	// The time the result (finding) was discovered.
-	FindingTime *time.Time `locationName:"findingTime" type:"timestamp" timestampFormat:"unix"`
+	FindingTime *time.Time `json:"iot:AuditFinding:FindingTime" locationName:"findingTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The resource that was found to be non-compliant with the audit check.
-	NonCompliantResource *NonCompliantResource `locationName:"nonCompliantResource" type:"structure"`
+	NonCompliantResource *NonCompliantResource `json:"iot:AuditFinding:NonCompliantResource" locationName:"nonCompliantResource" type:"structure"`
 
 	// The reason the resource was non-compliant.
-	ReasonForNonCompliance *string `locationName:"reasonForNonCompliance" type:"string"`
+	ReasonForNonCompliance *string `json:"iot:AuditFinding:ReasonForNonCompliance" locationName:"reasonForNonCompliance" type:"string"`
 
 	// A code which indicates the reason that the resource was non-compliant.
-	ReasonForNonComplianceCode *string `locationName:"reasonForNonComplianceCode" type:"string"`
+	ReasonForNonComplianceCode *string `json:"iot:AuditFinding:ReasonForNonComplianceCode" locationName:"reasonForNonComplianceCode" type:"string"`
 
 	// The list of related resources.
-	RelatedResources []RelatedResource `locationName:"relatedResources" type:"list"`
+	RelatedResources []RelatedResource `json:"iot:AuditFinding:RelatedResources" locationName:"relatedResources" type:"list"`
 
 	// The severity of the result (finding).
-	Severity AuditFindingSeverity `locationName:"severity" type:"string" enum:"true"`
+	Severity AuditFindingSeverity `json:"iot:AuditFinding:Severity" locationName:"severity" type:"string" enum:"true"`
 
 	// The ID of the audit that generated this result (finding)
-	TaskId *string `locationName:"taskId" min:"1" type:"string"`
+	TaskId *string `json:"iot:AuditFinding:TaskId" locationName:"taskId" min:"1" type:"string"`
 
 	// The time the audit started.
-	TaskStartTime *time.Time `locationName:"taskStartTime" type:"timestamp" timestampFormat:"unix"`
+	TaskStartTime *time.Time `json:"iot:AuditFinding:TaskStartTime" locationName:"taskStartTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -823,13 +823,13 @@ type AuditNotificationTarget struct {
 	_ struct{} `type:"structure"`
 
 	// True if notifications to the target are enabled.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"iot:AuditNotificationTarget:Enabled" locationName:"enabled" type:"boolean"`
 
 	// The ARN of the role that grants permission to send notifications to the target.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iot:AuditNotificationTarget:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 
 	// The ARN of the target (SNS topic) to which audit notifications are sent.
-	TargetArn *string `locationName:"targetArn" type:"string"`
+	TargetArn *string `json:"iot:AuditNotificationTarget:TargetArn" locationName:"targetArn" type:"string"`
 }
 
 // String returns the string representation
@@ -878,14 +878,14 @@ type AuditTaskMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of this audit.
-	TaskId *string `locationName:"taskId" min:"1" type:"string"`
+	TaskId *string `json:"iot:AuditTaskMetadata:TaskId" locationName:"taskId" min:"1" type:"string"`
 
 	// The status of this audit: one of "IN_PROGRESS", "COMPLETED", "FAILED" or
 	// "CANCELED".
-	TaskStatus AuditTaskStatus `locationName:"taskStatus" type:"string" enum:"true"`
+	TaskStatus AuditTaskStatus `json:"iot:AuditTaskMetadata:TaskStatus" locationName:"taskStatus" type:"string" enum:"true"`
 
 	// The type of this audit: one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
-	TaskType AuditTaskType `locationName:"taskType" type:"string" enum:"true"`
+	TaskType AuditTaskType `json:"iot:AuditTaskMetadata:TaskType" locationName:"taskType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -921,11 +921,11 @@ type AuthInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The type of action for which the principal is being authorized.
-	ActionType ActionType `locationName:"actionType" type:"string" enum:"true"`
+	ActionType ActionType `json:"iot:AuthInfo:ActionType" locationName:"actionType" type:"string" enum:"true"`
 
 	// The resources for which the principal is being authorized to perform the
 	// specified action.
-	Resources []string `locationName:"resources" type:"list"`
+	Resources []string `json:"iot:AuthInfo:Resources" locationName:"resources" type:"list"`
 }
 
 // String returns the string representation
@@ -961,21 +961,21 @@ type AuthResult struct {
 	_ struct{} `type:"structure"`
 
 	// The policies and statements that allowed the specified action.
-	Allowed *Allowed `locationName:"allowed" type:"structure"`
+	Allowed *Allowed `json:"iot:AuthResult:Allowed" locationName:"allowed" type:"structure"`
 
 	// The final authorization decision of this scenario. Multiple statements are
 	// taken into account when determining the authorization decision. An explicit
 	// deny statement can override multiple allow statements.
-	AuthDecision AuthDecision `locationName:"authDecision" type:"string" enum:"true"`
+	AuthDecision AuthDecision `json:"iot:AuthResult:AuthDecision" locationName:"authDecision" type:"string" enum:"true"`
 
 	// Authorization information.
-	AuthInfo *AuthInfo `locationName:"authInfo" type:"structure"`
+	AuthInfo *AuthInfo `json:"iot:AuthResult:AuthInfo" locationName:"authInfo" type:"structure"`
 
 	// The policies and statements that denied the specified action.
-	Denied *Denied `locationName:"denied" type:"structure"`
+	Denied *Denied `json:"iot:AuthResult:Denied" locationName:"denied" type:"structure"`
 
 	// Contains any missing context values found while evaluating policy.
-	MissingContextValues []string `locationName:"missingContextValues" type:"list"`
+	MissingContextValues []string `json:"iot:AuthResult:MissingContextValues" locationName:"missingContextValues" type:"list"`
 }
 
 // String returns the string representation
@@ -1029,29 +1029,29 @@ type AuthorizerDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The authorizer ARN.
-	AuthorizerArn *string `locationName:"authorizerArn" type:"string"`
+	AuthorizerArn *string `json:"iot:AuthorizerDescription:AuthorizerArn" locationName:"authorizerArn" type:"string"`
 
 	// The authorizer's Lambda function ARN.
-	AuthorizerFunctionArn *string `locationName:"authorizerFunctionArn" type:"string"`
+	AuthorizerFunctionArn *string `json:"iot:AuthorizerDescription:AuthorizerFunctionArn" locationName:"authorizerFunctionArn" type:"string"`
 
 	// The authorizer name.
-	AuthorizerName *string `locationName:"authorizerName" min:"1" type:"string"`
+	AuthorizerName *string `json:"iot:AuthorizerDescription:AuthorizerName" locationName:"authorizerName" min:"1" type:"string"`
 
 	// The UNIX timestamp of when the authorizer was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:AuthorizerDescription:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The UNIX timestamp of when the authorizer was last updated.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:AuthorizerDescription:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the authorizer.
-	Status AuthorizerStatus `locationName:"status" type:"string" enum:"true"`
+	Status AuthorizerStatus `json:"iot:AuthorizerDescription:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The key used to extract the token from the HTTP headers.
-	TokenKeyName *string `locationName:"tokenKeyName" min:"1" type:"string"`
+	TokenKeyName *string `json:"iot:AuthorizerDescription:TokenKeyName" locationName:"tokenKeyName" min:"1" type:"string"`
 
 	// The public keys used to validate the token signature returned by your custom
 	// authentication service.
-	TokenSigningPublicKeys map[string]string `locationName:"tokenSigningPublicKeys" type:"map"`
+	TokenSigningPublicKeys map[string]string `json:"iot:AuthorizerDescription:TokenSigningPublicKeys" locationName:"tokenSigningPublicKeys" type:"map"`
 }
 
 // String returns the string representation
@@ -1123,10 +1123,10 @@ type AuthorizerSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The authorizer ARN.
-	AuthorizerArn *string `locationName:"authorizerArn" type:"string"`
+	AuthorizerArn *string `json:"iot:AuthorizerSummary:AuthorizerArn" locationName:"authorizerArn" type:"string"`
 
 	// The authorizer name.
-	AuthorizerName *string `locationName:"authorizerName" min:"1" type:"string"`
+	AuthorizerName *string `json:"iot:AuthorizerSummary:AuthorizerName" locationName:"authorizerName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1156,7 +1156,7 @@ type AwsJobExecutionsRolloutConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of OTA update job executions started per minute.
-	MaximumPerMinute *int64 `locationName:"maximumPerMinute" min:"1" type:"integer"`
+	MaximumPerMinute *int64 `json:"iot:AwsJobExecutionsRolloutConfig:MaximumPerMinute" locationName:"maximumPerMinute" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -1194,15 +1194,15 @@ type Behavior struct {
 
 	// The criteria that determine if a device is behaving normally in regard to
 	// the metric.
-	Criteria *BehaviorCriteria `locationName:"criteria" type:"structure"`
+	Criteria *BehaviorCriteria `json:"iot:Behavior:Criteria" locationName:"criteria" type:"structure"`
 
 	// What is measured by the behavior.
-	Metric *string `locationName:"metric" type:"string"`
+	Metric *string `json:"iot:Behavior:Metric" locationName:"metric" type:"string"`
 
 	// The name you have given to the behavior.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iot:Behavior:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1261,16 +1261,16 @@ type BehaviorCriteria struct {
 
 	// The operator that relates the thing measured (metric) to the criteria (containing
 	// a value or statisticalThreshold).
-	ComparisonOperator ComparisonOperator `locationName:"comparisonOperator" type:"string" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"iot:BehaviorCriteria:ComparisonOperator" locationName:"comparisonOperator" type:"string" enum:"true"`
 
 	// If a device is in violation of the behavior for the specified number of consecutive
 	// datapoints, an alarm occurs. If not specified, the default is 1.
-	ConsecutiveDatapointsToAlarm *int64 `locationName:"consecutiveDatapointsToAlarm" min:"1" type:"integer"`
+	ConsecutiveDatapointsToAlarm *int64 `json:"iot:BehaviorCriteria:ConsecutiveDatapointsToAlarm" locationName:"consecutiveDatapointsToAlarm" min:"1" type:"integer"`
 
 	// If an alarm has occurred and the offending device is no longer in violation
 	// of the behavior for the specified number of consecutive datapoints, the alarm
 	// is cleared. If not specified, the default is 1.
-	ConsecutiveDatapointsToClear *int64 `locationName:"consecutiveDatapointsToClear" min:"1" type:"integer"`
+	ConsecutiveDatapointsToClear *int64 `json:"iot:BehaviorCriteria:ConsecutiveDatapointsToClear" locationName:"consecutiveDatapointsToClear" min:"1" type:"integer"`
 
 	// Use this to specify the time duration over which the behavior is evaluated,
 	// for those criteria which have a time dimension (for example, NUM_MESSAGES_SENT).
@@ -1278,14 +1278,14 @@ type BehaviorCriteria struct {
 	// are accumulated over this time duration before being used to calculate percentiles,
 	// and later, measurements from an individual device are also accumulated over
 	// this time duration before being given a percentile rank.
-	DurationSeconds *int64 `locationName:"durationSeconds" type:"integer"`
+	DurationSeconds *int64 `json:"iot:BehaviorCriteria:DurationSeconds" locationName:"durationSeconds" type:"integer"`
 
 	// A statistical ranking (percentile) which indicates a threshold value by which
 	// a behavior is determined to be in compliance or in violation of the behavior.
-	StatisticalThreshold *StatisticalThreshold `locationName:"statisticalThreshold" type:"structure"`
+	StatisticalThreshold *StatisticalThreshold `json:"iot:BehaviorCriteria:StatisticalThreshold" locationName:"statisticalThreshold" type:"structure"`
 
 	// The value to be compared with the metric.
-	Value *MetricValue `locationName:"value" type:"structure"`
+	Value *MetricValue `json:"iot:BehaviorCriteria:Value" locationName:"value" type:"structure"`
 }
 
 // String returns the string representation
@@ -1355,7 +1355,7 @@ type BillingGroupMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The date the billing group was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:BillingGroupMetadata:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1379,7 +1379,7 @@ type BillingGroupProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the billing group.
-	BillingGroupDescription *string `locationName:"billingGroupDescription" type:"string"`
+	BillingGroupDescription *string `json:"iot:BillingGroupProperties:BillingGroupDescription" locationName:"billingGroupDescription" type:"string"`
 }
 
 // String returns the string representation
@@ -1403,18 +1403,18 @@ type CACertificate struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the CA certificate.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:CACertificate:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The ID of the CA certificate.
-	CertificateId *string `locationName:"certificateId" min:"64" type:"string"`
+	CertificateId *string `json:"iot:CACertificate:CertificateId" locationName:"certificateId" min:"64" type:"string"`
 
 	// The date the CA certificate was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:CACertificate:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the CA certificate.
 	//
 	// The status value REGISTER_INACTIVE is deprecated and should not be used.
-	Status CACertificateStatus `locationName:"status" type:"string" enum:"true"`
+	Status CACertificateStatus `json:"iot:CACertificate:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1457,37 +1457,37 @@ type CACertificateDescription struct {
 
 	// Whether the CA certificate configured for auto registration of device certificates.
 	// Valid values are "ENABLE" and "DISABLE"
-	AutoRegistrationStatus AutoRegistrationStatus `locationName:"autoRegistrationStatus" type:"string" enum:"true"`
+	AutoRegistrationStatus AutoRegistrationStatus `json:"iot:CACertificateDescription:AutoRegistrationStatus" locationName:"autoRegistrationStatus" type:"string" enum:"true"`
 
 	// The CA certificate ARN.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:CACertificateDescription:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The CA certificate ID.
-	CertificateId *string `locationName:"certificateId" min:"64" type:"string"`
+	CertificateId *string `json:"iot:CACertificateDescription:CertificateId" locationName:"certificateId" min:"64" type:"string"`
 
 	// The CA certificate data, in PEM format.
-	CertificatePem *string `locationName:"certificatePem" min:"1" type:"string"`
+	CertificatePem *string `json:"iot:CACertificateDescription:CertificatePem" locationName:"certificatePem" min:"1" type:"string"`
 
 	// The date the CA certificate was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:CACertificateDescription:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The customer version of the CA certificate.
-	CustomerVersion *int64 `locationName:"customerVersion" min:"1" type:"integer"`
+	CustomerVersion *int64 `json:"iot:CACertificateDescription:CustomerVersion" locationName:"customerVersion" min:"1" type:"integer"`
 
 	// The generation ID of the CA certificate.
-	GenerationId *string `locationName:"generationId" type:"string"`
+	GenerationId *string `json:"iot:CACertificateDescription:GenerationId" locationName:"generationId" type:"string"`
 
 	// The date the CA certificate was last modified.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:CACertificateDescription:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The owner of the CA certificate.
-	OwnedBy *string `locationName:"ownedBy" min:"12" type:"string"`
+	OwnedBy *string `json:"iot:CACertificateDescription:OwnedBy" locationName:"ownedBy" min:"12" type:"string"`
 
 	// The status of a CA certificate.
-	Status CACertificateStatus `locationName:"status" type:"string" enum:"true"`
+	Status CACertificateStatus `json:"iot:CACertificateDescription:Status" locationName:"status" type:"string" enum:"true"`
 
 	// When the CA certificate is valid.
-	Validity *CertificateValidity `locationName:"validity" type:"structure"`
+	Validity *CertificateValidity `json:"iot:CACertificateDescription:Validity" locationName:"validity" type:"structure"`
 }
 
 // String returns the string representation
@@ -1571,19 +1571,19 @@ type Certificate struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the certificate.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:Certificate:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The ID of the certificate. (The last part of the certificate ARN contains
 	// the certificate ID.)
-	CertificateId *string `locationName:"certificateId" min:"64" type:"string"`
+	CertificateId *string `json:"iot:Certificate:CertificateId" locationName:"certificateId" min:"64" type:"string"`
 
 	// The date and time the certificate was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:Certificate:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the certificate.
 	//
 	// The status value REGISTER_INACTIVE is deprecated and should not be used.
-	Status CertificateStatus `locationName:"status" type:"string" enum:"true"`
+	Status CertificateStatus `json:"iot:Certificate:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1625,43 +1625,43 @@ type CertificateDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The certificate ID of the CA certificate used to sign this certificate.
-	CaCertificateId *string `locationName:"caCertificateId" min:"64" type:"string"`
+	CaCertificateId *string `json:"iot:CertificateDescription:CaCertificateId" locationName:"caCertificateId" min:"64" type:"string"`
 
 	// The ARN of the certificate.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:CertificateDescription:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The ID of the certificate.
-	CertificateId *string `locationName:"certificateId" min:"64" type:"string"`
+	CertificateId *string `json:"iot:CertificateDescription:CertificateId" locationName:"certificateId" min:"64" type:"string"`
 
 	// The certificate data, in PEM format.
-	CertificatePem *string `locationName:"certificatePem" min:"1" type:"string"`
+	CertificatePem *string `json:"iot:CertificateDescription:CertificatePem" locationName:"certificatePem" min:"1" type:"string"`
 
 	// The date and time the certificate was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:CertificateDescription:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The customer version of the certificate.
-	CustomerVersion *int64 `locationName:"customerVersion" min:"1" type:"integer"`
+	CustomerVersion *int64 `json:"iot:CertificateDescription:CustomerVersion" locationName:"customerVersion" min:"1" type:"integer"`
 
 	// The generation ID of the certificate.
-	GenerationId *string `locationName:"generationId" type:"string"`
+	GenerationId *string `json:"iot:CertificateDescription:GenerationId" locationName:"generationId" type:"string"`
 
 	// The date and time the certificate was last modified.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:CertificateDescription:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the AWS account that owns the certificate.
-	OwnedBy *string `locationName:"ownedBy" min:"12" type:"string"`
+	OwnedBy *string `json:"iot:CertificateDescription:OwnedBy" locationName:"ownedBy" min:"12" type:"string"`
 
 	// The ID of the AWS account of the previous owner of the certificate.
-	PreviousOwnedBy *string `locationName:"previousOwnedBy" min:"12" type:"string"`
+	PreviousOwnedBy *string `json:"iot:CertificateDescription:PreviousOwnedBy" locationName:"previousOwnedBy" min:"12" type:"string"`
 
 	// The status of the certificate.
-	Status CertificateStatus `locationName:"status" type:"string" enum:"true"`
+	Status CertificateStatus `json:"iot:CertificateDescription:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The transfer data.
-	TransferData *TransferData `locationName:"transferData" type:"structure"`
+	TransferData *TransferData `json:"iot:CertificateDescription:TransferData" locationName:"transferData" type:"structure"`
 
 	// When the certificate is valid.
-	Validity *CertificateValidity `locationName:"validity" type:"structure"`
+	Validity *CertificateValidity `json:"iot:CertificateDescription:Validity" locationName:"validity" type:"structure"`
 }
 
 // String returns the string representation
@@ -1757,10 +1757,10 @@ type CertificateValidity struct {
 	_ struct{} `type:"structure"`
 
 	// The certificate is not valid after this date.
-	NotAfter *time.Time `locationName:"notAfter" type:"timestamp" timestampFormat:"unix"`
+	NotAfter *time.Time `json:"iot:CertificateValidity:NotAfter" locationName:"notAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// The certificate is not valid before this date.
-	NotBefore *time.Time `locationName:"notBefore" type:"timestamp" timestampFormat:"unix"`
+	NotBefore *time.Time `json:"iot:CertificateValidity:NotBefore" locationName:"notBefore" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1792,22 +1792,22 @@ type CloudwatchAlarmAction struct {
 	// The CloudWatch alarm name.
 	//
 	// AlarmName is a required field
-	AlarmName *string `locationName:"alarmName" type:"string" required:"true"`
+	AlarmName *string `json:"iot:CloudwatchAlarmAction:AlarmName" locationName:"alarmName" type:"string" required:"true"`
 
 	// The IAM role that allows access to the CloudWatch alarm.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:CloudwatchAlarmAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The reason for the alarm change.
 	//
 	// StateReason is a required field
-	StateReason *string `locationName:"stateReason" type:"string" required:"true"`
+	StateReason *string `json:"iot:CloudwatchAlarmAction:StateReason" locationName:"stateReason" type:"string" required:"true"`
 
 	// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 	//
 	// StateValue is a required field
-	StateValue *string `locationName:"stateValue" type:"string" required:"true"`
+	StateValue *string `json:"iot:CloudwatchAlarmAction:StateValue" locationName:"stateValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1877,31 +1877,31 @@ type CloudwatchMetricAction struct {
 	// The CloudWatch metric name.
 	//
 	// MetricName is a required field
-	MetricName *string `locationName:"metricName" type:"string" required:"true"`
+	MetricName *string `json:"iot:CloudwatchMetricAction:MetricName" locationName:"metricName" type:"string" required:"true"`
 
 	// The CloudWatch metric namespace name.
 	//
 	// MetricNamespace is a required field
-	MetricNamespace *string `locationName:"metricNamespace" type:"string" required:"true"`
+	MetricNamespace *string `json:"iot:CloudwatchMetricAction:MetricNamespace" locationName:"metricNamespace" type:"string" required:"true"`
 
 	// An optional Unix timestamp (https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-	MetricTimestamp *string `locationName:"metricTimestamp" type:"string"`
+	MetricTimestamp *string `json:"iot:CloudwatchMetricAction:MetricTimestamp" locationName:"metricTimestamp" type:"string"`
 
 	// The metric unit (https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
 	// supported by CloudWatch.
 	//
 	// MetricUnit is a required field
-	MetricUnit *string `locationName:"metricUnit" type:"string" required:"true"`
+	MetricUnit *string `json:"iot:CloudwatchMetricAction:MetricUnit" locationName:"metricUnit" type:"string" required:"true"`
 
 	// The CloudWatch metric value.
 	//
 	// MetricValue is a required field
-	MetricValue *string `locationName:"metricValue" type:"string" required:"true"`
+	MetricValue *string `json:"iot:CloudwatchMetricAction:MetricValue" locationName:"metricValue" type:"string" required:"true"`
 
 	// The IAM role that allows access to the CloudWatch metric.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:CloudwatchMetricAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1985,13 +1985,13 @@ type CodeSigning struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the AWSSignerJob which was created to sign the file.
-	AwsSignerJobId *string `locationName:"awsSignerJobId" type:"string"`
+	AwsSignerJobId *string `json:"iot:CodeSigning:AwsSignerJobId" locationName:"awsSignerJobId" type:"string"`
 
 	// A custom method for code signing a file.
-	CustomCodeSigning *CustomCodeSigning `locationName:"customCodeSigning" type:"structure"`
+	CustomCodeSigning *CustomCodeSigning `json:"iot:CodeSigning:CustomCodeSigning" locationName:"customCodeSigning" type:"structure"`
 
 	// Describes the code-signing job.
-	StartSigningJobParameter *StartSigningJobParameter `locationName:"startSigningJobParameter" type:"structure"`
+	StartSigningJobParameter *StartSigningJobParameter `json:"iot:CodeSigning:StartSigningJobParameter" locationName:"startSigningJobParameter" type:"structure"`
 }
 
 // String returns the string representation
@@ -2042,10 +2042,10 @@ type CodeSigningCertificateChain struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the certificate.
-	CertificateName *string `locationName:"certificateName" type:"string"`
+	CertificateName *string `json:"iot:CodeSigningCertificateChain:CertificateName" locationName:"certificateName" type:"string"`
 
 	// A base64 encoded binary representation of the code signing certificate chain.
-	InlineDocument *string `locationName:"inlineDocument" type:"string"`
+	InlineDocument *string `json:"iot:CodeSigningCertificateChain:InlineDocument" locationName:"inlineDocument" type:"string"`
 }
 
 // String returns the string representation
@@ -2077,7 +2077,7 @@ type CodeSigningSignature struct {
 	// A base64 encoded binary representation of the code signing signature.
 	//
 	// InlineDocument is automatically base64 encoded/decoded by the SDK.
-	InlineDocument []byte `locationName:"inlineDocument" type:"blob"`
+	InlineDocument []byte `json:"iot:CodeSigningSignature:InlineDocument" locationName:"inlineDocument" type:"blob"`
 }
 
 // String returns the string representation
@@ -2101,7 +2101,7 @@ type Configuration struct {
 	_ struct{} `type:"structure"`
 
 	// True to enable the configuration.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"iot:Configuration:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -2125,16 +2125,16 @@ type CustomCodeSigning struct {
 	_ struct{} `type:"structure"`
 
 	// The certificate chain.
-	CertificateChain *CodeSigningCertificateChain `locationName:"certificateChain" type:"structure"`
+	CertificateChain *CodeSigningCertificateChain `json:"iot:CustomCodeSigning:CertificateChain" locationName:"certificateChain" type:"structure"`
 
 	// The hash algorithm used to code sign the file.
-	HashAlgorithm *string `locationName:"hashAlgorithm" type:"string"`
+	HashAlgorithm *string `json:"iot:CustomCodeSigning:HashAlgorithm" locationName:"hashAlgorithm" type:"string"`
 
 	// The signature for the file.
-	Signature *CodeSigningSignature `locationName:"signature" type:"structure"`
+	Signature *CodeSigningSignature `json:"iot:CustomCodeSigning:Signature" locationName:"signature" type:"structure"`
 
 	// The signature algorithm used to code sign the file.
-	SignatureAlgorithm *string `locationName:"signatureAlgorithm" type:"string"`
+	SignatureAlgorithm *string `json:"iot:CustomCodeSigning:SignatureAlgorithm" locationName:"signatureAlgorithm" type:"string"`
 }
 
 // String returns the string representation
@@ -2176,12 +2176,12 @@ type Denied struct {
 	_ struct{} `type:"structure"`
 
 	// Information that explicitly denies the authorization.
-	ExplicitDeny *ExplicitDeny `locationName:"explicitDeny" type:"structure"`
+	ExplicitDeny *ExplicitDeny `json:"iot:Denied:ExplicitDeny" locationName:"explicitDeny" type:"structure"`
 
 	// Information that implicitly denies the authorization. When a policy doesn't
 	// explicitly deny or allow an action on a resource it is considered an implicit
 	// deny.
-	ImplicitDeny *ImplicitDeny `locationName:"implicitDeny" type:"structure"`
+	ImplicitDeny *ImplicitDeny `json:"iot:Denied:ImplicitDeny" locationName:"implicitDeny" type:"structure"`
 }
 
 // String returns the string representation
@@ -2211,7 +2211,7 @@ type Destination struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the location in S3 of the updated firmware.
-	S3Destination *S3Destination `locationName:"s3Destination" type:"structure"`
+	S3Destination *S3Destination `json:"iot:Destination:S3Destination" locationName:"s3Destination" type:"structure"`
 }
 
 // String returns the string representation
@@ -2268,42 +2268,42 @@ type DynamoDBAction struct {
 	// The hash key name.
 	//
 	// HashKeyField is a required field
-	HashKeyField *string `locationName:"hashKeyField" type:"string" required:"true"`
+	HashKeyField *string `json:"iot:DynamoDBAction:HashKeyField" locationName:"hashKeyField" type:"string" required:"true"`
 
 	// The hash key type. Valid values are "STRING" or "NUMBER"
-	HashKeyType DynamoKeyType `locationName:"hashKeyType" type:"string" enum:"true"`
+	HashKeyType DynamoKeyType `json:"iot:DynamoDBAction:HashKeyType" locationName:"hashKeyType" type:"string" enum:"true"`
 
 	// The hash key value.
 	//
 	// HashKeyValue is a required field
-	HashKeyValue *string `locationName:"hashKeyValue" type:"string" required:"true"`
+	HashKeyValue *string `json:"iot:DynamoDBAction:HashKeyValue" locationName:"hashKeyValue" type:"string" required:"true"`
 
 	// The type of operation to be performed. This follows the substitution template,
 	// so it can be ${operation}, but the substitution must result in one of the
 	// following: INSERT, UPDATE, or DELETE.
-	Operation *string `locationName:"operation" type:"string"`
+	Operation *string `json:"iot:DynamoDBAction:Operation" locationName:"operation" type:"string"`
 
 	// The action payload. This name can be customized.
-	PayloadField *string `locationName:"payloadField" type:"string"`
+	PayloadField *string `json:"iot:DynamoDBAction:PayloadField" locationName:"payloadField" type:"string"`
 
 	// The range key name.
-	RangeKeyField *string `locationName:"rangeKeyField" type:"string"`
+	RangeKeyField *string `json:"iot:DynamoDBAction:RangeKeyField" locationName:"rangeKeyField" type:"string"`
 
 	// The range key type. Valid values are "STRING" or "NUMBER"
-	RangeKeyType DynamoKeyType `locationName:"rangeKeyType" type:"string" enum:"true"`
+	RangeKeyType DynamoKeyType `json:"iot:DynamoDBAction:RangeKeyType" locationName:"rangeKeyType" type:"string" enum:"true"`
 
 	// The range key value.
-	RangeKeyValue *string `locationName:"rangeKeyValue" type:"string"`
+	RangeKeyValue *string `json:"iot:DynamoDBAction:RangeKeyValue" locationName:"rangeKeyValue" type:"string"`
 
 	// The ARN of the IAM role that grants access to the DynamoDB table.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:DynamoDBAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The name of the DynamoDB table.
 	//
 	// TableName is a required field
-	TableName *string `locationName:"tableName" type:"string" required:"true"`
+	TableName *string `json:"iot:DynamoDBAction:TableName" locationName:"tableName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2419,12 +2419,12 @@ type DynamoDBv2Action struct {
 	// in the DynamoDB database.
 	//
 	// PutItem is a required field
-	PutItem *PutItemInput `locationName:"putItem" type:"structure" required:"true"`
+	PutItem *PutItemInput `json:"iot:DynamoDBv2Action:PutItem" locationName:"putItem" type:"structure" required:"true"`
 
 	// The ARN of the IAM role that grants access to the DynamoDB table.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:DynamoDBv2Action:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2477,13 +2477,13 @@ type EffectivePolicy struct {
 	_ struct{} `type:"structure"`
 
 	// The policy ARN.
-	PolicyArn *string `locationName:"policyArn" type:"string"`
+	PolicyArn *string `json:"iot:EffectivePolicy:PolicyArn" locationName:"policyArn" type:"string"`
 
 	// The IAM policy document.
-	PolicyDocument *string `locationName:"policyDocument" type:"string"`
+	PolicyDocument *string `json:"iot:EffectivePolicy:PolicyDocument" locationName:"policyDocument" type:"string"`
 
 	// The policy name.
-	PolicyName *string `locationName:"policyName" min:"1" type:"string"`
+	PolicyName *string `json:"iot:EffectivePolicy:PolicyName" locationName:"policyName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2521,27 +2521,27 @@ type ElasticsearchAction struct {
 	// The endpoint of your Elasticsearch domain.
 	//
 	// Endpoint is a required field
-	Endpoint *string `locationName:"endpoint" type:"string" required:"true"`
+	Endpoint *string `json:"iot:ElasticsearchAction:Endpoint" locationName:"endpoint" type:"string" required:"true"`
 
 	// The unique identifier for the document you are storing.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" type:"string" required:"true"`
+	Id *string `json:"iot:ElasticsearchAction:Id" locationName:"id" type:"string" required:"true"`
 
 	// The Elasticsearch index where you want to store your data.
 	//
 	// Index is a required field
-	Index *string `locationName:"index" type:"string" required:"true"`
+	Index *string `json:"iot:ElasticsearchAction:Index" locationName:"index" type:"string" required:"true"`
 
 	// The IAM role ARN that has access to Elasticsearch.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:ElasticsearchAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The type of document you are storing.
 	//
 	// Type is a required field
-	Type *string `locationName:"type" type:"string" required:"true"`
+	Type *string `json:"iot:ElasticsearchAction:Type" locationName:"type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2619,10 +2619,10 @@ type ErrorInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The error code.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"iot:ErrorInfo:Code" locationName:"code" type:"string"`
 
 	// The error message.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"iot:ErrorInfo:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -2652,7 +2652,7 @@ type ExplicitDeny struct {
 	_ struct{} `type:"structure"`
 
 	// The policies that denied the authorization.
-	Policies []Policy `locationName:"policies" type:"list"`
+	Policies []Policy `json:"iot:ExplicitDeny:Policies" locationName:"policies" type:"list"`
 }
 
 // String returns the string representation
@@ -2686,12 +2686,12 @@ type ExponentialRolloutRate struct {
 	// initial rate of rollout.
 	//
 	// BaseRatePerMinute is a required field
-	BaseRatePerMinute *int64 `locationName:"baseRatePerMinute" min:"1" type:"integer" required:"true"`
+	BaseRatePerMinute *int64 `json:"iot:ExponentialRolloutRate:BaseRatePerMinute" locationName:"baseRatePerMinute" min:"1" type:"integer" required:"true"`
 
 	// The exponential factor to increase the rate of rollout for a job.
 	//
 	// IncrementFactor is a required field
-	IncrementFactor *float64 `locationName:"incrementFactor" min:"1" type:"double" required:"true"`
+	IncrementFactor *float64 `json:"iot:ExponentialRolloutRate:IncrementFactor" locationName:"incrementFactor" min:"1" type:"double" required:"true"`
 
 	// The criteria to initiate the increase in rate of rollout for a job.
 	//
@@ -2699,7 +2699,7 @@ type ExponentialRolloutRate struct {
 	// not 1.55).
 	//
 	// RateIncreaseCriteria is a required field
-	RateIncreaseCriteria *RateIncreaseCriteria `locationName:"rateIncreaseCriteria" type:"structure" required:"true"`
+	RateIncreaseCriteria *RateIncreaseCriteria `json:"iot:ExponentialRolloutRate:RateIncreaseCriteria" locationName:"rateIncreaseCriteria" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2768,10 +2768,10 @@ type FileLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The location of the updated firmware in S3.
-	S3Location *S3Location `locationName:"s3Location" type:"structure"`
+	S3Location *S3Location `json:"iot:FileLocation:S3Location" locationName:"s3Location" type:"structure"`
 
 	// The stream that contains the OTA update.
-	Stream *Stream `locationName:"stream" type:"structure"`
+	Stream *Stream `json:"iot:FileLocation:Stream" locationName:"stream" type:"structure"`
 }
 
 // String returns the string representation
@@ -2823,17 +2823,17 @@ type FirehoseAction struct {
 	// The delivery stream name.
 	//
 	// DeliveryStreamName is a required field
-	DeliveryStreamName *string `locationName:"deliveryStreamName" type:"string" required:"true"`
+	DeliveryStreamName *string `json:"iot:FirehoseAction:DeliveryStreamName" locationName:"deliveryStreamName" type:"string" required:"true"`
 
 	// The IAM role that grants access to the Amazon Kinesis Firehose stream.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:FirehoseAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// A character separator that will be used to separate records written to the
 	// Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows
 	// newline), ',' (comma).
-	Separator *string `locationName:"separator" type:"string"`
+	Separator *string `json:"iot:FirehoseAction:Separator" locationName:"separator" type:"string"`
 }
 
 // String returns the string representation
@@ -2887,10 +2887,10 @@ type GroupNameAndArn struct {
 	_ struct{} `type:"structure"`
 
 	// The group ARN.
-	GroupArn *string `locationName:"groupArn" type:"string"`
+	GroupArn *string `json:"iot:GroupNameAndArn:GroupArn" locationName:"groupArn" type:"string"`
 
 	// The group name.
-	GroupName *string `locationName:"groupName" min:"1" type:"string"`
+	GroupName *string `json:"iot:GroupNameAndArn:GroupName" locationName:"groupName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2922,7 +2922,7 @@ type ImplicitDeny struct {
 
 	// Policies that don't contain a matching allow or deny statement for the specified
 	// action on the specified resource.
-	Policies []Policy `locationName:"policies" type:"list"`
+	Policies []Policy `json:"iot:ImplicitDeny:Policies" locationName:"policies" type:"list"`
 }
 
 // String returns the string representation
@@ -2953,14 +2953,14 @@ type IotAnalyticsAction struct {
 
 	// (deprecated) The ARN of the IoT Analytics channel to which message data will
 	// be sent.
-	ChannelArn *string `locationName:"channelArn" type:"string"`
+	ChannelArn *string `json:"iot:IotAnalyticsAction:ChannelArn" locationName:"channelArn" type:"string"`
 
 	// The name of the IoT Analytics channel to which message data will be sent.
-	ChannelName *string `locationName:"channelName" type:"string"`
+	ChannelName *string `json:"iot:IotAnalyticsAction:ChannelName" locationName:"channelName" type:"string"`
 
 	// The ARN of the role which has a policy that grants IoT Analytics permission
 	// to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"iot:IotAnalyticsAction:RoleArn" locationName:"roleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -2998,17 +2998,17 @@ type IotEventsAction struct {
 	// The name of the AWS IoT Events input.
 	//
 	// InputName is a required field
-	InputName *string `locationName:"inputName" min:"1" type:"string" required:"true"`
+	InputName *string `json:"iot:IotEventsAction:InputName" locationName:"inputName" min:"1" type:"string" required:"true"`
 
 	// [Optional] Use this to ensure that only one input (message) with a given
 	// messageId will be processed by an AWS IoT Events detector.
-	MessageId *string `locationName:"messageId" type:"string"`
+	MessageId *string `json:"iot:IotEventsAction:MessageId" locationName:"messageId" type:"string"`
 
 	// The ARN of the role that grants AWS IoT permission to send an input to an
 	// AWS IoT Events detector. ("Action":"iotevents:BatchPutMessage").
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:IotEventsAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3065,48 +3065,48 @@ type Job struct {
 	_ struct{} `type:"structure"`
 
 	// Configuration for criteria to abort the job.
-	AbortConfig *AbortConfig `locationName:"abortConfig" type:"structure"`
+	AbortConfig *AbortConfig `json:"iot:Job:AbortConfig" locationName:"abortConfig" type:"structure"`
 
 	// If the job was updated, describes the reason for the update.
-	Comment *string `locationName:"comment" type:"string"`
+	Comment *string `json:"iot:Job:Comment" locationName:"comment" type:"string"`
 
 	// The time, in seconds since the epoch, when the job was completed.
-	CompletedAt *time.Time `locationName:"completedAt" type:"timestamp" timestampFormat:"unix"`
+	CompletedAt *time.Time `json:"iot:Job:CompletedAt" locationName:"completedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in seconds since the epoch, when the job was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iot:Job:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A short text description of the job.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:Job:Description" locationName:"description" type:"string"`
 
 	// Will be true if the job was canceled with the optional force parameter set
 	// to true.
-	ForceCanceled *bool `locationName:"forceCanceled" type:"boolean"`
+	ForceCanceled *bool `json:"iot:Job:ForceCanceled" locationName:"forceCanceled" type:"boolean"`
 
 	// An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".
-	JobArn *string `locationName:"jobArn" type:"string"`
+	JobArn *string `json:"iot:Job:JobArn" locationName:"jobArn" type:"string"`
 
 	// Allows you to create a staged rollout of a job.
-	JobExecutionsRolloutConfig *JobExecutionsRolloutConfig `locationName:"jobExecutionsRolloutConfig" type:"structure"`
+	JobExecutionsRolloutConfig *JobExecutionsRolloutConfig `json:"iot:Job:JobExecutionsRolloutConfig" locationName:"jobExecutionsRolloutConfig" type:"structure"`
 
 	// The unique identifier you assigned to this job when it was created.
-	JobId *string `locationName:"jobId" min:"1" type:"string"`
+	JobId *string `json:"iot:Job:JobId" locationName:"jobId" min:"1" type:"string"`
 
 	// Details about the job process.
-	JobProcessDetails *JobProcessDetails `locationName:"jobProcessDetails" type:"structure"`
+	JobProcessDetails *JobProcessDetails `json:"iot:Job:JobProcessDetails" locationName:"jobProcessDetails" type:"structure"`
 
 	// The time, in seconds since the epoch, when the job was last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"iot:Job:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Configuration for pre-signed S3 URLs.
-	PresignedUrlConfig *PresignedUrlConfig `locationName:"presignedUrlConfig" type:"structure"`
+	PresignedUrlConfig *PresignedUrlConfig `json:"iot:Job:PresignedUrlConfig" locationName:"presignedUrlConfig" type:"structure"`
 
 	// If the job was updated, provides the reason code for the update.
-	ReasonCode *string `locationName:"reasonCode" type:"string"`
+	ReasonCode *string `json:"iot:Job:ReasonCode" locationName:"reasonCode" type:"string"`
 
 	// The status of the job, one of IN_PROGRESS, CANCELED, DELETION_IN_PROGRESS
 	// or COMPLETED.
-	Status JobStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobStatus `json:"iot:Job:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Specifies whether the job will continue to run (CONTINUOUS), or will be complete
 	// after all those things specified as targets have completed the job (SNAPSHOT).
@@ -3114,16 +3114,16 @@ type Job struct {
 	// in a target. For example, a job will run on a device when the thing representing
 	// the device is added to a target group, even after the job was completed by
 	// all things originally in the group.
-	TargetSelection TargetSelection `locationName:"targetSelection" type:"string" enum:"true"`
+	TargetSelection TargetSelection `json:"iot:Job:TargetSelection" locationName:"targetSelection" type:"string" enum:"true"`
 
 	// A list of IoT things and thing groups to which the job should be sent.
-	Targets []string `locationName:"targets" min:"1" type:"list"`
+	Targets []string `json:"iot:Job:Targets" locationName:"targets" min:"1" type:"list"`
 
 	// Specifies the amount of time each device has to finish its execution of the
 	// job. A timer is started when the job execution status is set to IN_PROGRESS.
 	// If the job execution status is not set to another terminal state before the
 	// timer expires, it will be automatically set to TIMED_OUT.
-	TimeoutConfig *TimeoutConfig `locationName:"timeoutConfig" type:"structure"`
+	TimeoutConfig *TimeoutConfig `json:"iot:Job:TimeoutConfig" locationName:"timeoutConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -3254,42 +3254,42 @@ type JobExecution struct {
 	// 1 minute and 7 days (1 to 10080 minutes). The actual job execution timeout
 	// can occur up to 60 seconds later than the estimated duration. This value
 	// will not be included if the job execution has reached a terminal status.
-	ApproximateSecondsBeforeTimedOut *int64 `locationName:"approximateSecondsBeforeTimedOut" type:"long"`
+	ApproximateSecondsBeforeTimedOut *int64 `json:"iot:JobExecution:ApproximateSecondsBeforeTimedOut" locationName:"approximateSecondsBeforeTimedOut" type:"long"`
 
 	// A string (consisting of the digits "0" through "9") which identifies this
 	// particular job execution on this particular device. It can be used in commands
 	// which return or update job execution information.
-	ExecutionNumber *int64 `locationName:"executionNumber" type:"long"`
+	ExecutionNumber *int64 `json:"iot:JobExecution:ExecutionNumber" locationName:"executionNumber" type:"long"`
 
 	// Will be true if the job execution was canceled with the optional force parameter
 	// set to true.
-	ForceCanceled *bool `locationName:"forceCanceled" type:"boolean"`
+	ForceCanceled *bool `json:"iot:JobExecution:ForceCanceled" locationName:"forceCanceled" type:"boolean"`
 
 	// The unique identifier you assigned to the job when it was created.
-	JobId *string `locationName:"jobId" min:"1" type:"string"`
+	JobId *string `json:"iot:JobExecution:JobId" locationName:"jobId" min:"1" type:"string"`
 
 	// The time, in seconds since the epoch, when the job execution was last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"iot:JobExecution:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in seconds since the epoch, when the job execution was queued.
-	QueuedAt *time.Time `locationName:"queuedAt" type:"timestamp" timestampFormat:"unix"`
+	QueuedAt *time.Time `json:"iot:JobExecution:QueuedAt" locationName:"queuedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in seconds since the epoch, when the job execution started.
-	StartedAt *time.Time `locationName:"startedAt" type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"iot:JobExecution:StartedAt" locationName:"startedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED,
 	// TIMED_OUT, CANCELED, or REJECTED).
-	Status JobExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobExecutionStatus `json:"iot:JobExecution:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A collection of name/value pairs that describe the status of the job execution.
-	StatusDetails *JobExecutionStatusDetails `locationName:"statusDetails" type:"structure"`
+	StatusDetails *JobExecutionStatusDetails `json:"iot:JobExecution:StatusDetails" locationName:"statusDetails" type:"structure"`
 
 	// The ARN of the thing on which the job execution is running.
-	ThingArn *string `locationName:"thingArn" type:"string"`
+	ThingArn *string `json:"iot:JobExecution:ThingArn" locationName:"thingArn" type:"string"`
 
 	// The version of the job execution. Job execution versions are incremented
 	// each time they are updated by a device.
-	VersionNumber *int64 `locationName:"versionNumber" type:"long"`
+	VersionNumber *int64 `json:"iot:JobExecution:VersionNumber" locationName:"versionNumber" type:"long"`
 }
 
 // String returns the string representation
@@ -3373,7 +3373,7 @@ type JobExecutionStatusDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The job execution status.
-	DetailsMap map[string]string `locationName:"detailsMap" type:"map"`
+	DetailsMap map[string]string `json:"iot:JobExecutionStatusDetails:DetailsMap" locationName:"detailsMap" type:"map"`
 }
 
 // String returns the string representation
@@ -3405,19 +3405,19 @@ type JobExecutionSummary struct {
 	// A string (consisting of the digits "0" through "9") which identifies this
 	// particular job execution on this particular device. It can be used later
 	// in commands which return or update job execution information.
-	ExecutionNumber *int64 `locationName:"executionNumber" type:"long"`
+	ExecutionNumber *int64 `json:"iot:JobExecutionSummary:ExecutionNumber" locationName:"executionNumber" type:"long"`
 
 	// The time, in seconds since the epoch, when the job execution was last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"iot:JobExecutionSummary:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in seconds since the epoch, when the job execution was queued.
-	QueuedAt *time.Time `locationName:"queuedAt" type:"timestamp" timestampFormat:"unix"`
+	QueuedAt *time.Time `json:"iot:JobExecutionSummary:QueuedAt" locationName:"queuedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in seconds since the epoch, when the job execution started.
-	StartedAt *time.Time `locationName:"startedAt" type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"iot:JobExecutionSummary:StartedAt" locationName:"startedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the job execution.
-	Status JobExecutionStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobExecutionStatus `json:"iot:JobExecutionSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3465,10 +3465,10 @@ type JobExecutionSummaryForJob struct {
 	_ struct{} `type:"structure"`
 
 	// Contains a subset of information about a job execution.
-	JobExecutionSummary *JobExecutionSummary `locationName:"jobExecutionSummary" type:"structure"`
+	JobExecutionSummary *JobExecutionSummary `json:"iot:JobExecutionSummaryForJob:JobExecutionSummary" locationName:"jobExecutionSummary" type:"structure"`
 
 	// The ARN of the thing on which the job execution is running.
-	ThingArn *string `locationName:"thingArn" type:"string"`
+	ThingArn *string `json:"iot:JobExecutionSummaryForJob:ThingArn" locationName:"thingArn" type:"string"`
 }
 
 // String returns the string representation
@@ -3498,10 +3498,10 @@ type JobExecutionSummaryForThing struct {
 	_ struct{} `type:"structure"`
 
 	// Contains a subset of information about a job execution.
-	JobExecutionSummary *JobExecutionSummary `locationName:"jobExecutionSummary" type:"structure"`
+	JobExecutionSummary *JobExecutionSummary `json:"iot:JobExecutionSummaryForThing:JobExecutionSummary" locationName:"jobExecutionSummary" type:"structure"`
 
 	// The unique identifier you assigned to this job when it was created.
-	JobId *string `locationName:"jobId" min:"1" type:"string"`
+	JobId *string `json:"iot:JobExecutionSummaryForThing:JobId" locationName:"jobId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3532,11 +3532,11 @@ type JobExecutionsRolloutConfig struct {
 
 	// The rate of increase for a job rollout. This parameter allows you to define
 	// an exponential rate for a job rollout.
-	ExponentialRate *ExponentialRolloutRate `locationName:"exponentialRate" type:"structure"`
+	ExponentialRate *ExponentialRolloutRate `json:"iot:JobExecutionsRolloutConfig:ExponentialRate" locationName:"exponentialRate" type:"structure"`
 
 	// The maximum number of things that will be notified of a pending job, per
 	// minute. This parameter allows you to create a staged rollout.
-	MaximumPerMinute *int64 `locationName:"maximumPerMinute" min:"1" type:"integer"`
+	MaximumPerMinute *int64 `json:"iot:JobExecutionsRolloutConfig:MaximumPerMinute" locationName:"maximumPerMinute" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -3584,35 +3584,35 @@ type JobProcessDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The number of things that cancelled the job.
-	NumberOfCanceledThings *int64 `locationName:"numberOfCanceledThings" type:"integer"`
+	NumberOfCanceledThings *int64 `json:"iot:JobProcessDetails:NumberOfCanceledThings" locationName:"numberOfCanceledThings" type:"integer"`
 
 	// The number of things that failed executing the job.
-	NumberOfFailedThings *int64 `locationName:"numberOfFailedThings" type:"integer"`
+	NumberOfFailedThings *int64 `json:"iot:JobProcessDetails:NumberOfFailedThings" locationName:"numberOfFailedThings" type:"integer"`
 
 	// The number of things currently executing the job.
-	NumberOfInProgressThings *int64 `locationName:"numberOfInProgressThings" type:"integer"`
+	NumberOfInProgressThings *int64 `json:"iot:JobProcessDetails:NumberOfInProgressThings" locationName:"numberOfInProgressThings" type:"integer"`
 
 	// The number of things that are awaiting execution of the job.
-	NumberOfQueuedThings *int64 `locationName:"numberOfQueuedThings" type:"integer"`
+	NumberOfQueuedThings *int64 `json:"iot:JobProcessDetails:NumberOfQueuedThings" locationName:"numberOfQueuedThings" type:"integer"`
 
 	// The number of things that rejected the job.
-	NumberOfRejectedThings *int64 `locationName:"numberOfRejectedThings" type:"integer"`
+	NumberOfRejectedThings *int64 `json:"iot:JobProcessDetails:NumberOfRejectedThings" locationName:"numberOfRejectedThings" type:"integer"`
 
 	// The number of things that are no longer scheduled to execute the job because
 	// they have been deleted or have been removed from the group that was a target
 	// of the job.
-	NumberOfRemovedThings *int64 `locationName:"numberOfRemovedThings" type:"integer"`
+	NumberOfRemovedThings *int64 `json:"iot:JobProcessDetails:NumberOfRemovedThings" locationName:"numberOfRemovedThings" type:"integer"`
 
 	// The number of things which successfully completed the job.
-	NumberOfSucceededThings *int64 `locationName:"numberOfSucceededThings" type:"integer"`
+	NumberOfSucceededThings *int64 `json:"iot:JobProcessDetails:NumberOfSucceededThings" locationName:"numberOfSucceededThings" type:"integer"`
 
 	// The number of things whose job execution status is TIMED_OUT.
-	NumberOfTimedOutThings *int64 `locationName:"numberOfTimedOutThings" type:"integer"`
+	NumberOfTimedOutThings *int64 `json:"iot:JobProcessDetails:NumberOfTimedOutThings" locationName:"numberOfTimedOutThings" type:"integer"`
 
 	// The target devices to which the job execution is being rolled out. This value
 	// will be null after the job execution has finished rolling out to all the
 	// target devices.
-	ProcessingTargets []string `locationName:"processingTargets" type:"list"`
+	ProcessingTargets []string `json:"iot:JobProcessDetails:ProcessingTargets" locationName:"processingTargets" type:"list"`
 }
 
 // String returns the string representation
@@ -3690,22 +3690,22 @@ type JobSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time, in seconds since the epoch, when the job completed.
-	CompletedAt *time.Time `locationName:"completedAt" type:"timestamp" timestampFormat:"unix"`
+	CompletedAt *time.Time `json:"iot:JobSummary:CompletedAt" locationName:"completedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in seconds since the epoch, when the job was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iot:JobSummary:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The job ARN.
-	JobArn *string `locationName:"jobArn" type:"string"`
+	JobArn *string `json:"iot:JobSummary:JobArn" locationName:"jobArn" type:"string"`
 
 	// The unique identifier you assigned to this job when it was created.
-	JobId *string `locationName:"jobId" min:"1" type:"string"`
+	JobId *string `json:"iot:JobSummary:JobId" locationName:"jobId" min:"1" type:"string"`
 
 	// The time, in seconds since the epoch, when the job was last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"iot:JobSummary:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The job summary status.
-	Status JobStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobStatus `json:"iot:JobSummary:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Specifies whether the job will continue to run (CONTINUOUS), or will be complete
 	// after all those things specified as targets have completed the job (SNAPSHOT).
@@ -3713,10 +3713,10 @@ type JobSummary struct {
 	// in a target. For example, a job will run on a thing when the thing is added
 	// to a target group, even after the job was completed by all things originally
 	// in the group.
-	TargetSelection TargetSelection `locationName:"targetSelection" type:"string" enum:"true"`
+	TargetSelection TargetSelection `json:"iot:JobSummary:TargetSelection" locationName:"targetSelection" type:"string" enum:"true"`
 
 	// The ID of the thing group.
-	ThingGroupId *string `locationName:"thingGroupId" min:"1" type:"string"`
+	ThingGroupId *string `json:"iot:JobSummary:ThingGroupId" locationName:"thingGroupId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3782,10 +3782,10 @@ type KeyPair struct {
 	_ struct{} `type:"structure"`
 
 	// The private key.
-	PrivateKey *string `min:"1" type:"string"`
+	PrivateKey *string `json:"iot:KeyPair:PrivateKey" min:"1" type:"string"`
 
 	// The public key.
-	PublicKey *string `min:"1" type:"string"`
+	PublicKey *string `json:"iot:KeyPair:PublicKey" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3815,17 +3815,17 @@ type KinesisAction struct {
 	_ struct{} `type:"structure"`
 
 	// The partition key.
-	PartitionKey *string `locationName:"partitionKey" type:"string"`
+	PartitionKey *string `json:"iot:KinesisAction:PartitionKey" locationName:"partitionKey" type:"string"`
 
 	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:KinesisAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The name of the Amazon Kinesis stream.
 	//
 	// StreamName is a required field
-	StreamName *string `locationName:"streamName" type:"string" required:"true"`
+	StreamName *string `json:"iot:KinesisAction:StreamName" locationName:"streamName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3881,7 +3881,7 @@ type LambdaAction struct {
 	// The ARN of the Lambda function.
 	//
 	// FunctionArn is a required field
-	FunctionArn *string `locationName:"functionArn" type:"string" required:"true"`
+	FunctionArn *string `json:"iot:LambdaAction:FunctionArn" locationName:"functionArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3919,12 +3919,12 @@ type LogTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The target name.
-	TargetName *string `locationName:"targetName" type:"string"`
+	TargetName *string `json:"iot:LogTarget:TargetName" locationName:"targetName" type:"string"`
 
 	// The target type.
 	//
 	// TargetType is a required field
-	TargetType LogTargetType `locationName:"targetType" type:"string" required:"true" enum:"true"`
+	TargetType LogTargetType `json:"iot:LogTarget:TargetType" locationName:"targetType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -3967,10 +3967,10 @@ type LogTargetConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The logging level.
-	LogLevel LogLevel `locationName:"logLevel" type:"string" enum:"true"`
+	LogLevel LogLevel `json:"iot:LogTargetConfiguration:LogLevel" locationName:"logLevel" type:"string" enum:"true"`
 
 	// A log target
-	LogTarget *LogTarget `locationName:"logTarget" type:"structure"`
+	LogTarget *LogTarget `json:"iot:LogTargetConfiguration:LogTarget" locationName:"logTarget" type:"structure"`
 }
 
 // String returns the string representation
@@ -4000,12 +4000,12 @@ type LoggingOptionsPayload struct {
 	_ struct{} `type:"structure"`
 
 	// The log level.
-	LogLevel LogLevel `locationName:"logLevel" type:"string" enum:"true"`
+	LogLevel LogLevel `json:"iot:LoggingOptionsPayload:LogLevel" locationName:"logLevel" type:"string" enum:"true"`
 
 	// The ARN of the IAM role that grants access.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:LoggingOptionsPayload:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4050,15 +4050,15 @@ type MetricValue struct {
 
 	// If the comparisonOperator calls for a set of CIDRs, use this to specify that
 	// set to be compared with the metric.
-	Cidrs []string `locationName:"cidrs" type:"list"`
+	Cidrs []string `json:"iot:MetricValue:Cidrs" locationName:"cidrs" type:"list"`
 
 	// If the comparisonOperator calls for a numeric value, use this to specify
 	// that numeric value to be compared with the metric.
-	Count *int64 `locationName:"count" type:"long"`
+	Count *int64 `json:"iot:MetricValue:Count" locationName:"count" type:"long"`
 
 	// If the comparisonOperator calls for a set of ports, use this to specify that
 	// set to be compared with the metric.
-	Ports []int64 `locationName:"ports" type:"list"`
+	Ports []int64 `json:"iot:MetricValue:Ports" locationName:"ports" type:"list"`
 }
 
 // String returns the string representation
@@ -4106,13 +4106,13 @@ type NonCompliantResource struct {
 	_ struct{} `type:"structure"`
 
 	// Additional information about the non-compliant resource.
-	AdditionalInfo map[string]string `locationName:"additionalInfo" type:"map"`
+	AdditionalInfo map[string]string `json:"iot:NonCompliantResource:AdditionalInfo" locationName:"additionalInfo" type:"map"`
 
 	// Information identifying the non-compliant resource.
-	ResourceIdentifier *ResourceIdentifier `locationName:"resourceIdentifier" type:"structure"`
+	ResourceIdentifier *ResourceIdentifier `json:"iot:NonCompliantResource:ResourceIdentifier" locationName:"resourceIdentifier" type:"structure"`
 
 	// The type of the non-compliant resource.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"iot:NonCompliantResource:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4154,19 +4154,19 @@ type OTAUpdateFile struct {
 	_ struct{} `type:"structure"`
 
 	// A list of name/attribute pairs.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"iot:OTAUpdateFile:Attributes" locationName:"attributes" type:"map"`
 
 	// The code signing method of the file.
-	CodeSigning *CodeSigning `locationName:"codeSigning" type:"structure"`
+	CodeSigning *CodeSigning `json:"iot:OTAUpdateFile:CodeSigning" locationName:"codeSigning" type:"structure"`
 
 	// The location of the updated firmware.
-	FileLocation *FileLocation `locationName:"fileLocation" type:"structure"`
+	FileLocation *FileLocation `json:"iot:OTAUpdateFile:FileLocation" locationName:"fileLocation" type:"structure"`
 
 	// The name of the file.
-	FileName *string `locationName:"fileName" type:"string"`
+	FileName *string `json:"iot:OTAUpdateFile:FileName" locationName:"fileName" type:"string"`
 
 	// The file version.
-	FileVersion *string `locationName:"fileVersion" type:"string"`
+	FileVersion *string `json:"iot:OTAUpdateFile:FileVersion" locationName:"fileVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -4240,40 +4240,40 @@ type OTAUpdateInfo struct {
 	_ struct{} `type:"structure"`
 
 	// A collection of name/value pairs
-	AdditionalParameters map[string]string `locationName:"additionalParameters" type:"map"`
+	AdditionalParameters map[string]string `json:"iot:OTAUpdateInfo:AdditionalParameters" locationName:"additionalParameters" type:"map"`
 
 	// The AWS IoT job ARN associated with the OTA update.
-	AwsIotJobArn *string `locationName:"awsIotJobArn" type:"string"`
+	AwsIotJobArn *string `json:"iot:OTAUpdateInfo:AwsIotJobArn" locationName:"awsIotJobArn" type:"string"`
 
 	// The AWS IoT job ID associated with the OTA update.
-	AwsIotJobId *string `locationName:"awsIotJobId" type:"string"`
+	AwsIotJobId *string `json:"iot:OTAUpdateInfo:AwsIotJobId" locationName:"awsIotJobId" type:"string"`
 
 	// Configuration for the rollout of OTA updates.
-	AwsJobExecutionsRolloutConfig *AwsJobExecutionsRolloutConfig `locationName:"awsJobExecutionsRolloutConfig" type:"structure"`
+	AwsJobExecutionsRolloutConfig *AwsJobExecutionsRolloutConfig `json:"iot:OTAUpdateInfo:AwsJobExecutionsRolloutConfig" locationName:"awsJobExecutionsRolloutConfig" type:"structure"`
 
 	// The date when the OTA update was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:OTAUpdateInfo:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the OTA update.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:OTAUpdateInfo:Description" locationName:"description" type:"string"`
 
 	// Error information associated with the OTA update.
-	ErrorInfo *ErrorInfo `locationName:"errorInfo" type:"structure"`
+	ErrorInfo *ErrorInfo `json:"iot:OTAUpdateInfo:ErrorInfo" locationName:"errorInfo" type:"structure"`
 
 	// The date when the OTA update was last updated.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:OTAUpdateInfo:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The OTA update ARN.
-	OtaUpdateArn *string `locationName:"otaUpdateArn" type:"string"`
+	OtaUpdateArn *string `json:"iot:OTAUpdateInfo:OtaUpdateArn" locationName:"otaUpdateArn" type:"string"`
 
 	// A list of files associated with the OTA update.
-	OtaUpdateFiles []OTAUpdateFile `locationName:"otaUpdateFiles" min:"1" type:"list"`
+	OtaUpdateFiles []OTAUpdateFile `json:"iot:OTAUpdateInfo:OtaUpdateFiles" locationName:"otaUpdateFiles" min:"1" type:"list"`
 
 	// The OTA update ID.
-	OtaUpdateId *string `locationName:"otaUpdateId" min:"1" type:"string"`
+	OtaUpdateId *string `json:"iot:OTAUpdateInfo:OtaUpdateId" locationName:"otaUpdateId" min:"1" type:"string"`
 
 	// The status of the OTA update.
-	OtaUpdateStatus OTAUpdateStatus `locationName:"otaUpdateStatus" type:"string" enum:"true"`
+	OtaUpdateStatus OTAUpdateStatus `json:"iot:OTAUpdateInfo:OtaUpdateStatus" locationName:"otaUpdateStatus" type:"string" enum:"true"`
 
 	// Specifies whether the OTA update will continue to run (CONTINUOUS), or will
 	// be complete after all those things specified as targets have completed the
@@ -4281,10 +4281,10 @@ type OTAUpdateInfo struct {
 	// thing when a change is detected in a target. For example, an OTA update will
 	// run on a thing when the thing is added to a target group, even after the
 	// OTA update was completed by all things originally in the group.
-	TargetSelection TargetSelection `locationName:"targetSelection" type:"string" enum:"true"`
+	TargetSelection TargetSelection `json:"iot:OTAUpdateInfo:TargetSelection" locationName:"targetSelection" type:"string" enum:"true"`
 
 	// The targets of the OTA update.
-	Targets []string `locationName:"targets" min:"1" type:"list"`
+	Targets []string `json:"iot:OTAUpdateInfo:Targets" locationName:"targets" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -4404,13 +4404,13 @@ type OTAUpdateSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date when the OTA update was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:OTAUpdateSummary:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The OTA update ARN.
-	OtaUpdateArn *string `locationName:"otaUpdateArn" type:"string"`
+	OtaUpdateArn *string `json:"iot:OTAUpdateSummary:OtaUpdateArn" locationName:"otaUpdateArn" type:"string"`
 
 	// The OTA update ID.
-	OtaUpdateId *string `locationName:"otaUpdateId" min:"1" type:"string"`
+	OtaUpdateId *string `json:"iot:OTAUpdateSummary:OtaUpdateId" locationName:"otaUpdateId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -4446,22 +4446,22 @@ type OutgoingCertificate struct {
 	_ struct{} `type:"structure"`
 
 	// The certificate ARN.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:OutgoingCertificate:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The certificate ID.
-	CertificateId *string `locationName:"certificateId" min:"64" type:"string"`
+	CertificateId *string `json:"iot:OutgoingCertificate:CertificateId" locationName:"certificateId" min:"64" type:"string"`
 
 	// The certificate creation date.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:OutgoingCertificate:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date the transfer was initiated.
-	TransferDate *time.Time `locationName:"transferDate" type:"timestamp" timestampFormat:"unix"`
+	TransferDate *time.Time `json:"iot:OutgoingCertificate:TransferDate" locationName:"transferDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The transfer message.
-	TransferMessage *string `locationName:"transferMessage" type:"string"`
+	TransferMessage *string `json:"iot:OutgoingCertificate:TransferMessage" locationName:"transferMessage" type:"string"`
 
 	// The AWS account to which the transfer was made.
-	TransferredTo *string `locationName:"transferredTo" min:"12" type:"string"`
+	TransferredTo *string `json:"iot:OutgoingCertificate:TransferredTo" locationName:"transferredTo" min:"12" type:"string"`
 }
 
 // String returns the string representation
@@ -4515,10 +4515,10 @@ type Policy struct {
 	_ struct{} `type:"structure"`
 
 	// The policy ARN.
-	PolicyArn *string `locationName:"policyArn" type:"string"`
+	PolicyArn *string `json:"iot:Policy:PolicyArn" locationName:"policyArn" type:"string"`
 
 	// The policy name.
-	PolicyName *string `locationName:"policyName" min:"1" type:"string"`
+	PolicyName *string `json:"iot:Policy:PolicyName" locationName:"policyName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -4548,13 +4548,13 @@ type PolicyVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the policy was created.
-	CreateDate *time.Time `locationName:"createDate" type:"timestamp" timestampFormat:"unix"`
+	CreateDate *time.Time `json:"iot:PolicyVersion:CreateDate" locationName:"createDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies whether the policy version is the default.
-	IsDefaultVersion *bool `locationName:"isDefaultVersion" type:"boolean"`
+	IsDefaultVersion *bool `json:"iot:PolicyVersion:IsDefaultVersion" locationName:"isDefaultVersion" type:"boolean"`
 
 	// The policy version ID.
-	VersionId *string `locationName:"versionId" type:"string"`
+	VersionId *string `json:"iot:PolicyVersion:VersionId" locationName:"versionId" type:"string"`
 }
 
 // String returns the string representation
@@ -4590,10 +4590,10 @@ type PolicyVersionIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the policy.
-	PolicyName *string `locationName:"policyName" min:"1" type:"string"`
+	PolicyName *string `json:"iot:PolicyVersionIdentifier:PolicyName" locationName:"policyName" min:"1" type:"string"`
 
 	// The ID of the version of the policy associated with the resource.
-	PolicyVersionId *string `locationName:"policyVersionId" type:"string"`
+	PolicyVersionId *string `json:"iot:PolicyVersionIdentifier:PolicyVersionId" locationName:"policyVersionId" type:"string"`
 }
 
 // String returns the string representation
@@ -4638,12 +4638,12 @@ type PresignedUrlConfig struct {
 	// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600,
 	// the default value is 3600 seconds. Pre-signed URLs are generated when Jobs
 	// receives an MQTT request for the job document.
-	ExpiresInSec *int64 `locationName:"expiresInSec" min:"60" type:"long"`
+	ExpiresInSec *int64 `json:"iot:PresignedUrlConfig:ExpiresInSec" locationName:"expiresInSec" min:"60" type:"long"`
 
 	// The ARN of an IAM role that grants grants permission to download files from
 	// the S3 bucket where the job data/updates are stored. The role must also grant
 	// permission for IoT to download the files.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iot:PresignedUrlConfig:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -4692,7 +4692,7 @@ type PutItemInput struct {
 	// The table where the message data will be written
 	//
 	// TableName is a required field
-	TableName *string `locationName:"tableName" type:"string" required:"true"`
+	TableName *string `json:"iot:PutItemInput:TableName" locationName:"tableName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4732,11 +4732,11 @@ type RateIncreaseCriteria struct {
 
 	// The threshold for number of notified things that will initiate the increase
 	// in rate of rollout.
-	NumberOfNotifiedThings *int64 `locationName:"numberOfNotifiedThings" min:"1" type:"integer"`
+	NumberOfNotifiedThings *int64 `json:"iot:RateIncreaseCriteria:NumberOfNotifiedThings" locationName:"numberOfNotifiedThings" min:"1" type:"integer"`
 
 	// The threshold for number of succeeded things that will initiate the increase
 	// in rate of rollout.
-	NumberOfSucceededThings *int64 `locationName:"numberOfSucceededThings" min:"1" type:"integer"`
+	NumberOfSucceededThings *int64 `json:"iot:RateIncreaseCriteria:NumberOfSucceededThings" locationName:"numberOfSucceededThings" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -4782,10 +4782,10 @@ type RegistrationConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the role.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iot:RegistrationConfig:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 
 	// The template body.
-	TemplateBody *string `locationName:"templateBody" type:"string"`
+	TemplateBody *string `json:"iot:RegistrationConfig:TemplateBody" locationName:"templateBody" type:"string"`
 }
 
 // String returns the string representation
@@ -4828,13 +4828,13 @@ type RelatedResource struct {
 	_ struct{} `type:"structure"`
 
 	// Additional information about the resource.
-	AdditionalInfo map[string]string `locationName:"additionalInfo" type:"map"`
+	AdditionalInfo map[string]string `json:"iot:RelatedResource:AdditionalInfo" locationName:"additionalInfo" type:"map"`
 
 	// Information identifying the resource.
-	ResourceIdentifier *ResourceIdentifier `locationName:"resourceIdentifier" type:"structure"`
+	ResourceIdentifier *ResourceIdentifier `json:"iot:RelatedResource:ResourceIdentifier" locationName:"resourceIdentifier" type:"structure"`
 
 	// The type of resource.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"iot:RelatedResource:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4878,12 +4878,12 @@ type RepublishAction struct {
 	// The ARN of the IAM role that grants access.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:RepublishAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The name of the MQTT topic.
 	//
 	// Topic is a required field
-	Topic *string `locationName:"topic" type:"string" required:"true"`
+	Topic *string `json:"iot:RepublishAction:Topic" locationName:"topic" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4931,22 +4931,22 @@ type ResourceIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The account with which the resource is associated.
-	Account *string `locationName:"account" min:"12" type:"string"`
+	Account *string `json:"iot:ResourceIdentifier:Account" locationName:"account" min:"12" type:"string"`
 
 	// The ID of the CA certificate used to authorize the certificate.
-	CaCertificateId *string `locationName:"caCertificateId" min:"64" type:"string"`
+	CaCertificateId *string `json:"iot:ResourceIdentifier:CaCertificateId" locationName:"caCertificateId" min:"64" type:"string"`
 
 	// The client ID.
-	ClientId *string `locationName:"clientId" type:"string"`
+	ClientId *string `json:"iot:ResourceIdentifier:ClientId" locationName:"clientId" type:"string"`
 
 	// The ID of the Cognito Identity Pool.
-	CognitoIdentityPoolId *string `locationName:"cognitoIdentityPoolId" type:"string"`
+	CognitoIdentityPoolId *string `json:"iot:ResourceIdentifier:CognitoIdentityPoolId" locationName:"cognitoIdentityPoolId" type:"string"`
 
 	// The ID of the certificate attached to the resource.
-	DeviceCertificateId *string `locationName:"deviceCertificateId" min:"64" type:"string"`
+	DeviceCertificateId *string `json:"iot:ResourceIdentifier:DeviceCertificateId" locationName:"deviceCertificateId" min:"64" type:"string"`
 
 	// The version of the policy associated with the resource.
-	PolicyVersionIdentifier *PolicyVersionIdentifier `locationName:"policyVersionIdentifier" type:"structure"`
+	PolicyVersionIdentifier *PolicyVersionIdentifier `json:"iot:ResourceIdentifier:PolicyVersionIdentifier" locationName:"policyVersionIdentifier" type:"structure"`
 }
 
 // String returns the string representation
@@ -5024,25 +5024,25 @@ type RoleAliasDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The UNIX timestamp of when the role alias was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:RoleAliasDescription:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The number of seconds for which the credential is valid.
-	CredentialDurationSeconds *int64 `locationName:"credentialDurationSeconds" min:"900" type:"integer"`
+	CredentialDurationSeconds *int64 `json:"iot:RoleAliasDescription:CredentialDurationSeconds" locationName:"credentialDurationSeconds" min:"900" type:"integer"`
 
 	// The UNIX timestamp of when the role alias was last modified.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:RoleAliasDescription:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The role alias owner.
-	Owner *string `locationName:"owner" min:"12" type:"string"`
+	Owner *string `json:"iot:RoleAliasDescription:Owner" locationName:"owner" min:"12" type:"string"`
 
 	// The role alias.
-	RoleAlias *string `locationName:"roleAlias" min:"1" type:"string"`
+	RoleAlias *string `json:"iot:RoleAliasDescription:RoleAlias" locationName:"roleAlias" min:"1" type:"string"`
 
 	// The ARN of the role alias.
-	RoleAliasArn *string `locationName:"roleAliasArn" type:"string"`
+	RoleAliasArn *string `json:"iot:RoleAliasDescription:RoleAliasArn" locationName:"roleAliasArn" type:"string"`
 
 	// The role ARN.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iot:RoleAliasDescription:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -5104,21 +5104,21 @@ type S3Action struct {
 	// The Amazon S3 bucket.
 	//
 	// BucketName is a required field
-	BucketName *string `locationName:"bucketName" type:"string" required:"true"`
+	BucketName *string `json:"iot:S3Action:BucketName" locationName:"bucketName" type:"string" required:"true"`
 
 	// The Amazon S3 canned ACL that controls access to the object identified by
 	// the object key. For more information, see S3 canned ACLs (https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl).
-	CannedAcl CannedAccessControlList `locationName:"cannedAcl" type:"string" enum:"true"`
+	CannedAcl CannedAccessControlList `json:"iot:S3Action:CannedAcl" locationName:"cannedAcl" type:"string" enum:"true"`
 
 	// The object key.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" type:"string" required:"true"`
+	Key *string `json:"iot:S3Action:Key" locationName:"key" type:"string" required:"true"`
 
 	// The ARN of the IAM role that grants access.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:S3Action:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5182,10 +5182,10 @@ type S3Destination struct {
 	_ struct{} `type:"structure"`
 
 	// The S3 bucket that contains the updated firmware.
-	Bucket *string `locationName:"bucket" min:"1" type:"string"`
+	Bucket *string `json:"iot:S3Destination:Bucket" locationName:"bucket" min:"1" type:"string"`
 
 	// The S3 prefix.
-	Prefix *string `locationName:"prefix" type:"string"`
+	Prefix *string `json:"iot:S3Destination:Prefix" locationName:"prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -5228,13 +5228,13 @@ type S3Location struct {
 	_ struct{} `type:"structure"`
 
 	// The S3 bucket.
-	Bucket *string `locationName:"bucket" min:"1" type:"string"`
+	Bucket *string `json:"iot:S3Location:Bucket" locationName:"bucket" min:"1" type:"string"`
 
 	// The S3 key.
-	Key *string `locationName:"key" min:"1" type:"string"`
+	Key *string `json:"iot:S3Location:Key" locationName:"key" min:"1" type:"string"`
 
 	// The S3 bucket version.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"iot:S3Location:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -5290,13 +5290,13 @@ type SalesforceAction struct {
 	// of the Input Stream.
 	//
 	// Token is a required field
-	Token *string `locationName:"token" min:"40" type:"string" required:"true"`
+	Token *string `json:"iot:SalesforceAction:Token" locationName:"token" min:"40" type:"string" required:"true"`
 
 	// The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available
 	// from the Salesforce IoT Cloud platform after creation of the Input Stream.
 	//
 	// Url is a required field
-	Url *string `locationName:"url" type:"string" required:"true"`
+	Url *string `json:"iot:SalesforceAction:Url" locationName:"url" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5349,20 +5349,20 @@ type ScheduledAuditMetadata struct {
 	// The day of the month on which the scheduled audit is run (if the frequency
 	// is "MONTHLY"). If days 29-31 are specified, and the month does not have that
 	// many days, the audit takes place on the "LAST" day of the month.
-	DayOfMonth *string `locationName:"dayOfMonth" type:"string"`
+	DayOfMonth *string `json:"iot:ScheduledAuditMetadata:DayOfMonth" locationName:"dayOfMonth" type:"string"`
 
 	// The day of the week on which the scheduled audit is run (if the frequency
 	// is "WEEKLY" or "BIWEEKLY").
-	DayOfWeek DayOfWeek `locationName:"dayOfWeek" type:"string" enum:"true"`
+	DayOfWeek DayOfWeek `json:"iot:ScheduledAuditMetadata:DayOfWeek" locationName:"dayOfWeek" type:"string" enum:"true"`
 
 	// How often the scheduled audit takes place.
-	Frequency AuditFrequency `locationName:"frequency" type:"string" enum:"true"`
+	Frequency AuditFrequency `json:"iot:ScheduledAuditMetadata:Frequency" locationName:"frequency" type:"string" enum:"true"`
 
 	// The ARN of the scheduled audit.
-	ScheduledAuditArn *string `locationName:"scheduledAuditArn" type:"string"`
+	ScheduledAuditArn *string `json:"iot:ScheduledAuditMetadata:ScheduledAuditArn" locationName:"scheduledAuditArn" type:"string"`
 
 	// The name of the scheduled audit.
-	ScheduledAuditName *string `locationName:"scheduledAuditName" min:"1" type:"string"`
+	ScheduledAuditName *string `json:"iot:ScheduledAuditMetadata:ScheduledAuditName" locationName:"scheduledAuditName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -5412,12 +5412,12 @@ type SecurityProfileIdentifier struct {
 	// The ARN of the security profile.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"iot:SecurityProfileIdentifier:Arn" locationName:"arn" type:"string" required:"true"`
 
 	// The name you have given to the security profile.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iot:SecurityProfileIdentifier:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5449,7 +5449,7 @@ type SecurityProfileTarget struct {
 	// The ARN of the security profile.
 	//
 	// Arn is a required field
-	Arn *string `locationName:"arn" type:"string" required:"true"`
+	Arn *string `json:"iot:SecurityProfileTarget:Arn" locationName:"arn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5473,10 +5473,10 @@ type SecurityProfileTargetMapping struct {
 	_ struct{} `type:"structure"`
 
 	// Information that identifies the security profile.
-	SecurityProfileIdentifier *SecurityProfileIdentifier `locationName:"securityProfileIdentifier" type:"structure"`
+	SecurityProfileIdentifier *SecurityProfileIdentifier `json:"iot:SecurityProfileTargetMapping:SecurityProfileIdentifier" locationName:"securityProfileIdentifier" type:"structure"`
 
 	// Information about the target (thing group) associated with the security profile.
-	Target *SecurityProfileTarget `locationName:"target" type:"structure"`
+	Target *SecurityProfileTarget `json:"iot:SecurityProfileTargetMapping:Target" locationName:"target" type:"structure"`
 }
 
 // String returns the string representation
@@ -5506,13 +5506,13 @@ type SigningProfileParameter struct {
 	_ struct{} `type:"structure"`
 
 	// Certificate ARN.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"iot:SigningProfileParameter:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The location of the code-signing certificate on your device.
-	CertificatePathOnDevice *string `locationName:"certificatePathOnDevice" type:"string"`
+	CertificatePathOnDevice *string `json:"iot:SigningProfileParameter:CertificatePathOnDevice" locationName:"certificatePathOnDevice" type:"string"`
 
 	// The hardware platform of your device.
-	Platform *string `locationName:"platform" type:"string"`
+	Platform *string `json:"iot:SigningProfileParameter:Platform" locationName:"platform" type:"string"`
 }
 
 // String returns the string representation
@@ -5553,17 +5553,17 @@ type SnsAction struct {
 	// bits of the payload should be extracted. To read more about SNS message formats,
 	// see https://docs.aws.amazon.com/sns/latest/dg/json-formats.html (https://docs.aws.amazon.com/sns/latest/dg/json-formats.html)
 	// refer to their official documentation.
-	MessageFormat MessageFormat `locationName:"messageFormat" type:"string" enum:"true"`
+	MessageFormat MessageFormat `json:"iot:SnsAction:MessageFormat" locationName:"messageFormat" type:"string" enum:"true"`
 
 	// The ARN of the IAM role that grants access.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:SnsAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The ARN of the SNS topic.
 	//
 	// TargetArn is a required field
-	TargetArn *string `locationName:"targetArn" type:"string" required:"true"`
+	TargetArn *string `json:"iot:SnsAction:TargetArn" locationName:"targetArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5619,15 +5619,15 @@ type SqsAction struct {
 	// The URL of the Amazon SQS queue.
 	//
 	// QueueUrl is a required field
-	QueueUrl *string `locationName:"queueUrl" type:"string" required:"true"`
+	QueueUrl *string `json:"iot:SqsAction:QueueUrl" locationName:"queueUrl" type:"string" required:"true"`
 
 	// The ARN of the IAM role that grants access.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:SqsAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// Specifies whether to use Base64 encoding.
-	UseBase64 *bool `locationName:"useBase64" type:"boolean"`
+	UseBase64 *bool `json:"iot:SqsAction:UseBase64" locationName:"useBase64" type:"boolean"`
 }
 
 // String returns the string representation
@@ -5681,13 +5681,13 @@ type StartSigningJobParameter struct {
 	_ struct{} `type:"structure"`
 
 	// The location to write the code-signed file.
-	Destination *Destination `locationName:"destination" type:"structure"`
+	Destination *Destination `json:"iot:StartSigningJobParameter:Destination" locationName:"destination" type:"structure"`
 
 	// The code-signing profile name.
-	SigningProfileName *string `locationName:"signingProfileName" type:"string"`
+	SigningProfileName *string `json:"iot:StartSigningJobParameter:SigningProfileName" locationName:"signingProfileName" type:"string"`
 
 	// Describes the code-signing profile.
-	SigningProfileParameter *SigningProfileParameter `locationName:"signingProfileParameter" type:"structure"`
+	SigningProfileParameter *SigningProfileParameter `json:"iot:StartSigningJobParameter:SigningProfileParameter" locationName:"signingProfileParameter" type:"structure"`
 }
 
 // String returns the string representation
@@ -5746,7 +5746,7 @@ type StatisticalThreshold struct {
 	// above or below (comparisonOperator) the value associated with the percentile
 	// specified, then the device is considered to be in compliance with the behavior,
 	// otherwise a violation occurs.
-	Statistic *string `locationName:"statistic" type:"string"`
+	Statistic *string `json:"iot:StatisticalThreshold:Statistic" locationName:"statistic" type:"string"`
 }
 
 // String returns the string representation
@@ -5771,7 +5771,7 @@ type Statistics struct {
 	_ struct{} `type:"structure"`
 
 	// The count of things that match the query.
-	Count *int64 `locationName:"count" type:"integer"`
+	Count *int64 `json:"iot:Statistics:Count" locationName:"count" type:"integer"`
 }
 
 // String returns the string representation
@@ -5797,18 +5797,18 @@ type StepFunctionsAction struct {
 	// (Optional) A name will be given to the state machine execution consisting
 	// of this prefix followed by a UUID. Step Functions automatically creates a
 	// unique name for each state machine execution if one is not provided.
-	ExecutionNamePrefix *string `locationName:"executionNamePrefix" type:"string"`
+	ExecutionNamePrefix *string `json:"iot:StepFunctionsAction:ExecutionNamePrefix" locationName:"executionNamePrefix" type:"string"`
 
 	// The ARN of the role that grants IoT permission to start execution of a state
 	// machine ("Action":"states:StartExecution").
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"iot:StepFunctionsAction:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The name of the Step Functions state machine whose execution will be started.
 	//
 	// StateMachineName is a required field
-	StateMachineName *string `locationName:"stateMachineName" type:"string" required:"true"`
+	StateMachineName *string `json:"iot:StepFunctionsAction:StateMachineName" locationName:"stateMachineName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5862,10 +5862,10 @@ type Stream struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of a file associated with a stream.
-	FileId *int64 `locationName:"fileId" type:"integer"`
+	FileId *int64 `json:"iot:Stream:FileId" locationName:"fileId" type:"integer"`
 
 	// The stream ID.
-	StreamId *string `locationName:"streamId" min:"1" type:"string"`
+	StreamId *string `json:"iot:Stream:StreamId" locationName:"streamId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -5908,10 +5908,10 @@ type StreamFile struct {
 	_ struct{} `type:"structure"`
 
 	// The file ID.
-	FileId *int64 `locationName:"fileId" type:"integer"`
+	FileId *int64 `json:"iot:StreamFile:FileId" locationName:"fileId" type:"integer"`
 
 	// The location of the file in S3.
-	S3Location *S3Location `locationName:"s3Location" type:"structure"`
+	S3Location *S3Location `json:"iot:StreamFile:S3Location" locationName:"s3Location" type:"structure"`
 }
 
 // String returns the string representation
@@ -5956,28 +5956,28 @@ type StreamInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The date when the stream was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iot:StreamInfo:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the stream.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:StreamInfo:Description" locationName:"description" type:"string"`
 
 	// The files to stream.
-	Files []StreamFile `locationName:"files" min:"1" type:"list"`
+	Files []StreamFile `json:"iot:StreamInfo:Files" locationName:"files" min:"1" type:"list"`
 
 	// The date when the stream was last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"iot:StreamInfo:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// An IAM role AWS IoT assumes to access your S3 files.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iot:StreamInfo:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 
 	// The stream ARN.
-	StreamArn *string `locationName:"streamArn" type:"string"`
+	StreamArn *string `json:"iot:StreamInfo:StreamArn" locationName:"streamArn" type:"string"`
 
 	// The stream ID.
-	StreamId *string `locationName:"streamId" min:"1" type:"string"`
+	StreamId *string `json:"iot:StreamInfo:StreamId" locationName:"streamId" min:"1" type:"string"`
 
 	// The stream version.
-	StreamVersion *int64 `locationName:"streamVersion" type:"integer"`
+	StreamVersion *int64 `json:"iot:StreamInfo:StreamVersion" locationName:"streamVersion" type:"integer"`
 }
 
 // String returns the string representation
@@ -6049,16 +6049,16 @@ type StreamSummary struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the stream.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:StreamSummary:Description" locationName:"description" type:"string"`
 
 	// The stream ARN.
-	StreamArn *string `locationName:"streamArn" type:"string"`
+	StreamArn *string `json:"iot:StreamSummary:StreamArn" locationName:"streamArn" type:"string"`
 
 	// The stream ID.
-	StreamId *string `locationName:"streamId" min:"1" type:"string"`
+	StreamId *string `json:"iot:StreamSummary:StreamId" locationName:"streamId" min:"1" type:"string"`
 
 	// The stream version.
-	StreamVersion *int64 `locationName:"streamVersion" type:"integer"`
+	StreamVersion *int64 `json:"iot:StreamSummary:StreamVersion" locationName:"streamVersion" type:"integer"`
 }
 
 // String returns the string representation
@@ -6100,10 +6100,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The tag's key.
-	Key *string `type:"string"`
+	Key *string `json:"iot:Tag:Key" type:"string"`
 
 	// The tag's value.
-	Value *string `type:"string"`
+	Value *string `json:"iot:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -6133,25 +6133,25 @@ type TaskStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// The number of checks that did not run because the audit was canceled.
-	CanceledChecks *int64 `locationName:"canceledChecks" type:"integer"`
+	CanceledChecks *int64 `json:"iot:TaskStatistics:CanceledChecks" locationName:"canceledChecks" type:"integer"`
 
 	// The number of checks that found compliant resources.
-	CompliantChecks *int64 `locationName:"compliantChecks" type:"integer"`
+	CompliantChecks *int64 `json:"iot:TaskStatistics:CompliantChecks" locationName:"compliantChecks" type:"integer"`
 
 	// The number of checks
-	FailedChecks *int64 `locationName:"failedChecks" type:"integer"`
+	FailedChecks *int64 `json:"iot:TaskStatistics:FailedChecks" locationName:"failedChecks" type:"integer"`
 
 	// The number of checks in progress.
-	InProgressChecks *int64 `locationName:"inProgressChecks" type:"integer"`
+	InProgressChecks *int64 `json:"iot:TaskStatistics:InProgressChecks" locationName:"inProgressChecks" type:"integer"`
 
 	// The number of checks that found non-compliant resources.
-	NonCompliantChecks *int64 `locationName:"nonCompliantChecks" type:"integer"`
+	NonCompliantChecks *int64 `json:"iot:TaskStatistics:NonCompliantChecks" locationName:"nonCompliantChecks" type:"integer"`
 
 	// The number of checks in this audit.
-	TotalChecks *int64 `locationName:"totalChecks" type:"integer"`
+	TotalChecks *int64 `json:"iot:TaskStatistics:TotalChecks" locationName:"totalChecks" type:"integer"`
 
 	// The number of checks waiting for data collection.
-	WaitingForDataCollectionChecks *int64 `locationName:"waitingForDataCollectionChecks" type:"integer"`
+	WaitingForDataCollectionChecks *int64 `json:"iot:TaskStatistics:WaitingForDataCollectionChecks" locationName:"waitingForDataCollectionChecks" type:"integer"`
 }
 
 // String returns the string representation
@@ -6212,19 +6212,19 @@ type ThingAttribute struct {
 	_ struct{} `type:"structure"`
 
 	// A list of thing attributes which are name-value pairs.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"iot:ThingAttribute:Attributes" locationName:"attributes" type:"map"`
 
 	// The thing ARN.
-	ThingArn *string `locationName:"thingArn" type:"string"`
+	ThingArn *string `json:"iot:ThingAttribute:ThingArn" locationName:"thingArn" type:"string"`
 
 	// The name of the thing.
-	ThingName *string `locationName:"thingName" min:"1" type:"string"`
+	ThingName *string `json:"iot:ThingAttribute:ThingName" locationName:"thingName" min:"1" type:"string"`
 
 	// The name of the thing type, if the thing has been associated with a type.
-	ThingTypeName *string `locationName:"thingTypeName" min:"1" type:"string"`
+	ThingTypeName *string `json:"iot:ThingAttribute:ThingTypeName" locationName:"thingTypeName" min:"1" type:"string"`
 
 	// The version of the thing record in the registry.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"iot:ThingAttribute:Version" locationName:"version" type:"long"`
 }
 
 // String returns the string representation
@@ -6279,12 +6279,12 @@ type ThingConnectivity struct {
 
 	// True if the thing is connected to the AWS IoT service; false if it is not
 	// connected.
-	Connected *bool `locationName:"connected" type:"boolean"`
+	Connected *bool `json:"iot:ThingConnectivity:Connected" locationName:"connected" type:"boolean"`
 
 	// The epoch time (in milliseconds) when the thing last connected or disconnected.
 	// If the thing has been disconnected for more than a few weeks, the time value
 	// might be missing.
-	Timestamp *int64 `locationName:"timestamp" type:"long"`
+	Timestamp *int64 `json:"iot:ThingConnectivity:Timestamp" locationName:"timestamp" type:"long"`
 }
 
 // String returns the string representation
@@ -6314,25 +6314,25 @@ type ThingDocument struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"iot:ThingDocument:Attributes" locationName:"attributes" type:"map"`
 
 	// Indicates whether the thing is connected to the AWS IoT service.
-	Connectivity *ThingConnectivity `locationName:"connectivity" type:"structure"`
+	Connectivity *ThingConnectivity `json:"iot:ThingDocument:Connectivity" locationName:"connectivity" type:"structure"`
 
 	// The shadow.
-	Shadow *string `locationName:"shadow" type:"string"`
+	Shadow *string `json:"iot:ThingDocument:Shadow" locationName:"shadow" type:"string"`
 
 	// Thing group names.
-	ThingGroupNames []string `locationName:"thingGroupNames" type:"list"`
+	ThingGroupNames []string `json:"iot:ThingDocument:ThingGroupNames" locationName:"thingGroupNames" type:"list"`
 
 	// The thing ID.
-	ThingId *string `locationName:"thingId" type:"string"`
+	ThingId *string `json:"iot:ThingDocument:ThingId" locationName:"thingId" type:"string"`
 
 	// The thing name.
-	ThingName *string `locationName:"thingName" min:"1" type:"string"`
+	ThingName *string `json:"iot:ThingDocument:ThingName" locationName:"thingName" min:"1" type:"string"`
 
 	// The thing type name.
-	ThingTypeName *string `locationName:"thingTypeName" min:"1" type:"string"`
+	ThingTypeName *string `json:"iot:ThingDocument:ThingTypeName" locationName:"thingTypeName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -6404,19 +6404,19 @@ type ThingGroupDocument struct {
 	_ struct{} `type:"structure"`
 
 	// The thing group attributes.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"iot:ThingGroupDocument:Attributes" locationName:"attributes" type:"map"`
 
 	// Parent group names.
-	ParentGroupNames []string `locationName:"parentGroupNames" type:"list"`
+	ParentGroupNames []string `json:"iot:ThingGroupDocument:ParentGroupNames" locationName:"parentGroupNames" type:"list"`
 
 	// The thing group description.
-	ThingGroupDescription *string `locationName:"thingGroupDescription" type:"string"`
+	ThingGroupDescription *string `json:"iot:ThingGroupDocument:ThingGroupDescription" locationName:"thingGroupDescription" type:"string"`
 
 	// The thing group ID.
-	ThingGroupId *string `locationName:"thingGroupId" min:"1" type:"string"`
+	ThingGroupId *string `json:"iot:ThingGroupDocument:ThingGroupId" locationName:"thingGroupId" min:"1" type:"string"`
 
 	// The thing group name.
-	ThingGroupName *string `locationName:"thingGroupName" min:"1" type:"string"`
+	ThingGroupName *string `json:"iot:ThingGroupDocument:ThingGroupName" locationName:"thingGroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -6478,7 +6478,7 @@ type ThingGroupIndexingConfiguration struct {
 	// Thing group indexing mode.
 	//
 	// ThingGroupIndexingMode is a required field
-	ThingGroupIndexingMode ThingGroupIndexingMode `locationName:"thingGroupIndexingMode" type:"string" required:"true" enum:"true"`
+	ThingGroupIndexingMode ThingGroupIndexingMode `json:"iot:ThingGroupIndexingConfiguration:ThingGroupIndexingMode" locationName:"thingGroupIndexingMode" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -6515,13 +6515,13 @@ type ThingGroupMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The UNIX timestamp of when the thing group was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:ThingGroupMetadata:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The parent thing group name.
-	ParentGroupName *string `locationName:"parentGroupName" min:"1" type:"string"`
+	ParentGroupName *string `json:"iot:ThingGroupMetadata:ParentGroupName" locationName:"parentGroupName" min:"1" type:"string"`
 
 	// The root parent thing group.
-	RootToParentThingGroups []GroupNameAndArn `locationName:"rootToParentThingGroups" type:"list"`
+	RootToParentThingGroups []GroupNameAndArn `json:"iot:ThingGroupMetadata:RootToParentThingGroups" locationName:"rootToParentThingGroups" type:"list"`
 }
 
 // String returns the string representation
@@ -6563,10 +6563,10 @@ type ThingGroupProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The thing group attributes in JSON format.
-	AttributePayload *AttributePayload `locationName:"attributePayload" type:"structure"`
+	AttributePayload *AttributePayload `json:"iot:ThingGroupProperties:AttributePayload" locationName:"attributePayload" type:"structure"`
 
 	// The thing group description.
-	ThingGroupDescription *string `locationName:"thingGroupDescription" type:"string"`
+	ThingGroupDescription *string `json:"iot:ThingGroupProperties:ThingGroupDescription" locationName:"thingGroupDescription" type:"string"`
 }
 
 // String returns the string representation
@@ -6602,7 +6602,7 @@ type ThingIndexingConfiguration struct {
 	//    thing connectivity indexing, thingIndexMode must not be set to OFF.
 	//
 	//    * OFF - Thing connectivity status indexing is disabled.
-	ThingConnectivityIndexingMode ThingConnectivityIndexingMode `locationName:"thingConnectivityIndexingMode" type:"string" enum:"true"`
+	ThingConnectivityIndexingMode ThingConnectivityIndexingMode `json:"iot:ThingIndexingConfiguration:ThingConnectivityIndexingMode" locationName:"thingConnectivityIndexingMode" type:"string" enum:"true"`
 
 	// Thing indexing mode. Valid values are:
 	//
@@ -6614,7 +6614,7 @@ type ThingIndexingConfiguration struct {
 	//    * OFF - Thing indexing is disabled.
 	//
 	// ThingIndexingMode is a required field
-	ThingIndexingMode ThingIndexingMode `locationName:"thingIndexingMode" type:"string" required:"true" enum:"true"`
+	ThingIndexingMode ThingIndexingMode `json:"iot:ThingIndexingConfiguration:ThingIndexingMode" locationName:"thingIndexingMode" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -6657,18 +6657,18 @@ type ThingTypeDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// The thing type ARN.
-	ThingTypeArn *string `locationName:"thingTypeArn" type:"string"`
+	ThingTypeArn *string `json:"iot:ThingTypeDefinition:ThingTypeArn" locationName:"thingTypeArn" type:"string"`
 
 	// The ThingTypeMetadata contains additional information about the thing type
 	// including: creation date and time, a value indicating whether the thing type
 	// is deprecated, and a date and time when it was deprecated.
-	ThingTypeMetadata *ThingTypeMetadata `locationName:"thingTypeMetadata" type:"structure"`
+	ThingTypeMetadata *ThingTypeMetadata `json:"iot:ThingTypeDefinition:ThingTypeMetadata" locationName:"thingTypeMetadata" type:"structure"`
 
 	// The name of the thing type.
-	ThingTypeName *string `locationName:"thingTypeName" min:"1" type:"string"`
+	ThingTypeName *string `json:"iot:ThingTypeDefinition:ThingTypeName" locationName:"thingTypeName" min:"1" type:"string"`
 
 	// The ThingTypeProperties for the thing type.
-	ThingTypeProperties *ThingTypeProperties `locationName:"thingTypeProperties" type:"structure"`
+	ThingTypeProperties *ThingTypeProperties `json:"iot:ThingTypeDefinition:ThingTypeProperties" locationName:"thingTypeProperties" type:"structure"`
 }
 
 // String returns the string representation
@@ -6712,14 +6712,14 @@ type ThingTypeMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the thing type was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:ThingTypeMetadata:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Whether the thing type is deprecated. If true, no new things could be associated
 	// with this type.
-	Deprecated *bool `locationName:"deprecated" type:"boolean"`
+	Deprecated *bool `json:"iot:ThingTypeMetadata:Deprecated" locationName:"deprecated" type:"boolean"`
 
 	// The date and time when the thing type was deprecated.
-	DeprecationDate *time.Time `locationName:"deprecationDate" type:"timestamp" timestampFormat:"unix"`
+	DeprecationDate *time.Time `json:"iot:ThingTypeMetadata:DeprecationDate" locationName:"deprecationDate" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -6756,10 +6756,10 @@ type ThingTypeProperties struct {
 	_ struct{} `type:"structure"`
 
 	// A list of searchable thing attribute names.
-	SearchableAttributes []string `locationName:"searchableAttributes" type:"list"`
+	SearchableAttributes []string `json:"iot:ThingTypeProperties:SearchableAttributes" locationName:"searchableAttributes" type:"list"`
 
 	// The description of the thing type.
-	ThingTypeDescription *string `locationName:"thingTypeDescription" type:"string"`
+	ThingTypeDescription *string `json:"iot:ThingTypeProperties:ThingTypeDescription" locationName:"thingTypeDescription" type:"string"`
 }
 
 // String returns the string representation
@@ -6803,7 +6803,7 @@ type TimeoutConfig struct {
 	// apply to all job executions for the job. Whenever a job execution remains
 	// in the IN_PROGRESS status for longer than this interval, the job execution
 	// will fail and switch to the terminal TIMED_OUT status.
-	InProgressTimeoutInMinutes *int64 `locationName:"inProgressTimeoutInMinutes" type:"long"`
+	InProgressTimeoutInMinutes *int64 `json:"iot:TimeoutConfig:InProgressTimeoutInMinutes" locationName:"inProgressTimeoutInMinutes" type:"long"`
 }
 
 // String returns the string representation
@@ -6827,29 +6827,29 @@ type TopicRule struct {
 	_ struct{} `type:"structure"`
 
 	// The actions associated with the rule.
-	Actions []Action `locationName:"actions" type:"list"`
+	Actions []Action `json:"iot:TopicRule:Actions" locationName:"actions" type:"list"`
 
 	// The version of the SQL rules engine to use when evaluating the rule.
-	AwsIotSqlVersion *string `locationName:"awsIotSqlVersion" type:"string"`
+	AwsIotSqlVersion *string `json:"iot:TopicRule:AwsIotSqlVersion" locationName:"awsIotSqlVersion" type:"string"`
 
 	// The date and time the rule was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iot:TopicRule:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the rule.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:TopicRule:Description" locationName:"description" type:"string"`
 
 	// The action to perform when an error occurs.
-	ErrorAction *Action `locationName:"errorAction" type:"structure"`
+	ErrorAction *Action `json:"iot:TopicRule:ErrorAction" locationName:"errorAction" type:"structure"`
 
 	// Specifies whether the rule is disabled.
-	RuleDisabled *bool `locationName:"ruleDisabled" type:"boolean"`
+	RuleDisabled *bool `json:"iot:TopicRule:RuleDisabled" locationName:"ruleDisabled" type:"boolean"`
 
 	// The name of the rule.
-	RuleName *string `locationName:"ruleName" min:"1" type:"string"`
+	RuleName *string `json:"iot:TopicRule:RuleName" locationName:"ruleName" min:"1" type:"string"`
 
 	// The SQL statement used to query the topic. When using a SQL query with multiple
 	// lines, be sure to escape the newline characters.
-	Sql *string `locationName:"sql" type:"string"`
+	Sql *string `json:"iot:TopicRule:Sql" locationName:"sql" type:"string"`
 }
 
 // String returns the string representation
@@ -6921,19 +6921,19 @@ type TopicRuleListItem struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the rule was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"iot:TopicRuleListItem:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The rule ARN.
-	RuleArn *string `locationName:"ruleArn" type:"string"`
+	RuleArn *string `json:"iot:TopicRuleListItem:RuleArn" locationName:"ruleArn" type:"string"`
 
 	// Specifies whether the rule is disabled.
-	RuleDisabled *bool `locationName:"ruleDisabled" type:"boolean"`
+	RuleDisabled *bool `json:"iot:TopicRuleListItem:RuleDisabled" locationName:"ruleDisabled" type:"boolean"`
 
 	// The name of the rule.
-	RuleName *string `locationName:"ruleName" min:"1" type:"string"`
+	RuleName *string `json:"iot:TopicRuleListItem:RuleName" locationName:"ruleName" min:"1" type:"string"`
 
 	// The pattern for the topic names that apply.
-	TopicPattern *string `locationName:"topicPattern" type:"string"`
+	TopicPattern *string `json:"iot:TopicRuleListItem:TopicPattern" locationName:"topicPattern" type:"string"`
 }
 
 // String returns the string representation
@@ -6983,26 +6983,26 @@ type TopicRulePayload struct {
 	// The actions associated with the rule.
 	//
 	// Actions is a required field
-	Actions []Action `locationName:"actions" type:"list" required:"true"`
+	Actions []Action `json:"iot:TopicRulePayload:Actions" locationName:"actions" type:"list" required:"true"`
 
 	// The version of the SQL rules engine to use when evaluating the rule.
-	AwsIotSqlVersion *string `locationName:"awsIotSqlVersion" type:"string"`
+	AwsIotSqlVersion *string `json:"iot:TopicRulePayload:AwsIotSqlVersion" locationName:"awsIotSqlVersion" type:"string"`
 
 	// The description of the rule.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:TopicRulePayload:Description" locationName:"description" type:"string"`
 
 	// The action to take when an error occurs.
-	ErrorAction *Action `locationName:"errorAction" type:"structure"`
+	ErrorAction *Action `json:"iot:TopicRulePayload:ErrorAction" locationName:"errorAction" type:"structure"`
 
 	// Specifies whether the rule is disabled.
-	RuleDisabled *bool `locationName:"ruleDisabled" type:"boolean"`
+	RuleDisabled *bool `json:"iot:TopicRulePayload:RuleDisabled" locationName:"ruleDisabled" type:"boolean"`
 
 	// The SQL statement used to query the topic. For more information, see AWS
 	// IoT SQL Reference (https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference)
 	// in the AWS IoT Developer Guide.
 	//
 	// Sql is a required field
-	Sql *string `locationName:"sql" type:"string" required:"true"`
+	Sql *string `json:"iot:TopicRulePayload:Sql" locationName:"sql" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7092,19 +7092,19 @@ type TransferData struct {
 	_ struct{} `type:"structure"`
 
 	// The date the transfer was accepted.
-	AcceptDate *time.Time `locationName:"acceptDate" type:"timestamp" timestampFormat:"unix"`
+	AcceptDate *time.Time `json:"iot:TransferData:AcceptDate" locationName:"acceptDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date the transfer was rejected.
-	RejectDate *time.Time `locationName:"rejectDate" type:"timestamp" timestampFormat:"unix"`
+	RejectDate *time.Time `json:"iot:TransferData:RejectDate" locationName:"rejectDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The reason why the transfer was rejected.
-	RejectReason *string `locationName:"rejectReason" type:"string"`
+	RejectReason *string `json:"iot:TransferData:RejectReason" locationName:"rejectReason" type:"string"`
 
 	// The date the transfer took place.
-	TransferDate *time.Time `locationName:"transferDate" type:"timestamp" timestampFormat:"unix"`
+	TransferDate *time.Time `json:"iot:TransferData:TransferDate" locationName:"transferDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The transfer message.
-	TransferMessage *string `locationName:"transferMessage" type:"string"`
+	TransferMessage *string `json:"iot:TransferData:TransferMessage" locationName:"transferMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -7152,7 +7152,7 @@ type ValidationError struct {
 	_ struct{} `type:"structure"`
 
 	// The description of an error found in the behaviors.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"iot:ValidationError:ErrorMessage" locationName:"errorMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -7176,25 +7176,25 @@ type ViolationEvent struct {
 	_ struct{} `type:"structure"`
 
 	// The behavior which was violated.
-	Behavior *Behavior `locationName:"behavior" type:"structure"`
+	Behavior *Behavior `json:"iot:ViolationEvent:Behavior" locationName:"behavior" type:"structure"`
 
 	// The value of the metric (the measurement).
-	MetricValue *MetricValue `locationName:"metricValue" type:"structure"`
+	MetricValue *MetricValue `json:"iot:ViolationEvent:MetricValue" locationName:"metricValue" type:"structure"`
 
 	// The name of the security profile whose behavior was violated.
-	SecurityProfileName *string `locationName:"securityProfileName" min:"1" type:"string"`
+	SecurityProfileName *string `json:"iot:ViolationEvent:SecurityProfileName" locationName:"securityProfileName" min:"1" type:"string"`
 
 	// The name of the thing responsible for the violation event.
-	ThingName *string `locationName:"thingName" min:"1" type:"string"`
+	ThingName *string `json:"iot:ViolationEvent:ThingName" locationName:"thingName" min:"1" type:"string"`
 
 	// The time the violation event occurred.
-	ViolationEventTime *time.Time `locationName:"violationEventTime" type:"timestamp" timestampFormat:"unix"`
+	ViolationEventTime *time.Time `json:"iot:ViolationEvent:ViolationEventTime" locationName:"violationEventTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The type of violation event.
-	ViolationEventType ViolationEventType `locationName:"violationEventType" type:"string" enum:"true"`
+	ViolationEventType ViolationEventType `json:"iot:ViolationEvent:ViolationEventType" locationName:"violationEventType" type:"string" enum:"true"`
 
 	// The ID of the violation event.
-	ViolationId *string `locationName:"violationId" min:"1" type:"string"`
+	ViolationId *string `json:"iot:ViolationEvent:ViolationId" locationName:"violationId" min:"1" type:"string"`
 }
 
 // String returns the string representation

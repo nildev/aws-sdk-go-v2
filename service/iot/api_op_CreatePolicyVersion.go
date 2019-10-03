@@ -86,16 +86,16 @@ type CreatePolicyVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether the policy version is the default.
-	IsDefaultVersion *bool `locationName:"isDefaultVersion" type:"boolean"`
+	IsDefaultVersion *bool `json:"iot:CreatePolicyVersionOutput:IsDefaultVersion" locationName:"isDefaultVersion" type:"boolean"`
 
 	// The policy ARN.
-	PolicyArn *string `locationName:"policyArn" type:"string"`
+	PolicyArn *string `json:"iot:CreatePolicyVersionOutput:PolicyArn" locationName:"policyArn" type:"string"`
 
 	// The JSON document that describes the policy.
-	PolicyDocument *string `locationName:"policyDocument" type:"string"`
+	PolicyDocument *string `json:"iot:CreatePolicyVersionOutput:PolicyDocument" locationName:"policyDocument" type:"string"`
 
 	// The policy version ID.
-	PolicyVersionId *string `locationName:"policyVersionId" type:"string"`
+	PolicyVersionId *string `json:"iot:CreatePolicyVersionOutput:PolicyVersionId" locationName:"policyVersionId" type:"string"`
 }
 
 // String returns the string representation

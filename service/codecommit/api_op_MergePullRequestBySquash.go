@@ -98,7 +98,7 @@ type MergePullRequestBySquashOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns information about a pull request.
-	PullRequest *PullRequest `locationName:"pullRequest" type:"structure"`
+	PullRequest *PullRequest `json:"codecommit:MergePullRequestBySquashOutput:PullRequest" locationName:"pullRequest" type:"structure"`
 }
 
 // String returns the string representation

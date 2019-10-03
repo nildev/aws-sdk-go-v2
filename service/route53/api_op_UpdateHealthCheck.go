@@ -457,7 +457,7 @@ type UpdateHealthCheckOutput struct {
 	// A complex type that contains the response to an UpdateHealthCheck request.
 	//
 	// HealthCheck is a required field
-	HealthCheck *HealthCheck `type:"structure" required:"true"`
+	HealthCheck *HealthCheck `json:"route53:UpdateHealthCheckOutput:HealthCheck" type:"structure" required:"true"`
 }
 
 // String returns the string representation

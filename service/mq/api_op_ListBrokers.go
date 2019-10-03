@@ -60,9 +60,9 @@ func (s ListBrokersInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListBrokersOutput struct {
 	_ struct{} `type:"structure"`
 
-	BrokerSummaries []BrokerSummary `locationName:"brokerSummaries" type:"list"`
+	BrokerSummaries []BrokerSummary `json:"mq:ListBrokersOutput:BrokerSummaries" locationName:"brokerSummaries" type:"list"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mq:ListBrokersOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -101,15 +101,15 @@ type CreateDeploymentOutput struct {
 	// will contain a map of file names to upload url.
 	//
 	// FileUploadUrls is a required field
-	FileUploadUrls map[string]string `locationName:"fileUploadUrls" type:"map" required:"true"`
+	FileUploadUrls map[string]string `json:"amplify:CreateDeploymentOutput:FileUploadUrls" locationName:"fileUploadUrls" type:"map" required:"true"`
 
 	// The jobId for this deployment, will supply to start deployment api.
-	JobId *string `locationName:"jobId" type:"string"`
+	JobId *string `json:"amplify:CreateDeploymentOutput:JobId" locationName:"jobId" type:"string"`
 
 	// When the fileMap argument is NOT provided. This zipUploadUrl will be returned.
 	//
 	// ZipUploadUrl is a required field
-	ZipUploadUrl *string `locationName:"zipUploadUrl" type:"string" required:"true"`
+	ZipUploadUrl *string `json:"amplify:CreateDeploymentOutput:ZipUploadUrl" locationName:"zipUploadUrl" type:"string" required:"true"`
 }
 
 // String returns the string representation

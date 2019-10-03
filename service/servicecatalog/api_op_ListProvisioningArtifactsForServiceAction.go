@@ -63,11 +63,11 @@ type ListProvisioningArtifactsForServiceActionOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListProvisioningArtifactsForServiceActionOutput:NextPageToken" type:"string"`
 
 	// An array of objects with information about product views and provisioning
 	// artifacts.
-	ProvisioningArtifactViews []ProvisioningArtifactView `type:"list"`
+	ProvisioningArtifactViews []ProvisioningArtifactView `json:"servicecatalog:ListProvisioningArtifactsForServiceActionOutput:ProvisioningArtifactViews" type:"list"`
 }
 
 // String returns the string representation

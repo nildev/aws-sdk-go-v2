@@ -57,12 +57,12 @@ type DescribeClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of clusters.
-	Clusters []Cluster `type:"list"`
+	Clusters []Cluster `json:"cloudhsmv2:DescribeClustersOutput:Clusters" type:"list"`
 
 	// An opaque string that indicates that the response contains only a subset
 	// of clusters. Use this value in a subsequent DescribeClusters request to get
 	// more clusters.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudhsmv2:DescribeClustersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

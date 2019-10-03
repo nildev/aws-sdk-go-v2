@@ -54,7 +54,7 @@ type UpdateApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ApplicationDescription of the application.
-	Application *ApplicationDescription `type:"structure"`
+	Application *ApplicationDescription `json:"elasticbeanstalk:UpdateApplicationOutput:Application" type:"structure"`
 }
 
 // String returns the string representation

@@ -65,7 +65,7 @@ type GetPublicAccessBlockOutput struct {
 
 	// The PublicAccessBlock configuration currently in effect for this Amazon S3
 	// bucket.
-	PublicAccessBlockConfiguration *PublicAccessBlockConfiguration `type:"structure"`
+	PublicAccessBlockConfiguration *PublicAccessBlockConfiguration `json:"s3:GetPublicAccessBlockOutput:PublicAccessBlockConfiguration" type:"structure"`
 }
 
 // String returns the string representation

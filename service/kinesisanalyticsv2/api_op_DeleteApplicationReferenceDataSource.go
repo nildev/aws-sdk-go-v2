@@ -75,10 +75,10 @@ type DeleteApplicationReferenceDataSourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The application Amazon Resource Name (ARN).
-	ApplicationARN *string `min:"1" type:"string"`
+	ApplicationARN *string `json:"kinesisanalytics:DeleteApplicationReferenceDataSourceOutput:ApplicationARN" min:"1" type:"string"`
 
 	// The updated version ID of the application.
-	ApplicationVersionId *int64 `min:"1" type:"long"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:DeleteApplicationReferenceDataSourceOutput:ApplicationVersionId" min:"1" type:"long"`
 }
 
 // String returns the string representation

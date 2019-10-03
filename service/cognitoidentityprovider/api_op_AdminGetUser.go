@@ -63,25 +63,25 @@ type AdminGetUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates that the status is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"cognito-idp:AdminGetUserOutput:Enabled" type:"boolean"`
 
 	// Specifies the options for MFA (e.g., email or phone number).
-	MFAOptions []MFAOptionType `type:"list"`
+	MFAOptions []MFAOptionType `json:"cognito-idp:AdminGetUserOutput:MFAOptions" type:"list"`
 
 	// The user's preferred MFA setting.
-	PreferredMfaSetting *string `type:"string"`
+	PreferredMfaSetting *string `json:"cognito-idp:AdminGetUserOutput:PreferredMfaSetting" type:"string"`
 
 	// An array of name-value pairs representing user attributes.
-	UserAttributes []AttributeType `type:"list"`
+	UserAttributes []AttributeType `json:"cognito-idp:AdminGetUserOutput:UserAttributes" type:"list"`
 
 	// The date the user was created.
-	UserCreateDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UserCreateDate *time.Time `json:"cognito-idp:AdminGetUserOutput:UserCreateDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date the user was last modified.
-	UserLastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UserLastModifiedDate *time.Time `json:"cognito-idp:AdminGetUserOutput:UserLastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The list of the user's MFA settings.
-	UserMFASettingList []string `type:"list"`
+	UserMFASettingList []string `json:"cognito-idp:AdminGetUserOutput:UserMFASettingList" type:"list"`
 
 	// The user status. Can be one of the following:
 	//
@@ -101,12 +101,12 @@ type AdminGetUserOutput struct {
 	//    * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign
 	//    in using a temporary password, but on first sign-in, the user must change
 	//    his or her password to a new value before doing anything else.
-	UserStatus UserStatusType `type:"string" enum:"true"`
+	UserStatus UserStatusType `json:"cognito-idp:AdminGetUserOutput:UserStatus" type:"string" enum:"true"`
 
 	// The user name of the user about whom you are receiving information.
 	//
 	// Username is a required field
-	Username *string `min:"1" type:"string" required:"true"`
+	Username *string `json:"cognito-idp:AdminGetUserOutput:Username" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

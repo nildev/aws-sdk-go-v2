@@ -27,7 +27,7 @@ type GetDirectoryLimitsOutput struct {
 
 	// A DirectoryLimits object that contains the directory limits for the current
 	// region.
-	DirectoryLimits *DirectoryLimits `type:"structure"`
+	DirectoryLimits *DirectoryLimits `json:"ds:GetDirectoryLimitsOutput:DirectoryLimits" type:"structure"`
 }
 
 // String returns the string representation

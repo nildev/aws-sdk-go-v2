@@ -121,7 +121,7 @@ type ModifyDBInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB instance.
-	DBInstance *DBInstance `type:"structure"`
+	DBInstance *DBInstance `json:"rds:ModifyDBInstanceOutput:DBInstance" type:"structure"`
 }
 
 // String returns the string representation

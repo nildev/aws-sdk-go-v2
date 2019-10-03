@@ -70,10 +70,10 @@ type CreateVpcEndpointConnectionNotificationOutput struct {
 
 	// Unique, case-sensitive identifier you provide to ensure the idempotency of
 	// the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:CreateVpcEndpointConnectionNotificationOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the notification.
-	ConnectionNotification *ConnectionNotification `locationName:"connectionNotification" type:"structure"`
+	ConnectionNotification *ConnectionNotification `json:"ec2:CreateVpcEndpointConnectionNotificationOutput:ConnectionNotification" locationName:"connectionNotification" type:"structure"`
 }
 
 // String returns the string representation

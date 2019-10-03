@@ -80,10 +80,10 @@ type SearchOutput struct {
 	// If the result of the previous Search request was truncated, the response
 	// includes a NextToken. To retrieve the next set of results, use the token
 	// in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:SearchOutput:NextToken" type:"string"`
 
 	// A list of SearchResult objects.
-	Results []SearchRecord `type:"list"`
+	Results []SearchRecord `json:"api.sagemaker:SearchOutput:Results" type:"list"`
 }
 
 // String returns the string representation

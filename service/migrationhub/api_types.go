@@ -20,12 +20,12 @@ type CreatedArtifact struct {
 
 	// A description that can be free-form text to record additional detail about
 	// the artifact for clarity or for later reference.
-	Description *string `type:"string"`
+	Description *string `json:"mgh:CreatedArtifact:Description" type:"string"`
 
 	// An ARN that uniquely identifies the result of a migration task.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"mgh:CreatedArtifact:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -58,11 +58,11 @@ type DiscoveredResource struct {
 	// The configurationId in ADS that uniquely identifies the on-premise resource.
 	//
 	// ConfigurationId is a required field
-	ConfigurationId *string `min:"1" type:"string" required:"true"`
+	ConfigurationId *string `json:"mgh:DiscoveredResource:ConfigurationId" min:"1" type:"string" required:"true"`
 
 	// A description that can be free-form text to record additional detail about
 	// the discovered resource for clarity or later reference.
-	Description *string `type:"string"`
+	Description *string `json:"mgh:DiscoveredResource:Description" type:"string"`
 }
 
 // String returns the string representation
@@ -93,18 +93,18 @@ type MigrationTask struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier that references the migration task.
-	MigrationTaskName *string `min:"1" type:"string"`
+	MigrationTaskName *string `json:"mgh:MigrationTask:MigrationTaskName" min:"1" type:"string"`
 
 	// A name that identifies the vendor of the migration tool being used.
-	ProgressUpdateStream *string `min:"1" type:"string"`
+	ProgressUpdateStream *string `json:"mgh:MigrationTask:ProgressUpdateStream" min:"1" type:"string"`
 
-	ResourceAttributeList []ResourceAttribute `type:"list"`
+	ResourceAttributeList []ResourceAttribute `json:"mgh:MigrationTask:ResourceAttributeList" type:"list"`
 
 	// Task object encapsulating task information.
-	Task *Task `type:"structure"`
+	Task *Task `json:"mgh:MigrationTask:Task" type:"structure"`
 
 	// The timestamp when the task was gathered.
-	UpdateDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdateDateTime *time.Time `json:"mgh:MigrationTask:UpdateDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -119,22 +119,22 @@ type MigrationTaskSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier that references the migration task.
-	MigrationTaskName *string `min:"1" type:"string"`
+	MigrationTaskName *string `json:"mgh:MigrationTaskSummary:MigrationTaskName" min:"1" type:"string"`
 
-	ProgressPercent *int64 `type:"integer"`
+	ProgressPercent *int64 `json:"mgh:MigrationTaskSummary:ProgressPercent" type:"integer"`
 
 	// An AWS resource used for access control. It should uniquely identify the
 	// migration tool as it is used for all updates made by the tool.
-	ProgressUpdateStream *string `min:"1" type:"string"`
+	ProgressUpdateStream *string `json:"mgh:MigrationTaskSummary:ProgressUpdateStream" min:"1" type:"string"`
 
 	// Status of the task.
-	Status Status `type:"string" enum:"true"`
+	Status Status `json:"mgh:MigrationTaskSummary:Status" type:"string" enum:"true"`
 
 	// Detail information of what is being done within the overall status state.
-	StatusDetail *string `type:"string"`
+	StatusDetail *string `json:"mgh:MigrationTaskSummary:StatusDetail" type:"string"`
 
 	// The timestamp when the task was gathered.
-	UpdateDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdateDateTime *time.Time `json:"mgh:MigrationTaskSummary:UpdateDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -149,7 +149,7 @@ type ProgressUpdateStreamSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the ProgressUpdateStream.
-	ProgressUpdateStreamName *string `min:"1" type:"string"`
+	ProgressUpdateStreamName *string `json:"mgh:ProgressUpdateStreamSummary:ProgressUpdateStreamName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -187,12 +187,12 @@ type ResourceAttribute struct {
 	// Type of resource.
 	//
 	// Type is a required field
-	Type ResourceAttributeType `type:"string" required:"true" enum:"true"`
+	Type ResourceAttributeType `json:"mgh:ResourceAttribute:Type" type:"string" required:"true" enum:"true"`
 
 	// Value of the resource type.
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"mgh:ResourceAttribute:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -226,17 +226,17 @@ type Task struct {
 	_ struct{} `type:"structure"`
 
 	// Indication of the percentage completion of the task.
-	ProgressPercent *int64 `type:"integer"`
+	ProgressPercent *int64 `json:"mgh:Task:ProgressPercent" type:"integer"`
 
 	// Status of the task - Not Started, In-Progress, Complete.
 	//
 	// Status is a required field
-	Status Status `type:"string" required:"true" enum:"true"`
+	Status Status `json:"mgh:Task:Status" type:"string" required:"true" enum:"true"`
 
 	// Details of task status as notified by a migration tool. A tool might use
 	// this field to provide clarifying information about the status that is unique
 	// to that tool or that explains an error state.
-	StatusDetail *string `type:"string"`
+	StatusDetail *string `json:"mgh:Task:StatusDetail" type:"string"`
 }
 
 // String returns the string representation

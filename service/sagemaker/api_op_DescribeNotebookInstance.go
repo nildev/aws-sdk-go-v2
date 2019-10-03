@@ -47,7 +47,7 @@ type DescribeNotebookInstanceOutput struct {
 	// notebook instance. Currently only one EI instance type can be associated
 	// with a notebook instance. For more information, see Using Elastic Inference
 	// in Amazon SageMaker (http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html).
-	AcceleratorTypes []NotebookInstanceAcceleratorType `type:"list"`
+	AcceleratorTypes []NotebookInstanceAcceleratorType `json:"api.sagemaker:DescribeNotebookInstanceOutput:AcceleratorTypes" type:"list"`
 
 	// An array of up to three Git repositories associated with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in
@@ -56,11 +56,11 @@ type DescribeNotebookInstanceOutput struct {
 	// level as the default repository of your notebook instance. For more information,
 	// see Associating Git Repositories with Amazon SageMaker Notebook Instances
 	// (http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html).
-	AdditionalCodeRepositories []string `type:"list"`
+	AdditionalCodeRepositories []string `json:"api.sagemaker:DescribeNotebookInstanceOutput:AdditionalCodeRepositories" type:"list"`
 
 	// A timestamp. Use this parameter to return the time when the notebook instance
 	// was created
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeNotebookInstanceOutput:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Git repository associated with the notebook instance as its default code
 	// repository. This can be either the name of a Git repository stored as a resource
@@ -68,7 +68,7 @@ type DescribeNotebookInstanceOutput struct {
 	// or in any other Git repository. When you open a notebook instance, it opens
 	// in the directory that contains this repository. For more information, see
 	// Associating Git Repositories with Amazon SageMaker Notebook Instances (http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html).
-	DefaultCodeRepository *string `min:"1" type:"string"`
+	DefaultCodeRepository *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:DefaultCodeRepository" min:"1" type:"string"`
 
 	// Describes whether Amazon SageMaker provides internet access to the notebook
 	// instance. If this value is set to Disabled, the notebook instance does not
@@ -77,43 +77,43 @@ type DescribeNotebookInstanceOutput struct {
 	//
 	// For more information, see Notebook Instances Are Internet-Enabled by Default
 	// (https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access).
-	DirectInternetAccess DirectInternetAccess `type:"string" enum:"true"`
+	DirectInternetAccess DirectInternetAccess `json:"api.sagemaker:DescribeNotebookInstanceOutput:DirectInternetAccess" type:"string" enum:"true"`
 
 	// If status is Failed, the reason it failed.
-	FailureReason *string `type:"string"`
+	FailureReason *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:FailureReason" type:"string"`
 
 	// The type of ML compute instance running on the notebook instance.
-	InstanceType InstanceType `type:"string" enum:"true"`
+	InstanceType InstanceType `json:"api.sagemaker:DescribeNotebookInstanceOutput:InstanceType" type:"string" enum:"true"`
 
 	// The AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it
 	// on the ML storage volume attached to the instance.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:KmsKeyId" type:"string"`
 
 	// A timestamp. Use this parameter to retrieve the time when the notebook instance
 	// was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:DescribeNotebookInstanceOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The network interface IDs that Amazon SageMaker created at the time of creating
 	// the instance.
-	NetworkInterfaceId *string `type:"string"`
+	NetworkInterfaceId *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:NetworkInterfaceId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the notebook instance.
-	NotebookInstanceArn *string `type:"string"`
+	NotebookInstanceArn *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:NotebookInstanceArn" type:"string"`
 
 	// Returns the name of a notebook instance lifecycle configuration.
 	//
 	// For information about notebook instance lifestyle configurations, see Step
 	// 2.1: (Optional) Customize a Notebook Instance (https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html)
-	NotebookInstanceLifecycleConfigName *string `type:"string"`
+	NotebookInstanceLifecycleConfigName *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:NotebookInstanceLifecycleConfigName" type:"string"`
 
 	// The name of the Amazon SageMaker notebook instance.
-	NotebookInstanceName *string `type:"string"`
+	NotebookInstanceName *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:NotebookInstanceName" type:"string"`
 
 	// The status of the notebook instance.
-	NotebookInstanceStatus NotebookInstanceStatus `type:"string" enum:"true"`
+	NotebookInstanceStatus NotebookInstanceStatus `json:"api.sagemaker:DescribeNotebookInstanceOutput:NotebookInstanceStatus" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the IAM role associated with the instance.
-	RoleArn *string `min:"20" type:"string"`
+	RoleArn *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:RoleArn" min:"20" type:"string"`
 
 	// Whether root access is enabled or disabled for users of the notebook instance.
 	//
@@ -121,20 +121,20 @@ type DescribeNotebookInstanceOutput struct {
 	// instance. Because of this, lifecycle configurations associated with a notebook
 	// instance always run with root access even if you disable root access for
 	// users.
-	RootAccess RootAccess `type:"string" enum:"true"`
+	RootAccess RootAccess `json:"api.sagemaker:DescribeNotebookInstanceOutput:RootAccess" type:"string" enum:"true"`
 
 	// The IDs of the VPC security groups.
-	SecurityGroups []string `type:"list"`
+	SecurityGroups []string `json:"api.sagemaker:DescribeNotebookInstanceOutput:SecurityGroups" type:"list"`
 
 	// The ID of the VPC subnet.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:SubnetId" type:"string"`
 
 	// The URL that you use to connect to the Jupyter notebook that is running in
 	// your notebook instance.
-	Url *string `type:"string"`
+	Url *string `json:"api.sagemaker:DescribeNotebookInstanceOutput:Url" type:"string"`
 
 	// The size, in GB, of the ML storage volume attached to the notebook instance.
-	VolumeSizeInGB *int64 `min:"5" type:"integer"`
+	VolumeSizeInGB *int64 `json:"api.sagemaker:DescribeNotebookInstanceOutput:VolumeSizeInGB" min:"5" type:"integer"`
 }
 
 // String returns the string representation

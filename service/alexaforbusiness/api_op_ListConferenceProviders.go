@@ -47,10 +47,10 @@ type ListConferenceProvidersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The conference providers.
-	ConferenceProviders []ConferenceProvider `type:"list"`
+	ConferenceProviders []ConferenceProvider `json:"a4b:ListConferenceProvidersOutput:ConferenceProviders" type:"list"`
 
 	// The tokens used for pagination.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:ListConferenceProvidersOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

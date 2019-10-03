@@ -80,23 +80,23 @@ type UpdateClientCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the client certificate.
-	ClientCertificateId *string `locationName:"clientCertificateId" type:"string"`
+	ClientCertificateId *string `json:"apigateway:UpdateClientCertificateOutput:ClientCertificateId" locationName:"clientCertificateId" type:"string"`
 
 	// The timestamp when the client certificate was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:UpdateClientCertificateOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the client certificate.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:UpdateClientCertificateOutput:Description" locationName:"description" type:"string"`
 
 	// The timestamp when the client certificate will expire.
-	ExpirationDate *time.Time `locationName:"expirationDate" type:"timestamp" timestampFormat:"unix"`
+	ExpirationDate *time.Time `json:"apigateway:UpdateClientCertificateOutput:ExpirationDate" locationName:"expirationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The PEM-encoded public key of the client certificate, which can be used to
 	// configure certificate authentication in the integration endpoint .
-	PemEncodedCertificate *string `locationName:"pemEncodedCertificate" type:"string"`
+	PemEncodedCertificate *string `json:"apigateway:UpdateClientCertificateOutput:PemEncodedCertificate" locationName:"pemEncodedCertificate" type:"string"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:UpdateClientCertificateOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

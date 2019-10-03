@@ -71,11 +71,11 @@ type ListComplianceItemsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of compliance information for the specified resource ID.
-	ComplianceItems []ComplianceItem `type:"list"`
+	ComplianceItems []ComplianceItem `json:"ssm:ListComplianceItemsOutput:ComplianceItems" type:"list"`
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListComplianceItemsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

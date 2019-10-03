@@ -54,7 +54,7 @@ type TerminateWorkspacesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the WorkSpaces that could not be terminated.
-	FailedRequests []FailedWorkspaceChangeRequest `type:"list"`
+	FailedRequests []FailedWorkspaceChangeRequest `json:"workspaces:TerminateWorkspacesOutput:FailedRequests" type:"list"`
 }
 
 // String returns the string representation

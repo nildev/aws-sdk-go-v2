@@ -62,7 +62,7 @@ type DescribeMeshOutput struct {
 	// The full description of your service mesh.
 	//
 	// Mesh is a required field
-	Mesh *MeshData `locationName:"mesh" type:"structure" required:"true"`
+	Mesh *MeshData `json:"appmesh:DescribeMeshOutput:Mesh" locationName:"mesh" type:"structure" required:"true"`
 }
 
 // String returns the string representation

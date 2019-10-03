@@ -48,7 +48,7 @@ type DeclineHandshakeOutput struct {
 
 	// A structure that contains details about the declined handshake. The state
 	// is updated to show the value DECLINED.
-	Handshake *Handshake `type:"structure"`
+	Handshake *Handshake `json:"organizations:DeclineHandshakeOutput:Handshake" type:"structure"`
 }
 
 // String returns the string representation

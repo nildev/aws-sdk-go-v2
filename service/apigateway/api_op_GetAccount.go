@@ -67,17 +67,17 @@ type GetAccountOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The version of the API keys used for the account.
-	ApiKeyVersion *string `locationName:"apiKeyVersion" type:"string"`
+	ApiKeyVersion *string `json:"apigateway:GetAccountOutput:ApiKeyVersion" locationName:"apiKeyVersion" type:"string"`
 
 	// The ARN of an Amazon CloudWatch role for the current Account.
-	CloudwatchRoleArn *string `locationName:"cloudwatchRoleArn" type:"string"`
+	CloudwatchRoleArn *string `json:"apigateway:GetAccountOutput:CloudwatchRoleArn" locationName:"cloudwatchRoleArn" type:"string"`
 
 	// A list of features supported for the account. When usage plans are enabled,
 	// the features list will include an entry of "UsagePlans".
-	Features []string `locationName:"features" type:"list"`
+	Features []string `json:"apigateway:GetAccountOutput:Features" locationName:"features" type:"list"`
 
 	// Specifies the API request limits configured for the current Account.
-	ThrottleSettings *ThrottleSettings `locationName:"throttleSettings" type:"structure"`
+	ThrottleSettings *ThrottleSettings `json:"apigateway:GetAccountOutput:ThrottleSettings" locationName:"throttleSettings" type:"structure"`
 }
 
 // String returns the string representation

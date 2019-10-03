@@ -52,10 +52,10 @@ type ListSatellitesOutput struct {
 
 	// Next token that can be supplied in the next call to get the next page of
 	// satellites.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"groundstation:ListSatellitesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// List of satellites.
-	Satellites []SatelliteListItem `locationName:"satellites" type:"list"`
+	Satellites []SatelliteListItem `json:"groundstation:ListSatellitesOutput:Satellites" locationName:"satellites" type:"list"`
 }
 
 // String returns the string representation

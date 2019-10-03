@@ -46,7 +46,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of tags associated with the resource.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"states:ListTagsForResourceOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

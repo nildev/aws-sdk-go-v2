@@ -33,7 +33,7 @@ type DescribeElasticLoadBalancersOutput struct {
 
 	// A list of ElasticLoadBalancer objects that describe the specified Elastic
 	// Load Balancing instances.
-	ElasticLoadBalancers []ElasticLoadBalancer `type:"list"`
+	ElasticLoadBalancers []ElasticLoadBalancer `json:"opsworks:DescribeElasticLoadBalancersOutput:ElasticLoadBalancers" type:"list"`
 }
 
 // String returns the string representation

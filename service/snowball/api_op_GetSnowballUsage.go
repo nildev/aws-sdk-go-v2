@@ -25,10 +25,10 @@ type GetSnowballUsageOutput struct {
 
 	// The service limit for number of Snowballs this account can have at once.
 	// The default service limit is 1 (one).
-	SnowballLimit *int64 `type:"integer"`
+	SnowballLimit *int64 `json:"snowball:GetSnowballUsageOutput:SnowballLimit" type:"integer"`
 
 	// The number of Snowballs that this account is currently using.
-	SnowballsInUse *int64 `type:"integer"`
+	SnowballsInUse *int64 `json:"snowball:GetSnowballUsageOutput:SnowballsInUse" type:"integer"`
 }
 
 // String returns the string representation

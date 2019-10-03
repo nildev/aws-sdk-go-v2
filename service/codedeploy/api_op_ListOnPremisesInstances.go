@@ -43,12 +43,12 @@ type ListOnPremisesInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of matching on-premises instance names.
-	InstanceNames []string `locationName:"instanceNames" type:"list"`
+	InstanceNames []string `json:"codedeploy:ListOnPremisesInstancesOutput:InstanceNames" locationName:"instanceNames" type:"list"`
 
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent list on-premises instances call to return
 	// the next set of on-premises instances in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListOnPremisesInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

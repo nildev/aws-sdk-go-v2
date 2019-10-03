@@ -63,10 +63,10 @@ type ListPrincipalsForPortfolioOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListPrincipalsForPortfolioOutput:NextPageToken" type:"string"`
 
 	// The IAM principals (users or roles) associated with the portfolio.
-	Principals []Principal `type:"list"`
+	Principals []Principal `json:"servicecatalog:ListPrincipalsForPortfolioOutput:Principals" type:"list"`
 }
 
 // String returns the string representation

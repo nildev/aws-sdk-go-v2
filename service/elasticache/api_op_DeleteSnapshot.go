@@ -45,7 +45,7 @@ type DeleteSnapshotOutput struct {
 
 	// Represents a copy of an entire Redis cluster as of the time when the snapshot
 	// was taken.
-	Snapshot *Snapshot `type:"structure"`
+	Snapshot *Snapshot `json:"elasticache:DeleteSnapshotOutput:Snapshot" type:"structure"`
 }
 
 // String returns the string representation

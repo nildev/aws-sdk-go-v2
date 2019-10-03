@@ -51,7 +51,7 @@ type SetRulePrioritiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the rules.
-	Rules []Rule `type:"list"`
+	Rules []Rule `json:"elasticloadbalancing:SetRulePrioritiesOutput:Rules" type:"list"`
 }
 
 // String returns the string representation

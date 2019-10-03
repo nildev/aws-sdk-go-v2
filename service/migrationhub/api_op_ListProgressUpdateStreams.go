@@ -46,11 +46,11 @@ type ListProgressUpdateStreamsOutput struct {
 
 	// If there are more streams created than the max result, return the next token
 	// to be passed to the next call as a bookmark of where to start from.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"mgh:ListProgressUpdateStreamsOutput:NextToken" type:"string"`
 
 	// List of progress update streams up to the max number of results passed in
 	// the input.
-	ProgressUpdateStreamSummaryList []ProgressUpdateStreamSummary `type:"list"`
+	ProgressUpdateStreamSummaryList []ProgressUpdateStreamSummary `json:"mgh:ListProgressUpdateStreamsOutput:ProgressUpdateStreamSummaryList" type:"list"`
 }
 
 // String returns the string representation

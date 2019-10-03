@@ -52,7 +52,7 @@ type StartInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the started instances.
-	StartingInstances []InstanceStateChange `locationName:"instancesSet" locationNameList:"item" type:"list"`
+	StartingInstances []InstanceStateChange `json:"ec2:StartInstancesOutput:StartingInstances" locationName:"instancesSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

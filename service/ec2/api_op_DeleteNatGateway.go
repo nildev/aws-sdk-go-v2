@@ -43,7 +43,7 @@ type DeleteNatGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the NAT gateway.
-	NatGatewayId *string `locationName:"natGatewayId" type:"string"`
+	NatGatewayId *string `json:"ec2:DeleteNatGatewayOutput:NatGatewayId" locationName:"natGatewayId" type:"string"`
 }
 
 // String returns the string representation

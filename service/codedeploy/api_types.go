@@ -19,7 +19,7 @@ type Alarm struct {
 
 	// The name of the alarm. Maximum length is 255 characters. Each alarm name
 	// can be used only once in a list of alarms.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"codedeploy:Alarm:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -34,10 +34,10 @@ type AlarmConfiguration struct {
 
 	// A list of alarms configured for the deployment group. A maximum of 10 alarms
 	// can be added to a deployment group.
-	Alarms []Alarm `locationName:"alarms" type:"list"`
+	Alarms []Alarm `json:"codedeploy:AlarmConfiguration:Alarms" locationName:"alarms" type:"list"`
 
 	// Indicates whether the alarm configuration is enabled.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"codedeploy:AlarmConfiguration:Enabled" locationName:"enabled" type:"boolean"`
 
 	// Indicates whether a deployment should continue if information about the current
 	// state of alarms cannot be retrieved from Amazon CloudWatch. The default value
@@ -48,7 +48,7 @@ type AlarmConfiguration struct {
 	//
 	//    * false: The deployment stops if alarm status information can't be retrieved
 	//    from Amazon CloudWatch.
-	IgnorePollAlarmFailure *bool `locationName:"ignorePollAlarmFailure" type:"boolean"`
+	IgnorePollAlarmFailure *bool `json:"codedeploy:AlarmConfiguration:IgnorePollAlarmFailure" locationName:"ignorePollAlarmFailure" type:"boolean"`
 }
 
 // String returns the string representation
@@ -76,10 +76,10 @@ type AppSpecContent struct {
 	//
 	// For both types of deployments, the content can specify Lambda functions that
 	// run at specified hooks, such as BeforeInstall, during a deployment.
-	Content *string `locationName:"content" type:"string"`
+	Content *string `json:"codedeploy:AppSpecContent:Content" locationName:"content" type:"string"`
 
 	// The SHA256 hash value of the revision content.
-	Sha256 *string `locationName:"sha256" type:"string"`
+	Sha256 *string `json:"codedeploy:AppSpecContent:Sha256" locationName:"sha256" type:"string"`
 }
 
 // String returns the string representation
@@ -93,24 +93,24 @@ type ApplicationInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The application ID.
-	ApplicationId *string `locationName:"applicationId" type:"string"`
+	ApplicationId *string `json:"codedeploy:ApplicationInfo:ApplicationId" locationName:"applicationId" type:"string"`
 
 	// The application name.
-	ApplicationName *string `locationName:"applicationName" min:"1" type:"string"`
+	ApplicationName *string `json:"codedeploy:ApplicationInfo:ApplicationName" locationName:"applicationName" min:"1" type:"string"`
 
 	// The destination platform type for deployment of the application (Lambda or
 	// Server).
-	ComputePlatform ComputePlatform `locationName:"computePlatform" type:"string" enum:"true"`
+	ComputePlatform ComputePlatform `json:"codedeploy:ApplicationInfo:ComputePlatform" locationName:"computePlatform" type:"string" enum:"true"`
 
 	// The time at which the application was created.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"unix"`
+	CreateTime *time.Time `json:"codedeploy:ApplicationInfo:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name for a connection to a GitHub account.
-	GitHubAccountName *string `locationName:"gitHubAccountName" type:"string"`
+	GitHubAccountName *string `json:"codedeploy:ApplicationInfo:GitHubAccountName" locationName:"gitHubAccountName" type:"string"`
 
 	// True if the user has authenticated with GitHub for the specified application.
 	// Otherwise, false.
-	LinkedToGitHub *bool `locationName:"linkedToGitHub" type:"boolean"`
+	LinkedToGitHub *bool `json:"codedeploy:ApplicationInfo:LinkedToGitHub" locationName:"linkedToGitHub" type:"boolean"`
 }
 
 // String returns the string representation
@@ -126,10 +126,10 @@ type AutoRollbackConfiguration struct {
 
 	// Indicates whether a defined automatic rollback configuration is currently
 	// enabled.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"codedeploy:AutoRollbackConfiguration:Enabled" locationName:"enabled" type:"boolean"`
 
 	// The event type or types that trigger a rollback.
-	Events []AutoRollbackEvent `locationName:"events" type:"list"`
+	Events []AutoRollbackEvent `json:"codedeploy:AutoRollbackConfiguration:Events" locationName:"events" type:"list"`
 }
 
 // String returns the string representation
@@ -143,10 +143,10 @@ type AutoScalingGroup struct {
 	_ struct{} `type:"structure"`
 
 	// An Auto Scaling lifecycle event hook name.
-	Hook *string `locationName:"hook" type:"string"`
+	Hook *string `json:"codedeploy:AutoScalingGroup:Hook" locationName:"hook" type:"string"`
 
 	// The Auto Scaling group name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"codedeploy:AutoScalingGroup:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -161,15 +161,15 @@ type BlueGreenDeploymentConfiguration struct {
 
 	// Information about the action to take when newly provisioned instances are
 	// ready to receive traffic in a blue/green deployment.
-	DeploymentReadyOption *DeploymentReadyOption `locationName:"deploymentReadyOption" type:"structure"`
+	DeploymentReadyOption *DeploymentReadyOption `json:"codedeploy:BlueGreenDeploymentConfiguration:DeploymentReadyOption" locationName:"deploymentReadyOption" type:"structure"`
 
 	// Information about how instances are provisioned for a replacement environment
 	// in a blue/green deployment.
-	GreenFleetProvisioningOption *GreenFleetProvisioningOption `locationName:"greenFleetProvisioningOption" type:"structure"`
+	GreenFleetProvisioningOption *GreenFleetProvisioningOption `json:"codedeploy:BlueGreenDeploymentConfiguration:GreenFleetProvisioningOption" locationName:"greenFleetProvisioningOption" type:"structure"`
 
 	// Information about whether to terminate instances in the original fleet during
 	// a blue/green deployment.
-	TerminateBlueInstancesOnDeploymentSuccess *BlueInstanceTerminationOption `locationName:"terminateBlueInstancesOnDeploymentSuccess" type:"structure"`
+	TerminateBlueInstancesOnDeploymentSuccess *BlueInstanceTerminationOption `json:"codedeploy:BlueGreenDeploymentConfiguration:TerminateBlueInstancesOnDeploymentSuccess" locationName:"terminateBlueInstancesOnDeploymentSuccess" type:"structure"`
 }
 
 // String returns the string representation
@@ -191,7 +191,7 @@ type BlueInstanceTerminationOption struct {
 	//
 	//    * KEEP_ALIVE: Instances are left running after they are deregistered from
 	//    the load balancer and removed from the deployment group.
-	Action InstanceAction `locationName:"action" type:"string" enum:"true"`
+	Action InstanceAction `json:"codedeploy:BlueInstanceTerminationOption:Action" locationName:"action" type:"string" enum:"true"`
 
 	// For an Amazon EC2 deployment, the number of minutes to wait after a successful
 	// blue/green deployment before terminating instances from the original environment.
@@ -201,7 +201,7 @@ type BlueInstanceTerminationOption struct {
 	// from the original (blue) task set to a replacement (green) task set.
 	//
 	// The maximum setting is 2880 minutes (2 days).
-	TerminationWaitTimeInMinutes *int64 `locationName:"terminationWaitTimeInMinutes" type:"integer"`
+	TerminationWaitTimeInMinutes *int64 `json:"codedeploy:BlueInstanceTerminationOption:TerminationWaitTimeInMinutes" locationName:"terminationWaitTimeInMinutes" type:"integer"`
 }
 
 // String returns the string representation
@@ -215,23 +215,23 @@ type DeploymentConfigInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The destination platform type for the deployment (Lambda, Server, or ECS).
-	ComputePlatform ComputePlatform `locationName:"computePlatform" type:"string" enum:"true"`
+	ComputePlatform ComputePlatform `json:"codedeploy:DeploymentConfigInfo:ComputePlatform" locationName:"computePlatform" type:"string" enum:"true"`
 
 	// The time at which the deployment configuration was created.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"unix"`
+	CreateTime *time.Time `json:"codedeploy:DeploymentConfigInfo:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The deployment configuration ID.
-	DeploymentConfigId *string `locationName:"deploymentConfigId" type:"string"`
+	DeploymentConfigId *string `json:"codedeploy:DeploymentConfigInfo:DeploymentConfigId" locationName:"deploymentConfigId" type:"string"`
 
 	// The deployment configuration name.
-	DeploymentConfigName *string `locationName:"deploymentConfigName" min:"1" type:"string"`
+	DeploymentConfigName *string `json:"codedeploy:DeploymentConfigInfo:DeploymentConfigName" locationName:"deploymentConfigName" min:"1" type:"string"`
 
 	// Information about the number or percentage of minimum healthy instance.
-	MinimumHealthyHosts *MinimumHealthyHosts `locationName:"minimumHealthyHosts" type:"structure"`
+	MinimumHealthyHosts *MinimumHealthyHosts `json:"codedeploy:DeploymentConfigInfo:MinimumHealthyHosts" locationName:"minimumHealthyHosts" type:"structure"`
 
 	// The configuration that specifies how the deployment traffic is routed. Only
 	// deployments with a Lambda compute platform can specify this.
-	TrafficRoutingConfig *TrafficRoutingConfig `locationName:"trafficRoutingConfig" type:"structure"`
+	TrafficRoutingConfig *TrafficRoutingConfig `json:"codedeploy:DeploymentConfigInfo:TrafficRoutingConfig" locationName:"trafficRoutingConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -245,84 +245,84 @@ type DeploymentGroupInfo struct {
 	_ struct{} `type:"structure"`
 
 	// A list of alarms associated with the deployment group.
-	AlarmConfiguration *AlarmConfiguration `locationName:"alarmConfiguration" type:"structure"`
+	AlarmConfiguration *AlarmConfiguration `json:"codedeploy:DeploymentGroupInfo:AlarmConfiguration" locationName:"alarmConfiguration" type:"structure"`
 
 	// The application name.
-	ApplicationName *string `locationName:"applicationName" min:"1" type:"string"`
+	ApplicationName *string `json:"codedeploy:DeploymentGroupInfo:ApplicationName" locationName:"applicationName" min:"1" type:"string"`
 
 	// Information about the automatic rollback configuration associated with the
 	// deployment group.
-	AutoRollbackConfiguration *AutoRollbackConfiguration `locationName:"autoRollbackConfiguration" type:"structure"`
+	AutoRollbackConfiguration *AutoRollbackConfiguration `json:"codedeploy:DeploymentGroupInfo:AutoRollbackConfiguration" locationName:"autoRollbackConfiguration" type:"structure"`
 
 	// A list of associated Auto Scaling groups.
-	AutoScalingGroups []AutoScalingGroup `locationName:"autoScalingGroups" type:"list"`
+	AutoScalingGroups []AutoScalingGroup `json:"codedeploy:DeploymentGroupInfo:AutoScalingGroups" locationName:"autoScalingGroups" type:"list"`
 
 	// Information about blue/green deployment options for a deployment group.
-	BlueGreenDeploymentConfiguration *BlueGreenDeploymentConfiguration `locationName:"blueGreenDeploymentConfiguration" type:"structure"`
+	BlueGreenDeploymentConfiguration *BlueGreenDeploymentConfiguration `json:"codedeploy:DeploymentGroupInfo:BlueGreenDeploymentConfiguration" locationName:"blueGreenDeploymentConfiguration" type:"structure"`
 
 	// The destination platform type for the deployment (Lambda, Server, or ECS).
-	ComputePlatform ComputePlatform `locationName:"computePlatform" type:"string" enum:"true"`
+	ComputePlatform ComputePlatform `json:"codedeploy:DeploymentGroupInfo:ComputePlatform" locationName:"computePlatform" type:"string" enum:"true"`
 
 	// The deployment configuration name.
-	DeploymentConfigName *string `locationName:"deploymentConfigName" min:"1" type:"string"`
+	DeploymentConfigName *string `json:"codedeploy:DeploymentGroupInfo:DeploymentConfigName" locationName:"deploymentConfigName" min:"1" type:"string"`
 
 	// The deployment group ID.
-	DeploymentGroupId *string `locationName:"deploymentGroupId" type:"string"`
+	DeploymentGroupId *string `json:"codedeploy:DeploymentGroupInfo:DeploymentGroupId" locationName:"deploymentGroupId" type:"string"`
 
 	// The deployment group name.
-	DeploymentGroupName *string `locationName:"deploymentGroupName" min:"1" type:"string"`
+	DeploymentGroupName *string `json:"codedeploy:DeploymentGroupInfo:DeploymentGroupName" locationName:"deploymentGroupName" min:"1" type:"string"`
 
 	// Information about the type of deployment, either in-place or blue/green,
 	// you want to run and whether to route deployment traffic behind a load balancer.
-	DeploymentStyle *DeploymentStyle `locationName:"deploymentStyle" type:"structure"`
+	DeploymentStyle *DeploymentStyle `json:"codedeploy:DeploymentGroupInfo:DeploymentStyle" locationName:"deploymentStyle" type:"structure"`
 
 	// The Amazon EC2 tags on which to filter. The deployment group includes EC2
 	// instances with any of the specified tags.
-	Ec2TagFilters []EC2TagFilter `locationName:"ec2TagFilters" type:"list"`
+	Ec2TagFilters []EC2TagFilter `json:"codedeploy:DeploymentGroupInfo:Ec2TagFilters" locationName:"ec2TagFilters" type:"list"`
 
 	// Information about groups of tags applied to an EC2 instance. The deployment
 	// group includes only EC2 instances identified by all of the tag groups. Cannot
 	// be used in the same call as ec2TagFilters.
-	Ec2TagSet *EC2TagSet `locationName:"ec2TagSet" type:"structure"`
+	Ec2TagSet *EC2TagSet `json:"codedeploy:DeploymentGroupInfo:Ec2TagSet" locationName:"ec2TagSet" type:"structure"`
 
 	// The target Amazon ECS services in the deployment group. This applies only
 	// to deployment groups that use the Amazon ECS compute platform. A target Amazon
 	// ECS service is specified as an Amazon ECS cluster and service name pair using
 	// the format <clustername>:<servicename>.
-	EcsServices []ECSService `locationName:"ecsServices" type:"list"`
+	EcsServices []ECSService `json:"codedeploy:DeploymentGroupInfo:EcsServices" locationName:"ecsServices" type:"list"`
 
 	// Information about the most recent attempted deployment to the deployment
 	// group.
-	LastAttemptedDeployment *LastDeploymentInfo `locationName:"lastAttemptedDeployment" type:"structure"`
+	LastAttemptedDeployment *LastDeploymentInfo `json:"codedeploy:DeploymentGroupInfo:LastAttemptedDeployment" locationName:"lastAttemptedDeployment" type:"structure"`
 
 	// Information about the most recent successful deployment to the deployment
 	// group.
-	LastSuccessfulDeployment *LastDeploymentInfo `locationName:"lastSuccessfulDeployment" type:"structure"`
+	LastSuccessfulDeployment *LastDeploymentInfo `json:"codedeploy:DeploymentGroupInfo:LastSuccessfulDeployment" locationName:"lastSuccessfulDeployment" type:"structure"`
 
 	// Information about the load balancer to use in a deployment.
-	LoadBalancerInfo *LoadBalancerInfo `locationName:"loadBalancerInfo" type:"structure"`
+	LoadBalancerInfo *LoadBalancerInfo `json:"codedeploy:DeploymentGroupInfo:LoadBalancerInfo" locationName:"loadBalancerInfo" type:"structure"`
 
 	// The on-premises instance tags on which to filter. The deployment group includes
 	// on-premises instances with any of the specified tags.
-	OnPremisesInstanceTagFilters []TagFilter `locationName:"onPremisesInstanceTagFilters" type:"list"`
+	OnPremisesInstanceTagFilters []TagFilter `json:"codedeploy:DeploymentGroupInfo:OnPremisesInstanceTagFilters" locationName:"onPremisesInstanceTagFilters" type:"list"`
 
 	// Information about groups of tags applied to an on-premises instance. The
 	// deployment group includes only on-premises instances identified by all the
 	// tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
-	OnPremisesTagSet *OnPremisesTagSet `locationName:"onPremisesTagSet" type:"structure"`
+	OnPremisesTagSet *OnPremisesTagSet `json:"codedeploy:DeploymentGroupInfo:OnPremisesTagSet" locationName:"onPremisesTagSet" type:"structure"`
 
 	// A service role Amazon Resource Name (ARN) that grants CodeDeploy permission
 	// to make calls to AWS services on your behalf. For more information, see Create
 	// a Service Role for AWS CodeDeploy (https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html)
 	// in the AWS CodeDeploy User Guide.
-	ServiceRoleArn *string `locationName:"serviceRoleArn" type:"string"`
+	ServiceRoleArn *string `json:"codedeploy:DeploymentGroupInfo:ServiceRoleArn" locationName:"serviceRoleArn" type:"string"`
 
 	// Information about the deployment group's target revision, including type
 	// and location.
-	TargetRevision *RevisionLocation `locationName:"targetRevision" type:"structure"`
+	TargetRevision *RevisionLocation `json:"codedeploy:DeploymentGroupInfo:TargetRevision" locationName:"targetRevision" type:"structure"`
 
 	// Information about triggers associated with the deployment group.
-	TriggerConfigurations []TriggerConfig `locationName:"triggerConfigurations" type:"list"`
+	TriggerConfigurations []TriggerConfig `json:"codedeploy:DeploymentGroupInfo:TriggerConfigurations" locationName:"triggerConfigurations" type:"list"`
 }
 
 // String returns the string representation
@@ -337,26 +337,26 @@ type DeploymentInfo struct {
 
 	// Provides information about the results of a deployment, such as whether instances
 	// in the original environment in a blue/green deployment were not terminated.
-	AdditionalDeploymentStatusInfo *string `locationName:"additionalDeploymentStatusInfo" deprecated:"true" type:"string"`
+	AdditionalDeploymentStatusInfo *string `json:"codedeploy:DeploymentInfo:AdditionalDeploymentStatusInfo" locationName:"additionalDeploymentStatusInfo" deprecated:"true" type:"string"`
 
 	// The application name.
-	ApplicationName *string `locationName:"applicationName" min:"1" type:"string"`
+	ApplicationName *string `json:"codedeploy:DeploymentInfo:ApplicationName" locationName:"applicationName" min:"1" type:"string"`
 
 	// Information about the automatic rollback configuration associated with the
 	// deployment.
-	AutoRollbackConfiguration *AutoRollbackConfiguration `locationName:"autoRollbackConfiguration" type:"structure"`
+	AutoRollbackConfiguration *AutoRollbackConfiguration `json:"codedeploy:DeploymentInfo:AutoRollbackConfiguration" locationName:"autoRollbackConfiguration" type:"structure"`
 
 	// Information about blue/green deployment options for this deployment.
-	BlueGreenDeploymentConfiguration *BlueGreenDeploymentConfiguration `locationName:"blueGreenDeploymentConfiguration" type:"structure"`
+	BlueGreenDeploymentConfiguration *BlueGreenDeploymentConfiguration `json:"codedeploy:DeploymentInfo:BlueGreenDeploymentConfiguration" locationName:"blueGreenDeploymentConfiguration" type:"structure"`
 
 	// A timestamp that indicates when the deployment was complete.
-	CompleteTime *time.Time `locationName:"completeTime" type:"timestamp" timestampFormat:"unix"`
+	CompleteTime *time.Time `json:"codedeploy:DeploymentInfo:CompleteTime" locationName:"completeTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The destination platform type for the deployment (Lambda, Server, or ECS).
-	ComputePlatform ComputePlatform `locationName:"computePlatform" type:"string" enum:"true"`
+	ComputePlatform ComputePlatform `json:"codedeploy:DeploymentInfo:ComputePlatform" locationName:"computePlatform" type:"string" enum:"true"`
 
 	// A timestamp that indicates when the deployment was created.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"unix"`
+	CreateTime *time.Time `json:"codedeploy:DeploymentInfo:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The means by which the deployment was created:
 	//
@@ -365,32 +365,32 @@ type DeploymentInfo struct {
 	//    * autoscaling: Amazon EC2 Auto Scaling created the deployment.
 	//
 	//    * codeDeployRollback: A rollback process created the deployment.
-	Creator DeploymentCreator `locationName:"creator" type:"string" enum:"true"`
+	Creator DeploymentCreator `json:"codedeploy:DeploymentInfo:Creator" locationName:"creator" type:"string" enum:"true"`
 
 	// The deployment configuration name.
-	DeploymentConfigName *string `locationName:"deploymentConfigName" min:"1" type:"string"`
+	DeploymentConfigName *string `json:"codedeploy:DeploymentInfo:DeploymentConfigName" locationName:"deploymentConfigName" min:"1" type:"string"`
 
 	// The deployment group name.
-	DeploymentGroupName *string `locationName:"deploymentGroupName" min:"1" type:"string"`
+	DeploymentGroupName *string `json:"codedeploy:DeploymentInfo:DeploymentGroupName" locationName:"deploymentGroupName" min:"1" type:"string"`
 
 	// The unique ID of a deployment.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"codedeploy:DeploymentInfo:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// A summary of the deployment status of the instances in the deployment.
-	DeploymentOverview *DeploymentOverview `locationName:"deploymentOverview" type:"structure"`
+	DeploymentOverview *DeploymentOverview `json:"codedeploy:DeploymentInfo:DeploymentOverview" locationName:"deploymentOverview" type:"structure"`
 
 	// Messages that contain information about the status of a deployment.
-	DeploymentStatusMessages []string `locationName:"deploymentStatusMessages" type:"list"`
+	DeploymentStatusMessages []string `json:"codedeploy:DeploymentInfo:DeploymentStatusMessages" locationName:"deploymentStatusMessages" type:"list"`
 
 	// Information about the type of deployment, either in-place or blue/green,
 	// you want to run and whether to route deployment traffic behind a load balancer.
-	DeploymentStyle *DeploymentStyle `locationName:"deploymentStyle" type:"structure"`
+	DeploymentStyle *DeploymentStyle `json:"codedeploy:DeploymentInfo:DeploymentStyle" locationName:"deploymentStyle" type:"structure"`
 
 	// A comment about the deployment.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"codedeploy:DeploymentInfo:Description" locationName:"description" type:"string"`
 
 	// Information about any error associated with this deployment.
-	ErrorInformation *ErrorInformation `locationName:"errorInformation" type:"structure"`
+	ErrorInformation *ErrorInformation `json:"codedeploy:DeploymentInfo:ErrorInformation" locationName:"errorInformation" type:"structure"`
 
 	// Information about how AWS CodeDeploy handles files that already exist in
 	// a deployment target location but weren't part of the previous successful
@@ -404,7 +404,7 @@ type DeploymentInfo struct {
 	//
 	//    * RETAIN: The version of the file already on the instance is kept and
 	//    used as part of the new deployment.
-	FileExistsBehavior FileExistsBehavior `locationName:"fileExistsBehavior" type:"string" enum:"true"`
+	FileExistsBehavior FileExistsBehavior `json:"codedeploy:DeploymentInfo:FileExistsBehavior" locationName:"fileExistsBehavior" type:"string" enum:"true"`
 
 	// If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic
 	// deployment lifecycle event to an instance fails, then the deployment continues
@@ -429,27 +429,27 @@ type DeploymentInfo struct {
 	// that will never run successfully, create a new deployment and use ignoreApplicationStopFailures
 	// to specify that the ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic
 	// failures should be ignored.
-	IgnoreApplicationStopFailures *bool `locationName:"ignoreApplicationStopFailures" type:"boolean"`
+	IgnoreApplicationStopFailures *bool `json:"codedeploy:DeploymentInfo:IgnoreApplicationStopFailures" locationName:"ignoreApplicationStopFailures" type:"boolean"`
 
 	// Indicates whether the wait period set for the termination of instances in
 	// the original environment has started. Status is 'false' if the KEEP_ALIVE
 	// option is specified. Otherwise, 'true' as soon as the termination wait period
 	// starts.
-	InstanceTerminationWaitTimeStarted *bool `locationName:"instanceTerminationWaitTimeStarted" type:"boolean"`
+	InstanceTerminationWaitTimeStarted *bool `json:"codedeploy:DeploymentInfo:InstanceTerminationWaitTimeStarted" locationName:"instanceTerminationWaitTimeStarted" type:"boolean"`
 
 	// Information about the load balancer used in the deployment.
-	LoadBalancerInfo *LoadBalancerInfo `locationName:"loadBalancerInfo" type:"structure"`
+	LoadBalancerInfo *LoadBalancerInfo `json:"codedeploy:DeploymentInfo:LoadBalancerInfo" locationName:"loadBalancerInfo" type:"structure"`
 
 	// Information about the application revision that was deployed to the deployment
 	// group before the most recent successful deployment.
-	PreviousRevision *RevisionLocation `locationName:"previousRevision" type:"structure"`
+	PreviousRevision *RevisionLocation `json:"codedeploy:DeploymentInfo:PreviousRevision" locationName:"previousRevision" type:"structure"`
 
 	// Information about the location of stored application artifacts and the service
 	// from which to retrieve them.
-	Revision *RevisionLocation `locationName:"revision" type:"structure"`
+	Revision *RevisionLocation `json:"codedeploy:DeploymentInfo:Revision" locationName:"revision" type:"structure"`
 
 	// Information about a deployment rollback.
-	RollbackInfo *RollbackInfo `locationName:"rollbackInfo" type:"structure"`
+	RollbackInfo *RollbackInfo `json:"codedeploy:DeploymentInfo:RollbackInfo" locationName:"rollbackInfo" type:"structure"`
 
 	// A timestamp that indicates when the deployment was deployed to the deployment
 	// group.
@@ -457,18 +457,18 @@ type DeploymentInfo struct {
 	// In some cases, the reported value of the start time might be later than the
 	// complete time. This is due to differences in the clock settings of backend
 	// servers that participate in the deployment process.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"codedeploy:DeploymentInfo:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The current state of the deployment as a whole.
-	Status DeploymentStatus `locationName:"status" type:"string" enum:"true"`
+	Status DeploymentStatus `json:"codedeploy:DeploymentInfo:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Information about the instances that belong to the replacement environment
 	// in a blue/green deployment.
-	TargetInstances *TargetInstances `locationName:"targetInstances" type:"structure"`
+	TargetInstances *TargetInstances `json:"codedeploy:DeploymentInfo:TargetInstances" locationName:"targetInstances" type:"structure"`
 
 	// Indicates whether only instances that are not running the latest application
 	// revision are to be deployed to.
-	UpdateOutdatedInstancesOnly *bool `locationName:"updateOutdatedInstancesOnly" type:"boolean"`
+	UpdateOutdatedInstancesOnly *bool `json:"codedeploy:DeploymentInfo:UpdateOutdatedInstancesOnly" locationName:"updateOutdatedInstancesOnly" type:"boolean"`
 }
 
 // String returns the string representation
@@ -482,24 +482,24 @@ type DeploymentOverview struct {
 	_ struct{} `type:"structure"`
 
 	// The number of instances in the deployment in a failed state.
-	Failed *int64 `type:"long"`
+	Failed *int64 `json:"codedeploy:DeploymentOverview:Failed" type:"long"`
 
 	// The number of instances in which the deployment is in progress.
-	InProgress *int64 `type:"long"`
+	InProgress *int64 `json:"codedeploy:DeploymentOverview:InProgress" type:"long"`
 
 	// The number of instances in the deployment in a pending state.
-	Pending *int64 `type:"long"`
+	Pending *int64 `json:"codedeploy:DeploymentOverview:Pending" type:"long"`
 
 	// The number of instances in a replacement environment ready to receive traffic
 	// in a blue/green deployment.
-	Ready *int64 `type:"long"`
+	Ready *int64 `json:"codedeploy:DeploymentOverview:Ready" type:"long"`
 
 	// The number of instances in the deployment in a skipped state.
-	Skipped *int64 `type:"long"`
+	Skipped *int64 `json:"codedeploy:DeploymentOverview:Skipped" type:"long"`
 
 	// The number of instances in the deployment to which revisions have been successfully
 	// deployed.
-	Succeeded *int64 `type:"long"`
+	Succeeded *int64 `json:"codedeploy:DeploymentOverview:Succeeded" type:"long"`
 }
 
 // String returns the string representation
@@ -524,12 +524,12 @@ type DeploymentReadyOption struct {
 	//    unless traffic rerouting is started using ContinueDeployment. If traffic
 	//    rerouting is not started before the end of the specified wait period,
 	//    the deployment status is changed to Stopped.
-	ActionOnTimeout DeploymentReadyAction `locationName:"actionOnTimeout" type:"string" enum:"true"`
+	ActionOnTimeout DeploymentReadyAction `json:"codedeploy:DeploymentReadyOption:ActionOnTimeout" locationName:"actionOnTimeout" type:"string" enum:"true"`
 
 	// The number of minutes to wait before the status of a blue/green deployment
 	// is changed to Stopped if rerouting is not started manually. Applies only
 	// to the STOP_DEPLOYMENT option for actionOnTimeout
-	WaitTimeInMinutes *int64 `locationName:"waitTimeInMinutes" type:"integer"`
+	WaitTimeInMinutes *int64 `json:"codedeploy:DeploymentReadyOption:WaitTimeInMinutes" locationName:"waitTimeInMinutes" type:"integer"`
 }
 
 // String returns the string representation
@@ -544,10 +544,10 @@ type DeploymentStyle struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether to route deployment traffic behind a load balancer.
-	DeploymentOption DeploymentOption `locationName:"deploymentOption" type:"string" enum:"true"`
+	DeploymentOption DeploymentOption `json:"codedeploy:DeploymentStyle:DeploymentOption" locationName:"deploymentOption" type:"string" enum:"true"`
 
 	// Indicates whether to run an in-place deployment or a blue/green deployment.
-	DeploymentType DeploymentType `locationName:"deploymentType" type:"string" enum:"true"`
+	DeploymentType DeploymentType `json:"codedeploy:DeploymentStyle:DeploymentType" locationName:"deploymentType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -561,19 +561,19 @@ type DeploymentTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The deployment type that is specific to the deployment's compute platform.
-	DeploymentTargetType DeploymentTargetType `locationName:"deploymentTargetType" type:"string" enum:"true"`
+	DeploymentTargetType DeploymentTargetType `json:"codedeploy:DeploymentTarget:DeploymentTargetType" locationName:"deploymentTargetType" type:"string" enum:"true"`
 
 	// Information about the target for a deployment that uses the Amazon ECS compute
 	// platform.
-	EcsTarget *ECSTarget `locationName:"ecsTarget" type:"structure"`
+	EcsTarget *ECSTarget `json:"codedeploy:DeploymentTarget:EcsTarget" locationName:"ecsTarget" type:"structure"`
 
 	// Information about the target for a deployment that uses the EC2/On-premises
 	// compute platform.
-	InstanceTarget *InstanceTarget `locationName:"instanceTarget" type:"structure"`
+	InstanceTarget *InstanceTarget `json:"codedeploy:DeploymentTarget:InstanceTarget" locationName:"instanceTarget" type:"structure"`
 
 	// Information about the target for a deployment that uses the AWS Lambda compute
 	// platform.
-	LambdaTarget *LambdaTarget `locationName:"lambdaTarget" type:"structure"`
+	LambdaTarget *LambdaTarget `json:"codedeploy:DeploymentTarget:LambdaTarget" locationName:"lambdaTarget" type:"structure"`
 }
 
 // String returns the string representation
@@ -601,19 +601,19 @@ type Diagnostics struct {
 	//    * ScriptFailed: The specified script failed to run as expected.
 	//
 	//    * UnknownError: The specified script did not run for an unknown reason.
-	ErrorCode LifecycleErrorCode `locationName:"errorCode" type:"string" enum:"true"`
+	ErrorCode LifecycleErrorCode `json:"codedeploy:Diagnostics:ErrorCode" locationName:"errorCode" type:"string" enum:"true"`
 
 	// The last portion of the diagnostic log.
 	//
 	// If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic
 	// log.
-	LogTail *string `locationName:"logTail" type:"string"`
+	LogTail *string `json:"codedeploy:Diagnostics:LogTail" locationName:"logTail" type:"string"`
 
 	// The message associated with the error.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"codedeploy:Diagnostics:Message" locationName:"message" type:"string"`
 
 	// The name of the script.
-	ScriptName *string `locationName:"scriptName" type:"string"`
+	ScriptName *string `json:"codedeploy:Diagnostics:ScriptName" locationName:"scriptName" type:"string"`
 }
 
 // String returns the string representation
@@ -627,7 +627,7 @@ type EC2TagFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The tag filter key.
-	Key *string `type:"string"`
+	Key *string `json:"codedeploy:EC2TagFilter:Key" type:"string"`
 
 	// The tag filter type:
 	//
@@ -636,10 +636,10 @@ type EC2TagFilter struct {
 	//    * VALUE_ONLY: Value only.
 	//
 	//    * KEY_AND_VALUE: Key and value.
-	Type EC2TagFilterType `type:"string" enum:"true"`
+	Type EC2TagFilterType `json:"codedeploy:EC2TagFilter:Type" type:"string" enum:"true"`
 
 	// The tag filter value.
-	Value *string `type:"string"`
+	Value *string `json:"codedeploy:EC2TagFilter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -655,7 +655,7 @@ type EC2TagSet struct {
 	// A list that contains other lists of EC2 instance tag groups. For an instance
 	// to be included in the deployment group, it must be identified by all of the
 	// tag groups in the list.
-	Ec2TagSetList [][]EC2TagFilter `locationName:"ec2TagSetList" type:"list"`
+	Ec2TagSetList [][]EC2TagFilter `json:"codedeploy:EC2TagSet:Ec2TagSetList" locationName:"ec2TagSetList" type:"list"`
 }
 
 // String returns the string representation
@@ -670,10 +670,10 @@ type ECSService struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cluster that the Amazon ECS service is associated with.
-	ClusterName *string `locationName:"clusterName" type:"string"`
+	ClusterName *string `json:"codedeploy:ECSService:ClusterName" locationName:"clusterName" type:"string"`
 
 	// The name of the target Amazon ECS service.
-	ServiceName *string `locationName:"serviceName" type:"string"`
+	ServiceName *string `json:"codedeploy:ECSService:ServiceName" locationName:"serviceName" type:"string"`
 }
 
 // String returns the string representation
@@ -687,26 +687,26 @@ type ECSTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of a deployment.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"codedeploy:ECSTarget:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// The date and time when the target Amazon ECS application was updated by a
 	// deployment.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"codedeploy:ECSTarget:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The lifecycle events of the deployment to this target Amazon ECS application.
-	LifecycleEvents []LifecycleEvent `locationName:"lifecycleEvents" type:"list"`
+	LifecycleEvents []LifecycleEvent `json:"codedeploy:ECSTarget:LifecycleEvents" locationName:"lifecycleEvents" type:"list"`
 
 	// The status an Amazon ECS deployment's target ECS application.
-	Status TargetStatus `locationName:"status" type:"string" enum:"true"`
+	Status TargetStatus `json:"codedeploy:ECSTarget:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The ARN of the target.
-	TargetArn *string `locationName:"targetArn" type:"string"`
+	TargetArn *string `json:"codedeploy:ECSTarget:TargetArn" locationName:"targetArn" type:"string"`
 
 	// The unique ID of a deployment target that has a type of ecsTarget.
-	TargetId *string `locationName:"targetId" type:"string"`
+	TargetId *string `json:"codedeploy:ECSTarget:TargetId" locationName:"targetId" type:"string"`
 
 	// The ECSTaskSet objects associated with the ECS target.
-	TaskSetsInfo []ECSTaskSet `locationName:"taskSetsInfo" type:"list"`
+	TaskSetsInfo []ECSTaskSet `json:"codedeploy:ECSTarget:TaskSetsInfo" locationName:"taskSetsInfo" type:"list"`
 }
 
 // String returns the string representation
@@ -727,21 +727,21 @@ type ECSTaskSet struct {
 	// ECS compute type, CodeDeploy instructs Amazon ECS to create a new task set
 	// and uses this value to determine how many tasks to create. After the updated
 	// task set is created, CodeDeploy shifts traffic to the new task set.
-	DesiredCount *int64 `locationName:"desiredCount" type:"long"`
+	DesiredCount *int64 `json:"codedeploy:ECSTaskSet:DesiredCount" locationName:"desiredCount" type:"long"`
 
 	// A unique ID of an ECSTaskSet.
-	Identifer *string `locationName:"identifer" type:"string"`
+	Identifer *string `json:"codedeploy:ECSTaskSet:Identifer" locationName:"identifer" type:"string"`
 
 	// The number of tasks in the task set that are in the PENDING status during
 	// an Amazon ECS deployment. A task in the PENDING state is preparing to enter
 	// the RUNNING state. A task set enters the PENDING status when it launches
 	// for the first time, or when it is restarted after being in the STOPPED state.
-	PendingCount *int64 `locationName:"pendingCount" type:"long"`
+	PendingCount *int64 `json:"codedeploy:ECSTaskSet:PendingCount" locationName:"pendingCount" type:"long"`
 
 	// The number of tasks in the task set that are in the RUNNING status during
 	// an Amazon ECS deployment. A task in the RUNNING state is running and ready
 	// for use.
-	RunningCount *int64 `locationName:"runningCount" type:"long"`
+	RunningCount *int64 `json:"codedeploy:ECSTaskSet:RunningCount" locationName:"runningCount" type:"long"`
 
 	// The status of the task set. There are three valid task set statuses:
 	//
@@ -751,18 +751,18 @@ type ECSTaskSet struct {
 	//
 	//    * DRAINING: Indicates the tasks in the task set are being stopped and
 	//    their corresponding targets are being deregistered from their target group.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"codedeploy:ECSTaskSet:Status" locationName:"status" type:"string"`
 
 	// The target group associated with the task set. The target group is used by
 	// AWS CodeDeploy to manage traffic to a task set.
-	TargetGroup *TargetGroupInfo `locationName:"targetGroup" type:"structure"`
+	TargetGroup *TargetGroupInfo `json:"codedeploy:ECSTaskSet:TargetGroup" locationName:"targetGroup" type:"structure"`
 
 	// A label that identifies whether the ECS task set is an original target (BLUE)
 	// or a replacement target (GREEN).
-	TaskSetLabel TargetLabel `locationName:"taskSetLabel" type:"string" enum:"true"`
+	TaskSetLabel TargetLabel `json:"codedeploy:ECSTaskSet:TaskSetLabel" locationName:"taskSetLabel" type:"string" enum:"true"`
 
 	// The percentage of traffic served by this task set.
-	TrafficWeight *float64 `locationName:"trafficWeight" type:"double"`
+	TrafficWeight *float64 `json:"codedeploy:ECSTaskSet:TrafficWeight" locationName:"trafficWeight" type:"double"`
 }
 
 // String returns the string representation
@@ -782,7 +782,7 @@ type ELBInfo struct {
 	// deployment. For in-place deployments, the name of the load balancer that
 	// instances are deregistered from so they are not serving traffic during a
 	// deployment, and then re-registered with after the deployment is complete.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"codedeploy:ELBInfo:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -835,10 +835,10 @@ type ErrorInformation struct {
 	//    * REVISION_MISSING: The revision ID was missing. This error code is most
 	//    likely raised if the revision is deleted after the deployment is created,
 	//    but before it is started.
-	Code ErrorCode `locationName:"code" type:"string" enum:"true"`
+	Code ErrorCode `json:"codedeploy:ErrorInformation:Code" locationName:"code" type:"string" enum:"true"`
 
 	// An accompanying error message.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"codedeploy:ErrorInformation:Message" locationName:"message" type:"string"`
 }
 
 // String returns the string representation
@@ -852,19 +852,19 @@ type GenericRevisionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The deployment groups for which this is the current target revision.
-	DeploymentGroups []string `locationName:"deploymentGroups" type:"list"`
+	DeploymentGroups []string `json:"codedeploy:GenericRevisionInfo:DeploymentGroups" locationName:"deploymentGroups" type:"list"`
 
 	// A comment about the revision.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"codedeploy:GenericRevisionInfo:Description" locationName:"description" type:"string"`
 
 	// When the revision was first used by AWS CodeDeploy.
-	FirstUsedTime *time.Time `locationName:"firstUsedTime" type:"timestamp" timestampFormat:"unix"`
+	FirstUsedTime *time.Time `json:"codedeploy:GenericRevisionInfo:FirstUsedTime" locationName:"firstUsedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// When the revision was last used by AWS CodeDeploy.
-	LastUsedTime *time.Time `locationName:"lastUsedTime" type:"timestamp" timestampFormat:"unix"`
+	LastUsedTime *time.Time `json:"codedeploy:GenericRevisionInfo:LastUsedTime" locationName:"lastUsedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// When the revision was registered with AWS CodeDeploy.
-	RegisterTime *time.Time `locationName:"registerTime" type:"timestamp" timestampFormat:"unix"`
+	RegisterTime *time.Time `json:"codedeploy:GenericRevisionInfo:RegisterTime" locationName:"registerTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -879,13 +879,13 @@ type GitHubLocation struct {
 
 	// The SHA1 commit ID of the GitHub commit that represents the bundled artifacts
 	// for the application revision.
-	CommitId *string `locationName:"commitId" type:"string"`
+	CommitId *string `json:"codedeploy:GitHubLocation:CommitId" locationName:"commitId" type:"string"`
 
 	// The GitHub account and repository pair that stores a reference to the commit
 	// that represents the bundled artifacts for the application revision.
 	//
 	// Specified as account/repository.
-	Repository *string `locationName:"repository" type:"string"`
+	Repository *string `json:"codedeploy:GitHubLocation:Repository" locationName:"repository" type:"string"`
 }
 
 // String returns the string representation
@@ -906,7 +906,7 @@ type GreenFleetProvisioningOption struct {
 	//
 	//    * COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling
 	//    group to define and create instances in a new Auto Scaling group.
-	Action GreenFleetProvisioningAction `locationName:"action" type:"string" enum:"true"`
+	Action GreenFleetProvisioningAction `json:"codedeploy:GreenFleetProvisioningOption:Action" locationName:"action" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -921,25 +921,25 @@ type InstanceInfo struct {
 
 	// If the on-premises instance was deregistered, the time at which the on-premises
 	// instance was deregistered.
-	DeregisterTime *time.Time `locationName:"deregisterTime" type:"timestamp" timestampFormat:"unix"`
+	DeregisterTime *time.Time `json:"codedeploy:InstanceInfo:DeregisterTime" locationName:"deregisterTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the IAM session associated with the on-premises instance.
-	IamSessionArn *string `locationName:"iamSessionArn" type:"string"`
+	IamSessionArn *string `json:"codedeploy:InstanceInfo:IamSessionArn" locationName:"iamSessionArn" type:"string"`
 
 	// The IAM user ARN associated with the on-premises instance.
-	IamUserArn *string `locationName:"iamUserArn" type:"string"`
+	IamUserArn *string `json:"codedeploy:InstanceInfo:IamUserArn" locationName:"iamUserArn" type:"string"`
 
 	// The ARN of the on-premises instance.
-	InstanceArn *string `locationName:"instanceArn" type:"string"`
+	InstanceArn *string `json:"codedeploy:InstanceInfo:InstanceArn" locationName:"instanceArn" type:"string"`
 
 	// The name of the on-premises instance.
-	InstanceName *string `locationName:"instanceName" type:"string"`
+	InstanceName *string `json:"codedeploy:InstanceInfo:InstanceName" locationName:"instanceName" type:"string"`
 
 	// The time at which the on-premises instance was registered.
-	RegisterTime *time.Time `locationName:"registerTime" type:"timestamp" timestampFormat:"unix"`
+	RegisterTime *time.Time `json:"codedeploy:InstanceInfo:RegisterTime" locationName:"registerTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The tags currently associated with the on-premises instance.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"codedeploy:InstanceInfo:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -953,10 +953,10 @@ type InstanceSummary struct {
 	_ struct{} `deprecated:"true" type:"structure"`
 
 	// The unique ID of a deployment.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"codedeploy:InstanceSummary:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// The instance ID.
-	InstanceId *string `locationName:"instanceId" type:"string"`
+	InstanceId *string `json:"codedeploy:InstanceSummary:InstanceId" locationName:"instanceId" type:"string"`
 
 	// Information about which environment an instance belongs to in a blue/green
 	// deployment.
@@ -964,13 +964,13 @@ type InstanceSummary struct {
 	//    * BLUE: The instance is part of the original environment.
 	//
 	//    * GREEN: The instance is part of the replacement environment.
-	InstanceType InstanceType `locationName:"instanceType" type:"string" enum:"true"`
+	InstanceType InstanceType `json:"codedeploy:InstanceSummary:InstanceType" locationName:"instanceType" type:"string" enum:"true"`
 
 	// A timestamp that indicaties when the instance information was last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"codedeploy:InstanceSummary:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A list of lifecycle events for this instance.
-	LifecycleEvents []LifecycleEvent `locationName:"lifecycleEvents" type:"list"`
+	LifecycleEvents []LifecycleEvent `json:"codedeploy:InstanceSummary:LifecycleEvents" locationName:"lifecycleEvents" type:"list"`
 
 	// The deployment status for this instance:
 	//
@@ -985,7 +985,7 @@ type InstanceSummary struct {
 	//    * Skipped: The deployment has been skipped for this instance.
 	//
 	//    * Unknown: The deployment status is unknown for this instance.
-	Status InstanceStatus `locationName:"status" deprecated:"true" type:"string" enum:"true"`
+	Status InstanceStatus `json:"codedeploy:InstanceSummary:Status" locationName:"status" deprecated:"true" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1000,26 +1000,26 @@ type InstanceTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of a deployment.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"codedeploy:InstanceTarget:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// A label that identifies whether the instance is an original target (BLUE)
 	// or a replacement target (GREEN).
-	InstanceLabel TargetLabel `locationName:"instanceLabel" type:"string" enum:"true"`
+	InstanceLabel TargetLabel `json:"codedeploy:InstanceTarget:InstanceLabel" locationName:"instanceLabel" type:"string" enum:"true"`
 
 	// The date and time when the target instance was updated by a deployment.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"codedeploy:InstanceTarget:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The lifecycle events of the deployment to this target instance.
-	LifecycleEvents []LifecycleEvent `locationName:"lifecycleEvents" type:"list"`
+	LifecycleEvents []LifecycleEvent `json:"codedeploy:InstanceTarget:LifecycleEvents" locationName:"lifecycleEvents" type:"list"`
 
 	// The status an EC2/On-premises deployment's target instance.
-	Status TargetStatus `locationName:"status" type:"string" enum:"true"`
+	Status TargetStatus `json:"codedeploy:InstanceTarget:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The ARN of the target.
-	TargetArn *string `locationName:"targetArn" type:"string"`
+	TargetArn *string `json:"codedeploy:InstanceTarget:TargetArn" locationName:"targetArn" type:"string"`
 
 	// The unique ID of a deployment target that has a type of instanceTarget.
-	TargetId *string `locationName:"targetId" type:"string"`
+	TargetId *string `json:"codedeploy:InstanceTarget:TargetId" locationName:"targetId" type:"string"`
 }
 
 // String returns the string representation
@@ -1033,22 +1033,22 @@ type LambdaFunctionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The version of a Lambda function that production traffic points to.
-	CurrentVersion *string `locationName:"currentVersion" type:"string"`
+	CurrentVersion *string `json:"codedeploy:LambdaFunctionInfo:CurrentVersion" locationName:"currentVersion" type:"string"`
 
 	// The alias of a Lambda function. For more information, see Introduction to
 	// AWS Lambda Aliases (https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html).
-	FunctionAlias *string `locationName:"functionAlias" type:"string"`
+	FunctionAlias *string `json:"codedeploy:LambdaFunctionInfo:FunctionAlias" locationName:"functionAlias" type:"string"`
 
 	// The name of a Lambda function.
-	FunctionName *string `locationName:"functionName" type:"string"`
+	FunctionName *string `json:"codedeploy:LambdaFunctionInfo:FunctionName" locationName:"functionName" type:"string"`
 
 	// The version of a Lambda function that production traffic points to after
 	// the Lambda function is deployed.
-	TargetVersion *string `locationName:"targetVersion" type:"string"`
+	TargetVersion *string `json:"codedeploy:LambdaFunctionInfo:TargetVersion" locationName:"targetVersion" type:"string"`
 
 	// The percentage of production traffic that the target version of a Lambda
 	// function receives.
-	TargetVersionWeight *float64 `locationName:"targetVersionWeight" type:"double"`
+	TargetVersionWeight *float64 `json:"codedeploy:LambdaFunctionInfo:TargetVersionWeight" locationName:"targetVersionWeight" type:"double"`
 }
 
 // String returns the string representation
@@ -1062,25 +1062,25 @@ type LambdaTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of a deployment.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"codedeploy:LambdaTarget:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// A LambdaFunctionInfo object that describes a target Lambda function.
-	LambdaFunctionInfo *LambdaFunctionInfo `locationName:"lambdaFunctionInfo" type:"structure"`
+	LambdaFunctionInfo *LambdaFunctionInfo `json:"codedeploy:LambdaTarget:LambdaFunctionInfo" locationName:"lambdaFunctionInfo" type:"structure"`
 
 	// The date and time when the target Lambda function was updated by a deployment.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"codedeploy:LambdaTarget:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The lifecycle events of the deployment to this target Lambda function.
-	LifecycleEvents []LifecycleEvent `locationName:"lifecycleEvents" type:"list"`
+	LifecycleEvents []LifecycleEvent `json:"codedeploy:LambdaTarget:LifecycleEvents" locationName:"lifecycleEvents" type:"list"`
 
 	// The status an AWS Lambda deployment's target Lambda function.
-	Status TargetStatus `locationName:"status" type:"string" enum:"true"`
+	Status TargetStatus `json:"codedeploy:LambdaTarget:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The ARN of the target.
-	TargetArn *string `locationName:"targetArn" type:"string"`
+	TargetArn *string `json:"codedeploy:LambdaTarget:TargetArn" locationName:"targetArn" type:"string"`
 
 	// The unique ID of a deployment target that has a type of lambdaTarget.
-	TargetId *string `locationName:"targetId" type:"string"`
+	TargetId *string `json:"codedeploy:LambdaTarget:TargetId" locationName:"targetId" type:"string"`
 }
 
 // String returns the string representation
@@ -1096,17 +1096,17 @@ type LastDeploymentInfo struct {
 
 	// A timestamp that indicates when the most recent deployment to the deployment
 	// group started.
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:"unix"`
+	CreateTime *time.Time `json:"codedeploy:LastDeploymentInfo:CreateTime" locationName:"createTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique ID of a deployment.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"codedeploy:LastDeploymentInfo:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// A timestamp that indicates when the most recent deployment to the deployment
 	// group was complete.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"codedeploy:LastDeploymentInfo:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the most recent deployment.
-	Status DeploymentStatus `locationName:"status" type:"string" enum:"true"`
+	Status DeploymentStatus `json:"codedeploy:LastDeploymentInfo:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1120,17 +1120,17 @@ type LifecycleEvent struct {
 	_ struct{} `type:"structure"`
 
 	// Diagnostic information about the deployment lifecycle event.
-	Diagnostics *Diagnostics `locationName:"diagnostics" type:"structure"`
+	Diagnostics *Diagnostics `json:"codedeploy:LifecycleEvent:Diagnostics" locationName:"diagnostics" type:"structure"`
 
 	// A timestamp that indicates when the deployment lifecycle event ended.
-	EndTime *time.Time `locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"codedeploy:LifecycleEvent:EndTime" locationName:"endTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The deployment lifecycle event name, such as ApplicationStop, BeforeInstall,
 	// AfterInstall, ApplicationStart, or ValidateService.
-	LifecycleEventName *string `locationName:"lifecycleEventName" type:"string"`
+	LifecycleEventName *string `json:"codedeploy:LifecycleEvent:LifecycleEventName" locationName:"lifecycleEventName" type:"string"`
 
 	// A timestamp that indicates when the deployment lifecycle event started.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"codedeploy:LifecycleEvent:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The deployment lifecycle event status:
 	//
@@ -1145,7 +1145,7 @@ type LifecycleEvent struct {
 	//    * Skipped: The deployment lifecycle event has been skipped.
 	//
 	//    * Unknown: The deployment lifecycle event is unknown.
-	Status LifecycleEventStatus `locationName:"status" type:"string" enum:"true"`
+	Status LifecycleEventStatus `json:"codedeploy:LifecycleEvent:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1164,18 +1164,18 @@ type LoadBalancerInfo struct {
 	// used with Classic Load Balancers.
 	//
 	// Adding more than one load balancer to the array is not supported.
-	ElbInfoList []ELBInfo `locationName:"elbInfoList" type:"list"`
+	ElbInfoList []ELBInfo `json:"codedeploy:LoadBalancerInfo:ElbInfoList" locationName:"elbInfoList" type:"list"`
 
 	// An array that contains information about the target group to use for load
 	// balancing in a deployment. In Elastic Load Balancing, target groups are used
 	// with Application Load Balancers.
 	//
 	// Adding more than one target group to the array is not supported.
-	TargetGroupInfoList []TargetGroupInfo `locationName:"targetGroupInfoList" type:"list"`
+	TargetGroupInfoList []TargetGroupInfo `json:"codedeploy:LoadBalancerInfo:TargetGroupInfoList" locationName:"targetGroupInfoList" type:"list"`
 
 	// The target group pair information. This is an array of TargeGroupPairInfo
 	// objects with a maximum size of one.
-	TargetGroupPairInfoList []TargetGroupPairInfo `locationName:"targetGroupPairInfoList" type:"list"`
+	TargetGroupPairInfoList []TargetGroupPairInfo `json:"codedeploy:LoadBalancerInfo:TargetGroupPairInfoList" locationName:"targetGroupPairInfoList" type:"list"`
 }
 
 // String returns the string representation
@@ -1214,10 +1214,10 @@ type MinimumHealthyHosts struct {
 	//
 	// For more information, see AWS CodeDeploy Instance Health (https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html)
 	// in the AWS CodeDeploy User Guide.
-	Type MinimumHealthyHostsType `locationName:"type" type:"string" enum:"true"`
+	Type MinimumHealthyHostsType `json:"codedeploy:MinimumHealthyHosts:Type" locationName:"type" type:"string" enum:"true"`
 
 	// The minimum healthy instance value.
-	Value *int64 `locationName:"value" type:"integer"`
+	Value *int64 `json:"codedeploy:MinimumHealthyHosts:Value" locationName:"value" type:"integer"`
 }
 
 // String returns the string representation
@@ -1233,7 +1233,7 @@ type OnPremisesTagSet struct {
 	// A list that contains other lists of on-premises instance tag groups. For
 	// an instance to be included in the deployment group, it must be identified
 	// by all of the tag groups in the list.
-	OnPremisesTagSetList [][]TagFilter `locationName:"onPremisesTagSetList" type:"list"`
+	OnPremisesTagSetList [][]TagFilter `json:"codedeploy:OnPremisesTagSet:OnPremisesTagSetList" locationName:"onPremisesTagSetList" type:"list"`
 }
 
 // String returns the string representation
@@ -1251,10 +1251,10 @@ type RawString struct {
 	// The YAML-formatted or JSON-formatted revision string. It includes information
 	// about which Lambda function to update and optional Lambda functions that
 	// validate deployment lifecycle events.
-	Content *string `locationName:"content" type:"string"`
+	Content *string `json:"codedeploy:RawString:Content" locationName:"content" type:"string"`
 
 	// The SHA256 hash value of the revision content.
-	Sha256 *string `locationName:"sha256" type:"string"`
+	Sha256 *string `json:"codedeploy:RawString:Sha256" locationName:"sha256" type:"string"`
 }
 
 // String returns the string representation
@@ -1269,10 +1269,10 @@ type RevisionInfo struct {
 
 	// Information about an application revision, including usage details and associated
 	// deployment groups.
-	GenericRevisionInfo *GenericRevisionInfo `locationName:"genericRevisionInfo" type:"structure"`
+	GenericRevisionInfo *GenericRevisionInfo `json:"codedeploy:RevisionInfo:GenericRevisionInfo" locationName:"genericRevisionInfo" type:"structure"`
 
 	// Information about the location and type of an application revision.
-	RevisionLocation *RevisionLocation `locationName:"revisionLocation" type:"structure"`
+	RevisionLocation *RevisionLocation `json:"codedeploy:RevisionInfo:RevisionLocation" locationName:"revisionLocation" type:"structure"`
 }
 
 // String returns the string representation
@@ -1287,10 +1287,10 @@ type RevisionLocation struct {
 
 	// The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment.
 	// The content is formatted as JSON or YAML and stored as a RawString.
-	AppSpecContent *AppSpecContent `locationName:"appSpecContent" type:"structure"`
+	AppSpecContent *AppSpecContent `json:"codedeploy:RevisionLocation:AppSpecContent" locationName:"appSpecContent" type:"structure"`
 
 	// Information about the location of application artifacts stored in GitHub.
-	GitHubLocation *GitHubLocation `locationName:"gitHubLocation" type:"structure"`
+	GitHubLocation *GitHubLocation `json:"codedeploy:RevisionLocation:GitHubLocation" locationName:"gitHubLocation" type:"structure"`
 
 	// The type of application revision:
 	//
@@ -1301,14 +1301,14 @@ type RevisionLocation struct {
 	//
 	//    * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments
 	//    only).
-	RevisionType RevisionLocationType `locationName:"revisionType" type:"string" enum:"true"`
+	RevisionType RevisionLocationType `json:"codedeploy:RevisionLocation:RevisionType" locationName:"revisionType" type:"string" enum:"true"`
 
 	// Information about the location of a revision stored in Amazon S3.
-	S3Location *S3Location `locationName:"s3Location" type:"structure"`
+	S3Location *S3Location `json:"codedeploy:RevisionLocation:S3Location" locationName:"s3Location" type:"structure"`
 
 	// Information about the location of an AWS Lambda deployment revision stored
 	// as a RawString.
-	String_ *RawString `locationName:"string" deprecated:"true" type:"structure"`
+	String_ *RawString `json:"codedeploy:RevisionLocation:String_" locationName:"string" deprecated:"true" type:"structure"`
 }
 
 // String returns the string representation
@@ -1322,15 +1322,15 @@ type RollbackInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the deployment rollback.
-	RollbackDeploymentId *string `locationName:"rollbackDeploymentId" type:"string"`
+	RollbackDeploymentId *string `json:"codedeploy:RollbackInfo:RollbackDeploymentId" locationName:"rollbackDeploymentId" type:"string"`
 
 	// Information that describes the status of a deployment rollback (for example,
 	// whether the deployment can't be rolled back, is in progress, failed, or succeeded).
-	RollbackMessage *string `locationName:"rollbackMessage" type:"string"`
+	RollbackMessage *string `json:"codedeploy:RollbackInfo:RollbackMessage" locationName:"rollbackMessage" type:"string"`
 
 	// The deployment ID of the deployment that was underway and triggered a rollback
 	// deployment because it failed or was stopped.
-	RollbackTriggeringDeploymentId *string `locationName:"rollbackTriggeringDeploymentId" type:"string"`
+	RollbackTriggeringDeploymentId *string `json:"codedeploy:RollbackInfo:RollbackTriggeringDeploymentId" locationName:"rollbackTriggeringDeploymentId" type:"string"`
 }
 
 // String returns the string representation
@@ -1345,7 +1345,7 @@ type S3Location struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Amazon S3 bucket where the application revision is stored.
-	Bucket *string `locationName:"bucket" type:"string"`
+	Bucket *string `json:"codedeploy:S3Location:Bucket" locationName:"bucket" type:"string"`
 
 	// The file type of the application revision. Must be one of the following:
 	//
@@ -1354,25 +1354,25 @@ type S3Location struct {
 	//    * tgz: A compressed tar archive file.
 	//
 	//    * zip: A zip archive file.
-	BundleType BundleType `locationName:"bundleType" type:"string" enum:"true"`
+	BundleType BundleType `json:"codedeploy:S3Location:BundleType" locationName:"bundleType" type:"string" enum:"true"`
 
 	// The ETag of the Amazon S3 object that represents the bundled artifacts for
 	// the application revision.
 	//
 	// If the ETag is not specified as an input parameter, ETag validation of the
 	// object is skipped.
-	ETag *string `locationName:"eTag" type:"string"`
+	ETag *string `json:"codedeploy:S3Location:ETag" locationName:"eTag" type:"string"`
 
 	// The name of the Amazon S3 object that represents the bundled artifacts for
 	// the application revision.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"codedeploy:S3Location:Key" locationName:"key" type:"string"`
 
 	// A specific version of the Amazon S3 object that represents the bundled artifacts
 	// for the application revision.
 	//
 	// If the version is not specified, the system uses the most recent version
 	// by default.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"codedeploy:S3Location:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -1386,10 +1386,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The tag's key.
-	Key *string `type:"string"`
+	Key *string `json:"codedeploy:Tag:Key" type:"string"`
 
 	// The tag's value.
-	Value *string `type:"string"`
+	Value *string `json:"codedeploy:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1403,7 +1403,7 @@ type TagFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The on-premises instance tag filter key.
-	Key *string `type:"string"`
+	Key *string `json:"codedeploy:TagFilter:Key" type:"string"`
 
 	// The on-premises instance tag filter type:
 	//
@@ -1412,10 +1412,10 @@ type TagFilter struct {
 	//    * VALUE_ONLY: Value only.
 	//
 	//    * KEY_AND_VALUE: Key and value.
-	Type TagFilterType `type:"string" enum:"true"`
+	Type TagFilterType `json:"codedeploy:TagFilter:Type" type:"string" enum:"true"`
 
 	// The on-premises instance tag filter value.
-	Value *string `type:"string"`
+	Value *string `json:"codedeploy:TagFilter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -1436,7 +1436,7 @@ type TargetGroupInfo struct {
 	// target group that instances are deregistered from, so they are not serving
 	// traffic during a deployment, and then re-registered with after the deployment
 	// is complete.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"codedeploy:TargetGroupInfo:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -1452,17 +1452,17 @@ type TargetGroupPairInfo struct {
 
 	// The path used by a load balancer to route production traffic when an Amazon
 	// ECS deployment is complete.
-	ProdTrafficRoute *TrafficRoute `locationName:"prodTrafficRoute" type:"structure"`
+	ProdTrafficRoute *TrafficRoute `json:"codedeploy:TargetGroupPairInfo:ProdTrafficRoute" locationName:"prodTrafficRoute" type:"structure"`
 
 	// One pair of target groups. One is associated with the original task set.
 	// The second is associated with the task set that serves traffic after the
 	// deployment is complete.
-	TargetGroups []TargetGroupInfo `locationName:"targetGroups" type:"list"`
+	TargetGroups []TargetGroupInfo `json:"codedeploy:TargetGroupPairInfo:TargetGroups" locationName:"targetGroups" type:"list"`
 
 	// An optional path used by a load balancer to route test traffic after an Amazon
 	// ECS deployment. Validation can occur while test traffic is served during
 	// a deployment.
-	TestTrafficRoute *TrafficRoute `locationName:"testTrafficRoute" type:"structure"`
+	TestTrafficRoute *TrafficRoute `json:"codedeploy:TargetGroupPairInfo:TestTrafficRoute" locationName:"testTrafficRoute" type:"structure"`
 }
 
 // String returns the string representation
@@ -1478,17 +1478,17 @@ type TargetInstances struct {
 
 	// The names of one or more Auto Scaling groups to identify a replacement environment
 	// for a blue/green deployment.
-	AutoScalingGroups []string `locationName:"autoScalingGroups" type:"list"`
+	AutoScalingGroups []string `json:"codedeploy:TargetInstances:AutoScalingGroups" locationName:"autoScalingGroups" type:"list"`
 
 	// Information about the groups of EC2 instance tags that an instance must be
 	// identified by in order for it to be included in the replacement environment
 	// for a blue/green deployment. Cannot be used in the same call as tagFilters.
-	Ec2TagSet *EC2TagSet `locationName:"ec2TagSet" type:"structure"`
+	Ec2TagSet *EC2TagSet `json:"codedeploy:TargetInstances:Ec2TagSet" locationName:"ec2TagSet" type:"structure"`
 
 	// The tag filter key, type, and value used to identify Amazon EC2 instances
 	// in a replacement environment for a blue/green deployment. Cannot be used
 	// in the same call as ec2TagSet.
-	TagFilters []EC2TagFilter `locationName:"tagFilters" type:"list"`
+	TagFilters []EC2TagFilter `json:"codedeploy:TargetInstances:TagFilters" locationName:"tagFilters" type:"list"`
 }
 
 // String returns the string representation
@@ -1505,11 +1505,11 @@ type TimeBasedCanary struct {
 
 	// The number of minutes between the first and second traffic shifts of a TimeBasedCanary
 	// deployment.
-	CanaryInterval *int64 `locationName:"canaryInterval" type:"integer"`
+	CanaryInterval *int64 `json:"codedeploy:TimeBasedCanary:CanaryInterval" locationName:"canaryInterval" type:"integer"`
 
 	// The percentage of traffic to shift in the first increment of a TimeBasedCanary
 	// deployment.
-	CanaryPercentage *int64 `locationName:"canaryPercentage" type:"integer"`
+	CanaryPercentage *int64 `json:"codedeploy:TimeBasedCanary:CanaryPercentage" locationName:"canaryPercentage" type:"integer"`
 }
 
 // String returns the string representation
@@ -1527,11 +1527,11 @@ type TimeBasedLinear struct {
 
 	// The number of minutes between each incremental traffic shift of a TimeBasedLinear
 	// deployment.
-	LinearInterval *int64 `locationName:"linearInterval" type:"integer"`
+	LinearInterval *int64 `json:"codedeploy:TimeBasedLinear:LinearInterval" locationName:"linearInterval" type:"integer"`
 
 	// The percentage of traffic that is shifted at the start of each increment
 	// of a TimeBasedLinear deployment.
-	LinearPercentage *int64 `locationName:"linearPercentage" type:"integer"`
+	LinearPercentage *int64 `json:"codedeploy:TimeBasedLinear:LinearPercentage" locationName:"linearPercentage" type:"integer"`
 }
 
 // String returns the string representation
@@ -1547,12 +1547,12 @@ type TimeRange struct {
 	// The end time of the time range.
 	//
 	// Specify null to leave the end time open-ended.
-	End *time.Time `locationName:"end" type:"timestamp" timestampFormat:"unix"`
+	End *time.Time `json:"codedeploy:TimeRange:End" locationName:"end" type:"timestamp" timestampFormat:"unix"`
 
 	// The start time of the time range.
 	//
 	// Specify null to leave the start time open-ended.
-	Start *time.Time `locationName:"start" type:"timestamp" timestampFormat:"unix"`
+	Start *time.Time `json:"codedeploy:TimeRange:Start" locationName:"start" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1569,7 +1569,7 @@ type TrafficRoute struct {
 	// The ARN of one listener. The listener identifies the route between a target
 	// group and a load balancer. This is an array of strings with a maximum size
 	// of one.
-	ListenerArns []string `locationName:"listenerArns" type:"list"`
+	ListenerArns []string `json:"codedeploy:TrafficRoute:ListenerArns" locationName:"listenerArns" type:"list"`
 }
 
 // String returns the string representation
@@ -1586,17 +1586,17 @@ type TrafficRoutingConfig struct {
 	// A configuration that shifts traffic from one version of a Lambda function
 	// to another in two increments. The original and target Lambda function versions
 	// are specified in the deployment's AppSpec file.
-	TimeBasedCanary *TimeBasedCanary `locationName:"timeBasedCanary" type:"structure"`
+	TimeBasedCanary *TimeBasedCanary `json:"codedeploy:TrafficRoutingConfig:TimeBasedCanary" locationName:"timeBasedCanary" type:"structure"`
 
 	// A configuration that shifts traffic from one version of a Lambda function
 	// to another in equal increments, with an equal number of minutes between each
 	// increment. The original and target Lambda function versions are specified
 	// in the deployment's AppSpec file.
-	TimeBasedLinear *TimeBasedLinear `locationName:"timeBasedLinear" type:"structure"`
+	TimeBasedLinear *TimeBasedLinear `json:"codedeploy:TrafficRoutingConfig:TimeBasedLinear" locationName:"timeBasedLinear" type:"structure"`
 
 	// The type of traffic shifting (TimeBasedCanary or TimeBasedLinear) used by
 	// a deployment configuration .
-	Type TrafficRoutingType `locationName:"type" type:"string" enum:"true"`
+	Type TrafficRoutingType `json:"codedeploy:TrafficRoutingConfig:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1610,14 +1610,14 @@ type TriggerConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The event type or types for which notifications are triggered.
-	TriggerEvents []TriggerEventType `locationName:"triggerEvents" type:"list"`
+	TriggerEvents []TriggerEventType `json:"codedeploy:TriggerConfig:TriggerEvents" locationName:"triggerEvents" type:"list"`
 
 	// The name of the notification trigger.
-	TriggerName *string `locationName:"triggerName" type:"string"`
+	TriggerName *string `json:"codedeploy:TriggerConfig:TriggerName" locationName:"triggerName" type:"string"`
 
 	// The ARN of the Amazon Simple Notification Service topic through which notifications
 	// about deployment or instance events are sent.
-	TriggerTargetArn *string `locationName:"triggerTargetArn" type:"string"`
+	TriggerTargetArn *string `json:"codedeploy:TriggerConfig:TriggerTargetArn" locationName:"triggerTargetArn" type:"string"`
 }
 
 // String returns the string representation

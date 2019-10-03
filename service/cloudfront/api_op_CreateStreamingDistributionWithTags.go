@@ -63,14 +63,14 @@ type CreateStreamingDistributionWithTagsOutput struct {
 	_ struct{} `type:"structure" payload:"StreamingDistribution"`
 
 	// The current version of the distribution created.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:CreateStreamingDistributionWithTagsOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// The fully qualified URI of the new streaming distribution resource just created.
 	// For example:https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"cloudfront:CreateStreamingDistributionWithTagsOutput:Location" location:"header" locationName:"Location" type:"string"`
 
 	// The streaming distribution's information.
-	StreamingDistribution *StreamingDistribution `type:"structure"`
+	StreamingDistribution *StreamingDistribution `json:"cloudfront:CreateStreamingDistributionWithTagsOutput:StreamingDistribution" type:"structure"`
 }
 
 // String returns the string representation

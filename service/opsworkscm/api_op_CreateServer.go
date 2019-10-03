@@ -201,7 +201,7 @@ type CreateServerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The server that is created by the request.
-	Server *Server `type:"structure"`
+	Server *Server `json:"opsworks-cm:CreateServerOutput:Server" type:"structure"`
 }
 
 // String returns the string representation

@@ -61,13 +61,13 @@ type PreviewAgentsOutput struct {
 	// The resulting list of agents.
 	//
 	// AgentPreviews is a required field
-	AgentPreviews []AgentPreview `locationName:"agentPreviews" type:"list" required:"true"`
+	AgentPreviews []AgentPreview `json:"inspector:PreviewAgentsOutput:AgentPreviews" locationName:"agentPreviews" type:"list" required:"true"`
 
 	// When a response is generated, if there is more data to be listed, this parameter
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"inspector:PreviewAgentsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

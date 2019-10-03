@@ -59,7 +59,7 @@ type ConfigureHealthCheckOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated health check.
-	HealthCheck *HealthCheck `type:"structure"`
+	HealthCheck *HealthCheck `json:"elasticloadbalancing:ConfigureHealthCheckOutput:HealthCheck" type:"structure"`
 }
 
 // String returns the string representation

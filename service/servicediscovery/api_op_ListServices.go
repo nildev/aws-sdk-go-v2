@@ -76,11 +76,11 @@ type ListServicesOutput struct {
 	// specified criteria. It's possible that no services in the first MaxResults
 	// services matched the specified criteria but that subsequent groups of MaxResults
 	// services do contain services that match the criteria.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicediscovery:ListServicesOutput:NextToken" type:"string"`
 
 	// An array that contains one ServiceSummary object for each service that matches
 	// the specified filter criteria.
-	Services []ServiceSummary `type:"list"`
+	Services []ServiceSummary `json:"servicediscovery:ListServicesOutput:Services" type:"list"`
 }
 
 // String returns the string representation

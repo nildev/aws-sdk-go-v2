@@ -16,10 +16,10 @@ type Endpoint struct {
 	_ struct{} `type:"structure"`
 
 	// Attributes for endpoint.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"sns:Endpoint:Attributes" type:"map"`
 
 	// EndpointArn for mobile app and device.
-	EndpointArn *string `type:"string"`
+	EndpointArn *string `json:"sns:Endpoint:EndpointArn" type:"string"`
 }
 
 // String returns the string representation
@@ -44,18 +44,18 @@ type MessageAttributeValue struct {
 	// data, encrypted data, or images.
 	//
 	// BinaryValue is automatically base64 encoded/decoded by the SDK.
-	BinaryValue []byte `type:"blob"`
+	BinaryValue []byte `json:"sns:MessageAttributeValue:BinaryValue" type:"blob"`
 
 	// Amazon SNS supports the following logical data types: String, String.Array,
 	// Number, and Binary. For more information, see Message Attribute Data Types
 	// (https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes).
 	//
 	// DataType is a required field
-	DataType *string `type:"string" required:"true"`
+	DataType *string `json:"sns:MessageAttributeValue:DataType" type:"string" required:"true"`
 
 	// Strings are Unicode with UTF8 binary encoding. For a list of code values,
 	// see ASCII Printable Characters (https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters).
-	StringValue *string `type:"string"`
+	StringValue *string `json:"sns:MessageAttributeValue:StringValue" type:"string"`
 }
 
 // String returns the string representation
@@ -83,10 +83,10 @@ type PlatformApplication struct {
 	_ struct{} `type:"structure"`
 
 	// Attributes for platform application object.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"sns:PlatformApplication:Attributes" type:"map"`
 
 	// PlatformApplicationArn for platform application object.
-	PlatformApplicationArn *string `type:"string"`
+	PlatformApplicationArn *string `json:"sns:PlatformApplication:PlatformApplicationArn" type:"string"`
 }
 
 // String returns the string representation
@@ -100,19 +100,19 @@ type Subscription struct {
 	_ struct{} `type:"structure"`
 
 	// The subscription's endpoint (format depends on the protocol).
-	Endpoint *string `type:"string"`
+	Endpoint *string `json:"sns:Subscription:Endpoint" type:"string"`
 
 	// The subscription's owner.
-	Owner *string `type:"string"`
+	Owner *string `json:"sns:Subscription:Owner" type:"string"`
 
 	// The subscription's protocol.
-	Protocol *string `type:"string"`
+	Protocol *string `json:"sns:Subscription:Protocol" type:"string"`
 
 	// The subscription's ARN.
-	SubscriptionArn *string `type:"string"`
+	SubscriptionArn *string `json:"sns:Subscription:SubscriptionArn" type:"string"`
 
 	// The ARN of the subscription's topic.
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"sns:Subscription:TopicArn" type:"string"`
 }
 
 // String returns the string representation
@@ -128,12 +128,12 @@ type Tag struct {
 	// The required key portion of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"sns:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The optional value portion of the tag.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"sns:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -169,7 +169,7 @@ type Topic struct {
 	_ struct{} `type:"structure"`
 
 	// The topic's ARN.
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"sns:Topic:TopicArn" type:"string"`
 }
 
 // String returns the string representation

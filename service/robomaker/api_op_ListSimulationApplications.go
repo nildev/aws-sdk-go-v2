@@ -117,11 +117,11 @@ type ListSimulationApplicationsOutput struct {
 	// When the results of a ListRobot request exceed maxResults, this value can
 	// be used to retrieve the next page of results. This value is null when there
 	// are no more results to return.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"robomaker:ListSimulationApplicationsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// A list of simulation application summaries that meet the criteria of the
 	// request.
-	SimulationApplicationSummaries []SimulationApplicationSummary `locationName:"simulationApplicationSummaries" type:"list"`
+	SimulationApplicationSummaries []SimulationApplicationSummary `json:"robomaker:ListSimulationApplicationsOutput:SimulationApplicationSummaries" locationName:"simulationApplicationSummaries" type:"list"`
 }
 
 // String returns the string representation

@@ -59,13 +59,13 @@ type DescribeVolumeAttributeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The state of autoEnableIO attribute.
-	AutoEnableIO *AttributeBooleanValue `locationName:"autoEnableIO" type:"structure"`
+	AutoEnableIO *AttributeBooleanValue `json:"ec2:DescribeVolumeAttributeOutput:AutoEnableIO" locationName:"autoEnableIO" type:"structure"`
 
 	// A list of product codes.
-	ProductCodes []ProductCode `locationName:"productCodes" locationNameList:"item" type:"list"`
+	ProductCodes []ProductCode `json:"ec2:DescribeVolumeAttributeOutput:ProductCodes" locationName:"productCodes" locationNameList:"item" type:"list"`
 
 	// The ID of the volume.
-	VolumeId *string `locationName:"volumeId" type:"string"`
+	VolumeId *string `json:"ec2:DescribeVolumeAttributeOutput:VolumeId" locationName:"volumeId" type:"string"`
 }
 
 // String returns the string representation

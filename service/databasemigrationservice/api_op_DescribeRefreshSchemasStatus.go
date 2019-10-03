@@ -43,7 +43,7 @@ type DescribeRefreshSchemasStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the schema.
-	RefreshSchemasStatus *RefreshSchemasStatus `type:"structure"`
+	RefreshSchemasStatus *RefreshSchemasStatus `json:"dms:DescribeRefreshSchemasStatusOutput:RefreshSchemasStatus" type:"structure"`
 }
 
 // String returns the string representation

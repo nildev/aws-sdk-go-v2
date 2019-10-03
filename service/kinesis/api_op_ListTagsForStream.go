@@ -66,13 +66,13 @@ type ListTagsForStreamOutput struct {
 	// ExclusiveStartTagKey to the key of the last tag returned.
 	//
 	// HasMoreTags is a required field
-	HasMoreTags *bool `type:"boolean" required:"true"`
+	HasMoreTags *bool `json:"kinesis:ListTagsForStreamOutput:HasMoreTags" type:"boolean" required:"true"`
 
 	// A list of tags associated with StreamName, starting with the first tag after
 	// ExclusiveStartTagKey and up to the specified Limit.
 	//
 	// Tags is a required field
-	Tags []Tag `type:"list" required:"true"`
+	Tags []Tag `json:"kinesis:ListTagsForStreamOutput:Tags" type:"list" required:"true"`
 }
 
 // String returns the string representation

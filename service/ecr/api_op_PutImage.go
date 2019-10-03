@@ -64,7 +64,7 @@ type PutImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Details of the image uploaded.
-	Image *Image `locationName:"image" type:"structure"`
+	Image *Image `json:"api.ecr:PutImageOutput:Image" locationName:"image" type:"structure"`
 }
 
 // String returns the string representation

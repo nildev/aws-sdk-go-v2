@@ -145,10 +145,10 @@ type GetItemOutput struct {
 	// returned if the ReturnConsumedCapacity parameter was specified. For more
 	// information, see Read/Write Capacity Mode (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ConsumedCapacity *ConsumedCapacity `type:"structure"`
+	ConsumedCapacity *ConsumedCapacity `json:"dynamodb:GetItemOutput:ConsumedCapacity" type:"structure"`
 
 	// A map of attribute names to AttributeValue objects, as specified by ProjectionExpression.
-	Item map[string]AttributeValue `type:"map"`
+	Item map[string]AttributeValue `json:"dynamodb:GetItemOutput:Item" type:"map"`
 }
 
 // String returns the string representation

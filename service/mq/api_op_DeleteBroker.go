@@ -54,7 +54,7 @@ func (s DeleteBrokerInput) MarshalFields(e protocol.FieldEncoder) error {
 type DeleteBrokerOutput struct {
 	_ struct{} `type:"structure"`
 
-	BrokerId *string `locationName:"brokerId" type:"string"`
+	BrokerId *string `json:"mq:DeleteBrokerOutput:BrokerId" locationName:"brokerId" type:"string"`
 }
 
 // String returns the string representation

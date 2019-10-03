@@ -103,10 +103,10 @@ type UpdateBrokerStorageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the cluster.
-	ClusterArn *string `locationName:"clusterArn" type:"string"`
+	ClusterArn *string `json:"kafka:UpdateBrokerStorageOutput:ClusterArn" locationName:"clusterArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the cluster operation.
-	ClusterOperationArn *string `locationName:"clusterOperationArn" type:"string"`
+	ClusterOperationArn *string `json:"kafka:UpdateBrokerStorageOutput:ClusterOperationArn" locationName:"clusterOperationArn" type:"string"`
 }
 
 // String returns the string representation

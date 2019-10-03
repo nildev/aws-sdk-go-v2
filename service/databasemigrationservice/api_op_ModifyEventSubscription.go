@@ -61,7 +61,7 @@ type ModifyEventSubscriptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The modified event subscription.
-	EventSubscription *EventSubscription `type:"structure"`
+	EventSubscription *EventSubscription `json:"dms:ModifyEventSubscriptionOutput:EventSubscription" type:"structure"`
 }
 
 // String returns the string representation

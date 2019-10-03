@@ -58,7 +58,7 @@ type GetBackupPlanFromJSONOutput struct {
 
 	// Specifies the body of a backup plan. Includes a BackupPlanName and one or
 	// more sets of Rules.
-	BackupPlan *BackupPlan `type:"structure"`
+	BackupPlan *BackupPlan `json:"backup:GetBackupPlanFromJSONOutput:BackupPlan" type:"structure"`
 }
 
 // String returns the string representation

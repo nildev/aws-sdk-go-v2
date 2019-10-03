@@ -60,7 +60,7 @@ type RemoveTagsFromResourceOutput struct {
 
 	// The Amazon Resource Name (ARN) of the resource that the tags were removed
 	// from.
-	ResourceARN *string `min:"50" type:"string"`
+	ResourceARN *string `json:"storagegateway:RemoveTagsFromResourceOutput:ResourceARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

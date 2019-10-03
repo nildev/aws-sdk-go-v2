@@ -62,11 +62,11 @@ type CreateGeoMatchSetOutput struct {
 	// The ChangeToken that you used to submit the CreateGeoMatchSet request. You
 	// can also use this value to query the status of the request. For more information,
 	// see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf-regional:CreateGeoMatchSetOutput:ChangeToken" min:"1" type:"string"`
 
 	// The GeoMatchSet returned in the CreateGeoMatchSet response. The GeoMatchSet
 	// contains no GeoMatchConstraints.
-	GeoMatchSet *waf.GeoMatchSet `type:"structure"`
+	GeoMatchSet *waf.GeoMatchSet `json:"waf-regional:CreateGeoMatchSetOutput:GeoMatchSet" type:"structure"`
 }
 
 // String returns the string representation

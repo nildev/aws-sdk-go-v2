@@ -277,10 +277,10 @@ type PutBotOutput struct {
 
 	// The message that Amazon Lex uses to abort a conversation. For more information,
 	// see PutBot.
-	AbortStatement *Statement `locationName:"abortStatement" type:"structure"`
+	AbortStatement *Statement `json:"models.lex:PutBotOutput:AbortStatement" locationName:"abortStatement" type:"structure"`
 
 	// Checksum of the bot that you created.
-	Checksum *string `locationName:"checksum" type:"string"`
+	Checksum *string `json:"models.lex:PutBotOutput:Checksum" locationName:"checksum" type:"string"`
 
 	// For each Amazon Lex bot created with the Amazon Lex Model Building Service,
 	// you must specify whether your use of Amazon Lex is related to a website,
@@ -305,40 +305,40 @@ type PutBotOutput struct {
 	// regarding the use of Amazon Lex in connection with websites, programs, or
 	// other applications that are directed or targeted, in whole or in part, to
 	// children under age 13, see the Amazon Lex FAQ. (https://aws.amazon.com/lex/faqs#data-security)
-	ChildDirected *bool `locationName:"childDirected" type:"boolean"`
+	ChildDirected *bool `json:"models.lex:PutBotOutput:ChildDirected" locationName:"childDirected" type:"boolean"`
 
 	// The prompts that Amazon Lex uses when it doesn't understand the user's intent.
 	// For more information, see PutBot.
-	ClarificationPrompt *Prompt `locationName:"clarificationPrompt" type:"structure"`
+	ClarificationPrompt *Prompt `json:"models.lex:PutBotOutput:ClarificationPrompt" locationName:"clarificationPrompt" type:"structure"`
 
-	CreateVersion *bool `locationName:"createVersion" type:"boolean"`
+	CreateVersion *bool `json:"models.lex:PutBotOutput:CreateVersion" locationName:"createVersion" type:"boolean"`
 
 	// The date that the bot was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:PutBotOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the bot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:PutBotOutput:Description" locationName:"description" type:"string"`
 
 	// If status is FAILED, Amazon Lex provides the reason that it failed to build
 	// the bot.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"models.lex:PutBotOutput:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The maximum length of time that Amazon Lex retains the data gathered in a
 	// conversation. For more information, see PutBot.
-	IdleSessionTTLInSeconds *int64 `locationName:"idleSessionTTLInSeconds" min:"60" type:"integer"`
+	IdleSessionTTLInSeconds *int64 `json:"models.lex:PutBotOutput:IdleSessionTTLInSeconds" locationName:"idleSessionTTLInSeconds" min:"60" type:"integer"`
 
 	// An array of Intent objects. For more information, see PutBot.
-	Intents []Intent `locationName:"intents" type:"list"`
+	Intents []Intent `json:"models.lex:PutBotOutput:Intents" locationName:"intents" type:"list"`
 
 	// The date that the bot was updated. When you create a resource, the creation
 	// date and last updated date are the same.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:PutBotOutput:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The target locale for the bot.
-	Locale Locale `locationName:"locale" type:"string" enum:"true"`
+	Locale Locale `json:"models.lex:PutBotOutput:Locale" locationName:"locale" type:"string" enum:"true"`
 
 	// The name of the bot.
-	Name *string `locationName:"name" min:"2" type:"string"`
+	Name *string `json:"models.lex:PutBotOutput:Name" locationName:"name" min:"2" type:"string"`
 
 	// When you send a request to create a bot with processBehavior set to BUILD,
 	// Amazon Lex sets the status response element to BUILDING. After Amazon Lex
@@ -348,14 +348,14 @@ type PutBotOutput struct {
 	//
 	// When you set processBehaviorto SAVE, Amazon Lex sets the status code to NOT
 	// BUILT.
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"models.lex:PutBotOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The version of the bot. For a new bot, the version is always $LATEST.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:PutBotOutput:Version" locationName:"version" min:"1" type:"string"`
 
 	// The Amazon Polly voice ID that Amazon Lex uses for voice interaction with
 	// the user. For more information, see PutBot.
-	VoiceId *string `locationName:"voiceId" type:"string"`
+	VoiceId *string `json:"models.lex:PutBotOutput:VoiceId" locationName:"voiceId" type:"string"`
 }
 
 // String returns the string representation

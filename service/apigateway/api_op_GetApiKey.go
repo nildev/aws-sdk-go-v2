@@ -72,35 +72,35 @@ type GetApiKeyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp when the API Key was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:GetApiKeyOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An AWS Marketplace customer identifier , when integrating with the AWS SaaS
 	// Marketplace.
-	CustomerId *string `locationName:"customerId" type:"string"`
+	CustomerId *string `json:"apigateway:GetApiKeyOutput:CustomerId" locationName:"customerId" type:"string"`
 
 	// The description of the API Key.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:GetApiKeyOutput:Description" locationName:"description" type:"string"`
 
 	// Specifies whether the API Key can be used by callers.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"apigateway:GetApiKeyOutput:Enabled" locationName:"enabled" type:"boolean"`
 
 	// The identifier of the API Key.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:GetApiKeyOutput:Id" locationName:"id" type:"string"`
 
 	// The timestamp when the API Key was last updated.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"apigateway:GetApiKeyOutput:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the API Key.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:GetApiKeyOutput:Name" locationName:"name" type:"string"`
 
 	// A list of Stage resources that are associated with the ApiKey resource.
-	StageKeys []string `locationName:"stageKeys" type:"list"`
+	StageKeys []string `json:"apigateway:GetApiKeyOutput:StageKeys" locationName:"stageKeys" type:"list"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:GetApiKeyOutput:Tags" locationName:"tags" type:"map"`
 
 	// The value of the API Key.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"apigateway:GetApiKeyOutput:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation

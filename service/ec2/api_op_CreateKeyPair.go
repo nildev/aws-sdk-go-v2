@@ -52,13 +52,13 @@ type CreateKeyPairOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The SHA-1 digest of the DER encoded private key.
-	KeyFingerprint *string `locationName:"keyFingerprint" type:"string"`
+	KeyFingerprint *string `json:"ec2:CreateKeyPairOutput:KeyFingerprint" locationName:"keyFingerprint" type:"string"`
 
 	// An unencrypted PEM encoded RSA private key.
-	KeyMaterial *string `locationName:"keyMaterial" type:"string"`
+	KeyMaterial *string `json:"ec2:CreateKeyPairOutput:KeyMaterial" locationName:"keyMaterial" type:"string"`
 
 	// The name of the key pair.
-	KeyName *string `locationName:"keyName" type:"string"`
+	KeyName *string `json:"ec2:CreateKeyPairOutput:KeyName" locationName:"keyName" type:"string"`
 }
 
 // String returns the string representation

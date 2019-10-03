@@ -61,10 +61,10 @@ type CancelSpotFleetRequestsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Spot Fleet requests that are successfully canceled.
-	SuccessfulFleetRequests []CancelSpotFleetRequestsSuccessItem `locationName:"successfulFleetRequestSet" locationNameList:"item" type:"list"`
+	SuccessfulFleetRequests []CancelSpotFleetRequestsSuccessItem `json:"ec2:CancelSpotFleetRequestsOutput:SuccessfulFleetRequests" locationName:"successfulFleetRequestSet" locationNameList:"item" type:"list"`
 
 	// Information about the Spot Fleet requests that are not successfully canceled.
-	UnsuccessfulFleetRequests []CancelSpotFleetRequestsErrorItem `locationName:"unsuccessfulFleetRequestSet" locationNameList:"item" type:"list"`
+	UnsuccessfulFleetRequests []CancelSpotFleetRequestsErrorItem `json:"ec2:CancelSpotFleetRequestsOutput:UnsuccessfulFleetRequests" locationName:"unsuccessfulFleetRequestSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

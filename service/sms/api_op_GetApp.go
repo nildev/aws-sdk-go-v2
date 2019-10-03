@@ -27,13 +27,13 @@ type GetAppOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the application.
-	AppSummary *AppSummary `locationName:"appSummary" type:"structure"`
+	AppSummary *AppSummary `json:"sms:GetAppOutput:AppSummary" locationName:"appSummary" type:"structure"`
 
 	// List of server groups belonging to the application.
-	ServerGroups []ServerGroup `locationName:"serverGroups" type:"list"`
+	ServerGroups []ServerGroup `json:"sms:GetAppOutput:ServerGroups" locationName:"serverGroups" type:"list"`
 
 	// List of tags associated with the application.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"sms:GetAppOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

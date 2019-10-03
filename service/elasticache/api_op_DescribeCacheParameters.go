@@ -65,13 +65,13 @@ type DescribeCacheParametersOutput struct {
 
 	// A list of parameters specific to a particular cache node type. Each element
 	// in the list contains detailed information about one parameter.
-	CacheNodeTypeSpecificParameters []CacheNodeTypeSpecificParameter `locationNameList:"CacheNodeTypeSpecificParameter" type:"list"`
+	CacheNodeTypeSpecificParameters []CacheNodeTypeSpecificParameter `json:"elasticache:DescribeCacheParametersOutput:CacheNodeTypeSpecificParameters" locationNameList:"CacheNodeTypeSpecificParameter" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeCacheParametersOutput:Marker" type:"string"`
 
 	// A list of Parameter instances.
-	Parameters []Parameter `locationNameList:"Parameter" type:"list"`
+	Parameters []Parameter `json:"elasticache:DescribeCacheParametersOutput:Parameters" locationNameList:"Parameter" type:"list"`
 }
 
 // String returns the string representation

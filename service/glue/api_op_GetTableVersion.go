@@ -73,7 +73,7 @@ type GetTableVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested table version.
-	TableVersion *TableVersion `type:"structure"`
+	TableVersion *TableVersion `json:"glue:GetTableVersionOutput:TableVersion" type:"structure"`
 }
 
 // String returns the string representation

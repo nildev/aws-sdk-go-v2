@@ -67,7 +67,7 @@ type CreatePlayerSessionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Object that describes the newly created player session record.
-	PlayerSession *PlayerSession `type:"structure"`
+	PlayerSession *PlayerSession `json:"gamelift:CreatePlayerSessionOutput:PlayerSession" type:"structure"`
 }
 
 // String returns the string representation

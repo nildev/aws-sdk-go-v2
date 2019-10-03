@@ -55,7 +55,7 @@ type ListDistributionsOutput struct {
 	_ struct{} `type:"structure" payload:"DistributionList"`
 
 	// The DistributionList type.
-	DistributionList *DistributionList `type:"structure"`
+	DistributionList *DistributionList `json:"cloudfront:ListDistributionsOutput:DistributionList" type:"structure"`
 }
 
 // String returns the string representation

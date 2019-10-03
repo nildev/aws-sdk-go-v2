@@ -96,7 +96,7 @@ type BatchWriteItemOutput struct {
 	//    * TableName - The table that consumed the provisioned throughput.
 	//
 	//    * CapacityUnits - The total number of capacity units consumed.
-	ConsumedCapacity []ConsumedCapacity `type:"list"`
+	ConsumedCapacity []ConsumedCapacity `json:"dynamodb:BatchWriteItemOutput:ConsumedCapacity" type:"list"`
 
 	// A list of tables that were processed by BatchWriteItem and, for each table,
 	// information about any item collections that were affected by individual DeleteItem
@@ -115,7 +115,7 @@ type BatchWriteItemOutput struct {
 	//    a local secondary index is approaching its size limit. The estimate is
 	//    subject to change over time; therefore, do not rely on the precision or
 	//    accuracy of the estimate.
-	ItemCollectionMetrics map[string][]ItemCollectionMetrics `type:"map"`
+	ItemCollectionMetrics map[string][]ItemCollectionMetrics `json:"dynamodb:BatchWriteItemOutput:ItemCollectionMetrics" type:"map"`
 
 	// A map of tables and requests against those tables that were not processed.
 	// The UnprocessedItems value is in the same form as RequestItems, so you can
@@ -142,7 +142,7 @@ type BatchWriteItemOutput struct {
 	//
 	// If there are no unprocessed items remaining, the response contains an empty
 	// UnprocessedItems map.
-	UnprocessedItems map[string][]WriteRequest `min:"1" type:"map"`
+	UnprocessedItems map[string][]WriteRequest `json:"dynamodb:BatchWriteItemOutput:UnprocessedItems" min:"1" type:"map"`
 }
 
 // String returns the string representation

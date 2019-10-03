@@ -49,22 +49,22 @@ type GetPipelineStateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the pipeline was created, in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"codepipeline:GetPipelineStateOutput:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the pipeline for which you want to get the state.
-	PipelineName *string `locationName:"pipelineName" min:"1" type:"string"`
+	PipelineName *string `json:"codepipeline:GetPipelineStateOutput:PipelineName" locationName:"pipelineName" min:"1" type:"string"`
 
 	// The version number of the pipeline.
 	//
 	// A newly-created pipeline is always assigned a version number of 1.
-	PipelineVersion *int64 `locationName:"pipelineVersion" min:"1" type:"integer"`
+	PipelineVersion *int64 `json:"codepipeline:GetPipelineStateOutput:PipelineVersion" locationName:"pipelineVersion" min:"1" type:"integer"`
 
 	// A list of the pipeline stage output information, including stage name, state,
 	// most recent run details, whether the stage is disabled, and other data.
-	StageStates []StageState `locationName:"stageStates" type:"list"`
+	StageStates []StageState `json:"codepipeline:GetPipelineStateOutput:StageStates" locationName:"stageStates" type:"list"`
 
 	// The date and time the pipeline was last updated, in timestamp format.
-	Updated *time.Time `locationName:"updated" type:"timestamp" timestampFormat:"unix"`
+	Updated *time.Time `json:"codepipeline:GetPipelineStateOutput:Updated" locationName:"updated" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

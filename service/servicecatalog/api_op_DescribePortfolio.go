@@ -55,16 +55,16 @@ type DescribePortfolioOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the associated budgets.
-	Budgets []BudgetDetail `type:"list"`
+	Budgets []BudgetDetail `json:"servicecatalog:DescribePortfolioOutput:Budgets" type:"list"`
 
 	// Information about the portfolio.
-	PortfolioDetail *PortfolioDetail `type:"structure"`
+	PortfolioDetail *PortfolioDetail `json:"servicecatalog:DescribePortfolioOutput:PortfolioDetail" type:"structure"`
 
 	// Information about the TagOptions associated with the portfolio.
-	TagOptions []TagOptionDetail `type:"list"`
+	TagOptions []TagOptionDetail `json:"servicecatalog:DescribePortfolioOutput:TagOptions" type:"list"`
 
 	// Information about the tags associated with the portfolio.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"servicecatalog:DescribePortfolioOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

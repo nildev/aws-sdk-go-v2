@@ -60,7 +60,7 @@ type DescribeAuditStreamConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the Amazon Kinesis data stream that will receive the audit events.
-	AuditStreamArn *string `type:"string"`
+	AuditStreamArn *string `json:"worklink:DescribeAuditStreamConfigurationOutput:AuditStreamArn" type:"string"`
 }
 
 // String returns the string representation

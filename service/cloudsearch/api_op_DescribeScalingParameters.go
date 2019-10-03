@@ -53,7 +53,7 @@ type DescribeScalingParametersOutput struct {
 	// The status and configuration of a search domain's scaling parameters.
 	//
 	// ScalingParameters is a required field
-	ScalingParameters *ScalingParametersStatus `type:"structure" required:"true"`
+	ScalingParameters *ScalingParametersStatus `json:"cloudsearch:DescribeScalingParametersOutput:ScalingParameters" type:"structure" required:"true"`
 }
 
 // String returns the string representation

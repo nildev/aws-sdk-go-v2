@@ -54,10 +54,10 @@ type ListWebACLsOutput struct {
 	// in the request, the response includes a NextMarker value. To list more WebACL
 	// objects, submit another ListWebACLs request, and specify the NextMarker value
 	// from the response in the NextMarker value in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListWebACLsOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of WebACLSummary objects.
-	WebACLs []WebACLSummary `type:"list"`
+	WebACLs []WebACLSummary `json:"waf:ListWebACLsOutput:WebACLs" type:"list"`
 }
 
 // String returns the string representation

@@ -28,7 +28,7 @@ type DescribeUserProfilesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A Users object that describes the specified users.
-	UserProfiles []UserProfile `type:"list"`
+	UserProfiles []UserProfile `json:"opsworks:DescribeUserProfilesOutput:UserProfiles" type:"list"`
 }
 
 // String returns the string representation

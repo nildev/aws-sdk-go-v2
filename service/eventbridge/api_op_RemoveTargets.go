@@ -71,10 +71,10 @@ type RemoveTargetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The failed target entries.
-	FailedEntries []RemoveTargetsResultEntry `type:"list"`
+	FailedEntries []RemoveTargetsResultEntry `json:"events:RemoveTargetsOutput:FailedEntries" type:"list"`
 
 	// The number of failed entries.
-	FailedEntryCount *int64 `type:"integer"`
+	FailedEntryCount *int64 `json:"events:RemoveTargetsOutput:FailedEntryCount" type:"integer"`
 }
 
 // String returns the string representation

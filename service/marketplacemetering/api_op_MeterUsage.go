@@ -81,7 +81,7 @@ type MeterUsageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Metering record id.
-	MeteringRecordId *string `type:"string"`
+	MeteringRecordId *string `json:"metering.marketplace:MeterUsageOutput:MeteringRecordId" type:"string"`
 }
 
 // String returns the string representation

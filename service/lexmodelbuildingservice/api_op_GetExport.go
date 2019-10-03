@@ -112,29 +112,29 @@ type GetExportOutput struct {
 	//    * READY - The export is complete.
 	//
 	//    * FAILED - The export could not be completed.
-	ExportStatus ExportStatus `locationName:"exportStatus" type:"string" enum:"true"`
+	ExportStatus ExportStatus `json:"models.lex:GetExportOutput:ExportStatus" locationName:"exportStatus" type:"string" enum:"true"`
 
 	// The format of the exported data.
-	ExportType ExportType `locationName:"exportType" type:"string" enum:"true"`
+	ExportType ExportType `json:"models.lex:GetExportOutput:ExportType" locationName:"exportType" type:"string" enum:"true"`
 
 	// If status is FAILED, Amazon Lex provides the reason that it failed to export
 	// the resource.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"models.lex:GetExportOutput:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The name of the bot being exported.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:GetExportOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The type of the exported resource.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"models.lex:GetExportOutput:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// An S3 pre-signed URL that provides the location of the exported resource.
 	// The exported resource is a ZIP archive that contains the exported resource
 	// in JSON format. The structure of the archive may change. Your code should
 	// not rely on the archive structure.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"models.lex:GetExportOutput:Url" locationName:"url" type:"string"`
 
 	// The version of the bot being exported.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:GetExportOutput:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation

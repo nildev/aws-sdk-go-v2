@@ -69,7 +69,7 @@ type ExecuteProvisionedProductPlanOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the result of provisioning the product.
-	RecordDetail *RecordDetail `type:"structure"`
+	RecordDetail *RecordDetail `json:"servicecatalog:ExecuteProvisionedProductPlanOutput:RecordDetail" type:"structure"`
 }
 
 // String returns the string representation

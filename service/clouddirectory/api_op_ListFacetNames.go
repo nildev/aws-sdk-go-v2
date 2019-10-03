@@ -77,10 +77,10 @@ type ListFacetNamesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The names of facets that exist within the schema.
-	FacetNames []string `type:"list"`
+	FacetNames []string `json:"clouddirectory:ListFacetNamesOutput:FacetNames" type:"list"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListFacetNamesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

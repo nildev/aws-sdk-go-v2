@@ -76,13 +76,13 @@ func (s CreateSubscriptionDefinitionVersionInput) MarshalFields(e protocol.Field
 type CreateSubscriptionDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:CreateSubscriptionDefinitionVersionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:CreateSubscriptionDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:CreateSubscriptionDefinitionVersionOutput:Id" type:"string"`
 
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:CreateSubscriptionDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

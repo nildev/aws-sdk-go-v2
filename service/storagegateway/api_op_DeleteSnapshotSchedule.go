@@ -46,7 +46,7 @@ type DeleteSnapshotScheduleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The volume which snapshot schedule was deleted.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:DeleteSnapshotScheduleOutput:VolumeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

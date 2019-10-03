@@ -51,10 +51,10 @@ type DescribeVpcClassicLinkDnsSupportOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"ec2:DescribeVpcClassicLinkDnsSupportOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// Information about the ClassicLink DNS support status of the VPCs.
-	Vpcs []ClassicLinkDnsSupport `locationName:"vpcs" locationNameList:"item" type:"list"`
+	Vpcs []ClassicLinkDnsSupport `json:"ec2:DescribeVpcClassicLinkDnsSupportOutput:Vpcs" locationName:"vpcs" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

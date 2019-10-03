@@ -49,21 +49,21 @@ type DescribeSnapshotScheduleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The snapshot description.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"storagegateway:DescribeSnapshotScheduleOutput:Description" min:"1" type:"string"`
 
 	// The number of hours between snapshots.
-	RecurrenceInHours *int64 `min:"1" type:"integer"`
+	RecurrenceInHours *int64 `json:"storagegateway:DescribeSnapshotScheduleOutput:RecurrenceInHours" min:"1" type:"integer"`
 
 	// The hour of the day at which the snapshot schedule begins represented as
 	// hh, where hh is the hour (0 to 23). The hour of the day is in the time zone
 	// of the gateway.
-	StartAt *int64 `type:"integer"`
+	StartAt *int64 `json:"storagegateway:DescribeSnapshotScheduleOutput:StartAt" type:"integer"`
 
 	// A value that indicates the time zone of the gateway.
-	Timezone *string `min:"3" type:"string"`
+	Timezone *string `json:"storagegateway:DescribeSnapshotScheduleOutput:Timezone" min:"3" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the volume that was specified in the request.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:DescribeSnapshotScheduleOutput:VolumeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

@@ -75,7 +75,7 @@ type GetFacetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Facet structure that is associated with the facet.
-	Facet *Facet `type:"structure"`
+	Facet *Facet `json:"clouddirectory:GetFacetOutput:Facet" type:"structure"`
 }
 
 // String returns the string representation

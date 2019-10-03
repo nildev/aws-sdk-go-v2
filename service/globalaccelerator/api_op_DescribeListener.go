@@ -43,7 +43,7 @@ type DescribeListenerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The description of a listener.
-	Listener *Listener `type:"structure"`
+	Listener *Listener `json:"globalaccelerator:DescribeListenerOutput:Listener" type:"structure"`
 }
 
 // String returns the string representation

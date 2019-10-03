@@ -57,7 +57,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of one or more tags.
-	TagList []Tag `locationNameList:"Tag" type:"list"`
+	TagList []Tag `json:"rds:ListTagsForResourceOutput:TagList" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation

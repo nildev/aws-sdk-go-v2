@@ -60,12 +60,12 @@ type ListTeamMembersOutput struct {
 
 	// The continuation token to use when requesting the next set of results, if
 	// there are more results to be returned.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codestar:ListTeamMembersOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// A list of team member objects for the project.
 	//
 	// TeamMembers is a required field
-	TeamMembers []TeamMember `locationName:"teamMembers" type:"list" required:"true"`
+	TeamMembers []TeamMember `json:"codestar:ListTeamMembersOutput:TeamMembers" locationName:"teamMembers" type:"list" required:"true"`
 }
 
 // String returns the string representation

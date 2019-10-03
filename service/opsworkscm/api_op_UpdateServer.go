@@ -65,7 +65,7 @@ type UpdateServerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the response to a UpdateServer request.
-	Server *Server `type:"structure"`
+	Server *Server `json:"opsworks-cm:UpdateServerOutput:Server" type:"structure"`
 }
 
 // String returns the string representation

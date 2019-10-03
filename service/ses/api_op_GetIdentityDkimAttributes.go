@@ -55,7 +55,7 @@ type GetIdentityDkimAttributesOutput struct {
 	// The DKIM attributes for an email address or a domain.
 	//
 	// DkimAttributes is a required field
-	DkimAttributes map[string]IdentityDkimAttributes `type:"map" required:"true"`
+	DkimAttributes map[string]IdentityDkimAttributes `json:"email:GetIdentityDkimAttributesOutput:DkimAttributes" type:"map" required:"true"`
 }
 
 // String returns the string representation

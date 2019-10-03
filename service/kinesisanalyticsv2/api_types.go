@@ -19,12 +19,12 @@ type ApplicationCodeConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The location and type of the application code.
-	CodeContent *CodeContent `type:"structure"`
+	CodeContent *CodeContent `json:"kinesisanalytics:ApplicationCodeConfiguration:CodeContent" type:"structure"`
 
 	// Specifies whether the code content is in text or zip format.
 	//
 	// CodeContentType is a required field
-	CodeContentType CodeContentType `type:"string" required:"true" enum:"true"`
+	CodeContentType CodeContentType `json:"kinesisanalytics:ApplicationCodeConfiguration:CodeContentType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -56,12 +56,12 @@ type ApplicationCodeConfigurationDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Describes details about the location and format of the application code.
-	CodeContentDescription *CodeContentDescription `type:"structure"`
+	CodeContentDescription *CodeContentDescription `json:"kinesisanalytics:ApplicationCodeConfigurationDescription:CodeContentDescription" type:"structure"`
 
 	// Specifies whether the code content is in text or zip format.
 	//
 	// CodeContentType is a required field
-	CodeContentType CodeContentType `type:"string" required:"true" enum:"true"`
+	CodeContentType CodeContentType `json:"kinesisanalytics:ApplicationCodeConfigurationDescription:CodeContentType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -75,10 +75,10 @@ type ApplicationCodeConfigurationUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Describes updates to the code content type.
-	CodeContentTypeUpdate CodeContentType `type:"string" enum:"true"`
+	CodeContentTypeUpdate CodeContentType `json:"kinesisanalytics:ApplicationCodeConfigurationUpdate:CodeContentTypeUpdate" type:"string" enum:"true"`
 
 	// Describes updates to the code content of an application.
-	CodeContentUpdate *CodeContentUpdate `type:"structure"`
+	CodeContentUpdate *CodeContentUpdate `json:"kinesisanalytics:ApplicationCodeConfigurationUpdate:CodeContentUpdate" type:"structure"`
 }
 
 // String returns the string representation
@@ -110,22 +110,22 @@ type ApplicationConfiguration struct {
 	// application.
 	//
 	// ApplicationCodeConfiguration is a required field
-	ApplicationCodeConfiguration *ApplicationCodeConfiguration `type:"structure" required:"true"`
+	ApplicationCodeConfiguration *ApplicationCodeConfiguration `json:"kinesisanalytics:ApplicationConfiguration:ApplicationCodeConfiguration" type:"structure" required:"true"`
 
 	// Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics
 	// application.
-	ApplicationSnapshotConfiguration *ApplicationSnapshotConfiguration `type:"structure"`
+	ApplicationSnapshotConfiguration *ApplicationSnapshotConfiguration `json:"kinesisanalytics:ApplicationConfiguration:ApplicationSnapshotConfiguration" type:"structure"`
 
 	// Describes execution properties for a Java-based Kinesis Data Analytics application.
-	EnvironmentProperties *EnvironmentProperties `type:"structure"`
+	EnvironmentProperties *EnvironmentProperties `json:"kinesisanalytics:ApplicationConfiguration:EnvironmentProperties" type:"structure"`
 
 	// The creation and update parameters for a Java-based Kinesis Data Analytics
 	// application.
-	FlinkApplicationConfiguration *FlinkApplicationConfiguration `type:"structure"`
+	FlinkApplicationConfiguration *FlinkApplicationConfiguration `json:"kinesisanalytics:ApplicationConfiguration:FlinkApplicationConfiguration" type:"structure"`
 
 	// The creation and update parameters for an SQL-based Kinesis Data Analytics
 	// application.
-	SqlApplicationConfiguration *SqlApplicationConfiguration `type:"structure"`
+	SqlApplicationConfiguration *SqlApplicationConfiguration `json:"kinesisanalytics:ApplicationConfiguration:SqlApplicationConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -180,24 +180,24 @@ type ApplicationConfigurationDescription struct {
 
 	// The details about the application code for a Java-based Kinesis Data Analytics
 	// application.
-	ApplicationCodeConfigurationDescription *ApplicationCodeConfigurationDescription `type:"structure"`
+	ApplicationCodeConfigurationDescription *ApplicationCodeConfigurationDescription `json:"kinesisanalytics:ApplicationConfigurationDescription:ApplicationCodeConfigurationDescription" type:"structure"`
 
 	// Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics
 	// application.
-	ApplicationSnapshotConfigurationDescription *ApplicationSnapshotConfigurationDescription `type:"structure"`
+	ApplicationSnapshotConfigurationDescription *ApplicationSnapshotConfigurationDescription `json:"kinesisanalytics:ApplicationConfigurationDescription:ApplicationSnapshotConfigurationDescription" type:"structure"`
 
 	// Describes execution properties for a Java-based Kinesis Data Analytics application.
-	EnvironmentPropertyDescriptions *EnvironmentPropertyDescriptions `type:"structure"`
+	EnvironmentPropertyDescriptions *EnvironmentPropertyDescriptions `json:"kinesisanalytics:ApplicationConfigurationDescription:EnvironmentPropertyDescriptions" type:"structure"`
 
 	// The details about a Java-based Kinesis Data Analytics application.
-	FlinkApplicationConfigurationDescription *FlinkApplicationConfigurationDescription `type:"structure"`
+	FlinkApplicationConfigurationDescription *FlinkApplicationConfigurationDescription `json:"kinesisanalytics:ApplicationConfigurationDescription:FlinkApplicationConfigurationDescription" type:"structure"`
 
 	// The details about the starting properties for a Kinesis Data Analytics application.
-	RunConfigurationDescription *RunConfigurationDescription `type:"structure"`
+	RunConfigurationDescription *RunConfigurationDescription `json:"kinesisanalytics:ApplicationConfigurationDescription:RunConfigurationDescription" type:"structure"`
 
 	// The details about inputs, outputs, and reference data sources for an SQL-based
 	// Kinesis Data Analytics application.
-	SqlApplicationConfigurationDescription *SqlApplicationConfigurationDescription `type:"structure"`
+	SqlApplicationConfigurationDescription *SqlApplicationConfigurationDescription `json:"kinesisanalytics:ApplicationConfigurationDescription:SqlApplicationConfigurationDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -212,21 +212,21 @@ type ApplicationConfigurationUpdate struct {
 
 	// Describes updates to a Java-based Kinesis Data Analytics application's code
 	// configuration.
-	ApplicationCodeConfigurationUpdate *ApplicationCodeConfigurationUpdate `type:"structure"`
+	ApplicationCodeConfigurationUpdate *ApplicationCodeConfigurationUpdate `json:"kinesisanalytics:ApplicationConfigurationUpdate:ApplicationCodeConfigurationUpdate" type:"structure"`
 
 	// Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics
 	// application.
-	ApplicationSnapshotConfigurationUpdate *ApplicationSnapshotConfigurationUpdate `type:"structure"`
+	ApplicationSnapshotConfigurationUpdate *ApplicationSnapshotConfigurationUpdate `json:"kinesisanalytics:ApplicationConfigurationUpdate:ApplicationSnapshotConfigurationUpdate" type:"structure"`
 
 	// Describes updates to the environment properties for a Java-based Kinesis
 	// Data Analytics application.
-	EnvironmentPropertyUpdates *EnvironmentPropertyUpdates `type:"structure"`
+	EnvironmentPropertyUpdates *EnvironmentPropertyUpdates `json:"kinesisanalytics:ApplicationConfigurationUpdate:EnvironmentPropertyUpdates" type:"structure"`
 
 	// Describes updates to a Java-based Kinesis Data Analytics application's configuration.
-	FlinkApplicationConfigurationUpdate *FlinkApplicationConfigurationUpdate `type:"structure"`
+	FlinkApplicationConfigurationUpdate *FlinkApplicationConfigurationUpdate `json:"kinesisanalytics:ApplicationConfigurationUpdate:FlinkApplicationConfigurationUpdate" type:"structure"`
 
 	// Describes updates to an SQL-based Kinesis Data Analytics application's configuration.
-	SqlApplicationConfigurationUpdate *SqlApplicationConfigurationUpdate `type:"structure"`
+	SqlApplicationConfigurationUpdate *SqlApplicationConfigurationUpdate `json:"kinesisanalytics:ApplicationConfigurationUpdate:SqlApplicationConfigurationUpdate" type:"structure"`
 }
 
 // String returns the string representation
@@ -278,46 +278,46 @@ type ApplicationDetail struct {
 	// The ARN of the application.
 	//
 	// ApplicationARN is a required field
-	ApplicationARN *string `min:"1" type:"string" required:"true"`
+	ApplicationARN *string `json:"kinesisanalytics:ApplicationDetail:ApplicationARN" min:"1" type:"string" required:"true"`
 
 	// Provides details about the application's SQL or Java code and starting parameters.
-	ApplicationConfigurationDescription *ApplicationConfigurationDescription `type:"structure"`
+	ApplicationConfigurationDescription *ApplicationConfigurationDescription `json:"kinesisanalytics:ApplicationDetail:ApplicationConfigurationDescription" type:"structure"`
 
 	// The description of the application.
-	ApplicationDescription *string `type:"string"`
+	ApplicationDescription *string `json:"kinesisanalytics:ApplicationDetail:ApplicationDescription" type:"string"`
 
 	// The name of the application.
 	//
 	// ApplicationName is a required field
-	ApplicationName *string `min:"1" type:"string" required:"true"`
+	ApplicationName *string `json:"kinesisanalytics:ApplicationDetail:ApplicationName" min:"1" type:"string" required:"true"`
 
 	// The status of the application.
 	//
 	// ApplicationStatus is a required field
-	ApplicationStatus ApplicationStatus `type:"string" required:"true" enum:"true"`
+	ApplicationStatus ApplicationStatus `json:"kinesisanalytics:ApplicationDetail:ApplicationStatus" type:"string" required:"true" enum:"true"`
 
 	// Provides the current application version. Kinesis Data Analytics updates
 	// the ApplicationVersionId each time you update the application.
 	//
 	// ApplicationVersionId is a required field
-	ApplicationVersionId *int64 `min:"1" type:"long" required:"true"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:ApplicationDetail:ApplicationVersionId" min:"1" type:"long" required:"true"`
 
 	// Describes the application Amazon CloudWatch logging options.
-	CloudWatchLoggingOptionDescriptions []CloudWatchLoggingOptionDescription `type:"list"`
+	CloudWatchLoggingOptionDescriptions []CloudWatchLoggingOptionDescription `json:"kinesisanalytics:ApplicationDetail:CloudWatchLoggingOptionDescriptions" type:"list"`
 
 	// The current timestamp when the application was created.
-	CreateTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreateTimestamp *time.Time `json:"kinesisanalytics:ApplicationDetail:CreateTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The current timestamp when the application was last updated.
-	LastUpdateTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTimestamp *time.Time `json:"kinesisanalytics:ApplicationDetail:LastUpdateTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The runtime environment for the application (SQL-1.0 or FLINK-1_6).
 	//
 	// RuntimeEnvironment is a required field
-	RuntimeEnvironment RuntimeEnvironment `type:"string" required:"true" enum:"true"`
+	RuntimeEnvironment RuntimeEnvironment `json:"kinesisanalytics:ApplicationDetail:RuntimeEnvironment" type:"string" required:"true" enum:"true"`
 
 	// Specifies the IAM role that the application uses to access external resources.
-	ServiceExecutionRole *string `min:"1" type:"string"`
+	ServiceExecutionRole *string `json:"kinesisanalytics:ApplicationDetail:ServiceExecutionRole" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -334,12 +334,12 @@ type ApplicationRestoreConfiguration struct {
 	// Specifies how the application should be restored.
 	//
 	// ApplicationRestoreType is a required field
-	ApplicationRestoreType ApplicationRestoreType `type:"string" required:"true" enum:"true"`
+	ApplicationRestoreType ApplicationRestoreType `json:"kinesisanalytics:ApplicationRestoreConfiguration:ApplicationRestoreType" type:"string" required:"true" enum:"true"`
 
 	// The identifier of an existing snapshot of application state to use to restart
 	// an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT
 	// is specified for the ApplicationRestoreType.
-	SnapshotName *string `min:"1" type:"string"`
+	SnapshotName *string `json:"kinesisanalytics:ApplicationRestoreConfiguration:SnapshotName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -373,7 +373,7 @@ type ApplicationSnapshotConfiguration struct {
 	// application.
 	//
 	// SnapshotsEnabled is a required field
-	SnapshotsEnabled *bool `type:"boolean" required:"true"`
+	SnapshotsEnabled *bool `json:"kinesisanalytics:ApplicationSnapshotConfiguration:SnapshotsEnabled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -405,7 +405,7 @@ type ApplicationSnapshotConfigurationDescription struct {
 	// application.
 	//
 	// SnapshotsEnabled is a required field
-	SnapshotsEnabled *bool `type:"boolean" required:"true"`
+	SnapshotsEnabled *bool `json:"kinesisanalytics:ApplicationSnapshotConfigurationDescription:SnapshotsEnabled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -423,7 +423,7 @@ type ApplicationSnapshotConfigurationUpdate struct {
 	// Data Analytics application.
 	//
 	// SnapshotsEnabledUpdate is a required field
-	SnapshotsEnabledUpdate *bool `type:"boolean" required:"true"`
+	SnapshotsEnabledUpdate *bool `json:"kinesisanalytics:ApplicationSnapshotConfigurationUpdate:SnapshotsEnabledUpdate" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -454,27 +454,27 @@ type ApplicationSummary struct {
 	// The ARN of the application.
 	//
 	// ApplicationARN is a required field
-	ApplicationARN *string `min:"1" type:"string" required:"true"`
+	ApplicationARN *string `json:"kinesisanalytics:ApplicationSummary:ApplicationARN" min:"1" type:"string" required:"true"`
 
 	// The name of the application.
 	//
 	// ApplicationName is a required field
-	ApplicationName *string `min:"1" type:"string" required:"true"`
+	ApplicationName *string `json:"kinesisanalytics:ApplicationSummary:ApplicationName" min:"1" type:"string" required:"true"`
 
 	// The status of the application.
 	//
 	// ApplicationStatus is a required field
-	ApplicationStatus ApplicationStatus `type:"string" required:"true" enum:"true"`
+	ApplicationStatus ApplicationStatus `json:"kinesisanalytics:ApplicationSummary:ApplicationStatus" type:"string" required:"true" enum:"true"`
 
 	// Provides the current application version.
 	//
 	// ApplicationVersionId is a required field
-	ApplicationVersionId *int64 `min:"1" type:"long" required:"true"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:ApplicationSummary:ApplicationVersionId" min:"1" type:"long" required:"true"`
 
 	// The runtime environment for the application (SQL-1.0 or FLINK-1_6).
 	//
 	// RuntimeEnvironment is a required field
-	RuntimeEnvironment RuntimeEnvironment `type:"string" required:"true" enum:"true"`
+	RuntimeEnvironment RuntimeEnvironment `json:"kinesisanalytics:ApplicationSummary:RuntimeEnvironment" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -498,13 +498,13 @@ type CSVMappingParameters struct {
 	// typical column delimiter.
 	//
 	// RecordColumnDelimiter is a required field
-	RecordColumnDelimiter *string `min:"1" type:"string" required:"true"`
+	RecordColumnDelimiter *string `json:"kinesisanalytics:CSVMappingParameters:RecordColumnDelimiter" min:"1" type:"string" required:"true"`
 
 	// The row delimiter. For example, in a CSV format, '\n' is the typical row
 	// delimiter.
 	//
 	// RecordRowDelimiter is a required field
-	RecordRowDelimiter *string `min:"1" type:"string" required:"true"`
+	RecordRowDelimiter *string `json:"kinesisanalytics:CSVMappingParameters:RecordRowDelimiter" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -545,24 +545,24 @@ type CheckpointConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the interval in milliseconds between checkpoint operations.
-	CheckpointInterval *int64 `type:"long"`
+	CheckpointInterval *int64 `json:"kinesisanalytics:CheckpointConfiguration:CheckpointInterval" type:"long"`
 
 	// Describes whether checkpointing is enabled for a Java-based Kinesis Data
 	// Analytics application.
-	CheckpointingEnabled *bool `type:"boolean"`
+	CheckpointingEnabled *bool `json:"kinesisanalytics:CheckpointConfiguration:CheckpointingEnabled" type:"boolean"`
 
 	// Describes whether the application uses Amazon Kinesis Data Analytics' default
 	// checkpointing behavior.
 	//
 	// ConfigurationType is a required field
-	ConfigurationType ConfigurationType `type:"string" required:"true" enum:"true"`
+	ConfigurationType ConfigurationType `json:"kinesisanalytics:CheckpointConfiguration:ConfigurationType" type:"string" required:"true" enum:"true"`
 
 	// Describes the minimum time in milliseconds after a checkpoint operation completes
 	// that a new checkpoint operation can start. If a checkpoint operation takes
 	// longer than the CheckpointInterval, the application otherwise performs continual
 	// checkpoint operations. For more information, see Tuning Checkpointing (https://ci.apache.org/projects/flink/flink-docs-stable/ops/state/large_state_tuning.html#tuning-checkpointing)
 	// in the Apache Flink Documentation (https://ci.apache.org/projects/flink/flink-docs-release-1.6/).
-	MinPauseBetweenCheckpoints *int64 `type:"long"`
+	MinPauseBetweenCheckpoints *int64 `json:"kinesisanalytics:CheckpointConfiguration:MinPauseBetweenCheckpoints" type:"long"`
 }
 
 // String returns the string representation
@@ -590,19 +590,19 @@ type CheckpointConfigurationDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the interval in milliseconds between checkpoint operations.
-	CheckpointInterval *int64 `type:"long"`
+	CheckpointInterval *int64 `json:"kinesisanalytics:CheckpointConfigurationDescription:CheckpointInterval" type:"long"`
 
 	// Describes whether checkpointing is enabled for a Java-based Kinesis Data
 	// Analytics application.
-	CheckpointingEnabled *bool `type:"boolean"`
+	CheckpointingEnabled *bool `json:"kinesisanalytics:CheckpointConfigurationDescription:CheckpointingEnabled" type:"boolean"`
 
 	// Describes whether the application uses the default checkpointing behavior
 	// in Kinesis Data Analytics.
-	ConfigurationType ConfigurationType `type:"string" enum:"true"`
+	ConfigurationType ConfigurationType `json:"kinesisanalytics:CheckpointConfigurationDescription:ConfigurationType" type:"string" enum:"true"`
 
 	// Describes the minimum time in milliseconds after a checkpoint operation completes
 	// that a new checkpoint operation can start.
-	MinPauseBetweenCheckpoints *int64 `type:"long"`
+	MinPauseBetweenCheckpoints *int64 `json:"kinesisanalytics:CheckpointConfigurationDescription:MinPauseBetweenCheckpoints" type:"long"`
 }
 
 // String returns the string representation
@@ -617,18 +617,18 @@ type CheckpointConfigurationUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Describes updates to the interval in milliseconds between checkpoint operations.
-	CheckpointIntervalUpdate *int64 `type:"long"`
+	CheckpointIntervalUpdate *int64 `json:"kinesisanalytics:CheckpointConfigurationUpdate:CheckpointIntervalUpdate" type:"long"`
 
 	// Describes updates to whether checkpointing is enabled for an application.
-	CheckpointingEnabledUpdate *bool `type:"boolean"`
+	CheckpointingEnabledUpdate *bool `json:"kinesisanalytics:CheckpointConfigurationUpdate:CheckpointingEnabledUpdate" type:"boolean"`
 
 	// Describes updates to whether the application uses the default checkpointing
 	// behavior of Kinesis Data Analytics.
-	ConfigurationTypeUpdate ConfigurationType `type:"string" enum:"true"`
+	ConfigurationTypeUpdate ConfigurationType `json:"kinesisanalytics:CheckpointConfigurationUpdate:ConfigurationTypeUpdate" type:"string" enum:"true"`
 
 	// Describes updates to the minimum time in milliseconds after a checkpoint
 	// operation completes that a new checkpoint operation can start.
-	MinPauseBetweenCheckpointsUpdate *int64 `type:"long"`
+	MinPauseBetweenCheckpointsUpdate *int64 `json:"kinesisanalytics:CheckpointConfigurationUpdate:MinPauseBetweenCheckpointsUpdate" type:"long"`
 }
 
 // String returns the string representation
@@ -645,7 +645,7 @@ type CloudWatchLoggingOption struct {
 	// The ARN of the CloudWatch log to receive application messages.
 	//
 	// LogStreamARN is a required field
-	LogStreamARN *string `min:"1" type:"string" required:"true"`
+	LogStreamARN *string `json:"kinesisanalytics:CloudWatchLoggingOption:LogStreamARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -676,20 +676,20 @@ type CloudWatchLoggingOptionDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the CloudWatch logging option description.
-	CloudWatchLoggingOptionId *string `min:"1" type:"string"`
+	CloudWatchLoggingOptionId *string `json:"kinesisanalytics:CloudWatchLoggingOptionDescription:CloudWatchLoggingOptionId" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the CloudWatch log to receive application
 	// messages.
 	//
 	// LogStreamARN is a required field
-	LogStreamARN *string `min:"1" type:"string" required:"true"`
+	LogStreamARN *string `json:"kinesisanalytics:CloudWatchLoggingOptionDescription:LogStreamARN" min:"1" type:"string" required:"true"`
 
 	// The IAM ARN of the role to use to send application messages.
 	//
 	// Provided for backward compatibility. Applications created with the current
 	// API version have an application-level service execution role rather than
 	// a resource-level role.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:CloudWatchLoggingOptionDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -705,11 +705,11 @@ type CloudWatchLoggingOptionUpdate struct {
 	// The ID of the CloudWatch logging option to update
 	//
 	// CloudWatchLoggingOptionId is a required field
-	CloudWatchLoggingOptionId *string `min:"1" type:"string" required:"true"`
+	CloudWatchLoggingOptionId *string `json:"kinesisanalytics:CloudWatchLoggingOptionUpdate:CloudWatchLoggingOptionId" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the CloudWatch log to receive application
 	// messages.
-	LogStreamARNUpdate *string `min:"1" type:"string"`
+	LogStreamARNUpdate *string `json:"kinesisanalytics:CloudWatchLoggingOptionUpdate:LogStreamARNUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -744,15 +744,15 @@ type CodeContent struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Amazon S3 bucket containing the application code.
-	S3ContentLocation *S3ContentLocation `type:"structure"`
+	S3ContentLocation *S3ContentLocation `json:"kinesisanalytics:CodeContent:S3ContentLocation" type:"structure"`
 
 	// The text-format code for a Java-based Kinesis Data Analytics application.
-	TextContent *string `type:"string"`
+	TextContent *string `json:"kinesisanalytics:CodeContent:TextContent" type:"string"`
 
 	// The zip-format code for a Java-based Kinesis Data Analytics application.
 	//
 	// ZipFileContent is automatically base64 encoded/decoded by the SDK.
-	ZipFileContent []byte `type:"blob"`
+	ZipFileContent []byte `json:"kinesisanalytics:CodeContent:ZipFileContent" type:"blob"`
 }
 
 // String returns the string representation
@@ -782,18 +782,18 @@ type CodeContentDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The checksum that can be used to validate zip-format code.
-	CodeMD5 *string `min:"128" type:"string"`
+	CodeMD5 *string `json:"kinesisanalytics:CodeContentDescription:CodeMD5" min:"128" type:"string"`
 
 	// The size in bytes of the application code. Can be used to validate zip-format
 	// code.
-	CodeSize *int64 `type:"long"`
+	CodeSize *int64 `json:"kinesisanalytics:CodeContentDescription:CodeSize" type:"long"`
 
 	// The S3 bucket Amazon Resource Name (ARN), file key, and object version of
 	// the application code stored in Amazon S3.
-	S3ApplicationCodeLocationDescription *S3ApplicationCodeLocationDescription `type:"structure"`
+	S3ApplicationCodeLocationDescription *S3ApplicationCodeLocationDescription `json:"kinesisanalytics:CodeContentDescription:S3ApplicationCodeLocationDescription" type:"structure"`
 
 	// The text-format code
-	TextContent *string `type:"string"`
+	TextContent *string `json:"kinesisanalytics:CodeContentDescription:TextContent" type:"string"`
 }
 
 // String returns the string representation
@@ -807,15 +807,15 @@ type CodeContentUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Describes an update to the location of code for an application.
-	S3ContentLocationUpdate *S3ContentLocationUpdate `type:"structure"`
+	S3ContentLocationUpdate *S3ContentLocationUpdate `json:"kinesisanalytics:CodeContentUpdate:S3ContentLocationUpdate" type:"structure"`
 
 	// Describes an update to the text code for an application.
-	TextContentUpdate *string `type:"string"`
+	TextContentUpdate *string `json:"kinesisanalytics:CodeContentUpdate:TextContentUpdate" type:"string"`
 
 	// Describes an update to the zipped code for an application.
 	//
 	// ZipFileContentUpdate is automatically base64 encoded/decoded by the SDK.
-	ZipFileContentUpdate []byte `type:"blob"`
+	ZipFileContentUpdate []byte `json:"kinesisanalytics:CodeContentUpdate:ZipFileContentUpdate" type:"blob"`
 }
 
 // String returns the string representation
@@ -847,7 +847,7 @@ type DestinationSchema struct {
 	// Specifies the format of the records on the output stream.
 	//
 	// RecordFormatType is a required field
-	RecordFormatType RecordFormatType `type:"string" required:"true" enum:"true"`
+	RecordFormatType RecordFormatType `json:"kinesisanalytics:DestinationSchema:RecordFormatType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -876,7 +876,7 @@ type EnvironmentProperties struct {
 	// Describes the execution property groups.
 	//
 	// PropertyGroups is a required field
-	PropertyGroups []PropertyGroup `type:"list" required:"true"`
+	PropertyGroups []PropertyGroup `json:"kinesisanalytics:EnvironmentProperties:PropertyGroups" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -912,7 +912,7 @@ type EnvironmentPropertyDescriptions struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the execution property groups.
-	PropertyGroupDescriptions []PropertyGroup `type:"list"`
+	PropertyGroupDescriptions []PropertyGroup `json:"kinesisanalytics:EnvironmentPropertyDescriptions:PropertyGroupDescriptions" type:"list"`
 }
 
 // String returns the string representation
@@ -929,7 +929,7 @@ type EnvironmentPropertyUpdates struct {
 	// Describes updates to the execution property groups.
 	//
 	// PropertyGroups is a required field
-	PropertyGroups []PropertyGroup `type:"list" required:"true"`
+	PropertyGroups []PropertyGroup `json:"kinesisanalytics:EnvironmentPropertyUpdates:PropertyGroups" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -968,13 +968,13 @@ type FlinkApplicationConfiguration struct {
 	// the process of persisting application state for fault tolerance. For more
 	// information, see Checkpoints for Fault Tolerance (https://ci.apache.org/projects/flink/flink-docs-release-1.6/concepts/programming-model.html#checkpoints-for-fault-tolerance)
 	// in the Apache Flink Documentation (https://ci.apache.org/projects/flink/flink-docs-release-1.6/).
-	CheckpointConfiguration *CheckpointConfiguration `type:"structure"`
+	CheckpointConfiguration *CheckpointConfiguration `json:"kinesisanalytics:FlinkApplicationConfiguration:CheckpointConfiguration" type:"structure"`
 
 	// Describes configuration parameters for Amazon CloudWatch logging for an application.
-	MonitoringConfiguration *MonitoringConfiguration `type:"structure"`
+	MonitoringConfiguration *MonitoringConfiguration `json:"kinesisanalytics:FlinkApplicationConfiguration:MonitoringConfiguration" type:"structure"`
 
 	// Describes parameters for how an application executes multiple tasks simultaneously.
-	ParallelismConfiguration *ParallelismConfiguration `type:"structure"`
+	ParallelismConfiguration *ParallelismConfiguration `json:"kinesisanalytics:FlinkApplicationConfiguration:ParallelismConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -1015,20 +1015,20 @@ type FlinkApplicationConfigurationDescription struct {
 
 	// Describes an application's checkpointing configuration. Checkpointing is
 	// the process of persisting application state for fault tolerance.
-	CheckpointConfigurationDescription *CheckpointConfigurationDescription `type:"structure"`
+	CheckpointConfigurationDescription *CheckpointConfigurationDescription `json:"kinesisanalytics:FlinkApplicationConfigurationDescription:CheckpointConfigurationDescription" type:"structure"`
 
 	// The job plan for an application. For more information about the job plan,
 	// see Jobs and Scheduling (https://ci.apache.org/projects/flink/flink-docs-stable/internals/job_scheduling.html)
 	// in the Apache Flink Documentation (https://ci.apache.org/projects/flink/flink-docs-release-1.6/).
 	// To retrieve the job plan for the application, use the DescribeApplicationRequest$IncludeAdditionalDetails
 	// parameter of the DescribeApplication operation.
-	JobPlanDescription *string `type:"string"`
+	JobPlanDescription *string `json:"kinesisanalytics:FlinkApplicationConfigurationDescription:JobPlanDescription" type:"string"`
 
 	// Describes configuration parameters for Amazon CloudWatch logging for an application.
-	MonitoringConfigurationDescription *MonitoringConfigurationDescription `type:"structure"`
+	MonitoringConfigurationDescription *MonitoringConfigurationDescription `json:"kinesisanalytics:FlinkApplicationConfigurationDescription:MonitoringConfigurationDescription" type:"structure"`
 
 	// Describes parameters for how an application executes multiple tasks simultaneously.
-	ParallelismConfigurationDescription *ParallelismConfigurationDescription `type:"structure"`
+	ParallelismConfigurationDescription *ParallelismConfigurationDescription `json:"kinesisanalytics:FlinkApplicationConfigurationDescription:ParallelismConfigurationDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -1044,15 +1044,15 @@ type FlinkApplicationConfigurationUpdate struct {
 
 	// Describes updates to an application's checkpointing configuration. Checkpointing
 	// is the process of persisting application state for fault tolerance.
-	CheckpointConfigurationUpdate *CheckpointConfigurationUpdate `type:"structure"`
+	CheckpointConfigurationUpdate *CheckpointConfigurationUpdate `json:"kinesisanalytics:FlinkApplicationConfigurationUpdate:CheckpointConfigurationUpdate" type:"structure"`
 
 	// Describes updates to the configuration parameters for Amazon CloudWatch logging
 	// for an application.
-	MonitoringConfigurationUpdate *MonitoringConfigurationUpdate `type:"structure"`
+	MonitoringConfigurationUpdate *MonitoringConfigurationUpdate `json:"kinesisanalytics:FlinkApplicationConfigurationUpdate:MonitoringConfigurationUpdate" type:"structure"`
 
 	// Describes updates to the parameters for how an application executes multiple
 	// tasks simultaneously.
-	ParallelismConfigurationUpdate *ParallelismConfigurationUpdate `type:"structure"`
+	ParallelismConfigurationUpdate *ParallelismConfigurationUpdate `json:"kinesisanalytics:FlinkApplicationConfigurationUpdate:ParallelismConfigurationUpdate" type:"structure"`
 }
 
 // String returns the string representation
@@ -1083,13 +1083,13 @@ type Input struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the number of in-application streams to create.
-	InputParallelism *InputParallelism `type:"structure"`
+	InputParallelism *InputParallelism `json:"kinesisanalytics:Input:InputParallelism" type:"structure"`
 
 	// The InputProcessingConfiguration for the input. An input processor transforms
 	// records as they are received from the stream, before the application's SQL
 	// code executes. Currently, the only input processing configuration available
 	// is InputLambdaProcessor.
-	InputProcessingConfiguration *InputProcessingConfiguration `type:"structure"`
+	InputProcessingConfiguration *InputProcessingConfiguration `json:"kinesisanalytics:Input:InputProcessingConfiguration" type:"structure"`
 
 	// Describes the format of the data in the streaming source, and how each data
 	// element maps to corresponding columns in the in-application stream that is
@@ -1098,15 +1098,15 @@ type Input struct {
 	// Also used to describe the format of the reference data source.
 	//
 	// InputSchema is a required field
-	InputSchema *SourceSchema `type:"structure" required:"true"`
+	InputSchema *SourceSchema `json:"kinesisanalytics:Input:InputSchema" type:"structure" required:"true"`
 
 	// If the streaming source is an Amazon Kinesis Data Firehose delivery stream,
 	// identifies the delivery stream's ARN.
-	KinesisFirehoseInput *KinesisFirehoseInput `type:"structure"`
+	KinesisFirehoseInput *KinesisFirehoseInput `json:"kinesisanalytics:Input:KinesisFirehoseInput" type:"structure"`
 
 	// If the streaming source is an Amazon Kinesis data stream, identifies the
 	// stream's Amazon Resource Name (ARN).
-	KinesisStreamsInput *KinesisStreamsInput `type:"structure"`
+	KinesisStreamsInput *KinesisStreamsInput `json:"kinesisanalytics:Input:KinesisStreamsInput" type:"structure"`
 
 	// The name prefix to use when creating an in-application stream. Suppose that
 	// you specify a prefix "MyInApplicationStream." Kinesis Data Analytics then
@@ -1115,7 +1115,7 @@ type Input struct {
 	// and so on.
 	//
 	// NamePrefix is a required field
-	NamePrefix *string `min:"1" type:"string" required:"true"`
+	NamePrefix *string `json:"kinesisanalytics:Input:NamePrefix" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1176,39 +1176,39 @@ type InputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Returns the in-application stream names that are mapped to the stream source.
-	InAppStreamNames []string `type:"list"`
+	InAppStreamNames []string `json:"kinesisanalytics:InputDescription:InAppStreamNames" type:"list"`
 
 	// The input ID that is associated with the application input. This is the ID
 	// that Kinesis Data Analytics assigns to each input configuration that you
 	// add to your application.
-	InputId *string `min:"1" type:"string"`
+	InputId *string `json:"kinesisanalytics:InputDescription:InputId" min:"1" type:"string"`
 
 	// Describes the configured parallelism (number of in-application streams mapped
 	// to the streaming source).
-	InputParallelism *InputParallelism `type:"structure"`
+	InputParallelism *InputParallelism `json:"kinesisanalytics:InputDescription:InputParallelism" type:"structure"`
 
 	// The description of the preprocessor that executes on records in this input
 	// before the application's code is run.
-	InputProcessingConfigurationDescription *InputProcessingConfigurationDescription `type:"structure"`
+	InputProcessingConfigurationDescription *InputProcessingConfigurationDescription `json:"kinesisanalytics:InputDescription:InputProcessingConfigurationDescription" type:"structure"`
 
 	// Describes the format of the data in the streaming source, and how each data
 	// element maps to corresponding columns in the in-application stream that is
 	// being created.
-	InputSchema *SourceSchema `type:"structure"`
+	InputSchema *SourceSchema `json:"kinesisanalytics:InputDescription:InputSchema" type:"structure"`
 
 	// The point at which the application is configured to read from the input stream.
-	InputStartingPositionConfiguration *InputStartingPositionConfiguration `type:"structure"`
+	InputStartingPositionConfiguration *InputStartingPositionConfiguration `json:"kinesisanalytics:InputDescription:InputStartingPositionConfiguration" type:"structure"`
 
 	// If a Kinesis Data Firehose delivery stream is configured as a streaming source,
 	// provides the delivery stream's ARN.
-	KinesisFirehoseInputDescription *KinesisFirehoseInputDescription `type:"structure"`
+	KinesisFirehoseInputDescription *KinesisFirehoseInputDescription `json:"kinesisanalytics:InputDescription:KinesisFirehoseInputDescription" type:"structure"`
 
 	// If a Kinesis data stream is configured as a streaming source, provides the
 	// Kinesis data stream's Amazon Resource Name (ARN).
-	KinesisStreamsInputDescription *KinesisStreamsInputDescription `type:"structure"`
+	KinesisStreamsInputDescription *KinesisStreamsInputDescription `json:"kinesisanalytics:InputDescription:KinesisStreamsInputDescription" type:"structure"`
 
 	// The in-application name prefix.
-	NamePrefix *string `min:"1" type:"string"`
+	NamePrefix *string `json:"kinesisanalytics:InputDescription:NamePrefix" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1230,7 +1230,7 @@ type InputLambdaProcessor struct {
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:InputLambdaProcessor:ResourceARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1270,14 +1270,14 @@ type InputLambdaProcessorDescription struct {
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:InputLambdaProcessorDescription:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// The ARN of the IAM role that is used to access the AWS Lambda function.
 	//
 	// Provided for backward compatibility. Applications that are created with the
 	// current API version have an application-level service execution role rather
 	// than a resource-level role.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:InputLambdaProcessorDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1300,7 +1300,7 @@ type InputLambdaProcessorUpdate struct {
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
 	//
 	// ResourceARNUpdate is a required field
-	ResourceARNUpdate *string `min:"1" type:"string" required:"true"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:InputLambdaProcessorUpdate:ResourceARNUpdate" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1332,7 +1332,7 @@ type InputParallelism struct {
 	_ struct{} `type:"structure"`
 
 	// The number of in-application streams to create.
-	Count *int64 `min:"1" type:"integer"`
+	Count *int64 `json:"kinesisanalytics:InputParallelism:Count" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -1363,7 +1363,7 @@ type InputParallelismUpdate struct {
 	// source.
 	//
 	// CountUpdate is a required field
-	CountUpdate *int64 `min:"1" type:"integer" required:"true"`
+	CountUpdate *int64 `json:"kinesisanalytics:InputParallelismUpdate:CountUpdate" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1400,7 +1400,7 @@ type InputProcessingConfiguration struct {
 	// before being processed by your application code.
 	//
 	// InputLambdaProcessor is a required field
-	InputLambdaProcessor *InputLambdaProcessor `type:"structure" required:"true"`
+	InputLambdaProcessor *InputLambdaProcessor `json:"kinesisanalytics:InputProcessingConfiguration:InputLambdaProcessor" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1435,7 +1435,7 @@ type InputProcessingConfigurationDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Provides configuration information about the associated InputLambdaProcessorDescription
-	InputLambdaProcessorDescription *InputLambdaProcessorDescription `type:"structure"`
+	InputLambdaProcessorDescription *InputLambdaProcessorDescription `json:"kinesisanalytics:InputProcessingConfigurationDescription:InputLambdaProcessorDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -1452,7 +1452,7 @@ type InputProcessingConfigurationUpdate struct {
 	// Provides update information for an InputLambdaProcessor.
 	//
 	// InputLambdaProcessorUpdate is a required field
-	InputLambdaProcessorUpdate *InputLambdaProcessorUpdate `type:"structure" required:"true"`
+	InputLambdaProcessorUpdate *InputLambdaProcessorUpdate `json:"kinesisanalytics:InputProcessingConfigurationUpdate:InputLambdaProcessorUpdate" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1488,14 +1488,14 @@ type InputSchemaUpdate struct {
 	// A list of RecordColumn objects. Each object describes the mapping of the
 	// streaming source element to the corresponding column in the in-application
 	// stream.
-	RecordColumnUpdates []RecordColumn `min:"1" type:"list"`
+	RecordColumnUpdates []RecordColumn `json:"kinesisanalytics:InputSchemaUpdate:RecordColumnUpdates" min:"1" type:"list"`
 
 	// Specifies the encoding of the records in the streaming source; for example,
 	// UTF-8.
-	RecordEncodingUpdate *string `type:"string"`
+	RecordEncodingUpdate *string `json:"kinesisanalytics:InputSchemaUpdate:RecordEncodingUpdate" type:"string"`
 
 	// Specifies the format of the records on the streaming source.
-	RecordFormatUpdate *RecordFormat `type:"structure"`
+	RecordFormatUpdate *RecordFormat `json:"kinesisanalytics:InputSchemaUpdate:RecordFormatUpdate" type:"structure"`
 }
 
 // String returns the string representation
@@ -1544,7 +1544,7 @@ type InputStartingPositionConfiguration struct {
 	//
 	//    * LAST_STOPPED_POINT - Resume reading from where the application last
 	//    stopped reading.
-	InputStartingPosition InputStartingPosition `type:"string" enum:"true"`
+	InputStartingPosition InputStartingPosition `json:"kinesisanalytics:InputStartingPositionConfiguration:InputStartingPosition" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1561,31 +1561,31 @@ type InputUpdate struct {
 	// The input ID of the application input to be updated.
 	//
 	// InputId is a required field
-	InputId *string `min:"1" type:"string" required:"true"`
+	InputId *string `json:"kinesisanalytics:InputUpdate:InputId" min:"1" type:"string" required:"true"`
 
 	// Describes the parallelism updates (the number of in-application streams Kinesis
 	// Data Analytics creates for the specific streaming source).
-	InputParallelismUpdate *InputParallelismUpdate `type:"structure"`
+	InputParallelismUpdate *InputParallelismUpdate `json:"kinesisanalytics:InputUpdate:InputParallelismUpdate" type:"structure"`
 
 	// Describes updates to an InputProcessingConfiguration.
-	InputProcessingConfigurationUpdate *InputProcessingConfigurationUpdate `type:"structure"`
+	InputProcessingConfigurationUpdate *InputProcessingConfigurationUpdate `json:"kinesisanalytics:InputUpdate:InputProcessingConfigurationUpdate" type:"structure"`
 
 	// Describes the data format on the streaming source, and how record elements
 	// on the streaming source map to columns of the in-application stream that
 	// is created.
-	InputSchemaUpdate *InputSchemaUpdate `type:"structure"`
+	InputSchemaUpdate *InputSchemaUpdate `json:"kinesisanalytics:InputUpdate:InputSchemaUpdate" type:"structure"`
 
 	// If a Kinesis Data Firehose delivery stream is the streaming source to be
 	// updated, provides an updated stream ARN.
-	KinesisFirehoseInputUpdate *KinesisFirehoseInputUpdate `type:"structure"`
+	KinesisFirehoseInputUpdate *KinesisFirehoseInputUpdate `json:"kinesisanalytics:InputUpdate:KinesisFirehoseInputUpdate" type:"structure"`
 
 	// If a Kinesis data stream is the streaming source to be updated, provides
 	// an updated stream Amazon Resource Name (ARN).
-	KinesisStreamsInputUpdate *KinesisStreamsInputUpdate `type:"structure"`
+	KinesisStreamsInputUpdate *KinesisStreamsInputUpdate `json:"kinesisanalytics:InputUpdate:KinesisStreamsInputUpdate" type:"structure"`
 
 	// The name prefix for in-application streams that Kinesis Data Analytics creates
 	// for the specific streaming source.
-	NamePrefixUpdate *string `min:"1" type:"string"`
+	NamePrefixUpdate *string `json:"kinesisanalytics:InputUpdate:NamePrefixUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1647,7 +1647,7 @@ type JSONMappingParameters struct {
 	// The path to the top-level parent that contains the records.
 	//
 	// RecordRowPath is a required field
-	RecordRowPath *string `min:"1" type:"string" required:"true"`
+	RecordRowPath *string `json:"kinesisanalytics:JSONMappingParameters:RecordRowPath" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1682,7 +1682,7 @@ type KinesisFirehoseInput struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisFirehoseInput:ResourceARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1716,7 +1716,7 @@ type KinesisFirehoseInputDescription struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisFirehoseInputDescription:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// The ARN of the IAM role that Kinesis Data Analytics assumes to access the
 	// stream.
@@ -1724,7 +1724,7 @@ type KinesisFirehoseInputDescription struct {
 	// Provided for backward compatibility. Applications that are created with the
 	// current API version have an application-level service execution role rather
 	// than a resource-level role.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:KinesisFirehoseInputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1742,7 +1742,7 @@ type KinesisFirehoseInputUpdate struct {
 	// The Amazon Resource Name (ARN) of the input delivery stream to read.
 	//
 	// ResourceARNUpdate is a required field
-	ResourceARNUpdate *string `min:"1" type:"string" required:"true"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:KinesisFirehoseInputUpdate:ResourceARNUpdate" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1778,7 +1778,7 @@ type KinesisFirehoseOutput struct {
 	// The ARN of the destination delivery stream to write to.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisFirehoseOutput:ResourceARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1812,7 +1812,7 @@ type KinesisFirehoseOutputDescription struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisFirehoseOutputDescription:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// The ARN of the IAM role that Kinesis Data Analytics can assume to access
 	// the stream.
@@ -1820,7 +1820,7 @@ type KinesisFirehoseOutputDescription struct {
 	// Provided for backward compatibility. Applications that are created with the
 	// current API version have an application-level service execution role rather
 	// than a resource-level role.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:KinesisFirehoseOutputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1838,7 +1838,7 @@ type KinesisFirehoseOutputUpdate struct {
 	// The Amazon Resource Name (ARN) of the delivery stream to write to.
 	//
 	// ResourceARNUpdate is a required field
-	ResourceARNUpdate *string `min:"1" type:"string" required:"true"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:KinesisFirehoseOutputUpdate:ResourceARNUpdate" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1872,7 +1872,7 @@ type KinesisStreamsInput struct {
 	// The ARN of the input Kinesis data stream to read.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisStreamsInput:ResourceARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1907,7 +1907,7 @@ type KinesisStreamsInputDescription struct {
 	// The Amazon Resource Name (ARN) of the Kinesis data stream.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisStreamsInputDescription:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// The ARN of the IAM role that Kinesis Data Analytics can assume to access
 	// the stream.
@@ -1915,7 +1915,7 @@ type KinesisStreamsInputDescription struct {
 	// Provided for backward compatibility. Applications that are created with the
 	// current API version have an application-level service execution role rather
 	// than a resource-level role.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:KinesisStreamsInputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1933,7 +1933,7 @@ type KinesisStreamsInputUpdate struct {
 	// The Amazon Resource Name (ARN) of the input Kinesis data stream to read.
 	//
 	// ResourceARNUpdate is a required field
-	ResourceARNUpdate *string `min:"1" type:"string" required:"true"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:KinesisStreamsInputUpdate:ResourceARNUpdate" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1968,7 +1968,7 @@ type KinesisStreamsOutput struct {
 	// The ARN of the destination Kinesis data stream to write to.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisStreamsOutput:ResourceARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2002,7 +2002,7 @@ type KinesisStreamsOutputDescription struct {
 	// The Amazon Resource Name (ARN) of the Kinesis data stream.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:KinesisStreamsOutputDescription:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// The ARN of the IAM role that Kinesis Data Analytics can assume to access
 	// the stream.
@@ -2010,7 +2010,7 @@ type KinesisStreamsOutputDescription struct {
 	// Provided for backward compatibility. Applications that are created with the
 	// current API version have an application-level service execution role rather
 	// than a resource-level role.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:KinesisStreamsOutputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2029,7 +2029,7 @@ type KinesisStreamsOutputUpdate struct {
 	// to write the output.
 	//
 	// ResourceARNUpdate is a required field
-	ResourceARNUpdate *string `min:"1" type:"string" required:"true"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:KinesisStreamsOutputUpdate:ResourceARNUpdate" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2069,7 +2069,7 @@ type LambdaOutput struct {
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:LambdaOutput:ResourceARN" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2103,7 +2103,7 @@ type LambdaOutputDescription struct {
 	// The Amazon Resource Name (ARN) of the destination Lambda function.
 	//
 	// ResourceARN is a required field
-	ResourceARN *string `min:"1" type:"string" required:"true"`
+	ResourceARN *string `json:"kinesisanalytics:LambdaOutputDescription:ResourceARN" min:"1" type:"string" required:"true"`
 
 	// The ARN of the IAM role that Kinesis Data Analytics can assume to write to
 	// the destination function.
@@ -2111,7 +2111,7 @@ type LambdaOutputDescription struct {
 	// Provided for backward compatibility. Applications that are created with the
 	// current API version have an application-level service execution role rather
 	// than a resource-level role.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"kinesisanalytics:LambdaOutputDescription:RoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2133,7 +2133,7 @@ type LambdaOutputUpdate struct {
 	// about Lambda ARNs, see Example ARNs: AWS Lambda (/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda)
 	//
 	// ResourceARNUpdate is a required field
-	ResourceARNUpdate *string `min:"1" type:"string" required:"true"`
+	ResourceARNUpdate *string `json:"kinesisanalytics:LambdaOutputUpdate:ResourceARNUpdate" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2168,11 +2168,11 @@ type MappingParameters struct {
 
 	// Provides additional mapping information when the record format uses delimiters
 	// (for example, CSV).
-	CSVMappingParameters *CSVMappingParameters `type:"structure"`
+	CSVMappingParameters *CSVMappingParameters `json:"kinesisanalytics:MappingParameters:CSVMappingParameters" type:"structure"`
 
 	// Provides additional mapping information when JSON is the record format on
 	// the streaming source.
-	JSONMappingParameters *JSONMappingParameters `type:"structure"`
+	JSONMappingParameters *JSONMappingParameters `json:"kinesisanalytics:MappingParameters:JSONMappingParameters" type:"structure"`
 }
 
 // String returns the string representation
@@ -2211,13 +2211,13 @@ type MonitoringConfiguration struct {
 	// an application.
 	//
 	// ConfigurationType is a required field
-	ConfigurationType ConfigurationType `type:"string" required:"true" enum:"true"`
+	ConfigurationType ConfigurationType `json:"kinesisanalytics:MonitoringConfiguration:ConfigurationType" type:"string" required:"true" enum:"true"`
 
 	// Describes the verbosity of the CloudWatch Logs for an application.
-	LogLevel LogLevel `type:"string" enum:"true"`
+	LogLevel LogLevel `json:"kinesisanalytics:MonitoringConfiguration:LogLevel" type:"string" enum:"true"`
 
 	// Describes the granularity of the CloudWatch Logs for an application.
-	MetricsLevel MetricsLevel `type:"string" enum:"true"`
+	MetricsLevel MetricsLevel `json:"kinesisanalytics:MonitoringConfiguration:MetricsLevel" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2246,13 +2246,13 @@ type MonitoringConfigurationDescription struct {
 
 	// Describes whether to use the default CloudWatch logging configuration for
 	// an application.
-	ConfigurationType ConfigurationType `type:"string" enum:"true"`
+	ConfigurationType ConfigurationType `json:"kinesisanalytics:MonitoringConfigurationDescription:ConfigurationType" type:"string" enum:"true"`
 
 	// Describes the verbosity of the CloudWatch Logs for an application.
-	LogLevel LogLevel `type:"string" enum:"true"`
+	LogLevel LogLevel `json:"kinesisanalytics:MonitoringConfigurationDescription:LogLevel" type:"string" enum:"true"`
 
 	// Describes the granularity of the CloudWatch Logs for an application.
-	MetricsLevel MetricsLevel `type:"string" enum:"true"`
+	MetricsLevel MetricsLevel `json:"kinesisanalytics:MonitoringConfigurationDescription:MetricsLevel" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2268,13 +2268,13 @@ type MonitoringConfigurationUpdate struct {
 
 	// Describes updates to whether to use the default CloudWatch logging configuration
 	// for an application.
-	ConfigurationTypeUpdate ConfigurationType `type:"string" enum:"true"`
+	ConfigurationTypeUpdate ConfigurationType `json:"kinesisanalytics:MonitoringConfigurationUpdate:ConfigurationTypeUpdate" type:"string" enum:"true"`
 
 	// Describes updates to the verbosity of the CloudWatch Logs for an application.
-	LogLevelUpdate LogLevel `type:"string" enum:"true"`
+	LogLevelUpdate LogLevel `json:"kinesisanalytics:MonitoringConfigurationUpdate:LogLevelUpdate" type:"string" enum:"true"`
 
 	// Describes updates to the granularity of the CloudWatch Logs for an application.
-	MetricsLevelUpdate MetricsLevel `type:"string" enum:"true"`
+	MetricsLevelUpdate MetricsLevel `json:"kinesisanalytics:MonitoringConfigurationUpdate:MetricsLevelUpdate" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2293,21 +2293,21 @@ type Output struct {
 	// Describes the data format when records are written to the destination.
 	//
 	// DestinationSchema is a required field
-	DestinationSchema *DestinationSchema `type:"structure" required:"true"`
+	DestinationSchema *DestinationSchema `json:"kinesisanalytics:Output:DestinationSchema" type:"structure" required:"true"`
 
 	// Identifies an Amazon Kinesis Data Firehose delivery stream as the destination.
-	KinesisFirehoseOutput *KinesisFirehoseOutput `type:"structure"`
+	KinesisFirehoseOutput *KinesisFirehoseOutput `json:"kinesisanalytics:Output:KinesisFirehoseOutput" type:"structure"`
 
 	// Identifies an Amazon Kinesis data stream as the destination.
-	KinesisStreamsOutput *KinesisStreamsOutput `type:"structure"`
+	KinesisStreamsOutput *KinesisStreamsOutput `json:"kinesisanalytics:Output:KinesisStreamsOutput" type:"structure"`
 
 	// Identifies an AWS Lambda function as the destination.
-	LambdaOutput *LambdaOutput `type:"structure"`
+	LambdaOutput *LambdaOutput `json:"kinesisanalytics:Output:LambdaOutput" type:"structure"`
 
 	// The name of the in-application stream.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"kinesisanalytics:Output:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2365,25 +2365,25 @@ type OutputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The data format used for writing data to the destination.
-	DestinationSchema *DestinationSchema `type:"structure"`
+	DestinationSchema *DestinationSchema `json:"kinesisanalytics:OutputDescription:DestinationSchema" type:"structure"`
 
 	// Describes the Kinesis Data Firehose delivery stream that is configured as
 	// the destination where output is written.
-	KinesisFirehoseOutputDescription *KinesisFirehoseOutputDescription `type:"structure"`
+	KinesisFirehoseOutputDescription *KinesisFirehoseOutputDescription `json:"kinesisanalytics:OutputDescription:KinesisFirehoseOutputDescription" type:"structure"`
 
 	// Describes the Kinesis data stream that is configured as the destination where
 	// output is written.
-	KinesisStreamsOutputDescription *KinesisStreamsOutputDescription `type:"structure"`
+	KinesisStreamsOutputDescription *KinesisStreamsOutputDescription `json:"kinesisanalytics:OutputDescription:KinesisStreamsOutputDescription" type:"structure"`
 
 	// Describes the Lambda function that is configured as the destination where
 	// output is written.
-	LambdaOutputDescription *LambdaOutputDescription `type:"structure"`
+	LambdaOutputDescription *LambdaOutputDescription `json:"kinesisanalytics:OutputDescription:LambdaOutputDescription" type:"structure"`
 
 	// The name of the in-application stream that is configured as output.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"kinesisanalytics:OutputDescription:Name" min:"1" type:"string"`
 
 	// A unique identifier for the output configuration.
-	OutputId *string `min:"1" type:"string"`
+	OutputId *string `json:"kinesisanalytics:OutputDescription:OutputId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2398,26 +2398,26 @@ type OutputUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the data format when records are written to the destination.
-	DestinationSchemaUpdate *DestinationSchema `type:"structure"`
+	DestinationSchemaUpdate *DestinationSchema `json:"kinesisanalytics:OutputUpdate:DestinationSchemaUpdate" type:"structure"`
 
 	// Describes a Kinesis Data Firehose delivery stream as the destination for
 	// the output.
-	KinesisFirehoseOutputUpdate *KinesisFirehoseOutputUpdate `type:"structure"`
+	KinesisFirehoseOutputUpdate *KinesisFirehoseOutputUpdate `json:"kinesisanalytics:OutputUpdate:KinesisFirehoseOutputUpdate" type:"structure"`
 
 	// Describes a Kinesis data stream as the destination for the output.
-	KinesisStreamsOutputUpdate *KinesisStreamsOutputUpdate `type:"structure"`
+	KinesisStreamsOutputUpdate *KinesisStreamsOutputUpdate `json:"kinesisanalytics:OutputUpdate:KinesisStreamsOutputUpdate" type:"structure"`
 
 	// Describes an AWS Lambda function as the destination for the output.
-	LambdaOutputUpdate *LambdaOutputUpdate `type:"structure"`
+	LambdaOutputUpdate *LambdaOutputUpdate `json:"kinesisanalytics:OutputUpdate:LambdaOutputUpdate" type:"structure"`
 
 	// If you want to specify a different in-application stream for this output
 	// configuration, use this field to specify the new in-application stream name.
-	NameUpdate *string `min:"1" type:"string"`
+	NameUpdate *string `json:"kinesisanalytics:OutputUpdate:NameUpdate" min:"1" type:"string"`
 
 	// Identifies the specific output configuration that you want to update.
 	//
 	// OutputId is a required field
-	OutputId *string `min:"1" type:"string" required:"true"`
+	OutputId *string `json:"kinesisanalytics:OutputUpdate:OutputId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2475,25 +2475,25 @@ type ParallelismConfiguration struct {
 
 	// Describes whether the Kinesis Data Analytics service can increase the parallelism
 	// of the application in response to increased throughput.
-	AutoScalingEnabled *bool `type:"boolean"`
+	AutoScalingEnabled *bool `json:"kinesisanalytics:ParallelismConfiguration:AutoScalingEnabled" type:"boolean"`
 
 	// Describes whether the application uses the default parallelism for the Kinesis
 	// Data Analytics service.
 	//
 	// ConfigurationType is a required field
-	ConfigurationType ConfigurationType `type:"string" required:"true" enum:"true"`
+	ConfigurationType ConfigurationType `json:"kinesisanalytics:ParallelismConfiguration:ConfigurationType" type:"string" required:"true" enum:"true"`
 
 	// Describes the initial number of parallel tasks that a Java-based Kinesis
 	// Data Analytics application can perform. The Kinesis Data Analytics service
 	// can increase this number automatically if ParallelismConfiguration$AutoScalingEnabled
 	// is set to true.
-	Parallelism *int64 `min:"1" type:"integer"`
+	Parallelism *int64 `json:"kinesisanalytics:ParallelismConfiguration:Parallelism" min:"1" type:"integer"`
 
 	// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics
 	// application can perform per Kinesis Processing Unit (KPU) used by the application.
 	// For more information about KPUs, see Amazon Kinesis Data Analytics Pricing
 	// (http://aws.amazon.com/kinesis/data-analytics/pricing/).
-	ParallelismPerKPU *int64 `min:"1" type:"integer"`
+	ParallelismPerKPU *int64 `json:"kinesisanalytics:ParallelismConfiguration:ParallelismPerKPU" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -2528,23 +2528,23 @@ type ParallelismConfigurationDescription struct {
 
 	// Describes whether the Kinesis Data Analytics service can increase the parallelism
 	// of the application in response to increased throughput.
-	AutoScalingEnabled *bool `type:"boolean"`
+	AutoScalingEnabled *bool `json:"kinesisanalytics:ParallelismConfigurationDescription:AutoScalingEnabled" type:"boolean"`
 
 	// Describes whether the application uses the default parallelism for the Kinesis
 	// Data Analytics service.
-	ConfigurationType ConfigurationType `type:"string" enum:"true"`
+	ConfigurationType ConfigurationType `json:"kinesisanalytics:ParallelismConfigurationDescription:ConfigurationType" type:"string" enum:"true"`
 
 	// Describes the current number of parallel tasks that a Java-based Kinesis
 	// Data Analytics application can perform.
-	CurrentParallelism *int64 `min:"1" type:"integer"`
+	CurrentParallelism *int64 `json:"kinesisanalytics:ParallelismConfigurationDescription:CurrentParallelism" min:"1" type:"integer"`
 
 	// Describes the initial number of parallel tasks that a Java-based Kinesis
 	// Data Analytics application can perform.
-	Parallelism *int64 `min:"1" type:"integer"`
+	Parallelism *int64 `json:"kinesisanalytics:ParallelismConfigurationDescription:Parallelism" min:"1" type:"integer"`
 
 	// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics
 	// application can perform per Kinesis Processing Unit (KPU) used by the application.
-	ParallelismPerKPU *int64 `min:"1" type:"integer"`
+	ParallelismPerKPU *int64 `json:"kinesisanalytics:ParallelismConfigurationDescription:ParallelismPerKPU" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -2560,19 +2560,19 @@ type ParallelismConfigurationUpdate struct {
 
 	// Describes updates to whether the Kinesis Data Analytics service can increase
 	// the parallelism of the application in response to increased throughput.
-	AutoScalingEnabledUpdate *bool `type:"boolean"`
+	AutoScalingEnabledUpdate *bool `json:"kinesisanalytics:ParallelismConfigurationUpdate:AutoScalingEnabledUpdate" type:"boolean"`
 
 	// Describes updates to whether the application uses the default parallelism
 	// for the Kinesis Data Analytics service, or if a custom parallelism is used.
-	ConfigurationTypeUpdate ConfigurationType `type:"string" enum:"true"`
+	ConfigurationTypeUpdate ConfigurationType `json:"kinesisanalytics:ParallelismConfigurationUpdate:ConfigurationTypeUpdate" type:"string" enum:"true"`
 
 	// Describes updates to the number of parallel tasks an application can perform
 	// per Kinesis Processing Unit (KPU) used by the application.
-	ParallelismPerKPUUpdate *int64 `min:"1" type:"integer"`
+	ParallelismPerKPUUpdate *int64 `json:"kinesisanalytics:ParallelismConfigurationUpdate:ParallelismPerKPUUpdate" min:"1" type:"integer"`
 
 	// Describes updates to the initial number of parallel tasks an application
 	// can perform.
-	ParallelismUpdate *int64 `min:"1" type:"integer"`
+	ParallelismUpdate *int64 `json:"kinesisanalytics:ParallelismConfigurationUpdate:ParallelismUpdate" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -2605,12 +2605,12 @@ type PropertyGroup struct {
 	// Describes the key of an application execution property key-value pair.
 	//
 	// PropertyGroupId is a required field
-	PropertyGroupId *string `min:"1" type:"string" required:"true"`
+	PropertyGroupId *string `json:"kinesisanalytics:PropertyGroup:PropertyGroupId" min:"1" type:"string" required:"true"`
 
 	// Describes the value of an application execution property key-value pair.
 	//
 	// PropertyMap is a required field
-	PropertyMap map[string]string `min:"1" type:"map" required:"true"`
+	PropertyMap map[string]string `json:"kinesisanalytics:PropertyGroup:PropertyMap" min:"1" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -2653,19 +2653,19 @@ type RecordColumn struct {
 
 	// A reference to the data element in the streaming input or the reference data
 	// source.
-	Mapping *string `type:"string"`
+	Mapping *string `json:"kinesisanalytics:RecordColumn:Mapping" type:"string"`
 
 	// The name of the column that is created in the in-application input stream
 	// or reference table.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"kinesisanalytics:RecordColumn:Name" type:"string" required:"true"`
 
 	// The type of column created in the in-application input stream or reference
 	// table.
 	//
 	// SqlType is a required field
-	SqlType *string `min:"1" type:"string" required:"true"`
+	SqlType *string `json:"kinesisanalytics:RecordColumn:SqlType" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2705,12 +2705,12 @@ type RecordFormat struct {
 	// an application, provides additional mapping information specific to the record
 	// format (such as JSON, CSV, or record fields delimited by some delimiter)
 	// on the streaming source.
-	MappingParameters *MappingParameters `type:"structure"`
+	MappingParameters *MappingParameters `json:"kinesisanalytics:RecordFormat:MappingParameters" type:"structure"`
 
 	// The type of record format.
 	//
 	// RecordFormatType is a required field
-	RecordFormatType RecordFormatType `type:"string" required:"true" enum:"true"`
+	RecordFormatType RecordFormatType `json:"kinesisanalytics:RecordFormat:RecordFormatType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2749,18 +2749,18 @@ type ReferenceDataSource struct {
 	// element maps to corresponding columns created in the in-application stream.
 	//
 	// ReferenceSchema is a required field
-	ReferenceSchema *SourceSchema `type:"structure" required:"true"`
+	ReferenceSchema *SourceSchema `json:"kinesisanalytics:ReferenceDataSource:ReferenceSchema" type:"structure" required:"true"`
 
 	// Identifies the S3 bucket and object that contains the reference data. A Kinesis
 	// Data Analytics application loads reference data only once. If the data changes,
 	// you call the UpdateApplication operation to trigger reloading of data into
 	// your application.
-	S3ReferenceDataSource *S3ReferenceDataSource `type:"structure"`
+	S3ReferenceDataSource *S3ReferenceDataSource `json:"kinesisanalytics:ReferenceDataSource:S3ReferenceDataSource" type:"structure"`
 
 	// The name of the in-application table to create.
 	//
 	// TableName is a required field
-	TableName *string `min:"1" type:"string" required:"true"`
+	TableName *string `json:"kinesisanalytics:ReferenceDataSource:TableName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2810,23 +2810,23 @@ type ReferenceDataSourceDescription struct {
 	// the CreateApplication or UpdateApplication operation.
 	//
 	// ReferenceId is a required field
-	ReferenceId *string `min:"1" type:"string" required:"true"`
+	ReferenceId *string `json:"kinesisanalytics:ReferenceDataSourceDescription:ReferenceId" min:"1" type:"string" required:"true"`
 
 	// Describes the format of the data in the streaming source, and how each data
 	// element maps to corresponding columns created in the in-application stream.
-	ReferenceSchema *SourceSchema `type:"structure"`
+	ReferenceSchema *SourceSchema `json:"kinesisanalytics:ReferenceDataSourceDescription:ReferenceSchema" type:"structure"`
 
 	// Provides the Amazon S3 bucket name, the object key name that contains the
 	// reference data.
 	//
 	// S3ReferenceDataSourceDescription is a required field
-	S3ReferenceDataSourceDescription *S3ReferenceDataSourceDescription `type:"structure" required:"true"`
+	S3ReferenceDataSourceDescription *S3ReferenceDataSourceDescription `json:"kinesisanalytics:ReferenceDataSourceDescription:S3ReferenceDataSourceDescription" type:"structure" required:"true"`
 
 	// The in-application table name created by the specific reference data source
 	// configuration.
 	//
 	// TableName is a required field
-	TableName *string `min:"1" type:"string" required:"true"`
+	TableName *string `json:"kinesisanalytics:ReferenceDataSourceDescription:TableName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2848,19 +2848,19 @@ type ReferenceDataSourceUpdate struct {
 	// DescribeApplication operation to get this value.
 	//
 	// ReferenceId is a required field
-	ReferenceId *string `min:"1" type:"string" required:"true"`
+	ReferenceId *string `json:"kinesisanalytics:ReferenceDataSourceUpdate:ReferenceId" min:"1" type:"string" required:"true"`
 
 	// Describes the format of the data in the streaming source, and how each data
 	// element maps to corresponding columns created in the in-application stream.
-	ReferenceSchemaUpdate *SourceSchema `type:"structure"`
+	ReferenceSchemaUpdate *SourceSchema `json:"kinesisanalytics:ReferenceDataSourceUpdate:ReferenceSchemaUpdate" type:"structure"`
 
 	// Describes the S3 bucket name, object key name, and IAM role that Kinesis
 	// Data Analytics can assume to read the Amazon S3 object on your behalf and
 	// populate the in-application reference table.
-	S3ReferenceDataSourceUpdate *S3ReferenceDataSourceUpdate `type:"structure"`
+	S3ReferenceDataSourceUpdate *S3ReferenceDataSourceUpdate `json:"kinesisanalytics:ReferenceDataSourceUpdate:S3ReferenceDataSourceUpdate" type:"structure"`
 
 	// The in-application table name that is created by this update.
-	TableNameUpdate *string `min:"1" type:"string"`
+	TableNameUpdate *string `json:"kinesisanalytics:ReferenceDataSourceUpdate:TableNameUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2904,11 +2904,11 @@ type RunConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the restore behavior of a restarting application.
-	ApplicationRestoreConfiguration *ApplicationRestoreConfiguration `type:"structure"`
+	ApplicationRestoreConfiguration *ApplicationRestoreConfiguration `json:"kinesisanalytics:RunConfiguration:ApplicationRestoreConfiguration" type:"structure"`
 
 	// Describes the starting parameters for an SQL-based Kinesis Data Analytics
 	// application.
-	SqlRunConfigurations []SqlRunConfiguration `type:"list"`
+	SqlRunConfigurations []SqlRunConfiguration `json:"kinesisanalytics:RunConfiguration:SqlRunConfigurations" type:"list"`
 }
 
 // String returns the string representation
@@ -2944,7 +2944,7 @@ type RunConfigurationDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the restore behavior of a restarting application.
-	ApplicationRestoreConfigurationDescription *ApplicationRestoreConfiguration `type:"structure"`
+	ApplicationRestoreConfigurationDescription *ApplicationRestoreConfiguration `json:"kinesisanalytics:RunConfigurationDescription:ApplicationRestoreConfigurationDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -2959,7 +2959,7 @@ type RunConfigurationUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Describes updates to the restore behavior of a restarting application.
-	ApplicationRestoreConfiguration *ApplicationRestoreConfiguration `type:"structure"`
+	ApplicationRestoreConfiguration *ApplicationRestoreConfiguration `json:"kinesisanalytics:RunConfigurationUpdate:ApplicationRestoreConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -2992,15 +2992,15 @@ type S3ApplicationCodeLocationDescription struct {
 	// code.
 	//
 	// BucketARN is a required field
-	BucketARN *string `min:"1" type:"string" required:"true"`
+	BucketARN *string `json:"kinesisanalytics:S3ApplicationCodeLocationDescription:BucketARN" min:"1" type:"string" required:"true"`
 
 	// The file key for the object containing the application code.
 	//
 	// FileKey is a required field
-	FileKey *string `min:"1" type:"string" required:"true"`
+	FileKey *string `json:"kinesisanalytics:S3ApplicationCodeLocationDescription:FileKey" min:"1" type:"string" required:"true"`
 
 	// The version of the object containing the application code.
-	ObjectVersion *string `type:"string"`
+	ObjectVersion *string `json:"kinesisanalytics:S3ApplicationCodeLocationDescription:ObjectVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -3018,12 +3018,12 @@ type S3Configuration struct {
 	// The ARN of the S3 bucket that contains the data.
 	//
 	// BucketARN is a required field
-	BucketARN *string `min:"1" type:"string" required:"true"`
+	BucketARN *string `json:"kinesisanalytics:S3Configuration:BucketARN" min:"1" type:"string" required:"true"`
 
 	// The name of the object that contains the data.
 	//
 	// FileKey is a required field
-	FileKey *string `min:"1" type:"string" required:"true"`
+	FileKey *string `json:"kinesisanalytics:S3Configuration:FileKey" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3067,15 +3067,15 @@ type S3ContentLocation struct {
 	// code.
 	//
 	// BucketARN is a required field
-	BucketARN *string `min:"1" type:"string" required:"true"`
+	BucketARN *string `json:"kinesisanalytics:S3ContentLocation:BucketARN" min:"1" type:"string" required:"true"`
 
 	// The file key for the object containing the application code.
 	//
 	// FileKey is a required field
-	FileKey *string `min:"1" type:"string" required:"true"`
+	FileKey *string `json:"kinesisanalytics:S3ContentLocation:FileKey" min:"1" type:"string" required:"true"`
 
 	// The version of the object containing the application code.
-	ObjectVersion *string `type:"string"`
+	ObjectVersion *string `json:"kinesisanalytics:S3ContentLocation:ObjectVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -3115,13 +3115,13 @@ type S3ContentLocationUpdate struct {
 
 	// The new Amazon Resource Name (ARN) for the S3 bucket containing the application
 	// code.
-	BucketARNUpdate *string `min:"1" type:"string"`
+	BucketARNUpdate *string `json:"kinesisanalytics:S3ContentLocationUpdate:BucketARNUpdate" min:"1" type:"string"`
 
 	// The new file key for the object containing the application code.
-	FileKeyUpdate *string `min:"1" type:"string"`
+	FileKeyUpdate *string `json:"kinesisanalytics:S3ContentLocationUpdate:FileKeyUpdate" min:"1" type:"string"`
 
 	// The new version of the object containing the application code.
-	ObjectVersionUpdate *string `type:"string"`
+	ObjectVersionUpdate *string `json:"kinesisanalytics:S3ContentLocationUpdate:ObjectVersionUpdate" type:"string"`
 }
 
 // String returns the string representation
@@ -3156,10 +3156,10 @@ type S3ReferenceDataSource struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the S3 bucket.
-	BucketARN *string `min:"1" type:"string"`
+	BucketARN *string `json:"kinesisanalytics:S3ReferenceDataSource:BucketARN" min:"1" type:"string"`
 
 	// The object key name containing the reference data.
-	FileKey *string `min:"1" type:"string"`
+	FileKey *string `json:"kinesisanalytics:S3ReferenceDataSource:FileKey" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3192,12 +3192,12 @@ type S3ReferenceDataSourceDescription struct {
 	// The Amazon Resource Name (ARN) of the S3 bucket.
 	//
 	// BucketARN is a required field
-	BucketARN *string `min:"1" type:"string" required:"true"`
+	BucketARN *string `json:"kinesisanalytics:S3ReferenceDataSourceDescription:BucketARN" min:"1" type:"string" required:"true"`
 
 	// Amazon S3 object key name.
 	//
 	// FileKey is a required field
-	FileKey *string `min:"1" type:"string" required:"true"`
+	FileKey *string `json:"kinesisanalytics:S3ReferenceDataSourceDescription:FileKey" min:"1" type:"string" required:"true"`
 
 	// The ARN of the IAM role that Kinesis Data Analytics can assume to read the
 	// Amazon S3 object on your behalf to populate the in-application reference
@@ -3206,7 +3206,7 @@ type S3ReferenceDataSourceDescription struct {
 	// Provided for backward compatibility. Applications that are created with the
 	// current API version have an application-level service execution role rather
 	// than a resource-level role.
-	ReferenceRoleARN *string `min:"1" type:"string"`
+	ReferenceRoleARN *string `json:"kinesisanalytics:S3ReferenceDataSourceDescription:ReferenceRoleARN" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3222,10 +3222,10 @@ type S3ReferenceDataSourceUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the S3 bucket.
-	BucketARNUpdate *string `min:"1" type:"string"`
+	BucketARNUpdate *string `json:"kinesisanalytics:S3ReferenceDataSourceUpdate:BucketARNUpdate" min:"1" type:"string"`
 
 	// The object key name.
-	FileKeyUpdate *string `min:"1" type:"string"`
+	FileKeyUpdate *string `json:"kinesisanalytics:S3ReferenceDataSourceUpdate:FileKeyUpdate" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3257,20 +3257,20 @@ type SnapshotDetails struct {
 	// The current application version ID when the snapshot was created.
 	//
 	// ApplicationVersionId is a required field
-	ApplicationVersionId *int64 `min:"1" type:"long" required:"true"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:SnapshotDetails:ApplicationVersionId" min:"1" type:"long" required:"true"`
 
 	// The timestamp of the application snapshot.
-	SnapshotCreationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SnapshotCreationTimestamp *time.Time `json:"kinesisanalytics:SnapshotDetails:SnapshotCreationTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier for the application snapshot.
 	//
 	// SnapshotName is a required field
-	SnapshotName *string `min:"1" type:"string" required:"true"`
+	SnapshotName *string `json:"kinesisanalytics:SnapshotDetails:SnapshotName" min:"1" type:"string" required:"true"`
 
 	// The status of the application snapshot.
 	//
 	// SnapshotStatus is a required field
-	SnapshotStatus SnapshotStatus `type:"string" required:"true" enum:"true"`
+	SnapshotStatus SnapshotStatus `json:"kinesisanalytics:SnapshotDetails:SnapshotStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -3288,16 +3288,16 @@ type SourceSchema struct {
 	// A list of RecordColumn objects.
 	//
 	// RecordColumns is a required field
-	RecordColumns []RecordColumn `min:"1" type:"list" required:"true"`
+	RecordColumns []RecordColumn `json:"kinesisanalytics:SourceSchema:RecordColumns" min:"1" type:"list" required:"true"`
 
 	// Specifies the encoding of the records in the streaming source. For example,
 	// UTF-8.
-	RecordEncoding *string `type:"string"`
+	RecordEncoding *string `json:"kinesisanalytics:SourceSchema:RecordEncoding" type:"string"`
 
 	// Specifies the format of the records on the streaming source.
 	//
 	// RecordFormat is a required field
-	RecordFormat *RecordFormat `type:"structure" required:"true"`
+	RecordFormat *RecordFormat `json:"kinesisanalytics:SourceSchema:RecordFormat" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3345,15 +3345,15 @@ type SqlApplicationConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// The array of Input objects describing the input streams used by the application.
-	Inputs []Input `type:"list"`
+	Inputs []Input `json:"kinesisanalytics:SqlApplicationConfiguration:Inputs" type:"list"`
 
 	// The array of Output objects describing the destination streams used by the
 	// application.
-	Outputs []Output `type:"list"`
+	Outputs []Output `json:"kinesisanalytics:SqlApplicationConfiguration:Outputs" type:"list"`
 
 	// The array of ReferenceDataSource objects describing the reference data sources
 	// used by the application.
-	ReferenceDataSources []ReferenceDataSource `type:"list"`
+	ReferenceDataSources []ReferenceDataSource `json:"kinesisanalytics:SqlApplicationConfiguration:ReferenceDataSources" type:"list"`
 }
 
 // String returns the string representation
@@ -3400,15 +3400,15 @@ type SqlApplicationConfigurationDescription struct {
 
 	// The array of InputDescription objects describing the input streams used by
 	// the application.
-	InputDescriptions []InputDescription `type:"list"`
+	InputDescriptions []InputDescription `json:"kinesisanalytics:SqlApplicationConfigurationDescription:InputDescriptions" type:"list"`
 
 	// The array of OutputDescription objects describing the destination streams
 	// used by the application.
-	OutputDescriptions []OutputDescription `type:"list"`
+	OutputDescriptions []OutputDescription `json:"kinesisanalytics:SqlApplicationConfigurationDescription:OutputDescriptions" type:"list"`
 
 	// The array of ReferenceDataSourceDescription objects describing the reference
 	// data sources used by the application.
-	ReferenceDataSourceDescriptions []ReferenceDataSourceDescription `type:"list"`
+	ReferenceDataSourceDescriptions []ReferenceDataSourceDescription `json:"kinesisanalytics:SqlApplicationConfigurationDescription:ReferenceDataSourceDescriptions" type:"list"`
 }
 
 // String returns the string representation
@@ -3424,15 +3424,15 @@ type SqlApplicationConfigurationUpdate struct {
 
 	// The array of InputUpdate objects describing the new input streams used by
 	// the application.
-	InputUpdates []InputUpdate `type:"list"`
+	InputUpdates []InputUpdate `json:"kinesisanalytics:SqlApplicationConfigurationUpdate:InputUpdates" type:"list"`
 
 	// The array of OutputUpdate objects describing the new destination streams
 	// used by the application.
-	OutputUpdates []OutputUpdate `type:"list"`
+	OutputUpdates []OutputUpdate `json:"kinesisanalytics:SqlApplicationConfigurationUpdate:OutputUpdates" type:"list"`
 
 	// The array of ReferenceDataSourceUpdate objects describing the new reference
 	// data sources used by the application.
-	ReferenceDataSourceUpdates []ReferenceDataSourceUpdate `type:"list"`
+	ReferenceDataSourceUpdates []ReferenceDataSourceUpdate `json:"kinesisanalytics:SqlApplicationConfigurationUpdate:ReferenceDataSourceUpdates" type:"list"`
 }
 
 // String returns the string representation
@@ -3481,13 +3481,13 @@ type SqlRunConfiguration struct {
 	// operation.
 	//
 	// InputId is a required field
-	InputId *string `min:"1" type:"string" required:"true"`
+	InputId *string `json:"kinesisanalytics:SqlRunConfiguration:InputId" min:"1" type:"string" required:"true"`
 
 	// The point at which you want the application to start processing records from
 	// the streaming source.
 	//
 	// InputStartingPositionConfiguration is a required field
-	InputStartingPositionConfiguration *InputStartingPositionConfiguration `type:"structure" required:"true"`
+	InputStartingPositionConfiguration *InputStartingPositionConfiguration `json:"kinesisanalytics:SqlRunConfiguration:InputStartingPositionConfiguration" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3530,10 +3530,10 @@ type Tag struct {
 	// The key of the key-value tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"kinesisanalytics:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the key-value tag. The value is optional.
-	Value *string `type:"string"`
+	Value *string `json:"kinesisanalytics:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

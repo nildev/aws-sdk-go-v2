@@ -116,7 +116,7 @@ type CopySnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the new snapshot.
-	SnapshotId *string `locationName:"snapshotId" type:"string"`
+	SnapshotId *string `json:"ec2:CopySnapshotOutput:SnapshotId" locationName:"snapshotId" type:"string"`
 }
 
 // String returns the string representation

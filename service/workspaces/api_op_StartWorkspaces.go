@@ -46,7 +46,7 @@ type StartWorkspacesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the WorkSpaces that could not be started.
-	FailedRequests []FailedWorkspaceChangeRequest `type:"list"`
+	FailedRequests []FailedWorkspaceChangeRequest `json:"workspaces:StartWorkspacesOutput:FailedRequests" type:"list"`
 }
 
 // String returns the string representation

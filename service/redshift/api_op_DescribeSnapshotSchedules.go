@@ -54,10 +54,10 @@ type DescribeSnapshotSchedulesOutput struct {
 	// the next set of records by providing this returned marker value in the marker
 	// parameter and retrying the command. If the marker field is empty, all response
 	// records have been retrieved for the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeSnapshotSchedulesOutput:Marker" type:"string"`
 
 	// A list of SnapshotSchedules.
-	SnapshotSchedules []SnapshotSchedule `locationNameList:"SnapshotSchedule" type:"list"`
+	SnapshotSchedules []SnapshotSchedule `json:"redshift:DescribeSnapshotSchedulesOutput:SnapshotSchedules" locationNameList:"SnapshotSchedule" type:"list"`
 }
 
 // String returns the string representation

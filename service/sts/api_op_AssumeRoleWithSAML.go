@@ -165,21 +165,21 @@ type AssumeRoleWithSAMLOutput struct {
 
 	// The identifiers for the temporary security credentials that the operation
 	// returns.
-	AssumedRoleUser *AssumedRoleUser `type:"structure"`
+	AssumedRoleUser *AssumedRoleUser `json:"sts:AssumeRoleWithSAMLOutput:AssumedRoleUser" type:"structure"`
 
 	// The value of the Recipient attribute of the SubjectConfirmationData element
 	// of the SAML assertion.
-	Audience *string `type:"string"`
+	Audience *string `json:"sts:AssumeRoleWithSAMLOutput:Audience" type:"string"`
 
 	// The temporary security credentials, which include an access key ID, a secret
 	// access key, and a security (or session) token.
 	//
 	// The size of the security token that STS API operations return is not fixed.
 	// We strongly recommend that you make no assumptions about the maximum size.
-	Credentials *Credentials `type:"structure"`
+	Credentials *Credentials `json:"sts:AssumeRoleWithSAMLOutput:Credentials" type:"structure"`
 
 	// The value of the Issuer element of the SAML assertion.
-	Issuer *string `type:"string"`
+	Issuer *string `json:"sts:AssumeRoleWithSAMLOutput:Issuer" type:"string"`
 
 	// A hash value based on the concatenation of the Issuer response value, the
 	// AWS account ID, and the friendly name (the last part of the ARN) of the SAML
@@ -190,15 +190,15 @@ type AssumeRoleWithSAMLOutput struct {
 	//
 	// BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP"
 	// ) )
-	NameQualifier *string `type:"string"`
+	NameQualifier *string `json:"sts:AssumeRoleWithSAMLOutput:NameQualifier" type:"string"`
 
 	// A percentage value that indicates the size of the policy in packed form.
 	// The service rejects any policy with a packed size greater than 100 percent,
 	// which means the policy exceeded the allowed space.
-	PackedPolicySize *int64 `type:"integer"`
+	PackedPolicySize *int64 `json:"sts:AssumeRoleWithSAMLOutput:PackedPolicySize" type:"integer"`
 
 	// The value of the NameID element in the Subject element of the SAML assertion.
-	Subject *string `type:"string"`
+	Subject *string `json:"sts:AssumeRoleWithSAMLOutput:Subject" type:"string"`
 
 	// The format of the name ID, as defined by the Format attribute in the NameID
 	// element of the SAML assertion. Typical examples of the format are transient
@@ -208,7 +208,7 @@ type AssumeRoleWithSAMLOutput struct {
 	// that prefix is removed. For example, urn:oasis:names:tc:SAML:2.0:nameid-format:transient
 	// is returned as transient. If the format includes any other prefix, the format
 	// is returned with no modifications.
-	SubjectType *string `type:"string"`
+	SubjectType *string `json:"sts:AssumeRoleWithSAMLOutput:SubjectType" type:"string"`
 }
 
 // String returns the string representation

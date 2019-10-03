@@ -52,10 +52,10 @@ type GetParametersOutput struct {
 
 	// A list of parameters that are not formatted correctly or do not run during
 	// an execution.
-	InvalidParameters []string `min:"1" type:"list"`
+	InvalidParameters []string `json:"ssm:GetParametersOutput:InvalidParameters" min:"1" type:"list"`
 
 	// A list of details for a parameter.
-	Parameters []Parameter `type:"list"`
+	Parameters []Parameter `json:"ssm:GetParametersOutput:Parameters" type:"list"`
 }
 
 // String returns the string representation

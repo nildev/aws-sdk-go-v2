@@ -93,13 +93,13 @@ type ReEncryptOutput struct {
 	// is Base64-encoded. Otherwise, it is not encoded.
 	//
 	// CiphertextBlob is automatically base64 encoded/decoded by the SDK.
-	CiphertextBlob []byte `min:"1" type:"blob"`
+	CiphertextBlob []byte `json:"kms:ReEncryptOutput:CiphertextBlob" min:"1" type:"blob"`
 
 	// Unique identifier of the CMK used to reencrypt the data.
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"kms:ReEncryptOutput:KeyId" min:"1" type:"string"`
 
 	// Unique identifier of the CMK used to originally encrypt the data.
-	SourceKeyId *string `min:"1" type:"string"`
+	SourceKeyId *string `json:"kms:ReEncryptOutput:SourceKeyId" min:"1" type:"string"`
 }
 
 // String returns the string representation

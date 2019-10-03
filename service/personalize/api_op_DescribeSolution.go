@@ -43,7 +43,7 @@ type DescribeSolutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that describes the solution.
-	Solution *Solution `locationName:"solution" type:"structure"`
+	Solution *Solution `json:"personalize:DescribeSolutionOutput:Solution" locationName:"solution" type:"structure"`
 }
 
 // String returns the string representation

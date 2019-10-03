@@ -82,7 +82,7 @@ type ValidateConfigurationSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of ValidationMessage.
-	Messages []ValidationMessage `type:"list"`
+	Messages []ValidationMessage `json:"elasticbeanstalk:ValidateConfigurationSettingsOutput:Messages" type:"list"`
 }
 
 // String returns the string representation

@@ -93,10 +93,10 @@ type ListNetworksOutput struct {
 
 	// An array of NetworkSummary objects that contain configuration properties
 	// for each network.
-	Networks []NetworkSummary `type:"list"`
+	Networks []NetworkSummary `json:"managedblockchain:ListNetworksOutput:Networks" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"managedblockchain:ListNetworksOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

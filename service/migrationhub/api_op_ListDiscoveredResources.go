@@ -69,11 +69,11 @@ type ListDiscoveredResourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returned list of discovered resources associated with the given MigrationTask.
-	DiscoveredResourceList []DiscoveredResource `type:"list"`
+	DiscoveredResourceList []DiscoveredResource `json:"mgh:ListDiscoveredResourcesOutput:DiscoveredResourceList" type:"list"`
 
 	// If there are more discovered resources than the max result, return the next
 	// token to be passed to the next call as a bookmark of where to start from.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"mgh:ListDiscoveredResourcesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

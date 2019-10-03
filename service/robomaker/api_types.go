@@ -21,17 +21,17 @@ type DeploymentApplicationConfig struct {
 	// The Amazon Resource Name (ARN) of the robot application.
 	//
 	// Application is a required field
-	Application *string `locationName:"application" min:"1" type:"string" required:"true"`
+	Application *string `json:"robomaker:DeploymentApplicationConfig:Application" locationName:"application" min:"1" type:"string" required:"true"`
 
 	// The version of the application.
 	//
 	// ApplicationVersion is a required field
-	ApplicationVersion *string `locationName:"applicationVersion" min:"1" type:"string" required:"true"`
+	ApplicationVersion *string `json:"robomaker:DeploymentApplicationConfig:ApplicationVersion" locationName:"applicationVersion" min:"1" type:"string" required:"true"`
 
 	// The launch configuration.
 	//
 	// LaunchConfig is a required field
-	LaunchConfig *DeploymentLaunchConfig `locationName:"launchConfig" type:"structure" required:"true"`
+	LaunchConfig *DeploymentLaunchConfig `json:"robomaker:DeploymentApplicationConfig:LaunchConfig" locationName:"launchConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -101,10 +101,10 @@ type DeploymentConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The percentage of robots receiving the deployment at the same time.
-	ConcurrentDeploymentPercentage *int64 `locationName:"concurrentDeploymentPercentage" min:"1" type:"integer"`
+	ConcurrentDeploymentPercentage *int64 `json:"robomaker:DeploymentConfig:ConcurrentDeploymentPercentage" locationName:"concurrentDeploymentPercentage" min:"1" type:"integer"`
 
 	// The percentage of deployments that need to fail before stopping deployment.
-	FailureThresholdPercentage *int64 `locationName:"failureThresholdPercentage" min:"1" type:"integer"`
+	FailureThresholdPercentage *int64 `json:"robomaker:DeploymentConfig:FailureThresholdPercentage" locationName:"failureThresholdPercentage" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -151,28 +151,28 @@ type DeploymentJob struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the deployment job.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:DeploymentJob:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the deployment job was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:DeploymentJob:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The deployment application configuration.
-	DeploymentApplicationConfigs []DeploymentApplicationConfig `locationName:"deploymentApplicationConfigs" min:"1" type:"list"`
+	DeploymentApplicationConfigs []DeploymentApplicationConfig `json:"robomaker:DeploymentJob:DeploymentApplicationConfigs" locationName:"deploymentApplicationConfigs" min:"1" type:"list"`
 
 	// The deployment configuration.
-	DeploymentConfig *DeploymentConfig `locationName:"deploymentConfig" type:"structure"`
+	DeploymentConfig *DeploymentConfig `json:"robomaker:DeploymentJob:DeploymentConfig" locationName:"deploymentConfig" type:"structure"`
 
 	// The deployment job failure code.
-	FailureCode DeploymentJobErrorCode `locationName:"failureCode" type:"string" enum:"true"`
+	FailureCode DeploymentJobErrorCode `json:"robomaker:DeploymentJob:FailureCode" locationName:"failureCode" type:"string" enum:"true"`
 
 	// A short description of the reason why the deployment job failed.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"robomaker:DeploymentJob:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	Fleet *string `locationName:"fleet" min:"1" type:"string"`
+	Fleet *string `json:"robomaker:DeploymentJob:Fleet" locationName:"fleet" min:"1" type:"string"`
 
 	// The status of the deployment job.
-	Status DeploymentStatus `locationName:"status" type:"string" enum:"true"`
+	Status DeploymentStatus `json:"robomaker:DeploymentJob:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -246,25 +246,25 @@ type DeploymentLaunchConfig struct {
 
 	// An array of key/value pairs specifying environment variables for the robot
 	// application
-	EnvironmentVariables map[string]string `locationName:"environmentVariables" type:"map"`
+	EnvironmentVariables map[string]string `json:"robomaker:DeploymentLaunchConfig:EnvironmentVariables" locationName:"environmentVariables" type:"map"`
 
 	// The launch file name.
 	//
 	// LaunchFile is a required field
-	LaunchFile *string `locationName:"launchFile" min:"1" type:"string" required:"true"`
+	LaunchFile *string `json:"robomaker:DeploymentLaunchConfig:LaunchFile" locationName:"launchFile" min:"1" type:"string" required:"true"`
 
 	// The package name.
 	//
 	// PackageName is a required field
-	PackageName *string `locationName:"packageName" min:"1" type:"string" required:"true"`
+	PackageName *string `json:"robomaker:DeploymentLaunchConfig:PackageName" locationName:"packageName" min:"1" type:"string" required:"true"`
 
 	// The deployment post-launch file. This file will be executed after the launch
 	// file.
-	PostLaunchFile *string `locationName:"postLaunchFile" min:"1" type:"string"`
+	PostLaunchFile *string `json:"robomaker:DeploymentLaunchConfig:PostLaunchFile" locationName:"postLaunchFile" min:"1" type:"string"`
 
 	// The deployment pre-launch file. This file will be executed prior to the launch
 	// file.
-	PreLaunchFile *string `locationName:"preLaunchFile" min:"1" type:"string"`
+	PreLaunchFile *string `json:"robomaker:DeploymentLaunchConfig:PreLaunchFile" locationName:"preLaunchFile" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -349,10 +349,10 @@ type Filter struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the filter.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:Filter:Name" locationName:"name" min:"1" type:"string"`
 
 	// A list of values.
-	Values []string `locationName:"values" min:"1" type:"list"`
+	Values []string `json:"robomaker:Filter:Values" locationName:"values" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -405,22 +405,22 @@ type Fleet struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:Fleet:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the fleet was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:Fleet:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the last deployment job.
-	LastDeploymentJob *string `locationName:"lastDeploymentJob" min:"1" type:"string"`
+	LastDeploymentJob *string `json:"robomaker:Fleet:LastDeploymentJob" locationName:"lastDeploymentJob" min:"1" type:"string"`
 
 	// The status of the last fleet deployment.
-	LastDeploymentStatus DeploymentStatus `locationName:"lastDeploymentStatus" type:"string" enum:"true"`
+	LastDeploymentStatus DeploymentStatus `json:"robomaker:Fleet:LastDeploymentStatus" locationName:"lastDeploymentStatus" type:"string" enum:"true"`
 
 	// The time of the last deployment.
-	LastDeploymentTime *time.Time `locationName:"lastDeploymentTime" type:"timestamp" timestampFormat:"unix"`
+	LastDeploymentTime *time.Time `json:"robomaker:Fleet:LastDeploymentTime" locationName:"lastDeploymentTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the fleet.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:Fleet:Name" locationName:"name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -475,17 +475,17 @@ type LaunchConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The environment variables for the application launch.
-	EnvironmentVariables map[string]string `locationName:"environmentVariables" type:"map"`
+	EnvironmentVariables map[string]string `json:"robomaker:LaunchConfig:EnvironmentVariables" locationName:"environmentVariables" type:"map"`
 
 	// The launch file name.
 	//
 	// LaunchFile is a required field
-	LaunchFile *string `locationName:"launchFile" min:"1" type:"string" required:"true"`
+	LaunchFile *string `json:"robomaker:LaunchConfig:LaunchFile" locationName:"launchFile" min:"1" type:"string" required:"true"`
 
 	// The package name.
 	//
 	// PackageName is a required field
-	PackageName *string `locationName:"packageName" min:"1" type:"string" required:"true"`
+	PackageName *string `json:"robomaker:LaunchConfig:PackageName" locationName:"packageName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -552,10 +552,10 @@ type OutputLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The S3 bucket for output.
-	S3Bucket *string `locationName:"s3Bucket" min:"3" type:"string"`
+	S3Bucket *string `json:"robomaker:OutputLocation:S3Bucket" locationName:"s3Bucket" min:"3" type:"string"`
 
 	// The S3 folder in the s3Bucket where output files will be placed.
-	S3Prefix *string `locationName:"s3Prefix" min:"1" type:"string"`
+	S3Prefix *string `json:"robomaker:OutputLocation:S3Prefix" locationName:"s3Prefix" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -626,19 +626,19 @@ type ProgressDetail struct {
 	// Finished
 	//
 	// Deployment is complete.
-	CurrentProgress RobotDeploymentStep `locationName:"currentProgress" type:"string" enum:"true"`
+	CurrentProgress RobotDeploymentStep `json:"robomaker:ProgressDetail:CurrentProgress" locationName:"currentProgress" type:"string" enum:"true"`
 
 	// Estimated amount of time in seconds remaining in the step. This currently
 	// only applies to the Downloading/Extracting step of the deployment. It is
 	// empty for other steps.
-	EstimatedTimeRemainingSeconds *int64 `locationName:"estimatedTimeRemainingSeconds" type:"integer"`
+	EstimatedTimeRemainingSeconds *int64 `json:"robomaker:ProgressDetail:EstimatedTimeRemainingSeconds" locationName:"estimatedTimeRemainingSeconds" type:"integer"`
 
 	// Precentage of the step that is done. This currently only applies to the Downloading/Extracting
 	// step of the deployment. It is empty for other steps.
-	PercentDone *float64 `locationName:"percentDone" type:"float"`
+	PercentDone *float64 `json:"robomaker:ProgressDetail:PercentDone" locationName:"percentDone" type:"float"`
 
 	// The Amazon Resource Name (ARN) of the deployment job.
-	TargetResource *string `locationName:"targetResource" type:"string"`
+	TargetResource *string `json:"robomaker:ProgressDetail:TargetResource" locationName:"targetResource" type:"string"`
 }
 
 // String returns the string representation
@@ -681,10 +681,10 @@ type RenderingEngine struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the rendering engine.
-	Name RenderingEngineType `locationName:"name" type:"string" enum:"true"`
+	Name RenderingEngineType `json:"robomaker:RenderingEngine:Name" locationName:"name" type:"string" enum:"true"`
 
 	// The version of the rendering engine.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"robomaker:RenderingEngine:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -715,31 +715,31 @@ type Robot struct {
 	_ struct{} `type:"structure"`
 
 	// The architecture of the robot.
-	Architecture Architecture `locationName:"architecture" type:"string" enum:"true"`
+	Architecture Architecture `json:"robomaker:Robot:Architecture" locationName:"architecture" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the robot.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:Robot:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the robot was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:Robot:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	FleetArn *string `locationName:"fleetArn" min:"1" type:"string"`
+	FleetArn *string `json:"robomaker:Robot:FleetArn" locationName:"fleetArn" min:"1" type:"string"`
 
 	// The Greengrass group associated with the robot.
-	GreenGrassGroupId *string `locationName:"greenGrassGroupId" min:"1" type:"string"`
+	GreenGrassGroupId *string `json:"robomaker:Robot:GreenGrassGroupId" locationName:"greenGrassGroupId" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the last deployment job.
-	LastDeploymentJob *string `locationName:"lastDeploymentJob" min:"1" type:"string"`
+	LastDeploymentJob *string `json:"robomaker:Robot:LastDeploymentJob" locationName:"lastDeploymentJob" min:"1" type:"string"`
 
 	// The time of the last deployment.
-	LastDeploymentTime *time.Time `locationName:"lastDeploymentTime" type:"timestamp" timestampFormat:"unix"`
+	LastDeploymentTime *time.Time `json:"robomaker:Robot:LastDeploymentTime" locationName:"lastDeploymentTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the robot.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:Robot:Name" locationName:"name" min:"1" type:"string"`
 
 	// The status of the robot.
-	Status RobotStatus `locationName:"status" type:"string" enum:"true"`
+	Status RobotStatus `json:"robomaker:Robot:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -814,15 +814,15 @@ type RobotApplicationConfig struct {
 	// The application information for the robot application.
 	//
 	// Application is a required field
-	Application *string `locationName:"application" min:"1" type:"string" required:"true"`
+	Application *string `json:"robomaker:RobotApplicationConfig:Application" locationName:"application" min:"1" type:"string" required:"true"`
 
 	// The version of the robot application.
-	ApplicationVersion *string `locationName:"applicationVersion" min:"1" type:"string"`
+	ApplicationVersion *string `json:"robomaker:RobotApplicationConfig:ApplicationVersion" locationName:"applicationVersion" min:"1" type:"string"`
 
 	// The launch configuration for the robot application.
 	//
 	// LaunchConfig is a required field
-	LaunchConfig *LaunchConfig `locationName:"launchConfig" type:"structure" required:"true"`
+	LaunchConfig *LaunchConfig `json:"robomaker:RobotApplicationConfig:LaunchConfig" locationName:"launchConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -888,20 +888,20 @@ type RobotApplicationSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the robot.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:RobotApplicationSummary:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the robot application was
 	// last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"robomaker:RobotApplicationSummary:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the robot application.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:RobotApplicationSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// Information about a robot software suite.
-	RobotSoftwareSuite *RobotSoftwareSuite `locationName:"robotSoftwareSuite" type:"structure"`
+	RobotSoftwareSuite *RobotSoftwareSuite `json:"robomaker:RobotApplicationSummary:RobotSoftwareSuite" locationName:"robotSoftwareSuite" type:"structure"`
 
 	// The version of the robot application.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"robomaker:RobotApplicationSummary:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -950,25 +950,25 @@ type RobotDeployment struct {
 	_ struct{} `type:"structure"`
 
 	// The robot deployment Amazon Resource Name (ARN).
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:RobotDeployment:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the deployment finished.
-	DeploymentFinishTime *time.Time `locationName:"deploymentFinishTime" type:"timestamp" timestampFormat:"unix"`
+	DeploymentFinishTime *time.Time `json:"robomaker:RobotDeployment:DeploymentFinishTime" locationName:"deploymentFinishTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in milliseconds since the epoch, when the deployment was started.
-	DeploymentStartTime *time.Time `locationName:"deploymentStartTime" type:"timestamp" timestampFormat:"unix"`
+	DeploymentStartTime *time.Time `json:"robomaker:RobotDeployment:DeploymentStartTime" locationName:"deploymentStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The robot deployment failure code.
-	FailureCode DeploymentJobErrorCode `locationName:"failureCode" type:"string" enum:"true"`
+	FailureCode DeploymentJobErrorCode `json:"robomaker:RobotDeployment:FailureCode" locationName:"failureCode" type:"string" enum:"true"`
 
 	// A short description of the reason why the robot deployment failed.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"robomaker:RobotDeployment:FailureReason" locationName:"failureReason" type:"string"`
 
 	// Information about how the deployment is progressing.
-	ProgressDetail *ProgressDetail `locationName:"progressDetail" type:"structure"`
+	ProgressDetail *ProgressDetail `json:"robomaker:RobotDeployment:ProgressDetail" locationName:"progressDetail" type:"structure"`
 
 	// The status of the robot deployment.
-	Status RobotStatus `locationName:"status" type:"string" enum:"true"`
+	Status RobotStatus `json:"robomaker:RobotDeployment:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1029,10 +1029,10 @@ type RobotSoftwareSuite struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the robot software suite.
-	Name RobotSoftwareSuiteType `locationName:"name" type:"string" enum:"true"`
+	Name RobotSoftwareSuiteType `json:"robomaker:RobotSoftwareSuite:Name" locationName:"name" type:"string" enum:"true"`
 
 	// The version of the robot software suite.
-	Version RobotSoftwareSuiteVersionType `locationName:"version" type:"string" enum:"true"`
+	Version RobotSoftwareSuiteVersionType `json:"robomaker:RobotSoftwareSuite:Version" locationName:"version" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1065,15 +1065,15 @@ type SimulationApplicationConfig struct {
 	// The application information for the simulation application.
 	//
 	// Application is a required field
-	Application *string `locationName:"application" min:"1" type:"string" required:"true"`
+	Application *string `json:"robomaker:SimulationApplicationConfig:Application" locationName:"application" min:"1" type:"string" required:"true"`
 
 	// The version of the simulation application.
-	ApplicationVersion *string `locationName:"applicationVersion" min:"1" type:"string"`
+	ApplicationVersion *string `json:"robomaker:SimulationApplicationConfig:ApplicationVersion" locationName:"applicationVersion" min:"1" type:"string"`
 
 	// The launch configuration for the simulation application.
 	//
 	// LaunchConfig is a required field
-	LaunchConfig *LaunchConfig `locationName:"launchConfig" type:"structure" required:"true"`
+	LaunchConfig *LaunchConfig `json:"robomaker:SimulationApplicationConfig:LaunchConfig" locationName:"launchConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1139,23 +1139,23 @@ type SimulationApplicationSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the simulation application.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:SimulationApplicationSummary:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the simulation application
 	// was last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"robomaker:SimulationApplicationSummary:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the simulation application.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:SimulationApplicationSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// Information about a robot software suite.
-	RobotSoftwareSuite *RobotSoftwareSuite `locationName:"robotSoftwareSuite" type:"structure"`
+	RobotSoftwareSuite *RobotSoftwareSuite `json:"robomaker:SimulationApplicationSummary:RobotSoftwareSuite" locationName:"robotSoftwareSuite" type:"structure"`
 
 	// Information about a simulation software suite.
-	SimulationSoftwareSuite *SimulationSoftwareSuite `locationName:"simulationSoftwareSuite" type:"structure"`
+	SimulationSoftwareSuite *SimulationSoftwareSuite `json:"robomaker:SimulationApplicationSummary:SimulationSoftwareSuite" locationName:"simulationSoftwareSuite" type:"structure"`
 
 	// The version of the simulation application.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"robomaker:SimulationApplicationSummary:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1210,10 +1210,10 @@ type SimulationJob struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the simulation job.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:SimulationJob:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// A unique identifier for this SimulationJob request.
-	ClientRequestToken *string `locationName:"clientRequestToken" min:"1" type:"string"`
+	ClientRequestToken *string `json:"robomaker:SimulationJob:ClientRequestToken" locationName:"clientRequestToken" min:"1" type:"string"`
 
 	// The failure behavior the simulation job.
 	//
@@ -1224,55 +1224,55 @@ type SimulationJob struct {
 	// Fail
 	//
 	// Stop the simulation job and terminate the instance.
-	FailureBehavior FailureBehavior `locationName:"failureBehavior" type:"string" enum:"true"`
+	FailureBehavior FailureBehavior `json:"robomaker:SimulationJob:FailureBehavior" locationName:"failureBehavior" type:"string" enum:"true"`
 
 	// The failure code of the simulation job if it failed.
-	FailureCode SimulationJobErrorCode `locationName:"failureCode" type:"string" enum:"true"`
+	FailureCode SimulationJobErrorCode `json:"robomaker:SimulationJob:FailureCode" locationName:"failureCode" type:"string" enum:"true"`
 
 	// The reason why the simulation job failed.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"robomaker:SimulationJob:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The IAM role that allows the simulation instance to call the AWS APIs that
 	// are specified in its associated policies on your behalf. This is how credentials
 	// are passed in to your simulation job.
-	IamRole *string `locationName:"iamRole" min:"1" type:"string"`
+	IamRole *string `json:"robomaker:SimulationJob:IamRole" locationName:"iamRole" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the simulation job was last
 	// started.
-	LastStartedAt *time.Time `locationName:"lastStartedAt" type:"timestamp" timestampFormat:"unix"`
+	LastStartedAt *time.Time `json:"robomaker:SimulationJob:LastStartedAt" locationName:"lastStartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in milliseconds since the epoch, when the simulation job was last
 	// updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"robomaker:SimulationJob:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The maximum simulation job duration in seconds. The value must be 8 days
 	// (691,200 seconds) or less.
-	MaxJobDurationInSeconds *int64 `locationName:"maxJobDurationInSeconds" type:"long"`
+	MaxJobDurationInSeconds *int64 `json:"robomaker:SimulationJob:MaxJobDurationInSeconds" locationName:"maxJobDurationInSeconds" type:"long"`
 
 	// The name of the simulation job.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:SimulationJob:Name" locationName:"name" min:"1" type:"string"`
 
 	// Location for output files generated by the simulation job.
-	OutputLocation *OutputLocation `locationName:"outputLocation" type:"structure"`
+	OutputLocation *OutputLocation `json:"robomaker:SimulationJob:OutputLocation" locationName:"outputLocation" type:"structure"`
 
 	// A list of robot applications.
-	RobotApplications []RobotApplicationConfig `locationName:"robotApplications" min:"1" type:"list"`
+	RobotApplications []RobotApplicationConfig `json:"robomaker:SimulationJob:RobotApplications" locationName:"robotApplications" min:"1" type:"list"`
 
 	// A list of simulation applications.
-	SimulationApplications []SimulationApplicationConfig `locationName:"simulationApplications" min:"1" type:"list"`
+	SimulationApplications []SimulationApplicationConfig `json:"robomaker:SimulationJob:SimulationApplications" locationName:"simulationApplications" min:"1" type:"list"`
 
 	// The simulation job execution duration in milliseconds.
-	SimulationTimeMillis *int64 `locationName:"simulationTimeMillis" type:"long"`
+	SimulationTimeMillis *int64 `json:"robomaker:SimulationJob:SimulationTimeMillis" locationName:"simulationTimeMillis" type:"long"`
 
 	// Status of the simulation job.
-	Status SimulationJobStatus `locationName:"status" type:"string" enum:"true"`
+	Status SimulationJobStatus `json:"robomaker:SimulationJob:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A map that contains tag keys and tag values that are attached to the simulation
 	// job.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:SimulationJob:Tags" locationName:"tags" type:"map"`
 
 	// VPC configuration information.
-	VpcConfig *VPCConfigResponse `locationName:"vpcConfig" type:"structure"`
+	VpcConfig *VPCConfigResponse `json:"robomaker:SimulationJob:VpcConfig" locationName:"vpcConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -1411,23 +1411,23 @@ type SimulationJobSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the simulation job.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:SimulationJobSummary:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the simulation job was last
 	// updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"robomaker:SimulationJobSummary:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the simulation job.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:SimulationJobSummary:Name" locationName:"name" min:"1" type:"string"`
 
 	// A list of simulation job robot application names.
-	RobotApplicationNames []string `locationName:"robotApplicationNames" min:"1" type:"list"`
+	RobotApplicationNames []string `json:"robomaker:SimulationJobSummary:RobotApplicationNames" locationName:"robotApplicationNames" min:"1" type:"list"`
 
 	// A list of simulation job simulation application names.
-	SimulationApplicationNames []string `locationName:"simulationApplicationNames" min:"1" type:"list"`
+	SimulationApplicationNames []string `json:"robomaker:SimulationJobSummary:SimulationApplicationNames" locationName:"simulationApplicationNames" min:"1" type:"list"`
 
 	// The status of the simulation job.
-	Status SimulationJobStatus `locationName:"status" type:"string" enum:"true"`
+	Status SimulationJobStatus `json:"robomaker:SimulationJobSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1494,10 +1494,10 @@ type SimulationSoftwareSuite struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the simulation software suite.
-	Name SimulationSoftwareSuiteType `locationName:"name" type:"string" enum:"true"`
+	Name SimulationSoftwareSuiteType `json:"robomaker:SimulationSoftwareSuite:Name" locationName:"name" type:"string" enum:"true"`
 
 	// The version of the simulation software suite.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"robomaker:SimulationSoftwareSuite:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -1528,16 +1528,16 @@ type Source struct {
 	_ struct{} `type:"structure"`
 
 	// The taget processor architecture for the application.
-	Architecture Architecture `locationName:"architecture" type:"string" enum:"true"`
+	Architecture Architecture `json:"robomaker:Source:Architecture" locationName:"architecture" type:"string" enum:"true"`
 
 	// A hash of the object specified by s3Bucket and s3Key.
-	Etag *string `locationName:"etag" type:"string"`
+	Etag *string `json:"robomaker:Source:Etag" locationName:"etag" type:"string"`
 
 	// The s3 bucket name.
-	S3Bucket *string `locationName:"s3Bucket" min:"3" type:"string"`
+	S3Bucket *string `json:"robomaker:Source:S3Bucket" locationName:"s3Bucket" min:"3" type:"string"`
 
 	// The s3 object key.
-	S3Key *string `locationName:"s3Key" min:"1" type:"string"`
+	S3Key *string `json:"robomaker:Source:S3Key" locationName:"s3Key" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1580,13 +1580,13 @@ type SourceConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The target processor architecture for the application.
-	Architecture Architecture `locationName:"architecture" type:"string" enum:"true"`
+	Architecture Architecture `json:"robomaker:SourceConfig:Architecture" locationName:"architecture" type:"string" enum:"true"`
 
 	// The Amazon S3 bucket name.
-	S3Bucket *string `locationName:"s3Bucket" min:"3" type:"string"`
+	S3Bucket *string `json:"robomaker:SourceConfig:S3Bucket" locationName:"s3Bucket" min:"3" type:"string"`
 
 	// The s3 object key.
-	S3Key *string `locationName:"s3Key" min:"1" type:"string"`
+	S3Key *string `json:"robomaker:SourceConfig:S3Key" locationName:"s3Key" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1642,15 +1642,15 @@ type VPCConfig struct {
 	_ struct{} `type:"structure"`
 
 	// A boolean indicating whether to assign a public IP address.
-	AssignPublicIp *bool `locationName:"assignPublicIp" type:"boolean"`
+	AssignPublicIp *bool `json:"robomaker:VPCConfig:AssignPublicIp" locationName:"assignPublicIp" type:"boolean"`
 
 	// A list of one or more security groups IDs in your VPC.
-	SecurityGroups []string `locationName:"securityGroups" min:"1" type:"list"`
+	SecurityGroups []string `json:"robomaker:VPCConfig:SecurityGroups" locationName:"securityGroups" min:"1" type:"list"`
 
 	// A list of one or more subnet IDs in your VPC.
 	//
 	// Subnets is a required field
-	Subnets []string `locationName:"subnets" min:"1" type:"list" required:"true"`
+	Subnets []string `json:"robomaker:VPCConfig:Subnets" locationName:"subnets" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -1719,16 +1719,16 @@ type VPCConfigResponse struct {
 	_ struct{} `type:"structure"`
 
 	// A boolean indicating if a public IP was assigned.
-	AssignPublicIp *bool `locationName:"assignPublicIp" type:"boolean"`
+	AssignPublicIp *bool `json:"robomaker:VPCConfigResponse:AssignPublicIp" locationName:"assignPublicIp" type:"boolean"`
 
 	// A list of security group IDs associated with the simulation job.
-	SecurityGroups []string `locationName:"securityGroups" min:"1" type:"list"`
+	SecurityGroups []string `json:"robomaker:VPCConfigResponse:SecurityGroups" locationName:"securityGroups" min:"1" type:"list"`
 
 	// A list of subnet IDs associated with the simulation job.
-	Subnets []string `locationName:"subnets" min:"1" type:"list"`
+	Subnets []string `json:"robomaker:VPCConfigResponse:Subnets" locationName:"subnets" min:"1" type:"list"`
 
 	// The VPC ID associated with your simulation job.
-	VpcId *string `locationName:"vpcId" type:"string"`
+	VpcId *string `json:"robomaker:VPCConfigResponse:VpcId" locationName:"vpcId" type:"string"`
 }
 
 // String returns the string representation

@@ -55,12 +55,12 @@ type ResetClusterParameterGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the cluster parameter group.
-	ParameterGroupName *string `type:"string"`
+	ParameterGroupName *string `json:"redshift:ResetClusterParameterGroupOutput:ParameterGroupName" type:"string"`
 
 	// The status of the parameter group. For example, if you made a change to a
 	// parameter group name-value pair, then the change could be pending a reboot
 	// of an associated cluster.
-	ParameterGroupStatus *string `type:"string"`
+	ParameterGroupStatus *string `json:"redshift:ResetClusterParameterGroupOutput:ParameterGroupStatus" type:"string"`
 }
 
 // String returns the string representation

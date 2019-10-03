@@ -54,17 +54,17 @@ func (s DescribeInputSecurityGroupInput) MarshalFields(e protocol.FieldEncoder) 
 type DescribeInputSecurityGroupOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:DescribeInputSecurityGroupOutput:Arn" locationName:"arn" type:"string"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"medialive:DescribeInputSecurityGroupOutput:Id" locationName:"id" type:"string"`
 
-	Inputs []string `locationName:"inputs" type:"list"`
+	Inputs []string `json:"medialive:DescribeInputSecurityGroupOutput:Inputs" locationName:"inputs" type:"list"`
 
-	State InputSecurityGroupState `locationName:"state" type:"string" enum:"true"`
+	State InputSecurityGroupState `json:"medialive:DescribeInputSecurityGroupOutput:State" locationName:"state" type:"string" enum:"true"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:DescribeInputSecurityGroupOutput:Tags" locationName:"tags" type:"map"`
 
-	WhitelistRules []InputWhitelistRule `locationName:"whitelistRules" type:"list"`
+	WhitelistRules []InputWhitelistRule `json:"medialive:DescribeInputSecurityGroupOutput:WhitelistRules" locationName:"whitelistRules" type:"list"`
 }
 
 // String returns the string representation

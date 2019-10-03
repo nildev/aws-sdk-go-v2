@@ -73,13 +73,13 @@ func (s ListConfigurationRevisionsInput) MarshalFields(e protocol.FieldEncoder) 
 type ListConfigurationRevisionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	ConfigurationId *string `locationName:"configurationId" type:"string"`
+	ConfigurationId *string `json:"mq:ListConfigurationRevisionsOutput:ConfigurationId" locationName:"configurationId" type:"string"`
 
-	MaxResults *int64 `locationName:"maxResults" type:"integer"`
+	MaxResults *int64 `json:"mq:ListConfigurationRevisionsOutput:MaxResults" locationName:"maxResults" type:"integer"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mq:ListConfigurationRevisionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
-	Revisions []ConfigurationRevision `locationName:"revisions" type:"list"`
+	Revisions []ConfigurationRevision `json:"mq:ListConfigurationRevisionsOutput:Revisions" locationName:"revisions" type:"list"`
 }
 
 // String returns the string representation

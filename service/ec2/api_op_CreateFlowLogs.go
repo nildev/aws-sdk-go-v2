@@ -116,13 +116,13 @@ type CreateFlowLogsOutput struct {
 
 	// Unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:CreateFlowLogsOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// The IDs of the flow logs.
-	FlowLogIds []string `locationName:"flowLogIdSet" locationNameList:"item" type:"list"`
+	FlowLogIds []string `json:"ec2:CreateFlowLogsOutput:FlowLogIds" locationName:"flowLogIdSet" locationNameList:"item" type:"list"`
 
 	// Information about the flow logs that could not be created successfully.
-	Unsuccessful []UnsuccessfulItem `locationName:"unsuccessful" locationNameList:"item" type:"list"`
+	Unsuccessful []UnsuccessfulItem `json:"ec2:CreateFlowLogsOutput:Unsuccessful" locationName:"unsuccessful" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

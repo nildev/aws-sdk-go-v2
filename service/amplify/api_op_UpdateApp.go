@@ -221,7 +221,7 @@ type UpdateAppOutput struct {
 	// App structure for the updated App.
 	//
 	// App is a required field
-	App *App `locationName:"app" type:"structure" required:"true"`
+	App *App `json:"amplify:UpdateAppOutput:App" locationName:"app" type:"structure" required:"true"`
 }
 
 // String returns the string representation

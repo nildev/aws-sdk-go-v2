@@ -65,7 +65,7 @@ type AssociateRoleToGroupOutput struct {
 
 	// The time, in milliseconds since the epoch, when the role ARN was associated
 	// with the group.
-	AssociatedAt *string `type:"string"`
+	AssociatedAt *string `json:"greengrass:AssociateRoleToGroupOutput:AssociatedAt" type:"string"`
 }
 
 // String returns the string representation

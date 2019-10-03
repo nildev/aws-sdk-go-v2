@@ -71,14 +71,14 @@ type ListQualificationTypesOutput struct {
 	// If the previous response was incomplete (because there is more data to retrieve),
 	// Amazon Mechanical Turk returns a pagination token in the response. You can
 	// use this pagination token to retrieve the next set of results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"mturk-requester:ListQualificationTypesOutput:NextToken" min:"1" type:"string"`
 
 	// The number of Qualification types on this page in the filtered results list,
 	// equivalent to the number of types this operation returns.
-	NumResults *int64 `type:"integer"`
+	NumResults *int64 `json:"mturk-requester:ListQualificationTypesOutput:NumResults" type:"integer"`
 
 	// The list of QualificationType elements returned by the query.
-	QualificationTypes []QualificationType `type:"list"`
+	QualificationTypes []QualificationType `json:"mturk-requester:ListQualificationTypesOutput:QualificationTypes" type:"list"`
 }
 
 // String returns the string representation

@@ -27,34 +27,34 @@ type AttributeValue struct {
 	// A Binary data type.
 	//
 	// B is automatically base64 encoded/decoded by the SDK.
-	B []byte `type:"blob"`
+	B []byte `json:"streams.dynamodb:AttributeValue:B" type:"blob"`
 
 	// A Boolean data type.
-	BOOL *bool `type:"boolean"`
+	BOOL *bool `json:"streams.dynamodb:AttributeValue:BOOL" type:"boolean"`
 
 	// A Binary Set data type.
-	BS [][]byte `type:"list"`
+	BS [][]byte `json:"streams.dynamodb:AttributeValue:BS" type:"list"`
 
 	// A List data type.
-	L []dynamodb.AttributeValue `type:"list"`
+	L []dynamodb.AttributeValue `json:"streams.dynamodb:AttributeValue:L" type:"list"`
 
 	// A Map data type.
-	M map[string]dynamodb.AttributeValue `type:"map"`
+	M map[string]dynamodb.AttributeValue `json:"streams.dynamodb:AttributeValue:M" type:"map"`
 
 	// A Number data type.
-	N *string `type:"string"`
+	N *string `json:"streams.dynamodb:AttributeValue:N" type:"string"`
 
 	// A Number Set data type.
-	NS []string `type:"list"`
+	NS []string `json:"streams.dynamodb:AttributeValue:NS" type:"list"`
 
 	// A Null data type.
-	NULL *bool `type:"boolean"`
+	NULL *bool `json:"streams.dynamodb:AttributeValue:NULL" type:"boolean"`
 
 	// A String data type.
-	S *string `type:"string"`
+	S *string `json:"streams.dynamodb:AttributeValue:S" type:"string"`
 
 	// A String Set data type.
-	SS []string `type:"list"`
+	SS []string `json:"streams.dynamodb:AttributeValue:SS" type:"list"`
 }
 
 // String returns the string representation
@@ -69,10 +69,10 @@ type Identity struct {
 
 	// A unique identifier for the entity that made the call. For Time To Live,
 	// the principalId is "dynamodb.amazonaws.com".
-	PrincipalId *string `type:"string"`
+	PrincipalId *string `json:"streams.dynamodb:Identity:PrincipalId" type:"string"`
 
 	// The type of the identity. For Time To Live, the type is "Service".
-	Type *string `type:"string"`
+	Type *string `json:"streams.dynamodb:Identity:Type" type:"string"`
 }
 
 // String returns the string representation
@@ -104,12 +104,12 @@ type KeySchemaElement struct {
 	// The name of a key attribute.
 	//
 	// AttributeName is a required field
-	AttributeName *string `min:"1" type:"string" required:"true"`
+	AttributeName *string `json:"streams.dynamodb:KeySchemaElement:AttributeName" min:"1" type:"string" required:"true"`
 
 	// The attribute data, consisting of the data type and the attribute value itself.
 	//
 	// KeyType is a required field
-	KeyType KeyType `type:"string" required:"true" enum:"true"`
+	KeyType KeyType `json:"streams.dynamodb:KeySchemaElement:KeyType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -123,15 +123,15 @@ type Record struct {
 	_ struct{} `type:"structure"`
 
 	// The region in which the GetRecords request was received.
-	AwsRegion *string `locationName:"awsRegion" type:"string"`
+	AwsRegion *string `json:"streams.dynamodb:Record:AwsRegion" locationName:"awsRegion" type:"string"`
 
 	// The main body of the stream record, containing all of the DynamoDB-specific
 	// fields.
-	Dynamodb *StreamRecord `locationName:"dynamodb" type:"structure"`
+	Dynamodb *StreamRecord `json:"streams.dynamodb:Record:Dynamodb" locationName:"dynamodb" type:"structure"`
 
 	// A globally unique identifier for the event that was recorded in this stream
 	// record.
-	EventID *string `locationName:"eventID" type:"string"`
+	EventID *string `json:"streams.dynamodb:Record:EventID" locationName:"eventID" type:"string"`
 
 	// The type of data modification that was performed on the DynamoDB table:
 	//
@@ -140,11 +140,11 @@ type Record struct {
 	//    * MODIFY - one or more of an existing item's attributes were modified.
 	//
 	//    * REMOVE - the item was deleted from the table
-	EventName OperationType `locationName:"eventName" type:"string" enum:"true"`
+	EventName OperationType `json:"streams.dynamodb:Record:EventName" locationName:"eventName" type:"string" enum:"true"`
 
 	// The AWS service from which the stream record originated. For DynamoDB Streams,
 	// this is aws:dynamodb.
-	EventSource *string `locationName:"eventSource" type:"string"`
+	EventSource *string `json:"streams.dynamodb:Record:EventSource" locationName:"eventSource" type:"string"`
 
 	// The version number of the stream record format. This number is updated whenever
 	// the structure of Record is modified.
@@ -152,7 +152,7 @@ type Record struct {
 	// Client applications must not assume that eventVersion will remain at a particular
 	// value, as this number is subject to change at any time. In general, eventVersion
 	// will only increase as the low-level DynamoDB Streams API evolves.
-	EventVersion *string `locationName:"eventVersion" type:"string"`
+	EventVersion *string `json:"streams.dynamodb:Record:EventVersion" locationName:"eventVersion" type:"string"`
 
 	// Items that are deleted by the Time to Live process after expiration have
 	// the following fields:
@@ -160,7 +160,7 @@ type Record struct {
 	//    * Records[].userIdentity.type "Service"
 	//
 	//    * Records[].userIdentity.principalId "dynamodb.amazonaws.com"
-	UserIdentity *Identity `locationName:"userIdentity" type:"structure"`
+	UserIdentity *Identity `json:"streams.dynamodb:Record:UserIdentity" locationName:"userIdentity" type:"structure"`
 }
 
 // String returns the string representation
@@ -175,10 +175,10 @@ type SequenceNumberRange struct {
 	_ struct{} `type:"structure"`
 
 	// The last sequence number.
-	EndingSequenceNumber *string `min:"21" type:"string"`
+	EndingSequenceNumber *string `json:"streams.dynamodb:SequenceNumberRange:EndingSequenceNumber" min:"21" type:"string"`
 
 	// The first sequence number.
-	StartingSequenceNumber *string `min:"21" type:"string"`
+	StartingSequenceNumber *string `json:"streams.dynamodb:SequenceNumberRange:StartingSequenceNumber" min:"21" type:"string"`
 }
 
 // String returns the string representation
@@ -192,13 +192,13 @@ type Shard struct {
 	_ struct{} `type:"structure"`
 
 	// The shard ID of the current shard's parent.
-	ParentShardId *string `min:"28" type:"string"`
+	ParentShardId *string `json:"streams.dynamodb:Shard:ParentShardId" min:"28" type:"string"`
 
 	// The range of possible sequence numbers for the shard.
-	SequenceNumberRange *SequenceNumberRange `type:"structure"`
+	SequenceNumberRange *SequenceNumberRange `json:"streams.dynamodb:Shard:SequenceNumberRange" type:"structure"`
 
 	// The system-generated identifier for this shard.
-	ShardId *string `min:"28" type:"string"`
+	ShardId *string `json:"streams.dynamodb:Shard:ShardId" min:"28" type:"string"`
 }
 
 // String returns the string representation
@@ -212,7 +212,7 @@ type Stream struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the stream.
-	StreamArn *string `min:"37" type:"string"`
+	StreamArn *string `json:"streams.dynamodb:Stream:StreamArn" min:"37" type:"string"`
 
 	// A timestamp, in ISO 8601 format, for this stream.
 	//
@@ -226,10 +226,10 @@ type Stream struct {
 	//    * the table name
 	//
 	//    * the StreamLabel
-	StreamLabel *string `type:"string"`
+	StreamLabel *string `json:"streams.dynamodb:Stream:StreamLabel" type:"string"`
 
 	// The DynamoDB table with which the stream is associated.
-	TableName *string `min:"3" type:"string"`
+	TableName *string `json:"streams.dynamodb:Stream:TableName" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -243,10 +243,10 @@ type StreamDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the request to create this stream was issued.
-	CreationRequestDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationRequestDateTime *time.Time `json:"streams.dynamodb:StreamDescription:CreationRequestDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The key attribute(s) of the stream's DynamoDB table.
-	KeySchema []dynamodb.KeySchemaElement `min:"1" type:"list"`
+	KeySchema []dynamodb.KeySchemaElement `json:"streams.dynamodb:StreamDescription:KeySchema" min:"1" type:"list"`
 
 	// The shard ID of the item where the operation stopped, inclusive of the previous
 	// result set. Use this value to start a new operation, excluding this value
@@ -258,13 +258,13 @@ type StreamDescription struct {
 	// If LastEvaluatedShardId is not empty, it does not necessarily mean that there
 	// is more data in the result set. The only way to know when you have reached
 	// the end of the result set is when LastEvaluatedShardId is empty.
-	LastEvaluatedShardId *string `min:"28" type:"string"`
+	LastEvaluatedShardId *string `json:"streams.dynamodb:StreamDescription:LastEvaluatedShardId" min:"28" type:"string"`
 
 	// The shards that comprise the stream.
-	Shards []Shard `type:"list"`
+	Shards []Shard `json:"streams.dynamodb:StreamDescription:Shards" type:"list"`
 
 	// The Amazon Resource Name (ARN) for the stream.
-	StreamArn *string `min:"37" type:"string"`
+	StreamArn *string `json:"streams.dynamodb:StreamDescription:StreamArn" min:"37" type:"string"`
 
 	// A timestamp, in ISO 8601 format, for this stream.
 	//
@@ -278,7 +278,7 @@ type StreamDescription struct {
 	//    * the table name
 	//
 	//    * the StreamLabel
-	StreamLabel *string `type:"string"`
+	StreamLabel *string `json:"streams.dynamodb:StreamDescription:StreamLabel" type:"string"`
 
 	// Indicates the current status of the stream:
 	//
@@ -289,7 +289,7 @@ type StreamDescription struct {
 	//    * DISABLING - Streams is currently being disabled on the DynamoDB table.
 	//
 	//    * DISABLED - the stream is disabled.
-	StreamStatus StreamStatus `type:"string" enum:"true"`
+	StreamStatus StreamStatus `json:"streams.dynamodb:StreamDescription:StreamStatus" type:"string" enum:"true"`
 
 	// Indicates the format of the records within this stream:
 	//
@@ -304,10 +304,10 @@ type StreamDescription struct {
 	//
 	//    * NEW_AND_OLD_IMAGES - both the new and the old images of the items from
 	//    the table.
-	StreamViewType StreamViewType `type:"string" enum:"true"`
+	StreamViewType StreamViewType `json:"streams.dynamodb:StreamDescription:StreamViewType" type:"string" enum:"true"`
 
 	// The DynamoDB table with which the stream is associated.
-	TableName *string `min:"3" type:"string"`
+	TableName *string `json:"streams.dynamodb:StreamDescription:TableName" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -323,22 +323,22 @@ type StreamRecord struct {
 
 	// The approximate date and time when the stream record was created, in UNIX
 	// epoch time (http://www.epochconverter.com/) format.
-	ApproximateCreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ApproximateCreationDateTime *time.Time `json:"streams.dynamodb:StreamRecord:ApproximateCreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The primary key attribute(s) for the DynamoDB item that was modified.
-	Keys map[string]dynamodb.AttributeValue `type:"map"`
+	Keys map[string]dynamodb.AttributeValue `json:"streams.dynamodb:StreamRecord:Keys" type:"map"`
 
 	// The item in the DynamoDB table as it appeared after it was modified.
-	NewImage map[string]dynamodb.AttributeValue `type:"map"`
+	NewImage map[string]dynamodb.AttributeValue `json:"streams.dynamodb:StreamRecord:NewImage" type:"map"`
 
 	// The item in the DynamoDB table as it appeared before it was modified.
-	OldImage map[string]dynamodb.AttributeValue `type:"map"`
+	OldImage map[string]dynamodb.AttributeValue `json:"streams.dynamodb:StreamRecord:OldImage" type:"map"`
 
 	// The sequence number of the stream record.
-	SequenceNumber *string `min:"21" type:"string"`
+	SequenceNumber *string `json:"streams.dynamodb:StreamRecord:SequenceNumber" min:"21" type:"string"`
 
 	// The size of the stream record, in bytes.
-	SizeBytes *int64 `min:"1" type:"long"`
+	SizeBytes *int64 `json:"streams.dynamodb:StreamRecord:SizeBytes" min:"1" type:"long"`
 
 	// The type of data from the modified DynamoDB item that was captured in this
 	// stream record:
@@ -350,7 +350,7 @@ type StreamRecord struct {
 	//    * OLD_IMAGE - the entire item, as it appeared before it was modified.
 	//
 	//    * NEW_AND_OLD_IMAGES - both the new and the old item images of the item.
-	StreamViewType StreamViewType `type:"string" enum:"true"`
+	StreamViewType StreamViewType `json:"streams.dynamodb:StreamRecord:StreamViewType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

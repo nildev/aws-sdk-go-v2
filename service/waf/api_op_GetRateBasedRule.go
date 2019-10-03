@@ -48,7 +48,7 @@ type GetRateBasedRuleOutput struct {
 
 	// Information about the RateBasedRule that you specified in the GetRateBasedRule
 	// request.
-	Rule *RateBasedRule `type:"structure"`
+	Rule *RateBasedRule `json:"waf:GetRateBasedRuleOutput:Rule" type:"structure"`
 }
 
 // String returns the string representation

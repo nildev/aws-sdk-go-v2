@@ -55,11 +55,11 @@ type ModifyInstanceCreditSpecificationOutput struct {
 
 	// Information about the instances whose credit option for CPU usage was successfully
 	// modified.
-	SuccessfulInstanceCreditSpecifications []SuccessfulInstanceCreditSpecificationItem `locationName:"successfulInstanceCreditSpecificationSet" locationNameList:"item" type:"list"`
+	SuccessfulInstanceCreditSpecifications []SuccessfulInstanceCreditSpecificationItem `json:"ec2:ModifyInstanceCreditSpecificationOutput:SuccessfulInstanceCreditSpecifications" locationName:"successfulInstanceCreditSpecificationSet" locationNameList:"item" type:"list"`
 
 	// Information about the instances whose credit option for CPU usage was not
 	// modified.
-	UnsuccessfulInstanceCreditSpecifications []UnsuccessfulInstanceCreditSpecificationItem `locationName:"unsuccessfulInstanceCreditSpecificationSet" locationNameList:"item" type:"list"`
+	UnsuccessfulInstanceCreditSpecifications []UnsuccessfulInstanceCreditSpecificationItem `json:"ec2:ModifyInstanceCreditSpecificationOutput:UnsuccessfulInstanceCreditSpecifications" locationName:"unsuccessfulInstanceCreditSpecificationSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

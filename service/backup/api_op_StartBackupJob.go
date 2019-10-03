@@ -159,16 +159,16 @@ type StartBackupJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Uniquely identifies a request to AWS Backup to back up a resource.
-	BackupJobId *string `type:"string"`
+	BackupJobId *string `json:"backup:StartBackupJobOutput:BackupJobId" type:"string"`
 
 	// The date and time that a backup job is started, in Unix format and Coordinated
 	// Universal Time (UTC). The value of CreationDate is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"backup:StartBackupJobOutput:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An ARN that uniquely identifies a recovery point; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
-	RecoveryPointArn *string `type:"string"`
+	RecoveryPointArn *string `json:"backup:StartBackupJobOutput:RecoveryPointArn" type:"string"`
 }
 
 // String returns the string representation

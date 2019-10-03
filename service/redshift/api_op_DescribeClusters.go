@@ -67,14 +67,14 @@ type DescribeClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of Cluster objects, where each object describes one cluster.
-	Clusters []Cluster `locationNameList:"Cluster" type:"list"`
+	Clusters []Cluster `json:"redshift:DescribeClustersOutput:Clusters" locationNameList:"Cluster" type:"list"`
 
 	// A value that indicates the starting point for the next set of response records
 	// in a subsequent request. If a value is returned in a response, you can retrieve
 	// the next set of records by providing this returned marker value in the Marker
 	// parameter and retrying the command. If the Marker field is empty, all response
 	// records have been retrieved for the request.
-	Marker *string `type:"string"`
+	Marker *string `json:"redshift:DescribeClustersOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

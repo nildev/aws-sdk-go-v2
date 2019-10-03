@@ -60,7 +60,7 @@ type GetAggregateResourceConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a ConfigurationItem object.
-	ConfigurationItem *ConfigurationItem `type:"structure"`
+	ConfigurationItem *ConfigurationItem `json:"config:GetAggregateResourceConfigOutput:ConfigurationItem" type:"structure"`
 }
 
 // String returns the string representation

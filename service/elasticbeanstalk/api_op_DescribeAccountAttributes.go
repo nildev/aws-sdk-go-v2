@@ -24,7 +24,7 @@ type DescribeAccountAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Elastic Beanstalk resource quotas associated with the calling AWS account.
-	ResourceQuotas *ResourceQuotas `type:"structure"`
+	ResourceQuotas *ResourceQuotas `json:"elasticbeanstalk:DescribeAccountAttributesOutput:ResourceQuotas" type:"structure"`
 }
 
 // String returns the string representation

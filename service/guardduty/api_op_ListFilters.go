@@ -87,11 +87,11 @@ type ListFiltersOutput struct {
 	// A list of filter names
 	//
 	// FilterNames is a required field
-	FilterNames []string `locationName:"filterNames" type:"list" required:"true"`
+	FilterNames []string `json:"guardduty:ListFiltersOutput:FilterNames" locationName:"filterNames" type:"list" required:"true"`
 
 	// Pagination parameter to be used on the next list operation to retrieve more
 	// items.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"guardduty:ListFiltersOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

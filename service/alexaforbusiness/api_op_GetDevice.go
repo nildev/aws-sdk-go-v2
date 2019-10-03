@@ -27,7 +27,7 @@ type GetDeviceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the device requested. Required.
-	Device *Device `type:"structure"`
+	Device *Device `json:"a4b:GetDeviceOutput:Device" type:"structure"`
 }
 
 // String returns the string representation

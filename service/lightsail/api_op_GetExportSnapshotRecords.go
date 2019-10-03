@@ -28,11 +28,11 @@ type GetExportSnapshotRecordsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of objects describing the export snapshot records.
-	ExportSnapshotRecords []ExportSnapshotRecord `locationName:"exportSnapshotRecords" type:"list"`
+	ExportSnapshotRecords []ExportSnapshotRecord `json:"lightsail:GetExportSnapshotRecordsOutput:ExportSnapshotRecords" locationName:"exportSnapshotRecords" type:"list"`
 
 	// A token used for advancing to the next page of results of your get relational
 	// database bundles request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetExportSnapshotRecordsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

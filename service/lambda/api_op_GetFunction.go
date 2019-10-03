@@ -84,16 +84,16 @@ type GetFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The deployment package of the function or version.
-	Code *FunctionCodeLocation `type:"structure"`
+	Code *FunctionCodeLocation `json:"lambda:GetFunctionOutput:Code" type:"structure"`
 
 	// The function's reserved concurrency (https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html).
-	Concurrency *Concurrency `type:"structure"`
+	Concurrency *Concurrency `json:"lambda:GetFunctionOutput:Concurrency" type:"structure"`
 
 	// The configuration of the function or version.
-	Configuration *FunctionConfiguration `type:"structure"`
+	Configuration *FunctionConfiguration `json:"lambda:GetFunctionOutput:Configuration" type:"structure"`
 
 	// The function's tags (https://docs.aws.amazon.com/lambda/latest/dg/tagging.html).
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"lambda:GetFunctionOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

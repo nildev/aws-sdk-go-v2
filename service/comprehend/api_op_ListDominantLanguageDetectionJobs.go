@@ -56,10 +56,10 @@ type ListDominantLanguageDetectionJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list containing the properties of each job that is returned.
-	DominantLanguageDetectionJobPropertiesList []DominantLanguageDetectionJobProperties `type:"list"`
+	DominantLanguageDetectionJobPropertiesList []DominantLanguageDetectionJobProperties `json:"comprehend:ListDominantLanguageDetectionJobsOutput:DominantLanguageDetectionJobPropertiesList" type:"list"`
 
 	// Identifies the next page of results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"comprehend:ListDominantLanguageDetectionJobsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

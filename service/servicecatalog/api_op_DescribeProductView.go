@@ -55,10 +55,10 @@ type DescribeProductViewOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Summary information about the product.
-	ProductViewSummary *ProductViewSummary `type:"structure"`
+	ProductViewSummary *ProductViewSummary `json:"servicecatalog:DescribeProductViewOutput:ProductViewSummary" type:"structure"`
 
 	// Information about the provisioning artifacts for the product.
-	ProvisioningArtifacts []ProvisioningArtifact `type:"list"`
+	ProvisioningArtifacts []ProvisioningArtifact `json:"servicecatalog:DescribeProductViewOutput:ProvisioningArtifacts" type:"list"`
 }
 
 // String returns the string representation

@@ -92,7 +92,7 @@ type GetStatisticsOutput struct {
 
 	// The statistics returned by the Fleet Indexing service based on the query
 	// and aggregation field.
-	Statistics *Statistics `locationName:"statistics" type:"structure"`
+	Statistics *Statistics `json:"iot:GetStatisticsOutput:Statistics" locationName:"statistics" type:"structure"`
 }
 
 // String returns the string representation

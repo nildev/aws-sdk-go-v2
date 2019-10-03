@@ -62,7 +62,7 @@ type UpdateVPCEConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about your VPC endpoint configuration.
-	VpceConfiguration *VPCEConfiguration `locationName:"vpceConfiguration" type:"structure"`
+	VpceConfiguration *VPCEConfiguration `json:"devicefarm:UpdateVPCEConfigurationOutput:VpceConfiguration" locationName:"vpceConfiguration" type:"structure"`
 }
 
 // String returns the string representation

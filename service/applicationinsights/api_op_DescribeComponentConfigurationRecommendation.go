@@ -63,7 +63,7 @@ type DescribeComponentConfigurationRecommendationOutput struct {
 
 	// The recommended configuration settings of the component. The value is the
 	// escaped JSON of the configuration.
-	ComponentConfiguration *string `type:"string"`
+	ComponentConfiguration *string `json:"applicationinsights:DescribeComponentConfigurationRecommendationOutput:ComponentConfiguration" type:"string"`
 }
 
 // String returns the string representation

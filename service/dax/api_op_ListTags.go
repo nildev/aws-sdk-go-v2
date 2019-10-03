@@ -49,10 +49,10 @@ type ListTagsOutput struct {
 
 	// If this value is present, there are additional results to be displayed. To
 	// retrieve them, call ListTags again, with NextToken set to this value.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"dax:ListTagsOutput:NextToken" type:"string"`
 
 	// A list of tags currently associated with the DAX cluster.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"dax:ListTagsOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

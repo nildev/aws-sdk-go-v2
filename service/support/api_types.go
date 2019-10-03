@@ -19,10 +19,10 @@ type Attachment struct {
 	// The content of the attachment file.
 	//
 	// Data is automatically base64 encoded/decoded by the SDK.
-	Data []byte `locationName:"data" type:"blob"`
+	Data []byte `json:"support:Attachment:Data" locationName:"data" type:"blob"`
 
 	// The name of the attachment file.
-	FileName *string `locationName:"fileName" type:"string"`
+	FileName *string `json:"support:Attachment:FileName" locationName:"fileName" type:"string"`
 }
 
 // String returns the string representation
@@ -37,10 +37,10 @@ type AttachmentDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the attachment.
-	AttachmentId *string `locationName:"attachmentId" type:"string"`
+	AttachmentId *string `json:"support:AttachmentDetails:AttachmentId" locationName:"attachmentId" type:"string"`
 
 	// The file name of the attachment.
-	FileName *string `locationName:"fileName" type:"string"`
+	FileName *string `json:"support:AttachmentDetails:FileName" locationName:"fileName" type:"string"`
 }
 
 // String returns the string representation
@@ -90,45 +90,45 @@ type CaseDetails struct {
 
 	// The AWS Support case ID requested or returned in the call. The case ID is
 	// an alphanumeric string formatted as shown in this example: case-12345678910-2013-c4c1d2bf33c5cf47
-	CaseId *string `locationName:"caseId" type:"string"`
+	CaseId *string `json:"support:CaseDetails:CaseId" locationName:"caseId" type:"string"`
 
 	// The category of problem for the AWS Support case.
-	CategoryCode *string `locationName:"categoryCode" type:"string"`
+	CategoryCode *string `json:"support:CaseDetails:CategoryCode" locationName:"categoryCode" type:"string"`
 
 	// The email addresses that receive copies of communication about the case.
-	CcEmailAddresses []string `locationName:"ccEmailAddresses" type:"list"`
+	CcEmailAddresses []string `json:"support:CaseDetails:CcEmailAddresses" locationName:"ccEmailAddresses" type:"list"`
 
 	// The ID displayed for the case in the AWS Support Center. This is a numeric
 	// string.
-	DisplayId *string `locationName:"displayId" type:"string"`
+	DisplayId *string `json:"support:CaseDetails:DisplayId" locationName:"displayId" type:"string"`
 
 	// The ISO 639-1 code for the language in which AWS provides support. AWS Support
 	// currently supports English ("en") and Japanese ("ja"). Language parameters
 	// must be passed explicitly for operations that take them.
-	Language *string `locationName:"language" type:"string"`
+	Language *string `json:"support:CaseDetails:Language" locationName:"language" type:"string"`
 
 	// The five most recent communications between you and AWS Support Center, including
 	// the IDs of any attachments to the communications. Also includes a nextToken
 	// that you can use to retrieve earlier communications.
-	RecentCommunications *RecentCaseCommunications `locationName:"recentCommunications" type:"structure"`
+	RecentCommunications *RecentCaseCommunications `json:"support:CaseDetails:RecentCommunications" locationName:"recentCommunications" type:"structure"`
 
 	// The code for the AWS service returned by the call to DescribeServices.
-	ServiceCode *string `locationName:"serviceCode" type:"string"`
+	ServiceCode *string `json:"support:CaseDetails:ServiceCode" locationName:"serviceCode" type:"string"`
 
 	// The code for the severity level returned by the call to DescribeSeverityLevels.
-	SeverityCode *string `locationName:"severityCode" type:"string"`
+	SeverityCode *string `json:"support:CaseDetails:SeverityCode" locationName:"severityCode" type:"string"`
 
 	// The status of the case.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"support:CaseDetails:Status" locationName:"status" type:"string"`
 
 	// The subject line for the case in the AWS Support Center.
-	Subject *string `locationName:"subject" type:"string"`
+	Subject *string `json:"support:CaseDetails:Subject" locationName:"subject" type:"string"`
 
 	// The email address of the account that submitted the case.
-	SubmittedBy *string `locationName:"submittedBy" type:"string"`
+	SubmittedBy *string `json:"support:CaseDetails:SubmittedBy" locationName:"submittedBy" type:"string"`
 
 	// The time that the case was case created in the AWS Support Center.
-	TimeCreated *string `locationName:"timeCreated" type:"string"`
+	TimeCreated *string `json:"support:CaseDetails:TimeCreated" locationName:"timeCreated" type:"string"`
 }
 
 // String returns the string representation
@@ -144,10 +144,10 @@ type Category struct {
 	_ struct{} `type:"structure"`
 
 	// The category code for the support case.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"support:Category:Code" locationName:"code" type:"string"`
 
 	// The category name for the support case.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"support:Category:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -163,20 +163,20 @@ type Communication struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the attachments to the case communication.
-	AttachmentSet []AttachmentDetails `locationName:"attachmentSet" type:"list"`
+	AttachmentSet []AttachmentDetails `json:"support:Communication:AttachmentSet" locationName:"attachmentSet" type:"list"`
 
 	// The text of the communication between the customer and AWS Support.
-	Body *string `locationName:"body" min:"1" type:"string"`
+	Body *string `json:"support:Communication:Body" locationName:"body" min:"1" type:"string"`
 
 	// The AWS Support case ID requested or returned in the call. The case ID is
 	// an alphanumeric string formatted as shown in this example: case-12345678910-2013-c4c1d2bf33c5cf47
-	CaseId *string `locationName:"caseId" type:"string"`
+	CaseId *string `json:"support:Communication:CaseId" locationName:"caseId" type:"string"`
 
 	// The email address of the account that submitted the AWS Support case.
-	SubmittedBy *string `locationName:"submittedBy" type:"string"`
+	SubmittedBy *string `json:"support:Communication:SubmittedBy" locationName:"submittedBy" type:"string"`
 
 	// The time the communication was created.
-	TimeCreated *string `locationName:"timeCreated" type:"string"`
+	TimeCreated *string `json:"support:Communication:TimeCreated" locationName:"timeCreated" type:"string"`
 }
 
 // String returns the string representation
@@ -190,10 +190,10 @@ type RecentCaseCommunications struct {
 	_ struct{} `type:"structure"`
 
 	// The five most recent communications associated with the case.
-	Communications []Communication `locationName:"communications" type:"list"`
+	Communications []Communication `json:"support:RecentCaseCommunications:Communications" locationName:"communications" type:"list"`
 
 	// A resumption point for pagination.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"support:RecentCaseCommunications:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -209,15 +209,15 @@ type Service struct {
 	// A list of categories that describe the type of support issue a case describes.
 	// Categories consist of a category name and a category code. Category names
 	// and codes are passed to AWS Support when you call CreateCase.
-	Categories []Category `locationName:"categories" type:"list"`
+	Categories []Category `json:"support:Service:Categories" locationName:"categories" type:"list"`
 
 	// The code for an AWS service returned by the DescribeServices response. The
 	// name element contains the corresponding friendly name.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"support:Service:Code" locationName:"code" type:"string"`
 
 	// The friendly name for an AWS service. The code element contains the corresponding
 	// code.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"support:Service:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -233,10 +233,10 @@ type SeverityLevel struct {
 
 	// One of four values: "low," "medium," "high," and "urgent". These values correspond
 	// to response times returned to the caller in severityLevel.name.
-	Code *string `locationName:"code" type:"string"`
+	Code *string `json:"support:SeverityLevel:Code" locationName:"code" type:"string"`
 
 	// The name of the severity level that corresponds to the severity level code.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"support:SeverityLevel:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -252,7 +252,7 @@ type TrustedAdvisorCategorySpecificSummary struct {
 
 	// The summary information about cost savings for a Trusted Advisor check that
 	// is in the Cost Optimizing category.
-	CostOptimizing *TrustedAdvisorCostOptimizingSummary `locationName:"costOptimizing" type:"structure"`
+	CostOptimizing *TrustedAdvisorCostOptimizingSummary `json:"support:TrustedAdvisorCategorySpecificSummary:CostOptimizing" locationName:"costOptimizing" type:"structure"`
 }
 
 // String returns the string representation
@@ -268,18 +268,18 @@ type TrustedAdvisorCheckDescription struct {
 	// The category of the Trusted Advisor check.
 	//
 	// Category is a required field
-	Category *string `locationName:"category" type:"string" required:"true"`
+	Category *string `json:"support:TrustedAdvisorCheckDescription:Category" locationName:"category" type:"string" required:"true"`
 
 	// The description of the Trusted Advisor check, which includes the alert criteria
 	// and recommended actions (contains HTML markup).
 	//
 	// Description is a required field
-	Description *string `locationName:"description" type:"string" required:"true"`
+	Description *string `json:"support:TrustedAdvisorCheckDescription:Description" locationName:"description" type:"string" required:"true"`
 
 	// The unique identifier for the Trusted Advisor check.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" type:"string" required:"true"`
+	Id *string `json:"support:TrustedAdvisorCheckDescription:Id" locationName:"id" type:"string" required:"true"`
 
 	// The column headings for the data returned by the Trusted Advisor check. The
 	// order of the headings corresponds to the order of the data in the Metadata
@@ -288,12 +288,12 @@ type TrustedAdvisorCheckDescription struct {
 	// the UI shows just summary data.
 	//
 	// Metadata is a required field
-	Metadata []string `locationName:"metadata" type:"list" required:"true"`
+	Metadata []string `json:"support:TrustedAdvisorCheckDescription:Metadata" locationName:"metadata" type:"list" required:"true"`
 
 	// The display name for the Trusted Advisor check.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"support:TrustedAdvisorCheckDescription:Name" locationName:"name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -309,19 +309,19 @@ type TrustedAdvisorCheckRefreshStatus struct {
 	// The unique identifier for the Trusted Advisor check.
 	//
 	// CheckId is a required field
-	CheckId *string `locationName:"checkId" type:"string" required:"true"`
+	CheckId *string `json:"support:TrustedAdvisorCheckRefreshStatus:CheckId" locationName:"checkId" type:"string" required:"true"`
 
 	// The amount of time, in milliseconds, until the Trusted Advisor check is eligible
 	// for refresh.
 	//
 	// MillisUntilNextRefreshable is a required field
-	MillisUntilNextRefreshable *int64 `locationName:"millisUntilNextRefreshable" type:"long" required:"true"`
+	MillisUntilNextRefreshable *int64 `json:"support:TrustedAdvisorCheckRefreshStatus:MillisUntilNextRefreshable" locationName:"millisUntilNextRefreshable" type:"long" required:"true"`
 
 	// The status of the Trusted Advisor check for which a refresh has been requested:
 	// "none", "enqueued", "processing", "success", or "abandoned".
 	//
 	// Status is a required field
-	Status *string `locationName:"status" type:"string" required:"true"`
+	Status *string `json:"support:TrustedAdvisorCheckRefreshStatus:Status" locationName:"status" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -338,34 +338,34 @@ type TrustedAdvisorCheckResult struct {
 	// is the only category that is currently supported.
 	//
 	// CategorySpecificSummary is a required field
-	CategorySpecificSummary *TrustedAdvisorCategorySpecificSummary `locationName:"categorySpecificSummary" type:"structure" required:"true"`
+	CategorySpecificSummary *TrustedAdvisorCategorySpecificSummary `json:"support:TrustedAdvisorCheckResult:CategorySpecificSummary" locationName:"categorySpecificSummary" type:"structure" required:"true"`
 
 	// The unique identifier for the Trusted Advisor check.
 	//
 	// CheckId is a required field
-	CheckId *string `locationName:"checkId" type:"string" required:"true"`
+	CheckId *string `json:"support:TrustedAdvisorCheckResult:CheckId" locationName:"checkId" type:"string" required:"true"`
 
 	// The details about each resource listed in the check result.
 	//
 	// FlaggedResources is a required field
-	FlaggedResources []TrustedAdvisorResourceDetail `locationName:"flaggedResources" type:"list" required:"true"`
+	FlaggedResources []TrustedAdvisorResourceDetail `json:"support:TrustedAdvisorCheckResult:FlaggedResources" locationName:"flaggedResources" type:"list" required:"true"`
 
 	// Details about AWS resources that were analyzed in a call to Trusted Advisor
 	// DescribeTrustedAdvisorCheckSummaries.
 	//
 	// ResourcesSummary is a required field
-	ResourcesSummary *TrustedAdvisorResourcesSummary `locationName:"resourcesSummary" type:"structure" required:"true"`
+	ResourcesSummary *TrustedAdvisorResourcesSummary `json:"support:TrustedAdvisorCheckResult:ResourcesSummary" locationName:"resourcesSummary" type:"structure" required:"true"`
 
 	// The alert status of the check: "ok" (green), "warning" (yellow), "error"
 	// (red), or "not_available".
 	//
 	// Status is a required field
-	Status *string `locationName:"status" type:"string" required:"true"`
+	Status *string `json:"support:TrustedAdvisorCheckResult:Status" locationName:"status" type:"string" required:"true"`
 
 	// The time of the last refresh of the check.
 	//
 	// Timestamp is a required field
-	Timestamp *string `locationName:"timestamp" type:"string" required:"true"`
+	Timestamp *string `json:"support:TrustedAdvisorCheckResult:Timestamp" locationName:"timestamp" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -383,32 +383,32 @@ type TrustedAdvisorCheckSummary struct {
 	// is the only category that is currently supported.
 	//
 	// CategorySpecificSummary is a required field
-	CategorySpecificSummary *TrustedAdvisorCategorySpecificSummary `locationName:"categorySpecificSummary" type:"structure" required:"true"`
+	CategorySpecificSummary *TrustedAdvisorCategorySpecificSummary `json:"support:TrustedAdvisorCheckSummary:CategorySpecificSummary" locationName:"categorySpecificSummary" type:"structure" required:"true"`
 
 	// The unique identifier for the Trusted Advisor check.
 	//
 	// CheckId is a required field
-	CheckId *string `locationName:"checkId" type:"string" required:"true"`
+	CheckId *string `json:"support:TrustedAdvisorCheckSummary:CheckId" locationName:"checkId" type:"string" required:"true"`
 
 	// Specifies whether the Trusted Advisor check has flagged resources.
-	HasFlaggedResources *bool `locationName:"hasFlaggedResources" type:"boolean"`
+	HasFlaggedResources *bool `json:"support:TrustedAdvisorCheckSummary:HasFlaggedResources" locationName:"hasFlaggedResources" type:"boolean"`
 
 	// Details about AWS resources that were analyzed in a call to Trusted Advisor
 	// DescribeTrustedAdvisorCheckSummaries.
 	//
 	// ResourcesSummary is a required field
-	ResourcesSummary *TrustedAdvisorResourcesSummary `locationName:"resourcesSummary" type:"structure" required:"true"`
+	ResourcesSummary *TrustedAdvisorResourcesSummary `json:"support:TrustedAdvisorCheckSummary:ResourcesSummary" locationName:"resourcesSummary" type:"structure" required:"true"`
 
 	// The alert status of the check: "ok" (green), "warning" (yellow), "error"
 	// (red), or "not_available".
 	//
 	// Status is a required field
-	Status *string `locationName:"status" type:"string" required:"true"`
+	Status *string `json:"support:TrustedAdvisorCheckSummary:Status" locationName:"status" type:"string" required:"true"`
 
 	// The time of the last refresh of the check.
 	//
 	// Timestamp is a required field
-	Timestamp *string `locationName:"timestamp" type:"string" required:"true"`
+	Timestamp *string `json:"support:TrustedAdvisorCheckSummary:Timestamp" locationName:"timestamp" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -426,13 +426,13 @@ type TrustedAdvisorCostOptimizingSummary struct {
 	// are taken.
 	//
 	// EstimatedMonthlySavings is a required field
-	EstimatedMonthlySavings *float64 `locationName:"estimatedMonthlySavings" type:"double" required:"true"`
+	EstimatedMonthlySavings *float64 `json:"support:TrustedAdvisorCostOptimizingSummary:EstimatedMonthlySavings" locationName:"estimatedMonthlySavings" type:"double" required:"true"`
 
 	// The estimated percentage of savings that might be realized if the recommended
 	// actions are taken.
 	//
 	// EstimatedPercentMonthlySavings is a required field
-	EstimatedPercentMonthlySavings *float64 `locationName:"estimatedPercentMonthlySavings" type:"double" required:"true"`
+	EstimatedPercentMonthlySavings *float64 `json:"support:TrustedAdvisorCostOptimizingSummary:EstimatedPercentMonthlySavings" locationName:"estimatedPercentMonthlySavings" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -447,7 +447,7 @@ type TrustedAdvisorResourceDetail struct {
 
 	// Specifies whether the AWS resource was ignored by Trusted Advisor because
 	// it was marked as suppressed by the user.
-	IsSuppressed *bool `locationName:"isSuppressed" type:"boolean"`
+	IsSuppressed *bool `json:"support:TrustedAdvisorResourceDetail:IsSuppressed" locationName:"isSuppressed" type:"boolean"`
 
 	// Additional information about the identified resource. The exact metadata
 	// and its order can be obtained by inspecting the TrustedAdvisorCheckDescription
@@ -456,20 +456,20 @@ type TrustedAdvisorResourceDetail struct {
 	// the UI shows just summary data.
 	//
 	// Metadata is a required field
-	Metadata []string `locationName:"metadata" type:"list" required:"true"`
+	Metadata []string `json:"support:TrustedAdvisorResourceDetail:Metadata" locationName:"metadata" type:"list" required:"true"`
 
 	// The AWS region in which the identified resource is located.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"support:TrustedAdvisorResourceDetail:Region" locationName:"region" type:"string"`
 
 	// The unique identifier for the identified resource.
 	//
 	// ResourceId is a required field
-	ResourceId *string `locationName:"resourceId" type:"string" required:"true"`
+	ResourceId *string `json:"support:TrustedAdvisorResourceDetail:ResourceId" locationName:"resourceId" type:"string" required:"true"`
 
 	// The status code for the resource identified in the Trusted Advisor check.
 	//
 	// Status is a required field
-	Status *string `locationName:"status" type:"string" required:"true"`
+	Status *string `json:"support:TrustedAdvisorResourceDetail:Status" locationName:"status" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -487,24 +487,24 @@ type TrustedAdvisorResourcesSummary struct {
 	// check.
 	//
 	// ResourcesFlagged is a required field
-	ResourcesFlagged *int64 `locationName:"resourcesFlagged" type:"long" required:"true"`
+	ResourcesFlagged *int64 `json:"support:TrustedAdvisorResourcesSummary:ResourcesFlagged" locationName:"resourcesFlagged" type:"long" required:"true"`
 
 	// The number of AWS resources ignored by Trusted Advisor because information
 	// was unavailable.
 	//
 	// ResourcesIgnored is a required field
-	ResourcesIgnored *int64 `locationName:"resourcesIgnored" type:"long" required:"true"`
+	ResourcesIgnored *int64 `json:"support:TrustedAdvisorResourcesSummary:ResourcesIgnored" locationName:"resourcesIgnored" type:"long" required:"true"`
 
 	// The number of AWS resources that were analyzed by the Trusted Advisor check.
 	//
 	// ResourcesProcessed is a required field
-	ResourcesProcessed *int64 `locationName:"resourcesProcessed" type:"long" required:"true"`
+	ResourcesProcessed *int64 `json:"support:TrustedAdvisorResourcesSummary:ResourcesProcessed" locationName:"resourcesProcessed" type:"long" required:"true"`
 
 	// The number of AWS resources ignored by Trusted Advisor because they were
 	// marked as suppressed by the user.
 	//
 	// ResourcesSuppressed is a required field
-	ResourcesSuppressed *int64 `locationName:"resourcesSuppressed" type:"long" required:"true"`
+	ResourcesSuppressed *int64 `json:"support:TrustedAdvisorResourcesSummary:ResourcesSuppressed" locationName:"resourcesSuppressed" type:"long" required:"true"`
 }
 
 // String returns the string representation

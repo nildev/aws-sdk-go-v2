@@ -51,10 +51,10 @@ type BatchDeleteConnectionOutput struct {
 
 	// A map of the names of connections that were not successfully deleted to error
 	// details.
-	Errors map[string]ErrorDetail `type:"map"`
+	Errors map[string]ErrorDetail `json:"glue:BatchDeleteConnectionOutput:Errors" type:"map"`
 
 	// A list of names of the connection definitions that were successfully deleted.
-	Succeeded []string `type:"list"`
+	Succeeded []string `json:"glue:BatchDeleteConnectionOutput:Succeeded" type:"list"`
 }
 
 // String returns the string representation

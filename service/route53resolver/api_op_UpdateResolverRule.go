@@ -60,7 +60,7 @@ type UpdateResolverRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The response to an UpdateResolverRule request.
-	ResolverRule *ResolverRule `type:"structure"`
+	ResolverRule *ResolverRule `json:"route53resolver:UpdateResolverRuleOutput:ResolverRule" type:"structure"`
 }
 
 // String returns the string representation

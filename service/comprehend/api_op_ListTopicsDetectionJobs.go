@@ -56,10 +56,10 @@ type ListTopicsDetectionJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Identifies the next page of results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"comprehend:ListTopicsDetectionJobsOutput:NextToken" min:"1" type:"string"`
 
 	// A list containing the properties of each job that is returned.
-	TopicsDetectionJobPropertiesList []TopicsDetectionJobProperties `type:"list"`
+	TopicsDetectionJobPropertiesList []TopicsDetectionJobProperties `json:"comprehend:ListTopicsDetectionJobsOutput:TopicsDetectionJobPropertiesList" type:"list"`
 }
 
 // String returns the string representation

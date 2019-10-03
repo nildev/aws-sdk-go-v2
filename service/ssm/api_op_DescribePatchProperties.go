@@ -67,10 +67,10 @@ type DescribePatchPropertiesOutput struct {
 
 	// The token for the next set of items to return. (You use this token in the
 	// next call.)
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribePatchPropertiesOutput:NextToken" type:"string"`
 
 	// A list of the properties for patches matching the filter request parameters.
-	Properties []map[string]string `type:"list"`
+	Properties []map[string]string `json:"ssm:DescribePatchPropertiesOutput:Properties" type:"list"`
 }
 
 // String returns the string representation

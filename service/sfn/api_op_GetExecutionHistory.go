@@ -69,14 +69,14 @@ type GetExecutionHistoryOutput struct {
 	// The list of events that occurred in the execution.
 	//
 	// Events is a required field
-	Events []HistoryEvent `locationName:"events" type:"list" required:"true"`
+	Events []HistoryEvent `json:"states:GetExecutionHistoryOutput:Events" locationName:"events" type:"list" required:"true"`
 
 	// If nextToken is returned, there are more results available. The value of
 	// nextToken is a unique pagination token for each page. Make the call again
 	// using the returned token to retrieve the next page. Keep all other arguments
 	// unchanged. Each pagination token expires after 24 hours. Using an expired
 	// pagination token will return an HTTP 400 InvalidToken error.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"states:GetExecutionHistoryOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

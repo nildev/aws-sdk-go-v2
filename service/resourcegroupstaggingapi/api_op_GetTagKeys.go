@@ -31,10 +31,10 @@ type GetTagKeysOutput struct {
 	// A string that indicates that the response contains more data than can be
 	// returned in a single response. To receive additional data, specify this string
 	// for the PaginationToken value in a subsequent request.
-	PaginationToken *string `type:"string"`
+	PaginationToken *string `json:"tagging:GetTagKeysOutput:PaginationToken" type:"string"`
 
 	// A list of all tag keys in the AWS account.
-	TagKeys []string `type:"list"`
+	TagKeys []string `json:"tagging:GetTagKeysOutput:TagKeys" type:"list"`
 }
 
 // String returns the string representation

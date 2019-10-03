@@ -51,12 +51,12 @@ type ListServersOutput struct {
 	// When you can get additional results from the ListServers operation, a NextToken
 	// parameter is returned in the output. In a following command, you can pass
 	// in the NextToken parameter to continue listing additional servers.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"transfer:ListServersOutput:NextToken" min:"1" type:"string"`
 
 	// An array of servers that were listed.
 	//
 	// Servers is a required field
-	Servers []ListedServer `type:"list" required:"true"`
+	Servers []ListedServer `json:"transfer:ListServersOutput:Servers" type:"list" required:"true"`
 }
 
 // String returns the string representation

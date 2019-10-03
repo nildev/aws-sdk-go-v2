@@ -84,11 +84,11 @@ type GetEnabledStandardsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token that is required for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"securityhub:GetEnabledStandardsOutput:NextToken" type:"string"`
 
 	// A list of StandardsSubscriptions objects that include information about the
 	// enabled standards.
-	StandardsSubscriptions []StandardsSubscription `type:"list"`
+	StandardsSubscriptions []StandardsSubscription `json:"securityhub:GetEnabledStandardsOutput:StandardsSubscriptions" type:"list"`
 }
 
 // String returns the string representation

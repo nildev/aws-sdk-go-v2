@@ -27,7 +27,7 @@ type GetAccountPasswordPolicyOutput struct {
 	// A structure that contains details about the account's password policy.
 	//
 	// PasswordPolicy is a required field
-	PasswordPolicy *PasswordPolicy `type:"structure" required:"true"`
+	PasswordPolicy *PasswordPolicy `json:"iam:GetAccountPasswordPolicyOutput:PasswordPolicy" type:"structure" required:"true"`
 }
 
 // String returns the string representation

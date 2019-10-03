@@ -65,10 +65,10 @@ type DescribeEventsOutput struct {
 
 	// A list of events. Each element in the list contains detailed information
 	// about one event.
-	Events []Event `locationNameList:"Event" type:"list"`
+	Events []Event `json:"elasticache:DescribeEventsOutput:Events" locationNameList:"Event" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeEventsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

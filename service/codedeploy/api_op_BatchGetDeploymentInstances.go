@@ -55,10 +55,10 @@ type BatchGetDeploymentInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about errors that might have occurred during the API call.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"codedeploy:BatchGetDeploymentInstancesOutput:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// Information about the instance.
-	InstancesSummary []InstanceSummary `locationName:"instancesSummary" type:"list"`
+	InstancesSummary []InstanceSummary `json:"codedeploy:BatchGetDeploymentInstancesOutput:InstancesSummary" locationName:"instancesSummary" type:"list"`
 }
 
 // String returns the string representation

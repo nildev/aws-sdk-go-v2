@@ -105,7 +105,7 @@ type UpdateServiceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of your service following the update call.
-	Service *Service `locationName:"service" type:"structure"`
+	Service *Service `json:"ecs:UpdateServiceOutput:Service" locationName:"service" type:"structure"`
 }
 
 // String returns the string representation

@@ -76,21 +76,21 @@ type ListBucketMetricsConfigurationsOutput struct {
 
 	// The marker that is used as a starting point for this metrics configuration
 	// list response. This value is present if it was sent in the request.
-	ContinuationToken *string `type:"string"`
+	ContinuationToken *string `json:"s3:ListBucketMetricsConfigurationsOutput:ContinuationToken" type:"string"`
 
 	// Indicates whether the returned list of metrics configurations is complete.
 	// A value of true indicates that the list is not complete and the NextContinuationToken
 	// will be provided for a subsequent request.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"s3:ListBucketMetricsConfigurationsOutput:IsTruncated" type:"boolean"`
 
 	// The list of metrics configurations for a bucket.
-	MetricsConfigurationList []MetricsConfiguration `locationName:"MetricsConfiguration" type:"list" flattened:"true"`
+	MetricsConfigurationList []MetricsConfiguration `json:"s3:ListBucketMetricsConfigurationsOutput:MetricsConfigurationList" locationName:"MetricsConfiguration" type:"list" flattened:"true"`
 
 	// The marker used to continue a metrics configuration listing that has been
 	// truncated. Use the NextContinuationToken from a previously truncated list
 	// response to continue the listing. The continuation token is an opaque value
 	// that Amazon S3 understands.
-	NextContinuationToken *string `type:"string"`
+	NextContinuationToken *string `json:"s3:ListBucketMetricsConfigurationsOutput:NextContinuationToken" type:"string"`
 }
 
 // String returns the string representation

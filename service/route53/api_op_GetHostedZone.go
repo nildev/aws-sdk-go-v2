@@ -59,17 +59,17 @@ type GetHostedZoneOutput struct {
 
 	// A complex type that lists the Amazon Route 53 name servers for the specified
 	// hosted zone.
-	DelegationSet *DelegationSet `type:"structure"`
+	DelegationSet *DelegationSet `json:"route53:GetHostedZoneOutput:DelegationSet" type:"structure"`
 
 	// A complex type that contains general information about the specified hosted
 	// zone.
 	//
 	// HostedZone is a required field
-	HostedZone *HostedZone `type:"structure" required:"true"`
+	HostedZone *HostedZone `json:"route53:GetHostedZoneOutput:HostedZone" type:"structure" required:"true"`
 
 	// A complex type that contains information about the VPCs that are associated
 	// with the specified hosted zone.
-	VPCs []VPC `locationNameList:"VPC" min:"1" type:"list"`
+	VPCs []VPC `json:"route53:GetHostedZoneOutput:VPCs" locationNameList:"VPC" min:"1" type:"list"`
 }
 
 // String returns the string representation

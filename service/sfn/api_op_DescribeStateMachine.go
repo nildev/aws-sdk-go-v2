@@ -49,13 +49,13 @@ type DescribeStateMachineOutput struct {
 	// The date the state machine is created.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"states:DescribeStateMachineOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The Amazon States Language definition of the state machine. See Amazon States
 	// Language (https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html).
 	//
 	// Definition is a required field
-	Definition *string `locationName:"definition" min:"1" type:"string" required:"true"`
+	Definition *string `json:"states:DescribeStateMachineOutput:Definition" locationName:"definition" min:"1" type:"string" required:"true"`
 
 	// The name of the state machine.
 	//
@@ -72,22 +72,22 @@ type DescribeStateMachineOutput struct {
 	//    * control characters (U+0000-001F, U+007F-009F)
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"states:DescribeStateMachineOutput:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the IAM role used when creating this state
 	// machine. (The IAM role maintains security by granting Step Functions access
 	// to AWS resources.)
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"1" type:"string" required:"true"`
+	RoleArn *string `json:"states:DescribeStateMachineOutput:RoleArn" locationName:"roleArn" min:"1" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) that identifies the state machine.
 	//
 	// StateMachineArn is a required field
-	StateMachineArn *string `locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
+	StateMachineArn *string `json:"states:DescribeStateMachineOutput:StateMachineArn" locationName:"stateMachineArn" min:"1" type:"string" required:"true"`
 
 	// The current status of the state machine.
-	Status StateMachineStatus `locationName:"status" type:"string" enum:"true"`
+	Status StateMachineStatus `json:"states:DescribeStateMachineOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

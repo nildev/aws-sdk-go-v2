@@ -104,7 +104,7 @@ type CreateAccountOutput struct {
 	// check the AWS CloudTrail log for the CreateAccountResult event. For more
 	// information, see Monitoring the Activity in Your Organization (http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html)
 	// in the AWS Organizations User Guide.
-	CreateAccountStatus *CreateAccountStatus `type:"structure"`
+	CreateAccountStatus *CreateAccountStatus `json:"organizations:CreateAccountOutput:CreateAccountStatus" type:"structure"`
 }
 
 // String returns the string representation

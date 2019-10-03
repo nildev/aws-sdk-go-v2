@@ -92,7 +92,7 @@ type DescribeStorediSCSIVolumesOutput struct {
 	//
 	//    * VolumeType: One of the enumeration values describing the type of the
 	//    volume. Currently, on STORED volumes are supported.
-	StorediSCSIVolumes []StorediSCSIVolume `type:"list"`
+	StorediSCSIVolumes []StorediSCSIVolume `json:"storagegateway:DescribeStorediSCSIVolumesOutput:StorediSCSIVolumes" type:"list"`
 }
 
 // String returns the string representation

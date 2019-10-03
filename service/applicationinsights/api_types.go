@@ -19,17 +19,17 @@ type ApplicationComponent struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the component.
-	ComponentName *string `type:"string"`
+	ComponentName *string `json:"applicationinsights:ApplicationComponent:ComponentName" type:"string"`
 
 	// Indicates whether the application component is monitored.
-	Monitor *bool `type:"boolean"`
+	Monitor *bool `json:"applicationinsights:ApplicationComponent:Monitor" type:"boolean"`
 
 	// The resource type. Supported resource types include EC2 instances, Auto Scaling
 	// group, Classic ELB, Application ELB, and SQS Queue.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"applicationinsights:ApplicationComponent:ResourceType" type:"string"`
 
 	// The stack tier of the application component.
-	Tier *string `type:"string"`
+	Tier *string `json:"applicationinsights:ApplicationComponent:Tier" type:"string"`
 }
 
 // String returns the string representation
@@ -43,14 +43,14 @@ type ApplicationInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The lifecycle of the application.
-	LifeCycle *string `type:"string"`
+	LifeCycle *string `json:"applicationinsights:ApplicationInfo:LifeCycle" type:"string"`
 
 	// The issues on the user side that are blocking Application Insights from fully
 	// monitoring the application.
-	Remarks *string `type:"string"`
+	Remarks *string `json:"applicationinsights:ApplicationInfo:Remarks" type:"string"`
 
 	// The name of the resource group used for the application.
-	ResourceGroupName *string `type:"string"`
+	ResourceGroupName *string `json:"applicationinsights:ApplicationInfo:ResourceGroupName" type:"string"`
 }
 
 // String returns the string representation
@@ -64,44 +64,44 @@ type Observation struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the observation ended, in epoch seconds.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"applicationinsights:Observation:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the observation type.
-	Id *string `type:"string"`
+	Id *string `json:"applicationinsights:Observation:Id" type:"string"`
 
 	// The timestamp in the CloudWatch Logs that specifies when the matched line
 	// occurred.
-	LineTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LineTime *time.Time `json:"applicationinsights:Observation:LineTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The log filter of the observation.
-	LogFilter LogFilter `type:"string" enum:"true"`
+	LogFilter LogFilter `json:"applicationinsights:Observation:LogFilter" type:"string" enum:"true"`
 
 	// The log group name.
-	LogGroup *string `type:"string"`
+	LogGroup *string `json:"applicationinsights:Observation:LogGroup" type:"string"`
 
 	// The log text of the observation.
-	LogText *string `type:"string"`
+	LogText *string `json:"applicationinsights:Observation:LogText" type:"string"`
 
 	// The name of the observation metric.
-	MetricName *string `type:"string"`
+	MetricName *string `json:"applicationinsights:Observation:MetricName" type:"string"`
 
 	// The namespace of the observation metric.
-	MetricNamespace *string `type:"string"`
+	MetricNamespace *string `json:"applicationinsights:Observation:MetricNamespace" type:"string"`
 
 	// The source resource ARN of the observation.
-	SourceARN *string `type:"string"`
+	SourceARN *string `json:"applicationinsights:Observation:SourceARN" type:"string"`
 
 	// The source type of the observation.
-	SourceType *string `type:"string"`
+	SourceType *string `json:"applicationinsights:Observation:SourceType" type:"string"`
 
 	// The time when the observation was first detected, in epoch seconds.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"applicationinsights:Observation:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The unit of the source observation metric.
-	Unit *string `type:"string"`
+	Unit *string `json:"applicationinsights:Observation:Unit" type:"string"`
 
 	// The value of the source observation metric.
-	Value *float64 `type:"double"`
+	Value *float64 `json:"applicationinsights:Observation:Value" type:"double"`
 }
 
 // String returns the string representation
@@ -115,34 +115,34 @@ type Problem struct {
 	_ struct{} `type:"structure"`
 
 	// The resource affected by the problem.
-	AffectedResource *string `type:"string"`
+	AffectedResource *string `json:"applicationinsights:Problem:AffectedResource" type:"string"`
 
 	// The time when the problem ended, in epoch seconds.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"applicationinsights:Problem:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Feedback provided by the user about the problem.
-	Feedback map[string]FeedbackValue `type:"map"`
+	Feedback map[string]FeedbackValue `json:"applicationinsights:Problem:Feedback" type:"map"`
 
 	// The ID of the problem.
-	Id *string `type:"string"`
+	Id *string `json:"applicationinsights:Problem:Id" type:"string"`
 
 	// A detailed analysis of the problem using machine learning.
-	Insights *string `type:"string"`
+	Insights *string `json:"applicationinsights:Problem:Insights" type:"string"`
 
 	// The name of the resource group affected by the problem.
-	ResourceGroupName *string `type:"string"`
+	ResourceGroupName *string `json:"applicationinsights:Problem:ResourceGroupName" type:"string"`
 
 	// A measure of the level of impact of the problem.
-	SeverityLevel SeverityLevel `type:"string" enum:"true"`
+	SeverityLevel SeverityLevel `json:"applicationinsights:Problem:SeverityLevel" type:"string" enum:"true"`
 
 	// The time when the problem started, in epoch seconds.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"applicationinsights:Problem:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the problem.
-	Status Status `type:"string" enum:"true"`
+	Status Status `json:"applicationinsights:Problem:Status" type:"string" enum:"true"`
 
 	// The name of the problem.
-	Title *string `type:"string"`
+	Title *string `json:"applicationinsights:Problem:Title" type:"string"`
 }
 
 // String returns the string representation
@@ -156,7 +156,7 @@ type RelatedObservations struct {
 	_ struct{} `type:"structure"`
 
 	// The list of observations related to the problem.
-	ObservationList []Observation `type:"list"`
+	ObservationList []Observation `json:"applicationinsights:RelatedObservations:ObservationList" type:"list"`
 }
 
 // String returns the string representation

@@ -123,7 +123,7 @@ type GetObjectAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes that are associated with the object.
-	Attributes []AttributeKeyAndValue `type:"list"`
+	Attributes []AttributeKeyAndValue `json:"clouddirectory:GetObjectAttributesOutput:Attributes" type:"list"`
 }
 
 // String returns the string representation

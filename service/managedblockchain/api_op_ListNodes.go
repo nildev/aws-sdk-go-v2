@@ -109,11 +109,11 @@ type ListNodesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"managedblockchain:ListNodesOutput:NextToken" type:"string"`
 
 	// An array of NodeSummary objects that contain configuration properties for
 	// each node.
-	Nodes []NodeSummary `type:"list"`
+	Nodes []NodeSummary `json:"managedblockchain:ListNodesOutput:Nodes" type:"list"`
 }
 
 // String returns the string representation

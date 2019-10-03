@@ -83,12 +83,12 @@ type GetUpgradeHistoryOutput struct {
 
 	// Pagination token that needs to be supplied to the next call to get the next
 	// page of results
-	NextToken *string `type:"string"`
+	NextToken *string `json:"es:GetUpgradeHistoryOutput:NextToken" type:"string"`
 
 	// A list of UpgradeHistory objects corresponding to each Upgrade or Upgrade
 	// Eligibility Check performed on a domain returned as part of GetUpgradeHistoryResponse
 	// object.
-	UpgradeHistories []UpgradeHistory `type:"list"`
+	UpgradeHistories []UpgradeHistory `json:"es:GetUpgradeHistoryOutput:UpgradeHistories" type:"list"`
 }
 
 // String returns the string representation

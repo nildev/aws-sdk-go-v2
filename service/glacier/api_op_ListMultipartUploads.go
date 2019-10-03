@@ -101,10 +101,10 @@ type ListMultipartUploadsOutput struct {
 	// An opaque string that represents where to continue pagination of the results.
 	// You use the marker in a new List Multipart Uploads request to obtain more
 	// uploads in the list. If there are no more uploads, this value is null.
-	Marker *string `type:"string"`
+	Marker *string `json:"glacier:ListMultipartUploadsOutput:Marker" type:"string"`
 
 	// A list of in-progress multipart uploads.
-	UploadsList []UploadListElement `type:"list"`
+	UploadsList []UploadListElement `json:"glacier:ListMultipartUploadsOutput:UploadsList" type:"list"`
 }
 
 // String returns the string representation

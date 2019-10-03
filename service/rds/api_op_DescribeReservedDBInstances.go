@@ -95,10 +95,10 @@ type DescribeReservedDBInstancesOutput struct {
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeReservedDBInstancesOutput:Marker" type:"string"`
 
 	// A list of reserved DB instances.
-	ReservedDBInstances []ReservedDBInstance `locationNameList:"ReservedDBInstance" type:"list"`
+	ReservedDBInstances []ReservedDBInstance `json:"rds:DescribeReservedDBInstancesOutput:ReservedDBInstances" locationNameList:"ReservedDBInstance" type:"list"`
 }
 
 // String returns the string representation

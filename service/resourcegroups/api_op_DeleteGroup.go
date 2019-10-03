@@ -59,7 +59,7 @@ type DeleteGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A full description of the deleted resource group.
-	Group *Group `type:"structure"`
+	Group *Group `json:"resource-groups:DeleteGroupOutput:Group" type:"structure"`
 }
 
 // String returns the string representation

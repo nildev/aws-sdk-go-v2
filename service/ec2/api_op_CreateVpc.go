@@ -66,7 +66,7 @@ type CreateVpcOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the VPC.
-	Vpc *Vpc `locationName:"vpc" type:"structure"`
+	Vpc *Vpc `json:"ec2:CreateVpcOutput:Vpc" locationName:"vpc" type:"structure"`
 }
 
 // String returns the string representation

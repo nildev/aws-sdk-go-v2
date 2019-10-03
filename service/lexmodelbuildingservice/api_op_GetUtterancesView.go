@@ -100,12 +100,12 @@ type GetUtterancesViewOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the bot for which utterance information was returned.
-	BotName *string `locationName:"botName" min:"2" type:"string"`
+	BotName *string `json:"models.lex:GetUtterancesViewOutput:BotName" locationName:"botName" min:"2" type:"string"`
 
 	// An array of UtteranceList objects, each containing a list of UtteranceData
 	// objects describing the utterances that were processed by your bot. The response
 	// contains a maximum of 100 UtteranceData objects for each version.
-	Utterances []UtteranceList `locationName:"utterances" type:"list"`
+	Utterances []UtteranceList `json:"models.lex:GetUtterancesViewOutput:Utterances" locationName:"utterances" type:"list"`
 }
 
 // String returns the string representation

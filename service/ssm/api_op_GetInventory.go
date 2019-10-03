@@ -89,11 +89,11 @@ type GetInventoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Collection of inventory entities such as a collection of instance inventory.
-	Entities []InventoryResultEntity `type:"list"`
+	Entities []InventoryResultEntity `json:"ssm:GetInventoryOutput:Entities" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:GetInventoryOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

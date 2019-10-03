@@ -71,10 +71,10 @@ type RegisterThingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// .
-	CertificatePem *string `locationName:"certificatePem" min:"1" type:"string"`
+	CertificatePem *string `json:"iot:RegisterThingOutput:CertificatePem" locationName:"certificatePem" min:"1" type:"string"`
 
 	// ARNs for the generated resources.
-	ResourceArns map[string]string `locationName:"resourceArns" type:"map"`
+	ResourceArns map[string]string `json:"iot:RegisterThingOutput:ResourceArns" locationName:"resourceArns" type:"map"`
 }
 
 // String returns the string representation

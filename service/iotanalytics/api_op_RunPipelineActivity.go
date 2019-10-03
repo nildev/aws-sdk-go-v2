@@ -89,12 +89,12 @@ type RunPipelineActivityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// In case the pipeline activity fails, the log message that is generated.
-	LogResult *string `locationName:"logResult" type:"string"`
+	LogResult *string `json:"iotanalytics:RunPipelineActivityOutput:LogResult" locationName:"logResult" type:"string"`
 
 	// The enriched or transformed sample message payloads as base64-encoded strings.
 	// (The results of running the pipeline activity on each input sample message
 	// payload, encoded in base64.)
-	Payloads [][]byte `locationName:"payloads" min:"1" type:"list"`
+	Payloads [][]byte `json:"iotanalytics:RunPipelineActivityOutput:Payloads" locationName:"payloads" min:"1" type:"list"`
 }
 
 // String returns the string representation

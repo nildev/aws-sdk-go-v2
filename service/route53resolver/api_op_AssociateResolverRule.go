@@ -64,7 +64,7 @@ type AssociateResolverRuleOutput struct {
 
 	// Information about the AssociateResolverRule request, including the status
 	// of the request.
-	ResolverRuleAssociation *ResolverRuleAssociation `type:"structure"`
+	ResolverRuleAssociation *ResolverRuleAssociation `json:"route53resolver:AssociateResolverRuleOutput:ResolverRuleAssociation" type:"structure"`
 }
 
 // String returns the string representation

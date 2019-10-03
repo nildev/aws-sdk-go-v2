@@ -46,10 +46,10 @@ type BatchGetNamedQueryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the named query IDs submitted.
-	NamedQueries []NamedQuery `type:"list"`
+	NamedQueries []NamedQuery `json:"athena:BatchGetNamedQueryOutput:NamedQueries" type:"list"`
 
 	// Information about provided query IDs.
-	UnprocessedNamedQueryIds []UnprocessedNamedQueryId `type:"list"`
+	UnprocessedNamedQueryIds []UnprocessedNamedQueryId `json:"athena:BatchGetNamedQueryOutput:UnprocessedNamedQueryIds" type:"list"`
 }
 
 // String returns the string representation

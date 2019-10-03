@@ -61,7 +61,7 @@ type GetBucketPolicyOutput struct {
 	_ struct{} `type:"structure" payload:"Policy"`
 
 	// The bucket policy as a JSON document.
-	Policy *string `type:"string"`
+	Policy *string `json:"s3:GetBucketPolicyOutput:Policy" type:"string"`
 }
 
 // String returns the string representation

@@ -137,14 +137,14 @@ type DescribeFolderContentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The documents in the specified folder.
-	Documents []DocumentMetadata `type:"list"`
+	Documents []DocumentMetadata `json:"workdocs:DescribeFolderContentsOutput:Documents" type:"list"`
 
 	// The subfolders in the specified folder.
-	Folders []FolderMetadata `type:"list"`
+	Folders []FolderMetadata `json:"workdocs:DescribeFolderContentsOutput:Folders" type:"list"`
 
 	// The marker to use when requesting the next set of results. If there are no
 	// additional results, the string is empty.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeFolderContentsOutput:Marker" min:"1" type:"string"`
 }
 
 // String returns the string representation

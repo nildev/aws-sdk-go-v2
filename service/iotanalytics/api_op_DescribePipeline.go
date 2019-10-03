@@ -59,7 +59,7 @@ type DescribePipelineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A "Pipeline" object that contains information about the pipeline.
-	Pipeline *Pipeline `locationName:"pipeline" type:"structure"`
+	Pipeline *Pipeline `json:"iotanalytics:DescribePipelineOutput:Pipeline" locationName:"pipeline" type:"structure"`
 }
 
 // String returns the string representation

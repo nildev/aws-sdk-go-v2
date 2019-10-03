@@ -26,7 +26,7 @@ type DescribeEndpointsOutput struct {
 	// List of endpoints.
 	//
 	// Endpoints is a required field
-	Endpoints []Endpoint `type:"list" required:"true"`
+	Endpoints []Endpoint `json:"dynamodb:DescribeEndpointsOutput:Endpoints" type:"list" required:"true"`
 }
 
 // String returns the string representation

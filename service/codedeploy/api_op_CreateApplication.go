@@ -57,7 +57,7 @@ type CreateApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique application ID.
-	ApplicationId *string `locationName:"applicationId" type:"string"`
+	ApplicationId *string `json:"codedeploy:CreateApplicationOutput:ApplicationId" locationName:"applicationId" type:"string"`
 }
 
 // String returns the string representation

@@ -65,19 +65,19 @@ type Block struct {
 	//    * SELECTION_ELEMENT - A selectable element such as a radio button or checkbox
 	//    that's detected on a document page. Use the value of SelectionStatus to
 	//    determine the status of the selection element.
-	BlockType BlockType `type:"string" enum:"true"`
+	BlockType BlockType `json:"textract:Block:BlockType" type:"string" enum:"true"`
 
 	// The column in which a table cell appears. The first column position is 1.
 	// ColumnIndex isn't returned by DetectDocumentText and GetDocumentTextDetection.
-	ColumnIndex *int64 `type:"integer"`
+	ColumnIndex *int64 `json:"textract:Block:ColumnIndex" type:"integer"`
 
 	// The number of columns that a table cell spans. ColumnSpan isn't returned
 	// by DetectDocumentText and GetDocumentTextDetection.
-	ColumnSpan *int64 `type:"integer"`
+	ColumnSpan *int64 `json:"textract:Block:ColumnSpan" type:"integer"`
 
 	// The confidence that Amazon Textract has in the accuracy of the recognized
 	// text and the accuracy of the geometry points around the recognized text.
-	Confidence *float64 `type:"float"`
+	Confidence *float64 `json:"textract:Block:Confidence" type:"float"`
 
 	// The type of entity. The following can be returned:
 	//
@@ -86,16 +86,16 @@ type Block struct {
 	//    * VALUE - The field text.
 	//
 	// EntityTypes isn't returned by DetectDocumentText and GetDocumentTextDetection.
-	EntityTypes []EntityType `type:"list"`
+	EntityTypes []EntityType `json:"textract:Block:EntityTypes" type:"list"`
 
 	// The location of the recognized text on the image. It includes an axis-aligned,
 	// coarse bounding box that surrounds the text, and a finer-grain polygon for
 	// more accurate spatial information.
-	Geometry *Geometry `type:"structure"`
+	Geometry *Geometry `json:"textract:Block:Geometry" type:"structure"`
 
 	// The identifier for the recognized text. The identifier is only unique for
 	// a single operation.
-	Id *string `type:"string"`
+	Id *string `json:"textract:Block:Id" type:"string"`
 
 	// The page in which a block was detected. Page is returned by asynchronous
 	// operations. Page values greater than 1 are only returned for multi-page documents
@@ -103,7 +103,7 @@ type Block struct {
 	// document pages, is always considered to be a single-page document and the
 	// value of Page is always 1. Synchronous operations don't return Page as every
 	// input document is considered to be a single-page document.
-	Page *int64 `type:"integer"`
+	Page *int64 `json:"textract:Block:Page" type:"integer"`
 
 	// A list of child blocks of the current block. For example a LINE object has
 	// child blocks for each WORD block that's part of the line of text. There aren't
@@ -113,21 +113,21 @@ type Block struct {
 	//    * 0 - The block has no child blocks.
 	//
 	//    * 1 - The block has child blocks.
-	Relationships []Relationship `type:"list"`
+	Relationships []Relationship `json:"textract:Block:Relationships" type:"list"`
 
 	// The row in which a table cell is located. The first row position is 1. RowIndex
 	// isn't returned by DetectDocumentText and GetDocumentTextDetection.
-	RowIndex *int64 `type:"integer"`
+	RowIndex *int64 `json:"textract:Block:RowIndex" type:"integer"`
 
 	// The number of rows that a table spans. RowSpan isn't returned by DetectDocumentText
 	// and GetDocumentTextDetection.
-	RowSpan *int64 `type:"integer"`
+	RowSpan *int64 `json:"textract:Block:RowSpan" type:"integer"`
 
 	// The selection status of a selectable element such as a radio button or checkbox.
-	SelectionStatus SelectionStatus `type:"string" enum:"true"`
+	SelectionStatus SelectionStatus `json:"textract:Block:SelectionStatus" type:"string" enum:"true"`
 
 	// The word or line of text that's recognized by Amazon Textract.
-	Text *string `type:"string"`
+	Text *string `json:"textract:Block:Text" type:"string"`
 }
 
 // String returns the string representation
@@ -154,18 +154,18 @@ type BoundingBox struct {
 	_ struct{} `type:"structure"`
 
 	// The height of the bounding box as a ratio of the overall document page height.
-	Height *float64 `type:"float"`
+	Height *float64 `json:"textract:BoundingBox:Height" type:"float"`
 
 	// The left coordinate of the bounding box as a ratio of overall document page
 	// width.
-	Left *float64 `type:"float"`
+	Left *float64 `json:"textract:BoundingBox:Left" type:"float"`
 
 	// The top coordinate of the bounding box as a ratio of overall document page
 	// height.
-	Top *float64 `type:"float"`
+	Top *float64 `json:"textract:BoundingBox:Top" type:"float"`
 
 	// The width of the bounding box as a ratio of the overall document page width.
-	Width *float64 `type:"float"`
+	Width *float64 `json:"textract:BoundingBox:Width" type:"float"`
 }
 
 // String returns the string representation
@@ -207,11 +207,11 @@ type Document struct {
 	// base64-encode image bytes passed using the Bytes field.
 	//
 	// Bytes is automatically base64 encoded/decoded by the SDK.
-	Bytes []byte `min:"1" type:"blob"`
+	Bytes []byte `json:"textract:Document:Bytes" min:"1" type:"blob"`
 
 	// Identifies an S3 object as the document source. The maximum size of a document
 	// stored in an S3 bucket is 5 MB.
-	S3Object *S3Object `type:"structure"`
+	S3Object *S3Object `json:"textract:Document:S3Object" type:"structure"`
 }
 
 // String returns the string representation
@@ -247,7 +247,7 @@ type DocumentLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon S3 bucket that contains the input document.
-	S3Object *S3Object `type:"structure"`
+	S3Object *S3Object `json:"textract:DocumentLocation:S3Object" type:"structure"`
 }
 
 // String returns the string representation
@@ -276,7 +276,7 @@ type DocumentMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The number of pages detected in the document.
-	Pages *int64 `type:"integer"`
+	Pages *int64 `json:"textract:DocumentMetadata:Pages" type:"integer"`
 }
 
 // String returns the string representation
@@ -292,10 +292,10 @@ type Geometry struct {
 
 	// An axis-aligned coarse representation of the location of the recognized text
 	// on the document page.
-	BoundingBox *BoundingBox `type:"structure"`
+	BoundingBox *BoundingBox `json:"textract:Geometry:BoundingBox" type:"structure"`
 
 	// Within the bounding box, a fine-grained polygon around the recognized text.
-	Polygon []Point `type:"list"`
+	Polygon []Point `json:"textract:Geometry:Polygon" type:"list"`
 }
 
 // String returns the string representation
@@ -314,12 +314,12 @@ type NotificationChannel struct {
 	// publishing permissions to the Amazon SNS topic.
 	//
 	// RoleArn is a required field
-	RoleArn *string `min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"textract:NotificationChannel:RoleArn" min:"20" type:"string" required:"true"`
 
 	// The Amazon SNS topic that Amazon Textract posts the completion status to.
 	//
 	// SNSTopicArn is a required field
-	SNSTopicArn *string `min:"20" type:"string" required:"true"`
+	SNSTopicArn *string `json:"textract:NotificationChannel:SNSTopicArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -364,10 +364,10 @@ type Point struct {
 	_ struct{} `type:"structure"`
 
 	// The value of the X coordinate for a point on a Polygon.
-	X *float64 `type:"float"`
+	X *float64 `json:"textract:Point:X" type:"float"`
 
 	// The value of the Y coordinate for a point on a Polygon.
-	Y *float64 `type:"float"`
+	Y *float64 `json:"textract:Point:Y" type:"float"`
 }
 
 // String returns the string representation
@@ -387,11 +387,11 @@ type Relationship struct {
 
 	// An array of IDs for related blocks. You can get the type of the relationship
 	// from the Type element.
-	Ids []string `type:"list"`
+	Ids []string `json:"textract:Relationship:Ids" type:"list"`
 
 	// The type of relationship that the blocks in the IDs array have with the current
 	// block. The relationship can be VALUE or CHILD.
-	Type RelationshipType `type:"string" enum:"true"`
+	Type RelationshipType `json:"textract:Relationship:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -411,14 +411,14 @@ type S3Object struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the S3 bucket.
-	Bucket *string `min:"3" type:"string"`
+	Bucket *string `json:"textract:S3Object:Bucket" min:"3" type:"string"`
 
 	// The file name of the input document. It must be an image file (.JPG or .PNG
 	// format). Asynchronous operations also support PDF files.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"textract:S3Object:Name" min:"1" type:"string"`
 
 	// If the bucket has versioning enabled, you can specify the object version.
-	Version *string `min:"1" type:"string"`
+	Version *string `json:"textract:S3Object:Version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -452,10 +452,10 @@ type Warning struct {
 	_ struct{} `type:"structure"`
 
 	// The error code for the warning.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"textract:Warning:ErrorCode" type:"string"`
 
 	// A list of the pages that the warning applies to.
-	Pages []int64 `type:"list"`
+	Pages []int64 `json:"textract:Warning:Pages" type:"list"`
 }
 
 // String returns the string representation

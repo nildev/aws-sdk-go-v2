@@ -57,7 +57,7 @@ type DeleteAppOutput struct {
 	// Provides information about an application.
 	//
 	// ApplicationResponse is a required field
-	ApplicationResponse *ApplicationResponse `type:"structure" required:"true"`
+	ApplicationResponse *ApplicationResponse `json:"pinpoint:DeleteAppOutput:ApplicationResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

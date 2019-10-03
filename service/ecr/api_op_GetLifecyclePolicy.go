@@ -51,16 +51,16 @@ type GetLifecyclePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time stamp of the last time that the lifecycle policy was run.
-	LastEvaluatedAt *time.Time `locationName:"lastEvaluatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastEvaluatedAt *time.Time `json:"api.ecr:GetLifecyclePolicyOutput:LastEvaluatedAt" locationName:"lastEvaluatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The JSON lifecycle policy text.
-	LifecyclePolicyText *string `locationName:"lifecyclePolicyText" min:"100" type:"string"`
+	LifecyclePolicyText *string `json:"api.ecr:GetLifecyclePolicyOutput:LifecyclePolicyText" locationName:"lifecyclePolicyText" min:"100" type:"string"`
 
 	// The registry ID associated with the request.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:GetLifecyclePolicyOutput:RegistryId" locationName:"registryId" type:"string"`
 
 	// The repository name associated with the request.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:GetLifecyclePolicyOutput:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 }
 
 // String returns the string representation

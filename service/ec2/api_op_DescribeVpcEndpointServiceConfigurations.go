@@ -64,10 +64,10 @@ type DescribeVpcEndpointServiceConfigurationsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVpcEndpointServiceConfigurationsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about one or more services.
-	ServiceConfigurations []ServiceConfiguration `locationName:"serviceConfigurationSet" locationNameList:"item" type:"list"`
+	ServiceConfigurations []ServiceConfiguration `json:"ec2:DescribeVpcEndpointServiceConfigurationsOutput:ServiceConfigurations" locationName:"serviceConfigurationSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

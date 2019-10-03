@@ -51,7 +51,7 @@ type PutRemediationConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a list of failed remediation batch objects.
-	FailedBatches []FailedRemediationBatch `type:"list"`
+	FailedBatches []FailedRemediationBatch `json:"config:PutRemediationConfigurationsOutput:FailedBatches" type:"list"`
 }
 
 // String returns the string representation

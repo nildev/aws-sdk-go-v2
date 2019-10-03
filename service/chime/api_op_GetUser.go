@@ -71,7 +71,7 @@ type GetUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user details.
-	User *User `type:"structure"`
+	User *User `json:"chime:GetUserOutput:User" type:"structure"`
 }
 
 // String returns the string representation

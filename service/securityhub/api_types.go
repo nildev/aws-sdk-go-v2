@@ -20,10 +20,10 @@ type AccountDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of an AWS account.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"securityhub:AccountDetails:AccountId" type:"string"`
 
 	// The email of an AWS account.
-	Email *string `type:"string"`
+	Email *string `json:"securityhub:AccountDetails:Email" type:"string"`
 }
 
 // String returns the string representation
@@ -56,17 +56,17 @@ type ActionTarget struct {
 	// The ARN for the target action.
 	//
 	// ActionTargetArn is a required field
-	ActionTargetArn *string `type:"string" required:"true"`
+	ActionTargetArn *string `json:"securityhub:ActionTarget:ActionTargetArn" type:"string" required:"true"`
 
 	// The description of the target action.
 	//
 	// Description is a required field
-	Description *string `type:"string" required:"true"`
+	Description *string `json:"securityhub:ActionTarget:Description" type:"string" required:"true"`
 
 	// The name of the action target.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"securityhub:ActionTarget:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -103,31 +103,31 @@ type AwsEc2InstanceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The IAM profile ARN of the instance.
-	IamInstanceProfileArn *string `type:"string"`
+	IamInstanceProfileArn *string `json:"securityhub:AwsEc2InstanceDetails:IamInstanceProfileArn" type:"string"`
 
 	// The Amazon Machine Image (AMI) ID of the instance.
-	ImageId *string `type:"string"`
+	ImageId *string `json:"securityhub:AwsEc2InstanceDetails:ImageId" type:"string"`
 
 	// The IPv4 addresses associated with the instance.
-	IpV4Addresses []string `type:"list"`
+	IpV4Addresses []string `json:"securityhub:AwsEc2InstanceDetails:IpV4Addresses" type:"list"`
 
 	// The IPv6 addresses associated with the instance.
-	IpV6Addresses []string `type:"list"`
+	IpV6Addresses []string `json:"securityhub:AwsEc2InstanceDetails:IpV6Addresses" type:"list"`
 
 	// The key name associated with the instance.
-	KeyName *string `type:"string"`
+	KeyName *string `json:"securityhub:AwsEc2InstanceDetails:KeyName" type:"string"`
 
 	// The date/time the instance was launched.
-	LaunchedAt *string `type:"string"`
+	LaunchedAt *string `json:"securityhub:AwsEc2InstanceDetails:LaunchedAt" type:"string"`
 
 	// The identifier of the subnet that the instance was launched in.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"securityhub:AwsEc2InstanceDetails:SubnetId" type:"string"`
 
 	// The instance type of the instance.
-	Type *string `type:"string"`
+	Type *string `json:"securityhub:AwsEc2InstanceDetails:Type" type:"string"`
 
 	// The identifier of the VPC that the instance was launched in.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"securityhub:AwsEc2InstanceDetails:VpcId" type:"string"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ type AwsIamAccessKeyDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date/time of the IAM access key related to a finding.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"securityhub:AwsIamAccessKeyDetails:CreatedAt" type:"string"`
 
 	// The status of the IAM access key related to a finding.
-	Status AwsIamAccessKeyStatus `type:"string" enum:"true"`
+	Status AwsIamAccessKeyStatus `json:"securityhub:AwsIamAccessKeyDetails:Status" type:"string" enum:"true"`
 
 	// The user associated with the IAM access key related to a finding.
-	UserName *string `type:"string"`
+	UserName *string `json:"securityhub:AwsIamAccessKeyDetails:UserName" type:"string"`
 }
 
 // String returns the string representation
@@ -255,10 +255,10 @@ type AwsS3BucketDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The canonical user ID of the owner of the S3 bucket.
-	OwnerId *string `type:"string"`
+	OwnerId *string `json:"securityhub:AwsS3BucketDetails:OwnerId" type:"string"`
 
 	// The display name of the owner of the S3 bucket.
-	OwnerName *string `type:"string"`
+	OwnerName *string `json:"securityhub:AwsS3BucketDetails:OwnerName" type:"string"`
 }
 
 // String returns the string representation
@@ -297,119 +297,119 @@ type AwsSecurityFinding struct {
 	// The AWS account ID that a finding is generated in.
 	//
 	// AwsAccountId is a required field
-	AwsAccountId *string `type:"string" required:"true"`
+	AwsAccountId *string `json:"securityhub:AwsSecurityFinding:AwsAccountId" type:"string" required:"true"`
 
 	// This data type is exclusive to findings that are generated as the result
 	// of a check run against a specific rule in a supported standard (for example,
 	// CIS AWS Foundations). Contains compliance-related finding details.
-	Compliance *Compliance `type:"structure"`
+	Compliance *Compliance `json:"securityhub:AwsSecurityFinding:Compliance" type:"structure"`
 
 	// A finding's confidence. Confidence is defined as the likelihood that a finding
 	// accurately identifies the behavior or issue that it was intended to identify.
 	// Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
 	// zero percent confidence and 100 means 100 percent confidence.
-	Confidence *int64 `type:"integer"`
+	Confidence *int64 `json:"securityhub:AwsSecurityFinding:Confidence" type:"integer"`
 
 	// An ISO8601-formatted timestamp that indicates when the security-findings
 	// provider created the potential security issue that a finding captured.
 	//
 	// CreatedAt is a required field
-	CreatedAt *string `type:"string" required:"true"`
+	CreatedAt *string `json:"securityhub:AwsSecurityFinding:CreatedAt" type:"string" required:"true"`
 
 	// The level of importance assigned to the resources associated with the finding.
 	// A score of 0 means that the underlying resources have no criticality, and
 	// a score of 100 is reserved for the most critical resources.
-	Criticality *int64 `type:"integer"`
+	Criticality *int64 `json:"securityhub:AwsSecurityFinding:Criticality" type:"integer"`
 
 	// A finding's description.
 	//
 	// In this release, Description is a required property.
 	//
 	// Description is a required field
-	Description *string `type:"string" required:"true"`
+	Description *string `json:"securityhub:AwsSecurityFinding:Description" type:"string" required:"true"`
 
 	// An ISO8601-formatted timestamp that indicates when the security-findings
 	// provider first observed the potential security issue that a finding captured.
-	FirstObservedAt *string `type:"string"`
+	FirstObservedAt *string `json:"securityhub:AwsSecurityFinding:FirstObservedAt" type:"string"`
 
 	// The identifier for the solution-specific component (a discrete unit of logic)
 	// that generated a finding. In various security-findings providers' solutions,
 	// this generator can be called a rule, a check, a detector, a plug-in, etc.
 	//
 	// GeneratorId is a required field
-	GeneratorId *string `type:"string" required:"true"`
+	GeneratorId *string `json:"securityhub:AwsSecurityFinding:GeneratorId" type:"string" required:"true"`
 
 	// The security findings provider-specific identifier for a finding.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"securityhub:AwsSecurityFinding:Id" type:"string" required:"true"`
 
 	// An ISO8601-formatted timestamp that indicates when the security-findings
 	// provider most recently observed the potential security issue that a finding
 	// captured.
-	LastObservedAt *string `type:"string"`
+	LastObservedAt *string `json:"securityhub:AwsSecurityFinding:LastObservedAt" type:"string"`
 
 	// A list of malware related to a finding.
-	Malware []Malware `type:"list"`
+	Malware []Malware `json:"securityhub:AwsSecurityFinding:Malware" type:"list"`
 
 	// The details of network-related information about a finding.
-	Network *Network `type:"structure"`
+	Network *Network `json:"securityhub:AwsSecurityFinding:Network" type:"structure"`
 
 	// A user-defined note added to a finding.
-	Note *Note `type:"structure"`
+	Note *Note `json:"securityhub:AwsSecurityFinding:Note" type:"structure"`
 
 	// The details of process-related information about a finding.
-	Process *ProcessDetails `type:"structure"`
+	Process *ProcessDetails `json:"securityhub:AwsSecurityFinding:Process" type:"structure"`
 
 	// The ARN generated by Security Hub that uniquely identifies a third-party
 	// company (security-findings provider) after this provider's product (solution
 	// that generates findings) is registered with Security Hub.
 	//
 	// ProductArn is a required field
-	ProductArn *string `type:"string" required:"true"`
+	ProductArn *string `json:"securityhub:AwsSecurityFinding:ProductArn" type:"string" required:"true"`
 
 	// A data type where security-findings providers can include additional solution-specific
 	// details that aren't part of the defined AwsSecurityFinding format.
-	ProductFields map[string]string `type:"map"`
+	ProductFields map[string]string `json:"securityhub:AwsSecurityFinding:ProductFields" type:"map"`
 
 	// The record state of a finding.
-	RecordState RecordState `type:"string" enum:"true"`
+	RecordState RecordState `json:"securityhub:AwsSecurityFinding:RecordState" type:"string" enum:"true"`
 
 	// A list of related findings.
-	RelatedFindings []RelatedFinding `type:"list"`
+	RelatedFindings []RelatedFinding `json:"securityhub:AwsSecurityFinding:RelatedFindings" type:"list"`
 
 	// A data type that describes the remediation options for a finding.
-	Remediation *Remediation `type:"structure"`
+	Remediation *Remediation `json:"securityhub:AwsSecurityFinding:Remediation" type:"structure"`
 
 	// A set of resource data types that describe the resources that the finding
 	// refers to.
 	//
 	// Resources is a required field
-	Resources []Resource `type:"list" required:"true"`
+	Resources []Resource `json:"securityhub:AwsSecurityFinding:Resources" type:"list" required:"true"`
 
 	// The schema version that a finding is formatted for.
 	//
 	// SchemaVersion is a required field
-	SchemaVersion *string `type:"string" required:"true"`
+	SchemaVersion *string `json:"securityhub:AwsSecurityFinding:SchemaVersion" type:"string" required:"true"`
 
 	// A finding's severity.
 	//
 	// Severity is a required field
-	Severity *Severity `type:"structure" required:"true"`
+	Severity *Severity `json:"securityhub:AwsSecurityFinding:Severity" type:"structure" required:"true"`
 
 	// A URL that links to a page about the current finding in the security-findings
 	// provider's solution.
-	SourceUrl *string `type:"string"`
+	SourceUrl *string `json:"securityhub:AwsSecurityFinding:SourceUrl" type:"string"`
 
 	// Threat intel details related to a finding.
-	ThreatIntelIndicators []ThreatIntelIndicator `type:"list"`
+	ThreatIntelIndicators []ThreatIntelIndicator `json:"securityhub:AwsSecurityFinding:ThreatIntelIndicators" type:"list"`
 
 	// A finding's title.
 	//
 	// In this release, Title is a required property.
 	//
 	// Title is a required field
-	Title *string `type:"string" required:"true"`
+	Title *string `json:"securityhub:AwsSecurityFinding:Title" type:"string" required:"true"`
 
 	// One or more finding types in the format of namespace/category/classifier
 	// that classify a finding.
@@ -418,23 +418,23 @@ type AwsSecurityFinding struct {
 	// | Unusual Behaviors | Sensitive Data Identifications
 	//
 	// Types is a required field
-	Types []string `type:"list" required:"true"`
+	Types []string `json:"securityhub:AwsSecurityFinding:Types" type:"list" required:"true"`
 
 	// An ISO8601-formatted timestamp that indicates when the security-findings
 	// provider last updated the finding record.
 	//
 	// UpdatedAt is a required field
-	UpdatedAt *string `type:"string" required:"true"`
+	UpdatedAt *string `json:"securityhub:AwsSecurityFinding:UpdatedAt" type:"string" required:"true"`
 
 	// A list of name/value string pairs associated with the finding. These are
 	// custom, user-defined fields added to a finding.
-	UserDefinedFields map[string]string `type:"map"`
+	UserDefinedFields map[string]string `json:"securityhub:AwsSecurityFinding:UserDefinedFields" type:"map"`
 
 	// Indicates the veracity of a finding.
-	VerificationState VerificationState `type:"string" enum:"true"`
+	VerificationState VerificationState `json:"securityhub:AwsSecurityFinding:VerificationState" type:"string" enum:"true"`
 
 	// The workflow state of a finding.
-	WorkflowState WorkflowState `type:"string" enum:"true"`
+	WorkflowState WorkflowState `json:"securityhub:AwsSecurityFinding:WorkflowState" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -766,278 +766,278 @@ type AwsSecurityFindingFilters struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID that a finding is generated in.
-	AwsAccountId []StringFilter `type:"list"`
+	AwsAccountId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:AwsAccountId" type:"list"`
 
 	// The name of the findings provider (company) that owns the solution (product)
 	// that generates findings.
-	CompanyName []StringFilter `type:"list"`
+	CompanyName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:CompanyName" type:"list"`
 
 	// Exclusive to findings that are generated as the result of a check run against
 	// a specific rule in a supported standard (for example, CIS AWS Foundations).
 	// Contains compliance-related finding details.
-	ComplianceStatus []StringFilter `type:"list"`
+	ComplianceStatus []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ComplianceStatus" type:"list"`
 
 	// A finding's confidence. Confidence is defined as the likelihood that a finding
 	// accurately identifies the behavior or issue that it was intended to identify.
 	// Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
 	// zero percent confidence and 100 means 100 percent confidence.
-	Confidence []NumberFilter `type:"list"`
+	Confidence []NumberFilter `json:"securityhub:AwsSecurityFindingFilters:Confidence" type:"list"`
 
 	// An ISO8601-formatted timestamp that indicates when the security-findings
 	// provider captured the potential security issue that a finding captured.
-	CreatedAt []DateFilter `type:"list"`
+	CreatedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:CreatedAt" type:"list"`
 
 	// The level of importance assigned to the resources associated with the finding.
 	// A score of 0 means that the underlying resources have no criticality, and
 	// a score of 100 is reserved for the most critical resources.
-	Criticality []NumberFilter `type:"list"`
+	Criticality []NumberFilter `json:"securityhub:AwsSecurityFindingFilters:Criticality" type:"list"`
 
 	// A finding's description.
-	Description []StringFilter `type:"list"`
+	Description []StringFilter `json:"securityhub:AwsSecurityFindingFilters:Description" type:"list"`
 
 	// An ISO8601-formatted timestamp that indicates when the security-findings
 	// provider first observed the potential security issue that a finding captured.
-	FirstObservedAt []DateFilter `type:"list"`
+	FirstObservedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:FirstObservedAt" type:"list"`
 
 	// The identifier for the solution-specific component (a discrete unit of logic)
 	// that generated a finding. In various security-findings providers' solutions,
 	// this generator can be called a rule, a check, a detector, a plug-in, etc.
-	GeneratorId []StringFilter `type:"list"`
+	GeneratorId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:GeneratorId" type:"list"`
 
 	// The security findings provider-specific identifier for a finding.
-	Id []StringFilter `type:"list"`
+	Id []StringFilter `json:"securityhub:AwsSecurityFindingFilters:Id" type:"list"`
 
 	// A keyword for a finding.
-	Keyword []KeywordFilter `type:"list"`
+	Keyword []KeywordFilter `json:"securityhub:AwsSecurityFindingFilters:Keyword" type:"list"`
 
 	// An ISO8601-formatted timestamp that indicates when the security-findings
 	// provider most recently observed the potential security issue that a finding
 	// captured.
-	LastObservedAt []DateFilter `type:"list"`
+	LastObservedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:LastObservedAt" type:"list"`
 
 	// The name of the malware that was observed.
-	MalwareName []StringFilter `type:"list"`
+	MalwareName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:MalwareName" type:"list"`
 
 	// The filesystem path of the malware that was observed.
-	MalwarePath []StringFilter `type:"list"`
+	MalwarePath []StringFilter `json:"securityhub:AwsSecurityFindingFilters:MalwarePath" type:"list"`
 
 	// The state of the malware that was observed.
-	MalwareState []StringFilter `type:"list"`
+	MalwareState []StringFilter `json:"securityhub:AwsSecurityFindingFilters:MalwareState" type:"list"`
 
 	// The type of the malware that was observed.
-	MalwareType []StringFilter `type:"list"`
+	MalwareType []StringFilter `json:"securityhub:AwsSecurityFindingFilters:MalwareType" type:"list"`
 
 	// The destination domain of network-related information about a finding.
-	NetworkDestinationDomain []StringFilter `type:"list"`
+	NetworkDestinationDomain []StringFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkDestinationDomain" type:"list"`
 
 	// The destination IPv4 address of network-related information about a finding.
-	NetworkDestinationIpV4 []IpFilter `type:"list"`
+	NetworkDestinationIpV4 []IpFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkDestinationIpV4" type:"list"`
 
 	// The destination IPv6 address of network-related information about a finding.
-	NetworkDestinationIpV6 []IpFilter `type:"list"`
+	NetworkDestinationIpV6 []IpFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkDestinationIpV6" type:"list"`
 
 	// The destination port of network-related information about a finding.
-	NetworkDestinationPort []NumberFilter `type:"list"`
+	NetworkDestinationPort []NumberFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkDestinationPort" type:"list"`
 
 	// Indicates the direction of network traffic associated with a finding.
-	NetworkDirection []StringFilter `type:"list"`
+	NetworkDirection []StringFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkDirection" type:"list"`
 
 	// The protocol of network-related information about a finding.
-	NetworkProtocol []StringFilter `type:"list"`
+	NetworkProtocol []StringFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkProtocol" type:"list"`
 
 	// The source domain of network-related information about a finding.
-	NetworkSourceDomain []StringFilter `type:"list"`
+	NetworkSourceDomain []StringFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkSourceDomain" type:"list"`
 
 	// The source IPv4 address of network-related information about a finding.
-	NetworkSourceIpV4 []IpFilter `type:"list"`
+	NetworkSourceIpV4 []IpFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkSourceIpV4" type:"list"`
 
 	// The source IPv6 address of network-related information about a finding.
-	NetworkSourceIpV6 []IpFilter `type:"list"`
+	NetworkSourceIpV6 []IpFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkSourceIpV6" type:"list"`
 
 	// The source media access control (MAC) address of network-related information
 	// about a finding.
-	NetworkSourceMac []StringFilter `type:"list"`
+	NetworkSourceMac []StringFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkSourceMac" type:"list"`
 
 	// The source port of network-related information about a finding.
-	NetworkSourcePort []NumberFilter `type:"list"`
+	NetworkSourcePort []NumberFilter `json:"securityhub:AwsSecurityFindingFilters:NetworkSourcePort" type:"list"`
 
 	// The text of a note.
-	NoteText []StringFilter `type:"list"`
+	NoteText []StringFilter `json:"securityhub:AwsSecurityFindingFilters:NoteText" type:"list"`
 
 	// The timestamp of when the note was updated.
-	NoteUpdatedAt []DateFilter `type:"list"`
+	NoteUpdatedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:NoteUpdatedAt" type:"list"`
 
 	// The principal that created a note.
-	NoteUpdatedBy []StringFilter `type:"list"`
+	NoteUpdatedBy []StringFilter `json:"securityhub:AwsSecurityFindingFilters:NoteUpdatedBy" type:"list"`
 
 	// The date/time that the process was launched.
-	ProcessLaunchedAt []DateFilter `type:"list"`
+	ProcessLaunchedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:ProcessLaunchedAt" type:"list"`
 
 	// The name of the process.
-	ProcessName []StringFilter `type:"list"`
+	ProcessName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ProcessName" type:"list"`
 
 	// The parent process ID.
-	ProcessParentPid []NumberFilter `type:"list"`
+	ProcessParentPid []NumberFilter `json:"securityhub:AwsSecurityFindingFilters:ProcessParentPid" type:"list"`
 
 	// The path to the process executable.
-	ProcessPath []StringFilter `type:"list"`
+	ProcessPath []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ProcessPath" type:"list"`
 
 	// The process ID.
-	ProcessPid []NumberFilter `type:"list"`
+	ProcessPid []NumberFilter `json:"securityhub:AwsSecurityFindingFilters:ProcessPid" type:"list"`
 
 	// The date/time that the process was terminated.
-	ProcessTerminatedAt []DateFilter `type:"list"`
+	ProcessTerminatedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:ProcessTerminatedAt" type:"list"`
 
 	// The ARN generated by Security Hub that uniquely identifies a third-party
 	// company (security findings provider) after this provider's product (solution
 	// that generates findings) is registered with Security Hub.
-	ProductArn []StringFilter `type:"list"`
+	ProductArn []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ProductArn" type:"list"`
 
 	// A data type where security-findings providers can include additional solution-specific
 	// details that aren't part of the defined AwsSecurityFinding format.
-	ProductFields []MapFilter `type:"list"`
+	ProductFields []MapFilter `json:"securityhub:AwsSecurityFindingFilters:ProductFields" type:"list"`
 
 	// The name of the solution (product) that generates findings.
-	ProductName []StringFilter `type:"list"`
+	ProductName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ProductName" type:"list"`
 
 	// The recommendation of what to do about the issue described in a finding.
-	RecommendationText []StringFilter `type:"list"`
+	RecommendationText []StringFilter `json:"securityhub:AwsSecurityFindingFilters:RecommendationText" type:"list"`
 
 	// The updated record state for the finding.
-	RecordState []StringFilter `type:"list"`
+	RecordState []StringFilter `json:"securityhub:AwsSecurityFindingFilters:RecordState" type:"list"`
 
 	// The solution-generated identifier for a related finding.
-	RelatedFindingsId []StringFilter `type:"list"`
+	RelatedFindingsId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:RelatedFindingsId" type:"list"`
 
 	// The ARN of the solution that generated a related finding.
-	RelatedFindingsProductArn []StringFilter `type:"list"`
+	RelatedFindingsProductArn []StringFilter `json:"securityhub:AwsSecurityFindingFilters:RelatedFindingsProductArn" type:"list"`
 
 	// The IAM profile ARN of the instance.
-	ResourceAwsEc2InstanceIamInstanceProfileArn []StringFilter `type:"list"`
+	ResourceAwsEc2InstanceIamInstanceProfileArn []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceIamInstanceProfileArn" type:"list"`
 
 	// The Amazon Machine Image (AMI) ID of the instance.
-	ResourceAwsEc2InstanceImageId []StringFilter `type:"list"`
+	ResourceAwsEc2InstanceImageId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceImageId" type:"list"`
 
 	// The IPv4 addresses associated with the instance.
-	ResourceAwsEc2InstanceIpV4Addresses []IpFilter `type:"list"`
+	ResourceAwsEc2InstanceIpV4Addresses []IpFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceIpV4Addresses" type:"list"`
 
 	// The IPv6 addresses associated with the instance.
-	ResourceAwsEc2InstanceIpV6Addresses []IpFilter `type:"list"`
+	ResourceAwsEc2InstanceIpV6Addresses []IpFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceIpV6Addresses" type:"list"`
 
 	// The key name associated with the instance.
-	ResourceAwsEc2InstanceKeyName []StringFilter `type:"list"`
+	ResourceAwsEc2InstanceKeyName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceKeyName" type:"list"`
 
 	// The date/time the instance was launched.
-	ResourceAwsEc2InstanceLaunchedAt []DateFilter `type:"list"`
+	ResourceAwsEc2InstanceLaunchedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceLaunchedAt" type:"list"`
 
 	// The identifier of the subnet that the instance was launched in.
-	ResourceAwsEc2InstanceSubnetId []StringFilter `type:"list"`
+	ResourceAwsEc2InstanceSubnetId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceSubnetId" type:"list"`
 
 	// The instance type of the instance.
-	ResourceAwsEc2InstanceType []StringFilter `type:"list"`
+	ResourceAwsEc2InstanceType []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceType" type:"list"`
 
 	// The identifier of the VPC that the instance was launched in.
-	ResourceAwsEc2InstanceVpcId []StringFilter `type:"list"`
+	ResourceAwsEc2InstanceVpcId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsEc2InstanceVpcId" type:"list"`
 
 	// The creation date/time of the IAM access key related to a finding.
-	ResourceAwsIamAccessKeyCreatedAt []DateFilter `type:"list"`
+	ResourceAwsIamAccessKeyCreatedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsIamAccessKeyCreatedAt" type:"list"`
 
 	// The status of the IAM access key related to a finding.
-	ResourceAwsIamAccessKeyStatus []StringFilter `type:"list"`
+	ResourceAwsIamAccessKeyStatus []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsIamAccessKeyStatus" type:"list"`
 
 	// The user associated with the IAM access key related to a finding.
-	ResourceAwsIamAccessKeyUserName []StringFilter `type:"list"`
+	ResourceAwsIamAccessKeyUserName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsIamAccessKeyUserName" type:"list"`
 
 	// The canonical user ID of the owner of the S3 bucket.
-	ResourceAwsS3BucketOwnerId []StringFilter `type:"list"`
+	ResourceAwsS3BucketOwnerId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsS3BucketOwnerId" type:"list"`
 
 	// The display name of the owner of the S3 bucket.
-	ResourceAwsS3BucketOwnerName []StringFilter `type:"list"`
+	ResourceAwsS3BucketOwnerName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceAwsS3BucketOwnerName" type:"list"`
 
 	// The identifier of the image related to a finding.
-	ResourceContainerImageId []StringFilter `type:"list"`
+	ResourceContainerImageId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceContainerImageId" type:"list"`
 
 	// The name of the image related to a finding.
-	ResourceContainerImageName []StringFilter `type:"list"`
+	ResourceContainerImageName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceContainerImageName" type:"list"`
 
 	// The date/time that the container was started.
-	ResourceContainerLaunchedAt []DateFilter `type:"list"`
+	ResourceContainerLaunchedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceContainerLaunchedAt" type:"list"`
 
 	// The name of the container related to a finding.
-	ResourceContainerName []StringFilter `type:"list"`
+	ResourceContainerName []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceContainerName" type:"list"`
 
 	// The details of a resource that doesn't have a specific subfield for the resource
 	// type defined.
-	ResourceDetailsOther []MapFilter `type:"list"`
+	ResourceDetailsOther []MapFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceDetailsOther" type:"list"`
 
 	// The canonical identifier for the given resource type.
-	ResourceId []StringFilter `type:"list"`
+	ResourceId []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceId" type:"list"`
 
 	// The canonical AWS partition name that the Region is assigned to.
-	ResourcePartition []StringFilter `type:"list"`
+	ResourcePartition []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourcePartition" type:"list"`
 
 	// The canonical AWS external Region name where this resource is located.
-	ResourceRegion []StringFilter `type:"list"`
+	ResourceRegion []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceRegion" type:"list"`
 
 	// A list of AWS tags associated with a resource at the time the finding was
 	// processed.
-	ResourceTags []MapFilter `type:"list"`
+	ResourceTags []MapFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceTags" type:"list"`
 
 	// Specifies the type of the resource that details are provided for.
-	ResourceType []StringFilter `type:"list"`
+	ResourceType []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ResourceType" type:"list"`
 
 	// The label of a finding's severity.
-	SeverityLabel []StringFilter `type:"list"`
+	SeverityLabel []StringFilter `json:"securityhub:AwsSecurityFindingFilters:SeverityLabel" type:"list"`
 
 	// The normalized severity of a finding.
-	SeverityNormalized []NumberFilter `type:"list"`
+	SeverityNormalized []NumberFilter `json:"securityhub:AwsSecurityFindingFilters:SeverityNormalized" type:"list"`
 
 	// The native severity as defined by the security-findings provider's solution
 	// that generated the finding.
-	SeverityProduct []NumberFilter `type:"list"`
+	SeverityProduct []NumberFilter `json:"securityhub:AwsSecurityFindingFilters:SeverityProduct" type:"list"`
 
 	// A URL that links to a page about the current finding in the security-findings
 	// provider's solution.
-	SourceUrl []StringFilter `type:"list"`
+	SourceUrl []StringFilter `json:"securityhub:AwsSecurityFindingFilters:SourceUrl" type:"list"`
 
 	// The category of a threat intel indicator.
-	ThreatIntelIndicatorCategory []StringFilter `type:"list"`
+	ThreatIntelIndicatorCategory []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ThreatIntelIndicatorCategory" type:"list"`
 
 	// The date/time of the last observation of a threat intel indicator.
-	ThreatIntelIndicatorLastObservedAt []DateFilter `type:"list"`
+	ThreatIntelIndicatorLastObservedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:ThreatIntelIndicatorLastObservedAt" type:"list"`
 
 	// The source of the threat intel.
-	ThreatIntelIndicatorSource []StringFilter `type:"list"`
+	ThreatIntelIndicatorSource []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ThreatIntelIndicatorSource" type:"list"`
 
 	// The URL for more details from the source of the threat intel.
-	ThreatIntelIndicatorSourceUrl []StringFilter `type:"list"`
+	ThreatIntelIndicatorSourceUrl []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ThreatIntelIndicatorSourceUrl" type:"list"`
 
 	// The type of a threat intel indicator.
-	ThreatIntelIndicatorType []StringFilter `type:"list"`
+	ThreatIntelIndicatorType []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ThreatIntelIndicatorType" type:"list"`
 
 	// The value of a threat intel indicator.
-	ThreatIntelIndicatorValue []StringFilter `type:"list"`
+	ThreatIntelIndicatorValue []StringFilter `json:"securityhub:AwsSecurityFindingFilters:ThreatIntelIndicatorValue" type:"list"`
 
 	// A finding's title.
-	Title []StringFilter `type:"list"`
+	Title []StringFilter `json:"securityhub:AwsSecurityFindingFilters:Title" type:"list"`
 
 	// A finding type in the format of namespace/category/classifier that classifies
 	// a finding.
-	Type []StringFilter `type:"list"`
+	Type []StringFilter `json:"securityhub:AwsSecurityFindingFilters:Type" type:"list"`
 
 	// An ISO8601-formatted timestamp that indicates when the security-findings
 	// provider last updated the finding record.
-	UpdatedAt []DateFilter `type:"list"`
+	UpdatedAt []DateFilter `json:"securityhub:AwsSecurityFindingFilters:UpdatedAt" type:"list"`
 
 	// A list of name/value string pairs associated with the finding. These are
 	// custom, user-defined fields added to a finding.
-	UserDefinedFields []MapFilter `type:"list"`
+	UserDefinedFields []MapFilter `json:"securityhub:AwsSecurityFindingFilters:UserDefinedFields" type:"list"`
 
 	// The veracity of a finding.
-	VerificationState []StringFilter `type:"list"`
+	VerificationState []StringFilter `json:"securityhub:AwsSecurityFindingFilters:VerificationState" type:"list"`
 
 	// The workflow state of a finding.
-	WorkflowState []StringFilter `type:"list"`
+	WorkflowState []StringFilter `json:"securityhub:AwsSecurityFindingFilters:WorkflowState" type:"list"`
 }
 
 // String returns the string representation
@@ -2054,7 +2054,7 @@ type Compliance struct {
 	_ struct{} `type:"structure"`
 
 	// The result of a compliance check.
-	Status ComplianceStatus `type:"string" enum:"true"`
+	Status ComplianceStatus `json:"securityhub:Compliance:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2079,16 +2079,16 @@ type ContainerDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the image related to a finding.
-	ImageId *string `type:"string"`
+	ImageId *string `json:"securityhub:ContainerDetails:ImageId" type:"string"`
 
 	// The name of the image related to a finding.
-	ImageName *string `type:"string"`
+	ImageName *string `json:"securityhub:ContainerDetails:ImageName" type:"string"`
 
 	// The date and time when the container started.
-	LaunchedAt *string `type:"string"`
+	LaunchedAt *string `json:"securityhub:ContainerDetails:LaunchedAt" type:"string"`
 
 	// The name of the container related to a finding.
-	Name *string `type:"string"`
+	Name *string `json:"securityhub:ContainerDetails:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -2131,13 +2131,13 @@ type DateFilter struct {
 	_ struct{} `type:"structure"`
 
 	// A date range for the date filter.
-	DateRange *DateRange `type:"structure"`
+	DateRange *DateRange `json:"securityhub:DateFilter:DateRange" type:"structure"`
 
 	// An end date for the date filter.
-	End *string `type:"string"`
+	End *string `json:"securityhub:DateFilter:End" type:"string"`
 
 	// A start date for the date filter.
-	Start *string `type:"string"`
+	Start *string `json:"securityhub:DateFilter:Start" type:"string"`
 }
 
 // String returns the string representation
@@ -2174,10 +2174,10 @@ type DateRange struct {
 	_ struct{} `type:"structure"`
 
 	// A date range unit for the date filter.
-	Unit DateRangeUnit `type:"string" enum:"true"`
+	Unit DateRangeUnit `json:"securityhub:DateRange:Unit" type:"string" enum:"true"`
 
 	// A date range value for the date filter.
-	Value *int64 `type:"integer"`
+	Value *int64 `json:"securityhub:DateRange:Value" type:"integer"`
 }
 
 // String returns the string representation
@@ -2210,17 +2210,17 @@ type ImportFindingsError struct {
 	// The code of the error made during the BatchImportFindings operation.
 	//
 	// ErrorCode is a required field
-	ErrorCode *string `type:"string" required:"true"`
+	ErrorCode *string `json:"securityhub:ImportFindingsError:ErrorCode" type:"string" required:"true"`
 
 	// The message of the error made during the BatchImportFindings operation.
 	//
 	// ErrorMessage is a required field
-	ErrorMessage *string `type:"string" required:"true"`
+	ErrorMessage *string `json:"securityhub:ImportFindingsError:ErrorMessage" type:"string" required:"true"`
 
 	// The ID of the error made during the BatchImportFindings operation.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"securityhub:ImportFindingsError:Id" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2261,24 +2261,24 @@ type Insight struct {
 	// in the insight.
 	//
 	// Filters is a required field
-	Filters *AwsSecurityFindingFilters `type:"structure" required:"true"`
+	Filters *AwsSecurityFindingFilters `json:"securityhub:Insight:Filters" type:"structure" required:"true"`
 
 	// The attribute that the insight's findings are grouped by. This attribute
 	// is used as a findings aggregator for the purposes of viewing and managing
 	// multiple related findings under a single operand.
 	//
 	// GroupByAttribute is a required field
-	GroupByAttribute *string `type:"string" required:"true"`
+	GroupByAttribute *string `json:"securityhub:Insight:GroupByAttribute" type:"string" required:"true"`
 
 	// The ARN of a Security Hub insight.
 	//
 	// InsightArn is a required field
-	InsightArn *string `type:"string" required:"true"`
+	InsightArn *string `json:"securityhub:Insight:InsightArn" type:"string" required:"true"`
 
 	// The name of a Security Hub insight.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"securityhub:Insight:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2323,13 +2323,13 @@ type InsightResultValue struct {
 	// The number of findings returned for each GroupByAttributeValue.
 	//
 	// Count is a required field
-	Count *int64 `type:"integer" required:"true"`
+	Count *int64 `json:"securityhub:InsightResultValue:Count" type:"integer" required:"true"`
 
 	// The value of the attribute that the findings are grouped by for the insight
 	// whose results are returned by the GetInsightResults operation.
 	//
 	// GroupByAttributeValue is a required field
-	GroupByAttributeValue *string `type:"string" required:"true"`
+	GroupByAttributeValue *string `json:"securityhub:InsightResultValue:GroupByAttributeValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2363,18 +2363,18 @@ type InsightResults struct {
 	// are returned by the GetInsightResults operation.
 	//
 	// GroupByAttribute is a required field
-	GroupByAttribute *string `type:"string" required:"true"`
+	GroupByAttribute *string `json:"securityhub:InsightResults:GroupByAttribute" type:"string" required:"true"`
 
 	// The ARN of the insight whose results are returned by the GetInsightResults
 	// operation.
 	//
 	// InsightArn is a required field
-	InsightArn *string `type:"string" required:"true"`
+	InsightArn *string `json:"securityhub:InsightResults:InsightArn" type:"string" required:"true"`
 
 	// The list of insight result values returned by the GetInsightResults operation.
 	//
 	// ResultValues is a required field
-	ResultValues []InsightResultValue `type:"list" required:"true"`
+	ResultValues []InsightResultValue `json:"securityhub:InsightResults:ResultValues" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2418,16 +2418,16 @@ type Invitation struct {
 
 	// The account ID of the Security Hub master account that the invitation was
 	// sent from.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"securityhub:Invitation:AccountId" type:"string"`
 
 	// The ID of the invitation sent to the member account.
-	InvitationId *string `type:"string"`
+	InvitationId *string `json:"securityhub:Invitation:InvitationId" type:"string"`
 
 	// The timestamp of when the invitation was sent.
-	InvitedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	InvitedAt *time.Time `json:"securityhub:Invitation:InvitedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The current status of the association between member and master accounts.
-	MemberStatus *string `type:"string"`
+	MemberStatus *string `json:"securityhub:Invitation:MemberStatus" type:"string"`
 }
 
 // String returns the string representation
@@ -2470,7 +2470,7 @@ type IpFilter struct {
 	_ struct{} `type:"structure"`
 
 	// A finding's CIDR value.
-	Cidr *string `type:"string"`
+	Cidr *string `json:"securityhub:IpFilter:Cidr" type:"string"`
 }
 
 // String returns the string representation
@@ -2495,7 +2495,7 @@ type KeywordFilter struct {
 	_ struct{} `type:"structure"`
 
 	// A value for the keyword.
-	Value *string `type:"string"`
+	Value *string `json:"securityhub:KeywordFilter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2522,16 +2522,16 @@ type Malware struct {
 	// The name of the malware that was observed.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"securityhub:Malware:Name" type:"string" required:"true"`
 
 	// The file system path of the malware that was observed.
-	Path *string `type:"string"`
+	Path *string `json:"securityhub:Malware:Path" type:"string"`
 
 	// The state of the malware that was observed.
-	State MalwareState `type:"string" enum:"true"`
+	State MalwareState `json:"securityhub:Malware:State" type:"string" enum:"true"`
 
 	// The type of the malware that was observed.
-	Type MalwareType `type:"string" enum:"true"`
+	Type MalwareType `json:"securityhub:Malware:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2589,13 +2589,13 @@ type MapFilter struct {
 
 	// The condition to apply to a key value when querying for findings with a map
 	// filter.
-	Comparison MapFilterComparison `type:"string" enum:"true"`
+	Comparison MapFilterComparison `json:"securityhub:MapFilter:Comparison" type:"string" enum:"true"`
 
 	// The key of the map filter.
-	Key *string `type:"string"`
+	Key *string `json:"securityhub:MapFilter:Key" type:"string"`
 
 	// The value for the key in the map filter.
-	Value *string `type:"string"`
+	Value *string `json:"securityhub:MapFilter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -2632,25 +2632,25 @@ type Member struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID of the member account.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"securityhub:Member:AccountId" type:"string"`
 
 	// The email address of the member account.
-	Email *string `type:"string"`
+	Email *string `json:"securityhub:Member:Email" type:"string"`
 
 	// A timestamp for the date and time when the invitation was sent to the member
 	// account.
-	InvitedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	InvitedAt *time.Time `json:"securityhub:Member:InvitedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS account ID of the Security Hub master account associated with this
 	// member account.
-	MasterId *string `type:"string"`
+	MasterId *string `json:"securityhub:Member:MasterId" type:"string"`
 
 	// The status of the relationship between the member account and its master
 	// account.
-	MemberStatus *string `type:"string"`
+	MemberStatus *string `json:"securityhub:Member:MemberStatus" type:"string"`
 
 	// The timestamp for the date and time when the member account was updated.
-	UpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	UpdatedAt *time.Time `json:"securityhub:Member:UpdatedAt" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -2705,38 +2705,38 @@ type Network struct {
 	_ struct{} `type:"structure"`
 
 	// The destination domain of network-related information about a finding.
-	DestinationDomain *string `type:"string"`
+	DestinationDomain *string `json:"securityhub:Network:DestinationDomain" type:"string"`
 
 	// The destination IPv4 address of network-related information about a finding.
-	DestinationIpV4 *string `type:"string"`
+	DestinationIpV4 *string `json:"securityhub:Network:DestinationIpV4" type:"string"`
 
 	// The destination IPv6 address of network-related information about a finding.
-	DestinationIpV6 *string `type:"string"`
+	DestinationIpV6 *string `json:"securityhub:Network:DestinationIpV6" type:"string"`
 
 	// The destination port of network-related information about a finding.
-	DestinationPort *int64 `type:"integer"`
+	DestinationPort *int64 `json:"securityhub:Network:DestinationPort" type:"integer"`
 
 	// The direction of network traffic associated with a finding.
-	Direction NetworkDirection `type:"string" enum:"true"`
+	Direction NetworkDirection `json:"securityhub:Network:Direction" type:"string" enum:"true"`
 
 	// The protocol of network-related information about a finding.
-	Protocol *string `type:"string"`
+	Protocol *string `json:"securityhub:Network:Protocol" type:"string"`
 
 	// The source domain of network-related information about a finding.
-	SourceDomain *string `type:"string"`
+	SourceDomain *string `json:"securityhub:Network:SourceDomain" type:"string"`
 
 	// The source IPv4 address of network-related information about a finding.
-	SourceIpV4 *string `type:"string"`
+	SourceIpV4 *string `json:"securityhub:Network:SourceIpV4" type:"string"`
 
 	// The source IPv6 address of network-related information about a finding.
-	SourceIpV6 *string `type:"string"`
+	SourceIpV6 *string `json:"securityhub:Network:SourceIpV6" type:"string"`
 
 	// The source media access control (MAC) address of network-related information
 	// about a finding.
-	SourceMac *string `type:"string"`
+	SourceMac *string `json:"securityhub:Network:SourceMac" type:"string"`
 
 	// The source port of network-related information about a finding.
-	SourcePort *int64 `type:"integer"`
+	SourcePort *int64 `json:"securityhub:Network:SourcePort" type:"integer"`
 }
 
 // String returns the string representation
@@ -2823,17 +2823,17 @@ type Note struct {
 	// The text of a note.
 	//
 	// Text is a required field
-	Text *string `type:"string" required:"true"`
+	Text *string `json:"securityhub:Note:Text" type:"string" required:"true"`
 
 	// The timestamp of when the note was updated.
 	//
 	// UpdatedAt is a required field
-	UpdatedAt *string `type:"string" required:"true"`
+	UpdatedAt *string `json:"securityhub:Note:UpdatedAt" type:"string" required:"true"`
 
 	// The principal that created a note.
 	//
 	// UpdatedBy is a required field
-	UpdatedBy *string `type:"string" required:"true"`
+	UpdatedBy *string `json:"securityhub:Note:UpdatedBy" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2894,12 +2894,12 @@ type NoteUpdate struct {
 	// The updated note text.
 	//
 	// Text is a required field
-	Text *string `type:"string" required:"true"`
+	Text *string `json:"securityhub:NoteUpdate:Text" type:"string" required:"true"`
 
 	// The principal that updated the note.
 	//
 	// UpdatedBy is a required field
-	UpdatedBy *string `type:"string" required:"true"`
+	UpdatedBy *string `json:"securityhub:NoteUpdate:UpdatedBy" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2949,15 +2949,15 @@ type NumberFilter struct {
 
 	// The equal-to condition to be applied to a single field when querying for
 	// findings.
-	Eq *float64 `type:"double"`
+	Eq *float64 `json:"securityhub:NumberFilter:Eq" type:"double"`
 
 	// The greater-than-equal condition to be applied to a single field when querying
 	// for findings.
-	Gte *float64 `type:"double"`
+	Gte *float64 `json:"securityhub:NumberFilter:Gte" type:"double"`
 
 	// The less-than-equal condition to be applied to a single field when querying
 	// for findings.
-	Lte *float64 `type:"double"`
+	Lte *float64 `json:"securityhub:NumberFilter:Lte" type:"double"`
 }
 
 // String returns the string representation
@@ -2994,22 +2994,22 @@ type ProcessDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The date/time that the process was launched.
-	LaunchedAt *string `type:"string"`
+	LaunchedAt *string `json:"securityhub:ProcessDetails:LaunchedAt" type:"string"`
 
 	// The name of the process.
-	Name *string `type:"string"`
+	Name *string `json:"securityhub:ProcessDetails:Name" type:"string"`
 
 	// The parent process ID.
-	ParentPid *int64 `type:"integer"`
+	ParentPid *int64 `json:"securityhub:ProcessDetails:ParentPid" type:"integer"`
 
 	// The path to the process executable.
-	Path *string `type:"string"`
+	Path *string `json:"securityhub:ProcessDetails:Path" type:"string"`
 
 	// The process ID.
-	Pid *int64 `type:"integer"`
+	Pid *int64 `json:"securityhub:ProcessDetails:Pid" type:"integer"`
 
 	// The date and time when the process was terminated.
-	TerminatedAt *string `type:"string"`
+	TerminatedAt *string `json:"securityhub:ProcessDetails:TerminatedAt" type:"string"`
 }
 
 // String returns the string representation
@@ -3064,30 +3064,30 @@ type Product struct {
 	_ struct{} `type:"structure"`
 
 	// The URL used to activate the product.
-	ActivationUrl *string `type:"string"`
+	ActivationUrl *string `json:"securityhub:Product:ActivationUrl" type:"string"`
 
 	// The categories assigned to the product.
-	Categories []string `type:"list"`
+	Categories []string `json:"securityhub:Product:Categories" type:"list"`
 
 	// The name of the company that provides the product.
-	CompanyName *string `type:"string"`
+	CompanyName *string `json:"securityhub:Product:CompanyName" type:"string"`
 
 	// A description of the product.
-	Description *string `type:"string"`
+	Description *string `json:"securityhub:Product:Description" type:"string"`
 
 	// The URL for the page that contains more information about the product.
-	MarketplaceUrl *string `type:"string"`
+	MarketplaceUrl *string `json:"securityhub:Product:MarketplaceUrl" type:"string"`
 
 	// The ARN assigned to the product.
 	//
 	// ProductArn is a required field
-	ProductArn *string `type:"string" required:"true"`
+	ProductArn *string `json:"securityhub:Product:ProductArn" type:"string" required:"true"`
 
 	// The name of the product.
-	ProductName *string `type:"string"`
+	ProductName *string `json:"securityhub:Product:ProductName" type:"string"`
 
 	// The resource policy associated with the product.
-	ProductSubscriptionResourcePolicy *string `type:"string"`
+	ProductSubscriptionResourcePolicy *string `json:"securityhub:Product:ProductSubscriptionResourcePolicy" type:"string"`
 }
 
 // String returns the string representation
@@ -3161,11 +3161,11 @@ type Recommendation struct {
 
 	// Describes the recommended steps to take to remediate an issue identified
 	// in a finding.
-	Text *string `type:"string"`
+	Text *string `json:"securityhub:Recommendation:Text" type:"string"`
 
 	// A URL to a page or site that contains information about how to remediate
 	// a finding.
-	Url *string `type:"string"`
+	Url *string `json:"securityhub:Recommendation:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -3198,12 +3198,12 @@ type RelatedFinding struct {
 	// The product-generated identifier for a related finding.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"securityhub:RelatedFinding:Id" type:"string" required:"true"`
 
 	// The ARN of the product that generated a related finding.
 	//
 	// ProductArn is a required field
-	ProductArn *string `type:"string" required:"true"`
+	ProductArn *string `json:"securityhub:RelatedFinding:ProductArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3253,7 +3253,7 @@ type Remediation struct {
 
 	// A recommendation on the steps to take to remediate the issue identified by
 	// a finding.
-	Recommendation *Recommendation `type:"structure"`
+	Recommendation *Recommendation `json:"securityhub:Remediation:Recommendation" type:"structure"`
 }
 
 // String returns the string representation
@@ -3278,27 +3278,27 @@ type Resource struct {
 	_ struct{} `type:"structure"`
 
 	// Additional details about the resource related to a finding.
-	Details *ResourceDetails `type:"structure"`
+	Details *ResourceDetails `json:"securityhub:Resource:Details" type:"structure"`
 
 	// The canonical identifier for the given resource type.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"securityhub:Resource:Id" type:"string" required:"true"`
 
 	// The canonical AWS partition name that the Region is assigned to.
-	Partition Partition `type:"string" enum:"true"`
+	Partition Partition `json:"securityhub:Resource:Partition" type:"string" enum:"true"`
 
 	// The canonical AWS external Region name where this resource is located.
-	Region *string `type:"string"`
+	Region *string `json:"securityhub:Resource:Region" type:"string"`
 
 	// A list of AWS tags associated with a resource at the time the finding was
 	// processed.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"securityhub:Resource:Tags" type:"map"`
 
 	// The type of the resource that details are provided for.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"securityhub:Resource:Type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3377,19 +3377,19 @@ type ResourceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Details about an Amazon EC2 instance related to a finding.
-	AwsEc2Instance *AwsEc2InstanceDetails `type:"structure"`
+	AwsEc2Instance *AwsEc2InstanceDetails `json:"securityhub:ResourceDetails:AwsEc2Instance" type:"structure"`
 
 	// Details about an IAM access key related to a finding.
-	AwsIamAccessKey *AwsIamAccessKeyDetails `type:"structure"`
+	AwsIamAccessKey *AwsIamAccessKeyDetails `json:"securityhub:ResourceDetails:AwsIamAccessKey" type:"structure"`
 
 	// Details about an Amazon S3 Bucket related to a finding.
-	AwsS3Bucket *AwsS3BucketDetails `type:"structure"`
+	AwsS3Bucket *AwsS3BucketDetails `json:"securityhub:ResourceDetails:AwsS3Bucket" type:"structure"`
 
 	// Details about a container resource related to a finding.
-	Container *ContainerDetails `type:"structure"`
+	Container *ContainerDetails `json:"securityhub:ResourceDetails:Container" type:"structure"`
 
 	// Details about a resource that doesn't have a specific type defined.
-	Other map[string]string `type:"map"`
+	Other map[string]string `json:"securityhub:ResourceDetails:Other" type:"map"`
 }
 
 // String returns the string representation
@@ -3444,10 +3444,10 @@ type Result struct {
 	_ struct{} `type:"structure"`
 
 	// An AWS account ID of the account that wasn't be processed.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"securityhub:Result:AccountId" type:"string"`
 
 	// The reason that the account wasn't be processed.
-	ProcessingResult *string `type:"string"`
+	ProcessingResult *string `json:"securityhub:Result:ProcessingResult" type:"string"`
 }
 
 // String returns the string representation
@@ -3480,11 +3480,11 @@ type Severity struct {
 	// The normalized severity of a finding.
 	//
 	// Normalized is a required field
-	Normalized *int64 `type:"integer" required:"true"`
+	Normalized *int64 `json:"securityhub:Severity:Normalized" type:"integer" required:"true"`
 
 	// The native severity as defined by the AWS service or integrated partner product
 	// that generated the finding.
-	Product *float64 `type:"double"`
+	Product *float64 `json:"securityhub:Severity:Product" type:"double"`
 }
 
 // String returns the string representation
@@ -3529,10 +3529,10 @@ type SortCriterion struct {
 	_ struct{} `type:"structure"`
 
 	// The finding attribute used to sort findings.
-	Field *string `type:"string"`
+	Field *string `json:"securityhub:SortCriterion:Field" type:"string"`
 
 	// The order used to sort findings.
-	SortOrder SortOrder `type:"string" enum:"true"`
+	SortOrder SortOrder `json:"securityhub:SortCriterion:SortOrder" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3568,22 +3568,22 @@ type StandardsSubscription struct {
 	// which uses the following ARN: arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0.
 	//
 	// StandardsArn is a required field
-	StandardsArn *string `type:"string" required:"true"`
+	StandardsArn *string `json:"securityhub:StandardsSubscription:StandardsArn" type:"string" required:"true"`
 
 	// A key-value pair of input for the standard.
 	//
 	// StandardsInput is a required field
-	StandardsInput map[string]string `type:"map" required:"true"`
+	StandardsInput map[string]string `json:"securityhub:StandardsSubscription:StandardsInput" type:"map" required:"true"`
 
 	// The status of the standards subscription.
 	//
 	// StandardsStatus is a required field
-	StandardsStatus StandardsStatus `type:"string" required:"true" enum:"true"`
+	StandardsStatus StandardsStatus `json:"securityhub:StandardsSubscription:StandardsStatus" type:"string" required:"true" enum:"true"`
 
 	// The ARN of a resource that represents your subscription to a supported standard.
 	//
 	// StandardsSubscriptionArn is a required field
-	StandardsSubscriptionArn *string `type:"string" required:"true"`
+	StandardsSubscriptionArn *string `json:"securityhub:StandardsSubscription:StandardsSubscriptionArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3638,10 +3638,10 @@ type StandardsSubscriptionRequest struct {
 	// Its ARN is arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0.
 	//
 	// StandardsArn is a required field
-	StandardsArn *string `type:"string" required:"true"`
+	StandardsArn *string `json:"securityhub:StandardsSubscriptionRequest:StandardsArn" type:"string" required:"true"`
 
 	// A key-value pair of input for the standard.
-	StandardsInput map[string]string `type:"map"`
+	StandardsInput map[string]string `json:"securityhub:StandardsSubscriptionRequest:StandardsInput" type:"map"`
 }
 
 // String returns the string representation
@@ -3692,10 +3692,10 @@ type StringFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The condition to be applied to a string value when querying for findings.
-	Comparison StringFilterComparison `type:"string" enum:"true"`
+	Comparison StringFilterComparison `json:"securityhub:StringFilter:Comparison" type:"string" enum:"true"`
 
 	// The string filter value.
-	Value *string `type:"string"`
+	Value *string `json:"securityhub:StringFilter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -3726,24 +3726,24 @@ type ThreatIntelIndicator struct {
 	_ struct{} `type:"structure"`
 
 	// The category of a threat intel indicator.
-	Category ThreatIntelIndicatorCategory `type:"string" enum:"true"`
+	Category ThreatIntelIndicatorCategory `json:"securityhub:ThreatIntelIndicator:Category" type:"string" enum:"true"`
 
 	// The date and time when the most recent instance of a threat intel indicator
 	// was observed.
-	LastObservedAt *string `type:"string"`
+	LastObservedAt *string `json:"securityhub:ThreatIntelIndicator:LastObservedAt" type:"string"`
 
 	// The source of the threat intel indicator.
-	Source *string `type:"string"`
+	Source *string `json:"securityhub:ThreatIntelIndicator:Source" type:"string"`
 
 	// The URL to the page or site where you can get more information about the
 	// threat intel indicator.
-	SourceUrl *string `type:"string"`
+	SourceUrl *string `json:"securityhub:ThreatIntelIndicator:SourceUrl" type:"string"`
 
 	// The type of a threat intel indicator.
-	Type ThreatIntelIndicatorType `type:"string" enum:"true"`
+	Type ThreatIntelIndicatorType `json:"securityhub:ThreatIntelIndicator:Type" type:"string" enum:"true"`
 
 	// The value of a threat intel indicator.
-	Value *string `type:"string"`
+	Value *string `json:"securityhub:ThreatIntelIndicator:Value" type:"string"`
 }
 
 // String returns the string representation

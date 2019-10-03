@@ -274,7 +274,7 @@ type CloneStackOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The cloned stack ID.
-	StackId *string `type:"string"`
+	StackId *string `json:"opsworks:CloneStackOutput:StackId" type:"string"`
 }
 
 // String returns the string representation

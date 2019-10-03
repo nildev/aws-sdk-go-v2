@@ -46,7 +46,7 @@ type DeleteJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the job definition that was deleted.
-	JobName *string `min:"1" type:"string"`
+	JobName *string `json:"glue:DeleteJobOutput:JobName" min:"1" type:"string"`
 }
 
 // String returns the string representation

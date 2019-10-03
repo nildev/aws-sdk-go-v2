@@ -78,7 +78,7 @@ type PutEncryptionConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The new encryption configuration.
-	EncryptionConfig *EncryptionConfig `type:"structure"`
+	EncryptionConfig *EncryptionConfig `json:"xray:PutEncryptionConfigOutput:EncryptionConfig" type:"structure"`
 }
 
 // String returns the string representation

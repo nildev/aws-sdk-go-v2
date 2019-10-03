@@ -56,10 +56,10 @@ type GetPublicKeyConfigOutput struct {
 	_ struct{} `type:"structure" payload:"PublicKeyConfig"`
 
 	// The current version of the public key configuration. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:GetPublicKeyConfigOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// Return the result for the public key configuration.
-	PublicKeyConfig *PublicKeyConfig `type:"structure"`
+	PublicKeyConfig *PublicKeyConfig `json:"cloudfront:GetPublicKeyConfigOutput:PublicKeyConfig" type:"structure"`
 }
 
 // String returns the string representation

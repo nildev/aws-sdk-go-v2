@@ -75,10 +75,10 @@ type ListConfigurationRevisionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Paginated results marker.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"kafka:ListConfigurationRevisionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// List of ConfigurationRevision objects.
-	Revisions []ConfigurationRevision `locationName:"revisions" type:"list"`
+	Revisions []ConfigurationRevision `json:"kafka:ListConfigurationRevisionsOutput:Revisions" locationName:"revisions" type:"list"`
 }
 
 // String returns the string representation

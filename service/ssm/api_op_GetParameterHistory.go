@@ -63,10 +63,10 @@ type GetParameterHistoryOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:GetParameterHistoryOutput:NextToken" type:"string"`
 
 	// A list of parameters returned by the request.
-	Parameters []ParameterHistory `type:"list"`
+	Parameters []ParameterHistory `json:"ssm:GetParameterHistoryOutput:Parameters" type:"list"`
 }
 
 // String returns the string representation

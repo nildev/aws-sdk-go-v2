@@ -57,7 +57,7 @@ type RemoveTagsFromResourceOutput struct {
 	// The status of the operation.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudhsm:RemoveTagsFromResourceOutput:Status" type:"string" required:"true"`
 }
 
 // String returns the string representation

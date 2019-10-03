@@ -64,7 +64,7 @@ type InstallToRemoteAccessSessionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An app to upload or that has been uploaded.
-	AppUpload *Upload `locationName:"appUpload" type:"structure"`
+	AppUpload *Upload `json:"devicefarm:InstallToRemoteAccessSessionOutput:AppUpload" locationName:"appUpload" type:"structure"`
 }
 
 // String returns the string representation

@@ -62,11 +62,11 @@ type BatchCheckLayerAvailabilityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any failures associated with the call.
-	Failures []LayerFailure `locationName:"failures" type:"list"`
+	Failures []LayerFailure `json:"api.ecr:BatchCheckLayerAvailabilityOutput:Failures" locationName:"failures" type:"list"`
 
 	// A list of image layer objects corresponding to the image layer references
 	// in the request.
-	Layers []Layer `locationName:"layers" type:"list"`
+	Layers []Layer `json:"api.ecr:BatchCheckLayerAvailabilityOutput:Layers" locationName:"layers" type:"list"`
 }
 
 // String returns the string representation

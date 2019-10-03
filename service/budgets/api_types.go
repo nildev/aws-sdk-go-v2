@@ -31,21 +31,21 @@ type Budget struct {
 	// is the only valid value for RI utilization or coverage budgets. You can't
 	// use BudgetLimit with PlannedBudgetLimits for CreateBudget and UpdateBudget
 	// actions.
-	BudgetLimit *Spend `type:"structure"`
+	BudgetLimit *Spend `json:"budgets:Budget:BudgetLimit" type:"structure"`
 
 	// The name of a budget. The name must be unique within an account. The : and
 	// \ characters aren't allowed in BudgetName.
 	//
 	// BudgetName is a required field
-	BudgetName *string `min:"1" type:"string" required:"true"`
+	BudgetName *string `json:"budgets:Budget:BudgetName" min:"1" type:"string" required:"true"`
 
 	// Whether this budget tracks costs, usage, RI utilization, or RI coverage.
 	//
 	// BudgetType is a required field
-	BudgetType BudgetType `type:"string" required:"true" enum:"true"`
+	BudgetType BudgetType `json:"budgets:Budget:BudgetType" type:"string" required:"true" enum:"true"`
 
 	// The actual and forecasted cost or usage that the budget tracks.
-	CalculatedSpend *CalculatedSpend `type:"structure"`
+	CalculatedSpend *CalculatedSpend `json:"budgets:Budget:CalculatedSpend" type:"structure"`
 
 	// The cost filters, such as service or tag, that are applied to a budget.
 	//
@@ -60,15 +60,15 @@ type Budget struct {
 	//    * Amazon ElastiCache
 	//
 	//    * Amazon Elasticsearch Service
-	CostFilters map[string][]string `type:"map"`
+	CostFilters map[string][]string `json:"budgets:Budget:CostFilters" type:"map"`
 
 	// The types of costs that are included in this COST budget.
 	//
 	// USAGE, RI_UTILIZATION, and RI_COVERAGE budgets do not have CostTypes.
-	CostTypes *CostTypes `type:"structure"`
+	CostTypes *CostTypes `json:"budgets:Budget:CostTypes" type:"structure"`
 
 	// The last time that you updated this budget.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"budgets:Budget:LastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A map containing multiple BudgetLimit, including current or future limits.
 	//
@@ -100,7 +100,7 @@ type Budget struct {
 	// present in PlannedBudgetLimits. This only applies to budgets created with
 	// PlannedBudgetLimits. Budgets created without PlannedBudgetLimits will only
 	// contain BudgetLimit, and no PlannedBudgetLimits.
-	PlannedBudgetLimits map[string]Spend `type:"map"`
+	PlannedBudgetLimits map[string]Spend `json:"budgets:Budget:PlannedBudgetLimits" type:"map"`
 
 	// The period of time that is covered by a budget. The period has a start date
 	// and an end date. The start date must come before the end date. The end date
@@ -119,13 +119,13 @@ type Budget struct {
 	//
 	// After the end date, AWS deletes the budget and all associated notifications
 	// and subscribers.
-	TimePeriod *TimePeriod `type:"structure"`
+	TimePeriod *TimePeriod `json:"budgets:Budget:TimePeriod" type:"structure"`
 
 	// The length of time until a budget resets the actual and forecasted spend.
 	// DAILY is available only for RI_UTILIZATION and RI_COVERAGE budgets.
 	//
 	// TimeUnit is a required field
-	TimeUnit TimeUnit `type:"string" required:"true" enum:"true"`
+	TimeUnit TimeUnit `json:"budgets:Budget:TimeUnit" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -180,25 +180,25 @@ type BudgetPerformanceHistory struct {
 
 	// A string that represents the budget name. The ":" and "\" characters aren't
 	// allowed.
-	BudgetName *string `min:"1" type:"string"`
+	BudgetName *string `json:"budgets:BudgetPerformanceHistory:BudgetName" min:"1" type:"string"`
 
 	// The type of a budget. It must be one of the following types:
 	//
 	// COST, USAGE, RI_UTILIZATION, or RI_COVERAGE.
-	BudgetType BudgetType `type:"string" enum:"true"`
+	BudgetType BudgetType `json:"budgets:BudgetPerformanceHistory:BudgetType" type:"string" enum:"true"`
 
 	// A list of amounts of cost or usage that you created budgets for, compared
 	// to your actual costs or usage.
-	BudgetedAndActualAmountsList []BudgetedAndActualAmounts `type:"list"`
+	BudgetedAndActualAmountsList []BudgetedAndActualAmounts `json:"budgets:BudgetPerformanceHistory:BudgetedAndActualAmountsList" type:"list"`
 
 	// The history of the cost filters for a budget during the specified time period.
-	CostFilters map[string][]string `type:"map"`
+	CostFilters map[string][]string `json:"budgets:BudgetPerformanceHistory:CostFilters" type:"map"`
 
 	// The history of the cost types for a budget during the specified time period.
-	CostTypes *CostTypes `type:"structure"`
+	CostTypes *CostTypes `json:"budgets:BudgetPerformanceHistory:CostTypes" type:"structure"`
 
 	// The time unit of the budget, such as MONTHLY or QUARTERLY.
-	TimeUnit TimeUnit `type:"string" enum:"true"`
+	TimeUnit TimeUnit `json:"budgets:BudgetPerformanceHistory:TimeUnit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -212,13 +212,13 @@ type BudgetedAndActualAmounts struct {
 	_ struct{} `type:"structure"`
 
 	// Your actual costs or usage for a budget period.
-	ActualAmount *Spend `type:"structure"`
+	ActualAmount *Spend `json:"budgets:BudgetedAndActualAmounts:ActualAmount" type:"structure"`
 
 	// The amount of cost or usage that you created the budget for.
-	BudgetedAmount *Spend `type:"structure"`
+	BudgetedAmount *Spend `json:"budgets:BudgetedAndActualAmounts:BudgetedAmount" type:"structure"`
 
 	// The time period covered by this budget comparison.
-	TimePeriod *TimePeriod `type:"structure"`
+	TimePeriod *TimePeriod `json:"budgets:BudgetedAndActualAmounts:TimePeriod" type:"structure"`
 }
 
 // String returns the string representation
@@ -239,10 +239,10 @@ type CalculatedSpend struct {
 	// The amount of cost, usage, or RI units that you have used.
 	//
 	// ActualSpend is a required field
-	ActualSpend *Spend `type:"structure" required:"true"`
+	ActualSpend *Spend `json:"budgets:CalculatedSpend:ActualSpend" type:"structure" required:"true"`
 
 	// The amount of cost, usage, or RI units that you are forecasted to use.
-	ForecastedSpend *Spend `type:"structure"`
+	ForecastedSpend *Spend `json:"budgets:CalculatedSpend:ForecastedSpend" type:"structure"`
 }
 
 // String returns the string representation
@@ -283,57 +283,57 @@ type CostTypes struct {
 	// Specifies whether a budget includes credits.
 	//
 	// The default value is true.
-	IncludeCredit *bool `type:"boolean"`
+	IncludeCredit *bool `json:"budgets:CostTypes:IncludeCredit" type:"boolean"`
 
 	// Specifies whether a budget includes discounts.
 	//
 	// The default value is true.
-	IncludeDiscount *bool `type:"boolean"`
+	IncludeDiscount *bool `json:"budgets:CostTypes:IncludeDiscount" type:"boolean"`
 
 	// Specifies whether a budget includes non-RI subscription costs.
 	//
 	// The default value is true.
-	IncludeOtherSubscription *bool `type:"boolean"`
+	IncludeOtherSubscription *bool `json:"budgets:CostTypes:IncludeOtherSubscription" type:"boolean"`
 
 	// Specifies whether a budget includes recurring fees such as monthly RI fees.
 	//
 	// The default value is true.
-	IncludeRecurring *bool `type:"boolean"`
+	IncludeRecurring *bool `json:"budgets:CostTypes:IncludeRecurring" type:"boolean"`
 
 	// Specifies whether a budget includes refunds.
 	//
 	// The default value is true.
-	IncludeRefund *bool `type:"boolean"`
+	IncludeRefund *bool `json:"budgets:CostTypes:IncludeRefund" type:"boolean"`
 
 	// Specifies whether a budget includes subscriptions.
 	//
 	// The default value is true.
-	IncludeSubscription *bool `type:"boolean"`
+	IncludeSubscription *bool `json:"budgets:CostTypes:IncludeSubscription" type:"boolean"`
 
 	// Specifies whether a budget includes support subscription fees.
 	//
 	// The default value is true.
-	IncludeSupport *bool `type:"boolean"`
+	IncludeSupport *bool `json:"budgets:CostTypes:IncludeSupport" type:"boolean"`
 
 	// Specifies whether a budget includes taxes.
 	//
 	// The default value is true.
-	IncludeTax *bool `type:"boolean"`
+	IncludeTax *bool `json:"budgets:CostTypes:IncludeTax" type:"boolean"`
 
 	// Specifies whether a budget includes upfront RI costs.
 	//
 	// The default value is true.
-	IncludeUpfront *bool `type:"boolean"`
+	IncludeUpfront *bool `json:"budgets:CostTypes:IncludeUpfront" type:"boolean"`
 
 	// Specifies whether a budget uses the amortized rate.
 	//
 	// The default value is false.
-	UseAmortized *bool `type:"boolean"`
+	UseAmortized *bool `json:"budgets:CostTypes:UseAmortized" type:"boolean"`
 
 	// Specifies whether a budget uses a blended rate.
 	//
 	// The default value is false.
-	UseBlended *bool `type:"boolean"`
+	UseBlended *bool `json:"budgets:CostTypes:UseBlended" type:"boolean"`
 }
 
 // String returns the string representation
@@ -363,23 +363,23 @@ type Notification struct {
 	// The comparison that is used for this notification.
 	//
 	// ComparisonOperator is a required field
-	ComparisonOperator ComparisonOperator `type:"string" required:"true" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"budgets:Notification:ComparisonOperator" type:"string" required:"true" enum:"true"`
 
 	// Whether this notification is in alarm. If a budget notification is in the
 	// ALARM state, you have passed the set threshold for the budget.
-	NotificationState NotificationState `type:"string" enum:"true"`
+	NotificationState NotificationState `json:"budgets:Notification:NotificationState" type:"string" enum:"true"`
 
 	// Whether the notification is for how much you have spent (ACTUAL) or for how
 	// much you're forecasted to spend (FORECASTED).
 	//
 	// NotificationType is a required field
-	NotificationType NotificationType `type:"string" required:"true" enum:"true"`
+	NotificationType NotificationType `json:"budgets:Notification:NotificationType" type:"string" required:"true" enum:"true"`
 
 	// The threshold that is associated with a notification. Thresholds are always
 	// a percentage.
 	//
 	// Threshold is a required field
-	Threshold *float64 `type:"double" required:"true"`
+	Threshold *float64 `json:"budgets:Notification:Threshold" type:"double" required:"true"`
 
 	// The type of threshold for a notification. For ABSOLUTE_VALUE thresholds,
 	// AWS notifies you when you go over or are forecasted to go over your total
@@ -387,7 +387,7 @@ type Notification struct {
 	// or are forecasted to go over a certain percentage of your forecasted spend.
 	// For example, if you have a budget for 200 dollars and you have a PERCENTAGE
 	// threshold of 80%, AWS notifies you when you go over 160 dollars.
-	ThresholdType ThresholdType `type:"string" enum:"true"`
+	ThresholdType ThresholdType `json:"budgets:Notification:ThresholdType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -423,12 +423,12 @@ type NotificationWithSubscribers struct {
 	// The notification that is associated with a budget.
 	//
 	// Notification is a required field
-	Notification *Notification `type:"structure" required:"true"`
+	Notification *Notification `json:"budgets:NotificationWithSubscribers:Notification" type:"structure" required:"true"`
 
 	// A list of subscribers who are subscribed to this notification.
 	//
 	// Subscribers is a required field
-	Subscribers []Subscriber `min:"1" type:"list" required:"true"`
+	Subscribers []Subscriber `json:"budgets:NotificationWithSubscribers:Subscribers" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -483,13 +483,13 @@ type Spend struct {
 	// spend, or budget threshold.
 	//
 	// Amount is a required field
-	Amount *string `min:"1" type:"string" required:"true"`
+	Amount *string `json:"budgets:Spend:Amount" min:"1" type:"string" required:"true"`
 
 	// The unit of measurement that is used for the budget forecast, actual spend,
 	// or budget threshold, such as dollars or GB.
 	//
 	// Unit is a required field
-	Unit *string `min:"1" type:"string" required:"true"`
+	Unit *string `json:"budgets:Spend:Unit" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -538,12 +538,12 @@ type Subscriber struct {
 	// AWS validates the address for a CreateSubscriber request with the .* regex.
 	//
 	// Address is a required field
-	Address *string `min:"1" type:"string" required:"true"`
+	Address *string `json:"budgets:Subscriber:Address" min:"1" type:"string" required:"true"`
 
 	// The type of notification that AWS sends to a subscriber.
 	//
 	// SubscriptionType is a required field
-	SubscriptionType SubscriptionType `type:"string" required:"true" enum:"true"`
+	SubscriptionType SubscriptionType `json:"budgets:Subscriber:SubscriptionType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -583,7 +583,7 @@ type TimePeriod struct {
 	//
 	// After the end date, AWS deletes the budget and all associated notifications
 	// and subscribers. You can change your end date with the UpdateBudget operation.
-	End *time.Time `type:"timestamp" timestampFormat:"unix"`
+	End *time.Time `json:"budgets:TimePeriod:End" type:"timestamp" timestampFormat:"unix"`
 
 	// The start date for a budget. If you created your budget and didn't specify
 	// a start date, AWS defaults to the start of your chosen time period (DAILY,
@@ -594,7 +594,7 @@ type TimePeriod struct {
 	// and Cost Management console and the API.
 	//
 	// You can change your start date with the UpdateBudget operation.
-	Start *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Start *time.Time `json:"budgets:TimePeriod:Start" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

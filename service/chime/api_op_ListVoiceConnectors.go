@@ -62,10 +62,10 @@ type ListVoiceConnectorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token to use to retrieve the next page of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"chime:ListVoiceConnectorsOutput:NextToken" type:"string"`
 
 	// The details of the Amazon Chime Voice Connectors.
-	VoiceConnectors []VoiceConnector `type:"list"`
+	VoiceConnectors []VoiceConnector `json:"chime:ListVoiceConnectorsOutput:VoiceConnectors" type:"list"`
 }
 
 // String returns the string representation

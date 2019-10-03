@@ -20,7 +20,7 @@ type Destination struct {
 	_ struct{} `type:"structure"`
 
 	// The S3Destination object.
-	S3 *S3Destination `locationName:"s3" type:"structure"`
+	S3 *S3Destination `json:"signer:Destination:S3" locationName:"s3" type:"structure"`
 }
 
 // String returns the string representation
@@ -48,12 +48,12 @@ type EncryptionAlgorithmOptions struct {
 	// job.
 	//
 	// AllowedValues is a required field
-	AllowedValues []EncryptionAlgorithm `locationName:"allowedValues" type:"list" required:"true"`
+	AllowedValues []EncryptionAlgorithm `json:"signer:EncryptionAlgorithmOptions:AllowedValues" locationName:"allowedValues" type:"list" required:"true"`
 
 	// The default encryption algorithm that is used by an AWS Signer job.
 	//
 	// DefaultValue is a required field
-	DefaultValue EncryptionAlgorithm `locationName:"defaultValue" type:"string" required:"true" enum:"true"`
+	DefaultValue EncryptionAlgorithm `json:"signer:EncryptionAlgorithmOptions:DefaultValue" locationName:"defaultValue" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -92,12 +92,12 @@ type HashAlgorithmOptions struct {
 	// The set of accepted hash algorithms allowed in an AWS Signer job.
 	//
 	// AllowedValues is a required field
-	AllowedValues []HashAlgorithm `locationName:"allowedValues" type:"list" required:"true"`
+	AllowedValues []HashAlgorithm `json:"signer:HashAlgorithmOptions:AllowedValues" locationName:"allowedValues" type:"list" required:"true"`
 
 	// The default hash algorithm that is used in an AWS Signer job.
 	//
 	// DefaultValue is a required field
-	DefaultValue HashAlgorithm `locationName:"defaultValue" type:"string" required:"true" enum:"true"`
+	DefaultValue HashAlgorithm `json:"signer:HashAlgorithmOptions:DefaultValue" locationName:"defaultValue" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -134,11 +134,11 @@ type S3Destination struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the S3 bucket.
-	BucketName *string `locationName:"bucketName" type:"string"`
+	BucketName *string `json:"signer:S3Destination:BucketName" locationName:"bucketName" type:"string"`
 
 	// An Amazon S3 prefix that you can use to limit responses to those that begin
 	// with the specified prefix.
-	Prefix *string `locationName:"prefix" type:"string"`
+	Prefix *string `json:"signer:S3Destination:Prefix" locationName:"prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -169,10 +169,10 @@ type S3SignedObject struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the S3 bucket.
-	BucketName *string `locationName:"bucketName" type:"string"`
+	BucketName *string `json:"signer:S3SignedObject:BucketName" locationName:"bucketName" type:"string"`
 
 	// Key name that uniquely identifies a signed code image in your bucket.
-	Key *string `locationName:"key" type:"string"`
+	Key *string `json:"signer:S3SignedObject:Key" locationName:"key" type:"string"`
 }
 
 // String returns the string representation
@@ -205,17 +205,17 @@ type S3Source struct {
 	// Name of the S3 bucket.
 	//
 	// BucketName is a required field
-	BucketName *string `locationName:"bucketName" type:"string" required:"true"`
+	BucketName *string `json:"signer:S3Source:BucketName" locationName:"bucketName" type:"string" required:"true"`
 
 	// Key name of the bucket object that contains your unsigned code.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" type:"string" required:"true"`
+	Key *string `json:"signer:S3Source:Key" locationName:"key" type:"string" required:"true"`
 
 	// Version of your source image in your version enabled S3 bucket.
 	//
 	// Version is a required field
-	Version *string `locationName:"version" type:"string" required:"true"`
+	Version *string `json:"signer:S3Source:Version" locationName:"version" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -275,7 +275,7 @@ type SignedObject struct {
 	_ struct{} `type:"structure"`
 
 	// The S3SignedObject.
-	S3 *S3SignedObject `locationName:"s3" type:"structure"`
+	S3 *S3SignedObject `json:"signer:SignedObject:S3" locationName:"s3" type:"structure"`
 }
 
 // String returns the string representation
@@ -302,12 +302,12 @@ type SigningConfiguration struct {
 	// The encryption algorithm options that are available for an AWS Signer job.
 	//
 	// EncryptionAlgorithmOptions is a required field
-	EncryptionAlgorithmOptions *EncryptionAlgorithmOptions `locationName:"encryptionAlgorithmOptions" type:"structure" required:"true"`
+	EncryptionAlgorithmOptions *EncryptionAlgorithmOptions `json:"signer:SigningConfiguration:EncryptionAlgorithmOptions" locationName:"encryptionAlgorithmOptions" type:"structure" required:"true"`
 
 	// The hash algorithm options that are available for an AWS Signer job.
 	//
 	// HashAlgorithmOptions is a required field
-	HashAlgorithmOptions *HashAlgorithmOptions `locationName:"hashAlgorithmOptions" type:"structure" required:"true"`
+	HashAlgorithmOptions *HashAlgorithmOptions `json:"signer:SigningConfiguration:HashAlgorithmOptions" locationName:"hashAlgorithmOptions" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -340,11 +340,11 @@ type SigningConfigurationOverrides struct {
 
 	// A specified override of the default encryption algorithm that is used in
 	// an AWS Signer job.
-	EncryptionAlgorithm EncryptionAlgorithm `locationName:"encryptionAlgorithm" type:"string" enum:"true"`
+	EncryptionAlgorithm EncryptionAlgorithm `json:"signer:SigningConfigurationOverrides:EncryptionAlgorithm" locationName:"encryptionAlgorithm" type:"string" enum:"true"`
 
 	// A specified override of the default hash algorithm that is used in an AWS
 	// Signer job.
-	HashAlgorithm HashAlgorithm `locationName:"hashAlgorithm" type:"string" enum:"true"`
+	HashAlgorithm HashAlgorithm `json:"signer:SigningConfigurationOverrides:HashAlgorithm" locationName:"hashAlgorithm" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -377,12 +377,12 @@ type SigningImageFormat struct {
 	// The default format of an AWS Signer signing image.
 	//
 	// DefaultFormat is a required field
-	DefaultFormat ImageFormat `locationName:"defaultFormat" type:"string" required:"true" enum:"true"`
+	DefaultFormat ImageFormat `json:"signer:SigningImageFormat:DefaultFormat" locationName:"defaultFormat" type:"string" required:"true" enum:"true"`
 
 	// The supported formats of an AWS Signer signing image.
 	//
 	// SupportedFormats is a required field
-	SupportedFormats []ImageFormat `locationName:"supportedFormats" type:"list" required:"true"`
+	SupportedFormats []ImageFormat `json:"signer:SigningImageFormat:SupportedFormats" locationName:"supportedFormats" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -419,24 +419,24 @@ type SigningJob struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time that the signing job was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"signer:SigningJob:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the signing job.
-	JobId *string `locationName:"jobId" type:"string"`
+	JobId *string `json:"signer:SigningJob:JobId" locationName:"jobId" type:"string"`
 
 	// A SignedObject structure that contains information about a signing job's
 	// signed code image.
-	SignedObject *SignedObject `locationName:"signedObject" type:"structure"`
+	SignedObject *SignedObject `json:"signer:SigningJob:SignedObject" locationName:"signedObject" type:"structure"`
 
 	// A SigningMaterial object that contains the Amazon Resource Name (ARN) of
 	// the certificate used for the signing job.
-	SigningMaterial *SigningMaterial `locationName:"signingMaterial" type:"structure"`
+	SigningMaterial *SigningMaterial `json:"signer:SigningJob:SigningMaterial" locationName:"signingMaterial" type:"structure"`
 
 	// A Source that contains information about a signing job's code image source.
-	Source *Source `locationName:"source" type:"structure"`
+	Source *Source `json:"signer:SigningJob:Source" locationName:"source" type:"structure"`
 
 	// The status of the signing job.
-	Status SigningStatus `locationName:"status" type:"string" enum:"true"`
+	Status SigningStatus `json:"signer:SigningJob:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -494,7 +494,7 @@ type SigningMaterial struct {
 	// code.
 	//
 	// CertificateArn is a required field
-	CertificateArn *string `locationName:"certificateArn" type:"string" required:"true"`
+	CertificateArn *string `json:"signer:SigningMaterial:CertificateArn" locationName:"certificateArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -534,29 +534,29 @@ type SigningPlatform struct {
 	_ struct{} `type:"structure"`
 
 	// The category of an AWS Signer platform.
-	Category Category `locationName:"category" type:"string" enum:"true"`
+	Category Category `json:"signer:SigningPlatform:Category" locationName:"category" type:"string" enum:"true"`
 
 	// The display name of an AWS Signer platform.
-	DisplayName *string `locationName:"displayName" type:"string"`
+	DisplayName *string `json:"signer:SigningPlatform:DisplayName" locationName:"displayName" type:"string"`
 
 	// The maximum size (in MB) of code that can be signed by a AWS Signer platform.
-	MaxSizeInMB *int64 `locationName:"maxSizeInMB" type:"integer"`
+	MaxSizeInMB *int64 `json:"signer:SigningPlatform:MaxSizeInMB" locationName:"maxSizeInMB" type:"integer"`
 
 	// Any partner entities linked to an AWS Signer platform.
-	Partner *string `locationName:"partner" type:"string"`
+	Partner *string `json:"signer:SigningPlatform:Partner" locationName:"partner" type:"string"`
 
 	// The ID of an AWS Signer platform.
-	PlatformId *string `locationName:"platformId" type:"string"`
+	PlatformId *string `json:"signer:SigningPlatform:PlatformId" locationName:"platformId" type:"string"`
 
 	// The configuration of an AWS Signer platform. This includes the designated
 	// hash algorithm and encryption algorithm of a signing platform.
-	SigningConfiguration *SigningConfiguration `locationName:"signingConfiguration" type:"structure"`
+	SigningConfiguration *SigningConfiguration `json:"signer:SigningPlatform:SigningConfiguration" locationName:"signingConfiguration" type:"structure"`
 
 	// The signing image format that is used by an AWS Signer platform.
-	SigningImageFormat *SigningImageFormat `locationName:"signingImageFormat" type:"structure"`
+	SigningImageFormat *SigningImageFormat `json:"signer:SigningPlatform:SigningImageFormat" locationName:"signingImageFormat" type:"structure"`
 
 	// The types of targets that can be signed by an AWS Signer platform.
-	Target *string `locationName:"target" type:"string"`
+	Target *string `json:"signer:SigningPlatform:Target" locationName:"target" type:"string"`
 }
 
 // String returns the string representation
@@ -625,7 +625,7 @@ type SigningPlatformOverrides struct {
 
 	// A signing configuration that overrides the default encryption or hash algorithm
 	// of a signing job.
-	SigningConfiguration *SigningConfigurationOverrides `locationName:"signingConfiguration" type:"structure"`
+	SigningConfiguration *SigningConfigurationOverrides `json:"signer:SigningPlatformOverrides:SigningConfiguration" locationName:"signingConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -651,19 +651,19 @@ type SigningProfile struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of a platform that is available for use by a signing profile.
-	PlatformId *string `locationName:"platformId" type:"string"`
+	PlatformId *string `json:"signer:SigningProfile:PlatformId" locationName:"platformId" type:"string"`
 
 	// The name of the AWS Signer profile.
-	ProfileName *string `locationName:"profileName" min:"2" type:"string"`
+	ProfileName *string `json:"signer:SigningProfile:ProfileName" locationName:"profileName" min:"2" type:"string"`
 
 	// The ACM certificate that is available for use by a signing profile.
-	SigningMaterial *SigningMaterial `locationName:"signingMaterial" type:"structure"`
+	SigningMaterial *SigningMaterial `json:"signer:SigningProfile:SigningMaterial" locationName:"signingMaterial" type:"structure"`
 
 	// The parameters that are available for use by an AWS Signer user.
-	SigningParameters map[string]string `locationName:"signingParameters" type:"map"`
+	SigningParameters map[string]string `json:"signer:SigningProfile:SigningParameters" locationName:"signingParameters" type:"map"`
 
 	// The status of an AWS Signer profile.
-	Status SigningProfileStatus `locationName:"status" type:"string" enum:"true"`
+	Status SigningProfileStatus `json:"signer:SigningProfile:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -719,7 +719,7 @@ type Source struct {
 	_ struct{} `type:"structure"`
 
 	// The S3Source object.
-	S3 *S3Source `locationName:"s3" type:"structure"`
+	S3 *S3Source `json:"signer:Source:S3" locationName:"s3" type:"structure"`
 }
 
 // String returns the string representation

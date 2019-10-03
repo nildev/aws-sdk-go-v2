@@ -55,20 +55,20 @@ type DescribeProductAsAdminOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the associated budgets.
-	Budgets []BudgetDetail `type:"list"`
+	Budgets []BudgetDetail `json:"servicecatalog:DescribeProductAsAdminOutput:Budgets" type:"list"`
 
 	// Information about the product view.
-	ProductViewDetail *ProductViewDetail `type:"structure"`
+	ProductViewDetail *ProductViewDetail `json:"servicecatalog:DescribeProductAsAdminOutput:ProductViewDetail" type:"structure"`
 
 	// Information about the provisioning artifacts (also known as versions) for
 	// the specified product.
-	ProvisioningArtifactSummaries []ProvisioningArtifactSummary `type:"list"`
+	ProvisioningArtifactSummaries []ProvisioningArtifactSummary `json:"servicecatalog:DescribeProductAsAdminOutput:ProvisioningArtifactSummaries" type:"list"`
 
 	// Information about the TagOptions associated with the product.
-	TagOptions []TagOptionDetail `type:"list"`
+	TagOptions []TagOptionDetail `json:"servicecatalog:DescribeProductAsAdminOutput:TagOptions" type:"list"`
 
 	// Information about the tags associated with the product.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"servicecatalog:DescribeProductAsAdminOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

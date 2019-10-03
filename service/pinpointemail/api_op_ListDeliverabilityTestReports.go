@@ -63,13 +63,13 @@ type ListDeliverabilityTestReportsOutput struct {
 	// you've performed.
 	//
 	// DeliverabilityTestReports is a required field
-	DeliverabilityTestReports []DeliverabilityTestReport `type:"list" required:"true"`
+	DeliverabilityTestReports []DeliverabilityTestReport `json:"email:ListDeliverabilityTestReportsOutput:DeliverabilityTestReports" type:"list" required:"true"`
 
 	// A token that indicates that there are additional predictive inbox placement
 	// tests to list. To view additional predictive inbox placement tests, issue
 	// another request to ListDeliverabilityTestReports, and pass this token in
 	// the NextToken parameter.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"email:ListDeliverabilityTestReportsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

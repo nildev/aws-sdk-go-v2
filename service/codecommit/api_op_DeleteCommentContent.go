@@ -44,7 +44,7 @@ type DeleteCommentContentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the comment you just deleted.
-	Comment *Comment `locationName:"comment" type:"structure"`
+	Comment *Comment `json:"codecommit:DeleteCommentContentOutput:Comment" locationName:"comment" type:"structure"`
 }
 
 // String returns the string representation

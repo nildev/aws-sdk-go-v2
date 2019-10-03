@@ -73,13 +73,13 @@ type SearchProfilesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:SearchProfilesOutput:NextToken" min:"1" type:"string"`
 
 	// The profiles that meet the specified set of filter criteria, in sort order.
-	Profiles []ProfileData `type:"list"`
+	Profiles []ProfileData `json:"a4b:SearchProfilesOutput:Profiles" type:"list"`
 
 	// The total number of room profiles returned.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"a4b:SearchProfilesOutput:TotalCount" type:"integer"`
 }
 
 // String returns the string representation

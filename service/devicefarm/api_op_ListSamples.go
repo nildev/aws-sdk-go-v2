@@ -57,10 +57,10 @@ type ListSamplesOutput struct {
 	// If the number of items that are returned is significantly large, this is
 	// an identifier that is also returned, which can be used in a subsequent call
 	// to this operation to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:ListSamplesOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 
 	// Information about the samples.
-	Samples []Sample `locationName:"samples" type:"list"`
+	Samples []Sample `json:"devicefarm:ListSamplesOutput:Samples" locationName:"samples" type:"list"`
 }
 
 // String returns the string representation

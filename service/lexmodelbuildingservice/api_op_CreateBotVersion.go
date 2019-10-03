@@ -76,10 +76,10 @@ type CreateBotVersionOutput struct {
 
 	// The message that Amazon Lex uses to abort a conversation. For more information,
 	// see PutBot.
-	AbortStatement *Statement `locationName:"abortStatement" type:"structure"`
+	AbortStatement *Statement `json:"models.lex:CreateBotVersionOutput:AbortStatement" locationName:"abortStatement" type:"structure"`
 
 	// Checksum identifying the version of the bot that was created.
-	Checksum *string `locationName:"checksum" type:"string"`
+	Checksum *string `json:"models.lex:CreateBotVersionOutput:Checksum" locationName:"checksum" type:"string"`
 
 	// For each Amazon Lex bot created with the Amazon Lex Model Building Service,
 	// you must specify whether your use of Amazon Lex is related to a website,
@@ -104,50 +104,50 @@ type CreateBotVersionOutput struct {
 	// regarding the use of Amazon Lex in connection with websites, programs, or
 	// other applications that are directed or targeted, in whole or in part, to
 	// children under age 13, see the Amazon Lex FAQ. (https://aws.amazon.com/lex/faqs#data-security)
-	ChildDirected *bool `locationName:"childDirected" type:"boolean"`
+	ChildDirected *bool `json:"models.lex:CreateBotVersionOutput:ChildDirected" locationName:"childDirected" type:"boolean"`
 
 	// The message that Amazon Lex uses when it doesn't understand the user's request.
 	// For more information, see PutBot.
-	ClarificationPrompt *Prompt `locationName:"clarificationPrompt" type:"structure"`
+	ClarificationPrompt *Prompt `json:"models.lex:CreateBotVersionOutput:ClarificationPrompt" locationName:"clarificationPrompt" type:"structure"`
 
 	// The date when the bot version was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:CreateBotVersionOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the bot.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:CreateBotVersionOutput:Description" locationName:"description" type:"string"`
 
 	// If status is FAILED, Amazon Lex provides the reason that it failed to build
 	// the bot.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"models.lex:CreateBotVersionOutput:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The maximum time in seconds that Amazon Lex retains the data gathered in
 	// a conversation. For more information, see PutBot.
-	IdleSessionTTLInSeconds *int64 `locationName:"idleSessionTTLInSeconds" min:"60" type:"integer"`
+	IdleSessionTTLInSeconds *int64 `json:"models.lex:CreateBotVersionOutput:IdleSessionTTLInSeconds" locationName:"idleSessionTTLInSeconds" min:"60" type:"integer"`
 
 	// An array of Intent objects. For more information, see PutBot.
-	Intents []Intent `locationName:"intents" type:"list"`
+	Intents []Intent `json:"models.lex:CreateBotVersionOutput:Intents" locationName:"intents" type:"list"`
 
 	// The date when the $LATEST version of this bot was updated.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:CreateBotVersionOutput:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies the target locale for the bot.
-	Locale Locale `locationName:"locale" type:"string" enum:"true"`
+	Locale Locale `json:"models.lex:CreateBotVersionOutput:Locale" locationName:"locale" type:"string" enum:"true"`
 
 	// The name of the bot.
-	Name *string `locationName:"name" min:"2" type:"string"`
+	Name *string `json:"models.lex:CreateBotVersionOutput:Name" locationName:"name" min:"2" type:"string"`
 
 	// When you send a request to create or update a bot, Amazon Lex sets the status
 	// response element to BUILDING. After Amazon Lex builds the bot, it sets status
 	// to READY. If Amazon Lex can't build the bot, it sets status to FAILED. Amazon
 	// Lex returns the reason for the failure in the failureReason response element.
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"models.lex:CreateBotVersionOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The version of the bot.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:CreateBotVersionOutput:Version" locationName:"version" min:"1" type:"string"`
 
 	// The Amazon Polly voice ID that Amazon Lex uses for voice interactions with
 	// the user.
-	VoiceId *string `locationName:"voiceId" type:"string"`
+	VoiceId *string `json:"models.lex:CreateBotVersionOutput:VoiceId" locationName:"voiceId" type:"string"`
 }
 
 // String returns the string representation

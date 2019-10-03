@@ -207,12 +207,12 @@ type SubmitJobOutput struct {
 	// The unique identifier for the job.
 	//
 	// JobId is a required field
-	JobId *string `locationName:"jobId" type:"string" required:"true"`
+	JobId *string `json:"batch:SubmitJobOutput:JobId" locationName:"jobId" type:"string" required:"true"`
 
 	// The name of the job.
 	//
 	// JobName is a required field
-	JobName *string `locationName:"jobName" type:"string" required:"true"`
+	JobName *string `json:"batch:SubmitJobOutput:JobName" locationName:"jobName" type:"string" required:"true"`
 }
 
 // String returns the string representation

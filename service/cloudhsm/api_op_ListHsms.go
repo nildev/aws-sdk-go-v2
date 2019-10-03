@@ -29,11 +29,11 @@ type ListHsmsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of ARNs that identify the HSMs.
-	HsmList []string `type:"list"`
+	HsmList []string `json:"cloudhsm:ListHsmsOutput:HsmList" type:"list"`
 
 	// If not null, more results are available. Pass this value to ListHsms to retrieve
 	// the next set of items.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudhsm:ListHsmsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -25,17 +25,17 @@ type DescribeAccountLimitsOutput struct {
 
 	// The maximum number of groups allowed for your AWS account. The default limit
 	// is 200 per region.
-	MaxNumberOfAutoScalingGroups *int64 `type:"integer"`
+	MaxNumberOfAutoScalingGroups *int64 `json:"autoscaling:DescribeAccountLimitsOutput:MaxNumberOfAutoScalingGroups" type:"integer"`
 
 	// The maximum number of launch configurations allowed for your AWS account.
 	// The default limit is 200 per region.
-	MaxNumberOfLaunchConfigurations *int64 `type:"integer"`
+	MaxNumberOfLaunchConfigurations *int64 `json:"autoscaling:DescribeAccountLimitsOutput:MaxNumberOfLaunchConfigurations" type:"integer"`
 
 	// The current number of groups for your AWS account.
-	NumberOfAutoScalingGroups *int64 `type:"integer"`
+	NumberOfAutoScalingGroups *int64 `json:"autoscaling:DescribeAccountLimitsOutput:NumberOfAutoScalingGroups" type:"integer"`
 
 	// The current number of launch configurations for your AWS account.
-	NumberOfLaunchConfigurations *int64 `type:"integer"`
+	NumberOfLaunchConfigurations *int64 `json:"autoscaling:DescribeAccountLimitsOutput:NumberOfLaunchConfigurations" type:"integer"`
 }
 
 // String returns the string representation

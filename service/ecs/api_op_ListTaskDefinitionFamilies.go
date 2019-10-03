@@ -58,13 +58,13 @@ type ListTaskDefinitionFamiliesOutput struct {
 
 	// The list of task definition family names that match the ListTaskDefinitionFamilies
 	// request.
-	Families []string `locationName:"families" type:"list"`
+	Families []string `json:"ecs:ListTaskDefinitionFamiliesOutput:Families" locationName:"families" type:"list"`
 
 	// The nextToken value to include in a future ListTaskDefinitionFamilies request.
 	// When the results of a ListTaskDefinitionFamilies request exceed maxResults,
 	// this value can be used to retrieve the next page of results. This value is
 	// null when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ecs:ListTaskDefinitionFamiliesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

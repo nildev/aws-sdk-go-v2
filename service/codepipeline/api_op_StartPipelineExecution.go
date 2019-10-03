@@ -54,7 +54,7 @@ type StartPipelineExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique system-generated ID of the pipeline execution that was started.
-	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+	PipelineExecutionId *string `json:"codepipeline:StartPipelineExecutionOutput:PipelineExecutionId" locationName:"pipelineExecutionId" type:"string"`
 }
 
 // String returns the string representation

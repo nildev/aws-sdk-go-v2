@@ -114,10 +114,10 @@ type CreateTrafficMirrorFilterRuleOutput struct {
 
 	// Unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request. For more information, see How to Ensure Idempotency (https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:CreateTrafficMirrorFilterRuleOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// The Traffic Mirror rule.
-	TrafficMirrorFilterRule *TrafficMirrorFilterRule `locationName:"trafficMirrorFilterRule" type:"structure"`
+	TrafficMirrorFilterRule *TrafficMirrorFilterRule `json:"ec2:CreateTrafficMirrorFilterRuleOutput:TrafficMirrorFilterRule" locationName:"trafficMirrorFilterRule" type:"structure"`
 }
 
 // String returns the string representation

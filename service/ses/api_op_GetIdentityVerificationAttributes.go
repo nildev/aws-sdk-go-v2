@@ -51,7 +51,7 @@ type GetIdentityVerificationAttributesOutput struct {
 	// A map of Identities to IdentityVerificationAttributes objects.
 	//
 	// VerificationAttributes is a required field
-	VerificationAttributes map[string]IdentityVerificationAttributes `type:"map" required:"true"`
+	VerificationAttributes map[string]IdentityVerificationAttributes `json:"email:GetIdentityVerificationAttributesOutput:VerificationAttributes" type:"map" required:"true"`
 }
 
 // String returns the string representation

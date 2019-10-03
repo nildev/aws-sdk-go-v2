@@ -59,7 +59,7 @@ type PhoneNumberValidateOutput struct {
 	// Provides information about a phone number.
 	//
 	// NumberValidateResponse is a required field
-	NumberValidateResponse *NumberValidateResponse `type:"structure" required:"true"`
+	NumberValidateResponse *NumberValidateResponse `json:"pinpoint:PhoneNumberValidateOutput:NumberValidateResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

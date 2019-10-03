@@ -43,10 +43,10 @@ type GetSolutionMetricsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The metrics for the solution version.
-	Metrics map[string]float64 `locationName:"metrics" type:"map"`
+	Metrics map[string]float64 `json:"personalize:GetSolutionMetricsOutput:Metrics" locationName:"metrics" type:"map"`
 
 	// The same solution version ARN as specified in the request.
-	SolutionVersionArn *string `locationName:"solutionVersionArn" type:"string"`
+	SolutionVersionArn *string `json:"personalize:GetSolutionMetricsOutput:SolutionVersionArn" locationName:"solutionVersionArn" type:"string"`
 }
 
 // String returns the string representation

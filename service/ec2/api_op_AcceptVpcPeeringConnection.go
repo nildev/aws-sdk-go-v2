@@ -34,7 +34,7 @@ type AcceptVpcPeeringConnectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the VPC peering connection.
-	VpcPeeringConnection *VpcPeeringConnection `locationName:"vpcPeeringConnection" type:"structure"`
+	VpcPeeringConnection *VpcPeeringConnection `json:"ec2:AcceptVpcPeeringConnectionOutput:VpcPeeringConnection" locationName:"vpcPeeringConnection" type:"structure"`
 }
 
 // String returns the string representation

@@ -76,17 +76,17 @@ type GetVaultLockOutput struct {
 
 	// The UTC date and time at which the vault lock was put into the InProgress
 	// state.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"glacier:GetVaultLockOutput:CreationDate" type:"string"`
 
 	// The UTC date and time at which the lock ID expires. This value can be null
 	// if the vault lock is in a Locked state.
-	ExpirationDate *string `type:"string"`
+	ExpirationDate *string `json:"glacier:GetVaultLockOutput:ExpirationDate" type:"string"`
 
 	// The vault lock policy as a JSON string, which uses "\" as an escape character.
-	Policy *string `type:"string"`
+	Policy *string `json:"glacier:GetVaultLockOutput:Policy" type:"string"`
 
 	// The state of the vault lock. InProgress or Locked.
-	State *string `type:"string"`
+	State *string `json:"glacier:GetVaultLockOutput:State" type:"string"`
 }
 
 // String returns the string representation

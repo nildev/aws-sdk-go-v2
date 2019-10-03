@@ -34,7 +34,7 @@ type AacSettings struct {
 	// Choose NORMAL when the input does not contain pre-mixed audio + audio description
 	// (AD). In this case, the encoder will use any values you provide for AudioType
 	// and FollowInputAudioType.
-	AudioDescriptionBroadcasterMix AacAudioDescriptionBroadcasterMix `locationName:"audioDescriptionBroadcasterMix" type:"string" enum:"true"`
+	AudioDescriptionBroadcasterMix AacAudioDescriptionBroadcasterMix `json:"mediaconvert:AacSettings:AudioDescriptionBroadcasterMix" locationName:"audioDescriptionBroadcasterMix" type:"string" enum:"true"`
 
 	// Average bitrate in bits/second. The set of valid values for this setting
 	// is: 6000, 8000, 10000, 12000, 14000, 16000, 20000, 24000, 28000, 32000, 40000,
@@ -43,34 +43,34 @@ type AacSettings struct {
 	// 1024000. The value you set is also constrained by the values you choose for
 	// Profile (codecProfile), Bitrate control mode (codingMode), and Sample rate
 	// (sampleRate). Default values depend on Bitrate control mode and Profile.
-	Bitrate *int64 `locationName:"bitrate" min:"6000" type:"integer"`
+	Bitrate *int64 `json:"mediaconvert:AacSettings:Bitrate" locationName:"bitrate" min:"6000" type:"integer"`
 
 	// AAC Profile.
-	CodecProfile AacCodecProfile `locationName:"codecProfile" type:"string" enum:"true"`
+	CodecProfile AacCodecProfile `json:"mediaconvert:AacSettings:CodecProfile" locationName:"codecProfile" type:"string" enum:"true"`
 
 	// Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values
 	// depend on rate control mode and profile. "1.0 - Audio Description (Receiver
 	// Mix)" setting receives a stereo description plus control track and emits
 	// a mono AAC encode of the description track, with control data emitted in
 	// the PES header as per ETSI TS 101 154 Annex E.
-	CodingMode AacCodingMode `locationName:"codingMode" type:"string" enum:"true"`
+	CodingMode AacCodingMode `json:"mediaconvert:AacSettings:CodingMode" locationName:"codingMode" type:"string" enum:"true"`
 
 	// Rate Control Mode.
-	RateControlMode AacRateControlMode `locationName:"rateControlMode" type:"string" enum:"true"`
+	RateControlMode AacRateControlMode `json:"mediaconvert:AacSettings:RateControlMode" locationName:"rateControlMode" type:"string" enum:"true"`
 
 	// Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output,
 	// you must choose "No container" for the output container.
-	RawFormat AacRawFormat `locationName:"rawFormat" type:"string" enum:"true"`
+	RawFormat AacRawFormat `json:"mediaconvert:AacSettings:RawFormat" locationName:"rawFormat" type:"string" enum:"true"`
 
 	// Sample rate in Hz. Valid values depend on rate control mode and profile.
-	SampleRate *int64 `locationName:"sampleRate" min:"8000" type:"integer"`
+	SampleRate *int64 `json:"mediaconvert:AacSettings:SampleRate" locationName:"sampleRate" min:"8000" type:"integer"`
 
 	// Use MPEG-2 AAC instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream
 	// containers.
-	Specification AacSpecification `locationName:"specification" type:"string" enum:"true"`
+	Specification AacSpecification `json:"mediaconvert:AacSettings:Specification" locationName:"specification" type:"string" enum:"true"`
 
 	// VBR Quality Level - Only used if rate_control_mode is VBR.
-	VbrQuality AacVbrQuality `locationName:"vbrQuality" type:"string" enum:"true"`
+	VbrQuality AacVbrQuality `json:"mediaconvert:AacSettings:VbrQuality" locationName:"vbrQuality" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -160,34 +160,34 @@ type Ac3Settings struct {
 	_ struct{} `type:"structure"`
 
 	// Average bitrate in bits/second. Valid bitrates depend on the coding mode.
-	Bitrate *int64 `locationName:"bitrate" min:"64000" type:"integer"`
+	Bitrate *int64 `json:"mediaconvert:Ac3Settings:Bitrate" locationName:"bitrate" min:"64000" type:"integer"`
 
 	// Specifies the "Bitstream Mode" (bsmod) for the emitted AC-3 stream. See ATSC
 	// A/52-2012 for background on these values.
-	BitstreamMode Ac3BitstreamMode `locationName:"bitstreamMode" type:"string" enum:"true"`
+	BitstreamMode Ac3BitstreamMode `json:"mediaconvert:Ac3Settings:BitstreamMode" locationName:"bitstreamMode" type:"string" enum:"true"`
 
 	// Dolby Digital coding mode. Determines number of channels.
-	CodingMode Ac3CodingMode `locationName:"codingMode" type:"string" enum:"true"`
+	CodingMode Ac3CodingMode `json:"mediaconvert:Ac3Settings:CodingMode" locationName:"codingMode" type:"string" enum:"true"`
 
 	// Sets the dialnorm for the output. If blank and input audio is Dolby Digital,
 	// dialnorm will be passed through.
-	Dialnorm *int64 `locationName:"dialnorm" min:"1" type:"integer"`
+	Dialnorm *int64 `json:"mediaconvert:Ac3Settings:Dialnorm" locationName:"dialnorm" min:"1" type:"integer"`
 
 	// If set to FILM_STANDARD, adds dynamic range compression signaling to the
 	// output bitstream as defined in the Dolby Digital specification.
-	DynamicRangeCompressionProfile Ac3DynamicRangeCompressionProfile `locationName:"dynamicRangeCompressionProfile" type:"string" enum:"true"`
+	DynamicRangeCompressionProfile Ac3DynamicRangeCompressionProfile `json:"mediaconvert:Ac3Settings:DynamicRangeCompressionProfile" locationName:"dynamicRangeCompressionProfile" type:"string" enum:"true"`
 
 	// Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only
 	// valid with 3_2_LFE coding mode.
-	LfeFilter Ac3LfeFilter `locationName:"lfeFilter" type:"string" enum:"true"`
+	LfeFilter Ac3LfeFilter `json:"mediaconvert:Ac3Settings:LfeFilter" locationName:"lfeFilter" type:"string" enum:"true"`
 
 	// When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+,
 	// or DolbyE decoder that supplied this audio data. If audio was not supplied
 	// from one of these streams, then the static metadata settings will be used.
-	MetadataControl Ac3MetadataControl `locationName:"metadataControl" type:"string" enum:"true"`
+	MetadataControl Ac3MetadataControl `json:"mediaconvert:Ac3Settings:MetadataControl" locationName:"metadataControl" type:"string" enum:"true"`
 
 	// Sample rate in hz. Sample rate is always 48000.
-	SampleRate *int64 `locationName:"sampleRate" min:"48000" type:"integer"`
+	SampleRate *int64 `json:"mediaconvert:Ac3Settings:SampleRate" locationName:"sampleRate" min:"48000" type:"integer"`
 }
 
 // String returns the string representation
@@ -278,7 +278,7 @@ type AccelerationSettings struct {
 	// Acceleration configuration for the job.
 	//
 	// Mode is a required field
-	Mode AccelerationMode `locationName:"mode" type:"string" required:"true" enum:"true"`
+	Mode AccelerationMode `json:"mediaconvert:AccelerationSettings:Mode" locationName:"mode" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -318,15 +318,15 @@ type AiffSettings struct {
 
 	// Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
 	// quality for this audio track.
-	BitDepth *int64 `locationName:"bitDepth" min:"16" type:"integer"`
+	BitDepth *int64 `json:"mediaconvert:AiffSettings:BitDepth" locationName:"bitDepth" min:"16" type:"integer"`
 
 	// Set Channels to specify the number of channels in this output audio track.
 	// Choosing Mono in the console will give you 1 output channel; choosing Stereo
 	// will give you 2. In the API, valid values are 1 and 2.
-	Channels *int64 `locationName:"channels" min:"1" type:"integer"`
+	Channels *int64 `json:"mediaconvert:AiffSettings:Channels" locationName:"channels" min:"1" type:"integer"`
 
 	// Sample rate in hz.
-	SampleRate *int64 `locationName:"sampleRate" min:"8000" type:"integer"`
+	SampleRate *int64 `json:"mediaconvert:AiffSettings:SampleRate" locationName:"sampleRate" min:"8000" type:"integer"`
 }
 
 // String returns the string representation
@@ -383,7 +383,7 @@ type AncillarySourceSettings struct {
 
 	// Specifies the 608 channel number in the ancillary data track from which to
 	// extract captions. Unused for passthrough.
-	SourceAncillaryChannelNumber *int64 `locationName:"sourceAncillaryChannelNumber" min:"1" type:"integer"`
+	SourceAncillaryChannelNumber *int64 `json:"mediaconvert:AncillarySourceSettings:SourceAncillaryChannelNumber" locationName:"sourceAncillaryChannelNumber" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -432,30 +432,30 @@ type AudioCodecSettings struct {
 	// control the audio quality with the setting VBR quality (vbrQuality). In CBR
 	// mode, you use the setting Bitrate (bitrate). Defaults and valid values depend
 	// on the rate control mode.
-	AacSettings *AacSettings `locationName:"aacSettings" type:"structure"`
+	AacSettings *AacSettings `json:"mediaconvert:AudioCodecSettings:AacSettings" locationName:"aacSettings" type:"structure"`
 
 	// Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to
 	// the value AC3.
-	Ac3Settings *Ac3Settings `locationName:"ac3Settings" type:"structure"`
+	Ac3Settings *Ac3Settings `json:"mediaconvert:AudioCodecSettings:Ac3Settings" locationName:"ac3Settings" type:"structure"`
 
 	// Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to
 	// the value AIFF.
-	AiffSettings *AiffSettings `locationName:"aiffSettings" type:"structure"`
+	AiffSettings *AiffSettings `json:"mediaconvert:AudioCodecSettings:AiffSettings" locationName:"aiffSettings" type:"structure"`
 
 	// Type of Audio codec.
-	Codec AudioCodec `locationName:"codec" type:"string" enum:"true"`
+	Codec AudioCodec `json:"mediaconvert:AudioCodecSettings:Codec" locationName:"codec" type:"string" enum:"true"`
 
 	// Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to
 	// the value EAC3.
-	Eac3Settings *Eac3Settings `locationName:"eac3Settings" type:"structure"`
+	Eac3Settings *Eac3Settings `json:"mediaconvert:AudioCodecSettings:Eac3Settings" locationName:"eac3Settings" type:"structure"`
 
 	// Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to
 	// the value MP2.
-	Mp2Settings *Mp2Settings `locationName:"mp2Settings" type:"structure"`
+	Mp2Settings *Mp2Settings `json:"mediaconvert:AudioCodecSettings:Mp2Settings" locationName:"mp2Settings" type:"structure"`
 
 	// Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to
 	// the value WAV.
-	WavSettings *WavSettings `locationName:"wavSettings" type:"structure"`
+	WavSettings *WavSettings `json:"mediaconvert:AudioCodecSettings:WavSettings" locationName:"wavSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -556,7 +556,7 @@ type AudioDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Advanced audio normalization settings.
-	AudioNormalizationSettings *AudioNormalizationSettings `locationName:"audioNormalizationSettings" type:"structure"`
+	AudioNormalizationSettings *AudioNormalizationSettings `json:"mediaconvert:AudioDescription:AudioNormalizationSettings" locationName:"audioNormalizationSettings" type:"structure"`
 
 	// Specifies which audio data to use from each input. In the simplest case,
 	// specify an "Audio Selector":#inputs-audio_selector by name based on its order
@@ -568,20 +568,20 @@ type AudioDescription struct {
 	// Selector Group":#inputs-audio_selector_group name may be specified, with
 	// similar default/silence behavior. If no audio_source_name is specified, then
 	// "Audio Selector 1" will be chosen automatically.
-	AudioSourceName *string `locationName:"audioSourceName" type:"string"`
+	AudioSourceName *string `json:"mediaconvert:AudioDescription:AudioSourceName" locationName:"audioSourceName" type:"string"`
 
 	// Applies only if Follow Input Audio Type is unchecked (false). A number between
 	// 0 and 255. The following are defined in ISO-IEC 13818-1: 0 = Undefined, 1
 	// = Clean Effects, 2 = Hearing Impaired, 3 = Visually Impaired Commentary,
 	// 4-255 = Reserved.
-	AudioType *int64 `locationName:"audioType" type:"integer"`
+	AudioType *int64 `json:"mediaconvert:AudioDescription:AudioType" locationName:"audioType" type:"integer"`
 
 	// When set to FOLLOW_INPUT, if the input contains an ISO 639 audio_type, then
 	// that value is passed through to the output. If the input contains no ISO
 	// 639 audio_type, the value in Audio Type is included in the output. Otherwise
 	// the value in Audio Type is included in the output. Note that this field and
 	// audioType are both ignored if audioDescriptionBroadcasterMix is set to BROADCASTER_MIXED_AD.
-	AudioTypeControl AudioTypeControl `locationName:"audioTypeControl" type:"string" enum:"true"`
+	AudioTypeControl AudioTypeControl `json:"mediaconvert:AudioDescription:AudioTypeControl" locationName:"audioTypeControl" type:"string" enum:"true"`
 
 	// Audio codec settings (CodecSettings) under (AudioDescriptions) contains the
 	// group of settings related to audio encoding. The settings in this group vary
@@ -589,34 +589,34 @@ type AudioDescription struct {
 	// enum you choose, define the corresponding settings object. The following
 	// lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings
 	// * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
-	CodecSettings *AudioCodecSettings `locationName:"codecSettings" type:"structure"`
+	CodecSettings *AudioCodecSettings `json:"mediaconvert:AudioDescription:CodecSettings" locationName:"codecSettings" type:"structure"`
 
 	// Specify the language for this audio output track, using the ISO 639-2 or
 	// ISO 639-3 three-letter language code. The language specified will be used
 	// when 'Follow Input Language Code' is not selected or when 'Follow Input Language
 	// Code' is selected but there is no ISO 639 language code specified by the
 	// input.
-	CustomLanguageCode *string `locationName:"customLanguageCode" min:"3" type:"string"`
+	CustomLanguageCode *string `json:"mediaconvert:AudioDescription:CustomLanguageCode" locationName:"customLanguageCode" min:"3" type:"string"`
 
 	// Indicates the language of the audio output track. The ISO 639 language specified
 	// in the 'Language Code' drop down will be used when 'Follow Input Language
 	// Code' is not selected or when 'Follow Input Language Code' is selected but
 	// there is no ISO 639 language code specified by the input.
-	LanguageCode LanguageCode `locationName:"languageCode" type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"mediaconvert:AudioDescription:LanguageCode" locationName:"languageCode" type:"string" enum:"true"`
 
 	// Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output
 	// to follow the ISO 639 language code of the input. The language specified
 	// for languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT
 	// is selected but there is no ISO 639 language code specified by the input.
-	LanguageCodeControl AudioLanguageCodeControl `locationName:"languageCodeControl" type:"string" enum:"true"`
+	LanguageCodeControl AudioLanguageCodeControl `json:"mediaconvert:AudioDescription:LanguageCodeControl" locationName:"languageCodeControl" type:"string" enum:"true"`
 
 	// Advanced audio remixing settings.
-	RemixSettings *RemixSettings `locationName:"remixSettings" type:"structure"`
+	RemixSettings *RemixSettings `json:"mediaconvert:AudioDescription:RemixSettings" locationName:"remixSettings" type:"structure"`
 
 	// Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by
 	// the player (eg. English, or Director Commentary). Alphanumeric characters,
 	// spaces, and underscore are legal.
-	StreamName *string `locationName:"streamName" type:"string"`
+	StreamName *string `json:"mediaconvert:AudioDescription:StreamName" locationName:"streamName" type:"string"`
 }
 
 // String returns the string representation
@@ -724,29 +724,29 @@ type AudioNormalizationSettings struct {
 
 	// Audio normalization algorithm to use. 1770-1 conforms to the CALM Act specification,
 	// 1770-2 conforms to the EBU R-128 specification.
-	Algorithm AudioNormalizationAlgorithm `locationName:"algorithm" type:"string" enum:"true"`
+	Algorithm AudioNormalizationAlgorithm `json:"mediaconvert:AudioNormalizationSettings:Algorithm" locationName:"algorithm" type:"string" enum:"true"`
 
 	// When enabled the output audio is corrected using the chosen algorithm. If
 	// disabled, the audio will be measured but not adjusted.
-	AlgorithmControl AudioNormalizationAlgorithmControl `locationName:"algorithmControl" type:"string" enum:"true"`
+	AlgorithmControl AudioNormalizationAlgorithmControl `json:"mediaconvert:AudioNormalizationSettings:AlgorithmControl" locationName:"algorithmControl" type:"string" enum:"true"`
 
 	// Content measuring above this level will be corrected to the target level.
 	// Content measuring below this level will not be corrected. Gating only applies
 	// when not using real_time_correction.
-	CorrectionGateLevel *int64 `locationName:"correctionGateLevel" type:"integer"`
+	CorrectionGateLevel *int64 `json:"mediaconvert:AudioNormalizationSettings:CorrectionGateLevel" locationName:"correctionGateLevel" type:"integer"`
 
 	// If set to LOG, log each output's audio track loudness to a CSV file.
-	LoudnessLogging AudioNormalizationLoudnessLogging `locationName:"loudnessLogging" type:"string" enum:"true"`
+	LoudnessLogging AudioNormalizationLoudnessLogging `json:"mediaconvert:AudioNormalizationSettings:LoudnessLogging" locationName:"loudnessLogging" type:"string" enum:"true"`
 
 	// If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio
 	// track loudness.
-	PeakCalculation AudioNormalizationPeakCalculation `locationName:"peakCalculation" type:"string" enum:"true"`
+	PeakCalculation AudioNormalizationPeakCalculation `json:"mediaconvert:AudioNormalizationSettings:PeakCalculation" locationName:"peakCalculation" type:"string" enum:"true"`
 
 	// Target LKFS(loudness) to adjust volume to. If no value is entered, a default
 	// value will be used according to the chosen algorithm. The CALM Act (1770-1)
 	// recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends
 	// a target of -23 LKFS.
-	TargetLkfs *float64 `locationName:"targetLkfs" type:"double"`
+	TargetLkfs *float64 `json:"mediaconvert:AudioNormalizationSettings:TargetLkfs" locationName:"targetLkfs" type:"double"`
 }
 
 // String returns the string representation
@@ -815,26 +815,26 @@ type AudioSelector struct {
 
 	// Selects a specific language code from within an audio source, using the ISO
 	// 639-2 or ISO 639-3 three-letter language code
-	CustomLanguageCode *string `locationName:"customLanguageCode" min:"3" type:"string"`
+	CustomLanguageCode *string `json:"mediaconvert:AudioSelector:CustomLanguageCode" locationName:"customLanguageCode" min:"3" type:"string"`
 
 	// Enable this setting on one audio selector to set it as the default for the
 	// job. The service uses this default for outputs where it can't find the specified
 	// input audio. If you don't set a default, those outputs have no audio.
-	DefaultSelection AudioDefaultSelection `locationName:"defaultSelection" type:"string" enum:"true"`
+	DefaultSelection AudioDefaultSelection `json:"mediaconvert:AudioSelector:DefaultSelection" locationName:"defaultSelection" type:"string" enum:"true"`
 
 	// Specifies audio data from an external file source.
-	ExternalAudioFileInput *string `locationName:"externalAudioFileInput" type:"string"`
+	ExternalAudioFileInput *string `json:"mediaconvert:AudioSelector:ExternalAudioFileInput" locationName:"externalAudioFileInput" type:"string"`
 
 	// Selects a specific language code from within an audio source.
-	LanguageCode LanguageCode `locationName:"languageCode" type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"mediaconvert:AudioSelector:LanguageCode" locationName:"languageCode" type:"string" enum:"true"`
 
 	// Specifies a time delta in milliseconds to offset the audio from the input
 	// video.
-	Offset *int64 `locationName:"offset" type:"integer"`
+	Offset *int64 `json:"mediaconvert:AudioSelector:Offset" locationName:"offset" type:"integer"`
 
 	// Selects a specific PID from within an audio source (e.g. 257 selects PID
 	// 0x101).
-	Pids []int64 `locationName:"pids" type:"list"`
+	Pids []int64 `json:"mediaconvert:AudioSelector:Pids" locationName:"pids" type:"list"`
 
 	// Use this setting for input streams that contain Dolby E, to have the service
 	// extract specific program data from the track. To select multiple programs,
@@ -845,15 +845,15 @@ type AudioSelector struct {
 	// input file has incorrect metadata, you can choose All channels instead of
 	// a program number to have the service ignore the program IDs and include all
 	// the programs in the track.
-	ProgramSelection *int64 `locationName:"programSelection" type:"integer"`
+	ProgramSelection *int64 `json:"mediaconvert:AudioSelector:ProgramSelection" locationName:"programSelection" type:"integer"`
 
 	// Use these settings to reorder the audio channels of one input to match those
 	// of another input. This allows you to combine the two files into a single
 	// output, one after the other.
-	RemixSettings *RemixSettings `locationName:"remixSettings" type:"structure"`
+	RemixSettings *RemixSettings `json:"mediaconvert:AudioSelector:RemixSettings" locationName:"remixSettings" type:"structure"`
 
 	// Specifies the type of the audio selector.
-	SelectorType AudioSelectorType `locationName:"selectorType" type:"string" enum:"true"`
+	SelectorType AudioSelectorType `json:"mediaconvert:AudioSelector:SelectorType" locationName:"selectorType" type:"string" enum:"true"`
 
 	// Identify a track from the input audio to include in this selector by entering
 	// the track index number. To include several tracks in a single audio selector,
@@ -861,7 +861,7 @@ type AudioSelector struct {
 	// list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying
 	// directly in your JSON job file, provide the track numbers in an array. For
 	// example, "tracks": [1,2,3].
-	Tracks []int64 `locationName:"tracks" type:"list"`
+	Tracks []int64 `json:"mediaconvert:AudioSelector:Tracks" locationName:"tracks" type:"list"`
 }
 
 // String returns the string representation
@@ -976,7 +976,7 @@ type AudioSelectorGroup struct {
 	// Audio selector names are standardized, based on their order within the input
 	// (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated
 	// to add any number of audio selectors to the group.
-	AudioSelectorNames []string `locationName:"audioSelectorNames" type:"list"`
+	AudioSelectorNames []string `json:"mediaconvert:AudioSelectorGroup:AudioSelectorNames" locationName:"audioSelectorNames" type:"list"`
 }
 
 // String returns the string representation
@@ -1008,7 +1008,7 @@ type AvailBlanking struct {
 
 	// Blanking image to be used. Leave empty for solid black. Only bmp and png
 	// images are supported.
-	AvailBlankingImage *string `locationName:"availBlankingImage" min:"14" type:"string"`
+	AvailBlankingImage *string `json:"mediaconvert:AvailBlanking:AvailBlankingImage" locationName:"availBlankingImage" min:"14" type:"string"`
 }
 
 // String returns the string representation
@@ -1053,79 +1053,79 @@ type BurninDestinationSettings struct {
 	// This option is not valid for source captions that are STL, 608/embedded or
 	// teletext. These source settings are already pre-defined by the caption stream.
 	// All burn-in and DVB-Sub font settings must match.
-	Alignment BurninSubtitleAlignment `locationName:"alignment" type:"string" enum:"true"`
+	Alignment BurninSubtitleAlignment `json:"mediaconvert:BurninDestinationSettings:Alignment" locationName:"alignment" type:"string" enum:"true"`
 
 	// Specifies the color of the rectangle behind the captions.All burn-in and
 	// DVB-Sub font settings must match.
-	BackgroundColor BurninSubtitleBackgroundColor `locationName:"backgroundColor" type:"string" enum:"true"`
+	BackgroundColor BurninSubtitleBackgroundColor `json:"mediaconvert:BurninDestinationSettings:BackgroundColor" locationName:"backgroundColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent.
 	// Leaving this parameter blank is equivalent to setting it to 0 (transparent).
 	// All burn-in and DVB-Sub font settings must match.
-	BackgroundOpacity *int64 `locationName:"backgroundOpacity" type:"integer"`
+	BackgroundOpacity *int64 `json:"mediaconvert:BurninDestinationSettings:BackgroundOpacity" locationName:"backgroundOpacity" type:"integer"`
 
 	// Specifies the color of the burned-in captions. This option is not valid for
 	// source captions that are STL, 608/embedded or teletext. These source settings
 	// are already pre-defined by the caption stream. All burn-in and DVB-Sub font
 	// settings must match.
-	FontColor BurninSubtitleFontColor `locationName:"fontColor" type:"string" enum:"true"`
+	FontColor BurninSubtitleFontColor `json:"mediaconvert:BurninDestinationSettings:FontColor" locationName:"fontColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.All
 	// burn-in and DVB-Sub font settings must match.
-	FontOpacity *int64 `locationName:"fontOpacity" type:"integer"`
+	FontOpacity *int64 `json:"mediaconvert:BurninDestinationSettings:FontOpacity" locationName:"fontOpacity" type:"integer"`
 
 	// Font resolution in DPI (dots per inch); default is 96 dpi.All burn-in and
 	// DVB-Sub font settings must match.
-	FontResolution *int64 `locationName:"fontResolution" min:"96" type:"integer"`
+	FontResolution *int64 `json:"mediaconvert:BurninDestinationSettings:FontResolution" locationName:"fontResolution" min:"96" type:"integer"`
 
 	// Provide the font script, using an ISO 15924 script code, if the LanguageCode
 	// is not sufficient for determining the script type. Where LanguageCode or
 	// CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is
 	// used to help determine the appropriate font for rendering burn-in captions.
-	FontScript FontScript `locationName:"fontScript" type:"string" enum:"true"`
+	FontScript FontScript `json:"mediaconvert:BurninDestinationSettings:FontScript" locationName:"fontScript" type:"string" enum:"true"`
 
 	// A positive integer indicates the exact font size in points. Set to 0 for
 	// automatic font size selection. All burn-in and DVB-Sub font settings must
 	// match.
-	FontSize *int64 `locationName:"fontSize" type:"integer"`
+	FontSize *int64 `json:"mediaconvert:BurninDestinationSettings:FontSize" locationName:"fontSize" type:"integer"`
 
 	// Specifies font outline color. This option is not valid for source captions
 	// that are either 608/embedded or teletext. These source settings are already
 	// pre-defined by the caption stream. All burn-in and DVB-Sub font settings
 	// must match.
-	OutlineColor BurninSubtitleOutlineColor `locationName:"outlineColor" type:"string" enum:"true"`
+	OutlineColor BurninSubtitleOutlineColor `json:"mediaconvert:BurninDestinationSettings:OutlineColor" locationName:"outlineColor" type:"string" enum:"true"`
 
 	// Specifies font outline size in pixels. This option is not valid for source
 	// captions that are either 608/embedded or teletext. These source settings
 	// are already pre-defined by the caption stream. All burn-in and DVB-Sub font
 	// settings must match.
-	OutlineSize *int64 `locationName:"outlineSize" type:"integer"`
+	OutlineSize *int64 `json:"mediaconvert:BurninDestinationSettings:OutlineSize" locationName:"outlineSize" type:"integer"`
 
 	// Specifies the color of the shadow cast by the captions.All burn-in and DVB-Sub
 	// font settings must match.
-	ShadowColor BurninSubtitleShadowColor `locationName:"shadowColor" type:"string" enum:"true"`
+	ShadowColor BurninSubtitleShadowColor `json:"mediaconvert:BurninDestinationSettings:ShadowColor" locationName:"shadowColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving
 	// this parameter blank is equivalent to setting it to 0 (transparent). All
 	// burn-in and DVB-Sub font settings must match.
-	ShadowOpacity *int64 `locationName:"shadowOpacity" type:"integer"`
+	ShadowOpacity *int64 `json:"mediaconvert:BurninDestinationSettings:ShadowOpacity" locationName:"shadowOpacity" type:"integer"`
 
 	// Specifies the horizontal offset of the shadow relative to the captions in
 	// pixels. A value of -2 would result in a shadow offset 2 pixels to the left.
 	// All burn-in and DVB-Sub font settings must match.
-	ShadowXOffset *int64 `locationName:"shadowXOffset" type:"integer"`
+	ShadowXOffset *int64 `json:"mediaconvert:BurninDestinationSettings:ShadowXOffset" locationName:"shadowXOffset" type:"integer"`
 
 	// Specifies the vertical offset of the shadow relative to the captions in pixels.
 	// A value of -2 would result in a shadow offset 2 pixels above the text. All
 	// burn-in and DVB-Sub font settings must match.
-	ShadowYOffset *int64 `locationName:"shadowYOffset" type:"integer"`
+	ShadowYOffset *int64 `json:"mediaconvert:BurninDestinationSettings:ShadowYOffset" locationName:"shadowYOffset" type:"integer"`
 
 	// Only applies to jobs with input captions in Teletext or STL formats. Specify
 	// whether the spacing between letters in your captions is set by the captions
 	// grid or varies depending on letter width. Choose fixed grid to conform to
 	// the spacing specified in the captions file more accurately. Choose proportional
 	// to make the text easier to read if the captions are closed caption.
-	TeletextSpacing BurninSubtitleTeletextSpacing `locationName:"teletextSpacing" type:"string" enum:"true"`
+	TeletextSpacing BurninSubtitleTeletextSpacing `json:"mediaconvert:BurninDestinationSettings:TeletextSpacing" locationName:"teletextSpacing" type:"string" enum:"true"`
 
 	// Specifies the horizontal position of the caption relative to the left side
 	// of the output in pixels. A value of 10 would result in the captions starting
@@ -1134,7 +1134,7 @@ type BurninDestinationSettings struct {
 	// This option is not valid for source captions that are STL, 608/embedded or
 	// teletext. These source settings are already pre-defined by the caption stream.
 	// All burn-in and DVB-Sub font settings must match.
-	XPosition *int64 `locationName:"xPosition" type:"integer"`
+	XPosition *int64 `json:"mediaconvert:BurninDestinationSettings:XPosition" locationName:"xPosition" type:"integer"`
 
 	// Specifies the vertical position of the caption relative to the top of the
 	// output in pixels. A value of 10 would result in the captions starting 10
@@ -1143,7 +1143,7 @@ type BurninDestinationSettings struct {
 	// is not valid for source captions that are STL, 608/embedded or teletext.
 	// These source settings are already pre-defined by the caption stream. All
 	// burn-in and DVB-Sub font settings must match.
-	YPosition *int64 `locationName:"yPosition" type:"integer"`
+	YPosition *int64 `json:"mediaconvert:BurninDestinationSettings:YPosition" locationName:"yPosition" type:"integer"`
 }
 
 // String returns the string representation
@@ -1286,7 +1286,7 @@ type CaptionDescription struct {
 	// input when generating captions. The name should be of the format "Caption
 	// Selector ", which denotes that the Nth Caption Selector will be used from
 	// each input.
-	CaptionSelectorName *string `locationName:"captionSelectorName" min:"1" type:"string"`
+	CaptionSelectorName *string `json:"mediaconvert:CaptionDescription:CaptionSelectorName" locationName:"captionSelectorName" min:"1" type:"string"`
 
 	// Indicates the language of the caption output track, using the ISO 639-2 or
 	// ISO 639-3 three-letter language code. For most captions output formats, the
@@ -1294,23 +1294,23 @@ type CaptionDescription struct {
 	// your output captions format is DVB-Sub or Burn in, the encoder uses this
 	// language information to choose the font language for rendering the captions
 	// text.
-	CustomLanguageCode *string `locationName:"customLanguageCode" min:"3" type:"string"`
+	CustomLanguageCode *string `json:"mediaconvert:CaptionDescription:CustomLanguageCode" locationName:"customLanguageCode" min:"3" type:"string"`
 
 	// Specific settings required by destination type. Note that burnin_destination_settings
 	// are not available if the source of the caption data is Embedded or Teletext.
-	DestinationSettings *CaptionDestinationSettings `locationName:"destinationSettings" type:"structure"`
+	DestinationSettings *CaptionDestinationSettings `json:"mediaconvert:CaptionDescription:DestinationSettings" locationName:"destinationSettings" type:"structure"`
 
 	// Specify the language of this captions output track. For most captions output
 	// formats, the encoder puts this language information in the output captions
 	// metadata. If your output captions format is DVB-Sub or Burn in, the encoder
 	// uses this language information to choose the font language for rendering
 	// the captions text.
-	LanguageCode LanguageCode `locationName:"languageCode" type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"mediaconvert:CaptionDescription:LanguageCode" locationName:"languageCode" type:"string" enum:"true"`
 
 	// Human readable information to indicate captions available for players (eg.
 	// English, or Spanish). Alphanumeric characters, spaces, and underscore are
 	// legal.
-	LanguageDescription *string `locationName:"languageDescription" type:"string"`
+	LanguageDescription *string `json:"mediaconvert:CaptionDescription:LanguageDescription" locationName:"languageDescription" type:"string"`
 }
 
 // String returns the string representation
@@ -1385,23 +1385,23 @@ type CaptionDescriptionPreset struct {
 	// your output captions format is DVB-Sub or Burn in, the encoder uses this
 	// language information to choose the font language for rendering the captions
 	// text.
-	CustomLanguageCode *string `locationName:"customLanguageCode" min:"3" type:"string"`
+	CustomLanguageCode *string `json:"mediaconvert:CaptionDescriptionPreset:CustomLanguageCode" locationName:"customLanguageCode" min:"3" type:"string"`
 
 	// Specific settings required by destination type. Note that burnin_destination_settings
 	// are not available if the source of the caption data is Embedded or Teletext.
-	DestinationSettings *CaptionDestinationSettings `locationName:"destinationSettings" type:"structure"`
+	DestinationSettings *CaptionDestinationSettings `json:"mediaconvert:CaptionDescriptionPreset:DestinationSettings" locationName:"destinationSettings" type:"structure"`
 
 	// Specify the language of this captions output track. For most captions output
 	// formats, the encoder puts this language information in the output captions
 	// metadata. If your output captions format is DVB-Sub or Burn in, the encoder
 	// uses this language information to choose the font language for rendering
 	// the captions text.
-	LanguageCode LanguageCode `locationName:"languageCode" type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"mediaconvert:CaptionDescriptionPreset:LanguageCode" locationName:"languageCode" type:"string" enum:"true"`
 
 	// Human readable information to indicate captions available for players (eg.
 	// English, or Spanish). Alphanumeric characters, spaces, and underscore are
 	// legal.
-	LanguageDescription *string `locationName:"languageDescription" type:"string"`
+	LanguageDescription *string `json:"mediaconvert:CaptionDescriptionPreset:LanguageDescription" locationName:"languageDescription" type:"string"`
 }
 
 // String returns the string representation
@@ -1463,7 +1463,7 @@ type CaptionDestinationSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Burn-In Destination Settings.
-	BurninDestinationSettings *BurninDestinationSettings `locationName:"burninDestinationSettings" type:"structure"`
+	BurninDestinationSettings *BurninDestinationSettings `json:"mediaconvert:CaptionDestinationSettings:BurninDestinationSettings" locationName:"burninDestinationSettings" type:"structure"`
 
 	// Specify the format for this set of captions on this output. The default format
 	// is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in,
@@ -1471,24 +1471,24 @@ type CaptionDestinationSettings struct {
 	// choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that
 	// complies with the SCTE-43 spec. To create a non-compliant output where the
 	// embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
-	DestinationType CaptionDestinationType `locationName:"destinationType" type:"string" enum:"true"`
+	DestinationType CaptionDestinationType `json:"mediaconvert:CaptionDestinationSettings:DestinationType" locationName:"destinationType" type:"string" enum:"true"`
 
 	// DVB-Sub Destination Settings
-	DvbSubDestinationSettings *DvbSubDestinationSettings `locationName:"dvbSubDestinationSettings" type:"structure"`
+	DvbSubDestinationSettings *DvbSubDestinationSettings `json:"mediaconvert:CaptionDestinationSettings:DvbSubDestinationSettings" locationName:"dvbSubDestinationSettings" type:"structure"`
 
 	// Settings specific to embedded/ancillary caption outputs, including 608/708
 	// Channel destination number.
-	EmbeddedDestinationSettings *EmbeddedDestinationSettings `locationName:"embeddedDestinationSettings" type:"structure"`
+	EmbeddedDestinationSettings *EmbeddedDestinationSettings `json:"mediaconvert:CaptionDestinationSettings:EmbeddedDestinationSettings" locationName:"embeddedDestinationSettings" type:"structure"`
 
 	// Settings for SCC caption output.
-	SccDestinationSettings *SccDestinationSettings `locationName:"sccDestinationSettings" type:"structure"`
+	SccDestinationSettings *SccDestinationSettings `json:"mediaconvert:CaptionDestinationSettings:SccDestinationSettings" locationName:"sccDestinationSettings" type:"structure"`
 
 	// Settings for Teletext caption output
-	TeletextDestinationSettings *TeletextDestinationSettings `locationName:"teletextDestinationSettings" type:"structure"`
+	TeletextDestinationSettings *TeletextDestinationSettings `json:"mediaconvert:CaptionDestinationSettings:TeletextDestinationSettings" locationName:"teletextDestinationSettings" type:"structure"`
 
 	// Settings specific to TTML caption outputs, including Pass style information
 	// (TtmlStylePassthrough).
-	TtmlDestinationSettings *TtmlDestinationSettings `locationName:"ttmlDestinationSettings" type:"structure"`
+	TtmlDestinationSettings *TtmlDestinationSettings `json:"mediaconvert:CaptionDestinationSettings:TtmlDestinationSettings" locationName:"ttmlDestinationSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -1585,7 +1585,7 @@ type CaptionSelector struct {
 	// the caption language to extract. If input is DVB-Sub that is being passed
 	// through, omit this field (and PID field); there is no way to extract a specific
 	// language with pass-through captions.
-	CustomLanguageCode *string `locationName:"customLanguageCode" min:"3" type:"string"`
+	CustomLanguageCode *string `json:"mediaconvert:CaptionSelector:CustomLanguageCode" locationName:"customLanguageCode" min:"3" type:"string"`
 
 	// The specific language to extract from source. If input is SCTE-27, complete
 	// this field and/or PID to select the caption language to extract. If input
@@ -1593,11 +1593,11 @@ type CaptionSelector struct {
 	// PID to select the caption language to extract. If input is DVB-Sub that is
 	// being passed through, omit this field (and PID field); there is no way to
 	// extract a specific language with pass-through captions.
-	LanguageCode LanguageCode `locationName:"languageCode" type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"mediaconvert:CaptionSelector:LanguageCode" locationName:"languageCode" type:"string" enum:"true"`
 
 	// Source settings (SourceSettings) contains the group of settings for captions
 	// in the input.
-	SourceSettings *CaptionSourceSettings `locationName:"sourceSettings" type:"structure"`
+	SourceSettings *CaptionSourceSettings `json:"mediaconvert:CaptionSelector:SourceSettings" locationName:"sourceSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -1653,27 +1653,27 @@ type CaptionSourceSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Settings for ancillary captions source.
-	AncillarySourceSettings *AncillarySourceSettings `locationName:"ancillarySourceSettings" type:"structure"`
+	AncillarySourceSettings *AncillarySourceSettings `json:"mediaconvert:CaptionSourceSettings:AncillarySourceSettings" locationName:"ancillarySourceSettings" type:"structure"`
 
 	// DVB Sub Source Settings
-	DvbSubSourceSettings *DvbSubSourceSettings `locationName:"dvbSubSourceSettings" type:"structure"`
+	DvbSubSourceSettings *DvbSubSourceSettings `json:"mediaconvert:CaptionSourceSettings:DvbSubSourceSettings" locationName:"dvbSubSourceSettings" type:"structure"`
 
 	// Settings for embedded captions Source
-	EmbeddedSourceSettings *EmbeddedSourceSettings `locationName:"embeddedSourceSettings" type:"structure"`
+	EmbeddedSourceSettings *EmbeddedSourceSettings `json:"mediaconvert:CaptionSourceSettings:EmbeddedSourceSettings" locationName:"embeddedSourceSettings" type:"structure"`
 
 	// Settings for File-based Captions in Source
-	FileSourceSettings *FileSourceSettings `locationName:"fileSourceSettings" type:"structure"`
+	FileSourceSettings *FileSourceSettings `json:"mediaconvert:CaptionSourceSettings:FileSourceSettings" locationName:"fileSourceSettings" type:"structure"`
 
 	// Use Source (SourceType) to identify the format of your input captions. The
 	// service cannot auto-detect caption format.
-	SourceType CaptionSourceType `locationName:"sourceType" type:"string" enum:"true"`
+	SourceType CaptionSourceType `json:"mediaconvert:CaptionSourceSettings:SourceType" locationName:"sourceType" type:"string" enum:"true"`
 
 	// Settings specific to Teletext caption sources, including Page number.
-	TeletextSourceSettings *TeletextSourceSettings `locationName:"teletextSourceSettings" type:"structure"`
+	TeletextSourceSettings *TeletextSourceSettings `json:"mediaconvert:CaptionSourceSettings:TeletextSourceSettings" locationName:"teletextSourceSettings" type:"structure"`
 
 	// Settings specific to caption sources that are specfied by track number. Sources
 	// include IMSC in IMF.
-	TrackSourceSettings *TrackSourceSettings `locationName:"trackSourceSettings" type:"structure"`
+	TrackSourceSettings *TrackSourceSettings `json:"mediaconvert:CaptionSourceSettings:TrackSourceSettings" locationName:"trackSourceSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -1777,7 +1777,7 @@ type ChannelMapping struct {
 	_ struct{} `type:"structure"`
 
 	// List of output channels
-	OutputChannels []OutputChannelMapping `locationName:"outputChannels" type:"list"`
+	OutputChannels []OutputChannelMapping `json:"mediaconvert:ChannelMapping:OutputChannels" locationName:"outputChannels" type:"list"`
 }
 
 // String returns the string representation
@@ -1810,22 +1810,22 @@ type CmafEncryptionSettings struct {
 	// This is a 128-bit, 16-byte hex value represented by a 32-character text string.
 	// If this parameter is not set then the Initialization Vector will follow the
 	// segment number by default.
-	ConstantInitializationVector *string `locationName:"constantInitializationVector" min:"32" type:"string"`
+	ConstantInitializationVector *string `json:"mediaconvert:CmafEncryptionSettings:ConstantInitializationVector" locationName:"constantInitializationVector" min:"32" type:"string"`
 
 	// Encrypts the segments with the given encryption scheme. Leave blank to disable.
 	// Selecting 'Disabled' in the web interface also disables encryption.
-	EncryptionMethod CmafEncryptionType `locationName:"encryptionMethod" type:"string" enum:"true"`
+	EncryptionMethod CmafEncryptionType `json:"mediaconvert:CmafEncryptionSettings:EncryptionMethod" locationName:"encryptionMethod" type:"string" enum:"true"`
 
 	// The Initialization Vector is a 128-bit number used in conjunction with the
 	// key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed
 	// in the manifest. Otherwise Initialization Vector is not in the manifest.
-	InitializationVectorInManifest CmafInitializationVectorInManifest `locationName:"initializationVectorInManifest" type:"string" enum:"true"`
+	InitializationVectorInManifest CmafInitializationVectorInManifest `json:"mediaconvert:CmafEncryptionSettings:InitializationVectorInManifest" locationName:"initializationVectorInManifest" type:"string" enum:"true"`
 
 	// Use these settings to set up encryption with a static key provider.
-	StaticKeyProvider *StaticKeyProvider `locationName:"staticKeyProvider" type:"structure"`
+	StaticKeyProvider *StaticKeyProvider `json:"mediaconvert:CmafEncryptionSettings:StaticKeyProvider" locationName:"staticKeyProvider" type:"structure"`
 
 	// Indicates which type of key provider is used for encryption.
-	Type CmafKeyProviderType `locationName:"type" type:"string" enum:"true"`
+	Type CmafKeyProviderType `json:"mediaconvert:CmafEncryptionSettings:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1891,29 +1891,29 @@ type CmafGroupSettings struct {
 	// A partial URI prefix that will be put in the manifest file at the top level
 	// BaseURL element. Can be used if streams are delivered from a different URL
 	// than the manifest file.
-	BaseUrl *string `locationName:"baseUrl" type:"string"`
+	BaseUrl *string `json:"mediaconvert:CmafGroupSettings:BaseUrl" locationName:"baseUrl" type:"string"`
 
 	// When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client
 	// from saving media segments for later replay.
-	ClientCache CmafClientCache `locationName:"clientCache" type:"string" enum:"true"`
+	ClientCache CmafClientCache `json:"mediaconvert:CmafGroupSettings:ClientCache" locationName:"clientCache" type:"string" enum:"true"`
 
 	// Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist
 	// generation.
-	CodecSpecification CmafCodecSpecification `locationName:"codecSpecification" type:"string" enum:"true"`
+	CodecSpecification CmafCodecSpecification `json:"mediaconvert:CmafGroupSettings:CodecSpecification" locationName:"codecSpecification" type:"string" enum:"true"`
 
 	// Use Destination (Destination) to specify the S3 output location and the output
 	// filename base. Destination accepts format identifiers. If you do not specify
 	// the base filename in the URI, the service will use the filename of the input
 	// file. If your job has multiple inputs, the service uses the filename of the
 	// first input file.
-	Destination *string `locationName:"destination" type:"string"`
+	Destination *string `json:"mediaconvert:CmafGroupSettings:Destination" locationName:"destination" type:"string"`
 
 	// Settings associated with the destination. Will vary based on the type of
 	// destination
-	DestinationSettings *DestinationSettings `locationName:"destinationSettings" type:"structure"`
+	DestinationSettings *DestinationSettings `json:"mediaconvert:CmafGroupSettings:DestinationSettings" locationName:"destinationSettings" type:"structure"`
 
 	// DRM settings.
-	Encryption *CmafEncryptionSettings `locationName:"encryption" type:"structure"`
+	Encryption *CmafEncryptionSettings `json:"mediaconvert:CmafGroupSettings:Encryption" locationName:"encryption" type:"structure"`
 
 	// Length of fragments to generate (in seconds). Fragment length must be compatible
 	// with GOP size and Framerate. Note that fragments will end on the next keyframe
@@ -1921,18 +1921,18 @@ type CmafGroupSettings struct {
 	// Emit Single File is checked, the fragmentation is internal to a single output
 	// file and it does not cause the creation of many output files as in other
 	// output types.
-	FragmentLength *int64 `locationName:"fragmentLength" min:"1" type:"integer"`
+	FragmentLength *int64 `json:"mediaconvert:CmafGroupSettings:FragmentLength" locationName:"fragmentLength" min:"1" type:"integer"`
 
 	// When set to GZIP, compresses HLS playlist.
-	ManifestCompression CmafManifestCompression `locationName:"manifestCompression" type:"string" enum:"true"`
+	ManifestCompression CmafManifestCompression `json:"mediaconvert:CmafGroupSettings:ManifestCompression" locationName:"manifestCompression" type:"string" enum:"true"`
 
 	// Indicates whether the output manifest should use floating point values for
 	// segment duration.
-	ManifestDurationFormat CmafManifestDurationFormat `locationName:"manifestDurationFormat" type:"string" enum:"true"`
+	ManifestDurationFormat CmafManifestDurationFormat `json:"mediaconvert:CmafGroupSettings:ManifestDurationFormat" locationName:"manifestDurationFormat" type:"string" enum:"true"`
 
 	// Minimum time of initially buffered media that is needed to ensure smooth
 	// playout.
-	MinBufferTime *int64 `locationName:"minBufferTime" type:"integer"`
+	MinBufferTime *int64 `json:"mediaconvert:CmafGroupSettings:MinBufferTime" locationName:"minBufferTime" type:"integer"`
 
 	// Keep this setting at the default value of 0, unless you are troubleshooting
 	// a problem with how devices play back the end of your video asset. If you
@@ -1945,12 +1945,12 @@ type CmafGroupSettings struct {
 	// your segment length is 3 seconds and your final segment is .5 seconds without
 	// a minimum final segment length; when you set the minimum final segment length
 	// to 1, your final segment is 3.5 seconds.
-	MinFinalSegmentLength *float64 `locationName:"minFinalSegmentLength" type:"double"`
+	MinFinalSegmentLength *float64 `json:"mediaconvert:CmafGroupSettings:MinFinalSegmentLength" locationName:"minFinalSegmentLength" type:"double"`
 
 	// When set to SINGLE_FILE, a single output file is generated, which is internally
 	// segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES,
 	// separate segment files will be created.
-	SegmentControl CmafSegmentControl `locationName:"segmentControl" type:"string" enum:"true"`
+	SegmentControl CmafSegmentControl `json:"mediaconvert:CmafGroupSettings:SegmentControl" locationName:"segmentControl" type:"string" enum:"true"`
 
 	// Use this setting to specify the length, in seconds, of each individual CMAF
 	// segment. This value applies to the whole package; that is, to every output
@@ -1960,17 +1960,17 @@ type CmafGroupSettings struct {
 	// puts the content of each output in a single file that has metadata that marks
 	// these segments. If you set it to segmented files, the service creates multiple
 	// files for each output, each with the content of one segment.
-	SegmentLength *int64 `locationName:"segmentLength" min:"1" type:"integer"`
+	SegmentLength *int64 `json:"mediaconvert:CmafGroupSettings:SegmentLength" locationName:"segmentLength" min:"1" type:"integer"`
 
 	// Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag
 	// of variant manifest.
-	StreamInfResolution CmafStreamInfResolution `locationName:"streamInfResolution" type:"string" enum:"true"`
+	StreamInfResolution CmafStreamInfResolution `json:"mediaconvert:CmafGroupSettings:StreamInfResolution" locationName:"streamInfResolution" type:"string" enum:"true"`
 
 	// When set to ENABLED, a DASH MPD manifest will be generated for this output.
-	WriteDashManifest CmafWriteDASHManifest `locationName:"writeDashManifest" type:"string" enum:"true"`
+	WriteDashManifest CmafWriteDASHManifest `json:"mediaconvert:CmafGroupSettings:WriteDashManifest" locationName:"writeDashManifest" type:"string" enum:"true"`
 
 	// When set to ENABLED, an Apple HLS manifest will be generated for this output.
-	WriteHlsManifest CmafWriteHLSManifest `locationName:"writeHlsManifest" type:"string" enum:"true"`
+	WriteHlsManifest CmafWriteHLSManifest `json:"mediaconvert:CmafGroupSettings:WriteHlsManifest" locationName:"writeHlsManifest" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2106,27 +2106,27 @@ type ColorCorrector struct {
 	_ struct{} `type:"structure"`
 
 	// Brightness level.
-	Brightness *int64 `locationName:"brightness" min:"1" type:"integer"`
+	Brightness *int64 `json:"mediaconvert:ColorCorrector:Brightness" locationName:"brightness" min:"1" type:"integer"`
 
 	// Determines if colorspace conversion will be performed. If set to _None_,
 	// no conversion will be performed. If _Force 601_ or _Force 709_ are selected,
 	// conversion will be performed for inputs with differing colorspaces. An input's
 	// colorspace can be specified explicitly in the "Video Selector":#inputs-video_selector
 	// if necessary.
-	ColorSpaceConversion ColorSpaceConversion `locationName:"colorSpaceConversion" type:"string" enum:"true"`
+	ColorSpaceConversion ColorSpaceConversion `json:"mediaconvert:ColorCorrector:ColorSpaceConversion" locationName:"colorSpaceConversion" type:"string" enum:"true"`
 
 	// Contrast level.
-	Contrast *int64 `locationName:"contrast" min:"1" type:"integer"`
+	Contrast *int64 `json:"mediaconvert:ColorCorrector:Contrast" locationName:"contrast" min:"1" type:"integer"`
 
 	// Use the HDR master display (Hdr10Metadata) settings to correct HDR metadata
 	// or to provide missing metadata. Note that these settings are not color correction.
-	Hdr10Metadata *Hdr10Metadata `locationName:"hdr10Metadata" type:"structure"`
+	Hdr10Metadata *Hdr10Metadata `json:"mediaconvert:ColorCorrector:Hdr10Metadata" locationName:"hdr10Metadata" type:"structure"`
 
 	// Hue in degrees.
-	Hue *int64 `locationName:"hue" type:"integer"`
+	Hue *int64 `json:"mediaconvert:ColorCorrector:Hue" locationName:"hue" type:"integer"`
 
 	// Saturation level.
-	Saturation *int64 `locationName:"saturation" min:"1" type:"integer"`
+	Saturation *int64 `json:"mediaconvert:ColorCorrector:Saturation" locationName:"saturation" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -2204,10 +2204,10 @@ type ContainerSettings struct {
 
 	// Container for this output. Some containers require a container settings object.
 	// If not specified, the default object will be created.
-	Container ContainerType `locationName:"container" type:"string" enum:"true"`
+	Container ContainerType `json:"mediaconvert:ContainerSettings:Container" locationName:"container" type:"string" enum:"true"`
 
 	// Settings for F4v container
-	F4vSettings *F4vSettings `locationName:"f4vSettings" type:"structure"`
+	F4vSettings *F4vSettings `json:"mediaconvert:ContainerSettings:F4vSettings" locationName:"f4vSettings" type:"structure"`
 
 	// MPEG-2 TS container settings. These apply to outputs in a File output group
 	// when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS).
@@ -2219,16 +2219,16 @@ type ContainerSettings struct {
 	// systems and players use the program map table to look up the PID for each
 	// type of data it accesses and then uses the PIDs to locate specific data within
 	// the asset.
-	M2tsSettings *M2tsSettings `locationName:"m2tsSettings" type:"structure"`
+	M2tsSettings *M2tsSettings `json:"mediaconvert:ContainerSettings:M2tsSettings" locationName:"m2tsSettings" type:"structure"`
 
 	// Settings for TS segments in HLS
-	M3u8Settings *M3u8Settings `locationName:"m3u8Settings" type:"structure"`
+	M3u8Settings *M3u8Settings `json:"mediaconvert:ContainerSettings:M3u8Settings" locationName:"m3u8Settings" type:"structure"`
 
 	// Settings for MOV Container.
-	MovSettings *MovSettings `locationName:"movSettings" type:"structure"`
+	MovSettings *MovSettings `json:"mediaconvert:ContainerSettings:MovSettings" locationName:"movSettings" type:"structure"`
 
 	// Settings for MP4 Container
-	Mp4Settings *Mp4Settings `locationName:"mp4Settings" type:"structure"`
+	Mp4Settings *Mp4Settings `json:"mediaconvert:ContainerSettings:Mp4Settings" locationName:"mp4Settings" type:"structure"`
 }
 
 // String returns the string representation
@@ -2308,10 +2308,10 @@ type DashIsoEncryptionSettings struct {
 	// on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1).
 	// If you choose Unencrypted SEI, for that output, the service will exclude
 	// the access unit delimiter and will leave the SEI NAL units unencrypted.
-	PlaybackDeviceCompatibility DashIsoPlaybackDeviceCompatibility `locationName:"playbackDeviceCompatibility" type:"string" enum:"true"`
+	PlaybackDeviceCompatibility DashIsoPlaybackDeviceCompatibility `json:"mediaconvert:DashIsoEncryptionSettings:PlaybackDeviceCompatibility" locationName:"playbackDeviceCompatibility" type:"string" enum:"true"`
 
 	// Settings for use with a SPEKE key provider
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediaconvert:DashIsoEncryptionSettings:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure"`
 }
 
 // String returns the string representation
@@ -2345,21 +2345,21 @@ type DashIsoGroupSettings struct {
 	// A partial URI prefix that will be put in the manifest (.mpd) file at the
 	// top level BaseURL element. Can be used if streams are delivered from a different
 	// URL than the manifest file.
-	BaseUrl *string `locationName:"baseUrl" type:"string"`
+	BaseUrl *string `json:"mediaconvert:DashIsoGroupSettings:BaseUrl" locationName:"baseUrl" type:"string"`
 
 	// Use Destination (Destination) to specify the S3 output location and the output
 	// filename base. Destination accepts format identifiers. If you do not specify
 	// the base filename in the URI, the service will use the filename of the input
 	// file. If your job has multiple inputs, the service uses the filename of the
 	// first input file.
-	Destination *string `locationName:"destination" type:"string"`
+	Destination *string `json:"mediaconvert:DashIsoGroupSettings:Destination" locationName:"destination" type:"string"`
 
 	// Settings associated with the destination. Will vary based on the type of
 	// destination
-	DestinationSettings *DestinationSettings `locationName:"destinationSettings" type:"structure"`
+	DestinationSettings *DestinationSettings `json:"mediaconvert:DashIsoGroupSettings:DestinationSettings" locationName:"destinationSettings" type:"structure"`
 
 	// DRM settings.
-	Encryption *DashIsoEncryptionSettings `locationName:"encryption" type:"structure"`
+	Encryption *DashIsoEncryptionSettings `json:"mediaconvert:DashIsoGroupSettings:Encryption" locationName:"encryption" type:"structure"`
 
 	// Length of fragments to generate (in seconds). Fragment length must be compatible
 	// with GOP size and Framerate. Note that fragments will end on the next keyframe
@@ -2367,26 +2367,26 @@ type DashIsoGroupSettings struct {
 	// Emit Single File is checked, the fragmentation is internal to a single output
 	// file and it does not cause the creation of many output files as in other
 	// output types.
-	FragmentLength *int64 `locationName:"fragmentLength" min:"1" type:"integer"`
+	FragmentLength *int64 `json:"mediaconvert:DashIsoGroupSettings:FragmentLength" locationName:"fragmentLength" min:"1" type:"integer"`
 
 	// Supports HbbTV specification as indicated
-	HbbtvCompliance DashIsoHbbtvCompliance `locationName:"hbbtvCompliance" type:"string" enum:"true"`
+	HbbtvCompliance DashIsoHbbtvCompliance `json:"mediaconvert:DashIsoGroupSettings:HbbtvCompliance" locationName:"hbbtvCompliance" type:"string" enum:"true"`
 
 	// Minimum time of initially buffered media that is needed to ensure smooth
 	// playout.
-	MinBufferTime *int64 `locationName:"minBufferTime" type:"integer"`
+	MinBufferTime *int64 `json:"mediaconvert:DashIsoGroupSettings:MinBufferTime" locationName:"minBufferTime" type:"integer"`
 
 	// When set to SINGLE_FILE, a single output file is generated, which is internally
 	// segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES,
 	// separate segment files will be created.
-	SegmentControl DashIsoSegmentControl `locationName:"segmentControl" type:"string" enum:"true"`
+	SegmentControl DashIsoSegmentControl `json:"mediaconvert:DashIsoGroupSettings:SegmentControl" locationName:"segmentControl" type:"string" enum:"true"`
 
 	// Length of mpd segments to create (in seconds). Note that segments will end
 	// on the next keyframe after this number of seconds, so actual segment length
 	// may be longer. When Emit Single File is checked, the segmentation is internal
 	// to a single output file and it does not cause the creation of many output
 	// files as in other output types.
-	SegmentLength *int64 `locationName:"segmentLength" min:"1" type:"integer"`
+	SegmentLength *int64 `json:"mediaconvert:DashIsoGroupSettings:SegmentLength" locationName:"segmentLength" min:"1" type:"integer"`
 
 	// When you enable Precise segment duration in manifests (writeSegmentTimelineInRepresentation),
 	// your DASH manifest shows precise segment durations. The segment duration
@@ -2394,7 +2394,7 @@ type DashIsoGroupSettings struct {
 	// at the Representation level. When this feature isn't enabled, the segment
 	// durations in your DASH manifest are approximate. The segment duration information
 	// appears in the duration attribute of the SegmentTemplate element.
-	WriteSegmentTimelineInRepresentation DashIsoWriteSegmentTimelineInRepresentation `locationName:"writeSegmentTimelineInRepresentation" type:"string" enum:"true"`
+	WriteSegmentTimelineInRepresentation DashIsoWriteSegmentTimelineInRepresentation `json:"mediaconvert:DashIsoGroupSettings:WriteSegmentTimelineInRepresentation" locationName:"writeSegmentTimelineInRepresentation" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2493,7 +2493,7 @@ type Deinterlacer struct {
 	// sharper pictures, while blend (BLEND) produces smoother motion. Use (INTERPOLATE_TICKER)
 	// OR (BLEND_TICKER) if your source file includes a ticker, such as a scrolling
 	// headline at the bottom of the frame.
-	Algorithm DeinterlaceAlgorithm `locationName:"algorithm" type:"string" enum:"true"`
+	Algorithm DeinterlaceAlgorithm `json:"mediaconvert:Deinterlacer:Algorithm" locationName:"algorithm" type:"string" enum:"true"`
 
 	// - When set to NORMAL (default), the deinterlacer does not convert frames
 	// that are tagged in metadata as progressive. It will only convert those that
@@ -2503,13 +2503,13 @@ type Deinterlacer struct {
 	// metadata has tagged frames as progressive when they are not progressive.
 	// Do not turn on otherwise; processing frames that are already progressive
 	// into progressive will probably result in lower quality video.
-	Control DeinterlacerControl `locationName:"control" type:"string" enum:"true"`
+	Control DeinterlacerControl `json:"mediaconvert:Deinterlacer:Control" locationName:"control" type:"string" enum:"true"`
 
 	// Use Deinterlacer (DeinterlaceMode) to choose how the service will do deinterlacing.
 	// Default is Deinterlace. - Deinterlace converts interlaced to progressive.
 	// - Inverse telecine converts Hard Telecine 29.97i to progressive 23.976p.
 	// - Adaptive auto-detects and converts to progressive.
-	Mode DeinterlacerMode `locationName:"mode" type:"string" enum:"true"`
+	Mode DeinterlacerMode `json:"mediaconvert:Deinterlacer:Mode" locationName:"mode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2547,7 +2547,7 @@ type DestinationSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Settings associated with S3 destination
-	S3Settings *S3DestinationSettings `locationName:"s3Settings" type:"structure"`
+	S3Settings *S3DestinationSettings `json:"mediaconvert:DestinationSettings:S3Settings" locationName:"s3Settings" type:"structure"`
 }
 
 // String returns the string representation
@@ -2573,15 +2573,15 @@ type DvbNitSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The numeric value placed in the Network Information Table (NIT).
-	NetworkId *int64 `locationName:"networkId" type:"integer"`
+	NetworkId *int64 `json:"mediaconvert:DvbNitSettings:NetworkId" locationName:"networkId" type:"integer"`
 
 	// The network name text placed in the network_name_descriptor inside the Network
 	// Information Table. Maximum length is 256 characters.
-	NetworkName *string `locationName:"networkName" min:"1" type:"string"`
+	NetworkName *string `json:"mediaconvert:DvbNitSettings:NetworkName" locationName:"networkName" min:"1" type:"string"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	NitInterval *int64 `locationName:"nitInterval" min:"25" type:"integer"`
+	NitInterval *int64 `json:"mediaconvert:DvbNitSettings:NitInterval" locationName:"nitInterval" min:"25" type:"integer"`
 }
 
 // String returns the string representation
@@ -2640,19 +2640,19 @@ type DvbSdtSettings struct {
 	// if SDT information is present in the input, otherwise it will fall back on
 	// the user-defined values. Enter "SDT Manually" means user will enter the SDT
 	// information. "No SDT" means output stream will not contain SDT information.
-	OutputSdt OutputSdt `locationName:"outputSdt" type:"string" enum:"true"`
+	OutputSdt OutputSdt `json:"mediaconvert:DvbSdtSettings:OutputSdt" locationName:"outputSdt" type:"string" enum:"true"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	SdtInterval *int64 `locationName:"sdtInterval" min:"25" type:"integer"`
+	SdtInterval *int64 `json:"mediaconvert:DvbSdtSettings:SdtInterval" locationName:"sdtInterval" min:"25" type:"integer"`
 
 	// The service name placed in the service_descriptor in the Service Description
 	// Table. Maximum length is 256 characters.
-	ServiceName *string `locationName:"serviceName" min:"1" type:"string"`
+	ServiceName *string `json:"mediaconvert:DvbSdtSettings:ServiceName" locationName:"serviceName" min:"1" type:"string"`
 
 	// The service provider name placed in the service_descriptor in the Service
 	// Description Table. Maximum length is 256 characters.
-	ServiceProviderName *string `locationName:"serviceProviderName" min:"1" type:"string"`
+	ServiceProviderName *string `json:"mediaconvert:DvbSdtSettings:ServiceProviderName" locationName:"serviceProviderName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2721,79 +2721,79 @@ type DvbSubDestinationSettings struct {
 	// This option is not valid for source captions that are STL, 608/embedded or
 	// teletext. These source settings are already pre-defined by the caption stream.
 	// All burn-in and DVB-Sub font settings must match.
-	Alignment DvbSubtitleAlignment `locationName:"alignment" type:"string" enum:"true"`
+	Alignment DvbSubtitleAlignment `json:"mediaconvert:DvbSubDestinationSettings:Alignment" locationName:"alignment" type:"string" enum:"true"`
 
 	// Specifies the color of the rectangle behind the captions.All burn-in and
 	// DVB-Sub font settings must match.
-	BackgroundColor DvbSubtitleBackgroundColor `locationName:"backgroundColor" type:"string" enum:"true"`
+	BackgroundColor DvbSubtitleBackgroundColor `json:"mediaconvert:DvbSubDestinationSettings:BackgroundColor" locationName:"backgroundColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent.
 	// Leaving this parameter blank is equivalent to setting it to 0 (transparent).
 	// All burn-in and DVB-Sub font settings must match.
-	BackgroundOpacity *int64 `locationName:"backgroundOpacity" type:"integer"`
+	BackgroundOpacity *int64 `json:"mediaconvert:DvbSubDestinationSettings:BackgroundOpacity" locationName:"backgroundOpacity" type:"integer"`
 
 	// Specifies the color of the burned-in captions. This option is not valid for
 	// source captions that are STL, 608/embedded or teletext. These source settings
 	// are already pre-defined by the caption stream. All burn-in and DVB-Sub font
 	// settings must match.
-	FontColor DvbSubtitleFontColor `locationName:"fontColor" type:"string" enum:"true"`
+	FontColor DvbSubtitleFontColor `json:"mediaconvert:DvbSubDestinationSettings:FontColor" locationName:"fontColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.All
 	// burn-in and DVB-Sub font settings must match.
-	FontOpacity *int64 `locationName:"fontOpacity" type:"integer"`
+	FontOpacity *int64 `json:"mediaconvert:DvbSubDestinationSettings:FontOpacity" locationName:"fontOpacity" type:"integer"`
 
 	// Font resolution in DPI (dots per inch); default is 96 dpi.All burn-in and
 	// DVB-Sub font settings must match.
-	FontResolution *int64 `locationName:"fontResolution" min:"96" type:"integer"`
+	FontResolution *int64 `json:"mediaconvert:DvbSubDestinationSettings:FontResolution" locationName:"fontResolution" min:"96" type:"integer"`
 
 	// Provide the font script, using an ISO 15924 script code, if the LanguageCode
 	// is not sufficient for determining the script type. Where LanguageCode or
 	// CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is
 	// used to help determine the appropriate font for rendering DVB-Sub captions.
-	FontScript FontScript `locationName:"fontScript" type:"string" enum:"true"`
+	FontScript FontScript `json:"mediaconvert:DvbSubDestinationSettings:FontScript" locationName:"fontScript" type:"string" enum:"true"`
 
 	// A positive integer indicates the exact font size in points. Set to 0 for
 	// automatic font size selection. All burn-in and DVB-Sub font settings must
 	// match.
-	FontSize *int64 `locationName:"fontSize" type:"integer"`
+	FontSize *int64 `json:"mediaconvert:DvbSubDestinationSettings:FontSize" locationName:"fontSize" type:"integer"`
 
 	// Specifies font outline color. This option is not valid for source captions
 	// that are either 608/embedded or teletext. These source settings are already
 	// pre-defined by the caption stream. All burn-in and DVB-Sub font settings
 	// must match.
-	OutlineColor DvbSubtitleOutlineColor `locationName:"outlineColor" type:"string" enum:"true"`
+	OutlineColor DvbSubtitleOutlineColor `json:"mediaconvert:DvbSubDestinationSettings:OutlineColor" locationName:"outlineColor" type:"string" enum:"true"`
 
 	// Specifies font outline size in pixels. This option is not valid for source
 	// captions that are either 608/embedded or teletext. These source settings
 	// are already pre-defined by the caption stream. All burn-in and DVB-Sub font
 	// settings must match.
-	OutlineSize *int64 `locationName:"outlineSize" type:"integer"`
+	OutlineSize *int64 `json:"mediaconvert:DvbSubDestinationSettings:OutlineSize" locationName:"outlineSize" type:"integer"`
 
 	// Specifies the color of the shadow cast by the captions.All burn-in and DVB-Sub
 	// font settings must match.
-	ShadowColor DvbSubtitleShadowColor `locationName:"shadowColor" type:"string" enum:"true"`
+	ShadowColor DvbSubtitleShadowColor `json:"mediaconvert:DvbSubDestinationSettings:ShadowColor" locationName:"shadowColor" type:"string" enum:"true"`
 
 	// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving
 	// this parameter blank is equivalent to setting it to 0 (transparent). All
 	// burn-in and DVB-Sub font settings must match.
-	ShadowOpacity *int64 `locationName:"shadowOpacity" type:"integer"`
+	ShadowOpacity *int64 `json:"mediaconvert:DvbSubDestinationSettings:ShadowOpacity" locationName:"shadowOpacity" type:"integer"`
 
 	// Specifies the horizontal offset of the shadow relative to the captions in
 	// pixels. A value of -2 would result in a shadow offset 2 pixels to the left.
 	// All burn-in and DVB-Sub font settings must match.
-	ShadowXOffset *int64 `locationName:"shadowXOffset" type:"integer"`
+	ShadowXOffset *int64 `json:"mediaconvert:DvbSubDestinationSettings:ShadowXOffset" locationName:"shadowXOffset" type:"integer"`
 
 	// Specifies the vertical offset of the shadow relative to the captions in pixels.
 	// A value of -2 would result in a shadow offset 2 pixels above the text. All
 	// burn-in and DVB-Sub font settings must match.
-	ShadowYOffset *int64 `locationName:"shadowYOffset" type:"integer"`
+	ShadowYOffset *int64 `json:"mediaconvert:DvbSubDestinationSettings:ShadowYOffset" locationName:"shadowYOffset" type:"integer"`
 
 	// Only applies to jobs with input captions in Teletext or STL formats. Specify
 	// whether the spacing between letters in your captions is set by the captions
 	// grid or varies depending on letter width. Choose fixed grid to conform to
 	// the spacing specified in the captions file more accurately. Choose proportional
 	// to make the text easier to read if the captions are closed caption.
-	TeletextSpacing DvbSubtitleTeletextSpacing `locationName:"teletextSpacing" type:"string" enum:"true"`
+	TeletextSpacing DvbSubtitleTeletextSpacing `json:"mediaconvert:DvbSubDestinationSettings:TeletextSpacing" locationName:"teletextSpacing" type:"string" enum:"true"`
 
 	// Specifies the horizontal position of the caption relative to the left side
 	// of the output in pixels. A value of 10 would result in the captions starting
@@ -2802,7 +2802,7 @@ type DvbSubDestinationSettings struct {
 	// This option is not valid for source captions that are STL, 608/embedded or
 	// teletext. These source settings are already pre-defined by the caption stream.
 	// All burn-in and DVB-Sub font settings must match.
-	XPosition *int64 `locationName:"xPosition" type:"integer"`
+	XPosition *int64 `json:"mediaconvert:DvbSubDestinationSettings:XPosition" locationName:"xPosition" type:"integer"`
 
 	// Specifies the vertical position of the caption relative to the top of the
 	// output in pixels. A value of 10 would result in the captions starting 10
@@ -2811,7 +2811,7 @@ type DvbSubDestinationSettings struct {
 	// is not valid for source captions that are STL, 608/embedded or teletext.
 	// These source settings are already pre-defined by the caption stream. All
 	// burn-in and DVB-Sub font settings must match.
-	YPosition *int64 `locationName:"yPosition" type:"integer"`
+	YPosition *int64 `json:"mediaconvert:DvbSubDestinationSettings:YPosition" locationName:"yPosition" type:"integer"`
 }
 
 // String returns the string representation
@@ -2953,7 +2953,7 @@ type DvbSubSourceSettings struct {
 	// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
 	// content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through,
 	// regardless of selectors.
-	Pid *int64 `locationName:"pid" min:"1" type:"integer"`
+	Pid *int64 `json:"mediaconvert:DvbSubSourceSettings:Pid" locationName:"pid" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -2992,7 +2992,7 @@ type DvbTdtSettings struct {
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	TdtInterval *int64 `locationName:"tdtInterval" min:"1000" type:"integer"`
+	TdtInterval *int64 `json:"mediaconvert:DvbTdtSettings:TdtInterval" locationName:"tdtInterval" min:"1000" type:"integer"`
 }
 
 // String returns the string representation
@@ -3032,84 +3032,84 @@ type Eac3Settings struct {
 
 	// If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround channels.
 	// Only used for 3/2 coding mode.
-	AttenuationControl Eac3AttenuationControl `locationName:"attenuationControl" type:"string" enum:"true"`
+	AttenuationControl Eac3AttenuationControl `json:"mediaconvert:Eac3Settings:AttenuationControl" locationName:"attenuationControl" type:"string" enum:"true"`
 
 	// Average bitrate in bits/second. Valid bitrates depend on the coding mode.
-	Bitrate *int64 `locationName:"bitrate" min:"64000" type:"integer"`
+	Bitrate *int64 `json:"mediaconvert:Eac3Settings:Bitrate" locationName:"bitrate" min:"64000" type:"integer"`
 
 	// Specifies the "Bitstream Mode" (bsmod) for the emitted E-AC-3 stream. See
 	// ATSC A/52-2012 (Annex E) for background on these values.
-	BitstreamMode Eac3BitstreamMode `locationName:"bitstreamMode" type:"string" enum:"true"`
+	BitstreamMode Eac3BitstreamMode `json:"mediaconvert:Eac3Settings:BitstreamMode" locationName:"bitstreamMode" type:"string" enum:"true"`
 
 	// Dolby Digital Plus coding mode. Determines number of channels.
-	CodingMode Eac3CodingMode `locationName:"codingMode" type:"string" enum:"true"`
+	CodingMode Eac3CodingMode `json:"mediaconvert:Eac3Settings:CodingMode" locationName:"codingMode" type:"string" enum:"true"`
 
 	// Activates a DC highpass filter for all input channels.
-	DcFilter Eac3DcFilter `locationName:"dcFilter" type:"string" enum:"true"`
+	DcFilter Eac3DcFilter `json:"mediaconvert:Eac3Settings:DcFilter" locationName:"dcFilter" type:"string" enum:"true"`
 
 	// Sets the dialnorm for the output. If blank and input audio is Dolby Digital
 	// Plus, dialnorm will be passed through.
-	Dialnorm *int64 `locationName:"dialnorm" min:"1" type:"integer"`
+	Dialnorm *int64 `json:"mediaconvert:Eac3Settings:Dialnorm" locationName:"dialnorm" min:"1" type:"integer"`
 
 	// Enables Dynamic Range Compression that restricts the absolute peak level
 	// for a signal.
-	DynamicRangeCompressionLine Eac3DynamicRangeCompressionLine `locationName:"dynamicRangeCompressionLine" type:"string" enum:"true"`
+	DynamicRangeCompressionLine Eac3DynamicRangeCompressionLine `json:"mediaconvert:Eac3Settings:DynamicRangeCompressionLine" locationName:"dynamicRangeCompressionLine" type:"string" enum:"true"`
 
 	// Enables Heavy Dynamic Range Compression, ensures that the instantaneous signal
 	// peaks do not exceed specified levels.
-	DynamicRangeCompressionRf Eac3DynamicRangeCompressionRf `locationName:"dynamicRangeCompressionRf" type:"string" enum:"true"`
+	DynamicRangeCompressionRf Eac3DynamicRangeCompressionRf `json:"mediaconvert:Eac3Settings:DynamicRangeCompressionRf" locationName:"dynamicRangeCompressionRf" type:"string" enum:"true"`
 
 	// When encoding 3/2 audio, controls whether the LFE channel is enabled
-	LfeControl Eac3LfeControl `locationName:"lfeControl" type:"string" enum:"true"`
+	LfeControl Eac3LfeControl `json:"mediaconvert:Eac3Settings:LfeControl" locationName:"lfeControl" type:"string" enum:"true"`
 
 	// Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only
 	// valid with 3_2_LFE coding mode.
-	LfeFilter Eac3LfeFilter `locationName:"lfeFilter" type:"string" enum:"true"`
+	LfeFilter Eac3LfeFilter `json:"mediaconvert:Eac3Settings:LfeFilter" locationName:"lfeFilter" type:"string" enum:"true"`
 
 	// Left only/Right only center mix level. Only used for 3/2 coding mode.Valid
 	// values: 3.0, 1.5, 0.0, -1.5 -3.0 -4.5 -6.0 -60
-	LoRoCenterMixLevel *float64 `locationName:"loRoCenterMixLevel" type:"double"`
+	LoRoCenterMixLevel *float64 `json:"mediaconvert:Eac3Settings:LoRoCenterMixLevel" locationName:"loRoCenterMixLevel" type:"double"`
 
 	// Left only/Right only surround mix level. Only used for 3/2 coding mode.Valid
 	// values: -1.5 -3.0 -4.5 -6.0 -60
-	LoRoSurroundMixLevel *float64 `locationName:"loRoSurroundMixLevel" type:"double"`
+	LoRoSurroundMixLevel *float64 `json:"mediaconvert:Eac3Settings:LoRoSurroundMixLevel" locationName:"loRoSurroundMixLevel" type:"double"`
 
 	// Left total/Right total center mix level. Only used for 3/2 coding mode.Valid
 	// values: 3.0, 1.5, 0.0, -1.5 -3.0 -4.5 -6.0 -60
-	LtRtCenterMixLevel *float64 `locationName:"ltRtCenterMixLevel" type:"double"`
+	LtRtCenterMixLevel *float64 `json:"mediaconvert:Eac3Settings:LtRtCenterMixLevel" locationName:"ltRtCenterMixLevel" type:"double"`
 
 	// Left total/Right total surround mix level. Only used for 3/2 coding mode.Valid
 	// values: -1.5 -3.0 -4.5 -6.0 -60
-	LtRtSurroundMixLevel *float64 `locationName:"ltRtSurroundMixLevel" type:"double"`
+	LtRtSurroundMixLevel *float64 `json:"mediaconvert:Eac3Settings:LtRtSurroundMixLevel" locationName:"ltRtSurroundMixLevel" type:"double"`
 
 	// When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+,
 	// or DolbyE decoder that supplied this audio data. If audio was not supplied
 	// from one of these streams, then the static metadata settings will be used.
-	MetadataControl Eac3MetadataControl `locationName:"metadataControl" type:"string" enum:"true"`
+	MetadataControl Eac3MetadataControl `json:"mediaconvert:Eac3Settings:MetadataControl" locationName:"metadataControl" type:"string" enum:"true"`
 
 	// When set to WHEN_POSSIBLE, input DD+ audio will be passed through if it is
 	// present on the input. this detection is dynamic over the life of the transcode.
 	// Inputs that alternate between DD+ and non-DD+ content will have a consistent
 	// DD+ output as the system alternates between passthrough and encoding.
-	PassthroughControl Eac3PassthroughControl `locationName:"passthroughControl" type:"string" enum:"true"`
+	PassthroughControl Eac3PassthroughControl `json:"mediaconvert:Eac3Settings:PassthroughControl" locationName:"passthroughControl" type:"string" enum:"true"`
 
 	// Controls the amount of phase-shift applied to the surround channels. Only
 	// used for 3/2 coding mode.
-	PhaseControl Eac3PhaseControl `locationName:"phaseControl" type:"string" enum:"true"`
+	PhaseControl Eac3PhaseControl `json:"mediaconvert:Eac3Settings:PhaseControl" locationName:"phaseControl" type:"string" enum:"true"`
 
 	// Sample rate in hz. Sample rate is always 48000.
-	SampleRate *int64 `locationName:"sampleRate" min:"48000" type:"integer"`
+	SampleRate *int64 `json:"mediaconvert:Eac3Settings:SampleRate" locationName:"sampleRate" min:"48000" type:"integer"`
 
 	// Stereo downmix preference. Only used for 3/2 coding mode.
-	StereoDownmix Eac3StereoDownmix `locationName:"stereoDownmix" type:"string" enum:"true"`
+	StereoDownmix Eac3StereoDownmix `json:"mediaconvert:Eac3Settings:StereoDownmix" locationName:"stereoDownmix" type:"string" enum:"true"`
 
 	// When encoding 3/2 audio, sets whether an extra center back surround channel
 	// is matrix encoded into the left and right surround channels.
-	SurroundExMode Eac3SurroundExMode `locationName:"surroundExMode" type:"string" enum:"true"`
+	SurroundExMode Eac3SurroundExMode `json:"mediaconvert:Eac3Settings:SurroundExMode" locationName:"surroundExMode" type:"string" enum:"true"`
 
 	// When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into
 	// the two channels.
-	SurroundMode Eac3SurroundMode `locationName:"surroundMode" type:"string" enum:"true"`
+	SurroundMode Eac3SurroundMode `json:"mediaconvert:Eac3Settings:SurroundMode" locationName:"surroundMode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3282,7 +3282,7 @@ type EmbeddedDestinationSettings struct {
 	// setting applies to each output individually. You can optionally combine two
 	// captions channels in your output. The two output channel numbers can be one
 	// of the following pairs: 1,3; 2,4; 1,4; or 2,3.
-	Destination608ChannelNumber *int64 `locationName:"destination608ChannelNumber" min:"1" type:"integer"`
+	Destination608ChannelNumber *int64 `json:"mediaconvert:EmbeddedDestinationSettings:Destination608ChannelNumber" locationName:"destination608ChannelNumber" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -3322,15 +3322,15 @@ type EmbeddedSourceSettings struct {
 	// When set to UPCONVERT, 608 data is both passed through via the "608 compatibility
 	// bytes" fields of the 708 wrapper as well as translated into 708. 708 data
 	// present in the source content will be discarded.
-	Convert608To708 EmbeddedConvert608To708 `locationName:"convert608To708" type:"string" enum:"true"`
+	Convert608To708 EmbeddedConvert608To708 `json:"mediaconvert:EmbeddedSourceSettings:Convert608To708" locationName:"convert608To708" type:"string" enum:"true"`
 
 	// Specifies the 608/708 channel number within the video track from which to
 	// extract captions. Unused for passthrough.
-	Source608ChannelNumber *int64 `locationName:"source608ChannelNumber" min:"1" type:"integer"`
+	Source608ChannelNumber *int64 `json:"mediaconvert:EmbeddedSourceSettings:Source608ChannelNumber" locationName:"source608ChannelNumber" min:"1" type:"integer"`
 
 	// Specifies the video track index used for extracting captions. The system
 	// only supports one input video track, so this should always be set to '1'.
-	Source608TrackNumber *int64 `locationName:"source608TrackNumber" min:"1" type:"integer"`
+	Source608TrackNumber *int64 `json:"mediaconvert:EmbeddedSourceSettings:Source608TrackNumber" locationName:"source608TrackNumber" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -3383,7 +3383,7 @@ type Endpoint struct {
 	_ struct{} `type:"structure"`
 
 	// URL of endpoint
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediaconvert:Endpoint:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -3411,7 +3411,7 @@ type EsamManifestConfirmConditionNotification struct {
 	// your JSON job settings. Form the XML document as per OC-SP-ESAM-API-I03-131025.
 	// The transcoder will use the Manifest Conditioning instructions in the message
 	// that you supply.
-	MccXml *string `locationName:"mccXml" type:"string"`
+	MccXml *string `json:"mediaconvert:EsamManifestConfirmConditionNotification:MccXml" locationName:"mccXml" type:"string"`
 }
 
 // String returns the string representation
@@ -3439,19 +3439,19 @@ type EsamSettings struct {
 	// Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025.
 	// The transcoder uses the manifest conditioning instructions that you provide
 	// in the setting MCC XML (mccXml).
-	ManifestConfirmConditionNotification *EsamManifestConfirmConditionNotification `locationName:"manifestConfirmConditionNotification" type:"structure"`
+	ManifestConfirmConditionNotification *EsamManifestConfirmConditionNotification `json:"mediaconvert:EsamSettings:ManifestConfirmConditionNotification" locationName:"manifestConfirmConditionNotification" type:"structure"`
 
 	// Specifies the stream distance, in milliseconds, between the SCTE 35 messages
 	// that the transcoder places and the splice points that they refer to. If the
 	// time between the start of the asset and the SCTE-35 message is less than
 	// this value, then the transcoder places the SCTE-35 marker at the beginning
 	// of the stream.
-	ResponseSignalPreroll *int64 `locationName:"responseSignalPreroll" type:"integer"`
+	ResponseSignalPreroll *int64 `json:"mediaconvert:EsamSettings:ResponseSignalPreroll" locationName:"responseSignalPreroll" type:"integer"`
 
 	// Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025.
 	// The transcoder uses the signal processing instructions that you provide in
 	// the setting SCC XML (sccXml).
-	SignalProcessingNotification *EsamSignalProcessingNotification `locationName:"signalProcessingNotification" type:"structure"`
+	SignalProcessingNotification *EsamSignalProcessingNotification `json:"mediaconvert:EsamSettings:SignalProcessingNotification" locationName:"signalProcessingNotification" type:"structure"`
 }
 
 // String returns the string representation
@@ -3495,7 +3495,7 @@ type EsamSignalProcessingNotification struct {
 	// at the insertion points you specify in the XML document, you must also enable
 	// SCTE-35 ESAM (scte35Esam). Note that you can either specify an ESAM XML document
 	// or enable SCTE-35 passthrough. You can't do both.
-	SccXml *string `locationName:"sccXml" type:"string"`
+	SccXml *string `json:"mediaconvert:EsamSignalProcessingNotification:SccXml" locationName:"sccXml" type:"string"`
 }
 
 // String returns the string representation
@@ -3522,7 +3522,7 @@ type F4vSettings struct {
 	// If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning
 	// of the archive as required for progressive downloading. Otherwise it is placed
 	// normally at the end.
-	MoovPlacement F4vMoovPlacement `locationName:"moovPlacement" type:"string" enum:"true"`
+	MoovPlacement F4vMoovPlacement `json:"mediaconvert:F4vSettings:MoovPlacement" locationName:"moovPlacement" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3552,11 +3552,11 @@ type FileGroupSettings struct {
 	// the base filename in the URI, the service will use the filename of the input
 	// file. If your job has multiple inputs, the service uses the filename of the
 	// first input file.
-	Destination *string `locationName:"destination" type:"string"`
+	Destination *string `json:"mediaconvert:FileGroupSettings:Destination" locationName:"destination" type:"string"`
 
 	// Settings associated with the destination. Will vary based on the type of
 	// destination
-	DestinationSettings *DestinationSettings `locationName:"destinationSettings" type:"structure"`
+	DestinationSettings *DestinationSettings `json:"mediaconvert:FileGroupSettings:DestinationSettings" locationName:"destinationSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -3589,15 +3589,15 @@ type FileSourceSettings struct {
 	// If set to UPCONVERT, 608 caption data is both passed through via the "608
 	// compatibility bytes" fields of the 708 wrapper as well as translated into
 	// 708. 708 data present in the source content will be discarded.
-	Convert608To708 FileSourceConvert608To708 `locationName:"convert608To708" type:"string" enum:"true"`
+	Convert608To708 FileSourceConvert608To708 `json:"mediaconvert:FileSourceSettings:Convert608To708" locationName:"convert608To708" type:"string" enum:"true"`
 
 	// External caption file used for loading captions. Accepted file extensions
 	// are 'scc', 'ttml', 'dfxp', 'stl', 'srt', and 'smi'.
-	SourceFile *string `locationName:"sourceFile" min:"14" type:"string"`
+	SourceFile *string `json:"mediaconvert:FileSourceSettings:SourceFile" locationName:"sourceFile" min:"14" type:"string"`
 
 	// Specifies a time delta in seconds to offset the captions from the source
 	// file.
-	TimeDelta *int64 `locationName:"timeDelta" type:"integer"`
+	TimeDelta *int64 `json:"mediaconvert:FileSourceSettings:TimeDelta" locationName:"timeDelta" type:"integer"`
 }
 
 // String returns the string representation
@@ -3656,7 +3656,7 @@ type FrameCaptureSettings struct {
 	// 1/3 frame per second) will capture the first frame, then 1 frame every 3s.
 	// Files will be named as filename.n.jpg where n is the 0-based sequence number
 	// of each Capture.
-	FramerateDenominator *int64 `locationName:"framerateDenominator" min:"1" type:"integer"`
+	FramerateDenominator *int64 `json:"mediaconvert:FrameCaptureSettings:FramerateDenominator" locationName:"framerateDenominator" min:"1" type:"integer"`
 
 	// Frame capture will encode the first frame of the output stream, then one
 	// frame every framerateDenominator/framerateNumerator seconds. For example,
@@ -3664,13 +3664,13 @@ type FrameCaptureSettings struct {
 	// 1/3 frame per second) will capture the first frame, then 1 frame every 3s.
 	// Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame
 	// sequence number zero padded to 7 decimal places.
-	FramerateNumerator *int64 `locationName:"framerateNumerator" min:"1" type:"integer"`
+	FramerateNumerator *int64 `json:"mediaconvert:FrameCaptureSettings:FramerateNumerator" locationName:"framerateNumerator" min:"1" type:"integer"`
 
 	// Maximum number of captures (encoded jpg output files).
-	MaxCaptures *int64 `locationName:"maxCaptures" min:"1" type:"integer"`
+	MaxCaptures *int64 `json:"mediaconvert:FrameCaptureSettings:MaxCaptures" locationName:"maxCaptures" min:"1" type:"integer"`
 
 	// JPEG Quality - a higher value equals higher quality.
-	Quality *int64 `locationName:"quality" min:"1" type:"integer"`
+	Quality *int64 `json:"mediaconvert:FrameCaptureSettings:Quality" locationName:"quality" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -3743,14 +3743,14 @@ type H264QvbrSettings struct {
 	// part of this output to the value you choose. That is, the total size of the
 	// video element is less than or equal to the value you set multiplied by the
 	// number of seconds of encoded output.
-	MaxAverageBitrate *int64 `locationName:"maxAverageBitrate" min:"1000" type:"integer"`
+	MaxAverageBitrate *int64 `json:"mediaconvert:H264QvbrSettings:MaxAverageBitrate" locationName:"maxAverageBitrate" min:"1000" type:"integer"`
 
 	// Required when you use QVBR rate control mode. That is, when you specify qvbrSettings
 	// within h264Settings. Specify the target quality level for this output, from
 	// 1 to 10. Use higher numbers for greater quality. Level 10 results in nearly
 	// lossless compression. The quality level for most broadcast-quality transcodes
 	// is between 6 and 9.
-	QvbrQualityLevel *int64 `locationName:"qvbrQualityLevel" min:"1" type:"integer"`
+	QvbrQualityLevel *int64 `json:"mediaconvert:H264QvbrSettings:QvbrQualityLevel" locationName:"qvbrQualityLevel" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -3799,35 +3799,35 @@ type H264Settings struct {
 
 	// Adaptive quantization. Allows intra-frame quantizers to vary to improve visual
 	// quality.
-	AdaptiveQuantization H264AdaptiveQuantization `locationName:"adaptiveQuantization" type:"string" enum:"true"`
+	AdaptiveQuantization H264AdaptiveQuantization `json:"mediaconvert:H264Settings:AdaptiveQuantization" locationName:"adaptiveQuantization" type:"string" enum:"true"`
 
 	// Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs,
 	// bitrates must be unique when rounded down to the nearest multiple of 1000.
-	Bitrate *int64 `locationName:"bitrate" min:"1000" type:"integer"`
+	Bitrate *int64 `json:"mediaconvert:H264Settings:Bitrate" locationName:"bitrate" min:"1000" type:"integer"`
 
 	// Specify an H.264 level that is consistent with your output video settings.
 	// If you aren't sure what level to specify, choose Auto (AUTO).
-	CodecLevel H264CodecLevel `locationName:"codecLevel" type:"string" enum:"true"`
+	CodecLevel H264CodecLevel `json:"mediaconvert:H264Settings:CodecLevel" locationName:"codecLevel" type:"string" enum:"true"`
 
 	// H.264 Profile. High 4:2:2 and 10-bit profiles are only available with the
 	// AVC-I License.
-	CodecProfile H264CodecProfile `locationName:"codecProfile" type:"string" enum:"true"`
+	CodecProfile H264CodecProfile `json:"mediaconvert:H264Settings:CodecProfile" locationName:"codecProfile" type:"string" enum:"true"`
 
 	// Choose Adaptive to improve subjective video quality for high-motion content.
 	// This will cause the service to use fewer B-frames (which infer information
 	// based on other frames) for high-motion portions of the video and more B-frames
 	// for low-motion portions. The maximum number of B-frames is limited by the
 	// value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-	DynamicSubGop H264DynamicSubGop `locationName:"dynamicSubGop" type:"string" enum:"true"`
+	DynamicSubGop H264DynamicSubGop `json:"mediaconvert:H264Settings:DynamicSubGop" locationName:"dynamicSubGop" type:"string" enum:"true"`
 
 	// Entropy encoding mode. Use CABAC (must be in Main or High profile) or CAVLC.
-	EntropyEncoding H264EntropyEncoding `locationName:"entropyEncoding" type:"string" enum:"true"`
+	EntropyEncoding H264EntropyEncoding `json:"mediaconvert:H264Settings:EntropyEncoding" locationName:"entropyEncoding" type:"string" enum:"true"`
 
 	// Choosing FORCE_FIELD disables PAFF encoding for interlaced outputs.
-	FieldEncoding H264FieldEncoding `locationName:"fieldEncoding" type:"string" enum:"true"`
+	FieldEncoding H264FieldEncoding `json:"mediaconvert:H264Settings:FieldEncoding" locationName:"fieldEncoding" type:"string" enum:"true"`
 
 	// Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
-	FlickerAdaptiveQuantization H264FlickerAdaptiveQuantization `locationName:"flickerAdaptiveQuantization" type:"string" enum:"true"`
+	FlickerAdaptiveQuantization H264FlickerAdaptiveQuantization `json:"mediaconvert:H264Settings:FlickerAdaptiveQuantization" locationName:"flickerAdaptiveQuantization" type:"string" enum:"true"`
 
 	// If you are using the console, use the Framerate setting to specify the frame
 	// rate for this output. If you want to keep the same frame rate as the input
@@ -3840,10 +3840,10 @@ type H264Settings struct {
 	// Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
 	// from the input. Choose SPECIFIED if you want the service to use the frame
 	// rate you specify in the settings FramerateNumerator and FramerateDenominator.
-	FramerateControl H264FramerateControl `locationName:"framerateControl" type:"string" enum:"true"`
+	FramerateControl H264FramerateControl `json:"mediaconvert:H264Settings:FramerateControl" locationName:"framerateControl" type:"string" enum:"true"`
 
 	// When set to INTERPOLATE, produces smoother motion during frame rate conversion.
-	FramerateConversionAlgorithm H264FramerateConversionAlgorithm `locationName:"framerateConversionAlgorithm" type:"string" enum:"true"`
+	FramerateConversionAlgorithm H264FramerateConversionAlgorithm `json:"mediaconvert:H264Settings:FramerateConversionAlgorithm" locationName:"framerateConversionAlgorithm" type:"string" enum:"true"`
 
 	// When you use the API for transcode jobs that use frame rate conversion, specify
 	// the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use
@@ -3851,35 +3851,35 @@ type H264Settings struct {
 	// example, use 1001 for the value of FramerateDenominator. When you use the
 	// console for transcode jobs that use frame rate conversion, provide the value
 	// as a decimal number for Framerate. In this example, specify 23.976.
-	FramerateDenominator *int64 `locationName:"framerateDenominator" min:"1" type:"integer"`
+	FramerateDenominator *int64 `json:"mediaconvert:H264Settings:FramerateDenominator" locationName:"framerateDenominator" min:"1" type:"integer"`
 
 	// Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976
 	// fps.
-	FramerateNumerator *int64 `locationName:"framerateNumerator" min:"1" type:"integer"`
+	FramerateNumerator *int64 `json:"mediaconvert:H264Settings:FramerateNumerator" locationName:"framerateNumerator" min:"1" type:"integer"`
 
 	// If enable, use reference B frames for GOP structures that have B frames >
 	// 1.
-	GopBReference H264GopBReference `locationName:"gopBReference" type:"string" enum:"true"`
+	GopBReference H264GopBReference `json:"mediaconvert:H264Settings:GopBReference" locationName:"gopBReference" type:"string" enum:"true"`
 
 	// Frequency of closed GOPs. In streaming applications, it is recommended that
 	// this be set to 1 so a decoder joining mid-stream will receive an IDR frame
 	// as quickly as possible. Setting this value to 0 will break output segmenting.
-	GopClosedCadence *int64 `locationName:"gopClosedCadence" type:"integer"`
+	GopClosedCadence *int64 `json:"mediaconvert:H264Settings:GopClosedCadence" locationName:"gopClosedCadence" type:"integer"`
 
 	// GOP Length (keyframe interval) in frames or seconds. Must be greater than
 	// zero.
-	GopSize *float64 `locationName:"gopSize" type:"double"`
+	GopSize *float64 `json:"mediaconvert:H264Settings:GopSize" locationName:"gopSize" type:"double"`
 
 	// Indicates if the GOP Size in H264 is specified in frames or seconds. If seconds
 	// the system will convert the GOP Size into a frame count at run time.
-	GopSizeUnits H264GopSizeUnits `locationName:"gopSizeUnits" type:"string" enum:"true"`
+	GopSizeUnits H264GopSizeUnits `json:"mediaconvert:H264Settings:GopSizeUnits" locationName:"gopSizeUnits" type:"string" enum:"true"`
 
 	// Percentage of the buffer that should initially be filled (HRD buffer model).
-	HrdBufferInitialFillPercentage *int64 `locationName:"hrdBufferInitialFillPercentage" type:"integer"`
+	HrdBufferInitialFillPercentage *int64 `json:"mediaconvert:H264Settings:HrdBufferInitialFillPercentage" locationName:"hrdBufferInitialFillPercentage" type:"integer"`
 
 	// Size of buffer (HRD buffer model) in bits. For example, enter five megabits
 	// as 5000000.
-	HrdBufferSize *int64 `locationName:"hrdBufferSize" type:"integer"`
+	HrdBufferSize *int64 `json:"mediaconvert:H264Settings:HrdBufferSize" locationName:"hrdBufferSize" type:"integer"`
 
 	// Use Interlace mode (InterlaceMode) to choose the scan line type for the output.
 	// * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce
@@ -3892,11 +3892,11 @@ type H264Settings struct {
 	// and "bottom field first". - If the source is progressive, the output will
 	// be interlaced with "top field first" or "bottom field first" polarity, depending
 	// on which of the Follow options you chose.
-	InterlaceMode H264InterlaceMode `locationName:"interlaceMode" type:"string" enum:"true"`
+	InterlaceMode H264InterlaceMode `json:"mediaconvert:H264Settings:InterlaceMode" locationName:"interlaceMode" type:"string" enum:"true"`
 
 	// Maximum bitrate in bits/second. For example, enter five megabits per second
 	// as 5000000. Required when Rate control mode is QVBR.
-	MaxBitrate *int64 `locationName:"maxBitrate" min:"1000" type:"integer"`
+	MaxBitrate *int64 `json:"mediaconvert:H264Settings:MaxBitrate" locationName:"maxBitrate" min:"1000" type:"integer"`
 
 	// Enforces separation between repeated (cadence) I-frames and I-frames inserted
 	// by Scene Change Detection. If a scene change I-frame is within I-interval
@@ -3905,66 +3905,66 @@ type H264Settings struct {
 	// I-interval. The normal cadence resumes for the next GOP. This setting is
 	// only used when Scene Change Detect is enabled. Note: Maximum GOP stretch
 	// = GOP size + Min-I-interval - 1
-	MinIInterval *int64 `locationName:"minIInterval" type:"integer"`
+	MinIInterval *int64 `json:"mediaconvert:H264Settings:MinIInterval" locationName:"minIInterval" type:"integer"`
 
 	// Number of B-frames between reference frames.
-	NumberBFramesBetweenReferenceFrames *int64 `locationName:"numberBFramesBetweenReferenceFrames" type:"integer"`
+	NumberBFramesBetweenReferenceFrames *int64 `json:"mediaconvert:H264Settings:NumberBFramesBetweenReferenceFrames" locationName:"numberBFramesBetweenReferenceFrames" type:"integer"`
 
 	// Number of reference frames to use. The encoder may use more than requested
 	// if using B-frames and/or interlaced encoding.
-	NumberReferenceFrames *int64 `locationName:"numberReferenceFrames" min:"1" type:"integer"`
+	NumberReferenceFrames *int64 `json:"mediaconvert:H264Settings:NumberReferenceFrames" locationName:"numberReferenceFrames" min:"1" type:"integer"`
 
 	// Using the API, enable ParFollowSource if you want the service to use the
 	// pixel aspect ratio from the input. Using the console, do this by choosing
 	// Follow source for Pixel aspect ratio.
-	ParControl H264ParControl `locationName:"parControl" type:"string" enum:"true"`
+	ParControl H264ParControl `json:"mediaconvert:H264Settings:ParControl" locationName:"parControl" type:"string" enum:"true"`
 
 	// Pixel Aspect Ratio denominator.
-	ParDenominator *int64 `locationName:"parDenominator" min:"1" type:"integer"`
+	ParDenominator *int64 `json:"mediaconvert:H264Settings:ParDenominator" locationName:"parDenominator" min:"1" type:"integer"`
 
 	// Pixel Aspect Ratio numerator.
-	ParNumerator *int64 `locationName:"parNumerator" min:"1" type:"integer"`
+	ParNumerator *int64 `json:"mediaconvert:H264Settings:ParNumerator" locationName:"parNumerator" min:"1" type:"integer"`
 
 	// Use Quality tuning level (H264QualityTuningLevel) to specifiy whether to
 	// use fast single-pass, high-quality singlepass, or high-quality multipass
 	// video encoding.
-	QualityTuningLevel H264QualityTuningLevel `locationName:"qualityTuningLevel" type:"string" enum:"true"`
+	QualityTuningLevel H264QualityTuningLevel `json:"mediaconvert:H264Settings:QualityTuningLevel" locationName:"qualityTuningLevel" type:"string" enum:"true"`
 
 	// Settings for quality-defined variable bitrate encoding with the H.264 codec.
 	// Required when you set Rate control mode to QVBR. Not valid when you set Rate
 	// control mode to a value other than QVBR, or when you don't define Rate control
 	// mode.
-	QvbrSettings *H264QvbrSettings `locationName:"qvbrSettings" type:"structure"`
+	QvbrSettings *H264QvbrSettings `json:"mediaconvert:H264Settings:QvbrSettings" locationName:"qvbrSettings" type:"structure"`
 
 	// Use this setting to specify whether this output has a variable bitrate (VBR),
 	// constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
-	RateControlMode H264RateControlMode `locationName:"rateControlMode" type:"string" enum:"true"`
+	RateControlMode H264RateControlMode `json:"mediaconvert:H264Settings:RateControlMode" locationName:"rateControlMode" type:"string" enum:"true"`
 
 	// Places a PPS header on each encoded picture, even if repeated.
-	RepeatPps H264RepeatPps `locationName:"repeatPps" type:"string" enum:"true"`
+	RepeatPps H264RepeatPps `json:"mediaconvert:H264Settings:RepeatPps" locationName:"repeatPps" type:"string" enum:"true"`
 
 	// Scene change detection (inserts I-frames on scene changes).
-	SceneChangeDetect H264SceneChangeDetect `locationName:"sceneChangeDetect" type:"string" enum:"true"`
+	SceneChangeDetect H264SceneChangeDetect `json:"mediaconvert:H264Settings:SceneChangeDetect" locationName:"sceneChangeDetect" type:"string" enum:"true"`
 
 	// Number of slices per picture. Must be less than or equal to the number of
 	// macroblock rows for progressive pictures, and less than or equal to half
 	// the number of macroblock rows for interlaced pictures.
-	Slices *int64 `locationName:"slices" min:"1" type:"integer"`
+	Slices *int64 `json:"mediaconvert:H264Settings:Slices" locationName:"slices" min:"1" type:"integer"`
 
 	// Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled
 	// as 25fps, and audio is sped up correspondingly.
-	SlowPal H264SlowPal `locationName:"slowPal" type:"string" enum:"true"`
+	SlowPal H264SlowPal `json:"mediaconvert:H264Settings:SlowPal" locationName:"slowPal" type:"string" enum:"true"`
 
 	// Softness. Selects quantizer matrix, larger values reduce high-frequency content
 	// in the encoded image.
-	Softness *int64 `locationName:"softness" type:"integer"`
+	Softness *int64 `json:"mediaconvert:H264Settings:Softness" locationName:"softness" type:"integer"`
 
 	// Adjust quantization within each frame based on spatial variation of content
 	// complexity.
-	SpatialAdaptiveQuantization H264SpatialAdaptiveQuantization `locationName:"spatialAdaptiveQuantization" type:"string" enum:"true"`
+	SpatialAdaptiveQuantization H264SpatialAdaptiveQuantization `json:"mediaconvert:H264Settings:SpatialAdaptiveQuantization" locationName:"spatialAdaptiveQuantization" type:"string" enum:"true"`
 
 	// Produces a bitstream compliant with SMPTE RP-2027.
-	Syntax H264Syntax `locationName:"syntax" type:"string" enum:"true"`
+	Syntax H264Syntax `json:"mediaconvert:H264Settings:Syntax" locationName:"syntax" type:"string" enum:"true"`
 
 	// This field applies only if the Streams > Advanced > Framerate (framerate)
 	// field is set to 29.970. This field works with the Streams > Advanced > Preprocessors
@@ -3973,14 +3973,14 @@ type H264Settings struct {
 	// Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output
 	// from 23.976 input. - Soft: produces 23.976; the player converts this output
 	// to 29.97i.
-	Telecine H264Telecine `locationName:"telecine" type:"string" enum:"true"`
+	Telecine H264Telecine `json:"mediaconvert:H264Settings:Telecine" locationName:"telecine" type:"string" enum:"true"`
 
 	// Adjust quantization within each frame based on temporal variation of content
 	// complexity.
-	TemporalAdaptiveQuantization H264TemporalAdaptiveQuantization `locationName:"temporalAdaptiveQuantization" type:"string" enum:"true"`
+	TemporalAdaptiveQuantization H264TemporalAdaptiveQuantization `json:"mediaconvert:H264Settings:TemporalAdaptiveQuantization" locationName:"temporalAdaptiveQuantization" type:"string" enum:"true"`
 
 	// Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
-	UnregisteredSeiTimecode H264UnregisteredSeiTimecode `locationName:"unregisteredSeiTimecode" type:"string" enum:"true"`
+	UnregisteredSeiTimecode H264UnregisteredSeiTimecode `json:"mediaconvert:H264Settings:UnregisteredSeiTimecode" locationName:"unregisteredSeiTimecode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4280,14 +4280,14 @@ type H265QvbrSettings struct {
 	// part of this output to the value you choose. That is, the total size of the
 	// video element is less than or equal to the value you set multiplied by the
 	// number of seconds of encoded output.
-	MaxAverageBitrate *int64 `locationName:"maxAverageBitrate" min:"1000" type:"integer"`
+	MaxAverageBitrate *int64 `json:"mediaconvert:H265QvbrSettings:MaxAverageBitrate" locationName:"maxAverageBitrate" min:"1000" type:"integer"`
 
 	// Required when you use QVBR rate control mode. That is, when you specify qvbrSettings
 	// within h265Settings. Specify the target quality level for this output, from
 	// 1 to 10. Use higher numbers for greater quality. Level 10 results in nearly
 	// lossless compression. The quality level for most broadcast-quality transcodes
 	// is between 6 and 9.
-	QvbrQualityLevel *int64 `locationName:"qvbrQualityLevel" min:"1" type:"integer"`
+	QvbrQualityLevel *int64 `json:"mediaconvert:H265QvbrSettings:QvbrQualityLevel" locationName:"qvbrQualityLevel" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -4335,33 +4335,33 @@ type H265Settings struct {
 
 	// Adaptive quantization. Allows intra-frame quantizers to vary to improve visual
 	// quality.
-	AdaptiveQuantization H265AdaptiveQuantization `locationName:"adaptiveQuantization" type:"string" enum:"true"`
+	AdaptiveQuantization H265AdaptiveQuantization `json:"mediaconvert:H265Settings:AdaptiveQuantization" locationName:"adaptiveQuantization" type:"string" enum:"true"`
 
 	// Enables Alternate Transfer Function SEI message for outputs using Hybrid
 	// Log Gamma (HLG) Electro-Optical Transfer Function (EOTF).
-	AlternateTransferFunctionSei H265AlternateTransferFunctionSei `locationName:"alternateTransferFunctionSei" type:"string" enum:"true"`
+	AlternateTransferFunctionSei H265AlternateTransferFunctionSei `json:"mediaconvert:H265Settings:AlternateTransferFunctionSei" locationName:"alternateTransferFunctionSei" type:"string" enum:"true"`
 
 	// Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs,
 	// bitrates must be unique when rounded down to the nearest multiple of 1000.
-	Bitrate *int64 `locationName:"bitrate" min:"1000" type:"integer"`
+	Bitrate *int64 `json:"mediaconvert:H265Settings:Bitrate" locationName:"bitrate" min:"1000" type:"integer"`
 
 	// H.265 Level.
-	CodecLevel H265CodecLevel `locationName:"codecLevel" type:"string" enum:"true"`
+	CodecLevel H265CodecLevel `json:"mediaconvert:H265Settings:CodecLevel" locationName:"codecLevel" type:"string" enum:"true"`
 
 	// Represents the Profile and Tier, per the HEVC (H.265) specification. Selections
 	// are grouped as [Profile] / [Tier], so "Main/High" represents Main Profile
 	// with High Tier. 4:2:2 profiles are only available with the HEVC 4:2:2 License.
-	CodecProfile H265CodecProfile `locationName:"codecProfile" type:"string" enum:"true"`
+	CodecProfile H265CodecProfile `json:"mediaconvert:H265Settings:CodecProfile" locationName:"codecProfile" type:"string" enum:"true"`
 
 	// Choose Adaptive to improve subjective video quality for high-motion content.
 	// This will cause the service to use fewer B-frames (which infer information
 	// based on other frames) for high-motion portions of the video and more B-frames
 	// for low-motion portions. The maximum number of B-frames is limited by the
 	// value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-	DynamicSubGop H265DynamicSubGop `locationName:"dynamicSubGop" type:"string" enum:"true"`
+	DynamicSubGop H265DynamicSubGop `json:"mediaconvert:H265Settings:DynamicSubGop" locationName:"dynamicSubGop" type:"string" enum:"true"`
 
 	// Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
-	FlickerAdaptiveQuantization H265FlickerAdaptiveQuantization `locationName:"flickerAdaptiveQuantization" type:"string" enum:"true"`
+	FlickerAdaptiveQuantization H265FlickerAdaptiveQuantization `json:"mediaconvert:H265Settings:FlickerAdaptiveQuantization" locationName:"flickerAdaptiveQuantization" type:"string" enum:"true"`
 
 	// If you are using the console, use the Framerate setting to specify the frame
 	// rate for this output. If you want to keep the same frame rate as the input
@@ -4374,41 +4374,41 @@ type H265Settings struct {
 	// Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
 	// from the input. Choose SPECIFIED if you want the service to use the frame
 	// rate you specify in the settings FramerateNumerator and FramerateDenominator.
-	FramerateControl H265FramerateControl `locationName:"framerateControl" type:"string" enum:"true"`
+	FramerateControl H265FramerateControl `json:"mediaconvert:H265Settings:FramerateControl" locationName:"framerateControl" type:"string" enum:"true"`
 
 	// When set to INTERPOLATE, produces smoother motion during frame rate conversion.
-	FramerateConversionAlgorithm H265FramerateConversionAlgorithm `locationName:"framerateConversionAlgorithm" type:"string" enum:"true"`
+	FramerateConversionAlgorithm H265FramerateConversionAlgorithm `json:"mediaconvert:H265Settings:FramerateConversionAlgorithm" locationName:"framerateConversionAlgorithm" type:"string" enum:"true"`
 
 	// Frame rate denominator.
-	FramerateDenominator *int64 `locationName:"framerateDenominator" min:"1" type:"integer"`
+	FramerateDenominator *int64 `json:"mediaconvert:H265Settings:FramerateDenominator" locationName:"framerateDenominator" min:"1" type:"integer"`
 
 	// Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976
 	// fps.
-	FramerateNumerator *int64 `locationName:"framerateNumerator" min:"1" type:"integer"`
+	FramerateNumerator *int64 `json:"mediaconvert:H265Settings:FramerateNumerator" locationName:"framerateNumerator" min:"1" type:"integer"`
 
 	// If enable, use reference B frames for GOP structures that have B frames >
 	// 1.
-	GopBReference H265GopBReference `locationName:"gopBReference" type:"string" enum:"true"`
+	GopBReference H265GopBReference `json:"mediaconvert:H265Settings:GopBReference" locationName:"gopBReference" type:"string" enum:"true"`
 
 	// Frequency of closed GOPs. In streaming applications, it is recommended that
 	// this be set to 1 so a decoder joining mid-stream will receive an IDR frame
 	// as quickly as possible. Setting this value to 0 will break output segmenting.
-	GopClosedCadence *int64 `locationName:"gopClosedCadence" type:"integer"`
+	GopClosedCadence *int64 `json:"mediaconvert:H265Settings:GopClosedCadence" locationName:"gopClosedCadence" type:"integer"`
 
 	// GOP Length (keyframe interval) in frames or seconds. Must be greater than
 	// zero.
-	GopSize *float64 `locationName:"gopSize" type:"double"`
+	GopSize *float64 `json:"mediaconvert:H265Settings:GopSize" locationName:"gopSize" type:"double"`
 
 	// Indicates if the GOP Size in H265 is specified in frames or seconds. If seconds
 	// the system will convert the GOP Size into a frame count at run time.
-	GopSizeUnits H265GopSizeUnits `locationName:"gopSizeUnits" type:"string" enum:"true"`
+	GopSizeUnits H265GopSizeUnits `json:"mediaconvert:H265Settings:GopSizeUnits" locationName:"gopSizeUnits" type:"string" enum:"true"`
 
 	// Percentage of the buffer that should initially be filled (HRD buffer model).
-	HrdBufferInitialFillPercentage *int64 `locationName:"hrdBufferInitialFillPercentage" type:"integer"`
+	HrdBufferInitialFillPercentage *int64 `json:"mediaconvert:H265Settings:HrdBufferInitialFillPercentage" locationName:"hrdBufferInitialFillPercentage" type:"integer"`
 
 	// Size of buffer (HRD buffer model) in bits. For example, enter five megabits
 	// as 5000000.
-	HrdBufferSize *int64 `locationName:"hrdBufferSize" type:"integer"`
+	HrdBufferSize *int64 `json:"mediaconvert:H265Settings:HrdBufferSize" locationName:"hrdBufferSize" type:"integer"`
 
 	// Use Interlace mode (InterlaceMode) to choose the scan line type for the output.
 	// * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce
@@ -4421,11 +4421,11 @@ type H265Settings struct {
 	// "bottom field first". - If the source is progressive, the output will be
 	// interlaced with "top field first" or "bottom field first" polarity, depending
 	// on which of the Follow options you chose.
-	InterlaceMode H265InterlaceMode `locationName:"interlaceMode" type:"string" enum:"true"`
+	InterlaceMode H265InterlaceMode `json:"mediaconvert:H265Settings:InterlaceMode" locationName:"interlaceMode" type:"string" enum:"true"`
 
 	// Maximum bitrate in bits/second. For example, enter five megabits per second
 	// as 5000000. Required when Rate control mode is QVBR.
-	MaxBitrate *int64 `locationName:"maxBitrate" min:"1000" type:"integer"`
+	MaxBitrate *int64 `json:"mediaconvert:H265Settings:MaxBitrate" locationName:"maxBitrate" min:"1000" type:"integer"`
 
 	// Enforces separation between repeated (cadence) I-frames and I-frames inserted
 	// by Scene Change Detection. If a scene change I-frame is within I-interval
@@ -4434,60 +4434,60 @@ type H265Settings struct {
 	// I-interval. The normal cadence resumes for the next GOP. This setting is
 	// only used when Scene Change Detect is enabled. Note: Maximum GOP stretch
 	// = GOP size + Min-I-interval - 1
-	MinIInterval *int64 `locationName:"minIInterval" type:"integer"`
+	MinIInterval *int64 `json:"mediaconvert:H265Settings:MinIInterval" locationName:"minIInterval" type:"integer"`
 
 	// Number of B-frames between reference frames.
-	NumberBFramesBetweenReferenceFrames *int64 `locationName:"numberBFramesBetweenReferenceFrames" type:"integer"`
+	NumberBFramesBetweenReferenceFrames *int64 `json:"mediaconvert:H265Settings:NumberBFramesBetweenReferenceFrames" locationName:"numberBFramesBetweenReferenceFrames" type:"integer"`
 
 	// Number of reference frames to use. The encoder may use more than requested
 	// if using B-frames and/or interlaced encoding.
-	NumberReferenceFrames *int64 `locationName:"numberReferenceFrames" min:"1" type:"integer"`
+	NumberReferenceFrames *int64 `json:"mediaconvert:H265Settings:NumberReferenceFrames" locationName:"numberReferenceFrames" min:"1" type:"integer"`
 
 	// Using the API, enable ParFollowSource if you want the service to use the
 	// pixel aspect ratio from the input. Using the console, do this by choosing
 	// Follow source for Pixel aspect ratio.
-	ParControl H265ParControl `locationName:"parControl" type:"string" enum:"true"`
+	ParControl H265ParControl `json:"mediaconvert:H265Settings:ParControl" locationName:"parControl" type:"string" enum:"true"`
 
 	// Pixel Aspect Ratio denominator.
-	ParDenominator *int64 `locationName:"parDenominator" min:"1" type:"integer"`
+	ParDenominator *int64 `json:"mediaconvert:H265Settings:ParDenominator" locationName:"parDenominator" min:"1" type:"integer"`
 
 	// Pixel Aspect Ratio numerator.
-	ParNumerator *int64 `locationName:"parNumerator" min:"1" type:"integer"`
+	ParNumerator *int64 `json:"mediaconvert:H265Settings:ParNumerator" locationName:"parNumerator" min:"1" type:"integer"`
 
 	// Use Quality tuning level (H265QualityTuningLevel) to specifiy whether to
 	// use fast single-pass, high-quality singlepass, or high-quality multipass
 	// video encoding.
-	QualityTuningLevel H265QualityTuningLevel `locationName:"qualityTuningLevel" type:"string" enum:"true"`
+	QualityTuningLevel H265QualityTuningLevel `json:"mediaconvert:H265Settings:QualityTuningLevel" locationName:"qualityTuningLevel" type:"string" enum:"true"`
 
 	// Settings for quality-defined variable bitrate encoding with the H.265 codec.
 	// Required when you set Rate control mode to QVBR. Not valid when you set Rate
 	// control mode to a value other than QVBR, or when you don't define Rate control
 	// mode.
-	QvbrSettings *H265QvbrSettings `locationName:"qvbrSettings" type:"structure"`
+	QvbrSettings *H265QvbrSettings `json:"mediaconvert:H265Settings:QvbrSettings" locationName:"qvbrSettings" type:"structure"`
 
 	// Use this setting to specify whether this output has a variable bitrate (VBR),
 	// constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
-	RateControlMode H265RateControlMode `locationName:"rateControlMode" type:"string" enum:"true"`
+	RateControlMode H265RateControlMode `json:"mediaconvert:H265Settings:RateControlMode" locationName:"rateControlMode" type:"string" enum:"true"`
 
 	// Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode dynamically
 	// selects best strength based on content
-	SampleAdaptiveOffsetFilterMode H265SampleAdaptiveOffsetFilterMode `locationName:"sampleAdaptiveOffsetFilterMode" type:"string" enum:"true"`
+	SampleAdaptiveOffsetFilterMode H265SampleAdaptiveOffsetFilterMode `json:"mediaconvert:H265Settings:SampleAdaptiveOffsetFilterMode" locationName:"sampleAdaptiveOffsetFilterMode" type:"string" enum:"true"`
 
 	// Scene change detection (inserts I-frames on scene changes).
-	SceneChangeDetect H265SceneChangeDetect `locationName:"sceneChangeDetect" type:"string" enum:"true"`
+	SceneChangeDetect H265SceneChangeDetect `json:"mediaconvert:H265Settings:SceneChangeDetect" locationName:"sceneChangeDetect" type:"string" enum:"true"`
 
 	// Number of slices per picture. Must be less than or equal to the number of
 	// macroblock rows for progressive pictures, and less than or equal to half
 	// the number of macroblock rows for interlaced pictures.
-	Slices *int64 `locationName:"slices" min:"1" type:"integer"`
+	Slices *int64 `json:"mediaconvert:H265Settings:Slices" locationName:"slices" min:"1" type:"integer"`
 
 	// Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled
 	// as 25fps, and audio is sped up correspondingly.
-	SlowPal H265SlowPal `locationName:"slowPal" type:"string" enum:"true"`
+	SlowPal H265SlowPal `json:"mediaconvert:H265Settings:SlowPal" locationName:"slowPal" type:"string" enum:"true"`
 
 	// Adjust quantization within each frame based on spatial variation of content
 	// complexity.
-	SpatialAdaptiveQuantization H265SpatialAdaptiveQuantization `locationName:"spatialAdaptiveQuantization" type:"string" enum:"true"`
+	SpatialAdaptiveQuantization H265SpatialAdaptiveQuantization `json:"mediaconvert:H265Settings:SpatialAdaptiveQuantization" locationName:"spatialAdaptiveQuantization" type:"string" enum:"true"`
 
 	// This field applies only if the Streams > Advanced > Framerate (framerate)
 	// field is set to 29.970. This field works with the Streams > Advanced > Preprocessors
@@ -4496,11 +4496,11 @@ type H265Settings struct {
 	// Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output
 	// from 23.976 input. - Soft: produces 23.976; the player converts this output
 	// to 29.97i.
-	Telecine H265Telecine `locationName:"telecine" type:"string" enum:"true"`
+	Telecine H265Telecine `json:"mediaconvert:H265Settings:Telecine" locationName:"telecine" type:"string" enum:"true"`
 
 	// Adjust quantization within each frame based on temporal variation of content
 	// complexity.
-	TemporalAdaptiveQuantization H265TemporalAdaptiveQuantization `locationName:"temporalAdaptiveQuantization" type:"string" enum:"true"`
+	TemporalAdaptiveQuantization H265TemporalAdaptiveQuantization `json:"mediaconvert:H265Settings:TemporalAdaptiveQuantization" locationName:"temporalAdaptiveQuantization" type:"string" enum:"true"`
 
 	// Enables temporal layer identifiers in the encoded bitstream. Up to 3 layers
 	// are supported depending on GOP structure: I- and P-frames form one layer,
@@ -4510,14 +4510,14 @@ type H265Settings struct {
 	// with temporal IDs and with b-frames = 1 (i.e. IbPbPb display order), a decoder
 	// could decode all the frames for full frame rate output or only the I and
 	// P frames (lowest temporal layer) for a half frame rate output.
-	TemporalIds H265TemporalIds `locationName:"temporalIds" type:"string" enum:"true"`
+	TemporalIds H265TemporalIds `json:"mediaconvert:H265Settings:TemporalIds" locationName:"temporalIds" type:"string" enum:"true"`
 
 	// Enable use of tiles, allowing horizontal as well as vertical subdivision
 	// of the encoded pictures.
-	Tiles H265Tiles `locationName:"tiles" type:"string" enum:"true"`
+	Tiles H265Tiles `json:"mediaconvert:H265Settings:Tiles" locationName:"tiles" type:"string" enum:"true"`
 
 	// Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
-	UnregisteredSeiTimecode H265UnregisteredSeiTimecode `locationName:"unregisteredSeiTimecode" type:"string" enum:"true"`
+	UnregisteredSeiTimecode H265UnregisteredSeiTimecode `json:"mediaconvert:H265Settings:UnregisteredSeiTimecode" locationName:"unregisteredSeiTimecode" type:"string" enum:"true"`
 
 	// Use this setting only for outputs encoded with H.265 that are in CMAF or
 	// DASH output groups. If you include writeMp4PackagingType in your JSON job
@@ -4530,7 +4530,7 @@ type H265Settings struct {
 	// stores parameter set NAL units in the sample headers but not in the samples
 	// directly. Keep the default HEV1 to mark your output as HEV1. For these outputs,
 	// the service writes parameter set NAL units directly into the samples.
-	WriteMp4PackagingType H265WriteMp4PackagingType `locationName:"writeMp4PackagingType" type:"string" enum:"true"`
+	WriteMp4PackagingType H265WriteMp4PackagingType `json:"mediaconvert:H265Settings:WriteMp4PackagingType" locationName:"writeMp4PackagingType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4832,58 +4832,58 @@ type Hdr10Metadata struct {
 	// HDR Master Display Information must be provided by a color grader, using
 	// color grading tools. Range is 0 to 50,000, each increment represents 0.00002
 	// in CIE1931 color coordinate. Note that this setting is not for color correction.
-	BluePrimaryX *int64 `locationName:"bluePrimaryX" type:"integer"`
+	BluePrimaryX *int64 `json:"mediaconvert:Hdr10Metadata:BluePrimaryX" locationName:"bluePrimaryX" type:"integer"`
 
 	// HDR Master Display Information must be provided by a color grader, using
 	// color grading tools. Range is 0 to 50,000, each increment represents 0.00002
 	// in CIE1931 color coordinate. Note that this setting is not for color correction.
-	BluePrimaryY *int64 `locationName:"bluePrimaryY" type:"integer"`
+	BluePrimaryY *int64 `json:"mediaconvert:Hdr10Metadata:BluePrimaryY" locationName:"bluePrimaryY" type:"integer"`
 
 	// HDR Master Display Information must be provided by a color grader, using
 	// color grading tools. Range is 0 to 50,000, each increment represents 0.00002
 	// in CIE1931 color coordinate. Note that this setting is not for color correction.
-	GreenPrimaryX *int64 `locationName:"greenPrimaryX" type:"integer"`
+	GreenPrimaryX *int64 `json:"mediaconvert:Hdr10Metadata:GreenPrimaryX" locationName:"greenPrimaryX" type:"integer"`
 
 	// HDR Master Display Information must be provided by a color grader, using
 	// color grading tools. Range is 0 to 50,000, each increment represents 0.00002
 	// in CIE1931 color coordinate. Note that this setting is not for color correction.
-	GreenPrimaryY *int64 `locationName:"greenPrimaryY" type:"integer"`
+	GreenPrimaryY *int64 `json:"mediaconvert:Hdr10Metadata:GreenPrimaryY" locationName:"greenPrimaryY" type:"integer"`
 
 	// Maximum light level among all samples in the coded video sequence, in units
 	// of candelas per square meter.
-	MaxContentLightLevel *int64 `locationName:"maxContentLightLevel" type:"integer"`
+	MaxContentLightLevel *int64 `json:"mediaconvert:Hdr10Metadata:MaxContentLightLevel" locationName:"maxContentLightLevel" type:"integer"`
 
 	// Maximum average light level of any frame in the coded video sequence, in
 	// units of candelas per square meter.
-	MaxFrameAverageLightLevel *int64 `locationName:"maxFrameAverageLightLevel" type:"integer"`
+	MaxFrameAverageLightLevel *int64 `json:"mediaconvert:Hdr10Metadata:MaxFrameAverageLightLevel" locationName:"maxFrameAverageLightLevel" type:"integer"`
 
 	// Nominal maximum mastering display luminance in units of of 0.0001 candelas
 	// per square meter.
-	MaxLuminance *int64 `locationName:"maxLuminance" type:"integer"`
+	MaxLuminance *int64 `json:"mediaconvert:Hdr10Metadata:MaxLuminance" locationName:"maxLuminance" type:"integer"`
 
 	// Nominal minimum mastering display luminance in units of of 0.0001 candelas
 	// per square meter
-	MinLuminance *int64 `locationName:"minLuminance" type:"integer"`
+	MinLuminance *int64 `json:"mediaconvert:Hdr10Metadata:MinLuminance" locationName:"minLuminance" type:"integer"`
 
 	// HDR Master Display Information must be provided by a color grader, using
 	// color grading tools. Range is 0 to 50,000, each increment represents 0.00002
 	// in CIE1931 color coordinate. Note that this setting is not for color correction.
-	RedPrimaryX *int64 `locationName:"redPrimaryX" type:"integer"`
+	RedPrimaryX *int64 `json:"mediaconvert:Hdr10Metadata:RedPrimaryX" locationName:"redPrimaryX" type:"integer"`
 
 	// HDR Master Display Information must be provided by a color grader, using
 	// color grading tools. Range is 0 to 50,000, each increment represents 0.00002
 	// in CIE1931 color coordinate. Note that this setting is not for color correction.
-	RedPrimaryY *int64 `locationName:"redPrimaryY" type:"integer"`
+	RedPrimaryY *int64 `json:"mediaconvert:Hdr10Metadata:RedPrimaryY" locationName:"redPrimaryY" type:"integer"`
 
 	// HDR Master Display Information must be provided by a color grader, using
 	// color grading tools. Range is 0 to 50,000, each increment represents 0.00002
 	// in CIE1931 color coordinate. Note that this setting is not for color correction.
-	WhitePointX *int64 `locationName:"whitePointX" type:"integer"`
+	WhitePointX *int64 `json:"mediaconvert:Hdr10Metadata:WhitePointX" locationName:"whitePointX" type:"integer"`
 
 	// HDR Master Display Information must be provided by a color grader, using
 	// color grading tools. Range is 0 to 50,000, each increment represents 0.00002
 	// in CIE1931 color coordinate. Note that this setting is not for color correction.
-	WhitePointY *int64 `locationName:"whitePointY" type:"integer"`
+	WhitePointY *int64 `json:"mediaconvert:Hdr10Metadata:WhitePointY" locationName:"whitePointY" type:"integer"`
 }
 
 // String returns the string representation
@@ -4974,17 +4974,17 @@ type HlsCaptionLanguageMapping struct {
 	_ struct{} `type:"structure"`
 
 	// Caption channel.
-	CaptionChannel *int64 `locationName:"captionChannel" type:"integer"`
+	CaptionChannel *int64 `json:"mediaconvert:HlsCaptionLanguageMapping:CaptionChannel" locationName:"captionChannel" type:"integer"`
 
 	// Specify the language for this caption channel, using the ISO 639-2 or ISO
 	// 639-3 three-letter language code
-	CustomLanguageCode *string `locationName:"customLanguageCode" min:"3" type:"string"`
+	CustomLanguageCode *string `json:"mediaconvert:HlsCaptionLanguageMapping:CustomLanguageCode" locationName:"customLanguageCode" min:"3" type:"string"`
 
 	// Specify the language, using the ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php.
-	LanguageCode LanguageCode `locationName:"languageCode" type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"mediaconvert:HlsCaptionLanguageMapping:LanguageCode" locationName:"languageCode" type:"string" enum:"true"`
 
 	// Caption language description.
-	LanguageDescription *string `locationName:"languageDescription" type:"string"`
+	LanguageDescription *string `json:"mediaconvert:HlsCaptionLanguageMapping:LanguageDescription" locationName:"languageDescription" type:"string"`
 }
 
 // String returns the string representation
@@ -5045,29 +5045,29 @@ type HlsEncryptionSettings struct {
 	// This is a 128-bit, 16-byte hex value represented by a 32-character text string.
 	// If this parameter is not set then the Initialization Vector will follow the
 	// segment number by default.
-	ConstantInitializationVector *string `locationName:"constantInitializationVector" min:"32" type:"string"`
+	ConstantInitializationVector *string `json:"mediaconvert:HlsEncryptionSettings:ConstantInitializationVector" locationName:"constantInitializationVector" min:"32" type:"string"`
 
 	// Encrypts the segments with the given encryption scheme. Leave blank to disable.
 	// Selecting 'Disabled' in the web interface also disables encryption.
-	EncryptionMethod HlsEncryptionType `locationName:"encryptionMethod" type:"string" enum:"true"`
+	EncryptionMethod HlsEncryptionType `json:"mediaconvert:HlsEncryptionSettings:EncryptionMethod" locationName:"encryptionMethod" type:"string" enum:"true"`
 
 	// The Initialization Vector is a 128-bit number used in conjunction with the
 	// key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed
 	// in the manifest. Otherwise Initialization Vector is not in the manifest.
-	InitializationVectorInManifest HlsInitializationVectorInManifest `locationName:"initializationVectorInManifest" type:"string" enum:"true"`
+	InitializationVectorInManifest HlsInitializationVectorInManifest `json:"mediaconvert:HlsEncryptionSettings:InitializationVectorInManifest" locationName:"initializationVectorInManifest" type:"string" enum:"true"`
 
 	// Enable this setting to insert the EXT-X-SESSION-KEY element into the master
 	// playlist. This allows for offline Apple HLS FairPlay content protection.
-	OfflineEncrypted HlsOfflineEncrypted `locationName:"offlineEncrypted" type:"string" enum:"true"`
+	OfflineEncrypted HlsOfflineEncrypted `json:"mediaconvert:HlsEncryptionSettings:OfflineEncrypted" locationName:"offlineEncrypted" type:"string" enum:"true"`
 
 	// Settings for use with a SPEKE key provider
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediaconvert:HlsEncryptionSettings:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure"`
 
 	// Use these settings to set up encryption with a static key provider.
-	StaticKeyProvider *StaticKeyProvider `locationName:"staticKeyProvider" type:"structure"`
+	StaticKeyProvider *StaticKeyProvider `json:"mediaconvert:HlsEncryptionSettings:StaticKeyProvider" locationName:"staticKeyProvider" type:"structure"`
 
 	// Indicates which type of key provider is used for encryption.
-	Type HlsKeyProviderType `locationName:"type" type:"string" enum:"true"`
+	Type HlsKeyProviderType `json:"mediaconvert:HlsEncryptionSettings:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -5143,15 +5143,15 @@ type HlsGroupSettings struct {
 
 	// Choose one or more ad marker types to pass SCTE35 signals through to this
 	// group of Apple HLS outputs.
-	AdMarkers []HlsAdMarkers `locationName:"adMarkers" type:"list"`
+	AdMarkers []HlsAdMarkers `json:"mediaconvert:HlsGroupSettings:AdMarkers" locationName:"adMarkers" type:"list"`
 
 	// A partial URI prefix that will be prepended to each output in the media .m3u8
 	// file. Can be used if base manifest is delivered from a different URL than
 	// the main .m3u8 file.
-	BaseUrl *string `locationName:"baseUrl" type:"string"`
+	BaseUrl *string `json:"mediaconvert:HlsGroupSettings:BaseUrl" locationName:"baseUrl" type:"string"`
 
 	// Language to be used on Caption outputs
-	CaptionLanguageMappings []HlsCaptionLanguageMapping `locationName:"captionLanguageMappings" type:"list"`
+	CaptionLanguageMappings []HlsCaptionLanguageMapping `json:"mediaconvert:HlsGroupSettings:CaptionLanguageMappings" locationName:"captionLanguageMappings" type:"list"`
 
 	// Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS
 	// lines in the manifest. Specify at least one language in the CC1 Language
@@ -5162,39 +5162,39 @@ type HlsGroupSettings struct {
 	// the manifest will not match up properly with the output captions. None: Include
 	// CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS
 	// line from the manifest.
-	CaptionLanguageSetting HlsCaptionLanguageSetting `locationName:"captionLanguageSetting" type:"string" enum:"true"`
+	CaptionLanguageSetting HlsCaptionLanguageSetting `json:"mediaconvert:HlsGroupSettings:CaptionLanguageSetting" locationName:"captionLanguageSetting" type:"string" enum:"true"`
 
 	// When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client
 	// from saving media segments for later replay.
-	ClientCache HlsClientCache `locationName:"clientCache" type:"string" enum:"true"`
+	ClientCache HlsClientCache `json:"mediaconvert:HlsGroupSettings:ClientCache" locationName:"clientCache" type:"string" enum:"true"`
 
 	// Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist
 	// generation.
-	CodecSpecification HlsCodecSpecification `locationName:"codecSpecification" type:"string" enum:"true"`
+	CodecSpecification HlsCodecSpecification `json:"mediaconvert:HlsGroupSettings:CodecSpecification" locationName:"codecSpecification" type:"string" enum:"true"`
 
 	// Use Destination (Destination) to specify the S3 output location and the output
 	// filename base. Destination accepts format identifiers. If you do not specify
 	// the base filename in the URI, the service will use the filename of the input
 	// file. If your job has multiple inputs, the service uses the filename of the
 	// first input file.
-	Destination *string `locationName:"destination" type:"string"`
+	Destination *string `json:"mediaconvert:HlsGroupSettings:Destination" locationName:"destination" type:"string"`
 
 	// Settings associated with the destination. Will vary based on the type of
 	// destination
-	DestinationSettings *DestinationSettings `locationName:"destinationSettings" type:"structure"`
+	DestinationSettings *DestinationSettings `json:"mediaconvert:HlsGroupSettings:DestinationSettings" locationName:"destinationSettings" type:"structure"`
 
 	// Indicates whether segments should be placed in subdirectories.
-	DirectoryStructure HlsDirectoryStructure `locationName:"directoryStructure" type:"string" enum:"true"`
+	DirectoryStructure HlsDirectoryStructure `json:"mediaconvert:HlsGroupSettings:DirectoryStructure" locationName:"directoryStructure" type:"string" enum:"true"`
 
 	// DRM settings.
-	Encryption *HlsEncryptionSettings `locationName:"encryption" type:"structure"`
+	Encryption *HlsEncryptionSettings `json:"mediaconvert:HlsGroupSettings:Encryption" locationName:"encryption" type:"structure"`
 
 	// When set to GZIP, compresses HLS playlist.
-	ManifestCompression HlsManifestCompression `locationName:"manifestCompression" type:"string" enum:"true"`
+	ManifestCompression HlsManifestCompression `json:"mediaconvert:HlsGroupSettings:ManifestCompression" locationName:"manifestCompression" type:"string" enum:"true"`
 
 	// Indicates whether the output manifest should use floating point values for
 	// segment duration.
-	ManifestDurationFormat HlsManifestDurationFormat `locationName:"manifestDurationFormat" type:"string" enum:"true"`
+	ManifestDurationFormat HlsManifestDurationFormat `json:"mediaconvert:HlsGroupSettings:ManifestDurationFormat" locationName:"manifestDurationFormat" type:"string" enum:"true"`
 
 	// Keep this setting at the default value of 0, unless you are troubleshooting
 	// a problem with how devices play back the end of your video asset. If you
@@ -5207,51 +5207,51 @@ type HlsGroupSettings struct {
 	// your segment length is 3 seconds and your final segment is .5 seconds without
 	// a minimum final segment length; when you set the minimum final segment length
 	// to 1, your final segment is 3.5 seconds.
-	MinFinalSegmentLength *float64 `locationName:"minFinalSegmentLength" type:"double"`
+	MinFinalSegmentLength *float64 `json:"mediaconvert:HlsGroupSettings:MinFinalSegmentLength" locationName:"minFinalSegmentLength" type:"double"`
 
 	// When set, Minimum Segment Size is enforced by looking ahead and back within
 	// the specified range for a nearby avail and extending the segment size if
 	// needed.
-	MinSegmentLength *int64 `locationName:"minSegmentLength" type:"integer"`
+	MinSegmentLength *int64 `json:"mediaconvert:HlsGroupSettings:MinSegmentLength" locationName:"minSegmentLength" type:"integer"`
 
 	// Indicates whether the .m3u8 manifest file should be generated for this HLS
 	// output group.
-	OutputSelection HlsOutputSelection `locationName:"outputSelection" type:"string" enum:"true"`
+	OutputSelection HlsOutputSelection `json:"mediaconvert:HlsGroupSettings:OutputSelection" locationName:"outputSelection" type:"string" enum:"true"`
 
 	// Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files.
 	// The value is calculated as follows: either the program date and time are
 	// initialized using the input timecode source, or the time is initialized using
 	// the input timecode source and the date is initialized using the timestamp_offset.
-	ProgramDateTime HlsProgramDateTime `locationName:"programDateTime" type:"string" enum:"true"`
+	ProgramDateTime HlsProgramDateTime `json:"mediaconvert:HlsGroupSettings:ProgramDateTime" locationName:"programDateTime" type:"string" enum:"true"`
 
 	// Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-	ProgramDateTimePeriod *int64 `locationName:"programDateTimePeriod" type:"integer"`
+	ProgramDateTimePeriod *int64 `json:"mediaconvert:HlsGroupSettings:ProgramDateTimePeriod" locationName:"programDateTimePeriod" type:"integer"`
 
 	// When set to SINGLE_FILE, emits program as a single media resource (.ts) file,
 	// uses #EXT-X-BYTERANGE tags to index segment for playback.
-	SegmentControl HlsSegmentControl `locationName:"segmentControl" type:"string" enum:"true"`
+	SegmentControl HlsSegmentControl `json:"mediaconvert:HlsGroupSettings:SegmentControl" locationName:"segmentControl" type:"string" enum:"true"`
 
 	// Length of MPEG-2 Transport Stream segments to create (in seconds). Note that
 	// segments will end on the next keyframe after this number of seconds, so actual
 	// segment length may be longer.
-	SegmentLength *int64 `locationName:"segmentLength" min:"1" type:"integer"`
+	SegmentLength *int64 `json:"mediaconvert:HlsGroupSettings:SegmentLength" locationName:"segmentLength" min:"1" type:"integer"`
 
 	// Number of segments to write to a subdirectory before starting a new one.
 	// directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
-	SegmentsPerSubdirectory *int64 `locationName:"segmentsPerSubdirectory" min:"1" type:"integer"`
+	SegmentsPerSubdirectory *int64 `json:"mediaconvert:HlsGroupSettings:SegmentsPerSubdirectory" locationName:"segmentsPerSubdirectory" min:"1" type:"integer"`
 
 	// Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag
 	// of variant manifest.
-	StreamInfResolution HlsStreamInfResolution `locationName:"streamInfResolution" type:"string" enum:"true"`
+	StreamInfResolution HlsStreamInfResolution `json:"mediaconvert:HlsGroupSettings:StreamInfResolution" locationName:"streamInfResolution" type:"string" enum:"true"`
 
 	// Indicates ID3 frame that has the timecode.
-	TimedMetadataId3Frame HlsTimedMetadataId3Frame `locationName:"timedMetadataId3Frame" type:"string" enum:"true"`
+	TimedMetadataId3Frame HlsTimedMetadataId3Frame `json:"mediaconvert:HlsGroupSettings:TimedMetadataId3Frame" locationName:"timedMetadataId3Frame" type:"string" enum:"true"`
 
 	// Timed Metadata interval in seconds.
-	TimedMetadataId3Period *int64 `locationName:"timedMetadataId3Period" type:"integer"`
+	TimedMetadataId3Period *int64 `json:"mediaconvert:HlsGroupSettings:TimedMetadataId3Period" locationName:"timedMetadataId3Period" type:"integer"`
 
 	// Provides an extra millisecond delta offset to fine tune the timestamps.
-	TimestampDeltaMilliseconds *int64 `locationName:"timestampDeltaMilliseconds" type:"integer"`
+	TimestampDeltaMilliseconds *int64 `json:"mediaconvert:HlsGroupSettings:TimestampDeltaMilliseconds" locationName:"timestampDeltaMilliseconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -5460,11 +5460,11 @@ type HlsSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the group to which the audio Rendition belongs.
-	AudioGroupId *string `locationName:"audioGroupId" type:"string"`
+	AudioGroupId *string `json:"mediaconvert:HlsSettings:AudioGroupId" locationName:"audioGroupId" type:"string"`
 
 	// List all the audio groups that are used with the video output stream. Input
 	// all the audio GROUP-IDs that are associated to the video, separate by ','.
-	AudioRenditionSets *string `locationName:"audioRenditionSets" type:"string"`
+	AudioRenditionSets *string `json:"mediaconvert:HlsSettings:AudioRenditionSets" locationName:"audioRenditionSets" type:"string"`
 
 	// Four types of audio-only tracks are supported: Audio-Only Variant Stream
 	// The client can play back this audio-only stream instead of video in low-bandwidth
@@ -5477,14 +5477,14 @@ type HlsSettings struct {
 	// Audio, not Auto Select Alternate rendition that the client will not try to
 	// play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
 	// DEFAULT=NO, AUTOSELECT=NO
-	AudioTrackType HlsAudioTrackType `locationName:"audioTrackType" type:"string" enum:"true"`
+	AudioTrackType HlsAudioTrackType `json:"mediaconvert:HlsSettings:AudioTrackType" locationName:"audioTrackType" type:"string" enum:"true"`
 
 	// When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS
 	// manifest
-	IFrameOnlyManifest HlsIFrameOnlyManifest `locationName:"iFrameOnlyManifest" type:"string" enum:"true"`
+	IFrameOnlyManifest HlsIFrameOnlyManifest `json:"mediaconvert:HlsSettings:IFrameOnlyManifest" locationName:"iFrameOnlyManifest" type:"string" enum:"true"`
 
 	// String concatenated to end of segment filenames. Accepts "Format Identifiers":#format_identifier_parameters.
-	SegmentModifier *string `locationName:"segmentModifier" type:"string"`
+	SegmentModifier *string `json:"mediaconvert:HlsSettings:SegmentModifier" locationName:"segmentModifier" type:"string"`
 }
 
 // String returns the string representation
@@ -5536,10 +5536,10 @@ type Id3Insertion struct {
 	_ struct{} `type:"structure"`
 
 	// Use ID3 tag (Id3) to provide a tag value in base64-encode format.
-	Id3 *string `locationName:"id3" type:"string"`
+	Id3 *string `json:"mediaconvert:Id3Insertion:Id3" locationName:"id3" type:"string"`
 
 	// Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
-	Timecode *string `locationName:"timecode" type:"string"`
+	Timecode *string `json:"mediaconvert:Id3Insertion:Timecode" locationName:"timecode" type:"string"`
 }
 
 // String returns the string representation
@@ -5573,7 +5573,7 @@ type ImageInserter struct {
 
 	// Specify the images that you want to overlay on your video. The images must
 	// be PNG or TGA files.
-	InsertableImages []InsertableImage `locationName:"insertableImages" type:"list"`
+	InsertableImages []InsertableImage `json:"mediaconvert:ImageInserter:InsertableImages" locationName:"insertableImages" type:"list"`
 }
 
 // String returns the string representation
@@ -5623,33 +5623,33 @@ type Input struct {
 	// Specifies set of audio selectors within an input to combine. An input may
 	// have multiple audio selector groups. See "Audio Selector Group":#inputs-audio_selector_group
 	// for more information.
-	AudioSelectorGroups map[string]AudioSelectorGroup `locationName:"audioSelectorGroups" type:"map"`
+	AudioSelectorGroups map[string]AudioSelectorGroup `json:"mediaconvert:Input:AudioSelectorGroups" locationName:"audioSelectorGroups" type:"map"`
 
 	// Use Audio selectors (AudioSelectors) to specify a track or set of tracks
 	// from the input that you will use in your outputs. You can use mutiple Audio
 	// selectors per input.
-	AudioSelectors map[string]AudioSelector `locationName:"audioSelectors" type:"map"`
+	AudioSelectors map[string]AudioSelector `json:"mediaconvert:Input:AudioSelectors" locationName:"audioSelectors" type:"map"`
 
 	// Use Captions selectors (CaptionSelectors) to specify the captions data from
 	// the input that you will use in your outputs. You can use mutiple captions
 	// selectors per input.
-	CaptionSelectors map[string]CaptionSelector `locationName:"captionSelectors" type:"map"`
+	CaptionSelectors map[string]CaptionSelector `json:"mediaconvert:Input:CaptionSelectors" locationName:"captionSelectors" type:"map"`
 
 	// Enable Deblock (InputDeblockFilter) to produce smoother motion in the output.
 	// Default is disabled. Only manaully controllable for MPEG2 and uncompressed
 	// video inputs.
-	DeblockFilter InputDeblockFilter `locationName:"deblockFilter" type:"string" enum:"true"`
+	DeblockFilter InputDeblockFilter `json:"mediaconvert:Input:DeblockFilter" locationName:"deblockFilter" type:"string" enum:"true"`
 
 	// Settings for decrypting any input files that you encrypt before you upload
 	// them to Amazon S3. MediaConvert can decrypt files only when you use AWS Key
 	// Management Service (KMS) to encrypt the data key that you use to encrypt
 	// your content.
-	DecryptionSettings *InputDecryptionSettings `locationName:"decryptionSettings" type:"structure"`
+	DecryptionSettings *InputDecryptionSettings `json:"mediaconvert:Input:DecryptionSettings" locationName:"decryptionSettings" type:"structure"`
 
 	// Enable Denoise (InputDenoiseFilter) to filter noise from the input. Default
 	// is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video
 	// inputs.
-	DenoiseFilter InputDenoiseFilter `locationName:"denoiseFilter" type:"string" enum:"true"`
+	DenoiseFilter InputDenoiseFilter `json:"mediaconvert:Input:DenoiseFilter" locationName:"denoiseFilter" type:"string" enum:"true"`
 
 	// Specify the source file for your transcoding job. You can use multiple inputs
 	// in a single job. The service concatenates these inputs, in the order that
@@ -5658,7 +5658,7 @@ type Input struct {
 	// "s3://bucket/vf/cpl.xml". If the CPL is in an incomplete IMP, make sure to
 	// use *Supplemental IMPs* (SupplementalImps) to specify any supplemental IMPs
 	// that contain assets referenced by the CPL.
-	FileInput *string `locationName:"fileInput" type:"string"`
+	FileInput *string `json:"mediaconvert:Input:FileInput" locationName:"fileInput" type:"string"`
 
 	// Use Filter enable (InputFilterEnable) to specify how the transcoding service
 	// applies the denoise and deblock filters. You must also enable the filters
@@ -5667,16 +5667,16 @@ type Input struct {
 	// on input type and quality. * Disable - The input is not filtered. This is
 	// true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter).
 	// * Force - The in put is filtered regardless of input type.
-	FilterEnable InputFilterEnable `locationName:"filterEnable" type:"string" enum:"true"`
+	FilterEnable InputFilterEnable `json:"mediaconvert:Input:FilterEnable" locationName:"filterEnable" type:"string" enum:"true"`
 
 	// Use Filter strength (FilterStrength) to adjust the magnitude the input filter
 	// settings (Deblock and Denoise). The range is -5 to 5. Default is 0.
-	FilterStrength *int64 `locationName:"filterStrength" type:"integer"`
+	FilterStrength *int64 `json:"mediaconvert:Input:FilterStrength" locationName:"filterStrength" type:"integer"`
 
 	// Enable the image inserter feature to include a graphic overlay on your video.
 	// Enable or disable this feature for each input individually. This setting
 	// is disabled by default.
-	ImageInserter *ImageInserter `locationName:"imageInserter" type:"structure"`
+	ImageInserter *ImageInserter `json:"mediaconvert:Input:ImageInserter" locationName:"imageInserter" type:"structure"`
 
 	// (InputClippings) contains sets of start and end times that together specify
 	// a portion of the input to be used in the outputs. If you provide only a start
@@ -5684,18 +5684,18 @@ type Input struct {
 	// provide only an end time, it will be the entire input up to that point. When
 	// you specify more than one input clip, the transcoding service creates the
 	// job outputs by stringing the clips together in the order you specify them.
-	InputClippings []InputClipping `locationName:"inputClippings" type:"list"`
+	InputClippings []InputClipping `json:"mediaconvert:Input:InputClippings" locationName:"inputClippings" type:"list"`
 
 	// Use Program (programNumber) to select a specific program from within a multi-program
 	// transport stream. Note that Quad 4K is not currently supported. Default is
 	// the first program within the transport stream. If the program you specify
 	// doesn't exist, the transcoding service will use this default.
-	ProgramNumber *int64 `locationName:"programNumber" min:"1" type:"integer"`
+	ProgramNumber *int64 `json:"mediaconvert:Input:ProgramNumber" locationName:"programNumber" min:"1" type:"integer"`
 
 	// Set PSI control (InputPsiControl) for transport stream inputs to specify
 	// which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio
 	// and video. * Use PSI - Scan only PSI data.
-	PsiControl InputPsiControl `locationName:"psiControl" type:"string" enum:"true"`
+	PsiControl InputPsiControl `json:"mediaconvert:Input:PsiControl" locationName:"psiControl" type:"string" enum:"true"`
 
 	// Provide a list of any necessary supplemental IMPs. You need supplemental
 	// IMPs if the CPL that you're using for your input is in an incomplete IMP.
@@ -5703,7 +5703,7 @@ type Input struct {
 	// the ASSETMAP.xml files. For example ["s3://bucket/ov/", "s3://bucket/vf2/ASSETMAP.xml"].
 	// You don't need to specify the IMP that contains your input CPL, because the
 	// service automatically detects it.
-	SupplementalImps []string `locationName:"supplementalImps" type:"list"`
+	SupplementalImps []string `json:"mediaconvert:Input:SupplementalImps" locationName:"supplementalImps" type:"list"`
 
 	// Timecode source under input settings (InputTimecodeSource) only affects the
 	// behavior of features that apply to a single input at a time, such as input
@@ -5712,10 +5712,10 @@ type Input struct {
 	// or by starting the first frame at zero (ZEROBASED). In both cases, the timecode
 	// format is HH:MM:SS:FF or HH:MM:SS;FF, where FF is the frame number. Only
 	// set this to EMBEDDED if your source video has embedded timecodes.
-	TimecodeSource InputTimecodeSource `locationName:"timecodeSource" type:"string" enum:"true"`
+	TimecodeSource InputTimecodeSource `json:"mediaconvert:Input:TimecodeSource" locationName:"timecodeSource" type:"string" enum:"true"`
 
 	// Selector for video.
-	VideoSelector *VideoSelector `locationName:"videoSelector" type:"structure"`
+	VideoSelector *VideoSelector `json:"mediaconvert:Input:VideoSelector" locationName:"videoSelector" type:"structure"`
 }
 
 // String returns the string representation
@@ -5915,7 +5915,7 @@ type InputClipping struct {
 	// (InputTimecodeSource). For example, if you have embedded timecodes that start
 	// at 01:00:00:00 and you want your clip to end six minutes into the video,
 	// use 01:06:00:00.
-	EndTimecode *string `locationName:"endTimecode" type:"string"`
+	EndTimecode *string `json:"mediaconvert:InputClipping:EndTimecode" locationName:"endTimecode" type:"string"`
 
 	// Set Start timecode (StartTimecode) to the beginning of the portion of the
 	// input you are clipping. The frame corresponding to the Start timecode value
@@ -5925,7 +5925,7 @@ type InputClipping struct {
 	// choosing this value, take into account your setting for Input timecode source.
 	// For example, if you have embedded timecodes that start at 01:00:00:00 and
 	// you want your clip to begin five minutes into the video, use 01:05:00:00.
-	StartTimecode *string `locationName:"startTimecode" type:"string"`
+	StartTimecode *string `json:"mediaconvert:InputClipping:StartTimecode" locationName:"startTimecode" type:"string"`
 }
 
 // String returns the string representation
@@ -5959,26 +5959,26 @@ type InputDecryptionSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Specify the encryption mode that you used to encrypt your input files.
-	DecryptionMode DecryptionMode `locationName:"decryptionMode" type:"string" enum:"true"`
+	DecryptionMode DecryptionMode `json:"mediaconvert:InputDecryptionSettings:DecryptionMode" locationName:"decryptionMode" type:"string" enum:"true"`
 
 	// Warning! Don't provide your encryption key in plaintext. Your job settings
 	// could be intercepted, making your encrypted content vulnerable. Specify the
 	// encrypted version of the data key that you used to encrypt your content.
 	// The data key must be encrypted by AWS Key Management Service (KMS). The key
 	// can be 128, 192, or 256 bits.
-	EncryptedDecryptionKey *string `locationName:"encryptedDecryptionKey" min:"24" type:"string"`
+	EncryptedDecryptionKey *string `json:"mediaconvert:InputDecryptionSettings:EncryptedDecryptionKey" locationName:"encryptedDecryptionKey" min:"24" type:"string"`
 
 	// Specify the initialization vector that you used when you encrypted your content
 	// before uploading it to Amazon S3. You can use a 16-byte initialization vector
 	// with any encryption mode. Or, you can use a 12-byte initialization vector
 	// with GCM or CTR. MediaConvert accepts only initialization vectors that are
 	// base64-encoded.
-	InitializationVector *string `locationName:"initializationVector" min:"16" type:"string"`
+	InitializationVector *string `json:"mediaconvert:InputDecryptionSettings:InitializationVector" locationName:"initializationVector" min:"16" type:"string"`
 
 	// Specify the AWS Region for AWS Key Management Service (KMS) that you used
 	// to encrypt your data key, if that Region is different from the one you are
 	// using for AWS Elemental MediaConvert.
-	KmsKeyRegion *string `locationName:"kmsKeyRegion" min:"9" type:"string"`
+	KmsKeyRegion *string `json:"mediaconvert:InputDecryptionSettings:KmsKeyRegion" locationName:"kmsKeyRegion" min:"9" type:"string"`
 }
 
 // String returns the string representation
@@ -6042,27 +6042,27 @@ type InputTemplate struct {
 	// Specifies set of audio selectors within an input to combine. An input may
 	// have multiple audio selector groups. See "Audio Selector Group":#inputs-audio_selector_group
 	// for more information.
-	AudioSelectorGroups map[string]AudioSelectorGroup `locationName:"audioSelectorGroups" type:"map"`
+	AudioSelectorGroups map[string]AudioSelectorGroup `json:"mediaconvert:InputTemplate:AudioSelectorGroups" locationName:"audioSelectorGroups" type:"map"`
 
 	// Use Audio selectors (AudioSelectors) to specify a track or set of tracks
 	// from the input that you will use in your outputs. You can use mutiple Audio
 	// selectors per input.
-	AudioSelectors map[string]AudioSelector `locationName:"audioSelectors" type:"map"`
+	AudioSelectors map[string]AudioSelector `json:"mediaconvert:InputTemplate:AudioSelectors" locationName:"audioSelectors" type:"map"`
 
 	// Use Captions selectors (CaptionSelectors) to specify the captions data from
 	// the input that you will use in your outputs. You can use mutiple captions
 	// selectors per input.
-	CaptionSelectors map[string]CaptionSelector `locationName:"captionSelectors" type:"map"`
+	CaptionSelectors map[string]CaptionSelector `json:"mediaconvert:InputTemplate:CaptionSelectors" locationName:"captionSelectors" type:"map"`
 
 	// Enable Deblock (InputDeblockFilter) to produce smoother motion in the output.
 	// Default is disabled. Only manaully controllable for MPEG2 and uncompressed
 	// video inputs.
-	DeblockFilter InputDeblockFilter `locationName:"deblockFilter" type:"string" enum:"true"`
+	DeblockFilter InputDeblockFilter `json:"mediaconvert:InputTemplate:DeblockFilter" locationName:"deblockFilter" type:"string" enum:"true"`
 
 	// Enable Denoise (InputDenoiseFilter) to filter noise from the input. Default
 	// is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video
 	// inputs.
-	DenoiseFilter InputDenoiseFilter `locationName:"denoiseFilter" type:"string" enum:"true"`
+	DenoiseFilter InputDenoiseFilter `json:"mediaconvert:InputTemplate:DenoiseFilter" locationName:"denoiseFilter" type:"string" enum:"true"`
 
 	// Use Filter enable (InputFilterEnable) to specify how the transcoding service
 	// applies the denoise and deblock filters. You must also enable the filters
@@ -6071,16 +6071,16 @@ type InputTemplate struct {
 	// on input type and quality. * Disable - The input is not filtered. This is
 	// true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter).
 	// * Force - The in put is filtered regardless of input type.
-	FilterEnable InputFilterEnable `locationName:"filterEnable" type:"string" enum:"true"`
+	FilterEnable InputFilterEnable `json:"mediaconvert:InputTemplate:FilterEnable" locationName:"filterEnable" type:"string" enum:"true"`
 
 	// Use Filter strength (FilterStrength) to adjust the magnitude the input filter
 	// settings (Deblock and Denoise). The range is -5 to 5. Default is 0.
-	FilterStrength *int64 `locationName:"filterStrength" type:"integer"`
+	FilterStrength *int64 `json:"mediaconvert:InputTemplate:FilterStrength" locationName:"filterStrength" type:"integer"`
 
 	// Enable the image inserter feature to include a graphic overlay on your video.
 	// Enable or disable this feature for each input individually. This setting
 	// is disabled by default.
-	ImageInserter *ImageInserter `locationName:"imageInserter" type:"structure"`
+	ImageInserter *ImageInserter `json:"mediaconvert:InputTemplate:ImageInserter" locationName:"imageInserter" type:"structure"`
 
 	// (InputClippings) contains sets of start and end times that together specify
 	// a portion of the input to be used in the outputs. If you provide only a start
@@ -6088,18 +6088,18 @@ type InputTemplate struct {
 	// provide only an end time, it will be the entire input up to that point. When
 	// you specify more than one input clip, the transcoding service creates the
 	// job outputs by stringing the clips together in the order you specify them.
-	InputClippings []InputClipping `locationName:"inputClippings" type:"list"`
+	InputClippings []InputClipping `json:"mediaconvert:InputTemplate:InputClippings" locationName:"inputClippings" type:"list"`
 
 	// Use Program (programNumber) to select a specific program from within a multi-program
 	// transport stream. Note that Quad 4K is not currently supported. Default is
 	// the first program within the transport stream. If the program you specify
 	// doesn't exist, the transcoding service will use this default.
-	ProgramNumber *int64 `locationName:"programNumber" min:"1" type:"integer"`
+	ProgramNumber *int64 `json:"mediaconvert:InputTemplate:ProgramNumber" locationName:"programNumber" min:"1" type:"integer"`
 
 	// Set PSI control (InputPsiControl) for transport stream inputs to specify
 	// which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio
 	// and video. * Use PSI - Scan only PSI data.
-	PsiControl InputPsiControl `locationName:"psiControl" type:"string" enum:"true"`
+	PsiControl InputPsiControl `json:"mediaconvert:InputTemplate:PsiControl" locationName:"psiControl" type:"string" enum:"true"`
 
 	// Timecode source under input settings (InputTimecodeSource) only affects the
 	// behavior of features that apply to a single input at a time, such as input
@@ -6108,10 +6108,10 @@ type InputTemplate struct {
 	// or by starting the first frame at zero (ZEROBASED). In both cases, the timecode
 	// format is HH:MM:SS:FF or HH:MM:SS;FF, where FF is the frame number. Only
 	// set this to EMBEDDED if your source video has embedded timecodes.
-	TimecodeSource InputTimecodeSource `locationName:"timecodeSource" type:"string" enum:"true"`
+	TimecodeSource InputTimecodeSource `json:"mediaconvert:InputTemplate:TimecodeSource" locationName:"timecodeSource" type:"string" enum:"true"`
 
 	// Selector for video.
-	VideoSelector *VideoSelector `locationName:"videoSelector" type:"structure"`
+	VideoSelector *VideoSelector `json:"mediaconvert:InputTemplate:VideoSelector" locationName:"videoSelector" type:"structure"`
 }
 
 // String returns the string representation
@@ -6273,58 +6273,58 @@ type InsertableImage struct {
 
 	// Specify the time, in milliseconds, for the image to remain on the output
 	// video. This duration includes fade-in time but not fade-out time.
-	Duration *int64 `locationName:"duration" type:"integer"`
+	Duration *int64 `json:"mediaconvert:InsertableImage:Duration" locationName:"duration" type:"integer"`
 
 	// Specify the length of time, in milliseconds, between the Start time that
 	// you specify for the image insertion and the time that the image appears at
 	// full opacity. Full opacity is the level that you specify for the opacity
 	// setting. If you don't specify a value for Fade-in, the image will appear
 	// abruptly at the overlay start time.
-	FadeIn *int64 `locationName:"fadeIn" type:"integer"`
+	FadeIn *int64 `json:"mediaconvert:InsertableImage:FadeIn" locationName:"fadeIn" type:"integer"`
 
 	// Specify the length of time, in milliseconds, between the end of the time
 	// that you have specified for the image overlay Duration and when the overlaid
 	// image has faded to total transparency. If you don't specify a value for Fade-out,
 	// the image will disappear abruptly at the end of the inserted image duration.
-	FadeOut *int64 `locationName:"fadeOut" type:"integer"`
+	FadeOut *int64 `json:"mediaconvert:InsertableImage:FadeOut" locationName:"fadeOut" type:"integer"`
 
 	// Specify the height of the inserted image in pixels. If you specify a value
 	// that's larger than the video resolution height, the service will crop your
 	// overlaid image to fit. To use the native height of the image, keep this setting
 	// blank.
-	Height *int64 `locationName:"height" type:"integer"`
+	Height *int64 `json:"mediaconvert:InsertableImage:Height" locationName:"height" type:"integer"`
 
 	// Specify the Amazon S3 location of the image that you want to overlay on the
 	// video. Use a PNG or TGA file.
-	ImageInserterInput *string `locationName:"imageInserterInput" min:"14" type:"string"`
+	ImageInserterInput *string `json:"mediaconvert:InsertableImage:ImageInserterInput" locationName:"imageInserterInput" min:"14" type:"string"`
 
 	// Specify the distance, in pixels, between the inserted image and the left
 	// edge of the video frame. Required for any image overlay that you specify.
-	ImageX *int64 `locationName:"imageX" type:"integer"`
+	ImageX *int64 `json:"mediaconvert:InsertableImage:ImageX" locationName:"imageX" type:"integer"`
 
 	// Specify the distance, in pixels, between the overlaid image and the top edge
 	// of the video frame. Required for any image overlay that you specify.
-	ImageY *int64 `locationName:"imageY" type:"integer"`
+	ImageY *int64 `json:"mediaconvert:InsertableImage:ImageY" locationName:"imageY" type:"integer"`
 
 	// Specify how overlapping inserted images appear. Images with higher values
 	// for Layer appear on top of images with lower values for Layer.
-	Layer *int64 `locationName:"layer" type:"integer"`
+	Layer *int64 `json:"mediaconvert:InsertableImage:Layer" locationName:"layer" type:"integer"`
 
 	// Use Opacity (Opacity) to specify how much of the underlying video shows through
 	// the inserted image. 0 is transparent and 100 is fully opaque. Default is
 	// 50.
-	Opacity *int64 `locationName:"opacity" type:"integer"`
+	Opacity *int64 `json:"mediaconvert:InsertableImage:Opacity" locationName:"opacity" type:"integer"`
 
 	// Specify the timecode of the frame that you want the overlay to first appear
 	// on. This must be in timecode (HH:MM:SS:FF or HH:MM:SS;FF) format. Remember
 	// to take into account your timecode source settings.
-	StartTime *string `locationName:"startTime" type:"string"`
+	StartTime *string `json:"mediaconvert:InsertableImage:StartTime" locationName:"startTime" type:"string"`
 
 	// Specify the width of the inserted image in pixels. If you specify a value
 	// that's larger than the video resolution width, the service will crop your
 	// overlaid image to fit. To use the native width of the image, keep this setting
 	// blank.
-	Width *int64 `locationName:"width" type:"integer"`
+	Width *int64 `json:"mediaconvert:InsertableImage:Width" locationName:"width" type:"integer"`
 }
 
 // String returns the string representation
@@ -6424,33 +6424,33 @@ type Job struct {
 
 	// Accelerated transcoding can significantly speed up jobs with long, visually
 	// complex content.
-	AccelerationSettings *AccelerationSettings `locationName:"accelerationSettings" type:"structure"`
+	AccelerationSettings *AccelerationSettings `json:"mediaconvert:Job:AccelerationSettings" locationName:"accelerationSettings" type:"structure"`
 
 	// An identifier for this resource that is unique within all of AWS.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediaconvert:Job:Arn" locationName:"arn" type:"string"`
 
 	// Optional. Choose a tag type that AWS Billing and Cost Management will use
 	// to sort your AWS Elemental MediaConvert costs on any billing report that
 	// you set up. Any transcoding outputs that don't have an associated tag will
 	// appear in your billing report unsorted. If you don't choose a valid value
 	// for this field, your job outputs will appear on the billing report unsorted.
-	BillingTagsSource BillingTagsSource `locationName:"billingTagsSource" type:"string" enum:"true"`
+	BillingTagsSource BillingTagsSource `json:"mediaconvert:Job:BillingTagsSource" locationName:"billingTagsSource" type:"string" enum:"true"`
 
 	// The time, in Unix epoch format in seconds, when the job got created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"mediaconvert:Job:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A job's phase can be PROBING, TRANSCODING OR UPLOADING
-	CurrentPhase JobPhase `locationName:"currentPhase" type:"string" enum:"true"`
+	CurrentPhase JobPhase `json:"mediaconvert:Job:CurrentPhase" locationName:"currentPhase" type:"string" enum:"true"`
 
 	// Error code for the job
-	ErrorCode *int64 `locationName:"errorCode" type:"integer"`
+	ErrorCode *int64 `json:"mediaconvert:Job:ErrorCode" locationName:"errorCode" type:"integer"`
 
 	// Error message of Job
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"mediaconvert:Job:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// A portion of the job's ARN, unique within your AWS Elemental MediaConvert
 	// resources
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediaconvert:Job:Id" locationName:"id" type:"string"`
 
 	// An estimate of how far your job has progressed. This estimate is shown as
 	// a percentage of the total time from when your job leaves its queue to when
@@ -6461,51 +6461,51 @@ type Job struct {
 	// MP4, and MXF. For some jobs, including audio-only jobs and jobs that use
 	// input clipping, the service can't provide information about job progress.
 	// In those cases, jobPercentComplete returns a null value.
-	JobPercentComplete *int64 `locationName:"jobPercentComplete" type:"integer"`
+	JobPercentComplete *int64 `json:"mediaconvert:Job:JobPercentComplete" locationName:"jobPercentComplete" type:"integer"`
 
 	// The job template that the job is created from, if it is created from a job
 	// template.
-	JobTemplate *string `locationName:"jobTemplate" type:"string"`
+	JobTemplate *string `json:"mediaconvert:Job:JobTemplate" locationName:"jobTemplate" type:"string"`
 
 	// List of output group details
-	OutputGroupDetails []OutputGroupDetail `locationName:"outputGroupDetails" type:"list"`
+	OutputGroupDetails []OutputGroupDetail `json:"mediaconvert:Job:OutputGroupDetails" locationName:"outputGroupDetails" type:"list"`
 
 	// Optional. When you create a job, you can specify a queue to send it to. If
 	// you don't specify, the job will go to the default queue. For more about queues,
 	// see the User Guide topic at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-	Queue *string `locationName:"queue" type:"string"`
+	Queue *string `json:"mediaconvert:Job:Queue" locationName:"queue" type:"string"`
 
 	// The number of times that the service automatically attempted to process your
 	// job after encountering an error.
-	RetryCount *int64 `locationName:"retryCount" type:"integer"`
+	RetryCount *int64 `json:"mediaconvert:Job:RetryCount" locationName:"retryCount" type:"integer"`
 
 	// The IAM role you use for creating this job. For details about permissions,
 	// see the User Guide topic at the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
 	//
 	// Role is a required field
-	Role *string `locationName:"role" type:"string" required:"true"`
+	Role *string `json:"mediaconvert:Job:Role" locationName:"role" type:"string" required:"true"`
 
 	// JobSettings contains all the transcode settings for a job.
 	//
 	// Settings is a required field
-	Settings *JobSettings `locationName:"settings" type:"structure" required:"true"`
+	Settings *JobSettings `json:"mediaconvert:Job:Settings" locationName:"settings" type:"structure" required:"true"`
 
 	// A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
-	Status JobStatus `locationName:"status" type:"string" enum:"true"`
+	Status JobStatus `json:"mediaconvert:Job:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch
 	// Events. Set the interval, in seconds, between status updates. MediaConvert
 	// sends an update at this interval from the time the service begins processing
 	// your job to the time it completes the transcode or encounters an error.
-	StatusUpdateInterval StatusUpdateInterval `locationName:"statusUpdateInterval" type:"string" enum:"true"`
+	StatusUpdateInterval StatusUpdateInterval `json:"mediaconvert:Job:StatusUpdateInterval" locationName:"statusUpdateInterval" type:"string" enum:"true"`
 
 	// Information about when jobs are submitted, started, and finished is specified
 	// in Unix epoch format in seconds.
-	Timing *Timing `locationName:"timing" type:"structure"`
+	Timing *Timing `json:"mediaconvert:Job:Timing" locationName:"timing" type:"structure"`
 
 	// User-defined metadata that you want to associate with an MediaConvert job.
 	// You specify metadata in key/value pairs.
-	UserMetadata map[string]string `locationName:"userMetadata" type:"map"`
+	UserMetadata map[string]string `json:"mediaconvert:Job:UserMetadata" locationName:"userMetadata" type:"map"`
 }
 
 // String returns the string representation
@@ -6651,26 +6651,26 @@ type JobSettings struct {
 
 	// When specified, this offset (in milliseconds) is added to the input Ad Avail
 	// PTS time.
-	AdAvailOffset *int64 `locationName:"adAvailOffset" type:"integer"`
+	AdAvailOffset *int64 `json:"mediaconvert:JobSettings:AdAvailOffset" locationName:"adAvailOffset" type:"integer"`
 
 	// Settings for ad avail blanking. Video can be blanked or overlaid with an
 	// image, and audio muted during SCTE-35 triggered ad avails.
-	AvailBlanking *AvailBlanking `locationName:"availBlanking" type:"structure"`
+	AvailBlanking *AvailBlanking `json:"mediaconvert:JobSettings:AvailBlanking" locationName:"availBlanking" type:"structure"`
 
 	// Settings for Event Signaling And Messaging (ESAM).
-	Esam *EsamSettings `locationName:"esam" type:"structure"`
+	Esam *EsamSettings `json:"mediaconvert:JobSettings:Esam" locationName:"esam" type:"structure"`
 
 	// Use Inputs (inputs) to define source file used in the transcode job. There
 	// can be multiple inputs add in a job. These inputs will be concantenated together
 	// to create the output.
-	Inputs []Input `locationName:"inputs" type:"list"`
+	Inputs []Input `json:"mediaconvert:JobSettings:Inputs" locationName:"inputs" type:"list"`
 
 	// Overlay motion graphics on top of your video. The motion graphics that you
 	// specify here appear on all outputs in all output groups.
-	MotionImageInserter *MotionImageInserter `locationName:"motionImageInserter" type:"structure"`
+	MotionImageInserter *MotionImageInserter `json:"mediaconvert:JobSettings:MotionImageInserter" locationName:"motionImageInserter" type:"structure"`
 
 	// Settings for Nielsen Configuration
-	NielsenConfiguration *NielsenConfiguration `locationName:"nielsenConfiguration" type:"structure"`
+	NielsenConfiguration *NielsenConfiguration `json:"mediaconvert:JobSettings:NielsenConfiguration" locationName:"nielsenConfiguration" type:"structure"`
 
 	// (OutputGroups) contains one group of settings for each set of outputs that
 	// share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime,
@@ -6681,16 +6681,16 @@ type JobSettings struct {
 	// * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings
 	// * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,
 	// CmafGroupSettings
-	OutputGroups []OutputGroup `locationName:"outputGroups" type:"list"`
+	OutputGroups []OutputGroup `json:"mediaconvert:JobSettings:OutputGroups" locationName:"outputGroups" type:"list"`
 
 	// Contains settings used to acquire and adjust timecode information from inputs.
-	TimecodeConfig *TimecodeConfig `locationName:"timecodeConfig" type:"structure"`
+	TimecodeConfig *TimecodeConfig `json:"mediaconvert:JobSettings:TimecodeConfig" locationName:"timecodeConfig" type:"structure"`
 
 	// Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags
 	// in your job. To include timed metadata, you must enable it here, enable it
 	// in each output container, and specify tags and timecodes in ID3 insertion
 	// (Id3Insertion) objects.
-	TimedMetadataInsertion *TimedMetadataInsertion `locationName:"timedMetadataInsertion" type:"structure"`
+	TimedMetadataInsertion *TimedMetadataInsertion `json:"mediaconvert:JobSettings:TimedMetadataInsertion" locationName:"timedMetadataInsertion" type:"structure"`
 }
 
 // String returns the string representation
@@ -6814,48 +6814,48 @@ type JobTemplate struct {
 
 	// Accelerated transcoding is currently in private preview. Contact AWS for
 	// more information.
-	AccelerationSettings *AccelerationSettings `locationName:"accelerationSettings" type:"structure"`
+	AccelerationSettings *AccelerationSettings `json:"mediaconvert:JobTemplate:AccelerationSettings" locationName:"accelerationSettings" type:"structure"`
 
 	// An identifier for this resource that is unique within all of AWS.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediaconvert:JobTemplate:Arn" locationName:"arn" type:"string"`
 
 	// An optional category you create to organize your job templates.
-	Category *string `locationName:"category" type:"string"`
+	Category *string `json:"mediaconvert:JobTemplate:Category" locationName:"category" type:"string"`
 
 	// The timestamp in epoch seconds for Job template creation.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"mediaconvert:JobTemplate:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// An optional description you create for each job template.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconvert:JobTemplate:Description" locationName:"description" type:"string"`
 
 	// The timestamp in epoch seconds when the Job template was last updated.
-	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"mediaconvert:JobTemplate:LastUpdated" locationName:"lastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// A name you create for each job template. Each name must be unique within
 	// your account.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"mediaconvert:JobTemplate:Name" locationName:"name" type:"string" required:"true"`
 
 	// Optional. The queue that jobs created from this template are assigned to.
 	// If you don't specify this, jobs will go to the default queue.
-	Queue *string `locationName:"queue" type:"string"`
+	Queue *string `json:"mediaconvert:JobTemplate:Queue" locationName:"queue" type:"string"`
 
 	// JobTemplateSettings contains all the transcode settings saved in the template
 	// that will be applied to jobs created from it.
 	//
 	// Settings is a required field
-	Settings *JobTemplateSettings `locationName:"settings" type:"structure" required:"true"`
+	Settings *JobTemplateSettings `json:"mediaconvert:JobTemplate:Settings" locationName:"settings" type:"structure" required:"true"`
 
 	// Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch
 	// Events. Set the interval, in seconds, between status updates. MediaConvert
 	// sends an update at this interval from the time the service begins processing
 	// your job to the time it completes the transcode or encounters an error.
-	StatusUpdateInterval StatusUpdateInterval `locationName:"statusUpdateInterval" type:"string" enum:"true"`
+	StatusUpdateInterval StatusUpdateInterval `json:"mediaconvert:JobTemplate:StatusUpdateInterval" locationName:"statusUpdateInterval" type:"string" enum:"true"`
 
 	// A job template can be of two types: system or custom. System or built-in
 	// job templates can't be modified or deleted by the user.
-	Type Type `locationName:"type" type:"string" enum:"true"`
+	Type Type `json:"mediaconvert:JobTemplate:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -6942,26 +6942,26 @@ type JobTemplateSettings struct {
 
 	// When specified, this offset (in milliseconds) is added to the input Ad Avail
 	// PTS time.
-	AdAvailOffset *int64 `locationName:"adAvailOffset" type:"integer"`
+	AdAvailOffset *int64 `json:"mediaconvert:JobTemplateSettings:AdAvailOffset" locationName:"adAvailOffset" type:"integer"`
 
 	// Settings for ad avail blanking. Video can be blanked or overlaid with an
 	// image, and audio muted during SCTE-35 triggered ad avails.
-	AvailBlanking *AvailBlanking `locationName:"availBlanking" type:"structure"`
+	AvailBlanking *AvailBlanking `json:"mediaconvert:JobTemplateSettings:AvailBlanking" locationName:"availBlanking" type:"structure"`
 
 	// Settings for Event Signaling And Messaging (ESAM).
-	Esam *EsamSettings `locationName:"esam" type:"structure"`
+	Esam *EsamSettings `json:"mediaconvert:JobTemplateSettings:Esam" locationName:"esam" type:"structure"`
 
 	// Use Inputs (inputs) to define the source file used in the transcode job.
 	// There can only be one input in a job template. Using the API, you can include
 	// multiple inputs when referencing a job template.
-	Inputs []InputTemplate `locationName:"inputs" type:"list"`
+	Inputs []InputTemplate `json:"mediaconvert:JobTemplateSettings:Inputs" locationName:"inputs" type:"list"`
 
 	// Overlay motion graphics on top of your video. The motion graphics that you
 	// specify here appear on all outputs in all output groups.
-	MotionImageInserter *MotionImageInserter `locationName:"motionImageInserter" type:"structure"`
+	MotionImageInserter *MotionImageInserter `json:"mediaconvert:JobTemplateSettings:MotionImageInserter" locationName:"motionImageInserter" type:"structure"`
 
 	// Settings for Nielsen Configuration
-	NielsenConfiguration *NielsenConfiguration `locationName:"nielsenConfiguration" type:"structure"`
+	NielsenConfiguration *NielsenConfiguration `json:"mediaconvert:JobTemplateSettings:NielsenConfiguration" locationName:"nielsenConfiguration" type:"structure"`
 
 	// (OutputGroups) contains one group of settings for each set of outputs that
 	// share a common package type. All unpackaged files (MPEG-4, MPEG-2 TS, Quicktime,
@@ -6972,16 +6972,16 @@ type JobTemplateSettings struct {
 	// * HLS_GROUP_SETTINGS, HlsGroupSettings * DASH_ISO_GROUP_SETTINGS, DashIsoGroupSettings
 	// * MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,
 	// CmafGroupSettings
-	OutputGroups []OutputGroup `locationName:"outputGroups" type:"list"`
+	OutputGroups []OutputGroup `json:"mediaconvert:JobTemplateSettings:OutputGroups" locationName:"outputGroups" type:"list"`
 
 	// Contains settings used to acquire and adjust timecode information from inputs.
-	TimecodeConfig *TimecodeConfig `locationName:"timecodeConfig" type:"structure"`
+	TimecodeConfig *TimecodeConfig `json:"mediaconvert:JobTemplateSettings:TimecodeConfig" locationName:"timecodeConfig" type:"structure"`
 
 	// Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags
 	// in your job. To include timed metadata, you must enable it here, enable it
 	// in each output container, and specify tags and timecodes in ID3 insertion
 	// (Id3Insertion) objects.
-	TimedMetadataInsertion *TimedMetadataInsertion `locationName:"timedMetadataInsertion" type:"structure"`
+	TimedMetadataInsertion *TimedMetadataInsertion `json:"mediaconvert:JobTemplateSettings:TimedMetadataInsertion" locationName:"timedMetadataInsertion" type:"structure"`
 }
 
 // String returns the string representation
@@ -7107,7 +7107,7 @@ type M2tsScte35Esam struct {
 
 	// Packet Identifier (PID) of the SCTE-35 stream in the transport stream generated
 	// by ESAM.
-	Scte35EsamPid *int64 `locationName:"scte35EsamPid" min:"32" type:"integer"`
+	Scte35EsamPid *int64 `json:"mediaconvert:M2tsScte35Esam:Scte35EsamPid" locationName:"scte35EsamPid" min:"32" type:"integer"`
 }
 
 // String returns the string representation
@@ -7154,44 +7154,44 @@ type M2tsSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Selects between the DVB and ATSC buffer models for Dolby Digital audio.
-	AudioBufferModel M2tsAudioBufferModel `locationName:"audioBufferModel" type:"string" enum:"true"`
+	AudioBufferModel M2tsAudioBufferModel `json:"mediaconvert:M2tsSettings:AudioBufferModel" locationName:"audioBufferModel" type:"string" enum:"true"`
 
 	// The number of audio frames to insert for each PES packet.
-	AudioFramesPerPes *int64 `locationName:"audioFramesPerPes" type:"integer"`
+	AudioFramesPerPes *int64 `json:"mediaconvert:M2tsSettings:AudioFramesPerPes" locationName:"audioFramesPerPes" type:"integer"`
 
 	// Specify the packet identifiers (PIDs) for any elementary audio streams you
 	// include in this output. Specify multiple PIDs as a JSON array. Default is
 	// the range 482-492.
-	AudioPids []int64 `locationName:"audioPids" type:"list"`
+	AudioPids []int64 `json:"mediaconvert:M2tsSettings:AudioPids" locationName:"audioPids" type:"list"`
 
 	// Specify the output bitrate of the transport stream in bits per second. Setting
 	// to 0 lets the muxer automatically determine the appropriate bitrate. Other
 	// common values are 3750000, 7500000, and 15000000.
-	Bitrate *int64 `locationName:"bitrate" type:"integer"`
+	Bitrate *int64 `json:"mediaconvert:M2tsSettings:Bitrate" locationName:"bitrate" type:"integer"`
 
 	// Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX,
 	// use multiplex buffer model. If set to NONE, this can lead to lower latency,
 	// but low-memory devices may not be able to play back the stream without interruptions.
-	BufferModel M2tsBufferModel `locationName:"bufferModel" type:"string" enum:"true"`
+	BufferModel M2tsBufferModel `json:"mediaconvert:M2tsSettings:BufferModel" locationName:"bufferModel" type:"string" enum:"true"`
 
 	// Inserts DVB Network Information Table (NIT) at the specified table repetition
 	// interval.
-	DvbNitSettings *DvbNitSettings `locationName:"dvbNitSettings" type:"structure"`
+	DvbNitSettings *DvbNitSettings `json:"mediaconvert:M2tsSettings:DvbNitSettings" locationName:"dvbNitSettings" type:"structure"`
 
 	// Inserts DVB Service Description Table (NIT) at the specified table repetition
 	// interval.
-	DvbSdtSettings *DvbSdtSettings `locationName:"dvbSdtSettings" type:"structure"`
+	DvbSdtSettings *DvbSdtSettings `json:"mediaconvert:M2tsSettings:DvbSdtSettings" locationName:"dvbSdtSettings" type:"structure"`
 
 	// Specify the packet identifiers (PIDs) for DVB subtitle data included in this
 	// output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
-	DvbSubPids []int64 `locationName:"dvbSubPids" type:"list"`
+	DvbSubPids []int64 `json:"mediaconvert:M2tsSettings:DvbSubPids" locationName:"dvbSubPids" type:"list"`
 
 	// Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
-	DvbTdtSettings *DvbTdtSettings `locationName:"dvbTdtSettings" type:"structure"`
+	DvbTdtSettings *DvbTdtSettings `json:"mediaconvert:M2tsSettings:DvbTdtSettings" locationName:"dvbTdtSettings" type:"structure"`
 
 	// Specify the packet identifier (PID) for DVB teletext data you include in
 	// this output. Default is 499.
-	DvbTeletextPid *int64 `locationName:"dvbTeletextPid" min:"32" type:"integer"`
+	DvbTeletextPid *int64 `json:"mediaconvert:M2tsSettings:DvbTeletextPid" locationName:"dvbTeletextPid" min:"32" type:"integer"`
 
 	// When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to
 	// partitions 3 and 4. The interval between these additional markers will be
@@ -7199,28 +7199,28 @@ type M2tsSettings struct {
 	// set to VIDEO_INTERVAL, these additional markers will not be inserted. Only
 	// applicable when EBP segmentation markers are is selected (segmentationMarkers
 	// is EBP or EBP_LEGACY).
-	EbpAudioInterval M2tsEbpAudioInterval `locationName:"ebpAudioInterval" type:"string" enum:"true"`
+	EbpAudioInterval M2tsEbpAudioInterval `json:"mediaconvert:M2tsSettings:EbpAudioInterval" locationName:"ebpAudioInterval" type:"string" enum:"true"`
 
 	// Selects which PIDs to place EBP markers on. They can either be placed only
 	// on the video PID, or on both the video PID and all audio PIDs. Only applicable
 	// when EBP segmentation markers are is selected (segmentationMarkers is EBP
 	// or EBP_LEGACY).
-	EbpPlacement M2tsEbpPlacement `locationName:"ebpPlacement" type:"string" enum:"true"`
+	EbpPlacement M2tsEbpPlacement `json:"mediaconvert:M2tsSettings:EbpPlacement" locationName:"ebpPlacement" type:"string" enum:"true"`
 
 	// Controls whether to include the ES Rate field in the PES header.
-	EsRateInPes M2tsEsRateInPes `locationName:"esRateInPes" type:"string" enum:"true"`
+	EsRateInPes M2tsEsRateInPes `json:"mediaconvert:M2tsSettings:EsRateInPes" locationName:"esRateInPes" type:"string" enum:"true"`
 
 	// Keep the default value (DEFAULT) unless you know that your audio EBP markers
 	// are incorrectly appearing before your video EBP markers. To correct this
 	// problem, set this value to Force (FORCE).
-	ForceTsVideoEbpOrder M2tsForceTsVideoEbpOrder `locationName:"forceTsVideoEbpOrder" type:"string" enum:"true"`
+	ForceTsVideoEbpOrder M2tsForceTsVideoEbpOrder `json:"mediaconvert:M2tsSettings:ForceTsVideoEbpOrder" locationName:"forceTsVideoEbpOrder" type:"string" enum:"true"`
 
 	// The length, in seconds, of each fragment. Only used with EBP markers.
-	FragmentTime *float64 `locationName:"fragmentTime" type:"double"`
+	FragmentTime *float64 `json:"mediaconvert:M2tsSettings:FragmentTime" locationName:"fragmentTime" type:"double"`
 
 	// Specify the maximum time, in milliseconds, between Program Clock References
 	// (PCRs) inserted into the transport stream.
-	MaxPcrInterval *int64 `locationName:"maxPcrInterval" type:"integer"`
+	MaxPcrInterval *int64 `json:"mediaconvert:M2tsSettings:MaxPcrInterval" locationName:"maxPcrInterval" type:"integer"`
 
 	// When set, enforces that Encoder Boundary Points do not come within the specified
 	// time interval of each other by looking ahead at input video. If another EBP
@@ -7228,66 +7228,66 @@ type M2tsSettings struct {
 	// not emitted, and the segment is "stretched" to the next marker. The lookahead
 	// value does not add latency to the system. The Live Event must be configured
 	// elsewhere to create sufficient latency to make the lookahead accurate.
-	MinEbpInterval *int64 `locationName:"minEbpInterval" type:"integer"`
+	MinEbpInterval *int64 `json:"mediaconvert:M2tsSettings:MinEbpInterval" locationName:"minEbpInterval" type:"integer"`
 
 	// If INSERT, Nielsen inaudible tones for media tracking will be detected in
 	// the input audio and an equivalent ID3 tag will be inserted in the output.
-	NielsenId3 M2tsNielsenId3 `locationName:"nielsenId3" type:"string" enum:"true"`
+	NielsenId3 M2tsNielsenId3 `json:"mediaconvert:M2tsSettings:NielsenId3" locationName:"nielsenId3" type:"string" enum:"true"`
 
 	// Value in bits per second of extra null packets to insert into the transport
 	// stream. This can be used if a downstream encryption system requires periodic
 	// null packets.
-	NullPacketBitrate *float64 `locationName:"nullPacketBitrate" type:"double"`
+	NullPacketBitrate *float64 `json:"mediaconvert:M2tsSettings:NullPacketBitrate" locationName:"nullPacketBitrate" type:"double"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	PatInterval *int64 `locationName:"patInterval" type:"integer"`
+	PatInterval *int64 `json:"mediaconvert:M2tsSettings:PatInterval" locationName:"patInterval" type:"integer"`
 
 	// When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted
 	// for every Packetized Elementary Stream (PES) header. This is effective only
 	// when the PCR PID is the same as the video or audio elementary stream.
-	PcrControl M2tsPcrControl `locationName:"pcrControl" type:"string" enum:"true"`
+	PcrControl M2tsPcrControl `json:"mediaconvert:M2tsSettings:PcrControl" locationName:"pcrControl" type:"string" enum:"true"`
 
 	// Specify the packet identifier (PID) for the program clock reference (PCR)
 	// in this output. If you do not specify a value, the service will use the value
 	// for Video PID (VideoPid).
-	PcrPid *int64 `locationName:"pcrPid" min:"32" type:"integer"`
+	PcrPid *int64 `json:"mediaconvert:M2tsSettings:PcrPid" locationName:"pcrPid" min:"32" type:"integer"`
 
 	// Specify the number of milliseconds between instances of the program map table
 	// (PMT) in the output transport stream.
-	PmtInterval *int64 `locationName:"pmtInterval" type:"integer"`
+	PmtInterval *int64 `json:"mediaconvert:M2tsSettings:PmtInterval" locationName:"pmtInterval" type:"integer"`
 
 	// Specify the packet identifier (PID) for the program map table (PMT) itself.
 	// Default is 480.
-	PmtPid *int64 `locationName:"pmtPid" min:"32" type:"integer"`
+	PmtPid *int64 `json:"mediaconvert:M2tsSettings:PmtPid" locationName:"pmtPid" min:"32" type:"integer"`
 
 	// Specify the packet identifier (PID) of the private metadata stream. Default
 	// is 503.
-	PrivateMetadataPid *int64 `locationName:"privateMetadataPid" min:"32" type:"integer"`
+	PrivateMetadataPid *int64 `json:"mediaconvert:M2tsSettings:PrivateMetadataPid" locationName:"privateMetadataPid" min:"32" type:"integer"`
 
 	// Use Program number (programNumber) to specify the program number used in
 	// the program map table (PMT) for this output. Default is 1. Program numbers
 	// and program map tables are parts of MPEG-2 transport stream containers, used
 	// for organizing data.
-	ProgramNumber *int64 `locationName:"programNumber" type:"integer"`
+	ProgramNumber *int64 `json:"mediaconvert:M2tsSettings:ProgramNumber" locationName:"programNumber" type:"integer"`
 
 	// When set to CBR, inserts null packets into transport stream to fill specified
 	// bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate,
 	// but the output will not be padded up to that bitrate.
-	RateMode M2tsRateMode `locationName:"rateMode" type:"string" enum:"true"`
+	RateMode M2tsRateMode `json:"mediaconvert:M2tsSettings:RateMode" locationName:"rateMode" type:"string" enum:"true"`
 
 	// Include this in your job settings to put SCTE-35 markers in your HLS and
 	// transport stream outputs at the insertion points that you specify in an ESAM
 	// XML document. Provide the document in the setting SCC XML (sccXml).
-	Scte35Esam *M2tsScte35Esam `locationName:"scte35Esam" type:"structure"`
+	Scte35Esam *M2tsScte35Esam `json:"mediaconvert:M2tsSettings:Scte35Esam" locationName:"scte35Esam" type:"structure"`
 
 	// Specify the packet identifier (PID) of the SCTE-35 stream in the transport
 	// stream.
-	Scte35Pid *int64 `locationName:"scte35Pid" min:"32" type:"integer"`
+	Scte35Pid *int64 `json:"mediaconvert:M2tsSettings:Scte35Pid" locationName:"scte35Pid" min:"32" type:"integer"`
 
 	// Enables SCTE-35 passthrough (scte35Source) to pass any SCTE-35 signals from
 	// input to output.
-	Scte35Source M2tsScte35Source `locationName:"scte35Source" type:"string" enum:"true"`
+	Scte35Source M2tsScte35Source `json:"mediaconvert:M2tsSettings:Scte35Source" locationName:"scte35Source" type:"string" enum:"true"`
 
 	// Inserts segmentation markers at each segmentation_time period. rai_segstart
 	// sets the Random Access Indicator bit in the adaptation field. rai_adapt sets
@@ -7296,7 +7296,7 @@ type M2tsSettings struct {
 	// Point information to the adaptation field as per OpenCable specification
 	// OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information
 	// to the adaptation field using a legacy proprietary format.
-	SegmentationMarkers M2tsSegmentationMarkers `locationName:"segmentationMarkers" type:"string" enum:"true"`
+	SegmentationMarkers M2tsSegmentationMarkers `json:"mediaconvert:M2tsSettings:SegmentationMarkers" locationName:"segmentationMarkers" type:"string" enum:"true"`
 
 	// The segmentation style parameter controls how segmentation markers are inserted
 	// into the transport stream. With avails, it is possible that segments may
@@ -7309,24 +7309,24 @@ type M2tsSettings struct {
 	// This means the subsequent segment will likely be truncated as well. However,
 	// all segments after that will have a duration of $segmentation_time seconds.
 	// Note that EBP lookahead is a slight exception to this rule.
-	SegmentationStyle M2tsSegmentationStyle `locationName:"segmentationStyle" type:"string" enum:"true"`
+	SegmentationStyle M2tsSegmentationStyle `json:"mediaconvert:M2tsSettings:SegmentationStyle" locationName:"segmentationStyle" type:"string" enum:"true"`
 
 	// Specify the length, in seconds, of each segment. Required unless markers
 	// is set to _none_.
-	SegmentationTime *float64 `locationName:"segmentationTime" type:"double"`
+	SegmentationTime *float64 `json:"mediaconvert:M2tsSettings:SegmentationTime" locationName:"segmentationTime" type:"double"`
 
 	// Specify the packet identifier (PID) for timed metadata in this output. Default
 	// is 502.
-	TimedMetadataPid *int64 `locationName:"timedMetadataPid" min:"32" type:"integer"`
+	TimedMetadataPid *int64 `json:"mediaconvert:M2tsSettings:TimedMetadataPid" locationName:"timedMetadataPid" min:"32" type:"integer"`
 
 	// Specify the ID for the transport stream itself in the program map table for
 	// this output. Transport stream IDs and program map tables are parts of MPEG-2
 	// transport stream containers, used for organizing data.
-	TransportStreamId *int64 `locationName:"transportStreamId" type:"integer"`
+	TransportStreamId *int64 `json:"mediaconvert:M2tsSettings:TransportStreamId" locationName:"transportStreamId" type:"integer"`
 
 	// Specify the packet identifier (PID) of the elementary video stream in the
 	// transport stream.
-	VideoPid *int64 `locationName:"videoPid" min:"32" type:"integer"`
+	VideoPid *int64 `json:"mediaconvert:M2tsSettings:VideoPid" locationName:"videoPid" min:"32" type:"integer"`
 }
 
 // String returns the string representation
@@ -7624,64 +7624,64 @@ type M3u8Settings struct {
 	_ struct{} `type:"structure"`
 
 	// The number of audio frames to insert for each PES packet.
-	AudioFramesPerPes *int64 `locationName:"audioFramesPerPes" type:"integer"`
+	AudioFramesPerPes *int64 `json:"mediaconvert:M3u8Settings:AudioFramesPerPes" locationName:"audioFramesPerPes" type:"integer"`
 
 	// Packet Identifier (PID) of the elementary audio stream(s) in the transport
 	// stream. Multiple values are accepted, and can be entered in ranges and/or
 	// by comma separation.
-	AudioPids []int64 `locationName:"audioPids" type:"list"`
+	AudioPids []int64 `json:"mediaconvert:M3u8Settings:AudioPids" locationName:"audioPids" type:"list"`
 
 	// If INSERT, Nielsen inaudible tones for media tracking will be detected in
 	// the input audio and an equivalent ID3 tag will be inserted in the output.
-	NielsenId3 M3u8NielsenId3 `locationName:"nielsenId3" type:"string" enum:"true"`
+	NielsenId3 M3u8NielsenId3 `json:"mediaconvert:M3u8Settings:NielsenId3" locationName:"nielsenId3" type:"string" enum:"true"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	PatInterval *int64 `locationName:"patInterval" type:"integer"`
+	PatInterval *int64 `json:"mediaconvert:M3u8Settings:PatInterval" locationName:"patInterval" type:"integer"`
 
 	// When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted
 	// for every Packetized Elementary Stream (PES) header. This parameter is effective
 	// only when the PCR PID is the same as the video or audio elementary stream.
-	PcrControl M3u8PcrControl `locationName:"pcrControl" type:"string" enum:"true"`
+	PcrControl M3u8PcrControl `json:"mediaconvert:M3u8Settings:PcrControl" locationName:"pcrControl" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport
 	// stream. When no value is given, the encoder will assign the same value as
 	// the Video PID.
-	PcrPid *int64 `locationName:"pcrPid" min:"32" type:"integer"`
+	PcrPid *int64 `json:"mediaconvert:M3u8Settings:PcrPid" locationName:"pcrPid" min:"32" type:"integer"`
 
 	// The number of milliseconds between instances of this table in the output
 	// transport stream.
-	PmtInterval *int64 `locationName:"pmtInterval" type:"integer"`
+	PmtInterval *int64 `json:"mediaconvert:M3u8Settings:PmtInterval" locationName:"pmtInterval" type:"integer"`
 
 	// Packet Identifier (PID) for the Program Map Table (PMT) in the transport
 	// stream.
-	PmtPid *int64 `locationName:"pmtPid" min:"32" type:"integer"`
+	PmtPid *int64 `json:"mediaconvert:M3u8Settings:PmtPid" locationName:"pmtPid" min:"32" type:"integer"`
 
 	// Packet Identifier (PID) of the private metadata stream in the transport stream.
-	PrivateMetadataPid *int64 `locationName:"privateMetadataPid" min:"32" type:"integer"`
+	PrivateMetadataPid *int64 `json:"mediaconvert:M3u8Settings:PrivateMetadataPid" locationName:"privateMetadataPid" min:"32" type:"integer"`
 
 	// The value of the program number field in the Program Map Table.
-	ProgramNumber *int64 `locationName:"programNumber" type:"integer"`
+	ProgramNumber *int64 `json:"mediaconvert:M3u8Settings:ProgramNumber" locationName:"programNumber" type:"integer"`
 
 	// Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
-	Scte35Pid *int64 `locationName:"scte35Pid" min:"32" type:"integer"`
+	Scte35Pid *int64 `json:"mediaconvert:M3u8Settings:Scte35Pid" locationName:"scte35Pid" min:"32" type:"integer"`
 
 	// Enables SCTE-35 passthrough (scte35Source) to pass any SCTE-35 signals from
 	// input to output.
-	Scte35Source M3u8Scte35Source `locationName:"scte35Source" type:"string" enum:"true"`
+	Scte35Source M3u8Scte35Source `json:"mediaconvert:M3u8Settings:Scte35Source" locationName:"scte35Source" type:"string" enum:"true"`
 
 	// Applies only to HLS outputs. Use this setting to specify whether the service
 	// inserts the ID3 timed metadata from the input in this output.
-	TimedMetadata TimedMetadata `locationName:"timedMetadata" type:"string" enum:"true"`
+	TimedMetadata TimedMetadata `json:"mediaconvert:M3u8Settings:TimedMetadata" locationName:"timedMetadata" type:"string" enum:"true"`
 
 	// Packet Identifier (PID) of the timed metadata stream in the transport stream.
-	TimedMetadataPid *int64 `locationName:"timedMetadataPid" min:"32" type:"integer"`
+	TimedMetadataPid *int64 `json:"mediaconvert:M3u8Settings:TimedMetadataPid" locationName:"timedMetadataPid" min:"32" type:"integer"`
 
 	// The value of the transport stream ID field in the Program Map Table.
-	TransportStreamId *int64 `locationName:"transportStreamId" type:"integer"`
+	TransportStreamId *int64 `json:"mediaconvert:M3u8Settings:TransportStreamId" locationName:"transportStreamId" type:"integer"`
 
 	// Packet Identifier (PID) of the elementary video stream in the transport stream.
-	VideoPid *int64 `locationName:"videoPid" min:"32" type:"integer"`
+	VideoPid *int64 `json:"mediaconvert:M3u8Settings:VideoPid" locationName:"videoPid" min:"32" type:"integer"`
 }
 
 // String returns the string representation
@@ -7836,7 +7836,7 @@ type MotionImageInserter struct {
 	// the frame rate and your intended overlay duration. For example, if you want
 	// a 30-second overlay at 30 fps, you should have 900 .png images. This overlay
 	// frame rate doesn't need to match the frame rate of the underlying video.
-	Framerate *MotionImageInsertionFramerate `locationName:"framerate" type:"structure"`
+	Framerate *MotionImageInsertionFramerate `json:"mediaconvert:MotionImageInserter:Framerate" locationName:"framerate" type:"structure"`
 
 	// Specify the .mov file or series of .png files that you want to overlay on
 	// your video. For .png files, provide the file name of the first file in the
@@ -7848,22 +7848,22 @@ type MotionImageInserter struct {
 	// first image is overlay_0.png, there can be only 10 images in the sequence,
 	// with the last image being overlay_9.png. But if the first image is overlay_00.png,
 	// there can be 100 images in the sequence.
-	Input *string `locationName:"input" min:"14" type:"string"`
+	Input *string `json:"mediaconvert:MotionImageInserter:Input" locationName:"input" min:"14" type:"string"`
 
 	// Choose the type of motion graphic asset that you are providing for your overlay.
 	// You can choose either a .mov file or a series of .png files.
-	InsertionMode MotionImageInsertionMode `locationName:"insertionMode" type:"string" enum:"true"`
+	InsertionMode MotionImageInsertionMode `json:"mediaconvert:MotionImageInserter:InsertionMode" locationName:"insertionMode" type:"string" enum:"true"`
 
 	// Use Offset to specify the placement of your motion graphic overlay on the
 	// video frame. Specify in pixels, from the upper-left corner of the frame.
 	// If you don't specify an offset, the service scales your overlay to the full
 	// size of the frame. Otherwise, the service inserts the overlay at its native
 	// resolution and scales the size up or down with any video scaling.
-	Offset *MotionImageInsertionOffset `locationName:"offset" type:"structure"`
+	Offset *MotionImageInsertionOffset `json:"mediaconvert:MotionImageInserter:Offset" locationName:"offset" type:"structure"`
 
 	// Specify whether your motion graphic overlay repeats on a loop or plays only
 	// once.
-	Playback MotionImagePlayback `locationName:"playback" type:"string" enum:"true"`
+	Playback MotionImagePlayback `json:"mediaconvert:MotionImageInserter:Playback" locationName:"playback" type:"string" enum:"true"`
 
 	// Specify when the motion overlay begins. Use timecode format (HH:MM:SS:FF
 	// or HH:MM:SS;FF). Make sure that the timecode you provide here takes into
@@ -7874,7 +7874,7 @@ type MotionImageInserter struct {
 	// after the first embedded timecode. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-timecode.html
 	// Find job-wide and input timecode configuration settings in your JSON job
 	// settings specification at settings>timecodeConfig>source and settings>inputs>timecodeSource.
-	StartTime *string `locationName:"startTime" min:"11" type:"string"`
+	StartTime *string `json:"mediaconvert:MotionImageInserter:StartTime" locationName:"startTime" min:"11" type:"string"`
 }
 
 // String returns the string representation
@@ -7954,11 +7954,11 @@ type MotionImageInsertionFramerate struct {
 
 	// The bottom of the fraction that expresses your overlay frame rate. For example,
 	// if your frame rate is 24 fps, set this value to 1.
-	FramerateDenominator *int64 `locationName:"framerateDenominator" min:"1" type:"integer"`
+	FramerateDenominator *int64 `json:"mediaconvert:MotionImageInsertionFramerate:FramerateDenominator" locationName:"framerateDenominator" min:"1" type:"integer"`
 
 	// The top of the fraction that expresses your overlay frame rate. For example,
 	// if your frame rate is 24 fps, set this value to 24.
-	FramerateNumerator *int64 `locationName:"framerateNumerator" min:"1" type:"integer"`
+	FramerateNumerator *int64 `json:"mediaconvert:MotionImageInsertionFramerate:FramerateNumerator" locationName:"framerateNumerator" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -8007,11 +8007,11 @@ type MotionImageInsertionOffset struct {
 
 	// Set the distance, in pixels, between the overlay and the left edge of the
 	// video frame.
-	ImageX *int64 `locationName:"imageX" type:"integer"`
+	ImageX *int64 `json:"mediaconvert:MotionImageInsertionOffset:ImageX" locationName:"imageX" type:"integer"`
 
 	// Set the distance, in pixels, between the overlay and the top edge of the
 	// video frame.
-	ImageY *int64 `locationName:"imageY" type:"integer"`
+	ImageY *int64 `json:"mediaconvert:MotionImageInsertionOffset:ImageY" locationName:"imageY" type:"integer"`
 }
 
 // String returns the string representation
@@ -8042,25 +8042,25 @@ type MovSettings struct {
 	_ struct{} `type:"structure"`
 
 	// When enabled, include 'clap' atom if appropriate for the video output settings.
-	ClapAtom MovClapAtom `locationName:"clapAtom" type:"string" enum:"true"`
+	ClapAtom MovClapAtom `json:"mediaconvert:MovSettings:ClapAtom" locationName:"clapAtom" type:"string" enum:"true"`
 
 	// When enabled, file composition times will start at zero, composition times
 	// in the 'ctts' (composition time to sample) box for B-frames will be negative,
 	// and a 'cslg' (composition shift least greatest) box will be included per
 	// 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-	CslgAtom MovCslgAtom `locationName:"cslgAtom" type:"string" enum:"true"`
+	CslgAtom MovCslgAtom `json:"mediaconvert:MovSettings:CslgAtom" locationName:"cslgAtom" type:"string" enum:"true"`
 
 	// When set to XDCAM, writes MPEG2 video streams into the QuickTime file using
 	// XDCAM fourcc codes. This increases compatibility with Apple editors and players,
 	// but may decrease compatibility with other players. Only applicable when the
 	// video codec is MPEG2.
-	Mpeg2FourCCControl MovMpeg2FourCCControl `locationName:"mpeg2FourCCControl" type:"string" enum:"true"`
+	Mpeg2FourCCControl MovMpeg2FourCCControl `json:"mediaconvert:MovSettings:Mpeg2FourCCControl" locationName:"mpeg2FourCCControl" type:"string" enum:"true"`
 
 	// If set to OMNEON, inserts Omneon-compatible padding
-	PaddingControl MovPaddingControl `locationName:"paddingControl" type:"string" enum:"true"`
+	PaddingControl MovPaddingControl `json:"mediaconvert:MovSettings:PaddingControl" locationName:"paddingControl" type:"string" enum:"true"`
 
 	// Always keep the default value (SELF_CONTAINED) for this setting.
-	Reference MovReference `locationName:"reference" type:"string" enum:"true"`
+	Reference MovReference `json:"mediaconvert:MovSettings:Reference" locationName:"reference" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -8110,15 +8110,15 @@ type Mp2Settings struct {
 	_ struct{} `type:"structure"`
 
 	// Average bitrate in bits/second.
-	Bitrate *int64 `locationName:"bitrate" min:"32000" type:"integer"`
+	Bitrate *int64 `json:"mediaconvert:Mp2Settings:Bitrate" locationName:"bitrate" min:"32000" type:"integer"`
 
 	// Set Channels to specify the number of channels in this output audio track.
 	// Choosing Mono in the console will give you 1 output channel; choosing Stereo
 	// will give you 2. In the API, valid values are 1 and 2.
-	Channels *int64 `locationName:"channels" min:"1" type:"integer"`
+	Channels *int64 `json:"mediaconvert:Mp2Settings:Channels" locationName:"channels" min:"1" type:"integer"`
 
 	// Sample rate in hz.
-	SampleRate *int64 `locationName:"sampleRate" min:"32000" type:"integer"`
+	SampleRate *int64 `json:"mediaconvert:Mp2Settings:SampleRate" locationName:"sampleRate" min:"32000" type:"integer"`
 }
 
 // String returns the string representation
@@ -8177,19 +8177,19 @@ type Mp4Settings struct {
 	// in the 'ctts' (composition time to sample) box for B-frames will be negative,
 	// and a 'cslg' (composition shift least greatest) box will be included per
 	// 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-	CslgAtom Mp4CslgAtom `locationName:"cslgAtom" type:"string" enum:"true"`
+	CslgAtom Mp4CslgAtom `json:"mediaconvert:Mp4Settings:CslgAtom" locationName:"cslgAtom" type:"string" enum:"true"`
 
 	// Inserts a free-space box immediately after the moov box.
-	FreeSpaceBox Mp4FreeSpaceBox `locationName:"freeSpaceBox" type:"string" enum:"true"`
+	FreeSpaceBox Mp4FreeSpaceBox `json:"mediaconvert:Mp4Settings:FreeSpaceBox" locationName:"freeSpaceBox" type:"string" enum:"true"`
 
 	// If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning
 	// of the archive as required for progressive downloading. Otherwise it is placed
 	// normally at the end.
-	MoovPlacement Mp4MoovPlacement `locationName:"moovPlacement" type:"string" enum:"true"`
+	MoovPlacement Mp4MoovPlacement `json:"mediaconvert:Mp4Settings:MoovPlacement" locationName:"moovPlacement" type:"string" enum:"true"`
 
 	// Overrides the "Major Brand" field in the output file. Usually not necessary
 	// to specify.
-	Mp4MajorBrand *string `locationName:"mp4MajorBrand" type:"string"`
+	Mp4MajorBrand *string `json:"mediaconvert:Mp4Settings:Mp4MajorBrand" locationName:"mp4MajorBrand" type:"string"`
 }
 
 // String returns the string representation
@@ -8234,24 +8234,24 @@ type Mpeg2Settings struct {
 
 	// Adaptive quantization. Allows intra-frame quantizers to vary to improve visual
 	// quality.
-	AdaptiveQuantization Mpeg2AdaptiveQuantization `locationName:"adaptiveQuantization" type:"string" enum:"true"`
+	AdaptiveQuantization Mpeg2AdaptiveQuantization `json:"mediaconvert:Mpeg2Settings:AdaptiveQuantization" locationName:"adaptiveQuantization" type:"string" enum:"true"`
 
 	// Average bitrate in bits/second. Required for VBR and CBR. For MS Smooth outputs,
 	// bitrates must be unique when rounded down to the nearest multiple of 1000.
-	Bitrate *int64 `locationName:"bitrate" min:"1000" type:"integer"`
+	Bitrate *int64 `json:"mediaconvert:Mpeg2Settings:Bitrate" locationName:"bitrate" min:"1000" type:"integer"`
 
 	// Use Level (Mpeg2CodecLevel) to set the MPEG-2 level for the video output.
-	CodecLevel Mpeg2CodecLevel `locationName:"codecLevel" type:"string" enum:"true"`
+	CodecLevel Mpeg2CodecLevel `json:"mediaconvert:Mpeg2Settings:CodecLevel" locationName:"codecLevel" type:"string" enum:"true"`
 
 	// Use Profile (Mpeg2CodecProfile) to set the MPEG-2 profile for the video output.
-	CodecProfile Mpeg2CodecProfile `locationName:"codecProfile" type:"string" enum:"true"`
+	CodecProfile Mpeg2CodecProfile `json:"mediaconvert:Mpeg2Settings:CodecProfile" locationName:"codecProfile" type:"string" enum:"true"`
 
 	// Choose Adaptive to improve subjective video quality for high-motion content.
 	// This will cause the service to use fewer B-frames (which infer information
 	// based on other frames) for high-motion portions of the video and more B-frames
 	// for low-motion portions. The maximum number of B-frames is limited by the
 	// value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-	DynamicSubGop Mpeg2DynamicSubGop `locationName:"dynamicSubGop" type:"string" enum:"true"`
+	DynamicSubGop Mpeg2DynamicSubGop `json:"mediaconvert:Mpeg2Settings:DynamicSubGop" locationName:"dynamicSubGop" type:"string" enum:"true"`
 
 	// If you are using the console, use the Framerate setting to specify the frame
 	// rate for this output. If you want to keep the same frame rate as the input
@@ -8264,37 +8264,37 @@ type Mpeg2Settings struct {
 	// Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
 	// from the input. Choose SPECIFIED if you want the service to use the frame
 	// rate you specify in the settings FramerateNumerator and FramerateDenominator.
-	FramerateControl Mpeg2FramerateControl `locationName:"framerateControl" type:"string" enum:"true"`
+	FramerateControl Mpeg2FramerateControl `json:"mediaconvert:Mpeg2Settings:FramerateControl" locationName:"framerateControl" type:"string" enum:"true"`
 
 	// When set to INTERPOLATE, produces smoother motion during frame rate conversion.
-	FramerateConversionAlgorithm Mpeg2FramerateConversionAlgorithm `locationName:"framerateConversionAlgorithm" type:"string" enum:"true"`
+	FramerateConversionAlgorithm Mpeg2FramerateConversionAlgorithm `json:"mediaconvert:Mpeg2Settings:FramerateConversionAlgorithm" locationName:"framerateConversionAlgorithm" type:"string" enum:"true"`
 
 	// Frame rate denominator.
-	FramerateDenominator *int64 `locationName:"framerateDenominator" min:"1" type:"integer"`
+	FramerateDenominator *int64 `json:"mediaconvert:Mpeg2Settings:FramerateDenominator" locationName:"framerateDenominator" min:"1" type:"integer"`
 
 	// Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976
 	// fps.
-	FramerateNumerator *int64 `locationName:"framerateNumerator" min:"24" type:"integer"`
+	FramerateNumerator *int64 `json:"mediaconvert:Mpeg2Settings:FramerateNumerator" locationName:"framerateNumerator" min:"24" type:"integer"`
 
 	// Frequency of closed GOPs. In streaming applications, it is recommended that
 	// this be set to 1 so a decoder joining mid-stream will receive an IDR frame
 	// as quickly as possible. Setting this value to 0 will break output segmenting.
-	GopClosedCadence *int64 `locationName:"gopClosedCadence" type:"integer"`
+	GopClosedCadence *int64 `json:"mediaconvert:Mpeg2Settings:GopClosedCadence" locationName:"gopClosedCadence" type:"integer"`
 
 	// GOP Length (keyframe interval) in frames or seconds. Must be greater than
 	// zero.
-	GopSize *float64 `locationName:"gopSize" type:"double"`
+	GopSize *float64 `json:"mediaconvert:Mpeg2Settings:GopSize" locationName:"gopSize" type:"double"`
 
 	// Indicates if the GOP Size in MPEG2 is specified in frames or seconds. If
 	// seconds the system will convert the GOP Size into a frame count at run time.
-	GopSizeUnits Mpeg2GopSizeUnits `locationName:"gopSizeUnits" type:"string" enum:"true"`
+	GopSizeUnits Mpeg2GopSizeUnits `json:"mediaconvert:Mpeg2Settings:GopSizeUnits" locationName:"gopSizeUnits" type:"string" enum:"true"`
 
 	// Percentage of the buffer that should initially be filled (HRD buffer model).
-	HrdBufferInitialFillPercentage *int64 `locationName:"hrdBufferInitialFillPercentage" type:"integer"`
+	HrdBufferInitialFillPercentage *int64 `json:"mediaconvert:Mpeg2Settings:HrdBufferInitialFillPercentage" locationName:"hrdBufferInitialFillPercentage" type:"integer"`
 
 	// Size of buffer (HRD buffer model) in bits. For example, enter five megabits
 	// as 5000000.
-	HrdBufferSize *int64 `locationName:"hrdBufferSize" type:"integer"`
+	HrdBufferSize *int64 `json:"mediaconvert:Mpeg2Settings:HrdBufferSize" locationName:"hrdBufferSize" type:"integer"`
 
 	// Use Interlace mode (InterlaceMode) to choose the scan line type for the output.
 	// * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce
@@ -8307,17 +8307,17 @@ type Mpeg2Settings struct {
 	// "bottom field first". - If the source is progressive, the output will be
 	// interlaced with "top field first" or "bottom field first" polarity, depending
 	// on which of the Follow options you chose.
-	InterlaceMode Mpeg2InterlaceMode `locationName:"interlaceMode" type:"string" enum:"true"`
+	InterlaceMode Mpeg2InterlaceMode `json:"mediaconvert:Mpeg2Settings:InterlaceMode" locationName:"interlaceMode" type:"string" enum:"true"`
 
 	// Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization precision
 	// for intra-block DC coefficients. If you choose the value auto, the service
 	// will automatically select the precision based on the per-frame compression
 	// ratio.
-	IntraDcPrecision Mpeg2IntraDcPrecision `locationName:"intraDcPrecision" type:"string" enum:"true"`
+	IntraDcPrecision Mpeg2IntraDcPrecision `json:"mediaconvert:Mpeg2Settings:IntraDcPrecision" locationName:"intraDcPrecision" type:"string" enum:"true"`
 
 	// Maximum bitrate in bits/second. For example, enter five megabits per second
 	// as 5000000.
-	MaxBitrate *int64 `locationName:"maxBitrate" min:"1000" type:"integer"`
+	MaxBitrate *int64 `json:"mediaconvert:Mpeg2Settings:MaxBitrate" locationName:"maxBitrate" min:"1000" type:"integer"`
 
 	// Enforces separation between repeated (cadence) I-frames and I-frames inserted
 	// by Scene Change Detection. If a scene change I-frame is within I-interval
@@ -8326,57 +8326,57 @@ type Mpeg2Settings struct {
 	// I-interval. The normal cadence resumes for the next GOP. This setting is
 	// only used when Scene Change Detect is enabled. Note: Maximum GOP stretch
 	// = GOP size + Min-I-interval - 1
-	MinIInterval *int64 `locationName:"minIInterval" type:"integer"`
+	MinIInterval *int64 `json:"mediaconvert:Mpeg2Settings:MinIInterval" locationName:"minIInterval" type:"integer"`
 
 	// Number of B-frames between reference frames.
-	NumberBFramesBetweenReferenceFrames *int64 `locationName:"numberBFramesBetweenReferenceFrames" type:"integer"`
+	NumberBFramesBetweenReferenceFrames *int64 `json:"mediaconvert:Mpeg2Settings:NumberBFramesBetweenReferenceFrames" locationName:"numberBFramesBetweenReferenceFrames" type:"integer"`
 
 	// Using the API, enable ParFollowSource if you want the service to use the
 	// pixel aspect ratio from the input. Using the console, do this by choosing
 	// Follow source for Pixel aspect ratio.
-	ParControl Mpeg2ParControl `locationName:"parControl" type:"string" enum:"true"`
+	ParControl Mpeg2ParControl `json:"mediaconvert:Mpeg2Settings:ParControl" locationName:"parControl" type:"string" enum:"true"`
 
 	// Pixel Aspect Ratio denominator.
-	ParDenominator *int64 `locationName:"parDenominator" min:"1" type:"integer"`
+	ParDenominator *int64 `json:"mediaconvert:Mpeg2Settings:ParDenominator" locationName:"parDenominator" min:"1" type:"integer"`
 
 	// Pixel Aspect Ratio numerator.
-	ParNumerator *int64 `locationName:"parNumerator" min:"1" type:"integer"`
+	ParNumerator *int64 `json:"mediaconvert:Mpeg2Settings:ParNumerator" locationName:"parNumerator" min:"1" type:"integer"`
 
 	// Use Quality tuning level (Mpeg2QualityTuningLevel) to specifiy whether to
 	// use single-pass or multipass video encoding.
-	QualityTuningLevel Mpeg2QualityTuningLevel `locationName:"qualityTuningLevel" type:"string" enum:"true"`
+	QualityTuningLevel Mpeg2QualityTuningLevel `json:"mediaconvert:Mpeg2Settings:QualityTuningLevel" locationName:"qualityTuningLevel" type:"string" enum:"true"`
 
 	// Use Rate control mode (Mpeg2RateControlMode) to specifiy whether the bitrate
 	// is variable (vbr) or constant (cbr).
-	RateControlMode Mpeg2RateControlMode `locationName:"rateControlMode" type:"string" enum:"true"`
+	RateControlMode Mpeg2RateControlMode `json:"mediaconvert:Mpeg2Settings:RateControlMode" locationName:"rateControlMode" type:"string" enum:"true"`
 
 	// Scene change detection (inserts I-frames on scene changes).
-	SceneChangeDetect Mpeg2SceneChangeDetect `locationName:"sceneChangeDetect" type:"string" enum:"true"`
+	SceneChangeDetect Mpeg2SceneChangeDetect `json:"mediaconvert:Mpeg2Settings:SceneChangeDetect" locationName:"sceneChangeDetect" type:"string" enum:"true"`
 
 	// Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled
 	// as 25fps, and audio is sped up correspondingly.
-	SlowPal Mpeg2SlowPal `locationName:"slowPal" type:"string" enum:"true"`
+	SlowPal Mpeg2SlowPal `json:"mediaconvert:Mpeg2Settings:SlowPal" locationName:"slowPal" type:"string" enum:"true"`
 
 	// Softness. Selects quantizer matrix, larger values reduce high-frequency content
 	// in the encoded image.
-	Softness *int64 `locationName:"softness" type:"integer"`
+	Softness *int64 `json:"mediaconvert:Mpeg2Settings:Softness" locationName:"softness" type:"integer"`
 
 	// Adjust quantization within each frame based on spatial variation of content
 	// complexity.
-	SpatialAdaptiveQuantization Mpeg2SpatialAdaptiveQuantization `locationName:"spatialAdaptiveQuantization" type:"string" enum:"true"`
+	SpatialAdaptiveQuantization Mpeg2SpatialAdaptiveQuantization `json:"mediaconvert:Mpeg2Settings:SpatialAdaptiveQuantization" locationName:"spatialAdaptiveQuantization" type:"string" enum:"true"`
 
 	// Produces a Type D-10 compatible bitstream (SMPTE 356M-2001).
-	Syntax Mpeg2Syntax `locationName:"syntax" type:"string" enum:"true"`
+	Syntax Mpeg2Syntax `json:"mediaconvert:Mpeg2Settings:Syntax" locationName:"syntax" type:"string" enum:"true"`
 
 	// Only use Telecine (Mpeg2Telecine) when you set Framerate (Framerate) to 29.970.
 	// Set Telecine (Mpeg2Telecine) to Hard (hard) to produce a 29.97i output from
 	// a 23.976 input. Set it to Soft (soft) to produce 23.976 output and leave
 	// converstion to the player.
-	Telecine Mpeg2Telecine `locationName:"telecine" type:"string" enum:"true"`
+	Telecine Mpeg2Telecine `json:"mediaconvert:Mpeg2Settings:Telecine" locationName:"telecine" type:"string" enum:"true"`
 
 	// Adjust quantization within each frame based on temporal variation of content
 	// complexity.
-	TemporalAdaptiveQuantization Mpeg2TemporalAdaptiveQuantization `locationName:"temporalAdaptiveQuantization" type:"string" enum:"true"`
+	TemporalAdaptiveQuantization Mpeg2TemporalAdaptiveQuantization `json:"mediaconvert:Mpeg2Settings:TemporalAdaptiveQuantization" locationName:"temporalAdaptiveQuantization" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -8610,7 +8610,7 @@ type MsSmoothEncryptionSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Settings for use with a SPEKE key provider
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediaconvert:MsSmoothEncryptionSettings:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure"`
 }
 
 // String returns the string representation
@@ -8637,30 +8637,30 @@ type MsSmoothGroupSettings struct {
 
 	// COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across
 	// a Microsoft Smooth output group into a single audio stream.
-	AudioDeduplication MsSmoothAudioDeduplication `locationName:"audioDeduplication" type:"string" enum:"true"`
+	AudioDeduplication MsSmoothAudioDeduplication `json:"mediaconvert:MsSmoothGroupSettings:AudioDeduplication" locationName:"audioDeduplication" type:"string" enum:"true"`
 
 	// Use Destination (Destination) to specify the S3 output location and the output
 	// filename base. Destination accepts format identifiers. If you do not specify
 	// the base filename in the URI, the service will use the filename of the input
 	// file. If your job has multiple inputs, the service uses the filename of the
 	// first input file.
-	Destination *string `locationName:"destination" type:"string"`
+	Destination *string `json:"mediaconvert:MsSmoothGroupSettings:Destination" locationName:"destination" type:"string"`
 
 	// Settings associated with the destination. Will vary based on the type of
 	// destination
-	DestinationSettings *DestinationSettings `locationName:"destinationSettings" type:"structure"`
+	DestinationSettings *DestinationSettings `json:"mediaconvert:MsSmoothGroupSettings:DestinationSettings" locationName:"destinationSettings" type:"structure"`
 
 	// If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify
 	// the value SpekeKeyProvider.
-	Encryption *MsSmoothEncryptionSettings `locationName:"encryption" type:"structure"`
+	Encryption *MsSmoothEncryptionSettings `json:"mediaconvert:MsSmoothGroupSettings:Encryption" locationName:"encryption" type:"structure"`
 
 	// Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in
 	// seconds. Fragment length must be compatible with GOP size and frame rate.
-	FragmentLength *int64 `locationName:"fragmentLength" min:"1" type:"integer"`
+	FragmentLength *int64 `json:"mediaconvert:MsSmoothGroupSettings:FragmentLength" locationName:"fragmentLength" min:"1" type:"integer"`
 
 	// Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding
 	// format for the server and client manifest. Valid options are utf8 and utf16.
-	ManifestEncoding MsSmoothManifestEncoding `locationName:"manifestEncoding" type:"string" enum:"true"`
+	ManifestEncoding MsSmoothManifestEncoding `json:"mediaconvert:MsSmoothGroupSettings:ManifestEncoding" locationName:"manifestEncoding" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -8729,11 +8729,11 @@ type NielsenConfiguration struct {
 
 	// Use Nielsen Configuration (NielsenConfiguration) to set the Nielsen measurement
 	// system breakout code. Supported values are 0, 3, 7, and 9.
-	BreakoutCode *int64 `locationName:"breakoutCode" type:"integer"`
+	BreakoutCode *int64 `json:"mediaconvert:NielsenConfiguration:BreakoutCode" locationName:"breakoutCode" type:"integer"`
 
 	// Use Distributor ID (DistributorID) to specify the distributor ID that is
 	// assigned to your organization by Neilsen.
-	DistributorId *string `locationName:"distributorId" type:"string"`
+	DistributorId *string `json:"mediaconvert:NielsenConfiguration:DistributorId" locationName:"distributorId" type:"string"`
 }
 
 // String returns the string representation
@@ -8773,13 +8773,13 @@ type NoiseReducer struct {
 	// filter. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) are convolution
 	// filters. * Conserve is a min/max noise reduction filter. * Spatial is a frequency-domain
 	// filter based on JND principles.
-	Filter NoiseReducerFilter `locationName:"filter" type:"string" enum:"true"`
+	Filter NoiseReducerFilter `json:"mediaconvert:NoiseReducer:Filter" locationName:"filter" type:"string" enum:"true"`
 
 	// Settings for a noise reducer filter
-	FilterSettings *NoiseReducerFilterSettings `locationName:"filterSettings" type:"structure"`
+	FilterSettings *NoiseReducerFilterSettings `json:"mediaconvert:NoiseReducer:FilterSettings" locationName:"filterSettings" type:"structure"`
 
 	// Noise reducer filter settings for spatial filter.
-	SpatialFilterSettings *NoiseReducerSpatialFilterSettings `locationName:"spatialFilterSettings" type:"structure"`
+	SpatialFilterSettings *NoiseReducerSpatialFilterSettings `json:"mediaconvert:NoiseReducer:SpatialFilterSettings" locationName:"spatialFilterSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -8832,7 +8832,7 @@ type NoiseReducerFilterSettings struct {
 
 	// Relative strength of noise reducing filter. Higher values produce stronger
 	// filtering.
-	Strength *int64 `locationName:"strength" type:"integer"`
+	Strength *int64 `json:"mediaconvert:NoiseReducerFilterSettings:Strength" locationName:"strength" type:"integer"`
 }
 
 // String returns the string representation
@@ -8858,15 +8858,15 @@ type NoiseReducerSpatialFilterSettings struct {
 
 	// Specify strength of post noise reduction sharpening filter, with 0 disabling
 	// the filter and 3 enabling it at maximum strength.
-	PostFilterSharpenStrength *int64 `locationName:"postFilterSharpenStrength" type:"integer"`
+	PostFilterSharpenStrength *int64 `json:"mediaconvert:NoiseReducerSpatialFilterSettings:PostFilterSharpenStrength" locationName:"postFilterSharpenStrength" type:"integer"`
 
 	// The speed of the filter, from -2 (lower speed) to 3 (higher speed), with
 	// 0 being the nominal value.
-	Speed *int64 `locationName:"speed" type:"integer"`
+	Speed *int64 `json:"mediaconvert:NoiseReducerSpatialFilterSettings:Speed" locationName:"speed" type:"integer"`
 
 	// Relative strength of noise reducing filter. Higher values produce stronger
 	// filtering.
-	Strength *int64 `locationName:"strength" type:"integer"`
+	Strength *int64 `json:"mediaconvert:NoiseReducerSpatialFilterSettings:Strength" locationName:"strength" type:"integer"`
 }
 
 // String returns the string representation
@@ -8919,22 +8919,22 @@ type Output struct {
 	// (AudioDescriptions) contains groups of audio encoding settings organized
 	// by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions)
 	// can contain multiple groups of encoding settings.
-	AudioDescriptions []AudioDescription `locationName:"audioDescriptions" type:"list"`
+	AudioDescriptions []AudioDescription `json:"mediaconvert:Output:AudioDescriptions" locationName:"audioDescriptions" type:"list"`
 
 	// (CaptionDescriptions) contains groups of captions settings. For each output
 	// that has captions, include one instance of (CaptionDescriptions). (CaptionDescriptions)
 	// can contain multiple groups of captions settings.
-	CaptionDescriptions []CaptionDescription `locationName:"captionDescriptions" type:"list"`
+	CaptionDescriptions []CaptionDescription `json:"mediaconvert:Output:CaptionDescriptions" locationName:"captionDescriptions" type:"list"`
 
 	// Container specific settings.
-	ContainerSettings *ContainerSettings `locationName:"containerSettings" type:"structure"`
+	ContainerSettings *ContainerSettings `json:"mediaconvert:Output:ContainerSettings" locationName:"containerSettings" type:"structure"`
 
 	// Use Extension (Extension) to specify the file extension for outputs in File
 	// output groups. If you do not specify a value, the service will use default
 	// extensions by container type as follows * MPEG-2 transport stream, m2ts *
 	// Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * No Container,
 	// the service will use codec extensions (e.g. AAC, H265, H265, AC3)
-	Extension *string `locationName:"extension" type:"string"`
+	Extension *string `json:"mediaconvert:Output:Extension" locationName:"extension" type:"string"`
 
 	// Use Name modifier (NameModifier) to have the service add a string to the
 	// end of each output filename. You specify the base filename as part of your
@@ -8943,20 +8943,20 @@ type Output struct {
 	// identifiers. For DASH ISO outputs, if you use the format identifiers $Number$
 	// or $Time$ in one output, you must use them in the same way in all outputs
 	// of the output group.
-	NameModifier *string `locationName:"nameModifier" min:"1" type:"string"`
+	NameModifier *string `json:"mediaconvert:Output:NameModifier" locationName:"nameModifier" min:"1" type:"string"`
 
 	// Specific settings for this type of output.
-	OutputSettings *OutputSettings `locationName:"outputSettings" type:"structure"`
+	OutputSettings *OutputSettings `json:"mediaconvert:Output:OutputSettings" locationName:"outputSettings" type:"structure"`
 
 	// Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide
 	// the system or custom preset name. You can specify either Preset (Preset)
 	// or Container settings (ContainerSettings), but not both.
-	Preset *string `locationName:"preset" type:"string"`
+	Preset *string `json:"mediaconvert:Output:Preset" locationName:"preset" type:"string"`
 
 	// (VideoDescription) contains a group of video encoding settings. The specific
 	// video settings depend on the video codec you choose when you specify a value
 	// for Video codec (codec). Include one instance of (VideoDescription) per output.
-	VideoDescription *VideoDescription `locationName:"videoDescription" type:"structure"`
+	VideoDescription *VideoDescription `json:"mediaconvert:Output:VideoDescription" locationName:"videoDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -9072,7 +9072,7 @@ type OutputChannelMapping struct {
 	_ struct{} `type:"structure"`
 
 	// List of input channels
-	InputChannels []int64 `locationName:"inputChannels" type:"list"`
+	InputChannels []int64 `json:"mediaconvert:OutputChannelMapping:InputChannels" locationName:"inputChannels" type:"list"`
 }
 
 // String returns the string representation
@@ -9103,10 +9103,10 @@ type OutputDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Duration in milliseconds
-	DurationInMs *int64 `locationName:"durationInMs" type:"integer"`
+	DurationInMs *int64 `json:"mediaconvert:OutputDetail:DurationInMs" locationName:"durationInMs" type:"integer"`
 
 	// Contains details about the output's video stream
-	VideoDetails *VideoDetail `locationName:"videoDetails" type:"structure"`
+	VideoDetails *VideoDetail `json:"mediaconvert:OutputDetail:VideoDetails" locationName:"videoDetails" type:"structure"`
 }
 
 // String returns the string representation
@@ -9140,17 +9140,17 @@ type OutputGroup struct {
 	// This value is displayed on the console and can make your job settings JSON
 	// more human-readable. It does not affect your outputs. Use up to twelve characters
 	// that are either letters, numbers, spaces, or underscores.
-	CustomName *string `locationName:"customName" type:"string"`
+	CustomName *string `json:"mediaconvert:OutputGroup:CustomName" locationName:"customName" type:"string"`
 
 	// Name of the output group
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mediaconvert:OutputGroup:Name" locationName:"name" type:"string"`
 
 	// Output Group settings, including type
-	OutputGroupSettings *OutputGroupSettings `locationName:"outputGroupSettings" type:"structure"`
+	OutputGroupSettings *OutputGroupSettings `json:"mediaconvert:OutputGroup:OutputGroupSettings" locationName:"outputGroupSettings" type:"structure"`
 
 	// This object holds groups of encoding settings, one group of settings per
 	// output.
-	Outputs []Output `locationName:"outputs" type:"list"`
+	Outputs []Output `json:"mediaconvert:OutputGroup:Outputs" locationName:"outputs" type:"list"`
 }
 
 // String returns the string representation
@@ -9221,7 +9221,7 @@ type OutputGroupDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Details about the output
-	OutputDetails []OutputDetail `locationName:"outputDetails" type:"list"`
+	OutputDetails []OutputDetail `json:"mediaconvert:OutputGroupDetail:OutputDetails" locationName:"outputDetails" type:"list"`
 }
 
 // String returns the string representation
@@ -9254,27 +9254,27 @@ type OutputGroupSettings struct {
 	// Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to
 	// CMAF_GROUP_SETTINGS. Each output in a CMAF Output Group may only contain
 	// a single video, audio, or caption output.
-	CmafGroupSettings *CmafGroupSettings `locationName:"cmafGroupSettings" type:"structure"`
+	CmafGroupSettings *CmafGroupSettings `json:"mediaconvert:OutputGroupSettings:CmafGroupSettings" locationName:"cmafGroupSettings" type:"structure"`
 
 	// Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to
 	// DASH_ISO_GROUP_SETTINGS.
-	DashIsoGroupSettings *DashIsoGroupSettings `locationName:"dashIsoGroupSettings" type:"structure"`
+	DashIsoGroupSettings *DashIsoGroupSettings `json:"mediaconvert:OutputGroupSettings:DashIsoGroupSettings" locationName:"dashIsoGroupSettings" type:"structure"`
 
 	// Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to
 	// FILE_GROUP_SETTINGS.
-	FileGroupSettings *FileGroupSettings `locationName:"fileGroupSettings" type:"structure"`
+	FileGroupSettings *FileGroupSettings `json:"mediaconvert:OutputGroupSettings:FileGroupSettings" locationName:"fileGroupSettings" type:"structure"`
 
 	// Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to
 	// HLS_GROUP_SETTINGS.
-	HlsGroupSettings *HlsGroupSettings `locationName:"hlsGroupSettings" type:"structure"`
+	HlsGroupSettings *HlsGroupSettings `json:"mediaconvert:OutputGroupSettings:HlsGroupSettings" locationName:"hlsGroupSettings" type:"structure"`
 
 	// Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to
 	// MS_SMOOTH_GROUP_SETTINGS.
-	MsSmoothGroupSettings *MsSmoothGroupSettings `locationName:"msSmoothGroupSettings" type:"structure"`
+	MsSmoothGroupSettings *MsSmoothGroupSettings `json:"mediaconvert:OutputGroupSettings:MsSmoothGroupSettings" locationName:"msSmoothGroupSettings" type:"structure"`
 
 	// Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming,
 	// CMAF)
-	Type OutputGroupType `locationName:"type" type:"string" enum:"true"`
+	Type OutputGroupType `json:"mediaconvert:OutputGroupSettings:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9359,7 +9359,7 @@ type OutputSettings struct {
 	_ struct{} `type:"structure"`
 
 	// Settings for HLS output groups
-	HlsSettings *HlsSettings `locationName:"hlsSettings" type:"structure"`
+	HlsSettings *HlsSettings `json:"mediaconvert:OutputSettings:HlsSettings" locationName:"hlsSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -9385,33 +9385,33 @@ type Preset struct {
 	_ struct{} `type:"structure"`
 
 	// An identifier for this resource that is unique within all of AWS.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediaconvert:Preset:Arn" locationName:"arn" type:"string"`
 
 	// An optional category you create to organize your presets.
-	Category *string `locationName:"category" type:"string"`
+	Category *string `json:"mediaconvert:Preset:Category" locationName:"category" type:"string"`
 
 	// The timestamp in epoch seconds for preset creation.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"mediaconvert:Preset:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// An optional description you create for each preset.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconvert:Preset:Description" locationName:"description" type:"string"`
 
 	// The timestamp in epoch seconds when the preset was last updated.
-	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"mediaconvert:Preset:LastUpdated" locationName:"lastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// A name you create for each preset. Each name must be unique within your account.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"mediaconvert:Preset:Name" locationName:"name" type:"string" required:"true"`
 
 	// Settings for preset
 	//
 	// Settings is a required field
-	Settings *PresetSettings `locationName:"settings" type:"structure" required:"true"`
+	Settings *PresetSettings `json:"mediaconvert:Preset:Settings" locationName:"settings" type:"structure" required:"true"`
 
 	// A preset can be of two types: system or custom. System or built-in preset
 	// can't be modified or deleted by the user.
-	Type Type `locationName:"type" type:"string" enum:"true"`
+	Type Type `json:"mediaconvert:Preset:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9480,19 +9480,19 @@ type PresetSettings struct {
 	// (AudioDescriptions) contains groups of audio encoding settings organized
 	// by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions)
 	// can contain multiple groups of encoding settings.
-	AudioDescriptions []AudioDescription `locationName:"audioDescriptions" type:"list"`
+	AudioDescriptions []AudioDescription `json:"mediaconvert:PresetSettings:AudioDescriptions" locationName:"audioDescriptions" type:"list"`
 
 	// Caption settings for this preset. There can be multiple caption settings
 	// in a single output.
-	CaptionDescriptions []CaptionDescriptionPreset `locationName:"captionDescriptions" type:"list"`
+	CaptionDescriptions []CaptionDescriptionPreset `json:"mediaconvert:PresetSettings:CaptionDescriptions" locationName:"captionDescriptions" type:"list"`
 
 	// Container specific settings.
-	ContainerSettings *ContainerSettings `locationName:"containerSettings" type:"structure"`
+	ContainerSettings *ContainerSettings `json:"mediaconvert:PresetSettings:ContainerSettings" locationName:"containerSettings" type:"structure"`
 
 	// (VideoDescription) contains a group of video encoding settings. The specific
 	// video settings depend on the video codec you choose when you specify a value
 	// for Video codec (codec). Include one instance of (VideoDescription) per output.
-	VideoDescription *VideoDescription `locationName:"videoDescription" type:"structure"`
+	VideoDescription *VideoDescription `json:"mediaconvert:PresetSettings:VideoDescription" locationName:"videoDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -9583,7 +9583,7 @@ type ProresSettings struct {
 
 	// Use Profile (ProResCodecProfile) to specifiy the type of Apple ProRes codec
 	// to use for this output.
-	CodecProfile ProresCodecProfile `locationName:"codecProfile" type:"string" enum:"true"`
+	CodecProfile ProresCodecProfile `json:"mediaconvert:ProresSettings:CodecProfile" locationName:"codecProfile" type:"string" enum:"true"`
 
 	// If you are using the console, use the Framerate setting to specify the frame
 	// rate for this output. If you want to keep the same frame rate as the input
@@ -9596,19 +9596,19 @@ type ProresSettings struct {
 	// Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
 	// from the input. Choose SPECIFIED if you want the service to use the frame
 	// rate you specify in the settings FramerateNumerator and FramerateDenominator.
-	FramerateControl ProresFramerateControl `locationName:"framerateControl" type:"string" enum:"true"`
+	FramerateControl ProresFramerateControl `json:"mediaconvert:ProresSettings:FramerateControl" locationName:"framerateControl" type:"string" enum:"true"`
 
 	// When set to INTERPOLATE, produces smoother motion during frame rate conversion.
-	FramerateConversionAlgorithm ProresFramerateConversionAlgorithm `locationName:"framerateConversionAlgorithm" type:"string" enum:"true"`
+	FramerateConversionAlgorithm ProresFramerateConversionAlgorithm `json:"mediaconvert:ProresSettings:FramerateConversionAlgorithm" locationName:"framerateConversionAlgorithm" type:"string" enum:"true"`
 
 	// Frame rate denominator.
-	FramerateDenominator *int64 `locationName:"framerateDenominator" min:"1" type:"integer"`
+	FramerateDenominator *int64 `json:"mediaconvert:ProresSettings:FramerateDenominator" locationName:"framerateDenominator" min:"1" type:"integer"`
 
 	// When you use the API for transcode jobs that use frame rate conversion, specify
 	// the frame rate as a fraction. For example, 24000 / 1001 = 23.976 fps. Use
 	// FramerateNumerator to specify the numerator of this fraction. In this example,
 	// use 24000 for the value of FramerateNumerator.
-	FramerateNumerator *int64 `locationName:"framerateNumerator" min:"1" type:"integer"`
+	FramerateNumerator *int64 `json:"mediaconvert:ProresSettings:FramerateNumerator" locationName:"framerateNumerator" min:"1" type:"integer"`
 
 	// Use Interlace mode (InterlaceMode) to choose the scan line type for the output.
 	// * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce
@@ -9621,30 +9621,30 @@ type ProresSettings struct {
 	// "bottom field first". - If the source is progressive, the output will be
 	// interlaced with "top field first" or "bottom field first" polarity, depending
 	// on which of the Follow options you chose.
-	InterlaceMode ProresInterlaceMode `locationName:"interlaceMode" type:"string" enum:"true"`
+	InterlaceMode ProresInterlaceMode `json:"mediaconvert:ProresSettings:InterlaceMode" locationName:"interlaceMode" type:"string" enum:"true"`
 
 	// Use (ProresParControl) to specify how the service determines the pixel aspect
 	// ratio. Set to Follow source (INITIALIZE_FROM_SOURCE) to use the pixel aspect
 	// ratio from the input. To specify a different pixel aspect ratio: Using the
 	// console, choose it from the dropdown menu. Using the API, set ProresParControl
 	// to (SPECIFIED) and provide for (ParNumerator) and (ParDenominator).
-	ParControl ProresParControl `locationName:"parControl" type:"string" enum:"true"`
+	ParControl ProresParControl `json:"mediaconvert:ProresSettings:ParControl" locationName:"parControl" type:"string" enum:"true"`
 
 	// Pixel Aspect Ratio denominator.
-	ParDenominator *int64 `locationName:"parDenominator" min:"1" type:"integer"`
+	ParDenominator *int64 `json:"mediaconvert:ProresSettings:ParDenominator" locationName:"parDenominator" min:"1" type:"integer"`
 
 	// Pixel Aspect Ratio numerator.
-	ParNumerator *int64 `locationName:"parNumerator" min:"1" type:"integer"`
+	ParNumerator *int64 `json:"mediaconvert:ProresSettings:ParNumerator" locationName:"parNumerator" min:"1" type:"integer"`
 
 	// Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled
 	// as 25fps, and audio is sped up correspondingly.
-	SlowPal ProresSlowPal `locationName:"slowPal" type:"string" enum:"true"`
+	SlowPal ProresSlowPal `json:"mediaconvert:ProresSettings:SlowPal" locationName:"slowPal" type:"string" enum:"true"`
 
 	// Only use Telecine (ProresTelecine) when you set Framerate (Framerate) to
 	// 29.970. Set Telecine (ProresTelecine) to Hard (hard) to produce a 29.97i
 	// output from a 23.976 input. Set it to Soft (soft) to produce 23.976 output
 	// and leave converstion to the player.
-	Telecine ProresTelecine `locationName:"telecine" type:"string" enum:"true"`
+	Telecine ProresTelecine `json:"mediaconvert:ProresSettings:Telecine" locationName:"telecine" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9754,49 +9754,49 @@ type Queue struct {
 	_ struct{} `type:"structure"`
 
 	// An identifier for this resource that is unique within all of AWS.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediaconvert:Queue:Arn" locationName:"arn" type:"string"`
 
 	// The timestamp in epoch seconds for when you created the queue.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"mediaconvert:Queue:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// An optional description that you create for each queue.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediaconvert:Queue:Description" locationName:"description" type:"string"`
 
 	// The timestamp in epoch seconds for when you most recently updated the queue.
-	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"mediaconvert:Queue:LastUpdated" locationName:"lastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// A name that you create for each queue. Each name must be unique within your
 	// account.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"mediaconvert:Queue:Name" locationName:"name" type:"string" required:"true"`
 
 	// Specifies whether the pricing plan for the queue is on-demand or reserved.
 	// For on-demand, you pay per minute, billed in increments of .01 minute. For
 	// reserved, you pay for the transcoding capacity of the entire queue, regardless
 	// of how much or how little you use it. Reserved pricing requires a 12-month
 	// commitment.
-	PricingPlan PricingPlan `locationName:"pricingPlan" type:"string" enum:"true"`
+	PricingPlan PricingPlan `json:"mediaconvert:Queue:PricingPlan" locationName:"pricingPlan" type:"string" enum:"true"`
 
 	// The estimated number of jobs with a PROGRESSING status.
-	ProgressingJobsCount *int64 `locationName:"progressingJobsCount" type:"integer"`
+	ProgressingJobsCount *int64 `json:"mediaconvert:Queue:ProgressingJobsCount" locationName:"progressingJobsCount" type:"integer"`
 
 	// Details about the pricing plan for your reserved queue. Required for reserved
 	// queues and not applicable to on-demand queues.
-	ReservationPlan *ReservationPlan `locationName:"reservationPlan" type:"structure"`
+	ReservationPlan *ReservationPlan `json:"mediaconvert:Queue:ReservationPlan" locationName:"reservationPlan" type:"structure"`
 
 	// Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin
 	// processing jobs in that queue. Jobs that are running when you pause the queue
 	// continue to run until they finish or result in an error.
-	Status QueueStatus `locationName:"status" type:"string" enum:"true"`
+	Status QueueStatus `json:"mediaconvert:Queue:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The estimated number of jobs with a SUBMITTED status.
-	SubmittedJobsCount *int64 `locationName:"submittedJobsCount" type:"integer"`
+	SubmittedJobsCount *int64 `json:"mediaconvert:Queue:SubmittedJobsCount" locationName:"submittedJobsCount" type:"integer"`
 
 	// Specifies whether this on-demand queue is system or custom. System queues
 	// are built in. You can't modify or delete system queues. You can create and
 	// modify custom queues.
-	Type Type `locationName:"type" type:"string" enum:"true"`
+	Type Type `json:"mediaconvert:Queue:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9881,18 +9881,18 @@ type Rectangle struct {
 	_ struct{} `type:"structure"`
 
 	// Height of rectangle in pixels. Specify only even numbers.
-	Height *int64 `locationName:"height" min:"2" type:"integer"`
+	Height *int64 `json:"mediaconvert:Rectangle:Height" locationName:"height" min:"2" type:"integer"`
 
 	// Width of rectangle in pixels. Specify only even numbers.
-	Width *int64 `locationName:"width" min:"2" type:"integer"`
+	Width *int64 `json:"mediaconvert:Rectangle:Width" locationName:"width" min:"2" type:"integer"`
 
 	// The distance, in pixels, between the rectangle and the left edge of the video
 	// frame. Specify only even numbers.
-	X *int64 `locationName:"x" type:"integer"`
+	X *int64 `json:"mediaconvert:Rectangle:X" locationName:"x" type:"integer"`
 
 	// The distance, in pixels, between the rectangle and the top edge of the video
 	// frame. Specify only even numbers.
-	Y *int64 `locationName:"y" type:"integer"`
+	Y *int64 `json:"mediaconvert:Rectangle:Y" locationName:"y" type:"integer"`
 }
 
 // String returns the string representation
@@ -9956,16 +9956,16 @@ type RemixSettings struct {
 	// remixing value for each channel. Units are in dB. Acceptable values are within
 	// the range from -60 (mute) through 6. A setting of 0 passes the input channel
 	// unchanged to the output channel (no attenuation or amplification).
-	ChannelMapping *ChannelMapping `locationName:"channelMapping" type:"structure"`
+	ChannelMapping *ChannelMapping `json:"mediaconvert:RemixSettings:ChannelMapping" locationName:"channelMapping" type:"structure"`
 
 	// Specify the number of audio channels from your input that you want to use
 	// in your output. With remixing, you might combine or split the data in these
 	// channels, so the number of channels in your final output might be different.
-	ChannelsIn *int64 `locationName:"channelsIn" min:"1" type:"integer"`
+	ChannelsIn *int64 `json:"mediaconvert:RemixSettings:ChannelsIn" locationName:"channelsIn" min:"1" type:"integer"`
 
 	// Specify the number of channels in this output after remixing. Valid values:
 	// 1, 2, 4, 6, 8
-	ChannelsOut *int64 `locationName:"channelsOut" min:"1" type:"integer"`
+	ChannelsOut *int64 `json:"mediaconvert:RemixSettings:ChannelsOut" locationName:"channelsOut" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -10019,19 +10019,19 @@ type ReservationPlan struct {
 	_ struct{} `type:"structure"`
 
 	// The length of the term of your reserved queue pricing plan commitment.
-	Commitment Commitment `locationName:"commitment" type:"string" enum:"true"`
+	Commitment Commitment `json:"mediaconvert:ReservationPlan:Commitment" locationName:"commitment" type:"string" enum:"true"`
 
 	// The timestamp in epoch seconds for when the current pricing plan term for
 	// this reserved queue expires.
-	ExpiresAt *time.Time `locationName:"expiresAt" type:"timestamp" timestampFormat:"unix"`
+	ExpiresAt *time.Time `json:"mediaconvert:ReservationPlan:ExpiresAt" locationName:"expiresAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The timestamp in epoch seconds for when you set up the current pricing plan
 	// for this reserved queue.
-	PurchasedAt *time.Time `locationName:"purchasedAt" type:"timestamp" timestampFormat:"unix"`
+	PurchasedAt *time.Time `json:"mediaconvert:ReservationPlan:PurchasedAt" locationName:"purchasedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies whether the term of your reserved queue pricing plan is automatically
 	// extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term.
-	RenewalType RenewalType `locationName:"renewalType" type:"string" enum:"true"`
+	RenewalType RenewalType `json:"mediaconvert:ReservationPlan:RenewalType" locationName:"renewalType" type:"string" enum:"true"`
 
 	// Specifies the number of reserved transcode slots (RTS) for this queue. The
 	// number of RTS determines how many jobs the queue can process in parallel;
@@ -10039,10 +10039,10 @@ type ReservationPlan struct {
 	// extend your existing commitment with a new 12-month commitment for a larger
 	// number of RTS. The new commitment begins when you purchase the additional
 	// capacity. You can't decrease the number of RTS in your reserved queue.
-	ReservedSlots *int64 `locationName:"reservedSlots" type:"integer"`
+	ReservedSlots *int64 `json:"mediaconvert:ReservationPlan:ReservedSlots" locationName:"reservedSlots" type:"integer"`
 
 	// Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
-	Status ReservationPlanStatus `locationName:"status" type:"string" enum:"true"`
+	Status ReservationPlanStatus `json:"mediaconvert:ReservationPlan:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10100,7 +10100,7 @@ type ReservationPlanSettings struct {
 	// The length of the term of your reserved queue pricing plan commitment.
 	//
 	// Commitment is a required field
-	Commitment Commitment `locationName:"commitment" type:"string" required:"true" enum:"true"`
+	Commitment Commitment `json:"mediaconvert:ReservationPlanSettings:Commitment" locationName:"commitment" type:"string" required:"true" enum:"true"`
 
 	// Specifies whether the term of your reserved queue pricing plan is automatically
 	// extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term. When your
@@ -10108,7 +10108,7 @@ type ReservationPlanSettings struct {
 	// renew date. You can cancel this commitment.
 	//
 	// RenewalType is a required field
-	RenewalType RenewalType `locationName:"renewalType" type:"string" required:"true" enum:"true"`
+	RenewalType RenewalType `json:"mediaconvert:ReservationPlanSettings:RenewalType" locationName:"renewalType" type:"string" required:"true" enum:"true"`
 
 	// Specifies the number of reserved transcode slots (RTS) for this queue. The
 	// number of RTS determines how many jobs the queue can process in parallel;
@@ -10120,7 +10120,7 @@ type ReservationPlanSettings struct {
 	// you increase the capacity.
 	//
 	// ReservedSlots is a required field
-	ReservedSlots *int64 `locationName:"reservedSlots" type:"integer" required:"true"`
+	ReservedSlots *int64 `json:"mediaconvert:ReservationPlanSettings:ReservedSlots" locationName:"reservedSlots" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -10178,10 +10178,10 @@ type ResourceTags struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediaconvert:ResourceTags:Arn" locationName:"arn" type:"string"`
 
 	// The tags for the resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mediaconvert:ResourceTags:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -10219,7 +10219,7 @@ type S3DestinationSettings struct {
 
 	// Settings for how your job outputs are encrypted as they are uploaded to Amazon
 	// S3.
-	Encryption *S3EncryptionSettings `locationName:"encryption" type:"structure"`
+	Encryption *S3EncryptionSettings `json:"mediaconvert:S3DestinationSettings:Encryption" locationName:"encryption" type:"structure"`
 }
 
 // String returns the string representation
@@ -10255,7 +10255,7 @@ type S3EncryptionSettings struct {
 	// Amazon S3 to encrypt your data keys. You can optionally choose to specify
 	// a different, customer managed CMK. Do so by specifying the Amazon Resource
 	// Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
-	EncryptionType S3ServerSideEncryptionType `locationName:"encryptionType" type:"string" enum:"true"`
+	EncryptionType S3ServerSideEncryptionType `json:"mediaconvert:S3EncryptionSettings:EncryptionType" locationName:"encryptionType" type:"string" enum:"true"`
 
 	// Optionally, specify the customer master key (CMK) that you want to use to
 	// encrypt the data key that AWS uses to encrypt your output content. Enter
@@ -10263,7 +10263,7 @@ type S3EncryptionSettings struct {
 	// also set Server-side encryption (S3ServerSideEncryptionType) to AWS KMS (SERVER_SIDE_ENCRYPTION_KMS).
 	// If you set Server-side encryption to AWS KMS but don't specify a CMK here,
 	// AWS uses the AWS managed CMK associated with Amazon S3.
-	KmsKeyArn *string `locationName:"kmsKeyArn" type:"string"`
+	KmsKeyArn *string `json:"mediaconvert:S3EncryptionSettings:KmsKeyArn" locationName:"kmsKeyArn" type:"string"`
 }
 
 // String returns the string representation
@@ -10299,7 +10299,7 @@ type SccDestinationSettings struct {
 	// choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the video has
 	// video_insertion=true and drop_frame_timecode=true; otherwise, choose 29.97
 	// non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
-	Framerate SccDestinationFramerate `locationName:"framerate" type:"string" enum:"true"`
+	Framerate SccDestinationFramerate `json:"mediaconvert:SccDestinationSettings:Framerate" locationName:"framerate" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10326,18 +10326,18 @@ type SpekeKeyProvider struct {
 	// Optional AWS Certificate Manager ARN for a certificate to send to the keyprovider.
 	// The certificate holds a key used by the keyprovider to encrypt the keys in
 	// its response.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"mediaconvert:SpekeKeyProvider:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The SPEKE-compliant server uses Resource ID (ResourceId) to identify content.
-	ResourceId *string `locationName:"resourceId" type:"string"`
+	ResourceId *string `json:"mediaconvert:SpekeKeyProvider:ResourceId" locationName:"resourceId" type:"string"`
 
 	// Relates to SPEKE implementation. DRM system identifiers. DASH output groups
 	// support a max of two system ids. Other group types support one system id.
-	SystemIds []string `locationName:"systemIds" type:"list"`
+	SystemIds []string `json:"mediaconvert:SpekeKeyProvider:SystemIds" locationName:"systemIds" type:"list"`
 
 	// Use URL (Url) to specify the SPEKE-compliant server that will provide keys
 	// for content.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediaconvert:SpekeKeyProvider:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -10388,19 +10388,19 @@ type StaticKeyProvider struct {
 	// Relates to DRM implementation. Sets the value of the KEYFORMAT attribute.
 	// Must be 'identity' or a reverse DNS string. May be omitted to indicate an
 	// implicit value of 'identity'.
-	KeyFormat *string `locationName:"keyFormat" type:"string"`
+	KeyFormat *string `json:"mediaconvert:StaticKeyProvider:KeyFormat" locationName:"keyFormat" type:"string"`
 
 	// Relates to DRM implementation. Either a single positive integer version value
 	// or a slash delimited list of version values (1/2/3).
-	KeyFormatVersions *string `locationName:"keyFormatVersions" type:"string"`
+	KeyFormatVersions *string `json:"mediaconvert:StaticKeyProvider:KeyFormatVersions" locationName:"keyFormatVersions" type:"string"`
 
 	// Relates to DRM implementation. Use a 32-character hexidecimal string to specify
 	// Key Value (StaticKeyValue).
-	StaticKeyValue *string `locationName:"staticKeyValue" type:"string"`
+	StaticKeyValue *string `json:"mediaconvert:StaticKeyProvider:StaticKeyValue" locationName:"staticKeyValue" type:"string"`
 
 	// Relates to DRM implementation. The location of the license server used for
 	// protecting content.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediaconvert:StaticKeyProvider:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -10446,7 +10446,7 @@ type TeletextDestinationSettings struct {
 	// this output. This value must be a three-digit hexadecimal string; strings
 	// ending in -FF are invalid. If you are passing through the entire set of Teletext
 	// data, do not use this field.
-	PageNumber *string `locationName:"pageNumber" min:"3" type:"string"`
+	PageNumber *string `json:"mediaconvert:TeletextDestinationSettings:PageNumber" locationName:"pageNumber" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -10486,7 +10486,7 @@ type TeletextSourceSettings struct {
 	// Use Page Number (PageNumber) to specify the three-digit hexadecimal page
 	// number that will be used for Teletext captions. Do not use this setting if
 	// you are passing through teletext from the input source to output.
-	PageNumber *string `locationName:"pageNumber" min:"3" type:"string"`
+	PageNumber *string `json:"mediaconvert:TeletextSourceSettings:PageNumber" locationName:"pageNumber" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -10526,18 +10526,18 @@ type TimecodeBurnin struct {
 
 	// Use Font Size (FontSize) to set the font size of any burned-in timecode.
 	// Valid values are 10, 16, 32, 48.
-	FontSize *int64 `locationName:"fontSize" min:"10" type:"integer"`
+	FontSize *int64 `json:"mediaconvert:TimecodeBurnin:FontSize" locationName:"fontSize" min:"10" type:"integer"`
 
 	// Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
 	// specify the location the burned-in timecode on output video.
-	Position TimecodeBurninPosition `locationName:"position" type:"string" enum:"true"`
+	Position TimecodeBurninPosition `json:"mediaconvert:TimecodeBurnin:Position" locationName:"position" type:"string" enum:"true"`
 
 	// Use Prefix (Prefix) to place ASCII characters before any burned-in timecode.
 	// For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00".
 	// Provide either the characters themselves or the ASCII code equivalents. The
 	// supported range of characters is 0x20 through 0x7e. This includes letters,
 	// numbers, and all special characters represented on a standard English keyboard.
-	Prefix *string `locationName:"prefix" type:"string"`
+	Prefix *string `json:"mediaconvert:TimecodeBurnin:Prefix" locationName:"prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -10598,7 +10598,7 @@ type TimecodeConfig struct {
 	// * If Source (TimecodeSource) is set to Start at 0 (ZEROBASED) the first frame
 	// is 00:00:00:00. * If Source (TimecodeSource) is set to Embedded (EMBEDDED),
 	// the first frame is the timecode value on the first input frame of the input.
-	Anchor *string `locationName:"anchor" type:"string"`
+	Anchor *string `json:"mediaconvert:TimecodeConfig:Anchor" locationName:"anchor" type:"string"`
 
 	// Use Source (TimecodeSource) to set how timecodes are handled within this
 	// job. To make sure that your video, audio, captions, and markers are synchronized
@@ -10611,12 +10611,12 @@ type TimecodeConfig struct {
 	// * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame
 	// to a value other than zero. You use Start timecode (Start) to provide this
 	// value.
-	Source TimecodeSource `locationName:"source" type:"string" enum:"true"`
+	Source TimecodeSource `json:"mediaconvert:TimecodeConfig:Source" locationName:"source" type:"string" enum:"true"`
 
 	// Only use when you set Source (TimecodeSource) to Specified start (SPECIFIEDSTART).
 	// Use Start timecode (Start) to specify the timecode for the initial frame.
 	// Use 24-hour format with frame number, (HH:MM:SS:FF) or (HH:MM:SS;FF).
-	Start *string `locationName:"start" type:"string"`
+	Start *string `json:"mediaconvert:TimecodeConfig:Start" locationName:"start" type:"string"`
 
 	// Only applies to outputs that support program-date-time stamp. Use Timestamp
 	// offset (TimestampOffset) to overwrite the timecode date without affecting
@@ -10625,7 +10625,7 @@ type TimecodeConfig struct {
 	// (InsertProgramDateTime) in the output settings. For example, if the date
 	// part of your timecodes is 2002-1-25 and you want to change it to one year
 	// later, set Timestamp offset (TimestampOffset) to 2003-1-25.
-	TimestampOffset *string `locationName:"timestampOffset" type:"string"`
+	TimestampOffset *string `json:"mediaconvert:TimecodeConfig:TimestampOffset" locationName:"timestampOffset" type:"string"`
 }
 
 // String returns the string representation
@@ -10671,7 +10671,7 @@ type TimedMetadataInsertion struct {
 	_ struct{} `type:"structure"`
 
 	// Id3Insertions contains the array of Id3Insertion instances.
-	Id3Insertions []Id3Insertion `locationName:"id3Insertions" type:"list"`
+	Id3Insertions []Id3Insertion `json:"mediaconvert:TimedMetadataInsertion:Id3Insertions" locationName:"id3Insertions" type:"list"`
 }
 
 // String returns the string representation
@@ -10703,13 +10703,13 @@ type Timing struct {
 	_ struct{} `type:"structure"`
 
 	// The time, in Unix epoch format, that the transcoding job finished
-	FinishTime *time.Time `locationName:"finishTime" type:"timestamp" timestampFormat:"unix"`
+	FinishTime *time.Time `json:"mediaconvert:Timing:FinishTime" locationName:"finishTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in Unix epoch format, that transcoding for the job began.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"mediaconvert:Timing:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time, in Unix epoch format, that you submitted the job.
-	SubmitTime *time.Time `locationName:"submitTime" type:"timestamp" timestampFormat:"unix"`
+	SubmitTime *time.Time `json:"mediaconvert:Timing:SubmitTime" locationName:"submitTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -10752,7 +10752,7 @@ type TrackSourceSettings struct {
 	// example, use 1 to select the captions asset that is listed first in the CPL.
 	// To include more than one captions track in your job outputs, create multiple
 	// input captions selectors. Specify one track per selector.
-	TrackNumber *int64 `locationName:"trackNumber" min:"1" type:"integer"`
+	TrackNumber *int64 `json:"mediaconvert:TrackSourceSettings:TrackNumber" locationName:"trackNumber" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -10792,7 +10792,7 @@ type TtmlDestinationSettings struct {
 
 	// Pass through style and position information from a TTML-like input source
 	// (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-	StylePassthrough TtmlStylePassthrough `locationName:"stylePassthrough" type:"string" enum:"true"`
+	StylePassthrough TtmlStylePassthrough `json:"mediaconvert:TtmlDestinationSettings:StylePassthrough" locationName:"stylePassthrough" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -10824,26 +10824,26 @@ type VideoCodecSettings struct {
 
 	// Specifies the video codec. This must be equal to one of the enum values defined
 	// by the object VideoCodec.
-	Codec VideoCodec `locationName:"codec" type:"string" enum:"true"`
+	Codec VideoCodec `json:"mediaconvert:VideoCodecSettings:Codec" locationName:"codec" type:"string" enum:"true"`
 
 	// Required when you set (Codec) under (VideoDescription)>(CodecSettings) to
 	// the value FRAME_CAPTURE.
-	FrameCaptureSettings *FrameCaptureSettings `locationName:"frameCaptureSettings" type:"structure"`
+	FrameCaptureSettings *FrameCaptureSettings `json:"mediaconvert:VideoCodecSettings:FrameCaptureSettings" locationName:"frameCaptureSettings" type:"structure"`
 
 	// Required when you set (Codec) under (VideoDescription)>(CodecSettings) to
 	// the value H_264.
-	H264Settings *H264Settings `locationName:"h264Settings" type:"structure"`
+	H264Settings *H264Settings `json:"mediaconvert:VideoCodecSettings:H264Settings" locationName:"h264Settings" type:"structure"`
 
 	// Settings for H265 codec
-	H265Settings *H265Settings `locationName:"h265Settings" type:"structure"`
+	H265Settings *H265Settings `json:"mediaconvert:VideoCodecSettings:H265Settings" locationName:"h265Settings" type:"structure"`
 
 	// Required when you set (Codec) under (VideoDescription)>(CodecSettings) to
 	// the value MPEG2.
-	Mpeg2Settings *Mpeg2Settings `locationName:"mpeg2Settings" type:"structure"`
+	Mpeg2Settings *Mpeg2Settings `json:"mediaconvert:VideoCodecSettings:Mpeg2Settings" locationName:"mpeg2Settings" type:"structure"`
 
 	// Required when you set (Codec) under (VideoDescription)>(CodecSettings) to
 	// the value PRORES.
-	ProresSettings *ProresSettings `locationName:"proresSettings" type:"structure"`
+	ProresSettings *ProresSettings `json:"mediaconvert:VideoCodecSettings:ProresSettings" locationName:"proresSettings" type:"structure"`
 }
 
 // String returns the string representation
@@ -10938,12 +10938,12 @@ type VideoDescription struct {
 	// to remove all AFD values from this output. * Choose Fixed to ignore input
 	// AFD values and instead encode the value specified in the job. * Choose Auto
 	// to calculate output AFD values based on the input AFD scaler data.
-	AfdSignaling AfdSignaling `locationName:"afdSignaling" type:"string" enum:"true"`
+	AfdSignaling AfdSignaling `json:"mediaconvert:VideoDescription:AfdSignaling" locationName:"afdSignaling" type:"string" enum:"true"`
 
 	// The service automatically applies the anti-alias filter to all outputs. The
 	// service no longer accepts the value DISABLED for AntiAlias. If you specify
 	// that in your job, the service will ignore the setting.
-	AntiAlias AntiAlias `locationName:"antiAlias" type:"string" enum:"true"`
+	AntiAlias AntiAlias `json:"mediaconvert:VideoDescription:AntiAlias" locationName:"antiAlias" type:"string" enum:"true"`
 
 	// Video codec settings, (CodecSettings) under (VideoDescription), contains
 	// the group of settings related to video encoding. The settings in this group
@@ -10952,11 +10952,11 @@ type VideoDescription struct {
 	// lists the codec enum, settings object pairs. * H_264, H264Settings * H_265,
 	// H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * FRAME_CAPTURE,
 	// FrameCaptureSettings
-	CodecSettings *VideoCodecSettings `locationName:"codecSettings" type:"structure"`
+	CodecSettings *VideoCodecSettings `json:"mediaconvert:VideoDescription:CodecSettings" locationName:"codecSettings" type:"structure"`
 
 	// Enable Insert color metadata (ColorMetadata) to include color metadata in
 	// this output. This setting is enabled by default.
-	ColorMetadata ColorMetadata `locationName:"colorMetadata" type:"string" enum:"true"`
+	ColorMetadata ColorMetadata `json:"mediaconvert:VideoDescription:ColorMetadata" locationName:"colorMetadata" type:"string" enum:"true"`
 
 	// Applies only if your input aspect ratio is different from your output aspect
 	// ratio. Use Input cropping rectangle (Crop) to specify the video area the
@@ -10964,27 +10964,27 @@ type VideoDescription struct {
 	// video pixels to be removed on encode. If you crop your input frame size to
 	// smaller than your output frame size, make sure to specify the behavior you
 	// want in your output setting "Scaling behavior".
-	Crop *Rectangle `locationName:"crop" type:"structure"`
+	Crop *Rectangle `json:"mediaconvert:VideoDescription:Crop" locationName:"crop" type:"structure"`
 
 	// Applies only to 29.97 fps outputs. When this feature is enabled, the service
 	// will use drop-frame timecode on outputs. If it is not possible to use drop-frame
 	// timecode, the system will fall back to non-drop-frame. This setting is enabled
 	// by default when Timecode insertion (TimecodeInsertion) is enabled.
-	DropFrameTimecode DropFrameTimecode `locationName:"dropFrameTimecode" type:"string" enum:"true"`
+	DropFrameTimecode DropFrameTimecode `json:"mediaconvert:VideoDescription:DropFrameTimecode" locationName:"dropFrameTimecode" type:"string" enum:"true"`
 
 	// Applies only if you set AFD Signaling(AfdSignaling) to Fixed (FIXED). Use
 	// Fixed (FixedAfd) to specify a four-bit AFD value which the service will write
 	// on all frames of this video output.
-	FixedAfd *int64 `locationName:"fixedAfd" type:"integer"`
+	FixedAfd *int64 `json:"mediaconvert:VideoDescription:FixedAfd" locationName:"fixedAfd" type:"integer"`
 
 	// Use the Height (Height) setting to define the video resolution height for
 	// this output. Specify in pixels. If you don't provide a value here, the service
 	// will use the input height.
-	Height *int64 `locationName:"height" min:"32" type:"integer"`
+	Height *int64 `json:"mediaconvert:VideoDescription:Height" locationName:"height" min:"32" type:"integer"`
 
 	// Use Position (Position) to point to a rectangle object to define your position.
 	// This setting overrides any other aspect ratio.
-	Position *Rectangle `locationName:"position" type:"structure"`
+	Position *Rectangle `json:"mediaconvert:VideoDescription:Position" locationName:"position" type:"structure"`
 
 	// Use Respond to AFD (RespondToAfd) to specify how the service changes the
 	// video itself in response to AFD values in the input. * Choose Respond to
@@ -10994,21 +10994,21 @@ type VideoDescription struct {
 	// A preferred implementation of this workflow is to set RespondToAfd to (NONE)
 	// and set AfdSignaling to (AUTO). * Choose None to remove all input AFD values
 	// from this output.
-	RespondToAfd RespondToAfd `locationName:"respondToAfd" type:"string" enum:"true"`
+	RespondToAfd RespondToAfd `json:"mediaconvert:VideoDescription:RespondToAfd" locationName:"respondToAfd" type:"string" enum:"true"`
 
 	// Applies only if your input aspect ratio is different from your output aspect
 	// ratio. Choose "Stretch to output" to have the service stretch your video
 	// image to fit. Keep the setting "Default" to allow the service to letterbox
 	// your video instead. This setting overrides any positioning value you specify
 	// elsewhere in the job.
-	ScalingBehavior ScalingBehavior `locationName:"scalingBehavior" type:"string" enum:"true"`
+	ScalingBehavior ScalingBehavior `json:"mediaconvert:VideoDescription:ScalingBehavior" locationName:"scalingBehavior" type:"string" enum:"true"`
 
 	// Use Sharpness (Sharpness) setting to specify the strength of anti-aliasing.
 	// This setting changes the width of the anti-alias filter kernel used for scaling.
 	// Sharpness only applies if your output resolution is different from your input
 	// resolution. 0 is the softest setting, 100 the sharpest, and 50 recommended
 	// for most content.
-	Sharpness *int64 `locationName:"sharpness" type:"integer"`
+	Sharpness *int64 `json:"mediaconvert:VideoDescription:Sharpness" locationName:"sharpness" type:"integer"`
 
 	// Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable Timecode
 	// insertion when the input frame rate is identical to the output frame rate.
@@ -11022,17 +11022,17 @@ type VideoDescription struct {
 	// configuration. Note - Timecode source under input settings (InputTimecodeSource)
 	// does not affect the timecodes that are inserted in the output. Source under
 	// Job settings > Timecode configuration (TimecodeSource) does.
-	TimecodeInsertion VideoTimecodeInsertion `locationName:"timecodeInsertion" type:"string" enum:"true"`
+	TimecodeInsertion VideoTimecodeInsertion `json:"mediaconvert:VideoDescription:TimecodeInsertion" locationName:"timecodeInsertion" type:"string" enum:"true"`
 
 	// Find additional transcoding features under Preprocessors (VideoPreprocessors).
 	// Enable the features at each output individually. These features are disabled
 	// by default.
-	VideoPreprocessors *VideoPreprocessor `locationName:"videoPreprocessors" type:"structure"`
+	VideoPreprocessors *VideoPreprocessor `json:"mediaconvert:VideoDescription:VideoPreprocessors" locationName:"videoPreprocessors" type:"structure"`
 
 	// Use Width (Width) to define the video resolution width, in pixels, for this
 	// output. If you don't provide a value here, the service will use the input
 	// width.
-	Width *int64 `locationName:"width" min:"32" type:"integer"`
+	Width *int64 `json:"mediaconvert:VideoDescription:Width" locationName:"width" min:"32" type:"integer"`
 }
 
 // String returns the string representation
@@ -11177,10 +11177,10 @@ type VideoDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Height in pixels for the output
-	HeightInPx *int64 `locationName:"heightInPx" type:"integer"`
+	HeightInPx *int64 `json:"mediaconvert:VideoDetail:HeightInPx" locationName:"heightInPx" type:"integer"`
 
 	// Width in pixels for the output
-	WidthInPx *int64 `locationName:"widthInPx" type:"integer"`
+	WidthInPx *int64 `json:"mediaconvert:VideoDetail:WidthInPx" locationName:"widthInPx" type:"integer"`
 }
 
 // String returns the string representation
@@ -11215,25 +11215,25 @@ type VideoPreprocessor struct {
 	// Enable the Color corrector (ColorCorrector) feature if necessary. Enable
 	// or disable this feature for each output individually. This setting is disabled
 	// by default.
-	ColorCorrector *ColorCorrector `locationName:"colorCorrector" type:"structure"`
+	ColorCorrector *ColorCorrector `json:"mediaconvert:VideoPreprocessor:ColorCorrector" locationName:"colorCorrector" type:"structure"`
 
 	// Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer
 	// picture.
-	Deinterlacer *Deinterlacer `locationName:"deinterlacer" type:"structure"`
+	Deinterlacer *Deinterlacer `json:"mediaconvert:VideoPreprocessor:Deinterlacer" locationName:"deinterlacer" type:"structure"`
 
 	// Enable the Image inserter (ImageInserter) feature to include a graphic overlay
 	// on your video. Enable or disable this feature for each output individually.
 	// This setting is disabled by default.
-	ImageInserter *ImageInserter `locationName:"imageInserter" type:"structure"`
+	ImageInserter *ImageInserter `json:"mediaconvert:VideoPreprocessor:ImageInserter" locationName:"imageInserter" type:"structure"`
 
 	// Enable the Noise reducer (NoiseReducer) feature to remove noise from your
 	// video output if necessary. Enable or disable this feature for each output
 	// individually. This setting is disabled by default.
-	NoiseReducer *NoiseReducer `locationName:"noiseReducer" type:"structure"`
+	NoiseReducer *NoiseReducer `json:"mediaconvert:VideoPreprocessor:NoiseReducer" locationName:"noiseReducer" type:"structure"`
 
 	// Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified
 	// prefix into the output.
-	TimecodeBurnin *TimecodeBurnin `locationName:"timecodeBurnin" type:"structure"`
+	TimecodeBurnin *TimecodeBurnin `json:"mediaconvert:VideoPreprocessor:TimecodeBurnin" locationName:"timecodeBurnin" type:"structure"`
 }
 
 // String returns the string representation
@@ -11319,7 +11319,7 @@ type VideoSelector struct {
 	// here. If you choose HDR10, you can also correct inaccurate color space coefficients,
 	// using the HDR master display information controls. You must also set Color
 	// space usage (ColorSpaceUsage) to FORCE for the service to use these values.
-	ColorSpace ColorSpace `locationName:"colorSpace" type:"string" enum:"true"`
+	ColorSpace ColorSpace `json:"mediaconvert:VideoSelector:ColorSpace" locationName:"colorSpace" type:"string" enum:"true"`
 
 	// There are two sources for color metadata, the input file and the job configuration
 	// (in the Color space and HDR master display informaiton settings). The Color
@@ -11328,7 +11328,7 @@ type VideoSelector struct {
 	// color metadata, the system will use data from the source. FALLBACK: The system
 	// will use color metadata from the source. If source has no color metadata,
 	// the system will use user-supplied color metadata values if available.
-	ColorSpaceUsage ColorSpaceUsage `locationName:"colorSpaceUsage" type:"string" enum:"true"`
+	ColorSpaceUsage ColorSpaceUsage `json:"mediaconvert:VideoSelector:ColorSpaceUsage" locationName:"colorSpaceUsage" type:"string" enum:"true"`
 
 	// Use the "HDR master display information" (Hdr10Metadata) settings to correct
 	// HDR metadata or to provide missing metadata. These values vary depending
@@ -11339,17 +11339,17 @@ type VideoSelector struct {
 	// you must use the following settings. Set "MP4 packaging type" (writeMp4PackagingType)
 	// to HVC1 (HVC1). Set "Profile" (H265Settings > codecProfile) to Main10/High
 	// (MAIN10_HIGH). Set "Level" (H265Settings > codecLevel) to 5 (LEVEL_5).
-	Hdr10Metadata *Hdr10Metadata `locationName:"hdr10Metadata" type:"structure"`
+	Hdr10Metadata *Hdr10Metadata `json:"mediaconvert:VideoSelector:Hdr10Metadata" locationName:"hdr10Metadata" type:"structure"`
 
 	// Use PID (Pid) to select specific video data from an input file. Specify this
 	// value as an integer; the system automatically converts it to the hexidecimal
 	// value. For example, 257 selects PID 0x101. A PID, or packet identifier, is
 	// an identifier for a set of data in an MPEG-2 transport stream container.
-	Pid *int64 `locationName:"pid" min:"1" type:"integer"`
+	Pid *int64 `json:"mediaconvert:VideoSelector:Pid" locationName:"pid" min:"1" type:"integer"`
 
 	// Selects a specific program from within a multi-program transport stream.
 	// Note that Quad 4K is not currently supported.
-	ProgramNumber *int64 `locationName:"programNumber" type:"integer"`
+	ProgramNumber *int64 `json:"mediaconvert:VideoSelector:ProgramNumber" locationName:"programNumber" type:"integer"`
 
 	// Use Rotate (InputRotate) to specify how the service rotates your video. You
 	// can choose automatic rotation or specify a rotation. You can specify a clockwise
@@ -11361,7 +11361,7 @@ type VideoSelector struct {
 	// will default to no rotation. By default, the service does no rotation, even
 	// if your input video has rotation metadata. The service doesn't pass through
 	// rotation metadata.
-	Rotate InputRotate `locationName:"rotate" type:"string" enum:"true"`
+	Rotate InputRotate `json:"mediaconvert:VideoSelector:Rotate" locationName:"rotate" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -11434,20 +11434,20 @@ type WavSettings struct {
 
 	// Specify Bit depth (BitDepth), in bits per sample, to choose the encoding
 	// quality for this audio track.
-	BitDepth *int64 `locationName:"bitDepth" min:"16" type:"integer"`
+	BitDepth *int64 `json:"mediaconvert:WavSettings:BitDepth" locationName:"bitDepth" min:"16" type:"integer"`
 
 	// Set Channels to specify the number of channels in this output audio track.
 	// With WAV, valid values 1, 2, 4, and 8. In the console, these values are Mono,
 	// Stereo, 4-Channel, and 8-Channel, respectively.
-	Channels *int64 `locationName:"channels" min:"1" type:"integer"`
+	Channels *int64 `json:"mediaconvert:WavSettings:Channels" locationName:"channels" min:"1" type:"integer"`
 
 	// The service defaults to using RIFF for WAV outputs. If your output audio
 	// is likely to exceed 4 GB in file size, or if you otherwise need the extended
 	// support of the RF64 format, set your output WAV file format to RF64.
-	Format WavFormat `locationName:"format" type:"string" enum:"true"`
+	Format WavFormat `json:"mediaconvert:WavSettings:Format" locationName:"format" type:"string" enum:"true"`
 
 	// Sample rate in Hz.
-	SampleRate *int64 `locationName:"sampleRate" min:"8000" type:"integer"`
+	SampleRate *int64 `json:"mediaconvert:WavSettings:SampleRate" locationName:"sampleRate" min:"8000" type:"integer"`
 }
 
 // String returns the string representation

@@ -79,12 +79,12 @@ type ListCompilationJobsOutput struct {
 	// job.
 	//
 	// CompilationJobSummaries is a required field
-	CompilationJobSummaries []CompilationJobSummary `type:"list" required:"true"`
+	CompilationJobSummaries []CompilationJobSummary `json:"api.sagemaker:ListCompilationJobsOutput:CompilationJobSummaries" type:"list" required:"true"`
 
 	// If the response is truncated, Amazon SageMaker returns this NextToken. To
 	// retrieve the next set of model compilation jobs, use this token in the next
 	// request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListCompilationJobsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

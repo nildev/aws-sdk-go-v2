@@ -166,7 +166,7 @@ type SynthesizeSpeechOutput struct {
 	_ struct{} `type:"structure" payload:"AudioStream"`
 
 	// Stream containing the synthesized speech.
-	AudioStream io.ReadCloser `type:"blob"`
+	AudioStream io.ReadCloser `json:"polly:SynthesizeSpeechOutput:AudioStream" type:"blob"`
 
 	// Specifies the type audio stream. This should reflect the OutputFormat parameter
 	// in your request.
@@ -182,10 +182,10 @@ type SynthesizeSpeechOutput struct {
 	//
 	//    * If you request json as the OutputFormat, the ContentType returned is
 	//    audio/json.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"polly:SynthesizeSpeechOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 
 	// Number of characters synthesized.
-	RequestCharacters *int64 `location:"header" locationName:"x-amzn-RequestCharacters" type:"integer"`
+	RequestCharacters *int64 `json:"polly:SynthesizeSpeechOutput:RequestCharacters" location:"header" locationName:"x-amzn-RequestCharacters" type:"integer"`
 }
 
 // String returns the string representation

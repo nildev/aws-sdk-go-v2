@@ -46,7 +46,7 @@ type DescribeAttachmentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attachment content and file name.
-	Attachment *Attachment `locationName:"attachment" type:"structure"`
+	Attachment *Attachment `json:"support:DescribeAttachmentOutput:Attachment" locationName:"attachment" type:"structure"`
 }
 
 // String returns the string representation

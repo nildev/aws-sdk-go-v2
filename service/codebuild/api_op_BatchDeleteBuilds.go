@@ -46,10 +46,10 @@ type BatchDeleteBuildsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the builds that were successfully deleted.
-	BuildsDeleted []string `locationName:"buildsDeleted" min:"1" type:"list"`
+	BuildsDeleted []string `json:"codebuild:BatchDeleteBuildsOutput:BuildsDeleted" locationName:"buildsDeleted" min:"1" type:"list"`
 
 	// Information about any builds that could not be successfully deleted.
-	BuildsNotDeleted []BuildNotDeleted `locationName:"buildsNotDeleted" type:"list"`
+	BuildsNotDeleted []BuildNotDeleted `json:"codebuild:BatchDeleteBuildsOutput:BuildsNotDeleted" locationName:"buildsNotDeleted" type:"list"`
 }
 
 // String returns the string representation

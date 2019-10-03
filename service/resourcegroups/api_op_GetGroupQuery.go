@@ -59,7 +59,7 @@ type GetGroupQueryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The resource query associated with the specified group.
-	GroupQuery *GroupQuery `type:"structure"`
+	GroupQuery *GroupQuery `json:"resource-groups:GetGroupQueryOutput:GroupQuery" type:"structure"`
 }
 
 // String returns the string representation

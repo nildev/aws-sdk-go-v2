@@ -71,7 +71,7 @@ type GetUserSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user settings.
-	UserSettings *UserSettings `type:"structure"`
+	UserSettings *UserSettings `json:"chime:GetUserSettingsOutput:UserSettings" type:"structure"`
 }
 
 // String returns the string representation

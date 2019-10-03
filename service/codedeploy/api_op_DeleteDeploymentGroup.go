@@ -66,7 +66,7 @@ type DeleteDeploymentGroupOutput struct {
 	// in the Auto Scaling group. If the output contains data, AWS CodeDeploy could
 	// not remove some Auto Scaling lifecycle event hooks from the Amazon EC2 instances
 	// in the Auto Scaling group.
-	HooksNotCleanedUp []AutoScalingGroup `locationName:"hooksNotCleanedUp" type:"list"`
+	HooksNotCleanedUp []AutoScalingGroup `json:"codedeploy:DeleteDeploymentGroupOutput:HooksNotCleanedUp" locationName:"hooksNotCleanedUp" type:"list"`
 }
 
 // String returns the string representation

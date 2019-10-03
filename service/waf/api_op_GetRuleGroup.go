@@ -47,7 +47,7 @@ type GetRuleGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the RuleGroup that you specified in the GetRuleGroup request.
-	RuleGroup *RuleGroup `type:"structure"`
+	RuleGroup *RuleGroup `json:"waf:GetRuleGroupOutput:RuleGroup" type:"structure"`
 }
 
 // String returns the string representation

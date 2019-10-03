@@ -49,7 +49,7 @@ type DecodeAuthorizationMessageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An XML document that contains the decoded message.
-	DecodedMessage *string `type:"string"`
+	DecodedMessage *string `json:"sts:DecodeAuthorizationMessageOutput:DecodedMessage" type:"string"`
 }
 
 // String returns the string representation

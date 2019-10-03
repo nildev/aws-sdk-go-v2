@@ -24,7 +24,7 @@ type DescribeLifecycleHookTypesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The lifecycle hook types.
-	LifecycleHookTypes []string `type:"list"`
+	LifecycleHookTypes []string `json:"autoscaling:DescribeLifecycleHookTypesOutput:LifecycleHookTypes" type:"list"`
 }
 
 // String returns the string representation

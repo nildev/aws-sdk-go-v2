@@ -43,7 +43,7 @@ type DescribeCampaignOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The properties of the campaign.
-	Campaign *Campaign `locationName:"campaign" type:"structure"`
+	Campaign *Campaign `json:"personalize:DescribeCampaignOutput:Campaign" locationName:"campaign" type:"structure"`
 }
 
 // String returns the string representation

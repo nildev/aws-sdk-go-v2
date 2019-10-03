@@ -65,7 +65,7 @@ type DescribeStackResourceOutput struct {
 
 	// A StackResourceDetail structure containing the description of the specified
 	// resource in the specified stack.
-	StackResourceDetail *StackResourceDetail `type:"structure"`
+	StackResourceDetail *StackResourceDetail `json:"cloudformation:DescribeStackResourceOutput:StackResourceDetail" type:"structure"`
 }
 
 // String returns the string representation

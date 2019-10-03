@@ -87,7 +87,7 @@ type TransferCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the certificate.
-	TransferredCertificateArn *string `locationName:"transferredCertificateArn" type:"string"`
+	TransferredCertificateArn *string `json:"iot:TransferCertificateOutput:TransferredCertificateArn" locationName:"transferredCertificateArn" type:"string"`
 }
 
 // String returns the string representation

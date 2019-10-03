@@ -50,7 +50,7 @@ type UpdatePipelineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The structure of the updated pipeline.
-	Pipeline *PipelineDeclaration `locationName:"pipeline" type:"structure"`
+	Pipeline *PipelineDeclaration `json:"codepipeline:UpdatePipelineOutput:Pipeline" locationName:"pipeline" type:"structure"`
 }
 
 // String returns the string representation

@@ -68,7 +68,7 @@ type GetTopicAttributesOutput struct {
 	//
 	//    * EffectiveDeliveryPolicy – the JSON serialization of the effective
 	//    delivery policy that takes into account system defaults
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"sns:GetTopicAttributesOutput:Attributes" type:"map"`
 }
 
 // String returns the string representation

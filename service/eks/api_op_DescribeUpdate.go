@@ -72,7 +72,7 @@ type DescribeUpdateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of the specified update.
-	Update *Update `locationName:"update" type:"structure"`
+	Update *Update `json:"eks:DescribeUpdateOutput:Update" locationName:"update" type:"structure"`
 }
 
 // String returns the string representation

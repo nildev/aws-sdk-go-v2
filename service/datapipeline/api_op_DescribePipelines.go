@@ -48,7 +48,7 @@ type DescribePipelinesOutput struct {
 	// An array of descriptions for the specified pipelines.
 	//
 	// PipelineDescriptionList is a required field
-	PipelineDescriptionList []PipelineDescription `locationName:"pipelineDescriptionList" type:"list" required:"true"`
+	PipelineDescriptionList []PipelineDescription `json:"datapipeline:DescribePipelinesOutput:PipelineDescriptionList" locationName:"pipelineDescriptionList" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -81,16 +81,16 @@ type ListResourceTagsOutput struct {
 	// use for the Marker parameter in a subsequent request.
 	//
 	// Do not assume or infer any information from this value.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"kms:ListResourceTagsOutput:NextMarker" min:"1" type:"string"`
 
 	// A list of tags. Each tag consists of a tag key and a tag value.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"kms:ListResourceTagsOutput:Tags" type:"list"`
 
 	// A flag that indicates whether there are more items in the list. When this
 	// value is true, the list in this response is truncated. To get more items,
 	// pass the value of the NextMarker element in thisresponse to the Marker parameter
 	// in a subsequent request.
-	Truncated *bool `type:"boolean"`
+	Truncated *bool `json:"kms:ListResourceTagsOutput:Truncated" type:"boolean"`
 }
 
 // String returns the string representation

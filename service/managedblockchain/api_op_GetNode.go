@@ -96,7 +96,7 @@ type GetNodeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Properties of the node configuration.
-	Node *Node `type:"structure"`
+	Node *Node `json:"managedblockchain:GetNodeOutput:Node" type:"structure"`
 }
 
 // String returns the string representation

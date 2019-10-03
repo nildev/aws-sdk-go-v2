@@ -39,10 +39,10 @@ type DescribeTagsOutput struct {
 	// returned in a single response. To receive additional items, specify this
 	// string for the NextToken value when requesting the next set of items. This
 	// value is null when there are no more items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeTagsOutput:NextToken" type:"string"`
 
 	// One or more tags.
-	Tags []TagDescription `type:"list"`
+	Tags []TagDescription `json:"autoscaling:DescribeTagsOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

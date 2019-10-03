@@ -54,7 +54,7 @@ type DeleteFileShareOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the deleted file share.
-	FileShareARN *string `min:"50" type:"string"`
+	FileShareARN *string `json:"storagegateway:DeleteFileShareOutput:FileShareARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

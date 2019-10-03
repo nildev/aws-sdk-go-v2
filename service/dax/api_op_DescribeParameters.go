@@ -59,11 +59,11 @@ type DescribeParametersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"dax:DescribeParametersOutput:NextToken" type:"string"`
 
 	// A list of parameters within a parameter group. Each element in the list represents
 	// one parameter.
-	Parameters []Parameter `type:"list"`
+	Parameters []Parameter `json:"dax:DescribeParametersOutput:Parameters" type:"list"`
 }
 
 // String returns the string representation

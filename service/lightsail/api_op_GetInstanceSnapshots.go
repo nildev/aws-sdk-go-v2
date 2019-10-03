@@ -29,11 +29,11 @@ type GetInstanceSnapshotsOutput struct {
 
 	// An array of key-value pairs containing information about the results of your
 	// get instance snapshots request.
-	InstanceSnapshots []InstanceSnapshot `locationName:"instanceSnapshots" type:"list"`
+	InstanceSnapshots []InstanceSnapshot `json:"lightsail:GetInstanceSnapshotsOutput:InstanceSnapshots" locationName:"instanceSnapshots" type:"list"`
 
 	// A token used for advancing to the next page of results from your get instance
 	// snapshots request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetInstanceSnapshotsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

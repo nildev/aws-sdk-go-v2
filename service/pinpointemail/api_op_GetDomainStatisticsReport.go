@@ -98,14 +98,14 @@ type GetDomainStatisticsReportOutput struct {
 	// on the EndDate.
 	//
 	// DailyVolumes is a required field
-	DailyVolumes []DailyVolume `type:"list" required:"true"`
+	DailyVolumes []DailyVolume `json:"email:GetDomainStatisticsReportOutput:DailyVolumes" type:"list" required:"true"`
 
 	// An object that contains deliverability metrics for the domain that you specified.
 	// The data in this object is a summary of all of the data that was collected
 	// from the StartDate to the EndDate.
 	//
 	// OverallVolume is a required field
-	OverallVolume *OverallVolume `type:"structure" required:"true"`
+	OverallVolume *OverallVolume `json:"email:GetDomainStatisticsReportOutput:OverallVolume" type:"structure" required:"true"`
 }
 
 // String returns the string representation

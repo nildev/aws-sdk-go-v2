@@ -45,25 +45,25 @@ type CreateSnapshotScheduleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of clusters associated with the schedule.
-	AssociatedClusterCount *int64 `type:"integer"`
+	AssociatedClusterCount *int64 `json:"redshift:CreateSnapshotScheduleOutput:AssociatedClusterCount" type:"integer"`
 
 	// A list of clusters associated with the schedule. A maximum of 100 clusters
 	// is returned.
-	AssociatedClusters []ClusterAssociatedToSchedule `locationNameList:"ClusterAssociatedToSchedule" type:"list"`
+	AssociatedClusters []ClusterAssociatedToSchedule `json:"redshift:CreateSnapshotScheduleOutput:AssociatedClusters" locationNameList:"ClusterAssociatedToSchedule" type:"list"`
 
-	NextInvocations []time.Time `locationNameList:"SnapshotTime" type:"list"`
+	NextInvocations []time.Time `json:"redshift:CreateSnapshotScheduleOutput:NextInvocations" locationNameList:"SnapshotTime" type:"list"`
 
 	// A list of ScheduleDefinitions.
-	ScheduleDefinitions []string `locationNameList:"ScheduleDefinition" type:"list"`
+	ScheduleDefinitions []string `json:"redshift:CreateSnapshotScheduleOutput:ScheduleDefinitions" locationNameList:"ScheduleDefinition" type:"list"`
 
 	// The description of the schedule.
-	ScheduleDescription *string `type:"string"`
+	ScheduleDescription *string `json:"redshift:CreateSnapshotScheduleOutput:ScheduleDescription" type:"string"`
 
 	// A unique identifier for the schedule.
-	ScheduleIdentifier *string `type:"string"`
+	ScheduleIdentifier *string `json:"redshift:CreateSnapshotScheduleOutput:ScheduleIdentifier" type:"string"`
 
 	// An optional set of tags describing the schedule.
-	Tags []Tag `locationNameList:"Tag" type:"list"`
+	Tags []Tag `json:"redshift:CreateSnapshotScheduleOutput:Tags" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation

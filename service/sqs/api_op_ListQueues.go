@@ -31,7 +31,7 @@ type ListQueuesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of queue URLs, up to 1,000 entries.
-	QueueUrls []string `locationNameList:"QueueUrl" type:"list" flattened:"true"`
+	QueueUrls []string `json:"sqs:ListQueuesOutput:QueueUrls" locationNameList:"QueueUrl" type:"list" flattened:"true"`
 }
 
 // String returns the string representation

@@ -126,7 +126,7 @@ type CreateDocumentClassifierOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) that identifies the document classifier.
-	DocumentClassifierArn *string `type:"string"`
+	DocumentClassifierArn *string `json:"comprehend:CreateDocumentClassifierOutput:DocumentClassifierArn" type:"string"`
 }
 
 // String returns the string representation

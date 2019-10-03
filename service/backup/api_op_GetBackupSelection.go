@@ -74,7 +74,7 @@ type GetBackupSelectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Uniquely identifies a backup plan.
-	BackupPlanId *string `type:"string"`
+	BackupPlanId *string `json:"backup:GetBackupSelectionOutput:BackupPlanId" type:"string"`
 
 	// Specifies the body of a request to assign a set of resources to a backup
 	// plan.
@@ -83,21 +83,21 @@ type GetBackupSelectionOutput struct {
 	// resources, an optional role to provide access to the AWS service that the
 	// resource belongs to, and an optional array of tags used to identify a set
 	// of resources.
-	BackupSelection *BackupSelection `type:"structure"`
+	BackupSelection *BackupSelection `json:"backup:GetBackupSelectionOutput:BackupSelection" type:"structure"`
 
 	// The date and time a backup selection is created, in Unix format and Coordinated
 	// Universal Time (UTC). The value of CreationDate is accurate to milliseconds.
 	// For example, the value 1516925490.087 represents Friday, January 26, 2018
 	// 12:11:30.087 AM.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"backup:GetBackupSelectionOutput:CreationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A unique string that identifies the request and allows failed requests to
 	// be retried without the risk of executing the operation twice.
-	CreatorRequestId *string `type:"string"`
+	CreatorRequestId *string `json:"backup:GetBackupSelectionOutput:CreatorRequestId" type:"string"`
 
 	// Uniquely identifies the body of a request to assign a set of resources to
 	// a backup plan.
-	SelectionId *string `type:"string"`
+	SelectionId *string `json:"backup:GetBackupSelectionOutput:SelectionId" type:"string"`
 }
 
 // String returns the string representation

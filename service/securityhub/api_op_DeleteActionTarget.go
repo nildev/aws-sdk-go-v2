@@ -59,7 +59,7 @@ type DeleteActionTargetOutput struct {
 	// The ARN of the custom action target that was deleted.
 	//
 	// ActionTargetArn is a required field
-	ActionTargetArn *string `type:"string" required:"true"`
+	ActionTargetArn *string `json:"securityhub:DeleteActionTargetOutput:ActionTargetArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

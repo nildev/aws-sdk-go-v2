@@ -61,10 +61,10 @@ type DescribeReplicationSubnetGroupsOutput struct {
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"dms:DescribeReplicationSubnetGroupsOutput:Marker" type:"string"`
 
 	// A description of the replication subnet groups.
-	ReplicationSubnetGroups []ReplicationSubnetGroup `type:"list"`
+	ReplicationSubnetGroups []ReplicationSubnetGroup `json:"dms:DescribeReplicationSubnetGroupsOutput:ReplicationSubnetGroups" type:"list"`
 }
 
 // String returns the string representation

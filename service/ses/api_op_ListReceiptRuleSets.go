@@ -34,11 +34,11 @@ type ListReceiptRuleSetsOutput struct {
 	// A token indicating that there are additional receipt rule sets available
 	// to be listed. Pass this token to successive calls of ListReceiptRuleSets
 	// to retrieve up to 100 receipt rule sets at a time.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"email:ListReceiptRuleSetsOutput:NextToken" type:"string"`
 
 	// The metadata for the currently active receipt rule set. The metadata consists
 	// of the rule set name and the timestamp of when the rule set was created.
-	RuleSets []ReceiptRuleSetMetadata `type:"list"`
+	RuleSets []ReceiptRuleSetMetadata `json:"email:ListReceiptRuleSetsOutput:RuleSets" type:"list"`
 }
 
 // String returns the string representation

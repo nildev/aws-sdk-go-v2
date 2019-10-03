@@ -50,7 +50,7 @@ type ListVolumeInitiatorsOutput struct {
 
 	// The host names and port numbers of all iSCSI initiators that are connected
 	// to the gateway.
-	Initiators []string `type:"list"`
+	Initiators []string `json:"storagegateway:ListVolumeInitiatorsOutput:Initiators" type:"list"`
 }
 
 // String returns the string representation

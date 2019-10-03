@@ -81,7 +81,7 @@ type CreateTopicOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) assigned to the created topic.
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"sns:CreateTopicOutput:TopicArn" type:"string"`
 }
 
 // String returns the string representation

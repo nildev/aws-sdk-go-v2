@@ -56,10 +56,10 @@ type GetOpenIdTokenOutput struct {
 
 	// A unique identifier in the format REGION:GUID. Note that the IdentityId returned
 	// may not match the one passed on input.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-identity:GetOpenIdTokenOutput:IdentityId" min:"1" type:"string"`
 
 	// An OpenID token, valid for 10 minutes.
-	Token *string `type:"string"`
+	Token *string `json:"cognito-identity:GetOpenIdTokenOutput:Token" type:"string"`
 }
 
 // String returns the string representation

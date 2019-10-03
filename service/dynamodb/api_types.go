@@ -21,7 +21,7 @@ type AttributeDefinition struct {
 	// A name for the attribute.
 	//
 	// AttributeName is a required field
-	AttributeName *string `min:"1" type:"string" required:"true"`
+	AttributeName *string `json:"dynamodb:AttributeDefinition:AttributeName" min:"1" type:"string" required:"true"`
 
 	// The data type for the attribute, where:
 	//
@@ -32,7 +32,7 @@ type AttributeDefinition struct {
 	//    * B - the attribute is of type Binary
 	//
 	// AttributeType is a required field
-	AttributeType ScalarAttributeType `type:"string" required:"true" enum:"true"`
+	AttributeType ScalarAttributeType `json:"dynamodb:AttributeDefinition:AttributeType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -76,27 +76,27 @@ type AttributeValue struct {
 	// "B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"
 	//
 	// B is automatically base64 encoded/decoded by the SDK.
-	B []byte `type:"blob"`
+	B []byte `json:"dynamodb:AttributeValue:B" type:"blob"`
 
 	// An attribute of type Boolean. For example:
 	//
 	// "BOOL": true
-	BOOL *bool `type:"boolean"`
+	BOOL *bool `json:"dynamodb:AttributeValue:BOOL" type:"boolean"`
 
 	// An attribute of type Binary Set. For example:
 	//
 	// "BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]
-	BS [][]byte `type:"list"`
+	BS [][]byte `json:"dynamodb:AttributeValue:BS" type:"list"`
 
 	// An attribute of type List. For example:
 	//
 	// "L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]
-	L []AttributeValue `type:"list"`
+	L []AttributeValue `json:"dynamodb:AttributeValue:L" type:"list"`
 
 	// An attribute of type Map. For example:
 	//
 	// "M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}
-	M map[string]AttributeValue `type:"map"`
+	M map[string]AttributeValue `json:"dynamodb:AttributeValue:M" type:"map"`
 
 	// An attribute of type Number. For example:
 	//
@@ -105,7 +105,7 @@ type AttributeValue struct {
 	// Numbers are sent across the network to DynamoDB as strings, to maximize compatibility
 	// across languages and libraries. However, DynamoDB treats them as number type
 	// attributes for mathematical operations.
-	N *string `type:"string"`
+	N *string `json:"dynamodb:AttributeValue:N" type:"string"`
 
 	// An attribute of type Number Set. For example:
 	//
@@ -114,22 +114,22 @@ type AttributeValue struct {
 	// Numbers are sent across the network to DynamoDB as strings, to maximize compatibility
 	// across languages and libraries. However, DynamoDB treats them as number type
 	// attributes for mathematical operations.
-	NS []string `type:"list"`
+	NS []string `json:"dynamodb:AttributeValue:NS" type:"list"`
 
 	// An attribute of type Null. For example:
 	//
 	// "NULL": true
-	NULL *bool `type:"boolean"`
+	NULL *bool `json:"dynamodb:AttributeValue:NULL" type:"boolean"`
 
 	// An attribute of type String. For example:
 	//
 	// "S": "Hello"
-	S *string `type:"string"`
+	S *string `json:"dynamodb:AttributeValue:S" type:"string"`
 
 	// An attribute of type String Set. For example:
 	//
 	// "SS": ["Giraffe", "Hippo" ,"Zebra"]
-	SS []string `type:"list"`
+	SS []string `json:"dynamodb:AttributeValue:SS" type:"list"`
 }
 
 // String returns the string representation
@@ -205,7 +205,7 @@ type AttributeValueUpdate struct {
 	//    * ADD - DynamoDB creates an item with the supplied primary key and number
 	//    (or set of numbers) for the attribute value. The only data types allowed
 	//    are number and number set; no other data types can be specified.
-	Action AttributeAction `type:"string" enum:"true"`
+	Action AttributeAction `json:"dynamodb:AttributeValueUpdate:Action" type:"string" enum:"true"`
 
 	// Represents the data for an attribute.
 	//
@@ -214,7 +214,7 @@ type AttributeValueUpdate struct {
 	//
 	// For more information, see Data Types (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes)
 	// in the Amazon DynamoDB Developer Guide.
-	Value *AttributeValue `type:"structure"`
+	Value *AttributeValue `json:"dynamodb:AttributeValueUpdate:Value" type:"structure"`
 }
 
 // String returns the string representation
@@ -228,10 +228,10 @@ type AutoScalingPolicyDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the scaling policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"dynamodb:AutoScalingPolicyDescription:PolicyName" min:"1" type:"string"`
 
 	// Represents a target tracking scaling policy configuration.
-	TargetTrackingScalingPolicyConfiguration *AutoScalingTargetTrackingScalingPolicyConfigurationDescription `type:"structure"`
+	TargetTrackingScalingPolicyConfiguration *AutoScalingTargetTrackingScalingPolicyConfigurationDescription `json:"dynamodb:AutoScalingPolicyDescription:TargetTrackingScalingPolicyConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -245,12 +245,12 @@ type AutoScalingPolicyUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the scaling policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"dynamodb:AutoScalingPolicyUpdate:PolicyName" min:"1" type:"string"`
 
 	// Represents a target tracking scaling policy configuration.
 	//
 	// TargetTrackingScalingPolicyConfiguration is a required field
-	TargetTrackingScalingPolicyConfiguration *AutoScalingTargetTrackingScalingPolicyConfigurationUpdate `type:"structure" required:"true"`
+	TargetTrackingScalingPolicyConfiguration *AutoScalingTargetTrackingScalingPolicyConfigurationUpdate `json:"dynamodb:AutoScalingPolicyUpdate:TargetTrackingScalingPolicyConfiguration" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -287,21 +287,21 @@ type AutoScalingSettingsDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Disabled autoscaling for this global table or global secondary index.
-	AutoScalingDisabled *bool `type:"boolean"`
+	AutoScalingDisabled *bool `json:"dynamodb:AutoScalingSettingsDescription:AutoScalingDisabled" type:"boolean"`
 
 	// Role ARN used for configuring autoScaling policy.
-	AutoScalingRoleArn *string `type:"string"`
+	AutoScalingRoleArn *string `json:"dynamodb:AutoScalingSettingsDescription:AutoScalingRoleArn" type:"string"`
 
 	// The maximum capacity units that a global table or global secondary index
 	// should be scaled up to.
-	MaximumUnits *int64 `min:"1" type:"long"`
+	MaximumUnits *int64 `json:"dynamodb:AutoScalingSettingsDescription:MaximumUnits" min:"1" type:"long"`
 
 	// The minimum capacity units that a global table or global secondary index
 	// should be scaled down to.
-	MinimumUnits *int64 `min:"1" type:"long"`
+	MinimumUnits *int64 `json:"dynamodb:AutoScalingSettingsDescription:MinimumUnits" min:"1" type:"long"`
 
 	// Information about the scaling policies.
-	ScalingPolicies []AutoScalingPolicyDescription `type:"list"`
+	ScalingPolicies []AutoScalingPolicyDescription `json:"dynamodb:AutoScalingSettingsDescription:ScalingPolicies" type:"list"`
 }
 
 // String returns the string representation
@@ -316,22 +316,22 @@ type AutoScalingSettingsUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// Disabled autoscaling for this global table or global secondary index.
-	AutoScalingDisabled *bool `type:"boolean"`
+	AutoScalingDisabled *bool `json:"dynamodb:AutoScalingSettingsUpdate:AutoScalingDisabled" type:"boolean"`
 
 	// Role ARN used for configuring autoscaling policy.
-	AutoScalingRoleArn *string `min:"1" type:"string"`
+	AutoScalingRoleArn *string `json:"dynamodb:AutoScalingSettingsUpdate:AutoScalingRoleArn" min:"1" type:"string"`
 
 	// The maximum capacity units that a global table or global secondary index
 	// should be scaled up to.
-	MaximumUnits *int64 `min:"1" type:"long"`
+	MaximumUnits *int64 `json:"dynamodb:AutoScalingSettingsUpdate:MaximumUnits" min:"1" type:"long"`
 
 	// The minimum capacity units that a global table or global secondary index
 	// should be scaled down to.
-	MinimumUnits *int64 `min:"1" type:"long"`
+	MinimumUnits *int64 `json:"dynamodb:AutoScalingSettingsUpdate:MinimumUnits" min:"1" type:"long"`
 
 	// The scaling policy to apply for scaling target global table or global secondary
 	// index capacity units.
-	ScalingPolicyUpdate *AutoScalingPolicyUpdate `type:"structure"`
+	ScalingPolicyUpdate *AutoScalingPolicyUpdate `json:"dynamodb:AutoScalingSettingsUpdate:ScalingPolicyUpdate" type:"structure"`
 }
 
 // String returns the string representation
@@ -373,7 +373,7 @@ type AutoScalingTargetTrackingScalingPolicyConfigurationDescription struct {
 	// remove capacity from the scalable resource. Otherwise, scale in is enabled
 	// and the target tracking policy can remove capacity from the scalable resource.
 	// The default value is false.
-	DisableScaleIn *bool `type:"boolean"`
+	DisableScaleIn *bool `json:"dynamodb:AutoScalingTargetTrackingScalingPolicyConfigurationDescription:DisableScaleIn" type:"boolean"`
 
 	// The amount of time, in seconds, after a scale in activity completes before
 	// another scale in activity can start. The cooldown period is used to block
@@ -381,20 +381,20 @@ type AutoScalingTargetTrackingScalingPolicyConfigurationDescription struct {
 	// to protect your application's availability. However, if another alarm triggers
 	// a scale out policy during the cooldown period after a scale-in, application
 	// autoscaling scales out your scalable target immediately.
-	ScaleInCooldown *int64 `type:"integer"`
+	ScaleInCooldown *int64 `json:"dynamodb:AutoScalingTargetTrackingScalingPolicyConfigurationDescription:ScaleInCooldown" type:"integer"`
 
 	// The amount of time, in seconds, after a scale out activity completes before
 	// another scale out activity can start. While the cooldown period is in effect,
 	// the capacity that has been added by the previous scale out event that initiated
 	// the cooldown is calculated as part of the desired capacity for the next scale
 	// out. You should continuously (but not excessively) scale out.
-	ScaleOutCooldown *int64 `type:"integer"`
+	ScaleOutCooldown *int64 `json:"dynamodb:AutoScalingTargetTrackingScalingPolicyConfigurationDescription:ScaleOutCooldown" type:"integer"`
 
 	// The target value for the metric. The range is 8.515920e-109 to 1.174271e+108
 	// (Base 10) or 2e-360 to 2e360 (Base 2).
 	//
 	// TargetValue is a required field
-	TargetValue *float64 `type:"double" required:"true"`
+	TargetValue *float64 `json:"dynamodb:AutoScalingTargetTrackingScalingPolicyConfigurationDescription:TargetValue" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -413,7 +413,7 @@ type AutoScalingTargetTrackingScalingPolicyConfigurationUpdate struct {
 	// remove capacity from the scalable resource. Otherwise, scale in is enabled
 	// and the target tracking policy can remove capacity from the scalable resource.
 	// The default value is false.
-	DisableScaleIn *bool `type:"boolean"`
+	DisableScaleIn *bool `json:"dynamodb:AutoScalingTargetTrackingScalingPolicyConfigurationUpdate:DisableScaleIn" type:"boolean"`
 
 	// The amount of time, in seconds, after a scale in activity completes before
 	// another scale in activity can start. The cooldown period is used to block
@@ -421,20 +421,20 @@ type AutoScalingTargetTrackingScalingPolicyConfigurationUpdate struct {
 	// to protect your application's availability. However, if another alarm triggers
 	// a scale out policy during the cooldown period after a scale-in, application
 	// autoscaling scales out your scalable target immediately.
-	ScaleInCooldown *int64 `type:"integer"`
+	ScaleInCooldown *int64 `json:"dynamodb:AutoScalingTargetTrackingScalingPolicyConfigurationUpdate:ScaleInCooldown" type:"integer"`
 
 	// The amount of time, in seconds, after a scale out activity completes before
 	// another scale out activity can start. While the cooldown period is in effect,
 	// the capacity that has been added by the previous scale out event that initiated
 	// the cooldown is calculated as part of the desired capacity for the next scale
 	// out. You should continuously (but not excessively) scale out.
-	ScaleOutCooldown *int64 `type:"integer"`
+	ScaleOutCooldown *int64 `json:"dynamodb:AutoScalingTargetTrackingScalingPolicyConfigurationUpdate:ScaleOutCooldown" type:"integer"`
 
 	// The target value for the metric. The range is 8.515920e-109 to 1.174271e+108
 	// (Base 10) or 2e-360 to 2e360 (Base 2).
 	//
 	// TargetValue is a required field
-	TargetValue *float64 `type:"double" required:"true"`
+	TargetValue *float64 `json:"dynamodb:AutoScalingTargetTrackingScalingPolicyConfigurationUpdate:TargetValue" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -462,14 +462,14 @@ type BackupDescription struct {
 	_ struct{} `type:"structure"`
 
 	// Contains the details of the backup created for the table.
-	BackupDetails *BackupDetails `type:"structure"`
+	BackupDetails *BackupDetails `json:"dynamodb:BackupDescription:BackupDetails" type:"structure"`
 
 	// Contains the details of the table when the backup was created.
-	SourceTableDetails *SourceTableDetails `type:"structure"`
+	SourceTableDetails *SourceTableDetails `json:"dynamodb:BackupDescription:SourceTableDetails" type:"structure"`
 
 	// Contains the details of the features enabled on the table when the backup
 	// was created. For example, LSIs, GSIs, streams, TTL.
-	SourceTableFeatureDetails *SourceTableFeatureDetails `type:"structure"`
+	SourceTableFeatureDetails *SourceTableFeatureDetails `json:"dynamodb:BackupDescription:SourceTableFeatureDetails" type:"structure"`
 }
 
 // String returns the string representation
@@ -485,29 +485,29 @@ type BackupDetails struct {
 	// ARN associated with the backup.
 	//
 	// BackupArn is a required field
-	BackupArn *string `min:"37" type:"string" required:"true"`
+	BackupArn *string `json:"dynamodb:BackupDetails:BackupArn" min:"37" type:"string" required:"true"`
 
 	// Time at which the backup was created. This is the request time of the backup.
 	//
 	// BackupCreationDateTime is a required field
-	BackupCreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	BackupCreationDateTime *time.Time `json:"dynamodb:BackupDetails:BackupCreationDateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Time at which the automatic on-demand backup created by DynamoDB will expire.
 	// This SYSTEM on-demand backup expires automatically 35 days after its creation.
-	BackupExpiryDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	BackupExpiryDateTime *time.Time `json:"dynamodb:BackupDetails:BackupExpiryDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Name of the requested backup.
 	//
 	// BackupName is a required field
-	BackupName *string `min:"3" type:"string" required:"true"`
+	BackupName *string `json:"dynamodb:BackupDetails:BackupName" min:"3" type:"string" required:"true"`
 
 	// Size of the backup in bytes.
-	BackupSizeBytes *int64 `type:"long"`
+	BackupSizeBytes *int64 `json:"dynamodb:BackupDetails:BackupSizeBytes" type:"long"`
 
 	// Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
 	//
 	// BackupStatus is a required field
-	BackupStatus BackupStatus `type:"string" required:"true" enum:"true"`
+	BackupStatus BackupStatus `json:"dynamodb:BackupDetails:BackupStatus" type:"string" required:"true" enum:"true"`
 
 	// BackupType:
 	//
@@ -521,7 +521,7 @@ type BackupDetails struct {
 	//    * AWS_BACKUP - On-demand backup created by you from AWS Backup service.
 	//
 	// BackupType is a required field
-	BackupType BackupType `type:"string" required:"true" enum:"true"`
+	BackupType BackupType `json:"dynamodb:BackupDetails:BackupType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -535,23 +535,23 @@ type BackupSummary struct {
 	_ struct{} `type:"structure"`
 
 	// ARN associated with the backup.
-	BackupArn *string `min:"37" type:"string"`
+	BackupArn *string `json:"dynamodb:BackupSummary:BackupArn" min:"37" type:"string"`
 
 	// Time at which the backup was created.
-	BackupCreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	BackupCreationDateTime *time.Time `json:"dynamodb:BackupSummary:BackupCreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Time at which the automatic on-demand backup created by DynamoDB will expire.
 	// This SYSTEM on-demand backup expires automatically 35 days after its creation.
-	BackupExpiryDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	BackupExpiryDateTime *time.Time `json:"dynamodb:BackupSummary:BackupExpiryDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Name of the specified backup.
-	BackupName *string `min:"3" type:"string"`
+	BackupName *string `json:"dynamodb:BackupSummary:BackupName" min:"3" type:"string"`
 
 	// Size of the backup in bytes.
-	BackupSizeBytes *int64 `type:"long"`
+	BackupSizeBytes *int64 `json:"dynamodb:BackupSummary:BackupSizeBytes" type:"long"`
 
 	// Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
-	BackupStatus BackupStatus `type:"string" enum:"true"`
+	BackupStatus BackupStatus `json:"dynamodb:BackupSummary:BackupStatus" type:"string" enum:"true"`
 
 	// BackupType:
 	//
@@ -563,16 +563,16 @@ type BackupSummary struct {
 	//    to the state it was in just before the point of deletion.
 	//
 	//    * AWS_BACKUP - On-demand backup created by you from AWS Backup service.
-	BackupType BackupType `type:"string" enum:"true"`
+	BackupType BackupType `json:"dynamodb:BackupSummary:BackupType" type:"string" enum:"true"`
 
 	// ARN associated with the table.
-	TableArn *string `type:"string"`
+	TableArn *string `json:"dynamodb:BackupSummary:TableArn" type:"string"`
 
 	// Unique identifier for the table.
-	TableId *string `type:"string"`
+	TableId *string `json:"dynamodb:BackupSummary:TableId" type:"string"`
 
 	// Name of the table.
-	TableName *string `min:"3" type:"string"`
+	TableName *string `json:"dynamodb:BackupSummary:TableName" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -593,11 +593,11 @@ type BillingModeSummary struct {
 	//
 	//    * PAY_PER_REQUEST - Sets the read/write capacity mode to PAY_PER_REQUEST.
 	//    We recommend using PAY_PER_REQUEST for unpredictable workloads.
-	BillingMode BillingMode `type:"string" enum:"true"`
+	BillingMode BillingMode `json:"dynamodb:BillingModeSummary:BillingMode" type:"string" enum:"true"`
 
 	// Represents the time when PAY_PER_REQUEST was last set as the read/write capacity
 	// mode.
-	LastUpdateToPayPerRequestDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateToPayPerRequestDateTime *time.Time `json:"dynamodb:BillingModeSummary:LastUpdateToPayPerRequestDateTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -614,13 +614,13 @@ type CancellationReason struct {
 	_ struct{} `type:"structure"`
 
 	// Status code for the result of the cancelled transaction.
-	Code *string `type:"string"`
+	Code *string `json:"dynamodb:CancellationReason:Code" type:"string"`
 
 	// Item in the request which caused the transaction to get cancelled.
-	Item map[string]AttributeValue `type:"map"`
+	Item map[string]AttributeValue `json:"dynamodb:CancellationReason:Item" type:"map"`
 
 	// Cancellation reason message description.
-	Message *string `type:"string"`
+	Message *string `json:"dynamodb:CancellationReason:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -635,13 +635,13 @@ type Capacity struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of capacity units consumed on a table or an index.
-	CapacityUnits *float64 `type:"double"`
+	CapacityUnits *float64 `json:"dynamodb:Capacity:CapacityUnits" type:"double"`
 
 	// The total number of read capacity units consumed on a table or an index.
-	ReadCapacityUnits *float64 `type:"double"`
+	ReadCapacityUnits *float64 `json:"dynamodb:Capacity:ReadCapacityUnits" type:"double"`
 
 	// The total number of write capacity units consumed on a table or an index.
-	WriteCapacityUnits *float64 `type:"double"`
+	WriteCapacityUnits *float64 `json:"dynamodb:Capacity:WriteCapacityUnits" type:"double"`
 }
 
 // String returns the string representation
@@ -675,7 +675,7 @@ type Condition struct {
 	//
 	// For Binary, DynamoDB treats each byte of the binary data as unsigned when
 	// it compares binary values.
-	AttributeValueList []AttributeValue `type:"list"`
+	AttributeValueList []AttributeValue `json:"dynamodb:Condition:AttributeValueList" type:"list"`
 
 	// A comparator for evaluating attributes. For example, equals, greater than,
 	// less than, etc.
@@ -793,7 +793,7 @@ type Condition struct {
 	// in the Amazon DynamoDB Developer Guide.
 	//
 	// ComparisonOperator is a required field
-	ComparisonOperator ComparisonOperator `type:"string" required:"true" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"dynamodb:Condition:ComparisonOperator" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -823,29 +823,29 @@ type ConditionCheck struct {
 	// A condition that must be satisfied in order for a conditional update to succeed.
 	//
 	// ConditionExpression is a required field
-	ConditionExpression *string `type:"string" required:"true"`
+	ConditionExpression *string `json:"dynamodb:ConditionCheck:ConditionExpression" type:"string" required:"true"`
 
 	// One or more substitution tokens for attribute names in an expression.
-	ExpressionAttributeNames map[string]string `type:"map"`
+	ExpressionAttributeNames map[string]string `json:"dynamodb:ConditionCheck:ExpressionAttributeNames" type:"map"`
 
 	// One or more values that can be substituted in an expression.
-	ExpressionAttributeValues map[string]AttributeValue `type:"map"`
+	ExpressionAttributeValues map[string]AttributeValue `json:"dynamodb:ConditionCheck:ExpressionAttributeValues" type:"map"`
 
 	// The primary key of the item to be checked. Each element consists of an attribute
 	// name and a value for that attribute.
 	//
 	// Key is a required field
-	Key map[string]AttributeValue `type:"map" required:"true"`
+	Key map[string]AttributeValue `json:"dynamodb:ConditionCheck:Key" type:"map" required:"true"`
 
 	// Use ReturnValuesOnConditionCheckFailure to get the item attributes if the
 	// ConditionCheck condition fails. For ReturnValuesOnConditionCheckFailure,
 	// the valid values are: NONE and ALL_OLD.
-	ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure `type:"string" enum:"true"`
+	ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure `json:"dynamodb:ConditionCheck:ReturnValuesOnConditionCheckFailure" type:"string" enum:"true"`
 
 	// Name of the table for the check item request.
 	//
 	// TableName is a required field
-	TableName *string `min:"3" type:"string" required:"true"`
+	TableName *string `json:"dynamodb:ConditionCheck:TableName" min:"3" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -889,25 +889,25 @@ type ConsumedCapacity struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of capacity units consumed by the operation.
-	CapacityUnits *float64 `type:"double"`
+	CapacityUnits *float64 `json:"dynamodb:ConsumedCapacity:CapacityUnits" type:"double"`
 
 	// The amount of throughput consumed on each global index affected by the operation.
-	GlobalSecondaryIndexes map[string]Capacity `type:"map"`
+	GlobalSecondaryIndexes map[string]Capacity `json:"dynamodb:ConsumedCapacity:GlobalSecondaryIndexes" type:"map"`
 
 	// The amount of throughput consumed on each local index affected by the operation.
-	LocalSecondaryIndexes map[string]Capacity `type:"map"`
+	LocalSecondaryIndexes map[string]Capacity `json:"dynamodb:ConsumedCapacity:LocalSecondaryIndexes" type:"map"`
 
 	// The total number of read capacity units consumed by the operation.
-	ReadCapacityUnits *float64 `type:"double"`
+	ReadCapacityUnits *float64 `json:"dynamodb:ConsumedCapacity:ReadCapacityUnits" type:"double"`
 
 	// The amount of throughput consumed on the table affected by the operation.
-	Table *Capacity `type:"structure"`
+	Table *Capacity `json:"dynamodb:ConsumedCapacity:Table" type:"structure"`
 
 	// The name of the table that was affected by the operation.
-	TableName *string `min:"3" type:"string"`
+	TableName *string `json:"dynamodb:ConsumedCapacity:TableName" min:"3" type:"string"`
 
 	// The total number of write capacity units consumed by the operation.
-	WriteCapacityUnits *float64 `type:"double"`
+	WriteCapacityUnits *float64 `json:"dynamodb:ConsumedCapacity:WriteCapacityUnits" type:"double"`
 }
 
 // String returns the string representation
@@ -924,10 +924,10 @@ type ContinuousBackupsDescription struct {
 	// ContinuousBackupsStatus can be one of the following states: ENABLED, DISABLED
 	//
 	// ContinuousBackupsStatus is a required field
-	ContinuousBackupsStatus ContinuousBackupsStatus `type:"string" required:"true" enum:"true"`
+	ContinuousBackupsStatus ContinuousBackupsStatus `json:"dynamodb:ContinuousBackupsDescription:ContinuousBackupsStatus" type:"string" required:"true" enum:"true"`
 
 	// The description of the point in time recovery settings applied to the table.
-	PointInTimeRecoveryDescription *PointInTimeRecoveryDescription `type:"structure"`
+	PointInTimeRecoveryDescription *PointInTimeRecoveryDescription `json:"dynamodb:ContinuousBackupsDescription:PointInTimeRecoveryDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -943,19 +943,19 @@ type CreateGlobalSecondaryIndexAction struct {
 	// The name of the global secondary index to be created.
 	//
 	// IndexName is a required field
-	IndexName *string `min:"3" type:"string" required:"true"`
+	IndexName *string `json:"dynamodb:CreateGlobalSecondaryIndexAction:IndexName" min:"3" type:"string" required:"true"`
 
 	// The key schema for the global secondary index.
 	//
 	// KeySchema is a required field
-	KeySchema []KeySchemaElement `min:"1" type:"list" required:"true"`
+	KeySchema []KeySchemaElement `json:"dynamodb:CreateGlobalSecondaryIndexAction:KeySchema" min:"1" type:"list" required:"true"`
 
 	// Represents attributes that are copied (projected) from the table into an
 	// index. These are in addition to the primary key attributes and index key
 	// attributes, which are automatically projected.
 	//
 	// Projection is a required field
-	Projection *Projection `type:"structure" required:"true"`
+	Projection *Projection `json:"dynamodb:CreateGlobalSecondaryIndexAction:Projection" type:"structure" required:"true"`
 
 	// Represents the provisioned throughput settings for the specified global secondary
 	// index.
@@ -963,7 +963,7 @@ type CreateGlobalSecondaryIndexAction struct {
 	// For current minimum and maximum provisioned throughput values, see Limits
 	// (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ProvisionedThroughput *ProvisionedThroughput `type:"structure"`
+	ProvisionedThroughput *ProvisionedThroughput `json:"dynamodb:CreateGlobalSecondaryIndexAction:ProvisionedThroughput" type:"structure"`
 }
 
 // String returns the string representation
@@ -1024,7 +1024,7 @@ type CreateReplicaAction struct {
 	// The region of the replica to be added.
 	//
 	// RegionName is a required field
-	RegionName *string `type:"string" required:"true"`
+	RegionName *string `json:"dynamodb:CreateReplicaAction:RegionName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1052,29 +1052,29 @@ type Delete struct {
 	_ struct{} `type:"structure"`
 
 	// A condition that must be satisfied in order for a conditional delete to succeed.
-	ConditionExpression *string `type:"string"`
+	ConditionExpression *string `json:"dynamodb:Delete:ConditionExpression" type:"string"`
 
 	// One or more substitution tokens for attribute names in an expression.
-	ExpressionAttributeNames map[string]string `type:"map"`
+	ExpressionAttributeNames map[string]string `json:"dynamodb:Delete:ExpressionAttributeNames" type:"map"`
 
 	// One or more values that can be substituted in an expression.
-	ExpressionAttributeValues map[string]AttributeValue `type:"map"`
+	ExpressionAttributeValues map[string]AttributeValue `json:"dynamodb:Delete:ExpressionAttributeValues" type:"map"`
 
 	// The primary key of the item to be deleted. Each element consists of an attribute
 	// name and a value for that attribute.
 	//
 	// Key is a required field
-	Key map[string]AttributeValue `type:"map" required:"true"`
+	Key map[string]AttributeValue `json:"dynamodb:Delete:Key" type:"map" required:"true"`
 
 	// Use ReturnValuesOnConditionCheckFailure to get the item attributes if the
 	// Delete condition fails. For ReturnValuesOnConditionCheckFailure, the valid
 	// values are: NONE and ALL_OLD.
-	ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure `type:"string" enum:"true"`
+	ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure `json:"dynamodb:Delete:ReturnValuesOnConditionCheckFailure" type:"string" enum:"true"`
 
 	// Name of the table in which the item to be deleted resides.
 	//
 	// TableName is a required field
-	TableName *string `min:"3" type:"string" required:"true"`
+	TableName *string `json:"dynamodb:Delete:TableName" min:"3" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1111,7 +1111,7 @@ type DeleteGlobalSecondaryIndexAction struct {
 	// The name of the global secondary index to be deleted.
 	//
 	// IndexName is a required field
-	IndexName *string `min:"3" type:"string" required:"true"`
+	IndexName *string `json:"dynamodb:DeleteGlobalSecondaryIndexAction:IndexName" min:"3" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1144,7 +1144,7 @@ type DeleteReplicaAction struct {
 	// The region of the replica to be removed.
 	//
 	// RegionName is a required field
-	RegionName *string `type:"string" required:"true"`
+	RegionName *string `json:"dynamodb:DeleteReplicaAction:RegionName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1176,7 +1176,7 @@ type DeleteRequest struct {
 	// specified, and their data types must match those of the table's key schema.
 	//
 	// Key is a required field
-	Key map[string]AttributeValue `type:"map" required:"true"`
+	Key map[string]AttributeValue `json:"dynamodb:DeleteRequest:Key" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -1192,12 +1192,12 @@ type Endpoint struct {
 	// IP address of the endpoint.
 	//
 	// Address is a required field
-	Address *string `type:"string" required:"true"`
+	Address *string `json:"dynamodb:Endpoint:Address" type:"string" required:"true"`
 
 	// Endpoint cache time to live (TTL) value.
 	//
 	// CachePeriodInMinutes is a required field
-	CachePeriodInMinutes *int64 `type:"long" required:"true"`
+	CachePeriodInMinutes *int64 `json:"dynamodb:Endpoint:CachePeriodInMinutes" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1244,7 +1244,7 @@ type ExpectedAttributeValue struct {
 	//
 	// For information on specifying data types in JSON, see JSON Data Format (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html)
 	// in the Amazon DynamoDB Developer Guide.
-	AttributeValueList []AttributeValue `type:"list"`
+	AttributeValueList []AttributeValue `json:"dynamodb:ExpectedAttributeValue:AttributeValueList" type:"list"`
 
 	// A comparator for evaluating attributes in the AttributeValueList. For example,
 	// equals, greater than, less than, etc.
@@ -1356,7 +1356,7 @@ type ExpectedAttributeValue struct {
 	//    type than the one provided in the request, the value does not match. For
 	//    example, {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does
 	//    not compare to {"NS":["6", "2", "1"]}
-	ComparisonOperator ComparisonOperator `type:"string" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"dynamodb:ExpectedAttributeValue:ComparisonOperator" type:"string" enum:"true"`
 
 	// Causes DynamoDB to evaluate the value before attempting a conditional operation:
 	//
@@ -1380,7 +1380,7 @@ type ExpectedAttributeValue struct {
 	//
 	//    * Exists is false but you also provide a Value. (You cannot expect an
 	//    attribute to have a value, while also expecting it not to exist.)
-	Exists *bool `type:"boolean"`
+	Exists *bool `json:"dynamodb:ExpectedAttributeValue:Exists" type:"boolean"`
 
 	// Represents the data for the expected attribute.
 	//
@@ -1389,7 +1389,7 @@ type ExpectedAttributeValue struct {
 	//
 	// For more information, see Data Types (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes)
 	// in the Amazon DynamoDB Developer Guide.
-	Value *AttributeValue `type:"structure"`
+	Value *AttributeValue `json:"dynamodb:ExpectedAttributeValue:Value" type:"structure"`
 }
 
 // String returns the string representation
@@ -1405,25 +1405,25 @@ type Get struct {
 
 	// One or more substitution tokens for attribute names in the ProjectionExpression
 	// parameter.
-	ExpressionAttributeNames map[string]string `type:"map"`
+	ExpressionAttributeNames map[string]string `json:"dynamodb:Get:ExpressionAttributeNames" type:"map"`
 
 	// A map of attribute names to AttributeValue objects that specifies the primary
 	// key of the item to retrieve.
 	//
 	// Key is a required field
-	Key map[string]AttributeValue `type:"map" required:"true"`
+	Key map[string]AttributeValue `json:"dynamodb:Get:Key" type:"map" required:"true"`
 
 	// A string that identifies one or more attributes of the specified item to
 	// retrieve from the table. The attributes in the expression must be separated
 	// by commas. If no attribute names are specified, then all attributes of the
 	// specified item are returned. If any of the requested attributes are not found,
 	// they do not appear in the result.
-	ProjectionExpression *string `type:"string"`
+	ProjectionExpression *string `json:"dynamodb:Get:ProjectionExpression" type:"string"`
 
 	// The name of the table from which to retrieve the specified item.
 	//
 	// TableName is a required field
-	TableName *string `min:"3" type:"string" required:"true"`
+	TableName *string `json:"dynamodb:Get:TableName" min:"3" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1461,7 +1461,7 @@ type GlobalSecondaryIndex struct {
 	// other indexes on this table.
 	//
 	// IndexName is a required field
-	IndexName *string `min:"3" type:"string" required:"true"`
+	IndexName *string `json:"dynamodb:GlobalSecondaryIndex:IndexName" min:"3" type:"string" required:"true"`
 
 	// The complete key schema for a global secondary index, which consists of one
 	// or more pairs of attribute names and key types:
@@ -1480,14 +1480,14 @@ type GlobalSecondaryIndex struct {
 	// key physically close together, in sorted order by the sort key value.
 	//
 	// KeySchema is a required field
-	KeySchema []KeySchemaElement `min:"1" type:"list" required:"true"`
+	KeySchema []KeySchemaElement `json:"dynamodb:GlobalSecondaryIndex:KeySchema" min:"1" type:"list" required:"true"`
 
 	// Represents attributes that are copied (projected) from the table into the
 	// global secondary index. These are in addition to the primary key attributes
 	// and index key attributes, which are automatically projected.
 	//
 	// Projection is a required field
-	Projection *Projection `type:"structure" required:"true"`
+	Projection *Projection `json:"dynamodb:GlobalSecondaryIndex:Projection" type:"structure" required:"true"`
 
 	// Represents the provisioned throughput settings for the specified global secondary
 	// index.
@@ -1495,7 +1495,7 @@ type GlobalSecondaryIndex struct {
 	// For current minimum and maximum provisioned throughput values, see Limits
 	// (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ProvisionedThroughput *ProvisionedThroughput `type:"structure"`
+	ProvisionedThroughput *ProvisionedThroughput `json:"dynamodb:GlobalSecondaryIndex:ProvisionedThroughput" type:"structure"`
 }
 
 // String returns the string representation
@@ -1562,18 +1562,18 @@ type GlobalSecondaryIndexDescription struct {
 	//
 	// For indexes that were created during a CreateTable operation, the Backfilling
 	// attribute does not appear in the DescribeTable output.
-	Backfilling *bool `type:"boolean"`
+	Backfilling *bool `json:"dynamodb:GlobalSecondaryIndexDescription:Backfilling" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) that uniquely identifies the index.
-	IndexArn *string `type:"string"`
+	IndexArn *string `json:"dynamodb:GlobalSecondaryIndexDescription:IndexArn" type:"string"`
 
 	// The name of the global secondary index.
-	IndexName *string `min:"3" type:"string"`
+	IndexName *string `json:"dynamodb:GlobalSecondaryIndexDescription:IndexName" min:"3" type:"string"`
 
 	// The total size of the specified index, in bytes. DynamoDB updates this value
 	// approximately every six hours. Recent changes might not be reflected in this
 	// value.
-	IndexSizeBytes *int64 `type:"long"`
+	IndexSizeBytes *int64 `json:"dynamodb:GlobalSecondaryIndexDescription:IndexSizeBytes" type:"long"`
 
 	// The current state of the global secondary index:
 	//
@@ -1584,11 +1584,11 @@ type GlobalSecondaryIndexDescription struct {
 	//    * DELETING - The index is being deleted.
 	//
 	//    * ACTIVE - The index is ready for use.
-	IndexStatus IndexStatus `type:"string" enum:"true"`
+	IndexStatus IndexStatus `json:"dynamodb:GlobalSecondaryIndexDescription:IndexStatus" type:"string" enum:"true"`
 
 	// The number of items in the specified index. DynamoDB updates this value approximately
 	// every six hours. Recent changes might not be reflected in this value.
-	ItemCount *int64 `type:"long"`
+	ItemCount *int64 `json:"dynamodb:GlobalSecondaryIndexDescription:ItemCount" type:"long"`
 
 	// The complete key schema for a global secondary index, which consists of one
 	// or more pairs of attribute names and key types:
@@ -1605,12 +1605,12 @@ type GlobalSecondaryIndexDescription struct {
 	// The sort key of an item is also known as its range attribute. The term "range
 	// attribute" derives from the way DynamoDB stores items with the same partition
 	// key physically close together, in sorted order by the sort key value.
-	KeySchema []KeySchemaElement `min:"1" type:"list"`
+	KeySchema []KeySchemaElement `json:"dynamodb:GlobalSecondaryIndexDescription:KeySchema" min:"1" type:"list"`
 
 	// Represents attributes that are copied (projected) from the table into the
 	// global secondary index. These are in addition to the primary key attributes
 	// and index key attributes, which are automatically projected.
-	Projection *Projection `type:"structure"`
+	Projection *Projection `json:"dynamodb:GlobalSecondaryIndexDescription:Projection" type:"structure"`
 
 	// Represents the provisioned throughput settings for the specified global secondary
 	// index.
@@ -1618,7 +1618,7 @@ type GlobalSecondaryIndexDescription struct {
 	// For current minimum and maximum provisioned throughput values, see Limits
 	// (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ProvisionedThroughput *ProvisionedThroughputDescription `type:"structure"`
+	ProvisionedThroughput *ProvisionedThroughputDescription `json:"dynamodb:GlobalSecondaryIndexDescription:ProvisionedThroughput" type:"structure"`
 }
 
 // String returns the string representation
@@ -1633,7 +1633,7 @@ type GlobalSecondaryIndexInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the global secondary index.
-	IndexName *string `min:"3" type:"string"`
+	IndexName *string `json:"dynamodb:GlobalSecondaryIndexInfo:IndexName" min:"3" type:"string"`
 
 	// The complete key schema for a global secondary index, which consists of one
 	// or more pairs of attribute names and key types:
@@ -1650,16 +1650,16 @@ type GlobalSecondaryIndexInfo struct {
 	// The sort key of an item is also known as its range attribute. The term "range
 	// attribute" derives from the way DynamoDB stores items with the same partition
 	// key physically close together, in sorted order by the sort key value.
-	KeySchema []KeySchemaElement `min:"1" type:"list"`
+	KeySchema []KeySchemaElement `json:"dynamodb:GlobalSecondaryIndexInfo:KeySchema" min:"1" type:"list"`
 
 	// Represents attributes that are copied (projected) from the table into the
 	// global secondary index. These are in addition to the primary key attributes
 	// and index key attributes, which are automatically projected.
-	Projection *Projection `type:"structure"`
+	Projection *Projection `json:"dynamodb:GlobalSecondaryIndexInfo:Projection" type:"structure"`
 
 	// Represents the provisioned throughput settings for the specified global secondary
 	// index.
-	ProvisionedThroughput *ProvisionedThroughput `type:"structure"`
+	ProvisionedThroughput *ProvisionedThroughput `json:"dynamodb:GlobalSecondaryIndexInfo:ProvisionedThroughput" type:"structure"`
 }
 
 // String returns the string representation
@@ -1691,14 +1691,14 @@ type GlobalSecondaryIndexUpdate struct {
 	//    * Projection
 	//
 	//    * ProvisionedThroughput
-	Create *CreateGlobalSecondaryIndexAction `type:"structure"`
+	Create *CreateGlobalSecondaryIndexAction `json:"dynamodb:GlobalSecondaryIndexUpdate:Create" type:"structure"`
 
 	// The name of an existing global secondary index to be removed.
-	Delete *DeleteGlobalSecondaryIndexAction `type:"structure"`
+	Delete *DeleteGlobalSecondaryIndexAction `json:"dynamodb:GlobalSecondaryIndexUpdate:Delete" type:"structure"`
 
 	// The name of an existing global secondary index, along with new provisioned
 	// throughput settings to be applied to that index.
-	Update *UpdateGlobalSecondaryIndexAction `type:"structure"`
+	Update *UpdateGlobalSecondaryIndexAction `json:"dynamodb:GlobalSecondaryIndexUpdate:Update" type:"structure"`
 }
 
 // String returns the string representation
@@ -1737,10 +1737,10 @@ type GlobalTable struct {
 	_ struct{} `type:"structure"`
 
 	// The global table name.
-	GlobalTableName *string `min:"3" type:"string"`
+	GlobalTableName *string `json:"dynamodb:GlobalTable:GlobalTableName" min:"3" type:"string"`
 
 	// The regions where the global table has replicas.
-	ReplicationGroup []Replica `type:"list"`
+	ReplicationGroup []Replica `json:"dynamodb:GlobalTable:ReplicationGroup" type:"list"`
 }
 
 // String returns the string representation
@@ -1754,13 +1754,13 @@ type GlobalTableDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The creation time of the global table.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"dynamodb:GlobalTableDescription:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique identifier of the global table.
-	GlobalTableArn *string `type:"string"`
+	GlobalTableArn *string `json:"dynamodb:GlobalTableDescription:GlobalTableArn" type:"string"`
 
 	// The global table name.
-	GlobalTableName *string `min:"3" type:"string"`
+	GlobalTableName *string `json:"dynamodb:GlobalTableDescription:GlobalTableName" min:"3" type:"string"`
 
 	// The current state of the global table:
 	//
@@ -1771,10 +1771,10 @@ type GlobalTableDescription struct {
 	//    * DELETING - The global table is being deleted.
 	//
 	//    * ACTIVE - The global table is ready for use.
-	GlobalTableStatus GlobalTableStatus `type:"string" enum:"true"`
+	GlobalTableStatus GlobalTableStatus `json:"dynamodb:GlobalTableDescription:GlobalTableStatus" type:"string" enum:"true"`
 
 	// The regions where the global table has replicas.
-	ReplicationGroup []ReplicaDescription `type:"list"`
+	ReplicationGroup []ReplicaDescription `json:"dynamodb:GlobalTableDescription:ReplicationGroup" type:"list"`
 }
 
 // String returns the string representation
@@ -1792,15 +1792,15 @@ type GlobalTableGlobalSecondaryIndexSettingsUpdate struct {
 	// other indexes on this table.
 	//
 	// IndexName is a required field
-	IndexName *string `min:"3" type:"string" required:"true"`
+	IndexName *string `json:"dynamodb:GlobalTableGlobalSecondaryIndexSettingsUpdate:IndexName" min:"3" type:"string" required:"true"`
 
 	// AutoScaling settings for managing a global secondary index's write capacity
 	// units.
-	ProvisionedWriteCapacityAutoScalingSettingsUpdate *AutoScalingSettingsUpdate `type:"structure"`
+	ProvisionedWriteCapacityAutoScalingSettingsUpdate *AutoScalingSettingsUpdate `json:"dynamodb:GlobalTableGlobalSecondaryIndexSettingsUpdate:ProvisionedWriteCapacityAutoScalingSettingsUpdate" type:"structure"`
 
 	// The maximum number of writes consumed per second before DynamoDB returns
 	// a ThrottlingException.
-	ProvisionedWriteCapacityUnits *int64 `min:"1" type:"long"`
+	ProvisionedWriteCapacityUnits *int64 `json:"dynamodb:GlobalTableGlobalSecondaryIndexSettingsUpdate:ProvisionedWriteCapacityUnits" min:"1" type:"long"`
 }
 
 // String returns the string representation
@@ -1843,7 +1843,7 @@ type ItemCollectionMetrics struct {
 
 	// The partition key value of the item collection. This value is the same as
 	// the partition key value of the item.
-	ItemCollectionKey map[string]AttributeValue `type:"map"`
+	ItemCollectionKey map[string]AttributeValue `json:"dynamodb:ItemCollectionMetrics:ItemCollectionKey" type:"map"`
 
 	// An estimate of item collection size, in gigabytes. This value is a two-element
 	// array containing a lower bound and an upper bound for the estimate. The estimate
@@ -1854,7 +1854,7 @@ type ItemCollectionMetrics struct {
 	//
 	// The estimate is subject to change over time; therefore, do not rely on the
 	// precision or accuracy of the estimate.
-	SizeEstimateRangeGB []float64 `type:"list"`
+	SizeEstimateRangeGB []float64 `json:"dynamodb:ItemCollectionMetrics:SizeEstimateRangeGB" type:"list"`
 }
 
 // String returns the string representation
@@ -1868,7 +1868,7 @@ type ItemResponse struct {
 	_ struct{} `type:"structure"`
 
 	// Map of attribute data consisting of the data type and attribute value.
-	Item map[string]AttributeValue `type:"map"`
+	Item map[string]AttributeValue `json:"dynamodb:ItemResponse:Item" type:"map"`
 }
 
 // String returns the string representation
@@ -1894,7 +1894,7 @@ type KeySchemaElement struct {
 	// The name of a key attribute.
 	//
 	// AttributeName is a required field
-	AttributeName *string `min:"1" type:"string" required:"true"`
+	AttributeName *string `json:"dynamodb:KeySchemaElement:AttributeName" min:"1" type:"string" required:"true"`
 
 	// The role that this key attribute will assume:
 	//
@@ -1912,7 +1912,7 @@ type KeySchemaElement struct {
 	// key physically close together, in sorted order by the sort key value.
 	//
 	// KeyType is a required field
-	KeyType KeyType `type:"string" required:"true" enum:"true"`
+	KeyType KeyType `json:"dynamodb:KeySchemaElement:KeyType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1954,11 +1954,11 @@ type KeysAndAttributes struct {
 	// This is a legacy parameter. Use ProjectionExpression instead. For more information,
 	// see Legacy Conditional Parameters (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html)
 	// in the Amazon DynamoDB Developer Guide.
-	AttributesToGet []string `min:"1" type:"list"`
+	AttributesToGet []string `json:"dynamodb:KeysAndAttributes:AttributesToGet" min:"1" type:"list"`
 
 	// The consistency of a read operation. If set to true, then a strongly consistent
 	// read is used; otherwise, an eventually consistent read is used.
-	ConsistentRead *bool `type:"boolean"`
+	ConsistentRead *bool `json:"dynamodb:KeysAndAttributes:ConsistentRead" type:"boolean"`
 
 	// One or more substitution tokens for attribute names in an expression. The
 	// following are some use cases for using ExpressionAttributeNames:
@@ -1995,13 +1995,13 @@ type KeysAndAttributes struct {
 	// For more information on expression attribute names, see Accessing Item Attributes
 	// (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ExpressionAttributeNames map[string]string `type:"map"`
+	ExpressionAttributeNames map[string]string `json:"dynamodb:KeysAndAttributes:ExpressionAttributeNames" type:"map"`
 
 	// The primary key attribute values that define the items and the attributes
 	// associated with the items.
 	//
 	// Keys is a required field
-	Keys []map[string]AttributeValue `min:"1" type:"list" required:"true"`
+	Keys []map[string]AttributeValue `json:"dynamodb:KeysAndAttributes:Keys" min:"1" type:"list" required:"true"`
 
 	// A string that identifies one or more attributes to retrieve from the table.
 	// These attributes can include scalars, sets, or elements of a JSON document.
@@ -2013,7 +2013,7 @@ type KeysAndAttributes struct {
 	//
 	// For more information, see Accessing Item Attributes (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ProjectionExpression *string `type:"string"`
+	ProjectionExpression *string `json:"dynamodb:KeysAndAttributes:ProjectionExpression" type:"string"`
 }
 
 // String returns the string representation
@@ -2050,7 +2050,7 @@ type LocalSecondaryIndex struct {
 	// other indexes on this table.
 	//
 	// IndexName is a required field
-	IndexName *string `min:"3" type:"string" required:"true"`
+	IndexName *string `json:"dynamodb:LocalSecondaryIndex:IndexName" min:"3" type:"string" required:"true"`
 
 	// The complete key schema for the local secondary index, consisting of one
 	// or more pairs of attribute names and key types:
@@ -2069,14 +2069,14 @@ type LocalSecondaryIndex struct {
 	// key physically close together, in sorted order by the sort key value.
 	//
 	// KeySchema is a required field
-	KeySchema []KeySchemaElement `min:"1" type:"list" required:"true"`
+	KeySchema []KeySchemaElement `json:"dynamodb:LocalSecondaryIndex:KeySchema" min:"1" type:"list" required:"true"`
 
 	// Represents attributes that are copied (projected) from the table into the
 	// local secondary index. These are in addition to the primary key attributes
 	// and index key attributes, which are automatically projected.
 	//
 	// Projection is a required field
-	Projection *Projection `type:"structure" required:"true"`
+	Projection *Projection `json:"dynamodb:LocalSecondaryIndex:Projection" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2130,19 +2130,19 @@ type LocalSecondaryIndexDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) that uniquely identifies the index.
-	IndexArn *string `type:"string"`
+	IndexArn *string `json:"dynamodb:LocalSecondaryIndexDescription:IndexArn" type:"string"`
 
 	// Represents the name of the local secondary index.
-	IndexName *string `min:"3" type:"string"`
+	IndexName *string `json:"dynamodb:LocalSecondaryIndexDescription:IndexName" min:"3" type:"string"`
 
 	// The total size of the specified index, in bytes. DynamoDB updates this value
 	// approximately every six hours. Recent changes might not be reflected in this
 	// value.
-	IndexSizeBytes *int64 `type:"long"`
+	IndexSizeBytes *int64 `json:"dynamodb:LocalSecondaryIndexDescription:IndexSizeBytes" type:"long"`
 
 	// The number of items in the specified index. DynamoDB updates this value approximately
 	// every six hours. Recent changes might not be reflected in this value.
-	ItemCount *int64 `type:"long"`
+	ItemCount *int64 `json:"dynamodb:LocalSecondaryIndexDescription:ItemCount" type:"long"`
 
 	// The complete key schema for the local secondary index, consisting of one
 	// or more pairs of attribute names and key types:
@@ -2159,12 +2159,12 @@ type LocalSecondaryIndexDescription struct {
 	// The sort key of an item is also known as its range attribute. The term "range
 	// attribute" derives from the way DynamoDB stores items with the same partition
 	// key physically close together, in sorted order by the sort key value.
-	KeySchema []KeySchemaElement `min:"1" type:"list"`
+	KeySchema []KeySchemaElement `json:"dynamodb:LocalSecondaryIndexDescription:KeySchema" min:"1" type:"list"`
 
 	// Represents attributes that are copied (projected) from the table into the
 	// global secondary index. These are in addition to the primary key attributes
 	// and index key attributes, which are automatically projected.
-	Projection *Projection `type:"structure"`
+	Projection *Projection `json:"dynamodb:LocalSecondaryIndexDescription:Projection" type:"structure"`
 }
 
 // String returns the string representation
@@ -2179,7 +2179,7 @@ type LocalSecondaryIndexInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the name of the local secondary index.
-	IndexName *string `min:"3" type:"string"`
+	IndexName *string `json:"dynamodb:LocalSecondaryIndexInfo:IndexName" min:"3" type:"string"`
 
 	// The complete key schema for a local secondary index, which consists of one
 	// or more pairs of attribute names and key types:
@@ -2196,12 +2196,12 @@ type LocalSecondaryIndexInfo struct {
 	// The sort key of an item is also known as its range attribute. The term "range
 	// attribute" derives from the way DynamoDB stores items with the same partition
 	// key physically close together, in sorted order by the sort key value.
-	KeySchema []KeySchemaElement `min:"1" type:"list"`
+	KeySchema []KeySchemaElement `json:"dynamodb:LocalSecondaryIndexInfo:KeySchema" min:"1" type:"list"`
 
 	// Represents attributes that are copied (projected) from the table into the
 	// global secondary index. These are in addition to the primary key attributes
 	// and index key attributes, which are automatically projected.
-	Projection *Projection `type:"structure"`
+	Projection *Projection `json:"dynamodb:LocalSecondaryIndexInfo:Projection" type:"structure"`
 }
 
 // String returns the string representation
@@ -2216,10 +2216,10 @@ type PointInTimeRecoveryDescription struct {
 
 	// Specifies the earliest point in time you can restore your table to. It You
 	// can restore your table to any point in time during the last 35 days.
-	EarliestRestorableDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EarliestRestorableDateTime *time.Time `json:"dynamodb:PointInTimeRecoveryDescription:EarliestRestorableDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// LatestRestorableDateTime is typically 5 minutes before the current time.
-	LatestRestorableDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LatestRestorableDateTime *time.Time `json:"dynamodb:PointInTimeRecoveryDescription:LatestRestorableDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The current state of point in time recovery:
 	//
@@ -2228,7 +2228,7 @@ type PointInTimeRecoveryDescription struct {
 	//    * ENABLED - Point in time recovery is enabled.
 	//
 	//    * DISABLED - Point in time recovery is disabled.
-	PointInTimeRecoveryStatus PointInTimeRecoveryStatus `type:"string" enum:"true"`
+	PointInTimeRecoveryStatus PointInTimeRecoveryStatus `json:"dynamodb:PointInTimeRecoveryDescription:PointInTimeRecoveryStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2245,7 +2245,7 @@ type PointInTimeRecoverySpecification struct {
 	// on the table.
 	//
 	// PointInTimeRecoveryEnabled is a required field
-	PointInTimeRecoveryEnabled *bool `type:"boolean" required:"true"`
+	PointInTimeRecoveryEnabled *bool `json:"dynamodb:PointInTimeRecoverySpecification:PointInTimeRecoveryEnabled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -2280,7 +2280,7 @@ type Projection struct {
 	// all of the local secondary indexes, must not exceed 20. If you project the
 	// same attribute into two different indexes, this counts as two distinct attributes
 	// when determining the total.
-	NonKeyAttributes []string `min:"1" type:"list"`
+	NonKeyAttributes []string `json:"dynamodb:Projection:NonKeyAttributes" min:"1" type:"list"`
 
 	// The set of attributes that are projected into the index:
 	//
@@ -2290,7 +2290,7 @@ type Projection struct {
 	//    index. The list of projected attributes are in NonKeyAttributes.
 	//
 	//    * ALL - All of the table attributes are projected into the index.
-	ProjectionType ProjectionType `type:"string" enum:"true"`
+	ProjectionType ProjectionType `json:"dynamodb:Projection:ProjectionType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2329,7 +2329,7 @@ type ProvisionedThroughput struct {
 	// If read/write capacity mode is PAY_PER_REQUEST the value is set to 0.
 	//
 	// ReadCapacityUnits is a required field
-	ReadCapacityUnits *int64 `min:"1" type:"long" required:"true"`
+	ReadCapacityUnits *int64 `json:"dynamodb:ProvisionedThroughput:ReadCapacityUnits" min:"1" type:"long" required:"true"`
 
 	// The maximum number of writes consumed per second before DynamoDB returns
 	// a ThrottlingException. For more information, see Specifying Read and Write
@@ -2339,7 +2339,7 @@ type ProvisionedThroughput struct {
 	// If read/write capacity mode is PAY_PER_REQUEST the value is set to 0.
 	//
 	// WriteCapacityUnits is a required field
-	WriteCapacityUnits *int64 `min:"1" type:"long" required:"true"`
+	WriteCapacityUnits *int64 `json:"dynamodb:ProvisionedThroughput:WriteCapacityUnits" min:"1" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -2378,26 +2378,26 @@ type ProvisionedThroughputDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time of the last provisioned throughput decrease for this table.
-	LastDecreaseDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastDecreaseDateTime *time.Time `json:"dynamodb:ProvisionedThroughputDescription:LastDecreaseDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time of the last provisioned throughput increase for this table.
-	LastIncreaseDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastIncreaseDateTime *time.Time `json:"dynamodb:ProvisionedThroughputDescription:LastIncreaseDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The number of provisioned throughput decreases for this table during this
 	// UTC calendar day. For current maximums on provisioned throughput decreases,
 	// see Limits (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html)
 	// in the Amazon DynamoDB Developer Guide.
-	NumberOfDecreasesToday *int64 `min:"1" type:"long"`
+	NumberOfDecreasesToday *int64 `json:"dynamodb:ProvisionedThroughputDescription:NumberOfDecreasesToday" min:"1" type:"long"`
 
 	// The maximum number of strongly consistent reads consumed per second before
 	// DynamoDB returns a ThrottlingException. Eventually consistent reads require
 	// less effort than strongly consistent reads, so a setting of 50 ReadCapacityUnits
 	// per second provides 100 eventually consistent ReadCapacityUnits per second.
-	ReadCapacityUnits *int64 `type:"long"`
+	ReadCapacityUnits *int64 `json:"dynamodb:ProvisionedThroughputDescription:ReadCapacityUnits" type:"long"`
 
 	// The maximum number of writes consumed per second before DynamoDB returns
 	// a ThrottlingException.
-	WriteCapacityUnits *int64 `type:"long"`
+	WriteCapacityUnits *int64 `json:"dynamodb:ProvisionedThroughputDescription:WriteCapacityUnits" type:"long"`
 }
 
 // String returns the string representation
@@ -2411,13 +2411,13 @@ type Put struct {
 	_ struct{} `type:"structure"`
 
 	// A condition that must be satisfied in order for a conditional update to succeed.
-	ConditionExpression *string `type:"string"`
+	ConditionExpression *string `json:"dynamodb:Put:ConditionExpression" type:"string"`
 
 	// One or more substitution tokens for attribute names in an expression.
-	ExpressionAttributeNames map[string]string `type:"map"`
+	ExpressionAttributeNames map[string]string `json:"dynamodb:Put:ExpressionAttributeNames" type:"map"`
 
 	// One or more values that can be substituted in an expression.
-	ExpressionAttributeValues map[string]AttributeValue `type:"map"`
+	ExpressionAttributeValues map[string]AttributeValue `json:"dynamodb:Put:ExpressionAttributeValues" type:"map"`
 
 	// A map of attribute name to attribute values, representing the primary key
 	// of the item to be written by PutItem. All of the table's primary key attributes
@@ -2426,17 +2426,17 @@ type Put struct {
 	// key schema for the table, their types must match the index key schema.
 	//
 	// Item is a required field
-	Item map[string]AttributeValue `type:"map" required:"true"`
+	Item map[string]AttributeValue `json:"dynamodb:Put:Item" type:"map" required:"true"`
 
 	// Use ReturnValuesOnConditionCheckFailure to get the item attributes if the
 	// Put condition fails. For ReturnValuesOnConditionCheckFailure, the valid values
 	// are: NONE and ALL_OLD.
-	ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure `type:"string" enum:"true"`
+	ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure `json:"dynamodb:Put:ReturnValuesOnConditionCheckFailure" type:"string" enum:"true"`
 
 	// Name of the table in which to write the item.
 	//
 	// TableName is a required field
-	TableName *string `min:"3" type:"string" required:"true"`
+	TableName *string `json:"dynamodb:Put:TableName" min:"3" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2477,7 +2477,7 @@ type PutRequest struct {
 	// key schema for the table, their types must match the index key schema.
 	//
 	// Item is a required field
-	Item map[string]AttributeValue `type:"map" required:"true"`
+	Item map[string]AttributeValue `json:"dynamodb:PutRequest:Item" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -2491,7 +2491,7 @@ type Replica struct {
 	_ struct{} `type:"structure"`
 
 	// The region where the replica needs to be created.
-	RegionName *string `type:"string"`
+	RegionName *string `json:"dynamodb:Replica:RegionName" type:"string"`
 }
 
 // String returns the string representation
@@ -2505,7 +2505,7 @@ type ReplicaDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the region.
-	RegionName *string `type:"string"`
+	RegionName *string `json:"dynamodb:ReplicaDescription:RegionName" type:"string"`
 }
 
 // String returns the string representation
@@ -2522,7 +2522,7 @@ type ReplicaGlobalSecondaryIndexSettingsDescription struct {
 	// other indexes on this table.
 	//
 	// IndexName is a required field
-	IndexName *string `min:"3" type:"string" required:"true"`
+	IndexName *string `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsDescription:IndexName" min:"3" type:"string" required:"true"`
 
 	// The current status of the global secondary index:
 	//
@@ -2533,23 +2533,23 @@ type ReplicaGlobalSecondaryIndexSettingsDescription struct {
 	//    * DELETING - The global secondary index is being deleted.
 	//
 	//    * ACTIVE - The global secondary index is ready for use.
-	IndexStatus IndexStatus `type:"string" enum:"true"`
+	IndexStatus IndexStatus `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsDescription:IndexStatus" type:"string" enum:"true"`
 
 	// Autoscaling settings for a global secondary index replica's read capacity
 	// units.
-	ProvisionedReadCapacityAutoScalingSettings *AutoScalingSettingsDescription `type:"structure"`
+	ProvisionedReadCapacityAutoScalingSettings *AutoScalingSettingsDescription `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsDescription:ProvisionedReadCapacityAutoScalingSettings" type:"structure"`
 
 	// The maximum number of strongly consistent reads consumed per second before
 	// DynamoDB returns a ThrottlingException.
-	ProvisionedReadCapacityUnits *int64 `min:"1" type:"long"`
+	ProvisionedReadCapacityUnits *int64 `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsDescription:ProvisionedReadCapacityUnits" min:"1" type:"long"`
 
 	// AutoScaling settings for a global secondary index replica's write capacity
 	// units.
-	ProvisionedWriteCapacityAutoScalingSettings *AutoScalingSettingsDescription `type:"structure"`
+	ProvisionedWriteCapacityAutoScalingSettings *AutoScalingSettingsDescription `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsDescription:ProvisionedWriteCapacityAutoScalingSettings" type:"structure"`
 
 	// The maximum number of writes consumed per second before DynamoDB returns
 	// a ThrottlingException.
-	ProvisionedWriteCapacityUnits *int64 `min:"1" type:"long"`
+	ProvisionedWriteCapacityUnits *int64 `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsDescription:ProvisionedWriteCapacityUnits" min:"1" type:"long"`
 }
 
 // String returns the string representation
@@ -2567,15 +2567,15 @@ type ReplicaGlobalSecondaryIndexSettingsUpdate struct {
 	// other indexes on this table.
 	//
 	// IndexName is a required field
-	IndexName *string `min:"3" type:"string" required:"true"`
+	IndexName *string `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsUpdate:IndexName" min:"3" type:"string" required:"true"`
 
 	// Autoscaling settings for managing a global secondary index replica's read
 	// capacity units.
-	ProvisionedReadCapacityAutoScalingSettingsUpdate *AutoScalingSettingsUpdate `type:"structure"`
+	ProvisionedReadCapacityAutoScalingSettingsUpdate *AutoScalingSettingsUpdate `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsUpdate:ProvisionedReadCapacityAutoScalingSettingsUpdate" type:"structure"`
 
 	// The maximum number of strongly consistent reads consumed per second before
 	// DynamoDB returns a ThrottlingException.
-	ProvisionedReadCapacityUnits *int64 `min:"1" type:"long"`
+	ProvisionedReadCapacityUnits *int64 `json:"dynamodb:ReplicaGlobalSecondaryIndexSettingsUpdate:ProvisionedReadCapacityUnits" min:"1" type:"long"`
 }
 
 // String returns the string representation
@@ -2616,31 +2616,31 @@ type ReplicaSettingsDescription struct {
 	// The region name of the replica.
 	//
 	// RegionName is a required field
-	RegionName *string `type:"string" required:"true"`
+	RegionName *string `json:"dynamodb:ReplicaSettingsDescription:RegionName" type:"string" required:"true"`
 
 	// The read/write capacity mode of the replica.
-	ReplicaBillingModeSummary *BillingModeSummary `type:"structure"`
+	ReplicaBillingModeSummary *BillingModeSummary `json:"dynamodb:ReplicaSettingsDescription:ReplicaBillingModeSummary" type:"structure"`
 
 	// Replica global secondary index settings for the global table.
-	ReplicaGlobalSecondaryIndexSettings []ReplicaGlobalSecondaryIndexSettingsDescription `type:"list"`
+	ReplicaGlobalSecondaryIndexSettings []ReplicaGlobalSecondaryIndexSettingsDescription `json:"dynamodb:ReplicaSettingsDescription:ReplicaGlobalSecondaryIndexSettings" type:"list"`
 
 	// Autoscaling settings for a global table replica's read capacity units.
-	ReplicaProvisionedReadCapacityAutoScalingSettings *AutoScalingSettingsDescription `type:"structure"`
+	ReplicaProvisionedReadCapacityAutoScalingSettings *AutoScalingSettingsDescription `json:"dynamodb:ReplicaSettingsDescription:ReplicaProvisionedReadCapacityAutoScalingSettings" type:"structure"`
 
 	// The maximum number of strongly consistent reads consumed per second before
 	// DynamoDB returns a ThrottlingException. For more information, see Specifying
 	// Read and Write Requirements (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput)
 	// in the Amazon DynamoDB Developer Guide.
-	ReplicaProvisionedReadCapacityUnits *int64 `type:"long"`
+	ReplicaProvisionedReadCapacityUnits *int64 `json:"dynamodb:ReplicaSettingsDescription:ReplicaProvisionedReadCapacityUnits" type:"long"`
 
 	// AutoScaling settings for a global table replica's write capacity units.
-	ReplicaProvisionedWriteCapacityAutoScalingSettings *AutoScalingSettingsDescription `type:"structure"`
+	ReplicaProvisionedWriteCapacityAutoScalingSettings *AutoScalingSettingsDescription `json:"dynamodb:ReplicaSettingsDescription:ReplicaProvisionedWriteCapacityAutoScalingSettings" type:"structure"`
 
 	// The maximum number of writes consumed per second before DynamoDB returns
 	// a ThrottlingException. For more information, see Specifying Read and Write
 	// Requirements (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput)
 	// in the Amazon DynamoDB Developer Guide.
-	ReplicaProvisionedWriteCapacityUnits *int64 `type:"long"`
+	ReplicaProvisionedWriteCapacityUnits *int64 `json:"dynamodb:ReplicaSettingsDescription:ReplicaProvisionedWriteCapacityUnits" type:"long"`
 
 	// The current state of the region:
 	//
@@ -2651,7 +2651,7 @@ type ReplicaSettingsDescription struct {
 	//    * DELETING - The region is being deleted.
 	//
 	//    * ACTIVE - The region is ready for use.
-	ReplicaStatus ReplicaStatus `type:"string" enum:"true"`
+	ReplicaStatus ReplicaStatus `json:"dynamodb:ReplicaSettingsDescription:ReplicaStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2667,21 +2667,21 @@ type ReplicaSettingsUpdate struct {
 	// The region of the replica to be added.
 	//
 	// RegionName is a required field
-	RegionName *string `type:"string" required:"true"`
+	RegionName *string `json:"dynamodb:ReplicaSettingsUpdate:RegionName" type:"string" required:"true"`
 
 	// Represents the settings of a global secondary index for a global table that
 	// will be modified.
-	ReplicaGlobalSecondaryIndexSettingsUpdate []ReplicaGlobalSecondaryIndexSettingsUpdate `min:"1" type:"list"`
+	ReplicaGlobalSecondaryIndexSettingsUpdate []ReplicaGlobalSecondaryIndexSettingsUpdate `json:"dynamodb:ReplicaSettingsUpdate:ReplicaGlobalSecondaryIndexSettingsUpdate" min:"1" type:"list"`
 
 	// Autoscaling settings for managing a global table replica's read capacity
 	// units.
-	ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate *AutoScalingSettingsUpdate `type:"structure"`
+	ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate *AutoScalingSettingsUpdate `json:"dynamodb:ReplicaSettingsUpdate:ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate" type:"structure"`
 
 	// The maximum number of strongly consistent reads consumed per second before
 	// DynamoDB returns a ThrottlingException. For more information, see Specifying
 	// Read and Write Requirements (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput)
 	// in the Amazon DynamoDB Developer Guide.
-	ReplicaProvisionedReadCapacityUnits *int64 `min:"1" type:"long"`
+	ReplicaProvisionedReadCapacityUnits *int64 `json:"dynamodb:ReplicaSettingsUpdate:ReplicaProvisionedReadCapacityUnits" min:"1" type:"long"`
 }
 
 // String returns the string representation
@@ -2733,10 +2733,10 @@ type ReplicaUpdate struct {
 	_ struct{} `type:"structure"`
 
 	// The parameters required for creating a replica on an existing global table.
-	Create *CreateReplicaAction `type:"structure"`
+	Create *CreateReplicaAction `json:"dynamodb:ReplicaUpdate:Create" type:"structure"`
 
 	// The name of the existing replica to be removed.
-	Delete *DeleteReplicaAction `type:"structure"`
+	Delete *DeleteReplicaAction `json:"dynamodb:ReplicaUpdate:Delete" type:"structure"`
 }
 
 // String returns the string representation
@@ -2772,18 +2772,18 @@ type RestoreSummary struct {
 	// Point in time or source backup time.
 	//
 	// RestoreDateTime is a required field
-	RestoreDateTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	RestoreDateTime *time.Time `json:"dynamodb:RestoreSummary:RestoreDateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Indicates if a restore is in progress or not.
 	//
 	// RestoreInProgress is a required field
-	RestoreInProgress *bool `type:"boolean" required:"true"`
+	RestoreInProgress *bool `json:"dynamodb:RestoreSummary:RestoreInProgress" type:"boolean" required:"true"`
 
 	// ARN of the backup from which the table was restored.
-	SourceBackupArn *string `min:"37" type:"string"`
+	SourceBackupArn *string `json:"dynamodb:RestoreSummary:SourceBackupArn" min:"37" type:"string"`
 
 	// ARN of the source table of the backup that is being restored.
-	SourceTableArn *string `type:"string"`
+	SourceTableArn *string `json:"dynamodb:RestoreSummary:SourceTableArn" type:"string"`
 }
 
 // String returns the string representation
@@ -2797,13 +2797,13 @@ type SSEDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The KMS customer master key (CMK) ARN used for the KMS encryption.
-	KMSMasterKeyArn *string `type:"string"`
+	KMSMasterKeyArn *string `json:"dynamodb:SSEDescription:KMSMasterKeyArn" type:"string"`
 
 	// Server-side encryption type. The only supported value is:
 	//
 	//    * KMS - Server-side encryption which uses AWS Key Management Service.
 	//    Key is stored in your account and is managed by AWS KMS (KMS charges apply).
-	SSEType SSEType `type:"string" enum:"true"`
+	SSEType SSEType `json:"dynamodb:SSEDescription:SSEType" type:"string" enum:"true"`
 
 	// Represents the current state of server-side encryption. The only supported
 	// values are:
@@ -2811,7 +2811,7 @@ type SSEDescription struct {
 	//    * ENABLED - Server-side encryption is enabled.
 	//
 	//    * UPDATING - Server-side encryption is being updated.
-	Status SSEStatus `type:"string" enum:"true"`
+	Status SSEStatus `json:"dynamodb:SSEDescription:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2828,19 +2828,19 @@ type SSESpecification struct {
 	// or an AWS owned CMK. If enabled (true), server-side encryption type is set
 	// to KMS and an AWS managed CMK is used (AWS KMS charges apply). If disabled
 	// (false) or not specified, server-side encryption is set to AWS owned CMK.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"dynamodb:SSESpecification:Enabled" type:"boolean"`
 
 	// The KMS Customer Master Key (CMK) which should be used for the KMS encryption.
 	// To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name,
 	// or alias ARN. Note that you should only provide this parameter if the key
 	// is different from the default DynamoDB Customer Master Key alias/aws/dynamodb.
-	KMSMasterKeyId *string `type:"string"`
+	KMSMasterKeyId *string `json:"dynamodb:SSESpecification:KMSMasterKeyId" type:"string"`
 
 	// Server-side encryption type. The only supported value is:
 	//
 	//    * KMS - Server-side encryption which uses AWS Key Management Service.
 	//    Key is stored in your account and is managed by AWS KMS (KMS charges apply).
-	SSEType SSEType `type:"string" enum:"true"`
+	SSEType SSEType `json:"dynamodb:SSESpecification:SSEType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2861,41 +2861,41 @@ type SourceTableDetails struct {
 	//
 	//    * PAY_PER_REQUEST - Sets the read/write capacity mode to PAY_PER_REQUEST.
 	//    We recommend using PAY_PER_REQUEST for unpredictable workloads.
-	BillingMode BillingMode `type:"string" enum:"true"`
+	BillingMode BillingMode `json:"dynamodb:SourceTableDetails:BillingMode" type:"string" enum:"true"`
 
 	// Number of items in the table. Please note this is an approximate value.
-	ItemCount *int64 `type:"long"`
+	ItemCount *int64 `json:"dynamodb:SourceTableDetails:ItemCount" type:"long"`
 
 	// Schema of the table.
 	//
 	// KeySchema is a required field
-	KeySchema []KeySchemaElement `min:"1" type:"list" required:"true"`
+	KeySchema []KeySchemaElement `json:"dynamodb:SourceTableDetails:KeySchema" min:"1" type:"list" required:"true"`
 
 	// Read IOPs and Write IOPS on the table when the backup was created.
 	//
 	// ProvisionedThroughput is a required field
-	ProvisionedThroughput *ProvisionedThroughput `type:"structure" required:"true"`
+	ProvisionedThroughput *ProvisionedThroughput `json:"dynamodb:SourceTableDetails:ProvisionedThroughput" type:"structure" required:"true"`
 
 	// ARN of the table for which backup was created.
-	TableArn *string `type:"string"`
+	TableArn *string `json:"dynamodb:SourceTableDetails:TableArn" type:"string"`
 
 	// Time when the source table was created.
 	//
 	// TableCreationDateTime is a required field
-	TableCreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	TableCreationDateTime *time.Time `json:"dynamodb:SourceTableDetails:TableCreationDateTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Unique identifier for the table for which the backup was created.
 	//
 	// TableId is a required field
-	TableId *string `type:"string" required:"true"`
+	TableId *string `json:"dynamodb:SourceTableDetails:TableId" type:"string" required:"true"`
 
 	// The name of the table for which the backup was created.
 	//
 	// TableName is a required field
-	TableName *string `min:"3" type:"string" required:"true"`
+	TableName *string `json:"dynamodb:SourceTableDetails:TableName" min:"3" type:"string" required:"true"`
 
 	// Size of the table in bytes. Please note this is an approximate value.
-	TableSizeBytes *int64 `type:"long"`
+	TableSizeBytes *int64 `json:"dynamodb:SourceTableDetails:TableSizeBytes" type:"long"`
 }
 
 // String returns the string representation
@@ -2912,22 +2912,22 @@ type SourceTableFeatureDetails struct {
 	// Represents the GSI properties for the table when the backup was created.
 	// It includes the IndexName, KeySchema, Projection and ProvisionedThroughput
 	// for the GSIs on the table at the time of backup.
-	GlobalSecondaryIndexes []GlobalSecondaryIndexInfo `type:"list"`
+	GlobalSecondaryIndexes []GlobalSecondaryIndexInfo `json:"dynamodb:SourceTableFeatureDetails:GlobalSecondaryIndexes" type:"list"`
 
 	// Represents the LSI properties for the table when the backup was created.
 	// It includes the IndexName, KeySchema and Projection for the LSIs on the table
 	// at the time of backup.
-	LocalSecondaryIndexes []LocalSecondaryIndexInfo `type:"list"`
+	LocalSecondaryIndexes []LocalSecondaryIndexInfo `json:"dynamodb:SourceTableFeatureDetails:LocalSecondaryIndexes" type:"list"`
 
 	// The description of the server-side encryption status on the table when the
 	// backup was created.
-	SSEDescription *SSEDescription `type:"structure"`
+	SSEDescription *SSEDescription `json:"dynamodb:SourceTableFeatureDetails:SSEDescription" type:"structure"`
 
 	// Stream settings on the table when the backup was created.
-	StreamDescription *StreamSpecification `type:"structure"`
+	StreamDescription *StreamSpecification `json:"dynamodb:SourceTableFeatureDetails:StreamDescription" type:"structure"`
 
 	// Time to Live settings on the table when the backup was created.
-	TimeToLiveDescription *TimeToLiveDescription `type:"structure"`
+	TimeToLiveDescription *TimeToLiveDescription `json:"dynamodb:SourceTableFeatureDetails:TimeToLiveDescription" type:"structure"`
 }
 
 // String returns the string representation
@@ -2942,7 +2942,7 @@ type StreamSpecification struct {
 
 	// Indicates whether DynamoDB Streams is enabled (true) or disabled (false)
 	// on the table.
-	StreamEnabled *bool `type:"boolean"`
+	StreamEnabled *bool `json:"dynamodb:StreamSpecification:StreamEnabled" type:"boolean"`
 
 	// When an item in the table is modified, StreamViewType determines what information
 	// is written to the stream for this table. Valid values for StreamViewType
@@ -2959,7 +2959,7 @@ type StreamSpecification struct {
 	//
 	//    * NEW_AND_OLD_IMAGES - Both the new and the old item images of the item
 	//    are written to the stream.
-	StreamViewType StreamViewType `type:"string" enum:"true"`
+	StreamViewType StreamViewType `json:"dynamodb:StreamSpecification:StreamViewType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2980,14 +2980,14 @@ type TableDescription struct {
 	//    * AttributeName - The name of the attribute.
 	//
 	//    * AttributeType - The data type for the attribute.
-	AttributeDefinitions []AttributeDefinition `type:"list"`
+	AttributeDefinitions []AttributeDefinition `json:"dynamodb:TableDescription:AttributeDefinitions" type:"list"`
 
 	// Contains the details for the read/write capacity mode.
-	BillingModeSummary *BillingModeSummary `type:"structure"`
+	BillingModeSummary *BillingModeSummary `json:"dynamodb:TableDescription:BillingModeSummary" type:"structure"`
 
 	// The date and time when the table was created, in UNIX epoch time (http://www.epochconverter.com/)
 	// format.
-	CreationDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDateTime *time.Time `json:"dynamodb:TableDescription:CreationDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The global secondary indexes, if any, on the table. Each index is scoped
 	// to a given partition key value. Each element is composed of:
@@ -3036,11 +3036,11 @@ type TableDescription struct {
 	//
 	// If the table is in the DELETING state, no information about indexes will
 	// be returned.
-	GlobalSecondaryIndexes []GlobalSecondaryIndexDescription `type:"list"`
+	GlobalSecondaryIndexes []GlobalSecondaryIndexDescription `json:"dynamodb:TableDescription:GlobalSecondaryIndexes" type:"list"`
 
 	// The number of items in the specified table. DynamoDB updates this value approximately
 	// every six hours. Recent changes might not be reflected in this value.
-	ItemCount *int64 `type:"long"`
+	ItemCount *int64 `json:"dynamodb:TableDescription:ItemCount" type:"long"`
 
 	// The primary key structure for the table. Each KeySchemaElement consists of:
 	//
@@ -3057,11 +3057,11 @@ type TableDescription struct {
 	//
 	// For more information about primary keys, see Primary Key (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey)
 	// in the Amazon DynamoDB Developer Guide.
-	KeySchema []KeySchemaElement `min:"1" type:"list"`
+	KeySchema []KeySchemaElement `json:"dynamodb:TableDescription:KeySchema" min:"1" type:"list"`
 
 	// The Amazon Resource Name (ARN) that uniquely identifies the latest stream
 	// for this table.
-	LatestStreamArn *string `min:"37" type:"string"`
+	LatestStreamArn *string `json:"dynamodb:TableDescription:LatestStreamArn" min:"37" type:"string"`
 
 	// A timestamp, in ISO 8601 format, for this stream.
 	//
@@ -3075,7 +3075,7 @@ type TableDescription struct {
 	//    * the table name.
 	//
 	//    * the StreamLabel.
-	LatestStreamLabel *string `type:"string"`
+	LatestStreamLabel *string `json:"dynamodb:TableDescription:LatestStreamLabel" type:"string"`
 
 	// Represents one or more local secondary indexes on the table. Each index is
 	// scoped to a given partition key value. Tables with one or more local secondary
@@ -3113,34 +3113,34 @@ type TableDescription struct {
 	//
 	// If the table is in the DELETING state, no information about indexes will
 	// be returned.
-	LocalSecondaryIndexes []LocalSecondaryIndexDescription `type:"list"`
+	LocalSecondaryIndexes []LocalSecondaryIndexDescription `json:"dynamodb:TableDescription:LocalSecondaryIndexes" type:"list"`
 
 	// The provisioned throughput settings for the table, consisting of read and
 	// write capacity units, along with data about increases and decreases.
-	ProvisionedThroughput *ProvisionedThroughputDescription `type:"structure"`
+	ProvisionedThroughput *ProvisionedThroughputDescription `json:"dynamodb:TableDescription:ProvisionedThroughput" type:"structure"`
 
 	// Contains details for the restore.
-	RestoreSummary *RestoreSummary `type:"structure"`
+	RestoreSummary *RestoreSummary `json:"dynamodb:TableDescription:RestoreSummary" type:"structure"`
 
 	// The description of the server-side encryption status on the specified table.
-	SSEDescription *SSEDescription `type:"structure"`
+	SSEDescription *SSEDescription `json:"dynamodb:TableDescription:SSEDescription" type:"structure"`
 
 	// The current DynamoDB Streams configuration for the table.
-	StreamSpecification *StreamSpecification `type:"structure"`
+	StreamSpecification *StreamSpecification `json:"dynamodb:TableDescription:StreamSpecification" type:"structure"`
 
 	// The Amazon Resource Name (ARN) that uniquely identifies the table.
-	TableArn *string `type:"string"`
+	TableArn *string `json:"dynamodb:TableDescription:TableArn" type:"string"`
 
 	// Unique identifier for the table for which the backup was created.
-	TableId *string `type:"string"`
+	TableId *string `json:"dynamodb:TableDescription:TableId" type:"string"`
 
 	// The name of the table.
-	TableName *string `min:"3" type:"string"`
+	TableName *string `json:"dynamodb:TableDescription:TableName" min:"3" type:"string"`
 
 	// The total size of the specified table, in bytes. DynamoDB updates this value
 	// approximately every six hours. Recent changes might not be reflected in this
 	// value.
-	TableSizeBytes *int64 `type:"long"`
+	TableSizeBytes *int64 `json:"dynamodb:TableDescription:TableSizeBytes" type:"long"`
 
 	// The current state of the table:
 	//
@@ -3151,7 +3151,7 @@ type TableDescription struct {
 	//    * DELETING - The table is being deleted.
 	//
 	//    * ACTIVE - The table is ready for use.
-	TableStatus TableStatus `type:"string" enum:"true"`
+	TableStatus TableStatus `json:"dynamodb:TableDescription:TableStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3178,12 +3178,12 @@ type Tag struct {
 	// tag (same key), the existing tag value will be updated to the new value.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"dynamodb:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag. Tag values are case-sensitive and can be null.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"dynamodb:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3218,10 +3218,10 @@ type TimeToLiveDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the TTL attribute for items in the table.
-	AttributeName *string `min:"1" type:"string"`
+	AttributeName *string `json:"dynamodb:TimeToLiveDescription:AttributeName" min:"1" type:"string"`
 
 	// The TTL status for the table.
-	TimeToLiveStatus TimeToLiveStatus `type:"string" enum:"true"`
+	TimeToLiveStatus TimeToLiveStatus `json:"dynamodb:TimeToLiveDescription:TimeToLiveStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3239,13 +3239,13 @@ type TimeToLiveSpecification struct {
 	// in the table.
 	//
 	// AttributeName is a required field
-	AttributeName *string `min:"1" type:"string" required:"true"`
+	AttributeName *string `json:"dynamodb:TimeToLiveSpecification:AttributeName" min:"1" type:"string" required:"true"`
 
 	// Indicates whether TTL is to be enabled (true) or disabled (false) on the
 	// table.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"dynamodb:TimeToLiveSpecification:Enabled" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -3284,7 +3284,7 @@ type TransactGetItem struct {
 	// of the item to retrieve.
 	//
 	// Get is a required field
-	Get *Get `type:"structure" required:"true"`
+	Get *Get `json:"dynamodb:TransactGetItem:Get" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3318,16 +3318,16 @@ type TransactWriteItem struct {
 	_ struct{} `type:"structure"`
 
 	// A request to perform a check item operation.
-	ConditionCheck *ConditionCheck `type:"structure"`
+	ConditionCheck *ConditionCheck `json:"dynamodb:TransactWriteItem:ConditionCheck" type:"structure"`
 
 	// A request to perform a DeleteItem operation.
-	Delete *Delete `type:"structure"`
+	Delete *Delete `json:"dynamodb:TransactWriteItem:Delete" type:"structure"`
 
 	// A request to perform a PutItem operation.
-	Put *Put `type:"structure"`
+	Put *Put `json:"dynamodb:TransactWriteItem:Put" type:"structure"`
 
 	// A request to perform an UpdateItem operation.
-	Update *Update `type:"structure"`
+	Update *Update `json:"dynamodb:TransactWriteItem:Update" type:"structure"`
 }
 
 // String returns the string representation
@@ -3371,35 +3371,35 @@ type Update struct {
 	_ struct{} `type:"structure"`
 
 	// A condition that must be satisfied in order for a conditional update to succeed.
-	ConditionExpression *string `type:"string"`
+	ConditionExpression *string `json:"dynamodb:Update:ConditionExpression" type:"string"`
 
 	// One or more substitution tokens for attribute names in an expression.
-	ExpressionAttributeNames map[string]string `type:"map"`
+	ExpressionAttributeNames map[string]string `json:"dynamodb:Update:ExpressionAttributeNames" type:"map"`
 
 	// One or more values that can be substituted in an expression.
-	ExpressionAttributeValues map[string]AttributeValue `type:"map"`
+	ExpressionAttributeValues map[string]AttributeValue `json:"dynamodb:Update:ExpressionAttributeValues" type:"map"`
 
 	// The primary key of the item to be updated. Each element consists of an attribute
 	// name and a value for that attribute.
 	//
 	// Key is a required field
-	Key map[string]AttributeValue `type:"map" required:"true"`
+	Key map[string]AttributeValue `json:"dynamodb:Update:Key" type:"map" required:"true"`
 
 	// Use ReturnValuesOnConditionCheckFailure to get the item attributes if the
 	// Update condition fails. For ReturnValuesOnConditionCheckFailure, the valid
 	// values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
-	ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure `type:"string" enum:"true"`
+	ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure `json:"dynamodb:Update:ReturnValuesOnConditionCheckFailure" type:"string" enum:"true"`
 
 	// Name of the table for the UpdateItem request.
 	//
 	// TableName is a required field
-	TableName *string `min:"3" type:"string" required:"true"`
+	TableName *string `json:"dynamodb:Update:TableName" min:"3" type:"string" required:"true"`
 
 	// An expression that defines one or more attributes to be updated, the action
 	// to be performed on them, and new value(s) for them.
 	//
 	// UpdateExpression is a required field
-	UpdateExpression *string `type:"string" required:"true"`
+	UpdateExpression *string `json:"dynamodb:Update:UpdateExpression" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3441,7 +3441,7 @@ type UpdateGlobalSecondaryIndexAction struct {
 	// The name of the global secondary index to be updated.
 	//
 	// IndexName is a required field
-	IndexName *string `min:"3" type:"string" required:"true"`
+	IndexName *string `json:"dynamodb:UpdateGlobalSecondaryIndexAction:IndexName" min:"3" type:"string" required:"true"`
 
 	// Represents the provisioned throughput settings for the specified global secondary
 	// index.
@@ -3451,7 +3451,7 @@ type UpdateGlobalSecondaryIndexAction struct {
 	// in the Amazon DynamoDB Developer Guide.
 	//
 	// ProvisionedThroughput is a required field
-	ProvisionedThroughput *ProvisionedThroughput `type:"structure" required:"true"`
+	ProvisionedThroughput *ProvisionedThroughput `json:"dynamodb:UpdateGlobalSecondaryIndexAction:ProvisionedThroughput" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3494,10 +3494,10 @@ type WriteRequest struct {
 	_ struct{} `type:"structure"`
 
 	// A request to perform a DeleteItem operation.
-	DeleteRequest *DeleteRequest `type:"structure"`
+	DeleteRequest *DeleteRequest `json:"dynamodb:WriteRequest:DeleteRequest" type:"structure"`
 
 	// A request to perform a PutItem operation.
-	PutRequest *PutRequest `type:"structure"`
+	PutRequest *PutRequest `json:"dynamodb:WriteRequest:PutRequest" type:"structure"`
 }
 
 // String returns the string representation

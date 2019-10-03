@@ -94,7 +94,7 @@ type UpdatePresetOutput struct {
 
 	// A preset is a collection of preconfigured media conversion settings that
 	// you want MediaConvert to apply to the output during the conversion process.
-	Preset *Preset `locationName:"preset" type:"structure"`
+	Preset *Preset `json:"mediaconvert:UpdatePresetOutput:Preset" locationName:"preset" type:"structure"`
 }
 
 // String returns the string representation

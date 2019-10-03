@@ -28,11 +28,11 @@ type GetDiskSnapshotsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of objects containing information about all block storage disk snapshots.
-	DiskSnapshots []DiskSnapshot `locationName:"diskSnapshots" type:"list"`
+	DiskSnapshots []DiskSnapshot `json:"lightsail:GetDiskSnapshotsOutput:DiskSnapshots" locationName:"diskSnapshots" type:"list"`
 
 	// A token used for advancing to the next page of results from your GetDiskSnapshots
 	// request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetDiskSnapshotsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

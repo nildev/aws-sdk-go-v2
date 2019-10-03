@@ -70,7 +70,7 @@ type CreateSnapshotCopyGrantOutput struct {
 	// For more information about managing snapshot copy grants, go to Amazon Redshift
 	// Database Encryption (https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)
 	// in the Amazon Redshift Cluster Management Guide.
-	SnapshotCopyGrant *SnapshotCopyGrant `type:"structure"`
+	SnapshotCopyGrant *SnapshotCopyGrant `json:"redshift:CreateSnapshotCopyGrantOutput:SnapshotCopyGrant" type:"structure"`
 }
 
 // String returns the string representation

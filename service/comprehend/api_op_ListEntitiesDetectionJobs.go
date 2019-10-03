@@ -56,10 +56,10 @@ type ListEntitiesDetectionJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list containing the properties of each job that is returned.
-	EntitiesDetectionJobPropertiesList []EntitiesDetectionJobProperties `type:"list"`
+	EntitiesDetectionJobPropertiesList []EntitiesDetectionJobProperties `json:"comprehend:ListEntitiesDetectionJobsOutput:EntitiesDetectionJobPropertiesList" type:"list"`
 
 	// Identifies the next page of results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"comprehend:ListEntitiesDetectionJobsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

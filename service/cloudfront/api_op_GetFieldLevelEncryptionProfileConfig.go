@@ -57,10 +57,10 @@ type GetFieldLevelEncryptionProfileConfigOutput struct {
 
 	// The current version of the field-level encryption profile configuration result.
 	// For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:GetFieldLevelEncryptionProfileConfigOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// Return the field-level encryption profile configuration information.
-	FieldLevelEncryptionProfileConfig *FieldLevelEncryptionProfileConfig `type:"structure"`
+	FieldLevelEncryptionProfileConfig *FieldLevelEncryptionProfileConfig `json:"cloudfront:GetFieldLevelEncryptionProfileConfigOutput:FieldLevelEncryptionProfileConfig" type:"structure"`
 }
 
 // String returns the string representation

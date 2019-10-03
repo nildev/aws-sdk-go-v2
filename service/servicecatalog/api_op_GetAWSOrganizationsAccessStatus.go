@@ -24,7 +24,7 @@ type GetAWSOrganizationsAccessStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the portfolio share feature.
-	AccessStatus AccessStatus `type:"string" enum:"true"`
+	AccessStatus AccessStatus `json:"servicecatalog:GetAWSOrganizationsAccessStatusOutput:AccessStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -52,7 +52,7 @@ type ModifyTargetGroupAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the attributes.
-	Attributes []TargetGroupAttribute `type:"list"`
+	Attributes []TargetGroupAttribute `json:"elasticloadbalancing:ModifyTargetGroupAttributesOutput:Attributes" type:"list"`
 }
 
 // String returns the string representation

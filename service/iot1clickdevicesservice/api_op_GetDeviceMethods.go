@@ -55,7 +55,7 @@ type GetDeviceMethodsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of available device APIs.
-	DeviceMethods []DeviceMethod `locationName:"deviceMethods" type:"list"`
+	DeviceMethods []DeviceMethod `json:"devices.iot1click:GetDeviceMethodsOutput:DeviceMethods" locationName:"deviceMethods" type:"list"`
 }
 
 // String returns the string representation

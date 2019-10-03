@@ -63,7 +63,7 @@ type GetBucketAccelerateConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The accelerate configuration of the bucket.
-	Status BucketAccelerateStatus `type:"string" enum:"true"`
+	Status BucketAccelerateStatus `json:"s3:GetBucketAccelerateConfigurationOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

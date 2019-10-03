@@ -57,24 +57,24 @@ type DescribeGroupOutput struct {
 
 	// The date and time when a user was deregistered from WorkMail, in UNIX epoch
 	// time format.
-	DisabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DisabledDate *time.Time `json:"workmail:DescribeGroupOutput:DisabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The email of the described group.
-	Email *string `min:"1" type:"string"`
+	Email *string `json:"workmail:DescribeGroupOutput:Email" min:"1" type:"string"`
 
 	// The date and time when a user was registered to WorkMail, in UNIX epoch time
 	// format.
-	EnabledDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EnabledDate *time.Time `json:"workmail:DescribeGroupOutput:EnabledDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The identifier of the described group.
-	GroupId *string `min:"12" type:"string"`
+	GroupId *string `json:"workmail:DescribeGroupOutput:GroupId" min:"12" type:"string"`
 
 	// The name of the described group.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"workmail:DescribeGroupOutput:Name" min:"1" type:"string"`
 
 	// The state of the user: enabled (registered to Amazon WorkMail) or disabled
 	// (deregistered or never registered to WorkMail).
-	State EntityState `type:"string" enum:"true"`
+	State EntityState `json:"workmail:DescribeGroupOutput:State" type:"string" enum:"true"`
 }
 
 // String returns the string representation

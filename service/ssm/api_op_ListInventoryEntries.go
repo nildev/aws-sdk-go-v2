@@ -81,23 +81,23 @@ type ListInventoryEntriesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time that inventory information was collected for the instance(s).
-	CaptureTime *string `type:"string"`
+	CaptureTime *string `json:"ssm:ListInventoryEntriesOutput:CaptureTime" type:"string"`
 
 	// A list of inventory items on the instance(s).
-	Entries []map[string]string `type:"list"`
+	Entries []map[string]string `json:"ssm:ListInventoryEntriesOutput:Entries" type:"list"`
 
 	// The instance ID targeted by the request to query inventory information.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:ListInventoryEntriesOutput:InstanceId" type:"string"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListInventoryEntriesOutput:NextToken" type:"string"`
 
 	// The inventory schema version used by the instance(s).
-	SchemaVersion *string `type:"string"`
+	SchemaVersion *string `json:"ssm:ListInventoryEntriesOutput:SchemaVersion" type:"string"`
 
 	// The type of inventory item returned by the request.
-	TypeName *string `min:"1" type:"string"`
+	TypeName *string `json:"ssm:ListInventoryEntriesOutput:TypeName" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -65,7 +65,7 @@ type LabelParameterVersionOutput struct {
 	// The label does not meet the requirements. For information about parameter
 	// label requirements, see Labeling Parameters (http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html)
 	// in the AWS Systems Manager User Guide.
-	InvalidLabels []string `min:"1" type:"list"`
+	InvalidLabels []string `json:"ssm:LabelParameterVersionOutput:InvalidLabels" min:"1" type:"list"`
 }
 
 // String returns the string representation

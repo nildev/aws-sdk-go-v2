@@ -30,11 +30,11 @@ type ListLunaClientsOutput struct {
 	// The list of clients.
 	//
 	// ClientList is a required field
-	ClientList []string `type:"list" required:"true"`
+	ClientList []string `json:"cloudhsm:ListLunaClientsOutput:ClientList" type:"list" required:"true"`
 
 	// If not null, more results are available. Pass this to ListLunaClients to
 	// retrieve the next set of items.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudhsm:ListLunaClientsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

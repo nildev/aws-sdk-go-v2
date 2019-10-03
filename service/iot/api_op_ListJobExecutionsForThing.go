@@ -88,11 +88,11 @@ type ListJobExecutionsForThingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of job execution summaries.
-	ExecutionSummaries []JobExecutionSummaryForThing `locationName:"executionSummaries" type:"list"`
+	ExecutionSummaries []JobExecutionSummaryForThing `json:"iot:ListJobExecutionsForThingOutput:ExecutionSummaries" locationName:"executionSummaries" type:"list"`
 
 	// The token for the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListJobExecutionsForThingOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

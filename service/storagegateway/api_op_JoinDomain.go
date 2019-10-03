@@ -100,7 +100,7 @@ type JoinDomainOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique Amazon Resource Name (ARN) of the gateway that joined the domain.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:JoinDomainOutput:GatewayARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

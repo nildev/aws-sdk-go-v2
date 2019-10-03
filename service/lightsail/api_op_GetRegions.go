@@ -35,7 +35,7 @@ type GetRegionsOutput struct {
 
 	// An array of key-value pairs containing information about your get regions
 	// request.
-	Regions []Region `locationName:"regions" type:"list"`
+	Regions []Region `json:"lightsail:GetRegionsOutput:Regions" locationName:"regions" type:"list"`
 }
 
 // String returns the string representation

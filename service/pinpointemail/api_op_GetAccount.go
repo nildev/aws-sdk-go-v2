@@ -37,7 +37,7 @@ type GetAccountOutput struct {
 
 	// Indicates whether or not the automatic warm-up feature is enabled for dedicated
 	// IP addresses that are associated with your account.
-	DedicatedIpAutoWarmupEnabled *bool `type:"boolean"`
+	DedicatedIpAutoWarmupEnabled *bool `json:"email:GetAccountOutput:DedicatedIpAutoWarmupEnabled" type:"boolean"`
 
 	// The reputation status of your Amazon Pinpoint account. The status can be
 	// one of the following:
@@ -53,7 +53,7 @@ type GetAccountOutput struct {
 	//    because of an issue with the email sent from your account. When you correct
 	//    the issue, you can contact us and request that your account's ability
 	//    to send email is resumed.
-	EnforcementStatus *string `type:"string"`
+	EnforcementStatus *string `json:"email:GetAccountOutput:EnforcementStatus" type:"string"`
 
 	// Indicates whether or not your account has production access in the current
 	// AWS Region.
@@ -68,15 +68,15 @@ type GetAccountOutput struct {
 	// account has production access, you can send email to any address. The sending
 	// quota and maximum sending rate for your account vary based on your specific
 	// use case.
-	ProductionAccessEnabled *bool `type:"boolean"`
+	ProductionAccessEnabled *bool `json:"email:GetAccountOutput:ProductionAccessEnabled" type:"boolean"`
 
 	// An object that contains information about the per-day and per-second sending
 	// limits for your Amazon Pinpoint account in the current AWS Region.
-	SendQuota *SendQuota `type:"structure"`
+	SendQuota *SendQuota `json:"email:GetAccountOutput:SendQuota" type:"structure"`
 
 	// Indicates whether or not email sending is enabled for your Amazon Pinpoint
 	// account in the current AWS Region.
-	SendingEnabled *bool `type:"boolean"`
+	SendingEnabled *bool `json:"email:GetAccountOutput:SendingEnabled" type:"boolean"`
 }
 
 // String returns the string representation

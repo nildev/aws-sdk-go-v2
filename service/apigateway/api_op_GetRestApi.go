@@ -64,49 +64,49 @@ type GetRestApiOutput struct {
 	//
 	//    * AUTHORIZER to read the API key from the UsageIdentifierKey from a custom
 	//    authorizer.
-	ApiKeySource ApiKeySourceType `locationName:"apiKeySource" type:"string" enum:"true"`
+	ApiKeySource ApiKeySourceType `json:"apigateway:GetRestApiOutput:ApiKeySource" locationName:"apiKeySource" type:"string" enum:"true"`
 
 	// The list of binary media types supported by the RestApi. By default, the
 	// RestApi supports only UTF-8-encoded text payloads.
-	BinaryMediaTypes []string `locationName:"binaryMediaTypes" type:"list"`
+	BinaryMediaTypes []string `json:"apigateway:GetRestApiOutput:BinaryMediaTypes" locationName:"binaryMediaTypes" type:"list"`
 
 	// The timestamp when the API was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:GetRestApiOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The API's description.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:GetRestApiOutput:Description" locationName:"description" type:"string"`
 
 	// The endpoint configuration of this RestApi showing the endpoint types of
 	// the API.
-	EndpointConfiguration *EndpointConfiguration `locationName:"endpointConfiguration" type:"structure"`
+	EndpointConfiguration *EndpointConfiguration `json:"apigateway:GetRestApiOutput:EndpointConfiguration" locationName:"endpointConfiguration" type:"structure"`
 
 	// The API's identifier. This identifier is unique across all of your APIs in
 	// API Gateway.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:GetRestApiOutput:Id" locationName:"id" type:"string"`
 
 	// A nullable integer that is used to enable compression (with non-negative
 	// between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with
 	// a null value) on an API. When compression is enabled, compression or decompression
 	// is not applied on the payload if the payload size is smaller than this value.
 	// Setting it to zero allows compression for any payload size.
-	MinimumCompressionSize *int64 `locationName:"minimumCompressionSize" type:"integer"`
+	MinimumCompressionSize *int64 `json:"apigateway:GetRestApiOutput:MinimumCompressionSize" locationName:"minimumCompressionSize" type:"integer"`
 
 	// The API's name.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:GetRestApiOutput:Name" locationName:"name" type:"string"`
 
 	// A stringified JSON policy document that applies to this RestApi regardless
 	// of the caller and Method configuration.
-	Policy *string `locationName:"policy" type:"string"`
+	Policy *string `json:"apigateway:GetRestApiOutput:Policy" locationName:"policy" type:"string"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:GetRestApiOutput:Tags" locationName:"tags" type:"map"`
 
 	// A version identifier for the API.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"apigateway:GetRestApiOutput:Version" locationName:"version" type:"string"`
 
 	// The warning messages reported when failonwarnings is turned on during API
 	// import.
-	Warnings []string `locationName:"warnings" type:"list"`
+	Warnings []string `json:"apigateway:GetRestApiOutput:Warnings" locationName:"warnings" type:"list"`
 }
 
 // String returns the string representation

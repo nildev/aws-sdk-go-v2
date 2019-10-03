@@ -63,30 +63,30 @@ type DescribeMaintenanceStartTimeOutput struct {
 	// month and 28 represents the last day of the month.
 	//
 	// This value is only available for tape and volume gateways.
-	DayOfMonth *int64 `min:"1" type:"integer"`
+	DayOfMonth *int64 `json:"storagegateway:DescribeMaintenanceStartTimeOutput:DayOfMonth" min:"1" type:"integer"`
 
 	// An ordinal number between 0 and 6 that represents the day of the week, where
 	// 0 represents Sunday and 6 represents Saturday. The day of week is in the
 	// time zone of the gateway.
-	DayOfWeek *int64 `type:"integer"`
+	DayOfWeek *int64 `json:"storagegateway:DescribeMaintenanceStartTimeOutput:DayOfWeek" type:"integer"`
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:DescribeMaintenanceStartTimeOutput:GatewayARN" min:"50" type:"string"`
 
 	// The hour component of the maintenance start time represented as hh, where
 	// hh is the hour (0 to 23). The hour of the day is in the time zone of the
 	// gateway.
-	HourOfDay *int64 `type:"integer"`
+	HourOfDay *int64 `json:"storagegateway:DescribeMaintenanceStartTimeOutput:HourOfDay" type:"integer"`
 
 	// The minute component of the maintenance start time represented as mm, where
 	// mm is the minute (0 to 59). The minute of the hour is in the time zone of
 	// the gateway.
-	MinuteOfHour *int64 `type:"integer"`
+	MinuteOfHour *int64 `json:"storagegateway:DescribeMaintenanceStartTimeOutput:MinuteOfHour" type:"integer"`
 
 	// A value that indicates the time zone that is set for the gateway. The start
 	// time and day of week specified should be in the time zone of the gateway.
-	Timezone *string `min:"3" type:"string"`
+	Timezone *string `json:"storagegateway:DescribeMaintenanceStartTimeOutput:Timezone" min:"3" type:"string"`
 }
 
 // String returns the string representation

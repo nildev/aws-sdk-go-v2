@@ -49,7 +49,7 @@ type GetDeploymentConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the deployment configuration.
-	DeploymentConfigInfo *DeploymentConfigInfo `locationName:"deploymentConfigInfo" type:"structure"`
+	DeploymentConfigInfo *DeploymentConfigInfo `json:"codedeploy:GetDeploymentConfigOutput:DeploymentConfigInfo" locationName:"deploymentConfigInfo" type:"structure"`
 }
 
 // String returns the string representation

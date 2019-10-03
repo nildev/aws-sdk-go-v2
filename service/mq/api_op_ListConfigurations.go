@@ -60,11 +60,11 @@ func (s ListConfigurationsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Configurations []Configuration `locationName:"configurations" type:"list"`
+	Configurations []Configuration `json:"mq:ListConfigurationsOutput:Configurations" locationName:"configurations" type:"list"`
 
-	MaxResults *int64 `locationName:"maxResults" type:"integer"`
+	MaxResults *int64 `json:"mq:ListConfigurationsOutput:MaxResults" locationName:"maxResults" type:"integer"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mq:ListConfigurationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

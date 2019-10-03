@@ -76,7 +76,7 @@ type UpdateGroupOutput struct {
 	// The group that was updated. Contains the name of the group that was updated,
 	// the ARN of the group that was updated, and the updated filter expression
 	// assigned to the group.
-	Group *Group `type:"structure"`
+	Group *Group `json:"xray:UpdateGroupOutput:Group" type:"structure"`
 }
 
 // String returns the string representation

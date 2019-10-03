@@ -157,34 +157,34 @@ type PutSlotTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Checksum of the $LATEST version of the slot type.
-	Checksum *string `locationName:"checksum" type:"string"`
+	Checksum *string `json:"models.lex:PutSlotTypeOutput:Checksum" locationName:"checksum" type:"string"`
 
-	CreateVersion *bool `locationName:"createVersion" type:"boolean"`
+	CreateVersion *bool `json:"models.lex:PutSlotTypeOutput:CreateVersion" locationName:"createVersion" type:"boolean"`
 
 	// The date that the slot type was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"models.lex:PutSlotTypeOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A description of the slot type.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"models.lex:PutSlotTypeOutput:Description" locationName:"description" type:"string"`
 
 	// A list of EnumerationValue objects that defines the values that the slot
 	// type can take.
-	EnumerationValues []EnumerationValue `locationName:"enumerationValues" min:"1" type:"list"`
+	EnumerationValues []EnumerationValue `json:"models.lex:PutSlotTypeOutput:EnumerationValues" locationName:"enumerationValues" min:"1" type:"list"`
 
 	// The date that the slot type was updated. When you create a slot type, the
 	// creation date and last update date are the same.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"models.lex:PutSlotTypeOutput:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the slot type.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"models.lex:PutSlotTypeOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The slot resolution strategy that Amazon Lex uses to determine the value
 	// of the slot. For more information, see PutSlotType.
-	ValueSelectionStrategy SlotValueSelectionStrategy `locationName:"valueSelectionStrategy" type:"string" enum:"true"`
+	ValueSelectionStrategy SlotValueSelectionStrategy `json:"models.lex:PutSlotTypeOutput:ValueSelectionStrategy" locationName:"valueSelectionStrategy" type:"string" enum:"true"`
 
 	// The version of the slot type. For a new slot type, the version is always
 	// $LATEST.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"models.lex:PutSlotTypeOutput:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation

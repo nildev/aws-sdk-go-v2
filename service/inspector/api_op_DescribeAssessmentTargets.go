@@ -48,13 +48,13 @@ type DescribeAssessmentTargetsOutput struct {
 	// Information about the assessment targets.
 	//
 	// AssessmentTargets is a required field
-	AssessmentTargets []AssessmentTarget `locationName:"assessmentTargets" type:"list" required:"true"`
+	AssessmentTargets []AssessmentTarget `json:"inspector:DescribeAssessmentTargetsOutput:AssessmentTargets" locationName:"assessmentTargets" type:"list" required:"true"`
 
 	// Assessment target details that cannot be described. An error code is provided
 	// for each failed item.
 	//
 	// FailedItems is a required field
-	FailedItems map[string]FailedItemDetails `locationName:"failedItems" type:"map" required:"true"`
+	FailedItems map[string]FailedItemDetails `json:"inspector:DescribeAssessmentTargetsOutput:FailedItems" locationName:"failedItems" type:"map" required:"true"`
 }
 
 // String returns the string representation

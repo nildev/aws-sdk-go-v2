@@ -157,7 +157,7 @@ type SendEmailOutput struct {
 	// This can happen when the message you're trying to send has an attachment
 	// doesn't pass a virus check, or when you send a templated email that contains
 	// invalid personalization content, for example.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"email:SendEmailOutput:MessageId" type:"string"`
 }
 
 // String returns the string representation

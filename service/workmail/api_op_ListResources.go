@@ -58,10 +58,10 @@ type ListResourcesOutput struct {
 	// The token used to paginate through all the organization's resources. While
 	// results are still available, it has an associated value. When the last page
 	// is reached, the token is empty.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workmail:ListResourcesOutput:NextToken" min:"1" type:"string"`
 
 	// One page of the organization's resource representation.
-	Resources []Resource `type:"list"`
+	Resources []Resource `json:"workmail:ListResourcesOutput:Resources" type:"list"`
 }
 
 // String returns the string representation

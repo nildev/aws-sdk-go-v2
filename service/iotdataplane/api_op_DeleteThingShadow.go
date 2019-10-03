@@ -61,7 +61,7 @@ type DeleteThingShadowOutput struct {
 	// The state information, in JSON format.
 	//
 	// Payload is a required field
-	Payload []byte `locationName:"payload" type:"blob" required:"true"`
+	Payload []byte `json:"data.iot:DeleteThingShadowOutput:Payload" locationName:"payload" type:"blob" required:"true"`
 }
 
 // String returns the string representation

@@ -74,11 +74,11 @@ type DescribeAssociationExecutionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the executions for the specified association ID.
-	AssociationExecutions []AssociationExecution `type:"list"`
+	AssociationExecutions []AssociationExecution `json:"ssm:DescribeAssociationExecutionsOutput:AssociationExecutions" type:"list"`
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeAssociationExecutionsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

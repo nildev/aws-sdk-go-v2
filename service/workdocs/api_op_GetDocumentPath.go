@@ -110,7 +110,7 @@ type GetDocumentPathOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The path information.
-	Path *ResourcePath `type:"structure"`
+	Path *ResourcePath `json:"workdocs:GetDocumentPathOutput:Path" type:"structure"`
 }
 
 // String returns the string representation

@@ -82,11 +82,11 @@ type GetSlotTypesOutput struct {
 
 	// If the response is truncated, it includes a pagination token that you can
 	// specify in your next request to fetch the next page of slot types.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetSlotTypesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of objects, one for each slot type, that provides information such
 	// as the name of the slot type, the version, and a description.
-	SlotTypes []SlotTypeMetadata `locationName:"slotTypes" type:"list"`
+	SlotTypes []SlotTypeMetadata `json:"models.lex:GetSlotTypesOutput:SlotTypes" locationName:"slotTypes" type:"list"`
 }
 
 // String returns the string representation

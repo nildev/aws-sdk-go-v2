@@ -54,10 +54,10 @@ type ListRuleGroupsOutput struct {
 	// in the request, the response includes a NextMarker value. To list more RuleGroups,
 	// submit another ListRuleGroups request, and specify the NextMarker value from
 	// the response in the NextMarker value in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf-regional:ListRuleGroupsOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of RuleGroup objects.
-	RuleGroups []waf.RuleGroupSummary `type:"list"`
+	RuleGroups []waf.RuleGroupSummary `json:"waf-regional:ListRuleGroupsOutput:RuleGroups" type:"list"`
 }
 
 // String returns the string representation

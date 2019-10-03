@@ -447,42 +447,42 @@ func (s CopyObjectInput) MarshalFields(e protocol.FieldEncoder) error {
 type CopyObjectOutput struct {
 	_ struct{} `type:"structure" payload:"CopyObjectResult"`
 
-	CopyObjectResult *CopyObjectResult `type:"structure"`
+	CopyObjectResult *CopyObjectResult `json:"s3:CopyObjectOutput:CopyObjectResult" type:"structure"`
 
-	CopySourceVersionId *string `location:"header" locationName:"x-amz-copy-source-version-id" type:"string"`
+	CopySourceVersionId *string `json:"s3:CopyObjectOutput:CopySourceVersionId" location:"header" locationName:"x-amz-copy-source-version-id" type:"string"`
 
 	// If the object expiration is configured, the response includes this header.
-	Expiration *string `location:"header" locationName:"x-amz-expiration" type:"string"`
+	Expiration *string `json:"s3:CopyObjectOutput:Expiration" location:"header" locationName:"x-amz-expiration" type:"string"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:CopyObjectOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header confirming the encryption algorithm
 	// used.
-	SSECustomerAlgorithm *string `location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
+	SSECustomerAlgorithm *string `json:"s3:CopyObjectOutput:SSECustomerAlgorithm" location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header to provide round trip message integrity
 	// verification of the customer-provided encryption key.
-	SSECustomerKeyMD5 *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
+	SSECustomerKeyMD5 *string `json:"s3:CopyObjectOutput:SSECustomerKeyMD5" location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
 
 	// If present, specifies the AWS KMS Encryption Context to use for object encryption.
 	// The value of this header is a base64-encoded UTF-8 string holding JSON with
 	// the encryption context key-value pairs.
-	SSEKMSEncryptionContext *string `location:"header" locationName:"x-amz-server-side-encryption-context" type:"string"`
+	SSEKMSEncryptionContext *string `json:"s3:CopyObjectOutput:SSEKMSEncryptionContext" location:"header" locationName:"x-amz-server-side-encryption-context" type:"string"`
 
 	// If present, specifies the ID of the AWS Key Management Service (KMS) master
 	// encryption key that was used for the object.
-	SSEKMSKeyId *string `location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
+	SSEKMSKeyId *string `json:"s3:CopyObjectOutput:SSEKMSKeyId" location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
 
 	// The Server-side encryption algorithm used when storing this object in S3
 	// (e.g., AES256, aws:kms).
-	ServerSideEncryption ServerSideEncryption `location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
+	ServerSideEncryption ServerSideEncryption `json:"s3:CopyObjectOutput:ServerSideEncryption" location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
 
 	// Version ID of the newly created copy.
-	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+	VersionId *string `json:"s3:CopyObjectOutput:VersionId" location:"header" locationName:"x-amz-version-id" type:"string"`
 }
 
 // String returns the string representation

@@ -102,11 +102,11 @@ type DescribeDBClusterBacktracksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains a list of backtracks for the user.
-	DBClusterBacktracks []DBClusterBacktrack `locationNameList:"DBClusterBacktrack" type:"list"`
+	DBClusterBacktracks []DBClusterBacktrack `json:"rds:DescribeDBClusterBacktracksOutput:DBClusterBacktracks" locationNameList:"DBClusterBacktrack" type:"list"`
 
 	// A pagination token that can be used in a subsequent DescribeDBClusterBacktracks
 	// request.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeDBClusterBacktracksOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

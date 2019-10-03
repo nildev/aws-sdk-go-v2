@@ -48,11 +48,11 @@ type GetRelationalDatabaseParametersOutput struct {
 
 	// A token used for advancing to the next page of results from your get static
 	// IPs request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetRelationalDatabaseParametersOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// An object describing the result of your get relational database parameters
 	// request.
-	Parameters []RelationalDatabaseParameter `locationName:"parameters" type:"list"`
+	Parameters []RelationalDatabaseParameter `json:"lightsail:GetRelationalDatabaseParametersOutput:Parameters" locationName:"parameters" type:"list"`
 }
 
 // String returns the string representation

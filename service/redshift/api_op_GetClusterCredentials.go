@@ -133,7 +133,7 @@ type GetClusterCredentialsOutput struct {
 
 	// A temporary password that authorizes the user name returned by DbUser to
 	// log on to the database DbName.
-	DbPassword *string `type:"string"`
+	DbPassword *string `json:"redshift:GetClusterCredentialsOutput:DbPassword" type:"string"`
 
 	// A database user name that is authorized to log on to the database DbName
 	// using the password DbPassword. If the specified DbUser exists in the database,
@@ -141,10 +141,10 @@ type GetClusterCredentialsOutput struct {
 	// in DbUser. By default, the user is added to PUBLIC. If the DbGroups parameter
 	// is specifed, DbUser is added to the listed groups for any sessions created
 	// using these credentials.
-	DbUser *string `type:"string"`
+	DbUser *string `json:"redshift:GetClusterCredentialsOutput:DbUser" type:"string"`
 
 	// The date and time the password in DbPassword expires.
-	Expiration *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Expiration *time.Time `json:"redshift:GetClusterCredentialsOutput:Expiration" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation

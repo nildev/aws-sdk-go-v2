@@ -31,7 +31,7 @@ type DescribeSeverityLevelsOutput struct {
 
 	// The available severity levels for the support case. Available severity levels
 	// are defined by your service level agreement with AWS.
-	SeverityLevels []SeverityLevel `locationName:"severityLevels" type:"list"`
+	SeverityLevels []SeverityLevel `json:"support:DescribeSeverityLevelsOutput:SeverityLevels" locationName:"severityLevels" type:"list"`
 }
 
 // String returns the string representation

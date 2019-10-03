@@ -70,10 +70,10 @@ type GetUpgradeStatusOutput struct {
 	//    * Succeeded with Issues
 	//
 	//    * Failed
-	StepStatus UpgradeStatus `type:"string" enum:"true"`
+	StepStatus UpgradeStatus `json:"es:GetUpgradeStatusOutput:StepStatus" type:"string" enum:"true"`
 
 	// A string that describes the update briefly
-	UpgradeName *string `type:"string"`
+	UpgradeName *string `json:"es:GetUpgradeStatusOutput:UpgradeName" type:"string"`
 
 	// Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does
 	// through:
@@ -82,7 +82,7 @@ type GetUpgradeStatusOutput struct {
 	//    * Snapshot
 	//
 	//    * Upgrade
-	UpgradeStep UpgradeStep `type:"string" enum:"true"`
+	UpgradeStep UpgradeStep `json:"es:GetUpgradeStatusOutput:UpgradeStep" type:"string" enum:"true"`
 }
 
 // String returns the string representation

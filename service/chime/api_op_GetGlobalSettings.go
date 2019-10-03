@@ -31,10 +31,10 @@ type GetGlobalSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Chime Business Calling settings.
-	BusinessCalling *BusinessCallingSettings `type:"structure"`
+	BusinessCalling *BusinessCallingSettings `json:"chime:GetGlobalSettingsOutput:BusinessCalling" type:"structure"`
 
 	// The Amazon Chime Voice Connector settings.
-	VoiceConnector *VoiceConnectorSettings `type:"structure"`
+	VoiceConnector *VoiceConnectorSettings `json:"chime:GetGlobalSettingsOutput:VoiceConnector" type:"structure"`
 }
 
 // String returns the string representation

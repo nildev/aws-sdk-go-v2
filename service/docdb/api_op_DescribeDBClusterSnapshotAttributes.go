@@ -45,7 +45,7 @@ type DescribeDBClusterSnapshotAttributesOutput struct {
 
 	// Detailed information about the attributes that are associated with a DB cluster
 	// snapshot.
-	DBClusterSnapshotAttributesResult *DBClusterSnapshotAttributesResult `type:"structure"`
+	DBClusterSnapshotAttributesResult *DBClusterSnapshotAttributesResult `json:"rds:DescribeDBClusterSnapshotAttributesOutput:DBClusterSnapshotAttributesResult" type:"structure"`
 }
 
 // String returns the string representation

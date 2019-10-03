@@ -76,11 +76,11 @@ type PutResourcePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret that the resource-based policy was retrieved for.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:PutResourcePolicyOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret that the resource-based policy was retrieved
 	// for.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:PutResourcePolicyOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

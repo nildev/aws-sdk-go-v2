@@ -83,7 +83,7 @@ type UpdateBillingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The latest version of the billing group.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"iot:UpdateBillingGroupOutput:Version" locationName:"version" type:"long"`
 }
 
 // String returns the string representation

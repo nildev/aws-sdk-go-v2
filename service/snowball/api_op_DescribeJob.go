@@ -47,11 +47,11 @@ type DescribeJobOutput struct {
 
 	// Information about a specific job, including shipping information, job status,
 	// and other important metadata.
-	JobMetadata *JobMetadata `type:"structure"`
+	JobMetadata *JobMetadata `json:"snowball:DescribeJobOutput:JobMetadata" type:"structure"`
 
 	// Information about a specific job part (in the case of an export job), including
 	// shipping information, job status, and other important metadata.
-	SubJobMetadata []JobMetadata `type:"list"`
+	SubJobMetadata []JobMetadata `json:"snowball:DescribeJobOutput:SubJobMetadata" type:"list"`
 }
 
 // String returns the string representation

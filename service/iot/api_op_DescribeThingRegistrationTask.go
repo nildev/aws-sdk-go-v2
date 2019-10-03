@@ -55,40 +55,40 @@ type DescribeThingRegistrationTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The task creation date.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:DescribeThingRegistrationTaskOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The number of things that failed to be provisioned.
-	FailureCount *int64 `locationName:"failureCount" type:"integer"`
+	FailureCount *int64 `json:"iot:DescribeThingRegistrationTaskOutput:FailureCount" locationName:"failureCount" type:"integer"`
 
 	// The S3 bucket that contains the input file.
-	InputFileBucket *string `locationName:"inputFileBucket" min:"3" type:"string"`
+	InputFileBucket *string `json:"iot:DescribeThingRegistrationTaskOutput:InputFileBucket" locationName:"inputFileBucket" min:"3" type:"string"`
 
 	// The input file key.
-	InputFileKey *string `locationName:"inputFileKey" min:"1" type:"string"`
+	InputFileKey *string `json:"iot:DescribeThingRegistrationTaskOutput:InputFileKey" locationName:"inputFileKey" min:"1" type:"string"`
 
 	// The date when the task was last modified.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:DescribeThingRegistrationTaskOutput:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The message.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"iot:DescribeThingRegistrationTaskOutput:Message" locationName:"message" type:"string"`
 
 	// The progress of the bulk provisioning task expressed as a percentage.
-	PercentageProgress *int64 `locationName:"percentageProgress" type:"integer"`
+	PercentageProgress *int64 `json:"iot:DescribeThingRegistrationTaskOutput:PercentageProgress" locationName:"percentageProgress" type:"integer"`
 
 	// The role ARN that grants access to the input file bucket.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iot:DescribeThingRegistrationTaskOutput:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 
 	// The status of the bulk thing provisioning task.
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"iot:DescribeThingRegistrationTaskOutput:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The number of things successfully provisioned.
-	SuccessCount *int64 `locationName:"successCount" type:"integer"`
+	SuccessCount *int64 `json:"iot:DescribeThingRegistrationTaskOutput:SuccessCount" locationName:"successCount" type:"integer"`
 
 	// The task ID.
-	TaskId *string `locationName:"taskId" type:"string"`
+	TaskId *string `json:"iot:DescribeThingRegistrationTaskOutput:TaskId" locationName:"taskId" type:"string"`
 
 	// The task's template.
-	TemplateBody *string `locationName:"templateBody" type:"string"`
+	TemplateBody *string `json:"iot:DescribeThingRegistrationTaskOutput:TemplateBody" locationName:"templateBody" type:"string"`
 }
 
 // String returns the string representation

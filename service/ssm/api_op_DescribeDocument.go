@@ -52,7 +52,7 @@ type DescribeDocumentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Systems Manager document.
-	Document *DocumentDescription `type:"structure"`
+	Document *DocumentDescription `json:"ssm:DescribeDocumentOutput:Document" type:"structure"`
 }
 
 // String returns the string representation

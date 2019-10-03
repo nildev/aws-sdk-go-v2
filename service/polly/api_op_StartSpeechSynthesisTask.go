@@ -194,7 +194,7 @@ type StartSpeechSynthesisTaskOutput struct {
 
 	// SynthesisTask object that provides information and attributes about a newly
 	// submitted speech synthesis task.
-	SynthesisTask *SynthesisTask `type:"structure"`
+	SynthesisTask *SynthesisTask `json:"polly:StartSpeechSynthesisTaskOutput:SynthesisTask" type:"structure"`
 }
 
 // String returns the string representation

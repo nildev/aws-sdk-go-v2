@@ -20,13 +20,13 @@ type ClassificationType struct {
 	// a bucket is successfully associated with Amazon Macie.
 	//
 	// Continuous is a required field
-	Continuous S3ContinuousClassificationType `locationName:"continuous" type:"string" required:"true" enum:"true"`
+	Continuous S3ContinuousClassificationType `json:"macie:ClassificationType:Continuous" locationName:"continuous" type:"string" required:"true" enum:"true"`
 
 	// A one-time classification of all of the existing objects in a specified S3
 	// bucket.
 	//
 	// OneTime is a required field
-	OneTime S3OneTimeClassificationType `locationName:"oneTime" type:"string" required:"true" enum:"true"`
+	OneTime S3OneTimeClassificationType `json:"macie:ClassificationType:OneTime" locationName:"oneTime" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -60,11 +60,11 @@ type ClassificationTypeUpdate struct {
 	// A continuous classification of the objects that are added to a specified
 	// S3 bucket. Amazon Macie begins performing continuous classification after
 	// a bucket is successfully associated with Amazon Macie.
-	Continuous S3ContinuousClassificationType `locationName:"continuous" type:"string" enum:"true"`
+	Continuous S3ContinuousClassificationType `json:"macie:ClassificationTypeUpdate:Continuous" locationName:"continuous" type:"string" enum:"true"`
 
 	// A one-time classification of all of the existing objects in a specified S3
 	// bucket.
-	OneTime S3OneTimeClassificationType `locationName:"oneTime" type:"string" enum:"true"`
+	OneTime S3OneTimeClassificationType `json:"macie:ClassificationTypeUpdate:OneTime" locationName:"oneTime" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -78,13 +78,13 @@ type FailedS3Resource struct {
 	_ struct{} `type:"structure"`
 
 	// The status code of a failed item.
-	ErrorCode *string `locationName:"errorCode" type:"string"`
+	ErrorCode *string `json:"macie:FailedS3Resource:ErrorCode" locationName:"errorCode" type:"string"`
 
 	// The error message of a failed item.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"macie:FailedS3Resource:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The failed S3 resources.
-	FailedItem *S3Resource `locationName:"failedItem" type:"structure"`
+	FailedItem *S3Resource `json:"macie:FailedS3Resource:FailedItem" locationName:"failedItem" type:"structure"`
 }
 
 // String returns the string representation
@@ -98,7 +98,7 @@ type MemberAccount struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID of the Amazon Macie member account.
-	AccountId *string `locationName:"accountId" type:"string"`
+	AccountId *string `json:"macie:MemberAccount:AccountId" locationName:"accountId" type:"string"`
 }
 
 // String returns the string representation
@@ -116,10 +116,10 @@ type S3Resource struct {
 	// The name of the S3 bucket.
 	//
 	// BucketName is a required field
-	BucketName *string `locationName:"bucketName" type:"string" required:"true"`
+	BucketName *string `json:"macie:S3Resource:BucketName" locationName:"bucketName" type:"string" required:"true"`
 
 	// The prefix of the S3 bucket.
-	Prefix *string `locationName:"prefix" type:"string"`
+	Prefix *string `json:"macie:S3Resource:Prefix" locationName:"prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -152,16 +152,16 @@ type S3ResourceClassification struct {
 	// The name of the S3 bucket that you want to associate with Amazon Macie.
 	//
 	// BucketName is a required field
-	BucketName *string `locationName:"bucketName" type:"string" required:"true"`
+	BucketName *string `json:"macie:S3ResourceClassification:BucketName" locationName:"bucketName" type:"string" required:"true"`
 
 	// The classification type that you want to specify for the resource associated
 	// with Amazon Macie.
 	//
 	// ClassificationType is a required field
-	ClassificationType *ClassificationType `locationName:"classificationType" type:"structure" required:"true"`
+	ClassificationType *ClassificationType `json:"macie:S3ResourceClassification:ClassificationType" locationName:"classificationType" type:"structure" required:"true"`
 
 	// The prefix of the S3 bucket that you want to associate with Amazon Macie.
-	Prefix *string `locationName:"prefix" type:"string"`
+	Prefix *string `json:"macie:S3ResourceClassification:Prefix" locationName:"prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -201,16 +201,16 @@ type S3ResourceClassificationUpdate struct {
 	// The name of the S3 bucket whose classification types you want to update.
 	//
 	// BucketName is a required field
-	BucketName *string `locationName:"bucketName" type:"string" required:"true"`
+	BucketName *string `json:"macie:S3ResourceClassificationUpdate:BucketName" locationName:"bucketName" type:"string" required:"true"`
 
 	// The classification type that you want to update for the resource associated
 	// with Amazon Macie.
 	//
 	// ClassificationTypeUpdate is a required field
-	ClassificationTypeUpdate *ClassificationTypeUpdate `locationName:"classificationTypeUpdate" type:"structure" required:"true"`
+	ClassificationTypeUpdate *ClassificationTypeUpdate `json:"macie:S3ResourceClassificationUpdate:ClassificationTypeUpdate" locationName:"classificationTypeUpdate" type:"structure" required:"true"`
 
 	// The prefix of the S3 bucket whose classification types you want to update.
-	Prefix *string `locationName:"prefix" type:"string"`
+	Prefix *string `json:"macie:S3ResourceClassificationUpdate:Prefix" locationName:"prefix" type:"string"`
 }
 
 // String returns the string representation

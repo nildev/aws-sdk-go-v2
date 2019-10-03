@@ -61,7 +61,7 @@ type CreateGatewayGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the created gateway group.
-	GatewayGroupArn *string `type:"string"`
+	GatewayGroupArn *string `json:"a4b:CreateGatewayGroupOutput:GatewayGroupArn" type:"string"`
 }
 
 // String returns the string representation

@@ -70,7 +70,7 @@ type GetDomainSuggestionsOutput struct {
 
 	// A list of possible domain names. If you specified true for OnlyAvailable
 	// in the request, the list contains only domains that are available for registration.
-	SuggestionsList []DomainSuggestion `type:"list"`
+	SuggestionsList []DomainSuggestion `json:"route53domains:GetDomainSuggestionsOutput:SuggestionsList" type:"list"`
 }
 
 // String returns the string representation

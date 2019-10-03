@@ -70,7 +70,7 @@ type CreateDBSubnetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB subnet group.
-	DBSubnetGroup *DBSubnetGroup `type:"structure"`
+	DBSubnetGroup *DBSubnetGroup `json:"rds:CreateDBSubnetGroupOutput:DBSubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

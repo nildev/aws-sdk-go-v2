@@ -62,13 +62,13 @@ type ListContainerInstancesOutput struct {
 
 	// The list of container instances with full ARN entries for each container
 	// instance associated with the specified cluster.
-	ContainerInstanceArns []string `locationName:"containerInstanceArns" type:"list"`
+	ContainerInstanceArns []string `json:"ecs:ListContainerInstancesOutput:ContainerInstanceArns" locationName:"containerInstanceArns" type:"list"`
 
 	// The nextToken value to include in a future ListContainerInstances request.
 	// When the results of a ListContainerInstances request exceed maxResults, this
 	// value can be used to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ecs:ListContainerInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

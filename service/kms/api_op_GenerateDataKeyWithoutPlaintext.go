@@ -91,10 +91,10 @@ type GenerateDataKeyWithoutPlaintextOutput struct {
 	// is Base64-encoded. Otherwise, it is not encoded.
 	//
 	// CiphertextBlob is automatically base64 encoded/decoded by the SDK.
-	CiphertextBlob []byte `min:"1" type:"blob"`
+	CiphertextBlob []byte `json:"kms:GenerateDataKeyWithoutPlaintextOutput:CiphertextBlob" min:"1" type:"blob"`
 
 	// The identifier of the CMK that encrypted the data key.
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"kms:GenerateDataKeyWithoutPlaintextOutput:KeyId" min:"1" type:"string"`
 }
 
 // String returns the string representation

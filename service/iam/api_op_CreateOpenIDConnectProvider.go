@@ -96,7 +96,7 @@ type CreateOpenIDConnectProviderOutput struct {
 
 	// The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that
 	// is created. For more information, see OpenIDConnectProviderListEntry.
-	OpenIDConnectProviderArn *string `min:"20" type:"string"`
+	OpenIDConnectProviderArn *string `json:"iam:CreateOpenIDConnectProviderOutput:OpenIDConnectProviderArn" min:"20" type:"string"`
 }
 
 // String returns the string representation

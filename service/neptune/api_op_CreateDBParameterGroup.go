@@ -80,7 +80,7 @@ type CreateDBParameterGroupOutput struct {
 	//
 	// This data type is used as a response element in the DescribeDBParameterGroups
 	// action.
-	DBParameterGroup *DBParameterGroup `type:"structure"`
+	DBParameterGroup *DBParameterGroup `json:"rds:CreateDBParameterGroupOutput:DBParameterGroup" type:"structure"`
 }
 
 // String returns the string representation

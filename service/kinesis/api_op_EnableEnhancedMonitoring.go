@@ -84,14 +84,14 @@ type EnableEnhancedMonitoringOutput struct {
 
 	// Represents the current state of the metrics that are in the enhanced state
 	// before the operation.
-	CurrentShardLevelMetrics []MetricsName `min:"1" type:"list"`
+	CurrentShardLevelMetrics []MetricsName `json:"kinesis:EnableEnhancedMonitoringOutput:CurrentShardLevelMetrics" min:"1" type:"list"`
 
 	// Represents the list of all the metrics that would be in the enhanced state
 	// after the operation.
-	DesiredShardLevelMetrics []MetricsName `min:"1" type:"list"`
+	DesiredShardLevelMetrics []MetricsName `json:"kinesis:EnableEnhancedMonitoringOutput:DesiredShardLevelMetrics" min:"1" type:"list"`
 
 	// The name of the Kinesis data stream.
-	StreamName *string `min:"1" type:"string"`
+	StreamName *string `json:"kinesis:EnableEnhancedMonitoringOutput:StreamName" min:"1" type:"string"`
 }
 
 // String returns the string representation

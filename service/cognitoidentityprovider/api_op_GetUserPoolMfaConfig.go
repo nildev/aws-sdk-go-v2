@@ -46,13 +46,13 @@ type GetUserPoolMfaConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The multi-factor (MFA) configuration.
-	MfaConfiguration UserPoolMfaType `type:"string" enum:"true"`
+	MfaConfiguration UserPoolMfaType `json:"cognito-idp:GetUserPoolMfaConfigOutput:MfaConfiguration" type:"string" enum:"true"`
 
 	// The SMS text message multi-factor (MFA) configuration.
-	SmsMfaConfiguration *SmsMfaConfigType `type:"structure"`
+	SmsMfaConfiguration *SmsMfaConfigType `json:"cognito-idp:GetUserPoolMfaConfigOutput:SmsMfaConfiguration" type:"structure"`
 
 	// The software token multi-factor (MFA) configuration.
-	SoftwareTokenMfaConfiguration *SoftwareTokenMfaConfigType `type:"structure"`
+	SoftwareTokenMfaConfiguration *SoftwareTokenMfaConfigType `json:"cognito-idp:GetUserPoolMfaConfigOutput:SoftwareTokenMfaConfiguration" type:"structure"`
 }
 
 // String returns the string representation

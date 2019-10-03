@@ -57,10 +57,10 @@ type GetSystemTemplateRevisionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The string to specify as nextToken when you request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:GetSystemTemplateRevisionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of objects that contain summary data about the system template revisions.
-	Summaries []SystemTemplateSummary `locationName:"summaries" type:"list"`
+	Summaries []SystemTemplateSummary `json:"iotthingsgraph:GetSystemTemplateRevisionsOutput:Summaries" locationName:"summaries" type:"list"`
 }
 
 // String returns the string representation

@@ -36,7 +36,7 @@ type GetCheckerIpRangesOutput struct {
 	// Amazon Route 53 health checkers.
 	//
 	// CheckerIpRanges is a required field
-	CheckerIpRanges []string `type:"list" required:"true"`
+	CheckerIpRanges []string `json:"route53:GetCheckerIpRangesOutput:CheckerIpRanges" type:"list" required:"true"`
 }
 
 // String returns the string representation

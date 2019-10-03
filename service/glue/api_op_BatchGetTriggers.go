@@ -44,10 +44,10 @@ type BatchGetTriggersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of trigger definitions.
-	Triggers []Trigger `type:"list"`
+	Triggers []Trigger `json:"glue:BatchGetTriggersOutput:Triggers" type:"list"`
 
 	// A list of names of triggers not found.
-	TriggersNotFound []string `type:"list"`
+	TriggersNotFound []string `json:"glue:BatchGetTriggersOutput:TriggersNotFound" type:"list"`
 }
 
 // String returns the string representation

@@ -51,11 +51,11 @@ type ListDataflowEndpointGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of dataflow endpoint groups.
-	DataflowEndpointGroupList []DataflowEndpointListItem `locationName:"dataflowEndpointGroupList" type:"list"`
+	DataflowEndpointGroupList []DataflowEndpointListItem `json:"groundstation:ListDataflowEndpointGroupsOutput:DataflowEndpointGroupList" locationName:"dataflowEndpointGroupList" type:"list"`
 
 	// Next token returned in the response of a previous ListDataflowEndpointGroups
 	// call. Used to get the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"groundstation:ListDataflowEndpointGroupsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

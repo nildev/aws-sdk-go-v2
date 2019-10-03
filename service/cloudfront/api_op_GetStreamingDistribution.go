@@ -59,10 +59,10 @@ type GetStreamingDistributionOutput struct {
 
 	// The current version of the streaming distribution's information. For example:
 	// E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:GetStreamingDistributionOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// The streaming distribution's information.
-	StreamingDistribution *StreamingDistribution `type:"structure"`
+	StreamingDistribution *StreamingDistribution `json:"cloudfront:GetStreamingDistributionOutput:StreamingDistribution" type:"structure"`
 }
 
 // String returns the string representation

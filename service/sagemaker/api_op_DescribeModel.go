@@ -44,43 +44,43 @@ type DescribeModelOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The containers in the inference pipeline.
-	Containers []ContainerDefinition `type:"list"`
+	Containers []ContainerDefinition `json:"api.sagemaker:DescribeModelOutput:Containers" type:"list"`
 
 	// A timestamp that shows when the model was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeModelOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// If True, no inbound or outbound network calls can be made to or from the
 	// model container.
 	//
 	// The Semantic Segmentation built-in algorithm does not support network isolation.
-	EnableNetworkIsolation *bool `type:"boolean"`
+	EnableNetworkIsolation *bool `json:"api.sagemaker:DescribeModelOutput:EnableNetworkIsolation" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) of the IAM role that you specified for the
 	// model.
 	//
 	// ExecutionRoleArn is a required field
-	ExecutionRoleArn *string `min:"20" type:"string" required:"true"`
+	ExecutionRoleArn *string `json:"api.sagemaker:DescribeModelOutput:ExecutionRoleArn" min:"20" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the model.
 	//
 	// ModelArn is a required field
-	ModelArn *string `min:"20" type:"string" required:"true"`
+	ModelArn *string `json:"api.sagemaker:DescribeModelOutput:ModelArn" min:"20" type:"string" required:"true"`
 
 	// Name of the Amazon SageMaker model.
 	//
 	// ModelName is a required field
-	ModelName *string `type:"string" required:"true"`
+	ModelName *string `json:"api.sagemaker:DescribeModelOutput:ModelName" type:"string" required:"true"`
 
 	// The location of the primary inference code, associated artifacts, and custom
 	// environment map that the inference code uses when it is deployed in production.
-	PrimaryContainer *ContainerDefinition `type:"structure"`
+	PrimaryContainer *ContainerDefinition `json:"api.sagemaker:DescribeModelOutput:PrimaryContainer" type:"structure"`
 
 	// A VpcConfig object that specifies the VPC that this model has access to.
 	// For more information, see Protect Endpoints by Using an Amazon Virtual Private
 	// Cloud (https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html)
-	VpcConfig *VpcConfig `type:"structure"`
+	VpcConfig *VpcConfig `json:"api.sagemaker:DescribeModelOutput:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation

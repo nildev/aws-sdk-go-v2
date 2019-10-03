@@ -76,7 +76,7 @@ type BatchDeleteTableVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of errors encountered while trying to delete the specified table versions.
-	Errors []TableVersionError `type:"list"`
+	Errors []TableVersionError `json:"glue:BatchDeleteTableVersionOutput:Errors" type:"list"`
 }
 
 // String returns the string representation

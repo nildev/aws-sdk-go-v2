@@ -53,13 +53,13 @@ type GetPipelineDefinitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The parameter objects used in the pipeline definition.
-	ParameterObjects []ParameterObject `locationName:"parameterObjects" type:"list"`
+	ParameterObjects []ParameterObject `json:"datapipeline:GetPipelineDefinitionOutput:ParameterObjects" locationName:"parameterObjects" type:"list"`
 
 	// The parameter values used in the pipeline definition.
-	ParameterValues []ParameterValue `locationName:"parameterValues" type:"list"`
+	ParameterValues []ParameterValue `json:"datapipeline:GetPipelineDefinitionOutput:ParameterValues" locationName:"parameterValues" type:"list"`
 
 	// The objects defined in the pipeline.
-	PipelineObjects []PipelineObject `locationName:"pipelineObjects" type:"list"`
+	PipelineObjects []PipelineObject `json:"datapipeline:GetPipelineDefinitionOutput:PipelineObjects" locationName:"pipelineObjects" type:"list"`
 }
 
 // String returns the string representation

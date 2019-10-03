@@ -145,7 +145,7 @@ type CreateDeploymentGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique deployment group ID.
-	DeploymentGroupId *string `locationName:"deploymentGroupId" type:"string"`
+	DeploymentGroupId *string `json:"codedeploy:CreateDeploymentGroupOutput:DeploymentGroupId" locationName:"deploymentGroupId" type:"string"`
 }
 
 // String returns the string representation

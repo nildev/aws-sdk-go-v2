@@ -38,7 +38,7 @@ type DescribeInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Instance objects that describe the instances.
-	Instances []Instance `type:"list"`
+	Instances []Instance `json:"opsworks:DescribeInstancesOutput:Instances" type:"list"`
 }
 
 // String returns the string representation

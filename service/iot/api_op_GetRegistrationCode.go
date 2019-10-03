@@ -31,7 +31,7 @@ type GetRegistrationCodeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The CA certificate registration code.
-	RegistrationCode *string `locationName:"registrationCode" min:"64" type:"string"`
+	RegistrationCode *string `json:"iot:GetRegistrationCodeOutput:RegistrationCode" locationName:"registrationCode" min:"64" type:"string"`
 }
 
 // String returns the string representation

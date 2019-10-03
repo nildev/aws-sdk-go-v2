@@ -55,10 +55,10 @@ type ListTagsOutput struct {
 
 	// If response is truncated, Amazon SageMaker includes a token in the response.
 	// You can use this token in your subsequent request to fetch next set of tokens.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListTagsOutput:NextToken" type:"string"`
 
 	// An array of Tag objects, each with a tag key and a value.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"api.sagemaker:ListTagsOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

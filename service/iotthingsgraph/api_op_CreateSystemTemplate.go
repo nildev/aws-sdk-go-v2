@@ -53,7 +53,7 @@ type CreateSystemTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The summary object that describes the created system.
-	Summary *SystemTemplateSummary `locationName:"summary" type:"structure"`
+	Summary *SystemTemplateSummary `json:"iotthingsgraph:CreateSystemTemplateOutput:Summary" locationName:"summary" type:"structure"`
 }
 
 // String returns the string representation

@@ -59,10 +59,10 @@ type BatchStopJobRunOutput struct {
 
 	// A list of the errors that were encountered in trying to stop JobRuns, including
 	// the JobRunId for which each error was encountered and details about the error.
-	Errors []BatchStopJobRunError `type:"list"`
+	Errors []BatchStopJobRunError `json:"glue:BatchStopJobRunOutput:Errors" type:"list"`
 
 	// A list of the JobRuns that were successfully submitted for stopping.
-	SuccessfulSubmissions []BatchStopJobRunSuccessfulSubmission `type:"list"`
+	SuccessfulSubmissions []BatchStopJobRunSuccessfulSubmission `json:"glue:BatchStopJobRunOutput:SuccessfulSubmissions" type:"list"`
 }
 
 // String returns the string representation

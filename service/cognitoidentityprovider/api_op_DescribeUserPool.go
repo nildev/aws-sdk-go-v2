@@ -48,7 +48,7 @@ type DescribeUserPoolOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The container of metadata returned by the server to describe the pool.
-	UserPool *UserPoolType `type:"structure"`
+	UserPool *UserPoolType `json:"cognito-idp:DescribeUserPoolOutput:UserPool" type:"structure"`
 }
 
 // String returns the string representation

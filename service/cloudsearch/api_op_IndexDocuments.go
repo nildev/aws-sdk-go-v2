@@ -51,7 +51,7 @@ type IndexDocumentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The names of the fields that are currently being indexed.
-	FieldNames []string `type:"list"`
+	FieldNames []string `json:"cloudsearch:IndexDocumentsOutput:FieldNames" type:"list"`
 }
 
 // String returns the string representation

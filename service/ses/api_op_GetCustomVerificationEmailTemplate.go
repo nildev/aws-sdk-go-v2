@@ -46,23 +46,23 @@ type GetCustomVerificationEmailTemplateOutput struct {
 
 	// The URL that the recipient of the verification email is sent to if his or
 	// her address is not successfully verified.
-	FailureRedirectionURL *string `type:"string"`
+	FailureRedirectionURL *string `json:"email:GetCustomVerificationEmailTemplateOutput:FailureRedirectionURL" type:"string"`
 
 	// The email address that the custom verification email is sent from.
-	FromEmailAddress *string `type:"string"`
+	FromEmailAddress *string `json:"email:GetCustomVerificationEmailTemplateOutput:FromEmailAddress" type:"string"`
 
 	// The URL that the recipient of the verification email is sent to if his or
 	// her address is successfully verified.
-	SuccessRedirectionURL *string `type:"string"`
+	SuccessRedirectionURL *string `json:"email:GetCustomVerificationEmailTemplateOutput:SuccessRedirectionURL" type:"string"`
 
 	// The content of the custom verification email.
-	TemplateContent *string `type:"string"`
+	TemplateContent *string `json:"email:GetCustomVerificationEmailTemplateOutput:TemplateContent" type:"string"`
 
 	// The name of the custom verification email template.
-	TemplateName *string `type:"string"`
+	TemplateName *string `json:"email:GetCustomVerificationEmailTemplateOutput:TemplateName" type:"string"`
 
 	// The subject line of the custom verification email.
-	TemplateSubject *string `type:"string"`
+	TemplateSubject *string `json:"email:GetCustomVerificationEmailTemplateOutput:TemplateSubject" type:"string"`
 }
 
 // String returns the string representation

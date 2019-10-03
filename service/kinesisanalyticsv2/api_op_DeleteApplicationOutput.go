@@ -77,10 +77,10 @@ type DeleteApplicationOutputOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The application Amazon Resource Name (ARN).
-	ApplicationARN *string `min:"1" type:"string"`
+	ApplicationARN *string `json:"kinesisanalytics:DeleteApplicationOutputOutput:ApplicationARN" min:"1" type:"string"`
 
 	// The current application version ID.
-	ApplicationVersionId *int64 `min:"1" type:"long"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:DeleteApplicationOutputOutput:ApplicationVersionId" min:"1" type:"long"`
 }
 
 // String returns the string representation

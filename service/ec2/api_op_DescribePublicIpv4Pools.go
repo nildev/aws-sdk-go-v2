@@ -48,10 +48,10 @@ type DescribePublicIpv4PoolsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribePublicIpv4PoolsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the address pools.
-	PublicIpv4Pools []PublicIpv4Pool `locationName:"publicIpv4PoolSet" locationNameList:"item" type:"list"`
+	PublicIpv4Pools []PublicIpv4Pool `json:"ec2:DescribePublicIpv4PoolsOutput:PublicIpv4Pools" locationName:"publicIpv4PoolSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

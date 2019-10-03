@@ -58,10 +58,10 @@ type CreateScriptOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Python script generated from the DAG.
-	PythonScript *string `type:"string"`
+	PythonScript *string `json:"glue:CreateScriptOutput:PythonScript" type:"string"`
 
 	// The Scala code generated from the DAG.
-	ScalaCode *string `type:"string"`
+	ScalaCode *string `json:"glue:CreateScriptOutput:ScalaCode" type:"string"`
 }
 
 // String returns the string representation

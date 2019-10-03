@@ -48,7 +48,7 @@ type GetLifecyclePolicyOutput struct {
 	// The object lifecycle policy that is assigned to the container.
 	//
 	// LifecyclePolicy is a required field
-	LifecyclePolicy *string `type:"string" required:"true"`
+	LifecyclePolicy *string `json:"mediastore:GetLifecyclePolicyOutput:LifecyclePolicy" type:"string" required:"true"`
 }
 
 // String returns the string representation

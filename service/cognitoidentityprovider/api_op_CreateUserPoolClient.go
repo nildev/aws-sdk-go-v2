@@ -156,7 +156,7 @@ type CreateUserPoolClientOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user pool client that was just created.
-	UserPoolClient *UserPoolClientType `type:"structure"`
+	UserPoolClient *UserPoolClientType `json:"cognito-idp:CreateUserPoolClientOutput:UserPoolClient" type:"structure"`
 }
 
 // String returns the string representation

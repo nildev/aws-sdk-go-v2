@@ -58,10 +58,10 @@ type GetInventorySchemaOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:GetInventorySchemaOutput:NextToken" type:"string"`
 
 	// Inventory schemas returned by the request.
-	Schemas []InventoryItemSchema `type:"list"`
+	Schemas []InventoryItemSchema `json:"ssm:GetInventorySchemaOutput:Schemas" type:"list"`
 }
 
 // String returns the string representation

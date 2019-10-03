@@ -55,10 +55,10 @@ type GetAssociatedRoleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the role was associated with the group.
-	AssociatedAt *string `type:"string"`
+	AssociatedAt *string `json:"greengrass:GetAssociatedRoleOutput:AssociatedAt" type:"string"`
 
 	// The ARN of the role that is associated with the group.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"greengrass:GetAssociatedRoleOutput:RoleArn" type:"string"`
 }
 
 // String returns the string representation

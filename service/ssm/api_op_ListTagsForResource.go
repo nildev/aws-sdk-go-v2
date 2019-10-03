@@ -51,7 +51,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of tags.
-	TagList []Tag `type:"list"`
+	TagList []Tag `json:"ssm:ListTagsForResourceOutput:TagList" type:"list"`
 }
 
 // String returns the string representation

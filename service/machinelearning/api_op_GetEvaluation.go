@@ -49,47 +49,47 @@ type GetEvaluationOutput struct {
 	// The approximate CPU time in milliseconds that Amazon Machine Learning spent
 	// processing the Evaluation, normalized and scaled on computation resources.
 	// ComputeTime is only available if the Evaluation is in the COMPLETED state.
-	ComputeTime *int64 `type:"long"`
+	ComputeTime *int64 `json:"machinelearning:GetEvaluationOutput:ComputeTime" type:"long"`
 
 	// The time that the Evaluation was created. The time is expressed in epoch
 	// time.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"machinelearning:GetEvaluationOutput:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS user account that invoked the evaluation. The account type can be
 	// either an AWS root account or an AWS Identity and Access Management (IAM)
 	// user account.
-	CreatedByIamUser *string `type:"string"`
+	CreatedByIamUser *string `json:"machinelearning:GetEvaluationOutput:CreatedByIamUser" type:"string"`
 
 	// The DataSource used for this evaluation.
-	EvaluationDataSourceId *string `min:"1" type:"string"`
+	EvaluationDataSourceId *string `json:"machinelearning:GetEvaluationOutput:EvaluationDataSourceId" min:"1" type:"string"`
 
 	// The evaluation ID which is same as the EvaluationId in the request.
-	EvaluationId *string `min:"1" type:"string"`
+	EvaluationId *string `json:"machinelearning:GetEvaluationOutput:EvaluationId" min:"1" type:"string"`
 
 	// The epoch time when Amazon Machine Learning marked the Evaluation as COMPLETED
 	// or FAILED. FinishedAt is only available when the Evaluation is in the COMPLETED
 	// or FAILED state.
-	FinishedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FinishedAt *time.Time `json:"machinelearning:GetEvaluationOutput:FinishedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The location of the data file or directory in Amazon Simple Storage Service
 	// (Amazon S3).
-	InputDataLocationS3 *string `type:"string"`
+	InputDataLocationS3 *string `json:"machinelearning:GetEvaluationOutput:InputDataLocationS3" type:"string"`
 
 	// The time of the most recent edit to the Evaluation. The time is expressed
 	// in epoch time.
-	LastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"machinelearning:GetEvaluationOutput:LastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A link to the file that contains logs of the CreateEvaluation operation.
-	LogUri *string `type:"string"`
+	LogUri *string `json:"machinelearning:GetEvaluationOutput:LogUri" type:"string"`
 
 	// The ID of the MLModel that was the focus of the evaluation.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:GetEvaluationOutput:MLModelId" min:"1" type:"string"`
 
 	// A description of the most recent details about evaluating the MLModel.
-	Message *string `type:"string"`
+	Message *string `json:"machinelearning:GetEvaluationOutput:Message" type:"string"`
 
 	// A user-supplied name or description of the Evaluation.
-	Name *string `type:"string"`
+	Name *string `json:"machinelearning:GetEvaluationOutput:Name" type:"string"`
 
 	// Measurements of how well the MLModel performed using observations referenced
 	// by the DataSource. One of the following metric is returned based on the type
@@ -107,11 +107,11 @@ type GetEvaluationOutput struct {
 	//
 	// For more information about performance metrics, please see the Amazon Machine
 	// Learning Developer Guide (http://docs.aws.amazon.com/machine-learning/latest/dg).
-	PerformanceMetrics *PerformanceMetrics `type:"structure"`
+	PerformanceMetrics *PerformanceMetrics `json:"machinelearning:GetEvaluationOutput:PerformanceMetrics" type:"structure"`
 
 	// The epoch time when Amazon Machine Learning marked the Evaluation as INPROGRESS.
 	// StartedAt isn't available if the Evaluation is in the PENDING state.
-	StartedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"machinelearning:GetEvaluationOutput:StartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the evaluation. This element can have one of the following
 	// values:
@@ -127,7 +127,7 @@ type GetEvaluationOutput struct {
 	//    * COMPLETED - The evaluation process completed successfully.
 	//
 	//    * DELETED - The Evaluation is marked as deleted. It is not usable.
-	Status EntityStatus `type:"string" enum:"true"`
+	Status EntityStatus `json:"machinelearning:GetEvaluationOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

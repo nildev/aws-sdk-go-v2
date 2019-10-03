@@ -67,15 +67,15 @@ type ExportCertificateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The base64 PEM-encoded certificate.
-	Certificate *string `min:"1" type:"string"`
+	Certificate *string `json:"acm:ExportCertificateOutput:Certificate" min:"1" type:"string"`
 
 	// The base64 PEM-encoded certificate chain. This does not include the certificate
 	// that you are exporting.
-	CertificateChain *string `min:"1" type:"string"`
+	CertificateChain *string `json:"acm:ExportCertificateOutput:CertificateChain" min:"1" type:"string"`
 
 	// The encrypted private key associated with the public key in the certificate.
 	// The key is output in PKCS #8 format and is base64 PEM-encoded.
-	PrivateKey *string `min:"1" type:"string"`
+	PrivateKey *string `json:"acm:ExportCertificateOutput:PrivateKey" min:"1" type:"string"`
 }
 
 // String returns the string representation

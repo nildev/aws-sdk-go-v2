@@ -46,10 +46,10 @@ type ListResourceDataSyncOutput struct {
 
 	// The token for the next set of items to return. Use this token to get the
 	// next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:ListResourceDataSyncOutput:NextToken" type:"string"`
 
 	// A list of your current Resource Data Sync configurations and their statuses.
-	ResourceDataSyncItems []ResourceDataSyncItem `type:"list"`
+	ResourceDataSyncItems []ResourceDataSyncItem `json:"ssm:ListResourceDataSyncOutput:ResourceDataSyncItems" type:"list"`
 }
 
 // String returns the string representation

@@ -87,10 +87,10 @@ type PurchaseReservedElasticsearchInstanceOfferingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The customer-specified identifier used to track this reservation.
-	ReservationName *string `min:"5" type:"string"`
+	ReservationName *string `json:"es:PurchaseReservedElasticsearchInstanceOfferingOutput:ReservationName" min:"5" type:"string"`
 
 	// Details of the reserved Elasticsearch instance which was purchased.
-	ReservedElasticsearchInstanceId *string `type:"string"`
+	ReservedElasticsearchInstanceId *string `json:"es:PurchaseReservedElasticsearchInstanceOfferingOutput:ReservedElasticsearchInstanceId" type:"string"`
 }
 
 // String returns the string representation

@@ -43,13 +43,13 @@ type CreateAppOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Summary description of the application.
-	AppSummary *AppSummary `locationName:"appSummary" type:"structure"`
+	AppSummary *AppSummary `json:"sms:CreateAppOutput:AppSummary" locationName:"appSummary" type:"structure"`
 
 	// List of server groups included in the application.
-	ServerGroups []ServerGroup `locationName:"serverGroups" type:"list"`
+	ServerGroups []ServerGroup `json:"sms:CreateAppOutput:ServerGroups" locationName:"serverGroups" type:"list"`
 
 	// List of taags associated with the application.
-	Tags []Tag `locationName:"tags" type:"list"`
+	Tags []Tag `json:"sms:CreateAppOutput:Tags" locationName:"tags" type:"list"`
 }
 
 // String returns the string representation

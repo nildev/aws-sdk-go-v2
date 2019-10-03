@@ -61,7 +61,7 @@ type DisassociateResolverEndpointIpAddressOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The response to an DisassociateResolverEndpointIpAddress request.
-	ResolverEndpoint *ResolverEndpoint `type:"structure"`
+	ResolverEndpoint *ResolverEndpoint `json:"route53resolver:DisassociateResolverEndpointIpAddressOutput:ResolverEndpoint" type:"structure"`
 }
 
 // String returns the string representation

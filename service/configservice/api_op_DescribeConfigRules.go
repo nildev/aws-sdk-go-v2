@@ -32,11 +32,11 @@ type DescribeConfigRulesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details about your AWS Config rules.
-	ConfigRules []ConfigRule `type:"list"`
+	ConfigRules []ConfigRule `json:"config:DescribeConfigRulesOutput:ConfigRules" type:"list"`
 
 	// The string that you use in a subsequent request to get the next page of results
 	// in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:DescribeConfigRulesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

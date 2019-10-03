@@ -20,34 +20,34 @@ type Accelerator struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the accelerator.
-	AcceleratorArn *string `type:"string"`
+	AcceleratorArn *string `json:"globalaccelerator:Accelerator:AcceleratorArn" type:"string"`
 
 	// The date and time that the accelerator was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"globalaccelerator:Accelerator:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Indicates whether theaccelerator is enabled. The value is true or false.
 	// The default value is true.
 	//
 	// If the value is set to true, the accelerator cannot be deleted. If set to
 	// false, accelerator can be deleted.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"globalaccelerator:Accelerator:Enabled" type:"boolean"`
 
 	// The value for the address type must be IPv4.
-	IpAddressType IpAddressType `type:"string" enum:"true"`
+	IpAddressType IpAddressType `json:"globalaccelerator:Accelerator:IpAddressType" type:"string" enum:"true"`
 
 	// IP address set associated with the accelerator.
-	IpSets []IpSet `type:"list"`
+	IpSets []IpSet `json:"globalaccelerator:Accelerator:IpSets" type:"list"`
 
 	// The date and time that the accelerator was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"globalaccelerator:Accelerator:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the accelerator. The name can have a maximum of 32 characters,
 	// must contain only alphanumeric characters or hyphens (-), and must not begin
 	// or end with a hyphen.
-	Name *string `type:"string"`
+	Name *string `json:"globalaccelerator:Accelerator:Name" type:"string"`
 
 	// Describes the deployment status of the accelerator.
-	Status AcceleratorStatus `type:"string" enum:"true"`
+	Status AcceleratorStatus `json:"globalaccelerator:Accelerator:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -65,17 +65,17 @@ type AcceleratorAttributes struct {
 	//
 	// For more information, see Flow Logs (https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html)
 	// in the AWS Global Accelerator Developer Guide.
-	FlowLogsEnabled *bool `type:"boolean"`
+	FlowLogsEnabled *bool `json:"globalaccelerator:AcceleratorAttributes:FlowLogsEnabled" type:"boolean"`
 
 	// The name of the Amazon S3 bucket for the flow logs. Attribute is required
 	// if FlowLogsEnabled is true. The bucket must exist and have a bucket policy
 	// that grants AWS Global Accelerator permission to write to the bucket.
-	FlowLogsS3Bucket *string `type:"string"`
+	FlowLogsS3Bucket *string `json:"globalaccelerator:AcceleratorAttributes:FlowLogsS3Bucket" type:"string"`
 
 	// The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute
 	// is required if FlowLogsEnabled is true. If you don’t specify a prefix,
 	// the flow logs are stored in the root of the bucket.
-	FlowLogsS3Prefix *string `type:"string"`
+	FlowLogsS3Prefix *string `json:"globalaccelerator:AcceleratorAttributes:FlowLogsS3Prefix" type:"string"`
 }
 
 // String returns the string representation
@@ -92,7 +92,7 @@ type EndpointConfiguration struct {
 	// Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If
 	// the endpoint is an Elastic IP address, this is the Elastic IP address allocation
 	// ID.
-	EndpointId *string `type:"string"`
+	EndpointId *string `json:"globalaccelerator:EndpointConfiguration:EndpointId" type:"string"`
 
 	// The weight associated with the endpoint. When you add weights to endpoints,
 	// you configure AWS Global Accelerator to route traffic based on proportions
@@ -102,7 +102,7 @@ type EndpointConfiguration struct {
 	// endpoints, and 6/20 is routed to the last endpoint. For more information,
 	// see Endpoint Weights (https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html)
 	// in the AWS Global Accelerator Developer Guide.
-	Weight *int64 `type:"integer"`
+	Weight *int64 `json:"globalaccelerator:EndpointConfiguration:Weight" type:"integer"`
 }
 
 // String returns the string representation
@@ -120,7 +120,7 @@ type EndpointDescription struct {
 	// Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If
 	// the endpoint is an Elastic IP address, this is the Elastic IP address allocation
 	// ID.
-	EndpointId *string `type:"string"`
+	EndpointId *string `json:"globalaccelerator:EndpointDescription:EndpointId" type:"string"`
 
 	// The reason code associated with why the endpoint is not healthy. If the endpoint
 	// state is healthy, a reason code is not provided.
@@ -142,10 +142,10 @@ type EndpointDescription struct {
 	//    * InitialHealthChecking: Global Accelerator is still setting up the minimum
 	//    number of health checks for the endpoint that are required to determine
 	//    its health status.
-	HealthReason *string `type:"string"`
+	HealthReason *string `json:"globalaccelerator:EndpointDescription:HealthReason" type:"string"`
 
 	// The health status of the endpoint.
-	HealthState HealthState `type:"string" enum:"true"`
+	HealthState HealthState `json:"globalaccelerator:EndpointDescription:HealthState" type:"string" enum:"true"`
 
 	// The weight associated with the endpoint. When you add weights to endpoints,
 	// you configure AWS Global Accelerator to route traffic based on proportions
@@ -155,7 +155,7 @@ type EndpointDescription struct {
 	// endpoints, and 6/20 is routed to the last endpoint. For more information,
 	// see Endpoint Weights (https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html)
 	// in the AWS Global Accelerator Developer Guide.
-	Weight *int64 `type:"integer"`
+	Weight *int64 `json:"globalaccelerator:EndpointDescription:Weight" type:"integer"`
 }
 
 // String returns the string representation
@@ -170,22 +170,22 @@ type EndpointGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The list of endpoint objects.
-	EndpointDescriptions []EndpointDescription `type:"list"`
+	EndpointDescriptions []EndpointDescription `json:"globalaccelerator:EndpointGroup:EndpointDescriptions" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the endpoint group.
-	EndpointGroupArn *string `type:"string"`
+	EndpointGroupArn *string `json:"globalaccelerator:EndpointGroup:EndpointGroupArn" type:"string"`
 
 	// The AWS Region that this endpoint group belongs.
-	EndpointGroupRegion *string `type:"string"`
+	EndpointGroupRegion *string `json:"globalaccelerator:EndpointGroup:EndpointGroupRegion" type:"string"`
 
 	// The time—10 seconds or 30 seconds—between health checks for each endpoint.
 	// The default value is 30.
-	HealthCheckIntervalSeconds *int64 `min:"10" type:"integer"`
+	HealthCheckIntervalSeconds *int64 `json:"globalaccelerator:EndpointGroup:HealthCheckIntervalSeconds" min:"10" type:"integer"`
 
 	// If the protocol is HTTP/S, then this value provides the ping path that Global
 	// Accelerator uses for the destination on the endpoints for health checks.
 	// The default is slash (/).
-	HealthCheckPath *string `type:"string"`
+	HealthCheckPath *string `json:"globalaccelerator:EndpointGroup:HealthCheckPath" type:"string"`
 
 	// The port that Global Accelerator uses to perform health checks on endpoints
 	// that are part of this endpoint group.
@@ -193,16 +193,16 @@ type EndpointGroup struct {
 	// The default port is the port for the listener that this endpoint group is
 	// associated with. If the listener port is a list, Global Accelerator uses
 	// the first specified port in the list of ports.
-	HealthCheckPort *int64 `min:"1" type:"integer"`
+	HealthCheckPort *int64 `json:"globalaccelerator:EndpointGroup:HealthCheckPort" min:"1" type:"integer"`
 
 	// The protocol that Global Accelerator uses to perform health checks on endpoints
 	// that are part of this endpoint group. The default value is TCP.
-	HealthCheckProtocol HealthCheckProtocol `type:"string" enum:"true"`
+	HealthCheckProtocol HealthCheckProtocol `json:"globalaccelerator:EndpointGroup:HealthCheckProtocol" type:"string" enum:"true"`
 
 	// The number of consecutive health checks required to set the state of a healthy
 	// endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default
 	// value is 3.
-	ThresholdCount *int64 `min:"1" type:"integer"`
+	ThresholdCount *int64 `json:"globalaccelerator:EndpointGroup:ThresholdCount" min:"1" type:"integer"`
 
 	// The percentage of traffic to send to an AWS Region. Additional traffic is
 	// distributed to other endpoint groups for this listener.
@@ -212,7 +212,7 @@ type EndpointGroup struct {
 	// have been routed to the Region based on optimal routing.
 	//
 	// The default value is 100.
-	TrafficDialPercentage *float64 `type:"float"`
+	TrafficDialPercentage *float64 `json:"globalaccelerator:EndpointGroup:TrafficDialPercentage" type:"float"`
 }
 
 // String returns the string representation
@@ -227,10 +227,10 @@ type IpSet struct {
 
 	// The array of IP addresses in the IP address set. An IP address set can have
 	// a maximum of two IP addresses.
-	IpAddresses []string `type:"list"`
+	IpAddresses []string `json:"globalaccelerator:IpSet:IpAddresses" type:"list"`
 
 	// The types of IP addresses included in this IP set.
-	IpFamily *string `type:"string"`
+	IpFamily *string `json:"globalaccelerator:IpSet:IpFamily" type:"string"`
 }
 
 // String returns the string representation
@@ -263,16 +263,16 @@ type Listener struct {
 	// IP address and destination IP address—to select the hash value.
 	//
 	// The default value is NONE.
-	ClientAffinity Affinity `type:"string" enum:"true"`
+	ClientAffinity Affinity `json:"globalaccelerator:Listener:ClientAffinity" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn *string `type:"string"`
+	ListenerArn *string `json:"globalaccelerator:Listener:ListenerArn" type:"string"`
 
 	// The list of port ranges for the connections from clients to the accelerator.
-	PortRanges []PortRange `min:"1" type:"list"`
+	PortRanges []PortRange `json:"globalaccelerator:Listener:PortRanges" min:"1" type:"list"`
 
 	// The protocol for the connections from clients to the accelerator.
-	Protocol Protocol `type:"string" enum:"true"`
+	Protocol Protocol `json:"globalaccelerator:Listener:Protocol" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -286,10 +286,10 @@ type PortRange struct {
 	_ struct{} `type:"structure"`
 
 	// The first port in the range of ports, inclusive.
-	FromPort *int64 `min:"1" type:"integer"`
+	FromPort *int64 `json:"globalaccelerator:PortRange:FromPort" min:"1" type:"integer"`
 
 	// The last port in the range of ports, inclusive.
-	ToPort *int64 `min:"1" type:"integer"`
+	ToPort *int64 `json:"globalaccelerator:PortRange:ToPort" min:"1" type:"integer"`
 }
 
 // String returns the string representation

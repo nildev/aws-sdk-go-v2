@@ -77,10 +77,10 @@ type DescribePendingMaintenanceActionsOutput struct {
 	// An optional pagination token provided by a previous request. If this parameter
 	// is specified, the response includes only records beyond the marker, up to
 	// the value specified by MaxRecords.
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribePendingMaintenanceActionsOutput:Marker" type:"string"`
 
 	// The maintenance actions to be applied.
-	PendingMaintenanceActions []ResourcePendingMaintenanceActions `locationNameList:"ResourcePendingMaintenanceActions" type:"list"`
+	PendingMaintenanceActions []ResourcePendingMaintenanceActions `json:"rds:DescribePendingMaintenanceActionsOutput:PendingMaintenanceActions" locationNameList:"ResourcePendingMaintenanceActions" type:"list"`
 }
 
 // String returns the string representation

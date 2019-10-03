@@ -85,7 +85,7 @@ type ExecuteProvisionedProductServiceActionOutput struct {
 
 	// An object containing detailed information about the result of provisioning
 	// the product.
-	RecordDetail *RecordDetail `type:"structure"`
+	RecordDetail *RecordDetail `json:"servicecatalog:ExecuteProvisionedProductServiceActionOutput:RecordDetail" type:"structure"`
 }
 
 // String returns the string representation

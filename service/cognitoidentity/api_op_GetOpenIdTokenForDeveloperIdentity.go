@@ -84,10 +84,10 @@ type GetOpenIdTokenForDeveloperIdentityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier in the format REGION:GUID.
-	IdentityId *string `min:"1" type:"string"`
+	IdentityId *string `json:"cognito-identity:GetOpenIdTokenForDeveloperIdentityOutput:IdentityId" min:"1" type:"string"`
 
 	// An OpenID token.
-	Token *string `type:"string"`
+	Token *string `json:"cognito-identity:GetOpenIdTokenForDeveloperIdentityOutput:Token" type:"string"`
 }
 
 // String returns the string representation

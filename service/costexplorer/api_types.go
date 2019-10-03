@@ -16,14 +16,14 @@ type Coverage struct {
 	_ struct{} `type:"structure"`
 
 	// The amount of cost that the reservation covered.
-	CoverageCost *CoverageCost `type:"structure"`
+	CoverageCost *CoverageCost `json:"ce:Coverage:CoverageCost" type:"structure"`
 
 	// The amount of instance usage that the reservation covered, in hours.
-	CoverageHours *CoverageHours `type:"structure"`
+	CoverageHours *CoverageHours `json:"ce:Coverage:CoverageHours" type:"structure"`
 
 	// The amount of instance usage that the reservation covered, in normalized
 	// units.
-	CoverageNormalizedUnits *CoverageNormalizedUnits `type:"structure"`
+	CoverageNormalizedUnits *CoverageNormalizedUnits `json:"ce:Coverage:CoverageNormalizedUnits" type:"structure"`
 }
 
 // String returns the string representation
@@ -37,13 +37,13 @@ type CoverageByTime struct {
 	_ struct{} `type:"structure"`
 
 	// The groups of instances that the reservation covered.
-	Groups []ReservationCoverageGroup `type:"list"`
+	Groups []ReservationCoverageGroup `json:"ce:CoverageByTime:Groups" type:"list"`
 
 	// The period that this coverage was used over.
-	TimePeriod *DateInterval `type:"structure"`
+	TimePeriod *DateInterval `json:"ce:CoverageByTime:TimePeriod" type:"structure"`
 
 	// The total reservation coverage, in hours.
-	Total *Coverage `type:"structure"`
+	Total *Coverage `json:"ce:CoverageByTime:Total" type:"structure"`
 }
 
 // String returns the string representation
@@ -57,7 +57,7 @@ type CoverageCost struct {
 	_ struct{} `type:"structure"`
 
 	// How much an On-Demand instance cost.
-	OnDemandCost *string `type:"string"`
+	OnDemandCost *string `json:"ce:CoverageCost:OnDemandCost" type:"string"`
 }
 
 // String returns the string representation
@@ -71,16 +71,16 @@ type CoverageHours struct {
 	_ struct{} `type:"structure"`
 
 	// The percentage of instance hours that a reservation covered.
-	CoverageHoursPercentage *string `type:"string"`
+	CoverageHoursPercentage *string `json:"ce:CoverageHours:CoverageHoursPercentage" type:"string"`
 
 	// The number of instance running hours that On-Demand Instances covered.
-	OnDemandHours *string `type:"string"`
+	OnDemandHours *string `json:"ce:CoverageHours:OnDemandHours" type:"string"`
 
 	// The number of instance running hours that reservations covered.
-	ReservedHours *string `type:"string"`
+	ReservedHours *string `json:"ce:CoverageHours:ReservedHours" type:"string"`
 
 	// The total instance usage, in hours.
-	TotalRunningHours *string `type:"string"`
+	TotalRunningHours *string `json:"ce:CoverageHours:TotalRunningHours" type:"string"`
 }
 
 // String returns the string representation
@@ -105,17 +105,17 @@ type CoverageNormalizedUnits struct {
 
 	// The percentage of your used instance normalized units that a reservation
 	// covers.
-	CoverageNormalizedUnitsPercentage *string `type:"string"`
+	CoverageNormalizedUnitsPercentage *string `json:"ce:CoverageNormalizedUnits:CoverageNormalizedUnitsPercentage" type:"string"`
 
 	// The number of normalized units that are covered by On-Demand Instances instead
 	// of a reservation.
-	OnDemandNormalizedUnits *string `type:"string"`
+	OnDemandNormalizedUnits *string `json:"ce:CoverageNormalizedUnits:OnDemandNormalizedUnits" type:"string"`
 
 	// The number of normalized units that a reservation covers.
-	ReservedNormalizedUnits *string `type:"string"`
+	ReservedNormalizedUnits *string `json:"ce:CoverageNormalizedUnits:ReservedNormalizedUnits" type:"string"`
 
 	// The total number of normalized units that you used.
-	TotalRunningNormalizedUnits *string `type:"string"`
+	TotalRunningNormalizedUnits *string `json:"ce:CoverageNormalizedUnits:TotalRunningNormalizedUnits" type:"string"`
 }
 
 // String returns the string representation
@@ -133,14 +133,14 @@ type DateInterval struct {
 	// and usage data from the start date up to, but not including, 2017-05-01.
 	//
 	// End is a required field
-	End *string `type:"string" required:"true"`
+	End *string `json:"ce:DateInterval:End" type:"string" required:"true"`
 
 	// The beginning of the time period that you want the usage and costs for. The
 	// start date is inclusive. For example, if start is 2017-01-01, AWS retrieves
 	// cost and usage data starting at 2017-01-01 up to the end date.
 	//
 	// Start is a required field
-	Start *string `type:"string" required:"true"`
+	Start *string `json:"ce:DateInterval:Start" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -174,7 +174,7 @@ type DimensionValues struct {
 
 	// The names of the metadata types that you can use to filter and group your
 	// results. For example, AZ returns a list of Availability Zones.
-	Key Dimension `type:"string" enum:"true"`
+	Key Dimension `json:"ce:DimensionValues:Key" type:"string" enum:"true"`
 
 	// The metadata values that you can use to filter and group your results. You
 	// can use GetDimensionValues to find specific values.
@@ -182,7 +182,7 @@ type DimensionValues struct {
 	// Valid values for the SERVICE dimension are Amazon Elastic Compute Cloud -
 	// Compute, Amazon Elasticsearch Service, Amazon ElastiCache, Amazon Redshift,
 	// and Amazon Relational Database Service.
-	Values []string `type:"list"`
+	Values []string `json:"ce:DimensionValues:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -197,10 +197,10 @@ type DimensionValuesWithAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The attribute that applies to a specific Dimension.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"ce:DimensionValuesWithAttributes:Attributes" type:"map"`
 
 	// The value of a dimension with a specific attribute.
-	Value *string `type:"string"`
+	Value *string `json:"ce:DimensionValuesWithAttributes:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -214,29 +214,29 @@ type EC2InstanceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone of the recommended reservation.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"ce:EC2InstanceDetails:AvailabilityZone" type:"string"`
 
 	// Whether the recommendation is for a current-generation instance.
-	CurrentGeneration *bool `type:"boolean"`
+	CurrentGeneration *bool `json:"ce:EC2InstanceDetails:CurrentGeneration" type:"boolean"`
 
 	// The instance family of the recommended reservation.
-	Family *string `type:"string"`
+	Family *string `json:"ce:EC2InstanceDetails:Family" type:"string"`
 
 	// The type of instance that AWS recommends.
-	InstanceType *string `type:"string"`
+	InstanceType *string `json:"ce:EC2InstanceDetails:InstanceType" type:"string"`
 
 	// The platform of the recommended reservation. The platform is the specific
 	// combination of operating system, license model, and software on an instance.
-	Platform *string `type:"string"`
+	Platform *string `json:"ce:EC2InstanceDetails:Platform" type:"string"`
 
 	// The AWS Region of the recommended reservation.
-	Region *string `type:"string"`
+	Region *string `json:"ce:EC2InstanceDetails:Region" type:"string"`
 
 	// Whether the recommended reservation is size flexible.
-	SizeFlexEligible *bool `type:"boolean"`
+	SizeFlexEligible *bool `json:"ce:EC2InstanceDetails:SizeFlexEligible" type:"boolean"`
 
 	// Whether the recommended reservation is dedicated or shared.
-	Tenancy *string `type:"string"`
+	Tenancy *string `json:"ce:EC2InstanceDetails:Tenancy" type:"string"`
 }
 
 // String returns the string representation
@@ -251,7 +251,7 @@ type EC2Specification struct {
 	_ struct{} `type:"structure"`
 
 	// Whether you want a recommendation for standard or convertible reservations.
-	OfferingClass OfferingClass `type:"string" enum:"true"`
+	OfferingClass OfferingClass `json:"ce:EC2Specification:OfferingClass" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -265,19 +265,19 @@ type ESInstanceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the recommendation is for a current-generation instance.
-	CurrentGeneration *bool `type:"boolean"`
+	CurrentGeneration *bool `json:"ce:ESInstanceDetails:CurrentGeneration" type:"boolean"`
 
 	// The class of instance that AWS recommends.
-	InstanceClass *string `type:"string"`
+	InstanceClass *string `json:"ce:ESInstanceDetails:InstanceClass" type:"string"`
 
 	// The size of instance that AWS recommends.
-	InstanceSize *string `type:"string"`
+	InstanceSize *string `json:"ce:ESInstanceDetails:InstanceSize" type:"string"`
 
 	// The AWS Region of the recommended reservation.
-	Region *string `type:"string"`
+	Region *string `json:"ce:ESInstanceDetails:Region" type:"string"`
 
 	// Whether the recommended reservation is size flexible.
-	SizeFlexEligible *bool `type:"boolean"`
+	SizeFlexEligible *bool `json:"ce:ESInstanceDetails:SizeFlexEligible" type:"boolean"`
 }
 
 // String returns the string representation
@@ -292,22 +292,22 @@ type ElastiCacheInstanceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the recommendation is for a current generation instance.
-	CurrentGeneration *bool `type:"boolean"`
+	CurrentGeneration *bool `json:"ce:ElastiCacheInstanceDetails:CurrentGeneration" type:"boolean"`
 
 	// The instance family of the recommended reservation.
-	Family *string `type:"string"`
+	Family *string `json:"ce:ElastiCacheInstanceDetails:Family" type:"string"`
 
 	// The type of node that AWS recommends.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"ce:ElastiCacheInstanceDetails:NodeType" type:"string"`
 
 	// The description of the recommended reservation.
-	ProductDescription *string `type:"string"`
+	ProductDescription *string `json:"ce:ElastiCacheInstanceDetails:ProductDescription" type:"string"`
 
 	// The AWS Region of the recommended reservation.
-	Region *string `type:"string"`
+	Region *string `json:"ce:ElastiCacheInstanceDetails:Region" type:"string"`
 
 	// Whether the recommended reservation is size flexible.
-	SizeFlexEligible *bool `type:"boolean"`
+	SizeFlexEligible *bool `json:"ce:ElastiCacheInstanceDetails:SizeFlexEligible" type:"boolean"`
 }
 
 // String returns the string representation
@@ -344,19 +344,19 @@ type Expression struct {
 	_ struct{} `type:"structure"`
 
 	// Return results that match both Dimension objects.
-	And []Expression `type:"list"`
+	And []Expression `json:"ce:Expression:And" type:"list"`
 
 	// The specific Dimension to use for Expression.
-	Dimensions *DimensionValues `type:"structure"`
+	Dimensions *DimensionValues `json:"ce:Expression:Dimensions" type:"structure"`
 
 	// Return results that don't match a Dimension object.
-	Not *Expression `type:"structure"`
+	Not *Expression `json:"ce:Expression:Not" type:"structure"`
 
 	// Return results that match either Dimension object.
-	Or []Expression `type:"list"`
+	Or []Expression `json:"ce:Expression:Or" type:"list"`
 
 	// The specific Tag to use for Expression.
-	Tags *TagValues `type:"structure"`
+	Tags *TagValues `json:"ce:Expression:Tags" type:"structure"`
 }
 
 // String returns the string representation
@@ -370,16 +370,16 @@ type ForecastResult struct {
 	_ struct{} `type:"structure"`
 
 	// The mean value of the forecast.
-	MeanValue *string `type:"string"`
+	MeanValue *string `json:"ce:ForecastResult:MeanValue" type:"string"`
 
 	// The lower limit for the prediction interval.
-	PredictionIntervalLowerBound *string `type:"string"`
+	PredictionIntervalLowerBound *string `json:"ce:ForecastResult:PredictionIntervalLowerBound" type:"string"`
 
 	// The upper limit for the prediction interval.
-	PredictionIntervalUpperBound *string `type:"string"`
+	PredictionIntervalUpperBound *string `json:"ce:ForecastResult:PredictionIntervalUpperBound" type:"string"`
 
 	// The period of time that the forecast covers.
-	TimePeriod *DateInterval `type:"structure"`
+	TimePeriod *DateInterval `json:"ce:ForecastResult:TimePeriod" type:"structure"`
 }
 
 // String returns the string representation
@@ -393,10 +393,10 @@ type Group struct {
 	_ struct{} `type:"structure"`
 
 	// The keys that are included in this group.
-	Keys []string `type:"list"`
+	Keys []string `json:"ce:Group:Keys" type:"list"`
 
 	// The metrics that are included in this group.
-	Metrics map[string]MetricValue `type:"map"`
+	Metrics map[string]MetricValue `json:"ce:Group:Metrics" type:"map"`
 }
 
 // String returns the string representation
@@ -411,10 +411,10 @@ type GroupDefinition struct {
 	_ struct{} `type:"structure"`
 
 	// The string that represents a key for a specified group.
-	Key *string `type:"string"`
+	Key *string `json:"ce:GroupDefinition:Key" type:"string"`
 
 	// The string that represents the type of group.
-	Type GroupDefinitionType `type:"string" enum:"true"`
+	Type GroupDefinitionType `json:"ce:GroupDefinition:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -428,19 +428,19 @@ type InstanceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon EC2 instances that AWS recommends that you purchase.
-	EC2InstanceDetails *EC2InstanceDetails `type:"structure"`
+	EC2InstanceDetails *EC2InstanceDetails `json:"ce:InstanceDetails:EC2InstanceDetails" type:"structure"`
 
 	// The Amazon ES instances that AWS recommends that you purchase.
-	ESInstanceDetails *ESInstanceDetails `type:"structure"`
+	ESInstanceDetails *ESInstanceDetails `json:"ce:InstanceDetails:ESInstanceDetails" type:"structure"`
 
 	// The ElastiCache instances that AWS recommends that you purchase.
-	ElastiCacheInstanceDetails *ElastiCacheInstanceDetails `type:"structure"`
+	ElastiCacheInstanceDetails *ElastiCacheInstanceDetails `json:"ce:InstanceDetails:ElastiCacheInstanceDetails" type:"structure"`
 
 	// The Amazon RDS instances that AWS recommends that you purchase.
-	RDSInstanceDetails *RDSInstanceDetails `type:"structure"`
+	RDSInstanceDetails *RDSInstanceDetails `json:"ce:InstanceDetails:RDSInstanceDetails" type:"structure"`
 
 	// The Amazon Redshift instances that AWS recommends that you purchase.
-	RedshiftInstanceDetails *RedshiftInstanceDetails `type:"structure"`
+	RedshiftInstanceDetails *RedshiftInstanceDetails `json:"ce:InstanceDetails:RedshiftInstanceDetails" type:"structure"`
 }
 
 // String returns the string representation
@@ -454,10 +454,10 @@ type MetricValue struct {
 	_ struct{} `type:"structure"`
 
 	// The actual number that represents the metric.
-	Amount *string `type:"string"`
+	Amount *string `json:"ce:MetricValue:Amount" type:"string"`
 
 	// The unit that the metric is given in.
-	Unit *string `type:"string"`
+	Unit *string `json:"ce:MetricValue:Unit" type:"string"`
 }
 
 // String returns the string representation
@@ -471,32 +471,32 @@ type RDSInstanceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the recommendation is for a current-generation instance.
-	CurrentGeneration *bool `type:"boolean"`
+	CurrentGeneration *bool `json:"ce:RDSInstanceDetails:CurrentGeneration" type:"boolean"`
 
 	// The database edition that the recommended reservation supports.
-	DatabaseEdition *string `type:"string"`
+	DatabaseEdition *string `json:"ce:RDSInstanceDetails:DatabaseEdition" type:"string"`
 
 	// The database engine that the recommended reservation supports.
-	DatabaseEngine *string `type:"string"`
+	DatabaseEngine *string `json:"ce:RDSInstanceDetails:DatabaseEngine" type:"string"`
 
 	// Whether the recommendation is for a reservation in a single Availability
 	// Zone or a reservation with a backup in a second Availability Zone.
-	DeploymentOption *string `type:"string"`
+	DeploymentOption *string `json:"ce:RDSInstanceDetails:DeploymentOption" type:"string"`
 
 	// The instance family of the recommended reservation.
-	Family *string `type:"string"`
+	Family *string `json:"ce:RDSInstanceDetails:Family" type:"string"`
 
 	// The type of instance that AWS recommends.
-	InstanceType *string `type:"string"`
+	InstanceType *string `json:"ce:RDSInstanceDetails:InstanceType" type:"string"`
 
 	// The license model that the recommended reservation supports.
-	LicenseModel *string `type:"string"`
+	LicenseModel *string `json:"ce:RDSInstanceDetails:LicenseModel" type:"string"`
 
 	// The AWS Region of the recommended reservation.
-	Region *string `type:"string"`
+	Region *string `json:"ce:RDSInstanceDetails:Region" type:"string"`
 
 	// Whether the recommended reservation is size flexible.
-	SizeFlexEligible *bool `type:"boolean"`
+	SizeFlexEligible *bool `json:"ce:RDSInstanceDetails:SizeFlexEligible" type:"boolean"`
 }
 
 // String returns the string representation
@@ -511,19 +511,19 @@ type RedshiftInstanceDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the recommendation is for a current-generation instance.
-	CurrentGeneration *bool `type:"boolean"`
+	CurrentGeneration *bool `json:"ce:RedshiftInstanceDetails:CurrentGeneration" type:"boolean"`
 
 	// The instance family of the recommended reservation.
-	Family *string `type:"string"`
+	Family *string `json:"ce:RedshiftInstanceDetails:Family" type:"string"`
 
 	// The type of node that AWS recommends.
-	NodeType *string `type:"string"`
+	NodeType *string `json:"ce:RedshiftInstanceDetails:NodeType" type:"string"`
 
 	// The AWS Region of the recommended reservation.
-	Region *string `type:"string"`
+	Region *string `json:"ce:RedshiftInstanceDetails:Region" type:"string"`
 
 	// Whether the recommended reservation is size flexible.
-	SizeFlexEligible *bool `type:"boolean"`
+	SizeFlexEligible *bool `json:"ce:RedshiftInstanceDetails:SizeFlexEligible" type:"boolean"`
 }
 
 // String returns the string representation
@@ -537,55 +537,55 @@ type ReservationAggregates struct {
 	_ struct{} `type:"structure"`
 
 	// The monthly cost of your reservation, amortized over the reservation period.
-	AmortizedRecurringFee *string `type:"string"`
+	AmortizedRecurringFee *string `json:"ce:ReservationAggregates:AmortizedRecurringFee" type:"string"`
 
 	// The upfront cost of your reservation, amortized over the reservation period.
-	AmortizedUpfrontFee *string `type:"string"`
+	AmortizedUpfrontFee *string `json:"ce:ReservationAggregates:AmortizedUpfrontFee" type:"string"`
 
 	// How much you saved due to purchasing and utilizing reservation. AWS calculates
 	// this by subtracting TotalAmortizedFee from OnDemandCostOfRIHoursUsed.
-	NetRISavings *string `type:"string"`
+	NetRISavings *string `json:"ce:ReservationAggregates:NetRISavings" type:"string"`
 
 	// How much your reservation would cost if charged On-Demand rates.
-	OnDemandCostOfRIHoursUsed *string `type:"string"`
+	OnDemandCostOfRIHoursUsed *string `json:"ce:ReservationAggregates:OnDemandCostOfRIHoursUsed" type:"string"`
 
 	// How many reservation hours that you purchased.
-	PurchasedHours *string `type:"string"`
+	PurchasedHours *string `json:"ce:ReservationAggregates:PurchasedHours" type:"string"`
 
 	// How many Amazon EC2 reservation hours that you purchased, converted to normalized
 	// units. Normalized units are available only for Amazon EC2 usage after November
 	// 11, 2017.
-	PurchasedUnits *string `type:"string"`
+	PurchasedUnits *string `json:"ce:ReservationAggregates:PurchasedUnits" type:"string"`
 
 	// The total number of reservation hours that you used.
-	TotalActualHours *string `type:"string"`
+	TotalActualHours *string `json:"ce:ReservationAggregates:TotalActualHours" type:"string"`
 
 	// The total number of Amazon EC2 reservation hours that you used, converted
 	// to normalized units. Normalized units are available only for Amazon EC2 usage
 	// after November 11, 2017.
-	TotalActualUnits *string `type:"string"`
+	TotalActualUnits *string `json:"ce:ReservationAggregates:TotalActualUnits" type:"string"`
 
 	// The total cost of your reservation, amortized over the reservation period.
-	TotalAmortizedFee *string `type:"string"`
+	TotalAmortizedFee *string `json:"ce:ReservationAggregates:TotalAmortizedFee" type:"string"`
 
 	// How much you could save if you use your entire reservation.
-	TotalPotentialRISavings *string `type:"string"`
+	TotalPotentialRISavings *string `json:"ce:ReservationAggregates:TotalPotentialRISavings" type:"string"`
 
 	// The number of reservation hours that you didn't use.
-	UnusedHours *string `type:"string"`
+	UnusedHours *string `json:"ce:ReservationAggregates:UnusedHours" type:"string"`
 
 	// The number of Amazon EC2 reservation hours that you didn't use, converted
 	// to normalized units. Normalized units are available only for Amazon EC2 usage
 	// after November 11, 2017.
-	UnusedUnits *string `type:"string"`
+	UnusedUnits *string `json:"ce:ReservationAggregates:UnusedUnits" type:"string"`
 
 	// The percentage of reservation time that you used.
-	UtilizationPercentage *string `type:"string"`
+	UtilizationPercentage *string `json:"ce:ReservationAggregates:UtilizationPercentage" type:"string"`
 
 	// The percentage of Amazon EC2 reservation time that you used, converted to
 	// normalized units. Normalized units are available only for Amazon EC2 usage
 	// after November 11, 2017.
-	UtilizationPercentageInUnits *string `type:"string"`
+	UtilizationPercentageInUnits *string `json:"ce:ReservationAggregates:UtilizationPercentageInUnits" type:"string"`
 }
 
 // String returns the string representation
@@ -599,10 +599,10 @@ type ReservationCoverageGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes for this group of reservations.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"ce:ReservationCoverageGroup:Attributes" type:"map"`
 
 	// How much instance usage this group of reservations covered.
-	Coverage *Coverage `type:"structure"`
+	Coverage *Coverage `json:"ce:ReservationCoverageGroup:Coverage" type:"structure"`
 }
 
 // String returns the string representation
@@ -618,25 +618,25 @@ type ReservationPurchaseRecommendation struct {
 	// The account scope that AWS recommends that you purchase this instance for.
 	// For example, you can purchase this reservation for an entire organization
 	// in AWS Organizations.
-	AccountScope AccountScope `type:"string" enum:"true"`
+	AccountScope AccountScope `json:"ce:ReservationPurchaseRecommendation:AccountScope" type:"string" enum:"true"`
 
 	// How many days of previous usage that AWS considers when making this recommendation.
-	LookbackPeriodInDays LookbackPeriodInDays `type:"string" enum:"true"`
+	LookbackPeriodInDays LookbackPeriodInDays `json:"ce:ReservationPurchaseRecommendation:LookbackPeriodInDays" type:"string" enum:"true"`
 
 	// The payment option for the reservation. For example, AllUpfront or NoUpfront.
-	PaymentOption PaymentOption `type:"string" enum:"true"`
+	PaymentOption PaymentOption `json:"ce:ReservationPurchaseRecommendation:PaymentOption" type:"string" enum:"true"`
 
 	// Details about the recommended purchases.
-	RecommendationDetails []ReservationPurchaseRecommendationDetail `type:"list"`
+	RecommendationDetails []ReservationPurchaseRecommendationDetail `json:"ce:ReservationPurchaseRecommendation:RecommendationDetails" type:"list"`
 
 	// A summary about the recommended purchase.
-	RecommendationSummary *ReservationPurchaseRecommendationSummary `type:"structure"`
+	RecommendationSummary *ReservationPurchaseRecommendationSummary `json:"ce:ReservationPurchaseRecommendation:RecommendationSummary" type:"structure"`
 
 	// Hardware specifications for the service that you want recommendations for.
-	ServiceSpecification *ServiceSpecification `type:"structure"`
+	ServiceSpecification *ServiceSpecification `json:"ce:ReservationPurchaseRecommendation:ServiceSpecification" type:"structure"`
 
 	// The term of the reservation that you want recommendations for, in years.
-	TermInYears TermInYears `type:"string" enum:"true"`
+	TermInYears TermInYears `json:"ce:ReservationPurchaseRecommendation:TermInYears" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -650,75 +650,75 @@ type ReservationPurchaseRecommendationDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The account that this RI recommendation is for.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"ce:ReservationPurchaseRecommendationDetail:AccountId" type:"string"`
 
 	// The average number of normalized units that you used in an hour during the
 	// historical period. AWS uses this to calculate your recommended reservation
 	// purchases.
-	AverageNormalizedUnitsUsedPerHour *string `type:"string"`
+	AverageNormalizedUnitsUsedPerHour *string `json:"ce:ReservationPurchaseRecommendationDetail:AverageNormalizedUnitsUsedPerHour" type:"string"`
 
 	// The average number of instances that you used in an hour during the historical
 	// period. AWS uses this to calculate your recommended reservation purchases.
-	AverageNumberOfInstancesUsedPerHour *string `type:"string"`
+	AverageNumberOfInstancesUsedPerHour *string `json:"ce:ReservationPurchaseRecommendationDetail:AverageNumberOfInstancesUsedPerHour" type:"string"`
 
 	// The average utilization of your instances. AWS uses this to calculate your
 	// recommended reservation purchases.
-	AverageUtilization *string `type:"string"`
+	AverageUtilization *string `json:"ce:ReservationPurchaseRecommendationDetail:AverageUtilization" type:"string"`
 
 	// The currency code that AWS used to calculate the costs for this instance.
-	CurrencyCode *string `type:"string"`
+	CurrencyCode *string `json:"ce:ReservationPurchaseRecommendationDetail:CurrencyCode" type:"string"`
 
 	// How long AWS estimates that it takes for this instance to start saving you
 	// money, in months.
-	EstimatedBreakEvenInMonths *string `type:"string"`
+	EstimatedBreakEvenInMonths *string `json:"ce:ReservationPurchaseRecommendationDetail:EstimatedBreakEvenInMonths" type:"string"`
 
 	// How much AWS estimates that you spend on On-Demand Instances in a month.
-	EstimatedMonthlyOnDemandCost *string `type:"string"`
+	EstimatedMonthlyOnDemandCost *string `json:"ce:ReservationPurchaseRecommendationDetail:EstimatedMonthlyOnDemandCost" type:"string"`
 
 	// How much AWS estimates that this specific recommendation could save you in
 	// a month.
-	EstimatedMonthlySavingsAmount *string `type:"string"`
+	EstimatedMonthlySavingsAmount *string `json:"ce:ReservationPurchaseRecommendationDetail:EstimatedMonthlySavingsAmount" type:"string"`
 
 	// How much AWS estimates that this specific recommendation could save you in
 	// a month, as a percentage of your overall costs.
-	EstimatedMonthlySavingsPercentage *string `type:"string"`
+	EstimatedMonthlySavingsPercentage *string `json:"ce:ReservationPurchaseRecommendationDetail:EstimatedMonthlySavingsPercentage" type:"string"`
 
 	// How much AWS estimates that you would have spent for all usage during the
 	// specified historical period if you had had a reservation.
-	EstimatedReservationCostForLookbackPeriod *string `type:"string"`
+	EstimatedReservationCostForLookbackPeriod *string `json:"ce:ReservationPurchaseRecommendationDetail:EstimatedReservationCostForLookbackPeriod" type:"string"`
 
 	// Details about the instances that AWS recommends that you purchase.
-	InstanceDetails *InstanceDetails `type:"structure"`
+	InstanceDetails *InstanceDetails `json:"ce:ReservationPurchaseRecommendationDetail:InstanceDetails" type:"structure"`
 
 	// The maximum number of normalized units that you used in an hour during the
 	// historical period. AWS uses this to calculate your recommended reservation
 	// purchases.
-	MaximumNormalizedUnitsUsedPerHour *string `type:"string"`
+	MaximumNormalizedUnitsUsedPerHour *string `json:"ce:ReservationPurchaseRecommendationDetail:MaximumNormalizedUnitsUsedPerHour" type:"string"`
 
 	// The maximum number of instances that you used in an hour during the historical
 	// period. AWS uses this to calculate your recommended reservation purchases.
-	MaximumNumberOfInstancesUsedPerHour *string `type:"string"`
+	MaximumNumberOfInstancesUsedPerHour *string `json:"ce:ReservationPurchaseRecommendationDetail:MaximumNumberOfInstancesUsedPerHour" type:"string"`
 
 	// The minimum number of normalized units that you used in an hour during the
 	// historical period. AWS uses this to calculate your recommended reservation
 	// purchases.
-	MinimumNormalizedUnitsUsedPerHour *string `type:"string"`
+	MinimumNormalizedUnitsUsedPerHour *string `json:"ce:ReservationPurchaseRecommendationDetail:MinimumNormalizedUnitsUsedPerHour" type:"string"`
 
 	// The minimum number of instances that you used in an hour during the historical
 	// period. AWS uses this to calculate your recommended reservation purchases.
-	MinimumNumberOfInstancesUsedPerHour *string `type:"string"`
+	MinimumNumberOfInstancesUsedPerHour *string `json:"ce:ReservationPurchaseRecommendationDetail:MinimumNumberOfInstancesUsedPerHour" type:"string"`
 
 	// The number of normalized units that AWS recommends that you purchase.
-	RecommendedNormalizedUnitsToPurchase *string `type:"string"`
+	RecommendedNormalizedUnitsToPurchase *string `json:"ce:ReservationPurchaseRecommendationDetail:RecommendedNormalizedUnitsToPurchase" type:"string"`
 
 	// The number of instances that AWS recommends that you purchase.
-	RecommendedNumberOfInstancesToPurchase *string `type:"string"`
+	RecommendedNumberOfInstancesToPurchase *string `json:"ce:ReservationPurchaseRecommendationDetail:RecommendedNumberOfInstancesToPurchase" type:"string"`
 
 	// How much purchasing this instance costs you on a monthly basis.
-	RecurringStandardMonthlyCost *string `type:"string"`
+	RecurringStandardMonthlyCost *string `json:"ce:ReservationPurchaseRecommendationDetail:RecurringStandardMonthlyCost" type:"string"`
 
 	// How much purchasing this instance costs you upfront.
-	UpfrontCost *string `type:"string"`
+	UpfrontCost *string `json:"ce:ReservationPurchaseRecommendationDetail:UpfrontCost" type:"string"`
 }
 
 // String returns the string representation
@@ -733,10 +733,10 @@ type ReservationPurchaseRecommendationMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The time stamp for when AWS made this recommendation.
-	GenerationTimestamp *string `type:"string"`
+	GenerationTimestamp *string `json:"ce:ReservationPurchaseRecommendationMetadata:GenerationTimestamp" type:"string"`
 
 	// The ID for this specific recommendation.
-	RecommendationId *string `type:"string"`
+	RecommendationId *string `json:"ce:ReservationPurchaseRecommendationMetadata:RecommendationId" type:"string"`
 }
 
 // String returns the string representation
@@ -752,15 +752,15 @@ type ReservationPurchaseRecommendationSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The currency code used for this recommendation.
-	CurrencyCode *string `type:"string"`
+	CurrencyCode *string `json:"ce:ReservationPurchaseRecommendationSummary:CurrencyCode" type:"string"`
 
 	// The total amount that AWS estimates that this recommendation could save you
 	// in a month.
-	TotalEstimatedMonthlySavingsAmount *string `type:"string"`
+	TotalEstimatedMonthlySavingsAmount *string `json:"ce:ReservationPurchaseRecommendationSummary:TotalEstimatedMonthlySavingsAmount" type:"string"`
 
 	// The total amount that AWS estimates that this recommendation could save you
 	// in a month, as a percentage of your costs.
-	TotalEstimatedMonthlySavingsPercentage *string `type:"string"`
+	TotalEstimatedMonthlySavingsPercentage *string `json:"ce:ReservationPurchaseRecommendationSummary:TotalEstimatedMonthlySavingsPercentage" type:"string"`
 }
 
 // String returns the string representation
@@ -774,16 +774,16 @@ type ReservationUtilizationGroup struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes for this group of reservations.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"ce:ReservationUtilizationGroup:Attributes" type:"map"`
 
 	// The key for a specific reservation attribute.
-	Key *string `type:"string"`
+	Key *string `json:"ce:ReservationUtilizationGroup:Key" type:"string"`
 
 	// How much you used this group of reservations.
-	Utilization *ReservationAggregates `type:"structure"`
+	Utilization *ReservationAggregates `json:"ce:ReservationUtilizationGroup:Utilization" type:"structure"`
 
 	// The value of a specific reservation attribute.
-	Value *string `type:"string"`
+	Value *string `json:"ce:ReservationUtilizationGroup:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -797,16 +797,16 @@ type ResultByTime struct {
 	_ struct{} `type:"structure"`
 
 	// Whether the result is estimated.
-	Estimated *bool `type:"boolean"`
+	Estimated *bool `json:"ce:ResultByTime:Estimated" type:"boolean"`
 
 	// The groups that this time period includes.
-	Groups []Group `type:"list"`
+	Groups []Group `json:"ce:ResultByTime:Groups" type:"list"`
 
 	// The time period that the result covers.
-	TimePeriod *DateInterval `type:"structure"`
+	TimePeriod *DateInterval `json:"ce:ResultByTime:TimePeriod" type:"structure"`
 
 	// The total amount of cost or usage accrued during the time period.
-	Total map[string]MetricValue `type:"map"`
+	Total map[string]MetricValue `json:"ce:ResultByTime:Total" type:"map"`
 }
 
 // String returns the string representation
@@ -821,7 +821,7 @@ type ServiceSpecification struct {
 
 	// The Amazon EC2 hardware specifications that you want AWS to provide recommendations
 	// for.
-	EC2Specification *EC2Specification `type:"structure"`
+	EC2Specification *EC2Specification `json:"ce:ServiceSpecification:EC2Specification" type:"structure"`
 }
 
 // String returns the string representation
@@ -835,10 +835,10 @@ type TagValues struct {
 	_ struct{} `type:"structure"`
 
 	// The key for the tag.
-	Key *string `type:"string"`
+	Key *string `json:"ce:TagValues:Key" type:"string"`
 
 	// The specific value of the tag.
-	Values []string `type:"list"`
+	Values []string `json:"ce:TagValues:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -852,13 +852,13 @@ type UtilizationByTime struct {
 	_ struct{} `type:"structure"`
 
 	// The groups that this utilization result uses.
-	Groups []ReservationUtilizationGroup `type:"list"`
+	Groups []ReservationUtilizationGroup `json:"ce:UtilizationByTime:Groups" type:"list"`
 
 	// The period of time that this utilization was used for.
-	TimePeriod *DateInterval `type:"structure"`
+	TimePeriod *DateInterval `json:"ce:UtilizationByTime:TimePeriod" type:"structure"`
 
 	// The total number of reservation hours that were used.
-	Total *ReservationAggregates `type:"structure"`
+	Total *ReservationAggregates `json:"ce:UtilizationByTime:Total" type:"structure"`
 }
 
 // String returns the string representation

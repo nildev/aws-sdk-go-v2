@@ -43,7 +43,7 @@ type CreateApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the application.
-	ApplicationInfo *ApplicationInfo `type:"structure"`
+	ApplicationInfo *ApplicationInfo `json:"applicationinsights:CreateApplicationOutput:ApplicationInfo" type:"structure"`
 }
 
 // String returns the string representation

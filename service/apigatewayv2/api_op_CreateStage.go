@@ -162,36 +162,36 @@ type CreateStageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Settings for logging access in a stage.
-	AccessLogSettings *AccessLogSettings `locationName:"accessLogSettings" type:"structure"`
+	AccessLogSettings *AccessLogSettings `json:"apigateway:CreateStageOutput:AccessLogSettings" locationName:"accessLogSettings" type:"structure"`
 
 	// The identifier.
-	ClientCertificateId *string `locationName:"clientCertificateId" type:"string"`
+	ClientCertificateId *string `json:"apigateway:CreateStageOutput:ClientCertificateId" locationName:"clientCertificateId" type:"string"`
 
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"apigateway:CreateStageOutput:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Represents a collection of route settings.
-	DefaultRouteSettings *RouteSettings `locationName:"defaultRouteSettings" type:"structure"`
+	DefaultRouteSettings *RouteSettings `json:"apigateway:CreateStageOutput:DefaultRouteSettings" locationName:"defaultRouteSettings" type:"structure"`
 
 	// The identifier.
-	DeploymentId *string `locationName:"deploymentId" type:"string"`
+	DeploymentId *string `json:"apigateway:CreateStageOutput:DeploymentId" locationName:"deploymentId" type:"string"`
 
 	// A string with a length between [0-1024].
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"apigateway:CreateStageOutput:Description" locationName:"description" type:"string"`
 
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"apigateway:CreateStageOutput:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The route settings map.
-	RouteSettings map[string]RouteSettings `locationName:"routeSettings" type:"map"`
+	RouteSettings map[string]RouteSettings `json:"apigateway:CreateStageOutput:RouteSettings" locationName:"routeSettings" type:"map"`
 
 	// A string with a length between [1-128].
-	StageName *string `locationName:"stageName" type:"string"`
+	StageName *string `json:"apigateway:CreateStageOutput:StageName" locationName:"stageName" type:"string"`
 
 	// The stage variable map.
-	StageVariables map[string]string `locationName:"stageVariables" type:"map"`
+	StageVariables map[string]string `json:"apigateway:CreateStageOutput:StageVariables" locationName:"stageVariables" type:"map"`
 
 	// A key value pair of string with key length between[1-128] and value length
 	// between[1-256]
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:CreateStageOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

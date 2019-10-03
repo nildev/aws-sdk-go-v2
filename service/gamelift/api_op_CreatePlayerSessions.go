@@ -66,7 +66,7 @@ type CreatePlayerSessionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Collection of player session objects created for the added players.
-	PlayerSessions []PlayerSession `type:"list"`
+	PlayerSessions []PlayerSession `json:"gamelift:CreatePlayerSessionsOutput:PlayerSessions" type:"list"`
 }
 
 // String returns the string representation

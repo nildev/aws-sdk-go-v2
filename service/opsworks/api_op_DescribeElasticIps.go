@@ -38,7 +38,7 @@ type DescribeElasticIpsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An ElasticIps object that describes the specified Elastic IP addresses.
-	ElasticIps []ElasticIp `type:"list"`
+	ElasticIps []ElasticIp `json:"opsworks:DescribeElasticIpsOutput:ElasticIps" type:"list"`
 }
 
 // String returns the string representation

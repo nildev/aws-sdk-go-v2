@@ -46,7 +46,7 @@ type ListTagsLogGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags for the log group.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"logs:ListTagsLogGroupOutput:Tags" locationName:"tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

@@ -24,7 +24,7 @@ type DescribeSubscriptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS Shield Advanced subscription details for an account.
-	Subscription *Subscription `type:"structure"`
+	Subscription *Subscription `json:"shield:DescribeSubscriptionOutput:Subscription" type:"structure"`
 }
 
 // String returns the string representation

@@ -159,7 +159,7 @@ type SendCommandOutput struct {
 
 	// The request as it was received by Systems Manager. Also provides the command
 	// ID which can be used future references to this request.
-	Command *Command `type:"structure"`
+	Command *Command `json:"ssm:SendCommandOutput:Command" type:"structure"`
 }
 
 // String returns the string representation

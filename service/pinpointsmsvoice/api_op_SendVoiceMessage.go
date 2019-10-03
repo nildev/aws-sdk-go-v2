@@ -85,7 +85,7 @@ type SendVoiceMessageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier for the voice message.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"sms-voice.pinpoint:SendVoiceMessageOutput:MessageId" type:"string"`
 }
 
 // String returns the string representation

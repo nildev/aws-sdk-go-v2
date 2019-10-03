@@ -60,9 +60,9 @@ func (s ListChannelsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListChannelsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Channels []Channel `locationName:"channels" type:"list"`
+	Channels []Channel `json:"mediapackage:ListChannelsOutput:Channels" locationName:"channels" type:"list"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediapackage:ListChannelsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

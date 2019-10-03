@@ -60,7 +60,7 @@ type DescribeAnalysisSchemesOutput struct {
 	// The analysis scheme descriptions.
 	//
 	// AnalysisSchemes is a required field
-	AnalysisSchemes []AnalysisSchemeStatus `type:"list" required:"true"`
+	AnalysisSchemes []AnalysisSchemeStatus `json:"cloudsearch:DescribeAnalysisSchemesOutput:AnalysisSchemes" type:"list" required:"true"`
 }
 
 // String returns the string representation

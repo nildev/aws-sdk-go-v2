@@ -46,7 +46,7 @@ type CancelMaintenanceWindowExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the maintenance window execution that has been stopped.
-	WindowExecutionId *string `min:"36" type:"string"`
+	WindowExecutionId *string `json:"ssm:CancelMaintenanceWindowExecutionOutput:WindowExecutionId" min:"36" type:"string"`
 }
 
 // String returns the string representation

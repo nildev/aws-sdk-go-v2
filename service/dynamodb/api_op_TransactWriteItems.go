@@ -106,12 +106,12 @@ type TransactWriteItemsOutput struct {
 	// The capacity units consumed by the entire TransactWriteItems operation. The
 	// values of the list are ordered according to the ordering of the TransactItems
 	// request parameter.
-	ConsumedCapacity []ConsumedCapacity `type:"list"`
+	ConsumedCapacity []ConsumedCapacity `json:"dynamodb:TransactWriteItemsOutput:ConsumedCapacity" type:"list"`
 
 	// A list of tables that were processed by TransactWriteItems and, for each
 	// table, information about any item collections that were affected by individual
 	// UpdateItem, PutItem, or DeleteItem operations.
-	ItemCollectionMetrics map[string][]ItemCollectionMetrics `type:"map"`
+	ItemCollectionMetrics map[string][]ItemCollectionMetrics `json:"dynamodb:TransactWriteItemsOutput:ItemCollectionMetrics" type:"map"`
 }
 
 // String returns the string representation

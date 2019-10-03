@@ -32,7 +32,7 @@ type DescribeLoadBalancerPoliciesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the policies.
-	PolicyDescriptions []PolicyDescription `type:"list"`
+	PolicyDescriptions []PolicyDescription `json:"elasticloadbalancing:DescribeLoadBalancerPoliciesOutput:PolicyDescriptions" type:"list"`
 }
 
 // String returns the string representation

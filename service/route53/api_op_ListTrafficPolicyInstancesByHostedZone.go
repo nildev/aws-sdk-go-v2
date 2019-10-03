@@ -114,28 +114,28 @@ type ListTrafficPolicyInstancesByHostedZoneOutput struct {
 	// and TrafficPolicyInstanceTypeMarker in the corresponding request parameters.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListTrafficPolicyInstancesByHostedZoneOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// The value that you specified for the MaxItems parameter in the ListTrafficPolicyInstancesByHostedZone
 	// request that produced the current response.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListTrafficPolicyInstancesByHostedZoneOutput:MaxItems" type:"string" required:"true"`
 
 	// If IsTruncated is true, TrafficPolicyInstanceNameMarker is the name of the
 	// first traffic policy instance in the next group of traffic policy instances.
-	TrafficPolicyInstanceNameMarker *string `type:"string"`
+	TrafficPolicyInstanceNameMarker *string `json:"route53:ListTrafficPolicyInstancesByHostedZoneOutput:TrafficPolicyInstanceNameMarker" type:"string"`
 
 	// If IsTruncated is true, TrafficPolicyInstanceTypeMarker is the DNS type of
 	// the resource record sets that are associated with the first traffic policy
 	// instance in the next group of traffic policy instances.
-	TrafficPolicyInstanceTypeMarker RRType `type:"string" enum:"true"`
+	TrafficPolicyInstanceTypeMarker RRType `json:"route53:ListTrafficPolicyInstancesByHostedZoneOutput:TrafficPolicyInstanceTypeMarker" type:"string" enum:"true"`
 
 	// A list that contains one TrafficPolicyInstance element for each traffic policy
 	// instance that matches the elements in the request.
 	//
 	// TrafficPolicyInstances is a required field
-	TrafficPolicyInstances []TrafficPolicyInstance `locationNameList:"TrafficPolicyInstance" type:"list" required:"true"`
+	TrafficPolicyInstances []TrafficPolicyInstance `json:"route53:ListTrafficPolicyInstancesByHostedZoneOutput:TrafficPolicyInstances" locationNameList:"TrafficPolicyInstance" type:"list" required:"true"`
 }
 
 // String returns the string representation

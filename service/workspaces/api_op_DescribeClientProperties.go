@@ -46,7 +46,7 @@ type DescribeClientPropertiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the specified Amazon WorkSpaces clients.
-	ClientPropertiesList []PropertiesResult `type:"list"`
+	ClientPropertiesList []PropertiesResult `json:"workspaces:DescribeClientPropertiesOutput:ClientPropertiesList" type:"list"`
 }
 
 // String returns the string representation

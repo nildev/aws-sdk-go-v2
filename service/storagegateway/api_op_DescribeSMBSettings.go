@@ -47,15 +47,15 @@ type DescribeSMBSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the domain that the gateway is joined to.
-	DomainName *string `min:"1" type:"string"`
+	DomainName *string `json:"storagegateway:DescribeSMBSettingsOutput:DomainName" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:DescribeSMBSettingsOutput:GatewayARN" min:"50" type:"string"`
 
 	// This value is true if a password for the guest user “smbguest” is set,
 	// and otherwise false.
-	SMBGuestPasswordSet *bool `type:"boolean"`
+	SMBGuestPasswordSet *bool `json:"storagegateway:DescribeSMBSettingsOutput:SMBGuestPasswordSet" type:"boolean"`
 
 	// The type of security strategy that was specified for file gateway.
 	//
@@ -67,7 +67,7 @@ type DescribeSMBSettingsOutput struct {
 	//
 	// MandatoryEncryption: SMBv1 is disabled, SMB signing is offered but not required,
 	// SMB encryption is required.
-	SMBSecurityStrategy SMBSecurityStrategy `type:"string" enum:"true"`
+	SMBSecurityStrategy SMBSecurityStrategy `json:"storagegateway:DescribeSMBSettingsOutput:SMBSecurityStrategy" type:"string" enum:"true"`
 }
 
 // String returns the string representation

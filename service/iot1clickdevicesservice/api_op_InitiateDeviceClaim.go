@@ -54,7 +54,7 @@ func (s InitiateDeviceClaimInput) MarshalFields(e protocol.FieldEncoder) error {
 type InitiateDeviceClaimOutput struct {
 	_ struct{} `type:"structure"`
 
-	State *string `locationName:"state" type:"string"`
+	State *string `json:"devices.iot1click:InitiateDeviceClaimOutput:State" locationName:"state" type:"string"`
 }
 
 // String returns the string representation

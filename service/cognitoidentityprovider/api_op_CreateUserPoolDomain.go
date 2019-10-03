@@ -75,7 +75,7 @@ type CreateUserPoolDomainOutput struct {
 
 	// The Amazon CloudFront endpoint that you use as the target of the alias that
 	// you set up with your Domain Name Service (DNS) provider.
-	CloudFrontDomain *string `min:"1" type:"string"`
+	CloudFrontDomain *string `json:"cognito-idp:CreateUserPoolDomainOutput:CloudFrontDomain" min:"1" type:"string"`
 }
 
 // String returns the string representation

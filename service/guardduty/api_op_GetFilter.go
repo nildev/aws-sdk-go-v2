@@ -78,27 +78,27 @@ type GetFilterOutput struct {
 	// filter.
 	//
 	// Action is a required field
-	Action FilterAction `locationName:"action" min:"1" type:"string" required:"true" enum:"true"`
+	Action FilterAction `json:"guardduty:GetFilterOutput:Action" locationName:"action" min:"1" type:"string" required:"true" enum:"true"`
 
 	// The description of the filter.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"guardduty:GetFilterOutput:Description" locationName:"description" type:"string"`
 
 	// Represents the criteria to be used in the filter for querying findings.
 	//
 	// FindingCriteria is a required field
-	FindingCriteria *FindingCriteria `locationName:"findingCriteria" type:"structure" required:"true"`
+	FindingCriteria *FindingCriteria `json:"guardduty:GetFilterOutput:FindingCriteria" locationName:"findingCriteria" type:"structure" required:"true"`
 
 	// The name of the filter.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"3" type:"string" required:"true"`
+	Name *string `json:"guardduty:GetFilterOutput:Name" locationName:"name" min:"3" type:"string" required:"true"`
 
 	// Specifies the position of the filter in the list of current filters. Also
 	// specifies the order in which this filter is applied to the findings.
-	Rank *int64 `locationName:"rank" min:"1" type:"integer"`
+	Rank *int64 `json:"guardduty:GetFilterOutput:Rank" locationName:"rank" min:"1" type:"integer"`
 
 	// The tags of the filter resource.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"guardduty:GetFilterOutput:Tags" locationName:"tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

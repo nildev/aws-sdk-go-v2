@@ -48,7 +48,7 @@ type GetJobManifestOutput struct {
 
 	// The Amazon S3 presigned URL for the manifest file associated with the specified
 	// JobId value.
-	ManifestURI *string `min:"1" type:"string"`
+	ManifestURI *string `json:"snowball:GetJobManifestOutput:ManifestURI" min:"1" type:"string"`
 }
 
 // String returns the string representation

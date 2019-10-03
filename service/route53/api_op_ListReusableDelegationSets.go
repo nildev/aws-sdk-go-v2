@@ -67,31 +67,31 @@ type ListReusableDelegationSetsOutput struct {
 	// delegation set that was created by the current AWS account.
 	//
 	// DelegationSets is a required field
-	DelegationSets []DelegationSet `locationNameList:"DelegationSet" type:"list" required:"true"`
+	DelegationSets []DelegationSet `json:"route53:ListReusableDelegationSetsOutput:DelegationSets" locationNameList:"DelegationSet" type:"list" required:"true"`
 
 	// A flag that indicates whether there are more reusable delegation sets to
 	// be listed.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListReusableDelegationSetsOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// For the second and subsequent calls to ListReusableDelegationSets, Marker
 	// is the value that you specified for the marker parameter in the request that
 	// produced the current response.
 	//
 	// Marker is a required field
-	Marker *string `type:"string" required:"true"`
+	Marker *string `json:"route53:ListReusableDelegationSetsOutput:Marker" type:"string" required:"true"`
 
 	// The value that you specified for the maxitems parameter in the call to ListReusableDelegationSets
 	// that produced the current response.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListReusableDelegationSetsOutput:MaxItems" type:"string" required:"true"`
 
 	// If IsTruncated is true, the value of NextMarker identifies the next reusable
 	// delegation set that Amazon Route 53 will return if you submit another ListReusableDelegationSets
 	// request and specify the value of NextMarker in the marker parameter.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"route53:ListReusableDelegationSetsOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

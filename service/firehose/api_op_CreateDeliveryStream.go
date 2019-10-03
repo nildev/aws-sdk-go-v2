@@ -128,7 +128,7 @@ type CreateDeliveryStreamOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the delivery stream.
-	DeliveryStreamARN *string `min:"1" type:"string"`
+	DeliveryStreamARN *string `json:"firehose:CreateDeliveryStreamOutput:DeliveryStreamARN" min:"1" type:"string"`
 }
 
 // String returns the string representation

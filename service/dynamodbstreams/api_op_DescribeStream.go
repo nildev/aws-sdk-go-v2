@@ -64,7 +64,7 @@ type DescribeStreamOutput struct {
 	// the DynamoDB table associated with the stream, the shard IDs within the stream,
 	// and the beginning and ending sequence numbers of stream records within the
 	// shards.
-	StreamDescription *StreamDescription `type:"structure"`
+	StreamDescription *StreamDescription `json:"streams.dynamodb:DescribeStreamOutput:StreamDescription" type:"structure"`
 }
 
 // String returns the string representation

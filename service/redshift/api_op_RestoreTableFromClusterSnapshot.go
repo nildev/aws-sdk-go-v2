@@ -91,7 +91,7 @@ type RestoreTableFromClusterSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes the status of a RestoreTableFromClusterSnapshot operation.
-	TableRestoreStatus *TableRestoreStatus `type:"structure"`
+	TableRestoreStatus *TableRestoreStatus `json:"redshift:RestoreTableFromClusterSnapshotOutput:TableRestoreStatus" type:"structure"`
 }
 
 // String returns the string representation

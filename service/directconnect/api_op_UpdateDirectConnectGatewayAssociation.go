@@ -34,7 +34,7 @@ type UpdateDirectConnectGatewayAssociationOutput struct {
 
 	// Information about an association between a Direct Connect gateway and a virtual
 	// private gateway or transit gateway.
-	DirectConnectGatewayAssociation *DirectConnectGatewayAssociation `locationName:"directConnectGatewayAssociation" type:"structure"`
+	DirectConnectGatewayAssociation *DirectConnectGatewayAssociation `json:"directconnect:UpdateDirectConnectGatewayAssociationOutput:DirectConnectGatewayAssociation" locationName:"directConnectGatewayAssociation" type:"structure"`
 }
 
 // String returns the string representation

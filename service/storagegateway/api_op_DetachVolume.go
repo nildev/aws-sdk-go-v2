@@ -53,7 +53,7 @@ type DetachVolumeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the volume that was detached.
-	VolumeARN *string `min:"50" type:"string"`
+	VolumeARN *string `json:"storagegateway:DetachVolumeOutput:VolumeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

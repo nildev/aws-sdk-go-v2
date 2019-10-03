@@ -58,7 +58,7 @@ type GetMaintenanceWindowTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The retrieved task description.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:GetMaintenanceWindowTaskOutput:Description" min:"1" type:"string"`
 
 	// The location in Amazon S3 where the task results are logged.
 	//
@@ -66,36 +66,36 @@ type GetMaintenanceWindowTaskOutput struct {
 	// instead use the OutputS3BucketName and OutputS3KeyPrefix options in the TaskInvocationParameters
 	// structure. For information about how Systems Manager handles these options
 	// for the supported maintenance window task types, see MaintenanceWindowTaskInvocationParameters.
-	LoggingInfo *LoggingInfo `type:"structure"`
+	LoggingInfo *LoggingInfo `json:"ssm:GetMaintenanceWindowTaskOutput:LoggingInfo" type:"structure"`
 
 	// The maximum number of targets allowed to run this task in parallel.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:GetMaintenanceWindowTaskOutput:MaxConcurrency" min:"1" type:"string"`
 
 	// The maximum number of errors allowed before the task stops being scheduled.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:GetMaintenanceWindowTaskOutput:MaxErrors" min:"1" type:"string"`
 
 	// The retrieved task name.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:GetMaintenanceWindowTaskOutput:Name" min:"3" type:"string"`
 
 	// The priority of the task when it runs. The lower the number, the higher the
 	// priority. Tasks that have the same priority are scheduled in parallel.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"ssm:GetMaintenanceWindowTaskOutput:Priority" type:"integer"`
 
 	// The ARN of the IAM service role to use to publish Amazon Simple Notification
 	// Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-	ServiceRoleArn *string `type:"string"`
+	ServiceRoleArn *string `json:"ssm:GetMaintenanceWindowTaskOutput:ServiceRoleArn" type:"string"`
 
 	// The targets where the task should run.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:GetMaintenanceWindowTaskOutput:Targets" type:"list"`
 
 	// The resource that the task used during execution. For RUN_COMMAND and AUTOMATION
 	// task types, the TaskArn is the Systems Manager Document name/ARN. For LAMBDA
 	// tasks, the value is the function name/ARN. For STEP_FUNCTIONS tasks, the
 	// value is the state machine ARN.
-	TaskArn *string `min:"1" type:"string"`
+	TaskArn *string `json:"ssm:GetMaintenanceWindowTaskOutput:TaskArn" min:"1" type:"string"`
 
 	// The parameters to pass to the task when it runs.
-	TaskInvocationParameters *MaintenanceWindowTaskInvocationParameters `type:"structure"`
+	TaskInvocationParameters *MaintenanceWindowTaskInvocationParameters `json:"ssm:GetMaintenanceWindowTaskOutput:TaskInvocationParameters" type:"structure"`
 
 	// The parameters to pass to the task when it runs.
 	//
@@ -103,16 +103,16 @@ type GetMaintenanceWindowTaskOutput struct {
 	// when it runs, instead use the Parameters option in the TaskInvocationParameters
 	// structure. For information about how Systems Manager handles these options
 	// for the supported maintenance window task types, see MaintenanceWindowTaskInvocationParameters.
-	TaskParameters map[string]MaintenanceWindowTaskParameterValueExpression `type:"map"`
+	TaskParameters map[string]MaintenanceWindowTaskParameterValueExpression `json:"ssm:GetMaintenanceWindowTaskOutput:TaskParameters" type:"map"`
 
 	// The type of task to run.
-	TaskType MaintenanceWindowTaskType `type:"string" enum:"true"`
+	TaskType MaintenanceWindowTaskType `json:"ssm:GetMaintenanceWindowTaskOutput:TaskType" type:"string" enum:"true"`
 
 	// The retrieved maintenance window ID.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:GetMaintenanceWindowTaskOutput:WindowId" min:"20" type:"string"`
 
 	// The retrieved maintenance window task ID.
-	WindowTaskId *string `min:"36" type:"string"`
+	WindowTaskId *string `json:"ssm:GetMaintenanceWindowTaskOutput:WindowTaskId" min:"36" type:"string"`
 }
 
 // String returns the string representation

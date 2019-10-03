@@ -19,7 +19,7 @@ type PredictedItem struct {
 	_ struct{} `type:"structure"`
 
 	// The recommended item ID.
-	ItemId *string `locationName:"itemId" type:"string"`
+	ItemId *string `json:"personalize-runtime:PredictedItem:ItemId" locationName:"itemId" type:"string"`
 }
 
 // String returns the string representation

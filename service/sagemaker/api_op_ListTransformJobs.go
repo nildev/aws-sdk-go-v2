@@ -73,12 +73,12 @@ type ListTransformJobsOutput struct {
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of transform jobs, use it in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListTransformJobsOutput:NextToken" type:"string"`
 
 	// An array of TransformJobSummary objects.
 	//
 	// TransformJobSummaries is a required field
-	TransformJobSummaries []TransformJobSummary `type:"list" required:"true"`
+	TransformJobSummaries []TransformJobSummary `json:"api.sagemaker:ListTransformJobsOutput:TransformJobSummaries" type:"list" required:"true"`
 }
 
 // String returns the string representation

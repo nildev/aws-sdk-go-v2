@@ -98,11 +98,11 @@ type CountOpenWorkflowExecutionsOutput struct {
 	// The number of workflow executions.
 	//
 	// Count is a required field
-	Count *int64 `locationName:"count" type:"integer" required:"true"`
+	Count *int64 `json:"swf:CountOpenWorkflowExecutionsOutput:Count" locationName:"count" type:"integer" required:"true"`
 
 	// If set to true, indicates that the actual count was more than the maximum
 	// supported by this API and the count returned is the truncated value.
-	Truncated *bool `locationName:"truncated" type:"boolean"`
+	Truncated *bool `json:"swf:CountOpenWorkflowExecutionsOutput:Truncated" locationName:"truncated" type:"boolean"`
 }
 
 // String returns the string representation

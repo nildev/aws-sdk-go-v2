@@ -45,7 +45,7 @@ type DescribePlacementGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the placement groups.
-	PlacementGroups []PlacementGroup `locationName:"placementGroupSet" locationNameList:"item" type:"list"`
+	PlacementGroups []PlacementGroup `json:"ec2:DescribePlacementGroupsOutput:PlacementGroups" locationName:"placementGroupSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

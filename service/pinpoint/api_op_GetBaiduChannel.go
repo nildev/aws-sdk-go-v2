@@ -58,7 +58,7 @@ type GetBaiduChannelOutput struct {
 	// Push) channel for an application.
 	//
 	// BaiduChannelResponse is a required field
-	BaiduChannelResponse *BaiduChannelResponse `type:"structure" required:"true"`
+	BaiduChannelResponse *BaiduChannelResponse `json:"pinpoint:GetBaiduChannelOutput:BaiduChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

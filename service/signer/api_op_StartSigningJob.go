@@ -113,7 +113,7 @@ type StartSigningJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of your signing job.
-	JobId *string `locationName:"jobId" type:"string"`
+	JobId *string `json:"signer:StartSigningJobOutput:JobId" locationName:"jobId" type:"string"`
 }
 
 // String returns the string representation

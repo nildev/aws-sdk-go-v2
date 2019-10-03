@@ -24,22 +24,22 @@ type GetDiscoverySummaryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Details about discovered agents, including agent status and health.
-	AgentSummary *CustomerAgentInfo `locationName:"agentSummary" type:"structure"`
+	AgentSummary *CustomerAgentInfo `json:"discovery:GetDiscoverySummaryOutput:AgentSummary" locationName:"agentSummary" type:"structure"`
 
 	// The number of applications discovered.
-	Applications *int64 `locationName:"applications" type:"long"`
+	Applications *int64 `json:"discovery:GetDiscoverySummaryOutput:Applications" locationName:"applications" type:"long"`
 
 	// Details about discovered connectors, including connector status and health.
-	ConnectorSummary *CustomerConnectorInfo `locationName:"connectorSummary" type:"structure"`
+	ConnectorSummary *CustomerConnectorInfo `json:"discovery:GetDiscoverySummaryOutput:ConnectorSummary" locationName:"connectorSummary" type:"structure"`
 
 	// The number of servers discovered.
-	Servers *int64 `locationName:"servers" type:"long"`
+	Servers *int64 `json:"discovery:GetDiscoverySummaryOutput:Servers" locationName:"servers" type:"long"`
 
 	// The number of servers mapped to applications.
-	ServersMappedToApplications *int64 `locationName:"serversMappedToApplications" type:"long"`
+	ServersMappedToApplications *int64 `json:"discovery:GetDiscoverySummaryOutput:ServersMappedToApplications" locationName:"serversMappedToApplications" type:"long"`
 
 	// The number of servers mapped to tags.
-	ServersMappedtoTags *int64 `locationName:"serversMappedtoTags" type:"long"`
+	ServersMappedtoTags *int64 `json:"discovery:GetDiscoverySummaryOutput:ServersMappedtoTags" locationName:"serversMappedtoTags" type:"long"`
 }
 
 // String returns the string representation

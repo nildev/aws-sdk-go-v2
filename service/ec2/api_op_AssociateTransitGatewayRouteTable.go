@@ -58,7 +58,7 @@ type AssociateTransitGatewayRouteTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the association.
-	Association *TransitGatewayAssociation `locationName:"association" type:"structure"`
+	Association *TransitGatewayAssociation `json:"ec2:AssociateTransitGatewayRouteTableOutput:Association" locationName:"association" type:"structure"`
 }
 
 // String returns the string representation

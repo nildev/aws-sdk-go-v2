@@ -56,11 +56,11 @@ type DescribeLoaOutput struct {
 	// The binary contents of the LOA-CFA document.
 	//
 	// LoaContent is automatically base64 encoded/decoded by the SDK.
-	LoaContent []byte `locationName:"loaContent" type:"blob"`
+	LoaContent []byte `json:"directconnect:DescribeLoaOutput:LoaContent" locationName:"loaContent" type:"blob"`
 
 	// The standard media type for the LOA-CFA document. The only supported value
 	// is application/pdf.
-	LoaContentType LoaContentType `locationName:"loaContentType" type:"string" enum:"true"`
+	LoaContentType LoaContentType `json:"directconnect:DescribeLoaOutput:LoaContentType" locationName:"loaContentType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

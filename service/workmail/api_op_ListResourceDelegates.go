@@ -68,12 +68,12 @@ type ListResourceDelegatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// One page of the resource's delegates.
-	Delegates []Delegate `type:"list"`
+	Delegates []Delegate `json:"workmail:ListResourceDelegatesOutput:Delegates" type:"list"`
 
 	// The token used to paginate through the delegates associated with a resource.
 	// While results are still available, it has an associated value. When the last
 	// page is reached, the token is empty.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workmail:ListResourceDelegatesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

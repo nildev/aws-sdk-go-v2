@@ -64,10 +64,10 @@ type ListInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of instances for the cluster and given filters.
-	Instances []Instance `type:"list"`
+	Instances []Instance `json:"elasticmapreduce:ListInstancesOutput:Instances" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticmapreduce:ListInstancesOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

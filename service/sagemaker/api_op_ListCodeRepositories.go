@@ -87,12 +87,12 @@ type ListCodeRepositoriesOutput struct {
 	//    used to access the repository.
 	//
 	// CodeRepositorySummaryList is a required field
-	CodeRepositorySummaryList []CodeRepositorySummary `type:"list" required:"true"`
+	CodeRepositorySummaryList []CodeRepositorySummary `json:"api.sagemaker:ListCodeRepositoriesOutput:CodeRepositorySummaryList" type:"list" required:"true"`
 
 	// If the result of a ListCodeRepositoriesOutput request was truncated, the
 	// response includes a NextToken. To get the next set of Git repositories, use
 	// the token in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListCodeRepositoriesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -69,40 +69,40 @@ type ModifyDBClusterEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The type associated with a custom endpoint. One of: READER, ANY.
-	CustomEndpointType *string `type:"string"`
+	CustomEndpointType *string `json:"rds:ModifyDBClusterEndpointOutput:CustomEndpointType" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the endpoint.
-	DBClusterEndpointArn *string `type:"string"`
+	DBClusterEndpointArn *string `json:"rds:ModifyDBClusterEndpointOutput:DBClusterEndpointArn" type:"string"`
 
 	// The identifier associated with the endpoint. This parameter is stored as
 	// a lowercase string.
-	DBClusterEndpointIdentifier *string `type:"string"`
+	DBClusterEndpointIdentifier *string `json:"rds:ModifyDBClusterEndpointOutput:DBClusterEndpointIdentifier" type:"string"`
 
 	// A unique system-generated identifier for an endpoint. It remains the same
 	// for the whole life of the endpoint.
-	DBClusterEndpointResourceIdentifier *string `type:"string"`
+	DBClusterEndpointResourceIdentifier *string `json:"rds:ModifyDBClusterEndpointOutput:DBClusterEndpointResourceIdentifier" type:"string"`
 
 	// The DB cluster identifier of the DB cluster associated with the endpoint.
 	// This parameter is stored as a lowercase string.
-	DBClusterIdentifier *string `type:"string"`
+	DBClusterIdentifier *string `json:"rds:ModifyDBClusterEndpointOutput:DBClusterIdentifier" type:"string"`
 
 	// The DNS address of the endpoint.
-	Endpoint *string `type:"string"`
+	Endpoint *string `json:"rds:ModifyDBClusterEndpointOutput:Endpoint" type:"string"`
 
 	// The type of the endpoint. One of: READER, WRITER, CUSTOM.
-	EndpointType *string `type:"string"`
+	EndpointType *string `json:"rds:ModifyDBClusterEndpointOutput:EndpointType" type:"string"`
 
 	// List of DB instance identifiers that aren't part of the custom endpoint group.
 	// All other eligible instances are reachable through the custom endpoint. Only
 	// relevant if the list of static members is empty.
-	ExcludedMembers []string `type:"list"`
+	ExcludedMembers []string `json:"rds:ModifyDBClusterEndpointOutput:ExcludedMembers" type:"list"`
 
 	// List of DB instance identifiers that are part of the custom endpoint group.
-	StaticMembers []string `type:"list"`
+	StaticMembers []string `json:"rds:ModifyDBClusterEndpointOutput:StaticMembers" type:"list"`
 
 	// The current status of the endpoint. One of: creating, available, deleting,
 	// modifying.
-	Status *string `type:"string"`
+	Status *string `json:"rds:ModifyDBClusterEndpointOutput:Status" type:"string"`
 }
 
 // String returns the string representation

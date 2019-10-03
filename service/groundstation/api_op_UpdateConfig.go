@@ -109,13 +109,13 @@ type UpdateConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ARN of a Config.
-	ConfigArn *string `locationName:"configArn" type:"string"`
+	ConfigArn *string `json:"groundstation:UpdateConfigOutput:ConfigArn" locationName:"configArn" type:"string"`
 
 	// UUID of a Config.
-	ConfigId *string `locationName:"configId" type:"string"`
+	ConfigId *string `json:"groundstation:UpdateConfigOutput:ConfigId" locationName:"configId" type:"string"`
 
 	// Type of a Config.
-	ConfigType ConfigCapabilityType `locationName:"configType" type:"string" enum:"true"`
+	ConfigType ConfigCapabilityType `json:"groundstation:UpdateConfigOutput:ConfigType" locationName:"configType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

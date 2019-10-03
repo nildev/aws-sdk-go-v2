@@ -71,7 +71,7 @@ type EvaluateExpressionOutput struct {
 	// The evaluated expression.
 	//
 	// EvaluatedExpression is a required field
-	EvaluatedExpression *string `locationName:"evaluatedExpression" type:"string" required:"true"`
+	EvaluatedExpression *string `json:"datapipeline:EvaluateExpressionOutput:EvaluatedExpression" locationName:"evaluatedExpression" type:"string" required:"true"`
 }
 
 // String returns the string representation

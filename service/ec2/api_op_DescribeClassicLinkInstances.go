@@ -76,11 +76,11 @@ type DescribeClassicLinkInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about one or more linked EC2-Classic instances.
-	Instances []ClassicLinkInstance `locationName:"instancesSet" locationNameList:"item" type:"list"`
+	Instances []ClassicLinkInstance `json:"ec2:DescribeClassicLinkInstancesOutput:Instances" locationName:"instancesSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeClassicLinkInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

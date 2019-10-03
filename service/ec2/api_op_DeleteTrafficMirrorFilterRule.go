@@ -49,7 +49,7 @@ type DeleteTrafficMirrorFilterRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the deleted Traffic Mirror rule.
-	TrafficMirrorFilterRuleId *string `locationName:"trafficMirrorFilterRuleId" type:"string"`
+	TrafficMirrorFilterRuleId *string `json:"ec2:DeleteTrafficMirrorFilterRuleOutput:TrafficMirrorFilterRuleId" locationName:"trafficMirrorFilterRuleId" type:"string"`
 }
 
 // String returns the string representation

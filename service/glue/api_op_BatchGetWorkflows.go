@@ -51,10 +51,10 @@ type BatchGetWorkflowsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of names of workflows not found.
-	MissingWorkflows []string `min:"1" type:"list"`
+	MissingWorkflows []string `json:"glue:BatchGetWorkflowsOutput:MissingWorkflows" min:"1" type:"list"`
 
 	// A list of workflow resource metadata.
-	Workflows []Workflow `min:"1" type:"list"`
+	Workflows []Workflow `json:"glue:BatchGetWorkflowsOutput:Workflows" min:"1" type:"list"`
 }
 
 // String returns the string representation

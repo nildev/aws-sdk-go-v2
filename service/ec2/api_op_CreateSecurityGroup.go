@@ -73,7 +73,7 @@ type CreateSecurityGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the security group.
-	GroupId *string `locationName:"groupId" type:"string"`
+	GroupId *string `json:"ec2:CreateSecurityGroupOutput:GroupId" locationName:"groupId" type:"string"`
 }
 
 // String returns the string representation

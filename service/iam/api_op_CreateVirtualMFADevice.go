@@ -72,7 +72,7 @@ type CreateVirtualMFADeviceOutput struct {
 	// A structure containing details about the new virtual MFA device.
 	//
 	// VirtualMFADevice is a required field
-	VirtualMFADevice *VirtualMFADevice `type:"structure" required:"true"`
+	VirtualMFADevice *VirtualMFADevice `json:"iam:CreateVirtualMFADeviceOutput:VirtualMFADevice" type:"structure" required:"true"`
 }
 
 // String returns the string representation

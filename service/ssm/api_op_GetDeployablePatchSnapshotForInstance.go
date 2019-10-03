@@ -56,17 +56,17 @@ type GetDeployablePatchSnapshotForInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the instance.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:GetDeployablePatchSnapshotForInstanceOutput:InstanceId" type:"string"`
 
 	// Returns the specific operating system (for example Windows Server 2012 or
 	// Amazon Linux 2015.09) on the instance for the specified patch snapshot.
-	Product *string `type:"string"`
+	Product *string `json:"ssm:GetDeployablePatchSnapshotForInstanceOutput:Product" type:"string"`
 
 	// A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
-	SnapshotDownloadUrl *string `type:"string"`
+	SnapshotDownloadUrl *string `json:"ssm:GetDeployablePatchSnapshotForInstanceOutput:SnapshotDownloadUrl" type:"string"`
 
 	// The user-defined snapshot ID.
-	SnapshotId *string `min:"36" type:"string"`
+	SnapshotId *string `json:"ssm:GetDeployablePatchSnapshotForInstanceOutput:SnapshotId" min:"36" type:"string"`
 }
 
 // String returns the string representation

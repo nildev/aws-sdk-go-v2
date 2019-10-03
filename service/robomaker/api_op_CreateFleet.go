@@ -76,16 +76,16 @@ type CreateFleetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:CreateFleetOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the fleet was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:CreateFleetOutput:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the fleet.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:CreateFleetOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The list of all tags added to the fleet.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:CreateFleetOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

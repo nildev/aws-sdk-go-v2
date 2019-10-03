@@ -49,7 +49,7 @@ type CreateNetworkAclOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the network ACL.
-	NetworkAcl *NetworkAcl `locationName:"networkAcl" type:"structure"`
+	NetworkAcl *NetworkAcl `json:"ec2:CreateNetworkAclOutput:NetworkAcl" locationName:"networkAcl" type:"structure"`
 }
 
 // String returns the string representation

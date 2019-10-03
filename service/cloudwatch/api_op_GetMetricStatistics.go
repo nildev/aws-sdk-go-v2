@@ -174,10 +174,10 @@ type GetMetricStatisticsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The data points for the specified metric.
-	Datapoints []Datapoint `type:"list"`
+	Datapoints []Datapoint `json:"monitoring:GetMetricStatisticsOutput:Datapoints" type:"list"`
 
 	// A label for the specified metric.
-	Label *string `type:"string"`
+	Label *string `json:"monitoring:GetMetricStatisticsOutput:Label" type:"string"`
 }
 
 // String returns the string representation

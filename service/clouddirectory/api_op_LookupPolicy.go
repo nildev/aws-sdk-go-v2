@@ -94,11 +94,11 @@ type LookupPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:LookupPolicyOutput:NextToken" type:"string"`
 
 	// Provides list of path to policies. Policies contain PolicyId, ObjectIdentifier,
 	// and PolicyType. For more information, see Policies (https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies).
-	PolicyToPathList []PolicyToPath `type:"list"`
+	PolicyToPathList []PolicyToPath `json:"clouddirectory:LookupPolicyOutput:PolicyToPathList" type:"list"`
 }
 
 // String returns the string representation

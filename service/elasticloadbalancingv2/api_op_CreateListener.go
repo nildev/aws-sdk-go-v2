@@ -112,7 +112,7 @@ type CreateListenerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the listener.
-	Listeners []Listener `type:"list"`
+	Listeners []Listener `json:"elasticloadbalancing:CreateListenerOutput:Listeners" type:"list"`
 }
 
 // String returns the string representation

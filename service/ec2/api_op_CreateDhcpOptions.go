@@ -49,7 +49,7 @@ type CreateDhcpOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A set of DHCP options.
-	DhcpOptions *DhcpOptions `locationName:"dhcpOptions" type:"structure"`
+	DhcpOptions *DhcpOptions `json:"ec2:CreateDhcpOptionsOutput:DhcpOptions" locationName:"dhcpOptions" type:"structure"`
 }
 
 // String returns the string representation

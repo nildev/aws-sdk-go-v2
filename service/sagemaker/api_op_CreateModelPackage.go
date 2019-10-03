@@ -90,7 +90,7 @@ type CreateModelPackageOutput struct {
 	// The Amazon Resource Name (ARN) of the new model package.
 	//
 	// ModelPackageArn is a required field
-	ModelPackageArn *string `min:"1" type:"string" required:"true"`
+	ModelPackageArn *string `json:"api.sagemaker:CreateModelPackageOutput:ModelPackageArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

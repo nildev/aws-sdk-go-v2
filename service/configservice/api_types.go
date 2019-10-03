@@ -20,13 +20,13 @@ type AccountAggregationSource struct {
 	// The 12-digit account ID of the account being aggregated.
 	//
 	// AccountIds is a required field
-	AccountIds []string `min:"1" type:"list" required:"true"`
+	AccountIds []string `json:"config:AccountAggregationSource:AccountIds" min:"1" type:"list" required:"true"`
 
 	// If true, aggregate existing AWS Config regions and future regions.
-	AllAwsRegions *bool `type:"boolean"`
+	AllAwsRegions *bool `json:"config:AccountAggregationSource:AllAwsRegions" type:"boolean"`
 
 	// The source regions being aggregated.
-	AwsRegions []string `min:"1" type:"list"`
+	AwsRegions []string `json:"config:AccountAggregationSource:AwsRegions" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -64,17 +64,17 @@ type AggregateComplianceByConfigRule struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit account ID of the source account.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"config:AggregateComplianceByConfigRule:AccountId" type:"string"`
 
 	// The source region from where the data is aggregated.
-	AwsRegion *string `min:"1" type:"string"`
+	AwsRegion *string `json:"config:AggregateComplianceByConfigRule:AwsRegion" min:"1" type:"string"`
 
 	// Indicates whether an AWS resource or AWS Config rule is compliant and provides
 	// the number of contributors that affect the compliance.
-	Compliance *Compliance `type:"structure"`
+	Compliance *Compliance `json:"config:AggregateComplianceByConfigRule:Compliance" type:"structure"`
 
 	// The name of the AWS Config rule.
-	ConfigRuleName *string `min:"1" type:"string"`
+	ConfigRuleName *string `json:"config:AggregateComplianceByConfigRule:ConfigRuleName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -89,10 +89,10 @@ type AggregateComplianceCount struct {
 	_ struct{} `type:"structure"`
 
 	// The number of compliant and noncompliant AWS Config rules.
-	ComplianceSummary *ComplianceSummary `type:"structure"`
+	ComplianceSummary *ComplianceSummary `json:"config:AggregateComplianceCount:ComplianceSummary" type:"structure"`
 
 	// The 12-digit account ID or region based on the GroupByKey value.
-	GroupName *string `min:"1" type:"string"`
+	GroupName *string `json:"config:AggregateComplianceCount:GroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -108,30 +108,30 @@ type AggregateEvaluationResult struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit account ID of the source account.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"config:AggregateEvaluationResult:AccountId" type:"string"`
 
 	// Supplementary information about how the agrregate evaluation determined the
 	// compliance.
-	Annotation *string `min:"1" type:"string"`
+	Annotation *string `json:"config:AggregateEvaluationResult:Annotation" min:"1" type:"string"`
 
 	// The source region from where the data is aggregated.
-	AwsRegion *string `min:"1" type:"string"`
+	AwsRegion *string `json:"config:AggregateEvaluationResult:AwsRegion" min:"1" type:"string"`
 
 	// The resource compliance status.
 	//
 	// For the AggregationEvaluationResult data type, AWS Config supports only the
 	// COMPLIANT and NON_COMPLIANT. AWS Config does not support the NOT_APPLICABLE
 	// and INSUFFICIENT_DATA value.
-	ComplianceType ComplianceType `type:"string" enum:"true"`
+	ComplianceType ComplianceType `json:"config:AggregateEvaluationResult:ComplianceType" type:"string" enum:"true"`
 
 	// The time when the AWS Config rule evaluated the AWS resource.
-	ConfigRuleInvokedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ConfigRuleInvokedTime *time.Time `json:"config:AggregateEvaluationResult:ConfigRuleInvokedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Uniquely identifies the evaluation result.
-	EvaluationResultIdentifier *EvaluationResultIdentifier `type:"structure"`
+	EvaluationResultIdentifier *EvaluationResultIdentifier `json:"config:AggregateEvaluationResult:EvaluationResultIdentifier" type:"structure"`
 
 	// The time when AWS Config recorded the aggregate evaluation result.
-	ResultRecordedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ResultRecordedTime *time.Time `json:"config:AggregateEvaluationResult:ResultRecordedTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -149,25 +149,25 @@ type AggregateResourceIdentifier struct {
 	// The ID of the AWS resource.
 	//
 	// ResourceId is a required field
-	ResourceId *string `min:"1" type:"string" required:"true"`
+	ResourceId *string `json:"config:AggregateResourceIdentifier:ResourceId" min:"1" type:"string" required:"true"`
 
 	// The name of the AWS resource.
-	ResourceName *string `type:"string"`
+	ResourceName *string `json:"config:AggregateResourceIdentifier:ResourceName" type:"string"`
 
 	// The type of the AWS resource.
 	//
 	// ResourceType is a required field
-	ResourceType ResourceType `type:"string" required:"true" enum:"true"`
+	ResourceType ResourceType `json:"config:AggregateResourceIdentifier:ResourceType" type:"string" required:"true" enum:"true"`
 
 	// The 12-digit account ID of the source account.
 	//
 	// SourceAccountId is a required field
-	SourceAccountId *string `type:"string" required:"true"`
+	SourceAccountId *string `json:"config:AggregateResourceIdentifier:SourceAccountId" type:"string" required:"true"`
 
 	// The source region where data is aggregated.
 	//
 	// SourceRegion is a required field
-	SourceRegion *string `min:"1" type:"string" required:"true"`
+	SourceRegion *string `json:"config:AggregateResourceIdentifier:SourceRegion" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -212,15 +212,15 @@ type AggregatedSourceStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The region authorized to collect aggregated data.
-	AwsRegion *string `min:"1" type:"string"`
+	AwsRegion *string `json:"config:AggregatedSourceStatus:AwsRegion" min:"1" type:"string"`
 
 	// The error code that AWS Config returned when the source account aggregation
 	// last failed.
-	LastErrorCode *string `type:"string"`
+	LastErrorCode *string `json:"config:AggregatedSourceStatus:LastErrorCode" type:"string"`
 
 	// The message indicating that the source account aggregation failed due to
 	// an error.
-	LastErrorMessage *string `type:"string"`
+	LastErrorMessage *string `json:"config:AggregatedSourceStatus:LastErrorMessage" type:"string"`
 
 	// Filters the last updated status type.
 	//
@@ -229,16 +229,16 @@ type AggregatedSourceStatus struct {
 	//    * Valid value SUCCEEDED indicates the data was successfully moved.
 	//
 	//    * Valid value OUTDATED indicates the data is not the most recent.
-	LastUpdateStatus AggregatedSourceStatusType `type:"string" enum:"true"`
+	LastUpdateStatus AggregatedSourceStatusType `json:"config:AggregatedSourceStatus:LastUpdateStatus" type:"string" enum:"true"`
 
 	// The time of the last update.
-	LastUpdateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"config:AggregatedSourceStatus:LastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The source account ID or an organization.
-	SourceId *string `type:"string"`
+	SourceId *string `json:"config:AggregatedSourceStatus:SourceId" type:"string"`
 
 	// The source account or an organization.
-	SourceType AggregatedSourceType `type:"string" enum:"true"`
+	SourceType AggregatedSourceType `json:"config:AggregatedSourceStatus:SourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -253,16 +253,16 @@ type AggregationAuthorization struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the aggregation object.
-	AggregationAuthorizationArn *string `type:"string"`
+	AggregationAuthorizationArn *string `json:"config:AggregationAuthorization:AggregationAuthorizationArn" type:"string"`
 
 	// The 12-digit account ID of the account authorized to aggregate data.
-	AuthorizedAccountId *string `type:"string"`
+	AuthorizedAccountId *string `json:"config:AggregationAuthorization:AuthorizedAccountId" type:"string"`
 
 	// The region authorized to collect aggregated data.
-	AuthorizedAwsRegion *string `min:"1" type:"string"`
+	AuthorizedAwsRegion *string `json:"config:AggregationAuthorization:AuthorizedAwsRegion" min:"1" type:"string"`
 
 	// The time stamp when the aggregation authorization was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"config:AggregationAuthorization:CreationTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -276,48 +276,48 @@ type BaseConfigurationItem struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit AWS account ID associated with the resource.
-	AccountId *string `locationName:"accountId" type:"string"`
+	AccountId *string `json:"config:BaseConfigurationItem:AccountId" locationName:"accountId" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the resource.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"config:BaseConfigurationItem:Arn" locationName:"arn" type:"string"`
 
 	// The Availability Zone associated with the resource.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"config:BaseConfigurationItem:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The region where the resource resides.
-	AwsRegion *string `locationName:"awsRegion" min:"1" type:"string"`
+	AwsRegion *string `json:"config:BaseConfigurationItem:AwsRegion" locationName:"awsRegion" min:"1" type:"string"`
 
 	// The description of the resource configuration.
-	Configuration *string `locationName:"configuration" type:"string"`
+	Configuration *string `json:"config:BaseConfigurationItem:Configuration" locationName:"configuration" type:"string"`
 
 	// The time when the configuration recording was initiated.
-	ConfigurationItemCaptureTime *time.Time `locationName:"configurationItemCaptureTime" type:"timestamp" timestampFormat:"unix"`
+	ConfigurationItemCaptureTime *time.Time `json:"config:BaseConfigurationItem:ConfigurationItemCaptureTime" locationName:"configurationItemCaptureTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The configuration item status.
-	ConfigurationItemStatus ConfigurationItemStatus `locationName:"configurationItemStatus" type:"string" enum:"true"`
+	ConfigurationItemStatus ConfigurationItemStatus `json:"config:BaseConfigurationItem:ConfigurationItemStatus" locationName:"configurationItemStatus" type:"string" enum:"true"`
 
 	// An identifier that indicates the ordering of the configuration items of a
 	// resource.
-	ConfigurationStateId *string `locationName:"configurationStateId" type:"string"`
+	ConfigurationStateId *string `json:"config:BaseConfigurationItem:ConfigurationStateId" locationName:"configurationStateId" type:"string"`
 
 	// The time stamp when the resource was created.
-	ResourceCreationTime *time.Time `locationName:"resourceCreationTime" type:"timestamp" timestampFormat:"unix"`
+	ResourceCreationTime *time.Time `json:"config:BaseConfigurationItem:ResourceCreationTime" locationName:"resourceCreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the resource (for example., sg-xxxxxx).
-	ResourceId *string `locationName:"resourceId" min:"1" type:"string"`
+	ResourceId *string `json:"config:BaseConfigurationItem:ResourceId" locationName:"resourceId" min:"1" type:"string"`
 
 	// The custom name of the resource, if available.
-	ResourceName *string `locationName:"resourceName" type:"string"`
+	ResourceName *string `json:"config:BaseConfigurationItem:ResourceName" locationName:"resourceName" type:"string"`
 
 	// The type of AWS resource.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"config:BaseConfigurationItem:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// Configuration attributes that AWS Config returns for certain resource types
 	// to supplement the information returned for the configuration parameter.
-	SupplementaryConfiguration map[string]string `locationName:"supplementaryConfiguration" type:"map"`
+	SupplementaryConfiguration map[string]string `json:"config:BaseConfigurationItem:SupplementaryConfiguration" locationName:"supplementaryConfiguration" type:"map"`
 
 	// The version number of the resource configuration.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"config:BaseConfigurationItem:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -333,7 +333,7 @@ type Compliance struct {
 
 	// The number of AWS resources or AWS Config rules that cause a result of NON_COMPLIANT,
 	// up to a maximum number.
-	ComplianceContributorCount *ComplianceContributorCount `type:"structure"`
+	ComplianceContributorCount *ComplianceContributorCount `json:"config:Compliance:ComplianceContributorCount" type:"structure"`
 
 	// Indicates whether an AWS resource or AWS Config rule is compliant.
 	//
@@ -350,7 +350,7 @@ type Compliance struct {
 	// For the Compliance data type, AWS Config supports only COMPLIANT, NON_COMPLIANT,
 	// and INSUFFICIENT_DATA values. AWS Config does not support the NOT_APPLICABLE
 	// value for the Compliance data type.
-	ComplianceType ComplianceType `type:"string" enum:"true"`
+	ComplianceType ComplianceType `json:"config:Compliance:ComplianceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -366,10 +366,10 @@ type ComplianceByConfigRule struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the AWS Config rule is compliant.
-	Compliance *Compliance `type:"structure"`
+	Compliance *Compliance `json:"config:ComplianceByConfigRule:Compliance" type:"structure"`
 
 	// The name of the AWS Config rule.
-	ConfigRuleName *string `min:"1" type:"string"`
+	ConfigRuleName *string `json:"config:ComplianceByConfigRule:ConfigRuleName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -387,13 +387,13 @@ type ComplianceByResource struct {
 
 	// Indicates whether the AWS resource complies with all of the AWS Config rules
 	// that evaluated it.
-	Compliance *Compliance `type:"structure"`
+	Compliance *Compliance `json:"config:ComplianceByResource:Compliance" type:"structure"`
 
 	// The ID of the AWS resource that was evaluated.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"config:ComplianceByResource:ResourceId" min:"1" type:"string"`
 
 	// The type of the AWS resource that was evaluated.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"config:ComplianceByResource:ResourceType" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -408,11 +408,11 @@ type ComplianceContributorCount struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether the maximum count is reached.
-	CapExceeded *bool `type:"boolean"`
+	CapExceeded *bool `json:"config:ComplianceContributorCount:CapExceeded" type:"boolean"`
 
 	// The number of AWS resources or AWS Config rules responsible for the current
 	// compliance of the item.
-	CappedCount *int64 `type:"integer"`
+	CappedCount *int64 `json:"config:ComplianceContributorCount:CappedCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -426,15 +426,15 @@ type ComplianceSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time that AWS Config created the compliance summary.
-	ComplianceSummaryTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ComplianceSummaryTimestamp *time.Time `json:"config:ComplianceSummary:ComplianceSummaryTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The number of AWS Config rules or AWS resources that are compliant, up to
 	// a maximum of 25 for rules and 100 for resources.
-	CompliantResourceCount *ComplianceContributorCount `type:"structure"`
+	CompliantResourceCount *ComplianceContributorCount `json:"config:ComplianceSummary:CompliantResourceCount" type:"structure"`
 
 	// The number of AWS Config rules or AWS resources that are noncompliant, up
 	// to a maximum of 25 for rules and 100 for resources.
-	NonCompliantResourceCount *ComplianceContributorCount `type:"structure"`
+	NonCompliantResourceCount *ComplianceContributorCount `json:"config:ComplianceSummary:NonCompliantResourceCount" type:"structure"`
 }
 
 // String returns the string representation
@@ -450,10 +450,10 @@ type ComplianceSummaryByResourceType struct {
 
 	// The number of AWS resources that are compliant or noncompliant, up to a maximum
 	// of 100 for each.
-	ComplianceSummary *ComplianceSummary `type:"structure"`
+	ComplianceSummary *ComplianceSummary `json:"config:ComplianceSummaryByResourceType:ComplianceSummary" type:"structure"`
 
 	// The type of AWS resource.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"config:ComplianceSummaryByResourceType:ResourceType" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -469,22 +469,22 @@ type ConfigExportDeliveryInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The time of the last attempted delivery.
-	LastAttemptTime *time.Time `locationName:"lastAttemptTime" type:"timestamp" timestampFormat:"unix"`
+	LastAttemptTime *time.Time `json:"config:ConfigExportDeliveryInfo:LastAttemptTime" locationName:"lastAttemptTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The error code from the last attempted delivery.
-	LastErrorCode *string `locationName:"lastErrorCode" type:"string"`
+	LastErrorCode *string `json:"config:ConfigExportDeliveryInfo:LastErrorCode" locationName:"lastErrorCode" type:"string"`
 
 	// The error message from the last attempted delivery.
-	LastErrorMessage *string `locationName:"lastErrorMessage" type:"string"`
+	LastErrorMessage *string `json:"config:ConfigExportDeliveryInfo:LastErrorMessage" locationName:"lastErrorMessage" type:"string"`
 
 	// Status of the last attempted delivery.
-	LastStatus DeliveryStatus `locationName:"lastStatus" type:"string" enum:"true"`
+	LastStatus DeliveryStatus `json:"config:ConfigExportDeliveryInfo:LastStatus" locationName:"lastStatus" type:"string" enum:"true"`
 
 	// The time of the last successful delivery.
-	LastSuccessfulTime *time.Time `locationName:"lastSuccessfulTime" type:"timestamp" timestampFormat:"unix"`
+	LastSuccessfulTime *time.Time `json:"config:ConfigExportDeliveryInfo:LastSuccessfulTime" locationName:"lastSuccessfulTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that the next delivery occurs.
-	NextDeliveryTime *time.Time `locationName:"nextDeliveryTime" type:"timestamp" timestampFormat:"unix"`
+	NextDeliveryTime *time.Time `json:"config:ConfigExportDeliveryInfo:NextDeliveryTime" locationName:"nextDeliveryTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -511,14 +511,14 @@ type ConfigRule struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the AWS Config rule.
-	ConfigRuleArn *string `type:"string"`
+	ConfigRuleArn *string `json:"config:ConfigRule:ConfigRuleArn" type:"string"`
 
 	// The ID of the AWS Config rule.
-	ConfigRuleId *string `type:"string"`
+	ConfigRuleId *string `json:"config:ConfigRule:ConfigRuleId" type:"string"`
 
 	// The name that you assign to the AWS Config rule. The name is required if
 	// you are adding a new rule.
-	ConfigRuleName *string `min:"1" type:"string"`
+	ConfigRuleName *string `json:"config:ConfigRule:ConfigRuleName" min:"1" type:"string"`
 
 	// Indicates whether the AWS Config rule is active or is currently being deleted
 	// by AWS Config. It can also indicate the evaluation status for the AWS Config
@@ -536,19 +536,19 @@ type ConfigRule struct {
 	// the DeleteConfigRule request to delete the rule. After AWS Config deletes
 	// the rule, the rule and all of its evaluations are erased and are no longer
 	// available.
-	ConfigRuleState ConfigRuleState `type:"string" enum:"true"`
+	ConfigRuleState ConfigRuleState `json:"config:ConfigRule:ConfigRuleState" type:"string" enum:"true"`
 
 	// Service principal name of the service that created the rule.
 	//
 	// The field is populated only if the service linked rule is created by a service.
 	// The field is empty if you create your own rule.
-	CreatedBy *string `min:"1" type:"string"`
+	CreatedBy *string `json:"config:ConfigRule:CreatedBy" min:"1" type:"string"`
 
 	// The description that you provide for the AWS Config rule.
-	Description *string `type:"string"`
+	Description *string `json:"config:ConfigRule:Description" type:"string"`
 
 	// A string, in JSON format, that is passed to the AWS Config rule Lambda function.
-	InputParameters *string `min:"1" type:"string"`
+	InputParameters *string `json:"config:ConfigRule:InputParameters" min:"1" type:"string"`
 
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
 	// You can specify a value for MaximumExecutionFrequency when:
@@ -561,7 +561,7 @@ type ConfigRule struct {
 	// By default, rules with a periodic trigger are evaluated every 24 hours. To
 	// change the frequency, specify a valid value for the MaximumExecutionFrequency
 	// parameter.
-	MaximumExecutionFrequency MaximumExecutionFrequency `type:"string" enum:"true"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `json:"config:ConfigRule:MaximumExecutionFrequency" type:"string" enum:"true"`
 
 	// Defines which resources can trigger an evaluation for the rule. The scope
 	// can include one or more resource types, a combination of one resource type
@@ -569,13 +569,13 @@ type ConfigRule struct {
 	// to constrain the resources that can trigger an evaluation for the rule. If
 	// you do not specify a scope, evaluations are triggered when any resource in
 	// the recording group changes.
-	Scope *Scope `type:"structure"`
+	Scope *Scope `json:"config:ConfigRule:Scope" type:"structure"`
 
 	// Provides the rule owner (AWS or customer), the rule identifier, and the notifications
 	// that cause the function to evaluate your AWS resources.
 	//
 	// Source is a required field
-	Source *Source `type:"structure" required:"true"`
+	Source *Source `json:"config:ConfigRule:Source" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -623,20 +623,20 @@ type ConfigRuleComplianceFilters struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit account ID of the source account.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"config:ConfigRuleComplianceFilters:AccountId" type:"string"`
 
 	// The source region where the data is aggregated.
-	AwsRegion *string `min:"1" type:"string"`
+	AwsRegion *string `json:"config:ConfigRuleComplianceFilters:AwsRegion" min:"1" type:"string"`
 
 	// The rule compliance status.
 	//
 	// For the ConfigRuleComplianceFilters data type, AWS Config supports only COMPLIANT
 	// and NON_COMPLIANT. AWS Config does not support the NOT_APPLICABLE and the
 	// INSUFFICIENT_DATA values.
-	ComplianceType ComplianceType `type:"string" enum:"true"`
+	ComplianceType ComplianceType `json:"config:ConfigRuleComplianceFilters:ComplianceType" type:"string" enum:"true"`
 
 	// The name of the AWS Config rule.
-	ConfigRuleName *string `min:"1" type:"string"`
+	ConfigRuleName *string `json:"config:ConfigRuleComplianceFilters:ConfigRuleName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -666,10 +666,10 @@ type ConfigRuleComplianceSummaryFilters struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit account ID of the source account.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"config:ConfigRuleComplianceSummaryFilters:AccountId" type:"string"`
 
 	// The source region where the data is aggregated.
-	AwsRegion *string `min:"1" type:"string"`
+	AwsRegion *string `json:"config:ConfigRuleComplianceSummaryFilters:AwsRegion" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -700,16 +700,16 @@ type ConfigRuleEvaluationStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the AWS Config rule.
-	ConfigRuleArn *string `type:"string"`
+	ConfigRuleArn *string `json:"config:ConfigRuleEvaluationStatus:ConfigRuleArn" type:"string"`
 
 	// The ID of the AWS Config rule.
-	ConfigRuleId *string `type:"string"`
+	ConfigRuleId *string `json:"config:ConfigRuleEvaluationStatus:ConfigRuleId" type:"string"`
 
 	// The name of the AWS Config rule.
-	ConfigRuleName *string `min:"1" type:"string"`
+	ConfigRuleName *string `json:"config:ConfigRuleEvaluationStatus:ConfigRuleName" min:"1" type:"string"`
 
 	// The time that you first activated the AWS Config rule.
-	FirstActivatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FirstActivatedTime *time.Time `json:"config:ConfigRuleEvaluationStatus:FirstActivatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Indicates whether AWS Config has evaluated your resources against the rule
 	// at least once.
@@ -719,29 +719,29 @@ type ConfigRuleEvaluationStatus struct {
 	//
 	//    * false - AWS Config has not once finished evaluating your AWS resources
 	//    against the rule.
-	FirstEvaluationStarted *bool `type:"boolean"`
+	FirstEvaluationStarted *bool `json:"config:ConfigRuleEvaluationStatus:FirstEvaluationStarted" type:"boolean"`
 
 	// The error code that AWS Config returned when the rule last failed.
-	LastErrorCode *string `type:"string"`
+	LastErrorCode *string `json:"config:ConfigRuleEvaluationStatus:LastErrorCode" type:"string"`
 
 	// The error message that AWS Config returned when the rule last failed.
-	LastErrorMessage *string `type:"string"`
+	LastErrorMessage *string `json:"config:ConfigRuleEvaluationStatus:LastErrorMessage" type:"string"`
 
 	// The time that AWS Config last failed to evaluate your AWS resources against
 	// the rule.
-	LastFailedEvaluationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastFailedEvaluationTime *time.Time `json:"config:ConfigRuleEvaluationStatus:LastFailedEvaluationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that AWS Config last failed to invoke the AWS Config rule to evaluate
 	// your AWS resources.
-	LastFailedInvocationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastFailedInvocationTime *time.Time `json:"config:ConfigRuleEvaluationStatus:LastFailedInvocationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that AWS Config last successfully evaluated your AWS resources against
 	// the rule.
-	LastSuccessfulEvaluationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastSuccessfulEvaluationTime *time.Time `json:"config:ConfigRuleEvaluationStatus:LastSuccessfulEvaluationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time that AWS Config last successfully invoked the AWS Config rule to
 	// evaluate your AWS resources.
-	LastSuccessfulInvocationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastSuccessfulInvocationTime *time.Time `json:"config:ConfigRuleEvaluationStatus:LastSuccessfulInvocationTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -790,7 +790,7 @@ type ConfigSnapshotDeliveryProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The frequency with which AWS Config delivers configuration snapshots.
-	DeliveryFrequency MaximumExecutionFrequency `locationName:"deliveryFrequency" type:"string" enum:"true"`
+	DeliveryFrequency MaximumExecutionFrequency `json:"config:ConfigSnapshotDeliveryProperties:DeliveryFrequency" locationName:"deliveryFrequency" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -805,20 +805,20 @@ type ConfigStreamDeliveryInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The error code from the last attempted delivery.
-	LastErrorCode *string `locationName:"lastErrorCode" type:"string"`
+	LastErrorCode *string `json:"config:ConfigStreamDeliveryInfo:LastErrorCode" locationName:"lastErrorCode" type:"string"`
 
 	// The error message from the last attempted delivery.
-	LastErrorMessage *string `locationName:"lastErrorMessage" type:"string"`
+	LastErrorMessage *string `json:"config:ConfigStreamDeliveryInfo:LastErrorMessage" locationName:"lastErrorMessage" type:"string"`
 
 	// Status of the last attempted delivery.
 	//
 	// Note Providing an SNS topic on a DeliveryChannel (https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html)
 	// for AWS Config is optional. If the SNS delivery is turned off, the last status
 	// will be Not_Applicable.
-	LastStatus DeliveryStatus `locationName:"lastStatus" type:"string" enum:"true"`
+	LastStatus DeliveryStatus `json:"config:ConfigStreamDeliveryInfo:LastStatus" locationName:"lastStatus" type:"string" enum:"true"`
 
 	// The time from the last status change.
-	LastStatusChangeTime *time.Time `locationName:"lastStatusChangeTime" type:"timestamp" timestampFormat:"unix"`
+	LastStatusChangeTime *time.Time `json:"config:ConfigStreamDeliveryInfo:LastStatusChangeTime" locationName:"lastStatusChangeTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -833,22 +833,22 @@ type ConfigurationAggregator struct {
 	_ struct{} `type:"structure"`
 
 	// Provides a list of source accounts and regions to be aggregated.
-	AccountAggregationSources []AccountAggregationSource `type:"list"`
+	AccountAggregationSources []AccountAggregationSource `json:"config:ConfigurationAggregator:AccountAggregationSources" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the aggregator.
-	ConfigurationAggregatorArn *string `type:"string"`
+	ConfigurationAggregatorArn *string `json:"config:ConfigurationAggregator:ConfigurationAggregatorArn" type:"string"`
 
 	// The name of the aggregator.
-	ConfigurationAggregatorName *string `min:"1" type:"string"`
+	ConfigurationAggregatorName *string `json:"config:ConfigurationAggregator:ConfigurationAggregatorName" min:"1" type:"string"`
 
 	// The time stamp when the configuration aggregator was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"config:ConfigurationAggregator:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time of the last update.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"config:ConfigurationAggregator:LastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Provides an organization and list of regions to be aggregated.
-	OrganizationAggregationSource *OrganizationAggregationSource `type:"structure"`
+	OrganizationAggregationSource *OrganizationAggregationSource `json:"config:ConfigurationAggregator:OrganizationAggregationSource" type:"structure"`
 }
 
 // String returns the string representation
@@ -862,35 +862,35 @@ type ConfigurationItem struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit AWS account ID associated with the resource.
-	AccountId *string `locationName:"accountId" type:"string"`
+	AccountId *string `json:"config:ConfigurationItem:AccountId" locationName:"accountId" type:"string"`
 
 	// accoun
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"config:ConfigurationItem:Arn" locationName:"arn" type:"string"`
 
 	// The Availability Zone associated with the resource.
-	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+	AvailabilityZone *string `json:"config:ConfigurationItem:AvailabilityZone" locationName:"availabilityZone" type:"string"`
 
 	// The region where the resource resides.
-	AwsRegion *string `locationName:"awsRegion" min:"1" type:"string"`
+	AwsRegion *string `json:"config:ConfigurationItem:AwsRegion" locationName:"awsRegion" min:"1" type:"string"`
 
 	// The description of the resource configuration.
-	Configuration *string `locationName:"configuration" type:"string"`
+	Configuration *string `json:"config:ConfigurationItem:Configuration" locationName:"configuration" type:"string"`
 
 	// The time when the configuration recording was initiated.
-	ConfigurationItemCaptureTime *time.Time `locationName:"configurationItemCaptureTime" type:"timestamp" timestampFormat:"unix"`
+	ConfigurationItemCaptureTime *time.Time `json:"config:ConfigurationItem:ConfigurationItemCaptureTime" locationName:"configurationItemCaptureTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Unique MD5 hash that represents the configuration item's state.
 	//
 	// You can use MD5 hash to compare the states of two or more configuration items
 	// that are associated with the same resource.
-	ConfigurationItemMD5Hash *string `locationName:"configurationItemMD5Hash" type:"string"`
+	ConfigurationItemMD5Hash *string `json:"config:ConfigurationItem:ConfigurationItemMD5Hash" locationName:"configurationItemMD5Hash" type:"string"`
 
 	// The configuration item status.
-	ConfigurationItemStatus ConfigurationItemStatus `locationName:"configurationItemStatus" type:"string" enum:"true"`
+	ConfigurationItemStatus ConfigurationItemStatus `json:"config:ConfigurationItem:ConfigurationItemStatus" locationName:"configurationItemStatus" type:"string" enum:"true"`
 
 	// An identifier that indicates the ordering of the configuration items of a
 	// resource.
-	ConfigurationStateId *string `locationName:"configurationStateId" type:"string"`
+	ConfigurationStateId *string `json:"config:ConfigurationItem:ConfigurationStateId" locationName:"configurationStateId" type:"string"`
 
 	// A list of CloudTrail event IDs.
 	//
@@ -900,32 +900,32 @@ type ConfigurationItem struct {
 	//
 	// An empty field indicates that the current configuration was not initiated
 	// by any event.
-	RelatedEvents []string `locationName:"relatedEvents" type:"list"`
+	RelatedEvents []string `json:"config:ConfigurationItem:RelatedEvents" locationName:"relatedEvents" type:"list"`
 
 	// A list of related AWS resources.
-	Relationships []Relationship `locationName:"relationships" type:"list"`
+	Relationships []Relationship `json:"config:ConfigurationItem:Relationships" locationName:"relationships" type:"list"`
 
 	// The time stamp when the resource was created.
-	ResourceCreationTime *time.Time `locationName:"resourceCreationTime" type:"timestamp" timestampFormat:"unix"`
+	ResourceCreationTime *time.Time `json:"config:ConfigurationItem:ResourceCreationTime" locationName:"resourceCreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the resource (for example, sg-xxxxxx).
-	ResourceId *string `locationName:"resourceId" min:"1" type:"string"`
+	ResourceId *string `json:"config:ConfigurationItem:ResourceId" locationName:"resourceId" min:"1" type:"string"`
 
 	// The custom name of the resource, if available.
-	ResourceName *string `locationName:"resourceName" type:"string"`
+	ResourceName *string `json:"config:ConfigurationItem:ResourceName" locationName:"resourceName" type:"string"`
 
 	// The type of AWS resource.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"config:ConfigurationItem:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 
 	// Configuration attributes that AWS Config returns for certain resource types
 	// to supplement the information returned for the configuration parameter.
-	SupplementaryConfiguration map[string]string `locationName:"supplementaryConfiguration" type:"map"`
+	SupplementaryConfiguration map[string]string `json:"config:ConfigurationItem:SupplementaryConfiguration" locationName:"supplementaryConfiguration" type:"map"`
 
 	// A mapping of key value tags associated with the resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"config:ConfigurationItem:Tags" locationName:"tags" type:"map"`
 
 	// The version number of the resource configuration.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"config:ConfigurationItem:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -942,15 +942,15 @@ type ConfigurationRecorder struct {
 	// The name of the recorder. By default, AWS Config automatically assigns the
 	// name "default" when creating the configuration recorder. You cannot change
 	// the assigned name.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"config:ConfigurationRecorder:Name" locationName:"name" min:"1" type:"string"`
 
 	// Specifies the types of AWS resources for which AWS Config records configuration
 	// changes.
-	RecordingGroup *RecordingGroup `locationName:"recordingGroup" type:"structure"`
+	RecordingGroup *RecordingGroup `json:"config:ConfigurationRecorder:RecordingGroup" locationName:"recordingGroup" type:"structure"`
 
 	// Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources
 	// associated with the account.
-	RoleARN *string `locationName:"roleARN" type:"string"`
+	RoleARN *string `json:"config:ConfigurationRecorder:RoleARN" locationName:"roleARN" type:"string"`
 }
 
 // String returns the string representation
@@ -977,28 +977,28 @@ type ConfigurationRecorderStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The error code indicating that the recording failed.
-	LastErrorCode *string `locationName:"lastErrorCode" type:"string"`
+	LastErrorCode *string `json:"config:ConfigurationRecorderStatus:LastErrorCode" locationName:"lastErrorCode" type:"string"`
 
 	// The message indicating that the recording failed due to an error.
-	LastErrorMessage *string `locationName:"lastErrorMessage" type:"string"`
+	LastErrorMessage *string `json:"config:ConfigurationRecorderStatus:LastErrorMessage" locationName:"lastErrorMessage" type:"string"`
 
 	// The time the recorder was last started.
-	LastStartTime *time.Time `locationName:"lastStartTime" type:"timestamp" timestampFormat:"unix"`
+	LastStartTime *time.Time `json:"config:ConfigurationRecorderStatus:LastStartTime" locationName:"lastStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The last (previous) status of the recorder.
-	LastStatus RecorderStatus `locationName:"lastStatus" type:"string" enum:"true"`
+	LastStatus RecorderStatus `json:"config:ConfigurationRecorderStatus:LastStatus" locationName:"lastStatus" type:"string" enum:"true"`
 
 	// The time when the status was last changed.
-	LastStatusChangeTime *time.Time `locationName:"lastStatusChangeTime" type:"timestamp" timestampFormat:"unix"`
+	LastStatusChangeTime *time.Time `json:"config:ConfigurationRecorderStatus:LastStatusChangeTime" locationName:"lastStatusChangeTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the recorder was last stopped.
-	LastStopTime *time.Time `locationName:"lastStopTime" type:"timestamp" timestampFormat:"unix"`
+	LastStopTime *time.Time `json:"config:ConfigurationRecorderStatus:LastStopTime" locationName:"lastStopTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the configuration recorder.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"config:ConfigurationRecorderStatus:Name" locationName:"name" type:"string"`
 
 	// Specifies whether or not the recorder is currently recording.
-	Recording *bool `locationName:"recording" type:"boolean"`
+	Recording *bool `json:"config:ConfigurationRecorderStatus:Recording" locationName:"recording" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1014,14 +1014,14 @@ type DeliveryChannel struct {
 
 	// The options for how often AWS Config delivers configuration snapshots to
 	// the Amazon S3 bucket.
-	ConfigSnapshotDeliveryProperties *ConfigSnapshotDeliveryProperties `locationName:"configSnapshotDeliveryProperties" type:"structure"`
+	ConfigSnapshotDeliveryProperties *ConfigSnapshotDeliveryProperties `json:"config:DeliveryChannel:ConfigSnapshotDeliveryProperties" locationName:"configSnapshotDeliveryProperties" type:"structure"`
 
 	// The name of the delivery channel. By default, AWS Config assigns the name
 	// "default" when creating the delivery channel. To change the delivery channel
 	// name, you must use the DeleteDeliveryChannel action to delete your current
 	// delivery channel, and then you must use the PutDeliveryChannel command to
 	// create a delivery channel that has the desired name.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"config:DeliveryChannel:Name" locationName:"name" min:"1" type:"string"`
 
 	// The name of the Amazon S3 bucket to which AWS Config delivers configuration
 	// snapshots and configuration history files.
@@ -1030,10 +1030,10 @@ type DeliveryChannel struct {
 	// must have policies that grant access permissions to AWS Config. For more
 	// information, see Permissions for the Amazon S3 Bucket (https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html)
 	// in the AWS Config Developer Guide.
-	S3BucketName *string `locationName:"s3BucketName" type:"string"`
+	S3BucketName *string `json:"config:DeliveryChannel:S3BucketName" locationName:"s3BucketName" type:"string"`
 
 	// The prefix for the specified Amazon S3 bucket.
-	S3KeyPrefix *string `locationName:"s3KeyPrefix" type:"string"`
+	S3KeyPrefix *string `json:"config:DeliveryChannel:S3KeyPrefix" locationName:"s3KeyPrefix" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config
 	// sends notifications about configuration changes.
@@ -1042,7 +1042,7 @@ type DeliveryChannel struct {
 	// that grant access permissions to AWS Config. For more information, see Permissions
 	// for the Amazon SNS Topic (https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html)
 	// in the AWS Config Developer Guide.
-	SnsTopicARN *string `locationName:"snsTopicARN" type:"string"`
+	SnsTopicARN *string `json:"config:DeliveryChannel:SnsTopicARN" locationName:"snsTopicARN" type:"string"`
 }
 
 // String returns the string representation
@@ -1072,18 +1072,18 @@ type DeliveryChannelStatus struct {
 
 	// A list that contains the status of the delivery of the configuration history
 	// to the specified Amazon S3 bucket.
-	ConfigHistoryDeliveryInfo *ConfigExportDeliveryInfo `locationName:"configHistoryDeliveryInfo" type:"structure"`
+	ConfigHistoryDeliveryInfo *ConfigExportDeliveryInfo `json:"config:DeliveryChannelStatus:ConfigHistoryDeliveryInfo" locationName:"configHistoryDeliveryInfo" type:"structure"`
 
 	// A list containing the status of the delivery of the snapshot to the specified
 	// Amazon S3 bucket.
-	ConfigSnapshotDeliveryInfo *ConfigExportDeliveryInfo `locationName:"configSnapshotDeliveryInfo" type:"structure"`
+	ConfigSnapshotDeliveryInfo *ConfigExportDeliveryInfo `json:"config:DeliveryChannelStatus:ConfigSnapshotDeliveryInfo" locationName:"configSnapshotDeliveryInfo" type:"structure"`
 
 	// A list containing the status of the delivery of the configuration stream
 	// notification to the specified Amazon SNS topic.
-	ConfigStreamDeliveryInfo *ConfigStreamDeliveryInfo `locationName:"configStreamDeliveryInfo" type:"structure"`
+	ConfigStreamDeliveryInfo *ConfigStreamDeliveryInfo `json:"config:DeliveryChannelStatus:ConfigStreamDeliveryInfo" locationName:"configStreamDeliveryInfo" type:"structure"`
 
 	// The name of the delivery channel.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"config:DeliveryChannelStatus:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -1098,17 +1098,17 @@ type Evaluation struct {
 	_ struct{} `type:"structure"`
 
 	// Supplementary information about how the evaluation determined the compliance.
-	Annotation *string `min:"1" type:"string"`
+	Annotation *string `json:"config:Evaluation:Annotation" min:"1" type:"string"`
 
 	// The ID of the AWS resource that was evaluated.
 	//
 	// ComplianceResourceId is a required field
-	ComplianceResourceId *string `min:"1" type:"string" required:"true"`
+	ComplianceResourceId *string `json:"config:Evaluation:ComplianceResourceId" min:"1" type:"string" required:"true"`
 
 	// The type of AWS resource that was evaluated.
 	//
 	// ComplianceResourceType is a required field
-	ComplianceResourceType *string `min:"1" type:"string" required:"true"`
+	ComplianceResourceType *string `json:"config:Evaluation:ComplianceResourceType" min:"1" type:"string" required:"true"`
 
 	// Indicates whether the AWS resource complies with the AWS Config rule that
 	// it was evaluated against.
@@ -1123,7 +1123,7 @@ type Evaluation struct {
 	// to AWS Config.
 	//
 	// ComplianceType is a required field
-	ComplianceType ComplianceType `type:"string" required:"true" enum:"true"`
+	ComplianceType ComplianceType `json:"config:Evaluation:ComplianceType" type:"string" required:"true" enum:"true"`
 
 	// The time of the event in AWS Config that triggered the evaluation. For event-based
 	// evaluations, the time indicates when AWS Config created the configuration
@@ -1132,7 +1132,7 @@ type Evaluation struct {
 	// (for example, every 24 hours).
 	//
 	// OrderingTimestamp is a required field
-	OrderingTimestamp *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	OrderingTimestamp *time.Time `json:"config:Evaluation:OrderingTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -1182,7 +1182,7 @@ type EvaluationResult struct {
 	_ struct{} `type:"structure"`
 
 	// Supplementary information about how the evaluation determined the compliance.
-	Annotation *string `min:"1" type:"string"`
+	Annotation *string `json:"config:EvaluationResult:Annotation" min:"1" type:"string"`
 
 	// Indicates whether the AWS resource complies with the AWS Config rule that
 	// evaluated it.
@@ -1190,21 +1190,21 @@ type EvaluationResult struct {
 	// For the EvaluationResult data type, AWS Config supports only the COMPLIANT,
 	// NON_COMPLIANT, and NOT_APPLICABLE values. AWS Config does not support the
 	// INSUFFICIENT_DATA value for the EvaluationResult data type.
-	ComplianceType ComplianceType `type:"string" enum:"true"`
+	ComplianceType ComplianceType `json:"config:EvaluationResult:ComplianceType" type:"string" enum:"true"`
 
 	// The time when the AWS Config rule evaluated the AWS resource.
-	ConfigRuleInvokedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ConfigRuleInvokedTime *time.Time `json:"config:EvaluationResult:ConfigRuleInvokedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Uniquely identifies the evaluation result.
-	EvaluationResultIdentifier *EvaluationResultIdentifier `type:"structure"`
+	EvaluationResultIdentifier *EvaluationResultIdentifier `json:"config:EvaluationResult:EvaluationResultIdentifier" type:"structure"`
 
 	// The time when AWS Config recorded the evaluation result.
-	ResultRecordedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ResultRecordedTime *time.Time `json:"config:EvaluationResult:ResultRecordedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// An encrypted token that associates an evaluation with an AWS Config rule.
 	// The token identifies the rule, the AWS resource being evaluated, and the
 	// event that triggered the evaluation.
-	ResultToken *string `type:"string"`
+	ResultToken *string `json:"config:EvaluationResult:ResultToken" type:"string"`
 }
 
 // String returns the string representation
@@ -1219,13 +1219,13 @@ type EvaluationResultIdentifier struct {
 
 	// Identifies an AWS Config rule used to evaluate an AWS resource, and provides
 	// the type and ID of the evaluated resource.
-	EvaluationResultQualifier *EvaluationResultQualifier `type:"structure"`
+	EvaluationResultQualifier *EvaluationResultQualifier `json:"config:EvaluationResultIdentifier:EvaluationResultQualifier" type:"structure"`
 
 	// The time of the event that triggered the evaluation of your AWS resources.
 	// The time can indicate when AWS Config delivered a configuration item change
 	// notification, or it can indicate when AWS Config delivered the configuration
 	// snapshot, depending on which event triggered the evaluation.
-	OrderingTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	OrderingTimestamp *time.Time `json:"config:EvaluationResultIdentifier:OrderingTimestamp" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1240,13 +1240,13 @@ type EvaluationResultQualifier struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the AWS Config rule that was used in the evaluation.
-	ConfigRuleName *string `min:"1" type:"string"`
+	ConfigRuleName *string `json:"config:EvaluationResultQualifier:ConfigRuleName" min:"1" type:"string"`
 
 	// The ID of the evaluated AWS resource.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"config:EvaluationResultQualifier:ResourceId" min:"1" type:"string"`
 
 	// The type of AWS resource that was evaluated.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"config:EvaluationResultQualifier:ResourceType" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1260,10 +1260,10 @@ type FailedRemediationBatch struct {
 	_ struct{} `type:"structure"`
 
 	// Returns remediation configurations of the failed items.
-	FailedItems []RemediationConfiguration `type:"list"`
+	FailedItems []RemediationConfiguration `json:"config:FailedRemediationBatch:FailedItems" type:"list"`
 
 	// Returns a failure message. For example, the resource is already compliant.
-	FailureMessage *string `type:"string"`
+	FailureMessage *string `json:"config:FailedRemediationBatch:FailureMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -1277,7 +1277,7 @@ type FieldInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the field.
-	Name *string `type:"string"`
+	Name *string `json:"config:FieldInfo:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1294,12 +1294,12 @@ type GroupedResourceCount struct {
 	// example, region1, region2 if the region was chosen as GroupByKey.
 	//
 	// GroupName is a required field
-	GroupName *string `min:"1" type:"string" required:"true"`
+	GroupName *string `json:"config:GroupedResourceCount:GroupName" min:"1" type:"string" required:"true"`
 
 	// The number of resources in the group.
 	//
 	// ResourceCount is a required field
-	ResourceCount *int64 `type:"long" required:"true"`
+	ResourceCount *int64 `json:"config:GroupedResourceCount:ResourceCount" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1312,19 +1312,19 @@ type MemberAccountStatus struct {
 	_ struct{} `type:"structure"`
 
 	// AccountId is a required field
-	AccountId *string `type:"string" required:"true"`
+	AccountId *string `json:"config:MemberAccountStatus:AccountId" type:"string" required:"true"`
 
 	// ConfigRuleName is a required field
-	ConfigRuleName *string `min:"1" type:"string" required:"true"`
+	ConfigRuleName *string `json:"config:MemberAccountStatus:ConfigRuleName" min:"1" type:"string" required:"true"`
 
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"config:MemberAccountStatus:ErrorCode" type:"string"`
 
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"config:MemberAccountStatus:ErrorMessage" type:"string"`
 
-	LastUpdateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"config:MemberAccountStatus:LastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// MemberAccountRuleStatus is a required field
-	MemberAccountRuleStatus MemberAccountRuleStatus `type:"string" required:"true" enum:"true"`
+	MemberAccountRuleStatus MemberAccountRuleStatus `json:"config:MemberAccountStatus:MemberAccountRuleStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1339,16 +1339,16 @@ type OrganizationAggregationSource struct {
 	_ struct{} `type:"structure"`
 
 	// If true, aggregate existing AWS Config regions and future regions.
-	AllAwsRegions *bool `type:"boolean"`
+	AllAwsRegions *bool `json:"config:OrganizationAggregationSource:AllAwsRegions" type:"boolean"`
 
 	// The source regions being aggregated.
-	AwsRegions []string `min:"1" type:"list"`
+	AwsRegions []string `json:"config:OrganizationAggregationSource:AwsRegions" min:"1" type:"list"`
 
 	// ARN of the IAM role used to retrieve AWS Organization details associated
 	// with the aggregator account.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"config:OrganizationAggregationSource:RoleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1377,19 +1377,19 @@ func (s *OrganizationAggregationSource) Validate() error {
 type OrganizationConfigRule struct {
 	_ struct{} `type:"structure"`
 
-	ExcludedAccounts []string `type:"list"`
+	ExcludedAccounts []string `json:"config:OrganizationConfigRule:ExcludedAccounts" type:"list"`
 
-	LastUpdateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"config:OrganizationConfigRule:LastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// OrganizationConfigRuleArn is a required field
-	OrganizationConfigRuleArn *string `min:"1" type:"string" required:"true"`
+	OrganizationConfigRuleArn *string `json:"config:OrganizationConfigRule:OrganizationConfigRuleArn" min:"1" type:"string" required:"true"`
 
 	// OrganizationConfigRuleName is a required field
-	OrganizationConfigRuleName *string `min:"1" type:"string" required:"true"`
+	OrganizationConfigRuleName *string `json:"config:OrganizationConfigRule:OrganizationConfigRuleName" min:"1" type:"string" required:"true"`
 
-	OrganizationCustomRuleMetadata *OrganizationCustomRuleMetadata `type:"structure"`
+	OrganizationCustomRuleMetadata *OrganizationCustomRuleMetadata `json:"config:OrganizationConfigRule:OrganizationCustomRuleMetadata" type:"structure"`
 
-	OrganizationManagedRuleMetadata *OrganizationManagedRuleMetadata `type:"structure"`
+	OrganizationManagedRuleMetadata *OrganizationManagedRuleMetadata `json:"config:OrganizationConfigRule:OrganizationManagedRuleMetadata" type:"structure"`
 }
 
 // String returns the string representation
@@ -1401,17 +1401,17 @@ func (s OrganizationConfigRule) String() string {
 type OrganizationConfigRuleStatus struct {
 	_ struct{} `type:"structure"`
 
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"config:OrganizationConfigRuleStatus:ErrorCode" type:"string"`
 
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"config:OrganizationConfigRuleStatus:ErrorMessage" type:"string"`
 
-	LastUpdateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"config:OrganizationConfigRuleStatus:LastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// OrganizationConfigRuleName is a required field
-	OrganizationConfigRuleName *string `min:"1" type:"string" required:"true"`
+	OrganizationConfigRuleName *string `json:"config:OrganizationConfigRuleStatus:OrganizationConfigRuleName" min:"1" type:"string" required:"true"`
 
 	// OrganizationRuleStatus is a required field
-	OrganizationRuleStatus OrganizationRuleStatus `type:"string" required:"true" enum:"true"`
+	OrganizationRuleStatus OrganizationRuleStatus `json:"config:OrganizationConfigRuleStatus:OrganizationRuleStatus" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1423,25 +1423,25 @@ func (s OrganizationConfigRuleStatus) String() string {
 type OrganizationCustomRuleMetadata struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `json:"config:OrganizationCustomRuleMetadata:Description" type:"string"`
 
-	InputParameters *string `min:"1" type:"string"`
+	InputParameters *string `json:"config:OrganizationCustomRuleMetadata:InputParameters" min:"1" type:"string"`
 
 	// LambdaFunctionArn is a required field
-	LambdaFunctionArn *string `min:"1" type:"string" required:"true"`
+	LambdaFunctionArn *string `json:"config:OrganizationCustomRuleMetadata:LambdaFunctionArn" min:"1" type:"string" required:"true"`
 
-	MaximumExecutionFrequency MaximumExecutionFrequency `type:"string" enum:"true"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `json:"config:OrganizationCustomRuleMetadata:MaximumExecutionFrequency" type:"string" enum:"true"`
 
 	// OrganizationConfigRuleTriggerTypes is a required field
-	OrganizationConfigRuleTriggerTypes []OrganizationConfigRuleTriggerType `type:"list" required:"true"`
+	OrganizationConfigRuleTriggerTypes []OrganizationConfigRuleTriggerType `json:"config:OrganizationCustomRuleMetadata:OrganizationConfigRuleTriggerTypes" type:"list" required:"true"`
 
-	ResourceIdScope *string `min:"1" type:"string"`
+	ResourceIdScope *string `json:"config:OrganizationCustomRuleMetadata:ResourceIdScope" min:"1" type:"string"`
 
-	ResourceTypesScope []string `type:"list"`
+	ResourceTypesScope []string `json:"config:OrganizationCustomRuleMetadata:ResourceTypesScope" type:"list"`
 
-	TagKeyScope *string `min:"1" type:"string"`
+	TagKeyScope *string `json:"config:OrganizationCustomRuleMetadata:TagKeyScope" min:"1" type:"string"`
 
-	TagValueScope *string `min:"1" type:"string"`
+	TagValueScope *string `json:"config:OrganizationCustomRuleMetadata:TagValueScope" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1486,22 +1486,22 @@ func (s *OrganizationCustomRuleMetadata) Validate() error {
 type OrganizationManagedRuleMetadata struct {
 	_ struct{} `type:"structure"`
 
-	Description *string `type:"string"`
+	Description *string `json:"config:OrganizationManagedRuleMetadata:Description" type:"string"`
 
-	InputParameters *string `min:"1" type:"string"`
+	InputParameters *string `json:"config:OrganizationManagedRuleMetadata:InputParameters" min:"1" type:"string"`
 
-	MaximumExecutionFrequency MaximumExecutionFrequency `type:"string" enum:"true"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `json:"config:OrganizationManagedRuleMetadata:MaximumExecutionFrequency" type:"string" enum:"true"`
 
-	ResourceIdScope *string `min:"1" type:"string"`
+	ResourceIdScope *string `json:"config:OrganizationManagedRuleMetadata:ResourceIdScope" min:"1" type:"string"`
 
-	ResourceTypesScope []string `type:"list"`
+	ResourceTypesScope []string `json:"config:OrganizationManagedRuleMetadata:ResourceTypesScope" type:"list"`
 
 	// RuleIdentifier is a required field
-	RuleIdentifier *string `min:"1" type:"string" required:"true"`
+	RuleIdentifier *string `json:"config:OrganizationManagedRuleMetadata:RuleIdentifier" min:"1" type:"string" required:"true"`
 
-	TagKeyScope *string `min:"1" type:"string"`
+	TagKeyScope *string `json:"config:OrganizationManagedRuleMetadata:TagKeyScope" min:"1" type:"string"`
 
-	TagValueScope *string `min:"1" type:"string"`
+	TagValueScope *string `json:"config:OrganizationManagedRuleMetadata:TagValueScope" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1545,10 +1545,10 @@ type PendingAggregationRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit account ID of the account requesting to aggregate data.
-	RequesterAccountId *string `type:"string"`
+	RequesterAccountId *string `json:"config:PendingAggregationRequest:RequesterAccountId" type:"string"`
 
 	// The region requesting to aggregate data.
-	RequesterAwsRegion *string `min:"1" type:"string"`
+	RequesterAwsRegion *string `json:"config:PendingAggregationRequest:RequesterAwsRegion" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1562,7 +1562,7 @@ type QueryInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a FieldInfo object.
-	SelectFields []FieldInfo `type:"list"`
+	SelectFields []FieldInfo `json:"config:QueryInfo:SelectFields" type:"list"`
 }
 
 // String returns the string representation
@@ -1611,7 +1611,7 @@ type RecordingGroup struct {
 	// of regional resource, it starts recording resources of that type automatically.
 	//
 	// If you set this option to true, you cannot enumerate a list of resourceTypes.
-	AllSupported *bool `locationName:"allSupported" type:"boolean"`
+	AllSupported *bool `json:"config:RecordingGroup:AllSupported" locationName:"allSupported" type:"boolean"`
 
 	// Specifies whether AWS Config includes all supported types of global resources
 	// (for example, IAM resources) with the resources that it records.
@@ -1625,7 +1625,7 @@ type RecordingGroup struct {
 	// The configuration details for any global resource are the same in all regions.
 	// To prevent duplicate configuration items, you should consider customizing
 	// AWS Config in only one region to record global resources.
-	IncludeGlobalResourceTypes *bool `locationName:"includeGlobalResourceTypes" type:"boolean"`
+	IncludeGlobalResourceTypes *bool `json:"config:RecordingGroup:IncludeGlobalResourceTypes" locationName:"includeGlobalResourceTypes" type:"boolean"`
 
 	// A comma-separated list that specifies the types of AWS resources for which
 	// AWS Config records configuration changes (for example, AWS::EC2::Instance
@@ -1640,7 +1640,7 @@ type RecordingGroup struct {
 	//
 	// For a list of valid resourceTypes values, see the resourceType Value column
 	// in Supported AWS Resource Types (https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources).
-	ResourceTypes []ResourceType `locationName:"resourceTypes" type:"list"`
+	ResourceTypes []ResourceType `json:"config:RecordingGroup:ResourceTypes" locationName:"resourceTypes" type:"list"`
 }
 
 // String returns the string representation
@@ -1654,16 +1654,16 @@ type Relationship struct {
 	_ struct{} `type:"structure"`
 
 	// The type of relationship with the related resource.
-	RelationshipName *string `locationName:"relationshipName" type:"string"`
+	RelationshipName *string `json:"config:Relationship:RelationshipName" locationName:"relationshipName" type:"string"`
 
 	// The ID of the related resource (for example, sg-xxxxxx).
-	ResourceId *string `locationName:"resourceId" min:"1" type:"string"`
+	ResourceId *string `json:"config:Relationship:ResourceId" locationName:"resourceId" min:"1" type:"string"`
 
 	// The custom name of the related resource, if available.
-	ResourceName *string `locationName:"resourceName" type:"string"`
+	ResourceName *string `json:"config:Relationship:ResourceName" locationName:"resourceName" type:"string"`
 
 	// The resource type of the related resource.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"config:Relationship:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1681,26 +1681,26 @@ type RemediationConfiguration struct {
 	// The name of the AWS Config rule.
 	//
 	// ConfigRuleName is a required field
-	ConfigRuleName *string `min:"1" type:"string" required:"true"`
+	ConfigRuleName *string `json:"config:RemediationConfiguration:ConfigRuleName" min:"1" type:"string" required:"true"`
 
 	// An object of the RemediationParameterValue.
-	Parameters map[string]RemediationParameterValue `type:"map"`
+	Parameters map[string]RemediationParameterValue `json:"config:RemediationConfiguration:Parameters" type:"map"`
 
 	// The type of a resource.
-	ResourceType *string `type:"string"`
+	ResourceType *string `json:"config:RemediationConfiguration:ResourceType" type:"string"`
 
 	// Target ID is the name of the public document.
 	//
 	// TargetId is a required field
-	TargetId *string `min:"1" type:"string" required:"true"`
+	TargetId *string `json:"config:RemediationConfiguration:TargetId" min:"1" type:"string" required:"true"`
 
 	// The type of the target. Target executes remediation. For example, SSM document.
 	//
 	// TargetType is a required field
-	TargetType RemediationTargetType `type:"string" required:"true" enum:"true"`
+	TargetType RemediationTargetType `json:"config:RemediationConfiguration:TargetType" type:"string" required:"true" enum:"true"`
 
 	// Version of the target. For example, version of the SSM document.
-	TargetVersion *string `type:"string"`
+	TargetVersion *string `json:"config:RemediationConfiguration:TargetVersion" type:"string"`
 }
 
 // String returns the string representation
@@ -1742,20 +1742,20 @@ type RemediationExecutionStatus struct {
 	_ struct{} `type:"structure"`
 
 	// Start time when the remediation was executed.
-	InvocationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	InvocationTime *time.Time `json:"config:RemediationExecutionStatus:InvocationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time when the remediation execution was last updated.
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"config:RemediationExecutionStatus:LastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The details that identify a resource within AWS Config, including the resource
 	// type and resource ID.
-	ResourceKey *ResourceKey `type:"structure"`
+	ResourceKey *ResourceKey `json:"config:RemediationExecutionStatus:ResourceKey" type:"structure"`
 
 	// ENUM of the values.
-	State RemediationExecutionState `type:"string" enum:"true"`
+	State RemediationExecutionState `json:"config:RemediationExecutionStatus:State" type:"string" enum:"true"`
 
 	// Details of every step.
-	StepDetails []RemediationExecutionStep `type:"list"`
+	StepDetails []RemediationExecutionStep `json:"config:RemediationExecutionStatus:StepDetails" type:"list"`
 }
 
 // String returns the string representation
@@ -1769,19 +1769,19 @@ type RemediationExecutionStep struct {
 	_ struct{} `type:"structure"`
 
 	// An error message if the step was interrupted during execution.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"config:RemediationExecutionStep:ErrorMessage" type:"string"`
 
 	// The details of the step.
-	Name *string `type:"string"`
+	Name *string `json:"config:RemediationExecutionStep:Name" type:"string"`
 
 	// The time when the step started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"config:RemediationExecutionStep:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The valid status of the step.
-	State RemediationExecutionStepState `type:"string" enum:"true"`
+	State RemediationExecutionStepState `json:"config:RemediationExecutionStep:State" type:"string" enum:"true"`
 
 	// The time when the step stopped.
-	StopTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StopTime *time.Time `json:"config:RemediationExecutionStep:StopTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1796,10 +1796,10 @@ type RemediationParameterValue struct {
 	_ struct{} `type:"structure"`
 
 	// The value is dynamic and changes at run-time.
-	ResourceValue *ResourceValue `type:"structure"`
+	ResourceValue *ResourceValue `json:"config:RemediationParameterValue:ResourceValue" type:"structure"`
 
 	// The value is static and does not change at run-time.
-	StaticValue *StaticValue `type:"structure"`
+	StaticValue *StaticValue `json:"config:RemediationParameterValue:StaticValue" type:"structure"`
 }
 
 // String returns the string representation
@@ -1813,10 +1813,10 @@ type ResourceCount struct {
 	_ struct{} `type:"structure"`
 
 	// The number of resources.
-	Count *int64 `locationName:"count" type:"long"`
+	Count *int64 `json:"config:ResourceCount:Count" locationName:"count" type:"long"`
 
 	// The resource type (for example, "AWS::EC2::Instance").
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"config:ResourceCount:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1830,13 +1830,13 @@ type ResourceCountFilters struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit ID of the account.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"config:ResourceCountFilters:AccountId" type:"string"`
 
 	// The region where the account is located.
-	Region *string `min:"1" type:"string"`
+	Region *string `json:"config:ResourceCountFilters:Region" min:"1" type:"string"`
 
 	// The type of the AWS resource.
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"config:ResourceCountFilters:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1864,16 +1864,16 @@ type ResourceFilters struct {
 	_ struct{} `type:"structure"`
 
 	// The 12-digit source account ID.
-	AccountId *string `type:"string"`
+	AccountId *string `json:"config:ResourceFilters:AccountId" type:"string"`
 
 	// The source region.
-	Region *string `min:"1" type:"string"`
+	Region *string `json:"config:ResourceFilters:Region" min:"1" type:"string"`
 
 	// The ID of the resource.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"config:ResourceFilters:ResourceId" min:"1" type:"string"`
 
 	// The name of the resource.
-	ResourceName *string `type:"string"`
+	ResourceName *string `json:"config:ResourceFilters:ResourceName" type:"string"`
 }
 
 // String returns the string representation
@@ -1904,16 +1904,16 @@ type ResourceIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The time that the resource was deleted.
-	ResourceDeletionTime *time.Time `locationName:"resourceDeletionTime" type:"timestamp" timestampFormat:"unix"`
+	ResourceDeletionTime *time.Time `json:"config:ResourceIdentifier:ResourceDeletionTime" locationName:"resourceDeletionTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the resource (for example, sg-xxxxxx).
-	ResourceId *string `locationName:"resourceId" min:"1" type:"string"`
+	ResourceId *string `json:"config:ResourceIdentifier:ResourceId" locationName:"resourceId" min:"1" type:"string"`
 
 	// The custom name of the resource (if available).
-	ResourceName *string `locationName:"resourceName" type:"string"`
+	ResourceName *string `json:"config:ResourceIdentifier:ResourceName" locationName:"resourceName" type:"string"`
 
 	// The type of resource.
-	ResourceType ResourceType `locationName:"resourceType" type:"string" enum:"true"`
+	ResourceType ResourceType `json:"config:ResourceIdentifier:ResourceType" locationName:"resourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1930,12 +1930,12 @@ type ResourceKey struct {
 	// The ID of the resource (for example., sg-xxxxxx).
 	//
 	// ResourceId is a required field
-	ResourceId *string `locationName:"resourceId" min:"1" type:"string" required:"true"`
+	ResourceId *string `json:"config:ResourceKey:ResourceId" locationName:"resourceId" min:"1" type:"string" required:"true"`
 
 	// The resource type.
 	//
 	// ResourceType is a required field
-	ResourceType ResourceType `locationName:"resourceType" type:"string" required:"true" enum:"true"`
+	ResourceType ResourceType `json:"config:ResourceKey:ResourceType" locationName:"resourceType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1969,7 +1969,7 @@ type ResourceValue struct {
 	_ struct{} `type:"structure"`
 
 	// The value is a resource ID.
-	Value ResourceValueType `type:"string" enum:"true"`
+	Value ResourceValueType `json:"config:ResourceValue:Value" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1987,14 +1987,14 @@ type RetentionConfiguration struct {
 	// The name of the retention configuration object.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"config:RetentionConfiguration:Name" min:"1" type:"string" required:"true"`
 
 	// Number of days AWS Config stores your historical information.
 	//
 	// Currently, only applicable to the configuration item history.
 	//
 	// RetentionPeriodInDays is a required field
-	RetentionPeriodInDays *int64 `min:"30" type:"integer" required:"true"`
+	RetentionPeriodInDays *int64 `json:"config:RetentionConfiguration:RetentionPeriodInDays" min:"30" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2015,21 +2015,21 @@ type Scope struct {
 	// The ID of the only AWS resource that you want to trigger an evaluation for
 	// the rule. If you specify a resource ID, you must specify one resource type
 	// for ComplianceResourceTypes.
-	ComplianceResourceId *string `min:"1" type:"string"`
+	ComplianceResourceId *string `json:"config:Scope:ComplianceResourceId" min:"1" type:"string"`
 
 	// The resource types of only those AWS resources that you want to trigger an
 	// evaluation for the rule. You can only specify one type if you also specify
 	// a resource ID for ComplianceResourceId.
-	ComplianceResourceTypes []string `type:"list"`
+	ComplianceResourceTypes []string `json:"config:Scope:ComplianceResourceTypes" type:"list"`
 
 	// The tag key that is applied to only those AWS resources that you want to
 	// trigger an evaluation for the rule.
-	TagKey *string `min:"1" type:"string"`
+	TagKey *string `json:"config:Scope:TagKey" min:"1" type:"string"`
 
 	// The tag value applied to only those AWS resources that you want to trigger
 	// an evaluation for the rule. If you specify a value for TagValue, you must
 	// also specify a value for TagKey.
-	TagValue *string `min:"1" type:"string"`
+	TagValue *string `json:"config:Scope:TagValue" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2065,11 +2065,11 @@ type Source struct {
 	// Indicates whether AWS or the customer owns and manages the AWS Config rule.
 	//
 	// Owner is a required field
-	Owner Owner `type:"string" required:"true" enum:"true"`
+	Owner Owner `json:"config:Source:Owner" type:"string" required:"true" enum:"true"`
 
 	// Provides the source and type of the event that causes AWS Config to evaluate
 	// your AWS resources.
-	SourceDetails []SourceDetail `type:"list"`
+	SourceDetails []SourceDetail `json:"config:Source:SourceDetails" type:"list"`
 
 	// For AWS Config managed rules, a predefined identifier from a list. For example,
 	// IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using
@@ -2079,7 +2079,7 @@ type Source struct {
 	// rule's AWS Lambda function, such as arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name.
 	//
 	// SourceIdentifier is a required field
-	SourceIdentifier *string `min:"1" type:"string" required:"true"`
+	SourceIdentifier *string `json:"config:Source:SourceIdentifier" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2118,7 +2118,7 @@ type SourceDetail struct {
 
 	// The source of the event, such as an AWS service, that triggers AWS Config
 	// to evaluate your AWS resources.
-	EventSource EventSource `type:"string" enum:"true"`
+	EventSource EventSource `json:"config:SourceDetail:EventSource" type:"string" enum:"true"`
 
 	// The frequency at which you want AWS Config to run evaluations for a custom
 	// rule with a periodic trigger. If you specify a value for MaximumExecutionFrequency,
@@ -2132,7 +2132,7 @@ type SourceDetail struct {
 	// each valid value. For example, if you choose Three_Hours, AWS Config runs
 	// evaluations once every three hours. In this case, Three_Hours is the frequency
 	// of this rule.
-	MaximumExecutionFrequency MaximumExecutionFrequency `type:"string" enum:"true"`
+	MaximumExecutionFrequency MaximumExecutionFrequency `json:"config:SourceDetail:MaximumExecutionFrequency" type:"string" enum:"true"`
 
 	// The type of notification that triggers AWS Config to run an evaluation for
 	// a rule. You can specify the following notification types:
@@ -2154,7 +2154,7 @@ type SourceDetail struct {
 	// If you want your custom rule to be triggered by configuration changes, specify
 	// two SourceDetail objects, one for ConfigurationItemChangeNotification and
 	// one for OversizedConfigurationItemChangeNotification.
-	MessageType MessageType `type:"string" enum:"true"`
+	MessageType MessageType `json:"config:SourceDetail:MessageType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2168,7 +2168,7 @@ type StaticValue struct {
 	_ struct{} `type:"structure"`
 
 	// A list of values. For example, the ARN of the assumed role.
-	Values []string `type:"list"`
+	Values []string `json:"config:StaticValue:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -2180,9 +2180,9 @@ func (s StaticValue) String() string {
 type StatusDetailFilters struct {
 	_ struct{} `type:"structure"`
 
-	AccountId *string `type:"string"`
+	AccountId *string `json:"config:StatusDetailFilters:AccountId" type:"string"`
 
-	MemberAccountRuleStatus MemberAccountRuleStatus `type:"string" enum:"true"`
+	MemberAccountRuleStatus MemberAccountRuleStatus `json:"config:StatusDetailFilters:MemberAccountRuleStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2200,11 +2200,11 @@ type Tag struct {
 
 	// One part of a key-value pair that make up a tag. A key is a general label
 	// that acts like a category for more specific tag values.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"config:Tag:Key" min:"1" type:"string"`
 
 	// The optional part of a key-value pair that make up a tag. A value acts as
 	// a descriptor within a tag category (key).
-	Value *string `type:"string"`
+	Value *string `json:"config:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

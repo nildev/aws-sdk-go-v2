@@ -184,10 +184,10 @@ type CreateNetworkOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for the first member within the network.
-	MemberId *string `min:"1" type:"string"`
+	MemberId *string `json:"managedblockchain:CreateNetworkOutput:MemberId" min:"1" type:"string"`
 
 	// The unique identifier for the network.
-	NetworkId *string `min:"1" type:"string"`
+	NetworkId *string `json:"managedblockchain:CreateNetworkOutput:NetworkId" min:"1" type:"string"`
 }
 
 // String returns the string representation

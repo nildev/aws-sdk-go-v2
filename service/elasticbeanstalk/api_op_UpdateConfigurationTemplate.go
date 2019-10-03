@@ -95,13 +95,13 @@ type UpdateConfigurationTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the application associated with this configuration set.
-	ApplicationName *string `min:"1" type:"string"`
+	ApplicationName *string `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:ApplicationName" min:"1" type:"string"`
 
 	// The date (in UTC time) when this configuration set was created.
-	DateCreated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateCreated *time.Time `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:DateCreated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The date (in UTC time) when this configuration set was last modified.
-	DateUpdated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	DateUpdated *time.Time `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:DateUpdated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// If this configuration set is associated with an environment, the DeploymentStatus
 	// parameter indicates the deployment status of this configuration set:
@@ -115,27 +115,27 @@ type UpdateConfigurationTemplateOutput struct {
 	//    associated running environment.
 	//
 	//    * failed: This is a draft configuration that failed to successfully deploy.
-	DeploymentStatus ConfigurationDeploymentStatus `type:"string" enum:"true"`
+	DeploymentStatus ConfigurationDeploymentStatus `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:DeploymentStatus" type:"string" enum:"true"`
 
 	// Describes this configuration set.
-	Description *string `type:"string"`
+	Description *string `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:Description" type:"string"`
 
 	// If not null, the name of the environment for this configuration set.
-	EnvironmentName *string `min:"4" type:"string"`
+	EnvironmentName *string `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:EnvironmentName" min:"4" type:"string"`
 
 	// A list of the configuration options and their values in this configuration
 	// set.
-	OptionSettings []ConfigurationOptionSetting `type:"list"`
+	OptionSettings []ConfigurationOptionSetting `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:OptionSettings" type:"list"`
 
 	// The ARN of the platform.
-	PlatformArn *string `type:"string"`
+	PlatformArn *string `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:PlatformArn" type:"string"`
 
 	// The name of the solution stack this configuration set uses.
-	SolutionStackName *string `type:"string"`
+	SolutionStackName *string `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:SolutionStackName" type:"string"`
 
 	// If not null, the name of the configuration template for this configuration
 	// set.
-	TemplateName *string `min:"1" type:"string"`
+	TemplateName *string `json:"elasticbeanstalk:UpdateConfigurationTemplateOutput:TemplateName" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -117,7 +117,7 @@ type CreateModelOutput struct {
 	// The ARN of the model created in Amazon SageMaker.
 	//
 	// ModelArn is a required field
-	ModelArn *string `min:"20" type:"string" required:"true"`
+	ModelArn *string `json:"api.sagemaker:CreateModelOutput:ModelArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation

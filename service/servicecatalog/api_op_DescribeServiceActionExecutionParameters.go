@@ -55,7 +55,7 @@ func (s *DescribeServiceActionExecutionParametersInput) Validate() error {
 type DescribeServiceActionExecutionParametersOutput struct {
 	_ struct{} `type:"structure"`
 
-	ServiceActionParameters []ExecutionParameter `type:"list"`
+	ServiceActionParameters []ExecutionParameter `json:"servicecatalog:DescribeServiceActionExecutionParametersOutput:ServiceActionParameters" type:"list"`
 }
 
 // String returns the string representation

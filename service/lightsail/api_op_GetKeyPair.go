@@ -43,7 +43,7 @@ type GetKeyPairOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key-value pairs containing information about the key pair.
-	KeyPair *KeyPair `locationName:"keyPair" type:"structure"`
+	KeyPair *KeyPair `json:"lightsail:GetKeyPairOutput:KeyPair" locationName:"keyPair" type:"structure"`
 }
 
 // String returns the string representation

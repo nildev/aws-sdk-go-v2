@@ -43,7 +43,7 @@ type DeleteDirectConnectGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Direct Connect gateway.
-	DirectConnectGateway *DirectConnectGateway `locationName:"directConnectGateway" type:"structure"`
+	DirectConnectGateway *DirectConnectGateway `json:"directconnect:DeleteDirectConnectGatewayOutput:DirectConnectGateway" locationName:"directConnectGateway" type:"structure"`
 }
 
 // String returns the string representation

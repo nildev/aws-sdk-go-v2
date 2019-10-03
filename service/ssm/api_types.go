@@ -21,36 +21,36 @@ type Activation struct {
 	_ struct{} `type:"structure"`
 
 	// The ID created by Systems Manager when you submitted the activation.
-	ActivationId *string `type:"string"`
+	ActivationId *string `json:"ssm:Activation:ActivationId" type:"string"`
 
 	// The date the activation was created.
-	CreatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"ssm:Activation:CreatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// A name for the managed instance when it is created.
-	DefaultInstanceName *string `type:"string"`
+	DefaultInstanceName *string `json:"ssm:Activation:DefaultInstanceName" type:"string"`
 
 	// A user defined description of the activation.
-	Description *string `type:"string"`
+	Description *string `json:"ssm:Activation:Description" type:"string"`
 
 	// The date when this activation can no longer be used to register managed instances.
-	ExpirationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationDate *time.Time `json:"ssm:Activation:ExpirationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Whether or not the activation is expired.
-	Expired *bool `type:"boolean"`
+	Expired *bool `json:"ssm:Activation:Expired" type:"boolean"`
 
 	// The Amazon Identity and Access Management (IAM) role to assign to the managed
 	// instance.
-	IamRole *string `type:"string"`
+	IamRole *string `json:"ssm:Activation:IamRole" type:"string"`
 
 	// The maximum number of managed instances that can be registered using this
 	// activation.
-	RegistrationLimit *int64 `min:"1" type:"integer"`
+	RegistrationLimit *int64 `json:"ssm:Activation:RegistrationLimit" min:"1" type:"integer"`
 
 	// The number of managed instances already registered with this activation.
-	RegistrationsCount *int64 `min:"1" type:"integer"`
+	RegistrationsCount *int64 `json:"ssm:Activation:RegistrationsCount" min:"1" type:"integer"`
 
 	// Tags assigned to the activation.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"ssm:Activation:Tags" type:"list"`
 }
 
 // String returns the string representation
@@ -65,34 +65,34 @@ type Association struct {
 
 	// The ID created by the system when you create an association. An association
 	// is a binding between a document and a set of targets with a schedule.
-	AssociationId *string `type:"string"`
+	AssociationId *string `json:"ssm:Association:AssociationId" type:"string"`
 
 	// The association name.
-	AssociationName *string `type:"string"`
+	AssociationName *string `json:"ssm:Association:AssociationName" type:"string"`
 
 	// The association version.
-	AssociationVersion *string `type:"string"`
+	AssociationVersion *string `json:"ssm:Association:AssociationVersion" type:"string"`
 
 	// The version of the document used in the association.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:Association:DocumentVersion" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:Association:InstanceId" type:"string"`
 
 	// The date on which the association was last run.
-	LastExecutionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastExecutionDate *time.Time `json:"ssm:Association:LastExecutionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the Systems Manager document.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:Association:Name" type:"string"`
 
 	// Information about the association.
-	Overview *AssociationOverview `type:"structure"`
+	Overview *AssociationOverview `json:"ssm:Association:Overview" type:"structure"`
 
 	// A cron expression that specifies a schedule when the association runs.
-	ScheduleExpression *string `min:"1" type:"string"`
+	ScheduleExpression *string `json:"ssm:Association:ScheduleExpression" min:"1" type:"string"`
 
 	// The instances targeted by the request to create an association.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:Association:Targets" type:"list"`
 }
 
 // String returns the string representation
@@ -106,38 +106,38 @@ type AssociationDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The association ID.
-	AssociationId *string `type:"string"`
+	AssociationId *string `json:"ssm:AssociationDescription:AssociationId" type:"string"`
 
 	// The association name.
-	AssociationName *string `type:"string"`
+	AssociationName *string `json:"ssm:AssociationDescription:AssociationName" type:"string"`
 
 	// The association version.
-	AssociationVersion *string `type:"string"`
+	AssociationVersion *string `json:"ssm:AssociationDescription:AssociationVersion" type:"string"`
 
 	// Specify the target for the association. This target is required for associations
 	// that use an Automation document and target resources by using rate controls.
-	AutomationTargetParameterName *string `min:"1" type:"string"`
+	AutomationTargetParameterName *string `json:"ssm:AssociationDescription:AutomationTargetParameterName" min:"1" type:"string"`
 
 	// The severity level that is assigned to the association.
-	ComplianceSeverity AssociationComplianceSeverity `type:"string" enum:"true"`
+	ComplianceSeverity AssociationComplianceSeverity `json:"ssm:AssociationDescription:ComplianceSeverity" type:"string" enum:"true"`
 
 	// The date when the association was made.
-	Date *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Date *time.Time `json:"ssm:AssociationDescription:Date" type:"timestamp" timestampFormat:"unix"`
 
 	// The document version.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:AssociationDescription:DocumentVersion" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:AssociationDescription:InstanceId" type:"string"`
 
 	// The date on which the association was last run.
-	LastExecutionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastExecutionDate *time.Time `json:"ssm:AssociationDescription:LastExecutionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The last date on which the association was successfully run.
-	LastSuccessfulExecutionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastSuccessfulExecutionDate *time.Time `json:"ssm:AssociationDescription:LastSuccessfulExecutionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date when the association was last updated.
-	LastUpdateAssociationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdateAssociationDate *time.Time `json:"ssm:AssociationDescription:LastUpdateAssociationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The maximum number of targets allowed to run the association at the same
 	// time. You can specify a number, for example 10, or a percentage of the target
@@ -148,7 +148,7 @@ type AssociationDescription struct {
 	// Manager is running MaxConcurrency associations, the association is allowed
 	// to run. During the next association interval, the new instance will process
 	// its association within the limit specified for MaxConcurrency.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:AssociationDescription:MaxConcurrency" min:"1" type:"string"`
 
 	// The number of errors that are allowed before the system stops sending requests
 	// to run the association on additional targets. You can specify either an absolute
@@ -163,28 +163,28 @@ type AssociationDescription struct {
 	// are allowed to complete, but some of these executions may fail as well. If
 	// you need to ensure that there won't be more than max-errors failed executions,
 	// set MaxConcurrency to 1 so that executions proceed one at a time.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:AssociationDescription:MaxErrors" min:"1" type:"string"`
 
 	// The name of the Systems Manager document.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:AssociationDescription:Name" type:"string"`
 
 	// An Amazon S3 bucket where you want to store the output details of the request.
-	OutputLocation *InstanceAssociationOutputLocation `type:"structure"`
+	OutputLocation *InstanceAssociationOutputLocation `json:"ssm:AssociationDescription:OutputLocation" type:"structure"`
 
 	// Information about the association.
-	Overview *AssociationOverview `type:"structure"`
+	Overview *AssociationOverview `json:"ssm:AssociationDescription:Overview" type:"structure"`
 
 	// A description of the parameters for a document.
-	Parameters map[string][]string `type:"map"`
+	Parameters map[string][]string `json:"ssm:AssociationDescription:Parameters" type:"map"`
 
 	// A cron expression that specifies a schedule when the association runs.
-	ScheduleExpression *string `min:"1" type:"string"`
+	ScheduleExpression *string `json:"ssm:AssociationDescription:ScheduleExpression" min:"1" type:"string"`
 
 	// The association status.
-	Status *AssociationStatus `type:"structure"`
+	Status *AssociationStatus `json:"ssm:AssociationDescription:Status" type:"structure"`
 
 	// The instances targeted by the request.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:AssociationDescription:Targets" type:"list"`
 }
 
 // String returns the string representation
@@ -198,29 +198,29 @@ type AssociationExecution struct {
 	_ struct{} `type:"structure"`
 
 	// The association ID.
-	AssociationId *string `type:"string"`
+	AssociationId *string `json:"ssm:AssociationExecution:AssociationId" type:"string"`
 
 	// The association version.
-	AssociationVersion *string `type:"string"`
+	AssociationVersion *string `json:"ssm:AssociationExecution:AssociationVersion" type:"string"`
 
 	// The time the execution started.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"ssm:AssociationExecution:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Detailed status information about the execution.
-	DetailedStatus *string `type:"string"`
+	DetailedStatus *string `json:"ssm:AssociationExecution:DetailedStatus" type:"string"`
 
 	// The execution ID for the association.
-	ExecutionId *string `type:"string"`
+	ExecutionId *string `json:"ssm:AssociationExecution:ExecutionId" type:"string"`
 
 	// The date of the last execution.
-	LastExecutionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastExecutionDate *time.Time `json:"ssm:AssociationExecution:LastExecutionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// An aggregate status of the resources in the execution based on the status
 	// type.
-	ResourceCountByStatus *string `type:"string"`
+	ResourceCountByStatus *string `json:"ssm:AssociationExecution:ResourceCountByStatus" type:"string"`
 
 	// The status of the association execution.
-	Status *string `type:"string"`
+	Status *string `json:"ssm:AssociationExecution:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -236,17 +236,17 @@ type AssociationExecutionFilter struct {
 	// The key value used in the request.
 	//
 	// Key is a required field
-	Key AssociationExecutionFilterKey `type:"string" required:"true" enum:"true"`
+	Key AssociationExecutionFilterKey `json:"ssm:AssociationExecutionFilter:Key" type:"string" required:"true" enum:"true"`
 
 	// The filter type specified in the request.
 	//
 	// Type is a required field
-	Type AssociationFilterOperatorType `type:"string" required:"true" enum:"true"`
+	Type AssociationFilterOperatorType `json:"ssm:AssociationExecutionFilter:Type" type:"string" required:"true" enum:"true"`
 
 	// The value specified for the key.
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"ssm:AssociationExecutionFilter:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -283,31 +283,31 @@ type AssociationExecutionTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The association ID.
-	AssociationId *string `type:"string"`
+	AssociationId *string `json:"ssm:AssociationExecutionTarget:AssociationId" type:"string"`
 
 	// The association version.
-	AssociationVersion *string `type:"string"`
+	AssociationVersion *string `json:"ssm:AssociationExecutionTarget:AssociationVersion" type:"string"`
 
 	// Detailed information about the execution status.
-	DetailedStatus *string `type:"string"`
+	DetailedStatus *string `json:"ssm:AssociationExecutionTarget:DetailedStatus" type:"string"`
 
 	// The execution ID.
-	ExecutionId *string `type:"string"`
+	ExecutionId *string `json:"ssm:AssociationExecutionTarget:ExecutionId" type:"string"`
 
 	// The date of the last execution.
-	LastExecutionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastExecutionDate *time.Time `json:"ssm:AssociationExecutionTarget:LastExecutionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The location where the association details are saved.
-	OutputSource *OutputSource `type:"structure"`
+	OutputSource *OutputSource `json:"ssm:AssociationExecutionTarget:OutputSource" type:"structure"`
 
 	// The resource ID, for example, the instance ID where the association ran.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"ssm:AssociationExecutionTarget:ResourceId" min:"1" type:"string"`
 
 	// The resource type, for example, instance.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"ssm:AssociationExecutionTarget:ResourceType" min:"1" type:"string"`
 
 	// The association execution status.
-	Status *string `type:"string"`
+	Status *string `json:"ssm:AssociationExecutionTarget:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -323,12 +323,12 @@ type AssociationExecutionTargetsFilter struct {
 	// The key value used in the request.
 	//
 	// Key is a required field
-	Key AssociationExecutionTargetsFilterKey `type:"string" required:"true" enum:"true"`
+	Key AssociationExecutionTargetsFilterKey `json:"ssm:AssociationExecutionTargetsFilter:Key" type:"string" required:"true" enum:"true"`
 
 	// The value specified for the key.
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"ssm:AssociationExecutionTargetsFilter:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -364,12 +364,12 @@ type AssociationFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key AssociationFilterKey `locationName:"key" type:"string" required:"true" enum:"true"`
+	Key AssociationFilterKey `json:"ssm:AssociationFilter:Key" locationName:"key" type:"string" required:"true" enum:"true"`
 
 	// The filter value.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"ssm:AssociationFilter:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -405,13 +405,13 @@ type AssociationOverview struct {
 	// Returns the number of targets for the association status. For example, if
 	// you created an association with two instances, and one of them was successful,
 	// this would return the count of instances by status.
-	AssociationStatusAggregatedCount map[string]int64 `type:"map"`
+	AssociationStatusAggregatedCount map[string]int64 `json:"ssm:AssociationOverview:AssociationStatusAggregatedCount" type:"map"`
 
 	// A detailed status of the association.
-	DetailedStatus *string `type:"string"`
+	DetailedStatus *string `json:"ssm:AssociationOverview:DetailedStatus" type:"string"`
 
 	// The status of the association. Status can be: Pending, Success, or Failed.
-	Status *string `type:"string"`
+	Status *string `json:"ssm:AssociationOverview:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -425,22 +425,22 @@ type AssociationStatus struct {
 	_ struct{} `type:"structure"`
 
 	// A user-defined string.
-	AdditionalInfo *string `type:"string"`
+	AdditionalInfo *string `json:"ssm:AssociationStatus:AdditionalInfo" type:"string"`
 
 	// The date when the status changed.
 	//
 	// Date is a required field
-	Date *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	Date *time.Time `json:"ssm:AssociationStatus:Date" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The reason for the status.
 	//
 	// Message is a required field
-	Message *string `min:"1" type:"string" required:"true"`
+	Message *string `json:"ssm:AssociationStatus:Message" min:"1" type:"string" required:"true"`
 
 	// The status.
 	//
 	// Name is a required field
-	Name AssociationStatusName `type:"string" required:"true" enum:"true"`
+	Name AssociationStatusName `json:"ssm:AssociationStatus:Name" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -478,24 +478,24 @@ type AssociationVersionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The ID created by the system when the association was created.
-	AssociationId *string `type:"string"`
+	AssociationId *string `json:"ssm:AssociationVersionInfo:AssociationId" type:"string"`
 
 	// The name specified for the association version when the association version
 	// was created.
-	AssociationName *string `type:"string"`
+	AssociationName *string `json:"ssm:AssociationVersionInfo:AssociationName" type:"string"`
 
 	// The association version.
-	AssociationVersion *string `type:"string"`
+	AssociationVersion *string `json:"ssm:AssociationVersionInfo:AssociationVersion" type:"string"`
 
 	// The severity level that is assigned to the association.
-	ComplianceSeverity AssociationComplianceSeverity `type:"string" enum:"true"`
+	ComplianceSeverity AssociationComplianceSeverity `json:"ssm:AssociationVersionInfo:ComplianceSeverity" type:"string" enum:"true"`
 
 	// The date the association version was created.
-	CreatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"ssm:AssociationVersionInfo:CreatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The version of a Systems Manager document used when the association version
 	// was created.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:AssociationVersionInfo:DocumentVersion" type:"string"`
 
 	// The maximum number of targets allowed to run the association at the same
 	// time. You can specify a number, for example 10, or a percentage of the target
@@ -506,7 +506,7 @@ type AssociationVersionInfo struct {
 	// Manager is running MaxConcurrency associations, the association is allowed
 	// to run. During the next association interval, the new instance will process
 	// its association within the limit specified for MaxConcurrency.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:AssociationVersionInfo:MaxConcurrency" min:"1" type:"string"`
 
 	// The number of errors that are allowed before the system stops sending requests
 	// to run the association on additional targets. You can specify either an absolute
@@ -521,25 +521,25 @@ type AssociationVersionInfo struct {
 	// are allowed to complete, but some of these executions may fail as well. If
 	// you need to ensure that there won't be more than max-errors failed executions,
 	// set MaxConcurrency to 1 so that executions proceed one at a time.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:AssociationVersionInfo:MaxErrors" min:"1" type:"string"`
 
 	// The name specified when the association was created.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:AssociationVersionInfo:Name" type:"string"`
 
 	// The location in Amazon S3 specified for the association when the association
 	// version was created.
-	OutputLocation *InstanceAssociationOutputLocation `type:"structure"`
+	OutputLocation *InstanceAssociationOutputLocation `json:"ssm:AssociationVersionInfo:OutputLocation" type:"structure"`
 
 	// Parameters specified when the association version was created.
-	Parameters map[string][]string `type:"map"`
+	Parameters map[string][]string `json:"ssm:AssociationVersionInfo:Parameters" type:"map"`
 
 	// The cron or rate schedule specified for the association when the association
 	// version was created.
-	ScheduleExpression *string `min:"1" type:"string"`
+	ScheduleExpression *string `json:"ssm:AssociationVersionInfo:ScheduleExpression" min:"1" type:"string"`
 
 	// The targets specified for the association when the association version was
 	// created.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:AssociationVersionInfo:Targets" type:"list"`
 }
 
 // String returns the string representation
@@ -553,19 +553,19 @@ type AttachmentContent struct {
 	_ struct{} `type:"structure"`
 
 	// The cryptographic hash value of the document content.
-	Hash *string `type:"string"`
+	Hash *string `json:"ssm:AttachmentContent:Hash" type:"string"`
 
 	// The hash algorithm used to calculate the hash value.
-	HashType AttachmentHashType `type:"string" enum:"true"`
+	HashType AttachmentHashType `json:"ssm:AttachmentContent:HashType" type:"string" enum:"true"`
 
 	// The name of an attachment.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:AttachmentContent:Name" type:"string"`
 
 	// The size of an attachment in bytes.
-	Size *int64 `type:"long"`
+	Size *int64 `json:"ssm:AttachmentContent:Size" type:"long"`
 
 	// The URL location of the attachment content.
-	Url *string `type:"string"`
+	Url *string `json:"ssm:AttachmentContent:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -579,7 +579,7 @@ type AttachmentInformation struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the attachment.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:AttachmentInformation:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -594,11 +594,11 @@ type AttachmentsSource struct {
 
 	// The key of a key and value pair that identifies the location of an attachment
 	// to a document.
-	Key AttachmentsSourceKey `type:"string" enum:"true"`
+	Key AttachmentsSourceKey `json:"ssm:AttachmentsSource:Key" type:"string" enum:"true"`
 
 	// The URL of the location of a document attachment, such as the URL of an Amazon
 	// S3 bucket.
-	Values []string `min:"1" type:"list"`
+	Values []string `json:"ssm:AttachmentsSource:Values" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -626,86 +626,86 @@ type AutomationExecution struct {
 	_ struct{} `type:"structure"`
 
 	// The execution ID.
-	AutomationExecutionId *string `min:"36" type:"string"`
+	AutomationExecutionId *string `json:"ssm:AutomationExecution:AutomationExecutionId" min:"36" type:"string"`
 
 	// The execution status of the Automation.
-	AutomationExecutionStatus AutomationExecutionStatus `type:"string" enum:"true"`
+	AutomationExecutionStatus AutomationExecutionStatus `json:"ssm:AutomationExecution:AutomationExecutionStatus" type:"string" enum:"true"`
 
 	// The action of the step that is currently running.
-	CurrentAction *string `type:"string"`
+	CurrentAction *string `json:"ssm:AutomationExecution:CurrentAction" type:"string"`
 
 	// The name of the step that is currently running.
-	CurrentStepName *string `type:"string"`
+	CurrentStepName *string `json:"ssm:AutomationExecution:CurrentStepName" type:"string"`
 
 	// The name of the Automation document used during the execution.
-	DocumentName *string `type:"string"`
+	DocumentName *string `json:"ssm:AutomationExecution:DocumentName" type:"string"`
 
 	// The version of the document to use during execution.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:AutomationExecution:DocumentVersion" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the user who ran the automation.
-	ExecutedBy *string `type:"string"`
+	ExecutedBy *string `json:"ssm:AutomationExecution:ExecutedBy" type:"string"`
 
 	// The time the execution finished.
-	ExecutionEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExecutionEndTime *time.Time `json:"ssm:AutomationExecution:ExecutionEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the execution started.
-	ExecutionStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExecutionStartTime *time.Time `json:"ssm:AutomationExecution:ExecutionStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// A message describing why an execution has failed, if the status is set to
 	// Failed.
-	FailureMessage *string `type:"string"`
+	FailureMessage *string `json:"ssm:AutomationExecution:FailureMessage" type:"string"`
 
 	// The MaxConcurrency value specified by the user when the execution started.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:AutomationExecution:MaxConcurrency" min:"1" type:"string"`
 
 	// The MaxErrors value specified by the user when the execution started.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:AutomationExecution:MaxErrors" min:"1" type:"string"`
 
 	// The automation execution mode.
-	Mode ExecutionMode `type:"string" enum:"true"`
+	Mode ExecutionMode `json:"ssm:AutomationExecution:Mode" type:"string" enum:"true"`
 
 	// The list of execution outputs as defined in the automation document.
-	Outputs map[string][]string `min:"1" type:"map"`
+	Outputs map[string][]string `json:"ssm:AutomationExecution:Outputs" min:"1" type:"map"`
 
 	// The key-value map of execution parameters, which were supplied when calling
 	// StartAutomationExecution.
-	Parameters map[string][]string `min:"1" type:"map"`
+	Parameters map[string][]string `json:"ssm:AutomationExecution:Parameters" min:"1" type:"map"`
 
 	// The AutomationExecutionId of the parent automation.
-	ParentAutomationExecutionId *string `min:"36" type:"string"`
+	ParentAutomationExecutionId *string `json:"ssm:AutomationExecution:ParentAutomationExecutionId" min:"36" type:"string"`
 
 	// An aggregate of step execution statuses displayed in the AWS Console for
 	// a multi-Region and multi-account Automation execution.
-	ProgressCounters *ProgressCounters `type:"structure"`
+	ProgressCounters *ProgressCounters `json:"ssm:AutomationExecution:ProgressCounters" type:"structure"`
 
 	// A list of resolved targets in the rate control execution.
-	ResolvedTargets *ResolvedTargets `type:"structure"`
+	ResolvedTargets *ResolvedTargets `json:"ssm:AutomationExecution:ResolvedTargets" type:"structure"`
 
 	// A list of details about the current state of all steps that comprise an execution.
 	// An Automation document contains a list of steps that are run in order.
-	StepExecutions []StepExecution `type:"list"`
+	StepExecutions []StepExecution `json:"ssm:AutomationExecution:StepExecutions" type:"list"`
 
 	// A boolean value that indicates if the response contains the full list of
 	// the Automation step executions. If true, use the DescribeAutomationStepExecutions
 	// API action to get the full list of step executions.
-	StepExecutionsTruncated *bool `type:"boolean"`
+	StepExecutionsTruncated *bool `json:"ssm:AutomationExecution:StepExecutionsTruncated" type:"boolean"`
 
 	// The target of the execution.
-	Target *string `type:"string"`
+	Target *string `json:"ssm:AutomationExecution:Target" type:"string"`
 
 	// The combination of AWS Regions and/or AWS accounts where you want to run
 	// the Automation.
-	TargetLocations []TargetLocation `min:"1" type:"list"`
+	TargetLocations []TargetLocation `json:"ssm:AutomationExecution:TargetLocations" min:"1" type:"list"`
 
 	// The specified key-value mapping of document parameters to target resources.
-	TargetMaps []map[string][]string `type:"list"`
+	TargetMaps []map[string][]string `json:"ssm:AutomationExecution:TargetMaps" type:"list"`
 
 	// The parameter name.
-	TargetParameterName *string `min:"1" type:"string"`
+	TargetParameterName *string `json:"ssm:AutomationExecution:TargetParameterName" min:"1" type:"string"`
 
 	// The specified targets.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:AutomationExecution:Targets" type:"list"`
 }
 
 // String returns the string representation
@@ -724,13 +724,13 @@ type AutomationExecutionFilter struct {
 	// StartTimeBefore, StartTimeAfter.
 	//
 	// Key is a required field
-	Key AutomationExecutionFilterKey `type:"string" required:"true" enum:"true"`
+	Key AutomationExecutionFilterKey `json:"ssm:AutomationExecutionFilter:Key" type:"string" required:"true" enum:"true"`
 
 	// The values used to limit the execution information associated with the filter's
 	// key.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"ssm:AutomationExecutionFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -764,76 +764,76 @@ type AutomationExecutionMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The execution ID.
-	AutomationExecutionId *string `min:"36" type:"string"`
+	AutomationExecutionId *string `json:"ssm:AutomationExecutionMetadata:AutomationExecutionId" min:"36" type:"string"`
 
 	// The status of the execution. Valid values include: Running, Succeeded, Failed,
 	// Timed out, or Cancelled.
-	AutomationExecutionStatus AutomationExecutionStatus `type:"string" enum:"true"`
+	AutomationExecutionStatus AutomationExecutionStatus `json:"ssm:AutomationExecutionMetadata:AutomationExecutionStatus" type:"string" enum:"true"`
 
 	// Use this filter with DescribeAutomationExecutions. Specify either Local or
 	// CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions
 	// and accounts. For more information, see Executing Automations in Multiple
 	// AWS Regions and Accounts (http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html)
 	// in the AWS Systems Manager User Guide.
-	AutomationType AutomationType `type:"string" enum:"true"`
+	AutomationType AutomationType `json:"ssm:AutomationExecutionMetadata:AutomationType" type:"string" enum:"true"`
 
 	// The action of the step that is currently running.
-	CurrentAction *string `type:"string"`
+	CurrentAction *string `json:"ssm:AutomationExecutionMetadata:CurrentAction" type:"string"`
 
 	// The name of the step that is currently running.
-	CurrentStepName *string `type:"string"`
+	CurrentStepName *string `json:"ssm:AutomationExecutionMetadata:CurrentStepName" type:"string"`
 
 	// The name of the Automation document used during execution.
-	DocumentName *string `type:"string"`
+	DocumentName *string `json:"ssm:AutomationExecutionMetadata:DocumentName" type:"string"`
 
 	// The document version used during the execution.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:AutomationExecutionMetadata:DocumentVersion" type:"string"`
 
 	// The IAM role ARN of the user who ran the Automation.
-	ExecutedBy *string `type:"string"`
+	ExecutedBy *string `json:"ssm:AutomationExecutionMetadata:ExecutedBy" type:"string"`
 
 	// The time the execution finished. This is not populated if the execution is
 	// still in progress.
-	ExecutionEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExecutionEndTime *time.Time `json:"ssm:AutomationExecutionMetadata:ExecutionEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the execution started.>
-	ExecutionStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExecutionStartTime *time.Time `json:"ssm:AutomationExecutionMetadata:ExecutionStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The list of execution outputs as defined in the Automation document.
-	FailureMessage *string `type:"string"`
+	FailureMessage *string `json:"ssm:AutomationExecutionMetadata:FailureMessage" type:"string"`
 
 	// An Amazon S3 bucket where execution information is stored.
-	LogFile *string `type:"string"`
+	LogFile *string `json:"ssm:AutomationExecutionMetadata:LogFile" type:"string"`
 
 	// The MaxConcurrency value specified by the user when starting the Automation.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:AutomationExecutionMetadata:MaxConcurrency" min:"1" type:"string"`
 
 	// The MaxErrors value specified by the user when starting the Automation.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:AutomationExecutionMetadata:MaxErrors" min:"1" type:"string"`
 
 	// The Automation execution mode.
-	Mode ExecutionMode `type:"string" enum:"true"`
+	Mode ExecutionMode `json:"ssm:AutomationExecutionMetadata:Mode" type:"string" enum:"true"`
 
 	// The list of execution outputs as defined in the Automation document.
-	Outputs map[string][]string `min:"1" type:"map"`
+	Outputs map[string][]string `json:"ssm:AutomationExecutionMetadata:Outputs" min:"1" type:"map"`
 
 	// The ExecutionId of the parent Automation.
-	ParentAutomationExecutionId *string `min:"36" type:"string"`
+	ParentAutomationExecutionId *string `json:"ssm:AutomationExecutionMetadata:ParentAutomationExecutionId" min:"36" type:"string"`
 
 	// A list of targets that resolved during the execution.
-	ResolvedTargets *ResolvedTargets `type:"structure"`
+	ResolvedTargets *ResolvedTargets `json:"ssm:AutomationExecutionMetadata:ResolvedTargets" type:"structure"`
 
 	// The list of execution outputs as defined in the Automation document.
-	Target *string `type:"string"`
+	Target *string `json:"ssm:AutomationExecutionMetadata:Target" type:"string"`
 
 	// The specified key-value mapping of document parameters to target resources.
-	TargetMaps []map[string][]string `type:"list"`
+	TargetMaps []map[string][]string `json:"ssm:AutomationExecutionMetadata:TargetMaps" type:"list"`
 
 	// The list of execution outputs as defined in the Automation document.
-	TargetParameterName *string `min:"1" type:"string"`
+	TargetParameterName *string `json:"ssm:AutomationExecutionMetadata:TargetParameterName" min:"1" type:"string"`
 
 	// The targets defined by the user when starting the Automation.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:AutomationExecutionMetadata:Targets" type:"list"`
 }
 
 // String returns the string representation
@@ -849,10 +849,10 @@ type CloudWatchOutputConfig struct {
 	// The name of the CloudWatch log group where you want to send command output.
 	// If you don't specify a group name, Systems Manager automatically creates
 	// a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-	CloudWatchLogGroupName *string `min:"1" type:"string"`
+	CloudWatchLogGroupName *string `json:"ssm:CloudWatchOutputConfig:CloudWatchLogGroupName" min:"1" type:"string"`
 
 	// Enables Systems Manager to send command output to CloudWatch Logs.
-	CloudWatchOutputEnabled *bool `type:"boolean"`
+	CloudWatchOutputEnabled *bool `json:"ssm:CloudWatchOutputConfig:CloudWatchOutputEnabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -880,39 +880,39 @@ type Command struct {
 
 	// CloudWatch Logs information where you want Systems Manager to send the command
 	// output.
-	CloudWatchOutputConfig *CloudWatchOutputConfig `type:"structure"`
+	CloudWatchOutputConfig *CloudWatchOutputConfig `json:"ssm:Command:CloudWatchOutputConfig" type:"structure"`
 
 	// A unique identifier for this command.
-	CommandId *string `min:"36" type:"string"`
+	CommandId *string `json:"ssm:Command:CommandId" min:"36" type:"string"`
 
 	// User-specified information about the command, such as a brief description
 	// of what the command should do.
-	Comment *string `type:"string"`
+	Comment *string `json:"ssm:Command:Comment" type:"string"`
 
 	// The number of targets for which the command invocation reached a terminal
 	// state. Terminal states include the following: Success, Failed, Execution
 	// Timed Out, Delivery Timed Out, Canceled, Terminated, or Undeliverable.
-	CompletedCount *int64 `type:"integer"`
+	CompletedCount *int64 `json:"ssm:Command:CompletedCount" type:"integer"`
 
 	// The number of targets for which the status is Delivery Timed Out.
-	DeliveryTimedOutCount *int64 `type:"integer"`
+	DeliveryTimedOutCount *int64 `json:"ssm:Command:DeliveryTimedOutCount" type:"integer"`
 
 	// The name of the document requested for execution.
-	DocumentName *string `type:"string"`
+	DocumentName *string `json:"ssm:Command:DocumentName" type:"string"`
 
 	// The SSM document version.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:Command:DocumentVersion" type:"string"`
 
 	// The number of targets for which the status is Failed or Execution Timed Out.
-	ErrorCount *int64 `type:"integer"`
+	ErrorCount *int64 `json:"ssm:Command:ErrorCount" type:"integer"`
 
 	// If this time is reached and the command has not already started running,
 	// it will not run. Calculated based on the ExpiresAfter user input provided
 	// as part of the SendCommand API.
-	ExpiresAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpiresAfter *time.Time `json:"ssm:Command:ExpiresAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// The instance IDs against which this command was requested.
-	InstanceIds []string `type:"list"`
+	InstanceIds []string `json:"ssm:Command:InstanceIds" type:"list"`
 
 	// The maximum number of instances that are allowed to run the command at the
 	// same time. You can specify a number of instances, such as 10, or a percentage
@@ -920,7 +920,7 @@ type Command struct {
 	// about how to use MaxConcurrency, see Running Commands Using Systems Manager
 	// Run Command (http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html)
 	// in the AWS Systems Manager User Guide.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:Command:MaxConcurrency" min:"1" type:"string"`
 
 	// The maximum number of errors allowed before the system stops sending the
 	// command to additional targets. You can specify a number of errors, such as
@@ -928,36 +928,36 @@ type Command struct {
 	// information about how to use MaxErrors, see Running Commands Using Systems
 	// Manager Run Command (http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html)
 	// in the AWS Systems Manager User Guide.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:Command:MaxErrors" min:"1" type:"string"`
 
 	// Configurations for sending notifications about command status changes.
-	NotificationConfig *NotificationConfig `type:"structure"`
+	NotificationConfig *NotificationConfig `json:"ssm:Command:NotificationConfig" type:"structure"`
 
 	// The S3 bucket where the responses to the command executions should be stored.
 	// This was requested when issuing the command.
-	OutputS3BucketName *string `min:"3" type:"string"`
+	OutputS3BucketName *string `json:"ssm:Command:OutputS3BucketName" min:"3" type:"string"`
 
 	// The S3 directory path inside the bucket where the responses to the command
 	// executions should be stored. This was requested when issuing the command.
-	OutputS3KeyPrefix *string `type:"string"`
+	OutputS3KeyPrefix *string `json:"ssm:Command:OutputS3KeyPrefix" type:"string"`
 
 	// (Deprecated) You can no longer specify this parameter. The system ignores
 	// it. Instead, Systems Manager automatically determines the Amazon S3 bucket
 	// region.
-	OutputS3Region *string `min:"3" type:"string"`
+	OutputS3Region *string `json:"ssm:Command:OutputS3Region" min:"3" type:"string"`
 
 	// The parameter values to be inserted in the document when running the command.
-	Parameters map[string][]string `type:"map"`
+	Parameters map[string][]string `json:"ssm:Command:Parameters" type:"map"`
 
 	// The date and time the command was requested.
-	RequestedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RequestedDateTime *time.Time `json:"ssm:Command:RequestedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The IAM service role that Run Command uses to act on your behalf when sending
 	// notifications about command status changes.
-	ServiceRole *string `type:"string"`
+	ServiceRole *string `json:"ssm:Command:ServiceRole" type:"string"`
 
 	// The status of the command.
-	Status CommandStatus `type:"string" enum:"true"`
+	Status CommandStatus `json:"ssm:Command:Status" type:"string" enum:"true"`
 
 	// A detailed status of the command execution. StatusDetails includes more information
 	// than Status because it includes states resulting from error and concurrency
@@ -994,15 +994,15 @@ type Command struct {
 	//    * Rate Exceeded: The number of instances targeted by the command exceeded
 	//    the account limit for pending invocations. The system has canceled the
 	//    command before running it on any instance. This is a terminal state.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:Command:StatusDetails" type:"string"`
 
 	// The number of targets for the command.
-	TargetCount *int64 `type:"integer"`
+	TargetCount *int64 `json:"ssm:Command:TargetCount" type:"integer"`
 
 	// An array of search criteria that targets instances using a Key,Value combination
 	// that you specify. Targets is required if you don't provide one or more instance
 	// IDs in the call.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:Command:Targets" type:"list"`
 }
 
 // String returns the string representation
@@ -1018,7 +1018,7 @@ type CommandFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key CommandFilterKey `locationName:"key" type:"string" required:"true" enum:"true"`
+	Key CommandFilterKey `json:"ssm:CommandFilter:Key" locationName:"key" type:"string" required:"true" enum:"true"`
 
 	// The filter value. Valid values for each filter key are as follows:
 	//
@@ -1044,7 +1044,7 @@ type CommandFilter struct {
 	//    Returns a list of command executions that have already completed.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"ssm:CommandFilter:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1083,56 +1083,56 @@ type CommandInvocation struct {
 
 	// CloudWatch Logs information where you want Systems Manager to send the command
 	// output.
-	CloudWatchOutputConfig *CloudWatchOutputConfig `type:"structure"`
+	CloudWatchOutputConfig *CloudWatchOutputConfig `json:"ssm:CommandInvocation:CloudWatchOutputConfig" type:"structure"`
 
 	// The command against which this invocation was requested.
-	CommandId *string `min:"36" type:"string"`
+	CommandId *string `json:"ssm:CommandInvocation:CommandId" min:"36" type:"string"`
 
-	CommandPlugins []CommandPlugin `type:"list"`
+	CommandPlugins []CommandPlugin `json:"ssm:CommandInvocation:CommandPlugins" type:"list"`
 
 	// User-specified information about the command, such as a brief description
 	// of what the command should do.
-	Comment *string `type:"string"`
+	Comment *string `json:"ssm:CommandInvocation:Comment" type:"string"`
 
 	// The document name that was requested for execution.
-	DocumentName *string `type:"string"`
+	DocumentName *string `json:"ssm:CommandInvocation:DocumentName" type:"string"`
 
 	// The SSM document version.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:CommandInvocation:DocumentVersion" type:"string"`
 
 	// The instance ID in which this invocation was requested.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:CommandInvocation:InstanceId" type:"string"`
 
 	// The name of the invocation target. For Amazon EC2 instances this is the value
 	// for the aws:Name tag. For on-premises instances, this is the name of the
 	// instance.
-	InstanceName *string `type:"string"`
+	InstanceName *string `json:"ssm:CommandInvocation:InstanceName" type:"string"`
 
 	// Configurations for sending notifications about command status changes on
 	// a per instance basis.
-	NotificationConfig *NotificationConfig `type:"structure"`
+	NotificationConfig *NotificationConfig `json:"ssm:CommandInvocation:NotificationConfig" type:"structure"`
 
 	// The time and date the request was sent to this instance.
-	RequestedDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RequestedDateTime *time.Time `json:"ssm:CommandInvocation:RequestedDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The IAM service role that Run Command uses to act on your behalf when sending
 	// notifications about command status changes on a per instance basis.
-	ServiceRole *string `type:"string"`
+	ServiceRole *string `json:"ssm:CommandInvocation:ServiceRole" type:"string"`
 
 	// The URL to the plugin's StdErr file in Amazon S3, if the Amazon S3 bucket
 	// was defined for the parent command. For an invocation, StandardErrorUrl is
 	// populated if there is just one plugin defined for the command, and the Amazon
 	// S3 bucket was defined for the command.
-	StandardErrorUrl *string `type:"string"`
+	StandardErrorUrl *string `json:"ssm:CommandInvocation:StandardErrorUrl" type:"string"`
 
 	// The URL to the plugin's StdOut file in Amazon S3, if the Amazon S3 bucket
 	// was defined for the parent command. For an invocation, StandardOutputUrl
 	// is populated if there is just one plugin defined for the command, and the
 	// Amazon S3 bucket was defined for the command.
-	StandardOutputUrl *string `type:"string"`
+	StandardOutputUrl *string `json:"ssm:CommandInvocation:StandardOutputUrl" type:"string"`
 
 	// Whether or not the invocation succeeded, failed, or is pending.
-	Status CommandInvocationStatus `type:"string" enum:"true"`
+	Status CommandInvocationStatus `json:"ssm:CommandInvocation:Status" type:"string" enum:"true"`
 
 	// A detailed status of the command execution for each invocation (each instance
 	// targeted by the command). StatusDetails includes more information than Status
@@ -1177,10 +1177,10 @@ type CommandInvocation struct {
 	//
 	//    * Terminated: The parent command exceeded its MaxErrors limit and subsequent
 	//    command invocations were canceled by the system. This is a terminal state.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:CommandInvocation:StatusDetails" type:"string"`
 
 	// Gets the trace output sent by the agent.
-	TraceOutput *string `type:"string"`
+	TraceOutput *string `json:"ssm:CommandInvocation:TraceOutput" type:"string"`
 }
 
 // String returns the string representation
@@ -1196,10 +1196,10 @@ type CommandPlugin struct {
 	// The name of the plugin. Must be one of the following: aws:updateAgent, aws:domainjoin,
 	// aws:applications, aws:runPowerShellScript, aws:psmodule, aws:cloudWatch,
 	// aws:runShellScript, or aws:updateSSMAgent.
-	Name *string `min:"4" type:"string"`
+	Name *string `json:"ssm:CommandPlugin:Name" min:"4" type:"string"`
 
 	// Output of the plugin execution.
-	Output *string `type:"string"`
+	Output *string `json:"ssm:CommandPlugin:Output" type:"string"`
 
 	// The S3 bucket where the responses to the command executions should be stored.
 	// This was requested when issuing the command. For example, in the following
@@ -1214,7 +1214,7 @@ type CommandPlugin struct {
 	// i-1234567876543 is the instance ID;
 	//
 	// awsrunShellScript is the name of the plugin.
-	OutputS3BucketName *string `min:"3" type:"string"`
+	OutputS3BucketName *string `json:"ssm:CommandPlugin:OutputS3BucketName" min:"3" type:"string"`
 
 	// The S3 directory path inside the bucket where the responses to the command
 	// executions should be stored. This was requested when issuing the command.
@@ -1229,34 +1229,34 @@ type CommandPlugin struct {
 	// i-1234567876543 is the instance ID;
 	//
 	// awsrunShellScript is the name of the plugin.
-	OutputS3KeyPrefix *string `type:"string"`
+	OutputS3KeyPrefix *string `json:"ssm:CommandPlugin:OutputS3KeyPrefix" type:"string"`
 
 	// (Deprecated) You can no longer specify this parameter. The system ignores
 	// it. Instead, Systems Manager automatically determines the Amazon S3 bucket
 	// region.
-	OutputS3Region *string `min:"3" type:"string"`
+	OutputS3Region *string `json:"ssm:CommandPlugin:OutputS3Region" min:"3" type:"string"`
 
 	// A numeric response code generated after running the plugin.
-	ResponseCode *int64 `type:"integer"`
+	ResponseCode *int64 `json:"ssm:CommandPlugin:ResponseCode" type:"integer"`
 
 	// The time the plugin stopped running. Could stop prematurely if, for example,
 	// a cancel command was sent.
-	ResponseFinishDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ResponseFinishDateTime *time.Time `json:"ssm:CommandPlugin:ResponseFinishDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the plugin started running.
-	ResponseStartDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ResponseStartDateTime *time.Time `json:"ssm:CommandPlugin:ResponseStartDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The URL for the complete text written by the plugin to stderr. If execution
 	// is not yet complete, then this string is empty.
-	StandardErrorUrl *string `type:"string"`
+	StandardErrorUrl *string `json:"ssm:CommandPlugin:StandardErrorUrl" type:"string"`
 
 	// The URL for the complete text written by the plugin to stdout in Amazon S3.
 	// If the Amazon S3 bucket for the command was not specified, then this string
 	// is empty.
-	StandardOutputUrl *string `type:"string"`
+	StandardOutputUrl *string `json:"ssm:CommandPlugin:StandardOutputUrl" type:"string"`
 
 	// The status of this plugin. You can run a document with multiple plugins.
-	Status CommandPluginStatus `type:"string" enum:"true"`
+	Status CommandPluginStatus `json:"ssm:CommandPlugin:Status" type:"string" enum:"true"`
 
 	// A detailed status of the plugin execution. StatusDetails includes more information
 	// than Status because it includes states resulting from error and concurrency
@@ -1301,7 +1301,7 @@ type CommandPlugin struct {
 	//
 	//    * Terminated: The parent command exceeded its MaxErrors limit and subsequent
 	//    command invocations were canceled by the system. This is a terminal state.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:CommandPlugin:StatusDetails" type:"string"`
 }
 
 // String returns the string representation
@@ -1318,16 +1318,16 @@ type ComplianceExecutionSummary struct {
 
 	// An ID created by the system when PutComplianceItems was called. For example,
 	// CommandID is a valid execution ID. You can use this ID in subsequent calls.
-	ExecutionId *string `type:"string"`
+	ExecutionId *string `json:"ssm:ComplianceExecutionSummary:ExecutionId" type:"string"`
 
 	// The time the execution ran as a datetime object that is saved in the following
 	// format: yyyy-MM-dd'T'HH:mm:ss'Z'.
 	//
 	// ExecutionTime is a required field
-	ExecutionTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	ExecutionTime *time.Time `json:"ssm:ComplianceExecutionSummary:ExecutionTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The type of execution. For example, Command is a valid execution type.
-	ExecutionType *string `type:"string"`
+	ExecutionType *string `json:"ssm:ComplianceExecutionSummary:ExecutionType" type:"string"`
 }
 
 // String returns the string representation
@@ -1358,37 +1358,37 @@ type ComplianceItem struct {
 
 	// The compliance type. For example, Association (for a State Manager association),
 	// Patch, or Custom:string are all valid compliance types.
-	ComplianceType *string `min:"1" type:"string"`
+	ComplianceType *string `json:"ssm:ComplianceItem:ComplianceType" min:"1" type:"string"`
 
 	// A "Key": "Value" tag combination for the compliance item.
-	Details map[string]string `type:"map"`
+	Details map[string]string `json:"ssm:ComplianceItem:Details" type:"map"`
 
 	// A summary for the compliance item. The summary includes an execution ID,
 	// the execution type (for example, command), and the execution time.
-	ExecutionSummary *ComplianceExecutionSummary `type:"structure"`
+	ExecutionSummary *ComplianceExecutionSummary `json:"ssm:ComplianceItem:ExecutionSummary" type:"structure"`
 
 	// An ID for the compliance item. For example, if the compliance item is a Windows
 	// patch, the ID could be the number of the KB article; for example: KB4010320.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"ssm:ComplianceItem:Id" min:"1" type:"string"`
 
 	// An ID for the resource. For a managed instance, this is the instance ID.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"ssm:ComplianceItem:ResourceId" min:"1" type:"string"`
 
 	// The type of resource. ManagedInstance is currently the only supported resource
 	// type.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"ssm:ComplianceItem:ResourceType" min:"1" type:"string"`
 
 	// The severity of the compliance status. Severity can be one of the following:
 	// Critical, High, Medium, Low, Informational, Unspecified.
-	Severity ComplianceSeverity `type:"string" enum:"true"`
+	Severity ComplianceSeverity `json:"ssm:ComplianceItem:Severity" type:"string" enum:"true"`
 
 	// The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
-	Status ComplianceStatus `type:"string" enum:"true"`
+	Status ComplianceStatus `json:"ssm:ComplianceItem:Status" type:"string" enum:"true"`
 
 	// A title for the compliance item. For example, if the compliance item is a
 	// Windows patch, the title could be the title of the KB article for the patch;
 	// for example: Security Update for Active Directory Federation Services.
-	Title *string `type:"string"`
+	Title *string `json:"ssm:ComplianceItem:Title" type:"string"`
 }
 
 // String returns the string representation
@@ -1402,27 +1402,27 @@ type ComplianceItemEntry struct {
 	_ struct{} `type:"structure"`
 
 	// A "Key": "Value" tag combination for the compliance item.
-	Details map[string]string `type:"map"`
+	Details map[string]string `json:"ssm:ComplianceItemEntry:Details" type:"map"`
 
 	// The compliance item ID. For example, if the compliance item is a Windows
 	// patch, the ID could be the number of the KB article.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"ssm:ComplianceItemEntry:Id" min:"1" type:"string"`
 
 	// The severity of the compliance status. Severity can be one of the following:
 	// Critical, High, Medium, Low, Informational, Unspecified.
 	//
 	// Severity is a required field
-	Severity ComplianceSeverity `type:"string" required:"true" enum:"true"`
+	Severity ComplianceSeverity `json:"ssm:ComplianceItemEntry:Severity" type:"string" required:"true" enum:"true"`
 
 	// The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.
 	//
 	// Status is a required field
-	Status ComplianceStatus `type:"string" required:"true" enum:"true"`
+	Status ComplianceStatus `json:"ssm:ComplianceItemEntry:Status" type:"string" required:"true" enum:"true"`
 
 	// The title of the compliance item. For example, if the compliance item is
 	// a Windows patch, the title could be the title of the KB article for the patch;
 	// for example: Security Update for Active Directory Federation Services.
-	Title *string `type:"string"`
+	Title *string `json:"ssm:ComplianceItemEntry:Title" type:"string"`
 }
 
 // String returns the string representation
@@ -1455,14 +1455,14 @@ type ComplianceStringFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the filter.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"ssm:ComplianceStringFilter:Key" min:"1" type:"string"`
 
 	// The type of comparison that should be performed for the value: Equal, NotEqual,
 	// BeginWith, LessThan, or GreaterThan.
-	Type ComplianceQueryOperatorType `type:"string" enum:"true"`
+	Type ComplianceQueryOperatorType `json:"ssm:ComplianceStringFilter:Type" type:"string" enum:"true"`
 
 	// The value for which to search.
-	Values []string `min:"1" type:"list"`
+	Values []string `json:"ssm:ComplianceStringFilter:Values" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -1493,13 +1493,13 @@ type ComplianceSummaryItem struct {
 
 	// The type of compliance item. For example, the compliance type can be Association,
 	// Patch, or Custom:string.
-	ComplianceType *string `min:"1" type:"string"`
+	ComplianceType *string `json:"ssm:ComplianceSummaryItem:ComplianceType" min:"1" type:"string"`
 
 	// A list of COMPLIANT items for the specified compliance type.
-	CompliantSummary *CompliantSummary `type:"structure"`
+	CompliantSummary *CompliantSummary `json:"ssm:ComplianceSummaryItem:CompliantSummary" type:"structure"`
 
 	// A list of NON_COMPLIANT items for the specified compliance type.
-	NonCompliantSummary *NonCompliantSummary `type:"structure"`
+	NonCompliantSummary *NonCompliantSummary `json:"ssm:ComplianceSummaryItem:NonCompliantSummary" type:"structure"`
 }
 
 // String returns the string representation
@@ -1514,10 +1514,10 @@ type CompliantSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of resources that are compliant.
-	CompliantCount *int64 `type:"integer"`
+	CompliantCount *int64 `json:"ssm:CompliantSummary:CompliantCount" type:"integer"`
 
 	// A summary of the compliance severity by compliance type.
-	SeveritySummary *SeveritySummary `type:"structure"`
+	SeveritySummary *SeveritySummary `json:"ssm:CompliantSummary:SeveritySummary" type:"structure"`
 }
 
 // String returns the string representation
@@ -1531,20 +1531,20 @@ type CreateAssociationBatchRequestEntry struct {
 	_ struct{} `type:"structure"`
 
 	// Specify a descriptive name for the association.
-	AssociationName *string `type:"string"`
+	AssociationName *string `json:"ssm:CreateAssociationBatchRequestEntry:AssociationName" type:"string"`
 
 	// Specify the target for the association. This target is required for associations
 	// that use an Automation document and target resources by using rate controls.
-	AutomationTargetParameterName *string `min:"1" type:"string"`
+	AutomationTargetParameterName *string `json:"ssm:CreateAssociationBatchRequestEntry:AutomationTargetParameterName" min:"1" type:"string"`
 
 	// The severity level to assign to the association.
-	ComplianceSeverity AssociationComplianceSeverity `type:"string" enum:"true"`
+	ComplianceSeverity AssociationComplianceSeverity `json:"ssm:CreateAssociationBatchRequestEntry:ComplianceSeverity" type:"string" enum:"true"`
 
 	// The document version.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:CreateAssociationBatchRequestEntry:DocumentVersion" type:"string"`
 
 	// The ID of the instance.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:CreateAssociationBatchRequestEntry:InstanceId" type:"string"`
 
 	// The maximum number of targets allowed to run the association at the same
 	// time. You can specify a number, for example 10, or a percentage of the target
@@ -1555,7 +1555,7 @@ type CreateAssociationBatchRequestEntry struct {
 	// Manager is running MaxConcurrency associations, the association is allowed
 	// to run. During the next association interval, the new instance will process
 	// its association within the limit specified for MaxConcurrency.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:CreateAssociationBatchRequestEntry:MaxConcurrency" min:"1" type:"string"`
 
 	// The number of errors that are allowed before the system stops sending requests
 	// to run the association on additional targets. You can specify either an absolute
@@ -1570,7 +1570,7 @@ type CreateAssociationBatchRequestEntry struct {
 	// are allowed to complete, but some of these executions may fail as well. If
 	// you need to ensure that there won't be more than max-errors failed executions,
 	// set MaxConcurrency to 1 so that executions proceed one at a time.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:CreateAssociationBatchRequestEntry:MaxErrors" min:"1" type:"string"`
 
 	// The name of the SSM document that contains the configuration information
 	// for the instance. You can specify Command or Automation documents.
@@ -1592,19 +1592,19 @@ type CreateAssociationBatchRequestEntry struct {
 	// or My-Document.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"ssm:CreateAssociationBatchRequestEntry:Name" type:"string" required:"true"`
 
 	// An Amazon S3 bucket where you want to store the results of this request.
-	OutputLocation *InstanceAssociationOutputLocation `type:"structure"`
+	OutputLocation *InstanceAssociationOutputLocation `json:"ssm:CreateAssociationBatchRequestEntry:OutputLocation" type:"structure"`
 
 	// A description of the parameters for a document.
-	Parameters map[string][]string `type:"map"`
+	Parameters map[string][]string `json:"ssm:CreateAssociationBatchRequestEntry:Parameters" type:"map"`
 
 	// A cron expression that specifies a schedule when the association runs.
-	ScheduleExpression *string `min:"1" type:"string"`
+	ScheduleExpression *string `json:"ssm:CreateAssociationBatchRequestEntry:ScheduleExpression" min:"1" type:"string"`
 
 	// The instances targeted by the request.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:CreateAssociationBatchRequestEntry:Targets" type:"list"`
 }
 
 // String returns the string representation
@@ -1656,10 +1656,10 @@ type DescribeActivationsFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the filter.
-	FilterKey DescribeActivationsFilterKeys `type:"string" enum:"true"`
+	FilterKey DescribeActivationsFilterKeys `json:"ssm:DescribeActivationsFilter:FilterKey" type:"string" enum:"true"`
 
 	// The filter values.
-	FilterValues []string `type:"list"`
+	FilterValues []string `json:"ssm:DescribeActivationsFilter:FilterValues" type:"list"`
 }
 
 // String returns the string representation
@@ -1673,13 +1673,13 @@ type DocumentDefaultVersionDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The default version of the document.
-	DefaultVersion *string `type:"string"`
+	DefaultVersion *string `json:"ssm:DocumentDefaultVersionDescription:DefaultVersion" type:"string"`
 
 	// The default version of the artifact associated with the document.
-	DefaultVersionName *string `type:"string"`
+	DefaultVersionName *string `json:"ssm:DocumentDefaultVersionDescription:DefaultVersionName" type:"string"`
 
 	// The name of the document.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:DocumentDefaultVersionDescription:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1694,77 +1694,77 @@ type DocumentDescription struct {
 
 	// Details about the document attachments, including names, locations, sizes,
 	// etc.
-	AttachmentsInformation []AttachmentInformation `type:"list"`
+	AttachmentsInformation []AttachmentInformation `json:"ssm:DocumentDescription:AttachmentsInformation" type:"list"`
 
 	// The date when the document was created.
-	CreatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"ssm:DocumentDescription:CreatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The default version.
-	DefaultVersion *string `type:"string"`
+	DefaultVersion *string `json:"ssm:DocumentDescription:DefaultVersion" type:"string"`
 
 	// A description of the document.
-	Description *string `type:"string"`
+	Description *string `json:"ssm:DocumentDescription:Description" type:"string"`
 
 	// The document format, either JSON or YAML.
-	DocumentFormat DocumentFormat `type:"string" enum:"true"`
+	DocumentFormat DocumentFormat `json:"ssm:DocumentDescription:DocumentFormat" type:"string" enum:"true"`
 
 	// The type of document.
-	DocumentType DocumentType `type:"string" enum:"true"`
+	DocumentType DocumentType `json:"ssm:DocumentDescription:DocumentType" type:"string" enum:"true"`
 
 	// The document version.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:DocumentDescription:DocumentVersion" type:"string"`
 
 	// The Sha256 or Sha1 hash created by the system when the document was created.
 	//
 	// Sha1 hashes have been deprecated.
-	Hash *string `type:"string"`
+	Hash *string `json:"ssm:DocumentDescription:Hash" type:"string"`
 
 	// The hash type of the document. Valid values include Sha256 or Sha1.
 	//
 	// Sha1 hashes have been deprecated.
-	HashType DocumentHashType `type:"string" enum:"true"`
+	HashType DocumentHashType `json:"ssm:DocumentDescription:HashType" type:"string" enum:"true"`
 
 	// The latest version of the document.
-	LatestVersion *string `type:"string"`
+	LatestVersion *string `json:"ssm:DocumentDescription:LatestVersion" type:"string"`
 
 	// The name of the Systems Manager document.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:DocumentDescription:Name" type:"string"`
 
 	// The AWS user account that created the document.
-	Owner *string `type:"string"`
+	Owner *string `json:"ssm:DocumentDescription:Owner" type:"string"`
 
 	// A description of the parameters for a document.
-	Parameters []DocumentParameter `type:"list"`
+	Parameters []DocumentParameter `json:"ssm:DocumentDescription:Parameters" type:"list"`
 
 	// The list of OS platforms compatible with this Systems Manager document.
-	PlatformTypes []PlatformType `type:"list"`
+	PlatformTypes []PlatformType `json:"ssm:DocumentDescription:PlatformTypes" type:"list"`
 
 	// The schema version.
-	SchemaVersion *string `type:"string"`
+	SchemaVersion *string `json:"ssm:DocumentDescription:SchemaVersion" type:"string"`
 
 	// The SHA1 hash of the document, which you can use for verification.
-	Sha1 *string `type:"string"`
+	Sha1 *string `json:"ssm:DocumentDescription:Sha1" type:"string"`
 
 	// The status of the Systems Manager document.
-	Status DocumentStatus `type:"string" enum:"true"`
+	Status DocumentStatus `json:"ssm:DocumentDescription:Status" type:"string" enum:"true"`
 
 	// A message returned by AWS Systems Manager that explains the Status value.
 	// For example, a Failed status might be explained by the StatusInformation
 	// message, "The specified S3 bucket does not exist. Verify that the URL of
 	// the S3 bucket is correct."
-	StatusInformation *string `type:"string"`
+	StatusInformation *string `json:"ssm:DocumentDescription:StatusInformation" type:"string"`
 
 	// The tags, or metadata, that have been applied to the document.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"ssm:DocumentDescription:Tags" type:"list"`
 
 	// The target type which defines the kinds of resources the document can run
 	// on. For example, /AWS::EC2::Instance. For a list of valid resource types,
 	// see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	// in the AWS CloudFormation User Guide.
-	TargetType *string `type:"string"`
+	TargetType *string `json:"ssm:DocumentDescription:TargetType" type:"string"`
 
 	// The version of the artifact associated with the document.
-	VersionName *string `type:"string"`
+	VersionName *string `json:"ssm:DocumentDescription:VersionName" type:"string"`
 }
 
 // String returns the string representation
@@ -1780,12 +1780,12 @@ type DocumentFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key DocumentFilterKey `locationName:"key" type:"string" required:"true" enum:"true"`
+	Key DocumentFilterKey `json:"ssm:DocumentFilter:Key" locationName:"key" type:"string" required:"true" enum:"true"`
 
 	// The value of the filter.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"ssm:DocumentFilter:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1819,39 +1819,39 @@ type DocumentIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The document format, either JSON or YAML.
-	DocumentFormat DocumentFormat `type:"string" enum:"true"`
+	DocumentFormat DocumentFormat `json:"ssm:DocumentIdentifier:DocumentFormat" type:"string" enum:"true"`
 
 	// The document type.
-	DocumentType DocumentType `type:"string" enum:"true"`
+	DocumentType DocumentType `json:"ssm:DocumentIdentifier:DocumentType" type:"string" enum:"true"`
 
 	// The document version.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:DocumentIdentifier:DocumentVersion" type:"string"`
 
 	// The name of the Systems Manager document.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:DocumentIdentifier:Name" type:"string"`
 
 	// The AWS user account that created the document.
-	Owner *string `type:"string"`
+	Owner *string `json:"ssm:DocumentIdentifier:Owner" type:"string"`
 
 	// The operating system platform.
-	PlatformTypes []PlatformType `type:"list"`
+	PlatformTypes []PlatformType `json:"ssm:DocumentIdentifier:PlatformTypes" type:"list"`
 
 	// The schema version.
-	SchemaVersion *string `type:"string"`
+	SchemaVersion *string `json:"ssm:DocumentIdentifier:SchemaVersion" type:"string"`
 
 	// The tags, or metadata, that have been applied to the document.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"ssm:DocumentIdentifier:Tags" type:"list"`
 
 	// The target type which defines the kinds of resources the document can run
 	// on. For example, /AWS::EC2::Instance. For a list of valid resource types,
 	// see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 	// in the AWS CloudFormation User Guide.
-	TargetType *string `type:"string"`
+	TargetType *string `json:"ssm:DocumentIdentifier:TargetType" type:"string"`
 
 	// An optional field specifying the version of the artifact associated with
 	// the document. For example, "Release 12, Update 6". This value is unique across
 	// all versions of a document, and cannot be changed.
-	VersionName *string `type:"string"`
+	VersionName *string `json:"ssm:DocumentIdentifier:VersionName" type:"string"`
 }
 
 // String returns the string representation
@@ -1889,10 +1889,10 @@ type DocumentKeyValuesFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the filter key.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"ssm:DocumentKeyValuesFilter:Key" min:"1" type:"string"`
 
 	// The value for the filter key.
-	Values []string `type:"list"`
+	Values []string `json:"ssm:DocumentKeyValuesFilter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -1921,17 +1921,17 @@ type DocumentParameter struct {
 
 	// If specified, the default values for the parameters. Parameters without a
 	// default value are required. Parameters with a default value are optional.
-	DefaultValue *string `type:"string"`
+	DefaultValue *string `json:"ssm:DocumentParameter:DefaultValue" type:"string"`
 
 	// A description of what the parameter does, how to use it, the default value,
 	// and whether or not the parameter is optional.
-	Description *string `type:"string"`
+	Description *string `json:"ssm:DocumentParameter:Description" type:"string"`
 
 	// The name of the parameter.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:DocumentParameter:Name" type:"string"`
 
 	// The type of parameter. The type can be either String or StringList.
-	Type DocumentParameterType `type:"string" enum:"true"`
+	Type DocumentParameterType `json:"ssm:DocumentParameter:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1945,34 +1945,34 @@ type DocumentVersionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The date the document was created.
-	CreatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"ssm:DocumentVersionInfo:CreatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The document format, either JSON or YAML.
-	DocumentFormat DocumentFormat `type:"string" enum:"true"`
+	DocumentFormat DocumentFormat `json:"ssm:DocumentVersionInfo:DocumentFormat" type:"string" enum:"true"`
 
 	// The document version.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:DocumentVersionInfo:DocumentVersion" type:"string"`
 
 	// An identifier for the default version of the document.
-	IsDefaultVersion *bool `type:"boolean"`
+	IsDefaultVersion *bool `json:"ssm:DocumentVersionInfo:IsDefaultVersion" type:"boolean"`
 
 	// The document name.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:DocumentVersionInfo:Name" type:"string"`
 
 	// The status of the Systems Manager document, such as Creating, Active, Failed,
 	// and Deleting.
-	Status DocumentStatus `type:"string" enum:"true"`
+	Status DocumentStatus `json:"ssm:DocumentVersionInfo:Status" type:"string" enum:"true"`
 
 	// A message returned by AWS Systems Manager that explains the Status value.
 	// For example, a Failed status might be explained by the StatusInformation
 	// message, "The specified S3 bucket does not exist. Verify that the URL of
 	// the S3 bucket is correct."
-	StatusInformation *string `type:"string"`
+	StatusInformation *string `json:"ssm:DocumentVersionInfo:StatusInformation" type:"string"`
 
 	// The version of the artifact associated with the document. For example, "Release
 	// 12, Update 6". This value is unique across all versions of a document, and
 	// cannot be changed.
-	VersionName *string `type:"string"`
+	VersionName *string `json:"ssm:DocumentVersionInfo:VersionName" type:"string"`
 }
 
 // String returns the string representation
@@ -1992,12 +1992,12 @@ type EffectivePatch struct {
 	// Provides metadata for a patch, including information such as the KB ID, severity,
 	// classification and a URL for where more information can be obtained about
 	// the patch.
-	Patch *Patch `type:"structure"`
+	Patch *Patch `json:"ssm:EffectivePatch:Patch" type:"structure"`
 
 	// The status of the patch in a patch baseline. This includes information about
 	// whether the patch is currently approved, due to be approved by a rule, explicitly
 	// approved, or explicitly rejected and the date the patch was or will be approved.
-	PatchStatus *PatchStatus `type:"structure"`
+	PatchStatus *PatchStatus `json:"ssm:EffectivePatch:PatchStatus" type:"structure"`
 }
 
 // String returns the string representation
@@ -2011,13 +2011,13 @@ type FailedCreateAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The association.
-	Entry *CreateAssociationBatchRequestEntry `type:"structure"`
+	Entry *CreateAssociationBatchRequestEntry `json:"ssm:FailedCreateAssociation:Entry" type:"structure"`
 
 	// The source of the failure.
-	Fault Fault `type:"string" enum:"true"`
+	Fault Fault `json:"ssm:FailedCreateAssociation:Fault" type:"string" enum:"true"`
 
 	// A description of the failure.
-	Message *string `type:"string"`
+	Message *string `json:"ssm:FailedCreateAssociation:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -2031,15 +2031,15 @@ type FailureDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about the Automation step failure.
-	Details map[string][]string `min:"1" type:"map"`
+	Details map[string][]string `json:"ssm:FailureDetails:Details" min:"1" type:"map"`
 
 	// The stage of the Automation execution when the failure occurred. The stages
 	// include the following: InputValidation, PreVerification, Invocation, PostVerification.
-	FailureStage *string `type:"string"`
+	FailureStage *string `json:"ssm:FailureDetails:FailureStage" type:"string"`
 
 	// The type of Automation failure. Failure types include the following: Action,
 	// Permission, Throttling, Verification, Internal.
-	FailureType *string `type:"string"`
+	FailureType *string `json:"ssm:FailureDetails:FailureType" type:"string"`
 }
 
 // String returns the string representation
@@ -2053,10 +2053,10 @@ type InstanceAggregatedAssociationOverview struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed status information about the aggregated associations.
-	DetailedStatus *string `type:"string"`
+	DetailedStatus *string `json:"ssm:InstanceAggregatedAssociationOverview:DetailedStatus" type:"string"`
 
 	// The number of associations for the instance(s).
-	InstanceAssociationStatusAggregatedCount map[string]int64 `type:"map"`
+	InstanceAssociationStatusAggregatedCount map[string]int64 `json:"ssm:InstanceAggregatedAssociationOverview:InstanceAssociationStatusAggregatedCount" type:"map"`
 }
 
 // String returns the string representation
@@ -2070,16 +2070,16 @@ type InstanceAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// The association ID.
-	AssociationId *string `type:"string"`
+	AssociationId *string `json:"ssm:InstanceAssociation:AssociationId" type:"string"`
 
 	// Version information for the association on the instance.
-	AssociationVersion *string `type:"string"`
+	AssociationVersion *string `json:"ssm:InstanceAssociation:AssociationVersion" type:"string"`
 
 	// The content of the association document for the instance(s).
-	Content *string `min:"1" type:"string"`
+	Content *string `json:"ssm:InstanceAssociation:Content" min:"1" type:"string"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:InstanceAssociation:InstanceId" type:"string"`
 }
 
 // String returns the string representation
@@ -2093,7 +2093,7 @@ type InstanceAssociationOutputLocation struct {
 	_ struct{} `type:"structure"`
 
 	// An Amazon S3 bucket where you want to store the results of this request.
-	S3Location *S3OutputLocation `type:"structure"`
+	S3Location *S3OutputLocation `json:"ssm:InstanceAssociationOutputLocation:S3Location" type:"structure"`
 }
 
 // String returns the string representation
@@ -2122,7 +2122,7 @@ type InstanceAssociationOutputUrl struct {
 	_ struct{} `type:"structure"`
 
 	// The URL of Amazon S3 bucket where you want to store the results of this request.
-	S3OutputUrl *S3OutputUrl `type:"structure"`
+	S3OutputUrl *S3OutputUrl `json:"ssm:InstanceAssociationOutputUrl:S3OutputUrl" type:"structure"`
 }
 
 // String returns the string representation
@@ -2136,41 +2136,41 @@ type InstanceAssociationStatusInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The association ID.
-	AssociationId *string `type:"string"`
+	AssociationId *string `json:"ssm:InstanceAssociationStatusInfo:AssociationId" type:"string"`
 
 	// The name of the association applied to the instance.
-	AssociationName *string `type:"string"`
+	AssociationName *string `json:"ssm:InstanceAssociationStatusInfo:AssociationName" type:"string"`
 
 	// The version of the association applied to the instance.
-	AssociationVersion *string `type:"string"`
+	AssociationVersion *string `json:"ssm:InstanceAssociationStatusInfo:AssociationVersion" type:"string"`
 
 	// Detailed status information about the instance association.
-	DetailedStatus *string `type:"string"`
+	DetailedStatus *string `json:"ssm:InstanceAssociationStatusInfo:DetailedStatus" type:"string"`
 
 	// The association document versions.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:InstanceAssociationStatusInfo:DocumentVersion" type:"string"`
 
 	// An error code returned by the request to create the association.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"ssm:InstanceAssociationStatusInfo:ErrorCode" type:"string"`
 
 	// The date the instance association ran.
-	ExecutionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExecutionDate *time.Time `json:"ssm:InstanceAssociationStatusInfo:ExecutionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Summary information about association execution.
-	ExecutionSummary *string `min:"1" type:"string"`
+	ExecutionSummary *string `json:"ssm:InstanceAssociationStatusInfo:ExecutionSummary" min:"1" type:"string"`
 
 	// The instance ID where the association was created.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:InstanceAssociationStatusInfo:InstanceId" type:"string"`
 
 	// The name of the association.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:InstanceAssociationStatusInfo:Name" type:"string"`
 
 	// A URL for an Amazon S3 bucket where you want to store the results of this
 	// request.
-	OutputUrl *InstanceAssociationOutputUrl `type:"structure"`
+	OutputUrl *InstanceAssociationOutputUrl `json:"ssm:InstanceAssociationStatusInfo:OutputUrl" type:"structure"`
 
 	// Status information about the instance association.
-	Status *string `type:"string"`
+	Status *string `json:"ssm:InstanceAssociationStatusInfo:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -2184,66 +2184,66 @@ type InstanceInformation struct {
 	_ struct{} `type:"structure"`
 
 	// The activation ID created by Systems Manager when the server or VM was registered.
-	ActivationId *string `type:"string"`
+	ActivationId *string `json:"ssm:InstanceInformation:ActivationId" type:"string"`
 
 	// The version of SSM Agent running on your Linux instance.
-	AgentVersion *string `type:"string"`
+	AgentVersion *string `json:"ssm:InstanceInformation:AgentVersion" type:"string"`
 
 	// Information about the association.
-	AssociationOverview *InstanceAggregatedAssociationOverview `type:"structure"`
+	AssociationOverview *InstanceAggregatedAssociationOverview `json:"ssm:InstanceInformation:AssociationOverview" type:"structure"`
 
 	// The status of the association.
-	AssociationStatus *string `type:"string"`
+	AssociationStatus *string `json:"ssm:InstanceInformation:AssociationStatus" type:"string"`
 
 	// The fully qualified host name of the managed instance.
-	ComputerName *string `min:"1" type:"string"`
+	ComputerName *string `json:"ssm:InstanceInformation:ComputerName" min:"1" type:"string"`
 
 	// The IP address of the managed instance.
-	IPAddress *string `min:"1" type:"string"`
+	IPAddress *string `json:"ssm:InstanceInformation:IPAddress" min:"1" type:"string"`
 
 	// The Amazon Identity and Access Management (IAM) role assigned to the on-premises
 	// Systems Manager managed instances. This call does not return the IAM role
 	// for Amazon EC2 instances.
-	IamRole *string `type:"string"`
+	IamRole *string `json:"ssm:InstanceInformation:IamRole" type:"string"`
 
 	// The instance ID.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:InstanceInformation:InstanceId" type:"string"`
 
 	// Indicates whether latest version of SSM Agent is running on your instance.
 	// Some older versions of Windows Server use the EC2Config service to process
 	// SSM requests. For this reason, this field does not indicate whether or not
 	// the latest version is installed on Windows managed instances.
-	IsLatestVersion *bool `type:"boolean"`
+	IsLatestVersion *bool `json:"ssm:InstanceInformation:IsLatestVersion" type:"boolean"`
 
 	// The date the association was last run.
-	LastAssociationExecutionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAssociationExecutionDate *time.Time `json:"ssm:InstanceInformation:LastAssociationExecutionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date and time when agent last pinged Systems Manager service.
-	LastPingDateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastPingDateTime *time.Time `json:"ssm:InstanceInformation:LastPingDateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The last date the association was successfully run.
-	LastSuccessfulAssociationExecutionDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastSuccessfulAssociationExecutionDate *time.Time `json:"ssm:InstanceInformation:LastSuccessfulAssociationExecutionDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the managed instance.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:InstanceInformation:Name" type:"string"`
 
 	// Connection status of SSM Agent.
-	PingStatus PingStatus `type:"string" enum:"true"`
+	PingStatus PingStatus `json:"ssm:InstanceInformation:PingStatus" type:"string" enum:"true"`
 
 	// The name of the operating system platform running on your instance.
-	PlatformName *string `type:"string"`
+	PlatformName *string `json:"ssm:InstanceInformation:PlatformName" type:"string"`
 
 	// The operating system platform type.
-	PlatformType PlatformType `type:"string" enum:"true"`
+	PlatformType PlatformType `json:"ssm:InstanceInformation:PlatformType" type:"string" enum:"true"`
 
 	// The version of the OS platform running on your instance.
-	PlatformVersion *string `type:"string"`
+	PlatformVersion *string `json:"ssm:InstanceInformation:PlatformVersion" type:"string"`
 
 	// The date the server or VM was registered with AWS as a managed instance.
-	RegistrationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RegistrationDate *time.Time `json:"ssm:InstanceInformation:RegistrationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The type of instance. Instances are either EC2 instances or managed instances.
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"ssm:InstanceInformation:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2264,12 +2264,12 @@ type InstanceInformationFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key InstanceInformationFilterKey `locationName:"key" type:"string" required:"true" enum:"true"`
+	Key InstanceInformationFilterKey `json:"ssm:InstanceInformationFilter:Key" locationName:"key" type:"string" required:"true" enum:"true"`
 
 	// The filter values.
 	//
 	// ValueSet is a required field
-	ValueSet []string `locationName:"valueSet" min:"1" type:"list" required:"true"`
+	ValueSet []string `json:"ssm:InstanceInformationFilter:ValueSet" locationName:"valueSet" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2308,12 +2308,12 @@ type InstanceInformationStringFilter struct {
 	// Key"
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"ssm:InstanceInformationStringFilter:Key" min:"1" type:"string" required:"true"`
 
 	// The filter values.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"ssm:InstanceInformationStringFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2356,11 +2356,11 @@ type InstancePatchState struct {
 	// The ID of the patch baseline used to patch the instance.
 	//
 	// BaselineId is a required field
-	BaselineId *string `min:"20" type:"string" required:"true"`
+	BaselineId *string `json:"ssm:InstancePatchState:BaselineId" min:"20" type:"string" required:"true"`
 
 	// The number of patches from the patch baseline that were attempted to be installed
 	// during the last patching operation, but failed to install.
-	FailedCount *int64 `type:"integer"`
+	FailedCount *int64 `json:"ssm:InstancePatchState:FailedCount" type:"integer"`
 
 	// An https URL or an Amazon S3 path-style URL to a list of patches to be installed.
 	// This patch installation list, which you maintain in an Amazon S3 bucket in
@@ -2370,14 +2370,14 @@ type InstancePatchState struct {
 	// For more information about the InstallOverrideList parameter, see About the
 	// SSM Document AWS-RunPatchBaseline (http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html)
 	// in the AWS Systems Manager User Guide.
-	InstallOverrideList *string `min:"1" type:"string"`
+	InstallOverrideList *string `json:"ssm:InstancePatchState:InstallOverrideList" min:"1" type:"string"`
 
 	// The number of patches from the patch baseline that are installed on the instance.
-	InstalledCount *int64 `type:"integer"`
+	InstalledCount *int64 `json:"ssm:InstancePatchState:InstalledCount" type:"integer"`
 
 	// The number of patches not specified in the patch baseline that are installed
 	// on the instance.
-	InstalledOtherCount *int64 `type:"integer"`
+	InstalledOtherCount *int64 `json:"ssm:InstancePatchState:InstalledOtherCount" type:"integer"`
 
 	// The number of instances with patches installed that are specified in a RejectedPatches
 	// list. Patches with a status of InstalledRejected were typically installed
@@ -2385,56 +2385,56 @@ type InstancePatchState struct {
 	//
 	// If ALLOW_AS_DEPENDENCY is the specified option for RejectedPatchesAction,
 	// the value of InstalledRejectedCount will always be 0 (zero).
-	InstalledRejectedCount *int64 `type:"integer"`
+	InstalledRejectedCount *int64 `json:"ssm:InstancePatchState:InstalledRejectedCount" type:"integer"`
 
 	// The ID of the managed instance the high-level patch compliance information
 	// was collected for.
 	//
 	// InstanceId is a required field
-	InstanceId *string `type:"string" required:"true"`
+	InstanceId *string `json:"ssm:InstancePatchState:InstanceId" type:"string" required:"true"`
 
 	// The number of patches from the patch baseline that are applicable for the
 	// instance but aren't currently installed.
-	MissingCount *int64 `type:"integer"`
+	MissingCount *int64 `json:"ssm:InstancePatchState:MissingCount" type:"integer"`
 
 	// The number of patches from the patch baseline that aren't applicable for
 	// the instance and therefore aren't installed on the instance. This number
 	// may be truncated if the list of patch names is very large. The number of
 	// patches beyond this limit are reported in UnreportedNotApplicableCount.
-	NotApplicableCount *int64 `type:"integer"`
+	NotApplicableCount *int64 `json:"ssm:InstancePatchState:NotApplicableCount" type:"integer"`
 
 	// The type of patching operation that was performed: SCAN (assess patch compliance
 	// state) or INSTALL (install missing patches).
 	//
 	// Operation is a required field
-	Operation PatchOperationType `type:"string" required:"true" enum:"true"`
+	Operation PatchOperationType `json:"ssm:InstancePatchState:Operation" type:"string" required:"true" enum:"true"`
 
 	// The time the most recent patching operation completed on the instance.
 	//
 	// OperationEndTime is a required field
-	OperationEndTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	OperationEndTime *time.Time `json:"ssm:InstancePatchState:OperationEndTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The time the most recent patching operation was started on the instance.
 	//
 	// OperationStartTime is a required field
-	OperationStartTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	OperationStartTime *time.Time `json:"ssm:InstancePatchState:OperationStartTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Placeholder information. This field will always be empty in the current release
 	// of the service.
-	OwnerInformation *string `min:"1" type:"string"`
+	OwnerInformation *string `json:"ssm:InstancePatchState:OwnerInformation" min:"1" type:"string"`
 
 	// The name of the patch group the managed instance belongs to.
 	//
 	// PatchGroup is a required field
-	PatchGroup *string `min:"1" type:"string" required:"true"`
+	PatchGroup *string `json:"ssm:InstancePatchState:PatchGroup" min:"1" type:"string" required:"true"`
 
 	// The ID of the patch baseline snapshot used during the patching operation
 	// when this compliance data was collected.
-	SnapshotId *string `min:"36" type:"string"`
+	SnapshotId *string `json:"ssm:InstancePatchState:SnapshotId" min:"36" type:"string"`
 
 	// The number of patches beyond the supported limit of NotApplicableCount that
 	// are not reported by name to Systems Manager Inventory.
-	UnreportedNotApplicableCount *int64 `type:"integer"`
+	UnreportedNotApplicableCount *int64 `json:"ssm:InstancePatchState:UnreportedNotApplicableCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -2452,18 +2452,18 @@ type InstancePatchStateFilter struct {
 	// InstalledOtherCount, MissingCount and NotApplicableCount.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"ssm:InstancePatchStateFilter:Key" min:"1" type:"string" required:"true"`
 
 	// The type of comparison that should be performed for the value: Equal, NotEqual,
 	// LessThan or GreaterThan.
 	//
 	// Type is a required field
-	Type InstancePatchStateOperatorType `type:"string" required:"true" enum:"true"`
+	Type InstancePatchStateOperatorType `json:"ssm:InstancePatchStateFilter:Type" type:"string" required:"true" enum:"true"`
 
 	// The value for the filter, must be an integer greater than or equal to 0.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"ssm:InstancePatchStateFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2504,15 +2504,15 @@ type InventoryAggregator struct {
 	_ struct{} `type:"structure"`
 
 	// Nested aggregators to further refine aggregation for an inventory type.
-	Aggregators []InventoryAggregator `min:"1" type:"list"`
+	Aggregators []InventoryAggregator `json:"ssm:InventoryAggregator:Aggregators" min:"1" type:"list"`
 
 	// The inventory type and attribute name for aggregation.
-	Expression *string `min:"1" type:"string"`
+	Expression *string `json:"ssm:InventoryAggregator:Expression" min:"1" type:"string"`
 
 	// A user-defined set of one or more filters on which to aggregate inventory
 	// data. Groups return a count of resources that match and don't match the specified
 	// criteria.
-	Groups []InventoryGroup `min:"1" type:"list"`
+	Groups []InventoryGroup `json:"ssm:InventoryAggregator:Groups" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -2559,27 +2559,27 @@ type InventoryDeletionStatusItem struct {
 	_ struct{} `type:"structure"`
 
 	// The deletion ID returned by the DeleteInventory action.
-	DeletionId *string `type:"string"`
+	DeletionId *string `json:"ssm:InventoryDeletionStatusItem:DeletionId" type:"string"`
 
 	// The UTC timestamp when the delete operation started.
-	DeletionStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeletionStartTime *time.Time `json:"ssm:InventoryDeletionStatusItem:DeletionStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the delete operation. For more information about this summary,
 	// see Understanding the Delete Inventory Summary (http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete)
 	// in the AWS Systems Manager User Guide.
-	DeletionSummary *InventoryDeletionSummary `type:"structure"`
+	DeletionSummary *InventoryDeletionSummary `json:"ssm:InventoryDeletionStatusItem:DeletionSummary" type:"structure"`
 
 	// The status of the operation. Possible values are InProgress and Complete.
-	LastStatus InventoryDeletionStatus `type:"string" enum:"true"`
+	LastStatus InventoryDeletionStatus `json:"ssm:InventoryDeletionStatusItem:LastStatus" type:"string" enum:"true"`
 
 	// Information about the status.
-	LastStatusMessage *string `type:"string"`
+	LastStatusMessage *string `json:"ssm:InventoryDeletionStatusItem:LastStatusMessage" type:"string"`
 
 	// The UTC timestamp of when the last status report.
-	LastStatusUpdateTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastStatusUpdateTime *time.Time `json:"ssm:InventoryDeletionStatusItem:LastStatusUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the inventory data type.
-	TypeName *string `min:"1" type:"string"`
+	TypeName *string `json:"ssm:InventoryDeletionStatusItem:TypeName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2593,14 +2593,14 @@ type InventoryDeletionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Remaining number of items to delete.
-	RemainingCount *int64 `type:"integer"`
+	RemainingCount *int64 `json:"ssm:InventoryDeletionSummary:RemainingCount" type:"integer"`
 
 	// A list of counts and versions for deleted items.
-	SummaryItems []InventoryDeletionSummaryItem `type:"list"`
+	SummaryItems []InventoryDeletionSummaryItem `json:"ssm:InventoryDeletionSummary:SummaryItems" type:"list"`
 
 	// The total number of items to delete. This count does not change during the
 	// delete operation.
-	TotalCount *int64 `type:"integer"`
+	TotalCount *int64 `json:"ssm:InventoryDeletionSummary:TotalCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -2615,13 +2615,13 @@ type InventoryDeletionSummaryItem struct {
 	_ struct{} `type:"structure"`
 
 	// A count of the number of deleted items.
-	Count *int64 `type:"integer"`
+	Count *int64 `json:"ssm:InventoryDeletionSummaryItem:Count" type:"integer"`
 
 	// The remaining number of items to delete.
-	RemainingCount *int64 `type:"integer"`
+	RemainingCount *int64 `json:"ssm:InventoryDeletionSummaryItem:RemainingCount" type:"integer"`
 
 	// The inventory type version.
-	Version *string `type:"string"`
+	Version *string `json:"ssm:InventoryDeletionSummaryItem:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -2637,17 +2637,17 @@ type InventoryFilter struct {
 	// The name of the filter key.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"ssm:InventoryFilter:Key" min:"1" type:"string" required:"true"`
 
 	// The type of filter. Valid values include the following: "Equal"|"NotEqual"|"BeginWith"|"LessThan"|"GreaterThan"
-	Type InventoryQueryOperatorType `type:"string" enum:"true"`
+	Type InventoryQueryOperatorType `json:"ssm:InventoryFilter:Type" type:"string" enum:"true"`
 
 	// Inventory filter values. Example: inventory filter where instance IDs are
 	// specified as values Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g,
 	// i-1a2b3c4d5e6,Type=Equal
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"ssm:InventoryFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2691,12 +2691,12 @@ type InventoryGroup struct {
 	// displays the number of resources that don't match the criteria.
 	//
 	// Filters is a required field
-	Filters []InventoryFilter `min:"1" type:"list" required:"true"`
+	Filters []InventoryFilter `json:"ssm:InventoryGroup:Filters" min:"1" type:"list" required:"true"`
 
 	// The name of the group.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"ssm:InventoryGroup:Name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2744,26 +2744,26 @@ type InventoryItem struct {
 	// The time the inventory information was collected.
 	//
 	// CaptureTime is a required field
-	CaptureTime *string `type:"string" required:"true"`
+	CaptureTime *string `json:"ssm:InventoryItem:CaptureTime" type:"string" required:"true"`
 
 	// The inventory data of the inventory type.
-	Content []map[string]string `type:"list"`
+	Content []map[string]string `json:"ssm:InventoryItem:Content" type:"list"`
 
 	// MD5 hash of the inventory item type contents. The content hash is used to
 	// determine whether to update inventory information. The PutInventory API does
 	// not update the inventory item type contents if the MD5 hash has not changed
 	// since last update.
-	ContentHash *string `type:"string"`
+	ContentHash *string `json:"ssm:InventoryItem:ContentHash" type:"string"`
 
 	// A map of associated properties for a specified inventory type. For example,
 	// with this attribute, you can specify the ExecutionId, ExecutionType, ComplianceType
 	// properties of the AWS:ComplianceItem type.
-	Context map[string]string `type:"map"`
+	Context map[string]string `json:"ssm:InventoryItem:Context" type:"map"`
 
 	// The schema version for the inventory item.
 	//
 	// SchemaVersion is a required field
-	SchemaVersion *string `type:"string" required:"true"`
+	SchemaVersion *string `json:"ssm:InventoryItem:SchemaVersion" type:"string" required:"true"`
 
 	// The name of the inventory type. Default inventory item type names start with
 	// AWS. Custom inventory type names will start with Custom. Default inventory
@@ -2771,7 +2771,7 @@ type InventoryItem struct {
 	// AWS:Network, and AWS:WindowsUpdate.
 	//
 	// TypeName is a required field
-	TypeName *string `min:"1" type:"string" required:"true"`
+	TypeName *string `json:"ssm:InventoryItem:TypeName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2813,12 +2813,12 @@ type InventoryItemAttribute struct {
 	// The data type of the inventory item attribute.
 	//
 	// DataType is a required field
-	DataType InventoryAttributeDataType `type:"string" required:"true" enum:"true"`
+	DataType InventoryAttributeDataType `json:"ssm:InventoryItemAttribute:DataType" type:"string" required:"true" enum:"true"`
 
 	// Name of the inventory item attribute.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"ssm:InventoryItemAttribute:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2836,11 +2836,11 @@ type InventoryItemSchema struct {
 	// name.
 	//
 	// Attributes is a required field
-	Attributes []InventoryItemAttribute `min:"1" type:"list" required:"true"`
+	Attributes []InventoryItemAttribute `json:"ssm:InventoryItemSchema:Attributes" min:"1" type:"list" required:"true"`
 
 	// The alias name of the inventory type. The alias name is used for display
 	// purposes.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"ssm:InventoryItemSchema:DisplayName" type:"string"`
 
 	// The name of the inventory type. Default inventory item type names start with
 	// AWS. Custom inventory type names will start with Custom. Default inventory
@@ -2848,10 +2848,10 @@ type InventoryItemSchema struct {
 	// AWS:Network, and AWS:WindowsUpdate.
 	//
 	// TypeName is a required field
-	TypeName *string `min:"1" type:"string" required:"true"`
+	TypeName *string `json:"ssm:InventoryItemSchema:TypeName" min:"1" type:"string" required:"true"`
 
 	// The schema version for the inventory item.
-	Version *string `type:"string"`
+	Version *string `json:"ssm:InventoryItemSchema:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -2865,12 +2865,12 @@ type InventoryResultEntity struct {
 	_ struct{} `type:"structure"`
 
 	// The data section in the inventory result entity JSON.
-	Data map[string]InventoryResultItem `type:"map"`
+	Data map[string]InventoryResultItem `json:"ssm:InventoryResultEntity:Data" type:"map"`
 
 	// ID of the inventory result entity. For example, for managed instance inventory
 	// the result will be the managed instance ID. For EC2 instance inventory, the
 	// result will be the instance ID.
-	Id *string `type:"string"`
+	Id *string `json:"ssm:InventoryResultEntity:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -2884,29 +2884,29 @@ type InventoryResultItem struct {
 	_ struct{} `type:"structure"`
 
 	// The time inventory item data was captured.
-	CaptureTime *string `type:"string"`
+	CaptureTime *string `json:"ssm:InventoryResultItem:CaptureTime" type:"string"`
 
 	// Contains all the inventory data of the item type. Results include attribute
 	// names and values.
 	//
 	// Content is a required field
-	Content []map[string]string `type:"list" required:"true"`
+	Content []map[string]string `json:"ssm:InventoryResultItem:Content" type:"list" required:"true"`
 
 	// MD5 hash of the inventory item type contents. The content hash is used to
 	// determine whether to update inventory information. The PutInventory API does
 	// not update the inventory item type contents if the MD5 hash has not changed
 	// since last update.
-	ContentHash *string `type:"string"`
+	ContentHash *string `json:"ssm:InventoryResultItem:ContentHash" type:"string"`
 
 	// The schema version for the inventory result item/
 	//
 	// SchemaVersion is a required field
-	SchemaVersion *string `type:"string" required:"true"`
+	SchemaVersion *string `json:"ssm:InventoryResultItem:SchemaVersion" type:"string" required:"true"`
 
 	// The name of the inventory result item type.
 	//
 	// TypeName is a required field
-	TypeName *string `min:"1" type:"string" required:"true"`
+	TypeName *string `json:"ssm:InventoryResultItem:TypeName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2927,15 +2927,15 @@ type LoggingInfo struct {
 	// The name of an Amazon S3 bucket where execution logs are stored .
 	//
 	// S3BucketName is a required field
-	S3BucketName *string `min:"3" type:"string" required:"true"`
+	S3BucketName *string `json:"ssm:LoggingInfo:S3BucketName" min:"3" type:"string" required:"true"`
 
 	// (Optional) The Amazon S3 bucket subfolder.
-	S3KeyPrefix *string `type:"string"`
+	S3KeyPrefix *string `json:"ssm:LoggingInfo:S3KeyPrefix" type:"string"`
 
 	// The region where the Amazon S3 bucket is located.
 	//
 	// S3Region is a required field
-	S3Region *string `min:"3" type:"string" required:"true"`
+	S3Region *string `json:"ssm:LoggingInfo:S3Region" min:"3" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2973,7 +2973,7 @@ type MaintenanceWindowAutomationParameters struct {
 	_ struct{} `type:"structure"`
 
 	// The version of an Automation document to use during task execution.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:MaintenanceWindowAutomationParameters:DocumentVersion" type:"string"`
 
 	// The parameters for the AUTOMATION task.
 	//
@@ -2992,7 +2992,7 @@ type MaintenanceWindowAutomationParameters struct {
 	//
 	// For AUTOMATION task types, Systems Manager ignores any values specified for
 	// these parameters.
-	Parameters map[string][]string `min:"1" type:"map"`
+	Parameters map[string][]string `json:"ssm:MaintenanceWindowAutomationParameters:Parameters" min:"1" type:"map"`
 }
 
 // String returns the string representation
@@ -3019,22 +3019,22 @@ type MaintenanceWindowExecution struct {
 	_ struct{} `type:"structure"`
 
 	// The time the execution finished.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"ssm:MaintenanceWindowExecution:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the execution started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"ssm:MaintenanceWindowExecution:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the execution.
-	Status MaintenanceWindowExecutionStatus `type:"string" enum:"true"`
+	Status MaintenanceWindowExecutionStatus `json:"ssm:MaintenanceWindowExecution:Status" type:"string" enum:"true"`
 
 	// The details explaining the Status. Only available for certain status values.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:MaintenanceWindowExecution:StatusDetails" type:"string"`
 
 	// The ID of the maintenance window execution.
-	WindowExecutionId *string `min:"36" type:"string"`
+	WindowExecutionId *string `json:"ssm:MaintenanceWindowExecution:WindowExecutionId" min:"36" type:"string"`
 
 	// The ID of the maintenance window.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:MaintenanceWindowExecution:WindowId" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -3049,29 +3049,29 @@ type MaintenanceWindowExecutionTaskIdentity struct {
 	_ struct{} `type:"structure"`
 
 	// The time the task execution finished.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"ssm:MaintenanceWindowExecutionTaskIdentity:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the task execution started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"ssm:MaintenanceWindowExecutionTaskIdentity:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the task execution.
-	Status MaintenanceWindowExecutionStatus `type:"string" enum:"true"`
+	Status MaintenanceWindowExecutionStatus `json:"ssm:MaintenanceWindowExecutionTaskIdentity:Status" type:"string" enum:"true"`
 
 	// The details explaining the status of the task execution. Only available for
 	// certain status values.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:MaintenanceWindowExecutionTaskIdentity:StatusDetails" type:"string"`
 
 	// The ARN of the task that ran.
-	TaskArn *string `min:"1" type:"string"`
+	TaskArn *string `json:"ssm:MaintenanceWindowExecutionTaskIdentity:TaskArn" min:"1" type:"string"`
 
 	// The ID of the specific task execution in the maintenance window execution.
-	TaskExecutionId *string `min:"36" type:"string"`
+	TaskExecutionId *string `json:"ssm:MaintenanceWindowExecutionTaskIdentity:TaskExecutionId" min:"36" type:"string"`
 
 	// The type of task that ran.
-	TaskType MaintenanceWindowTaskType `type:"string" enum:"true"`
+	TaskType MaintenanceWindowTaskType `json:"ssm:MaintenanceWindowExecutionTaskIdentity:TaskType" type:"string" enum:"true"`
 
 	// The ID of the maintenance window execution that ran the task.
-	WindowExecutionId *string `min:"36" type:"string"`
+	WindowExecutionId *string `json:"ssm:MaintenanceWindowExecutionTaskIdentity:WindowExecutionId" min:"36" type:"string"`
 }
 
 // String returns the string representation
@@ -3086,45 +3086,45 @@ type MaintenanceWindowExecutionTaskInvocationIdentity struct {
 	_ struct{} `type:"structure"`
 
 	// The time the invocation finished.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The ID of the action performed in the service that actually handled the task
 	// invocation. If the task type is RUN_COMMAND, this value is the command ID.
-	ExecutionId *string `type:"string"`
+	ExecutionId *string `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:ExecutionId" type:"string"`
 
 	// The ID of the task invocation.
-	InvocationId *string `min:"36" type:"string"`
+	InvocationId *string `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:InvocationId" min:"36" type:"string"`
 
 	// User-provided value that was specified when the target was registered with
 	// the maintenance window. This was also included in any CloudWatch events raised
 	// during the task invocation.
-	OwnerInformation *string `min:"1" type:"string"`
+	OwnerInformation *string `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:OwnerInformation" min:"1" type:"string"`
 
 	// The parameters that were provided for the invocation when it was run.
-	Parameters *string `type:"string"`
+	Parameters *string `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:Parameters" type:"string"`
 
 	// The time the invocation started.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the task invocation.
-	Status MaintenanceWindowExecutionStatus `type:"string" enum:"true"`
+	Status MaintenanceWindowExecutionStatus `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:Status" type:"string" enum:"true"`
 
 	// The details explaining the status of the task invocation. Only available
 	// for certain Status values.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:StatusDetails" type:"string"`
 
 	// The ID of the specific task execution in the maintenance window execution.
-	TaskExecutionId *string `min:"36" type:"string"`
+	TaskExecutionId *string `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:TaskExecutionId" min:"36" type:"string"`
 
 	// The task type.
-	TaskType MaintenanceWindowTaskType `type:"string" enum:"true"`
+	TaskType MaintenanceWindowTaskType `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:TaskType" type:"string" enum:"true"`
 
 	// The ID of the maintenance window execution that ran the task.
-	WindowExecutionId *string `min:"36" type:"string"`
+	WindowExecutionId *string `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:WindowExecutionId" min:"36" type:"string"`
 
 	// The ID of the target definition in this maintenance window the invocation
 	// was performed for.
-	WindowTargetId *string `type:"string"`
+	WindowTargetId *string `json:"ssm:MaintenanceWindowExecutionTaskInvocationIdentity:WindowTargetId" type:"string"`
 }
 
 // String returns the string representation
@@ -3138,10 +3138,10 @@ type MaintenanceWindowFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the filter.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"ssm:MaintenanceWindowFilter:Key" min:"1" type:"string"`
 
 	// The filter values.
-	Values []string `type:"list"`
+	Values []string `json:"ssm:MaintenanceWindowFilter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -3169,41 +3169,41 @@ type MaintenanceWindowIdentity struct {
 
 	// The number of hours before the end of the maintenance window that Systems
 	// Manager stops scheduling new tasks for execution.
-	Cutoff *int64 `type:"integer"`
+	Cutoff *int64 `json:"ssm:MaintenanceWindowIdentity:Cutoff" type:"integer"`
 
 	// A description of the maintenance window.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:MaintenanceWindowIdentity:Description" min:"1" type:"string"`
 
 	// The duration of the maintenance window in hours.
-	Duration *int64 `min:"1" type:"integer"`
+	Duration *int64 `json:"ssm:MaintenanceWindowIdentity:Duration" min:"1" type:"integer"`
 
 	// Indicates whether the maintenance window is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"ssm:MaintenanceWindowIdentity:Enabled" type:"boolean"`
 
 	// The date and time, in ISO-8601 Extended format, for when the maintenance
 	// window is scheduled to become inactive.
-	EndDate *string `type:"string"`
+	EndDate *string `json:"ssm:MaintenanceWindowIdentity:EndDate" type:"string"`
 
 	// The name of the maintenance window.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:MaintenanceWindowIdentity:Name" min:"3" type:"string"`
 
 	// The next time the maintenance window will actually run, taking into account
 	// any specified times for the maintenance window to become active or inactive.
-	NextExecutionTime *string `type:"string"`
+	NextExecutionTime *string `json:"ssm:MaintenanceWindowIdentity:NextExecutionTime" type:"string"`
 
 	// The schedule of the maintenance window in the form of a cron or rate expression.
-	Schedule *string `min:"1" type:"string"`
+	Schedule *string `json:"ssm:MaintenanceWindowIdentity:Schedule" min:"1" type:"string"`
 
 	// The time zone that the scheduled maintenance window executions are based
 	// on, in Internet Assigned Numbers Authority (IANA) format.
-	ScheduleTimezone *string `type:"string"`
+	ScheduleTimezone *string `json:"ssm:MaintenanceWindowIdentity:ScheduleTimezone" type:"string"`
 
 	// The date and time, in ISO-8601 Extended format, for when the maintenance
 	// window is scheduled to become active.
-	StartDate *string `type:"string"`
+	StartDate *string `json:"ssm:MaintenanceWindowIdentity:StartDate" type:"string"`
 
 	// The ID of the maintenance window.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:MaintenanceWindowIdentity:WindowId" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -3217,10 +3217,10 @@ type MaintenanceWindowIdentityForTarget struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the maintenance window.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:MaintenanceWindowIdentityForTarget:Name" min:"3" type:"string"`
 
 	// The ID of the maintenance window.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:MaintenanceWindowIdentityForTarget:WindowId" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -3252,18 +3252,18 @@ type MaintenanceWindowLambdaParameters struct {
 	// Pass client-specific information to the Lambda function that you are invoking.
 	// You can then process the client information in your Lambda function as you
 	// choose through the context variable.
-	ClientContext *string `min:"1" type:"string"`
+	ClientContext *string `json:"ssm:MaintenanceWindowLambdaParameters:ClientContext" min:"1" type:"string"`
 
 	// JSON to provide to your Lambda function as input.
 	//
 	// Payload is automatically base64 encoded/decoded by the SDK.
-	Payload []byte `type:"blob"`
+	Payload []byte `json:"ssm:MaintenanceWindowLambdaParameters:Payload" type:"blob"`
 
 	// (Optional) Specify a Lambda function version or alias name. If you specify
 	// a function version, the action uses the qualified function ARN to invoke
 	// a specific Lambda function. If you specify an alias name, the action uses
 	// the alias ARN to invoke the Lambda function version to which the alias points.
-	Qualifier *string `min:"1" type:"string"`
+	Qualifier *string `json:"ssm:MaintenanceWindowLambdaParameters:Qualifier" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3309,35 +3309,35 @@ type MaintenanceWindowRunCommandParameters struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the commands to run.
-	Comment *string `type:"string"`
+	Comment *string `json:"ssm:MaintenanceWindowRunCommandParameters:Comment" type:"string"`
 
 	// The SHA-256 or SHA-1 hash created by the system when the document was created.
 	// SHA-1 hashes have been deprecated.
-	DocumentHash *string `type:"string"`
+	DocumentHash *string `json:"ssm:MaintenanceWindowRunCommandParameters:DocumentHash" type:"string"`
 
 	// SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
-	DocumentHashType DocumentHashType `type:"string" enum:"true"`
+	DocumentHashType DocumentHashType `json:"ssm:MaintenanceWindowRunCommandParameters:DocumentHashType" type:"string" enum:"true"`
 
 	// Configurations for sending notifications about command status changes on
 	// a per-instance basis.
-	NotificationConfig *NotificationConfig `type:"structure"`
+	NotificationConfig *NotificationConfig `json:"ssm:MaintenanceWindowRunCommandParameters:NotificationConfig" type:"structure"`
 
 	// The name of the Amazon S3 bucket.
-	OutputS3BucketName *string `min:"3" type:"string"`
+	OutputS3BucketName *string `json:"ssm:MaintenanceWindowRunCommandParameters:OutputS3BucketName" min:"3" type:"string"`
 
 	// The Amazon S3 bucket subfolder.
-	OutputS3KeyPrefix *string `type:"string"`
+	OutputS3KeyPrefix *string `json:"ssm:MaintenanceWindowRunCommandParameters:OutputS3KeyPrefix" type:"string"`
 
 	// The parameters for the RUN_COMMAND task execution.
-	Parameters map[string][]string `type:"map"`
+	Parameters map[string][]string `json:"ssm:MaintenanceWindowRunCommandParameters:Parameters" type:"map"`
 
 	// The ARN of the IAM service role to use to publish Amazon Simple Notification
 	// Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-	ServiceRoleArn *string `type:"string"`
+	ServiceRoleArn *string `json:"ssm:MaintenanceWindowRunCommandParameters:ServiceRoleArn" type:"string"`
 
 	// If this time is reached and the command has not already started running,
 	// it doesn't run.
-	TimeoutSeconds *int64 `min:"30" type:"integer"`
+	TimeoutSeconds *int64 `json:"ssm:MaintenanceWindowRunCommandParameters:TimeoutSeconds" min:"30" type:"integer"`
 }
 
 // String returns the string representation
@@ -3383,10 +3383,10 @@ type MaintenanceWindowStepFunctionsParameters struct {
 	_ struct{} `type:"structure"`
 
 	// The inputs for the STEP_FUNCTIONS task.
-	Input *string `type:"string"`
+	Input *string `json:"ssm:MaintenanceWindowStepFunctionsParameters:Input" type:"string"`
 
 	// The name of the STEP_FUNCTIONS task.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"ssm:MaintenanceWindowStepFunctionsParameters:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3413,17 +3413,17 @@ type MaintenanceWindowTarget struct {
 	_ struct{} `type:"structure"`
 
 	// A description for the target.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:MaintenanceWindowTarget:Description" min:"1" type:"string"`
 
 	// The name for the maintenance window target.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:MaintenanceWindowTarget:Name" min:"3" type:"string"`
 
 	// A user-provided value that will be included in any CloudWatch events that
 	// are raised while running tasks for these targets in this maintenance window.
-	OwnerInformation *string `min:"1" type:"string"`
+	OwnerInformation *string `json:"ssm:MaintenanceWindowTarget:OwnerInformation" min:"1" type:"string"`
 
 	// The type of target that is being registered with the maintenance window.
-	ResourceType MaintenanceWindowResourceType `type:"string" enum:"true"`
+	ResourceType MaintenanceWindowResourceType `json:"ssm:MaintenanceWindowTarget:ResourceType" type:"string" enum:"true"`
 
 	// The targets, either instances or tags.
 	//
@@ -3434,13 +3434,13 @@ type MaintenanceWindowTarget struct {
 	// Tags are specified using the following format:
 	//
 	// Key=<tag name>,Values=<tag value>.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:MaintenanceWindowTarget:Targets" type:"list"`
 
 	// The ID of the maintenance window to register the target with.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:MaintenanceWindowTarget:WindowId" min:"20" type:"string"`
 
 	// The ID of the target.
-	WindowTargetId *string `min:"36" type:"string"`
+	WindowTargetId *string `json:"ssm:MaintenanceWindowTarget:WindowTargetId" min:"36" type:"string"`
 }
 
 // String returns the string representation
@@ -3454,7 +3454,7 @@ type MaintenanceWindowTask struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the task.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:MaintenanceWindowTask:Description" min:"1" type:"string"`
 
 	// Information about an Amazon S3 bucket to write task-level logs to.
 	//
@@ -3462,35 +3462,35 @@ type MaintenanceWindowTask struct {
 	// instead use the OutputS3BucketName and OutputS3KeyPrefix options in the TaskInvocationParameters
 	// structure. For information about how Systems Manager handles these options
 	// for the supported maintenance window task types, see MaintenanceWindowTaskInvocationParameters.
-	LoggingInfo *LoggingInfo `type:"structure"`
+	LoggingInfo *LoggingInfo `json:"ssm:MaintenanceWindowTask:LoggingInfo" type:"structure"`
 
 	// The maximum number of targets this task can be run for, in parallel.
-	MaxConcurrency *string `min:"1" type:"string"`
+	MaxConcurrency *string `json:"ssm:MaintenanceWindowTask:MaxConcurrency" min:"1" type:"string"`
 
 	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors *string `min:"1" type:"string"`
+	MaxErrors *string `json:"ssm:MaintenanceWindowTask:MaxErrors" min:"1" type:"string"`
 
 	// The task name.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:MaintenanceWindowTask:Name" min:"3" type:"string"`
 
 	// The priority of the task in the maintenance window. The lower the number,
 	// the higher the priority. Tasks that have the same priority are scheduled
 	// in parallel.
-	Priority *int64 `type:"integer"`
+	Priority *int64 `json:"ssm:MaintenanceWindowTask:Priority" type:"integer"`
 
 	// The ARN of the IAM service role to use to publish Amazon Simple Notification
 	// Service (Amazon SNS) notifications for maintenance window Run Command tasks.
-	ServiceRoleArn *string `type:"string"`
+	ServiceRoleArn *string `json:"ssm:MaintenanceWindowTask:ServiceRoleArn" type:"string"`
 
 	// The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>.
 	// Tags are specified using Key=<tag name>,Values=<tag value>.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:MaintenanceWindowTask:Targets" type:"list"`
 
 	// The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION
 	// task types, TaskArn is the Systems Manager document name or ARN. For LAMBDA
 	// tasks, it's the function name or ARN. For STEP_FUNCTIONS tasks, it's the
 	// state machine ARN.
-	TaskArn *string `min:"1" type:"string"`
+	TaskArn *string `json:"ssm:MaintenanceWindowTask:TaskArn" min:"1" type:"string"`
 
 	// The parameters that should be passed to the task when it is run.
 	//
@@ -3498,17 +3498,17 @@ type MaintenanceWindowTask struct {
 	// when it runs, instead use the Parameters option in the TaskInvocationParameters
 	// structure. For information about how Systems Manager handles these options
 	// for the supported maintenance window task types, see MaintenanceWindowTaskInvocationParameters.
-	TaskParameters map[string]MaintenanceWindowTaskParameterValueExpression `type:"map"`
+	TaskParameters map[string]MaintenanceWindowTaskParameterValueExpression `json:"ssm:MaintenanceWindowTask:TaskParameters" type:"map"`
 
 	// The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION,
 	// LAMBDA, or STEP_FUNCTIONS.
-	Type MaintenanceWindowTaskType `type:"string" enum:"true"`
+	Type MaintenanceWindowTaskType `json:"ssm:MaintenanceWindowTask:Type" type:"string" enum:"true"`
 
 	// The ID of the maintenance window where the task is registered.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:MaintenanceWindowTask:WindowId" min:"20" type:"string"`
 
 	// The task ID.
-	WindowTaskId *string `min:"36" type:"string"`
+	WindowTaskId *string `json:"ssm:MaintenanceWindowTask:WindowTaskId" min:"36" type:"string"`
 }
 
 // String returns the string representation
@@ -3522,16 +3522,16 @@ type MaintenanceWindowTaskInvocationParameters struct {
 	_ struct{} `type:"structure"`
 
 	// The parameters for an AUTOMATION task type.
-	Automation *MaintenanceWindowAutomationParameters `type:"structure"`
+	Automation *MaintenanceWindowAutomationParameters `json:"ssm:MaintenanceWindowTaskInvocationParameters:Automation" type:"structure"`
 
 	// The parameters for a LAMBDA task type.
-	Lambda *MaintenanceWindowLambdaParameters `type:"structure"`
+	Lambda *MaintenanceWindowLambdaParameters `json:"ssm:MaintenanceWindowTaskInvocationParameters:Lambda" type:"structure"`
 
 	// The parameters for a RUN_COMMAND task type.
-	RunCommand *MaintenanceWindowRunCommandParameters `type:"structure"`
+	RunCommand *MaintenanceWindowRunCommandParameters `json:"ssm:MaintenanceWindowTaskInvocationParameters:RunCommand" type:"structure"`
 
 	// The parameters for a STEP_FUNCTIONS task type.
-	StepFunctions *MaintenanceWindowStepFunctionsParameters `type:"structure"`
+	StepFunctions *MaintenanceWindowStepFunctionsParameters `json:"ssm:MaintenanceWindowTaskInvocationParameters:StepFunctions" type:"structure"`
 }
 
 // String returns the string representation
@@ -3576,7 +3576,7 @@ type MaintenanceWindowTaskParameterValueExpression struct {
 
 	// This field contains an array of 0 or more strings, each 1 to 255 characters
 	// in length.
-	Values []string `type:"list"`
+	Values []string `json:"ssm:MaintenanceWindowTaskParameterValueExpression:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -3591,10 +3591,10 @@ type NonCompliantSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The total number of compliance items that are not compliant.
-	NonCompliantCount *int64 `type:"integer"`
+	NonCompliantCount *int64 `json:"ssm:NonCompliantSummary:NonCompliantCount" type:"integer"`
 
 	// A summary of the non-compliance severity by compliance type
-	SeveritySummary *SeveritySummary `type:"structure"`
+	SeveritySummary *SeveritySummary `json:"ssm:NonCompliantSummary:SeveritySummary" type:"structure"`
 }
 
 // String returns the string representation
@@ -3610,19 +3610,19 @@ type NotificationConfig struct {
 	// An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon
 	// SNS) topic. Run Command pushes notifications about command status changes
 	// to this topic.
-	NotificationArn *string `type:"string"`
+	NotificationArn *string `json:"ssm:NotificationConfig:NotificationArn" type:"string"`
 
 	// The different events for which you can receive notifications. These events
 	// include the following: All (events), InProgress, Success, TimedOut, Cancelled,
 	// Failed. To learn more about these events, see Configuring Amazon SNS Notifications
 	// for AWS Systems Manager (http://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html)
 	// in the AWS Systems Manager User Guide.
-	NotificationEvents []NotificationEvent `type:"list"`
+	NotificationEvents []NotificationEvent `json:"ssm:NotificationConfig:NotificationEvents" type:"list"`
 
 	// Command: Receive notification when the status of a command changes. Invocation:
 	// For commands sent to multiple instances, receive notification on a per-instance
 	// basis when the status of a command changes.
-	NotificationType NotificationType `type:"string" enum:"true"`
+	NotificationType NotificationType `json:"ssm:NotificationConfig:NotificationType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3637,22 +3637,22 @@ type OpsAggregator struct {
 	_ struct{} `type:"structure"`
 
 	// Either a Range or Count aggregator for limiting an OpsItem summary.
-	AggregatorType *string `min:"1" type:"string"`
+	AggregatorType *string `json:"ssm:OpsAggregator:AggregatorType" min:"1" type:"string"`
 
 	// A nested aggregator for viewing counts of OpsItems.
-	Aggregators []OpsAggregator `min:"1" type:"list"`
+	Aggregators []OpsAggregator `json:"ssm:OpsAggregator:Aggregators" min:"1" type:"list"`
 
 	// The name of an OpsItem attribute on which to limit the count of OpsItems.
-	AttributeName *string `type:"string"`
+	AttributeName *string `json:"ssm:OpsAggregator:AttributeName" type:"string"`
 
 	// The aggregator filters.
-	Filters []OpsFilter `min:"1" type:"list"`
+	Filters []OpsFilter `json:"ssm:OpsAggregator:Filters" min:"1" type:"list"`
 
 	// The data type name to use for viewing counts of OpsItems.
-	TypeName *string `min:"1" type:"string"`
+	TypeName *string `json:"ssm:OpsAggregator:TypeName" min:"1" type:"string"`
 
 	// The aggregator value.
-	Values map[string]string `type:"map"`
+	Values map[string]string `json:"ssm:OpsAggregator:Values" type:"map"`
 }
 
 // String returns the string representation
@@ -3702,10 +3702,10 @@ type OpsEntity struct {
 	_ struct{} `type:"structure"`
 
 	// The data returned by the query.
-	Data map[string]OpsEntityItem `type:"map"`
+	Data map[string]OpsEntityItem `json:"ssm:OpsEntity:Data" type:"map"`
 
 	// The query ID.
-	Id *string `type:"string"`
+	Id *string `json:"ssm:OpsEntity:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -3719,7 +3719,7 @@ type OpsEntityItem struct {
 	_ struct{} `type:"structure"`
 
 	// The detailed data content for an OpsItem summaries result item.
-	Content []map[string]string `type:"list"`
+	Content []map[string]string `json:"ssm:OpsEntityItem:Content" type:"list"`
 }
 
 // String returns the string representation
@@ -3735,15 +3735,15 @@ type OpsFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"ssm:OpsFilter:Key" min:"1" type:"string" required:"true"`
 
 	// The type of filter.
-	Type OpsFilterOperatorType `type:"string" enum:"true"`
+	Type OpsFilterOperatorType `json:"ssm:OpsFilter:Type" type:"string" enum:"true"`
 
 	// The filter value.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"ssm:OpsFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -3785,23 +3785,23 @@ type OpsItem struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the AWS account that created the OpsItem.
-	CreatedBy *string `type:"string"`
+	CreatedBy *string `json:"ssm:OpsItem:CreatedBy" type:"string"`
 
 	// The date and time the OpsItem was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"ssm:OpsItem:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The OpsItem description.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:OpsItem:Description" min:"1" type:"string"`
 
 	// The ARN of the AWS account that last updated the OpsItem.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"ssm:OpsItem:LastModifiedBy" type:"string"`
 
 	// The date and time the OpsItem was last updated.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"ssm:OpsItem:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of an SNS topic where notifications are sent
 	// when this OpsItem is edited or changed.
-	Notifications []OpsItemNotification `type:"list"`
+	Notifications []OpsItemNotification `json:"ssm:OpsItem:Notifications" type:"list"`
 
 	// Operational data is custom data that provides useful reference details about
 	// the OpsItem. For example, you can specify log files, error strings, license
@@ -3824,35 +3824,35 @@ type OpsItem struct {
 	// an Automation runbook with the OpsItem. To view AWS CLI example commands
 	// that use these keys, see Creating OpsItems Manually (http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems)
 	// in the AWS Systems Manager User Guide.
-	OperationalData map[string]OpsItemDataValue `type:"map"`
+	OperationalData map[string]OpsItemDataValue `json:"ssm:OpsItem:OperationalData" type:"map"`
 
 	// The ID of the OpsItem.
-	OpsItemId *string `type:"string"`
+	OpsItemId *string `json:"ssm:OpsItem:OpsItemId" type:"string"`
 
 	// The importance of this OpsItem in relation to other OpsItems in the system.
-	Priority *int64 `min:"1" type:"integer"`
+	Priority *int64 `json:"ssm:OpsItem:Priority" min:"1" type:"integer"`
 
 	// One or more OpsItems that share something in common with the current OpsItem.
 	// For example, related OpsItems can include OpsItems with similar error messages,
 	// impacted resources, or statuses for the impacted resource.
-	RelatedOpsItems []RelatedOpsItem `type:"list"`
+	RelatedOpsItems []RelatedOpsItem `json:"ssm:OpsItem:RelatedOpsItems" type:"list"`
 
 	// The origin of the OpsItem, such as Amazon EC2 or AWS Systems Manager. The
 	// impacted resource is a subset of source.
-	Source *string `min:"1" type:"string"`
+	Source *string `json:"ssm:OpsItem:Source" min:"1" type:"string"`
 
 	// The OpsItem status. Status can be Open, In Progress, or Resolved. For more
 	// information, see Editing OpsItem Details (http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html)
 	// in the AWS Systems Manager User Guide.
-	Status OpsItemStatus `type:"string" enum:"true"`
+	Status OpsItemStatus `json:"ssm:OpsItem:Status" type:"string" enum:"true"`
 
 	// A short heading that describes the nature of the OpsItem and the impacted
 	// resource.
-	Title *string `min:"1" type:"string"`
+	Title *string `json:"ssm:OpsItem:Title" min:"1" type:"string"`
 
 	// The version of this OpsItem. Each time the OpsItem is edited the version
 	// number increments by one.
-	Version *string `type:"string"`
+	Version *string `json:"ssm:OpsItem:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -3867,10 +3867,10 @@ type OpsItemDataValue struct {
 	_ struct{} `type:"structure"`
 
 	// The type of key-value pair. Valid types include SearchableString and String.
-	Type OpsItemDataType `type:"string" enum:"true"`
+	Type OpsItemDataType `json:"ssm:OpsItemDataValue:Type" type:"string" enum:"true"`
 
 	// The value of the OperationalData key.
-	Value *string `type:"string"`
+	Value *string `json:"ssm:OpsItemDataValue:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -3886,17 +3886,17 @@ type OpsItemFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key OpsItemFilterKey `type:"string" required:"true" enum:"true"`
+	Key OpsItemFilterKey `json:"ssm:OpsItemFilter:Key" type:"string" required:"true" enum:"true"`
 
 	// The operator used by the filter call.
 	//
 	// Operator is a required field
-	Operator OpsItemFilterOperator `type:"string" required:"true" enum:"true"`
+	Operator OpsItemFilterOperator `json:"ssm:OpsItemFilter:Operator" type:"string" required:"true" enum:"true"`
 
 	// The filter value.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"ssm:OpsItemFilter:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -3931,7 +3931,7 @@ type OpsItemNotification struct {
 
 	// The Amazon Resource Name (ARN) of an SNS topic where notifications are sent
 	// when this OpsItem is edited or changed.
-	Arn *string `type:"string"`
+	Arn *string `json:"ssm:OpsItemNotification:Arn" type:"string"`
 }
 
 // String returns the string representation
@@ -3945,36 +3945,36 @@ type OpsItemSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
-	CreatedBy *string `type:"string"`
+	CreatedBy *string `json:"ssm:OpsItemSummary:CreatedBy" type:"string"`
 
 	// The date and time the OpsItem was created.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"ssm:OpsItemSummary:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"ssm:OpsItemSummary:LastModifiedBy" type:"string"`
 
 	// The date and time the OpsItem was last updated.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"ssm:OpsItemSummary:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Operational data is custom data that provides useful reference details about
 	// the OpsItem.
-	OperationalData map[string]OpsItemDataValue `type:"map"`
+	OperationalData map[string]OpsItemDataValue `json:"ssm:OpsItemSummary:OperationalData" type:"map"`
 
 	// The ID of the OpsItem.
-	OpsItemId *string `type:"string"`
+	OpsItemId *string `json:"ssm:OpsItemSummary:OpsItemId" type:"string"`
 
 	// The importance of this OpsItem in relation to other OpsItems in the system.
-	Priority *int64 `min:"1" type:"integer"`
+	Priority *int64 `json:"ssm:OpsItemSummary:Priority" min:"1" type:"integer"`
 
 	// The impacted AWS resource.
-	Source *string `min:"1" type:"string"`
+	Source *string `json:"ssm:OpsItemSummary:Source" min:"1" type:"string"`
 
 	// The OpsItem status. Status can be Open, In Progress, or Resolved.
-	Status OpsItemStatus `type:"string" enum:"true"`
+	Status OpsItemStatus `json:"ssm:OpsItemSummary:Status" type:"string" enum:"true"`
 
 	// A short heading that describes the nature of the OpsItem and the impacted
 	// resource.
-	Title *string `min:"1" type:"string"`
+	Title *string `json:"ssm:OpsItemSummary:Title" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3989,11 +3989,11 @@ type OutputSource struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the output source, for example the URL of an Amazon S3 bucket.
-	OutputSourceId *string `min:"36" type:"string"`
+	OutputSourceId *string `json:"ssm:OutputSource:OutputSourceId" min:"36" type:"string"`
 
 	// The type of source where the association execution details are stored, for
 	// example, Amazon S3.
-	OutputSourceType *string `type:"string"`
+	OutputSourceType *string `json:"ssm:OutputSource:OutputSourceType" type:"string"`
 }
 
 // String returns the string representation
@@ -4007,14 +4007,14 @@ type Parameter struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the parameter.
-	ARN *string `type:"string"`
+	ARN *string `json:"ssm:Parameter:ARN" type:"string"`
 
 	// Date the parameter was last changed or updated and the parameter version
 	// was created.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"ssm:Parameter:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the parameter.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"ssm:Parameter:Name" min:"1" type:"string"`
 
 	// Either the version number or the label used to retrieve the parameter value.
 	// Specify selectors by using one of the following formats:
@@ -4022,21 +4022,21 @@ type Parameter struct {
 	// parameter_name:version
 	//
 	// parameter_name:label
-	Selector *string `type:"string"`
+	Selector *string `json:"ssm:Parameter:Selector" type:"string"`
 
 	// Applies to parameters that reference information in other AWS services. SourceResult
 	// is the raw result or response from the source.
-	SourceResult *string `type:"string"`
+	SourceResult *string `json:"ssm:Parameter:SourceResult" type:"string"`
 
 	// The type of parameter. Valid values include the following: String, String
 	// list, Secure string.
-	Type ParameterType `type:"string" enum:"true"`
+	Type ParameterType `json:"ssm:Parameter:Type" type:"string" enum:"true"`
 
 	// The parameter value.
-	Value *string `type:"string"`
+	Value *string `json:"ssm:Parameter:Value" type:"string"`
 
 	// The parameter version.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"ssm:Parameter:Version" type:"long"`
 }
 
 // String returns the string representation
@@ -4052,43 +4052,43 @@ type ParameterHistory struct {
 	// Parameter names can include the following letters and symbols.
 	//
 	// a-zA-Z0-9_.-
-	AllowedPattern *string `type:"string"`
+	AllowedPattern *string `json:"ssm:ParameterHistory:AllowedPattern" type:"string"`
 
 	// Information about the parameter.
-	Description *string `type:"string"`
+	Description *string `json:"ssm:ParameterHistory:Description" type:"string"`
 
 	// The ID of the query key used for this parameter.
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"ssm:ParameterHistory:KeyId" min:"1" type:"string"`
 
 	// Labels assigned to the parameter version.
-	Labels []string `min:"1" type:"list"`
+	Labels []string `json:"ssm:ParameterHistory:Labels" min:"1" type:"list"`
 
 	// Date the parameter was last changed or updated.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"ssm:ParameterHistory:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
-	LastModifiedUser *string `type:"string"`
+	LastModifiedUser *string `json:"ssm:ParameterHistory:LastModifiedUser" type:"string"`
 
 	// The name of the parameter.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"ssm:ParameterHistory:Name" min:"1" type:"string"`
 
 	// Information about the policies assigned to a parameter.
 	//
 	// Working with Parameter Policies (https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html)
 	// in the AWS Systems Manager User Guide.
-	Policies []ParameterInlinePolicy `type:"list"`
+	Policies []ParameterInlinePolicy `json:"ssm:ParameterHistory:Policies" type:"list"`
 
 	// The parameter tier.
-	Tier ParameterTier `type:"string" enum:"true"`
+	Tier ParameterTier `json:"ssm:ParameterHistory:Tier" type:"string" enum:"true"`
 
 	// The type of parameter used.
-	Type ParameterType `type:"string" enum:"true"`
+	Type ParameterType `json:"ssm:ParameterHistory:Type" type:"string" enum:"true"`
 
 	// The parameter value.
-	Value *string `type:"string"`
+	Value *string `json:"ssm:ParameterHistory:Value" type:"string"`
 
 	// The parameter version.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"ssm:ParameterHistory:Version" type:"long"`
 }
 
 // String returns the string representation
@@ -4105,14 +4105,14 @@ type ParameterInlinePolicy struct {
 	// (the policy has not been enforced or applied yet), Finished (the policy was
 	// applied), Failed (the policy was not applied), or InProgress (the policy
 	// is being applied now).
-	PolicyStatus *string `type:"string"`
+	PolicyStatus *string `json:"ssm:ParameterInlinePolicy:PolicyStatus" type:"string"`
 
 	// The JSON text of the policy.
-	PolicyText *string `type:"string"`
+	PolicyText *string `json:"ssm:ParameterInlinePolicy:PolicyText" type:"string"`
 
 	// The type of policy. Parameter Store supports the following policy types:
 	// Expiration, ExpirationNotification, and NoChangeNotification.
-	PolicyType *string `type:"string"`
+	PolicyType *string `json:"ssm:ParameterInlinePolicy:PolicyType" type:"string"`
 }
 
 // String returns the string representation
@@ -4129,35 +4129,35 @@ type ParameterMetadata struct {
 	// A parameter name can include only the following letters and symbols.
 	//
 	// a-zA-Z0-9_.-
-	AllowedPattern *string `type:"string"`
+	AllowedPattern *string `json:"ssm:ParameterMetadata:AllowedPattern" type:"string"`
 
 	// Description of the parameter actions.
-	Description *string `type:"string"`
+	Description *string `json:"ssm:ParameterMetadata:Description" type:"string"`
 
 	// The ID of the query key used for this parameter.
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"ssm:ParameterMetadata:KeyId" min:"1" type:"string"`
 
 	// Date the parameter was last changed or updated.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"ssm:ParameterMetadata:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
-	LastModifiedUser *string `type:"string"`
+	LastModifiedUser *string `json:"ssm:ParameterMetadata:LastModifiedUser" type:"string"`
 
 	// The parameter name.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"ssm:ParameterMetadata:Name" min:"1" type:"string"`
 
 	// A list of policies associated with a parameter.
-	Policies []ParameterInlinePolicy `type:"list"`
+	Policies []ParameterInlinePolicy `json:"ssm:ParameterMetadata:Policies" type:"list"`
 
 	// The parameter tier.
-	Tier ParameterTier `type:"string" enum:"true"`
+	Tier ParameterTier `json:"ssm:ParameterMetadata:Tier" type:"string" enum:"true"`
 
 	// The type of parameter. Valid parameter types include the following: String,
 	// String list, Secure string.
-	Type ParameterType `type:"string" enum:"true"`
+	Type ParameterType `json:"ssm:ParameterMetadata:Type" type:"string" enum:"true"`
 
 	// The parameter version.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"ssm:ParameterMetadata:Version" type:"long"`
 }
 
 // String returns the string representation
@@ -4177,14 +4177,14 @@ type ParameterStringFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"ssm:ParameterStringFilter:Key" min:"1" type:"string" required:"true"`
 
 	// Valid options are Equals and BeginsWith. For Path filter, valid options are
 	// Recursive and OneLevel.
-	Option *string `min:"1" type:"string"`
+	Option *string `json:"ssm:ParameterStringFilter:Option" min:"1" type:"string"`
 
 	// The value you want to search for.
-	Values []string `min:"1" type:"list"`
+	Values []string `json:"ssm:ParameterStringFilter:Values" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -4223,12 +4223,12 @@ type ParametersFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key ParametersFilterKey `type:"string" required:"true" enum:"true"`
+	Key ParametersFilterKey `json:"ssm:ParametersFilter:Key" type:"string" required:"true" enum:"true"`
 
 	// The filter values.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"ssm:ParametersFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -4262,44 +4262,44 @@ type Patch struct {
 	_ struct{} `type:"structure"`
 
 	// The classification of the patch (for example, SecurityUpdates, Updates, CriticalUpdates).
-	Classification *string `type:"string"`
+	Classification *string `json:"ssm:Patch:Classification" type:"string"`
 
 	// The URL where more information can be obtained about the patch.
-	ContentUrl *string `type:"string"`
+	ContentUrl *string `json:"ssm:Patch:ContentUrl" type:"string"`
 
 	// The description of the patch.
-	Description *string `type:"string"`
+	Description *string `json:"ssm:Patch:Description" type:"string"`
 
 	// The ID of the patch (this is different than the Microsoft Knowledge Base
 	// ID).
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"ssm:Patch:Id" min:"1" type:"string"`
 
 	// The Microsoft Knowledge Base ID of the patch.
-	KbNumber *string `type:"string"`
+	KbNumber *string `json:"ssm:Patch:KbNumber" type:"string"`
 
 	// The language of the patch if it's language-specific.
-	Language *string `type:"string"`
+	Language *string `json:"ssm:Patch:Language" type:"string"`
 
 	// The ID of the MSRC bulletin the patch is related to.
-	MsrcNumber *string `type:"string"`
+	MsrcNumber *string `json:"ssm:Patch:MsrcNumber" type:"string"`
 
 	// The severity of the patch (for example Critical, Important, Moderate).
-	MsrcSeverity *string `type:"string"`
+	MsrcSeverity *string `json:"ssm:Patch:MsrcSeverity" type:"string"`
 
 	// The specific product the patch is applicable for (for example, WindowsServer2016).
-	Product *string `type:"string"`
+	Product *string `json:"ssm:Patch:Product" type:"string"`
 
 	// The product family the patch is applicable for (for example, Windows).
-	ProductFamily *string `type:"string"`
+	ProductFamily *string `json:"ssm:Patch:ProductFamily" type:"string"`
 
 	// The date the patch was released.
-	ReleaseDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ReleaseDate *time.Time `json:"ssm:Patch:ReleaseDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The title of the patch.
-	Title *string `type:"string"`
+	Title *string `json:"ssm:Patch:Title" type:"string"`
 
 	// The name of the vendor providing the patch.
-	Vendor *string `type:"string"`
+	Vendor *string `json:"ssm:Patch:Vendor" type:"string"`
 }
 
 // String returns the string representation
@@ -4313,22 +4313,22 @@ type PatchBaselineIdentity struct {
 	_ struct{} `type:"structure"`
 
 	// The description of the patch baseline.
-	BaselineDescription *string `min:"1" type:"string"`
+	BaselineDescription *string `json:"ssm:PatchBaselineIdentity:BaselineDescription" min:"1" type:"string"`
 
 	// The ID of the patch baseline.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:PatchBaselineIdentity:BaselineId" min:"20" type:"string"`
 
 	// The name of the patch baseline.
-	BaselineName *string `min:"3" type:"string"`
+	BaselineName *string `json:"ssm:PatchBaselineIdentity:BaselineName" min:"3" type:"string"`
 
 	// Whether this is the default baseline. Note that Systems Manager supports
 	// creating multiple default patch baselines. For example, you can create a
 	// default patch baseline for each operating system.
-	DefaultBaseline *bool `type:"boolean"`
+	DefaultBaseline *bool `json:"ssm:PatchBaselineIdentity:DefaultBaseline" type:"boolean"`
 
 	// Defines the operating system the patch baseline applies to. The Default value
 	// is WINDOWS.
-	OperatingSystem OperatingSystem `type:"string" enum:"true"`
+	OperatingSystem OperatingSystem `json:"ssm:PatchBaselineIdentity:OperatingSystem" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4345,23 +4345,23 @@ type PatchComplianceData struct {
 	// The classification of the patch (for example, SecurityUpdates, Updates, CriticalUpdates).
 	//
 	// Classification is a required field
-	Classification *string `type:"string" required:"true"`
+	Classification *string `json:"ssm:PatchComplianceData:Classification" type:"string" required:"true"`
 
 	// The date/time the patch was installed on the instance. Note that not all
 	// operating systems provide this level of information.
 	//
 	// InstalledTime is a required field
-	InstalledTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	InstalledTime *time.Time `json:"ssm:PatchComplianceData:InstalledTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The operating system-specific ID of the patch.
 	//
 	// KBId is a required field
-	KBId *string `type:"string" required:"true"`
+	KBId *string `json:"ssm:PatchComplianceData:KBId" type:"string" required:"true"`
 
 	// The severity of the patch (for example, Critical, Important, Moderate).
 	//
 	// Severity is a required field
-	Severity *string `type:"string" required:"true"`
+	Severity *string `json:"ssm:PatchComplianceData:Severity" type:"string" required:"true"`
 
 	// The state of the patch on the instance, such as INSTALLED or FAILED.
 	//
@@ -4369,12 +4369,12 @@ type PatchComplianceData struct {
 	// in the AWS Systems Manager User Guide.
 	//
 	// State is a required field
-	State PatchComplianceDataState `type:"string" required:"true" enum:"true"`
+	State PatchComplianceDataState `json:"ssm:PatchComplianceData:State" type:"string" required:"true" enum:"true"`
 
 	// The title of the patch.
 	//
 	// Title is a required field
-	Title *string `type:"string" required:"true"`
+	Title *string `json:"ssm:PatchComplianceData:Title" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4407,7 +4407,7 @@ type PatchFilter struct {
 	// operating system type.
 	//
 	// Key is a required field
-	Key PatchFilterKey `type:"string" required:"true" enum:"true"`
+	Key PatchFilterKey `json:"ssm:PatchFilter:Key" type:"string" required:"true" enum:"true"`
 
 	// The value for the filter key.
 	//
@@ -4415,7 +4415,7 @@ type PatchFilter struct {
 	// each key based on operating system type.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"ssm:PatchFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -4451,7 +4451,7 @@ type PatchFilterGroup struct {
 	// The set of patch filters that make up the group.
 	//
 	// PatchFilters is a required field
-	PatchFilters []PatchFilter `type:"list" required:"true"`
+	PatchFilters []PatchFilter `json:"ssm:PatchFilterGroup:PatchFilters" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -4487,10 +4487,10 @@ type PatchGroupPatchBaselineMapping struct {
 	_ struct{} `type:"structure"`
 
 	// The patch baseline the patch group is registered with.
-	BaselineIdentity *PatchBaselineIdentity `type:"structure"`
+	BaselineIdentity *PatchBaselineIdentity `json:"ssm:PatchGroupPatchBaselineMapping:BaselineIdentity" type:"structure"`
 
 	// The name of the patch group registered with the patch baseline.
-	PatchGroup *string `min:"1" type:"string"`
+	PatchGroup *string `json:"ssm:PatchGroupPatchBaselineMapping:PatchGroup" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -4504,10 +4504,10 @@ type PatchOrchestratorFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The key for the filter.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"ssm:PatchOrchestratorFilter:Key" min:"1" type:"string"`
 
 	// The value for the filter.
-	Values []string `type:"list"`
+	Values []string `json:"ssm:PatchOrchestratorFilter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -4538,22 +4538,22 @@ type PatchRule struct {
 	// a value of 7 means that patches are approved seven days after they are released.
 	//
 	// ApproveAfterDays is a required field
-	ApproveAfterDays *int64 `type:"integer" required:"true"`
+	ApproveAfterDays *int64 `json:"ssm:PatchRule:ApproveAfterDays" type:"integer" required:"true"`
 
 	// A compliance severity level for all approved patches in a patch baseline.
 	// Valid compliance severity levels include the following: Unspecified, Critical,
 	// High, Medium, Low, and Informational.
-	ComplianceLevel PatchComplianceLevel `type:"string" enum:"true"`
+	ComplianceLevel PatchComplianceLevel `json:"ssm:PatchRule:ComplianceLevel" type:"string" enum:"true"`
 
 	// For instances identified by the approval rule filters, enables a patch baseline
 	// to apply non-security updates available in the specified repository. The
 	// default value is 'false'. Applies to Linux instances only.
-	EnableNonSecurity *bool `type:"boolean"`
+	EnableNonSecurity *bool `json:"ssm:PatchRule:EnableNonSecurity" type:"boolean"`
 
 	// The patch filter group that defines the criteria for the rule.
 	//
 	// PatchFilterGroup is a required field
-	PatchFilterGroup *PatchFilterGroup `type:"structure" required:"true"`
+	PatchFilterGroup *PatchFilterGroup `json:"ssm:PatchRule:PatchFilterGroup" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -4592,7 +4592,7 @@ type PatchRuleGroup struct {
 	// The rules that make up the rule group.
 	//
 	// PatchRules is a required field
-	PatchRules []PatchRule `type:"list" required:"true"`
+	PatchRules []PatchRule `json:"ssm:PatchRuleGroup:PatchRules" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -4638,19 +4638,19 @@ type PatchSource struct {
 	// debuglevel=2
 	//
 	// Configuration is a required field
-	Configuration *string `min:"1" type:"string" required:"true"`
+	Configuration *string `json:"ssm:PatchSource:Configuration" min:"1" type:"string" required:"true"`
 
 	// The name specified to identify the patch source.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"ssm:PatchSource:Name" type:"string" required:"true"`
 
 	// The specific operating system versions a patch repository applies to, such
 	// as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7".
 	// For lists of supported product values, see PatchFilter.
 	//
 	// Products is a required field
-	Products []string `min:"1" type:"list" required:"true"`
+	Products []string `json:"ssm:PatchSource:Products" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -4692,14 +4692,14 @@ type PatchStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
-	ApprovalDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ApprovalDate *time.Time `json:"ssm:PatchStatus:ApprovalDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The compliance severity level for a patch.
-	ComplianceLevel PatchComplianceLevel `type:"string" enum:"true"`
+	ComplianceLevel PatchComplianceLevel `json:"ssm:PatchStatus:ComplianceLevel" type:"string" enum:"true"`
 
 	// The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED,
 	// EXPLICIT_REJECTED).
-	DeploymentStatus PatchDeploymentStatus `type:"string" enum:"true"`
+	DeploymentStatus PatchDeploymentStatus `json:"ssm:PatchStatus:DeploymentStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4715,23 +4715,23 @@ type ProgressCounters struct {
 
 	// The total number of steps that the system cancelled in all specified AWS
 	// Regions and accounts for the current Automation execution.
-	CancelledSteps *int64 `type:"integer"`
+	CancelledSteps *int64 `json:"ssm:ProgressCounters:CancelledSteps" type:"integer"`
 
 	// The total number of steps that failed to run in all specified AWS Regions
 	// and accounts for the current Automation execution.
-	FailedSteps *int64 `type:"integer"`
+	FailedSteps *int64 `json:"ssm:ProgressCounters:FailedSteps" type:"integer"`
 
 	// The total number of steps that successfully completed in all specified AWS
 	// Regions and accounts for the current Automation execution.
-	SuccessSteps *int64 `type:"integer"`
+	SuccessSteps *int64 `json:"ssm:ProgressCounters:SuccessSteps" type:"integer"`
 
 	// The total number of steps that timed out in all specified AWS Regions and
 	// accounts for the current Automation execution.
-	TimedOutSteps *int64 `type:"integer"`
+	TimedOutSteps *int64 `json:"ssm:ProgressCounters:TimedOutSteps" type:"integer"`
 
 	// The total number of steps run in all specified AWS Regions and accounts for
 	// the current Automation execution.
-	TotalSteps *int64 `type:"integer"`
+	TotalSteps *int64 `json:"ssm:ProgressCounters:TotalSteps" type:"integer"`
 }
 
 // String returns the string representation
@@ -4749,7 +4749,7 @@ type RelatedOpsItem struct {
 	// The ID of an OpsItem related to the current OpsItem.
 	//
 	// OpsItemId is a required field
-	OpsItemId *string `type:"string" required:"true"`
+	OpsItemId *string `json:"ssm:RelatedOpsItem:OpsItemId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4778,10 +4778,10 @@ type ResolvedTargets struct {
 
 	// A list of parameter values sent to targets that resolved during the Automation
 	// execution.
-	ParameterValues []string `type:"list"`
+	ParameterValues []string `json:"ssm:ResolvedTargets:ParameterValues" type:"list"`
 
 	// A boolean value indicating whether the resolved target list is truncated.
-	Truncated *bool `type:"boolean"`
+	Truncated *bool `json:"ssm:ResolvedTargets:Truncated" type:"boolean"`
 }
 
 // String returns the string representation
@@ -4795,29 +4795,29 @@ type ResourceComplianceSummaryItem struct {
 	_ struct{} `type:"structure"`
 
 	// The compliance type.
-	ComplianceType *string `min:"1" type:"string"`
+	ComplianceType *string `json:"ssm:ResourceComplianceSummaryItem:ComplianceType" min:"1" type:"string"`
 
 	// A list of items that are compliant for the resource.
-	CompliantSummary *CompliantSummary `type:"structure"`
+	CompliantSummary *CompliantSummary `json:"ssm:ResourceComplianceSummaryItem:CompliantSummary" type:"structure"`
 
 	// Information about the execution.
-	ExecutionSummary *ComplianceExecutionSummary `type:"structure"`
+	ExecutionSummary *ComplianceExecutionSummary `json:"ssm:ResourceComplianceSummaryItem:ExecutionSummary" type:"structure"`
 
 	// A list of items that aren't compliant for the resource.
-	NonCompliantSummary *NonCompliantSummary `type:"structure"`
+	NonCompliantSummary *NonCompliantSummary `json:"ssm:ResourceComplianceSummaryItem:NonCompliantSummary" type:"structure"`
 
 	// The highest severity item found for the resource. The resource is compliant
 	// for this item.
-	OverallSeverity ComplianceSeverity `type:"string" enum:"true"`
+	OverallSeverity ComplianceSeverity `json:"ssm:ResourceComplianceSummaryItem:OverallSeverity" type:"string" enum:"true"`
 
 	// The resource ID.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"ssm:ResourceComplianceSummaryItem:ResourceId" min:"1" type:"string"`
 
 	// The resource type.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"ssm:ResourceComplianceSummaryItem:ResourceType" min:"1" type:"string"`
 
 	// The compliance status for the resource.
-	Status ComplianceStatus `type:"string" enum:"true"`
+	Status ComplianceStatus `json:"ssm:ResourceComplianceSummaryItem:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -4832,25 +4832,25 @@ type ResourceDataSyncItem struct {
 	_ struct{} `type:"structure"`
 
 	// The status reported by the last sync.
-	LastStatus LastResourceDataSyncStatus `type:"string" enum:"true"`
+	LastStatus LastResourceDataSyncStatus `json:"ssm:ResourceDataSyncItem:LastStatus" type:"string" enum:"true"`
 
 	// The last time the sync operations returned a status of SUCCESSFUL (UTC).
-	LastSuccessfulSyncTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastSuccessfulSyncTime *time.Time `json:"ssm:ResourceDataSyncItem:LastSuccessfulSyncTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status message details reported by the last sync.
-	LastSyncStatusMessage *string `type:"string"`
+	LastSyncStatusMessage *string `json:"ssm:ResourceDataSyncItem:LastSyncStatusMessage" type:"string"`
 
 	// The last time the configuration attempted to sync (UTC).
-	LastSyncTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastSyncTime *time.Time `json:"ssm:ResourceDataSyncItem:LastSyncTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Configuration information for the target Amazon S3 bucket.
-	S3Destination *ResourceDataSyncS3Destination `type:"structure"`
+	S3Destination *ResourceDataSyncS3Destination `json:"ssm:ResourceDataSyncItem:S3Destination" type:"structure"`
 
 	// The date and time the configuration was created (UTC).
-	SyncCreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SyncCreatedTime *time.Time `json:"ssm:ResourceDataSyncItem:SyncCreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the Resource Data Sync.
-	SyncName *string `min:"1" type:"string"`
+	SyncName *string `json:"ssm:ResourceDataSyncItem:SyncName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -4865,25 +4865,25 @@ type ResourceDataSyncS3Destination struct {
 
 	// The ARN of an encryption key for a destination in Amazon S3. Must belong
 	// to the same Region as the destination Amazon S3 bucket.
-	AWSKMSKeyARN *string `min:"1" type:"string"`
+	AWSKMSKeyARN *string `json:"ssm:ResourceDataSyncS3Destination:AWSKMSKeyARN" min:"1" type:"string"`
 
 	// The name of the Amazon S3 bucket where the aggregated data is stored.
 	//
 	// BucketName is a required field
-	BucketName *string `min:"1" type:"string" required:"true"`
+	BucketName *string `json:"ssm:ResourceDataSyncS3Destination:BucketName" min:"1" type:"string" required:"true"`
 
 	// An Amazon S3 prefix for the bucket.
-	Prefix *string `min:"1" type:"string"`
+	Prefix *string `json:"ssm:ResourceDataSyncS3Destination:Prefix" min:"1" type:"string"`
 
 	// The AWS Region with the Amazon S3 bucket targeted by the Resource Data Sync.
 	//
 	// Region is a required field
-	Region *string `min:"1" type:"string" required:"true"`
+	Region *string `json:"ssm:ResourceDataSyncS3Destination:Region" min:"1" type:"string" required:"true"`
 
 	// A supported sync format. The following format is currently supported: JsonSerDe
 	//
 	// SyncFormat is a required field
-	SyncFormat ResourceDataSyncS3Format `type:"string" required:"true" enum:"true"`
+	SyncFormat ResourceDataSyncS3Format `json:"ssm:ResourceDataSyncS3Destination:SyncFormat" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -4933,7 +4933,7 @@ type ResultAttribute struct {
 	// Value: AWS:InstanceInformation.
 	//
 	// TypeName is a required field
-	TypeName *string `min:"1" type:"string" required:"true"`
+	TypeName *string `json:"ssm:ResultAttribute:TypeName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4964,15 +4964,15 @@ type S3OutputLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Amazon S3 bucket.
-	OutputS3BucketName *string `min:"3" type:"string"`
+	OutputS3BucketName *string `json:"ssm:S3OutputLocation:OutputS3BucketName" min:"3" type:"string"`
 
 	// The Amazon S3 bucket subfolder.
-	OutputS3KeyPrefix *string `type:"string"`
+	OutputS3KeyPrefix *string `json:"ssm:S3OutputLocation:OutputS3KeyPrefix" type:"string"`
 
 	// (Deprecated) You can no longer specify this parameter. The system ignores
 	// it. Instead, Systems Manager automatically determines the Amazon S3 bucket
 	// region.
-	OutputS3Region *string `min:"3" type:"string"`
+	OutputS3Region *string `json:"ssm:S3OutputLocation:OutputS3Region" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -5004,7 +5004,7 @@ type S3OutputUrl struct {
 
 	// A URL for an Amazon S3 bucket where you want to store the results of this
 	// request.
-	OutputUrl *string `type:"string"`
+	OutputUrl *string `json:"ssm:S3OutputUrl:OutputUrl" type:"string"`
 }
 
 // String returns the string representation
@@ -5019,13 +5019,13 @@ type ScheduledWindowExecution struct {
 
 	// The time, in ISO-8601 Extended format, that the maintenance window is scheduled
 	// to be run.
-	ExecutionTime *string `type:"string"`
+	ExecutionTime *string `json:"ssm:ScheduledWindowExecution:ExecutionTime" type:"string"`
 
 	// The name of the maintenance window to be run.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:ScheduledWindowExecution:Name" min:"3" type:"string"`
 
 	// The ID of the maintenance window to be run.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:ScheduledWindowExecution:WindowId" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -5053,20 +5053,20 @@ type ServiceSetting struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the service setting.
-	ARN *string `type:"string"`
+	ARN *string `json:"ssm:ServiceSetting:ARN" type:"string"`
 
 	// The last time the service setting was modified.
-	LastModifiedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"ssm:ServiceSetting:LastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the last modified user. This field is populated only if the setting
 	// value was overwritten.
-	LastModifiedUser *string `type:"string"`
+	LastModifiedUser *string `json:"ssm:ServiceSetting:LastModifiedUser" type:"string"`
 
 	// The ID of the service setting.
-	SettingId *string `min:"1" type:"string"`
+	SettingId *string `json:"ssm:ServiceSetting:SettingId" min:"1" type:"string"`
 
 	// The value of the service setting.
-	SettingValue *string `min:"1" type:"string"`
+	SettingValue *string `json:"ssm:ServiceSetting:SettingValue" min:"1" type:"string"`
 
 	// The status of the service setting. The value can be Default, Customized or
 	// PendingUpdate.
@@ -5079,7 +5079,7 @@ type ServiceSetting struct {
 	//
 	//    * PendingUpdate: The current setting uses a default or custom value, but
 	//    a setting change request is pending approval.
-	Status *string `type:"string"`
+	Status *string `json:"ssm:ServiceSetting:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -5093,32 +5093,32 @@ type Session struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved for future use.
-	Details *string `min:"1" type:"string"`
+	Details *string `json:"ssm:Session:Details" min:"1" type:"string"`
 
 	// The name of the Session Manager SSM document used to define the parameters
 	// and plugin settings for the session. For example, SSM-SessionManagerRunShell.
-	DocumentName *string `type:"string"`
+	DocumentName *string `json:"ssm:Session:DocumentName" type:"string"`
 
 	// The date and time, in ISO-8601 Extended format, when the session was terminated.
-	EndDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndDate *time.Time `json:"ssm:Session:EndDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Reserved for future use.
-	OutputUrl *SessionManagerOutputUrl `type:"structure"`
+	OutputUrl *SessionManagerOutputUrl `json:"ssm:Session:OutputUrl" type:"structure"`
 
 	// The ID of the AWS user account that started the session.
-	Owner *string `min:"1" type:"string"`
+	Owner *string `json:"ssm:Session:Owner" min:"1" type:"string"`
 
 	// The ID of the session.
-	SessionId *string `min:"1" type:"string"`
+	SessionId *string `json:"ssm:Session:SessionId" min:"1" type:"string"`
 
 	// The date and time, in ISO-8601 Extended format, when the session began.
-	StartDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartDate *time.Time `json:"ssm:Session:StartDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the session. For example, "Connected" or "Terminated".
-	Status SessionStatus `type:"string" enum:"true"`
+	Status SessionStatus `json:"ssm:Session:Status" type:"string" enum:"true"`
 
 	// The instance that the Session Manager session connected to.
-	Target *string `min:"1" type:"string"`
+	Target *string `json:"ssm:Session:Target" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -5134,7 +5134,7 @@ type SessionFilter struct {
 	// The name of the filter.
 	//
 	// Key is a required field
-	Key SessionFilterKey `locationName:"key" type:"string" required:"true" enum:"true"`
+	Key SessionFilterKey `json:"ssm:SessionFilter:Key" locationName:"key" type:"string" required:"true" enum:"true"`
 
 	// The filter value. Valid values for each filter key are as follows:
 	//
@@ -5156,7 +5156,7 @@ type SessionFilter struct {
 	//    Disconnected Terminated Terminating Failed
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"ssm:SessionFilter:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5190,10 +5190,10 @@ type SessionManagerOutputUrl struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved for future use.
-	CloudWatchOutputUrl *string `min:"1" type:"string"`
+	CloudWatchOutputUrl *string `json:"ssm:SessionManagerOutputUrl:CloudWatchOutputUrl" min:"1" type:"string"`
 
 	// Reserved for future use.
-	S3OutputUrl *string `min:"1" type:"string"`
+	S3OutputUrl *string `json:"ssm:SessionManagerOutputUrl:S3OutputUrl" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -5210,32 +5210,32 @@ type SeveritySummary struct {
 	// The total number of resources or compliance items that have a severity level
 	// of critical. Critical severity is determined by the organization that published
 	// the compliance items.
-	CriticalCount *int64 `type:"integer"`
+	CriticalCount *int64 `json:"ssm:SeveritySummary:CriticalCount" type:"integer"`
 
 	// The total number of resources or compliance items that have a severity level
 	// of high. High severity is determined by the organization that published the
 	// compliance items.
-	HighCount *int64 `type:"integer"`
+	HighCount *int64 `json:"ssm:SeveritySummary:HighCount" type:"integer"`
 
 	// The total number of resources or compliance items that have a severity level
 	// of informational. Informational severity is determined by the organization
 	// that published the compliance items.
-	InformationalCount *int64 `type:"integer"`
+	InformationalCount *int64 `json:"ssm:SeveritySummary:InformationalCount" type:"integer"`
 
 	// The total number of resources or compliance items that have a severity level
 	// of low. Low severity is determined by the organization that published the
 	// compliance items.
-	LowCount *int64 `type:"integer"`
+	LowCount *int64 `json:"ssm:SeveritySummary:LowCount" type:"integer"`
 
 	// The total number of resources or compliance items that have a severity level
 	// of medium. Medium severity is determined by the organization that published
 	// the compliance items.
-	MediumCount *int64 `type:"integer"`
+	MediumCount *int64 `json:"ssm:SeveritySummary:MediumCount" type:"integer"`
 
 	// The total number of resources or compliance items that have a severity level
 	// of unspecified. Unspecified severity is determined by the organization that
 	// published the compliance items.
-	UnspecifiedCount *int64 `type:"integer"`
+	UnspecifiedCount *int64 `json:"ssm:SeveritySummary:UnspecifiedCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -5250,81 +5250,81 @@ type StepExecution struct {
 
 	// The action this step performs. The action determines the behavior of the
 	// step.
-	Action *string `type:"string"`
+	Action *string `json:"ssm:StepExecution:Action" type:"string"`
 
 	// If a step has finished execution, this contains the time the execution ended.
 	// If the step has not yet concluded, this field is not populated.
-	ExecutionEndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExecutionEndTime *time.Time `json:"ssm:StepExecution:ExecutionEndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// If a step has begun execution, this contains the time the step started. If
 	// the step is in Pending status, this field is not populated.
-	ExecutionStartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExecutionStartTime *time.Time `json:"ssm:StepExecution:ExecutionStartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the Automation failure.
-	FailureDetails *FailureDetails `type:"structure"`
+	FailureDetails *FailureDetails `json:"ssm:StepExecution:FailureDetails" type:"structure"`
 
 	// If a step failed, this message explains why the execution failed.
-	FailureMessage *string `type:"string"`
+	FailureMessage *string `json:"ssm:StepExecution:FailureMessage" type:"string"`
 
 	// Fully-resolved values passed into the step before execution.
-	Inputs map[string]string `type:"map"`
+	Inputs map[string]string `json:"ssm:StepExecution:Inputs" type:"map"`
 
 	// The flag which can be used to help decide whether the failure of current
 	// step leads to the Automation failure.
-	IsCritical *bool `type:"boolean"`
+	IsCritical *bool `json:"ssm:StepExecution:IsCritical" type:"boolean"`
 
 	// The flag which can be used to end automation no matter whether the step succeeds
 	// or fails.
-	IsEnd *bool `type:"boolean"`
+	IsEnd *bool `json:"ssm:StepExecution:IsEnd" type:"boolean"`
 
 	// The maximum number of tries to run the action of the step. The default value
 	// is 1.
-	MaxAttempts *int64 `type:"integer"`
+	MaxAttempts *int64 `json:"ssm:StepExecution:MaxAttempts" type:"integer"`
 
 	// The next step after the step succeeds.
-	NextStep *string `type:"string"`
+	NextStep *string `json:"ssm:StepExecution:NextStep" type:"string"`
 
 	// The action to take if the step fails. The default value is Abort.
-	OnFailure *string `type:"string"`
+	OnFailure *string `json:"ssm:StepExecution:OnFailure" type:"string"`
 
 	// Returned values from the execution of the step.
-	Outputs map[string][]string `min:"1" type:"map"`
+	Outputs map[string][]string `json:"ssm:StepExecution:Outputs" min:"1" type:"map"`
 
 	// A user-specified list of parameters to override when running a step.
-	OverriddenParameters map[string][]string `min:"1" type:"map"`
+	OverriddenParameters map[string][]string `json:"ssm:StepExecution:OverriddenParameters" min:"1" type:"map"`
 
 	// A message associated with the response code for an execution.
-	Response *string `type:"string"`
+	Response *string `json:"ssm:StepExecution:Response" type:"string"`
 
 	// The response code returned by the execution of the step.
-	ResponseCode *string `type:"string"`
+	ResponseCode *string `json:"ssm:StepExecution:ResponseCode" type:"string"`
 
 	// The unique ID of a step execution.
-	StepExecutionId *string `type:"string"`
+	StepExecutionId *string `json:"ssm:StepExecution:StepExecutionId" type:"string"`
 
 	// The name of this execution step.
-	StepName *string `type:"string"`
+	StepName *string `json:"ssm:StepExecution:StepName" type:"string"`
 
 	// The execution status for this step. Valid values include: Pending, InProgress,
 	// Success, Cancelled, Failed, and TimedOut.
-	StepStatus AutomationExecutionStatus `type:"string" enum:"true"`
+	StepStatus AutomationExecutionStatus `json:"ssm:StepExecution:StepStatus" type:"string" enum:"true"`
 
 	// The combination of AWS Regions and accounts targeted by the current Automation
 	// execution.
-	TargetLocation *TargetLocation `type:"structure"`
+	TargetLocation *TargetLocation `json:"ssm:StepExecution:TargetLocation" type:"structure"`
 
 	// The targets for the step execution.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:StepExecution:Targets" type:"list"`
 
 	// The timeout seconds of the step.
-	TimeoutSeconds *int64 `type:"long"`
+	TimeoutSeconds *int64 `json:"ssm:StepExecution:TimeoutSeconds" type:"long"`
 
 	// Strategies used when step fails, we support Continue and Abort. Abort will
 	// fail the automation when the step fails. Continue will ignore the failure
 	// of current step and allow automation to run the next step. With conditional
 	// branching, we add step:stepName to support the automation to go to another
 	// specific step.
-	ValidNextSteps []string `type:"list"`
+	ValidNextSteps []string `json:"ssm:StepExecution:ValidNextSteps" type:"list"`
 }
 
 // String returns the string representation
@@ -5343,12 +5343,12 @@ type StepExecutionFilter struct {
 	// StartTimeAfter.
 	//
 	// Key is a required field
-	Key StepExecutionFilterKey `type:"string" required:"true" enum:"true"`
+	Key StepExecutionFilterKey `json:"ssm:StepExecutionFilter:Key" type:"string" required:"true" enum:"true"`
 
 	// The values of the filter key.
 	//
 	// Values is a required field
-	Values []string `min:"1" type:"list" required:"true"`
+	Values []string `json:"ssm:StepExecutionFilter:Values" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -5387,12 +5387,12 @@ type Tag struct {
 	// The name of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"ssm:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag.
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"ssm:Tag:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5461,12 +5461,12 @@ type Target struct {
 
 	// User-defined criteria for sending commands that target instances that meet
 	// the criteria.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"ssm:Target:Key" min:"1" type:"string"`
 
 	// User-defined criteria that maps to Key. For example, if you specified tag:ServerRole,
 	// you could specify value:WebServer to run a command on instances that include
 	// Amazon EC2 tags of ServerRole,WebServer.
-	Values []string `type:"list"`
+	Values []string `json:"ssm:Target:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -5494,21 +5494,21 @@ type TargetLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS accounts targeted by the current Automation execution.
-	Accounts []string `min:"1" type:"list"`
+	Accounts []string `json:"ssm:TargetLocation:Accounts" min:"1" type:"list"`
 
 	// The Automation execution role used by the currently running Automation.
-	ExecutionRoleName *string `min:"1" type:"string"`
+	ExecutionRoleName *string `json:"ssm:TargetLocation:ExecutionRoleName" min:"1" type:"string"`
 
 	// The AWS Regions targeted by the current Automation execution.
-	Regions []string `min:"1" type:"list"`
+	Regions []string `json:"ssm:TargetLocation:Regions" min:"1" type:"list"`
 
 	// The maximum number of AWS accounts and AWS regions allowed to run the Automation
 	// concurrently
-	TargetLocationMaxConcurrency *string `min:"1" type:"string"`
+	TargetLocationMaxConcurrency *string `json:"ssm:TargetLocation:TargetLocationMaxConcurrency" min:"1" type:"string"`
 
 	// The maximum number of errors allowed before the system stops queueing additional
 	// Automation executions for the currently running Automation.
-	TargetLocationMaxErrors *string `min:"1" type:"string"`
+	TargetLocationMaxErrors *string `json:"ssm:TargetLocation:TargetLocationMaxErrors" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -53,10 +53,10 @@ type ListTagsForResourceOutput struct {
 
 	// An opaque string that indicates the position at which to begin returning
 	// the next list of resource tags.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"datasync:ListTagsForResourceOutput:NextToken" type:"string"`
 
 	// Array of resource tags.
-	Tags []TagListEntry `type:"list"`
+	Tags []TagListEntry `json:"datasync:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

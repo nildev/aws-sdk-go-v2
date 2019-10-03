@@ -38,12 +38,12 @@ type DescribeNotificationConfigurationsOutput struct {
 	// returned in a single response. To receive additional items, specify this
 	// string for the NextToken value when requesting the next set of items. This
 	// value is null when there are no more items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeNotificationConfigurationsOutput:NextToken" type:"string"`
 
 	// The notification configurations.
 	//
 	// NotificationConfigurations is a required field
-	NotificationConfigurations []NotificationConfiguration `type:"list" required:"true"`
+	NotificationConfigurations []NotificationConfiguration `json:"autoscaling:DescribeNotificationConfigurationsOutput:NotificationConfigurations" type:"list" required:"true"`
 }
 
 // String returns the string representation

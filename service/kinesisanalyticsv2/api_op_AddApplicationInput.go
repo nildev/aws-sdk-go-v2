@@ -74,13 +74,13 @@ type AddApplicationInputOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the application.
-	ApplicationARN *string `min:"1" type:"string"`
+	ApplicationARN *string `json:"kinesisanalytics:AddApplicationInputOutput:ApplicationARN" min:"1" type:"string"`
 
 	// Provides the current application version.
-	ApplicationVersionId *int64 `min:"1" type:"long"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:AddApplicationInputOutput:ApplicationVersionId" min:"1" type:"long"`
 
 	// Describes the application input configuration.
-	InputDescriptions []InputDescription `type:"list"`
+	InputDescriptions []InputDescription `json:"kinesisanalytics:AddApplicationInputOutput:InputDescriptions" type:"list"`
 }
 
 // String returns the string representation

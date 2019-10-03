@@ -169,7 +169,7 @@ type UpdateDataSourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated DataSource object.
-	DataSource *DataSource `locationName:"dataSource" type:"structure"`
+	DataSource *DataSource `json:"appsync:UpdateDataSourceOutput:DataSource" locationName:"dataSource" type:"structure"`
 }
 
 // String returns the string representation

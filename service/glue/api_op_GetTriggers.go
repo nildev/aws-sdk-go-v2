@@ -50,10 +50,10 @@ type GetTriggersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A continuation token, if not all the requested triggers have yet been returned.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetTriggersOutput:NextToken" type:"string"`
 
 	// A list of triggers for the specified job.
-	Triggers []Trigger `type:"list"`
+	Triggers []Trigger `json:"glue:GetTriggersOutput:Triggers" type:"list"`
 }
 
 // String returns the string representation

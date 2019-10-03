@@ -44,7 +44,7 @@ type DescribeDocumentClassifierOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that contains the properties associated with a document classifier.
-	DocumentClassifierProperties *DocumentClassifierProperties `type:"structure"`
+	DocumentClassifierProperties *DocumentClassifierProperties `json:"comprehend:DescribeDocumentClassifierOutput:DocumentClassifierProperties" type:"structure"`
 }
 
 // String returns the string representation

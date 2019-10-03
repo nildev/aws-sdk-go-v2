@@ -75,11 +75,11 @@ type ApplySchemaOutput struct {
 	// The applied schema ARN that is associated with the copied schema in the Directory.
 	// You can use this ARN to describe the schema information applied on this directory.
 	// For more information, see arns.
-	AppliedSchemaArn *string `type:"string"`
+	AppliedSchemaArn *string `json:"clouddirectory:ApplySchemaOutput:AppliedSchemaArn" type:"string"`
 
 	// The ARN that is associated with the Directory. For more information, see
 	// arns.
-	DirectoryArn *string `type:"string"`
+	DirectoryArn *string `json:"clouddirectory:ApplySchemaOutput:DirectoryArn" type:"string"`
 }
 
 // String returns the string representation

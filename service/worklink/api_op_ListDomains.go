@@ -85,11 +85,11 @@ type ListDomainsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the domains.
-	Domains []DomainSummary `type:"list"`
+	Domains []DomainSummary `json:"worklink:ListDomainsOutput:Domains" type:"list"`
 
 	// The pagination token used to retrieve the next page of results for this operation.
 	// If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"worklink:ListDomainsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

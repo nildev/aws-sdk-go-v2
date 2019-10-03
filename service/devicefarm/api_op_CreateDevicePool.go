@@ -79,7 +79,7 @@ type CreateDevicePoolOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The newly created device pool.
-	DevicePool *DevicePool `locationName:"devicePool" type:"structure"`
+	DevicePool *DevicePool `json:"devicefarm:CreateDevicePoolOutput:DevicePool" locationName:"devicePool" type:"structure"`
 }
 
 // String returns the string representation

@@ -61,16 +61,16 @@ type GetBackupVaultAccessPolicyOutput struct {
 
 	// An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for
 	// example, arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.
-	BackupVaultArn *string `type:"string"`
+	BackupVaultArn *string `json:"backup:GetBackupVaultAccessPolicyOutput:BackupVaultArn" type:"string"`
 
 	// The name of a logical container where backups are stored. Backup vaults are
 	// identified by names that are unique to the account used to create them and
 	// the Region where they are created. They consist of lowercase letters, numbers,
 	// and hyphens.
-	BackupVaultName *string `type:"string"`
+	BackupVaultName *string `json:"backup:GetBackupVaultAccessPolicyOutput:BackupVaultName" type:"string"`
 
 	// The backup vault access policy document in JSON format.
-	Policy *string `type:"string"`
+	Policy *string `json:"backup:GetBackupVaultAccessPolicyOutput:Policy" type:"string"`
 }
 
 // String returns the string representation

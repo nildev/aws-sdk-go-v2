@@ -71,10 +71,10 @@ type ListLayersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of function layers.
-	Layers []LayersListItem `type:"list"`
+	Layers []LayersListItem `json:"lambda:ListLayersOutput:Layers" type:"list"`
 
 	// A pagination token returned when the response doesn't contain all layers.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"lambda:ListLayersOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

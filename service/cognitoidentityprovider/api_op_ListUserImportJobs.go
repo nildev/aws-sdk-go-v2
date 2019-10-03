@@ -69,10 +69,10 @@ type ListUserImportJobsOutput struct {
 
 	// An identifier that can be used to return the next set of user import jobs
 	// in the list.
-	PaginationToken *string `min:"1" type:"string"`
+	PaginationToken *string `json:"cognito-idp:ListUserImportJobsOutput:PaginationToken" min:"1" type:"string"`
 
 	// The user import jobs.
-	UserImportJobs []UserImportJobType `min:"1" type:"list"`
+	UserImportJobs []UserImportJobType `json:"cognito-idp:ListUserImportJobsOutput:UserImportJobs" min:"1" type:"list"`
 }
 
 // String returns the string representation

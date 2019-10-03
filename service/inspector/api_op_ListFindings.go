@@ -66,13 +66,13 @@ type ListFindingsOutput struct {
 	// A list of ARNs that specifies the findings returned by the action.
 	//
 	// FindingArns is a required field
-	FindingArns []string `locationName:"findingArns" type:"list" required:"true"`
+	FindingArns []string `json:"inspector:ListFindingsOutput:FindingArns" locationName:"findingArns" type:"list" required:"true"`
 
 	// When a response is generated, if there is more data to be listed, this parameter
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"inspector:ListFindingsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

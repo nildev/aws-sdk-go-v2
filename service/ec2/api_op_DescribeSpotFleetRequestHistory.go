@@ -75,23 +75,23 @@ type DescribeSpotFleetRequestHistoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the events in the history of the Spot Fleet request.
-	HistoryRecords []HistoryRecord `locationName:"historyRecordSet" locationNameList:"item" type:"list"`
+	HistoryRecords []HistoryRecord `json:"ec2:DescribeSpotFleetRequestHistoryOutput:HistoryRecords" locationName:"historyRecordSet" locationNameList:"item" type:"list"`
 
 	// The last date and time for the events, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
 	// All records up to this time were retrieved.
 	//
 	// If nextToken indicates that there are more results, this value is not present.
-	LastEvaluatedTime *time.Time `locationName:"lastEvaluatedTime" type:"timestamp" timestampFormat:"iso8601"`
+	LastEvaluatedTime *time.Time `json:"ec2:DescribeSpotFleetRequestHistoryOutput:LastEvaluatedTime" locationName:"lastEvaluatedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeSpotFleetRequestHistoryOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The ID of the Spot Fleet request.
-	SpotFleetRequestId *string `locationName:"spotFleetRequestId" type:"string"`
+	SpotFleetRequestId *string `json:"ec2:DescribeSpotFleetRequestHistoryOutput:SpotFleetRequestId" locationName:"spotFleetRequestId" type:"string"`
 
 	// The starting date and time for the events, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
+	StartTime *time.Time `json:"ec2:DescribeSpotFleetRequestHistoryOutput:StartTime" locationName:"startTime" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation

@@ -124,11 +124,11 @@ type DescribeDocumentVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The document versions.
-	DocumentVersions []DocumentVersionMetadata `type:"list"`
+	DocumentVersions []DocumentVersionMetadata `json:"workdocs:DescribeDocumentVersionsOutput:DocumentVersions" type:"list"`
 
 	// The marker to use when requesting the next set of results. If there are no
 	// additional results, the string is empty.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeDocumentVersionsOutput:Marker" min:"1" type:"string"`
 }
 
 // String returns the string representation

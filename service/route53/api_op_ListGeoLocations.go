@@ -116,7 +116,7 @@ type ListGeoLocationsOutput struct {
 	// that Amazon Route 53 supports for geolocation.
 	//
 	// GeoLocationDetailsList is a required field
-	GeoLocationDetailsList []GeoLocationDetails `locationNameList:"GeoLocationDetails" type:"list" required:"true"`
+	GeoLocationDetailsList []GeoLocationDetails `json:"route53:ListGeoLocationsOutput:GeoLocationDetailsList" locationNameList:"GeoLocationDetails" type:"list" required:"true"`
 
 	// A value that indicates whether more locations remain to be listed after the
 	// last location in this response. If so, the value of IsTruncated is true.
@@ -125,27 +125,27 @@ type ListGeoLocationsOutput struct {
 	// and startsubdivisioncode, as applicable.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListGeoLocationsOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// The value that you specified for MaxItems in the request.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListGeoLocationsOutput:MaxItems" type:"string" required:"true"`
 
 	// If IsTruncated is true, you can make a follow-up request to display more
 	// locations. Enter the value of NextContinentCode in the startcontinentcode
 	// parameter in another ListGeoLocations request.
-	NextContinentCode *string `min:"2" type:"string"`
+	NextContinentCode *string `json:"route53:ListGeoLocationsOutput:NextContinentCode" min:"2" type:"string"`
 
 	// If IsTruncated is true, you can make a follow-up request to display more
 	// locations. Enter the value of NextCountryCode in the startcountrycode parameter
 	// in another ListGeoLocations request.
-	NextCountryCode *string `min:"1" type:"string"`
+	NextCountryCode *string `json:"route53:ListGeoLocationsOutput:NextCountryCode" min:"1" type:"string"`
 
 	// If IsTruncated is true, you can make a follow-up request to display more
 	// locations. Enter the value of NextSubdivisionCode in the startsubdivisioncode
 	// parameter in another ListGeoLocations request.
-	NextSubdivisionCode *string `min:"1" type:"string"`
+	NextSubdivisionCode *string `json:"route53:ListGeoLocationsOutput:NextSubdivisionCode" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -49,7 +49,7 @@ type DeleteVpcEndpointConnectionNotificationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the notifications that could not be deleted successfully.
-	Unsuccessful []UnsuccessfulItem `locationName:"unsuccessful" locationNameList:"item" type:"list"`
+	Unsuccessful []UnsuccessfulItem `json:"ec2:DeleteVpcEndpointConnectionNotificationsOutput:Unsuccessful" locationName:"unsuccessful" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

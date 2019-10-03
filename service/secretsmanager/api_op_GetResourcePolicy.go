@@ -60,11 +60,11 @@ type GetResourcePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret that the resource-based policy was retrieved for.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:GetResourcePolicyOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret that the resource-based policy was retrieved
 	// for.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:GetResourcePolicyOutput:Name" min:"1" type:"string"`
 
 	// A JSON-formatted string that describes the permissions that are associated
 	// with the attached secret. These permissions are combined with any permissions
@@ -73,7 +73,7 @@ type GetResourcePolicyOutput struct {
 	// they can perform. For more information, see Authentication and Access Control
 	// for AWS Secrets Manager (http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html)
 	// in the AWS Secrets Manager User Guide.
-	ResourcePolicy *string `min:"1" type:"string"`
+	ResourcePolicy *string `json:"secretsmanager:GetResourcePolicyOutput:ResourcePolicy" min:"1" type:"string"`
 }
 
 // String returns the string representation

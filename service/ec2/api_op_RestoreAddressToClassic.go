@@ -49,10 +49,10 @@ type RestoreAddressToClassicOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Elastic IP address.
-	PublicIp *string `locationName:"publicIp" type:"string"`
+	PublicIp *string `json:"ec2:RestoreAddressToClassicOutput:PublicIp" locationName:"publicIp" type:"string"`
 
 	// The move status for the IP address.
-	Status Status `locationName:"status" type:"string" enum:"true"`
+	Status Status `json:"ec2:RestoreAddressToClassicOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

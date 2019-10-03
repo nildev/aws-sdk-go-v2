@@ -74,7 +74,7 @@ type UpdateApnsChannelOutput struct {
 	// Notification service) channel for an application.
 	//
 	// APNSChannelResponse is a required field
-	APNSChannelResponse *APNSChannelResponse `type:"structure" required:"true"`
+	APNSChannelResponse *APNSChannelResponse `json:"pinpoint:UpdateApnsChannelOutput:APNSChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

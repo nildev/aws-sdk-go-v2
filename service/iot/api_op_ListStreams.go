@@ -69,10 +69,10 @@ type ListStreamsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A token used to get the next set of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListStreamsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of streams.
-	Streams []StreamSummary `locationName:"streams" type:"list"`
+	Streams []StreamSummary `json:"iot:ListStreamsOutput:Streams" locationName:"streams" type:"list"`
 }
 
 // String returns the string representation

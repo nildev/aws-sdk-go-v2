@@ -65,7 +65,7 @@ type PutRepositoryTriggersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The system-generated unique ID for the create or update operation.
-	ConfigurationId *string `locationName:"configurationId" type:"string"`
+	ConfigurationId *string `json:"codecommit:PutRepositoryTriggersOutput:ConfigurationId" locationName:"configurationId" type:"string"`
 }
 
 // String returns the string representation

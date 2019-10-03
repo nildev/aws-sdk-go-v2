@@ -61,7 +61,7 @@ type CreateSchemaOutput struct {
 
 	// The Amazon Resource Name (ARN) that is associated with the schema. For more
 	// information, see arns.
-	SchemaArn *string `type:"string"`
+	SchemaArn *string `json:"clouddirectory:CreateSchemaOutput:SchemaArn" type:"string"`
 }
 
 // String returns the string representation

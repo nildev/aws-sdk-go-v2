@@ -58,7 +58,7 @@ type GetEmailChannelOutput struct {
 	// an application.
 	//
 	// EmailChannelResponse is a required field
-	EmailChannelResponse *EmailChannelResponse `type:"structure" required:"true"`
+	EmailChannelResponse *EmailChannelResponse `json:"pinpoint:GetEmailChannelOutput:EmailChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

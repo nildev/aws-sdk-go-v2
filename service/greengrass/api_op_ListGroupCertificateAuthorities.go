@@ -55,7 +55,7 @@ type ListGroupCertificateAuthoritiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of certificate authorities associated with the group.
-	GroupCertificateAuthorities []GroupCertificateAuthorityProperties `type:"list"`
+	GroupCertificateAuthorities []GroupCertificateAuthorityProperties `json:"greengrass:ListGroupCertificateAuthoritiesOutput:GroupCertificateAuthorities" type:"list"`
 }
 
 // String returns the string representation

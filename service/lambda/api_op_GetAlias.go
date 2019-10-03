@@ -89,23 +89,23 @@ type GetAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the alias.
-	AliasArn *string `type:"string"`
+	AliasArn *string `json:"lambda:GetAliasOutput:AliasArn" type:"string"`
 
 	// A description of the alias.
-	Description *string `type:"string"`
+	Description *string `json:"lambda:GetAliasOutput:Description" type:"string"`
 
 	// The function version that the alias invokes.
-	FunctionVersion *string `min:"1" type:"string"`
+	FunctionVersion *string `json:"lambda:GetAliasOutput:FunctionVersion" min:"1" type:"string"`
 
 	// The name of the alias.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"lambda:GetAliasOutput:Name" min:"1" type:"string"`
 
 	// A unique identifier that changes when you update the alias.
-	RevisionId *string `type:"string"`
+	RevisionId *string `json:"lambda:GetAliasOutput:RevisionId" type:"string"`
 
 	// The routing configuration (https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html)
 	// of the alias.
-	RoutingConfig *AliasRoutingConfiguration `type:"structure"`
+	RoutingConfig *AliasRoutingConfiguration `json:"lambda:GetAliasOutput:RoutingConfig" type:"structure"`
 }
 
 // String returns the string representation

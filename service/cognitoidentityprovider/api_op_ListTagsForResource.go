@@ -47,7 +47,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags that are assigned to the user pool.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"cognito-idp:ListTagsForResourceOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

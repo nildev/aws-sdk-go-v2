@@ -59,7 +59,7 @@ type DescribeBundleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the bundle.
-	Details *BundleDetails `locationName:"details" type:"structure"`
+	Details *BundleDetails `json:"mobile:DescribeBundleOutput:Details" locationName:"details" type:"structure"`
 }
 
 // String returns the string representation

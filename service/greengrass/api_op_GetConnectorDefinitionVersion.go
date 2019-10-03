@@ -77,24 +77,24 @@ type GetConnectorDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the connector definition version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetConnectorDefinitionVersionOutput:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the connector definition
 	// version was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetConnectorDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
 	// Information about the connector definition version.
-	Definition *ConnectorDefinitionVersion `type:"structure"`
+	Definition *ConnectorDefinitionVersion `json:"greengrass:GetConnectorDefinitionVersionOutput:Definition" type:"structure"`
 
 	// The ID of the connector definition version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetConnectorDefinitionVersionOutput:Id" type:"string"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:GetConnectorDefinitionVersionOutput:NextToken" type:"string"`
 
 	// The version of the connector definition version.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:GetConnectorDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

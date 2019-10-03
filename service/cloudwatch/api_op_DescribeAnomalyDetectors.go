@@ -77,11 +77,11 @@ type DescribeAnomalyDetectorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of anomaly detection models returned by the operation.
-	AnomalyDetectors []AnomalyDetector `type:"list"`
+	AnomalyDetectors []AnomalyDetector `json:"monitoring:DescribeAnomalyDetectorsOutput:AnomalyDetectors" type:"list"`
 
 	// A token that you can use in a subsequent operation to retrieve the next set
 	// of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"monitoring:DescribeAnomalyDetectorsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -54,10 +54,10 @@ type DescribeStacksOutput struct {
 
 	// If the output exceeds 1 MB in size, a string that identifies the next page
 	// of stacks. If no additional page exists, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:DescribeStacksOutput:NextToken" min:"1" type:"string"`
 
 	// A list of stack structures.
-	Stacks []Stack `type:"list"`
+	Stacks []Stack `json:"cloudformation:DescribeStacksOutput:Stacks" type:"list"`
 }
 
 // String returns the string representation

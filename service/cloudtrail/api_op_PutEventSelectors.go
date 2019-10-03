@@ -70,13 +70,13 @@ type PutEventSelectorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the event selectors configured for your trail.
-	EventSelectors []EventSelector `type:"list"`
+	EventSelectors []EventSelector `json:"cloudtrail:PutEventSelectorsOutput:EventSelectors" type:"list"`
 
 	// Specifies the ARN of the trail that was updated with event selectors. The
 	// format of a trail ARN is:
 	//
 	// arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail
-	TrailARN *string `type:"string"`
+	TrailARN *string `json:"cloudtrail:PutEventSelectorsOutput:TrailARN" type:"string"`
 }
 
 // String returns the string representation

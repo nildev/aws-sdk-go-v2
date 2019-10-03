@@ -102,10 +102,10 @@ type CreateVpcEndpointOutput struct {
 
 	// Unique, case-sensitive identifier you provide to ensure the idempotency of
 	// the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ec2:CreateVpcEndpointOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the endpoint.
-	VpcEndpoint *VpcEndpoint `locationName:"vpcEndpoint" type:"structure"`
+	VpcEndpoint *VpcEndpoint `json:"ec2:CreateVpcEndpointOutput:VpcEndpoint" locationName:"vpcEndpoint" type:"structure"`
 }
 
 // String returns the string representation

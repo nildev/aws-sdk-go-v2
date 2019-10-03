@@ -86,16 +86,16 @@ type SyncDeploymentJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the synchronization request.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:SyncDeploymentJobOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the fleet was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"robomaker:SyncDeploymentJobOutput:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the deployment application configurations.
-	DeploymentApplicationConfigs []DeploymentApplicationConfig `locationName:"deploymentApplicationConfigs" min:"1" type:"list"`
+	DeploymentApplicationConfigs []DeploymentApplicationConfig `json:"robomaker:SyncDeploymentJobOutput:DeploymentApplicationConfigs" locationName:"deploymentApplicationConfigs" min:"1" type:"list"`
 
 	// Information about the deployment configuration.
-	DeploymentConfig *DeploymentConfig `locationName:"deploymentConfig" type:"structure"`
+	DeploymentConfig *DeploymentConfig `json:"robomaker:SyncDeploymentJobOutput:DeploymentConfig" locationName:"deploymentConfig" type:"structure"`
 
 	// The failure code if the job fails:
 	//
@@ -156,16 +156,16 @@ type SyncDeploymentJobOutput struct {
 	// SimulationApplicationVersionMismatchedEtag
 	//
 	// Etag for SimulationApplication does not match value during version creation.
-	FailureCode DeploymentJobErrorCode `locationName:"failureCode" type:"string" enum:"true"`
+	FailureCode DeploymentJobErrorCode `json:"robomaker:SyncDeploymentJobOutput:FailureCode" locationName:"failureCode" type:"string" enum:"true"`
 
 	// The failure reason if the job fails.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"robomaker:SyncDeploymentJobOutput:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the fleet.
-	Fleet *string `locationName:"fleet" min:"1" type:"string"`
+	Fleet *string `json:"robomaker:SyncDeploymentJobOutput:Fleet" locationName:"fleet" min:"1" type:"string"`
 
 	// The status of the synchronization job.
-	Status DeploymentStatus `locationName:"status" type:"string" enum:"true"`
+	Status DeploymentStatus `json:"robomaker:SyncDeploymentJobOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

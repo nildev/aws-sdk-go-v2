@@ -69,12 +69,12 @@ type ListDeploymentInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of instance IDs.
-	InstancesList []string `locationName:"instancesList" type:"list"`
+	InstancesList []string `json:"codedeploy:ListDeploymentInstancesOutput:InstancesList" locationName:"instancesList" type:"list"`
 
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent list deployment instances call to return the
 	// next set of deployment instances in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListDeploymentInstancesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

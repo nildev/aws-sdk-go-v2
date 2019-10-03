@@ -117,12 +117,12 @@ type ListViolationEventsOutput struct {
 
 	// A token that can be used to retrieve the next set of results, or null if
 	// there are no additional results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iot:ListViolationEventsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The security profile violation alerts issued for this account during the
 	// given time frame, potentially filtered by security profile, behavior violated,
 	// or thing (device) violating.
-	ViolationEvents []ViolationEvent `locationName:"violationEvents" type:"list"`
+	ViolationEvents []ViolationEvent `json:"iot:ListViolationEventsOutput:ViolationEvents" locationName:"violationEvents" type:"list"`
 }
 
 // String returns the string representation

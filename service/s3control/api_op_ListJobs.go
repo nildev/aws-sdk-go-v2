@@ -98,12 +98,12 @@ type ListJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of current jobs and jobs that have ended within the last 30 days.
-	Jobs []JobListDescriptor `type:"list"`
+	Jobs []JobListDescriptor `json:"s3-control:ListJobsOutput:Jobs" type:"list"`
 
 	// If the List Jobs request produced more than the maximum number of results,
 	// you can pass this value into a subsequent List Jobs request in order to retrieve
 	// the next page of results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"s3-control:ListJobsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

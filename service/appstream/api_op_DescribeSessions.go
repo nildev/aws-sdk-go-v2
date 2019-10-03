@@ -81,10 +81,10 @@ type DescribeSessionsOutput struct {
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:DescribeSessionsOutput:NextToken" min:"1" type:"string"`
 
 	// Information about the streaming sessions.
-	Sessions []Session `type:"list"`
+	Sessions []Session `json:"appstream2:DescribeSessionsOutput:Sessions" type:"list"`
 }
 
 // String returns the string representation

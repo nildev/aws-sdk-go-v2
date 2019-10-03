@@ -50,7 +50,7 @@ type DescribeLifecycleHooksOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The lifecycle hooks for the specified group.
-	LifecycleHooks []LifecycleHook `type:"list"`
+	LifecycleHooks []LifecycleHook `json:"autoscaling:DescribeLifecycleHooksOutput:LifecycleHooks" type:"list"`
 }
 
 // String returns the string representation

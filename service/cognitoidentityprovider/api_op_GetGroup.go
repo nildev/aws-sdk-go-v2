@@ -58,7 +58,7 @@ type GetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The group object for the group.
-	Group *GroupType `type:"structure"`
+	Group *GroupType `json:"cognito-idp:GetGroupOutput:Group" type:"structure"`
 }
 
 // String returns the string representation

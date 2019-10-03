@@ -92,7 +92,7 @@ type CopyDBClusterParameterGroupOutput struct {
 	//
 	// This data type is used as a response element in the DescribeDBClusterParameterGroups
 	// action.
-	DBClusterParameterGroup *DBClusterParameterGroup `type:"structure"`
+	DBClusterParameterGroup *DBClusterParameterGroup `json:"rds:CopyDBClusterParameterGroupOutput:DBClusterParameterGroup" type:"structure"`
 }
 
 // String returns the string representation

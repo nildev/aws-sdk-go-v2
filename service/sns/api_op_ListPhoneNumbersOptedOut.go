@@ -32,11 +32,11 @@ type ListPhoneNumbersOptedOutOutput struct {
 
 	// A NextToken string is returned when you call the ListPhoneNumbersOptedOut
 	// action if additional records are available after the first page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"sns:ListPhoneNumbersOptedOutOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of phone numbers that are opted out of receiving SMS messages. The
 	// list is paginated, and each page can contain up to 100 phone numbers.
-	PhoneNumbers []string `locationName:"phoneNumbers" type:"list"`
+	PhoneNumbers []string `json:"sns:ListPhoneNumbersOptedOutOutput:PhoneNumbers" locationName:"phoneNumbers" type:"list"`
 }
 
 // String returns the string representation

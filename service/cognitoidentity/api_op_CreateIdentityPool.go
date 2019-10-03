@@ -97,38 +97,38 @@ type CreateIdentityPoolOutput struct {
 	// TRUE if the identity pool supports unauthenticated logins.
 	//
 	// AllowUnauthenticatedIdentities is a required field
-	AllowUnauthenticatedIdentities *bool `type:"boolean" required:"true"`
+	AllowUnauthenticatedIdentities *bool `json:"cognito-identity:CreateIdentityPoolOutput:AllowUnauthenticatedIdentities" type:"boolean" required:"true"`
 
 	// A list representing an Amazon Cognito user pool and its client ID.
-	CognitoIdentityProviders []CognitoIdentityProvider `type:"list"`
+	CognitoIdentityProviders []CognitoIdentityProvider `json:"cognito-identity:CreateIdentityPoolOutput:CognitoIdentityProviders" type:"list"`
 
 	// The "domain" by which Cognito will refer to your users.
-	DeveloperProviderName *string `min:"1" type:"string"`
+	DeveloperProviderName *string `json:"cognito-identity:CreateIdentityPoolOutput:DeveloperProviderName" min:"1" type:"string"`
 
 	// An identity pool ID in the format REGION:GUID.
 	//
 	// IdentityPoolId is a required field
-	IdentityPoolId *string `min:"1" type:"string" required:"true"`
+	IdentityPoolId *string `json:"cognito-identity:CreateIdentityPoolOutput:IdentityPoolId" min:"1" type:"string" required:"true"`
 
 	// A string that you provide.
 	//
 	// IdentityPoolName is a required field
-	IdentityPoolName *string `min:"1" type:"string" required:"true"`
+	IdentityPoolName *string `json:"cognito-identity:CreateIdentityPoolOutput:IdentityPoolName" min:"1" type:"string" required:"true"`
 
 	// The tags that are assigned to the identity pool. A tag is a label that you
 	// can apply to identity pools to categorize and manage them in different ways,
 	// such as by purpose, owner, environment, or other criteria.
-	IdentityPoolTags map[string]string `type:"map"`
+	IdentityPoolTags map[string]string `json:"cognito-identity:CreateIdentityPoolOutput:IdentityPoolTags" type:"map"`
 
 	// A list of OpendID Connect provider ARNs.
-	OpenIdConnectProviderARNs []string `type:"list"`
+	OpenIdConnectProviderARNs []string `json:"cognito-identity:CreateIdentityPoolOutput:OpenIdConnectProviderARNs" type:"list"`
 
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
 	// pool.
-	SamlProviderARNs []string `type:"list"`
+	SamlProviderARNs []string `json:"cognito-identity:CreateIdentityPoolOutput:SamlProviderARNs" type:"list"`
 
 	// Optional key:value pairs mapping provider names to provider app IDs.
-	SupportedLoginProviders map[string]string `type:"map"`
+	SupportedLoginProviders map[string]string `json:"cognito-identity:CreateIdentityPoolOutput:SupportedLoginProviders" type:"map"`
 }
 
 // String returns the string representation

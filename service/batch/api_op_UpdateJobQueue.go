@@ -104,10 +104,10 @@ type UpdateJobQueueOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the job queue.
-	JobQueueArn *string `locationName:"jobQueueArn" type:"string"`
+	JobQueueArn *string `json:"batch:UpdateJobQueueOutput:JobQueueArn" locationName:"jobQueueArn" type:"string"`
 
 	// The name of the job queue.
-	JobQueueName *string `locationName:"jobQueueName" type:"string"`
+	JobQueueName *string `json:"batch:UpdateJobQueueOutput:JobQueueName" locationName:"jobQueueName" type:"string"`
 }
 
 // String returns the string representation

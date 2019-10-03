@@ -51,7 +51,7 @@ type GetEntitiesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of descriptions for the specified entities.
-	Descriptions []EntityDescription `locationName:"descriptions" type:"list"`
+	Descriptions []EntityDescription `json:"iotthingsgraph:GetEntitiesOutput:Descriptions" locationName:"descriptions" type:"list"`
 }
 
 // String returns the string representation

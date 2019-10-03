@@ -74,11 +74,11 @@ type DescribeInstancePatchStatesForPatchGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The high-level patch state for the requested instances.
-	InstancePatchStates []InstancePatchState `min:"1" type:"list"`
+	InstancePatchStates []InstancePatchState `json:"ssm:DescribeInstancePatchStatesForPatchGroupOutput:InstancePatchStates" min:"1" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeInstancePatchStatesForPatchGroupOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

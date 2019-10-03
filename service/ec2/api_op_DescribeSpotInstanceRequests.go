@@ -153,10 +153,10 @@ type DescribeSpotInstanceRequestsOutput struct {
 
 	// The token to use to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeSpotInstanceRequestsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// One or more Spot Instance requests.
-	SpotInstanceRequests []SpotInstanceRequest `locationName:"spotInstanceRequestSet" locationNameList:"item" type:"list"`
+	SpotInstanceRequests []SpotInstanceRequest `json:"ec2:DescribeSpotInstanceRequestsOutput:SpotInstanceRequests" locationName:"spotInstanceRequestSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

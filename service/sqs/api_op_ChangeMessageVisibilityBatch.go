@@ -68,12 +68,12 @@ type ChangeMessageVisibilityBatchOutput struct {
 	// A list of BatchResultErrorEntry items.
 	//
 	// Failed is a required field
-	Failed []BatchResultErrorEntry `locationNameList:"BatchResultErrorEntry" type:"list" flattened:"true" required:"true"`
+	Failed []BatchResultErrorEntry `json:"sqs:ChangeMessageVisibilityBatchOutput:Failed" locationNameList:"BatchResultErrorEntry" type:"list" flattened:"true" required:"true"`
 
 	// A list of ChangeMessageVisibilityBatchResultEntry items.
 	//
 	// Successful is a required field
-	Successful []ChangeMessageVisibilityBatchResultEntry `locationNameList:"ChangeMessageVisibilityBatchResultEntry" type:"list" flattened:"true" required:"true"`
+	Successful []ChangeMessageVisibilityBatchResultEntry `json:"sqs:ChangeMessageVisibilityBatchOutput:Successful" locationNameList:"ChangeMessageVisibilityBatchResultEntry" type:"list" flattened:"true" required:"true"`
 }
 
 // String returns the string representation

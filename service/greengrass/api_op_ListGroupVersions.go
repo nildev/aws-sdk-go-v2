@@ -70,9 +70,9 @@ func (s ListGroupVersionsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListGroupVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListGroupVersionsOutput:NextToken" type:"string"`
 
-	Versions []VersionInformation `type:"list"`
+	Versions []VersionInformation `json:"greengrass:ListGroupVersionsOutput:Versions" type:"list"`
 }
 
 // String returns the string representation

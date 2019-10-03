@@ -47,7 +47,7 @@ type GetResolverRuleOutput struct {
 
 	// Information about the resolver rule that you specified in a GetResolverRule
 	// request.
-	ResolverRule *ResolverRule `type:"structure"`
+	ResolverRule *ResolverRule `json:"route53resolver:GetResolverRuleOutput:ResolverRule" type:"structure"`
 }
 
 // String returns the string representation

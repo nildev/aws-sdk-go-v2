@@ -73,28 +73,28 @@ type GetConfigOutput struct {
 	// ARN of a Config
 	//
 	// ConfigArn is a required field
-	ConfigArn *string `locationName:"configArn" type:"string" required:"true"`
+	ConfigArn *string `json:"groundstation:GetConfigOutput:ConfigArn" locationName:"configArn" type:"string" required:"true"`
 
 	// Data elements in a Config.
 	//
 	// ConfigData is a required field
-	ConfigData *ConfigTypeData `locationName:"configData" type:"structure" required:"true"`
+	ConfigData *ConfigTypeData `json:"groundstation:GetConfigOutput:ConfigData" locationName:"configData" type:"structure" required:"true"`
 
 	// UUID of a Config.
 	//
 	// ConfigId is a required field
-	ConfigId *string `locationName:"configId" type:"string" required:"true"`
+	ConfigId *string `json:"groundstation:GetConfigOutput:ConfigId" locationName:"configId" type:"string" required:"true"`
 
 	// Type of a Config.
-	ConfigType ConfigCapabilityType `locationName:"configType" type:"string" enum:"true"`
+	ConfigType ConfigCapabilityType `json:"groundstation:GetConfigOutput:ConfigType" locationName:"configType" type:"string" enum:"true"`
 
 	// Name of a Config.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" type:"string" required:"true"`
+	Name *string `json:"groundstation:GetConfigOutput:Name" locationName:"name" type:"string" required:"true"`
 
 	// Tags assigned to a Config.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"groundstation:GetConfigOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

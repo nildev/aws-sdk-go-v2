@@ -19,7 +19,7 @@ type ActivityTaskCancelRequestedEventAttributes struct {
 	// The unique ID of the task.
 	//
 	// ActivityId is a required field
-	ActivityId *string `locationName:"activityId" min:"1" type:"string" required:"true"`
+	ActivityId *string `json:"swf:ActivityTaskCancelRequestedEventAttributes:ActivityId" locationName:"activityId" min:"1" type:"string" required:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the RequestCancelActivityTask decision for this cancellation
@@ -27,7 +27,7 @@ type ActivityTaskCancelRequestedEventAttributes struct {
 	// back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:ActivityTaskCancelRequestedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -40,26 +40,26 @@ type ActivityTaskCanceledEventAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// Details of the cancellation.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:ActivityTaskCanceledEventAttributes:Details" locationName:"details" type:"string"`
 
 	// If set, contains the ID of the last ActivityTaskCancelRequested event recorded
 	// for this activity task. This information can be useful for diagnosing problems
 	// by tracing back the chain of events leading up to this event.
-	LatestCancelRequestedEventId *int64 `locationName:"latestCancelRequestedEventId" type:"long"`
+	LatestCancelRequestedEventId *int64 `json:"swf:ActivityTaskCanceledEventAttributes:LatestCancelRequestedEventId" locationName:"latestCancelRequestedEventId" type:"long"`
 
 	// The ID of the ActivityTaskScheduled event that was recorded when this activity
 	// task was scheduled. This information can be useful for diagnosing problems
 	// by tracing back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:ActivityTaskCanceledEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the ActivityTaskStarted event recorded when this activity task
 	// was started. This information can be useful for diagnosing problems by tracing
 	// back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ActivityTaskCanceledEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -72,21 +72,21 @@ type ActivityTaskCompletedEventAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The results of the activity task.
-	Result *string `locationName:"result" type:"string"`
+	Result *string `json:"swf:ActivityTaskCompletedEventAttributes:Result" locationName:"result" type:"string"`
 
 	// The ID of the ActivityTaskScheduled event that was recorded when this activity
 	// task was scheduled. This information can be useful for diagnosing problems
 	// by tracing back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:ActivityTaskCompletedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the ActivityTaskStarted event recorded when this activity task
 	// was started. This information can be useful for diagnosing problems by tracing
 	// back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ActivityTaskCompletedEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -99,24 +99,24 @@ type ActivityTaskFailedEventAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the failure.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:ActivityTaskFailedEventAttributes:Details" locationName:"details" type:"string"`
 
 	// The reason provided for the failure.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"swf:ActivityTaskFailedEventAttributes:Reason" locationName:"reason" type:"string"`
 
 	// The ID of the ActivityTaskScheduled event that was recorded when this activity
 	// task was scheduled. This information can be useful for diagnosing problems
 	// by tracing back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:ActivityTaskFailedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the ActivityTaskStarted event recorded when this activity task
 	// was started. This information can be useful for diagnosing problems by tracing
 	// back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ActivityTaskFailedEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -131,16 +131,16 @@ type ActivityTaskScheduledEventAttributes struct {
 	// The unique ID of the activity task.
 	//
 	// ActivityId is a required field
-	ActivityId *string `locationName:"activityId" min:"1" type:"string" required:"true"`
+	ActivityId *string `json:"swf:ActivityTaskScheduledEventAttributes:ActivityId" locationName:"activityId" min:"1" type:"string" required:"true"`
 
 	// The type of the activity task.
 	//
 	// ActivityType is a required field
-	ActivityType *ActivityType `locationName:"activityType" type:"structure" required:"true"`
+	ActivityType *ActivityType `json:"swf:ActivityTaskScheduledEventAttributes:ActivityType" locationName:"activityType" type:"structure" required:"true"`
 
 	// Data attached to the event that can be used by the decider in subsequent
 	// workflow tasks. This data isn't sent to the activity.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:ActivityTaskScheduledEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision that
 	// resulted in the scheduling of this activity task. This information can be
@@ -148,31 +148,31 @@ type ActivityTaskScheduledEventAttributes struct {
 	// up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:ActivityTaskScheduledEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The maximum time before which the worker processing this task must report
 	// progress by calling RecordActivityTaskHeartbeat. If the timeout is exceeded,
 	// the activity task is automatically timed out. If the worker subsequently
 	// attempts to record a heartbeat or return a result, it is ignored.
-	HeartbeatTimeout *string `locationName:"heartbeatTimeout" type:"string"`
+	HeartbeatTimeout *string `json:"swf:ActivityTaskScheduledEventAttributes:HeartbeatTimeout" locationName:"heartbeatTimeout" type:"string"`
 
 	// The input provided to the activity task.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:ActivityTaskScheduledEventAttributes:Input" locationName:"input" type:"string"`
 
 	// The maximum amount of time for this activity task.
-	ScheduleToCloseTimeout *string `locationName:"scheduleToCloseTimeout" type:"string"`
+	ScheduleToCloseTimeout *string `json:"swf:ActivityTaskScheduledEventAttributes:ScheduleToCloseTimeout" locationName:"scheduleToCloseTimeout" type:"string"`
 
 	// The maximum amount of time the activity task can wait to be assigned to a
 	// worker.
-	ScheduleToStartTimeout *string `locationName:"scheduleToStartTimeout" type:"string"`
+	ScheduleToStartTimeout *string `json:"swf:ActivityTaskScheduledEventAttributes:ScheduleToStartTimeout" locationName:"scheduleToStartTimeout" type:"string"`
 
 	// The maximum amount of time a worker may take to process the activity task.
-	StartToCloseTimeout *string `locationName:"startToCloseTimeout" type:"string"`
+	StartToCloseTimeout *string `json:"swf:ActivityTaskScheduledEventAttributes:StartToCloseTimeout" locationName:"startToCloseTimeout" type:"string"`
 
 	// The task list in which the activity task has been scheduled.
 	//
 	// TaskList is a required field
-	TaskList *TaskList `locationName:"taskList" type:"structure" required:"true"`
+	TaskList *TaskList `json:"swf:ActivityTaskScheduledEventAttributes:TaskList" locationName:"taskList" type:"structure" required:"true"`
 
 	// The priority to assign to the scheduled activity task. If set, this overrides
 	// any default priority value that was assigned when the activity type was registered.
@@ -183,7 +183,7 @@ type ActivityTaskScheduledEventAttributes struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:ActivityTaskScheduledEventAttributes:TaskPriority" locationName:"taskPriority" type:"string"`
 }
 
 // String returns the string representation
@@ -197,14 +197,14 @@ type ActivityTaskStartedEventAttributes struct {
 
 	// Identity of the worker that was assigned this task. This aids diagnostics
 	// when problems arise. The form of this identity is user defined.
-	Identity *string `locationName:"identity" type:"string"`
+	Identity *string `json:"swf:ActivityTaskStartedEventAttributes:Identity" locationName:"identity" type:"string"`
 
 	// The ID of the ActivityTaskScheduled event that was recorded when this activity
 	// task was scheduled. This information can be useful for diagnosing problems
 	// by tracing back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:ActivityTaskStartedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -218,26 +218,26 @@ type ActivityTaskTimedOutEventAttributes struct {
 
 	// Contains the content of the details parameter for the last call made by the
 	// activity to RecordActivityTaskHeartbeat.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:ActivityTaskTimedOutEventAttributes:Details" locationName:"details" type:"string"`
 
 	// The ID of the ActivityTaskScheduled event that was recorded when this activity
 	// task was scheduled. This information can be useful for diagnosing problems
 	// by tracing back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:ActivityTaskTimedOutEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the ActivityTaskStarted event recorded when this activity task
 	// was started. This information can be useful for diagnosing problems by tracing
 	// back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ActivityTaskTimedOutEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The type of the timeout that caused this event.
 	//
 	// TimeoutType is a required field
-	TimeoutType ActivityTaskTimeoutType `locationName:"timeoutType" type:"string" required:"true" enum:"true"`
+	TimeoutType ActivityTaskTimeoutType `json:"swf:ActivityTaskTimedOutEventAttributes:TimeoutType" locationName:"timeoutType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -255,7 +255,7 @@ type ActivityType struct {
 	// domain.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"swf:ActivityType:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The version of this activity.
 	//
@@ -263,7 +263,7 @@ type ActivityType struct {
 	// a domain.
 	//
 	// Version is a required field
-	Version *string `locationName:"version" min:"1" type:"string" required:"true"`
+	Version *string `json:"swf:ActivityType:Version" locationName:"version" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -311,13 +311,13 @@ type ActivityTypeConfiguration struct {
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	DefaultTaskHeartbeatTimeout *string `locationName:"defaultTaskHeartbeatTimeout" type:"string"`
+	DefaultTaskHeartbeatTimeout *string `json:"swf:ActivityTypeConfiguration:DefaultTaskHeartbeatTimeout" locationName:"defaultTaskHeartbeatTimeout" type:"string"`
 
 	// The default task list specified for this activity type at registration. This
 	// default is used if a task list isn't provided when a task is scheduled through
 	// the ScheduleActivityTask Decision. You can override the default registered
 	// task list when scheduling a task through the ScheduleActivityTask Decision.
-	DefaultTaskList *TaskList `locationName:"defaultTaskList" type:"structure"`
+	DefaultTaskList *TaskList `json:"swf:ActivityTypeConfiguration:DefaultTaskList" locationName:"defaultTaskList" type:"structure"`
 
 	// The default task priority for tasks of this activity type, specified at registration.
 	// If not set, then 0 is used as the default priority. This default can be overridden
@@ -329,7 +329,7 @@ type ActivityTypeConfiguration struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	DefaultTaskPriority *string `locationName:"defaultTaskPriority" type:"string"`
+	DefaultTaskPriority *string `json:"swf:ActivityTypeConfiguration:DefaultTaskPriority" locationName:"defaultTaskPriority" type:"string"`
 
 	// The default maximum duration, specified when registering the activity type,
 	// for tasks of this activity type. You can override this default when scheduling
@@ -337,7 +337,7 @@ type ActivityTypeConfiguration struct {
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	DefaultTaskScheduleToCloseTimeout *string `locationName:"defaultTaskScheduleToCloseTimeout" type:"string"`
+	DefaultTaskScheduleToCloseTimeout *string `json:"swf:ActivityTypeConfiguration:DefaultTaskScheduleToCloseTimeout" locationName:"defaultTaskScheduleToCloseTimeout" type:"string"`
 
 	// The default maximum duration, specified when registering the activity type,
 	// that a task of an activity type can wait before being assigned to a worker.
@@ -346,7 +346,7 @@ type ActivityTypeConfiguration struct {
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	DefaultTaskScheduleToStartTimeout *string `locationName:"defaultTaskScheduleToStartTimeout" type:"string"`
+	DefaultTaskScheduleToStartTimeout *string `json:"swf:ActivityTypeConfiguration:DefaultTaskScheduleToStartTimeout" locationName:"defaultTaskScheduleToStartTimeout" type:"string"`
 
 	// The default maximum duration for tasks of an activity type specified when
 	// registering the activity type. You can override this default when scheduling
@@ -354,7 +354,7 @@ type ActivityTypeConfiguration struct {
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	DefaultTaskStartToCloseTimeout *string `locationName:"defaultTaskStartToCloseTimeout" type:"string"`
+	DefaultTaskStartToCloseTimeout *string `json:"swf:ActivityTypeConfiguration:DefaultTaskStartToCloseTimeout" locationName:"defaultTaskStartToCloseTimeout" type:"string"`
 }
 
 // String returns the string representation
@@ -369,23 +369,23 @@ type ActivityTypeInfo struct {
 	// The ActivityType type structure representing the activity type.
 	//
 	// ActivityType is a required field
-	ActivityType *ActivityType `locationName:"activityType" type:"structure" required:"true"`
+	ActivityType *ActivityType `json:"swf:ActivityTypeInfo:ActivityType" locationName:"activityType" type:"structure" required:"true"`
 
 	// The date and time this activity type was created through RegisterActivityType.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"swf:ActivityTypeInfo:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// If DEPRECATED, the date and time DeprecateActivityType was called.
-	DeprecationDate *time.Time `locationName:"deprecationDate" type:"timestamp" timestampFormat:"unix"`
+	DeprecationDate *time.Time `json:"swf:ActivityTypeInfo:DeprecationDate" locationName:"deprecationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the activity type provided in RegisterActivityType.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"swf:ActivityTypeInfo:Description" locationName:"description" type:"string"`
 
 	// The current status of the activity type.
 	//
 	// Status is a required field
-	Status RegistrationStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status RegistrationStatus `json:"swf:ActivityTypeInfo:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -419,7 +419,7 @@ type CancelTimerDecisionAttributes struct {
 	// The unique ID of the timer to cancel.
 	//
 	// TimerId is a required field
-	TimerId *string `locationName:"timerId" min:"1" type:"string" required:"true"`
+	TimerId *string `json:"swf:CancelTimerDecisionAttributes:TimerId" locationName:"timerId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -457,7 +457,7 @@ type CancelTimerFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause CancelTimerFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause CancelTimerFailedCause `json:"swf:CancelTimerFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the CancelTimer decision to cancel this timer. This information
@@ -465,12 +465,12 @@ type CancelTimerFailedEventAttributes struct {
 	// leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:CancelTimerFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The timerId provided in the CancelTimer decision that failed.
 	//
 	// TimerId is a required field
-	TimerId *string `locationName:"timerId" min:"1" type:"string" required:"true"`
+	TimerId *string `json:"swf:CancelTimerFailedEventAttributes:TimerId" locationName:"timerId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -502,7 +502,7 @@ type CancelWorkflowExecutionDecisionAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// Details of the cancellation.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:CancelWorkflowExecutionDecisionAttributes:Details" locationName:"details" type:"string"`
 }
 
 // String returns the string representation
@@ -523,7 +523,7 @@ type CancelWorkflowExecutionFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause CancelWorkflowExecutionFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause CancelWorkflowExecutionFailedCause `json:"swf:CancelWorkflowExecutionFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the CancelWorkflowExecution decision for this cancellation
@@ -531,7 +531,7 @@ type CancelWorkflowExecutionFailedEventAttributes struct {
 	// back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:CancelWorkflowExecutionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -544,7 +544,7 @@ type ChildWorkflowExecutionCanceledEventAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// Details of the cancellation (if provided).
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:ChildWorkflowExecutionCanceledEventAttributes:Details" locationName:"details" type:"string"`
 
 	// The ID of the StartChildWorkflowExecutionInitiated event corresponding to
 	// the StartChildWorkflowExecution Decision to start this child workflow execution.
@@ -552,24 +552,24 @@ type ChildWorkflowExecutionCanceledEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:ChildWorkflowExecutionCanceledEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The ID of the ChildWorkflowExecutionStarted event recorded when this child
 	// workflow execution was started. This information can be useful for diagnosing
 	// problems by tracing back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ChildWorkflowExecutionCanceledEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The child workflow execution that was canceled.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:ChildWorkflowExecutionCanceledEventAttributes:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 
 	// The type of the child workflow execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:ChildWorkflowExecutionCanceledEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -587,27 +587,27 @@ type ChildWorkflowExecutionCompletedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:ChildWorkflowExecutionCompletedEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The result of the child workflow execution.
-	Result *string `locationName:"result" type:"string"`
+	Result *string `json:"swf:ChildWorkflowExecutionCompletedEventAttributes:Result" locationName:"result" type:"string"`
 
 	// The ID of the ChildWorkflowExecutionStarted event recorded when this child
 	// workflow execution was started. This information can be useful for diagnosing
 	// problems by tracing back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ChildWorkflowExecutionCompletedEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The child workflow execution that was completed.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:ChildWorkflowExecutionCompletedEventAttributes:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 
 	// The type of the child workflow execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:ChildWorkflowExecutionCompletedEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -620,7 +620,7 @@ type ChildWorkflowExecutionFailedEventAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the failure (if provided).
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:ChildWorkflowExecutionFailedEventAttributes:Details" locationName:"details" type:"string"`
 
 	// The ID of the StartChildWorkflowExecutionInitiated event corresponding to
 	// the StartChildWorkflowExecution Decision to start this child workflow execution.
@@ -628,27 +628,27 @@ type ChildWorkflowExecutionFailedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:ChildWorkflowExecutionFailedEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The reason for the failure (if provided).
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"swf:ChildWorkflowExecutionFailedEventAttributes:Reason" locationName:"reason" type:"string"`
 
 	// The ID of the ChildWorkflowExecutionStarted event recorded when this child
 	// workflow execution was started. This information can be useful for diagnosing
 	// problems by tracing back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ChildWorkflowExecutionFailedEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The child workflow execution that failed.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:ChildWorkflowExecutionFailedEventAttributes:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 
 	// The type of the child workflow execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:ChildWorkflowExecutionFailedEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -666,17 +666,17 @@ type ChildWorkflowExecutionStartedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:ChildWorkflowExecutionStartedEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The child workflow execution that was started.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:ChildWorkflowExecutionStartedEventAttributes:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 
 	// The type of the child workflow execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:ChildWorkflowExecutionStartedEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -694,24 +694,24 @@ type ChildWorkflowExecutionTerminatedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:ChildWorkflowExecutionTerminatedEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The ID of the ChildWorkflowExecutionStarted event recorded when this child
 	// workflow execution was started. This information can be useful for diagnosing
 	// problems by tracing back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ChildWorkflowExecutionTerminatedEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The child workflow execution that was terminated.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:ChildWorkflowExecutionTerminatedEventAttributes:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 
 	// The type of the child workflow execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:ChildWorkflowExecutionTerminatedEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -729,30 +729,30 @@ type ChildWorkflowExecutionTimedOutEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:ChildWorkflowExecutionTimedOutEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The ID of the ChildWorkflowExecutionStarted event recorded when this child
 	// workflow execution was started. This information can be useful for diagnosing
 	// problems by tracing back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:ChildWorkflowExecutionTimedOutEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The type of the timeout that caused the child workflow execution to time
 	// out.
 	//
 	// TimeoutType is a required field
-	TimeoutType WorkflowExecutionTimeoutType `locationName:"timeoutType" type:"string" required:"true" enum:"true"`
+	TimeoutType WorkflowExecutionTimeoutType `json:"swf:ChildWorkflowExecutionTimedOutEventAttributes:TimeoutType" locationName:"timeoutType" type:"string" required:"true" enum:"true"`
 
 	// The child workflow execution that timed out.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:ChildWorkflowExecutionTimedOutEventAttributes:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 
 	// The type of the child workflow execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:ChildWorkflowExecutionTimedOutEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -769,7 +769,7 @@ type CloseStatusFilter struct {
 	// to meet the criteria of this filter.
 	//
 	// Status is a required field
-	Status CloseStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status CloseStatus `json:"swf:CloseStatusFilter:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -815,7 +815,7 @@ type CompleteWorkflowExecutionDecisionAttributes struct {
 
 	// The result of the workflow execution. The form of the result is implementation
 	// defined.
-	Result *string `locationName:"result" type:"string"`
+	Result *string `json:"swf:CompleteWorkflowExecutionDecisionAttributes:Result" locationName:"result" type:"string"`
 }
 
 // String returns the string representation
@@ -836,7 +836,7 @@ type CompleteWorkflowExecutionFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause CompleteWorkflowExecutionFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause CompleteWorkflowExecutionFailedCause `json:"swf:CompleteWorkflowExecutionFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the CompleteWorkflowExecution decision to complete this
@@ -844,7 +844,7 @@ type CompleteWorkflowExecutionFailedEventAttributes struct {
 	// back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:CompleteWorkflowExecutionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -898,7 +898,7 @@ type ContinueAsNewWorkflowExecutionDecisionAttributes struct {
 	// default for the workflow type or through this parameter. If neither this
 	// parameter is set nor a default child policy was specified at registration
 	// time then a fault is returned.
-	ChildPolicy ChildPolicy `locationName:"childPolicy" type:"string" enum:"true"`
+	ChildPolicy ChildPolicy `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:ChildPolicy" locationName:"childPolicy" type:"string" enum:"true"`
 
 	// If set, specifies the total duration for this workflow execution. This overrides
 	// the defaultExecutionStartToCloseTimeout specified when registering the workflow
@@ -911,22 +911,22 @@ type ContinueAsNewWorkflowExecutionDecisionAttributes struct {
 	// either as a default for the workflow type or through this field. If neither
 	// this field is set nor a default execution start-to-close timeout was specified
 	// at registration time then a fault is returned.
-	ExecutionStartToCloseTimeout *string `locationName:"executionStartToCloseTimeout" type:"string"`
+	ExecutionStartToCloseTimeout *string `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:ExecutionStartToCloseTimeout" locationName:"executionStartToCloseTimeout" type:"string"`
 
 	// The input provided to the new workflow execution.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:Input" locationName:"input" type:"string"`
 
 	// The IAM role to attach to the new (continued) execution.
-	LambdaRole *string `locationName:"lambdaRole" min:"1" type:"string"`
+	LambdaRole *string `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:LambdaRole" locationName:"lambdaRole" min:"1" type:"string"`
 
 	// The list of tags to associate with the new workflow execution. A maximum
 	// of 5 tags can be specified. You can list workflow executions with a specific
 	// tag by calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions
 	// and specifying a TagFilter.
-	TagList []string `locationName:"tagList" type:"list"`
+	TagList []string `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:TagList" locationName:"tagList" type:"list"`
 
 	// The task list to use for the decisions of the new (continued) workflow execution.
-	TaskList *TaskList `locationName:"taskList" type:"structure"`
+	TaskList *TaskList `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:TaskList" locationName:"taskList" type:"structure"`
 
 	// The task priority that, if set, specifies the priority for the decision tasks
 	// for this workflow execution. This overrides the defaultTaskPriority specified
@@ -937,7 +937,7 @@ type ContinueAsNewWorkflowExecutionDecisionAttributes struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:TaskPriority" locationName:"taskPriority" type:"string"`
 
 	// Specifies the maximum duration of decision tasks for the new workflow execution.
 	// This parameter overrides the defaultTaskStartToCloseTimout specified when
@@ -950,10 +950,10 @@ type ContinueAsNewWorkflowExecutionDecisionAttributes struct {
 	// either as a default for the workflow type or through this parameter. If neither
 	// this parameter is set nor a default task start-to-close timeout was specified
 	// at registration time then a fault is returned.
-	TaskStartToCloseTimeout *string `locationName:"taskStartToCloseTimeout" type:"string"`
+	TaskStartToCloseTimeout *string `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:TaskStartToCloseTimeout" locationName:"taskStartToCloseTimeout" type:"string"`
 
 	// The version of the workflow to start.
-	WorkflowTypeVersion *string `locationName:"workflowTypeVersion" min:"1" type:"string"`
+	WorkflowTypeVersion *string `json:"swf:ContinueAsNewWorkflowExecutionDecisionAttributes:WorkflowTypeVersion" locationName:"workflowTypeVersion" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -995,7 +995,7 @@ type ContinueAsNewWorkflowExecutionFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause ContinueAsNewWorkflowExecutionFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause ContinueAsNewWorkflowExecutionFailedCause `json:"swf:ContinueAsNewWorkflowExecutionFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the ContinueAsNewWorkflowExecution decision that started
@@ -1003,7 +1003,7 @@ type ContinueAsNewWorkflowExecutionFailedEventAttributes struct {
 	// tracing back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:ContinueAsNewWorkflowExecutionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1183,60 +1183,60 @@ type Decision struct {
 
 	// Provides the details of the CancelTimer decision. It isn't set for other
 	// decision types.
-	CancelTimerDecisionAttributes *CancelTimerDecisionAttributes `locationName:"cancelTimerDecisionAttributes" type:"structure"`
+	CancelTimerDecisionAttributes *CancelTimerDecisionAttributes `json:"swf:Decision:CancelTimerDecisionAttributes" locationName:"cancelTimerDecisionAttributes" type:"structure"`
 
 	// Provides the details of the CancelWorkflowExecution decision. It isn't set
 	// for other decision types.
-	CancelWorkflowExecutionDecisionAttributes *CancelWorkflowExecutionDecisionAttributes `locationName:"cancelWorkflowExecutionDecisionAttributes" type:"structure"`
+	CancelWorkflowExecutionDecisionAttributes *CancelWorkflowExecutionDecisionAttributes `json:"swf:Decision:CancelWorkflowExecutionDecisionAttributes" locationName:"cancelWorkflowExecutionDecisionAttributes" type:"structure"`
 
 	// Provides the details of the CompleteWorkflowExecution decision. It isn't
 	// set for other decision types.
-	CompleteWorkflowExecutionDecisionAttributes *CompleteWorkflowExecutionDecisionAttributes `locationName:"completeWorkflowExecutionDecisionAttributes" type:"structure"`
+	CompleteWorkflowExecutionDecisionAttributes *CompleteWorkflowExecutionDecisionAttributes `json:"swf:Decision:CompleteWorkflowExecutionDecisionAttributes" locationName:"completeWorkflowExecutionDecisionAttributes" type:"structure"`
 
 	// Provides the details of the ContinueAsNewWorkflowExecution decision. It isn't
 	// set for other decision types.
-	ContinueAsNewWorkflowExecutionDecisionAttributes *ContinueAsNewWorkflowExecutionDecisionAttributes `locationName:"continueAsNewWorkflowExecutionDecisionAttributes" type:"structure"`
+	ContinueAsNewWorkflowExecutionDecisionAttributes *ContinueAsNewWorkflowExecutionDecisionAttributes `json:"swf:Decision:ContinueAsNewWorkflowExecutionDecisionAttributes" locationName:"continueAsNewWorkflowExecutionDecisionAttributes" type:"structure"`
 
 	// Specifies the type of the decision.
 	//
 	// DecisionType is a required field
-	DecisionType DecisionType `locationName:"decisionType" type:"string" required:"true" enum:"true"`
+	DecisionType DecisionType `json:"swf:Decision:DecisionType" locationName:"decisionType" type:"string" required:"true" enum:"true"`
 
 	// Provides the details of the FailWorkflowExecution decision. It isn't set
 	// for other decision types.
-	FailWorkflowExecutionDecisionAttributes *FailWorkflowExecutionDecisionAttributes `locationName:"failWorkflowExecutionDecisionAttributes" type:"structure"`
+	FailWorkflowExecutionDecisionAttributes *FailWorkflowExecutionDecisionAttributes `json:"swf:Decision:FailWorkflowExecutionDecisionAttributes" locationName:"failWorkflowExecutionDecisionAttributes" type:"structure"`
 
 	// Provides the details of the RecordMarker decision. It isn't set for other
 	// decision types.
-	RecordMarkerDecisionAttributes *RecordMarkerDecisionAttributes `locationName:"recordMarkerDecisionAttributes" type:"structure"`
+	RecordMarkerDecisionAttributes *RecordMarkerDecisionAttributes `json:"swf:Decision:RecordMarkerDecisionAttributes" locationName:"recordMarkerDecisionAttributes" type:"structure"`
 
 	// Provides the details of the RequestCancelActivityTask decision. It isn't
 	// set for other decision types.
-	RequestCancelActivityTaskDecisionAttributes *RequestCancelActivityTaskDecisionAttributes `locationName:"requestCancelActivityTaskDecisionAttributes" type:"structure"`
+	RequestCancelActivityTaskDecisionAttributes *RequestCancelActivityTaskDecisionAttributes `json:"swf:Decision:RequestCancelActivityTaskDecisionAttributes" locationName:"requestCancelActivityTaskDecisionAttributes" type:"structure"`
 
 	// Provides the details of the RequestCancelExternalWorkflowExecution decision.
 	// It isn't set for other decision types.
-	RequestCancelExternalWorkflowExecutionDecisionAttributes *RequestCancelExternalWorkflowExecutionDecisionAttributes `locationName:"requestCancelExternalWorkflowExecutionDecisionAttributes" type:"structure"`
+	RequestCancelExternalWorkflowExecutionDecisionAttributes *RequestCancelExternalWorkflowExecutionDecisionAttributes `json:"swf:Decision:RequestCancelExternalWorkflowExecutionDecisionAttributes" locationName:"requestCancelExternalWorkflowExecutionDecisionAttributes" type:"structure"`
 
 	// Provides the details of the ScheduleActivityTask decision. It isn't set for
 	// other decision types.
-	ScheduleActivityTaskDecisionAttributes *ScheduleActivityTaskDecisionAttributes `locationName:"scheduleActivityTaskDecisionAttributes" type:"structure"`
+	ScheduleActivityTaskDecisionAttributes *ScheduleActivityTaskDecisionAttributes `json:"swf:Decision:ScheduleActivityTaskDecisionAttributes" locationName:"scheduleActivityTaskDecisionAttributes" type:"structure"`
 
 	// Provides the details of the ScheduleLambdaFunction decision. It isn't set
 	// for other decision types.
-	ScheduleLambdaFunctionDecisionAttributes *ScheduleLambdaFunctionDecisionAttributes `locationName:"scheduleLambdaFunctionDecisionAttributes" type:"structure"`
+	ScheduleLambdaFunctionDecisionAttributes *ScheduleLambdaFunctionDecisionAttributes `json:"swf:Decision:ScheduleLambdaFunctionDecisionAttributes" locationName:"scheduleLambdaFunctionDecisionAttributes" type:"structure"`
 
 	// Provides the details of the SignalExternalWorkflowExecution decision. It
 	// isn't set for other decision types.
-	SignalExternalWorkflowExecutionDecisionAttributes *SignalExternalWorkflowExecutionDecisionAttributes `locationName:"signalExternalWorkflowExecutionDecisionAttributes" type:"structure"`
+	SignalExternalWorkflowExecutionDecisionAttributes *SignalExternalWorkflowExecutionDecisionAttributes `json:"swf:Decision:SignalExternalWorkflowExecutionDecisionAttributes" locationName:"signalExternalWorkflowExecutionDecisionAttributes" type:"structure"`
 
 	// Provides the details of the StartChildWorkflowExecution decision. It isn't
 	// set for other decision types.
-	StartChildWorkflowExecutionDecisionAttributes *StartChildWorkflowExecutionDecisionAttributes `locationName:"startChildWorkflowExecutionDecisionAttributes" type:"structure"`
+	StartChildWorkflowExecutionDecisionAttributes *StartChildWorkflowExecutionDecisionAttributes `json:"swf:Decision:StartChildWorkflowExecutionDecisionAttributes" locationName:"startChildWorkflowExecutionDecisionAttributes" type:"structure"`
 
 	// Provides the details of the StartTimer decision. It isn't set for other decision
 	// types.
-	StartTimerDecisionAttributes *StartTimerDecisionAttributes `locationName:"startTimerDecisionAttributes" type:"structure"`
+	StartTimerDecisionAttributes *StartTimerDecisionAttributes `json:"swf:Decision:StartTimerDecisionAttributes" locationName:"startTimerDecisionAttributes" type:"structure"`
 }
 
 // String returns the string representation
@@ -1312,21 +1312,21 @@ type DecisionTaskCompletedEventAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// User defined context for the workflow execution.
-	ExecutionContext *string `locationName:"executionContext" type:"string"`
+	ExecutionContext *string `json:"swf:DecisionTaskCompletedEventAttributes:ExecutionContext" locationName:"executionContext" type:"string"`
 
 	// The ID of the DecisionTaskScheduled event that was recorded when this decision
 	// task was scheduled. This information can be useful for diagnosing problems
 	// by tracing back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:DecisionTaskCompletedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the DecisionTaskStarted event recorded when this decision task
 	// was started. This information can be useful for diagnosing problems by tracing
 	// back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:DecisionTaskCompletedEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1343,12 +1343,12 @@ type DecisionTaskScheduledEventAttributes struct {
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	StartToCloseTimeout *string `locationName:"startToCloseTimeout" type:"string"`
+	StartToCloseTimeout *string `json:"swf:DecisionTaskScheduledEventAttributes:StartToCloseTimeout" locationName:"startToCloseTimeout" type:"string"`
 
 	// The name of the task list in which the decision task was scheduled.
 	//
 	// TaskList is a required field
-	TaskList *TaskList `locationName:"taskList" type:"structure" required:"true"`
+	TaskList *TaskList `json:"swf:DecisionTaskScheduledEventAttributes:TaskList" locationName:"taskList" type:"structure" required:"true"`
 
 	// A task priority that, if set, specifies the priority for this decision task.
 	// Valid values are integers that range from Java's Integer.MIN_VALUE (-2147483648)
@@ -1357,7 +1357,7 @@ type DecisionTaskScheduledEventAttributes struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:DecisionTaskScheduledEventAttributes:TaskPriority" locationName:"taskPriority" type:"string"`
 }
 
 // String returns the string representation
@@ -1371,14 +1371,14 @@ type DecisionTaskStartedEventAttributes struct {
 
 	// Identity of the decider making the request. This enables diagnostic tracing
 	// when problems arise. The form of this identity is user defined.
-	Identity *string `locationName:"identity" type:"string"`
+	Identity *string `json:"swf:DecisionTaskStartedEventAttributes:Identity" locationName:"identity" type:"string"`
 
 	// The ID of the DecisionTaskScheduled event that was recorded when this decision
 	// task was scheduled. This information can be useful for diagnosing problems
 	// by tracing back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:DecisionTaskStartedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1395,19 +1395,19 @@ type DecisionTaskTimedOutEventAttributes struct {
 	// by tracing back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:DecisionTaskTimedOutEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the DecisionTaskStarted event recorded when this decision task
 	// was started. This information can be useful for diagnosing problems by tracing
 	// back the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:DecisionTaskTimedOutEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The type of timeout that expired before the decision task could be completed.
 	//
 	// TimeoutType is a required field
-	TimeoutType DecisionTaskTimeoutType `locationName:"timeoutType" type:"string" required:"true" enum:"true"`
+	TimeoutType DecisionTaskTimeoutType `json:"swf:DecisionTaskTimedOutEventAttributes:TimeoutType" locationName:"timeoutType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1422,7 +1422,7 @@ type DomainConfiguration struct {
 	// The retention period for workflow executions in this domain.
 	//
 	// WorkflowExecutionRetentionPeriodInDays is a required field
-	WorkflowExecutionRetentionPeriodInDays *string `locationName:"workflowExecutionRetentionPeriodInDays" min:"1" type:"string" required:"true"`
+	WorkflowExecutionRetentionPeriodInDays *string `json:"swf:DomainConfiguration:WorkflowExecutionRetentionPeriodInDays" locationName:"workflowExecutionRetentionPeriodInDays" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1435,15 +1435,15 @@ type DomainInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the domain.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"swf:DomainInfo:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The description of the domain provided through RegisterDomain.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"swf:DomainInfo:Description" locationName:"description" type:"string"`
 
 	// The name of the domain. This name is unique within the account.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"swf:DomainInfo:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The status of the domain:
 	//
@@ -1455,7 +1455,7 @@ type DomainInfo struct {
 	//    domain.
 	//
 	// Status is a required field
-	Status RegistrationStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status RegistrationStatus `json:"swf:DomainInfo:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1472,12 +1472,12 @@ type ExecutionTimeFilter struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the latest start or close date and time to return.
-	LatestDate *time.Time `locationName:"latestDate" type:"timestamp" timestampFormat:"unix"`
+	LatestDate *time.Time `json:"swf:ExecutionTimeFilter:LatestDate" locationName:"latestDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Specifies the oldest start or close date and time to return.
 	//
 	// OldestDate is a required field
-	OldestDate *time.Time `locationName:"oldestDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	OldestDate *time.Time `json:"swf:ExecutionTimeFilter:OldestDate" locationName:"oldestDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -1509,12 +1509,12 @@ type ExternalWorkflowExecutionCancelRequestedEventAttributes struct {
 	// by tracing back the chain of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:ExternalWorkflowExecutionCancelRequestedEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The external workflow execution to which the cancellation request was delivered.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:ExternalWorkflowExecutionCancelRequestedEventAttributes:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1532,12 +1532,12 @@ type ExternalWorkflowExecutionSignaledEventAttributes struct {
 	// of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:ExternalWorkflowExecutionSignaledEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The external workflow execution that the signal was delivered to.
 	//
 	// WorkflowExecution is a required field
-	WorkflowExecution *WorkflowExecution `locationName:"workflowExecution" type:"structure" required:"true"`
+	WorkflowExecution *WorkflowExecution `json:"swf:ExternalWorkflowExecutionSignaledEventAttributes:WorkflowExecution" locationName:"workflowExecution" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1569,10 +1569,10 @@ type FailWorkflowExecutionDecisionAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// Details of the failure.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:FailWorkflowExecutionDecisionAttributes:Details" locationName:"details" type:"string"`
 
 	// A descriptive reason for the failure that may help in diagnostics.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"swf:FailWorkflowExecutionDecisionAttributes:Reason" locationName:"reason" type:"string"`
 }
 
 // String returns the string representation
@@ -1593,7 +1593,7 @@ type FailWorkflowExecutionFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause FailWorkflowExecutionFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause FailWorkflowExecutionFailedCause `json:"swf:FailWorkflowExecutionFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the FailWorkflowExecution decision to fail this execution.
@@ -1601,7 +1601,7 @@ type FailWorkflowExecutionFailedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:FailWorkflowExecutionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -1755,271 +1755,271 @@ type HistoryEvent struct {
 	// If the event is of type ActivityTaskcancelRequested then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	ActivityTaskCancelRequestedEventAttributes *ActivityTaskCancelRequestedEventAttributes `locationName:"activityTaskCancelRequestedEventAttributes" type:"structure"`
+	ActivityTaskCancelRequestedEventAttributes *ActivityTaskCancelRequestedEventAttributes `json:"swf:HistoryEvent:ActivityTaskCancelRequestedEventAttributes" locationName:"activityTaskCancelRequestedEventAttributes" type:"structure"`
 
 	// If the event is of type ActivityTaskCanceled then this member is set and
 	// provides detailed information about the event. It isn't set for other event
 	// types.
-	ActivityTaskCanceledEventAttributes *ActivityTaskCanceledEventAttributes `locationName:"activityTaskCanceledEventAttributes" type:"structure"`
+	ActivityTaskCanceledEventAttributes *ActivityTaskCanceledEventAttributes `json:"swf:HistoryEvent:ActivityTaskCanceledEventAttributes" locationName:"activityTaskCanceledEventAttributes" type:"structure"`
 
 	// If the event is of type ActivityTaskCompleted then this member is set and
 	// provides detailed information about the event. It isn't set for other event
 	// types.
-	ActivityTaskCompletedEventAttributes *ActivityTaskCompletedEventAttributes `locationName:"activityTaskCompletedEventAttributes" type:"structure"`
+	ActivityTaskCompletedEventAttributes *ActivityTaskCompletedEventAttributes `json:"swf:HistoryEvent:ActivityTaskCompletedEventAttributes" locationName:"activityTaskCompletedEventAttributes" type:"structure"`
 
 	// If the event is of type ActivityTaskFailed then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	ActivityTaskFailedEventAttributes *ActivityTaskFailedEventAttributes `locationName:"activityTaskFailedEventAttributes" type:"structure"`
+	ActivityTaskFailedEventAttributes *ActivityTaskFailedEventAttributes `json:"swf:HistoryEvent:ActivityTaskFailedEventAttributes" locationName:"activityTaskFailedEventAttributes" type:"structure"`
 
 	// If the event is of type ActivityTaskScheduled then this member is set and
 	// provides detailed information about the event. It isn't set for other event
 	// types.
-	ActivityTaskScheduledEventAttributes *ActivityTaskScheduledEventAttributes `locationName:"activityTaskScheduledEventAttributes" type:"structure"`
+	ActivityTaskScheduledEventAttributes *ActivityTaskScheduledEventAttributes `json:"swf:HistoryEvent:ActivityTaskScheduledEventAttributes" locationName:"activityTaskScheduledEventAttributes" type:"structure"`
 
 	// If the event is of type ActivityTaskStarted then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	ActivityTaskStartedEventAttributes *ActivityTaskStartedEventAttributes `locationName:"activityTaskStartedEventAttributes" type:"structure"`
+	ActivityTaskStartedEventAttributes *ActivityTaskStartedEventAttributes `json:"swf:HistoryEvent:ActivityTaskStartedEventAttributes" locationName:"activityTaskStartedEventAttributes" type:"structure"`
 
 	// If the event is of type ActivityTaskTimedOut then this member is set and
 	// provides detailed information about the event. It isn't set for other event
 	// types.
-	ActivityTaskTimedOutEventAttributes *ActivityTaskTimedOutEventAttributes `locationName:"activityTaskTimedOutEventAttributes" type:"structure"`
+	ActivityTaskTimedOutEventAttributes *ActivityTaskTimedOutEventAttributes `json:"swf:HistoryEvent:ActivityTaskTimedOutEventAttributes" locationName:"activityTaskTimedOutEventAttributes" type:"structure"`
 
 	// If the event is of type CancelTimerFailed then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	CancelTimerFailedEventAttributes *CancelTimerFailedEventAttributes `locationName:"cancelTimerFailedEventAttributes" type:"structure"`
+	CancelTimerFailedEventAttributes *CancelTimerFailedEventAttributes `json:"swf:HistoryEvent:CancelTimerFailedEventAttributes" locationName:"cancelTimerFailedEventAttributes" type:"structure"`
 
 	// If the event is of type CancelWorkflowExecutionFailed then this member is
 	// set and provides detailed information about the event. It isn't set for other
 	// event types.
-	CancelWorkflowExecutionFailedEventAttributes *CancelWorkflowExecutionFailedEventAttributes `locationName:"cancelWorkflowExecutionFailedEventAttributes" type:"structure"`
+	CancelWorkflowExecutionFailedEventAttributes *CancelWorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:CancelWorkflowExecutionFailedEventAttributes" locationName:"cancelWorkflowExecutionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type ChildWorkflowExecutionCanceled then this member is
 	// set and provides detailed information about the event. It isn't set for other
 	// event types.
-	ChildWorkflowExecutionCanceledEventAttributes *ChildWorkflowExecutionCanceledEventAttributes `locationName:"childWorkflowExecutionCanceledEventAttributes" type:"structure"`
+	ChildWorkflowExecutionCanceledEventAttributes *ChildWorkflowExecutionCanceledEventAttributes `json:"swf:HistoryEvent:ChildWorkflowExecutionCanceledEventAttributes" locationName:"childWorkflowExecutionCanceledEventAttributes" type:"structure"`
 
 	// If the event is of type ChildWorkflowExecutionCompleted then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	ChildWorkflowExecutionCompletedEventAttributes *ChildWorkflowExecutionCompletedEventAttributes `locationName:"childWorkflowExecutionCompletedEventAttributes" type:"structure"`
+	ChildWorkflowExecutionCompletedEventAttributes *ChildWorkflowExecutionCompletedEventAttributes `json:"swf:HistoryEvent:ChildWorkflowExecutionCompletedEventAttributes" locationName:"childWorkflowExecutionCompletedEventAttributes" type:"structure"`
 
 	// If the event is of type ChildWorkflowExecutionFailed then this member is
 	// set and provides detailed information about the event. It isn't set for other
 	// event types.
-	ChildWorkflowExecutionFailedEventAttributes *ChildWorkflowExecutionFailedEventAttributes `locationName:"childWorkflowExecutionFailedEventAttributes" type:"structure"`
+	ChildWorkflowExecutionFailedEventAttributes *ChildWorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:ChildWorkflowExecutionFailedEventAttributes" locationName:"childWorkflowExecutionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type ChildWorkflowExecutionStarted then this member is
 	// set and provides detailed information about the event. It isn't set for other
 	// event types.
-	ChildWorkflowExecutionStartedEventAttributes *ChildWorkflowExecutionStartedEventAttributes `locationName:"childWorkflowExecutionStartedEventAttributes" type:"structure"`
+	ChildWorkflowExecutionStartedEventAttributes *ChildWorkflowExecutionStartedEventAttributes `json:"swf:HistoryEvent:ChildWorkflowExecutionStartedEventAttributes" locationName:"childWorkflowExecutionStartedEventAttributes" type:"structure"`
 
 	// If the event is of type ChildWorkflowExecutionTerminated then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	ChildWorkflowExecutionTerminatedEventAttributes *ChildWorkflowExecutionTerminatedEventAttributes `locationName:"childWorkflowExecutionTerminatedEventAttributes" type:"structure"`
+	ChildWorkflowExecutionTerminatedEventAttributes *ChildWorkflowExecutionTerminatedEventAttributes `json:"swf:HistoryEvent:ChildWorkflowExecutionTerminatedEventAttributes" locationName:"childWorkflowExecutionTerminatedEventAttributes" type:"structure"`
 
 	// If the event is of type ChildWorkflowExecutionTimedOut then this member is
 	// set and provides detailed information about the event. It isn't set for other
 	// event types.
-	ChildWorkflowExecutionTimedOutEventAttributes *ChildWorkflowExecutionTimedOutEventAttributes `locationName:"childWorkflowExecutionTimedOutEventAttributes" type:"structure"`
+	ChildWorkflowExecutionTimedOutEventAttributes *ChildWorkflowExecutionTimedOutEventAttributes `json:"swf:HistoryEvent:ChildWorkflowExecutionTimedOutEventAttributes" locationName:"childWorkflowExecutionTimedOutEventAttributes" type:"structure"`
 
 	// If the event is of type CompleteWorkflowExecutionFailed then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	CompleteWorkflowExecutionFailedEventAttributes *CompleteWorkflowExecutionFailedEventAttributes `locationName:"completeWorkflowExecutionFailedEventAttributes" type:"structure"`
+	CompleteWorkflowExecutionFailedEventAttributes *CompleteWorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:CompleteWorkflowExecutionFailedEventAttributes" locationName:"completeWorkflowExecutionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type ContinueAsNewWorkflowExecutionFailed then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	ContinueAsNewWorkflowExecutionFailedEventAttributes *ContinueAsNewWorkflowExecutionFailedEventAttributes `locationName:"continueAsNewWorkflowExecutionFailedEventAttributes" type:"structure"`
+	ContinueAsNewWorkflowExecutionFailedEventAttributes *ContinueAsNewWorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:ContinueAsNewWorkflowExecutionFailedEventAttributes" locationName:"continueAsNewWorkflowExecutionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type DecisionTaskCompleted then this member is set and
 	// provides detailed information about the event. It isn't set for other event
 	// types.
-	DecisionTaskCompletedEventAttributes *DecisionTaskCompletedEventAttributes `locationName:"decisionTaskCompletedEventAttributes" type:"structure"`
+	DecisionTaskCompletedEventAttributes *DecisionTaskCompletedEventAttributes `json:"swf:HistoryEvent:DecisionTaskCompletedEventAttributes" locationName:"decisionTaskCompletedEventAttributes" type:"structure"`
 
 	// If the event is of type DecisionTaskScheduled then this member is set and
 	// provides detailed information about the event. It isn't set for other event
 	// types.
-	DecisionTaskScheduledEventAttributes *DecisionTaskScheduledEventAttributes `locationName:"decisionTaskScheduledEventAttributes" type:"structure"`
+	DecisionTaskScheduledEventAttributes *DecisionTaskScheduledEventAttributes `json:"swf:HistoryEvent:DecisionTaskScheduledEventAttributes" locationName:"decisionTaskScheduledEventAttributes" type:"structure"`
 
 	// If the event is of type DecisionTaskStarted then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	DecisionTaskStartedEventAttributes *DecisionTaskStartedEventAttributes `locationName:"decisionTaskStartedEventAttributes" type:"structure"`
+	DecisionTaskStartedEventAttributes *DecisionTaskStartedEventAttributes `json:"swf:HistoryEvent:DecisionTaskStartedEventAttributes" locationName:"decisionTaskStartedEventAttributes" type:"structure"`
 
 	// If the event is of type DecisionTaskTimedOut then this member is set and
 	// provides detailed information about the event. It isn't set for other event
 	// types.
-	DecisionTaskTimedOutEventAttributes *DecisionTaskTimedOutEventAttributes `locationName:"decisionTaskTimedOutEventAttributes" type:"structure"`
+	DecisionTaskTimedOutEventAttributes *DecisionTaskTimedOutEventAttributes `json:"swf:HistoryEvent:DecisionTaskTimedOutEventAttributes" locationName:"decisionTaskTimedOutEventAttributes" type:"structure"`
 
 	// The system generated ID of the event. This ID uniquely identifies the event
 	// with in the workflow execution history.
 	//
 	// EventId is a required field
-	EventId *int64 `locationName:"eventId" type:"long" required:"true"`
+	EventId *int64 `json:"swf:HistoryEvent:EventId" locationName:"eventId" type:"long" required:"true"`
 
 	// The date and time when the event occurred.
 	//
 	// EventTimestamp is a required field
-	EventTimestamp *time.Time `locationName:"eventTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
+	EventTimestamp *time.Time `json:"swf:HistoryEvent:EventTimestamp" locationName:"eventTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The type of the history event.
 	//
 	// EventType is a required field
-	EventType EventType `locationName:"eventType" type:"string" required:"true" enum:"true"`
+	EventType EventType `json:"swf:HistoryEvent:EventType" locationName:"eventType" type:"string" required:"true" enum:"true"`
 
 	// If the event is of type ExternalWorkflowExecutionCancelRequested then this
 	// member is set and provides detailed information about the event. It isn't
 	// set for other event types.
-	ExternalWorkflowExecutionCancelRequestedEventAttributes *ExternalWorkflowExecutionCancelRequestedEventAttributes `locationName:"externalWorkflowExecutionCancelRequestedEventAttributes" type:"structure"`
+	ExternalWorkflowExecutionCancelRequestedEventAttributes *ExternalWorkflowExecutionCancelRequestedEventAttributes `json:"swf:HistoryEvent:ExternalWorkflowExecutionCancelRequestedEventAttributes" locationName:"externalWorkflowExecutionCancelRequestedEventAttributes" type:"structure"`
 
 	// If the event is of type ExternalWorkflowExecutionSignaled then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	ExternalWorkflowExecutionSignaledEventAttributes *ExternalWorkflowExecutionSignaledEventAttributes `locationName:"externalWorkflowExecutionSignaledEventAttributes" type:"structure"`
+	ExternalWorkflowExecutionSignaledEventAttributes *ExternalWorkflowExecutionSignaledEventAttributes `json:"swf:HistoryEvent:ExternalWorkflowExecutionSignaledEventAttributes" locationName:"externalWorkflowExecutionSignaledEventAttributes" type:"structure"`
 
 	// If the event is of type FailWorkflowExecutionFailed then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	FailWorkflowExecutionFailedEventAttributes *FailWorkflowExecutionFailedEventAttributes `locationName:"failWorkflowExecutionFailedEventAttributes" type:"structure"`
+	FailWorkflowExecutionFailedEventAttributes *FailWorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:FailWorkflowExecutionFailedEventAttributes" locationName:"failWorkflowExecutionFailedEventAttributes" type:"structure"`
 
 	// Provides the details of the LambdaFunctionCompleted event. It isn't set for
 	// other event types.
-	LambdaFunctionCompletedEventAttributes *LambdaFunctionCompletedEventAttributes `locationName:"lambdaFunctionCompletedEventAttributes" type:"structure"`
+	LambdaFunctionCompletedEventAttributes *LambdaFunctionCompletedEventAttributes `json:"swf:HistoryEvent:LambdaFunctionCompletedEventAttributes" locationName:"lambdaFunctionCompletedEventAttributes" type:"structure"`
 
 	// Provides the details of the LambdaFunctionFailed event. It isn't set for
 	// other event types.
-	LambdaFunctionFailedEventAttributes *LambdaFunctionFailedEventAttributes `locationName:"lambdaFunctionFailedEventAttributes" type:"structure"`
+	LambdaFunctionFailedEventAttributes *LambdaFunctionFailedEventAttributes `json:"swf:HistoryEvent:LambdaFunctionFailedEventAttributes" locationName:"lambdaFunctionFailedEventAttributes" type:"structure"`
 
 	// Provides the details of the LambdaFunctionScheduled event. It isn't set for
 	// other event types.
-	LambdaFunctionScheduledEventAttributes *LambdaFunctionScheduledEventAttributes `locationName:"lambdaFunctionScheduledEventAttributes" type:"structure"`
+	LambdaFunctionScheduledEventAttributes *LambdaFunctionScheduledEventAttributes `json:"swf:HistoryEvent:LambdaFunctionScheduledEventAttributes" locationName:"lambdaFunctionScheduledEventAttributes" type:"structure"`
 
 	// Provides the details of the LambdaFunctionStarted event. It isn't set for
 	// other event types.
-	LambdaFunctionStartedEventAttributes *LambdaFunctionStartedEventAttributes `locationName:"lambdaFunctionStartedEventAttributes" type:"structure"`
+	LambdaFunctionStartedEventAttributes *LambdaFunctionStartedEventAttributes `json:"swf:HistoryEvent:LambdaFunctionStartedEventAttributes" locationName:"lambdaFunctionStartedEventAttributes" type:"structure"`
 
 	// Provides the details of the LambdaFunctionTimedOut event. It isn't set for
 	// other event types.
-	LambdaFunctionTimedOutEventAttributes *LambdaFunctionTimedOutEventAttributes `locationName:"lambdaFunctionTimedOutEventAttributes" type:"structure"`
+	LambdaFunctionTimedOutEventAttributes *LambdaFunctionTimedOutEventAttributes `json:"swf:HistoryEvent:LambdaFunctionTimedOutEventAttributes" locationName:"lambdaFunctionTimedOutEventAttributes" type:"structure"`
 
 	// If the event is of type MarkerRecorded then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	MarkerRecordedEventAttributes *MarkerRecordedEventAttributes `locationName:"markerRecordedEventAttributes" type:"structure"`
+	MarkerRecordedEventAttributes *MarkerRecordedEventAttributes `json:"swf:HistoryEvent:MarkerRecordedEventAttributes" locationName:"markerRecordedEventAttributes" type:"structure"`
 
 	// If the event is of type DecisionTaskFailed then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	RecordMarkerFailedEventAttributes *RecordMarkerFailedEventAttributes `locationName:"recordMarkerFailedEventAttributes" type:"structure"`
+	RecordMarkerFailedEventAttributes *RecordMarkerFailedEventAttributes `json:"swf:HistoryEvent:RecordMarkerFailedEventAttributes" locationName:"recordMarkerFailedEventAttributes" type:"structure"`
 
 	// If the event is of type RequestCancelActivityTaskFailed then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	RequestCancelActivityTaskFailedEventAttributes *RequestCancelActivityTaskFailedEventAttributes `locationName:"requestCancelActivityTaskFailedEventAttributes" type:"structure"`
+	RequestCancelActivityTaskFailedEventAttributes *RequestCancelActivityTaskFailedEventAttributes `json:"swf:HistoryEvent:RequestCancelActivityTaskFailedEventAttributes" locationName:"requestCancelActivityTaskFailedEventAttributes" type:"structure"`
 
 	// If the event is of type RequestCancelExternalWorkflowExecutionFailed then
 	// this member is set and provides detailed information about the event. It
 	// isn't set for other event types.
-	RequestCancelExternalWorkflowExecutionFailedEventAttributes *RequestCancelExternalWorkflowExecutionFailedEventAttributes `locationName:"requestCancelExternalWorkflowExecutionFailedEventAttributes" type:"structure"`
+	RequestCancelExternalWorkflowExecutionFailedEventAttributes *RequestCancelExternalWorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:RequestCancelExternalWorkflowExecutionFailedEventAttributes" locationName:"requestCancelExternalWorkflowExecutionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type RequestCancelExternalWorkflowExecutionInitiated then
 	// this member is set and provides detailed information about the event. It
 	// isn't set for other event types.
-	RequestCancelExternalWorkflowExecutionInitiatedEventAttributes *RequestCancelExternalWorkflowExecutionInitiatedEventAttributes `locationName:"requestCancelExternalWorkflowExecutionInitiatedEventAttributes" type:"structure"`
+	RequestCancelExternalWorkflowExecutionInitiatedEventAttributes *RequestCancelExternalWorkflowExecutionInitiatedEventAttributes `json:"swf:HistoryEvent:RequestCancelExternalWorkflowExecutionInitiatedEventAttributes" locationName:"requestCancelExternalWorkflowExecutionInitiatedEventAttributes" type:"structure"`
 
 	// If the event is of type ScheduleActivityTaskFailed then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	ScheduleActivityTaskFailedEventAttributes *ScheduleActivityTaskFailedEventAttributes `locationName:"scheduleActivityTaskFailedEventAttributes" type:"structure"`
+	ScheduleActivityTaskFailedEventAttributes *ScheduleActivityTaskFailedEventAttributes `json:"swf:HistoryEvent:ScheduleActivityTaskFailedEventAttributes" locationName:"scheduleActivityTaskFailedEventAttributes" type:"structure"`
 
 	// Provides the details of the ScheduleLambdaFunctionFailed event. It isn't
 	// set for other event types.
-	ScheduleLambdaFunctionFailedEventAttributes *ScheduleLambdaFunctionFailedEventAttributes `locationName:"scheduleLambdaFunctionFailedEventAttributes" type:"structure"`
+	ScheduleLambdaFunctionFailedEventAttributes *ScheduleLambdaFunctionFailedEventAttributes `json:"swf:HistoryEvent:ScheduleLambdaFunctionFailedEventAttributes" locationName:"scheduleLambdaFunctionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type SignalExternalWorkflowExecutionFailed then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	SignalExternalWorkflowExecutionFailedEventAttributes *SignalExternalWorkflowExecutionFailedEventAttributes `locationName:"signalExternalWorkflowExecutionFailedEventAttributes" type:"structure"`
+	SignalExternalWorkflowExecutionFailedEventAttributes *SignalExternalWorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:SignalExternalWorkflowExecutionFailedEventAttributes" locationName:"signalExternalWorkflowExecutionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type SignalExternalWorkflowExecutionInitiated then this
 	// member is set and provides detailed information about the event. It isn't
 	// set for other event types.
-	SignalExternalWorkflowExecutionInitiatedEventAttributes *SignalExternalWorkflowExecutionInitiatedEventAttributes `locationName:"signalExternalWorkflowExecutionInitiatedEventAttributes" type:"structure"`
+	SignalExternalWorkflowExecutionInitiatedEventAttributes *SignalExternalWorkflowExecutionInitiatedEventAttributes `json:"swf:HistoryEvent:SignalExternalWorkflowExecutionInitiatedEventAttributes" locationName:"signalExternalWorkflowExecutionInitiatedEventAttributes" type:"structure"`
 
 	// If the event is of type StartChildWorkflowExecutionFailed then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	StartChildWorkflowExecutionFailedEventAttributes *StartChildWorkflowExecutionFailedEventAttributes `locationName:"startChildWorkflowExecutionFailedEventAttributes" type:"structure"`
+	StartChildWorkflowExecutionFailedEventAttributes *StartChildWorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:StartChildWorkflowExecutionFailedEventAttributes" locationName:"startChildWorkflowExecutionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type StartChildWorkflowExecutionInitiated then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	StartChildWorkflowExecutionInitiatedEventAttributes *StartChildWorkflowExecutionInitiatedEventAttributes `locationName:"startChildWorkflowExecutionInitiatedEventAttributes" type:"structure"`
+	StartChildWorkflowExecutionInitiatedEventAttributes *StartChildWorkflowExecutionInitiatedEventAttributes `json:"swf:HistoryEvent:StartChildWorkflowExecutionInitiatedEventAttributes" locationName:"startChildWorkflowExecutionInitiatedEventAttributes" type:"structure"`
 
 	// Provides the details of the StartLambdaFunctionFailed event. It isn't set
 	// for other event types.
-	StartLambdaFunctionFailedEventAttributes *StartLambdaFunctionFailedEventAttributes `locationName:"startLambdaFunctionFailedEventAttributes" type:"structure"`
+	StartLambdaFunctionFailedEventAttributes *StartLambdaFunctionFailedEventAttributes `json:"swf:HistoryEvent:StartLambdaFunctionFailedEventAttributes" locationName:"startLambdaFunctionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type StartTimerFailed then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	StartTimerFailedEventAttributes *StartTimerFailedEventAttributes `locationName:"startTimerFailedEventAttributes" type:"structure"`
+	StartTimerFailedEventAttributes *StartTimerFailedEventAttributes `json:"swf:HistoryEvent:StartTimerFailedEventAttributes" locationName:"startTimerFailedEventAttributes" type:"structure"`
 
 	// If the event is of type TimerCanceled then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	TimerCanceledEventAttributes *TimerCanceledEventAttributes `locationName:"timerCanceledEventAttributes" type:"structure"`
+	TimerCanceledEventAttributes *TimerCanceledEventAttributes `json:"swf:HistoryEvent:TimerCanceledEventAttributes" locationName:"timerCanceledEventAttributes" type:"structure"`
 
 	// If the event is of type TimerFired then this member is set and provides detailed
 	// information about the event. It isn't set for other event types.
-	TimerFiredEventAttributes *TimerFiredEventAttributes `locationName:"timerFiredEventAttributes" type:"structure"`
+	TimerFiredEventAttributes *TimerFiredEventAttributes `json:"swf:HistoryEvent:TimerFiredEventAttributes" locationName:"timerFiredEventAttributes" type:"structure"`
 
 	// If the event is of type TimerStarted then this member is set and provides
 	// detailed information about the event. It isn't set for other event types.
-	TimerStartedEventAttributes *TimerStartedEventAttributes `locationName:"timerStartedEventAttributes" type:"structure"`
+	TimerStartedEventAttributes *TimerStartedEventAttributes `json:"swf:HistoryEvent:TimerStartedEventAttributes" locationName:"timerStartedEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionCancelRequested then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	WorkflowExecutionCancelRequestedEventAttributes *WorkflowExecutionCancelRequestedEventAttributes `locationName:"workflowExecutionCancelRequestedEventAttributes" type:"structure"`
+	WorkflowExecutionCancelRequestedEventAttributes *WorkflowExecutionCancelRequestedEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionCancelRequestedEventAttributes" locationName:"workflowExecutionCancelRequestedEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionCanceled then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	WorkflowExecutionCanceledEventAttributes *WorkflowExecutionCanceledEventAttributes `locationName:"workflowExecutionCanceledEventAttributes" type:"structure"`
+	WorkflowExecutionCanceledEventAttributes *WorkflowExecutionCanceledEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionCanceledEventAttributes" locationName:"workflowExecutionCanceledEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionCompleted then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	WorkflowExecutionCompletedEventAttributes *WorkflowExecutionCompletedEventAttributes `locationName:"workflowExecutionCompletedEventAttributes" type:"structure"`
+	WorkflowExecutionCompletedEventAttributes *WorkflowExecutionCompletedEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionCompletedEventAttributes" locationName:"workflowExecutionCompletedEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionContinuedAsNew then this member
 	// is set and provides detailed information about the event. It isn't set for
 	// other event types.
-	WorkflowExecutionContinuedAsNewEventAttributes *WorkflowExecutionContinuedAsNewEventAttributes `locationName:"workflowExecutionContinuedAsNewEventAttributes" type:"structure"`
+	WorkflowExecutionContinuedAsNewEventAttributes *WorkflowExecutionContinuedAsNewEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionContinuedAsNewEventAttributes" locationName:"workflowExecutionContinuedAsNewEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionFailed then this member is set and
 	// provides detailed information about the event. It isn't set for other event
 	// types.
-	WorkflowExecutionFailedEventAttributes *WorkflowExecutionFailedEventAttributes `locationName:"workflowExecutionFailedEventAttributes" type:"structure"`
+	WorkflowExecutionFailedEventAttributes *WorkflowExecutionFailedEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionFailedEventAttributes" locationName:"workflowExecutionFailedEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionSignaled then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	WorkflowExecutionSignaledEventAttributes *WorkflowExecutionSignaledEventAttributes `locationName:"workflowExecutionSignaledEventAttributes" type:"structure"`
+	WorkflowExecutionSignaledEventAttributes *WorkflowExecutionSignaledEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionSignaledEventAttributes" locationName:"workflowExecutionSignaledEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionStarted then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	WorkflowExecutionStartedEventAttributes *WorkflowExecutionStartedEventAttributes `locationName:"workflowExecutionStartedEventAttributes" type:"structure"`
+	WorkflowExecutionStartedEventAttributes *WorkflowExecutionStartedEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionStartedEventAttributes" locationName:"workflowExecutionStartedEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionTerminated then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	WorkflowExecutionTerminatedEventAttributes *WorkflowExecutionTerminatedEventAttributes `locationName:"workflowExecutionTerminatedEventAttributes" type:"structure"`
+	WorkflowExecutionTerminatedEventAttributes *WorkflowExecutionTerminatedEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionTerminatedEventAttributes" locationName:"workflowExecutionTerminatedEventAttributes" type:"structure"`
 
 	// If the event is of type WorkflowExecutionTimedOut then this member is set
 	// and provides detailed information about the event. It isn't set for other
 	// event types.
-	WorkflowExecutionTimedOutEventAttributes *WorkflowExecutionTimedOutEventAttributes `locationName:"workflowExecutionTimedOutEventAttributes" type:"structure"`
+	WorkflowExecutionTimedOutEventAttributes *WorkflowExecutionTimedOutEventAttributes `json:"swf:HistoryEvent:WorkflowExecutionTimedOutEventAttributes" locationName:"workflowExecutionTimedOutEventAttributes" type:"structure"`
 }
 
 // String returns the string representation
@@ -2033,21 +2033,21 @@ type LambdaFunctionCompletedEventAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The results of the Lambda task.
-	Result *string `locationName:"result" type:"string"`
+	Result *string `json:"swf:LambdaFunctionCompletedEventAttributes:Result" locationName:"result" type:"string"`
 
 	// The ID of the LambdaFunctionScheduled event that was recorded when this Lambda
 	// task was scheduled. To help diagnose issues, use this information to trace
 	// back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:LambdaFunctionCompletedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the LambdaFunctionStarted event recorded when this activity task
 	// started. To help diagnose issues, use this information to trace back the
 	// chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:LambdaFunctionCompletedEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -2061,24 +2061,24 @@ type LambdaFunctionFailedEventAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the failure.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:LambdaFunctionFailedEventAttributes:Details" locationName:"details" type:"string"`
 
 	// The reason provided for the failure.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"swf:LambdaFunctionFailedEventAttributes:Reason" locationName:"reason" type:"string"`
 
 	// The ID of the LambdaFunctionScheduled event that was recorded when this activity
 	// task was scheduled. To help diagnose issues, use this information to trace
 	// back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:LambdaFunctionFailedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the LambdaFunctionStarted event recorded when this activity task
 	// started. To help diagnose issues, use this information to trace back the
 	// chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:LambdaFunctionFailedEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -2093,7 +2093,7 @@ type LambdaFunctionScheduledEventAttributes struct {
 
 	// Data attached to the event that the decider can use in subsequent workflow
 	// tasks. This data isn't sent to the Lambda task.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:LambdaFunctionScheduledEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the LambdaFunctionCompleted event corresponding to the decision
 	// that resulted in scheduling this activity task. To help diagnose issues,
@@ -2101,23 +2101,23 @@ type LambdaFunctionScheduledEventAttributes struct {
 	// event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:LambdaFunctionScheduledEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The unique ID of the Lambda task.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"1" type:"string" required:"true"`
+	Id *string `json:"swf:LambdaFunctionScheduledEventAttributes:Id" locationName:"id" min:"1" type:"string" required:"true"`
 
 	// The input provided to the Lambda task.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:LambdaFunctionScheduledEventAttributes:Input" locationName:"input" type:"string"`
 
 	// The name of the Lambda function.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"swf:LambdaFunctionScheduledEventAttributes:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The maximum amount of time a worker can take to process the Lambda task.
-	StartToCloseTimeout *string `locationName:"startToCloseTimeout" type:"string"`
+	StartToCloseTimeout *string `json:"swf:LambdaFunctionScheduledEventAttributes:StartToCloseTimeout" locationName:"startToCloseTimeout" type:"string"`
 }
 
 // String returns the string representation
@@ -2135,7 +2135,7 @@ type LambdaFunctionStartedEventAttributes struct {
 	// back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:LambdaFunctionStartedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -2152,17 +2152,17 @@ type LambdaFunctionTimedOutEventAttributes struct {
 	// back the chain of events leading up to this event.
 	//
 	// ScheduledEventId is a required field
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long" required:"true"`
+	ScheduledEventId *int64 `json:"swf:LambdaFunctionTimedOutEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long" required:"true"`
 
 	// The ID of the ActivityTaskStarted event that was recorded when this activity
 	// task started. To help diagnose issues, use this information to trace back
 	// the chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:LambdaFunctionTimedOutEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The type of the timeout that caused this event.
-	TimeoutType LambdaFunctionTimeoutType `locationName:"timeoutType" type:"string" enum:"true"`
+	TimeoutType LambdaFunctionTimeoutType `json:"swf:LambdaFunctionTimedOutEventAttributes:TimeoutType" locationName:"timeoutType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -2180,15 +2180,15 @@ type MarkerRecordedEventAttributes struct {
 	// of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:MarkerRecordedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The details of the marker.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:MarkerRecordedEventAttributes:Details" locationName:"details" type:"string"`
 
 	// The name of the marker.
 	//
 	// MarkerName is a required field
-	MarkerName *string `locationName:"markerName" min:"1" type:"string" required:"true"`
+	MarkerName *string `json:"swf:MarkerRecordedEventAttributes:MarkerName" locationName:"markerName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2220,12 +2220,12 @@ type RecordMarkerDecisionAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the marker.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:RecordMarkerDecisionAttributes:Details" locationName:"details" type:"string"`
 
 	// The name of the marker.
 	//
 	// MarkerName is a required field
-	MarkerName *string `locationName:"markerName" min:"1" type:"string" required:"true"`
+	MarkerName *string `json:"swf:RecordMarkerDecisionAttributes:MarkerName" locationName:"markerName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2263,7 +2263,7 @@ type RecordMarkerFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause RecordMarkerFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause RecordMarkerFailedCause `json:"swf:RecordMarkerFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the RecordMarkerFailed decision for this cancellation request.
@@ -2271,12 +2271,12 @@ type RecordMarkerFailedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:RecordMarkerFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The marker's name.
 	//
 	// MarkerName is a required field
-	MarkerName *string `locationName:"markerName" min:"1" type:"string" required:"true"`
+	MarkerName *string `json:"swf:RecordMarkerFailedEventAttributes:MarkerName" locationName:"markerName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2310,7 +2310,7 @@ type RequestCancelActivityTaskDecisionAttributes struct {
 	// The activityId of the activity task to be canceled.
 	//
 	// ActivityId is a required field
-	ActivityId *string `locationName:"activityId" min:"1" type:"string" required:"true"`
+	ActivityId *string `json:"swf:RequestCancelActivityTaskDecisionAttributes:ActivityId" locationName:"activityId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2342,7 +2342,7 @@ type RequestCancelActivityTaskFailedEventAttributes struct {
 	// The activityId provided in the RequestCancelActivityTask decision that failed.
 	//
 	// ActivityId is a required field
-	ActivityId *string `locationName:"activityId" min:"1" type:"string" required:"true"`
+	ActivityId *string `json:"swf:RequestCancelActivityTaskFailedEventAttributes:ActivityId" locationName:"activityId" min:"1" type:"string" required:"true"`
 
 	// The cause of the failure. This information is generated by the system and
 	// can be useful for diagnostic purposes.
@@ -2353,7 +2353,7 @@ type RequestCancelActivityTaskFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause RequestCancelActivityTaskFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause RequestCancelActivityTaskFailedCause `json:"swf:RequestCancelActivityTaskFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the RequestCancelActivityTask decision for this cancellation
@@ -2361,7 +2361,7 @@ type RequestCancelActivityTaskFailedEventAttributes struct {
 	// back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:RequestCancelActivityTaskFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -2394,15 +2394,15 @@ type RequestCancelExternalWorkflowExecutionDecisionAttributes struct {
 
 	// The data attached to the event that can be used by the decider in subsequent
 	// workflow tasks.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:RequestCancelExternalWorkflowExecutionDecisionAttributes:Control" locationName:"control" type:"string"`
 
 	// The runId of the external workflow execution to cancel.
-	RunId *string `locationName:"runId" type:"string"`
+	RunId *string `json:"swf:RequestCancelExternalWorkflowExecutionDecisionAttributes:RunId" locationName:"runId" type:"string"`
 
 	// The workflowId of the external workflow execution to cancel.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:RequestCancelExternalWorkflowExecutionDecisionAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2441,11 +2441,11 @@ type RequestCancelExternalWorkflowExecutionFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause RequestCancelExternalWorkflowExecutionFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause RequestCancelExternalWorkflowExecutionFailedCause `json:"swf:RequestCancelExternalWorkflowExecutionFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The data attached to the event that the decider can use in subsequent workflow
 	// tasks. This data isn't sent to the workflow execution.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:RequestCancelExternalWorkflowExecutionFailedEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the RequestCancelExternalWorkflowExecution decision for
@@ -2453,7 +2453,7 @@ type RequestCancelExternalWorkflowExecutionFailedEventAttributes struct {
 	// problems by tracing back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:RequestCancelExternalWorkflowExecutionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The ID of the RequestCancelExternalWorkflowExecutionInitiated event corresponding
 	// to the RequestCancelExternalWorkflowExecution decision to cancel this external
@@ -2461,16 +2461,16 @@ type RequestCancelExternalWorkflowExecutionFailedEventAttributes struct {
 	// by tracing back the chain of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:RequestCancelExternalWorkflowExecutionFailedEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The runId of the external workflow execution.
-	RunId *string `locationName:"runId" type:"string"`
+	RunId *string `json:"swf:RequestCancelExternalWorkflowExecutionFailedEventAttributes:RunId" locationName:"runId" type:"string"`
 
 	// The workflowId of the external workflow to which the cancel request was to
 	// be delivered.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:RequestCancelExternalWorkflowExecutionFailedEventAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2485,7 +2485,7 @@ type RequestCancelExternalWorkflowExecutionInitiatedEventAttributes struct {
 
 	// Data attached to the event that can be used by the decider in subsequent
 	// workflow tasks.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:RequestCancelExternalWorkflowExecutionInitiatedEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the RequestCancelExternalWorkflowExecution decision for
@@ -2493,15 +2493,15 @@ type RequestCancelExternalWorkflowExecutionInitiatedEventAttributes struct {
 	// problems by tracing back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:RequestCancelExternalWorkflowExecutionInitiatedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The runId of the external workflow execution to be canceled.
-	RunId *string `locationName:"runId" type:"string"`
+	RunId *string `json:"swf:RequestCancelExternalWorkflowExecutionInitiatedEventAttributes:RunId" locationName:"runId" type:"string"`
 
 	// The workflowId of the external workflow execution to be canceled.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:RequestCancelExternalWorkflowExecutionInitiatedEventAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2520,10 +2520,10 @@ type ResourceTag struct {
 	// The key of a tag.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"swf:ResourceTag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The value of a tag.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"swf:ResourceTag:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation
@@ -2582,16 +2582,16 @@ type ScheduleActivityTaskDecisionAttributes struct {
 	// | \u007f-\u009f). Also, it must not contain the literal string arn.
 	//
 	// ActivityId is a required field
-	ActivityId *string `locationName:"activityId" min:"1" type:"string" required:"true"`
+	ActivityId *string `json:"swf:ScheduleActivityTaskDecisionAttributes:ActivityId" locationName:"activityId" min:"1" type:"string" required:"true"`
 
 	// The type of the activity task to schedule.
 	//
 	// ActivityType is a required field
-	ActivityType *ActivityType `locationName:"activityType" type:"structure" required:"true"`
+	ActivityType *ActivityType `json:"swf:ScheduleActivityTaskDecisionAttributes:ActivityType" locationName:"activityType" type:"structure" required:"true"`
 
 	// Data attached to the event that can be used by the decider in subsequent
 	// workflow tasks. This data isn't sent to the activity.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:ScheduleActivityTaskDecisionAttributes:Control" locationName:"control" type:"string"`
 
 	// If set, specifies the maximum time before which a worker processing a task
 	// of this type must report progress by calling RecordActivityTaskHeartbeat.
@@ -2602,10 +2602,10 @@ type ScheduleActivityTaskDecisionAttributes struct {
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	HeartbeatTimeout *string `locationName:"heartbeatTimeout" type:"string"`
+	HeartbeatTimeout *string `json:"swf:ScheduleActivityTaskDecisionAttributes:HeartbeatTimeout" locationName:"heartbeatTimeout" type:"string"`
 
 	// The input provided to the activity task.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:ScheduleActivityTaskDecisionAttributes:Input" locationName:"input" type:"string"`
 
 	// The maximum duration for this activity task.
 	//
@@ -2616,7 +2616,7 @@ type ScheduleActivityTaskDecisionAttributes struct {
 	// as a default for the activity type or through this field. If neither this
 	// field is set nor a default schedule-to-close timeout was specified at registration
 	// time then a fault is returned.
-	ScheduleToCloseTimeout *string `locationName:"scheduleToCloseTimeout" type:"string"`
+	ScheduleToCloseTimeout *string `json:"swf:ScheduleActivityTaskDecisionAttributes:ScheduleToCloseTimeout" locationName:"scheduleToCloseTimeout" type:"string"`
 
 	// If set, specifies the maximum duration the activity task can wait to be assigned
 	// to a worker. This overrides the default schedule-to-start timeout specified
@@ -2629,7 +2629,7 @@ type ScheduleActivityTaskDecisionAttributes struct {
 	// as a default for the activity type or through this field. If neither this
 	// field is set nor a default schedule-to-start timeout was specified at registration
 	// time then a fault is returned.
-	ScheduleToStartTimeout *string `locationName:"scheduleToStartTimeout" type:"string"`
+	ScheduleToStartTimeout *string `json:"swf:ScheduleActivityTaskDecisionAttributes:ScheduleToStartTimeout" locationName:"scheduleToStartTimeout" type:"string"`
 
 	// If set, specifies the maximum duration a worker may take to process this
 	// activity task. This overrides the default start-to-close timeout specified
@@ -2642,7 +2642,7 @@ type ScheduleActivityTaskDecisionAttributes struct {
 	// as a default for the activity type or through this field. If neither this
 	// field is set nor a default start-to-close timeout was specified at registration
 	// time then a fault is returned.
-	StartToCloseTimeout *string `locationName:"startToCloseTimeout" type:"string"`
+	StartToCloseTimeout *string `json:"swf:ScheduleActivityTaskDecisionAttributes:StartToCloseTimeout" locationName:"startToCloseTimeout" type:"string"`
 
 	// If set, specifies the name of the task list in which to schedule the activity
 	// task. If not specified, the defaultTaskList registered with the activity
@@ -2656,7 +2656,7 @@ type ScheduleActivityTaskDecisionAttributes struct {
 	// The specified string must not start or end with whitespace. It must not contain
 	// a : (colon), / (slash), | (vertical bar), or any control characters (\u0000-\u001f
 	// | \u007f-\u009f). Also, it must not contain the literal string arn.
-	TaskList *TaskList `locationName:"taskList" type:"structure"`
+	TaskList *TaskList `json:"swf:ScheduleActivityTaskDecisionAttributes:TaskList" locationName:"taskList" type:"structure"`
 
 	// If set, specifies the priority with which the activity task is to be assigned
 	// to a worker. This overrides the defaultTaskPriority specified when registering
@@ -2667,7 +2667,7 @@ type ScheduleActivityTaskDecisionAttributes struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:ScheduleActivityTaskDecisionAttributes:TaskPriority" locationName:"taskPriority" type:"string"`
 }
 
 // String returns the string representation
@@ -2713,12 +2713,12 @@ type ScheduleActivityTaskFailedEventAttributes struct {
 	// The activityId provided in the ScheduleActivityTask decision that failed.
 	//
 	// ActivityId is a required field
-	ActivityId *string `locationName:"activityId" min:"1" type:"string" required:"true"`
+	ActivityId *string `json:"swf:ScheduleActivityTaskFailedEventAttributes:ActivityId" locationName:"activityId" min:"1" type:"string" required:"true"`
 
 	// The activity type provided in the ScheduleActivityTask decision that failed.
 	//
 	// ActivityType is a required field
-	ActivityType *ActivityType `locationName:"activityType" type:"structure" required:"true"`
+	ActivityType *ActivityType `json:"swf:ScheduleActivityTaskFailedEventAttributes:ActivityType" locationName:"activityType" type:"structure" required:"true"`
 
 	// The cause of the failure. This information is generated by the system and
 	// can be useful for diagnostic purposes.
@@ -2729,7 +2729,7 @@ type ScheduleActivityTaskFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause ScheduleActivityTaskFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause ScheduleActivityTaskFailedCause `json:"swf:ScheduleActivityTaskFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision that
 	// resulted in the scheduling of this activity task. This information can be
@@ -2737,7 +2737,7 @@ type ScheduleActivityTaskFailedEventAttributes struct {
 	// up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:ScheduleActivityTaskFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 }
 
 // String returns the string representation
@@ -2752,25 +2752,25 @@ type ScheduleLambdaFunctionDecisionAttributes struct {
 
 	// The data attached to the event that the decider can use in subsequent workflow
 	// tasks. This data isn't sent to the Lambda task.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:ScheduleLambdaFunctionDecisionAttributes:Control" locationName:"control" type:"string"`
 
 	// A string that identifies the Lambda function execution in the event history.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"1" type:"string" required:"true"`
+	Id *string `json:"swf:ScheduleLambdaFunctionDecisionAttributes:Id" locationName:"id" min:"1" type:"string" required:"true"`
 
 	// The optional input data to be supplied to the Lambda function.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:ScheduleLambdaFunctionDecisionAttributes:Input" locationName:"input" type:"string"`
 
 	// The name, or ARN, of the Lambda function to schedule.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"swf:ScheduleLambdaFunctionDecisionAttributes:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The timeout value, in seconds, after which the Lambda function is considered
 	// to be failed once it has started. This can be any integer from 1-300 (1s-5m).
 	// If no value is supplied, than a default value of 300s is assumed.
-	StartToCloseTimeout *string `locationName:"startToCloseTimeout" type:"string"`
+	StartToCloseTimeout *string `json:"swf:ScheduleLambdaFunctionDecisionAttributes:StartToCloseTimeout" locationName:"startToCloseTimeout" type:"string"`
 }
 
 // String returns the string representation
@@ -2816,24 +2816,24 @@ type ScheduleLambdaFunctionFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause ScheduleLambdaFunctionFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause ScheduleLambdaFunctionFailedCause `json:"swf:ScheduleLambdaFunctionFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the LambdaFunctionCompleted event corresponding to the decision
 	// that resulted in scheduling this Lambda task. To help diagnose issues, use
 	// this information to trace back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:ScheduleLambdaFunctionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The ID provided in the ScheduleLambdaFunction decision that failed.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" min:"1" type:"string" required:"true"`
+	Id *string `json:"swf:ScheduleLambdaFunctionFailedEventAttributes:Id" locationName:"id" min:"1" type:"string" required:"true"`
 
 	// The name of the Lambda function.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"swf:ScheduleLambdaFunctionFailedEventAttributes:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2866,25 +2866,25 @@ type SignalExternalWorkflowExecutionDecisionAttributes struct {
 
 	// The data attached to the event that can be used by the decider in subsequent
 	// decision tasks.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:SignalExternalWorkflowExecutionDecisionAttributes:Control" locationName:"control" type:"string"`
 
 	// The input data to be provided with the signal. The target workflow execution
 	// uses the signal name and input data to process the signal.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:SignalExternalWorkflowExecutionDecisionAttributes:Input" locationName:"input" type:"string"`
 
 	// The runId of the workflow execution to be signaled.
-	RunId *string `locationName:"runId" type:"string"`
+	RunId *string `json:"swf:SignalExternalWorkflowExecutionDecisionAttributes:RunId" locationName:"runId" type:"string"`
 
 	// The name of the signal.The target workflow execution uses the signal name
 	// and input to process the signal.
 	//
 	// SignalName is a required field
-	SignalName *string `locationName:"signalName" min:"1" type:"string" required:"true"`
+	SignalName *string `json:"swf:SignalExternalWorkflowExecutionDecisionAttributes:SignalName" locationName:"signalName" min:"1" type:"string" required:"true"`
 
 	// The workflowId of the workflow execution to be signaled.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:SignalExternalWorkflowExecutionDecisionAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2929,11 +2929,11 @@ type SignalExternalWorkflowExecutionFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause SignalExternalWorkflowExecutionFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause SignalExternalWorkflowExecutionFailedCause `json:"swf:SignalExternalWorkflowExecutionFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The data attached to the event that the decider can use in subsequent workflow
 	// tasks. This data isn't sent to the workflow execution.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:SignalExternalWorkflowExecutionFailedEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the SignalExternalWorkflowExecution decision for this signal.
@@ -2941,7 +2941,7 @@ type SignalExternalWorkflowExecutionFailedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:SignalExternalWorkflowExecutionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The ID of the SignalExternalWorkflowExecutionInitiated event corresponding
 	// to the SignalExternalWorkflowExecution decision to request this signal. This
@@ -2949,17 +2949,17 @@ type SignalExternalWorkflowExecutionFailedEventAttributes struct {
 	// of events leading up to this event.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:SignalExternalWorkflowExecutionFailedEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The runId of the external workflow execution that the signal was being delivered
 	// to.
-	RunId *string `locationName:"runId" type:"string"`
+	RunId *string `json:"swf:SignalExternalWorkflowExecutionFailedEventAttributes:RunId" locationName:"runId" type:"string"`
 
 	// The workflowId of the external workflow execution that the signal was being
 	// delivered to.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:SignalExternalWorkflowExecutionFailedEventAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2973,7 +2973,7 @@ type SignalExternalWorkflowExecutionInitiatedEventAttributes struct {
 
 	// Data attached to the event that can be used by the decider in subsequent
 	// decision tasks.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:SignalExternalWorkflowExecutionInitiatedEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the SignalExternalWorkflowExecution decision for this signal.
@@ -2981,23 +2981,23 @@ type SignalExternalWorkflowExecutionInitiatedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:SignalExternalWorkflowExecutionInitiatedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The input provided to the signal.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:SignalExternalWorkflowExecutionInitiatedEventAttributes:Input" locationName:"input" type:"string"`
 
 	// The runId of the external workflow execution to send the signal to.
-	RunId *string `locationName:"runId" type:"string"`
+	RunId *string `json:"swf:SignalExternalWorkflowExecutionInitiatedEventAttributes:RunId" locationName:"runId" type:"string"`
 
 	// The name of the signal.
 	//
 	// SignalName is a required field
-	SignalName *string `locationName:"signalName" min:"1" type:"string" required:"true"`
+	SignalName *string `json:"swf:SignalExternalWorkflowExecutionInitiatedEventAttributes:SignalName" locationName:"signalName" min:"1" type:"string" required:"true"`
 
 	// The workflowId of the external workflow execution.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:SignalExternalWorkflowExecutionInitiatedEventAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3053,11 +3053,11 @@ type StartChildWorkflowExecutionDecisionAttributes struct {
 	// default for the workflow type or through this parameter. If neither this
 	// parameter is set nor a default child policy was specified at registration
 	// time then a fault is returned.
-	ChildPolicy ChildPolicy `locationName:"childPolicy" type:"string" enum:"true"`
+	ChildPolicy ChildPolicy `json:"swf:StartChildWorkflowExecutionDecisionAttributes:ChildPolicy" locationName:"childPolicy" type:"string" enum:"true"`
 
 	// The data attached to the event that can be used by the decider in subsequent
 	// workflow tasks. This data isn't sent to the child workflow execution.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:StartChildWorkflowExecutionDecisionAttributes:Control" locationName:"control" type:"string"`
 
 	// The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout
 	// specified when registering the workflow type.
@@ -3069,19 +3069,19 @@ type StartChildWorkflowExecutionDecisionAttributes struct {
 	// either as a default for the workflow type or through this parameter. If neither
 	// this parameter is set nor a default execution start-to-close timeout was
 	// specified at registration time then a fault is returned.
-	ExecutionStartToCloseTimeout *string `locationName:"executionStartToCloseTimeout" type:"string"`
+	ExecutionStartToCloseTimeout *string `json:"swf:StartChildWorkflowExecutionDecisionAttributes:ExecutionStartToCloseTimeout" locationName:"executionStartToCloseTimeout" type:"string"`
 
 	// The input to be provided to the workflow execution.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:StartChildWorkflowExecutionDecisionAttributes:Input" locationName:"input" type:"string"`
 
 	// The IAM role attached to the child workflow execution.
-	LambdaRole *string `locationName:"lambdaRole" min:"1" type:"string"`
+	LambdaRole *string `json:"swf:StartChildWorkflowExecutionDecisionAttributes:LambdaRole" locationName:"lambdaRole" min:"1" type:"string"`
 
 	// The list of tags to associate with the child workflow execution. A maximum
 	// of 5 tags can be specified. You can list workflow executions with a specific
 	// tag by calling ListOpenWorkflowExecutions or ListClosedWorkflowExecutions
 	// and specifying a TagFilter.
-	TagList []string `locationName:"tagList" type:"list"`
+	TagList []string `json:"swf:StartChildWorkflowExecutionDecisionAttributes:TagList" locationName:"tagList" type:"list"`
 
 	// The name of the task list to be used for decision tasks of the child workflow
 	// execution.
@@ -3094,7 +3094,7 @@ type StartChildWorkflowExecutionDecisionAttributes struct {
 	// The specified string must not start or end with whitespace. It must not contain
 	// a : (colon), / (slash), | (vertical bar), or any control characters (\u0000-\u001f
 	// | \u007f-\u009f). Also, it must not contain the literal string arn.
-	TaskList *TaskList `locationName:"taskList" type:"structure"`
+	TaskList *TaskList `json:"swf:StartChildWorkflowExecutionDecisionAttributes:TaskList" locationName:"taskList" type:"structure"`
 
 	// A task priority that, if set, specifies the priority for a decision task
 	// of this workflow execution. This overrides the defaultTaskPriority specified
@@ -3105,7 +3105,7 @@ type StartChildWorkflowExecutionDecisionAttributes struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:StartChildWorkflowExecutionDecisionAttributes:TaskPriority" locationName:"taskPriority" type:"string"`
 
 	// Specifies the maximum duration of decision tasks for this workflow execution.
 	// This parameter overrides the defaultTaskStartToCloseTimout specified when
@@ -3118,7 +3118,7 @@ type StartChildWorkflowExecutionDecisionAttributes struct {
 	// either as a default for the workflow type or through this parameter. If neither
 	// this parameter is set nor a default task start-to-close timeout was specified
 	// at registration time then a fault is returned.
-	TaskStartToCloseTimeout *string `locationName:"taskStartToCloseTimeout" type:"string"`
+	TaskStartToCloseTimeout *string `json:"swf:StartChildWorkflowExecutionDecisionAttributes:TaskStartToCloseTimeout" locationName:"taskStartToCloseTimeout" type:"string"`
 
 	// The workflowId of the workflow execution.
 	//
@@ -3127,12 +3127,12 @@ type StartChildWorkflowExecutionDecisionAttributes struct {
 	// | \u007f-\u009f). Also, it must not contain the literal string arn.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:StartChildWorkflowExecutionDecisionAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 
 	// The type of the workflow execution to be started.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:StartChildWorkflowExecutionDecisionAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3187,11 +3187,11 @@ type StartChildWorkflowExecutionFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause StartChildWorkflowExecutionFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause StartChildWorkflowExecutionFailedCause `json:"swf:StartChildWorkflowExecutionFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The data attached to the event that the decider can use in subsequent workflow
 	// tasks. This data isn't sent to the child workflow execution.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:StartChildWorkflowExecutionFailedEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the StartChildWorkflowExecution Decision to request this
@@ -3199,7 +3199,7 @@ type StartChildWorkflowExecutionFailedEventAttributes struct {
 	// by tracing back the chain of events.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:StartChildWorkflowExecutionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// When the cause is WORKFLOW_ALREADY_RUNNING, initiatedEventId is the ID of
 	// the StartChildWorkflowExecutionInitiated event that corresponds to the StartChildWorkflowExecution
@@ -3211,18 +3211,18 @@ type StartChildWorkflowExecutionFailedEventAttributes struct {
 	// 0 because the StartChildWorkflowExecutionInitiated event doesn't exist.
 	//
 	// InitiatedEventId is a required field
-	InitiatedEventId *int64 `locationName:"initiatedEventId" type:"long" required:"true"`
+	InitiatedEventId *int64 `json:"swf:StartChildWorkflowExecutionFailedEventAttributes:InitiatedEventId" locationName:"initiatedEventId" type:"long" required:"true"`
 
 	// The workflowId of the child workflow execution.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:StartChildWorkflowExecutionFailedEventAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 
 	// The workflow type provided in the StartChildWorkflowExecution Decision that
 	// failed.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:StartChildWorkflowExecutionFailedEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3250,11 +3250,11 @@ type StartChildWorkflowExecutionInitiatedEventAttributes struct {
 	//    * ABANDON – No action is taken. The child executions continue to run.
 	//
 	// ChildPolicy is a required field
-	ChildPolicy ChildPolicy `locationName:"childPolicy" type:"string" required:"true" enum:"true"`
+	ChildPolicy ChildPolicy `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:ChildPolicy" locationName:"childPolicy" type:"string" required:"true" enum:"true"`
 
 	// Data attached to the event that can be used by the decider in subsequent
 	// decision tasks. This data isn't sent to the activity.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the StartChildWorkflowExecution Decision to request this
@@ -3262,29 +3262,29 @@ type StartChildWorkflowExecutionInitiatedEventAttributes struct {
 	// by tracing back the cause of events.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The maximum duration for the child workflow execution. If the workflow execution
 	// isn't closed within this duration, it is timed out and force-terminated.
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	ExecutionStartToCloseTimeout *string `locationName:"executionStartToCloseTimeout" type:"string"`
+	ExecutionStartToCloseTimeout *string `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:ExecutionStartToCloseTimeout" locationName:"executionStartToCloseTimeout" type:"string"`
 
 	// The inputs provided to the child workflow execution.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:Input" locationName:"input" type:"string"`
 
 	// The IAM role to attach to the child workflow execution.
-	LambdaRole *string `locationName:"lambdaRole" min:"1" type:"string"`
+	LambdaRole *string `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:LambdaRole" locationName:"lambdaRole" min:"1" type:"string"`
 
 	// The list of tags to associated with the child workflow execution.
-	TagList []string `locationName:"tagList" type:"list"`
+	TagList []string `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:TagList" locationName:"tagList" type:"list"`
 
 	// The name of the task list used for the decision tasks of the child workflow
 	// execution.
 	//
 	// TaskList is a required field
-	TaskList *TaskList `locationName:"taskList" type:"structure" required:"true"`
+	TaskList *TaskList `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:TaskList" locationName:"taskList" type:"structure" required:"true"`
 
 	// The priority assigned for the decision tasks for this workflow execution.
 	// Valid values are integers that range from Java's Integer.MIN_VALUE (-2147483648)
@@ -3293,23 +3293,23 @@ type StartChildWorkflowExecutionInitiatedEventAttributes struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:TaskPriority" locationName:"taskPriority" type:"string"`
 
 	// The maximum duration allowed for the decision tasks for this workflow execution.
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	TaskStartToCloseTimeout *string `locationName:"taskStartToCloseTimeout" type:"string"`
+	TaskStartToCloseTimeout *string `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:TaskStartToCloseTimeout" locationName:"taskStartToCloseTimeout" type:"string"`
 
 	// The workflowId of the child workflow execution.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 
 	// The type of the child workflow execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:StartChildWorkflowExecutionInitiatedEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3329,15 +3329,15 @@ type StartLambdaFunctionFailedEventAttributes struct {
 	// IAM role attached to the execution lacked sufficient permissions. For details
 	// and example IAM policies, see Lambda Tasks (https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html)
 	// in the Amazon SWF Developer Guide.
-	Cause StartLambdaFunctionFailedCause `locationName:"cause" type:"string" enum:"true"`
+	Cause StartLambdaFunctionFailedCause `json:"swf:StartLambdaFunctionFailedEventAttributes:Cause" locationName:"cause" type:"string" enum:"true"`
 
 	// A description that can help diagnose the cause of the fault.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `json:"swf:StartLambdaFunctionFailedEventAttributes:Message" locationName:"message" type:"string"`
 
 	// The ID of the ActivityTaskScheduled event that was recorded when this activity
 	// task was scheduled. To help diagnose issues, use this information to trace
 	// back the chain of events leading up to this event.
-	ScheduledEventId *int64 `locationName:"scheduledEventId" type:"long"`
+	ScheduledEventId *int64 `json:"swf:StartLambdaFunctionFailedEventAttributes:ScheduledEventId" locationName:"scheduledEventId" type:"long"`
 }
 
 // String returns the string representation
@@ -3370,7 +3370,7 @@ type StartTimerDecisionAttributes struct {
 
 	// The data attached to the event that can be used by the decider in subsequent
 	// workflow tasks.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:StartTimerDecisionAttributes:Control" locationName:"control" type:"string"`
 
 	// The duration to wait before firing the timer.
 	//
@@ -3378,7 +3378,7 @@ type StartTimerDecisionAttributes struct {
 	// 0.
 	//
 	// StartToFireTimeout is a required field
-	StartToFireTimeout *string `locationName:"startToFireTimeout" min:"1" type:"string" required:"true"`
+	StartToFireTimeout *string `json:"swf:StartTimerDecisionAttributes:StartToFireTimeout" locationName:"startToFireTimeout" min:"1" type:"string" required:"true"`
 
 	// The unique ID of the timer.
 	//
@@ -3387,7 +3387,7 @@ type StartTimerDecisionAttributes struct {
 	// | \u007f-\u009f). Also, it must not contain the literal string arn.
 	//
 	// TimerId is a required field
-	TimerId *string `locationName:"timerId" min:"1" type:"string" required:"true"`
+	TimerId *string `json:"swf:StartTimerDecisionAttributes:TimerId" locationName:"timerId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3432,7 +3432,7 @@ type StartTimerFailedEventAttributes struct {
 	// in the Amazon SWF Developer Guide.
 	//
 	// Cause is a required field
-	Cause StartTimerFailedCause `locationName:"cause" type:"string" required:"true" enum:"true"`
+	Cause StartTimerFailedCause `json:"swf:StartTimerFailedEventAttributes:Cause" locationName:"cause" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the StartTimer decision for this activity task. This information
@@ -3440,12 +3440,12 @@ type StartTimerFailedEventAttributes struct {
 	// leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:StartTimerFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The timerId provided in the StartTimer decision that failed.
 	//
 	// TimerId is a required field
-	TimerId *string `locationName:"timerId" min:"1" type:"string" required:"true"`
+	TimerId *string `json:"swf:StartTimerFailedEventAttributes:TimerId" locationName:"timerId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3464,7 +3464,7 @@ type TagFilter struct {
 	// _ . : / = + - @.
 	//
 	// Tag is a required field
-	Tag *string `locationName:"tag" type:"string" required:"true"`
+	Tag *string `json:"swf:TagFilter:Tag" locationName:"tag" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3493,7 +3493,7 @@ type TaskList struct {
 	// The name of the task list.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"swf:TaskList:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3528,19 +3528,19 @@ type TimerCanceledEventAttributes struct {
 	// leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:TimerCanceledEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The ID of the TimerStarted event that was recorded when this timer was started.
 	// This information can be useful for diagnosing problems by tracing back the
 	// chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:TimerCanceledEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The unique ID of the timer that was canceled.
 	//
 	// TimerId is a required field
-	TimerId *string `locationName:"timerId" min:"1" type:"string" required:"true"`
+	TimerId *string `json:"swf:TimerCanceledEventAttributes:TimerId" locationName:"timerId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3557,12 +3557,12 @@ type TimerFiredEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// StartedEventId is a required field
-	StartedEventId *int64 `locationName:"startedEventId" type:"long" required:"true"`
+	StartedEventId *int64 `json:"swf:TimerFiredEventAttributes:StartedEventId" locationName:"startedEventId" type:"long" required:"true"`
 
 	// The unique ID of the timer that fired.
 	//
 	// TimerId is a required field
-	TimerId *string `locationName:"timerId" min:"1" type:"string" required:"true"`
+	TimerId *string `json:"swf:TimerFiredEventAttributes:TimerId" locationName:"timerId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3576,7 +3576,7 @@ type TimerStartedEventAttributes struct {
 
 	// Data attached to the event that can be used by the decider in subsequent
 	// workflow tasks.
-	Control *string `locationName:"control" type:"string"`
+	Control *string `json:"swf:TimerStartedEventAttributes:Control" locationName:"control" type:"string"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the StartTimer decision for this activity task. This information
@@ -3584,7 +3584,7 @@ type TimerStartedEventAttributes struct {
 	// leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:TimerStartedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The duration of time after which the timer fires.
 	//
@@ -3592,12 +3592,12 @@ type TimerStartedEventAttributes struct {
 	// 0.
 	//
 	// StartToFireTimeout is a required field
-	StartToFireTimeout *string `locationName:"startToFireTimeout" min:"1" type:"string" required:"true"`
+	StartToFireTimeout *string `json:"swf:TimerStartedEventAttributes:StartToFireTimeout" locationName:"startToFireTimeout" min:"1" type:"string" required:"true"`
 
 	// The unique ID of the timer that was started.
 	//
 	// TimerId is a required field
-	TimerId *string `locationName:"timerId" min:"1" type:"string" required:"true"`
+	TimerId *string `json:"swf:TimerStartedEventAttributes:TimerId" locationName:"timerId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3612,12 +3612,12 @@ type WorkflowExecution struct {
 	// A system-generated unique identifier for the workflow execution.
 	//
 	// RunId is a required field
-	RunId *string `locationName:"runId" min:"1" type:"string" required:"true"`
+	RunId *string `json:"swf:WorkflowExecution:RunId" locationName:"runId" min:"1" type:"string" required:"true"`
 
 	// The user defined identifier associated with the workflow execution.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:WorkflowExecution:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3656,17 +3656,17 @@ type WorkflowExecutionCancelRequestedEventAttributes struct {
 	// If set, indicates that the request to cancel the workflow execution was automatically
 	// generated, and specifies the cause. This happens if the parent workflow execution
 	// times out or is terminated, and the child policy is set to cancel child executions.
-	Cause WorkflowExecutionCancelRequestedCause `locationName:"cause" type:"string" enum:"true"`
+	Cause WorkflowExecutionCancelRequestedCause `json:"swf:WorkflowExecutionCancelRequestedEventAttributes:Cause" locationName:"cause" type:"string" enum:"true"`
 
 	// The ID of the RequestCancelExternalWorkflowExecutionInitiated event corresponding
 	// to the RequestCancelExternalWorkflowExecution decision to cancel this workflow
 	// execution.The source event with this ID can be found in the history of the
 	// source workflow execution. This information can be useful for diagnosing
 	// problems by tracing back the chain of events leading up to this event.
-	ExternalInitiatedEventId *int64 `locationName:"externalInitiatedEventId" type:"long"`
+	ExternalInitiatedEventId *int64 `json:"swf:WorkflowExecutionCancelRequestedEventAttributes:ExternalInitiatedEventId" locationName:"externalInitiatedEventId" type:"long"`
 
 	// The external workflow execution for which the cancellation was requested.
-	ExternalWorkflowExecution *WorkflowExecution `locationName:"externalWorkflowExecution" type:"structure"`
+	ExternalWorkflowExecution *WorkflowExecution `json:"swf:WorkflowExecutionCancelRequestedEventAttributes:ExternalWorkflowExecution" locationName:"externalWorkflowExecution" type:"structure"`
 }
 
 // String returns the string representation
@@ -3684,10 +3684,10 @@ type WorkflowExecutionCanceledEventAttributes struct {
 	// back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:WorkflowExecutionCanceledEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The details of the cancellation.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:WorkflowExecutionCanceledEventAttributes:Details" locationName:"details" type:"string"`
 }
 
 // String returns the string representation
@@ -3705,10 +3705,10 @@ type WorkflowExecutionCompletedEventAttributes struct {
 	// back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:WorkflowExecutionCompletedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The result produced by the workflow execution upon successful completion.
-	Result *string `locationName:"result" type:"string"`
+	Result *string `json:"swf:WorkflowExecutionCompletedEventAttributes:Result" locationName:"result" type:"string"`
 }
 
 // String returns the string representation
@@ -3739,7 +3739,7 @@ type WorkflowExecutionConfiguration struct {
 	//    * ABANDON – No action is taken. The child executions continue to run.
 	//
 	// ChildPolicy is a required field
-	ChildPolicy ChildPolicy `locationName:"childPolicy" type:"string" required:"true" enum:"true"`
+	ChildPolicy ChildPolicy `json:"swf:WorkflowExecutionConfiguration:ChildPolicy" locationName:"childPolicy" type:"string" required:"true" enum:"true"`
 
 	// The total duration for this workflow execution.
 	//
@@ -3747,15 +3747,15 @@ type WorkflowExecutionConfiguration struct {
 	// 0. You can use NONE to specify unlimited duration.
 	//
 	// ExecutionStartToCloseTimeout is a required field
-	ExecutionStartToCloseTimeout *string `locationName:"executionStartToCloseTimeout" min:"1" type:"string" required:"true"`
+	ExecutionStartToCloseTimeout *string `json:"swf:WorkflowExecutionConfiguration:ExecutionStartToCloseTimeout" locationName:"executionStartToCloseTimeout" min:"1" type:"string" required:"true"`
 
 	// The IAM role attached to the child workflow execution.
-	LambdaRole *string `locationName:"lambdaRole" min:"1" type:"string"`
+	LambdaRole *string `json:"swf:WorkflowExecutionConfiguration:LambdaRole" locationName:"lambdaRole" min:"1" type:"string"`
 
 	// The task list used for the decision tasks generated for this workflow execution.
 	//
 	// TaskList is a required field
-	TaskList *TaskList `locationName:"taskList" type:"structure" required:"true"`
+	TaskList *TaskList `json:"swf:WorkflowExecutionConfiguration:TaskList" locationName:"taskList" type:"structure" required:"true"`
 
 	// The priority assigned to decision tasks for this workflow execution. Valid
 	// values are integers that range from Java's Integer.MIN_VALUE (-2147483648)
@@ -3764,7 +3764,7 @@ type WorkflowExecutionConfiguration struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:WorkflowExecutionConfiguration:TaskPriority" locationName:"taskPriority" type:"string"`
 
 	// The maximum duration allowed for decision tasks for this workflow execution.
 	//
@@ -3772,7 +3772,7 @@ type WorkflowExecutionConfiguration struct {
 	// 0. You can use NONE to specify unlimited duration.
 	//
 	// TaskStartToCloseTimeout is a required field
-	TaskStartToCloseTimeout *string `locationName:"taskStartToCloseTimeout" min:"1" type:"string" required:"true"`
+	TaskStartToCloseTimeout *string `json:"swf:WorkflowExecutionConfiguration:TaskStartToCloseTimeout" locationName:"taskStartToCloseTimeout" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3800,7 +3800,7 @@ type WorkflowExecutionContinuedAsNewEventAttributes struct {
 	//    * ABANDON – No action is taken. The child executions continue to run.
 	//
 	// ChildPolicy is a required field
-	ChildPolicy ChildPolicy `locationName:"childPolicy" type:"string" required:"true" enum:"true"`
+	ChildPolicy ChildPolicy `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:ChildPolicy" locationName:"childPolicy" type:"string" required:"true" enum:"true"`
 
 	// The ID of the DecisionTaskCompleted event corresponding to the decision task
 	// that resulted in the ContinueAsNewWorkflowExecution decision that started
@@ -3808,47 +3808,47 @@ type WorkflowExecutionContinuedAsNewEventAttributes struct {
 	// tracing back the chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The total duration allowed for the new workflow execution.
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	ExecutionStartToCloseTimeout *string `locationName:"executionStartToCloseTimeout" type:"string"`
+	ExecutionStartToCloseTimeout *string `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:ExecutionStartToCloseTimeout" locationName:"executionStartToCloseTimeout" type:"string"`
 
 	// The input provided to the new workflow execution.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:Input" locationName:"input" type:"string"`
 
 	// The IAM role to attach to the new (continued) workflow execution.
-	LambdaRole *string `locationName:"lambdaRole" min:"1" type:"string"`
+	LambdaRole *string `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:LambdaRole" locationName:"lambdaRole" min:"1" type:"string"`
 
 	// The runId of the new workflow execution.
 	//
 	// NewExecutionRunId is a required field
-	NewExecutionRunId *string `locationName:"newExecutionRunId" min:"1" type:"string" required:"true"`
+	NewExecutionRunId *string `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:NewExecutionRunId" locationName:"newExecutionRunId" min:"1" type:"string" required:"true"`
 
 	// The list of tags associated with the new workflow execution.
-	TagList []string `locationName:"tagList" type:"list"`
+	TagList []string `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:TagList" locationName:"tagList" type:"list"`
 
 	// The task list to use for the decisions of the new (continued) workflow execution.
 	//
 	// TaskList is a required field
-	TaskList *TaskList `locationName:"taskList" type:"structure" required:"true"`
+	TaskList *TaskList `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:TaskList" locationName:"taskList" type:"structure" required:"true"`
 
 	// The priority of the task to use for the decisions of the new (continued)
 	// workflow execution.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:TaskPriority" locationName:"taskPriority" type:"string"`
 
 	// The maximum duration of decision tasks for the new workflow execution.
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	TaskStartToCloseTimeout *string `locationName:"taskStartToCloseTimeout" type:"string"`
+	TaskStartToCloseTimeout *string `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:TaskStartToCloseTimeout" locationName:"taskStartToCloseTimeout" type:"string"`
 
 	// The workflow type of this execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:WorkflowExecutionContinuedAsNewEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3866,13 +3866,13 @@ type WorkflowExecutionFailedEventAttributes struct {
 	// chain of events leading up to this event.
 	//
 	// DecisionTaskCompletedEventId is a required field
-	DecisionTaskCompletedEventId *int64 `locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
+	DecisionTaskCompletedEventId *int64 `json:"swf:WorkflowExecutionFailedEventAttributes:DecisionTaskCompletedEventId" locationName:"decisionTaskCompletedEventId" type:"long" required:"true"`
 
 	// The details of the failure.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:WorkflowExecutionFailedEventAttributes:Details" locationName:"details" type:"string"`
 
 	// The descriptive reason provided for the failure.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"swf:WorkflowExecutionFailedEventAttributes:Reason" locationName:"reason" type:"string"`
 }
 
 // String returns the string representation
@@ -3887,7 +3887,7 @@ type WorkflowExecutionFilter struct {
 	// The workflowId to pass of match the criteria of this filter.
 	//
 	// WorkflowId is a required field
-	WorkflowId *string `locationName:"workflowId" min:"1" type:"string" required:"true"`
+	WorkflowId *string `json:"swf:WorkflowExecutionFilter:WorkflowId" locationName:"workflowId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3917,7 +3917,7 @@ type WorkflowExecutionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Set to true if a cancellation is requested for this workflow execution.
-	CancelRequested *bool `locationName:"cancelRequested" type:"boolean"`
+	CancelRequested *bool `json:"swf:WorkflowExecutionInfo:CancelRequested" locationName:"cancelRequested" type:"boolean"`
 
 	// If the execution status is closed then this specifies how the execution was
 	// closed:
@@ -3937,40 +3937,40 @@ type WorkflowExecutionInfo struct {
 	//    * CONTINUED_AS_NEW – the execution is logically continued. This means
 	//    the current execution was completed and a new execution was started to
 	//    carry on the workflow.
-	CloseStatus CloseStatus `locationName:"closeStatus" type:"string" enum:"true"`
+	CloseStatus CloseStatus `json:"swf:WorkflowExecutionInfo:CloseStatus" locationName:"closeStatus" type:"string" enum:"true"`
 
 	// The time when the workflow execution was closed. Set only if the execution
 	// status is CLOSED.
-	CloseTimestamp *time.Time `locationName:"closeTimestamp" type:"timestamp" timestampFormat:"unix"`
+	CloseTimestamp *time.Time `json:"swf:WorkflowExecutionInfo:CloseTimestamp" locationName:"closeTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The workflow execution this information is about.
 	//
 	// Execution is a required field
-	Execution *WorkflowExecution `locationName:"execution" type:"structure" required:"true"`
+	Execution *WorkflowExecution `json:"swf:WorkflowExecutionInfo:Execution" locationName:"execution" type:"structure" required:"true"`
 
 	// The current status of the execution.
 	//
 	// ExecutionStatus is a required field
-	ExecutionStatus ExecutionStatus `locationName:"executionStatus" type:"string" required:"true" enum:"true"`
+	ExecutionStatus ExecutionStatus `json:"swf:WorkflowExecutionInfo:ExecutionStatus" locationName:"executionStatus" type:"string" required:"true" enum:"true"`
 
 	// If this workflow execution is a child of another execution then contains
 	// the workflow execution that started this execution.
-	Parent *WorkflowExecution `locationName:"parent" type:"structure"`
+	Parent *WorkflowExecution `json:"swf:WorkflowExecutionInfo:Parent" locationName:"parent" type:"structure"`
 
 	// The time when the execution was started.
 	//
 	// StartTimestamp is a required field
-	StartTimestamp *time.Time `locationName:"startTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartTimestamp *time.Time `json:"swf:WorkflowExecutionInfo:StartTimestamp" locationName:"startTimestamp" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The list of tags associated with the workflow execution. Tags can be used
 	// to identify and list workflow executions of interest through the visibility
 	// APIs. A workflow execution can have a maximum of 5 tags.
-	TagList []string `locationName:"tagList" type:"list"`
+	TagList []string `json:"swf:WorkflowExecutionInfo:TagList" locationName:"tagList" type:"list"`
 
 	// The type of the workflow execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:WorkflowExecutionInfo:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -3986,27 +3986,27 @@ type WorkflowExecutionOpenCounts struct {
 	// The count of activity tasks whose status is OPEN.
 	//
 	// OpenActivityTasks is a required field
-	OpenActivityTasks *int64 `locationName:"openActivityTasks" type:"integer" required:"true"`
+	OpenActivityTasks *int64 `json:"swf:WorkflowExecutionOpenCounts:OpenActivityTasks" locationName:"openActivityTasks" type:"integer" required:"true"`
 
 	// The count of child workflow executions whose status is OPEN.
 	//
 	// OpenChildWorkflowExecutions is a required field
-	OpenChildWorkflowExecutions *int64 `locationName:"openChildWorkflowExecutions" type:"integer" required:"true"`
+	OpenChildWorkflowExecutions *int64 `json:"swf:WorkflowExecutionOpenCounts:OpenChildWorkflowExecutions" locationName:"openChildWorkflowExecutions" type:"integer" required:"true"`
 
 	// The count of decision tasks whose status is OPEN. A workflow execution can
 	// have at most one open decision task.
 	//
 	// OpenDecisionTasks is a required field
-	OpenDecisionTasks *int64 `locationName:"openDecisionTasks" type:"integer" required:"true"`
+	OpenDecisionTasks *int64 `json:"swf:WorkflowExecutionOpenCounts:OpenDecisionTasks" locationName:"openDecisionTasks" type:"integer" required:"true"`
 
 	// The count of Lambda tasks whose status is OPEN.
-	OpenLambdaFunctions *int64 `locationName:"openLambdaFunctions" type:"integer"`
+	OpenLambdaFunctions *int64 `json:"swf:WorkflowExecutionOpenCounts:OpenLambdaFunctions" locationName:"openLambdaFunctions" type:"integer"`
 
 	// The count of timers started by this workflow execution that have not fired
 	// yet.
 	//
 	// OpenTimers is a required field
-	OpenTimers *int64 `locationName:"openTimers" type:"integer" required:"true"`
+	OpenTimers *int64 `json:"swf:WorkflowExecutionOpenCounts:OpenTimers" locationName:"openTimers" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -4024,21 +4024,21 @@ type WorkflowExecutionSignaledEventAttributes struct {
 	// execution. This information can be useful for diagnosing problems by tracing
 	// back the chain of events leading up to this event. This field is set only
 	// if the signal was initiated by another workflow execution.
-	ExternalInitiatedEventId *int64 `locationName:"externalInitiatedEventId" type:"long"`
+	ExternalInitiatedEventId *int64 `json:"swf:WorkflowExecutionSignaledEventAttributes:ExternalInitiatedEventId" locationName:"externalInitiatedEventId" type:"long"`
 
 	// The workflow execution that sent the signal. This is set only of the signal
 	// was sent by another workflow execution.
-	ExternalWorkflowExecution *WorkflowExecution `locationName:"externalWorkflowExecution" type:"structure"`
+	ExternalWorkflowExecution *WorkflowExecution `json:"swf:WorkflowExecutionSignaledEventAttributes:ExternalWorkflowExecution" locationName:"externalWorkflowExecution" type:"structure"`
 
 	// The inputs provided with the signal. The decider can use the signal name
 	// and inputs to determine how to process the signal.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:WorkflowExecutionSignaledEventAttributes:Input" locationName:"input" type:"string"`
 
 	// The name of the signal received. The decider can use the signal name and
 	// inputs to determine how to the process the signal.
 	//
 	// SignalName is a required field
-	SignalName *string `locationName:"signalName" min:"1" type:"string" required:"true"`
+	SignalName *string `json:"swf:WorkflowExecutionSignaledEventAttributes:SignalName" locationName:"signalName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4066,59 +4066,59 @@ type WorkflowExecutionStartedEventAttributes struct {
 	//    * ABANDON – No action is taken. The child executions continue to run.
 	//
 	// ChildPolicy is a required field
-	ChildPolicy ChildPolicy `locationName:"childPolicy" type:"string" required:"true" enum:"true"`
+	ChildPolicy ChildPolicy `json:"swf:WorkflowExecutionStartedEventAttributes:ChildPolicy" locationName:"childPolicy" type:"string" required:"true" enum:"true"`
 
 	// If this workflow execution was started due to a ContinueAsNewWorkflowExecution
 	// decision, then it contains the runId of the previous workflow execution that
 	// was closed and continued as this execution.
-	ContinuedExecutionRunId *string `locationName:"continuedExecutionRunId" type:"string"`
+	ContinuedExecutionRunId *string `json:"swf:WorkflowExecutionStartedEventAttributes:ContinuedExecutionRunId" locationName:"continuedExecutionRunId" type:"string"`
 
 	// The maximum duration for this workflow execution.
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	ExecutionStartToCloseTimeout *string `locationName:"executionStartToCloseTimeout" type:"string"`
+	ExecutionStartToCloseTimeout *string `json:"swf:WorkflowExecutionStartedEventAttributes:ExecutionStartToCloseTimeout" locationName:"executionStartToCloseTimeout" type:"string"`
 
 	// The input provided to the workflow execution.
-	Input *string `locationName:"input" type:"string"`
+	Input *string `json:"swf:WorkflowExecutionStartedEventAttributes:Input" locationName:"input" type:"string"`
 
 	// The IAM role attached to the workflow execution.
-	LambdaRole *string `locationName:"lambdaRole" min:"1" type:"string"`
+	LambdaRole *string `json:"swf:WorkflowExecutionStartedEventAttributes:LambdaRole" locationName:"lambdaRole" min:"1" type:"string"`
 
 	// The ID of the StartChildWorkflowExecutionInitiated event corresponding to
 	// the StartChildWorkflowExecution Decision to start this workflow execution.
 	// The source event with this ID can be found in the history of the source workflow
 	// execution. This information can be useful for diagnosing problems by tracing
 	// back the chain of events leading up to this event.
-	ParentInitiatedEventId *int64 `locationName:"parentInitiatedEventId" type:"long"`
+	ParentInitiatedEventId *int64 `json:"swf:WorkflowExecutionStartedEventAttributes:ParentInitiatedEventId" locationName:"parentInitiatedEventId" type:"long"`
 
 	// The source workflow execution that started this workflow execution. The member
 	// isn't set if the workflow execution was not started by a workflow.
-	ParentWorkflowExecution *WorkflowExecution `locationName:"parentWorkflowExecution" type:"structure"`
+	ParentWorkflowExecution *WorkflowExecution `json:"swf:WorkflowExecutionStartedEventAttributes:ParentWorkflowExecution" locationName:"parentWorkflowExecution" type:"structure"`
 
 	// The list of tags associated with this workflow execution. An execution can
 	// have up to 5 tags.
-	TagList []string `locationName:"tagList" type:"list"`
+	TagList []string `json:"swf:WorkflowExecutionStartedEventAttributes:TagList" locationName:"tagList" type:"list"`
 
 	// The name of the task list for scheduling the decision tasks for this workflow
 	// execution.
 	//
 	// TaskList is a required field
-	TaskList *TaskList `locationName:"taskList" type:"structure" required:"true"`
+	TaskList *TaskList `json:"swf:WorkflowExecutionStartedEventAttributes:TaskList" locationName:"taskList" type:"structure" required:"true"`
 
 	// The priority of the decision tasks in the workflow execution.
-	TaskPriority *string `locationName:"taskPriority" type:"string"`
+	TaskPriority *string `json:"swf:WorkflowExecutionStartedEventAttributes:TaskPriority" locationName:"taskPriority" type:"string"`
 
 	// The maximum duration of decision tasks for this workflow type.
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	TaskStartToCloseTimeout *string `locationName:"taskStartToCloseTimeout" type:"string"`
+	TaskStartToCloseTimeout *string `json:"swf:WorkflowExecutionStartedEventAttributes:TaskStartToCloseTimeout" locationName:"taskStartToCloseTimeout" type:"string"`
 
 	// The workflow type of this execution.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:WorkflowExecutionStartedEventAttributes:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -4133,7 +4133,7 @@ type WorkflowExecutionTerminatedEventAttributes struct {
 	// If set, indicates that the workflow execution was automatically terminated,
 	// and specifies the cause. This happens if the parent workflow execution times
 	// out or is terminated and the child policy is set to terminate child executions.
-	Cause WorkflowExecutionTerminatedCause `locationName:"cause" type:"string" enum:"true"`
+	Cause WorkflowExecutionTerminatedCause `json:"swf:WorkflowExecutionTerminatedEventAttributes:Cause" locationName:"cause" type:"string" enum:"true"`
 
 	// The policy used for the child workflow executions of this workflow execution.
 	//
@@ -4149,13 +4149,13 @@ type WorkflowExecutionTerminatedEventAttributes struct {
 	//    * ABANDON – No action is taken. The child executions continue to run.
 	//
 	// ChildPolicy is a required field
-	ChildPolicy ChildPolicy `locationName:"childPolicy" type:"string" required:"true" enum:"true"`
+	ChildPolicy ChildPolicy `json:"swf:WorkflowExecutionTerminatedEventAttributes:ChildPolicy" locationName:"childPolicy" type:"string" required:"true" enum:"true"`
 
 	// The details provided for the termination.
-	Details *string `locationName:"details" type:"string"`
+	Details *string `json:"swf:WorkflowExecutionTerminatedEventAttributes:Details" locationName:"details" type:"string"`
 
 	// The reason provided for the termination.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"swf:WorkflowExecutionTerminatedEventAttributes:Reason" locationName:"reason" type:"string"`
 }
 
 // String returns the string representation
@@ -4181,12 +4181,12 @@ type WorkflowExecutionTimedOutEventAttributes struct {
 	//    * ABANDON – No action is taken. The child executions continue to run.
 	//
 	// ChildPolicy is a required field
-	ChildPolicy ChildPolicy `locationName:"childPolicy" type:"string" required:"true" enum:"true"`
+	ChildPolicy ChildPolicy `json:"swf:WorkflowExecutionTimedOutEventAttributes:ChildPolicy" locationName:"childPolicy" type:"string" required:"true" enum:"true"`
 
 	// The type of timeout that caused this event.
 	//
 	// TimeoutType is a required field
-	TimeoutType WorkflowExecutionTimeoutType `locationName:"timeoutType" type:"string" required:"true" enum:"true"`
+	TimeoutType WorkflowExecutionTimeoutType `json:"swf:WorkflowExecutionTimedOutEventAttributes:TimeoutType" locationName:"timeoutType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -4204,7 +4204,7 @@ type WorkflowType struct {
 	// a domain.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"swf:WorkflowType:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The version of the workflow type.
 	//
@@ -4212,7 +4212,7 @@ type WorkflowType struct {
 	// a domain.
 	//
 	// Version is a required field
-	Version *string `locationName:"version" min:"1" type:"string" required:"true"`
+	Version *string `json:"swf:WorkflowType:Version" locationName:"version" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4264,7 +4264,7 @@ type WorkflowTypeConfiguration struct {
 	//    execution history with this event.
 	//
 	//    * ABANDON – No action is taken. The child executions continue to run.
-	DefaultChildPolicy ChildPolicy `locationName:"defaultChildPolicy" type:"string" enum:"true"`
+	DefaultChildPolicy ChildPolicy `json:"swf:WorkflowTypeConfiguration:DefaultChildPolicy" locationName:"defaultChildPolicy" type:"string" enum:"true"`
 
 	// The default maximum duration, specified when registering the workflow type,
 	// for executions of this workflow type. This default can be overridden when
@@ -4273,7 +4273,7 @@ type WorkflowTypeConfiguration struct {
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	DefaultExecutionStartToCloseTimeout *string `locationName:"defaultExecutionStartToCloseTimeout" type:"string"`
+	DefaultExecutionStartToCloseTimeout *string `json:"swf:WorkflowTypeConfiguration:DefaultExecutionStartToCloseTimeout" locationName:"defaultExecutionStartToCloseTimeout" type:"string"`
 
 	// The default IAM role attached to this workflow type.
 	//
@@ -4282,13 +4282,13 @@ type WorkflowTypeConfiguration struct {
 	// Lambda role is attached to the execution. For more information, see https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html)
 	// in the Amazon SWF Developer Guide.
-	DefaultLambdaRole *string `locationName:"defaultLambdaRole" min:"1" type:"string"`
+	DefaultLambdaRole *string `json:"swf:WorkflowTypeConfiguration:DefaultLambdaRole" locationName:"defaultLambdaRole" min:"1" type:"string"`
 
 	// The default task list, specified when registering the workflow type, for
 	// decisions tasks scheduled for workflow executions of this type. This default
 	// can be overridden when starting a workflow execution using the StartWorkflowExecution
 	// action or the StartChildWorkflowExecution Decision.
-	DefaultTaskList *TaskList `locationName:"defaultTaskList" type:"structure"`
+	DefaultTaskList *TaskList `json:"swf:WorkflowTypeConfiguration:DefaultTaskList" locationName:"defaultTaskList" type:"structure"`
 
 	// The default task priority, specified when registering the workflow type,
 	// for all decision tasks of this workflow type. This default can be overridden
@@ -4301,7 +4301,7 @@ type WorkflowTypeConfiguration struct {
 	// For more information about setting task priority, see Setting Task Priority
 	// (https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html)
 	// in the Amazon SWF Developer Guide.
-	DefaultTaskPriority *string `locationName:"defaultTaskPriority" type:"string"`
+	DefaultTaskPriority *string `json:"swf:WorkflowTypeConfiguration:DefaultTaskPriority" locationName:"defaultTaskPriority" type:"string"`
 
 	// The default maximum duration, specified when registering the workflow type,
 	// that a decision task for executions of this workflow type might take before
@@ -4313,7 +4313,7 @@ type WorkflowTypeConfiguration struct {
 	//
 	// The duration is specified in seconds, an integer greater than or equal to
 	// 0. You can use NONE to specify unlimited duration.
-	DefaultTaskStartToCloseTimeout *string `locationName:"defaultTaskStartToCloseTimeout" type:"string"`
+	DefaultTaskStartToCloseTimeout *string `json:"swf:WorkflowTypeConfiguration:DefaultTaskStartToCloseTimeout" locationName:"defaultTaskStartToCloseTimeout" type:"string"`
 }
 
 // String returns the string representation
@@ -4329,10 +4329,10 @@ type WorkflowTypeFilter struct {
 	// Name of the workflow type.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"swf:WorkflowTypeFilter:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// Version of the workflow type.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"swf:WorkflowTypeFilter:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -4364,24 +4364,24 @@ type WorkflowTypeInfo struct {
 	// The date when this type was registered.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"swf:WorkflowTypeInfo:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// If the type is in deprecated state, then it is set to the date when the type
 	// was deprecated.
-	DeprecationDate *time.Time `locationName:"deprecationDate" type:"timestamp" timestampFormat:"unix"`
+	DeprecationDate *time.Time `json:"swf:WorkflowTypeInfo:DeprecationDate" locationName:"deprecationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the type registered through RegisterWorkflowType.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"swf:WorkflowTypeInfo:Description" locationName:"description" type:"string"`
 
 	// The current status of the workflow type.
 	//
 	// Status is a required field
-	Status RegistrationStatus `locationName:"status" type:"string" required:"true" enum:"true"`
+	Status RegistrationStatus `json:"swf:WorkflowTypeInfo:Status" locationName:"status" type:"string" required:"true" enum:"true"`
 
 	// The workflow type this information is about.
 	//
 	// WorkflowType is a required field
-	WorkflowType *WorkflowType `locationName:"workflowType" type:"structure" required:"true"`
+	WorkflowType *WorkflowType `json:"swf:WorkflowTypeInfo:WorkflowType" locationName:"workflowType" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -69,7 +69,7 @@ type UpdatePolicyOutput struct {
 
 	// A structure that contains details about the updated policy, showing the requested
 	// changes.
-	Policy *Policy `type:"structure"`
+	Policy *Policy `json:"organizations:UpdatePolicyOutput:Policy" type:"structure"`
 }
 
 // String returns the string representation

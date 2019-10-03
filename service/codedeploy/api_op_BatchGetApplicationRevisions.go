@@ -59,13 +59,13 @@ type BatchGetApplicationRevisionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the application that corresponds to the revisions.
-	ApplicationName *string `locationName:"applicationName" min:"1" type:"string"`
+	ApplicationName *string `json:"codedeploy:BatchGetApplicationRevisionsOutput:ApplicationName" locationName:"applicationName" min:"1" type:"string"`
 
 	// Information about errors that might have occurred during the API call.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"codedeploy:BatchGetApplicationRevisionsOutput:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// Additional information about the revisions, including the type and location.
-	Revisions []RevisionInfo `locationName:"revisions" type:"list"`
+	Revisions []RevisionInfo `json:"codedeploy:BatchGetApplicationRevisionsOutput:Revisions" locationName:"revisions" type:"list"`
 }
 
 // String returns the string representation

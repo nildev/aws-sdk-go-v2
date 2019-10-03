@@ -53,7 +53,7 @@ type DescribeIdentityIdFormatOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the ID format for the resources.
-	Statuses []IdFormat `locationName:"statusSet" locationNameList:"item" type:"list"`
+	Statuses []IdFormat `json:"ec2:DescribeIdentityIdFormatOutput:Statuses" locationName:"statusSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

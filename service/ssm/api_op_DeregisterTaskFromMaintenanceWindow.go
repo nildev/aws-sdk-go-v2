@@ -58,10 +58,10 @@ type DeregisterTaskFromMaintenanceWindowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the maintenance window the task was removed from.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:DeregisterTaskFromMaintenanceWindowOutput:WindowId" min:"20" type:"string"`
 
 	// The ID of the task removed from the maintenance window.
-	WindowTaskId *string `min:"36" type:"string"`
+	WindowTaskId *string `json:"ssm:DeregisterTaskFromMaintenanceWindowOutput:WindowTaskId" min:"36" type:"string"`
 }
 
 // String returns the string representation

@@ -77,20 +77,20 @@ type GetLoggerDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the logger definition version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetLoggerDefinitionVersionOutput:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the logger definition version
 	// was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetLoggerDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
 	// Information about the logger definition version.
-	Definition *LoggerDefinitionVersion `type:"structure"`
+	Definition *LoggerDefinitionVersion `json:"greengrass:GetLoggerDefinitionVersionOutput:Definition" type:"structure"`
 
 	// The ID of the logger definition version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetLoggerDefinitionVersionOutput:Id" type:"string"`
 
 	// The version of the logger definition version.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:GetLoggerDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

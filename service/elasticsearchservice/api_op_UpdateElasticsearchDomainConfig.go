@@ -160,7 +160,7 @@ type UpdateElasticsearchDomainConfigOutput struct {
 	// The status of the updated Elasticsearch domain.
 	//
 	// DomainConfig is a required field
-	DomainConfig *ElasticsearchDomainConfig `type:"structure" required:"true"`
+	DomainConfig *ElasticsearchDomainConfig `json:"es:UpdateElasticsearchDomainConfigOutput:DomainConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation

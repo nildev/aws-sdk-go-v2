@@ -54,13 +54,13 @@ type DescribeServicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The format version of the response. For example, aws_v1.
-	FormatVersion *string `type:"string"`
+	FormatVersion *string `json:"api.pricing:DescribeServicesOutput:FormatVersion" type:"string"`
 
 	// The pagination token for the next set of retreivable results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.pricing:DescribeServicesOutput:NextToken" type:"string"`
 
 	// The service metadata for the service or services in the response.
-	Services []Service `type:"list"`
+	Services []Service `json:"api.pricing:DescribeServicesOutput:Services" type:"list"`
 }
 
 // String returns the string representation

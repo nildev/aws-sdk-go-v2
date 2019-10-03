@@ -20,14 +20,14 @@ type Button struct {
 	// Text that is visible to the user on the button.
 	//
 	// Text is a required field
-	Text *string `locationName:"text" min:"1" type:"string" required:"true"`
+	Text *string `json:"runtime.lex:Button:Text" locationName:"text" min:"1" type:"string" required:"true"`
 
 	// The value sent to Amazon Lex when a user chooses the button. For example,
 	// consider button text "NYC." When the user chooses the button, the value sent
 	// can be "New York City."
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"runtime.lex:Button:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -59,19 +59,19 @@ type GenericAttachment struct {
 	_ struct{} `type:"structure"`
 
 	// The URL of an attachment to the response card.
-	AttachmentLinkUrl *string `locationName:"attachmentLinkUrl" min:"1" type:"string"`
+	AttachmentLinkUrl *string `json:"runtime.lex:GenericAttachment:AttachmentLinkUrl" locationName:"attachmentLinkUrl" min:"1" type:"string"`
 
 	// The list of options to show to the user.
-	Buttons []Button `locationName:"buttons" type:"list"`
+	Buttons []Button `json:"runtime.lex:GenericAttachment:Buttons" locationName:"buttons" type:"list"`
 
 	// The URL of an image that is displayed to the user.
-	ImageUrl *string `locationName:"imageUrl" min:"1" type:"string"`
+	ImageUrl *string `json:"runtime.lex:GenericAttachment:ImageUrl" locationName:"imageUrl" min:"1" type:"string"`
 
 	// The subtitle shown below the title.
-	SubTitle *string `locationName:"subTitle" min:"1" type:"string"`
+	SubTitle *string `json:"runtime.lex:GenericAttachment:SubTitle" locationName:"subTitle" min:"1" type:"string"`
 
 	// The title of the option.
-	Title *string `locationName:"title" min:"1" type:"string"`
+	Title *string `json:"runtime.lex:GenericAttachment:Title" locationName:"title" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -129,13 +129,13 @@ type ResponseCard struct {
 	_ struct{} `type:"structure"`
 
 	// The content type of the response.
-	ContentType ContentType `locationName:"contentType" type:"string" enum:"true"`
+	ContentType ContentType `json:"runtime.lex:ResponseCard:ContentType" locationName:"contentType" type:"string" enum:"true"`
 
 	// An array of attachment objects representing options.
-	GenericAttachments []GenericAttachment `locationName:"genericAttachments" type:"list"`
+	GenericAttachments []GenericAttachment `json:"runtime.lex:ResponseCard:GenericAttachments" locationName:"genericAttachments" type:"list"`
 
 	// The version of the response card format.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"runtime.lex:ResponseCard:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation

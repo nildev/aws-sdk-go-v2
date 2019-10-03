@@ -68,10 +68,10 @@ type DescribeParametersOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeParametersOutput:NextToken" type:"string"`
 
 	// Parameters returned by the request.
-	Parameters []ParameterMetadata `type:"list"`
+	Parameters []ParameterMetadata `json:"ssm:DescribeParametersOutput:Parameters" type:"list"`
 }
 
 // String returns the string representation

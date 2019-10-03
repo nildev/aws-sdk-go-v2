@@ -79,7 +79,7 @@ type GetDomainAssociationOutput struct {
 	// Domain Association structure.
 	//
 	// DomainAssociation is a required field
-	DomainAssociation *DomainAssociation `locationName:"domainAssociation" type:"structure" required:"true"`
+	DomainAssociation *DomainAssociation `json:"amplify:GetDomainAssociationOutput:DomainAssociation" locationName:"domainAssociation" type:"structure" required:"true"`
 }
 
 // String returns the string representation

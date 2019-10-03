@@ -86,10 +86,10 @@ type DescribeRootFoldersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The user's special folders.
-	Folders []FolderMetadata `type:"list"`
+	Folders []FolderMetadata `json:"workdocs:DescribeRootFoldersOutput:Folders" type:"list"`
 
 	// The marker for the next set of results.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeRootFoldersOutput:Marker" min:"1" type:"string"`
 }
 
 // String returns the string representation

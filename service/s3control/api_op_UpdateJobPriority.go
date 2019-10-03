@@ -89,12 +89,12 @@ type UpdateJobPriorityOutput struct {
 	// The ID for the job whose priority Amazon S3 updated.
 	//
 	// JobId is a required field
-	JobId *string `min:"5" type:"string" required:"true"`
+	JobId *string `json:"s3-control:UpdateJobPriorityOutput:JobId" min:"5" type:"string" required:"true"`
 
 	// The new priority assigned to the specified job.
 	//
 	// Priority is a required field
-	Priority *int64 `type:"integer" required:"true"`
+	Priority *int64 `json:"s3-control:UpdateJobPriorityOutput:Priority" type:"integer" required:"true"`
 }
 
 // String returns the string representation

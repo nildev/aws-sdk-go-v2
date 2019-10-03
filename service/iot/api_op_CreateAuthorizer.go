@@ -121,10 +121,10 @@ type CreateAuthorizerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The authorizer ARN.
-	AuthorizerArn *string `locationName:"authorizerArn" type:"string"`
+	AuthorizerArn *string `json:"iot:CreateAuthorizerOutput:AuthorizerArn" locationName:"authorizerArn" type:"string"`
 
 	// The authorizer's name.
-	AuthorizerName *string `locationName:"authorizerName" min:"1" type:"string"`
+	AuthorizerName *string `json:"iot:CreateAuthorizerOutput:AuthorizerName" locationName:"authorizerName" min:"1" type:"string"`
 }
 
 // String returns the string representation

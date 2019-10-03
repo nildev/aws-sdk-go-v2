@@ -81,7 +81,7 @@ type CreateContainerOutput struct {
 	// requests, you must obtain this value by using DescribeContainer or ListContainers.
 	//
 	// Container is a required field
-	Container *Container `type:"structure" required:"true"`
+	Container *Container `json:"mediastore:CreateContainerOutput:Container" type:"structure" required:"true"`
 }
 
 // String returns the string representation

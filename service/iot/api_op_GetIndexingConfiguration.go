@@ -29,10 +29,10 @@ type GetIndexingConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The index configuration.
-	ThingGroupIndexingConfiguration *ThingGroupIndexingConfiguration `locationName:"thingGroupIndexingConfiguration" type:"structure"`
+	ThingGroupIndexingConfiguration *ThingGroupIndexingConfiguration `json:"iot:GetIndexingConfigurationOutput:ThingGroupIndexingConfiguration" locationName:"thingGroupIndexingConfiguration" type:"structure"`
 
 	// Thing indexing configuration.
-	ThingIndexingConfiguration *ThingIndexingConfiguration `locationName:"thingIndexingConfiguration" type:"structure"`
+	ThingIndexingConfiguration *ThingIndexingConfiguration `json:"iot:GetIndexingConfigurationOutput:ThingIndexingConfiguration" locationName:"thingIndexingConfiguration" type:"structure"`
 }
 
 // String returns the string representation

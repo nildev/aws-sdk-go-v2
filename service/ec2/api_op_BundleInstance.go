@@ -68,7 +68,7 @@ type BundleInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the bundle task.
-	BundleTask *BundleTask `locationName:"bundleInstanceTask" type:"structure"`
+	BundleTask *BundleTask `json:"ec2:BundleInstanceOutput:BundleTask" locationName:"bundleInstanceTask" type:"structure"`
 }
 
 // String returns the string representation

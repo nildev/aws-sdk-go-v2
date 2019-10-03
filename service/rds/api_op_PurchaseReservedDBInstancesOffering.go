@@ -60,7 +60,7 @@ type PurchaseReservedDBInstancesOfferingOutput struct {
 
 	// This data type is used as a response element in the DescribeReservedDBInstances
 	// and PurchaseReservedDBInstancesOffering actions.
-	ReservedDBInstance *ReservedDBInstance `type:"structure"`
+	ReservedDBInstance *ReservedDBInstance `json:"rds:PurchaseReservedDBInstancesOfferingOutput:ReservedDBInstance" type:"structure"`
 }
 
 // String returns the string representation

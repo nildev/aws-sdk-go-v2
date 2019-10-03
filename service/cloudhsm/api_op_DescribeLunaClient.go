@@ -30,19 +30,19 @@ type DescribeLunaClientOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The certificate installed on the HSMs used by this client.
-	Certificate *string `min:"600" type:"string"`
+	Certificate *string `json:"cloudhsm:DescribeLunaClientOutput:Certificate" min:"600" type:"string"`
 
 	// The certificate fingerprint.
-	CertificateFingerprint *string `type:"string"`
+	CertificateFingerprint *string `json:"cloudhsm:DescribeLunaClientOutput:CertificateFingerprint" type:"string"`
 
 	// The ARN of the client.
-	ClientArn *string `type:"string"`
+	ClientArn *string `json:"cloudhsm:DescribeLunaClientOutput:ClientArn" type:"string"`
 
 	// The label of the client.
-	Label *string `type:"string"`
+	Label *string `json:"cloudhsm:DescribeLunaClientOutput:Label" type:"string"`
 
 	// The date and time the client was last modified.
-	LastModifiedTimestamp *string `type:"string"`
+	LastModifiedTimestamp *string `json:"cloudhsm:DescribeLunaClientOutput:LastModifiedTimestamp" type:"string"`
 }
 
 // String returns the string representation

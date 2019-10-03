@@ -35,16 +35,16 @@ type ActiveTrustedSigners struct {
 	// is false.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"cloudfront:ActiveTrustedSigners:Enabled" type:"boolean" required:"true"`
 
 	// A complex type that contains one Signer complex type for each trusted signer
 	// that is specified in the TrustedSigners complex type.
-	Items []Signer `locationNameList:"Signer" type:"list"`
+	Items []Signer `json:"cloudfront:ActiveTrustedSigners:Items" locationNameList:"Signer" type:"list"`
 
 	// The number of trusted signers specified in the TrustedSigners complex type.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:ActiveTrustedSigners:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -96,7 +96,7 @@ type AliasICPRecordal struct {
 	_ struct{} `type:"structure"`
 
 	// A domain name associated with a distribution.
-	CNAME *string `type:"string"`
+	CNAME *string `json:"cloudfront:AliasICPRecordal:CNAME" type:"string"`
 
 	// The Internet Content Provider (ICP) recordal status for a CNAME. The ICPRecordalStatus
 	// is set to APPROVED for all CNAMEs (aliases) in regions outside of China.
@@ -114,7 +114,7 @@ type AliasICPRecordal struct {
 	//
 	//    * PENDING indicates that at least one CNAME associated with the distribution
 	//    does not have a valid ICP recordal number.
-	ICPRecordalStatus ICPRecordalStatus `type:"string" enum:"true"`
+	ICPRecordalStatus ICPRecordalStatus `json:"cloudfront:AliasICPRecordal:ICPRecordalStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -147,13 +147,13 @@ type Aliases struct {
 
 	// A complex type that contains the CNAME aliases, if any, that you want to
 	// associate with this distribution.
-	Items []string `locationNameList:"CNAME" type:"list"`
+	Items []string `json:"cloudfront:Aliases:Items" locationNameList:"CNAME" type:"list"`
 
 	// The number of CNAME aliases, if any, that you want to associate with this
 	// distribution.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:Aliases:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -227,20 +227,20 @@ type AllowedMethods struct {
 	// If you pick the second choice for your Amazon S3 Origin, you may need to
 	// forward Access-Control-Request-Method, Access-Control-Request-Headers, and
 	// Origin headers for the responses to be cached correctly.
-	CachedMethods *CachedMethods `type:"structure"`
+	CachedMethods *CachedMethods `json:"cloudfront:AllowedMethods:CachedMethods" type:"structure"`
 
 	// A complex type that contains the HTTP methods that you want CloudFront to
 	// process and forward to your origin.
 	//
 	// Items is a required field
-	Items []Method `locationNameList:"Method" type:"list" required:"true"`
+	Items []Method `json:"cloudfront:AllowedMethods:Items" locationNameList:"Method" type:"list" required:"true"`
 
 	// The number of HTTP methods that you want CloudFront to forward to your origin.
 	// Valid values are 2 (for GET and HEAD requests), 3 (for GET, HEAD, and OPTIONS
 	// requests) and 7 (for GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE requests).
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:AllowedMethods:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -345,13 +345,13 @@ type CacheBehavior struct {
 	// S3 bucket or to your custom origin so users can't perform operations that
 	// you don't want them to. For example, you might not want users to have permissions
 	// to delete objects from your origin.
-	AllowedMethods *AllowedMethods `type:"structure"`
+	AllowedMethods *AllowedMethods `json:"cloudfront:CacheBehavior:AllowedMethods" type:"structure"`
 
 	// Whether you want CloudFront to automatically compress certain files for this
 	// cache behavior. If so, specify true; if not, specify false. For more information,
 	// see Serving Compressed Files (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html)
 	// in the Amazon CloudFront Developer Guide.
-	Compress *bool `type:"boolean"`
+	Compress *bool `json:"cloudfront:CacheBehavior:Compress" type:"boolean"`
 
 	// The default amount of time that you want objects to stay in CloudFront caches
 	// before CloudFront forwards another request to your origin to determine whether
@@ -360,21 +360,21 @@ type CacheBehavior struct {
 	// s-maxage, and Expires to objects. For more information, see Managing How
 	// Long Content Stays in an Edge Cache (Expiration) (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html)
 	// in the Amazon CloudFront Developer Guide.
-	DefaultTTL *int64 `type:"long"`
+	DefaultTTL *int64 `json:"cloudfront:CacheBehavior:DefaultTTL" type:"long"`
 
 	// The value of ID for the field-level encryption configuration that you want
 	// CloudFront to use for encrypting specific fields of data for a cache behavior
 	// or for the default cache behavior in your distribution.
-	FieldLevelEncryptionId *string `type:"string"`
+	FieldLevelEncryptionId *string `json:"cloudfront:CacheBehavior:FieldLevelEncryptionId" type:"string"`
 
 	// A complex type that specifies how CloudFront handles query strings and cookies.
 	//
 	// ForwardedValues is a required field
-	ForwardedValues *ForwardedValues `type:"structure" required:"true"`
+	ForwardedValues *ForwardedValues `json:"cloudfront:CacheBehavior:ForwardedValues" type:"structure" required:"true"`
 
 	// A complex type that contains zero or more Lambda function associations for
 	// a cache behavior.
-	LambdaFunctionAssociations *LambdaFunctionAssociations `type:"structure"`
+	LambdaFunctionAssociations *LambdaFunctionAssociations `json:"cloudfront:CacheBehavior:LambdaFunctionAssociations" type:"structure"`
 
 	// The maximum amount of time that you want objects to stay in CloudFront caches
 	// before CloudFront forwards another request to your origin to determine whether
@@ -383,7 +383,7 @@ type CacheBehavior struct {
 	// s-maxage, and Expires to objects. For more information, see Managing How
 	// Long Content Stays in an Edge Cache (Expiration) (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html)
 	// in the Amazon CloudFront Developer Guide.
-	MaxTTL *int64 `type:"long"`
+	MaxTTL *int64 `json:"cloudfront:CacheBehavior:MaxTTL" type:"long"`
 
 	// The minimum amount of time that you want objects to stay in CloudFront caches
 	// before CloudFront forwards another request to your origin to determine whether
@@ -396,7 +396,7 @@ type CacheBehavior struct {
 	// * for Name).
 	//
 	// MinTTL is a required field
-	MinTTL *int64 `type:"long" required:"true"`
+	MinTTL *int64 `json:"cloudfront:CacheBehavior:MinTTL" type:"long" required:"true"`
 
 	// The pattern (for example, images/*.jpg) that specifies which requests to
 	// apply the behavior to. When CloudFront receives a viewer request, the requested
@@ -415,21 +415,21 @@ type CacheBehavior struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// PathPattern is a required field
-	PathPattern *string `type:"string" required:"true"`
+	PathPattern *string `json:"cloudfront:CacheBehavior:PathPattern" type:"string" required:"true"`
 
 	// Indicates whether you want to distribute media files in the Microsoft Smooth
 	// Streaming format using the origin that is associated with this cache behavior.
 	// If so, specify true; if not, specify false. If you specify true for SmoothStreaming,
 	// you can still distribute other content using this cache behavior if the content
 	// matches the value of PathPattern.
-	SmoothStreaming *bool `type:"boolean"`
+	SmoothStreaming *bool `json:"cloudfront:CacheBehavior:SmoothStreaming" type:"boolean"`
 
 	// The value of ID for the origin that you want CloudFront to route requests
 	// to when a request matches the path pattern either for a cache behavior or
 	// for the default cache behavior in your distribution.
 	//
 	// TargetOriginId is a required field
-	TargetOriginId *string `type:"string" required:"true"`
+	TargetOriginId *string `json:"cloudfront:CacheBehavior:TargetOriginId" type:"string" required:"true"`
 
 	// A complex type that specifies the AWS accounts, if any, that you want to
 	// allow to create signed URLs for private content.
@@ -448,7 +448,7 @@ type CacheBehavior struct {
 	// all of the trusted signers that you want to include in the updated distribution.
 	//
 	// TrustedSigners is a required field
-	TrustedSigners *TrustedSigners `type:"structure" required:"true"`
+	TrustedSigners *TrustedSigners `json:"cloudfront:CacheBehavior:TrustedSigners" type:"structure" required:"true"`
 
 	// The protocol that viewers can use to access the files in the origin specified
 	// by TargetOriginId when a request matches the path pattern in PathPattern.
@@ -478,7 +478,7 @@ type CacheBehavior struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// ViewerProtocolPolicy is a required field
-	ViewerProtocolPolicy ViewerProtocolPolicy `type:"string" required:"true" enum:"true"`
+	ViewerProtocolPolicy ViewerProtocolPolicy `json:"cloudfront:CacheBehavior:ViewerProtocolPolicy" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -629,12 +629,12 @@ type CacheBehaviors struct {
 
 	// Optional: A complex type that contains cache behaviors for this distribution.
 	// If Quantity is 0, you can omit Items.
-	Items []CacheBehavior `locationNameList:"CacheBehavior" type:"list"`
+	Items []CacheBehavior `json:"cloudfront:CacheBehaviors:Items" locationNameList:"CacheBehavior" type:"list"`
 
 	// The number of cache behaviors for this distribution.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:CacheBehaviors:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -704,14 +704,14 @@ type CachedMethods struct {
 	// cache responses to.
 	//
 	// Items is a required field
-	Items []Method `locationNameList:"Method" type:"list" required:"true"`
+	Items []Method `json:"cloudfront:CachedMethods:Items" locationNameList:"Method" type:"list" required:"true"`
 
 	// The number of HTTP methods for which you want CloudFront to cache responses.
 	// Valid values are 2 (for caching responses to GET and HEAD requests) and 3
 	// (for caching responses to GET, HEAD, and OPTIONS requests).
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:CachedMethods:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -766,19 +766,19 @@ type CloudFrontOriginAccessIdentity struct {
 	_ struct{} `type:"structure"`
 
 	// The current configuration information for the identity.
-	CloudFrontOriginAccessIdentityConfig *CloudFrontOriginAccessIdentityConfig `type:"structure"`
+	CloudFrontOriginAccessIdentityConfig *CloudFrontOriginAccessIdentityConfig `json:"cloudfront:CloudFrontOriginAccessIdentity:CloudFrontOriginAccessIdentityConfig" type:"structure"`
 
 	// The ID for the origin access identity, for example, E74FTE3AJFJ256A.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:CloudFrontOriginAccessIdentity:Id" type:"string" required:"true"`
 
 	// The Amazon S3 canonical user ID for the origin access identity, used when
 	// giving the origin access identity read permission to an object in Amazon
 	// S3.
 	//
 	// S3CanonicalUserId is a required field
-	S3CanonicalUserId *string `type:"string" required:"true"`
+	S3CanonicalUserId *string `json:"cloudfront:CloudFrontOriginAccessIdentity:S3CanonicalUserId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -833,12 +833,12 @@ type CloudFrontOriginAccessIdentityConfig struct {
 	// error.
 	//
 	// CallerReference is a required field
-	CallerReference *string `type:"string" required:"true"`
+	CallerReference *string `json:"cloudfront:CloudFrontOriginAccessIdentityConfig:CallerReference" type:"string" required:"true"`
 
 	// Any comments you want to include about the origin access identity.
 	//
 	// Comment is a required field
-	Comment *string `type:"string" required:"true"`
+	Comment *string `json:"cloudfront:CloudFrontOriginAccessIdentityConfig:Comment" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -897,11 +897,11 @@ type CloudFrontOriginAccessIdentityList struct {
 	// list.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"cloudfront:CloudFrontOriginAccessIdentityList:IsTruncated" type:"boolean" required:"true"`
 
 	// A complex type that contains one CloudFrontOriginAccessIdentitySummary element
 	// for each origin access identity that was created by the current AWS account.
-	Items []CloudFrontOriginAccessIdentitySummary `locationNameList:"CloudFrontOriginAccessIdentitySummary" type:"list"`
+	Items []CloudFrontOriginAccessIdentitySummary `json:"cloudfront:CloudFrontOriginAccessIdentityList:Items" locationNameList:"CloudFrontOriginAccessIdentitySummary" type:"list"`
 
 	// Use this when paginating results to indicate where to begin in your list
 	// of origin access identities. The results include identities in the list that
@@ -910,23 +910,23 @@ type CloudFrontOriginAccessIdentityList struct {
 	// the ID of the last identity on that page).
 	//
 	// Marker is a required field
-	Marker *string `type:"string" required:"true"`
+	Marker *string `json:"cloudfront:CloudFrontOriginAccessIdentityList:Marker" type:"string" required:"true"`
 
 	// The maximum number of origin access identities you want in the response body.
 	//
 	// MaxItems is a required field
-	MaxItems *int64 `type:"integer" required:"true"`
+	MaxItems *int64 `json:"cloudfront:CloudFrontOriginAccessIdentityList:MaxItems" type:"integer" required:"true"`
 
 	// If IsTruncated is true, this element is present and contains the value you
 	// can use for the Marker request parameter to continue listing your origin
 	// access identities where they left off.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"cloudfront:CloudFrontOriginAccessIdentityList:NextMarker" type:"string"`
 
 	// The number of CloudFront origin access identities that were created by the
 	// current AWS account.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:CloudFrontOriginAccessIdentityList:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -990,19 +990,19 @@ type CloudFrontOriginAccessIdentitySummary struct {
 	// created.
 	//
 	// Comment is a required field
-	Comment *string `type:"string" required:"true"`
+	Comment *string `json:"cloudfront:CloudFrontOriginAccessIdentitySummary:Comment" type:"string" required:"true"`
 
 	// The ID for the origin access identity. For example: E74FTE3AJFJ256A.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:CloudFrontOriginAccessIdentitySummary:Id" type:"string" required:"true"`
 
 	// The Amazon S3 canonical user ID for the origin access identity, which you
 	// use when giving the origin access identity read permission to an object in
 	// Amazon S3.
 	//
 	// S3CanonicalUserId is a required field
-	S3CanonicalUserId *string `type:"string" required:"true"`
+	S3CanonicalUserId *string `json:"cloudfront:CloudFrontOriginAccessIdentitySummary:S3CanonicalUserId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1041,15 +1041,15 @@ type ContentTypeProfile struct {
 	// The content type for a field-level encryption content type-profile mapping.
 	//
 	// ContentType is a required field
-	ContentType *string `type:"string" required:"true"`
+	ContentType *string `json:"cloudfront:ContentTypeProfile:ContentType" type:"string" required:"true"`
 
 	// The format for a field-level encryption content type-profile mapping.
 	//
 	// Format is a required field
-	Format Format `type:"string" required:"true" enum:"true"`
+	Format Format `json:"cloudfront:ContentTypeProfile:Format" type:"string" required:"true" enum:"true"`
 
 	// The profile ID for a field-level encryption content type-profile mapping.
-	ProfileId *string `type:"string"`
+	ProfileId *string `json:"cloudfront:ContentTypeProfile:ProfileId" type:"string"`
 }
 
 // String returns the string representation
@@ -1103,7 +1103,7 @@ type ContentTypeProfileConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The configuration for a field-level encryption content type-profile.
-	ContentTypeProfiles *ContentTypeProfiles `type:"structure"`
+	ContentTypeProfiles *ContentTypeProfiles `json:"cloudfront:ContentTypeProfileConfig:ContentTypeProfiles" type:"structure"`
 
 	// The setting in a field-level encryption content type-profile mapping that
 	// specifies what to do when an unknown content type is provided for the profile.
@@ -1112,7 +1112,7 @@ type ContentTypeProfileConfig struct {
 	// type is unknown.
 	//
 	// ForwardWhenContentTypeIsUnknown is a required field
-	ForwardWhenContentTypeIsUnknown *bool `type:"boolean" required:"true"`
+	ForwardWhenContentTypeIsUnknown *bool `json:"cloudfront:ContentTypeProfileConfig:ForwardWhenContentTypeIsUnknown" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -1162,12 +1162,12 @@ type ContentTypeProfiles struct {
 	_ struct{} `type:"structure"`
 
 	// Items in a field-level encryption content type-profile mapping.
-	Items []ContentTypeProfile `locationNameList:"ContentTypeProfile" type:"list"`
+	Items []ContentTypeProfile `json:"cloudfront:ContentTypeProfiles:Items" locationNameList:"ContentTypeProfile" type:"list"`
 
 	// The number of field-level encryption content type-profile mappings.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:ContentTypeProfiles:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1229,13 +1229,13 @@ type CookieNames struct {
 
 	// A complex type that contains one Name element for each cookie that you want
 	// CloudFront to forward to the origin for this cache behavior.
-	Items []string `locationNameList:"Name" type:"list"`
+	Items []string `json:"cloudfront:CookieNames:Items" locationNameList:"Name" type:"list"`
 
 	// The number of different cookies that you want CloudFront to forward to the
 	// origin for this cache behavior.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:CookieNames:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1296,7 +1296,7 @@ type CookiePreference struct {
 	// requests to an Amazon S3 origin, specify none for the Forward element.
 	//
 	// Forward is a required field
-	Forward ItemSelection `type:"string" required:"true" enum:"true"`
+	Forward ItemSelection `json:"cloudfront:CookiePreference:Forward" type:"string" required:"true" enum:"true"`
 
 	// Required if you specify whitelist for the value of Forward:. A complex type
 	// that specifies how many different cookies you want CloudFront to forward
@@ -1311,7 +1311,7 @@ type CookiePreference struct {
 	// For the current limit on the number of cookie names that you can whitelist
 	// for each cache behavior, see CloudFront Limits (https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront)
 	// in the AWS General Reference.
-	WhitelistedNames *CookieNames `type:"structure"`
+	WhitelistedNames *CookieNames `json:"cloudfront:CookiePreference:WhitelistedNames" type:"structure"`
 }
 
 // String returns the string representation
@@ -1378,13 +1378,13 @@ type CustomErrorResponse struct {
 	//
 	// For more information, see Customizing Error Responses (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html)
 	// in the Amazon CloudFront Developer Guide.
-	ErrorCachingMinTTL *int64 `type:"long"`
+	ErrorCachingMinTTL *int64 `json:"cloudfront:CustomErrorResponse:ErrorCachingMinTTL" type:"long"`
 
 	// The HTTP status code for which you want to specify a custom error page and/or
 	// a caching duration.
 	//
 	// ErrorCode is a required field
-	ErrorCode *int64 `type:"integer" required:"true"`
+	ErrorCode *int64 `json:"cloudfront:CustomErrorResponse:ErrorCode" type:"integer" required:"true"`
 
 	// The HTTP status code that you want CloudFront to return to the viewer along
 	// with the custom error page. There are a variety of reasons that you might
@@ -1406,7 +1406,7 @@ type CustomErrorResponse struct {
 	// If you specify a value for ResponseCode, you must also specify a value for
 	// ResponsePagePath. If you don't want to specify a value, include an empty
 	// element, <ResponseCode>, in the XML document.
-	ResponseCode *string `type:"string"`
+	ResponseCode *string `json:"cloudfront:CustomErrorResponse:ResponseCode" type:"string"`
 
 	// The path to the custom error page that you want CloudFront to return to a
 	// viewer when your origin returns the HTTP status code specified by ErrorCode,
@@ -1431,7 +1431,7 @@ type CustomErrorResponse struct {
 	// you store custom error pages on an HTTP server and the server starts to return
 	// 5xx errors, CloudFront can't get the files that you want to return to viewers
 	// because the origin server is unavailable.
-	ResponsePagePath *string `type:"string"`
+	ResponsePagePath *string `json:"cloudfront:CustomErrorResponse:ResponsePagePath" type:"string"`
 }
 
 // String returns the string representation
@@ -1499,13 +1499,13 @@ type CustomErrorResponses struct {
 	// A complex type that contains a CustomErrorResponse element for each HTTP
 	// status code for which you want to specify a custom error page and/or a caching
 	// duration.
-	Items []CustomErrorResponse `locationNameList:"CustomErrorResponse" type:"list"`
+	Items []CustomErrorResponse `json:"cloudfront:CustomErrorResponses:Items" locationNameList:"CustomErrorResponse" type:"list"`
 
 	// The number of HTTP status codes for which you want to specify a custom error
 	// page and/or a caching duration. If Quantity is 0, you can omit Items.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:CustomErrorResponses:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1565,12 +1565,12 @@ type CustomHeaders struct {
 	// Optional: A list that contains one OriginCustomHeader element for each custom
 	// header that you want CloudFront to forward to the origin. If Quantity is
 	// 0, omit Items.
-	Items []OriginCustomHeader `locationNameList:"OriginCustomHeader" type:"list"`
+	Items []OriginCustomHeader `json:"cloudfront:CustomHeaders:Items" locationNameList:"OriginCustomHeader" type:"list"`
 
 	// The number of custom headers, if any, for this distribution.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:CustomHeaders:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1630,12 +1630,12 @@ type CustomOriginConfig struct {
 	// The HTTP port the custom origin listens on.
 	//
 	// HTTPPort is a required field
-	HTTPPort *int64 `type:"integer" required:"true"`
+	HTTPPort *int64 `json:"cloudfront:CustomOriginConfig:HTTPPort" type:"integer" required:"true"`
 
 	// The HTTPS port the custom origin listens on.
 	//
 	// HTTPSPort is a required field
-	HTTPSPort *int64 `type:"integer" required:"true"`
+	HTTPSPort *int64 `json:"cloudfront:CustomOriginConfig:HTTPSPort" type:"integer" required:"true"`
 
 	// You can create a custom keep-alive timeout. All timeout units are in seconds.
 	// The default keep-alive timeout is 5 seconds, but you can configure custom
@@ -1644,12 +1644,12 @@ type CustomOriginConfig struct {
 	//
 	// If you need to increase the maximum time limit, contact the AWS Support Center
 	// (https://console.aws.amazon.com/support/home#/).
-	OriginKeepaliveTimeout *int64 `type:"integer"`
+	OriginKeepaliveTimeout *int64 `json:"cloudfront:CustomOriginConfig:OriginKeepaliveTimeout" type:"integer"`
 
 	// The origin protocol policy to apply to your origin.
 	//
 	// OriginProtocolPolicy is a required field
-	OriginProtocolPolicy OriginProtocolPolicy `type:"string" required:"true" enum:"true"`
+	OriginProtocolPolicy OriginProtocolPolicy `json:"cloudfront:CustomOriginConfig:OriginProtocolPolicy" type:"string" required:"true" enum:"true"`
 
 	// You can create a custom origin read timeout. All timeout units are in seconds.
 	// The default origin read timeout is 30 seconds, but you can configure custom
@@ -1658,11 +1658,11 @@ type CustomOriginConfig struct {
 	//
 	// If you need to increase the maximum time limit, contact the AWS Support Center
 	// (https://console.aws.amazon.com/support/home#/).
-	OriginReadTimeout *int64 `type:"integer"`
+	OriginReadTimeout *int64 `json:"cloudfront:CustomOriginConfig:OriginReadTimeout" type:"integer"`
 
 	// The SSL/TLS protocols that you want CloudFront to use when communicating
 	// with your origin over HTTPS.
-	OriginSslProtocols *OriginSslProtocols `type:"structure"`
+	OriginSslProtocols *OriginSslProtocols `json:"cloudfront:CustomOriginConfig:OriginSslProtocols" type:"structure"`
 }
 
 // String returns the string representation
@@ -1759,13 +1759,13 @@ type DefaultCacheBehavior struct {
 	// S3 bucket or to your custom origin so users can't perform operations that
 	// you don't want them to. For example, you might not want users to have permissions
 	// to delete objects from your origin.
-	AllowedMethods *AllowedMethods `type:"structure"`
+	AllowedMethods *AllowedMethods `json:"cloudfront:DefaultCacheBehavior:AllowedMethods" type:"structure"`
 
 	// Whether you want CloudFront to automatically compress certain files for this
 	// cache behavior. If so, specify true; if not, specify false. For more information,
 	// see Serving Compressed Files (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html)
 	// in the Amazon CloudFront Developer Guide.
-	Compress *bool `type:"boolean"`
+	Compress *bool `json:"cloudfront:DefaultCacheBehavior:Compress" type:"boolean"`
 
 	// The default amount of time that you want objects to stay in CloudFront caches
 	// before CloudFront forwards another request to your origin to determine whether
@@ -1774,21 +1774,21 @@ type DefaultCacheBehavior struct {
 	// s-maxage, and Expires to objects. For more information, see Managing How
 	// Long Content Stays in an Edge Cache (Expiration) (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html)
 	// in the Amazon CloudFront Developer Guide.
-	DefaultTTL *int64 `type:"long"`
+	DefaultTTL *int64 `json:"cloudfront:DefaultCacheBehavior:DefaultTTL" type:"long"`
 
 	// The value of ID for the field-level encryption configuration that you want
 	// CloudFront to use for encrypting specific fields of data for a cache behavior
 	// or for the default cache behavior in your distribution.
-	FieldLevelEncryptionId *string `type:"string"`
+	FieldLevelEncryptionId *string `json:"cloudfront:DefaultCacheBehavior:FieldLevelEncryptionId" type:"string"`
 
 	// A complex type that specifies how CloudFront handles query strings and cookies.
 	//
 	// ForwardedValues is a required field
-	ForwardedValues *ForwardedValues `type:"structure" required:"true"`
+	ForwardedValues *ForwardedValues `json:"cloudfront:DefaultCacheBehavior:ForwardedValues" type:"structure" required:"true"`
 
 	// A complex type that contains zero or more Lambda function associations for
 	// a cache behavior.
-	LambdaFunctionAssociations *LambdaFunctionAssociations `type:"structure"`
+	LambdaFunctionAssociations *LambdaFunctionAssociations `json:"cloudfront:DefaultCacheBehavior:LambdaFunctionAssociations" type:"structure"`
 
 	// The maximum amount of time that you want objects to stay in CloudFront caches
 	// before CloudFront forwards another request to your origin to determine whether
@@ -1797,7 +1797,7 @@ type DefaultCacheBehavior struct {
 	// s-maxage, and Expires to objects. For more information, see Managing How
 	// Long Content Stays in an Edge Cache (Expiration) (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html)
 	// in the Amazon CloudFront Developer Guide.
-	MaxTTL *int64 `type:"long"`
+	MaxTTL *int64 `json:"cloudfront:DefaultCacheBehavior:MaxTTL" type:"long"`
 
 	// The minimum amount of time that you want objects to stay in CloudFront caches
 	// before CloudFront forwards another request to your origin to determine whether
@@ -1810,21 +1810,21 @@ type DefaultCacheBehavior struct {
 	// * for Name).
 	//
 	// MinTTL is a required field
-	MinTTL *int64 `type:"long" required:"true"`
+	MinTTL *int64 `json:"cloudfront:DefaultCacheBehavior:MinTTL" type:"long" required:"true"`
 
 	// Indicates whether you want to distribute media files in the Microsoft Smooth
 	// Streaming format using the origin that is associated with this cache behavior.
 	// If so, specify true; if not, specify false. If you specify true for SmoothStreaming,
 	// you can still distribute other content using this cache behavior if the content
 	// matches the value of PathPattern.
-	SmoothStreaming *bool `type:"boolean"`
+	SmoothStreaming *bool `json:"cloudfront:DefaultCacheBehavior:SmoothStreaming" type:"boolean"`
 
 	// The value of ID for the origin that you want CloudFront to route requests
 	// to when a request matches the path pattern either for a cache behavior or
 	// for the default cache behavior in your distribution.
 	//
 	// TargetOriginId is a required field
-	TargetOriginId *string `type:"string" required:"true"`
+	TargetOriginId *string `json:"cloudfront:DefaultCacheBehavior:TargetOriginId" type:"string" required:"true"`
 
 	// A complex type that specifies the AWS accounts, if any, that you want to
 	// allow to create signed URLs for private content.
@@ -1843,7 +1843,7 @@ type DefaultCacheBehavior struct {
 	// all of the trusted signers that you want to include in the updated distribution.
 	//
 	// TrustedSigners is a required field
-	TrustedSigners *TrustedSigners `type:"structure" required:"true"`
+	TrustedSigners *TrustedSigners `json:"cloudfront:DefaultCacheBehavior:TrustedSigners" type:"structure" required:"true"`
 
 	// The protocol that viewers can use to access the files in the origin specified
 	// by TargetOriginId when a request matches the path pattern in PathPattern.
@@ -1873,7 +1873,7 @@ type DefaultCacheBehavior struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// ViewerProtocolPolicy is a required field
-	ViewerProtocolPolicy ViewerProtocolPolicy `type:"string" required:"true" enum:"true"`
+	ViewerProtocolPolicy ViewerProtocolPolicy `json:"cloudfront:DefaultCacheBehavior:ViewerProtocolPolicy" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2017,7 +2017,7 @@ type Distribution struct {
 	// where 123456789012 is your AWS account ID.
 	//
 	// ARN is a required field
-	ARN *string `type:"string" required:"true"`
+	ARN *string `json:"cloudfront:Distribution:ARN" type:"string" required:"true"`
 
 	// CloudFront automatically adds this element to the response only if you've
 	// set up the distribution to serve private content with signed URLs. The element
@@ -2029,7 +2029,7 @@ type Distribution struct {
 	// create working signed URLs.
 	//
 	// ActiveTrustedSigners is a required field
-	ActiveTrustedSigners *ActiveTrustedSigners `type:"structure" required:"true"`
+	ActiveTrustedSigners *ActiveTrustedSigners `json:"cloudfront:Distribution:ActiveTrustedSigners" type:"structure" required:"true"`
 
 	// AWS services in China customers must file for an Internet Content Provider
 	// (ICP) recordal if they want to serve content publicly on an alternate domain
@@ -2039,40 +2039,40 @@ type Distribution struct {
 	// For more information about ICP recordals, see Signup, Accounts, and Credentials
 	// (https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html)
 	// in Getting Started with AWS services in China.
-	AliasICPRecordals []AliasICPRecordal `locationNameList:"AliasICPRecordal" type:"list"`
+	AliasICPRecordals []AliasICPRecordal `json:"cloudfront:Distribution:AliasICPRecordals" locationNameList:"AliasICPRecordal" type:"list"`
 
 	// The current configuration information for the distribution. Send a GET request
 	// to the /CloudFront API version/distribution ID/config resource.
 	//
 	// DistributionConfig is a required field
-	DistributionConfig *DistributionConfig `type:"structure" required:"true"`
+	DistributionConfig *DistributionConfig `json:"cloudfront:Distribution:DistributionConfig" type:"structure" required:"true"`
 
 	// The domain name corresponding to the distribution, for example, d111111abcdef8.cloudfront.net.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"cloudfront:Distribution:DomainName" type:"string" required:"true"`
 
 	// The identifier for the distribution. For example: EDFDVBD632BHDS5.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:Distribution:Id" type:"string" required:"true"`
 
 	// The number of invalidation batches currently in progress.
 	//
 	// InProgressInvalidationBatches is a required field
-	InProgressInvalidationBatches *int64 `type:"integer" required:"true"`
+	InProgressInvalidationBatches *int64 `json:"cloudfront:Distribution:InProgressInvalidationBatches" type:"integer" required:"true"`
 
 	// The date and time the distribution was last modified.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastModifiedTime *time.Time `json:"cloudfront:Distribution:LastModifiedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// This response element indicates the current status of the distribution. When
 	// the status is Deployed, the distribution's information is fully propagated
 	// to all CloudFront edge locations.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudfront:Distribution:Status" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2152,10 +2152,10 @@ type DistributionConfig struct {
 
 	// A complex type that contains information about CNAMEs (alternate domain names),
 	// if any, for this distribution.
-	Aliases *Aliases `type:"structure"`
+	Aliases *Aliases `json:"cloudfront:DistributionConfig:Aliases" type:"structure"`
 
 	// A complex type that contains zero or more CacheBehavior elements.
-	CacheBehaviors *CacheBehaviors `type:"structure"`
+	CacheBehaviors *CacheBehaviors `json:"cloudfront:DistributionConfig:CacheBehaviors" type:"structure"`
 
 	// A unique value (for example, a date-time stamp) that ensures that the request
 	// can't be replayed.
@@ -2168,7 +2168,7 @@ type DistributionConfig struct {
 	// error.
 	//
 	// CallerReference is a required field
-	CallerReference *string `type:"string" required:"true"`
+	CallerReference *string `json:"cloudfront:DistributionConfig:CallerReference" type:"string" required:"true"`
 
 	// Any comments you want to include about the distribution.
 	//
@@ -2181,7 +2181,7 @@ type DistributionConfig struct {
 	// the new comment.
 	//
 	// Comment is a required field
-	Comment *string `type:"string" required:"true"`
+	Comment *string `json:"cloudfront:DistributionConfig:Comment" type:"string" required:"true"`
 
 	// A complex type that controls the following:
 	//
@@ -2193,14 +2193,14 @@ type DistributionConfig struct {
 	// For more information about custom error pages, see Customizing Error Responses
 	// (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html)
 	// in the Amazon CloudFront Developer Guide.
-	CustomErrorResponses *CustomErrorResponses `type:"structure"`
+	CustomErrorResponses *CustomErrorResponses `json:"cloudfront:DistributionConfig:CustomErrorResponses" type:"structure"`
 
 	// A complex type that describes the default cache behavior if you don't specify
 	// a CacheBehavior element or if files don't match any of the values of PathPattern
 	// in CacheBehavior elements. You must create exactly one default cache behavior.
 	//
 	// DefaultCacheBehavior is a required field
-	DefaultCacheBehavior *DefaultCacheBehavior `type:"structure" required:"true"`
+	DefaultCacheBehavior *DefaultCacheBehavior `json:"cloudfront:DistributionConfig:DefaultCacheBehavior" type:"structure" required:"true"`
 
 	// The object that you want CloudFront to request from your origin (for example,
 	// index.html) when a viewer requests the root URL for your distribution (http://www.example.com)
@@ -2222,12 +2222,12 @@ type DistributionConfig struct {
 	// For more information about the default root object, see Creating a Default
 	// Root Object (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html)
 	// in the Amazon CloudFront Developer Guide.
-	DefaultRootObject *string `type:"string"`
+	DefaultRootObject *string `json:"cloudfront:DistributionConfig:DefaultRootObject" type:"string"`
 
 	// From this field, you can enable or disable the selected distribution.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"cloudfront:DistributionConfig:Enabled" type:"boolean" required:"true"`
 
 	// (Optional) Specify the maximum HTTP version that you want viewers to use
 	// to communicate with CloudFront. The default value for new web distributions
@@ -2240,7 +2240,7 @@ type DistributionConfig struct {
 	// In general, configuring CloudFront to communicate with viewers using HTTP/2
 	// reduces latency. You can improve performance by optimizing for HTTP/2. For
 	// more information, do an Internet search for "http/2 optimization."
-	HttpVersion HttpVersion `type:"string" enum:"true"`
+	HttpVersion HttpVersion `json:"cloudfront:DistributionConfig:HttpVersion" type:"string" enum:"true"`
 
 	// If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address
 	// for your distribution, specify true. If you specify false, CloudFront responds
@@ -2274,21 +2274,21 @@ type DistributionConfig struct {
 	// with another DNS service, you don't need to make any changes. A CNAME record
 	// will route traffic to your distribution regardless of the IP address format
 	// of the viewer request.
-	IsIPV6Enabled *bool `type:"boolean"`
+	IsIPV6Enabled *bool `json:"cloudfront:DistributionConfig:IsIPV6Enabled" type:"boolean"`
 
 	// A complex type that controls whether access logs are written for the distribution.
 	//
 	// For more information about logging, see Access Logs (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html)
 	// in the Amazon CloudFront Developer Guide.
-	Logging *LoggingConfig `type:"structure"`
+	Logging *LoggingConfig `json:"cloudfront:DistributionConfig:Logging" type:"structure"`
 
 	// A complex type that contains information about origin groups for this distribution.
-	OriginGroups *OriginGroups `type:"structure"`
+	OriginGroups *OriginGroups `json:"cloudfront:DistributionConfig:OriginGroups" type:"structure"`
 
 	// A complex type that contains information about origins for this distribution.
 	//
 	// Origins is a required field
-	Origins *Origins `type:"structure" required:"true"`
+	Origins *Origins `json:"cloudfront:DistributionConfig:Origins" type:"structure" required:"true"`
 
 	// The price class that corresponds with the maximum price that you want to
 	// pay for CloudFront service. If you specify PriceClass_All, CloudFront responds
@@ -2307,17 +2307,17 @@ type DistributionConfig struct {
 	// regions, see Amazon CloudFront Pricing (http://aws.amazon.com/cloudfront/pricing/).
 	// For price class information, scroll down to see the table at the bottom of
 	// the page.
-	PriceClass PriceClass `type:"string" enum:"true"`
+	PriceClass PriceClass `json:"cloudfront:DistributionConfig:PriceClass" type:"string" enum:"true"`
 
 	// A complex type that identifies ways in which you want to restrict distribution
 	// of your content.
-	Restrictions *Restrictions `type:"structure"`
+	Restrictions *Restrictions `json:"cloudfront:DistributionConfig:Restrictions" type:"structure"`
 
 	// A complex type that specifies whether you want viewers to use HTTP or HTTPS
 	// to request your objects, whether you're using an alternate domain name with
 	// HTTPS, and if so, if you're using AWS Certificate Manager (ACM) or a third-party
 	// certificate authority.
-	ViewerCertificate *ViewerCertificate `type:"structure"`
+	ViewerCertificate *ViewerCertificate `json:"cloudfront:DistributionConfig:ViewerCertificate" type:"structure"`
 
 	// A unique identifier that specifies the AWS WAF web ACL, if any, to associate
 	// with this distribution.
@@ -2330,7 +2330,7 @@ type DistributionConfig struct {
 	// code (Forbidden). You can also configure CloudFront to return a custom error
 	// page when a request is blocked. For more information about AWS WAF, see the
 	// AWS WAF Developer Guide (http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
-	WebACLId *string `type:"string"`
+	WebACLId *string `json:"cloudfront:DistributionConfig:WebACLId" type:"string"`
 }
 
 // String returns the string representation
@@ -2524,12 +2524,12 @@ type DistributionConfigWithTags struct {
 	// A distribution configuration.
 	//
 	// DistributionConfig is a required field
-	DistributionConfig *DistributionConfig `type:"structure" required:"true"`
+	DistributionConfig *DistributionConfig `json:"cloudfront:DistributionConfigWithTags:DistributionConfig" type:"structure" required:"true"`
 
 	// A complex type that contains zero or more Tag elements.
 	//
 	// Tags is a required field
-	Tags *Tags `type:"structure" required:"true"`
+	Tags *Tags `json:"cloudfront:DistributionConfigWithTags:Tags" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -2593,31 +2593,31 @@ type DistributionList struct {
 	// list.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"cloudfront:DistributionList:IsTruncated" type:"boolean" required:"true"`
 
 	// A complex type that contains one DistributionSummary element for each distribution
 	// that was created by the current AWS account.
-	Items []DistributionSummary `locationNameList:"DistributionSummary" type:"list"`
+	Items []DistributionSummary `json:"cloudfront:DistributionList:Items" locationNameList:"DistributionSummary" type:"list"`
 
 	// The value you provided for the Marker request parameter.
 	//
 	// Marker is a required field
-	Marker *string `type:"string" required:"true"`
+	Marker *string `json:"cloudfront:DistributionList:Marker" type:"string" required:"true"`
 
 	// The value you provided for the MaxItems request parameter.
 	//
 	// MaxItems is a required field
-	MaxItems *int64 `type:"integer" required:"true"`
+	MaxItems *int64 `json:"cloudfront:DistributionList:MaxItems" type:"integer" required:"true"`
 
 	// If IsTruncated is true, this element is present and contains the value you
 	// can use for the Marker request parameter to continue listing your distributions
 	// where they left off.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"cloudfront:DistributionList:NextMarker" type:"string"`
 
 	// The number of distributions that were created by the current AWS account.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:DistributionList:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -2681,7 +2681,7 @@ type DistributionSummary struct {
 	// where 123456789012 is your AWS account ID.
 	//
 	// ARN is a required field
-	ARN *string `type:"string" required:"true"`
+	ARN *string `json:"cloudfront:DistributionSummary:ARN" type:"string" required:"true"`
 
 	// AWS services in China customers must file for an Internet Content Provider
 	// (ICP) recordal if they want to serve content publicly on an alternate domain
@@ -2691,94 +2691,94 @@ type DistributionSummary struct {
 	// For more information about ICP recordals, see Signup, Accounts, and Credentials
 	// (https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html)
 	// in Getting Started with AWS services in China.
-	AliasICPRecordals []AliasICPRecordal `locationNameList:"AliasICPRecordal" type:"list"`
+	AliasICPRecordals []AliasICPRecordal `json:"cloudfront:DistributionSummary:AliasICPRecordals" locationNameList:"AliasICPRecordal" type:"list"`
 
 	// A complex type that contains information about CNAMEs (alternate domain names),
 	// if any, for this distribution.
 	//
 	// Aliases is a required field
-	Aliases *Aliases `type:"structure" required:"true"`
+	Aliases *Aliases `json:"cloudfront:DistributionSummary:Aliases" type:"structure" required:"true"`
 
 	// A complex type that contains zero or more CacheBehavior elements.
 	//
 	// CacheBehaviors is a required field
-	CacheBehaviors *CacheBehaviors `type:"structure" required:"true"`
+	CacheBehaviors *CacheBehaviors `json:"cloudfront:DistributionSummary:CacheBehaviors" type:"structure" required:"true"`
 
 	// The comment originally specified when this distribution was created.
 	//
 	// Comment is a required field
-	Comment *string `type:"string" required:"true"`
+	Comment *string `json:"cloudfront:DistributionSummary:Comment" type:"string" required:"true"`
 
 	// A complex type that contains zero or more CustomErrorResponses elements.
 	//
 	// CustomErrorResponses is a required field
-	CustomErrorResponses *CustomErrorResponses `type:"structure" required:"true"`
+	CustomErrorResponses *CustomErrorResponses `json:"cloudfront:DistributionSummary:CustomErrorResponses" type:"structure" required:"true"`
 
 	// A complex type that describes the default cache behavior if you don't specify
 	// a CacheBehavior element or if files don't match any of the values of PathPattern
 	// in CacheBehavior elements. You must create exactly one default cache behavior.
 	//
 	// DefaultCacheBehavior is a required field
-	DefaultCacheBehavior *DefaultCacheBehavior `type:"structure" required:"true"`
+	DefaultCacheBehavior *DefaultCacheBehavior `json:"cloudfront:DistributionSummary:DefaultCacheBehavior" type:"structure" required:"true"`
 
 	// The domain name that corresponds to the distribution, for example, d111111abcdef8.cloudfront.net.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"cloudfront:DistributionSummary:DomainName" type:"string" required:"true"`
 
 	// Whether the distribution is enabled to accept user requests for content.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"cloudfront:DistributionSummary:Enabled" type:"boolean" required:"true"`
 
 	// Specify the maximum HTTP version that you want viewers to use to communicate
 	// with CloudFront. The default value for new web distributions is http2. Viewers
 	// that don't support HTTP/2 will automatically use an earlier version.
 	//
 	// HttpVersion is a required field
-	HttpVersion HttpVersion `type:"string" required:"true" enum:"true"`
+	HttpVersion HttpVersion `json:"cloudfront:DistributionSummary:HttpVersion" type:"string" required:"true" enum:"true"`
 
 	// The identifier for the distribution. For example: EDFDVBD632BHDS5.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:DistributionSummary:Id" type:"string" required:"true"`
 
 	// Whether CloudFront responds to IPv6 DNS requests with an IPv6 address for
 	// your distribution.
 	//
 	// IsIPV6Enabled is a required field
-	IsIPV6Enabled *bool `type:"boolean" required:"true"`
+	IsIPV6Enabled *bool `json:"cloudfront:DistributionSummary:IsIPV6Enabled" type:"boolean" required:"true"`
 
 	// The date and time the distribution was last modified.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastModifiedTime *time.Time `json:"cloudfront:DistributionSummary:LastModifiedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// A complex type that contains information about origin groups for this distribution.
-	OriginGroups *OriginGroups `type:"structure"`
+	OriginGroups *OriginGroups `json:"cloudfront:DistributionSummary:OriginGroups" type:"structure"`
 
 	// A complex type that contains information about origins for this distribution.
 	//
 	// Origins is a required field
-	Origins *Origins `type:"structure" required:"true"`
+	Origins *Origins `json:"cloudfront:DistributionSummary:Origins" type:"structure" required:"true"`
 
 	// A complex type that contains information about price class for this streaming
 	// distribution.
 	//
 	// PriceClass is a required field
-	PriceClass PriceClass `type:"string" required:"true" enum:"true"`
+	PriceClass PriceClass `json:"cloudfront:DistributionSummary:PriceClass" type:"string" required:"true" enum:"true"`
 
 	// A complex type that identifies ways in which you want to restrict distribution
 	// of your content.
 	//
 	// Restrictions is a required field
-	Restrictions *Restrictions `type:"structure" required:"true"`
+	Restrictions *Restrictions `json:"cloudfront:DistributionSummary:Restrictions" type:"structure" required:"true"`
 
 	// The current status of the distribution. When the status is Deployed, the
 	// distribution's information is propagated to all CloudFront edge locations.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudfront:DistributionSummary:Status" type:"string" required:"true"`
 
 	// A complex type that specifies whether you want viewers to use HTTP or HTTPS
 	// to request your objects, whether you're using an alternate domain name with
@@ -2786,12 +2786,12 @@ type DistributionSummary struct {
 	// certificate authority.
 	//
 	// ViewerCertificate is a required field
-	ViewerCertificate *ViewerCertificate `type:"structure" required:"true"`
+	ViewerCertificate *ViewerCertificate `json:"cloudfront:DistributionSummary:ViewerCertificate" type:"structure" required:"true"`
 
 	// The Web ACL Id (if any) associated with the distribution.
 	//
 	// WebACLId is a required field
-	WebACLId *string `type:"string" required:"true"`
+	WebACLId *string `json:"cloudfront:DistributionSummary:WebACLId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2938,13 +2938,13 @@ type EncryptionEntities struct {
 
 	// An array of field patterns in a field-level encryption content type-profile
 	// mapping.
-	Items []EncryptionEntity `locationNameList:"EncryptionEntity" type:"list"`
+	Items []EncryptionEntity `json:"cloudfront:EncryptionEntities:Items" locationNameList:"EncryptionEntity" type:"list"`
 
 	// Number of field pattern items in a field-level encryption content type-profile
 	// mapping.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:EncryptionEntities:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3009,20 +3009,20 @@ type EncryptionEntity struct {
 	// field patterns are case-sensitive.
 	//
 	// FieldPatterns is a required field
-	FieldPatterns *FieldPatterns `type:"structure" required:"true"`
+	FieldPatterns *FieldPatterns `json:"cloudfront:EncryptionEntity:FieldPatterns" type:"structure" required:"true"`
 
 	// The provider associated with the public key being used for encryption. This
 	// value must also be provided with the private key for applications to be able
 	// to decrypt data.
 	//
 	// ProviderId is a required field
-	ProviderId *string `type:"string" required:"true"`
+	ProviderId *string `json:"cloudfront:EncryptionEntity:ProviderId" type:"string" required:"true"`
 
 	// The public key associated with a set of field-level encryption patterns,
 	// to be used when encrypting the fields that match the patterns.
 	//
 	// PublicKeyId is a required field
-	PublicKeyId *string `type:"string" required:"true"`
+	PublicKeyId *string `json:"cloudfront:EncryptionEntity:PublicKeyId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3090,19 +3090,19 @@ type FieldLevelEncryption struct {
 	// field-level encryption.
 	//
 	// FieldLevelEncryptionConfig is a required field
-	FieldLevelEncryptionConfig *FieldLevelEncryptionConfig `type:"structure" required:"true"`
+	FieldLevelEncryptionConfig *FieldLevelEncryptionConfig `json:"cloudfront:FieldLevelEncryption:FieldLevelEncryptionConfig" type:"structure" required:"true"`
 
 	// The configuration ID for a field-level encryption configuration which includes
 	// a set of profiles that specify certain selected data fields to be encrypted
 	// by specific public keys.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:FieldLevelEncryption:Id" type:"string" required:"true"`
 
 	// The last time the field-level encryption configuration was changed.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastModifiedTime *time.Time `json:"cloudfront:FieldLevelEncryption:LastModifiedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation
@@ -3142,19 +3142,19 @@ type FieldLevelEncryptionConfig struct {
 	// A unique number that ensures the request can't be replayed.
 	//
 	// CallerReference is a required field
-	CallerReference *string `type:"string" required:"true"`
+	CallerReference *string `json:"cloudfront:FieldLevelEncryptionConfig:CallerReference" type:"string" required:"true"`
 
 	// An optional comment about the configuration.
-	Comment *string `type:"string"`
+	Comment *string `json:"cloudfront:FieldLevelEncryptionConfig:Comment" type:"string"`
 
 	// A complex data type that specifies when to forward content if a content type
 	// isn't recognized and profiles to use as by default in a request if a query
 	// argument doesn't specify a profile to use.
-	ContentTypeProfileConfig *ContentTypeProfileConfig `type:"structure"`
+	ContentTypeProfileConfig *ContentTypeProfileConfig `json:"cloudfront:FieldLevelEncryptionConfig:ContentTypeProfileConfig" type:"structure"`
 
 	// A complex data type that specifies when to forward content if a profile isn't
 	// found and the profile that can be provided as a query argument in a request.
-	QueryArgProfileConfig *QueryArgProfileConfig `type:"structure"`
+	QueryArgProfileConfig *QueryArgProfileConfig `json:"cloudfront:FieldLevelEncryptionConfig:QueryArgProfileConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -3221,22 +3221,22 @@ type FieldLevelEncryptionList struct {
 	_ struct{} `type:"structure"`
 
 	// An array of field-level encryption items.
-	Items []FieldLevelEncryptionSummary `locationNameList:"FieldLevelEncryptionSummary" type:"list"`
+	Items []FieldLevelEncryptionSummary `json:"cloudfront:FieldLevelEncryptionList:Items" locationNameList:"FieldLevelEncryptionSummary" type:"list"`
 
 	// The maximum number of elements you want in the response body.
 	//
 	// MaxItems is a required field
-	MaxItems *int64 `type:"integer" required:"true"`
+	MaxItems *int64 `json:"cloudfront:FieldLevelEncryptionList:MaxItems" type:"integer" required:"true"`
 
 	// If there are more elements to be listed, this element is present and contains
 	// the value that you can use for the Marker request parameter to continue listing
 	// your configurations where you left off.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"cloudfront:FieldLevelEncryptionList:NextMarker" type:"string"`
 
 	// The number of field-level encryption items.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:FieldLevelEncryptionList:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3288,19 +3288,19 @@ type FieldLevelEncryptionProfile struct {
 	// for the field-level encryption profile.
 	//
 	// FieldLevelEncryptionProfileConfig is a required field
-	FieldLevelEncryptionProfileConfig *FieldLevelEncryptionProfileConfig `type:"structure" required:"true"`
+	FieldLevelEncryptionProfileConfig *FieldLevelEncryptionProfileConfig `json:"cloudfront:FieldLevelEncryptionProfile:FieldLevelEncryptionProfileConfig" type:"structure" required:"true"`
 
 	// The ID for a field-level encryption profile configuration which includes
 	// a set of profiles that specify certain selected data fields to be encrypted
 	// by specific public keys.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:FieldLevelEncryptionProfile:Id" type:"string" required:"true"`
 
 	// The last time the field-level encryption profile was updated.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastModifiedTime *time.Time `json:"cloudfront:FieldLevelEncryptionProfile:LastModifiedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation
@@ -3339,22 +3339,22 @@ type FieldLevelEncryptionProfileConfig struct {
 	// A unique number that ensures that the request can't be replayed.
 	//
 	// CallerReference is a required field
-	CallerReference *string `type:"string" required:"true"`
+	CallerReference *string `json:"cloudfront:FieldLevelEncryptionProfileConfig:CallerReference" type:"string" required:"true"`
 
 	// An optional comment for the field-level encryption profile.
-	Comment *string `type:"string"`
+	Comment *string `json:"cloudfront:FieldLevelEncryptionProfileConfig:Comment" type:"string"`
 
 	// A complex data type of encryption entities for the field-level encryption
 	// profile that include the public key ID, provider, and field patterns for
 	// specifying which fields to encrypt with this key.
 	//
 	// EncryptionEntities is a required field
-	EncryptionEntities *EncryptionEntities `type:"structure" required:"true"`
+	EncryptionEntities *EncryptionEntities `json:"cloudfront:FieldLevelEncryptionProfileConfig:EncryptionEntities" type:"structure" required:"true"`
 
 	// Profile name for the field-level encryption profile.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"cloudfront:FieldLevelEncryptionProfileConfig:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3424,23 +3424,23 @@ type FieldLevelEncryptionProfileList struct {
 	_ struct{} `type:"structure"`
 
 	// The field-level encryption profile items.
-	Items []FieldLevelEncryptionProfileSummary `locationNameList:"FieldLevelEncryptionProfileSummary" type:"list"`
+	Items []FieldLevelEncryptionProfileSummary `json:"cloudfront:FieldLevelEncryptionProfileList:Items" locationNameList:"FieldLevelEncryptionProfileSummary" type:"list"`
 
 	// The maximum number of field-level encryption profiles you want in the response
 	// body.
 	//
 	// MaxItems is a required field
-	MaxItems *int64 `type:"integer" required:"true"`
+	MaxItems *int64 `json:"cloudfront:FieldLevelEncryptionProfileList:MaxItems" type:"integer" required:"true"`
 
 	// If there are more elements to be listed, this element is present and contains
 	// the value that you can use for the Marker request parameter to continue listing
 	// your profiles where you left off.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"cloudfront:FieldLevelEncryptionProfileList:NextMarker" type:"string"`
 
 	// The number of field-level encryption profiles.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:FieldLevelEncryptionProfileList:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3489,29 +3489,29 @@ type FieldLevelEncryptionProfileSummary struct {
 	_ struct{} `type:"structure"`
 
 	// An optional comment for the field-level encryption profile summary.
-	Comment *string `type:"string"`
+	Comment *string `json:"cloudfront:FieldLevelEncryptionProfileSummary:Comment" type:"string"`
 
 	// A complex data type of encryption entities for the field-level encryption
 	// profile that include the public key ID, provider, and field patterns for
 	// specifying which fields to encrypt with this key.
 	//
 	// EncryptionEntities is a required field
-	EncryptionEntities *EncryptionEntities `type:"structure" required:"true"`
+	EncryptionEntities *EncryptionEntities `json:"cloudfront:FieldLevelEncryptionProfileSummary:EncryptionEntities" type:"structure" required:"true"`
 
 	// ID for the field-level encryption profile summary.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:FieldLevelEncryptionProfileSummary:Id" type:"string" required:"true"`
 
 	// The time when the the field-level encryption profile summary was last updated.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastModifiedTime *time.Time `json:"cloudfront:FieldLevelEncryptionProfileSummary:LastModifiedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// Name for the field-level encryption profile summary.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"cloudfront:FieldLevelEncryptionProfileSummary:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3560,23 +3560,23 @@ type FieldLevelEncryptionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// An optional comment about the field-level encryption item.
-	Comment *string `type:"string"`
+	Comment *string `json:"cloudfront:FieldLevelEncryptionSummary:Comment" type:"string"`
 
 	// A summary of a content type-profile mapping.
-	ContentTypeProfileConfig *ContentTypeProfileConfig `type:"structure"`
+	ContentTypeProfileConfig *ContentTypeProfileConfig `json:"cloudfront:FieldLevelEncryptionSummary:ContentTypeProfileConfig" type:"structure"`
 
 	// The unique ID of a field-level encryption item.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:FieldLevelEncryptionSummary:Id" type:"string" required:"true"`
 
 	// The last time that the summary of field-level encryption items was modified.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastModifiedTime *time.Time `json:"cloudfront:FieldLevelEncryptionSummary:LastModifiedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// A summary of a query argument-profile mapping.
-	QueryArgProfileConfig *QueryArgProfileConfig `type:"structure"`
+	QueryArgProfileConfig *QueryArgProfileConfig `json:"cloudfront:FieldLevelEncryptionSummary:QueryArgProfileConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -3626,12 +3626,12 @@ type FieldPatterns struct {
 	_ struct{} `type:"structure"`
 
 	// An array of the field-level encryption field patterns.
-	Items []string `locationNameList:"FieldPattern" type:"list"`
+	Items []string `json:"cloudfront:FieldPatterns:Items" locationNameList:"FieldPattern" type:"list"`
 
 	// The number of field-level encryption field patterns.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:FieldPatterns:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3688,7 +3688,7 @@ type ForwardedValues struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// Cookies is a required field
-	Cookies *CookiePreference `type:"structure" required:"true"`
+	Cookies *CookiePreference `json:"cloudfront:ForwardedValues:Cookies" type:"structure" required:"true"`
 
 	// A complex type that specifies the Headers, if any, that you want CloudFront
 	// to forward to the origin for this cache behavior (whitelisted headers). For
@@ -3697,7 +3697,7 @@ type ForwardedValues struct {
 	//
 	// For more information, see Caching Content Based on Request Headers (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html)
 	// in the Amazon CloudFront Developer Guide.
-	Headers *Headers `type:"structure"`
+	Headers *Headers `json:"cloudfront:ForwardedValues:Headers" type:"structure"`
 
 	// Indicates whether you want CloudFront to forward query strings to the origin
 	// that is associated with this cache behavior and cache based on the query
@@ -3724,11 +3724,11 @@ type ForwardedValues struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// QueryString is a required field
-	QueryString *bool `type:"boolean" required:"true"`
+	QueryString *bool `json:"cloudfront:ForwardedValues:QueryString" type:"boolean" required:"true"`
 
 	// A complex type that contains information about the query string parameters
 	// that you want CloudFront to use for caching for this cache behavior.
-	QueryStringCacheKeys *QueryStringCacheKeys `type:"structure"`
+	QueryStringCacheKeys *QueryStringCacheKeys `json:"cloudfront:ForwardedValues:QueryStringCacheKeys" type:"structure"`
 }
 
 // String returns the string representation
@@ -3817,14 +3817,14 @@ type GeoRestriction struct {
 	// the International Organization for Standardization website. You can also
 	// refer to the country list on the CloudFront console, which includes both
 	// country names and codes.
-	Items []string `locationNameList:"Location" type:"list"`
+	Items []string `json:"cloudfront:GeoRestriction:Items" locationNameList:"Location" type:"list"`
 
 	// When geo restriction is enabled, this is the number of countries in your
 	// whitelist or blacklist. Otherwise, when it is not enabled, Quantity is 0,
 	// and you can omit Items.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:GeoRestriction:Quantity" type:"integer" required:"true"`
 
 	// The method that you want to use to restrict distribution of your content
 	// by country:
@@ -3839,7 +3839,7 @@ type GeoRestriction struct {
 	//    want CloudFront to distribute your content.
 	//
 	// RestrictionType is a required field
-	RestrictionType GeoRestrictionType `type:"string" required:"true" enum:"true"`
+	RestrictionType GeoRestrictionType `json:"cloudfront:GeoRestriction:RestrictionType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -3911,7 +3911,7 @@ type Headers struct {
 
 	// A list that contains one Name element for each header that you want CloudFront
 	// to use for caching in this cache behavior. If Quantity is 0, omit Items.
-	Items []string `locationNameList:"Name" type:"list"`
+	Items []string `json:"cloudfront:Headers:Items" locationNameList:"Name" type:"list"`
 
 	// The number of different headers that you want CloudFront to base caching
 	// on for this cache behavior. You can configure each cache behavior in a web
@@ -3940,7 +3940,7 @@ type Headers struct {
 	//    * Custom origin: See HTTP Request Headers and CloudFront Behavior (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-headers-behavior)
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:Headers:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3993,23 +3993,23 @@ type Invalidation struct {
 	// The date and time the invalidation request was first made.
 	//
 	// CreateTime is a required field
-	CreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateTime *time.Time `json:"cloudfront:Invalidation:CreateTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The identifier for the invalidation request. For example: IDFDVBD632BHDS5.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:Invalidation:Id" type:"string" required:"true"`
 
 	// The current invalidation information for the batch request.
 	//
 	// InvalidationBatch is a required field
-	InvalidationBatch *InvalidationBatch `type:"structure" required:"true"`
+	InvalidationBatch *InvalidationBatch `json:"cloudfront:Invalidation:InvalidationBatch" type:"structure" required:"true"`
 
 	// The status of the invalidation request. When the invalidation batch is finished,
 	// the status is Completed.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudfront:Invalidation:Status" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4068,7 +4068,7 @@ type InvalidationBatch struct {
 	// request, CloudFront returns an InvalidationBatchAlreadyExists error.
 	//
 	// CallerReference is a required field
-	CallerReference *string `type:"string" required:"true"`
+	CallerReference *string `json:"cloudfront:InvalidationBatch:CallerReference" type:"string" required:"true"`
 
 	// A complex type that contains information about the objects that you want
 	// to invalidate. For more information, see Specifying the Objects to Invalidate
@@ -4076,7 +4076,7 @@ type InvalidationBatch struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// Paths is a required field
-	Paths *Paths `type:"structure" required:"true"`
+	Paths *Paths `json:"cloudfront:InvalidationBatch:Paths" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -4138,31 +4138,31 @@ type InvalidationList struct {
 	// batches in the list.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"cloudfront:InvalidationList:IsTruncated" type:"boolean" required:"true"`
 
 	// A complex type that contains one InvalidationSummary element for each invalidation
 	// batch created by the current AWS account.
-	Items []InvalidationSummary `locationNameList:"InvalidationSummary" type:"list"`
+	Items []InvalidationSummary `json:"cloudfront:InvalidationList:Items" locationNameList:"InvalidationSummary" type:"list"`
 
 	// The value that you provided for the Marker request parameter.
 	//
 	// Marker is a required field
-	Marker *string `type:"string" required:"true"`
+	Marker *string `json:"cloudfront:InvalidationList:Marker" type:"string" required:"true"`
 
 	// The value that you provided for the MaxItems request parameter.
 	//
 	// MaxItems is a required field
-	MaxItems *int64 `type:"integer" required:"true"`
+	MaxItems *int64 `json:"cloudfront:InvalidationList:MaxItems" type:"integer" required:"true"`
 
 	// If IsTruncated is true, this element is present and contains the value that
 	// you can use for the Marker request parameter to continue listing your invalidation
 	// batches where they left off.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"cloudfront:InvalidationList:NextMarker" type:"string"`
 
 	// The number of invalidation batches that were created by the current AWS account.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:InvalidationList:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -4225,17 +4225,17 @@ type InvalidationSummary struct {
 	// The time that an invalidation request was created.
 	//
 	// CreateTime is a required field
-	CreateTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateTime *time.Time `json:"cloudfront:InvalidationSummary:CreateTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The unique ID for an invalidation request.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:InvalidationSummary:Id" type:"string" required:"true"`
 
 	// The status of an invalidation request.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudfront:InvalidationSummary:Status" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4278,14 +4278,14 @@ type KeyPairIds struct {
 	// associated with AwsAccountNumber.
 	//
 	// For more information, see ActiveTrustedSigners (https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ActiveTrustedSigners.html).
-	Items []string `locationNameList:"KeyPairId" type:"list"`
+	Items []string `json:"cloudfront:KeyPairIds:Items" locationNameList:"KeyPairId" type:"list"`
 
 	// The number of active CloudFront key pairs for AwsAccountNumber.
 	//
 	// For more information, see ActiveTrustedSigners (https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ActiveTrustedSigners.html).
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:KeyPairIds:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -4342,19 +4342,19 @@ type LambdaFunctionAssociation struct {
 	//    status code other than HTTP 200 (OK), the function doesn't execute.
 	//
 	// EventType is a required field
-	EventType EventType `type:"string" required:"true" enum:"true"`
+	EventType EventType `json:"cloudfront:LambdaFunctionAssociation:EventType" type:"string" required:"true" enum:"true"`
 
 	// A flag that allows a Lambda function to have read access to the body content.
 	// For more information, see Accessing the Request Body by Choosing the Include
 	// Body Option (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html)
 	// in the Amazon CloudFront Developer Guide.
-	IncludeBody *bool `type:"boolean"`
+	IncludeBody *bool `json:"cloudfront:LambdaFunctionAssociation:IncludeBody" type:"boolean"`
 
 	// The ARN of the Lambda function. You must specify the ARN of a function version;
 	// you can't specify a Lambda alias or $LATEST.
 	//
 	// LambdaFunctionARN is a required field
-	LambdaFunctionARN *string `type:"string" required:"true"`
+	LambdaFunctionARN *string `json:"cloudfront:LambdaFunctionAssociation:LambdaFunctionARN" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4419,12 +4419,12 @@ type LambdaFunctionAssociations struct {
 
 	// Optional: A complex type that contains LambdaFunctionAssociation items for
 	// this cache behavior. If Quantity is 0, you can omit Items.
-	Items []LambdaFunctionAssociation `locationNameList:"LambdaFunctionAssociation" type:"list"`
+	Items []LambdaFunctionAssociation `json:"cloudfront:LambdaFunctionAssociations:Items" locationNameList:"LambdaFunctionAssociation" type:"list"`
 
 	// The number of Lambda function associations for this cache behavior.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:LambdaFunctionAssociations:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -4484,7 +4484,7 @@ type LoggingConfig struct {
 	// The Amazon S3 bucket to store the access logs in, for example, myawslogbucket.s3.amazonaws.com.
 	//
 	// Bucket is a required field
-	Bucket *string `type:"string" required:"true"`
+	Bucket *string `json:"cloudfront:LoggingConfig:Bucket" type:"string" required:"true"`
 
 	// Specifies whether you want CloudFront to save access logs to an Amazon S3
 	// bucket. If you don't want to enable logging when you create a distribution
@@ -4494,7 +4494,7 @@ type LoggingConfig struct {
 	// the values are automatically deleted.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"cloudfront:LoggingConfig:Enabled" type:"boolean" required:"true"`
 
 	// Specifies whether you want CloudFront to include cookies in access logs,
 	// specify true for IncludeCookies. If you choose to include cookies in logs,
@@ -4504,7 +4504,7 @@ type LoggingConfig struct {
 	// distribution, specify false for IncludeCookies.
 	//
 	// IncludeCookies is a required field
-	IncludeCookies *bool `type:"boolean" required:"true"`
+	IncludeCookies *bool `json:"cloudfront:LoggingConfig:IncludeCookies" type:"boolean" required:"true"`
 
 	// An optional string that you want CloudFront to prefix to the access log filenames
 	// for this distribution, for example, myprefix/. If you want to enable logging,
@@ -4512,7 +4512,7 @@ type LoggingConfig struct {
 	// element in the Logging element.
 	//
 	// Prefix is a required field
-	Prefix *string `type:"string" required:"true"`
+	Prefix *string `json:"cloudfront:LoggingConfig:Prefix" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4589,11 +4589,11 @@ type Origin struct {
 
 	// A complex type that contains names and values for the custom headers that
 	// you want.
-	CustomHeaders *CustomHeaders `type:"structure"`
+	CustomHeaders *CustomHeaders `json:"cloudfront:Origin:CustomHeaders" type:"structure"`
 
 	// A complex type that contains information about a custom origin. If the origin
 	// is an Amazon S3 bucket, use the S3OriginConfig element instead.
-	CustomOriginConfig *CustomOriginConfig `type:"structure"`
+	CustomOriginConfig *CustomOriginConfig `json:"cloudfront:Origin:CustomOriginConfig" type:"structure"`
 
 	// Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you want
 	// CloudFront to get objects for this origin, for example, myawsbucket.s3.amazonaws.com.
@@ -4627,7 +4627,7 @@ type Origin struct {
 	//    * The name cannot exceed 128 characters.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"cloudfront:Origin:DomainName" type:"string" required:"true"`
 
 	// A unique identifier for the origin or origin group. The value of Id must
 	// be unique within the distribution.
@@ -4641,7 +4641,7 @@ type Origin struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:Origin:Id" type:"string" required:"true"`
 
 	// An optional element that causes CloudFront to request your content from a
 	// directory in your Amazon S3 bucket or your custom origin. When you include
@@ -4662,11 +4662,11 @@ type Origin struct {
 	//
 	// When a user enters example.com/acme/index.html in a browser, CloudFront sends
 	// a request to Amazon S3 for myawsbucket/production/acme/index.html.
-	OriginPath *string `type:"string"`
+	OriginPath *string `json:"cloudfront:Origin:OriginPath" type:"string"`
 
 	// A complex type that contains information about the Amazon S3 origin. If the
 	// origin is a custom origin, use the CustomOriginConfig element instead.
-	S3OriginConfig *S3OriginConfig `type:"structure"`
+	S3OriginConfig *S3OriginConfig `json:"cloudfront:Origin:S3OriginConfig" type:"structure"`
 }
 
 // String returns the string representation
@@ -4760,12 +4760,12 @@ type OriginCustomHeader struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// HeaderName is a required field
-	HeaderName *string `type:"string" required:"true"`
+	HeaderName *string `json:"cloudfront:OriginCustomHeader:HeaderName" type:"string" required:"true"`
 
 	// The value for the header that you specified in the HeaderName field.
 	//
 	// HeaderValue is a required field
-	HeaderValue *string `type:"string" required:"true"`
+	HeaderValue *string `json:"cloudfront:OriginCustomHeader:HeaderValue" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4822,17 +4822,17 @@ type OriginGroup struct {
 	// an origin group.
 	//
 	// FailoverCriteria is a required field
-	FailoverCriteria *OriginGroupFailoverCriteria `type:"structure" required:"true"`
+	FailoverCriteria *OriginGroupFailoverCriteria `json:"cloudfront:OriginGroup:FailoverCriteria" type:"structure" required:"true"`
 
 	// The origin group's ID.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:OriginGroup:Id" type:"string" required:"true"`
 
 	// A complex type that contains information about the origins in an origin group.
 	//
 	// Members is a required field
-	Members *OriginGroupMembers `type:"structure" required:"true"`
+	Members *OriginGroupMembers `json:"cloudfront:OriginGroup:Members" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -4906,7 +4906,7 @@ type OriginGroupFailoverCriteria struct {
 	// CloudFront to failover to the second origin.
 	//
 	// StatusCodes is a required field
-	StatusCodes *StatusCodes `type:"structure" required:"true"`
+	StatusCodes *StatusCodes `json:"cloudfront:OriginGroupFailoverCriteria:StatusCodes" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -4952,7 +4952,7 @@ type OriginGroupMember struct {
 	// The ID for an origin in an origin group.
 	//
 	// OriginId is a required field
-	OriginId *string `type:"string" required:"true"`
+	OriginId *string `json:"cloudfront:OriginGroupMember:OriginId" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -4993,12 +4993,12 @@ type OriginGroupMembers struct {
 	// Items (origins) in an origin group.
 	//
 	// Items is a required field
-	Items []OriginGroupMember `locationNameList:"OriginGroupMember" min:"2" type:"list" required:"true"`
+	Items []OriginGroupMember `json:"cloudfront:OriginGroupMembers:Items" locationNameList:"OriginGroupMember" min:"2" type:"list" required:"true"`
 
 	// The number of origins in an origin group.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:OriginGroupMembers:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5063,12 +5063,12 @@ type OriginGroups struct {
 	_ struct{} `type:"structure"`
 
 	// The items (origin groups) in a distribution.
-	Items []OriginGroup `locationNameList:"OriginGroup" type:"list"`
+	Items []OriginGroup `json:"cloudfront:OriginGroups:Items" locationNameList:"OriginGroup" type:"list"`
 
 	// The number of origin groups.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:OriginGroups:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5129,13 +5129,13 @@ type OriginSslProtocols struct {
 	// A list that contains allowed SSL/TLS protocols for this distribution.
 	//
 	// Items is a required field
-	Items []SslProtocol `locationNameList:"SslProtocol" type:"list" required:"true"`
+	Items []SslProtocol `json:"cloudfront:OriginSslProtocols:Items" locationNameList:"SslProtocol" type:"list" required:"true"`
 
 	// The number of SSL/TLS protocols that you want to allow CloudFront to use
 	// when establishing an HTTPS connection with this origin.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:OriginSslProtocols:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5193,12 +5193,12 @@ type Origins struct {
 	// A complex type that contains origins or origin groups for this distribution.
 	//
 	// Items is a required field
-	Items []Origin `locationNameList:"Origin" min:"1" type:"list" required:"true"`
+	Items []Origin `json:"cloudfront:Origins:Items" locationNameList:"Origin" min:"1" type:"list" required:"true"`
 
 	// The number of origins or origin groups for this distribution.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:Origins:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5266,13 +5266,13 @@ type Paths struct {
 	_ struct{} `type:"structure"`
 
 	// A complex type that contains a list of the paths that you want to invalidate.
-	Items []string `locationNameList:"Path" type:"list"`
+	Items []string `json:"cloudfront:Paths:Items" locationNameList:"Path" type:"list"`
 
 	// The number of invalidation paths specified for the objects that you want
 	// to invalidate.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:Paths:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5326,18 +5326,18 @@ type PublicKey struct {
 	// A time you added a public key to CloudFront.
 	//
 	// CreatedTime is a required field
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreatedTime *time.Time `json:"cloudfront:PublicKey:CreatedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// A unique ID assigned to a public key you've added to CloudFront.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:PublicKey:Id" type:"string" required:"true"`
 
 	// A complex data type for a public key you add to CloudFront to use with features
 	// like field-level encryption.
 	//
 	// PublicKeyConfig is a required field
-	PublicKeyConfig *PublicKeyConfig `type:"structure" required:"true"`
+	PublicKeyConfig *PublicKeyConfig `json:"cloudfront:PublicKey:PublicKeyConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -5377,22 +5377,22 @@ type PublicKeyConfig struct {
 	// A unique number that ensures that the request can't be replayed.
 	//
 	// CallerReference is a required field
-	CallerReference *string `type:"string" required:"true"`
+	CallerReference *string `json:"cloudfront:PublicKeyConfig:CallerReference" type:"string" required:"true"`
 
 	// An optional comment about a public key.
-	Comment *string `type:"string"`
+	Comment *string `json:"cloudfront:PublicKeyConfig:Comment" type:"string"`
 
 	// The encoded public key that you want to add to CloudFront to use with features
 	// like field-level encryption.
 	//
 	// EncodedKey is a required field
-	EncodedKey *string `type:"string" required:"true"`
+	EncodedKey *string `json:"cloudfront:PublicKeyConfig:EncodedKey" type:"string" required:"true"`
 
 	// The name for a public key you add to CloudFront to use with features like
 	// field-level encryption.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"cloudfront:PublicKeyConfig:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5459,23 +5459,23 @@ type PublicKeyList struct {
 
 	// An array of information about a public key you add to CloudFront to use with
 	// features like field-level encryption.
-	Items []PublicKeySummary `locationNameList:"PublicKeySummary" type:"list"`
+	Items []PublicKeySummary `json:"cloudfront:PublicKeyList:Items" locationNameList:"PublicKeySummary" type:"list"`
 
 	// The maximum number of public keys you want in the response body.
 	//
 	// MaxItems is a required field
-	MaxItems *int64 `type:"integer" required:"true"`
+	MaxItems *int64 `json:"cloudfront:PublicKeyList:MaxItems" type:"integer" required:"true"`
 
 	// If there are more elements to be listed, this element is present and contains
 	// the value that you can use for the Marker request parameter to continue listing
 	// your public keys where you left off.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"cloudfront:PublicKeyList:NextMarker" type:"string"`
 
 	// The number of public keys you added to CloudFront to use with features like
 	// field-level encryption.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:PublicKeyList:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5524,27 +5524,27 @@ type PublicKeySummary struct {
 	_ struct{} `type:"structure"`
 
 	// Comment for public key information summary.
-	Comment *string `type:"string"`
+	Comment *string `json:"cloudfront:PublicKeySummary:Comment" type:"string"`
 
 	// Creation time for public key information summary.
 	//
 	// CreatedTime is a required field
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreatedTime *time.Time `json:"cloudfront:PublicKeySummary:CreatedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// Encoded key for public key information summary.
 	//
 	// EncodedKey is a required field
-	EncodedKey *string `type:"string" required:"true"`
+	EncodedKey *string `json:"cloudfront:PublicKeySummary:EncodedKey" type:"string" required:"true"`
 
 	// ID for public key information summary.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:PublicKeySummary:Id" type:"string" required:"true"`
 
 	// Name for public key information summary.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"cloudfront:PublicKeySummary:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5595,12 +5595,12 @@ type QueryArgProfile struct {
 	// ID of profile to use for field-level encryption query argument-profile mapping
 	//
 	// ProfileId is a required field
-	ProfileId *string `type:"string" required:"true"`
+	ProfileId *string `json:"cloudfront:QueryArgProfile:ProfileId" type:"string" required:"true"`
 
 	// Query argument for field-level encryption query argument-profile mapping.
 	//
 	// QueryArg is a required field
-	QueryArg *string `type:"string" required:"true"`
+	QueryArg *string `json:"cloudfront:QueryArgProfile:QueryArg" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5653,10 +5653,10 @@ type QueryArgProfileConfig struct {
 	// is unknown.
 	//
 	// ForwardWhenQueryArgProfileIsUnknown is a required field
-	ForwardWhenQueryArgProfileIsUnknown *bool `type:"boolean" required:"true"`
+	ForwardWhenQueryArgProfileIsUnknown *bool `json:"cloudfront:QueryArgProfileConfig:ForwardWhenQueryArgProfileIsUnknown" type:"boolean" required:"true"`
 
 	// Profiles specified for query argument-profile mapping for field-level encryption.
-	QueryArgProfiles *QueryArgProfiles `type:"structure"`
+	QueryArgProfiles *QueryArgProfiles `json:"cloudfront:QueryArgProfileConfig:QueryArgProfiles" type:"structure"`
 }
 
 // String returns the string representation
@@ -5706,12 +5706,12 @@ type QueryArgProfiles struct {
 	_ struct{} `type:"structure"`
 
 	// Number of items for query argument-profile mapping for field-level encryption.
-	Items []QueryArgProfile `locationNameList:"QueryArgProfile" type:"list"`
+	Items []QueryArgProfile `json:"cloudfront:QueryArgProfiles:Items" locationNameList:"QueryArgProfile" type:"list"`
 
 	// Number of profiles for query argument-profile mapping for field-level encryption.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:QueryArgProfiles:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5772,12 +5772,12 @@ type QueryStringCacheKeys struct {
 	// A list that contains the query string parameters that you want CloudFront
 	// to use as a basis for caching for a cache behavior. If Quantity is 0, you
 	// can omit Items.
-	Items []string `locationNameList:"Name" type:"list"`
+	Items []string `json:"cloudfront:QueryStringCacheKeys:Items" locationNameList:"Name" type:"list"`
 
 	// The number of whitelisted query string parameters for a cache behavior.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:QueryStringCacheKeys:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -5832,7 +5832,7 @@ type Restrictions struct {
 	// CloudFront determines the location of your users using MaxMind GeoIP databases.
 	//
 	// GeoRestriction is a required field
-	GeoRestriction *GeoRestriction `type:"structure" required:"true"`
+	GeoRestriction *GeoRestriction `json:"cloudfront:Restrictions:GeoRestriction" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -5879,7 +5879,7 @@ type S3Origin struct {
 	// The DNS name of the Amazon S3 origin.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"cloudfront:S3Origin:DomainName" type:"string" required:"true"`
 
 	// The CloudFront origin access identity to associate with the distribution.
 	// Use an origin access identity to configure the distribution so that end users
@@ -5900,7 +5900,7 @@ type S3Origin struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// OriginAccessIdentity is a required field
-	OriginAccessIdentity *string `type:"string" required:"true"`
+	OriginAccessIdentity *string `json:"cloudfront:S3Origin:OriginAccessIdentity" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5974,7 +5974,7 @@ type S3OriginConfig struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// OriginAccessIdentity is a required field
-	OriginAccessIdentity *string `type:"string" required:"true"`
+	OriginAccessIdentity *string `json:"cloudfront:S3OriginConfig:OriginAccessIdentity" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -6019,11 +6019,11 @@ type Signer struct {
 	//    * self, which is the AWS account used to create the distribution.
 	//
 	//    * An AWS account number.
-	AwsAccountNumber *string `type:"string"`
+	AwsAccountNumber *string `json:"cloudfront:Signer:AwsAccountNumber" type:"string"`
 
 	// A complex type that lists the active CloudFront key pairs, if any, that are
 	// associated with AwsAccountNumber.
-	KeyPairIds *KeyPairIds `type:"structure"`
+	KeyPairIds *KeyPairIds `json:"cloudfront:Signer:KeyPairIds" type:"structure"`
 }
 
 // String returns the string representation
@@ -6057,12 +6057,12 @@ type StatusCodes struct {
 	// The items (status codes) for an origin group.
 	//
 	// Items is a required field
-	Items []int64 `locationNameList:"StatusCode" min:"1" type:"list" required:"true"`
+	Items []int64 `json:"cloudfront:StatusCodes:Items" locationNameList:"StatusCode" min:"1" type:"list" required:"true"`
 
 	// The number of status codes.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:StatusCodes:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -6125,7 +6125,7 @@ type StreamingDistribution struct {
 	// where 123456789012 is your AWS account ID.
 	//
 	// ARN is a required field
-	ARN *string `type:"string" required:"true"`
+	ARN *string `json:"cloudfront:StreamingDistribution:ARN" type:"string" required:"true"`
 
 	// A complex type that lists the AWS accounts, if any, that you included in
 	// the TrustedSigners complex type for this distribution. These are the accounts
@@ -6141,32 +6141,32 @@ type StreamingDistribution struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// ActiveTrustedSigners is a required field
-	ActiveTrustedSigners *ActiveTrustedSigners `type:"structure" required:"true"`
+	ActiveTrustedSigners *ActiveTrustedSigners `json:"cloudfront:StreamingDistribution:ActiveTrustedSigners" type:"structure" required:"true"`
 
 	// The domain name that corresponds to the streaming distribution, for example,
 	// s5c39gqb8ow64r.cloudfront.net.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"cloudfront:StreamingDistribution:DomainName" type:"string" required:"true"`
 
 	// The identifier for the RTMP distribution. For example: EGTXBD79EXAMPLE.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:StreamingDistribution:Id" type:"string" required:"true"`
 
 	// The date and time that the distribution was last modified.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastModifiedTime *time.Time `json:"cloudfront:StreamingDistribution:LastModifiedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The current status of the RTMP distribution. When the status is Deployed,
 	// the distribution's information is propagated to all CloudFront edge locations.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudfront:StreamingDistribution:Status" type:"string" required:"true"`
 
 	// The current configuration information for the RTMP distribution.
 	//
 	// StreamingDistributionConfig is a required field
-	StreamingDistributionConfig *StreamingDistributionConfig `type:"structure" required:"true"`
+	StreamingDistributionConfig *StreamingDistributionConfig `json:"cloudfront:StreamingDistribution:StreamingDistributionConfig" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -6228,7 +6228,7 @@ type StreamingDistributionConfig struct {
 
 	// A complex type that contains information about CNAMEs (alternate domain names),
 	// if any, for this streaming distribution.
-	Aliases *Aliases `type:"structure"`
+	Aliases *Aliases `json:"cloudfront:StreamingDistributionConfig:Aliases" type:"structure"`
 
 	// A unique value (for example, a date-time stamp) that ensures that the request
 	// can't be replayed.
@@ -6241,32 +6241,32 @@ type StreamingDistributionConfig struct {
 	// error.
 	//
 	// CallerReference is a required field
-	CallerReference *string `type:"string" required:"true"`
+	CallerReference *string `json:"cloudfront:StreamingDistributionConfig:CallerReference" type:"string" required:"true"`
 
 	// Any comments you want to include about the streaming distribution.
 	//
 	// Comment is a required field
-	Comment *string `type:"string" required:"true"`
+	Comment *string `json:"cloudfront:StreamingDistributionConfig:Comment" type:"string" required:"true"`
 
 	// Whether the streaming distribution is enabled to accept user requests for
 	// content.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"cloudfront:StreamingDistributionConfig:Enabled" type:"boolean" required:"true"`
 
 	// A complex type that controls whether access logs are written for the streaming
 	// distribution.
-	Logging *StreamingLoggingConfig `type:"structure"`
+	Logging *StreamingLoggingConfig `json:"cloudfront:StreamingDistributionConfig:Logging" type:"structure"`
 
 	// A complex type that contains information about price class for this streaming
 	// distribution.
-	PriceClass PriceClass `type:"string" enum:"true"`
+	PriceClass PriceClass `json:"cloudfront:StreamingDistributionConfig:PriceClass" type:"string" enum:"true"`
 
 	// A complex type that contains information about the Amazon S3 bucket from
 	// which you want CloudFront to get your media files for distribution.
 	//
 	// S3Origin is a required field
-	S3Origin *S3Origin `type:"structure" required:"true"`
+	S3Origin *S3Origin `json:"cloudfront:StreamingDistributionConfig:S3Origin" type:"structure" required:"true"`
 
 	// A complex type that specifies any AWS accounts that you want to permit to
 	// create signed URLs for private content. If you want the distribution to use
@@ -6276,7 +6276,7 @@ type StreamingDistributionConfig struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// TrustedSigners is a required field
-	TrustedSigners *TrustedSigners `type:"structure" required:"true"`
+	TrustedSigners *TrustedSigners `json:"cloudfront:StreamingDistributionConfig:TrustedSigners" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -6396,12 +6396,12 @@ type StreamingDistributionConfigWithTags struct {
 	// A streaming distribution Configuration.
 	//
 	// StreamingDistributionConfig is a required field
-	StreamingDistributionConfig *StreamingDistributionConfig `type:"structure" required:"true"`
+	StreamingDistributionConfig *StreamingDistributionConfig `json:"cloudfront:StreamingDistributionConfigWithTags:StreamingDistributionConfig" type:"structure" required:"true"`
 
 	// A complex type that contains zero or more Tag elements.
 	//
 	// Tags is a required field
-	Tags *Tags `type:"structure" required:"true"`
+	Tags *Tags `json:"cloudfront:StreamingDistributionConfigWithTags:Tags" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -6465,32 +6465,32 @@ type StreamingDistributionList struct {
 	// list.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"cloudfront:StreamingDistributionList:IsTruncated" type:"boolean" required:"true"`
 
 	// A complex type that contains one StreamingDistributionSummary element for
 	// each distribution that was created by the current AWS account.
-	Items []StreamingDistributionSummary `locationNameList:"StreamingDistributionSummary" type:"list"`
+	Items []StreamingDistributionSummary `json:"cloudfront:StreamingDistributionList:Items" locationNameList:"StreamingDistributionSummary" type:"list"`
 
 	// The value you provided for the Marker request parameter.
 	//
 	// Marker is a required field
-	Marker *string `type:"string" required:"true"`
+	Marker *string `json:"cloudfront:StreamingDistributionList:Marker" type:"string" required:"true"`
 
 	// The value you provided for the MaxItems request parameter.
 	//
 	// MaxItems is a required field
-	MaxItems *int64 `type:"integer" required:"true"`
+	MaxItems *int64 `json:"cloudfront:StreamingDistributionList:MaxItems" type:"integer" required:"true"`
 
 	// If IsTruncated is true, this element is present and contains the value you
 	// can use for the Marker request parameter to continue listing your RTMP distributions
 	// where they left off.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"cloudfront:StreamingDistributionList:NextMarker" type:"string"`
 
 	// The number of streaming distributions that were created by the current AWS
 	// account.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:StreamingDistributionList:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -6555,57 +6555,57 @@ type StreamingDistributionSummary struct {
 	// where 123456789012 is your AWS account ID.
 	//
 	// ARN is a required field
-	ARN *string `type:"string" required:"true"`
+	ARN *string `json:"cloudfront:StreamingDistributionSummary:ARN" type:"string" required:"true"`
 
 	// A complex type that contains information about CNAMEs (alternate domain names),
 	// if any, for this streaming distribution.
 	//
 	// Aliases is a required field
-	Aliases *Aliases `type:"structure" required:"true"`
+	Aliases *Aliases `json:"cloudfront:StreamingDistributionSummary:Aliases" type:"structure" required:"true"`
 
 	// The comment originally specified when this distribution was created.
 	//
 	// Comment is a required field
-	Comment *string `type:"string" required:"true"`
+	Comment *string `json:"cloudfront:StreamingDistributionSummary:Comment" type:"string" required:"true"`
 
 	// The domain name corresponding to the distribution, for example, d111111abcdef8.cloudfront.net.
 	//
 	// DomainName is a required field
-	DomainName *string `type:"string" required:"true"`
+	DomainName *string `json:"cloudfront:StreamingDistributionSummary:DomainName" type:"string" required:"true"`
 
 	// Whether the distribution is enabled to accept end user requests for content.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"cloudfront:StreamingDistributionSummary:Enabled" type:"boolean" required:"true"`
 
 	// The identifier for the distribution, for example, EDFDVBD632BHDS5.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"cloudfront:StreamingDistributionSummary:Id" type:"string" required:"true"`
 
 	// The date and time the distribution was last modified.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastModifiedTime *time.Time `json:"cloudfront:StreamingDistributionSummary:LastModifiedTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// A complex type that contains information about price class for this streaming
 	// distribution.
 	//
 	// PriceClass is a required field
-	PriceClass PriceClass `type:"string" required:"true" enum:"true"`
+	PriceClass PriceClass `json:"cloudfront:StreamingDistributionSummary:PriceClass" type:"string" required:"true" enum:"true"`
 
 	// A complex type that contains information about the Amazon S3 bucket from
 	// which you want CloudFront to get your media files for distribution.
 	//
 	// S3Origin is a required field
-	S3Origin *S3Origin `type:"structure" required:"true"`
+	S3Origin *S3Origin `json:"cloudfront:StreamingDistributionSummary:S3Origin" type:"structure" required:"true"`
 
 	// Indicates the current status of the distribution. When the status is Deployed,
 	// the distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudfront:StreamingDistributionSummary:Status" type:"string" required:"true"`
 
 	// A complex type that specifies the AWS accounts, if any, that you want to
 	// allow to create signed URLs for private content. If you want to require signed
@@ -6622,7 +6622,7 @@ type StreamingDistributionSummary struct {
 	// in the Amazon CloudFront Developer Guide.
 	//
 	// TrustedSigners is a required field
-	TrustedSigners *TrustedSigners `type:"structure" required:"true"`
+	TrustedSigners *TrustedSigners `json:"cloudfront:StreamingDistributionSummary:TrustedSigners" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -6710,7 +6710,7 @@ type StreamingLoggingConfig struct {
 	// The Amazon S3 bucket to store the access logs in, for example, myawslogbucket.s3.amazonaws.com.
 	//
 	// Bucket is a required field
-	Bucket *string `type:"string" required:"true"`
+	Bucket *string `json:"cloudfront:StreamingLoggingConfig:Bucket" type:"string" required:"true"`
 
 	// Specifies whether you want CloudFront to save access logs to an Amazon S3
 	// bucket. If you don't want to enable logging when you create a streaming distribution
@@ -6720,7 +6720,7 @@ type StreamingLoggingConfig struct {
 	// the values are automatically deleted.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"cloudfront:StreamingLoggingConfig:Enabled" type:"boolean" required:"true"`
 
 	// An optional string that you want CloudFront to prefix to the access log filenames
 	// for this streaming distribution, for example, myprefix/. If you want to enable
@@ -6728,7 +6728,7 @@ type StreamingLoggingConfig struct {
 	// empty Prefix element in the Logging element.
 	//
 	// Prefix is a required field
-	Prefix *string `type:"string" required:"true"`
+	Prefix *string `json:"cloudfront:StreamingLoggingConfig:Prefix" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -6792,13 +6792,13 @@ type Tag struct {
 	// include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"cloudfront:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// A string that contains an optional Tag value.
 	//
 	// The string length should be between 0 and 256 characters. Valid characters
 	// include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.
-	Value *string `type:"string"`
+	Value *string `json:"cloudfront:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -6846,7 +6846,7 @@ type TagKeys struct {
 	_ struct{} `type:"structure"`
 
 	// A complex type that contains Tag key elements.
-	Items []string `locationNameList:"Key" type:"list"`
+	Items []string `json:"cloudfront:TagKeys:Items" locationNameList:"Key" type:"list"`
 }
 
 // String returns the string representation
@@ -6877,7 +6877,7 @@ type Tags struct {
 	_ struct{} `type:"structure"`
 
 	// A complex type that contains Tag elements.
-	Items []Tag `locationNameList:"Tag" type:"list"`
+	Items []Tag `json:"cloudfront:Tags:Items" locationNameList:"Tag" type:"list"`
 }
 
 // String returns the string representation
@@ -6946,16 +6946,16 @@ type TrustedSigners struct {
 	// the files specified by PathPattern and TargetOriginId.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"cloudfront:TrustedSigners:Enabled" type:"boolean" required:"true"`
 
 	// Optional: A complex type that contains trusted signers for this cache behavior.
 	// If Quantity is 0, you can omit Items.
-	Items []string `locationNameList:"AwsAccountNumber" type:"list"`
+	Items []string `json:"cloudfront:TrustedSigners:Items" locationNameList:"AwsAccountNumber" type:"list"`
 
 	// The number of trusted signers for this cache behavior.
 	//
 	// Quantity is a required field
-	Quantity *int64 `type:"integer" required:"true"`
+	Quantity *int64 `json:"cloudfront:TrustedSigners:Quantity" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -7046,7 +7046,7 @@ type ViewerCertificate struct {
 	//    that you want to use for this distribution.
 	//
 	// If you specify ACMCertificateArn, you must also specify a value for SSLSupportMethod.
-	ACMCertificateArn *string `type:"string"`
+	ACMCertificateArn *string `json:"cloudfront:ViewerCertificate:ACMCertificateArn" type:"string"`
 
 	// This field is no longer used. Use one of the following fields instead:
 	//
@@ -7055,7 +7055,7 @@ type ViewerCertificate struct {
 	//    * IAMCertificateId (https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-IAMCertificateId)
 	//
 	//    * CloudFrontDefaultCertificate (https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-CloudFrontDefaultCertificate)
-	Certificate *string `deprecated:"true" type:"string"`
+	Certificate *string `json:"cloudfront:ViewerCertificate:Certificate" deprecated:"true" type:"string"`
 
 	// This field is no longer used. Use one of the following fields instead:
 	//
@@ -7064,13 +7064,13 @@ type ViewerCertificate struct {
 	//    * IAMCertificateId (https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-IAMCertificateId)
 	//
 	//    * CloudFrontDefaultCertificate (https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-CloudFrontDefaultCertificate)
-	CertificateSource CertificateSource `deprecated:"true" type:"string" enum:"true"`
+	CertificateSource CertificateSource `json:"cloudfront:ViewerCertificate:CertificateSource" deprecated:"true" type:"string" enum:"true"`
 
 	// If you're using the CloudFront domain name for your distribution, such as
 	// d111111abcdef8.cloudfront.net, specify the following value:
 	//
 	//    * <CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>
-	CloudFrontDefaultCertificate *bool `type:"boolean"`
+	CloudFrontDefaultCertificate *bool `json:"cloudfront:ViewerCertificate:CloudFrontDefaultCertificate" type:"boolean"`
 
 	// If you want viewers to use HTTPS to request your objects and you're using
 	// an alternate domain name, you must choose the type of certificate that you
@@ -7082,7 +7082,7 @@ type ViewerCertificate struct {
 	//    certificate store.
 	//
 	// If you specify IAMCertificateId, you must also specify a value for SSLSupportMethod.
-	IAMCertificateId *string `type:"string"`
+	IAMCertificateId *string `json:"cloudfront:ViewerCertificate:IAMCertificateId" type:"string"`
 
 	// Specify the security policy that you want CloudFront to use for HTTPS connections.
 	// A security policy determines two settings:
@@ -7115,7 +7115,7 @@ type ViewerCertificate struct {
 	// with viewers, see Supported SSL/TLS Protocols and Ciphers for Communication
 	// Between Viewers and CloudFront (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers)
 	// in the Amazon CloudFront Developer Guide.
-	MinimumProtocolVersion MinimumProtocolVersion `type:"string" enum:"true"`
+	MinimumProtocolVersion MinimumProtocolVersion `json:"cloudfront:ViewerCertificate:MinimumProtocolVersion" type:"string" enum:"true"`
 
 	// If you specify a value for ACMCertificateArn (https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-ACMCertificateArn)
 	// or for IAMCertificateId (https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-IAMCertificateId),
@@ -7142,7 +7142,7 @@ type ViewerCertificate struct {
 	//
 	// For more information, see Choosing How CloudFront Serves HTTPS Requests (https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.html)
 	// in the Amazon CloudFront Developer Guide.
-	SSLSupportMethod SSLSupportMethod `type:"string" enum:"true"`
+	SSLSupportMethod SSLSupportMethod `json:"cloudfront:ViewerCertificate:SSLSupportMethod" type:"string" enum:"true"`
 }
 
 // String returns the string representation

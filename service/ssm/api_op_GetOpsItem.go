@@ -43,7 +43,7 @@ type GetOpsItemOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The OpsItem.
-	OpsItem *OpsItem `type:"structure"`
+	OpsItem *OpsItem `json:"ssm:GetOpsItemOutput:OpsItem" type:"structure"`
 }
 
 // String returns the string representation

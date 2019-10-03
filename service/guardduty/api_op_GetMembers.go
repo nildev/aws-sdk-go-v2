@@ -87,13 +87,13 @@ type GetMembersOutput struct {
 	// A list of members.
 	//
 	// Members is a required field
-	Members []Member `locationName:"members" type:"list" required:"true"`
+	Members []Member `json:"guardduty:GetMembersOutput:Members" locationName:"members" type:"list" required:"true"`
 
 	// A list of objects containing the unprocessed account and a result string
 	// explaining why it was unprocessed.
 	//
 	// UnprocessedAccounts is a required field
-	UnprocessedAccounts []UnprocessedAccount `locationName:"unprocessedAccounts" type:"list" required:"true"`
+	UnprocessedAccounts []UnprocessedAccount `json:"guardduty:GetMembersOutput:UnprocessedAccounts" locationName:"unprocessedAccounts" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -43,7 +43,7 @@ type ResetJobBookmarkOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The reset bookmark entry.
-	JobBookmarkEntry *JobBookmarkEntry `type:"structure"`
+	JobBookmarkEntry *JobBookmarkEntry `json:"glue:ResetJobBookmarkOutput:JobBookmarkEntry" type:"structure"`
 }
 
 // String returns the string representation

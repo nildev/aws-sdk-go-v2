@@ -54,7 +54,7 @@ type GetDatabaseOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The definition of the specified database in the catalog.
-	Database *Database `type:"structure"`
+	Database *Database `json:"glue:GetDatabaseOutput:Database" type:"structure"`
 }
 
 // String returns the string representation

@@ -35,13 +35,13 @@ type ListEnvironmentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of environment identifiers.
-	EnvironmentIds []string `locationName:"environmentIds" type:"list"`
+	EnvironmentIds []string `json:"cloud9:ListEnvironmentsOutput:EnvironmentIds" locationName:"environmentIds" type:"list"`
 
 	// If there are more than 25 items in the list, only the first 25 items are
 	// returned, along with a unique string called a next token. To get the next
 	// batch of items in the list, call this operation again, adding the next token
 	// to the call.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"cloud9:ListEnvironmentsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

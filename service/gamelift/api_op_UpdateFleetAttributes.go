@@ -80,7 +80,7 @@ type UpdateFleetAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for a fleet that was updated.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:UpdateFleetAttributesOutput:FleetId" type:"string"`
 }
 
 // String returns the string representation

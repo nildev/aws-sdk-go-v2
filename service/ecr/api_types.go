@@ -20,16 +20,16 @@ type AuthorizationData struct {
 	// A base64-encoded string that contains authorization data for the specified
 	// Amazon ECR registry. When the string is decoded, it is presented in the format
 	// user:password for private registry authentication using docker login.
-	AuthorizationToken *string `locationName:"authorizationToken" type:"string"`
+	AuthorizationToken *string `json:"api.ecr:AuthorizationData:AuthorizationToken" locationName:"authorizationToken" type:"string"`
 
 	// The Unix time in seconds and milliseconds when the authorization token expires.
 	// Authorization tokens are valid for 12 hours.
-	ExpiresAt *time.Time `locationName:"expiresAt" type:"timestamp" timestampFormat:"unix"`
+	ExpiresAt *time.Time `json:"api.ecr:AuthorizationData:ExpiresAt" locationName:"expiresAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The registry URL to use for this authorization token in a docker login command.
 	// The Amazon ECR registry URL format is https://aws_account_id.dkr.ecr.region.amazonaws.com.
 	// For example, https://012345678910.dkr.ecr.us-east-1.amazonaws.com..
-	ProxyEndpoint *string `locationName:"proxyEndpoint" type:"string"`
+	ProxyEndpoint *string `json:"api.ecr:AuthorizationData:ProxyEndpoint" locationName:"proxyEndpoint" type:"string"`
 }
 
 // String returns the string representation
@@ -44,7 +44,7 @@ type DescribeImagesFilter struct {
 
 	// The tag status with which to filter your DescribeImages results. You can
 	// filter results based on whether they are TAGGED or UNTAGGED.
-	TagStatus TagStatus `locationName:"tagStatus" type:"string" enum:"true"`
+	TagStatus TagStatus `json:"api.ecr:DescribeImagesFilter:TagStatus" locationName:"tagStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -58,16 +58,16 @@ type Image struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing the image tag and image digest associated with an image.
-	ImageId *ImageIdentifier `locationName:"imageId" type:"structure"`
+	ImageId *ImageIdentifier `json:"api.ecr:Image:ImageId" locationName:"imageId" type:"structure"`
 
 	// The image manifest associated with the image.
-	ImageManifest *string `locationName:"imageManifest" type:"string"`
+	ImageManifest *string `json:"api.ecr:Image:ImageManifest" locationName:"imageManifest" type:"string"`
 
 	// The AWS account ID associated with the registry containing the image.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:Image:RegistryId" locationName:"registryId" type:"string"`
 
 	// The name of the repository associated with the image.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:Image:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 }
 
 // String returns the string representation
@@ -81,11 +81,11 @@ type ImageDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The sha256 digest of the image manifest.
-	ImageDigest *string `locationName:"imageDigest" type:"string"`
+	ImageDigest *string `json:"api.ecr:ImageDetail:ImageDigest" locationName:"imageDigest" type:"string"`
 
 	// The date and time, expressed in standard JavaScript date format, at which
 	// the current image was pushed to the repository.
-	ImagePushedAt *time.Time `locationName:"imagePushedAt" type:"timestamp" timestampFormat:"unix"`
+	ImagePushedAt *time.Time `json:"api.ecr:ImageDetail:ImagePushedAt" locationName:"imagePushedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The size, in bytes, of the image in the repository.
 	//
@@ -93,16 +93,16 @@ type ImageDetail struct {
 	// before pushing them to a V2 Docker registry. The output of the docker images
 	// command shows the uncompressed image size, so it may return a larger image
 	// size than the image sizes returned by DescribeImages.
-	ImageSizeInBytes *int64 `locationName:"imageSizeInBytes" type:"long"`
+	ImageSizeInBytes *int64 `json:"api.ecr:ImageDetail:ImageSizeInBytes" locationName:"imageSizeInBytes" type:"long"`
 
 	// The list of tags associated with this image.
-	ImageTags []string `locationName:"imageTags" type:"list"`
+	ImageTags []string `json:"api.ecr:ImageDetail:ImageTags" locationName:"imageTags" type:"list"`
 
 	// The AWS account ID associated with the registry to which this image belongs.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:ImageDetail:RegistryId" locationName:"registryId" type:"string"`
 
 	// The name of the repository to which this image belongs.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:ImageDetail:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 }
 
 // String returns the string representation
@@ -116,13 +116,13 @@ type ImageFailure struct {
 	_ struct{} `type:"structure"`
 
 	// The code associated with the failure.
-	FailureCode ImageFailureCode `locationName:"failureCode" type:"string" enum:"true"`
+	FailureCode ImageFailureCode `json:"api.ecr:ImageFailure:FailureCode" locationName:"failureCode" type:"string" enum:"true"`
 
 	// The reason for the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"api.ecr:ImageFailure:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The image ID associated with the failure.
-	ImageId *ImageIdentifier `locationName:"imageId" type:"structure"`
+	ImageId *ImageIdentifier `json:"api.ecr:ImageFailure:ImageId" locationName:"imageId" type:"structure"`
 }
 
 // String returns the string representation
@@ -136,10 +136,10 @@ type ImageIdentifier struct {
 	_ struct{} `type:"structure"`
 
 	// The sha256 digest of the image manifest.
-	ImageDigest *string `locationName:"imageDigest" type:"string"`
+	ImageDigest *string `json:"api.ecr:ImageIdentifier:ImageDigest" locationName:"imageDigest" type:"string"`
 
 	// The tag used for the image.
-	ImageTag *string `locationName:"imageTag" type:"string"`
+	ImageTag *string `json:"api.ecr:ImageIdentifier:ImageTag" locationName:"imageTag" type:"string"`
 }
 
 // String returns the string representation
@@ -153,17 +153,17 @@ type Layer struct {
 	_ struct{} `type:"structure"`
 
 	// The availability status of the image layer.
-	LayerAvailability LayerAvailability `locationName:"layerAvailability" type:"string" enum:"true"`
+	LayerAvailability LayerAvailability `json:"api.ecr:Layer:LayerAvailability" locationName:"layerAvailability" type:"string" enum:"true"`
 
 	// The sha256 digest of the image layer.
-	LayerDigest *string `locationName:"layerDigest" type:"string"`
+	LayerDigest *string `json:"api.ecr:Layer:LayerDigest" locationName:"layerDigest" type:"string"`
 
 	// The size, in bytes, of the image layer.
-	LayerSize *int64 `locationName:"layerSize" type:"long"`
+	LayerSize *int64 `json:"api.ecr:Layer:LayerSize" locationName:"layerSize" type:"long"`
 
 	// The media type of the layer, such as application/vnd.docker.image.rootfs.diff.tar.gzip
 	// or application/vnd.oci.image.layer.v1.tar+gzip.
-	MediaType *string `locationName:"mediaType" type:"string"`
+	MediaType *string `json:"api.ecr:Layer:MediaType" locationName:"mediaType" type:"string"`
 }
 
 // String returns the string representation
@@ -177,13 +177,13 @@ type LayerFailure struct {
 	_ struct{} `type:"structure"`
 
 	// The failure code associated with the failure.
-	FailureCode LayerFailureCode `locationName:"failureCode" type:"string" enum:"true"`
+	FailureCode LayerFailureCode `json:"api.ecr:LayerFailure:FailureCode" locationName:"failureCode" type:"string" enum:"true"`
 
 	// The reason for the failure.
-	FailureReason *string `locationName:"failureReason" type:"string"`
+	FailureReason *string `json:"api.ecr:LayerFailure:FailureReason" locationName:"failureReason" type:"string"`
 
 	// The layer digest associated with the failure.
-	LayerDigest *string `locationName:"layerDigest" type:"string"`
+	LayerDigest *string `json:"api.ecr:LayerFailure:LayerDigest" locationName:"layerDigest" type:"string"`
 }
 
 // String returns the string representation
@@ -197,7 +197,7 @@ type LifecyclePolicyPreviewFilter struct {
 	_ struct{} `type:"structure"`
 
 	// The tag status of the image.
-	TagStatus TagStatus `locationName:"tagStatus" type:"string" enum:"true"`
+	TagStatus TagStatus `json:"api.ecr:LifecyclePolicyPreviewFilter:TagStatus" locationName:"tagStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -211,20 +211,20 @@ type LifecyclePolicyPreviewResult struct {
 	_ struct{} `type:"structure"`
 
 	// The type of action to be taken.
-	Action *LifecyclePolicyRuleAction `locationName:"action" type:"structure"`
+	Action *LifecyclePolicyRuleAction `json:"api.ecr:LifecyclePolicyPreviewResult:Action" locationName:"action" type:"structure"`
 
 	// The priority of the applied rule.
-	AppliedRulePriority *int64 `locationName:"appliedRulePriority" min:"1" type:"integer"`
+	AppliedRulePriority *int64 `json:"api.ecr:LifecyclePolicyPreviewResult:AppliedRulePriority" locationName:"appliedRulePriority" min:"1" type:"integer"`
 
 	// The sha256 digest of the image manifest.
-	ImageDigest *string `locationName:"imageDigest" type:"string"`
+	ImageDigest *string `json:"api.ecr:LifecyclePolicyPreviewResult:ImageDigest" locationName:"imageDigest" type:"string"`
 
 	// The date and time, expressed in standard JavaScript date format, at which
 	// the current image was pushed to the repository.
-	ImagePushedAt *time.Time `locationName:"imagePushedAt" type:"timestamp" timestampFormat:"unix"`
+	ImagePushedAt *time.Time `json:"api.ecr:LifecyclePolicyPreviewResult:ImagePushedAt" locationName:"imagePushedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The list of tags associated with this image.
-	ImageTags []string `locationName:"imageTags" type:"list"`
+	ImageTags []string `json:"api.ecr:LifecyclePolicyPreviewResult:ImageTags" locationName:"imageTags" type:"list"`
 }
 
 // String returns the string representation
@@ -238,7 +238,7 @@ type LifecyclePolicyPreviewSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The number of expiring images.
-	ExpiringImageTotalCount *int64 `locationName:"expiringImageTotalCount" type:"integer"`
+	ExpiringImageTotalCount *int64 `json:"api.ecr:LifecyclePolicyPreviewSummary:ExpiringImageTotalCount" locationName:"expiringImageTotalCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -252,7 +252,7 @@ type LifecyclePolicyRuleAction struct {
 	_ struct{} `type:"structure"`
 
 	// The type of action to be taken.
-	Type ImageActionType `locationName:"type" type:"string" enum:"true"`
+	Type ImageActionType `json:"api.ecr:LifecyclePolicyRuleAction:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -267,7 +267,7 @@ type ListImagesFilter struct {
 
 	// The tag status with which to filter your ListImages results. You can filter
 	// results based on whether they are TAGGED or UNTAGGED.
-	TagStatus TagStatus `locationName:"tagStatus" type:"string" enum:"true"`
+	TagStatus TagStatus `json:"api.ecr:ListImagesFilter:TagStatus" locationName:"tagStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -281,23 +281,23 @@ type Repository struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time, in JavaScript date format, when the repository was created.
-	CreatedAt *time.Time `locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"api.ecr:Repository:CreatedAt" locationName:"createdAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS account ID associated with the registry that contains the repository.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:Repository:RegistryId" locationName:"registryId" type:"string"`
 
 	// The Amazon Resource Name (ARN) that identifies the repository. The ARN contains
 	// the arn:aws:ecr namespace, followed by the region of the repository, AWS
 	// account ID of the repository owner, repository namespace, and repository
 	// name. For example, arn:aws:ecr:region:012345678910:repository/test.
-	RepositoryArn *string `locationName:"repositoryArn" type:"string"`
+	RepositoryArn *string `json:"api.ecr:Repository:RepositoryArn" locationName:"repositoryArn" type:"string"`
 
 	// The name of the repository.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:Repository:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 
 	// The URI for the repository. You can use this URI for Docker push or pull
 	// operations.
-	RepositoryUri *string `locationName:"repositoryUri" type:"string"`
+	RepositoryUri *string `json:"api.ecr:Repository:RepositoryUri" locationName:"repositoryUri" type:"string"`
 }
 
 // String returns the string representation
@@ -315,11 +315,11 @@ type Tag struct {
 
 	// One part of a key-value pair that make up a tag. A key is a general label
 	// that acts like a category for more specific tag values.
-	Key *string `type:"string"`
+	Key *string `json:"api.ecr:Tag:Key" type:"string"`
 
 	// The optional part of a key-value pair that make up a tag. A value acts as
 	// a descriptor within a tag category (key).
-	Value *string `type:"string"`
+	Value *string `json:"api.ecr:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

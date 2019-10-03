@@ -105,11 +105,11 @@ type ListJobsOutput struct {
 	// Result structure for list job result request.
 	//
 	// JobSummaries is a required field
-	JobSummaries []JobSummary `locationName:"jobSummaries" type:"list" required:"true"`
+	JobSummaries []JobSummary `json:"amplify:ListJobsOutput:JobSummaries" locationName:"jobSummaries" type:"list" required:"true"`
 
 	// Pagination token. If non-null pagination token is returned in a result, then
 	// pass its value in another request to fetch more entries.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"amplify:ListJobsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

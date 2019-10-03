@@ -79,7 +79,7 @@ type CreateLaunchTemplateVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the launch template version.
-	LaunchTemplateVersion *LaunchTemplateVersion `locationName:"launchTemplateVersion" type:"structure"`
+	LaunchTemplateVersion *LaunchTemplateVersion `json:"ec2:CreateLaunchTemplateVersionOutput:LaunchTemplateVersion" locationName:"launchTemplateVersion" type:"structure"`
 }
 
 // String returns the string representation

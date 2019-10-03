@@ -86,9 +86,9 @@ type GetDeploymentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []Deployment `locationName:"item" type:"list"`
+	Items []Deployment `json:"apigateway:GetDeploymentsOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetDeploymentsOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

@@ -49,28 +49,28 @@ type DescribeCodeRepositoryOutput struct {
 	// The Amazon Resource Name (ARN) of the Git repository.
 	//
 	// CodeRepositoryArn is a required field
-	CodeRepositoryArn *string `min:"1" type:"string" required:"true"`
+	CodeRepositoryArn *string `json:"api.sagemaker:DescribeCodeRepositoryOutput:CodeRepositoryArn" min:"1" type:"string" required:"true"`
 
 	// The name of the Git repository.
 	//
 	// CodeRepositoryName is a required field
-	CodeRepositoryName *string `min:"1" type:"string" required:"true"`
+	CodeRepositoryName *string `json:"api.sagemaker:DescribeCodeRepositoryOutput:CodeRepositoryName" min:"1" type:"string" required:"true"`
 
 	// The date and time that the repository was created.
 	//
 	// CreationTime is a required field
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationTime *time.Time `json:"api.sagemaker:DescribeCodeRepositoryOutput:CreationTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// Configuration details about the repository, including the URL where the repository
 	// is located, the default branch, and the Amazon Resource Name (ARN) of the
 	// AWS Secrets Manager secret that contains the credentials used to access the
 	// repository.
-	GitConfig *GitConfig `type:"structure"`
+	GitConfig *GitConfig `json:"api.sagemaker:DescribeCodeRepositoryOutput:GitConfig" type:"structure"`
 
 	// The date and time that the repository was last changed.
 	//
 	// LastModifiedTime is a required field
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	LastModifiedTime *time.Time `json:"api.sagemaker:DescribeCodeRepositoryOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation

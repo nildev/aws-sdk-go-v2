@@ -68,7 +68,7 @@ type CopyFpgaImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the new AFI.
-	FpgaImageId *string `locationName:"fpgaImageId" type:"string"`
+	FpgaImageId *string `json:"ec2:CopyFpgaImageOutput:FpgaImageId" locationName:"fpgaImageId" type:"string"`
 }
 
 // String returns the string representation

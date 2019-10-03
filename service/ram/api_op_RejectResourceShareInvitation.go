@@ -68,10 +68,10 @@ type RejectResourceShareInvitationOutput struct {
 
 	// A unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ram:RejectResourceShareInvitationOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the invitation.
-	ResourceShareInvitation *ResourceShareInvitation `locationName:"resourceShareInvitation" type:"structure"`
+	ResourceShareInvitation *ResourceShareInvitation `json:"ram:RejectResourceShareInvitationOutput:ResourceShareInvitation" locationName:"resourceShareInvitation" type:"structure"`
 }
 
 // String returns the string representation

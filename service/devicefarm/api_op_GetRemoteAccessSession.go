@@ -51,7 +51,7 @@ type GetRemoteAccessSessionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A container that lists detailed information about the remote access session.
-	RemoteAccessSession *RemoteAccessSession `locationName:"remoteAccessSession" type:"structure"`
+	RemoteAccessSession *RemoteAccessSession `json:"devicefarm:GetRemoteAccessSessionOutput:RemoteAccessSession" locationName:"remoteAccessSession" type:"structure"`
 }
 
 // String returns the string representation

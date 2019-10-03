@@ -38,11 +38,11 @@ type ListConfigurationSetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of configuration sets.
-	ConfigurationSets []ConfigurationSet `type:"list"`
+	ConfigurationSets []ConfigurationSet `json:"email:ListConfigurationSetsOutput:ConfigurationSets" type:"list"`
 
 	// A token indicating that there are additional configuration sets available
 	// to be listed. Pass this token to successive calls of ListConfigurationSets.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"email:ListConfigurationSetsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

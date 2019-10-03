@@ -62,11 +62,11 @@ type ListBudgetsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the associated budgets.
-	Budgets []BudgetDetail `type:"list"`
+	Budgets []BudgetDetail `json:"servicecatalog:ListBudgetsForResourceOutput:Budgets" type:"list"`
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListBudgetsForResourceOutput:NextPageToken" type:"string"`
 }
 
 // String returns the string representation

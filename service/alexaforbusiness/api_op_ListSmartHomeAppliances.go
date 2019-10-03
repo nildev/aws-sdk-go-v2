@@ -55,10 +55,10 @@ type ListSmartHomeAppliancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tokens used for pagination.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:ListSmartHomeAppliancesOutput:NextToken" min:"1" type:"string"`
 
 	// The smart home appliances.
-	SmartHomeAppliances []SmartHomeAppliance `type:"list"`
+	SmartHomeAppliances []SmartHomeAppliance `json:"a4b:ListSmartHomeAppliancesOutput:SmartHomeAppliances" type:"list"`
 }
 
 // String returns the string representation

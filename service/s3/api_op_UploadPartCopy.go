@@ -265,33 +265,33 @@ func (s UploadPartCopyInput) MarshalFields(e protocol.FieldEncoder) error {
 type UploadPartCopyOutput struct {
 	_ struct{} `type:"structure" payload:"CopyPartResult"`
 
-	CopyPartResult *CopyPartResult `type:"structure"`
+	CopyPartResult *CopyPartResult `json:"s3:UploadPartCopyOutput:CopyPartResult" type:"structure"`
 
 	// The version of the source object that was copied, if you have enabled versioning
 	// on the source bucket.
-	CopySourceVersionId *string `location:"header" locationName:"x-amz-copy-source-version-id" type:"string"`
+	CopySourceVersionId *string `json:"s3:UploadPartCopyOutput:CopySourceVersionId" location:"header" locationName:"x-amz-copy-source-version-id" type:"string"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:UploadPartCopyOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header confirming the encryption algorithm
 	// used.
-	SSECustomerAlgorithm *string `location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
+	SSECustomerAlgorithm *string `json:"s3:UploadPartCopyOutput:SSECustomerAlgorithm" location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header to provide round trip message integrity
 	// verification of the customer-provided encryption key.
-	SSECustomerKeyMD5 *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
+	SSECustomerKeyMD5 *string `json:"s3:UploadPartCopyOutput:SSECustomerKeyMD5" location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
 
 	// If present, specifies the ID of the AWS Key Management Service (KMS) master
 	// encryption key that was used for the object.
-	SSEKMSKeyId *string `location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
+	SSEKMSKeyId *string `json:"s3:UploadPartCopyOutput:SSEKMSKeyId" location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
 
 	// The Server-side encryption algorithm used when storing this object in S3
 	// (e.g., AES256, aws:kms).
-	ServerSideEncryption ServerSideEncryption `location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
+	ServerSideEncryption ServerSideEncryption `json:"s3:UploadPartCopyOutput:ServerSideEncryption" location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -49,12 +49,12 @@ type DescribeActivityOutput struct {
 	// The Amazon Resource Name (ARN) that identifies the activity.
 	//
 	// ActivityArn is a required field
-	ActivityArn *string `locationName:"activityArn" min:"1" type:"string" required:"true"`
+	ActivityArn *string `json:"states:DescribeActivityOutput:ActivityArn" locationName:"activityArn" min:"1" type:"string" required:"true"`
 
 	// The date the activity is created.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"states:DescribeActivityOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the activity.
 	//
@@ -71,7 +71,7 @@ type DescribeActivityOutput struct {
 	//    * control characters (U+0000-001F, U+007F-009F)
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"states:DescribeActivityOutput:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

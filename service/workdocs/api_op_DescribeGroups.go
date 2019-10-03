@@ -110,11 +110,11 @@ type DescribeGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of groups.
-	Groups []GroupMetadata `type:"list"`
+	Groups []GroupMetadata `json:"workdocs:DescribeGroupsOutput:Groups" type:"list"`
 
 	// The marker to use when requesting the next set of results. If there are no
 	// additional results, the string is empty.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeGroupsOutput:Marker" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -60,7 +60,7 @@ type DisassociateResolverRuleOutput struct {
 
 	// Information about the DisassociateResolverRule request, including the status
 	// of the request.
-	ResolverRuleAssociation *ResolverRuleAssociation `type:"structure"`
+	ResolverRuleAssociation *ResolverRuleAssociation `json:"route53resolver:DisassociateResolverRuleOutput:ResolverRuleAssociation" type:"structure"`
 }
 
 // String returns the string representation

@@ -42,13 +42,13 @@ type DescribeEventBusOutput struct {
 
 	// The Amazon Resource Name (ARN) of the account permitted to write events to
 	// the current account.
-	Arn *string `type:"string"`
+	Arn *string `json:"events:DescribeEventBusOutput:Arn" type:"string"`
 
 	// The name of the event bus. Currently, this is always default.
-	Name *string `type:"string"`
+	Name *string `json:"events:DescribeEventBusOutput:Name" type:"string"`
 
 	// The policy that enables the external account to send events to your account.
-	Policy *string `type:"string"`
+	Policy *string `json:"events:DescribeEventBusOutput:Policy" type:"string"`
 }
 
 // String returns the string representation

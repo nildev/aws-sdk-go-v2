@@ -19,22 +19,22 @@ type BundleDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Developer desktop or mobile app or website platforms.
-	AvailablePlatforms []Platform `locationName:"availablePlatforms" type:"list"`
+	AvailablePlatforms []Platform `json:"mobile:BundleDetails:AvailablePlatforms" locationName:"availablePlatforms" type:"list"`
 
 	// Unique bundle identifier.
-	BundleId *string `locationName:"bundleId" type:"string"`
+	BundleId *string `json:"mobile:BundleDetails:BundleId" locationName:"bundleId" type:"string"`
 
 	// Description of the download bundle.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mobile:BundleDetails:Description" locationName:"description" type:"string"`
 
 	// Icon for the download bundle.
-	IconUrl *string `locationName:"iconUrl" type:"string"`
+	IconUrl *string `json:"mobile:BundleDetails:IconUrl" locationName:"iconUrl" type:"string"`
 
 	// Title of the download bundle.
-	Title *string `locationName:"title" type:"string"`
+	Title *string `json:"mobile:BundleDetails:Title" locationName:"title" type:"string"`
 
 	// Version of the download bundle.
-	Version *string `locationName:"version" type:"string"`
+	Version *string `json:"mobile:BundleDetails:Version" locationName:"version" type:"string"`
 }
 
 // String returns the string representation
@@ -95,28 +95,28 @@ type ProjectDetails struct {
 	_ struct{} `type:"structure"`
 
 	// Website URL for this project in the AWS Mobile Hub console.
-	ConsoleUrl *string `locationName:"consoleUrl" type:"string"`
+	ConsoleUrl *string `json:"mobile:ProjectDetails:ConsoleUrl" locationName:"consoleUrl" type:"string"`
 
 	// Date the project was created.
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"mobile:ProjectDetails:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Date of the last modification of the project.
-	LastUpdatedDate *time.Time `locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedDate *time.Time `json:"mobile:ProjectDetails:LastUpdatedDate" locationName:"lastUpdatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// Name of the project.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mobile:ProjectDetails:Name" locationName:"name" type:"string"`
 
 	// Unique project identifier.
-	ProjectId *string `locationName:"projectId" type:"string"`
+	ProjectId *string `json:"mobile:ProjectDetails:ProjectId" locationName:"projectId" type:"string"`
 
 	// Default region to use for AWS resource creation in the AWS Mobile Hub project.
-	Region *string `locationName:"region" type:"string"`
+	Region *string `json:"mobile:ProjectDetails:Region" locationName:"region" type:"string"`
 
 	// List of AWS resources associated with a project.
-	Resources []Resource `locationName:"resources" type:"list"`
+	Resources []Resource `json:"mobile:ProjectDetails:Resources" locationName:"resources" type:"list"`
 
 	// Synchronization state for a project.
-	State ProjectState `locationName:"state" type:"string" enum:"true"`
+	State ProjectState `json:"mobile:ProjectDetails:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -189,10 +189,10 @@ type ProjectSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the project.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mobile:ProjectSummary:Name" locationName:"name" type:"string"`
 
 	// Unique project identifier.
-	ProjectId *string `locationName:"projectId" type:"string"`
+	ProjectId *string `json:"mobile:ProjectSummary:ProjectId" locationName:"projectId" type:"string"`
 }
 
 // String returns the string representation
@@ -223,20 +223,20 @@ type Resource struct {
 	_ struct{} `type:"structure"`
 
 	// AWS resource name which uniquely identifies the resource in AWS systems.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mobile:Resource:Arn" locationName:"arn" type:"string"`
 
 	// Key-value attribute pairs.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"mobile:Resource:Attributes" locationName:"attributes" type:"map"`
 
 	// Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
-	Feature *string `locationName:"feature" type:"string"`
+	Feature *string `json:"mobile:Resource:Feature" locationName:"feature" type:"string"`
 
 	// Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name
 	// of the bucket).
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mobile:Resource:Name" locationName:"name" type:"string"`
 
 	// Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"mobile:Resource:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation

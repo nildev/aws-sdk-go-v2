@@ -61,7 +61,7 @@ type GetBucketTaggingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// TagSet is a required field
-	TagSet []Tag `locationNameList:"Tag" type:"list" required:"true"`
+	TagSet []Tag `json:"s3:GetBucketTaggingOutput:TagSet" locationNameList:"Tag" type:"list" required:"true"`
 }
 
 // String returns the string representation

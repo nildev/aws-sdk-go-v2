@@ -55,7 +55,7 @@ type ListCloudFrontOriginAccessIdentitiesOutput struct {
 	_ struct{} `type:"structure" payload:"CloudFrontOriginAccessIdentityList"`
 
 	// The CloudFrontOriginAccessIdentityList type.
-	CloudFrontOriginAccessIdentityList *CloudFrontOriginAccessIdentityList `type:"structure"`
+	CloudFrontOriginAccessIdentityList *CloudFrontOriginAccessIdentityList `json:"cloudfront:ListCloudFrontOriginAccessIdentitiesOutput:CloudFrontOriginAccessIdentityList" type:"structure"`
 }
 
 // String returns the string representation

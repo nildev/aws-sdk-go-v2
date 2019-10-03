@@ -69,10 +69,10 @@ type AdminListDevicesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The devices in the list of devices response.
-	Devices []DeviceType `type:"list"`
+	Devices []DeviceType `json:"cognito-idp:AdminListDevicesOutput:Devices" type:"list"`
 
 	// The pagination token.
-	PaginationToken *string `min:"1" type:"string"`
+	PaginationToken *string `json:"cognito-idp:AdminListDevicesOutput:PaginationToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

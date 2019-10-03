@@ -102,7 +102,7 @@ type CreateInstancesOutput struct {
 
 	// An array of key-value pairs containing information about the results of your
 	// create instances request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:CreateInstancesOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

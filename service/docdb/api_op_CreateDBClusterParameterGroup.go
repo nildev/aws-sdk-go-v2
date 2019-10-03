@@ -71,7 +71,7 @@ type CreateDBClusterParameterGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB cluster parameter group.
-	DBClusterParameterGroup *DBClusterParameterGroup `type:"structure"`
+	DBClusterParameterGroup *DBClusterParameterGroup `json:"rds:CreateDBClusterParameterGroupOutput:DBClusterParameterGroup" type:"structure"`
 }
 
 // String returns the string representation

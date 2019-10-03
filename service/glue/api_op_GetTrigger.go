@@ -46,7 +46,7 @@ type GetTriggerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested trigger definition.
-	Trigger *Trigger `type:"structure"`
+	Trigger *Trigger `json:"glue:GetTriggerOutput:Trigger" type:"structure"`
 }
 
 // String returns the string representation

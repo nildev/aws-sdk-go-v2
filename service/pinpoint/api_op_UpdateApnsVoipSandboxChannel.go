@@ -74,7 +74,7 @@ type UpdateApnsVoipSandboxChannelOutput struct {
 	// Notification service) VoIP sandbox channel for an application.
 	//
 	// APNSVoipSandboxChannelResponse is a required field
-	APNSVoipSandboxChannelResponse *APNSVoipSandboxChannelResponse `type:"structure" required:"true"`
+	APNSVoipSandboxChannelResponse *APNSVoipSandboxChannelResponse `json:"pinpoint:UpdateApnsVoipSandboxChannelOutput:APNSVoipSandboxChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

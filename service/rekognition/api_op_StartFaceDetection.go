@@ -81,7 +81,7 @@ type StartFaceDetectionOutput struct {
 
 	// The identifier for the face detection job. Use JobId to identify the job
 	// in a subsequent call to GetFaceDetection.
-	JobId *string `min:"1" type:"string"`
+	JobId *string `json:"rekognition:StartFaceDetectionOutput:JobId" min:"1" type:"string"`
 }
 
 // String returns the string representation

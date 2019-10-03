@@ -46,7 +46,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key:value pairs that are assigned to the container.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"mediastore:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

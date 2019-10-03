@@ -108,7 +108,7 @@ type CreateNotificationSubscriptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The subscription.
-	Subscription *Subscription `type:"structure"`
+	Subscription *Subscription `json:"workdocs:CreateNotificationSubscriptionOutput:Subscription" type:"structure"`
 }
 
 // String returns the string representation

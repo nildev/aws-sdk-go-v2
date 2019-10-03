@@ -92,7 +92,7 @@ type BeginTransactionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The transaction ID of the transaction started by the call.
-	TransactionId *string `locationName:"transactionId" type:"string"`
+	TransactionId *string `json:"rds-data:BeginTransactionOutput:TransactionId" locationName:"transactionId" type:"string"`
 }
 
 // String returns the string representation

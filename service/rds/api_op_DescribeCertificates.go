@@ -69,12 +69,12 @@ type DescribeCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of Certificate objects for the AWS account.
-	Certificates []Certificate `locationNameList:"Certificate" type:"list"`
+	Certificates []Certificate `json:"rds:DescribeCertificatesOutput:Certificates" locationNameList:"Certificate" type:"list"`
 
 	// An optional pagination token provided by a previous DescribeCertificates
 	// request. If this parameter is specified, the response includes only records
 	// beyond the marker, up to the value specified by MaxRecords .
-	Marker *string `type:"string"`
+	Marker *string `json:"rds:DescribeCertificatesOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

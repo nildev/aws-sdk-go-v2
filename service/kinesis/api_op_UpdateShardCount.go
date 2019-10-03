@@ -66,13 +66,13 @@ type UpdateShardCountOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current number of shards.
-	CurrentShardCount *int64 `min:"1" type:"integer"`
+	CurrentShardCount *int64 `json:"kinesis:UpdateShardCountOutput:CurrentShardCount" min:"1" type:"integer"`
 
 	// The name of the stream.
-	StreamName *string `min:"1" type:"string"`
+	StreamName *string `json:"kinesis:UpdateShardCountOutput:StreamName" min:"1" type:"string"`
 
 	// The updated number of shards.
-	TargetShardCount *int64 `min:"1" type:"integer"`
+	TargetShardCount *int64 `json:"kinesis:UpdateShardCountOutput:TargetShardCount" min:"1" type:"integer"`
 }
 
 // String returns the string representation

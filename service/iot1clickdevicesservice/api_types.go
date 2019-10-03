@@ -31,13 +31,13 @@ type Device struct {
 	_ struct{} `type:"structure"`
 
 	// The user specified attributes associated with the device for an event.
-	Attributes *Attributes `locationName:"attributes" type:"structure"`
+	Attributes *Attributes `json:"devices.iot1click:Device:Attributes" locationName:"attributes" type:"structure"`
 
 	// The unique identifier of the device.
-	DeviceId *string `locationName:"deviceId" type:"string"`
+	DeviceId *string `json:"devices.iot1click:Device:DeviceId" locationName:"deviceId" type:"string"`
 
 	// The device type, such as "button".
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"devices.iot1click:Device:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -73,26 +73,26 @@ type DeviceDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the device.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"devices.iot1click:DeviceDescription:Arn" locationName:"arn" type:"string"`
 
 	// An array of zero or more elements of DeviceAttribute objects providing user
 	// specified device attributes.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"devices.iot1click:DeviceDescription:Attributes" locationName:"attributes" type:"map"`
 
 	// The unique identifier of the device.
-	DeviceId *string `locationName:"deviceId" type:"string"`
+	DeviceId *string `json:"devices.iot1click:DeviceDescription:DeviceId" locationName:"deviceId" type:"string"`
 
 	// A Boolean value indicating whether or not the device is enabled.
-	Enabled *bool `locationName:"enabled" type:"boolean"`
+	Enabled *bool `json:"devices.iot1click:DeviceDescription:Enabled" locationName:"enabled" type:"boolean"`
 
 	// A value between 0 and 1 inclusive, representing the fraction of life remaining
 	// for the device.
-	RemainingLife *float64 `locationName:"remainingLife" type:"double"`
+	RemainingLife *float64 `json:"devices.iot1click:DeviceDescription:RemainingLife" locationName:"remainingLife" type:"double"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"devices.iot1click:DeviceDescription:Tags" locationName:"tags" type:"map"`
 
 	// The type of the device, such as "button".
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"devices.iot1click:DeviceDescription:Type" locationName:"type" type:"string"`
 }
 
 // String returns the string representation
@@ -164,10 +164,10 @@ type DeviceEvent struct {
 	_ struct{} `type:"structure"`
 
 	// An object representing the device associated with the event.
-	Device *Device `locationName:"device" type:"structure"`
+	Device *Device `json:"devices.iot1click:DeviceEvent:Device" locationName:"device" type:"structure"`
 
 	// A serialized JSON object representing the device-type specific event.
-	StdEvent *string `locationName:"stdEvent" type:"string"`
+	StdEvent *string `json:"devices.iot1click:DeviceEvent:StdEvent" locationName:"stdEvent" type:"string"`
 }
 
 // String returns the string representation
@@ -197,10 +197,10 @@ type DeviceMethod struct {
 	_ struct{} `type:"structure"`
 
 	// The type of the device, such as "button".
-	DeviceType *string `locationName:"deviceType" type:"string"`
+	DeviceType *string `json:"devices.iot1click:DeviceMethod:DeviceType" locationName:"deviceType" type:"string"`
 
 	// The name of the method applicable to the deviceType.
-	MethodName *string `locationName:"methodName" type:"string"`
+	MethodName *string `json:"devices.iot1click:DeviceMethod:MethodName" locationName:"methodName" type:"string"`
 }
 
 // String returns the string representation

@@ -51,7 +51,7 @@ type PurchaseOfferingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the offering transaction for the purchase result.
-	OfferingTransaction *OfferingTransaction `locationName:"offeringTransaction" type:"structure"`
+	OfferingTransaction *OfferingTransaction `json:"devicefarm:PurchaseOfferingOutput:OfferingTransaction" locationName:"offeringTransaction" type:"structure"`
 }
 
 // String returns the string representation

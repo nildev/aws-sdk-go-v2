@@ -57,7 +57,7 @@ type GetKeyRotationStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A Boolean value that specifies whether key rotation is enabled.
-	KeyRotationEnabled *bool `type:"boolean"`
+	KeyRotationEnabled *bool `json:"kms:GetKeyRotationStatusOutput:KeyRotationEnabled" type:"boolean"`
 }
 
 // String returns the string representation

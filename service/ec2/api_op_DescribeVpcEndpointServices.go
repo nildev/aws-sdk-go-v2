@@ -62,13 +62,13 @@ type DescribeVpcEndpointServicesOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVpcEndpointServicesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the service.
-	ServiceDetails []ServiceDetail `locationName:"serviceDetailSet" locationNameList:"item" type:"list"`
+	ServiceDetails []ServiceDetail `json:"ec2:DescribeVpcEndpointServicesOutput:ServiceDetails" locationName:"serviceDetailSet" locationNameList:"item" type:"list"`
 
 	// A list of supported services.
-	ServiceNames []string `locationName:"serviceNameSet" locationNameList:"item" type:"list"`
+	ServiceNames []string `json:"ec2:DescribeVpcEndpointServicesOutput:ServiceNames" locationName:"serviceNameSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

@@ -49,7 +49,7 @@ type DescribeEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint. The format of the endpoint is as follows: identifier.iot.region.amazonaws.com.
-	EndpointAddress *string `locationName:"endpointAddress" type:"string"`
+	EndpointAddress *string `json:"iot:DescribeEndpointOutput:EndpointAddress" locationName:"endpointAddress" type:"string"`
 }
 
 // String returns the string representation

@@ -50,12 +50,12 @@ type ListRulesPackagesOutput struct {
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"inspector:ListRulesPackagesOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// The list of ARNs that specifies the rules packages returned by the action.
 	//
 	// RulesPackageArns is a required field
-	RulesPackageArns []string `locationName:"rulesPackageArns" type:"list" required:"true"`
+	RulesPackageArns []string `json:"inspector:ListRulesPackagesOutput:RulesPackageArns" locationName:"rulesPackageArns" type:"list" required:"true"`
 }
 
 // String returns the string representation

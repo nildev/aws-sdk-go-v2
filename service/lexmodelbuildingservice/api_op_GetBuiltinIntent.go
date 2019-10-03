@@ -59,14 +59,14 @@ type GetBuiltinIntentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for a built-in intent.
-	Signature *string `locationName:"signature" type:"string"`
+	Signature *string `json:"models.lex:GetBuiltinIntentOutput:Signature" locationName:"signature" type:"string"`
 
 	// An array of BuiltinIntentSlot objects, one entry for each slot type in the
 	// intent.
-	Slots []BuiltinIntentSlot `locationName:"slots" type:"list"`
+	Slots []BuiltinIntentSlot `json:"models.lex:GetBuiltinIntentOutput:Slots" locationName:"slots" type:"list"`
 
 	// A list of locales that the intent supports.
-	SupportedLocales []Locale `locationName:"supportedLocales" type:"list"`
+	SupportedLocales []Locale `json:"models.lex:GetBuiltinIntentOutput:SupportedLocales" locationName:"supportedLocales" type:"list"`
 }
 
 // String returns the string representation

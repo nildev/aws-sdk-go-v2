@@ -67,7 +67,7 @@ type UpdateSystemTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing summary information about the updated system.
-	Summary *SystemTemplateSummary `locationName:"summary" type:"structure"`
+	Summary *SystemTemplateSummary `json:"iotthingsgraph:UpdateSystemTemplateOutput:Summary" locationName:"summary" type:"structure"`
 }
 
 // String returns the string representation

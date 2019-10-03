@@ -27,11 +27,11 @@ type GetLoadBalancersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of LoadBalancer objects describing your load balancers.
-	LoadBalancers []LoadBalancer `locationName:"loadBalancers" type:"list"`
+	LoadBalancers []LoadBalancer `json:"lightsail:GetLoadBalancersOutput:LoadBalancers" locationName:"loadBalancers" type:"list"`
 
 	// A token used for advancing to the next page of results from your GetLoadBalancers
 	// request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetLoadBalancersOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

@@ -77,10 +77,10 @@ type DescribeTapesOutput struct {
 	//
 	// If a response does not contain a marker, then there are no more results to
 	// be retrieved.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"storagegateway:DescribeTapesOutput:Marker" min:"1" type:"string"`
 
 	// An array of virtual tape descriptions.
-	Tapes []Tape `type:"list"`
+	Tapes []Tape `json:"storagegateway:DescribeTapesOutput:Tapes" type:"list"`
 }
 
 // String returns the string representation

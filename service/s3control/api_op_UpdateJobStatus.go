@@ -99,13 +99,13 @@ type UpdateJobStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for the job whose status was updated.
-	JobId *string `min:"5" type:"string"`
+	JobId *string `json:"s3-control:UpdateJobStatusOutput:JobId" min:"5" type:"string"`
 
 	// The current status for the specified job.
-	Status JobStatus `type:"string" enum:"true"`
+	Status JobStatus `json:"s3-control:UpdateJobStatusOutput:Status" type:"string" enum:"true"`
 
 	// The reason that the specified job's status was updated.
-	StatusUpdateReason *string `min:"1" type:"string"`
+	StatusUpdateReason *string `json:"s3-control:UpdateJobStatusOutput:StatusUpdateReason" min:"1" type:"string"`
 }
 
 // String returns the string representation

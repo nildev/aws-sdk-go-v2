@@ -48,10 +48,10 @@ type DescribeWorkspacesConnectionStatusOutput struct {
 
 	// The token to use to retrieve the next set of results, or null if no more
 	// results are available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"workspaces:DescribeWorkspacesConnectionStatusOutput:NextToken" min:"1" type:"string"`
 
 	// Information about the connection status of the WorkSpace.
-	WorkspacesConnectionStatus []WorkspaceConnectionStatus `type:"list"`
+	WorkspacesConnectionStatus []WorkspaceConnectionStatus `json:"workspaces:DescribeWorkspacesConnectionStatusOutput:WorkspacesConnectionStatus" type:"list"`
 }
 
 // String returns the string representation

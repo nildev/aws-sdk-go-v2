@@ -53,14 +53,14 @@ type DescribeComponentConfigurationOutput struct {
 
 	// The configuration settings of the component. The value is the escaped JSON
 	// of the configuration.
-	ComponentConfiguration *string `type:"string"`
+	ComponentConfiguration *string `json:"applicationinsights:DescribeComponentConfigurationOutput:ComponentConfiguration" type:"string"`
 
 	// Indicates whether the application component is monitored.
-	Monitor *bool `type:"boolean"`
+	Monitor *bool `json:"applicationinsights:DescribeComponentConfigurationOutput:Monitor" type:"boolean"`
 
 	// The tier of the application component. Supported tiers include DOT_NET_WORKER,
 	// DOT_NET_WEB_TIER, SQL_SERVER, and DEFAULT
-	Tier *string `type:"string"`
+	Tier *string `json:"applicationinsights:DescribeComponentConfigurationOutput:Tier" type:"string"`
 }
 
 // String returns the string representation

@@ -64,22 +64,22 @@ type GetCelebrityRecognitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Array of celebrities recognized in the video.
-	Celebrities []CelebrityRecognition `type:"list"`
+	Celebrities []CelebrityRecognition `json:"rekognition:GetCelebrityRecognitionOutput:Celebrities" type:"list"`
 
 	// The current status of the celebrity recognition job.
-	JobStatus VideoJobStatus `type:"string" enum:"true"`
+	JobStatus VideoJobStatus `json:"rekognition:GetCelebrityRecognitionOutput:JobStatus" type:"string" enum:"true"`
 
 	// If the response is truncated, Amazon Rekognition Video returns this token
 	// that you can use in the subsequent request to retrieve the next set of celebrities.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:GetCelebrityRecognitionOutput:NextToken" type:"string"`
 
 	// If the job fails, StatusMessage provides a descriptive error message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"rekognition:GetCelebrityRecognitionOutput:StatusMessage" type:"string"`
 
 	// Information about a video that Amazon Rekognition Video analyzed. Videometadata
 	// is returned in every page of paginated responses from a Amazon Rekognition
 	// Video operation.
-	VideoMetadata *VideoMetadata `type:"structure"`
+	VideoMetadata *VideoMetadata `json:"rekognition:GetCelebrityRecognitionOutput:VideoMetadata" type:"structure"`
 }
 
 // String returns the string representation

@@ -47,7 +47,7 @@ type BatchDeleteImportDataOutput struct {
 
 	// Error messages returned for each import task that you deleted as a response
 	// for this command.
-	Errors []BatchDeleteImportDataError `locationName:"errors" type:"list"`
+	Errors []BatchDeleteImportDataError `json:"discovery:BatchDeleteImportDataOutput:Errors" locationName:"errors" type:"list"`
 }
 
 // String returns the string representation

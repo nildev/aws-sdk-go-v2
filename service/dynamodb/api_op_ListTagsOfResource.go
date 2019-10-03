@@ -54,10 +54,10 @@ type ListTagsOfResourceOutput struct {
 	// If this value is returned, there are additional results to be displayed.
 	// To retrieve them, call ListTagsOfResource again, with NextToken set to this
 	// value.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"dynamodb:ListTagsOfResourceOutput:NextToken" type:"string"`
 
 	// The tags currently associated with the Amazon DynamoDB resource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"dynamodb:ListTagsOfResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

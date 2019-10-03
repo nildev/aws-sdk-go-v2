@@ -158,7 +158,7 @@ type SendBulkTemplatedEmailOutput struct {
 	// The unique message identifier returned from the SendBulkTemplatedEmail action.
 	//
 	// Status is a required field
-	Status []BulkEmailDestinationStatus `type:"list" required:"true"`
+	Status []BulkEmailDestinationStatus `json:"email:SendBulkTemplatedEmailOutput:Status" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -51,7 +51,7 @@ type CreateExclusionsPreviewOutput struct {
 	// the GetExclusionsPreview API.
 	//
 	// PreviewToken is a required field
-	PreviewToken *string `locationName:"previewToken" type:"string" required:"true"`
+	PreviewToken *string `json:"inspector:CreateExclusionsPreviewOutput:PreviewToken" locationName:"previewToken" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -59,10 +59,10 @@ type DescribeTagsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeTagsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The tags.
-	Tags []TagDescription `locationName:"tagSet" locationNameList:"item" type:"list"`
+	Tags []TagDescription `json:"ec2:DescribeTagsOutput:Tags" locationName:"tagSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

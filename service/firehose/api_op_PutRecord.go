@@ -60,12 +60,12 @@ type PutRecordOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether server-side encryption (SSE) was enabled during this operation.
-	Encrypted *bool `type:"boolean"`
+	Encrypted *bool `json:"firehose:PutRecordOutput:Encrypted" type:"boolean"`
 
 	// The ID of the record.
 	//
 	// RecordId is a required field
-	RecordId *string `min:"1" type:"string" required:"true"`
+	RecordId *string `json:"firehose:PutRecordOutput:RecordId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

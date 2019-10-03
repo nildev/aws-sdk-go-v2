@@ -71,7 +71,7 @@ type CreateGroupOutput struct {
 	// A structure containing details about the new group.
 	//
 	// Group is a required field
-	Group *Group `type:"structure" required:"true"`
+	Group *Group `json:"iam:CreateGroupOutput:Group" type:"structure" required:"true"`
 }
 
 // String returns the string representation

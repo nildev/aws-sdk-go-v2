@@ -60,7 +60,7 @@ type PutResourcePolicyOutput struct {
 
 	// A hash of the policy that has just been set. This must be included in a subsequent
 	// call that overwrites or updates this policy.
-	PolicyHash *string `min:"1" type:"string"`
+	PolicyHash *string `json:"glue:PutResourcePolicyOutput:PolicyHash" min:"1" type:"string"`
 }
 
 // String returns the string representation

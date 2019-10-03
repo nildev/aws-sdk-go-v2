@@ -86,7 +86,7 @@ type ImportWorkspaceImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the WorkSpace image.
-	ImageId *string `type:"string"`
+	ImageId *string `json:"workspaces:ImportWorkspaceImageOutput:ImageId" type:"string"`
 }
 
 // String returns the string representation

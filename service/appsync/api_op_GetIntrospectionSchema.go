@@ -82,7 +82,7 @@ type GetIntrospectionSchemaOutput struct {
 	// The schema, in GraphQL Schema Definition Language (SDL) format.
 	//
 	// For more information, see the GraphQL SDL documentation (http://graphql.org/learn/schema/).
-	Schema []byte `locationName:"schema" type:"blob"`
+	Schema []byte `json:"appsync:GetIntrospectionSchemaOutput:Schema" locationName:"schema" type:"blob"`
 }
 
 // String returns the string representation

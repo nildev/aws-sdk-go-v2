@@ -64,11 +64,11 @@ type ListDatastoresOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of "DatastoreSummary" objects.
-	DatastoreSummaries []DatastoreSummary `locationName:"datastoreSummaries" type:"list"`
+	DatastoreSummaries []DatastoreSummary `json:"iotanalytics:ListDatastoresOutput:DatastoreSummaries" locationName:"datastoreSummaries" type:"list"`
 
 	// The token to retrieve the next set of results, or null if there are no more
 	// results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotanalytics:ListDatastoresOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

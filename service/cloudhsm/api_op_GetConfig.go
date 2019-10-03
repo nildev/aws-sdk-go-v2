@@ -61,13 +61,13 @@ type GetConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The certificate file containing the server.pem files of the HSMs.
-	ConfigCred *string `type:"string"`
+	ConfigCred *string `json:"cloudhsm:GetConfigOutput:ConfigCred" type:"string"`
 
 	// The chrystoki.conf configuration file.
-	ConfigFile *string `type:"string"`
+	ConfigFile *string `json:"cloudhsm:GetConfigOutput:ConfigFile" type:"string"`
 
 	// The type of credentials.
-	ConfigType *string `type:"string"`
+	ConfigType *string `json:"cloudhsm:GetConfigOutput:ConfigType" type:"string"`
 }
 
 // String returns the string representation

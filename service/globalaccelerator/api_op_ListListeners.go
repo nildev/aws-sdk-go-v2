@@ -55,11 +55,11 @@ type ListListenersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of listeners for an accelerator.
-	Listeners []Listener `type:"list"`
+	Listeners []Listener `json:"globalaccelerator:ListListenersOutput:Listeners" type:"list"`
 
 	// The token for the next set of results. You receive this token from a previous
 	// call.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"globalaccelerator:ListListenersOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -26,7 +26,7 @@ type RotationRulesType struct {
 	// hour within that 24-hour date window randomly. The minute is also chosen
 	// somewhat randomly, but weighted towards the top of the hour and influenced
 	// by a variety of factors that help distribute load.
-	AutomaticallyAfterDays *int64 `min:"1" type:"long"`
+	AutomaticallyAfterDays *int64 `json:"secretsmanager:RotationRulesType:AutomaticallyAfterDays" min:"1" type:"long"`
 }
 
 // String returns the string representation
@@ -59,52 +59,52 @@ type SecretListEntry struct {
 	// For more information about ARNs in Secrets Manager, see Policy Resources
 	// (https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources)
 	// in the AWS Secrets Manager User Guide.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:SecretListEntry:ARN" min:"20" type:"string"`
 
 	// The date and time on which this secret was deleted. Not present on active
 	// secrets. The secret can be recovered until the number of days in the recovery
 	// window has passed, as specified in the RecoveryWindowInDays parameter of
 	// the DeleteSecret operation.
-	DeletedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeletedDate *time.Time `json:"secretsmanager:SecretListEntry:DeletedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The user-provided description of the secret.
-	Description *string `type:"string"`
+	Description *string `json:"secretsmanager:SecretListEntry:Description" type:"string"`
 
 	// The ARN or alias of the AWS KMS customer master key (CMK) that's used to
 	// encrypt the SecretString and SecretBinary fields in each version of the secret.
 	// If you don't provide a key, then Secrets Manager defaults to encrypting the
 	// secret fields with the default KMS CMK (the one named awssecretsmanager)
 	// for this account.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"secretsmanager:SecretListEntry:KmsKeyId" type:"string"`
 
 	// The last date that this secret was accessed. This value is truncated to midnight
 	// of the date and therefore shows only the date, not the time.
-	LastAccessedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAccessedDate *time.Time `json:"secretsmanager:SecretListEntry:LastAccessedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The last date and time that this secret was modified in any way.
-	LastChangedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastChangedDate *time.Time `json:"secretsmanager:SecretListEntry:LastChangedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The last date and time that the rotation process for this secret was invoked.
-	LastRotatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastRotatedDate *time.Time `json:"secretsmanager:SecretListEntry:LastRotatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The friendly name of the secret. You can use forward slashes in the name
 	// to represent a path hierarchy. For example, /prod/databases/dbserver1 could
 	// represent the secret for a server named dbserver1 in the folder databases
 	// in the folder prod.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:SecretListEntry:Name" min:"1" type:"string"`
 
-	OwningService *string `min:"1" type:"string"`
+	OwningService *string `json:"secretsmanager:SecretListEntry:OwningService" min:"1" type:"string"`
 
 	// Indicated whether automatic, scheduled rotation is enabled for this secret.
-	RotationEnabled *bool `type:"boolean"`
+	RotationEnabled *bool `json:"secretsmanager:SecretListEntry:RotationEnabled" type:"boolean"`
 
 	// The ARN of an AWS Lambda function that's invoked by Secrets Manager to rotate
 	// and expire the secret either automatically per the schedule or manually by
 	// a call to RotateSecret.
-	RotationLambdaARN *string `type:"string"`
+	RotationLambdaARN *string `json:"secretsmanager:SecretListEntry:RotationLambdaARN" type:"string"`
 
 	// A structure that defines the rotation configuration for the secret.
-	RotationRules *RotationRulesType `type:"structure"`
+	RotationRules *RotationRulesType `json:"secretsmanager:SecretListEntry:RotationRules" type:"structure"`
 
 	// A list of all of the currently assigned SecretVersionStage staging labels
 	// and the SecretVersionId that each is attached to. Staging labels are used
@@ -112,11 +112,11 @@ type SecretListEntry struct {
 	//
 	// A version that does not have any SecretVersionStage is considered deprecated
 	// and subject to deletion. Such versions are not included in this list.
-	SecretVersionsToStages map[string][]string `type:"map"`
+	SecretVersionsToStages map[string][]string `json:"secretsmanager:SecretListEntry:SecretVersionsToStages" type:"map"`
 
 	// The list of user-defined tags that are associated with the secret. To add
 	// tags to a secret, use TagResource. To remove tags, use UntagResource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"secretsmanager:SecretListEntry:Tags" type:"list"`
 }
 
 // String returns the string representation
@@ -130,18 +130,18 @@ type SecretVersionsListEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time this version of the secret was created.
-	CreatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedDate *time.Time `json:"secretsmanager:SecretVersionsListEntry:CreatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The date that this version of the secret was last accessed. Note that the
 	// resolution of this field is at the date level and does not include the time.
-	LastAccessedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAccessedDate *time.Time `json:"secretsmanager:SecretVersionsListEntry:LastAccessedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The unique version identifier of this version of the secret.
-	VersionId *string `min:"32" type:"string"`
+	VersionId *string `json:"secretsmanager:SecretVersionsListEntry:VersionId" min:"32" type:"string"`
 
 	// An array of staging labels that are currently associated with this version
 	// of the secret.
-	VersionStages []string `min:"1" type:"list"`
+	VersionStages []string `json:"secretsmanager:SecretVersionsListEntry:VersionStages" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -155,10 +155,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// The key identifier, or name, of the tag.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"secretsmanager:Tag:Key" min:"1" type:"string"`
 
 	// The string value that's associated with the key of the tag.
-	Value *string `type:"string"`
+	Value *string `json:"secretsmanager:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

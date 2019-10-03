@@ -52,10 +52,10 @@ type ListTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Reserved for future use.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudtrail:ListTagsOutput:NextToken" type:"string"`
 
 	// A list of resource tags.
-	ResourceTagList []ResourceTag `type:"list"`
+	ResourceTagList []ResourceTag `json:"cloudtrail:ListTagsOutput:ResourceTagList" type:"list"`
 }
 
 // String returns the string representation

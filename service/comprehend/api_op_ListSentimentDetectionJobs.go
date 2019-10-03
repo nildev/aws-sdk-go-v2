@@ -56,10 +56,10 @@ type ListSentimentDetectionJobsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Identifies the next page of results to return.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"comprehend:ListSentimentDetectionJobsOutput:NextToken" min:"1" type:"string"`
 
 	// A list containing the properties of each job that is returned.
-	SentimentDetectionJobPropertiesList []SentimentDetectionJobProperties `type:"list"`
+	SentimentDetectionJobPropertiesList []SentimentDetectionJobProperties `json:"comprehend:ListSentimentDetectionJobsOutput:SentimentDetectionJobPropertiesList" type:"list"`
 }
 
 // String returns the string representation

@@ -79,16 +79,16 @@ type GetUsagePlanKeyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Id of a usage plan key.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:GetUsagePlanKeyOutput:Id" locationName:"id" type:"string"`
 
 	// The name of a usage plan key.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:GetUsagePlanKeyOutput:Name" locationName:"name" type:"string"`
 
 	// The type of a usage plan key. Currently, the valid key type is API_KEY.
-	Type *string `locationName:"type" type:"string"`
+	Type *string `json:"apigateway:GetUsagePlanKeyOutput:Type" locationName:"type" type:"string"`
 
 	// The value of a usage plan key.
-	Value *string `locationName:"value" type:"string"`
+	Value *string `json:"apigateway:GetUsagePlanKeyOutput:Value" locationName:"value" type:"string"`
 }
 
 // String returns the string representation

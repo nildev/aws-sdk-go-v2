@@ -51,11 +51,11 @@ type ListGroundStationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of ground stations.
-	GroundStationList []GroundStationData `locationName:"groundStationList" type:"list"`
+	GroundStationList []GroundStationData `json:"groundstation:ListGroundStationsOutput:GroundStationList" locationName:"groundStationList" type:"list"`
 
 	// Next token that can be supplied in the next call to get the next page of
 	// ground stations.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"groundstation:ListGroundStationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

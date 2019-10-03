@@ -51,11 +51,11 @@ type ListGraphqlApisOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The GraphqlApi objects.
-	GraphqlApis []GraphqlApi `locationName:"graphqlApis" type:"list"`
+	GraphqlApis []GraphqlApi `json:"appsync:ListGraphqlApisOutput:GraphqlApis" locationName:"graphqlApis" type:"list"`
 
 	// An identifier to be passed in the next request to this operation to return
 	// the next set of items in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appsync:ListGraphqlApisOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

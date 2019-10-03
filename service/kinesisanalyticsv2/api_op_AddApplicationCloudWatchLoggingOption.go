@@ -73,16 +73,16 @@ type AddApplicationCloudWatchLoggingOptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The application's ARN.
-	ApplicationARN *string `min:"1" type:"string"`
+	ApplicationARN *string `json:"kinesisanalytics:AddApplicationCloudWatchLoggingOptionOutput:ApplicationARN" min:"1" type:"string"`
 
 	// The new version ID of the Kinesis Data Analytics application. Kinesis Data
 	// Analytics updates the ApplicationVersionId each time you change the CloudWatch
 	// logging options.
-	ApplicationVersionId *int64 `min:"1" type:"long"`
+	ApplicationVersionId *int64 `json:"kinesisanalytics:AddApplicationCloudWatchLoggingOptionOutput:ApplicationVersionId" min:"1" type:"long"`
 
 	// The descriptions of the current CloudWatch logging options for the Kinesis
 	// Data Analytics application.
-	CloudWatchLoggingOptionDescriptions []CloudWatchLoggingOptionDescription `type:"list"`
+	CloudWatchLoggingOptionDescriptions []CloudWatchLoggingOptionDescription `json:"kinesisanalytics:AddApplicationCloudWatchLoggingOptionOutput:CloudWatchLoggingOptionDescriptions" type:"list"`
 }
 
 // String returns the string representation

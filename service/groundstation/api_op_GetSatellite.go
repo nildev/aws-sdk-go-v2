@@ -58,22 +58,22 @@ type GetSatelliteOutput struct {
 	_ struct{} `type:"structure"`
 
 	// When a satellite was created.
-	DateCreated *time.Time `locationName:"dateCreated" type:"timestamp" timestampFormat:"unix"`
+	DateCreated *time.Time `json:"groundstation:GetSatelliteOutput:DateCreated" locationName:"dateCreated" type:"timestamp" timestampFormat:"unix"`
 
 	// When a satellite was last updated.
-	LastUpdated *time.Time `locationName:"lastUpdated" type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"groundstation:GetSatelliteOutput:LastUpdated" locationName:"lastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// NORAD satellite ID number.
-	NoradSatelliteID *int64 `locationName:"noradSatelliteID" min:"1" type:"integer"`
+	NoradSatelliteID *int64 `json:"groundstation:GetSatelliteOutput:NoradSatelliteID" locationName:"noradSatelliteID" min:"1" type:"integer"`
 
 	// ARN of a satellite.
-	SatelliteArn *string `locationName:"satelliteArn" type:"string"`
+	SatelliteArn *string `json:"groundstation:GetSatelliteOutput:SatelliteArn" locationName:"satelliteArn" type:"string"`
 
 	// UUID of a satellite.
-	SatelliteId *string `locationName:"satelliteId" min:"1" type:"string"`
+	SatelliteId *string `json:"groundstation:GetSatelliteOutput:SatelliteId" locationName:"satelliteId" min:"1" type:"string"`
 
 	// Tags assigned to a satellite.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"groundstation:GetSatelliteOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

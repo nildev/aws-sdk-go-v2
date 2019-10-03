@@ -52,7 +52,7 @@ type SetSecurityGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the security groups associated with the load balancer.
-	SecurityGroupIds []string `type:"list"`
+	SecurityGroupIds []string `json:"elasticloadbalancing:SetSecurityGroupsOutput:SecurityGroupIds" type:"list"`
 }
 
 // String returns the string representation

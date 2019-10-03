@@ -46,7 +46,7 @@ type DescribeRuntimeConfigurationOutput struct {
 
 	// Instructions describing how server processes should be launched and maintained
 	// on each instance in the fleet.
-	RuntimeConfiguration *RuntimeConfiguration `type:"structure"`
+	RuntimeConfiguration *RuntimeConfiguration `json:"gamelift:DescribeRuntimeConfigurationOutput:RuntimeConfiguration" type:"structure"`
 }
 
 // String returns the string representation

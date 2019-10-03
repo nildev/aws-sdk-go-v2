@@ -77,17 +77,17 @@ type UpdateVocabularyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The language code of the vocabulary entries.
-	LanguageCode LanguageCode `type:"string" enum:"true"`
+	LanguageCode LanguageCode `json:"transcribe:UpdateVocabularyOutput:LanguageCode" type:"string" enum:"true"`
 
 	// The date and time that the vocabulary was updated.
-	LastModifiedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTime *time.Time `json:"transcribe:UpdateVocabularyOutput:LastModifiedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the vocabulary that was updated.
-	VocabularyName *string `min:"1" type:"string"`
+	VocabularyName *string `json:"transcribe:UpdateVocabularyOutput:VocabularyName" min:"1" type:"string"`
 
 	// The processing state of the vocabulary. When the VocabularyState field contains
 	// READY the vocabulary is ready to be used in a StartTranscriptionJob request.
-	VocabularyState VocabularyState `type:"string" enum:"true"`
+	VocabularyState VocabularyState `json:"transcribe:UpdateVocabularyOutput:VocabularyState" type:"string" enum:"true"`
 }
 
 // String returns the string representation

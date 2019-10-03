@@ -76,7 +76,7 @@ type UpdatePipelineStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A section of the response body that provides information about the pipeline.
-	Pipeline *Pipeline `type:"structure"`
+	Pipeline *Pipeline `json:"elastictranscoder:UpdatePipelineStatusOutput:Pipeline" type:"structure"`
 }
 
 // String returns the string representation

@@ -60,7 +60,7 @@ type UpdateTriggerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The resulting trigger definition.
-	Trigger *Trigger `type:"structure"`
+	Trigger *Trigger `json:"glue:UpdateTriggerOutput:Trigger" type:"structure"`
 }
 
 // String returns the string representation

@@ -109,33 +109,33 @@ func (s CompleteMultipartUploadInput) MarshalFields(e protocol.FieldEncoder) err
 type CompleteMultipartUploadOutput struct {
 	_ struct{} `type:"structure"`
 
-	Bucket *string `type:"string"`
+	Bucket *string `json:"s3:CompleteMultipartUploadOutput:Bucket" type:"string"`
 
 	// Entity tag of the object.
-	ETag *string `type:"string"`
+	ETag *string `json:"s3:CompleteMultipartUploadOutput:ETag" type:"string"`
 
 	// If the object expiration is configured, this will contain the expiration
 	// date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
-	Expiration *string `location:"header" locationName:"x-amz-expiration" type:"string"`
+	Expiration *string `json:"s3:CompleteMultipartUploadOutput:Expiration" location:"header" locationName:"x-amz-expiration" type:"string"`
 
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"s3:CompleteMultipartUploadOutput:Key" min:"1" type:"string"`
 
-	Location *string `type:"string"`
+	Location *string `json:"s3:CompleteMultipartUploadOutput:Location" type:"string"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:CompleteMultipartUploadOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// If present, specifies the ID of the AWS Key Management Service (KMS) master
 	// encryption key that was used for the object.
-	SSEKMSKeyId *string `location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
+	SSEKMSKeyId *string `json:"s3:CompleteMultipartUploadOutput:SSEKMSKeyId" location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
 
 	// The Server-side encryption algorithm used when storing this object in S3
 	// (e.g., AES256, aws:kms).
-	ServerSideEncryption ServerSideEncryption `location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
+	ServerSideEncryption ServerSideEncryption `json:"s3:CompleteMultipartUploadOutput:ServerSideEncryption" location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
 
 	// Version of the object.
-	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+	VersionId *string `json:"s3:CompleteMultipartUploadOutput:VersionId" location:"header" locationName:"x-amz-version-id" type:"string"`
 }
 
 // String returns the string representation

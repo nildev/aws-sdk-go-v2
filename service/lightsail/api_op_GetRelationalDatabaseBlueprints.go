@@ -29,11 +29,11 @@ type GetRelationalDatabaseBlueprintsOutput struct {
 
 	// An object describing the result of your get relational database blueprints
 	// request.
-	Blueprints []RelationalDatabaseBlueprint `locationName:"blueprints" type:"list"`
+	Blueprints []RelationalDatabaseBlueprint `json:"lightsail:GetRelationalDatabaseBlueprintsOutput:Blueprints" locationName:"blueprints" type:"list"`
 
 	// A token used for advancing to the next page of results of your get relational
 	// database blueprints request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetRelationalDatabaseBlueprintsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type CreateEnvironmentMembershipOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the environment member that was added.
-	Membership *EnvironmentMember `locationName:"membership" type:"structure"`
+	Membership *EnvironmentMember `json:"cloud9:CreateEnvironmentMembershipOutput:Membership" locationName:"membership" type:"structure"`
 }
 
 // String returns the string representation

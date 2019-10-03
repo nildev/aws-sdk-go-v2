@@ -47,11 +47,11 @@ type DescribeImageBuildersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the image builders.
-	ImageBuilders []ImageBuilder `type:"list"`
+	ImageBuilders []ImageBuilder `json:"appstream2:DescribeImageBuildersOutput:ImageBuilders" type:"list"`
 
 	// The pagination token to use to retrieve the next page of results for this
 	// operation. If there are no more pages, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"appstream2:DescribeImageBuildersOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

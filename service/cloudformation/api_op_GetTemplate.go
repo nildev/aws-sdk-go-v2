@@ -67,7 +67,7 @@ type GetTemplateOutput struct {
 	// and Processed templates are always available. For change sets, the Original
 	// template is always available. After AWS CloudFormation finishes creating
 	// the change set, the Processed template becomes available.
-	StagesAvailable []TemplateStage `type:"list"`
+	StagesAvailable []TemplateStage `json:"cloudformation:GetTemplateOutput:StagesAvailable" type:"list"`
 
 	// Structure containing the template body. (For more information, go to Template
 	// Anatomy (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
@@ -75,7 +75,7 @@ type GetTemplateOutput struct {
 	//
 	// AWS CloudFormation returns the same template that was used when the stack
 	// was created.
-	TemplateBody *string `min:"1" type:"string"`
+	TemplateBody *string `json:"cloudformation:GetTemplateOutput:TemplateBody" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -75,21 +75,21 @@ type DescribeProvisioningParametersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the constraints used to provision the product.
-	ConstraintSummaries []ConstraintSummary `type:"list"`
+	ConstraintSummaries []ConstraintSummary `json:"servicecatalog:DescribeProvisioningParametersOutput:ConstraintSummaries" type:"list"`
 
 	// Information about the parameters used to provision the product.
-	ProvisioningArtifactParameters []ProvisioningArtifactParameter `type:"list"`
+	ProvisioningArtifactParameters []ProvisioningArtifactParameter `json:"servicecatalog:DescribeProvisioningParametersOutput:ProvisioningArtifactParameters" type:"list"`
 
 	// An object that contains information about preferences, such as regions and
 	// accounts, for the provisioning artifact.
-	ProvisioningArtifactPreferences *ProvisioningArtifactPreferences `type:"structure"`
+	ProvisioningArtifactPreferences *ProvisioningArtifactPreferences `json:"servicecatalog:DescribeProvisioningParametersOutput:ProvisioningArtifactPreferences" type:"structure"`
 
 	// Information about the TagOptions associated with the resource.
-	TagOptions []TagOptionSummary `type:"list"`
+	TagOptions []TagOptionSummary `json:"servicecatalog:DescribeProvisioningParametersOutput:TagOptions" type:"list"`
 
 	// Any additional metadata specifically related to the provisioning of the product.
 	// For example, see the Version field of the CloudFormation template.
-	UsageInstructions []UsageInstruction `type:"list"`
+	UsageInstructions []UsageInstruction `json:"servicecatalog:DescribeProvisioningParametersOutput:UsageInstructions" type:"list"`
 }
 
 // String returns the string representation

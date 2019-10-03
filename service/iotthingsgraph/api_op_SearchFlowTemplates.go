@@ -55,11 +55,11 @@ type SearchFlowTemplatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The string to specify as nextToken when you request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:SearchFlowTemplatesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of objects that contain summary information about each workflow
 	// in the result set.
-	Summaries []FlowTemplateSummary `locationName:"summaries" type:"list"`
+	Summaries []FlowTemplateSummary `json:"iotthingsgraph:SearchFlowTemplatesOutput:Summaries" locationName:"summaries" type:"list"`
 }
 
 // String returns the string representation

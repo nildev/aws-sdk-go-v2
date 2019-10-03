@@ -97,19 +97,19 @@ type ListTrafficPolicyVersionsOutput struct {
 	// value of NextMarker in the marker parameter.
 	//
 	// IsTruncated is a required field
-	IsTruncated *bool `type:"boolean" required:"true"`
+	IsTruncated *bool `json:"route53:ListTrafficPolicyVersionsOutput:IsTruncated" type:"boolean" required:"true"`
 
 	// The value that you specified for the maxitems parameter in the ListTrafficPolicyVersions
 	// request that produced the current response.
 	//
 	// MaxItems is a required field
-	MaxItems *string `type:"string" required:"true"`
+	MaxItems *string `json:"route53:ListTrafficPolicyVersionsOutput:MaxItems" type:"string" required:"true"`
 
 	// A list that contains one TrafficPolicy element for each traffic policy version
 	// that is associated with the specified traffic policy.
 	//
 	// TrafficPolicies is a required field
-	TrafficPolicies []TrafficPolicy `locationNameList:"TrafficPolicy" type:"list" required:"true"`
+	TrafficPolicies []TrafficPolicy `json:"route53:ListTrafficPolicyVersionsOutput:TrafficPolicies" locationNameList:"TrafficPolicy" type:"list" required:"true"`
 
 	// If IsTruncated is true, the value of TrafficPolicyVersionMarker identifies
 	// the first traffic policy that Amazon Route 53 will return if you submit another
@@ -119,7 +119,7 @@ type ListTrafficPolicyVersionsOutput struct {
 	// This element is present only if IsTruncated is true.
 	//
 	// TrafficPolicyVersionMarker is a required field
-	TrafficPolicyVersionMarker *string `type:"string" required:"true"`
+	TrafficPolicyVersionMarker *string `json:"route53:ListTrafficPolicyVersionsOutput:TrafficPolicyVersionMarker" type:"string" required:"true"`
 }
 
 // String returns the string representation

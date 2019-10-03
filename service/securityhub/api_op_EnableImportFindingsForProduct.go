@@ -57,7 +57,7 @@ type EnableImportFindingsForProductOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of your subscription to the product to enable integrations for.
-	ProductSubscriptionArn *string `type:"string"`
+	ProductSubscriptionArn *string `json:"securityhub:EnableImportFindingsForProductOutput:ProductSubscriptionArn" type:"string"`
 }
 
 // String returns the string representation

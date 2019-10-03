@@ -147,13 +147,13 @@ type PutObjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The SHA256 digest of the object that is persisted.
-	ContentSHA256 *string `min:"64" type:"string"`
+	ContentSHA256 *string `json:"data.mediastore:PutObjectOutput:ContentSHA256" min:"64" type:"string"`
 
 	// Unique identifier of the object in the container.
-	ETag *string `min:"1" type:"string"`
+	ETag *string `json:"data.mediastore:PutObjectOutput:ETag" min:"1" type:"string"`
 
 	// The storage class where the object was persisted. The class should be “Temporal”.
-	StorageClass StorageClass `min:"1" type:"string" enum:"true"`
+	StorageClass StorageClass `json:"data.mediastore:PutObjectOutput:StorageClass" min:"1" type:"string" enum:"true"`
 }
 
 // String returns the string representation

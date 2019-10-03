@@ -46,7 +46,7 @@ type AcceptHandshakeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains details about the accepted handshake.
-	Handshake *Handshake `type:"structure"`
+	Handshake *Handshake `json:"organizations:AcceptHandshakeOutput:Handshake" type:"structure"`
 }
 
 // String returns the string representation

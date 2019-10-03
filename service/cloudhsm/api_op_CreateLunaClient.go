@@ -52,7 +52,7 @@ type CreateLunaClientOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the client.
-	ClientArn *string `type:"string"`
+	ClientArn *string `json:"cloudhsm:CreateLunaClientOutput:ClientArn" type:"string"`
 }
 
 // String returns the string representation

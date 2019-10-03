@@ -93,22 +93,22 @@ type UpdateMaintenanceWindowTargetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated description.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:UpdateMaintenanceWindowTargetOutput:Description" min:"1" type:"string"`
 
 	// The updated name.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:UpdateMaintenanceWindowTargetOutput:Name" min:"3" type:"string"`
 
 	// The updated owner.
-	OwnerInformation *string `min:"1" type:"string"`
+	OwnerInformation *string `json:"ssm:UpdateMaintenanceWindowTargetOutput:OwnerInformation" min:"1" type:"string"`
 
 	// The updated targets.
-	Targets []Target `type:"list"`
+	Targets []Target `json:"ssm:UpdateMaintenanceWindowTargetOutput:Targets" type:"list"`
 
 	// The maintenance window ID specified in the update request.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:UpdateMaintenanceWindowTargetOutput:WindowId" min:"20" type:"string"`
 
 	// The target ID specified in the update request.
-	WindowTargetId *string `min:"36" type:"string"`
+	WindowTargetId *string `json:"ssm:UpdateMaintenanceWindowTargetOutput:WindowTargetId" min:"36" type:"string"`
 }
 
 // String returns the string representation

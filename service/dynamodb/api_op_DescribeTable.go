@@ -48,7 +48,7 @@ type DescribeTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The properties of the table.
-	Table *TableDescription `type:"structure"`
+	Table *TableDescription `json:"dynamodb:DescribeTableOutput:Table" type:"structure"`
 }
 
 // String returns the string representation

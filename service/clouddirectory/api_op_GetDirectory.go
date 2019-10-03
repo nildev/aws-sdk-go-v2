@@ -58,7 +58,7 @@ type GetDirectoryOutput struct {
 	// Metadata about the directory.
 	//
 	// Directory is a required field
-	Directory *Directory `type:"structure" required:"true"`
+	Directory *Directory `json:"clouddirectory:GetDirectoryOutput:Directory" type:"structure" required:"true"`
 }
 
 // String returns the string representation

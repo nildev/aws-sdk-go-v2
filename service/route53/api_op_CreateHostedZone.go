@@ -142,26 +142,26 @@ type CreateHostedZoneOutput struct {
 	// A complex type that contains information about the CreateHostedZone request.
 	//
 	// ChangeInfo is a required field
-	ChangeInfo *ChangeInfo `type:"structure" required:"true"`
+	ChangeInfo *ChangeInfo `json:"route53:CreateHostedZoneOutput:ChangeInfo" type:"structure" required:"true"`
 
 	// A complex type that describes the name servers for this hosted zone.
 	//
 	// DelegationSet is a required field
-	DelegationSet *DelegationSet `type:"structure" required:"true"`
+	DelegationSet *DelegationSet `json:"route53:CreateHostedZoneOutput:DelegationSet" type:"structure" required:"true"`
 
 	// A complex type that contains general information about the hosted zone.
 	//
 	// HostedZone is a required field
-	HostedZone *HostedZone `type:"structure" required:"true"`
+	HostedZone *HostedZone `json:"route53:CreateHostedZoneOutput:HostedZone" type:"structure" required:"true"`
 
 	// The unique URL representing the new hosted zone.
 	//
 	// Location is a required field
-	Location *string `location:"header" locationName:"Location" type:"string" required:"true"`
+	Location *string `json:"route53:CreateHostedZoneOutput:Location" location:"header" locationName:"Location" type:"string" required:"true"`
 
 	// A complex type that contains information about an Amazon VPC that you associated
 	// with this hosted zone.
-	VPC *VPC `type:"structure"`
+	VPC *VPC `json:"route53:CreateHostedZoneOutput:VPC" type:"structure"`
 }
 
 // String returns the string representation

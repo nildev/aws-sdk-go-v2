@@ -88,11 +88,11 @@ type GetBuiltinSlotTypesOutput struct {
 
 	// If the response is truncated, the response includes a pagination token that
 	// you can use in your next request to fetch the next page of slot types.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetBuiltinSlotTypesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of BuiltInSlotTypeMetadata objects, one entry for each slot type
 	// returned.
-	SlotTypes []BuiltinSlotTypeMetadata `locationName:"slotTypes" type:"list"`
+	SlotTypes []BuiltinSlotTypeMetadata `json:"models.lex:GetBuiltinSlotTypesOutput:SlotTypes" locationName:"slotTypes" type:"list"`
 }
 
 // String returns the string representation

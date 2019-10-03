@@ -60,13 +60,13 @@ type SearchProvisionedProductsOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:SearchProvisionedProductsOutput:NextPageToken" type:"string"`
 
 	// Information about the provisioned products.
-	ProvisionedProducts []ProvisionedProductAttribute `type:"list"`
+	ProvisionedProducts []ProvisionedProductAttribute `json:"servicecatalog:SearchProvisionedProductsOutput:ProvisionedProducts" type:"list"`
 
 	// The number of provisioned products found.
-	TotalResultsCount *int64 `type:"integer"`
+	TotalResultsCount *int64 `json:"servicecatalog:SearchProvisionedProductsOutput:TotalResultsCount" type:"integer"`
 }
 
 // String returns the string representation

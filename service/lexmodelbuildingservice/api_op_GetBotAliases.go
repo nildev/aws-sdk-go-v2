@@ -98,13 +98,13 @@ type GetBotAliasesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of BotAliasMetadata objects, each describing a bot alias.
-	BotAliases []BotAliasMetadata `type:"list"`
+	BotAliases []BotAliasMetadata `json:"models.lex:GetBotAliasesOutput:BotAliases" type:"list"`
 
 	// A pagination token for fetching next page of aliases. If the response to
 	// this call is truncated, Amazon Lex returns a pagination token in the response.
 	// To fetch the next page of aliases, specify the pagination token in the next
 	// request.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetBotAliasesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -58,7 +58,7 @@ type DeleteBaiduChannelOutput struct {
 	// Push) channel for an application.
 	//
 	// BaiduChannelResponse is a required field
-	BaiduChannelResponse *BaiduChannelResponse `type:"structure" required:"true"`
+	BaiduChannelResponse *BaiduChannelResponse `json:"pinpoint:DeleteBaiduChannelOutput:BaiduChannelResponse" type:"structure" required:"true"`
 }
 
 // String returns the string representation

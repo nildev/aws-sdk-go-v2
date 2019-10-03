@@ -81,10 +81,10 @@ type UpdateRoleAliasOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The role alias.
-	RoleAlias *string `locationName:"roleAlias" min:"1" type:"string"`
+	RoleAlias *string `json:"iot:UpdateRoleAliasOutput:RoleAlias" locationName:"roleAlias" min:"1" type:"string"`
 
 	// The role alias ARN.
-	RoleAliasArn *string `locationName:"roleAliasArn" type:"string"`
+	RoleAliasArn *string `json:"iot:UpdateRoleAliasOutput:RoleAliasArn" locationName:"roleAliasArn" type:"string"`
 }
 
 // String returns the string representation

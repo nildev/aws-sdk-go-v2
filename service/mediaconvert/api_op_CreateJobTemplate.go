@@ -156,7 +156,7 @@ type CreateJobTemplateOutput struct {
 
 	// A job template is a pre-made set of encoding instructions that you can use
 	// to quickly create a job.
-	JobTemplate *JobTemplate `locationName:"jobTemplate" type:"structure"`
+	JobTemplate *JobTemplate `json:"mediaconvert:CreateJobTemplateOutput:JobTemplate" locationName:"jobTemplate" type:"structure"`
 }
 
 // String returns the string representation

@@ -149,18 +149,18 @@ type GetFederationTokenOutput struct {
 	//
 	// The size of the security token that STS API operations return is not fixed.
 	// We strongly recommend that you make no assumptions about the maximum size.
-	Credentials *Credentials `type:"structure"`
+	Credentials *Credentials `json:"sts:GetFederationTokenOutput:Credentials" type:"structure"`
 
 	// Identifiers for the federated user associated with the credentials (such
 	// as arn:aws:sts::123456789012:federated-user/Bob or 123456789012:Bob). You
 	// can use the federated user's ARN in your resource-based policies, such as
 	// an Amazon S3 bucket policy.
-	FederatedUser *FederatedUser `type:"structure"`
+	FederatedUser *FederatedUser `json:"sts:GetFederationTokenOutput:FederatedUser" type:"structure"`
 
 	// A percentage value indicating the size of the policy in packed form. The
 	// service rejects policies for which the packed size is greater than 100 percent
 	// of the allowed value.
-	PackedPolicySize *int64 `type:"integer"`
+	PackedPolicySize *int64 `json:"sts:GetFederationTokenOutput:PackedPolicySize" type:"integer"`
 }
 
 // String returns the string representation

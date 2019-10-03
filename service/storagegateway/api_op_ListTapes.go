@@ -67,12 +67,12 @@ type ListTapesOutput struct {
 	// list of tapes. Use the marker in your next request to continue pagination
 	// of tapes. If there are no more tapes to list, this element does not appear
 	// in the response body.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"storagegateway:ListTapesOutput:Marker" min:"1" type:"string"`
 
 	// An array of TapeInfo objects, where each object describes an a single tape.
 	// If there not tapes in the tape library or VTS, then the TapeInfos is an empty
 	// array.
-	TapeInfos []TapeInfo `type:"list"`
+	TapeInfos []TapeInfo `json:"storagegateway:ListTapesOutput:TapeInfos" type:"list"`
 }
 
 // String returns the string representation

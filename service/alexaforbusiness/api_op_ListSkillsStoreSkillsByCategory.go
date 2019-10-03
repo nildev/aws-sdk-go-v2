@@ -58,10 +58,10 @@ type ListSkillsStoreSkillsByCategoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tokens used for pagination.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:ListSkillsStoreSkillsByCategoryOutput:NextToken" min:"1" type:"string"`
 
 	// The skill store skills.
-	SkillsStoreSkills []SkillsStoreSkill `type:"list"`
+	SkillsStoreSkills []SkillsStoreSkill `json:"a4b:ListSkillsStoreSkillsByCategoryOutput:SkillsStoreSkills" type:"list"`
 }
 
 // String returns the string representation

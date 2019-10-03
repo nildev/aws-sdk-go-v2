@@ -79,10 +79,10 @@ type ListOrganizationalUnitsForParentOutput struct {
 	// parameter in a subsequent call to the operation to get the next part of the
 	// output. You should repeat this until the NextToken response element comes
 	// back as null.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"organizations:ListOrganizationalUnitsForParentOutput:NextToken" type:"string"`
 
 	// A list of the OUs in the specified root or parent OU.
-	OrganizationalUnits []OrganizationalUnit `type:"list"`
+	OrganizationalUnits []OrganizationalUnit `json:"organizations:ListOrganizationalUnitsForParentOutput:OrganizationalUnits" type:"list"`
 }
 
 // String returns the string representation

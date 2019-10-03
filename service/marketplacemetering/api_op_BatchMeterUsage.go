@@ -71,12 +71,12 @@ type BatchMeterUsageOutput struct {
 
 	// Contains all UsageRecords processed by BatchMeterUsage. These records were
 	// either honored by AWS Marketplace Metering Service or were invalid.
-	Results []UsageRecordResult `type:"list"`
+	Results []UsageRecordResult `json:"metering.marketplace:BatchMeterUsageOutput:Results" type:"list"`
 
 	// Contains all UsageRecords that were not processed by BatchMeterUsage. This
 	// is a list of UsageRecords. You can retry the failed request by making another
 	// BatchMeterUsage call with this list as input in the BatchMeterUsageRequest.
-	UnprocessedRecords []UsageRecord `type:"list"`
+	UnprocessedRecords []UsageRecord `json:"metering.marketplace:BatchMeterUsageOutput:UnprocessedRecords" type:"list"`
 }
 
 // String returns the string representation

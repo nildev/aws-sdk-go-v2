@@ -43,7 +43,7 @@ type GetWorkGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the workgroup.
-	WorkGroup *WorkGroup `type:"structure"`
+	WorkGroup *WorkGroup `json:"athena:GetWorkGroupOutput:WorkGroup" type:"structure"`
 }
 
 // String returns the string representation

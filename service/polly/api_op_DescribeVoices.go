@@ -66,10 +66,10 @@ type DescribeVoicesOutput struct {
 
 	// The pagination token to use in the next request to continue the listing of
 	// voices. NextToken is returned only if the response is truncated.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"polly:DescribeVoicesOutput:NextToken" type:"string"`
 
 	// A list of voices with their properties.
-	Voices []Voice `type:"list"`
+	Voices []Voice `json:"polly:DescribeVoicesOutput:Voices" type:"list"`
 }
 
 // String returns the string representation

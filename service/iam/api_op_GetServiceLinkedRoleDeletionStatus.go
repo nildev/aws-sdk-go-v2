@@ -47,12 +47,12 @@ type GetServiceLinkedRoleDeletionStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that contains details about the reason the deletion failed.
-	Reason *DeletionTaskFailureReasonType `type:"structure"`
+	Reason *DeletionTaskFailureReasonType `json:"iam:GetServiceLinkedRoleDeletionStatusOutput:Reason" type:"structure"`
 
 	// The status of the deletion.
 	//
 	// Status is a required field
-	Status DeletionTaskStatusType `type:"string" required:"true" enum:"true"`
+	Status DeletionTaskStatusType `json:"iam:GetServiceLinkedRoleDeletionStatusOutput:Status" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

@@ -109,44 +109,44 @@ type ImportImageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The architecture of the virtual machine.
-	Architecture *string `locationName:"architecture" type:"string"`
+	Architecture *string `json:"ec2:ImportImageOutput:Architecture" locationName:"architecture" type:"string"`
 
 	// A description of the import task.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"ec2:ImportImageOutput:Description" locationName:"description" type:"string"`
 
 	// Indicates whether the AMI is encypted.
-	Encrypted *bool `locationName:"encrypted" type:"boolean"`
+	Encrypted *bool `json:"ec2:ImportImageOutput:Encrypted" locationName:"encrypted" type:"boolean"`
 
 	// The target hypervisor of the import task.
-	Hypervisor *string `locationName:"hypervisor" type:"string"`
+	Hypervisor *string `json:"ec2:ImportImageOutput:Hypervisor" locationName:"hypervisor" type:"string"`
 
 	// The ID of the Amazon Machine Image (AMI) created by the import task.
-	ImageId *string `locationName:"imageId" type:"string"`
+	ImageId *string `json:"ec2:ImportImageOutput:ImageId" locationName:"imageId" type:"string"`
 
 	// The task ID of the import image task.
-	ImportTaskId *string `locationName:"importTaskId" type:"string"`
+	ImportTaskId *string `json:"ec2:ImportImageOutput:ImportTaskId" locationName:"importTaskId" type:"string"`
 
 	// The identifier for the AWS Key Management Service (AWS KMS) customer master
 	// key (CMK) that was used to create the encrypted AMI.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"ec2:ImportImageOutput:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// The license type of the virtual machine.
-	LicenseType *string `locationName:"licenseType" type:"string"`
+	LicenseType *string `json:"ec2:ImportImageOutput:LicenseType" locationName:"licenseType" type:"string"`
 
 	// The operating system of the virtual machine.
-	Platform *string `locationName:"platform" type:"string"`
+	Platform *string `json:"ec2:ImportImageOutput:Platform" locationName:"platform" type:"string"`
 
 	// The progress of the task.
-	Progress *string `locationName:"progress" type:"string"`
+	Progress *string `json:"ec2:ImportImageOutput:Progress" locationName:"progress" type:"string"`
 
 	// Information about the snapshots.
-	SnapshotDetails []SnapshotDetail `locationName:"snapshotDetailSet" locationNameList:"item" type:"list"`
+	SnapshotDetails []SnapshotDetail `json:"ec2:ImportImageOutput:SnapshotDetails" locationName:"snapshotDetailSet" locationNameList:"item" type:"list"`
 
 	// A brief status of the task.
-	Status *string `locationName:"status" type:"string"`
+	Status *string `json:"ec2:ImportImageOutput:Status" locationName:"status" type:"string"`
 
 	// A detailed status message of the import task.
-	StatusMessage *string `locationName:"statusMessage" type:"string"`
+	StatusMessage *string `json:"ec2:ImportImageOutput:StatusMessage" locationName:"statusMessage" type:"string"`
 }
 
 // String returns the string representation

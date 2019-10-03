@@ -174,32 +174,32 @@ type UpdateSecurityProfileOutput struct {
 	// A list of metrics whose data is retained (stored). By default, data is retained
 	// for any metric used in the security profile's behaviors but it is also retained
 	// for any metric specified here.
-	AdditionalMetricsToRetain []string `locationName:"additionalMetricsToRetain" type:"list"`
+	AdditionalMetricsToRetain []string `json:"iot:UpdateSecurityProfileOutput:AdditionalMetricsToRetain" locationName:"additionalMetricsToRetain" type:"list"`
 
 	// Where the alerts are sent. (Alerts are always sent to the console.)
-	AlertTargets map[string]AlertTarget `locationName:"alertTargets" type:"map"`
+	AlertTargets map[string]AlertTarget `json:"iot:UpdateSecurityProfileOutput:AlertTargets" locationName:"alertTargets" type:"map"`
 
 	// Specifies the behaviors that, when violated by a device (thing), cause an
 	// alert.
-	Behaviors []Behavior `locationName:"behaviors" type:"list"`
+	Behaviors []Behavior `json:"iot:UpdateSecurityProfileOutput:Behaviors" locationName:"behaviors" type:"list"`
 
 	// The time the security profile was created.
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `json:"iot:UpdateSecurityProfileOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the security profile was last modified.
-	LastModifiedDate *time.Time `locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedDate *time.Time `json:"iot:UpdateSecurityProfileOutput:LastModifiedDate" locationName:"lastModifiedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The ARN of the security profile that was updated.
-	SecurityProfileArn *string `locationName:"securityProfileArn" type:"string"`
+	SecurityProfileArn *string `json:"iot:UpdateSecurityProfileOutput:SecurityProfileArn" locationName:"securityProfileArn" type:"string"`
 
 	// The description of the security profile.
-	SecurityProfileDescription *string `locationName:"securityProfileDescription" type:"string"`
+	SecurityProfileDescription *string `json:"iot:UpdateSecurityProfileOutput:SecurityProfileDescription" locationName:"securityProfileDescription" type:"string"`
 
 	// The name of the security profile that was updated.
-	SecurityProfileName *string `locationName:"securityProfileName" min:"1" type:"string"`
+	SecurityProfileName *string `json:"iot:UpdateSecurityProfileOutput:SecurityProfileName" locationName:"securityProfileName" min:"1" type:"string"`
 
 	// The updated version of the security profile.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"iot:UpdateSecurityProfileOutput:Version" locationName:"version" type:"long"`
 }
 
 // String returns the string representation

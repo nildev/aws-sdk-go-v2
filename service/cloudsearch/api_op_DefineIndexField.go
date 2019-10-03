@@ -67,7 +67,7 @@ type DefineIndexFieldOutput struct {
 	// The value of an IndexField and its current status.
 	//
 	// IndexField is a required field
-	IndexField *IndexFieldStatus `type:"structure" required:"true"`
+	IndexField *IndexFieldStatus `json:"cloudsearch:DefineIndexFieldOutput:IndexField" type:"structure" required:"true"`
 }
 
 // String returns the string representation

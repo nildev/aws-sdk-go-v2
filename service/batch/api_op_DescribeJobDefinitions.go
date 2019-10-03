@@ -97,13 +97,13 @@ type DescribeJobDefinitionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of job definitions.
-	JobDefinitions []JobDefinition `locationName:"jobDefinitions" type:"list"`
+	JobDefinitions []JobDefinition `json:"batch:DescribeJobDefinitionsOutput:JobDefinitions" locationName:"jobDefinitions" type:"list"`
 
 	// The nextToken value to include in a future DescribeJobDefinitions request.
 	// When the results of a DescribeJobDefinitions request exceed maxResults, this
 	// value can be used to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"batch:DescribeJobDefinitionsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

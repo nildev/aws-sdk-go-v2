@@ -106,7 +106,7 @@ type DescribeDatasetOutput struct {
 	// entity in an application (like a saved game). Datasets are automatically
 	// created if they don't exist. Data is synced by dataset, and a dataset can
 	// hold up to 1MB of key-value pairs.
-	Dataset *Dataset `type:"structure"`
+	Dataset *Dataset `json:"cognito-sync:DescribeDatasetOutput:Dataset" type:"structure"`
 }
 
 // String returns the string representation

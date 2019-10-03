@@ -96,11 +96,11 @@ type UpdateChapCredentialsOutput struct {
 
 	// The iSCSI initiator that connects to the target. This is the same initiator
 	// name specified in the request.
-	InitiatorName *string `min:"1" type:"string"`
+	InitiatorName *string `json:"storagegateway:UpdateChapCredentialsOutput:InitiatorName" min:"1" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the target. This is the same target specified
 	// in the request.
-	TargetARN *string `min:"50" type:"string"`
+	TargetARN *string `json:"storagegateway:UpdateChapCredentialsOutput:TargetARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

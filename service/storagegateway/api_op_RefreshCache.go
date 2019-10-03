@@ -66,11 +66,11 @@ type RefreshCacheOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the file share.
-	FileShareARN *string `min:"50" type:"string"`
+	FileShareARN *string `json:"storagegateway:RefreshCacheOutput:FileShareARN" min:"50" type:"string"`
 
 	// The randomly generated ID of the notification that was sent. This ID is in
 	// UUID format.
-	NotificationId *string `min:"1" type:"string"`
+	NotificationId *string `json:"storagegateway:RefreshCacheOutput:NotificationId" min:"1" type:"string"`
 }
 
 // String returns the string representation

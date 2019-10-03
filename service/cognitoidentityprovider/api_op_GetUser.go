@@ -47,10 +47,10 @@ type GetUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the options for MFA (e.g., email or phone number).
-	MFAOptions []MFAOptionType `type:"list"`
+	MFAOptions []MFAOptionType `json:"cognito-idp:GetUserOutput:MFAOptions" type:"list"`
 
 	// The user's preferred MFA setting.
-	PreferredMfaSetting *string `type:"string"`
+	PreferredMfaSetting *string `json:"cognito-idp:GetUserOutput:PreferredMfaSetting" type:"string"`
 
 	// An array of name-value pairs representing user attributes.
 	//
@@ -58,15 +58,15 @@ type GetUserOutput struct {
 	// name.
 	//
 	// UserAttributes is a required field
-	UserAttributes []AttributeType `type:"list" required:"true"`
+	UserAttributes []AttributeType `json:"cognito-idp:GetUserOutput:UserAttributes" type:"list" required:"true"`
 
 	// The list of the user's MFA settings.
-	UserMFASettingList []string `type:"list"`
+	UserMFASettingList []string `json:"cognito-idp:GetUserOutput:UserMFASettingList" type:"list"`
 
 	// The user name of the user you wish to retrieve from the get user request.
 	//
 	// Username is a required field
-	Username *string `min:"1" type:"string" required:"true"`
+	Username *string `json:"cognito-idp:GetUserOutput:Username" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

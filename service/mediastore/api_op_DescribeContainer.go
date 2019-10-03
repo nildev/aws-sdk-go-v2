@@ -40,7 +40,7 @@ type DescribeContainerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the queried container.
-	Container *Container `type:"structure"`
+	Container *Container `json:"mediastore:DescribeContainerOutput:Container" type:"structure"`
 }
 
 // String returns the string representation

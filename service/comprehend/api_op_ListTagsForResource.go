@@ -45,13 +45,13 @@ type ListTagsForResourceOutput struct {
 
 	// The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you
 	// are querying.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"comprehend:ListTagsForResourceOutput:ResourceArn" type:"string"`
 
 	// Tags associated with the Amazon Comprehend resource being queried. A tag
 	// is a key-value pair that adds as a metadata to a resource used by Amazon
 	// Comprehend. For example, a tag with "Sales" as the key might be added to
 	// a resource to indicate its use by the sales department.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"comprehend:ListTagsForResourceOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

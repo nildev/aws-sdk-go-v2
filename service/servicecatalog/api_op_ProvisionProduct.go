@@ -135,7 +135,7 @@ type ProvisionProductOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the result of provisioning the product.
-	RecordDetail *RecordDetail `type:"structure"`
+	RecordDetail *RecordDetail `json:"servicecatalog:ProvisionProductOutput:RecordDetail" type:"structure"`
 }
 
 // String returns the string representation

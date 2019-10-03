@@ -53,7 +53,7 @@ type PromoteReadReplicaDBClusterOutput struct {
 	//
 	// This data type is used as a response element in the DescribeDBClusters, StopDBCluster,
 	// and StartDBCluster actions.
-	DBCluster *DBCluster `type:"structure"`
+	DBCluster *DBCluster `json:"rds:PromoteReadReplicaDBClusterOutput:DBCluster" type:"structure"`
 }
 
 // String returns the string representation

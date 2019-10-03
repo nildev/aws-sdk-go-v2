@@ -55,11 +55,11 @@ type DescribeInstanceAssociationsStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Status information about the association.
-	InstanceAssociationStatusInfos []InstanceAssociationStatusInfo `type:"list"`
+	InstanceAssociationStatusInfos []InstanceAssociationStatusInfo `json:"ssm:DescribeInstanceAssociationsStatusOutput:InstanceAssociationStatusInfos" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeInstanceAssociationsStatusOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -19,19 +19,19 @@ type AlarmHistoryItem struct {
 	_ struct{} `type:"structure"`
 
 	// The descriptive name for the alarm.
-	AlarmName *string `min:"1" type:"string"`
+	AlarmName *string `json:"monitoring:AlarmHistoryItem:AlarmName" min:"1" type:"string"`
 
 	// Data about the alarm, in JSON format.
-	HistoryData *string `min:"1" type:"string"`
+	HistoryData *string `json:"monitoring:AlarmHistoryItem:HistoryData" min:"1" type:"string"`
 
 	// The type of alarm history item.
-	HistoryItemType HistoryItemType `type:"string" enum:"true"`
+	HistoryItemType HistoryItemType `json:"monitoring:AlarmHistoryItem:HistoryItemType" type:"string" enum:"true"`
 
 	// A summary of the alarm history, in text format.
-	HistorySummary *string `min:"1" type:"string"`
+	HistorySummary *string `json:"monitoring:AlarmHistoryItem:HistorySummary" min:"1" type:"string"`
 
 	// The time stamp for the alarm history item.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"monitoring:AlarmHistoryItem:Timestamp" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -49,19 +49,19 @@ type AnomalyDetector struct {
 	// The configuration specifies details about how the anomaly detection model
 	// is to be trained, including time ranges to exclude from use for training
 	// the model, and the time zone to use for the metric.
-	Configuration *AnomalyDetectorConfiguration `type:"structure"`
+	Configuration *AnomalyDetectorConfiguration `json:"monitoring:AnomalyDetector:Configuration" type:"structure"`
 
 	// The metric dimensions associated with the anomaly detection model.
-	Dimensions []Dimension `type:"list"`
+	Dimensions []Dimension `json:"monitoring:AnomalyDetector:Dimensions" type:"list"`
 
 	// The name of the metric associated with the anomaly detection model.
-	MetricName *string `min:"1" type:"string"`
+	MetricName *string `json:"monitoring:AnomalyDetector:MetricName" min:"1" type:"string"`
 
 	// The namespace of the metric associated with the anomaly detection model.
-	Namespace *string `min:"1" type:"string"`
+	Namespace *string `json:"monitoring:AnomalyDetector:Namespace" min:"1" type:"string"`
 
 	// The statistic associated with the anomaly detection model.
-	Stat *string `type:"string"`
+	Stat *string `json:"monitoring:AnomalyDetector:Stat" type:"string"`
 }
 
 // String returns the string representation
@@ -80,7 +80,7 @@ type AnomalyDetectorConfiguration struct {
 	// is trained. Use this to make sure that events that could cause unusual values
 	// for the metric, such as deployments, aren't used when CloudWatch creates
 	// the model.
-	ExcludedTimeRanges []Range `type:"list"`
+	ExcludedTimeRanges []Range `json:"monitoring:AnomalyDetectorConfiguration:ExcludedTimeRanges" type:"list"`
 
 	// The time zone to use for the metric. This is useful to enable the model to
 	// automatically account for daylight savings time changes if the metric is
@@ -88,7 +88,7 @@ type AnomalyDetectorConfiguration struct {
 	//
 	// To specify a time zone, use the name of the time zone as specified in the
 	// standard tz database. For more information, see tz database (https://en.wikipedia.org/wiki/Tz_database).
-	MetricTimezone *string `type:"string"`
+	MetricTimezone *string `json:"monitoring:AnomalyDetectorConfiguration:MetricTimezone" type:"string"`
 }
 
 // String returns the string representation
@@ -119,18 +119,18 @@ type DashboardEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the dashboard.
-	DashboardArn *string `type:"string"`
+	DashboardArn *string `json:"monitoring:DashboardEntry:DashboardArn" type:"string"`
 
 	// The name of the dashboard.
-	DashboardName *string `type:"string"`
+	DashboardName *string `json:"monitoring:DashboardEntry:DashboardName" type:"string"`
 
 	// The time stamp of when the dashboard was last modified, either by an API
 	// call or through the console. This number is expressed as the number of milliseconds
 	// since Jan 1, 1970 00:00:00 UTC.
-	LastModified *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastModified *time.Time `json:"monitoring:DashboardEntry:LastModified" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The size of the dashboard, in bytes.
-	Size *int64 `type:"long"`
+	Size *int64 `json:"monitoring:DashboardEntry:Size" type:"long"`
 }
 
 // String returns the string representation
@@ -144,10 +144,10 @@ type DashboardValidationMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The data path related to the message.
-	DataPath *string `type:"string"`
+	DataPath *string `json:"monitoring:DashboardValidationMessage:DataPath" type:"string"`
 
 	// A message describing the error or warning.
-	Message *string `type:"string"`
+	Message *string `json:"monitoring:DashboardValidationMessage:Message" type:"string"`
 }
 
 // String returns the string representation
@@ -161,29 +161,29 @@ type Datapoint struct {
 	_ struct{} `type:"structure"`
 
 	// The average of the metric values that correspond to the data point.
-	Average *float64 `type:"double"`
+	Average *float64 `json:"monitoring:Datapoint:Average" type:"double"`
 
 	// The percentile statistic for the data point.
-	ExtendedStatistics map[string]float64 `type:"map"`
+	ExtendedStatistics map[string]float64 `json:"monitoring:Datapoint:ExtendedStatistics" type:"map"`
 
 	// The maximum metric value for the data point.
-	Maximum *float64 `type:"double"`
+	Maximum *float64 `json:"monitoring:Datapoint:Maximum" type:"double"`
 
 	// The minimum metric value for the data point.
-	Minimum *float64 `type:"double"`
+	Minimum *float64 `json:"monitoring:Datapoint:Minimum" type:"double"`
 
 	// The number of metric values that contributed to the aggregate value of this
 	// data point.
-	SampleCount *float64 `type:"double"`
+	SampleCount *float64 `json:"monitoring:Datapoint:SampleCount" type:"double"`
 
 	// The sum of the metric values for the data point.
-	Sum *float64 `type:"double"`
+	Sum *float64 `json:"monitoring:Datapoint:Sum" type:"double"`
 
 	// The time stamp used for the data point.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"monitoring:Datapoint:Timestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The standard unit for the data point.
-	Unit StandardUnit `type:"string" enum:"true"`
+	Unit StandardUnit `json:"monitoring:Datapoint:Unit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -199,12 +199,12 @@ type Dimension struct {
 	// The name of the dimension.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"monitoring:Dimension:Name" min:"1" type:"string" required:"true"`
 
 	// The value representing the dimension measurement.
 	//
 	// Value is a required field
-	Value *string `min:"1" type:"string" required:"true"`
+	Value *string `json:"monitoring:Dimension:Value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -244,10 +244,10 @@ type DimensionFilter struct {
 	// The dimension name to be matched.
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"monitoring:DimensionFilter:Name" min:"1" type:"string" required:"true"`
 
 	// The value of the dimension to be matched.
-	Value *string `min:"1" type:"string"`
+	Value *string `json:"monitoring:DimensionFilter:Value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -281,10 +281,10 @@ type MessageData struct {
 	_ struct{} `type:"structure"`
 
 	// The error code or status code associated with the message.
-	Code *string `type:"string"`
+	Code *string `json:"monitoring:MessageData:Code" type:"string"`
 
 	// The message text.
-	Value *string `type:"string"`
+	Value *string `json:"monitoring:MessageData:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -298,13 +298,13 @@ type Metric struct {
 	_ struct{} `type:"structure"`
 
 	// The dimensions for the metric.
-	Dimensions []Dimension `type:"list"`
+	Dimensions []Dimension `json:"monitoring:Metric:Dimensions" type:"list"`
 
 	// The name of the metric. This is a required field.
-	MetricName *string `min:"1" type:"string"`
+	MetricName *string `json:"monitoring:Metric:MetricName" min:"1" type:"string"`
 
 	// The namespace of the metric.
-	Namespace *string `min:"1" type:"string"`
+	Namespace *string `json:"monitoring:Metric:Namespace" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -342,102 +342,102 @@ type MetricAlarm struct {
 
 	// Indicates whether actions should be executed during any changes to the alarm
 	// state.
-	ActionsEnabled *bool `type:"boolean"`
+	ActionsEnabled *bool `json:"monitoring:MetricAlarm:ActionsEnabled" type:"boolean"`
 
 	// The actions to execute when this alarm transitions to the ALARM state from
 	// any other state. Each action is specified as an Amazon Resource Name (ARN).
-	AlarmActions []string `type:"list"`
+	AlarmActions []string `json:"monitoring:MetricAlarm:AlarmActions" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the alarm.
-	AlarmArn *string `min:"1" type:"string"`
+	AlarmArn *string `json:"monitoring:MetricAlarm:AlarmArn" min:"1" type:"string"`
 
 	// The time stamp of the last update to the alarm configuration.
-	AlarmConfigurationUpdatedTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	AlarmConfigurationUpdatedTimestamp *time.Time `json:"monitoring:MetricAlarm:AlarmConfigurationUpdatedTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The description of the alarm.
-	AlarmDescription *string `type:"string"`
+	AlarmDescription *string `json:"monitoring:MetricAlarm:AlarmDescription" type:"string"`
 
 	// The name of the alarm.
-	AlarmName *string `min:"1" type:"string"`
+	AlarmName *string `json:"monitoring:MetricAlarm:AlarmName" min:"1" type:"string"`
 
 	// The arithmetic operation to use when comparing the specified statistic and
 	// threshold. The specified statistic value is used as the first operand.
-	ComparisonOperator ComparisonOperator `type:"string" enum:"true"`
+	ComparisonOperator ComparisonOperator `json:"monitoring:MetricAlarm:ComparisonOperator" type:"string" enum:"true"`
 
 	// The number of datapoints that must be breaching to trigger the alarm.
-	DatapointsToAlarm *int64 `min:"1" type:"integer"`
+	DatapointsToAlarm *int64 `json:"monitoring:MetricAlarm:DatapointsToAlarm" min:"1" type:"integer"`
 
 	// The dimensions for the metric associated with the alarm.
-	Dimensions []Dimension `type:"list"`
+	Dimensions []Dimension `json:"monitoring:MetricAlarm:Dimensions" type:"list"`
 
 	// Used only for alarms based on percentiles. If ignore, the alarm state does
 	// not change during periods with too few data points to be statistically significant.
 	// If evaluate or this parameter is not used, the alarm is always evaluated
 	// and possibly changes state no matter how many data points are available.
-	EvaluateLowSampleCountPercentile *string `min:"1" type:"string"`
+	EvaluateLowSampleCountPercentile *string `json:"monitoring:MetricAlarm:EvaluateLowSampleCountPercentile" min:"1" type:"string"`
 
 	// The number of periods over which data is compared to the specified threshold.
-	EvaluationPeriods *int64 `min:"1" type:"integer"`
+	EvaluationPeriods *int64 `json:"monitoring:MetricAlarm:EvaluationPeriods" min:"1" type:"integer"`
 
 	// The percentile statistic for the metric associated with the alarm. Specify
 	// a value between p0.0 and p100.
-	ExtendedStatistic *string `type:"string"`
+	ExtendedStatistic *string `json:"monitoring:MetricAlarm:ExtendedStatistic" type:"string"`
 
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA
 	// state from any other state. Each action is specified as an Amazon Resource
 	// Name (ARN).
-	InsufficientDataActions []string `type:"list"`
+	InsufficientDataActions []string `json:"monitoring:MetricAlarm:InsufficientDataActions" type:"list"`
 
 	// The name of the metric associated with the alarm, if this is an alarm based
 	// on a single metric.
-	MetricName *string `min:"1" type:"string"`
+	MetricName *string `json:"monitoring:MetricAlarm:MetricName" min:"1" type:"string"`
 
 	// An array of MetricDataQuery structures, used in an alarm based on a metric
 	// math expression. Each structure either retrieves a metric or performs a math
 	// expression. One item in the Metrics array is the math expression that the
 	// alarm watches. This expression by designated by having ReturnValue set to
 	// true.
-	Metrics []MetricDataQuery `type:"list"`
+	Metrics []MetricDataQuery `json:"monitoring:MetricAlarm:Metrics" type:"list"`
 
 	// The namespace of the metric associated with the alarm.
-	Namespace *string `min:"1" type:"string"`
+	Namespace *string `json:"monitoring:MetricAlarm:Namespace" min:"1" type:"string"`
 
 	// The actions to execute when this alarm transitions to the OK state from any
 	// other state. Each action is specified as an Amazon Resource Name (ARN).
-	OKActions []string `type:"list"`
+	OKActions []string `json:"monitoring:MetricAlarm:OKActions" type:"list"`
 
 	// The period, in seconds, over which the statistic is applied.
-	Period *int64 `min:"1" type:"integer"`
+	Period *int64 `json:"monitoring:MetricAlarm:Period" min:"1" type:"integer"`
 
 	// An explanation for the alarm state, in text format.
-	StateReason *string `type:"string"`
+	StateReason *string `json:"monitoring:MetricAlarm:StateReason" type:"string"`
 
 	// An explanation for the alarm state, in JSON format.
-	StateReasonData *string `type:"string"`
+	StateReasonData *string `json:"monitoring:MetricAlarm:StateReasonData" type:"string"`
 
 	// The time stamp of the last update to the alarm state.
-	StateUpdatedTimestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	StateUpdatedTimestamp *time.Time `json:"monitoring:MetricAlarm:StateUpdatedTimestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The state value for the alarm.
-	StateValue StateValue `type:"string" enum:"true"`
+	StateValue StateValue `json:"monitoring:MetricAlarm:StateValue" type:"string" enum:"true"`
 
 	// The statistic for the metric associated with the alarm, other than percentile.
 	// For percentile statistics, use ExtendedStatistic.
-	Statistic Statistic `type:"string" enum:"true"`
+	Statistic Statistic `json:"monitoring:MetricAlarm:Statistic" type:"string" enum:"true"`
 
 	// The value to compare with the specified statistic.
-	Threshold *float64 `type:"double"`
+	Threshold *float64 `json:"monitoring:MetricAlarm:Threshold" type:"double"`
 
 	// In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND
 	// function used as the threshold for the alarm.
-	ThresholdMetricId *string `min:"1" type:"string"`
+	ThresholdMetricId *string `json:"monitoring:MetricAlarm:ThresholdMetricId" min:"1" type:"string"`
 
 	// Sets how this alarm is to handle missing data points. If this parameter is
 	// omitted, the default behavior of missing is used.
-	TreatMissingData *string `min:"1" type:"string"`
+	TreatMissingData *string `json:"monitoring:MetricAlarm:TreatMissingData" min:"1" type:"string"`
 
 	// The unit of the metric associated with the alarm.
-	Unit StandardUnit `type:"string" enum:"true"`
+	Unit StandardUnit `json:"monitoring:MetricAlarm:Unit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -483,7 +483,7 @@ type MetricDataQuery struct {
 	//
 	// Within each MetricDataQuery object, you must specify either Expression or
 	// MetricStat but not both.
-	Expression *string `min:"1" type:"string"`
+	Expression *string `json:"monitoring:MetricDataQuery:Expression" min:"1" type:"string"`
 
 	// A short name used to tie this object to the results in the response. This
 	// name must be unique within a single call to GetMetricData. If you are performing
@@ -493,13 +493,13 @@ type MetricDataQuery struct {
 	// letter.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"monitoring:MetricDataQuery:Id" min:"1" type:"string" required:"true"`
 
 	// A human-readable label for this metric or expression. This is especially
 	// useful if this is an expression, so that you know what the value represents.
 	// If the metric or expression is shown in a CloudWatch dashboard widget, the
 	// label is shown. If Label is omitted, CloudWatch generates a default.
-	Label *string `type:"string"`
+	Label *string `json:"monitoring:MetricDataQuery:Label" type:"string"`
 
 	// The metric to be returned, along with statistics, period, and units. Use
 	// this parameter only if this object is retrieving a metric and not performing
@@ -507,7 +507,7 @@ type MetricDataQuery struct {
 	//
 	// Within one MetricDataQuery object, you must specify either Expression or
 	// MetricStat but not both.
-	MetricStat *MetricStat `type:"structure"`
+	MetricStat *MetricStat `json:"monitoring:MetricDataQuery:MetricStat" type:"structure"`
 
 	// When used in GetMetricData, this option indicates whether to return the timestamps
 	// and raw data values of this metric. If you are performing this call just
@@ -517,7 +517,7 @@ type MetricDataQuery struct {
 	// When used in PutMetricAlarm, specify True for the one expression result to
 	// use as the alarm. For all other metrics and expressions in the same PutMetricAlarm
 	// operation, specify ReturnData as False.
-	ReturnData *bool `type:"boolean"`
+	ReturnData *bool `json:"monitoring:MetricDataQuery:ReturnData" type:"boolean"`
 }
 
 // String returns the string representation
@@ -558,13 +558,13 @@ type MetricDataResult struct {
 	_ struct{} `type:"structure"`
 
 	// The short name you specified to represent this metric.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"monitoring:MetricDataResult:Id" min:"1" type:"string"`
 
 	// The human-readable label associated with the data.
-	Label *string `type:"string"`
+	Label *string `json:"monitoring:MetricDataResult:Label" type:"string"`
 
 	// A list of messages with additional information about the data returned.
-	Messages []MessageData `type:"list"`
+	Messages []MessageData `json:"monitoring:MetricDataResult:Messages" type:"list"`
 
 	// The status of the returned data. Complete indicates that all data points
 	// in the requested time range were returned. PartialData means that an incomplete
@@ -572,17 +572,17 @@ type MetricDataResult struct {
 	// returned and repeat your request to get more data points. NextToken is not
 	// returned if you are performing a math expression. InternalError indicates
 	// that an error occurred. Retry your request using NextToken, if present.
-	StatusCode StatusCode `type:"string" enum:"true"`
+	StatusCode StatusCode `json:"monitoring:MetricDataResult:StatusCode" type:"string" enum:"true"`
 
 	// The timestamps for the data points, formatted in Unix timestamp format. The
 	// number of timestamps always matches the number of values and the value for
 	// Timestamps[x] is Values[x].
-	Timestamps []time.Time `type:"list"`
+	Timestamps []time.Time `json:"monitoring:MetricDataResult:Timestamps" type:"list"`
 
 	// The data points for the metric corresponding to Timestamps. The number of
 	// values always matches the number of timestamps and the timestamp for Values[x]
 	// is Timestamps[x].
-	Values []float64 `type:"list"`
+	Values []float64 `json:"monitoring:MetricDataResult:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -603,18 +603,18 @@ type MetricDatum struct {
 	// If you omit the Counts array, the default of 1 is used as the value for each
 	// count. If you include a Counts array, it must include the same amount of
 	// values as the Values array.
-	Counts []float64 `type:"list"`
+	Counts []float64 `json:"monitoring:MetricDatum:Counts" type:"list"`
 
 	// The dimensions associated with the metric.
-	Dimensions []Dimension `type:"list"`
+	Dimensions []Dimension `json:"monitoring:MetricDatum:Dimensions" type:"list"`
 
 	// The name of the metric.
 	//
 	// MetricName is a required field
-	MetricName *string `min:"1" type:"string" required:"true"`
+	MetricName *string `json:"monitoring:MetricDatum:MetricName" min:"1" type:"string" required:"true"`
 
 	// The statistical values for the metric.
-	StatisticValues *StatisticSet `type:"structure"`
+	StatisticValues *StatisticSet `json:"monitoring:MetricDatum:StatisticValues" type:"structure"`
 
 	// Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution
 	// metric, so that CloudWatch stores the metric with sub-minute resolution down
@@ -625,16 +625,16 @@ type MetricDatum struct {
 	// in the Amazon CloudWatch User Guide.
 	//
 	// This field is optional, if you do not specify it the default of 60 is used.
-	StorageResolution *int64 `min:"1" type:"integer"`
+	StorageResolution *int64 `json:"monitoring:MetricDatum:StorageResolution" min:"1" type:"integer"`
 
 	// The time the metric data was received, expressed as the number of milliseconds
 	// since Jan 1, 1970 00:00:00 UTC.
-	Timestamp *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Timestamp *time.Time `json:"monitoring:MetricDatum:Timestamp" type:"timestamp" timestampFormat:"iso8601"`
 
 	// When you are using a Put operation, this defines what unit you want to use
 	// when storing the metric. In a Get operation, this displays the unit that
 	// is used for the metric.
-	Unit StandardUnit `type:"string" enum:"true"`
+	Unit StandardUnit `json:"monitoring:MetricDatum:Unit" type:"string" enum:"true"`
 
 	// The value for the metric.
 	//
@@ -643,7 +643,7 @@ type MetricDatum struct {
 	// of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 	// In addition, special values (for example, NaN, +Infinity, -Infinity) are
 	// not supported.
-	Value *float64 `type:"double"`
+	Value *float64 `json:"monitoring:MetricDatum:Value" type:"double"`
 
 	// Array of numbers representing the values for the metric during the period.
 	// Each unique value is listed just once in this array, and the corresponding
@@ -656,7 +656,7 @@ type MetricDatum struct {
 	// of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 	// In addition, special values (for example, NaN, +Infinity, -Infinity) are
 	// not supported.
-	Values []float64 `type:"list"`
+	Values []float64 `json:"monitoring:MetricDatum:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -705,23 +705,23 @@ type MetricStat struct {
 	// The metric to return, including the metric name, namespace, and dimensions.
 	//
 	// Metric is a required field
-	Metric *Metric `type:"structure" required:"true"`
+	Metric *Metric `json:"monitoring:MetricStat:Metric" type:"structure" required:"true"`
 
 	// The period, in seconds, to use when retrieving the metric.
 	//
 	// Period is a required field
-	Period *int64 `min:"1" type:"integer" required:"true"`
+	Period *int64 `json:"monitoring:MetricStat:Period" min:"1" type:"integer" required:"true"`
 
 	// The statistic to return. It can include any CloudWatch statistic or extended
 	// statistic.
 	//
 	// Stat is a required field
-	Stat *string `type:"string" required:"true"`
+	Stat *string `json:"monitoring:MetricStat:Stat" type:"string" required:"true"`
 
 	// When you are using a Put operation, this defines what unit you want to use
 	// when storing the metric. In a Get operation, this displays the unit that
 	// is used for the metric.
-	Unit StandardUnit `type:"string" enum:"true"`
+	Unit StandardUnit `json:"monitoring:MetricStat:Unit" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -769,13 +769,13 @@ type Range struct {
 	// For example, 2019-07-01T23:59:59.
 	//
 	// EndTime is a required field
-	EndTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	EndTime *time.Time `json:"monitoring:Range:EndTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The start time of the range to exclude. The format is yyyy-MM-dd'T'HH:mm:ss.
 	// For example, 2019-07-01T23:59:59.
 	//
 	// StartTime is a required field
-	StartTime *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	StartTime *time.Time `json:"monitoring:Range:StartTime" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 }
 
 // String returns the string representation
@@ -809,22 +809,22 @@ type StatisticSet struct {
 	// The maximum value of the sample set.
 	//
 	// Maximum is a required field
-	Maximum *float64 `type:"double" required:"true"`
+	Maximum *float64 `json:"monitoring:StatisticSet:Maximum" type:"double" required:"true"`
 
 	// The minimum value of the sample set.
 	//
 	// Minimum is a required field
-	Minimum *float64 `type:"double" required:"true"`
+	Minimum *float64 `json:"monitoring:StatisticSet:Minimum" type:"double" required:"true"`
 
 	// The number of samples used for the statistic set.
 	//
 	// SampleCount is a required field
-	SampleCount *float64 `type:"double" required:"true"`
+	SampleCount *float64 `json:"monitoring:StatisticSet:SampleCount" type:"double" required:"true"`
 
 	// The sum of values for the sample set.
 	//
 	// Sum is a required field
-	Sum *float64 `type:"double" required:"true"`
+	Sum *float64 `json:"monitoring:StatisticSet:Sum" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -867,12 +867,12 @@ type Tag struct {
 	// and values can help you organize and categorize your resources.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"monitoring:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value for the specified tag key.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"monitoring:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation

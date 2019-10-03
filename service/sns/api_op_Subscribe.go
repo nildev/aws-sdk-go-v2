@@ -128,7 +128,7 @@ type SubscribeOutput struct {
 	// if the subscription requires confirmation. However, if the API request parameter
 	// ReturnSubscriptionArn is true, then the value is always the subscription
 	// ARN, even if the subscription requires confirmation.
-	SubscriptionArn *string `type:"string"`
+	SubscriptionArn *string `json:"sns:SubscribeOutput:SubscriptionArn" type:"string"`
 }
 
 // String returns the string representation

@@ -126,7 +126,7 @@ type CreateNodeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of the node.
-	NodeId *string `min:"1" type:"string"`
+	NodeId *string `json:"managedblockchain:CreateNodeOutput:NodeId" min:"1" type:"string"`
 }
 
 // String returns the string representation

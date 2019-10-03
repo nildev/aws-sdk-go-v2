@@ -44,7 +44,7 @@ type GetCommentOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The contents of the comment.
-	Comment *Comment `locationName:"comment" type:"structure"`
+	Comment *Comment `json:"codecommit:GetCommentOutput:Comment" locationName:"comment" type:"structure"`
 }
 
 // String returns the string representation

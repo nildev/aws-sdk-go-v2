@@ -98,7 +98,7 @@ type PutRecordOutput struct {
 	//
 	//    * KMS: Use server-side encryption on the records in the stream using a
 	//    customer-managed AWS KMS key.
-	EncryptionType EncryptionType `type:"string" enum:"true"`
+	EncryptionType EncryptionType `json:"kinesis:PutRecordOutput:EncryptionType" type:"string" enum:"true"`
 
 	// The sequence number identifier that was assigned to the put data record.
 	// The sequence number for the record is unique across all records in the stream.
@@ -106,12 +106,12 @@ type PutRecordOutput struct {
 	// the stream.
 	//
 	// SequenceNumber is a required field
-	SequenceNumber *string `type:"string" required:"true"`
+	SequenceNumber *string `json:"kinesis:PutRecordOutput:SequenceNumber" type:"string" required:"true"`
 
 	// The shard ID of the shard where the data record was placed.
 	//
 	// ShardId is a required field
-	ShardId *string `min:"1" type:"string" required:"true"`
+	ShardId *string `json:"kinesis:PutRecordOutput:ShardId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

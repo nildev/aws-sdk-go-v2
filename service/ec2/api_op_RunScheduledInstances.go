@@ -75,7 +75,7 @@ type RunScheduledInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the newly launched instances.
-	InstanceIdSet []string `locationName:"instanceIdSet" locationNameList:"item" type:"list"`
+	InstanceIdSet []string `json:"ec2:RunScheduledInstancesOutput:InstanceIdSet" locationName:"instanceIdSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

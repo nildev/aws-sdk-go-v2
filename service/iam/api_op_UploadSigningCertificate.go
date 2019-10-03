@@ -71,7 +71,7 @@ type UploadSigningCertificateOutput struct {
 	// Information about the certificate.
 	//
 	// Certificate is a required field
-	Certificate *SigningCertificate `type:"structure" required:"true"`
+	Certificate *SigningCertificate `json:"iam:UploadSigningCertificateOutput:Certificate" type:"structure" required:"true"`
 }
 
 // String returns the string representation

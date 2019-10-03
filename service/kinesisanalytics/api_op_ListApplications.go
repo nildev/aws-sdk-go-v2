@@ -51,12 +51,12 @@ type ListApplicationsOutput struct {
 	// List of ApplicationSummary objects.
 	//
 	// ApplicationSummaries is a required field
-	ApplicationSummaries []ApplicationSummary `type:"list" required:"true"`
+	ApplicationSummaries []ApplicationSummary `json:"kinesisanalytics:ListApplicationsOutput:ApplicationSummaries" type:"list" required:"true"`
 
 	// Returns true if there are more applications to retrieve.
 	//
 	// HasMoreApplications is a required field
-	HasMoreApplications *bool `type:"boolean" required:"true"`
+	HasMoreApplications *bool `json:"kinesisanalytics:ListApplicationsOutput:HasMoreApplications" type:"boolean" required:"true"`
 }
 
 // String returns the string representation

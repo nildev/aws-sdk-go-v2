@@ -65,14 +65,14 @@ type DescribeEventTypesOutput struct {
 	// category (issue, accountNotification, or scheduledChange), a service (for
 	// example, EC2, RDS, DATAPIPELINE, BILLING), and a code (in the format AWS_SERVICE_DESCRIPTION
 	// ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT).
-	EventTypes []EventType `locationName:"eventTypes" type:"list"`
+	EventTypes []EventType `json:"health:DescribeEventTypesOutput:EventTypes" locationName:"eventTypes" type:"list"`
 
 	// If the results of a search are large, only a portion of the results are returned,
 	// and a nextToken pagination token is returned in the response. To retrieve
 	// the next batch of results, reissue the search request and include the returned
 	// token. When all results have been returned, the response does not contain
 	// a pagination token value.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"health:DescribeEventTypesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

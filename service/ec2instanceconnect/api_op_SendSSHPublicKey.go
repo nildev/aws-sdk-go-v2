@@ -85,10 +85,10 @@ type SendSSHPublicKeyOutput struct {
 
 	// The request ID as logged by EC2 Connect. Please provide this when contacting
 	// AWS Support.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"ec2-instance-connect:SendSSHPublicKeyOutput:RequestId" type:"string"`
 
 	// Indicates request success.
-	Success *bool `type:"boolean"`
+	Success *bool `json:"ec2-instance-connect:SendSSHPublicKeyOutput:Success" type:"boolean"`
 }
 
 // String returns the string representation

@@ -54,13 +54,13 @@ type SelectResourceConfigOutput struct {
 
 	// The nextToken string returned in a previous request that you use to request
 	// the next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:SelectResourceConfigOutput:NextToken" type:"string"`
 
 	// Returns the QueryInfo object.
-	QueryInfo *QueryInfo `type:"structure"`
+	QueryInfo *QueryInfo `json:"config:SelectResourceConfigOutput:QueryInfo" type:"structure"`
 
 	// Returns the results for the SQL query.
-	Results []string `type:"list"`
+	Results []string `json:"config:SelectResourceConfigOutput:Results" type:"list"`
 }
 
 // String returns the string representation

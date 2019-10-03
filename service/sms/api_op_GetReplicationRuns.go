@@ -52,13 +52,13 @@ type GetReplicationRunsOutput struct {
 
 	// The token required to retrieve the next set of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"sms:GetReplicationRunsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the replication job.
-	ReplicationJob *ReplicationJob `locationName:"replicationJob" type:"structure"`
+	ReplicationJob *ReplicationJob `json:"sms:GetReplicationRunsOutput:ReplicationJob" locationName:"replicationJob" type:"structure"`
 
 	// Information about the replication runs.
-	ReplicationRunList []ReplicationRun `locationName:"replicationRunList" type:"list"`
+	ReplicationRunList []ReplicationRun `json:"sms:GetReplicationRunsOutput:ReplicationRunList" locationName:"replicationRunList" type:"list"`
 }
 
 // String returns the string representation

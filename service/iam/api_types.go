@@ -30,7 +30,7 @@ type AccessDetail struct {
 	// This field is null if no principals (IAM users, IAM roles, or root users)
 	// in the reported Organizations entity attempted to access the service within
 	// the reporting period (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
-	EntityPath *string `min:"19" type:"string"`
+	EntityPath *string `json:"iam:AccessDetail:EntityPath" min:"19" type:"string"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when an authenticated principal most recently attempted to access the service.
@@ -38,18 +38,18 @@ type AccessDetail struct {
 	//
 	// This field is null if no principals in the reported Organizations entity
 	// attempted to access the service within the reporting period (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
-	LastAuthenticatedTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastAuthenticatedTime *time.Time `json:"iam:AccessDetail:LastAuthenticatedTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The Region where the last service access attempt occurred.
 	//
 	// This field is null if no principals in the reported Organizations entity
 	// attempted to access the service within the reporting period (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
-	Region *string `type:"string"`
+	Region *string `json:"iam:AccessDetail:Region" type:"string"`
 
 	// The name of the service in which access was attempted.
 	//
 	// ServiceName is a required field
-	ServiceName *string `type:"string" required:"true"`
+	ServiceName *string `json:"iam:AccessDetail:ServiceName" type:"string" required:"true"`
 
 	// The namespace of the service in which access was attempted.
 	//
@@ -62,11 +62,11 @@ type AccessDetail struct {
 	// in the AWS General Reference.
 	//
 	// ServiceNamespace is a required field
-	ServiceNamespace *string `min:"1" type:"string" required:"true"`
+	ServiceNamespace *string `json:"iam:AccessDetail:ServiceNamespace" min:"1" type:"string" required:"true"`
 
 	// The number of accounts with authenticated principals (root users, IAM users,
 	// and IAM roles) that attempted to access the service in the reporting period.
-	TotalAuthenticatedEntities *int64 `type:"integer"`
+	TotalAuthenticatedEntities *int64 `json:"iam:AccessDetail:TotalAuthenticatedEntities" type:"integer"`
 }
 
 // String returns the string representation
@@ -90,26 +90,26 @@ type AccessKey struct {
 	// The ID for this access key.
 	//
 	// AccessKeyId is a required field
-	AccessKeyId *string `min:"16" type:"string" required:"true"`
+	AccessKeyId *string `json:"iam:AccessKey:AccessKeyId" min:"16" type:"string" required:"true"`
 
 	// The date when the access key was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:AccessKey:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The secret key used to sign requests.
 	//
 	// SecretAccessKey is a required field
-	SecretAccessKey *string `type:"string" required:"true"`
+	SecretAccessKey *string `json:"iam:AccessKey:SecretAccessKey" type:"string" required:"true"`
 
 	// The status of the access key. Active means that the key is valid for API
 	// calls, while Inactive means it is not.
 	//
 	// Status is a required field
-	Status StatusType `type:"string" required:"true" enum:"true"`
+	Status StatusType `json:"iam:AccessKey:Status" type:"string" required:"true" enum:"true"`
 
 	// The name of the IAM user that the access key is associated with.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:AccessKey:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -138,7 +138,7 @@ type AccessKeyLastUsed struct {
 	//    * There is no sign-in data associated with the user.
 	//
 	// LastUsedDate is a required field
-	LastUsedDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	LastUsedDate *time.Time `json:"iam:AccessKeyLastUsed:LastUsedDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The AWS Region where this access key was most recently used. The value for
 	// this field is "N/A" in the following situations:
@@ -154,7 +154,7 @@ type AccessKeyLastUsed struct {
 	// in the Amazon Web Services General Reference.
 	//
 	// Region is a required field
-	Region *string `type:"string" required:"true"`
+	Region *string `json:"iam:AccessKeyLastUsed:Region" type:"string" required:"true"`
 
 	// The name of the AWS service with which this access key was most recently
 	// used. The value of this field is "N/A" in the following situations:
@@ -167,7 +167,7 @@ type AccessKeyLastUsed struct {
 	//    * There is no sign-in data associated with the user.
 	//
 	// ServiceName is a required field
-	ServiceName *string `type:"string" required:"true"`
+	ServiceName *string `json:"iam:AccessKeyLastUsed:ServiceName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -183,17 +183,17 @@ type AccessKeyMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The ID for this access key.
-	AccessKeyId *string `min:"16" type:"string"`
+	AccessKeyId *string `json:"iam:AccessKeyMetadata:AccessKeyId" min:"16" type:"string"`
 
 	// The date when the access key was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:AccessKeyMetadata:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The status of the access key. Active means that the key is valid for API
 	// calls; Inactive means it is not.
-	Status StatusType `type:"string" enum:"true"`
+	Status StatusType `json:"iam:AccessKeyMetadata:Status" type:"string" enum:"true"`
 
 	// The name of the IAM user that the key is associated with.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"iam:AccessKeyMetadata:UserName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -215,12 +215,12 @@ type AttachedPermissionsBoundary struct {
 
 	// The ARN of the policy used to set the permissions boundary for the user or
 	// role.
-	PermissionsBoundaryArn *string `min:"20" type:"string"`
+	PermissionsBoundaryArn *string `json:"iam:AttachedPermissionsBoundary:PermissionsBoundaryArn" min:"20" type:"string"`
 
 	// The permissions boundary usage type that indicates what type of IAM resource
 	// is used as the permissions boundary for an entity. This data type can only
 	// have a value of Policy.
-	PermissionsBoundaryType PermissionsBoundaryAttachmentType `type:"string" enum:"true"`
+	PermissionsBoundaryType PermissionsBoundaryAttachmentType `json:"iam:AttachedPermissionsBoundary:PermissionsBoundaryType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -247,10 +247,10 @@ type AttachedPolicy struct {
 	// For more information about ARNs, go to Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	PolicyArn *string `min:"20" type:"string"`
+	PolicyArn *string `json:"iam:AttachedPolicy:PolicyArn" min:"20" type:"string"`
 
 	// The friendly name of the attached policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"iam:AttachedPolicy:PolicyName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -271,16 +271,16 @@ type ContextEntry struct {
 
 	// The full name of a condition context key, including the service prefix. For
 	// example, aws:SourceIp or s3:VersionId.
-	ContextKeyName *string `min:"5" type:"string"`
+	ContextKeyName *string `json:"iam:ContextEntry:ContextKeyName" min:"5" type:"string"`
 
 	// The data type of the value (or values) specified in the ContextKeyValues
 	// parameter.
-	ContextKeyType ContextKeyTypeEnum `type:"string" enum:"true"`
+	ContextKeyType ContextKeyTypeEnum `json:"iam:ContextEntry:ContextKeyType" type:"string" enum:"true"`
 
 	// The value (or values, if the condition context key supports multiple values)
 	// to provide to the simulation when the key is referenced by a Condition element
 	// in an input policy.
-	ContextKeyValues []string `type:"list"`
+	ContextKeyValues []string `json:"iam:ContextEntry:ContextKeyValues" type:"list"`
 }
 
 // String returns the string representation
@@ -310,7 +310,7 @@ type DeletionTaskFailureReasonType struct {
 	_ struct{} `type:"structure"`
 
 	// A short description of the reason that the service-linked role deletion failed.
-	Reason *string `type:"string"`
+	Reason *string `json:"iam:DeletionTaskFailureReasonType:Reason" type:"string"`
 
 	// A list of objects that contains details about the service-linked role deletion
 	// failure, if that information is returned by the service. If the service-linked
@@ -318,7 +318,7 @@ type DeletionTaskFailureReasonType struct {
 	// not been deleted from the linked service, the role can't be deleted. This
 	// parameter includes a list of the resources that are associated with the role
 	// and the Region in which the resources are being used.
-	RoleUsageList []RoleUsageType `type:"list"`
+	RoleUsageList []RoleUsageType `json:"iam:DeletionTaskFailureReasonType:RoleUsageList" type:"list"`
 }
 
 // String returns the string representation
@@ -338,7 +338,7 @@ type EntityDetails struct {
 	// The EntityInfo object that contains details about the entity (user or role).
 	//
 	// EntityInfo is a required field
-	EntityInfo *EntityInfo `type:"structure" required:"true"`
+	EntityInfo *EntityInfo `json:"iam:EntityDetails:EntityInfo" type:"structure" required:"true"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the authenticated entity last attempted to access AWS. AWS does not
@@ -346,7 +346,7 @@ type EntityDetails struct {
 	//
 	// This field is null if no IAM entities attempted to access the service within
 	// the reporting period (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
-	LastAuthenticated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastAuthenticated *time.Time `json:"iam:EntityDetails:LastAuthenticated" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -368,27 +368,27 @@ type EntityInfo struct {
 	// in the AWS General Reference.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"iam:EntityInfo:Arn" min:"20" type:"string" required:"true"`
 
 	// The identifier of the entity (user or role).
 	//
 	// Id is a required field
-	Id *string `min:"16" type:"string" required:"true"`
+	Id *string `json:"iam:EntityInfo:Id" min:"16" type:"string" required:"true"`
 
 	// The name of the entity (user or role).
 	//
 	// Name is a required field
-	Name *string `min:"1" type:"string" required:"true"`
+	Name *string `json:"iam:EntityInfo:Name" min:"1" type:"string" required:"true"`
 
 	// The path to the entity (user or role). For more information about paths,
 	// see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	Path *string `min:"1" type:"string"`
+	Path *string `json:"iam:EntityInfo:Path" min:"1" type:"string"`
 
 	// The type of entity (user or role).
 	//
 	// Type is a required field
-	Type PolicyOwnerEntityType `type:"string" required:"true" enum:"true"`
+	Type PolicyOwnerEntityType `json:"iam:EntityInfo:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -408,12 +408,12 @@ type ErrorDetails struct {
 	// The error code associated with the operation failure.
 	//
 	// Code is a required field
-	Code *string `type:"string" required:"true"`
+	Code *string `json:"iam:ErrorDetails:Code" type:"string" required:"true"`
 
 	// Detailed information about the reason that the operation failed.
 	//
 	// Message is a required field
-	Message *string `type:"string" required:"true"`
+	Message *string `json:"iam:ErrorDetails:Message" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -432,12 +432,12 @@ type EvaluationResult struct {
 	// The name of the API operation tested on the indicated resource.
 	//
 	// EvalActionName is a required field
-	EvalActionName *string `min:"3" type:"string" required:"true"`
+	EvalActionName *string `json:"iam:EvaluationResult:EvalActionName" min:"3" type:"string" required:"true"`
 
 	// The result of the simulation.
 	//
 	// EvalDecision is a required field
-	EvalDecision PolicyEvaluationDecisionType `type:"string" required:"true" enum:"true"`
+	EvalDecision PolicyEvaluationDecisionType `json:"iam:EvaluationResult:EvalDecision" type:"string" required:"true" enum:"true"`
 
 	// Additional details about the results of the evaluation decision. When there
 	// are both IAM policies and resource policies, this parameter explains how
@@ -445,17 +445,17 @@ type EvaluationResult struct {
 	// cross-account access to a resource, both the resource-based policy and the
 	// caller's IAM policy must grant access. See How IAM Roles Differ from Resource-based
 	// Policies (https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html)
-	EvalDecisionDetails map[string]PolicyEvaluationDecisionType `type:"map"`
+	EvalDecisionDetails map[string]PolicyEvaluationDecisionType `json:"iam:EvaluationResult:EvalDecisionDetails" type:"map"`
 
 	// The ARN of the resource that the indicated API operation was tested on.
-	EvalResourceName *string `min:"1" type:"string"`
+	EvalResourceName *string `json:"iam:EvaluationResult:EvalResourceName" min:"1" type:"string"`
 
 	// A list of the statements in the input policies that determine the result
 	// for this scenario. Remember that even if multiple statements allow the operation
 	// on the resource, if only one statement denies that operation, then the explicit
 	// deny overrides any allow. In addition, the deny statement is the only entry
 	// included in the result.
-	MatchedStatements []Statement `type:"list"`
+	MatchedStatements []Statement `json:"iam:EvaluationResult:MatchedStatements" type:"list"`
 
 	// A list of context keys that are required by the included input policies but
 	// that were not provided by one of the input parameters. This list is used
@@ -464,16 +464,16 @@ type EvaluationResult struct {
 	// missing context values are instead included under the ResourceSpecificResults
 	// section. To discover the context keys used by a set of policies, you can
 	// call GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy.
-	MissingContextValues []string `type:"list"`
+	MissingContextValues []string `json:"iam:EvaluationResult:MissingContextValues" type:"list"`
 
 	// A structure that details how Organizations and its service control policies
 	// affect the results of the simulation. Only applies if the simulated user's
 	// account is part of an organization.
-	OrganizationsDecisionDetail *OrganizationsDecisionDetail `type:"structure"`
+	OrganizationsDecisionDetail *OrganizationsDecisionDetail `json:"iam:EvaluationResult:OrganizationsDecisionDetail" type:"structure"`
 
 	// The individual results of the simulation of the API operation specified in
 	// EvalActionName on each resource.
-	ResourceSpecificResults []ResourceSpecificResult `type:"list"`
+	ResourceSpecificResults []ResourceSpecificResult `json:"iam:EvaluationResult:ResourceSpecificResults" type:"list"`
 }
 
 // String returns the string representation
@@ -499,32 +499,32 @@ type Group struct {
 	// in the Using IAM guide.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"iam:Group:Arn" min:"20" type:"string" required:"true"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the group was created.
 	//
 	// CreateDate is a required field
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateDate *time.Time `json:"iam:Group:CreateDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The stable and unique string identifying the group. For more information
 	// about IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// GroupId is a required field
-	GroupId *string `min:"16" type:"string" required:"true"`
+	GroupId *string `json:"iam:Group:GroupId" min:"16" type:"string" required:"true"`
 
 	// The friendly name that identifies the group.
 	//
 	// GroupName is a required field
-	GroupName *string `min:"1" type:"string" required:"true"`
+	GroupName *string `json:"iam:Group:GroupName" min:"1" type:"string" required:"true"`
 
 	// The path to the group. For more information about paths, see IAM Identifiers
 	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// Path is a required field
-	Path *string `min:"1" type:"string" required:"true"`
+	Path *string `json:"iam:Group:Path" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -545,30 +545,30 @@ type GroupDetail struct {
 	// For more information about ARNs, go to Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"iam:GroupDetail:Arn" min:"20" type:"string"`
 
 	// A list of the managed policies attached to the group.
-	AttachedManagedPolicies []AttachedPolicy `type:"list"`
+	AttachedManagedPolicies []AttachedPolicy `json:"iam:GroupDetail:AttachedManagedPolicies" type:"list"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the group was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:GroupDetail:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The stable and unique string identifying the group. For more information
 	// about IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	GroupId *string `min:"16" type:"string"`
+	GroupId *string `json:"iam:GroupDetail:GroupId" min:"16" type:"string"`
 
 	// The friendly name that identifies the group.
-	GroupName *string `min:"1" type:"string"`
+	GroupName *string `json:"iam:GroupDetail:GroupName" min:"1" type:"string"`
 
 	// A list of the inline policies embedded in the group.
-	GroupPolicyList []PolicyDetail `type:"list"`
+	GroupPolicyList []PolicyDetail `json:"iam:GroupDetail:GroupPolicyList" type:"list"`
 
 	// The path to the group. For more information about paths, see IAM Identifiers
 	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	Path *string `min:"1" type:"string"`
+	Path *string `json:"iam:GroupDetail:Path" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -597,36 +597,36 @@ type InstanceProfile struct {
 	// in the Using IAM guide.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"iam:InstanceProfile:Arn" min:"20" type:"string" required:"true"`
 
 	// The date when the instance profile was created.
 	//
 	// CreateDate is a required field
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateDate *time.Time `json:"iam:InstanceProfile:CreateDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The stable and unique string identifying the instance profile. For more information
 	// about IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// InstanceProfileId is a required field
-	InstanceProfileId *string `min:"16" type:"string" required:"true"`
+	InstanceProfileId *string `json:"iam:InstanceProfile:InstanceProfileId" min:"16" type:"string" required:"true"`
 
 	// The name identifying the instance profile.
 	//
 	// InstanceProfileName is a required field
-	InstanceProfileName *string `min:"1" type:"string" required:"true"`
+	InstanceProfileName *string `json:"iam:InstanceProfile:InstanceProfileName" min:"1" type:"string" required:"true"`
 
 	// The path to the instance profile. For more information about paths, see IAM
 	// Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// Path is a required field
-	Path *string `min:"1" type:"string" required:"true"`
+	Path *string `json:"iam:InstanceProfile:Path" min:"1" type:"string" required:"true"`
 
 	// The role associated with the instance profile.
 	//
 	// Roles is a required field
-	Roles []Role `type:"list" required:"true"`
+	Roles []Role `json:"iam:InstanceProfile:Roles" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -645,7 +645,7 @@ type ListPoliciesGrantingServiceAccessEntry struct {
 
 	// The PoliciesGrantingServiceAccess object that contains details about the
 	// policy.
-	Policies []PolicyGrantingServiceAccess `type:"list"`
+	Policies []PolicyGrantingServiceAccess `json:"iam:ListPoliciesGrantingServiceAccessEntry:Policies" type:"list"`
 
 	// The namespace of the service that was accessed.
 	//
@@ -656,7 +656,7 @@ type ListPoliciesGrantingServiceAccessEntry struct {
 	// (service prefix: a4b). For more information about service namespaces, see
 	// AWS Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces)
 	// in the AWS General Reference.
-	ServiceNamespace *string `min:"1" type:"string"`
+	ServiceNamespace *string `json:"iam:ListPoliciesGrantingServiceAccessEntry:ServiceNamespace" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -675,16 +675,16 @@ type LoginProfile struct {
 	// The date when the password for the user was created.
 	//
 	// CreateDate is a required field
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateDate *time.Time `json:"iam:LoginProfile:CreateDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// Specifies whether the user is required to set a new password on next sign-in.
-	PasswordResetRequired *bool `type:"boolean"`
+	PasswordResetRequired *bool `json:"iam:LoginProfile:PasswordResetRequired" type:"boolean"`
 
 	// The name of the user, which can be used for signing in to the AWS Management
 	// Console.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:LoginProfile:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -702,18 +702,18 @@ type MFADevice struct {
 	// The date when the MFA device was enabled for the user.
 	//
 	// EnableDate is a required field
-	EnableDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	EnableDate *time.Time `json:"iam:MFADevice:EnableDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The serial number that uniquely identifies the MFA device. For virtual MFA
 	// devices, the serial number is the device ARN.
 	//
 	// SerialNumber is a required field
-	SerialNumber *string `min:"9" type:"string" required:"true"`
+	SerialNumber *string `json:"iam:MFADevice:SerialNumber" min:"9" type:"string" required:"true"`
 
 	// The user with whom the MFA device is associated.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:MFADevice:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -740,15 +740,15 @@ type ManagedPolicyDetail struct {
 	// For more information about ARNs, go to Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"iam:ManagedPolicyDetail:Arn" min:"20" type:"string"`
 
 	// The number of principal entities (users, groups, and roles) that the policy
 	// is attached to.
-	AttachmentCount *int64 `type:"integer"`
+	AttachmentCount *int64 `json:"iam:ManagedPolicyDetail:AttachmentCount" type:"integer"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the policy was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:ManagedPolicyDetail:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The identifier for the version of the policy that is set as the default (operative)
 	// version.
@@ -756,19 +756,19 @@ type ManagedPolicyDetail struct {
 	// For more information about policy versions, see Versioning for Managed Policies
 	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html)
 	// in the Using IAM guide.
-	DefaultVersionId *string `type:"string"`
+	DefaultVersionId *string `json:"iam:ManagedPolicyDetail:DefaultVersionId" type:"string"`
 
 	// A friendly description of the policy.
-	Description *string `type:"string"`
+	Description *string `json:"iam:ManagedPolicyDetail:Description" type:"string"`
 
 	// Specifies whether the policy can be attached to an IAM user, group, or role.
-	IsAttachable *bool `type:"boolean"`
+	IsAttachable *bool `json:"iam:ManagedPolicyDetail:IsAttachable" type:"boolean"`
 
 	// The path to the policy.
 	//
 	// For more information about paths, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	Path *string `min:"1" type:"string"`
+	Path *string `json:"iam:ManagedPolicyDetail:Path" min:"1" type:"string"`
 
 	// The number of entities (users and roles) for which the policy is used as
 	// the permissions boundary.
@@ -776,19 +776,19 @@ type ManagedPolicyDetail struct {
 	// For more information about permissions boundaries, see Permissions Boundaries
 	// for IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
 	// in the IAM User Guide.
-	PermissionsBoundaryUsageCount *int64 `type:"integer"`
+	PermissionsBoundaryUsageCount *int64 `json:"iam:ManagedPolicyDetail:PermissionsBoundaryUsageCount" type:"integer"`
 
 	// The stable and unique string identifying the policy.
 	//
 	// For more information about IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	PolicyId *string `min:"16" type:"string"`
+	PolicyId *string `json:"iam:ManagedPolicyDetail:PolicyId" min:"16" type:"string"`
 
 	// The friendly name (not ARN) identifying the policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"iam:ManagedPolicyDetail:PolicyName" min:"1" type:"string"`
 
 	// A list containing information about the versions of the policy.
-	PolicyVersionList []PolicyVersion `type:"list"`
+	PolicyVersionList []PolicyVersion `json:"iam:ManagedPolicyDetail:PolicyVersionList" type:"list"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the policy was last updated.
@@ -797,7 +797,7 @@ type ManagedPolicyDetail struct {
 	// when the policy was created. When a policy has more than one version, this
 	// field contains the date and time when the most recent policy version was
 	// created.
-	UpdateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UpdateDate *time.Time `json:"iam:ManagedPolicyDetail:UpdateDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -815,7 +815,7 @@ type OpenIDConnectProviderListEntry struct {
 	// For more information about ARNs, go to Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"iam:OpenIDConnectProviderListEntry:Arn" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -831,7 +831,7 @@ type OrganizationsDecisionDetail struct {
 
 	// Specifies whether the simulated operation is allowed by the Organizations
 	// service control policies that impact the simulated user's account.
-	AllowedByOrganizations *bool `type:"boolean"`
+	AllowedByOrganizations *bool `json:"iam:OrganizationsDecisionDetail:AllowedByOrganizations" type:"boolean"`
 }
 
 // String returns the string representation
@@ -848,38 +848,38 @@ type PasswordPolicy struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether IAM users are allowed to change their own password.
-	AllowUsersToChangePassword *bool `type:"boolean"`
+	AllowUsersToChangePassword *bool `json:"iam:PasswordPolicy:AllowUsersToChangePassword" type:"boolean"`
 
 	// Indicates whether passwords in the account expire. Returns true if MaxPasswordAge
 	// contains a value greater than 0. Returns false if MaxPasswordAge is 0 or
 	// not present.
-	ExpirePasswords *bool `type:"boolean"`
+	ExpirePasswords *bool `json:"iam:PasswordPolicy:ExpirePasswords" type:"boolean"`
 
 	// Specifies whether IAM users are prevented from setting a new password after
 	// their password has expired.
-	HardExpiry *bool `type:"boolean"`
+	HardExpiry *bool `json:"iam:PasswordPolicy:HardExpiry" type:"boolean"`
 
 	// The number of days that an IAM user password is valid.
-	MaxPasswordAge *int64 `min:"1" type:"integer"`
+	MaxPasswordAge *int64 `json:"iam:PasswordPolicy:MaxPasswordAge" min:"1" type:"integer"`
 
 	// Minimum length to require for IAM user passwords.
-	MinimumPasswordLength *int64 `min:"6" type:"integer"`
+	MinimumPasswordLength *int64 `json:"iam:PasswordPolicy:MinimumPasswordLength" min:"6" type:"integer"`
 
 	// Specifies the number of previous passwords that IAM users are prevented from
 	// reusing.
-	PasswordReusePrevention *int64 `min:"1" type:"integer"`
+	PasswordReusePrevention *int64 `json:"iam:PasswordPolicy:PasswordReusePrevention" min:"1" type:"integer"`
 
 	// Specifies whether to require lowercase characters for IAM user passwords.
-	RequireLowercaseCharacters *bool `type:"boolean"`
+	RequireLowercaseCharacters *bool `json:"iam:PasswordPolicy:RequireLowercaseCharacters" type:"boolean"`
 
 	// Specifies whether to require numbers for IAM user passwords.
-	RequireNumbers *bool `type:"boolean"`
+	RequireNumbers *bool `json:"iam:PasswordPolicy:RequireNumbers" type:"boolean"`
 
 	// Specifies whether to require symbols for IAM user passwords.
-	RequireSymbols *bool `type:"boolean"`
+	RequireSymbols *bool `json:"iam:PasswordPolicy:RequireSymbols" type:"boolean"`
 
 	// Specifies whether to require uppercase characters for IAM user passwords.
-	RequireUppercaseCharacters *bool `type:"boolean"`
+	RequireUppercaseCharacters *bool `json:"iam:PasswordPolicy:RequireUppercaseCharacters" type:"boolean"`
 }
 
 // String returns the string representation
@@ -904,33 +904,33 @@ type Policy struct {
 	// For more information about ARNs, go to Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"iam:Policy:Arn" min:"20" type:"string"`
 
 	// The number of entities (users, groups, and roles) that the policy is attached
 	// to.
-	AttachmentCount *int64 `type:"integer"`
+	AttachmentCount *int64 `json:"iam:Policy:AttachmentCount" type:"integer"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the policy was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:Policy:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The identifier for the version of the policy that is set as the default version.
-	DefaultVersionId *string `type:"string"`
+	DefaultVersionId *string `json:"iam:Policy:DefaultVersionId" type:"string"`
 
 	// A friendly description of the policy.
 	//
 	// This element is included in the response to the GetPolicy operation. It is
 	// not included in the response to the ListPolicies operation.
-	Description *string `type:"string"`
+	Description *string `json:"iam:Policy:Description" type:"string"`
 
 	// Specifies whether the policy can be attached to an IAM user, group, or role.
-	IsAttachable *bool `type:"boolean"`
+	IsAttachable *bool `json:"iam:Policy:IsAttachable" type:"boolean"`
 
 	// The path to the policy.
 	//
 	// For more information about paths, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	Path *string `min:"1" type:"string"`
+	Path *string `json:"iam:Policy:Path" min:"1" type:"string"`
 
 	// The number of entities (users and roles) for which the policy is used to
 	// set the permissions boundary.
@@ -938,16 +938,16 @@ type Policy struct {
 	// For more information about permissions boundaries, see Permissions Boundaries
 	// for IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
 	// in the IAM User Guide.
-	PermissionsBoundaryUsageCount *int64 `type:"integer"`
+	PermissionsBoundaryUsageCount *int64 `json:"iam:Policy:PermissionsBoundaryUsageCount" type:"integer"`
 
 	// The stable and unique string identifying the policy.
 	//
 	// For more information about IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	PolicyId *string `min:"16" type:"string"`
+	PolicyId *string `json:"iam:Policy:PolicyId" min:"16" type:"string"`
 
 	// The friendly name (not ARN) identifying the policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"iam:Policy:PolicyName" min:"1" type:"string"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the policy was last updated.
@@ -956,7 +956,7 @@ type Policy struct {
 	// when the policy was created. When a policy has more than one version, this
 	// field contains the date and time when the most recent policy version was
 	// created.
-	UpdateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UpdateDate *time.Time `json:"iam:Policy:UpdateDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -973,10 +973,10 @@ type PolicyDetail struct {
 	_ struct{} `type:"structure"`
 
 	// The policy document.
-	PolicyDocument *string `min:"1" type:"string"`
+	PolicyDocument *string `json:"iam:PolicyDetail:PolicyDocument" min:"1" type:"string"`
 
 	// The name of the policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"iam:PolicyDetail:PolicyName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -998,7 +998,7 @@ type PolicyGrantingServiceAccess struct {
 	// This field is null for managed policies. For more information about these
 	// policy types, see Managed Policies and Inline Policies (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html)
 	// in the IAM User Guide.
-	EntityName *string `min:"1" type:"string"`
+	EntityName *string `json:"iam:PolicyGrantingServiceAccess:EntityName" min:"1" type:"string"`
 
 	// The type of entity (user or role) that used the policy to access the service
 	// to which the inline policy is attached.
@@ -1006,26 +1006,26 @@ type PolicyGrantingServiceAccess struct {
 	// This field is null for managed policies. For more information about these
 	// policy types, see Managed Policies and Inline Policies (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html)
 	// in the IAM User Guide.
-	EntityType PolicyOwnerEntityType `type:"string" enum:"true"`
+	EntityType PolicyOwnerEntityType `json:"iam:PolicyGrantingServiceAccess:EntityType" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.
 	//
 	// For more information about ARNs, go to Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	PolicyArn *string `min:"20" type:"string"`
+	PolicyArn *string `json:"iam:PolicyGrantingServiceAccess:PolicyArn" min:"20" type:"string"`
 
 	// The policy name.
 	//
 	// PolicyName is a required field
-	PolicyName *string `min:"1" type:"string" required:"true"`
+	PolicyName *string `json:"iam:PolicyGrantingServiceAccess:PolicyName" min:"1" type:"string" required:"true"`
 
 	// The policy type. For more information about these policy types, see Managed
 	// Policies and Inline Policies (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html)
 	// in the IAM User Guide.
 	//
 	// PolicyType is a required field
-	PolicyType PolicyType `type:"string" required:"true" enum:"true"`
+	PolicyType PolicyType `json:"iam:PolicyGrantingServiceAccess:PolicyType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -1048,10 +1048,10 @@ type PolicyGroup struct {
 	// The stable and unique string identifying the group. For more information
 	// about IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html)
 	// in the IAM User Guide.
-	GroupId *string `min:"16" type:"string"`
+	GroupId *string `json:"iam:PolicyGroup:GroupId" min:"16" type:"string"`
 
 	// The name (friendly name, not ARN) identifying the group.
-	GroupName *string `min:"1" type:"string"`
+	GroupName *string `json:"iam:PolicyGroup:GroupName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1074,10 +1074,10 @@ type PolicyRole struct {
 	// The stable and unique string identifying the role. For more information about
 	// IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html)
 	// in the IAM User Guide.
-	RoleId *string `min:"16" type:"string"`
+	RoleId *string `json:"iam:PolicyRole:RoleId" min:"16" type:"string"`
 
 	// The name (friendly name, not ARN) identifying the role.
-	RoleName *string `min:"1" type:"string"`
+	RoleName *string `json:"iam:PolicyRole:RoleName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1100,10 +1100,10 @@ type PolicyUser struct {
 	// The stable and unique string identifying the user. For more information about
 	// IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html)
 	// in the IAM User Guide.
-	UserId *string `min:"16" type:"string"`
+	UserId *string `json:"iam:PolicyUser:UserId" min:"16" type:"string"`
 
 	// The name (friendly name, not ARN) identifying the user.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"iam:PolicyUser:UserName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1126,7 +1126,7 @@ type PolicyVersion struct {
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the policy version was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:PolicyVersion:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The policy document.
 	//
@@ -1139,16 +1139,16 @@ type PolicyVersion struct {
 	// method to convert the policy back to plain JSON text. For example, if you
 	// use Java, you can use the decode method of the java.net.URLDecoder utility
 	// class in the Java SDK. Other languages and SDKs provide similar functionality.
-	Document *string `min:"1" type:"string"`
+	Document *string `json:"iam:PolicyVersion:Document" min:"1" type:"string"`
 
 	// Specifies whether the policy version is set as the policy's default version.
-	IsDefaultVersion *bool `type:"boolean"`
+	IsDefaultVersion *bool `json:"iam:PolicyVersion:IsDefaultVersion" type:"boolean"`
 
 	// The identifier for the policy version.
 	//
 	// Policy version identifiers always begin with v (always lowercase). When a
 	// policy is created, the first policy version is v1.
-	VersionId *string `type:"string"`
+	VersionId *string `json:"iam:PolicyVersion:VersionId" type:"string"`
 }
 
 // String returns the string representation
@@ -1165,10 +1165,10 @@ type Position struct {
 	_ struct{} `type:"structure"`
 
 	// The column in the line containing the specified position in the document.
-	Column *int64 `type:"integer"`
+	Column *int64 `json:"iam:Position:Column" type:"integer"`
 
 	// The line containing the specified position in the document.
-	Line *int64 `type:"integer"`
+	Line *int64 `json:"iam:Position:Line" type:"integer"`
 }
 
 // String returns the string representation
@@ -1189,25 +1189,25 @@ type ResourceSpecificResult struct {
 	// each set of policies contributes to the final evaluation decision. When simulating
 	// cross-account access to a resource, both the resource-based policy and the
 	// caller's IAM policy must grant access.
-	EvalDecisionDetails map[string]PolicyEvaluationDecisionType `type:"map"`
+	EvalDecisionDetails map[string]PolicyEvaluationDecisionType `json:"iam:ResourceSpecificResult:EvalDecisionDetails" type:"map"`
 
 	// The result of the simulation of the simulated API operation on the resource
 	// specified in EvalResourceName.
 	//
 	// EvalResourceDecision is a required field
-	EvalResourceDecision PolicyEvaluationDecisionType `type:"string" required:"true" enum:"true"`
+	EvalResourceDecision PolicyEvaluationDecisionType `json:"iam:ResourceSpecificResult:EvalResourceDecision" type:"string" required:"true" enum:"true"`
 
 	// The name of the simulated resource, in Amazon Resource Name (ARN) format.
 	//
 	// EvalResourceName is a required field
-	EvalResourceName *string `min:"1" type:"string" required:"true"`
+	EvalResourceName *string `json:"iam:ResourceSpecificResult:EvalResourceName" min:"1" type:"string" required:"true"`
 
 	// A list of the statements in the input policies that determine the result
 	// for this part of the simulation. Remember that even if multiple statements
 	// allow the operation on the resource, if any statement denies that operation,
 	// then the explicit deny overrides any allow. In addition, the deny statement
 	// is the only entry included in the result.
-	MatchedStatements []Statement `type:"list"`
+	MatchedStatements []Statement `json:"iam:ResourceSpecificResult:MatchedStatements" type:"list"`
 
 	// A list of context keys that are required by the included input policies but
 	// that were not provided by one of the input parameters. This list is used
@@ -1217,7 +1217,7 @@ type ResourceSpecificResult struct {
 	// values are instead included under the EvaluationResults section. To discover
 	// the context keys used by a set of policies, you can call GetContextKeysForCustomPolicy
 	// or GetContextKeysForPrincipalPolicy.
-	MissingContextValues []string `type:"list"`
+	MissingContextValues []string `json:"iam:ResourceSpecificResult:MissingContextValues" type:"list"`
 }
 
 // String returns the string representation
@@ -1236,56 +1236,56 @@ type Role struct {
 	// in the IAM User Guide guide.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"iam:Role:Arn" min:"20" type:"string" required:"true"`
 
 	// The policy that grants an entity permission to assume the role.
-	AssumeRolePolicyDocument *string `min:"1" type:"string"`
+	AssumeRolePolicyDocument *string `json:"iam:Role:AssumeRolePolicyDocument" min:"1" type:"string"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the role was created.
 	//
 	// CreateDate is a required field
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateDate *time.Time `json:"iam:Role:CreateDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// A description of the role that you provide.
-	Description *string `type:"string"`
+	Description *string `json:"iam:Role:Description" type:"string"`
 
 	// The maximum session duration (in seconds) for the specified role. Anyone
 	// who uses the AWS CLI, or API to assume the role can specify the duration
 	// using the optional DurationSeconds API parameter or duration-seconds CLI
 	// parameter.
-	MaxSessionDuration *int64 `min:"3600" type:"integer"`
+	MaxSessionDuration *int64 `json:"iam:Role:MaxSessionDuration" min:"3600" type:"integer"`
 
 	// The path to the role. For more information about paths, see IAM Identifiers
 	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// Path is a required field
-	Path *string `min:"1" type:"string" required:"true"`
+	Path *string `json:"iam:Role:Path" min:"1" type:"string" required:"true"`
 
 	// The ARN of the policy used to set the permissions boundary for the role.
 	//
 	// For more information about permissions boundaries, see Permissions Boundaries
 	// for IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
 	// in the IAM User Guide.
-	PermissionsBoundary *AttachedPermissionsBoundary `type:"structure"`
+	PermissionsBoundary *AttachedPermissionsBoundary `json:"iam:Role:PermissionsBoundary" type:"structure"`
 
 	// The stable and unique string identifying the role. For more information about
 	// IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// RoleId is a required field
-	RoleId *string `min:"16" type:"string" required:"true"`
+	RoleId *string `json:"iam:Role:RoleId" min:"16" type:"string" required:"true"`
 
 	// The friendly name that identifies the role.
 	//
 	// RoleName is a required field
-	RoleName *string `min:"1" type:"string" required:"true"`
+	RoleName *string `json:"iam:Role:RoleName" min:"1" type:"string" required:"true"`
 
 	// A list of tags that are attached to the specified role. For more information
 	// about tagging, see Tagging IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html)
 	// in the IAM User Guide.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"iam:Role:Tags" type:"list"`
 }
 
 // String returns the string representation
@@ -1306,50 +1306,50 @@ type RoleDetail struct {
 	// For more information about ARNs, go to Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"iam:RoleDetail:Arn" min:"20" type:"string"`
 
 	// The trust policy that grants permission to assume the role.
-	AssumeRolePolicyDocument *string `min:"1" type:"string"`
+	AssumeRolePolicyDocument *string `json:"iam:RoleDetail:AssumeRolePolicyDocument" min:"1" type:"string"`
 
 	// A list of managed policies attached to the role. These policies are the role's
 	// access (permissions) policies.
-	AttachedManagedPolicies []AttachedPolicy `type:"list"`
+	AttachedManagedPolicies []AttachedPolicy `json:"iam:RoleDetail:AttachedManagedPolicies" type:"list"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the role was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:RoleDetail:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A list of instance profiles that contain this role.
-	InstanceProfileList []InstanceProfile `type:"list"`
+	InstanceProfileList []InstanceProfile `json:"iam:RoleDetail:InstanceProfileList" type:"list"`
 
 	// The path to the role. For more information about paths, see IAM Identifiers
 	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	Path *string `min:"1" type:"string"`
+	Path *string `json:"iam:RoleDetail:Path" min:"1" type:"string"`
 
 	// The ARN of the policy used to set the permissions boundary for the role.
 	//
 	// For more information about permissions boundaries, see Permissions Boundaries
 	// for IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
 	// in the IAM User Guide.
-	PermissionsBoundary *AttachedPermissionsBoundary `type:"structure"`
+	PermissionsBoundary *AttachedPermissionsBoundary `json:"iam:RoleDetail:PermissionsBoundary" type:"structure"`
 
 	// The stable and unique string identifying the role. For more information about
 	// IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	RoleId *string `min:"16" type:"string"`
+	RoleId *string `json:"iam:RoleDetail:RoleId" min:"16" type:"string"`
 
 	// The friendly name that identifies the role.
-	RoleName *string `min:"1" type:"string"`
+	RoleName *string `json:"iam:RoleDetail:RoleName" min:"1" type:"string"`
 
 	// A list of inline policies embedded in the role. These policies are the role's
 	// access (permissions) policies.
-	RolePolicyList []PolicyDetail `type:"list"`
+	RolePolicyList []PolicyDetail `json:"iam:RoleDetail:RolePolicyList" type:"list"`
 
 	// A list of tags that are attached to the specified role. For more information
 	// about tagging, see Tagging IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html)
 	// in the IAM User Guide.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"iam:RoleDetail:Tags" type:"list"`
 }
 
 // String returns the string representation
@@ -1367,10 +1367,10 @@ type RoleUsageType struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Region where the service-linked role is being used.
-	Region *string `min:"1" type:"string"`
+	Region *string `json:"iam:RoleUsageType:Region" min:"1" type:"string"`
 
 	// The name of the resource that is using the service-linked role.
-	Resources []string `type:"list"`
+	Resources []string `json:"iam:RoleUsageType:Resources" type:"list"`
 }
 
 // String returns the string representation
@@ -1384,13 +1384,13 @@ type SAMLProviderListEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the SAML provider.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"iam:SAMLProviderListEntry:Arn" min:"20" type:"string"`
 
 	// The date and time when the SAML provider was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:SAMLProviderListEntry:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The expiration date and time for the SAML provider.
-	ValidUntil *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	ValidUntil *time.Time `json:"iam:SAMLProviderListEntry:ValidUntil" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1409,33 +1409,33 @@ type SSHPublicKey struct {
 	// The MD5 message digest of the SSH public key.
 	//
 	// Fingerprint is a required field
-	Fingerprint *string `min:"48" type:"string" required:"true"`
+	Fingerprint *string `json:"iam:SSHPublicKey:Fingerprint" min:"48" type:"string" required:"true"`
 
 	// The SSH public key.
 	//
 	// SSHPublicKeyBody is a required field
-	SSHPublicKeyBody *string `min:"1" type:"string" required:"true"`
+	SSHPublicKeyBody *string `json:"iam:SSHPublicKey:SSHPublicKeyBody" min:"1" type:"string" required:"true"`
 
 	// The unique identifier for the SSH public key.
 	//
 	// SSHPublicKeyId is a required field
-	SSHPublicKeyId *string `min:"20" type:"string" required:"true"`
+	SSHPublicKeyId *string `json:"iam:SSHPublicKey:SSHPublicKeyId" min:"20" type:"string" required:"true"`
 
 	// The status of the SSH public key. Active means that the key can be used for
 	// authentication with an AWS CodeCommit repository. Inactive means that the
 	// key cannot be used.
 	//
 	// Status is a required field
-	Status StatusType `type:"string" required:"true" enum:"true"`
+	Status StatusType `json:"iam:SSHPublicKey:Status" type:"string" required:"true" enum:"true"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the SSH public key was uploaded.
-	UploadDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UploadDate *time.Time `json:"iam:SSHPublicKey:UploadDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The name of the IAM user associated with the SSH public key.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:SSHPublicKey:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1453,25 +1453,25 @@ type SSHPublicKeyMetadata struct {
 	// The unique identifier for the SSH public key.
 	//
 	// SSHPublicKeyId is a required field
-	SSHPublicKeyId *string `min:"20" type:"string" required:"true"`
+	SSHPublicKeyId *string `json:"iam:SSHPublicKeyMetadata:SSHPublicKeyId" min:"20" type:"string" required:"true"`
 
 	// The status of the SSH public key. Active means that the key can be used for
 	// authentication with an AWS CodeCommit repository. Inactive means that the
 	// key cannot be used.
 	//
 	// Status is a required field
-	Status StatusType `type:"string" required:"true" enum:"true"`
+	Status StatusType `json:"iam:SSHPublicKeyMetadata:Status" type:"string" required:"true" enum:"true"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the SSH public key was uploaded.
 	//
 	// UploadDate is a required field
-	UploadDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	UploadDate *time.Time `json:"iam:SSHPublicKeyMetadata:UploadDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The name of the IAM user associated with the SSH public key.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:SSHPublicKeyMetadata:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1490,16 +1490,16 @@ type ServerCertificate struct {
 	// The contents of the public key certificate.
 	//
 	// CertificateBody is a required field
-	CertificateBody *string `min:"1" type:"string" required:"true"`
+	CertificateBody *string `json:"iam:ServerCertificate:CertificateBody" min:"1" type:"string" required:"true"`
 
 	// The contents of the public key certificate chain.
-	CertificateChain *string `min:"1" type:"string"`
+	CertificateChain *string `json:"iam:ServerCertificate:CertificateChain" min:"1" type:"string"`
 
 	// The meta information of the server certificate, such as its name, path, ID,
 	// and ARN.
 	//
 	// ServerCertificateMetadata is a required field
-	ServerCertificateMetadata *ServerCertificateMetadata `type:"structure" required:"true"`
+	ServerCertificateMetadata *ServerCertificateMetadata `json:"iam:ServerCertificate:ServerCertificateMetadata" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1522,32 +1522,32 @@ type ServerCertificateMetadata struct {
 	// in the Using IAM guide.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"iam:ServerCertificateMetadata:Arn" min:"20" type:"string" required:"true"`
 
 	// The date on which the certificate is set to expire.
-	Expiration *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	Expiration *time.Time `json:"iam:ServerCertificateMetadata:Expiration" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The path to the server certificate. For more information about paths, see
 	// IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// Path is a required field
-	Path *string `min:"1" type:"string" required:"true"`
+	Path *string `json:"iam:ServerCertificateMetadata:Path" min:"1" type:"string" required:"true"`
 
 	// The stable and unique string identifying the server certificate. For more
 	// information about IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// ServerCertificateId is a required field
-	ServerCertificateId *string `min:"16" type:"string" required:"true"`
+	ServerCertificateId *string `json:"iam:ServerCertificateMetadata:ServerCertificateId" min:"16" type:"string" required:"true"`
 
 	// The name that identifies the server certificate.
 	//
 	// ServerCertificateName is a required field
-	ServerCertificateName *string `min:"1" type:"string" required:"true"`
+	ServerCertificateName *string `json:"iam:ServerCertificateMetadata:ServerCertificateName" min:"1" type:"string" required:"true"`
 
 	// The date when the server certificate was uploaded.
-	UploadDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UploadDate *time.Time `json:"iam:ServerCertificateMetadata:UploadDate" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation
@@ -1569,19 +1569,19 @@ type ServiceLastAccessed struct {
 	//
 	// This field is null if no IAM entities attempted to access the service within
 	// the reporting period (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
-	LastAuthenticated *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	LastAuthenticated *time.Time `json:"iam:ServiceLastAccessed:LastAuthenticated" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The ARN of the authenticated entity (user or role) that last attempted to
 	// access the service. AWS does not report unauthenticated requests.
 	//
 	// This field is null if no IAM entities attempted to access the service within
 	// the reporting period (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
-	LastAuthenticatedEntity *string `min:"20" type:"string"`
+	LastAuthenticatedEntity *string `json:"iam:ServiceLastAccessed:LastAuthenticatedEntity" min:"20" type:"string"`
 
 	// The name of the service in which access was attempted.
 	//
 	// ServiceName is a required field
-	ServiceName *string `type:"string" required:"true"`
+	ServiceName *string `json:"iam:ServiceLastAccessed:ServiceName" type:"string" required:"true"`
 
 	// The namespace of the service in which access was attempted.
 	//
@@ -1594,14 +1594,14 @@ type ServiceLastAccessed struct {
 	// in the AWS General Reference.
 	//
 	// ServiceNamespace is a required field
-	ServiceNamespace *string `min:"1" type:"string" required:"true"`
+	ServiceNamespace *string `json:"iam:ServiceLastAccessed:ServiceNamespace" min:"1" type:"string" required:"true"`
 
 	// The total number of authenticated principals (root user, IAM users, or IAM
 	// roles) that have attempted to access the service.
 	//
 	// This field is null if no principals attempted to access the service within
 	// the reporting period (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period).
-	TotalAuthenticatedEntities *int64 `type:"integer"`
+	TotalAuthenticatedEntities *int64 `json:"iam:ServiceLastAccessed:TotalAuthenticatedEntities" type:"integer"`
 }
 
 // String returns the string representation
@@ -1618,22 +1618,22 @@ type ServiceSpecificCredential struct {
 	// when the service-specific credential were created.
 	//
 	// CreateDate is a required field
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateDate *time.Time `json:"iam:ServiceSpecificCredential:CreateDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The name of the service associated with the service-specific credential.
 	//
 	// ServiceName is a required field
-	ServiceName *string `type:"string" required:"true"`
+	ServiceName *string `json:"iam:ServiceSpecificCredential:ServiceName" type:"string" required:"true"`
 
 	// The generated password for the service-specific credential.
 	//
 	// ServicePassword is a required field
-	ServicePassword *string `type:"string" required:"true"`
+	ServicePassword *string `json:"iam:ServiceSpecificCredential:ServicePassword" type:"string" required:"true"`
 
 	// The unique identifier for the service-specific credential.
 	//
 	// ServiceSpecificCredentialId is a required field
-	ServiceSpecificCredentialId *string `min:"20" type:"string" required:"true"`
+	ServiceSpecificCredentialId *string `json:"iam:ServiceSpecificCredential:ServiceSpecificCredentialId" min:"20" type:"string" required:"true"`
 
 	// The generated user name for the service-specific credential. This value is
 	// generated by combining the IAM user's name combined with the ID number of
@@ -1641,18 +1641,18 @@ type ServiceSpecificCredential struct {
 	// be configured by the user.
 	//
 	// ServiceUserName is a required field
-	ServiceUserName *string `min:"17" type:"string" required:"true"`
+	ServiceUserName *string `json:"iam:ServiceSpecificCredential:ServiceUserName" min:"17" type:"string" required:"true"`
 
 	// The status of the service-specific credential. Active means that the key
 	// is valid for API calls, while Inactive means it is not.
 	//
 	// Status is a required field
-	Status StatusType `type:"string" required:"true" enum:"true"`
+	Status StatusType `json:"iam:ServiceSpecificCredential:Status" type:"string" required:"true" enum:"true"`
 
 	// The name of the IAM user associated with the service-specific credential.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:ServiceSpecificCredential:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1669,33 +1669,33 @@ type ServiceSpecificCredentialMetadata struct {
 	// when the service-specific credential were created.
 	//
 	// CreateDate is a required field
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateDate *time.Time `json:"iam:ServiceSpecificCredentialMetadata:CreateDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The name of the service associated with the service-specific credential.
 	//
 	// ServiceName is a required field
-	ServiceName *string `type:"string" required:"true"`
+	ServiceName *string `json:"iam:ServiceSpecificCredentialMetadata:ServiceName" type:"string" required:"true"`
 
 	// The unique identifier for the service-specific credential.
 	//
 	// ServiceSpecificCredentialId is a required field
-	ServiceSpecificCredentialId *string `min:"20" type:"string" required:"true"`
+	ServiceSpecificCredentialId *string `json:"iam:ServiceSpecificCredentialMetadata:ServiceSpecificCredentialId" min:"20" type:"string" required:"true"`
 
 	// The generated user name for the service-specific credential.
 	//
 	// ServiceUserName is a required field
-	ServiceUserName *string `min:"17" type:"string" required:"true"`
+	ServiceUserName *string `json:"iam:ServiceSpecificCredentialMetadata:ServiceUserName" min:"17" type:"string" required:"true"`
 
 	// The status of the service-specific credential. Active means that the key
 	// is valid for API calls, while Inactive means it is not.
 	//
 	// Status is a required field
-	Status StatusType `type:"string" required:"true" enum:"true"`
+	Status StatusType `json:"iam:ServiceSpecificCredentialMetadata:Status" type:"string" required:"true" enum:"true"`
 
 	// The name of the IAM user associated with the service-specific credential.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:ServiceSpecificCredentialMetadata:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1714,26 +1714,26 @@ type SigningCertificate struct {
 	// The contents of the signing certificate.
 	//
 	// CertificateBody is a required field
-	CertificateBody *string `min:"1" type:"string" required:"true"`
+	CertificateBody *string `json:"iam:SigningCertificate:CertificateBody" min:"1" type:"string" required:"true"`
 
 	// The ID for the signing certificate.
 	//
 	// CertificateId is a required field
-	CertificateId *string `min:"24" type:"string" required:"true"`
+	CertificateId *string `json:"iam:SigningCertificate:CertificateId" min:"24" type:"string" required:"true"`
 
 	// The status of the signing certificate. Active means that the key is valid
 	// for API calls, while Inactive means it is not.
 	//
 	// Status is a required field
-	Status StatusType `type:"string" required:"true" enum:"true"`
+	Status StatusType `json:"iam:SigningCertificate:Status" type:"string" required:"true" enum:"true"`
 
 	// The date when the signing certificate was uploaded.
-	UploadDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	UploadDate *time.Time `json:"iam:SigningCertificate:UploadDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The name of the user the signing certificate is associated with.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:SigningCertificate:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1751,16 +1751,16 @@ type Statement struct {
 	_ struct{} `type:"structure"`
 
 	// The row and column of the end of a Statement in an IAM policy.
-	EndPosition *Position `type:"structure"`
+	EndPosition *Position `json:"iam:Statement:EndPosition" type:"structure"`
 
 	// The identifier of the policy that was provided as an input.
-	SourcePolicyId *string `type:"string"`
+	SourcePolicyId *string `json:"iam:Statement:SourcePolicyId" type:"string"`
 
 	// The type of the policy.
-	SourcePolicyType PolicySourceType `type:"string" enum:"true"`
+	SourcePolicyType PolicySourceType `json:"iam:Statement:SourcePolicyType" type:"string" enum:"true"`
 
 	// The row and column of the beginning of the Statement in an IAM policy.
-	StartPosition *Position `type:"structure"`
+	StartPosition *Position `json:"iam:Statement:StartPosition" type:"structure"`
 }
 
 // String returns the string representation
@@ -1780,7 +1780,7 @@ type Tag struct {
 	// For example, Department or Cost Center are common choices.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"iam:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value associated with this tag. For example, tags with a key name of
 	// Department could have values such as Human Resources, Accounting, and Support.
@@ -1793,7 +1793,7 @@ type Tag struct {
 	// must interpret the value in your code.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"iam:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1840,13 +1840,13 @@ type User struct {
 	// in the Using IAM guide.
 	//
 	// Arn is a required field
-	Arn *string `min:"20" type:"string" required:"true"`
+	Arn *string `json:"iam:User:Arn" min:"20" type:"string" required:"true"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the user was created.
 	//
 	// CreateDate is a required field
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601" required:"true"`
+	CreateDate *time.Time `json:"iam:User:CreateDate" type:"timestamp" timestampFormat:"iso8601" required:"true"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the user's password was last used to sign in to an AWS website. For
@@ -1867,38 +1867,38 @@ type User struct {
 	// field contains the date and time the most recent password was used.
 	//
 	// This value is returned only in the GetUser and ListUsers operations.
-	PasswordLastUsed *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	PasswordLastUsed *time.Time `json:"iam:User:PasswordLastUsed" type:"timestamp" timestampFormat:"iso8601"`
 
 	// The path to the user. For more information about paths, see IAM Identifiers
 	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// Path is a required field
-	Path *string `min:"1" type:"string" required:"true"`
+	Path *string `json:"iam:User:Path" min:"1" type:"string" required:"true"`
 
 	// The ARN of the policy used to set the permissions boundary for the user.
 	//
 	// For more information about permissions boundaries, see Permissions Boundaries
 	// for IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
 	// in the IAM User Guide.
-	PermissionsBoundary *AttachedPermissionsBoundary `type:"structure"`
+	PermissionsBoundary *AttachedPermissionsBoundary `json:"iam:User:PermissionsBoundary" type:"structure"`
 
 	// A list of tags that are associated with the specified user. For more information
 	// about tagging, see Tagging IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html)
 	// in the IAM User Guide.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"iam:User:Tags" type:"list"`
 
 	// The stable and unique string identifying the user. For more information about
 	// IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
 	//
 	// UserId is a required field
-	UserId *string `min:"16" type:"string" required:"true"`
+	UserId *string `json:"iam:User:UserId" min:"16" type:"string" required:"true"`
 
 	// The friendly name identifying the user.
 	//
 	// UserName is a required field
-	UserName *string `min:"1" type:"string" required:"true"`
+	UserName *string `json:"iam:User:UserName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1920,45 +1920,45 @@ type UserDetail struct {
 	// For more information about ARNs, go to Amazon Resource Names (ARNs) and AWS
 	// Service Namespaces (https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)
 	// in the AWS General Reference.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"iam:UserDetail:Arn" min:"20" type:"string"`
 
 	// A list of the managed policies attached to the user.
-	AttachedManagedPolicies []AttachedPolicy `type:"list"`
+	AttachedManagedPolicies []AttachedPolicy `json:"iam:UserDetail:AttachedManagedPolicies" type:"list"`
 
 	// The date and time, in ISO 8601 date-time format (http://www.iso.org/iso/iso8601),
 	// when the user was created.
-	CreateDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreateDate *time.Time `json:"iam:UserDetail:CreateDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A list of IAM groups that the user is in.
-	GroupList []string `type:"list"`
+	GroupList []string `json:"iam:UserDetail:GroupList" type:"list"`
 
 	// The path to the user. For more information about paths, see IAM Identifiers
 	// (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	Path *string `min:"1" type:"string"`
+	Path *string `json:"iam:UserDetail:Path" min:"1" type:"string"`
 
 	// The ARN of the policy used to set the permissions boundary for the user.
 	//
 	// For more information about permissions boundaries, see Permissions Boundaries
 	// for IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
 	// in the IAM User Guide.
-	PermissionsBoundary *AttachedPermissionsBoundary `type:"structure"`
+	PermissionsBoundary *AttachedPermissionsBoundary `json:"iam:UserDetail:PermissionsBoundary" type:"structure"`
 
 	// A list of tags that are associated with the specified user. For more information
 	// about tagging, see Tagging IAM Identities (https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html)
 	// in the IAM User Guide.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"iam:UserDetail:Tags" type:"list"`
 
 	// The stable and unique string identifying the user. For more information about
 	// IDs, see IAM Identifiers (https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html)
 	// in the Using IAM guide.
-	UserId *string `min:"16" type:"string"`
+	UserId *string `json:"iam:UserDetail:UserId" min:"16" type:"string"`
 
 	// The friendly name identifying the user.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"iam:UserDetail:UserName" min:"1" type:"string"`
 
 	// A list of the inline policies embedded in the user.
-	UserPolicyList []PolicyDetail `type:"list"`
+	UserPolicyList []PolicyDetail `json:"iam:UserDetail:UserPolicyList" type:"list"`
 }
 
 // String returns the string representation
@@ -1975,10 +1975,10 @@ type VirtualMFADevice struct {
 	// The Base32StringSeed is base64-encoded.
 	//
 	// Base32StringSeed is automatically base64 encoded/decoded by the SDK.
-	Base32StringSeed []byte `type:"blob"`
+	Base32StringSeed []byte `json:"iam:VirtualMFADevice:Base32StringSeed" type:"blob"`
 
 	// The date and time on which the virtual MFA device was enabled.
-	EnableDate *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	EnableDate *time.Time `json:"iam:VirtualMFADevice:EnableDate" type:"timestamp" timestampFormat:"iso8601"`
 
 	// A QR code PNG image that encodes otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String
 	// where $virtualMFADeviceName is one of the create call arguments. AccountName
@@ -1986,15 +1986,15 @@ type VirtualMFADevice struct {
 	// is the seed in base32 format. The Base32String value is base64-encoded.
 	//
 	// QRCodePNG is automatically base64 encoded/decoded by the SDK.
-	QRCodePNG []byte `type:"blob"`
+	QRCodePNG []byte `json:"iam:VirtualMFADevice:QRCodePNG" type:"blob"`
 
 	// The serial number associated with VirtualMFADevice.
 	//
 	// SerialNumber is a required field
-	SerialNumber *string `min:"9" type:"string" required:"true"`
+	SerialNumber *string `json:"iam:VirtualMFADevice:SerialNumber" min:"9" type:"string" required:"true"`
 
 	// The IAM user associated with this virtual MFA device.
-	User *User `type:"structure"`
+	User *User `json:"iam:VirtualMFADevice:User" type:"structure"`
 }
 
 // String returns the string representation

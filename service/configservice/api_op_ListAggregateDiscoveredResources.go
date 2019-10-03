@@ -72,10 +72,10 @@ type ListAggregateDiscoveredResourcesOutput struct {
 
 	// The nextToken string returned on a previous page that you use to get the
 	// next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:ListAggregateDiscoveredResourcesOutput:NextToken" type:"string"`
 
 	// Returns a list of ResourceIdentifiers objects.
-	ResourceIdentifiers []AggregateResourceIdentifier `type:"list"`
+	ResourceIdentifiers []AggregateResourceIdentifier `json:"config:ListAggregateDiscoveredResourcesOutput:ResourceIdentifiers" type:"list"`
 }
 
 // String returns the string representation

@@ -47,7 +47,7 @@ type GetSystemInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that describes the system instance.
-	Description *SystemInstanceDescription `locationName:"description" type:"structure"`
+	Description *SystemInstanceDescription `json:"iotthingsgraph:GetSystemInstanceOutput:Description" locationName:"description" type:"structure"`
 }
 
 // String returns the string representation

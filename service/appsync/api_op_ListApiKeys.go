@@ -76,11 +76,11 @@ type ListApiKeysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ApiKey objects.
-	ApiKeys []ApiKey `locationName:"apiKeys" type:"list"`
+	ApiKeys []ApiKey `json:"appsync:ListApiKeysOutput:ApiKeys" locationName:"apiKeys" type:"list"`
 
 	// An identifier to be passed in the next request to this operation to return
 	// the next set of items in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appsync:ListApiKeysOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -24,18 +24,18 @@ type GetServiceSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether cross-account discovery has been enabled.
-	EnableCrossAccountsDiscovery *bool `type:"boolean"`
+	EnableCrossAccountsDiscovery *bool `json:"license-manager:GetServiceSettingsOutput:EnableCrossAccountsDiscovery" type:"boolean"`
 
 	// Indicates whether AWS Organizations has been integrated with License Manager
 	// for cross-account discovery.
-	OrganizationConfiguration *OrganizationConfiguration `type:"structure"`
+	OrganizationConfiguration *OrganizationConfiguration `json:"license-manager:GetServiceSettingsOutput:OrganizationConfiguration" type:"structure"`
 
 	// Regional S3 bucket path for storing reports, license trail event data, discovery
 	// data, etc.
-	S3BucketArn *string `type:"string"`
+	S3BucketArn *string `json:"license-manager:GetServiceSettingsOutput:S3BucketArn" type:"string"`
 
 	// SNS topic configured to receive notifications from License Manager.
-	SnsTopicArn *string `type:"string"`
+	SnsTopicArn *string `json:"license-manager:GetServiceSettingsOutput:SnsTopicArn" type:"string"`
 }
 
 // String returns the string representation

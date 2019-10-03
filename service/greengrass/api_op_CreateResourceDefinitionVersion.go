@@ -76,13 +76,13 @@ func (s CreateResourceDefinitionVersionInput) MarshalFields(e protocol.FieldEnco
 type CreateResourceDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:CreateResourceDefinitionVersionOutput:Arn" type:"string"`
 
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:CreateResourceDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:CreateResourceDefinitionVersionOutput:Id" type:"string"`
 
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:CreateResourceDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

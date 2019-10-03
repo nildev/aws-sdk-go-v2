@@ -106,13 +106,13 @@ type GetSdkOutput struct {
 	_ struct{} `type:"structure" payload:"Body"`
 
 	// The binary blob response to GetSdk, which contains the generated SDK.
-	Body []byte `locationName:"body" type:"blob"`
+	Body []byte `json:"apigateway:GetSdkOutput:Body" locationName:"body" type:"blob"`
 
 	// The content-disposition header value in the HTTP response.
-	ContentDisposition *string `location:"header" locationName:"Content-Disposition" type:"string"`
+	ContentDisposition *string `json:"apigateway:GetSdkOutput:ContentDisposition" location:"header" locationName:"Content-Disposition" type:"string"`
 
 	// The content-type header value in the HTTP response.
-	ContentType *string `location:"header" locationName:"Content-Type" type:"string"`
+	ContentType *string `json:"apigateway:GetSdkOutput:ContentType" location:"header" locationName:"Content-Type" type:"string"`
 }
 
 // String returns the string representation

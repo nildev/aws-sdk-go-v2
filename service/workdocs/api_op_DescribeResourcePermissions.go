@@ -111,10 +111,10 @@ type DescribeResourcePermissionsOutput struct {
 
 	// The marker to use when requesting the next set of results. If there are no
 	// additional results, the string is empty.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:DescribeResourcePermissionsOutput:Marker" min:"1" type:"string"`
 
 	// The principals.
-	Principals []Principal `type:"list"`
+	Principals []Principal `json:"workdocs:DescribeResourcePermissionsOutput:Principals" type:"list"`
 }
 
 // String returns the string representation

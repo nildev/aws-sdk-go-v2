@@ -93,14 +93,14 @@ type RotateSecretOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:RotateSecretOutput:ARN" min:"20" type:"string"`
 
 	// The friendly name of the secret.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:RotateSecretOutput:Name" min:"1" type:"string"`
 
 	// The ID of the new version of the secret created by the rotation started by
 	// this request.
-	VersionId *string `min:"32" type:"string"`
+	VersionId *string `json:"secretsmanager:RotateSecretOutput:VersionId" min:"32" type:"string"`
 }
 
 // String returns the string representation

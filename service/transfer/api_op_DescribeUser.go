@@ -58,13 +58,13 @@ type DescribeUserOutput struct {
 	// assigned.
 	//
 	// ServerId is a required field
-	ServerId *string `type:"string" required:"true"`
+	ServerId *string `json:"transfer:DescribeUserOutput:ServerId" type:"string" required:"true"`
 
 	// An array containing the properties of the user account for the ServerID value
 	// that you specified.
 	//
 	// User is a required field
-	User *DescribedUser `type:"structure" required:"true"`
+	User *DescribedUser `json:"transfer:DescribeUserOutput:User" type:"structure" required:"true"`
 }
 
 // String returns the string representation

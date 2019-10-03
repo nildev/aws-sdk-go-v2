@@ -69,7 +69,7 @@ type DescribeInstancePatchesOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeInstancePatchesOutput:NextToken" type:"string"`
 
 	// Each entry in the array is a structure containing:
 	//
@@ -86,7 +86,7 @@ type DescribeInstancePatchesOutput struct {
 	// InstalledTime (DateTime)
 	//
 	// InstalledBy (string)
-	Patches []PatchComplianceData `type:"list"`
+	Patches []PatchComplianceData `json:"ssm:DescribeInstancePatchesOutput:Patches" type:"list"`
 }
 
 // String returns the string representation

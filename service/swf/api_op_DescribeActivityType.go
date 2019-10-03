@@ -62,7 +62,7 @@ type DescribeActivityTypeOutput struct {
 	// The configuration settings registered with the activity type.
 	//
 	// Configuration is a required field
-	Configuration *ActivityTypeConfiguration `locationName:"configuration" type:"structure" required:"true"`
+	Configuration *ActivityTypeConfiguration `json:"swf:DescribeActivityTypeOutput:Configuration" locationName:"configuration" type:"structure" required:"true"`
 
 	// General information about the activity type.
 	//
@@ -77,7 +77,7 @@ type DescribeActivityTypeOutput struct {
 	//    You cannot create new tasks of this type.
 	//
 	// TypeInfo is a required field
-	TypeInfo *ActivityTypeInfo `locationName:"typeInfo" type:"structure" required:"true"`
+	TypeInfo *ActivityTypeInfo `json:"swf:DescribeActivityTypeOutput:TypeInfo" locationName:"typeInfo" type:"structure" required:"true"`
 }
 
 // String returns the string representation

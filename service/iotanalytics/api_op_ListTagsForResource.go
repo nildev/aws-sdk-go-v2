@@ -59,7 +59,7 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The tags (metadata) which you have assigned to the resource.
-	Tags []Tag `locationName:"tags" min:"1" type:"list"`
+	Tags []Tag `json:"iotanalytics:ListTagsForResourceOutput:Tags" locationName:"tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

@@ -87,11 +87,11 @@ type ListBranchesOutput struct {
 	// List of branches for an Amplify App.
 	//
 	// Branches is a required field
-	Branches []Branch `locationName:"branches" type:"list" required:"true"`
+	Branches []Branch `json:"amplify:ListBranchesOutput:Branches" locationName:"branches" type:"list" required:"true"`
 
 	// Pagination token. If non-null pagination token is returned in a result, then
 	// pass its value in another request to fetch more entries.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"amplify:ListBranchesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

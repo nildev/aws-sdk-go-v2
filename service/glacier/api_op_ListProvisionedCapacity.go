@@ -58,7 +58,7 @@ type ListProvisionedCapacityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The response body contains the following JSON fields.
-	ProvisionedCapacityList []ProvisionedCapacityDescription `type:"list"`
+	ProvisionedCapacityList []ProvisionedCapacityDescription `json:"glacier:ListProvisionedCapacityOutput:ProvisionedCapacityList" type:"list"`
 }
 
 // String returns the string representation

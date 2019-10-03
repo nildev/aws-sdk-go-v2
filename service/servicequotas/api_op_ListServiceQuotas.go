@@ -71,11 +71,11 @@ type ListServiceQuotasOutput struct {
 	// a subsequent call to the operation to continue processing and get the next
 	// part of the output. You should repeat this until the NextToken response element
 	// comes back empty (as null).
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicequotas:ListServiceQuotasOutput:NextToken" type:"string"`
 
 	// The response information for a quota lists all attribute information for
 	// the quota.
-	Quotas []ServiceQuota `type:"list"`
+	Quotas []ServiceQuota `json:"servicequotas:ListServiceQuotasOutput:Quotas" type:"list"`
 }
 
 // String returns the string representation

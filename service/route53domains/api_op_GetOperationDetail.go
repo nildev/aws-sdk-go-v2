@@ -47,22 +47,22 @@ type GetOperationDetailOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of a domain.
-	DomainName *string `type:"string"`
+	DomainName *string `json:"route53domains:GetOperationDetailOutput:DomainName" type:"string"`
 
 	// Detailed information on the status including possible errors.
-	Message *string `type:"string"`
+	Message *string `json:"route53domains:GetOperationDetailOutput:Message" type:"string"`
 
 	// The identifier for the operation.
-	OperationId *string `type:"string"`
+	OperationId *string `json:"route53domains:GetOperationDetailOutput:OperationId" type:"string"`
 
 	// The current status of the requested operation in the system.
-	Status OperationStatus `type:"string" enum:"true"`
+	Status OperationStatus `json:"route53domains:GetOperationDetailOutput:Status" type:"string" enum:"true"`
 
 	// The date when the request was submitted.
-	SubmittedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	SubmittedDate *time.Time `json:"route53domains:GetOperationDetailOutput:SubmittedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The type of operation that was requested.
-	Type OperationType `type:"string" enum:"true"`
+	Type OperationType `json:"route53domains:GetOperationDetailOutput:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation

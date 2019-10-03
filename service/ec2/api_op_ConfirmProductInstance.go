@@ -59,11 +59,11 @@ type ConfirmProductInstanceOutput struct {
 
 	// The AWS account ID of the instance owner. This is only present if the product
 	// code is attached to the instance.
-	OwnerId *string `locationName:"ownerId" type:"string"`
+	OwnerId *string `json:"ec2:ConfirmProductInstanceOutput:OwnerId" locationName:"ownerId" type:"string"`
 
 	// The return value of the request. Returns true if the specified product code
 	// is owned by the requester and associated with the specified instance.
-	Return *bool `locationName:"return" type:"boolean"`
+	Return *bool `json:"ec2:ConfirmProductInstanceOutput:Return" locationName:"return" type:"boolean"`
 }
 
 // String returns the string representation

@@ -27,15 +27,15 @@ type AddAttributesActivity struct {
 	// originals, use "RemoveAttributeActivity".
 	//
 	// Attributes is a required field
-	Attributes map[string]string `locationName:"attributes" min:"1" type:"map" required:"true"`
+	Attributes map[string]string `json:"iotanalytics:AddAttributesActivity:Attributes" locationName:"attributes" min:"1" type:"map" required:"true"`
 
 	// The name of the 'addAttributes' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:AddAttributesActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:AddAttributesActivity:Next" locationName:"next" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -105,14 +105,14 @@ type BatchPutMessageErrorEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The code associated with the error.
-	ErrorCode *string `locationName:"errorCode" type:"string"`
+	ErrorCode *string `json:"iotanalytics:BatchPutMessageErrorEntry:ErrorCode" locationName:"errorCode" type:"string"`
 
 	// The message associated with the error.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"iotanalytics:BatchPutMessageErrorEntry:ErrorMessage" locationName:"errorMessage" type:"string"`
 
 	// The ID of the message that caused the error. (See the value corresponding
 	// to the "messageId" key in the message object.)
-	MessageId *string `locationName:"messageId" min:"1" type:"string"`
+	MessageId *string `json:"iotanalytics:BatchPutMessageErrorEntry:MessageId" locationName:"messageId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -150,25 +150,25 @@ type Channel struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the channel.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"iotanalytics:Channel:Arn" locationName:"arn" type:"string"`
 
 	// When the channel was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:Channel:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// When the channel was last updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotanalytics:Channel:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the channel.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"iotanalytics:Channel:Name" locationName:"name" min:"1" type:"string"`
 
 	// How long, in days, message data is kept for the channel.
-	RetentionPeriod *RetentionPeriod `locationName:"retentionPeriod" type:"structure"`
+	RetentionPeriod *RetentionPeriod `json:"iotanalytics:Channel:RetentionPeriod" locationName:"retentionPeriod" type:"structure"`
 
 	// The status of the channel.
-	Status ChannelStatus `locationName:"status" type:"string" enum:"true"`
+	Status ChannelStatus `json:"iotanalytics:Channel:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Where channel data is stored.
-	Storage *ChannelStorage `locationName:"storage" type:"structure"`
+	Storage *ChannelStorage `json:"iotanalytics:Channel:Storage" locationName:"storage" type:"structure"`
 }
 
 // String returns the string representation
@@ -231,15 +231,15 @@ type ChannelActivity struct {
 	// The name of the channel from which the messages are processed.
 	//
 	// ChannelName is a required field
-	ChannelName *string `locationName:"channelName" min:"1" type:"string" required:"true"`
+	ChannelName *string `json:"iotanalytics:ChannelActivity:ChannelName" locationName:"channelName" min:"1" type:"string" required:"true"`
 
 	// The name of the 'channel' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:ChannelActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:ChannelActivity:Next" locationName:"next" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -303,7 +303,7 @@ type ChannelStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// The estimated size of the channel.
-	Size *EstimatedResourceSize `locationName:"size" type:"structure"`
+	Size *EstimatedResourceSize `json:"iotanalytics:ChannelStatistics:Size" locationName:"size" type:"structure"`
 }
 
 // String returns the string representation
@@ -328,11 +328,11 @@ type ChannelStorage struct {
 	_ struct{} `type:"structure"`
 
 	// Use this to store channel data in an S3 bucket that you manage.
-	CustomerManagedS3 *CustomerManagedChannelS3Storage `locationName:"customerManagedS3" type:"structure"`
+	CustomerManagedS3 *CustomerManagedChannelS3Storage `json:"iotanalytics:ChannelStorage:CustomerManagedS3" locationName:"customerManagedS3" type:"structure"`
 
 	// Use this to store channel data in an S3 bucket managed by the AWS IoT Analytics
 	// service.
-	ServiceManagedS3 *ServiceManagedChannelS3Storage `locationName:"serviceManagedS3" type:"structure"`
+	ServiceManagedS3 *ServiceManagedChannelS3Storage `json:"iotanalytics:ChannelStorage:ServiceManagedS3" locationName:"serviceManagedS3" type:"structure"`
 }
 
 // String returns the string representation
@@ -378,11 +378,11 @@ type ChannelStorageSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Used to store channel data in an S3 bucket that you manage.
-	CustomerManagedS3 *CustomerManagedChannelS3StorageSummary `locationName:"customerManagedS3" type:"structure"`
+	CustomerManagedS3 *CustomerManagedChannelS3StorageSummary `json:"iotanalytics:ChannelStorageSummary:CustomerManagedS3" locationName:"customerManagedS3" type:"structure"`
 
 	// Used to store channel data in an S3 bucket managed by the AWS IoT Analytics
 	// service.
-	ServiceManagedS3 *ServiceManagedChannelS3StorageSummary `locationName:"serviceManagedS3" type:"structure"`
+	ServiceManagedS3 *ServiceManagedChannelS3StorageSummary `json:"iotanalytics:ChannelStorageSummary:ServiceManagedS3" locationName:"serviceManagedS3" type:"structure"`
 }
 
 // String returns the string representation
@@ -413,19 +413,19 @@ type ChannelSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the channel.
-	ChannelName *string `locationName:"channelName" min:"1" type:"string"`
+	ChannelName *string `json:"iotanalytics:ChannelSummary:ChannelName" locationName:"channelName" min:"1" type:"string"`
 
 	// Where channel data is stored.
-	ChannelStorage *ChannelStorageSummary `locationName:"channelStorage" type:"structure"`
+	ChannelStorage *ChannelStorageSummary `json:"iotanalytics:ChannelSummary:ChannelStorage" locationName:"channelStorage" type:"structure"`
 
 	// When the channel was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:ChannelSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The last time the channel was updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotanalytics:ChannelSummary:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the channel.
-	Status ChannelStatus `locationName:"status" type:"string" enum:"true"`
+	Status ChannelStatus `json:"iotanalytics:ChannelSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -479,25 +479,25 @@ type ContainerDatasetAction struct {
 	// application.
 	//
 	// ExecutionRoleArn is a required field
-	ExecutionRoleArn *string `locationName:"executionRoleArn" min:"20" type:"string" required:"true"`
+	ExecutionRoleArn *string `json:"iotanalytics:ContainerDatasetAction:ExecutionRoleArn" locationName:"executionRoleArn" min:"20" type:"string" required:"true"`
 
 	// The ARN of the Docker container stored in your account. The Docker container
 	// contains an application and needed support libraries and is used to generate
 	// data set contents.
 	//
 	// Image is a required field
-	Image *string `locationName:"image" type:"string" required:"true"`
+	Image *string `json:"iotanalytics:ContainerDatasetAction:Image" locationName:"image" type:"string" required:"true"`
 
 	// Configuration of the resource which executes the "containerAction".
 	//
 	// ResourceConfiguration is a required field
-	ResourceConfiguration *ResourceConfiguration `locationName:"resourceConfiguration" type:"structure" required:"true"`
+	ResourceConfiguration *ResourceConfiguration `json:"iotanalytics:ContainerDatasetAction:ResourceConfiguration" locationName:"resourceConfiguration" type:"structure" required:"true"`
 
 	// The values of variables used within the context of the execution of the containerized
 	// application (basically, parameters passed to the application). Each variable
 	// must have a name and a value given by one of "stringValue", "datasetContentVersionValue",
 	// or "outputFileUriValue".
-	Variables []Variable `locationName:"variables" type:"list"`
+	Variables []Variable `json:"iotanalytics:ContainerDatasetAction:Variables" locationName:"variables" type:"list"`
 }
 
 // String returns the string representation
@@ -585,18 +585,18 @@ type CustomerManagedChannelS3Storage struct {
 	// The name of the Amazon S3 bucket in which channel data is stored.
 	//
 	// Bucket is a required field
-	Bucket *string `locationName:"bucket" min:"3" type:"string" required:"true"`
+	Bucket *string `json:"iotanalytics:CustomerManagedChannelS3Storage:Bucket" locationName:"bucket" min:"3" type:"string" required:"true"`
 
 	// The prefix used to create the keys of the channel data objects. Each object
 	// in an Amazon S3 bucket has a key that is its unique identifier within the
 	// bucket (each object in a bucket has exactly one key).
-	KeyPrefix *string `locationName:"keyPrefix" min:"1" type:"string"`
+	KeyPrefix *string `json:"iotanalytics:CustomerManagedChannelS3Storage:KeyPrefix" locationName:"keyPrefix" min:"1" type:"string"`
 
 	// The ARN of the role which grants AWS IoT Analytics permission to interact
 	// with your Amazon S3 resources.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"iotanalytics:CustomerManagedChannelS3Storage:RoleArn" locationName:"roleArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -660,16 +660,16 @@ type CustomerManagedChannelS3StorageSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Amazon S3 bucket in which channel data is stored.
-	Bucket *string `locationName:"bucket" min:"3" type:"string"`
+	Bucket *string `json:"iotanalytics:CustomerManagedChannelS3StorageSummary:Bucket" locationName:"bucket" min:"3" type:"string"`
 
 	// The prefix used to create the keys of the channel data objects. Each object
 	// in an Amazon S3 bucket has a key that is its unique identifier within the
 	// bucket (each object in a bucket has exactly one key).
-	KeyPrefix *string `locationName:"keyPrefix" min:"1" type:"string"`
+	KeyPrefix *string `json:"iotanalytics:CustomerManagedChannelS3StorageSummary:KeyPrefix" locationName:"keyPrefix" min:"1" type:"string"`
 
 	// The ARN of the role which grants AWS IoT Analytics permission to interact
 	// with your Amazon S3 resources.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iotanalytics:CustomerManagedChannelS3StorageSummary:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -708,18 +708,18 @@ type CustomerManagedDatastoreS3Storage struct {
 	// The name of the Amazon S3 bucket in which data store data is stored.
 	//
 	// Bucket is a required field
-	Bucket *string `locationName:"bucket" min:"3" type:"string" required:"true"`
+	Bucket *string `json:"iotanalytics:CustomerManagedDatastoreS3Storage:Bucket" locationName:"bucket" min:"3" type:"string" required:"true"`
 
 	// The prefix used to create the keys of the data store data objects. Each object
 	// in an Amazon S3 bucket has a key that is its unique identifier within the
 	// bucket (each object in a bucket has exactly one key).
-	KeyPrefix *string `locationName:"keyPrefix" min:"1" type:"string"`
+	KeyPrefix *string `json:"iotanalytics:CustomerManagedDatastoreS3Storage:KeyPrefix" locationName:"keyPrefix" min:"1" type:"string"`
 
 	// The ARN of the role which grants AWS IoT Analytics permission to interact
 	// with your Amazon S3 resources.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"iotanalytics:CustomerManagedDatastoreS3Storage:RoleArn" locationName:"roleArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -783,16 +783,16 @@ type CustomerManagedDatastoreS3StorageSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the Amazon S3 bucket in which data store data is stored.
-	Bucket *string `locationName:"bucket" min:"3" type:"string"`
+	Bucket *string `json:"iotanalytics:CustomerManagedDatastoreS3StorageSummary:Bucket" locationName:"bucket" min:"3" type:"string"`
 
 	// The prefix used to create the keys of the data store data objects. Each object
 	// in an Amazon S3 bucket has a key that is its unique identifier within the
 	// bucket (each object in a bucket has exactly one key).
-	KeyPrefix *string `locationName:"keyPrefix" min:"1" type:"string"`
+	KeyPrefix *string `json:"iotanalytics:CustomerManagedDatastoreS3StorageSummary:KeyPrefix" locationName:"keyPrefix" min:"1" type:"string"`
 
 	// The ARN of the role which grants AWS IoT Analytics permission to interact
 	// with your Amazon S3 resources.
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string"`
+	RoleArn *string `json:"iotanalytics:CustomerManagedDatastoreS3StorageSummary:RoleArn" locationName:"roleArn" min:"20" type:"string"`
 }
 
 // String returns the string representation
@@ -829,39 +829,39 @@ type Dataset struct {
 	_ struct{} `type:"structure"`
 
 	// The "DatasetAction" objects that automatically create the data set contents.
-	Actions []DatasetAction `locationName:"actions" min:"1" type:"list"`
+	Actions []DatasetAction `json:"iotanalytics:Dataset:Actions" locationName:"actions" min:"1" type:"list"`
 
 	// The ARN of the data set.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"iotanalytics:Dataset:Arn" locationName:"arn" type:"string"`
 
 	// When data set contents are created they are delivered to destinations specified
 	// here.
-	ContentDeliveryRules []DatasetContentDeliveryRule `locationName:"contentDeliveryRules" type:"list"`
+	ContentDeliveryRules []DatasetContentDeliveryRule `json:"iotanalytics:Dataset:ContentDeliveryRules" locationName:"contentDeliveryRules" type:"list"`
 
 	// When the data set was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:Dataset:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The last time the data set was updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotanalytics:Dataset:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the data set.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"iotanalytics:Dataset:Name" locationName:"name" min:"1" type:"string"`
 
 	// [Optional] How long, in days, message data is kept for the data set.
-	RetentionPeriod *RetentionPeriod `locationName:"retentionPeriod" type:"structure"`
+	RetentionPeriod *RetentionPeriod `json:"iotanalytics:Dataset:RetentionPeriod" locationName:"retentionPeriod" type:"structure"`
 
 	// The status of the data set.
-	Status DatasetStatus `locationName:"status" type:"string" enum:"true"`
+	Status DatasetStatus `json:"iotanalytics:Dataset:Status" locationName:"status" type:"string" enum:"true"`
 
 	// The "DatasetTrigger" objects that specify when the data set is automatically
 	// updated.
-	Triggers []DatasetTrigger `locationName:"triggers" type:"list"`
+	Triggers []DatasetTrigger `json:"iotanalytics:Dataset:Triggers" locationName:"triggers" type:"list"`
 
 	// [Optional] How many versions of data set contents are kept. If not specified
 	// or set to null, only the latest version plus the latest succeeded version
 	// (if they are different) are kept for the time period specified by the "retentionPeriod"
 	// parameter. (For more information, see https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)
-	VersioningConfiguration *VersioningConfiguration `locationName:"versioningConfiguration" type:"structure"`
+	VersioningConfiguration *VersioningConfiguration `json:"iotanalytics:Dataset:VersioningConfiguration" locationName:"versioningConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -960,16 +960,16 @@ type DatasetAction struct {
 
 	// The name of the data set action by which data set contents are automatically
 	// created.
-	ActionName *string `locationName:"actionName" min:"1" type:"string"`
+	ActionName *string `json:"iotanalytics:DatasetAction:ActionName" locationName:"actionName" min:"1" type:"string"`
 
 	// Information which allows the system to run a containerized application in
 	// order to create the data set contents. The application must be in a Docker
 	// container along with any needed support libraries.
-	ContainerAction *ContainerDatasetAction `locationName:"containerAction" type:"structure"`
+	ContainerAction *ContainerDatasetAction `json:"iotanalytics:DatasetAction:ContainerAction" locationName:"containerAction" type:"structure"`
 
 	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically
 	// create data set contents.
-	QueryAction *SqlQueryDatasetAction `locationName:"queryAction" type:"structure"`
+	QueryAction *SqlQueryDatasetAction `json:"iotanalytics:DatasetAction:QueryAction" locationName:"queryAction" type:"structure"`
 }
 
 // String returns the string representation
@@ -1029,10 +1029,10 @@ type DatasetActionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the action which automatically creates the data set's contents.
-	ActionName *string `locationName:"actionName" min:"1" type:"string"`
+	ActionName *string `json:"iotanalytics:DatasetActionSummary:ActionName" locationName:"actionName" min:"1" type:"string"`
 
 	// The type of action by which the data set's contents are automatically created.
-	ActionType DatasetActionType `locationName:"actionType" type:"string" enum:"true"`
+	ActionType DatasetActionType `json:"iotanalytics:DatasetActionSummary:ActionType" locationName:"actionType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1063,10 +1063,10 @@ type DatasetContentDeliveryDestination struct {
 	_ struct{} `type:"structure"`
 
 	// Configuration information for delivery of data set contents to AWS IoT Events.
-	IotEventsDestinationConfiguration *IotEventsDestinationConfiguration `locationName:"iotEventsDestinationConfiguration" type:"structure"`
+	IotEventsDestinationConfiguration *IotEventsDestinationConfiguration `json:"iotanalytics:DatasetContentDeliveryDestination:IotEventsDestinationConfiguration" locationName:"iotEventsDestinationConfiguration" type:"structure"`
 
 	// Configuration information for delivery of data set contents to Amazon S3.
-	S3DestinationConfiguration *S3DestinationConfiguration `locationName:"s3DestinationConfiguration" type:"structure"`
+	S3DestinationConfiguration *S3DestinationConfiguration `json:"iotanalytics:DatasetContentDeliveryDestination:S3DestinationConfiguration" locationName:"s3DestinationConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -1120,10 +1120,10 @@ type DatasetContentDeliveryRule struct {
 	// The destination to which data set contents are delivered.
 	//
 	// Destination is a required field
-	Destination *DatasetContentDeliveryDestination `locationName:"destination" type:"structure" required:"true"`
+	Destination *DatasetContentDeliveryDestination `json:"iotanalytics:DatasetContentDeliveryRule:Destination" locationName:"destination" type:"structure" required:"true"`
 
 	// The name of the data set content delivery rules entry.
-	EntryName *string `locationName:"entryName" type:"string"`
+	EntryName *string `json:"iotanalytics:DatasetContentDeliveryRule:EntryName" locationName:"entryName" type:"string"`
 }
 
 // String returns the string representation
@@ -1173,11 +1173,11 @@ type DatasetContentStatus struct {
 	_ struct{} `type:"structure"`
 
 	// The reason the data set contents are in this state.
-	Reason *string `locationName:"reason" type:"string"`
+	Reason *string `json:"iotanalytics:DatasetContentStatus:Reason" locationName:"reason" type:"string"`
 
 	// The state of the data set contents. Can be one of "READY", "CREATING", "SUCCEEDED"
 	// or "FAILED".
-	State DatasetContentState `locationName:"state" type:"string" enum:"true"`
+	State DatasetContentState `json:"iotanalytics:DatasetContentStatus:State" locationName:"state" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1208,16 +1208,16 @@ type DatasetContentSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The actual time the creation of the data set contents was started.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:DatasetContentSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The time the creation of the data set contents was scheduled to start.
-	ScheduleTime *time.Time `locationName:"scheduleTime" type:"timestamp" timestampFormat:"unix"`
+	ScheduleTime *time.Time `json:"iotanalytics:DatasetContentSummary:ScheduleTime" locationName:"scheduleTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the data set contents.
-	Status *DatasetContentStatus `locationName:"status" type:"structure"`
+	Status *DatasetContentStatus `json:"iotanalytics:DatasetContentSummary:Status" locationName:"status" type:"structure"`
 
 	// The version of the data set contents.
-	Version *string `locationName:"version" min:"7" type:"string"`
+	Version *string `json:"iotanalytics:DatasetContentSummary:Version" locationName:"version" min:"7" type:"string"`
 }
 
 // String returns the string representation
@@ -1263,7 +1263,7 @@ type DatasetContentVersionValue struct {
 	// or application.
 	//
 	// DatasetName is a required field
-	DatasetName *string `locationName:"datasetName" min:"1" type:"string" required:"true"`
+	DatasetName *string `json:"iotanalytics:DatasetContentVersionValue:DatasetName" locationName:"datasetName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1305,10 +1305,10 @@ type DatasetEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The pre-signed URI of the data set item.
-	DataURI *string `locationName:"dataURI" type:"string"`
+	DataURI *string `json:"iotanalytics:DatasetEntry:DataURI" locationName:"dataURI" type:"string"`
 
 	// The name of the data set item.
-	EntryName *string `locationName:"entryName" type:"string"`
+	EntryName *string `json:"iotanalytics:DatasetEntry:EntryName" locationName:"entryName" type:"string"`
 }
 
 // String returns the string representation
@@ -1339,24 +1339,24 @@ type DatasetSummary struct {
 	_ struct{} `type:"structure"`
 
 	// A list of "DataActionSummary" objects.
-	Actions []DatasetActionSummary `locationName:"actions" min:"1" type:"list"`
+	Actions []DatasetActionSummary `json:"iotanalytics:DatasetSummary:Actions" locationName:"actions" min:"1" type:"list"`
 
 	// The time the data set was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:DatasetSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the data set.
-	DatasetName *string `locationName:"datasetName" min:"1" type:"string"`
+	DatasetName *string `json:"iotanalytics:DatasetSummary:DatasetName" locationName:"datasetName" min:"1" type:"string"`
 
 	// The last time the data set was updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotanalytics:DatasetSummary:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the data set.
-	Status DatasetStatus `locationName:"status" type:"string" enum:"true"`
+	Status DatasetStatus `json:"iotanalytics:DatasetSummary:Status" locationName:"status" type:"string" enum:"true"`
 
 	// A list of triggers. A trigger causes data set content to be populated at
 	// a specified time interval or when another data set is populated. The list
 	// of triggers can be empty or contain up to five DataSetTrigger objects
-	Triggers []DatasetTrigger `locationName:"triggers" type:"list"`
+	Triggers []DatasetTrigger `json:"iotanalytics:DatasetSummary:Triggers" locationName:"triggers" type:"list"`
 }
 
 // String returns the string representation
@@ -1424,10 +1424,10 @@ type DatasetTrigger struct {
 
 	// The data set whose content creation triggers the creation of this data set's
 	// contents.
-	Dataset *TriggeringDataset `locationName:"dataset" type:"structure"`
+	Dataset *TriggeringDataset `json:"iotanalytics:DatasetTrigger:Dataset" locationName:"dataset" type:"structure"`
 
 	// The "Schedule" when the trigger is initiated.
-	Schedule *Schedule `locationName:"schedule" type:"structure"`
+	Schedule *Schedule `json:"iotanalytics:DatasetTrigger:Schedule" locationName:"schedule" type:"structure"`
 }
 
 // String returns the string representation
@@ -1473,19 +1473,19 @@ type Datastore struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the data store.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"iotanalytics:Datastore:Arn" locationName:"arn" type:"string"`
 
 	// When the data store was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:Datastore:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The last time the data store was updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotanalytics:Datastore:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the data store.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"iotanalytics:Datastore:Name" locationName:"name" min:"1" type:"string"`
 
 	// How long, in days, message data is kept for the data store.
-	RetentionPeriod *RetentionPeriod `locationName:"retentionPeriod" type:"structure"`
+	RetentionPeriod *RetentionPeriod `json:"iotanalytics:Datastore:RetentionPeriod" locationName:"retentionPeriod" type:"structure"`
 
 	// The status of a data store:
 	//
@@ -1500,10 +1500,10 @@ type Datastore struct {
 	// DELETING
 	//
 	// The data store is being deleted.
-	Status DatastoreStatus `locationName:"status" type:"string" enum:"true"`
+	Status DatastoreStatus `json:"iotanalytics:Datastore:Status" locationName:"status" type:"string" enum:"true"`
 
 	// Where data store data is stored.
-	Storage *DatastoreStorage `locationName:"storage" type:"structure"`
+	Storage *DatastoreStorage `json:"iotanalytics:Datastore:Storage" locationName:"storage" type:"structure"`
 }
 
 // String returns the string representation
@@ -1566,12 +1566,12 @@ type DatastoreActivity struct {
 	// The name of the data store where processed messages are stored.
 	//
 	// DatastoreName is a required field
-	DatastoreName *string `locationName:"datastoreName" min:"1" type:"string" required:"true"`
+	DatastoreName *string `json:"iotanalytics:DatastoreActivity:DatastoreName" locationName:"datastoreName" min:"1" type:"string" required:"true"`
 
 	// The name of the 'datastore' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:DatastoreActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1626,7 +1626,7 @@ type DatastoreStatistics struct {
 	_ struct{} `type:"structure"`
 
 	// The estimated size of the data store.
-	Size *EstimatedResourceSize `locationName:"size" type:"structure"`
+	Size *EstimatedResourceSize `json:"iotanalytics:DatastoreStatistics:Size" locationName:"size" type:"structure"`
 }
 
 // String returns the string representation
@@ -1651,11 +1651,11 @@ type DatastoreStorage struct {
 	_ struct{} `type:"structure"`
 
 	// Use this to store data store data in an S3 bucket that you manage.
-	CustomerManagedS3 *CustomerManagedDatastoreS3Storage `locationName:"customerManagedS3" type:"structure"`
+	CustomerManagedS3 *CustomerManagedDatastoreS3Storage `json:"iotanalytics:DatastoreStorage:CustomerManagedS3" locationName:"customerManagedS3" type:"structure"`
 
 	// Use this to store data store data in an S3 bucket managed by the AWS IoT
 	// Analytics service.
-	ServiceManagedS3 *ServiceManagedDatastoreS3Storage `locationName:"serviceManagedS3" type:"structure"`
+	ServiceManagedS3 *ServiceManagedDatastoreS3Storage `json:"iotanalytics:DatastoreStorage:ServiceManagedS3" locationName:"serviceManagedS3" type:"structure"`
 }
 
 // String returns the string representation
@@ -1701,11 +1701,11 @@ type DatastoreStorageSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Used to store data store data in an S3 bucket that you manage.
-	CustomerManagedS3 *CustomerManagedDatastoreS3StorageSummary `locationName:"customerManagedS3" type:"structure"`
+	CustomerManagedS3 *CustomerManagedDatastoreS3StorageSummary `json:"iotanalytics:DatastoreStorageSummary:CustomerManagedS3" locationName:"customerManagedS3" type:"structure"`
 
 	// Used to store data store data in an S3 bucket managed by the AWS IoT Analytics
 	// service.
-	ServiceManagedS3 *ServiceManagedDatastoreS3StorageSummary `locationName:"serviceManagedS3" type:"structure"`
+	ServiceManagedS3 *ServiceManagedDatastoreS3StorageSummary `json:"iotanalytics:DatastoreStorageSummary:ServiceManagedS3" locationName:"serviceManagedS3" type:"structure"`
 }
 
 // String returns the string representation
@@ -1736,19 +1736,19 @@ type DatastoreSummary struct {
 	_ struct{} `type:"structure"`
 
 	// When the data store was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:DatastoreSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the data store.
-	DatastoreName *string `locationName:"datastoreName" min:"1" type:"string"`
+	DatastoreName *string `json:"iotanalytics:DatastoreSummary:DatastoreName" locationName:"datastoreName" min:"1" type:"string"`
 
 	// Where data store data is stored.
-	DatastoreStorage *DatastoreStorageSummary `locationName:"datastoreStorage" type:"structure"`
+	DatastoreStorage *DatastoreStorageSummary `json:"iotanalytics:DatastoreSummary:DatastoreStorage" locationName:"datastoreStorage" type:"structure"`
 
 	// The last time the data store was updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotanalytics:DatastoreSummary:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the data store.
-	Status DatastoreStatus `locationName:"status" type:"string" enum:"true"`
+	Status DatastoreStatus `json:"iotanalytics:DatastoreSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1808,14 +1808,14 @@ type DeltaTime struct {
 	// frame.
 	//
 	// OffsetSeconds is a required field
-	OffsetSeconds *int64 `locationName:"offsetSeconds" type:"integer" required:"true"`
+	OffsetSeconds *int64 `json:"iotanalytics:DeltaTime:OffsetSeconds" locationName:"offsetSeconds" type:"integer" required:"true"`
 
 	// An expression by which the time of the message data may be determined. This
 	// may be the name of a timestamp field, or a SQL expression which is used to
 	// derive the time the message data was generated.
 	//
 	// TimeExpression is a required field
-	TimeExpression *string `locationName:"timeExpression" type:"string" required:"true"`
+	TimeExpression *string `json:"iotanalytics:DeltaTime:TimeExpression" locationName:"timeExpression" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1866,25 +1866,25 @@ type DeviceRegistryEnrichActivity struct {
 	// The name of the attribute that is added to the message.
 	//
 	// Attribute is a required field
-	Attribute *string `locationName:"attribute" min:"1" type:"string" required:"true"`
+	Attribute *string `json:"iotanalytics:DeviceRegistryEnrichActivity:Attribute" locationName:"attribute" min:"1" type:"string" required:"true"`
 
 	// The name of the 'deviceRegistryEnrich' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:DeviceRegistryEnrichActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:DeviceRegistryEnrichActivity:Next" locationName:"next" min:"1" type:"string"`
 
 	// The ARN of the role that allows access to the device's registry information.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"iotanalytics:DeviceRegistryEnrichActivity:RoleArn" locationName:"roleArn" min:"20" type:"string" required:"true"`
 
 	// The name of the IoT device whose registry information is added to the message.
 	//
 	// ThingName is a required field
-	ThingName *string `locationName:"thingName" min:"1" type:"string" required:"true"`
+	ThingName *string `json:"iotanalytics:DeviceRegistryEnrichActivity:ThingName" locationName:"thingName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1977,25 +1977,25 @@ type DeviceShadowEnrichActivity struct {
 	// The name of the attribute that is added to the message.
 	//
 	// Attribute is a required field
-	Attribute *string `locationName:"attribute" min:"1" type:"string" required:"true"`
+	Attribute *string `json:"iotanalytics:DeviceShadowEnrichActivity:Attribute" locationName:"attribute" min:"1" type:"string" required:"true"`
 
 	// The name of the 'deviceShadowEnrich' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:DeviceShadowEnrichActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:DeviceShadowEnrichActivity:Next" locationName:"next" min:"1" type:"string"`
 
 	// The ARN of the role that allows access to the device's shadow.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"iotanalytics:DeviceShadowEnrichActivity:RoleArn" locationName:"roleArn" min:"20" type:"string" required:"true"`
 
 	// The name of the IoT device whose shadow information is added to the message.
 	//
 	// ThingName is a required field
-	ThingName *string `locationName:"thingName" min:"1" type:"string" required:"true"`
+	ThingName *string `json:"iotanalytics:DeviceShadowEnrichActivity:ThingName" locationName:"thingName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2085,10 +2085,10 @@ type EstimatedResourceSize struct {
 	_ struct{} `type:"structure"`
 
 	// The time when the estimate of the size of the resource was made.
-	EstimatedOn *time.Time `locationName:"estimatedOn" type:"timestamp" timestampFormat:"unix"`
+	EstimatedOn *time.Time `json:"iotanalytics:EstimatedResourceSize:EstimatedOn" locationName:"estimatedOn" type:"timestamp" timestampFormat:"unix"`
 
 	// The estimated size of the resource in bytes.
-	EstimatedSizeInBytes *float64 `locationName:"estimatedSizeInBytes" type:"double"`
+	EstimatedSizeInBytes *float64 `json:"iotanalytics:EstimatedResourceSize:EstimatedSizeInBytes" locationName:"estimatedSizeInBytes" type:"double"`
 }
 
 // String returns the string representation
@@ -2122,15 +2122,15 @@ type FilterActivity struct {
 	// value.
 	//
 	// Filter is a required field
-	Filter *string `locationName:"filter" min:"1" type:"string" required:"true"`
+	Filter *string `json:"iotanalytics:FilterActivity:Filter" locationName:"filter" min:"1" type:"string" required:"true"`
 
 	// The name of the 'filter' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:FilterActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:FilterActivity:Next" locationName:"next" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2198,14 +2198,14 @@ type GlueConfiguration struct {
 	// is located. (An AWS Glue Data Catalog database contains Glue Data tables.)
 	//
 	// DatabaseName is a required field
-	DatabaseName *string `locationName:"databaseName" min:"1" type:"string" required:"true"`
+	DatabaseName *string `json:"iotanalytics:GlueConfiguration:DatabaseName" locationName:"databaseName" min:"1" type:"string" required:"true"`
 
 	// The name of the table in your AWS Glue Data Catalog which is used to perform
 	// the ETL (extract, transform and load) operations. (An AWS Glue Data Catalog
 	// table contains partitioned data and descriptions of data sources and targets.)
 	//
 	// TableName is a required field
-	TableName *string `locationName:"tableName" min:"1" type:"string" required:"true"`
+	TableName *string `json:"iotanalytics:GlueConfiguration:TableName" locationName:"tableName" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2262,13 +2262,13 @@ type IotEventsDestinationConfiguration struct {
 	// The name of the AWS IoT Events input to which data set contents are delivered.
 	//
 	// InputName is a required field
-	InputName *string `locationName:"inputName" min:"1" type:"string" required:"true"`
+	InputName *string `json:"iotanalytics:IotEventsDestinationConfiguration:InputName" locationName:"inputName" min:"1" type:"string" required:"true"`
 
 	// The ARN of the role which grants AWS IoT Analytics permission to deliver
 	// data set contents to an AWS IoT Events input.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"iotanalytics:IotEventsDestinationConfiguration:RoleArn" locationName:"roleArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2328,20 +2328,20 @@ type LambdaActivity struct {
 	// five minutes, which is the maximum timeout duration for Lambda functions.
 	//
 	// BatchSize is a required field
-	BatchSize *int64 `locationName:"batchSize" min:"1" type:"integer" required:"true"`
+	BatchSize *int64 `json:"iotanalytics:LambdaActivity:BatchSize" locationName:"batchSize" min:"1" type:"integer" required:"true"`
 
 	// The name of the Lambda function that is run on the message.
 	//
 	// LambdaName is a required field
-	LambdaName *string `locationName:"lambdaName" min:"1" type:"string" required:"true"`
+	LambdaName *string `json:"iotanalytics:LambdaActivity:LambdaName" locationName:"lambdaName" min:"1" type:"string" required:"true"`
 
 	// The name of the 'lambda' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:LambdaActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:LambdaActivity:Next" locationName:"next" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2420,18 +2420,18 @@ type LoggingOptions struct {
 	// If true, logging is enabled for AWS IoT Analytics.
 	//
 	// Enabled is a required field
-	Enabled *bool `locationName:"enabled" type:"boolean" required:"true"`
+	Enabled *bool `json:"iotanalytics:LoggingOptions:Enabled" locationName:"enabled" type:"boolean" required:"true"`
 
 	// The logging level. Currently, only "ERROR" is supported.
 	//
 	// Level is a required field
-	Level LoggingLevel `locationName:"level" type:"string" required:"true" enum:"true"`
+	Level LoggingLevel `json:"iotanalytics:LoggingOptions:Level" locationName:"level" type:"string" required:"true" enum:"true"`
 
 	// The ARN of the role that grants permission to AWS IoT Analytics to perform
 	// logging.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"iotanalytics:LoggingOptions:RoleArn" locationName:"roleArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2494,21 +2494,21 @@ type MathActivity struct {
 	// The name of the attribute that contains the result of the math operation.
 	//
 	// Attribute is a required field
-	Attribute *string `locationName:"attribute" min:"1" type:"string" required:"true"`
+	Attribute *string `json:"iotanalytics:MathActivity:Attribute" locationName:"attribute" min:"1" type:"string" required:"true"`
 
 	// An expression that uses one or more existing attributes and must return an
 	// integer value.
 	//
 	// Math is a required field
-	Math *string `locationName:"math" min:"1" type:"string" required:"true"`
+	Math *string `json:"iotanalytics:MathActivity:Math" locationName:"math" min:"1" type:"string" required:"true"`
 
 	// The name of the 'math' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:MathActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:MathActivity:Next" locationName:"next" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2588,7 +2588,7 @@ type Message struct {
 	// within each batch sent.
 	//
 	// MessageId is a required field
-	MessageId *string `locationName:"messageId" min:"1" type:"string" required:"true"`
+	MessageId *string `json:"iotanalytics:Message:MessageId" locationName:"messageId" min:"1" type:"string" required:"true"`
 
 	// The payload of the message. This may be a JSON string or a Base64-encoded
 	// string representing binary data (in which case you must decode it by means
@@ -2597,7 +2597,7 @@ type Message struct {
 	// Payload is automatically base64 encoded/decoded by the SDK.
 	//
 	// Payload is a required field
-	Payload []byte `locationName:"payload" type:"blob" required:"true"`
+	Payload []byte `json:"iotanalytics:Message:Payload" locationName:"payload" type:"blob" required:"true"`
 }
 
 // String returns the string representation
@@ -2652,7 +2652,7 @@ type OutputFileUriValue struct {
 	// of a file in an S3 bucket.
 	//
 	// FileName is a required field
-	FileName *string `locationName:"fileName" type:"string" required:"true"`
+	FileName *string `json:"iotanalytics:OutputFileUriValue:FileName" locationName:"fileName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2691,22 +2691,22 @@ type Pipeline struct {
 	_ struct{} `type:"structure"`
 
 	// The activities that perform transformations on the messages.
-	Activities []PipelineActivity `locationName:"activities" min:"1" type:"list"`
+	Activities []PipelineActivity `json:"iotanalytics:Pipeline:Activities" locationName:"activities" min:"1" type:"list"`
 
 	// The ARN of the pipeline.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"iotanalytics:Pipeline:Arn" locationName:"arn" type:"string"`
 
 	// When the pipeline was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:Pipeline:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The last time the pipeline was updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotanalytics:Pipeline:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the pipeline.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"iotanalytics:Pipeline:Name" locationName:"name" min:"1" type:"string"`
 
 	// A summary of information about the pipeline reprocessing.
-	ReprocessingSummaries []ReprocessingSummary `locationName:"reprocessingSummaries" type:"list"`
+	ReprocessingSummaries []ReprocessingSummary `json:"iotanalytics:Pipeline:ReprocessingSummaries" locationName:"reprocessingSummaries" type:"list"`
 }
 
 // String returns the string representation
@@ -2773,36 +2773,36 @@ type PipelineActivity struct {
 	_ struct{} `type:"structure"`
 
 	// Adds other attributes based on existing attributes in the message.
-	AddAttributes *AddAttributesActivity `locationName:"addAttributes" type:"structure"`
+	AddAttributes *AddAttributesActivity `json:"iotanalytics:PipelineActivity:AddAttributes" locationName:"addAttributes" type:"structure"`
 
 	// Determines the source of the messages to be processed.
-	Channel *ChannelActivity `locationName:"channel" type:"structure"`
+	Channel *ChannelActivity `json:"iotanalytics:PipelineActivity:Channel" locationName:"channel" type:"structure"`
 
 	// Specifies where to store the processed message data.
-	Datastore *DatastoreActivity `locationName:"datastore" type:"structure"`
+	Datastore *DatastoreActivity `json:"iotanalytics:PipelineActivity:Datastore" locationName:"datastore" type:"structure"`
 
 	// Adds data from the AWS IoT device registry to your message.
-	DeviceRegistryEnrich *DeviceRegistryEnrichActivity `locationName:"deviceRegistryEnrich" type:"structure"`
+	DeviceRegistryEnrich *DeviceRegistryEnrichActivity `json:"iotanalytics:PipelineActivity:DeviceRegistryEnrich" locationName:"deviceRegistryEnrich" type:"structure"`
 
 	// Adds information from the AWS IoT Device Shadows service to a message.
-	DeviceShadowEnrich *DeviceShadowEnrichActivity `locationName:"deviceShadowEnrich" type:"structure"`
+	DeviceShadowEnrich *DeviceShadowEnrichActivity `json:"iotanalytics:PipelineActivity:DeviceShadowEnrich" locationName:"deviceShadowEnrich" type:"structure"`
 
 	// Filters a message based on its attributes.
-	Filter *FilterActivity `locationName:"filter" type:"structure"`
+	Filter *FilterActivity `json:"iotanalytics:PipelineActivity:Filter" locationName:"filter" type:"structure"`
 
 	// Runs a Lambda function to modify the message.
-	Lambda *LambdaActivity `locationName:"lambda" type:"structure"`
+	Lambda *LambdaActivity `json:"iotanalytics:PipelineActivity:Lambda" locationName:"lambda" type:"structure"`
 
 	// Computes an arithmetic expression using the message's attributes and adds
 	// it to the message.
-	Math *MathActivity `locationName:"math" type:"structure"`
+	Math *MathActivity `json:"iotanalytics:PipelineActivity:Math" locationName:"math" type:"structure"`
 
 	// Removes attributes from a message.
-	RemoveAttributes *RemoveAttributesActivity `locationName:"removeAttributes" type:"structure"`
+	RemoveAttributes *RemoveAttributesActivity `json:"iotanalytics:PipelineActivity:RemoveAttributes" locationName:"removeAttributes" type:"structure"`
 
 	// Creates a new message using only the specified attributes from the original
 	// message.
-	SelectAttributes *SelectAttributesActivity `locationName:"selectAttributes" type:"structure"`
+	SelectAttributes *SelectAttributesActivity `json:"iotanalytics:PipelineActivity:SelectAttributes" locationName:"selectAttributes" type:"structure"`
 }
 
 // String returns the string representation
@@ -2941,16 +2941,16 @@ type PipelineSummary struct {
 	_ struct{} `type:"structure"`
 
 	// When the pipeline was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:PipelineSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// When the pipeline was last updated.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `json:"iotanalytics:PipelineSummary:LastUpdateTime" locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the pipeline.
-	PipelineName *string `locationName:"pipelineName" min:"1" type:"string"`
+	PipelineName *string `json:"iotanalytics:PipelineSummary:PipelineName" locationName:"pipelineName" min:"1" type:"string"`
 
 	// A summary of information about the pipeline reprocessing.
-	ReprocessingSummaries []ReprocessingSummary `locationName:"reprocessingSummaries" type:"list"`
+	ReprocessingSummaries []ReprocessingSummary `json:"iotanalytics:PipelineSummary:ReprocessingSummaries" locationName:"reprocessingSummaries" type:"list"`
 }
 
 // String returns the string representation
@@ -3001,7 +3001,7 @@ type QueryFilter struct {
 
 	// Used to limit data to that which has arrived since the last execution of
 	// the action.
-	DeltaTime *DeltaTime `locationName:"deltaTime" type:"structure"`
+	DeltaTime *DeltaTime `json:"iotanalytics:QueryFilter:DeltaTime" locationName:"deltaTime" type:"structure"`
 }
 
 // String returns the string representation
@@ -3043,15 +3043,15 @@ type RemoveAttributesActivity struct {
 	// A list of 1-50 attributes to remove from the message.
 	//
 	// Attributes is a required field
-	Attributes []string `locationName:"attributes" min:"1" type:"list" required:"true"`
+	Attributes []string `json:"iotanalytics:RemoveAttributesActivity:Attributes" locationName:"attributes" min:"1" type:"list" required:"true"`
 
 	// The name of the 'removeAttributes' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:RemoveAttributesActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:RemoveAttributesActivity:Next" locationName:"next" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3121,13 +3121,13 @@ type ReprocessingSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The time the pipeline reprocessing was created.
-	CreationTime *time.Time `locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"iotanalytics:ReprocessingSummary:CreationTime" locationName:"creationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The 'reprocessingId' returned by "StartPipelineReprocessing".
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"iotanalytics:ReprocessingSummary:Id" locationName:"id" type:"string"`
 
 	// The status of the pipeline reprocessing.
-	Status ReprocessingStatus `locationName:"status" type:"string" enum:"true"`
+	Status ReprocessingStatus `json:"iotanalytics:ReprocessingSummary:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3167,13 +3167,13 @@ type ResourceConfiguration struct {
 	// values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
 	//
 	// ComputeType is a required field
-	ComputeType ComputeType `locationName:"computeType" type:"string" required:"true" enum:"true"`
+	ComputeType ComputeType `json:"iotanalytics:ResourceConfiguration:ComputeType" locationName:"computeType" type:"string" required:"true" enum:"true"`
 
 	// The size (in GB) of the persistent storage available to the resource instance
 	// used to execute the "containerAction" (min: 1, max: 50).
 	//
 	// VolumeSizeInGB is a required field
-	VolumeSizeInGB *int64 `locationName:"volumeSizeInGB" min:"1" type:"integer" required:"true"`
+	VolumeSizeInGB *int64 `json:"iotanalytics:ResourceConfiguration:VolumeSizeInGB" locationName:"volumeSizeInGB" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -3225,10 +3225,10 @@ type RetentionPeriod struct {
 
 	// The number of days that message data is kept. The "unlimited" parameter must
 	// be false.
-	NumberOfDays *int64 `locationName:"numberOfDays" min:"1" type:"integer"`
+	NumberOfDays *int64 `json:"iotanalytics:RetentionPeriod:NumberOfDays" locationName:"numberOfDays" min:"1" type:"integer"`
 
 	// If true, message data is kept indefinitely.
-	Unlimited *bool `locationName:"unlimited" type:"boolean"`
+	Unlimited *bool `json:"iotanalytics:RetentionPeriod:Unlimited" locationName:"unlimited" type:"boolean"`
 }
 
 // String returns the string representation
@@ -3274,24 +3274,24 @@ type S3DestinationConfiguration struct {
 	// The name of the Amazon S3 bucket to which data set contents are delivered.
 	//
 	// Bucket is a required field
-	Bucket *string `locationName:"bucket" min:"3" type:"string" required:"true"`
+	Bucket *string `json:"iotanalytics:S3DestinationConfiguration:Bucket" locationName:"bucket" min:"3" type:"string" required:"true"`
 
 	// Configuration information for coordination with the AWS Glue ETL (extract,
 	// transform and load) service.
-	GlueConfiguration *GlueConfiguration `locationName:"glueConfiguration" type:"structure"`
+	GlueConfiguration *GlueConfiguration `json:"iotanalytics:S3DestinationConfiguration:GlueConfiguration" locationName:"glueConfiguration" type:"structure"`
 
 	// The key of the data set contents object. Each object in an Amazon S3 bucket
 	// has a key that is its unique identifier within the bucket (each object in
 	// a bucket has exactly one key).
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"iotanalytics:S3DestinationConfiguration:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The ARN of the role which grants AWS IoT Analytics permission to interact
 	// with your Amazon S3 and AWS Glue resources.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" min:"20" type:"string" required:"true"`
+	RoleArn *string `json:"iotanalytics:S3DestinationConfiguration:RoleArn" locationName:"roleArn" min:"20" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3372,7 +3372,7 @@ type Schedule struct {
 	// The expression that defines when to trigger an update. For more information,
 	// see Schedule Expressions for Rules (https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
 	// in the Amazon CloudWatch Events User Guide.
-	Expression *string `locationName:"expression" type:"string"`
+	Expression *string `json:"iotanalytics:Schedule:Expression" locationName:"expression" type:"string"`
 }
 
 // String returns the string representation
@@ -3400,15 +3400,15 @@ type SelectAttributesActivity struct {
 	// A list of the attributes to select from the message.
 	//
 	// Attributes is a required field
-	Attributes []string `locationName:"attributes" min:"1" type:"list" required:"true"`
+	Attributes []string `json:"iotanalytics:SelectAttributesActivity:Attributes" locationName:"attributes" min:"1" type:"list" required:"true"`
 
 	// The name of the 'selectAttributes' activity.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:SelectAttributesActivity:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The next activity in the pipeline.
-	Next *string `locationName:"next" min:"1" type:"string"`
+	Next *string `json:"iotanalytics:SelectAttributesActivity:Next" locationName:"next" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -3546,12 +3546,12 @@ type SqlQueryDatasetAction struct {
 	_ struct{} `type:"structure"`
 
 	// Pre-filters applied to message data.
-	Filters []QueryFilter `locationName:"filters" type:"list"`
+	Filters []QueryFilter `json:"iotanalytics:SqlQueryDatasetAction:Filters" locationName:"filters" type:"list"`
 
 	// A SQL query string.
 	//
 	// SqlQuery is a required field
-	SqlQuery *string `locationName:"sqlQuery" type:"string" required:"true"`
+	SqlQuery *string `json:"iotanalytics:SqlQueryDatasetAction:SqlQuery" locationName:"sqlQuery" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3611,12 +3611,12 @@ type Tag struct {
 	// The tag's key.
 	//
 	// Key is a required field
-	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+	Key *string `json:"iotanalytics:Tag:Key" locationName:"key" min:"1" type:"string" required:"true"`
 
 	// The tag's value.
 	//
 	// Value is a required field
-	Value *string `locationName:"value" min:"1" type:"string" required:"true"`
+	Value *string `json:"iotanalytics:Tag:Value" locationName:"value" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3675,7 +3675,7 @@ type TriggeringDataset struct {
 	// content generation.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:TriggeringDataset:Name" locationName:"name" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -3720,21 +3720,21 @@ type Variable struct {
 
 	// The value of the variable as a structure that specifies a data set content
 	// version.
-	DatasetContentVersionValue *DatasetContentVersionValue `locationName:"datasetContentVersionValue" type:"structure"`
+	DatasetContentVersionValue *DatasetContentVersionValue `json:"iotanalytics:Variable:DatasetContentVersionValue" locationName:"datasetContentVersionValue" type:"structure"`
 
 	// The value of the variable as a double (numeric).
-	DoubleValue *float64 `locationName:"doubleValue" type:"double"`
+	DoubleValue *float64 `json:"iotanalytics:Variable:DoubleValue" locationName:"doubleValue" type:"double"`
 
 	// The name of the variable.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"iotanalytics:Variable:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The value of the variable as a structure that specifies an output file URI.
-	OutputFileUriValue *OutputFileUriValue `locationName:"outputFileUriValue" type:"structure"`
+	OutputFileUriValue *OutputFileUriValue `json:"iotanalytics:Variable:OutputFileUriValue" locationName:"outputFileUriValue" type:"structure"`
 
 	// The value of the variable as a string.
-	StringValue *string `locationName:"stringValue" type:"string"`
+	StringValue *string `json:"iotanalytics:Variable:StringValue" locationName:"stringValue" type:"string"`
 }
 
 // String returns the string representation
@@ -3811,10 +3811,10 @@ type VersioningConfiguration struct {
 
 	// How many versions of data set contents will be kept. The "unlimited" parameter
 	// must be false.
-	MaxVersions *int64 `locationName:"maxVersions" min:"1" type:"integer"`
+	MaxVersions *int64 `json:"iotanalytics:VersioningConfiguration:MaxVersions" locationName:"maxVersions" min:"1" type:"integer"`
 
 	// If true, unlimited versions of data set contents will be kept.
-	Unlimited *bool `locationName:"unlimited" type:"boolean"`
+	Unlimited *bool `json:"iotanalytics:VersioningConfiguration:Unlimited" locationName:"unlimited" type:"boolean"`
 }
 
 // String returns the string representation

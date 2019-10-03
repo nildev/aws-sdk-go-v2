@@ -53,7 +53,7 @@ type CreateInstanceExportTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the instance export task.
-	ExportTask *ExportTask `locationName:"exportTask" type:"structure"`
+	ExportTask *ExportTask `json:"ec2:CreateInstanceExportTaskOutput:ExportTask" locationName:"exportTask" type:"structure"`
 }
 
 // String returns the string representation

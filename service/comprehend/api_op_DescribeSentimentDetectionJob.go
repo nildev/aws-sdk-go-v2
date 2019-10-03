@@ -48,7 +48,7 @@ type DescribeSentimentDetectionJobOutput struct {
 
 	// An object that contains the properties associated with a sentiment detection
 	// job.
-	SentimentDetectionJobProperties *SentimentDetectionJobProperties `type:"structure"`
+	SentimentDetectionJobProperties *SentimentDetectionJobProperties `json:"comprehend:DescribeSentimentDetectionJobOutput:SentimentDetectionJobProperties" type:"structure"`
 }
 
 // String returns the string representation

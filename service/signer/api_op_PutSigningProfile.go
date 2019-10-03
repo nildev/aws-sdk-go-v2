@@ -123,7 +123,7 @@ type PutSigningProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the signing profile created.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"signer:PutSigningProfileOutput:Arn" locationName:"arn" type:"string"`
 }
 
 // String returns the string representation

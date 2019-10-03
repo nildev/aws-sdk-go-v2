@@ -48,10 +48,10 @@ type DeleteRealtimeEndpointOutput struct {
 
 	// A user-supplied ID that uniquely identifies the MLModel. This value should
 	// be identical to the value of the MLModelId in the request.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:DeleteRealtimeEndpointOutput:MLModelId" min:"1" type:"string"`
 
 	// The endpoint information of the MLModel
-	RealtimeEndpointInfo *RealtimeEndpointInfo `type:"structure"`
+	RealtimeEndpointInfo *RealtimeEndpointInfo `json:"machinelearning:DeleteRealtimeEndpointOutput:RealtimeEndpointInfo" type:"structure"`
 }
 
 // String returns the string representation

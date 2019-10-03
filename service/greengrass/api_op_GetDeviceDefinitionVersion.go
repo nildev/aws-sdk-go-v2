@@ -76,24 +76,24 @@ type GetDeviceDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the device definition version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetDeviceDefinitionVersionOutput:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the device definition version
 	// was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetDeviceDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
 	// Information about the device definition version.
-	Definition *DeviceDefinitionVersion `type:"structure"`
+	Definition *DeviceDefinitionVersion `json:"greengrass:GetDeviceDefinitionVersionOutput:Definition" type:"structure"`
 
 	// The ID of the device definition version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetDeviceDefinitionVersionOutput:Id" type:"string"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:GetDeviceDefinitionVersionOutput:NextToken" type:"string"`
 
 	// The version of the device definition version.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:GetDeviceDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

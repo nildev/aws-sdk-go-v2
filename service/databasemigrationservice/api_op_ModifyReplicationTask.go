@@ -96,7 +96,7 @@ type ModifyReplicationTaskOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The replication task that was modified.
-	ReplicationTask *ReplicationTask `type:"structure"`
+	ReplicationTask *ReplicationTask `json:"dms:ModifyReplicationTaskOutput:ReplicationTask" type:"structure"`
 }
 
 // String returns the string representation

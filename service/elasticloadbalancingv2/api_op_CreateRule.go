@@ -101,7 +101,7 @@ type CreateRuleOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the rule.
-	Rules []Rule `type:"list"`
+	Rules []Rule `json:"elasticloadbalancing:CreateRuleOutput:Rules" type:"list"`
 }
 
 // String returns the string representation

@@ -53,7 +53,7 @@ type CreateFlowTemplateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The summary object that describes the created workflow.
-	Summary *FlowTemplateSummary `locationName:"summary" type:"structure"`
+	Summary *FlowTemplateSummary `json:"iotthingsgraph:CreateFlowTemplateOutput:Summary" locationName:"summary" type:"structure"`
 }
 
 // String returns the string representation

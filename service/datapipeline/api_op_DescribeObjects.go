@@ -68,17 +68,17 @@ type DescribeObjectsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Indicates whether there are more results to return.
-	HasMoreResults *bool `locationName:"hasMoreResults" type:"boolean"`
+	HasMoreResults *bool `json:"datapipeline:DescribeObjectsOutput:HasMoreResults" locationName:"hasMoreResults" type:"boolean"`
 
 	// The starting point for the next page of results. To view the next page of
 	// results, call DescribeObjects again with this marker value. If the value
 	// is null, there are no more results.
-	Marker *string `locationName:"marker" type:"string"`
+	Marker *string `json:"datapipeline:DescribeObjectsOutput:Marker" locationName:"marker" type:"string"`
 
 	// An array of object definitions.
 	//
 	// PipelineObjects is a required field
-	PipelineObjects []PipelineObject `locationName:"pipelineObjects" type:"list" required:"true"`
+	PipelineObjects []PipelineObject `json:"datapipeline:DescribeObjectsOutput:PipelineObjects" locationName:"pipelineObjects" type:"list" required:"true"`
 }
 
 // String returns the string representation

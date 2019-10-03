@@ -94,19 +94,19 @@ type TestInvokeAuthorizerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of seconds after which the connection is terminated.
-	DisconnectAfterInSeconds *int64 `locationName:"disconnectAfterInSeconds" type:"integer"`
+	DisconnectAfterInSeconds *int64 `json:"iot:TestInvokeAuthorizerOutput:DisconnectAfterInSeconds" locationName:"disconnectAfterInSeconds" type:"integer"`
 
 	// True if the token is authenticated, otherwise false.
-	IsAuthenticated *bool `locationName:"isAuthenticated" type:"boolean"`
+	IsAuthenticated *bool `json:"iot:TestInvokeAuthorizerOutput:IsAuthenticated" locationName:"isAuthenticated" type:"boolean"`
 
 	// IAM policy documents.
-	PolicyDocuments []string `locationName:"policyDocuments" type:"list"`
+	PolicyDocuments []string `json:"iot:TestInvokeAuthorizerOutput:PolicyDocuments" locationName:"policyDocuments" type:"list"`
 
 	// The principal ID.
-	PrincipalId *string `locationName:"principalId" min:"1" type:"string"`
+	PrincipalId *string `json:"iot:TestInvokeAuthorizerOutput:PrincipalId" locationName:"principalId" min:"1" type:"string"`
 
 	// The number of seconds after which the temporary credentials are refreshed.
-	RefreshAfterInSeconds *int64 `locationName:"refreshAfterInSeconds" type:"integer"`
+	RefreshAfterInSeconds *int64 `json:"iot:TestInvokeAuthorizerOutput:RefreshAfterInSeconds" locationName:"refreshAfterInSeconds" type:"integer"`
 }
 
 // String returns the string representation

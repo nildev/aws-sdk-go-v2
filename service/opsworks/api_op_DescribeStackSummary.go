@@ -44,7 +44,7 @@ type DescribeStackSummaryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A StackSummary object that contains the results.
-	StackSummary *StackSummary `type:"structure"`
+	StackSummary *StackSummary `json:"opsworks:DescribeStackSummaryOutput:StackSummary" type:"structure"`
 }
 
 // String returns the string representation

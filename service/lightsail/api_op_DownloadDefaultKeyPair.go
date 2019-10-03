@@ -24,10 +24,10 @@ type DownloadDefaultKeyPairOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A base64-encoded RSA private key.
-	PrivateKeyBase64 *string `locationName:"privateKeyBase64" type:"string"`
+	PrivateKeyBase64 *string `json:"lightsail:DownloadDefaultKeyPairOutput:PrivateKeyBase64" locationName:"privateKeyBase64" type:"string"`
 
 	// A base64-encoded public key of the ssh-rsa type.
-	PublicKeyBase64 *string `locationName:"publicKeyBase64" type:"string"`
+	PublicKeyBase64 *string `json:"lightsail:DownloadDefaultKeyPairOutput:PublicKeyBase64" locationName:"publicKeyBase64" type:"string"`
 }
 
 // String returns the string representation

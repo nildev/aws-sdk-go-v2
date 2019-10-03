@@ -34,7 +34,7 @@ type GetSMSAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The SMS attribute names and their values.
-	Attributes map[string]string `locationName:"attributes" type:"map"`
+	Attributes map[string]string `json:"sns:GetSMSAttributesOutput:Attributes" locationName:"attributes" type:"map"`
 }
 
 // String returns the string representation

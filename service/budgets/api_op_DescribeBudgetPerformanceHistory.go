@@ -76,10 +76,10 @@ type DescribeBudgetPerformanceHistoryOutput struct {
 	// 60 days. For MONTHLY budgets, the history saves the state of the budget for
 	// the current month plus the last 12 months. For QUARTERLY budgets, the history
 	// saves the state of the budget for the last four quarters.
-	BudgetPerformanceHistory *BudgetPerformanceHistory `type:"structure"`
+	BudgetPerformanceHistory *BudgetPerformanceHistory `json:"budgets:DescribeBudgetPerformanceHistoryOutput:BudgetPerformanceHistory" type:"structure"`
 
 	// A generic string.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"budgets:DescribeBudgetPerformanceHistoryOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

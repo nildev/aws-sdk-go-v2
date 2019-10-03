@@ -24,11 +24,11 @@ type DescribeDRTAccessOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of Amazon S3 buckets accessed by the DRT.
-	LogBucketList []string `type:"list"`
+	LogBucketList []string `json:"shield:DescribeDRTAccessOutput:LogBucketList" type:"list"`
 
 	// The Amazon Resource Name (ARN) of the role the DRT used to access your AWS
 	// account.
-	RoleArn *string `min:"1" type:"string"`
+	RoleArn *string `json:"shield:DescribeDRTAccessOutput:RoleArn" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -160,7 +160,7 @@ type CreateRouteOutput struct {
 	// The full description of your mesh following the create call.
 	//
 	// Route is a required field
-	Route *RouteData `locationName:"route" type:"structure" required:"true"`
+	Route *RouteData `json:"appmesh:CreateRouteOutput:Route" locationName:"route" type:"structure" required:"true"`
 }
 
 // String returns the string representation

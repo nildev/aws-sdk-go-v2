@@ -64,7 +64,7 @@ type DescribeChapCredentialsOutput struct {
 	//    to participate in mutual CHAP with the initiator (e.g. Windows client).
 	//
 	//    * TargetARN: The Amazon Resource Name (ARN) of the storage volume.
-	ChapCredentials []ChapInfo `type:"list"`
+	ChapCredentials []ChapInfo `json:"storagegateway:DescribeChapCredentialsOutput:ChapCredentials" type:"list"`
 }
 
 // String returns the string representation

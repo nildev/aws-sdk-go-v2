@@ -105,16 +105,16 @@ type UpdateStreamOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the stream.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"iot:UpdateStreamOutput:Description" locationName:"description" type:"string"`
 
 	// The stream ARN.
-	StreamArn *string `locationName:"streamArn" type:"string"`
+	StreamArn *string `json:"iot:UpdateStreamOutput:StreamArn" locationName:"streamArn" type:"string"`
 
 	// The stream ID.
-	StreamId *string `locationName:"streamId" min:"1" type:"string"`
+	StreamId *string `json:"iot:UpdateStreamOutput:StreamId" locationName:"streamId" min:"1" type:"string"`
 
 	// The stream version.
-	StreamVersion *int64 `locationName:"streamVersion" type:"integer"`
+	StreamVersion *int64 `json:"iot:UpdateStreamOutput:StreamVersion" locationName:"streamVersion" type:"integer"`
 }
 
 // String returns the string representation

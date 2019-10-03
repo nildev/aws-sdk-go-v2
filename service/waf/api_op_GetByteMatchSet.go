@@ -56,7 +56,7 @@ type GetByteMatchSetOutput struct {
 	//    TextTransformation
 	//
 	//    * FieldToMatch: Contains Data and Type
-	ByteMatchSet *ByteMatchSet `type:"structure"`
+	ByteMatchSet *ByteMatchSet `json:"waf:GetByteMatchSetOutput:ByteMatchSet" type:"structure"`
 }
 
 // String returns the string representation

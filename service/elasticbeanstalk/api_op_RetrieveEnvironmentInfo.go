@@ -65,7 +65,7 @@ type RetrieveEnvironmentInfoOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The EnvironmentInfoDescription of the environment.
-	EnvironmentInfo []EnvironmentInfoDescription `type:"list"`
+	EnvironmentInfo []EnvironmentInfoDescription `json:"elasticbeanstalk:RetrieveEnvironmentInfoOutput:EnvironmentInfo" type:"list"`
 }
 
 // String returns the string representation

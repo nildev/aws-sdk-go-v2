@@ -71,7 +71,7 @@ type PutDestinationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The destination.
-	Destination *Destination `locationName:"destination" type:"structure"`
+	Destination *Destination `json:"logs:PutDestinationOutput:Destination" locationName:"destination" type:"structure"`
 }
 
 // String returns the string representation

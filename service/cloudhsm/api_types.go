@@ -19,12 +19,12 @@ type Tag struct {
 	// The key of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"cloudhsm:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// The value of the tag.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"cloudhsm:Tag:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation

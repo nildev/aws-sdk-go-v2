@@ -66,7 +66,7 @@ type UpdateFleetPortSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for a fleet that was updated.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:UpdateFleetPortSettingsOutput:FleetId" type:"string"`
 }
 
 // String returns the string representation

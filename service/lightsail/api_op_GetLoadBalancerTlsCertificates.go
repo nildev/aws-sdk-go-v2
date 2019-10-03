@@ -43,7 +43,7 @@ type GetLoadBalancerTlsCertificatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of LoadBalancerTlsCertificate objects describing your SSL/TLS certificates.
-	TlsCertificates []LoadBalancerTlsCertificate `locationName:"tlsCertificates" type:"list"`
+	TlsCertificates []LoadBalancerTlsCertificate `json:"lightsail:GetLoadBalancerTlsCertificatesOutput:TlsCertificates" locationName:"tlsCertificates" type:"list"`
 }
 
 // String returns the string representation

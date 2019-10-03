@@ -62,7 +62,7 @@ type SetUICustomizationOutput struct {
 	// The UI customization information.
 	//
 	// UICustomization is a required field
-	UICustomization *UICustomizationType `type:"structure" required:"true"`
+	UICustomization *UICustomizationType `json:"cognito-idp:SetUICustomizationOutput:UICustomization" type:"structure" required:"true"`
 }
 
 // String returns the string representation

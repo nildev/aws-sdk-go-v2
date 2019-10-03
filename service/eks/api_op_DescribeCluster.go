@@ -57,7 +57,7 @@ type DescribeClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of your specified cluster.
-	Cluster *Cluster `locationName:"cluster" type:"structure"`
+	Cluster *Cluster `json:"eks:DescribeClusterOutput:Cluster" locationName:"cluster" type:"structure"`
 }
 
 // String returns the string representation

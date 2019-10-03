@@ -59,11 +59,11 @@ type DescribePatchBaselinesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of PatchBaselineIdentity elements.
-	BaselineIdentities []PatchBaselineIdentity `type:"list"`
+	BaselineIdentities []PatchBaselineIdentity `json:"ssm:DescribePatchBaselinesOutput:BaselineIdentities" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribePatchBaselinesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -45,22 +45,22 @@ type DescribeCollectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the collection.
-	CollectionARN *string `type:"string"`
+	CollectionARN *string `json:"rekognition:DescribeCollectionOutput:CollectionARN" type:"string"`
 
 	// The number of milliseconds since the Unix epoch time until the creation of
 	// the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time
 	// (UTC), Thursday, 1 January 1970.
-	CreationTimestamp *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTimestamp *time.Time `json:"rekognition:DescribeCollectionOutput:CreationTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The number of faces that are indexed into the collection. To index faces
 	// into a collection, use IndexFaces.
-	FaceCount *int64 `type:"long"`
+	FaceCount *int64 `json:"rekognition:DescribeCollectionOutput:FaceCount" type:"long"`
 
 	// The version of the face model that's used by the collection for face detection.
 	//
 	// For more information, see Model Versioning in the Amazon Rekognition Developer
 	// Guide.
-	FaceModelVersion *string `type:"string"`
+	FaceModelVersion *string `json:"rekognition:DescribeCollectionOutput:FaceModelVersion" type:"string"`
 }
 
 // String returns the string representation

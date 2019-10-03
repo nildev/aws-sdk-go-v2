@@ -37,10 +37,10 @@ type ListLicenseConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Array of license configuration objects.
-	LicenseConfigurations []LicenseConfiguration `type:"list"`
+	LicenseConfigurations []LicenseConfiguration `json:"license-manager:ListLicenseConfigurationsOutput:LicenseConfigurations" type:"list"`
 
 	// Token for the next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"license-manager:ListLicenseConfigurationsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -59,31 +59,31 @@ type GetPlaybackConfigurationOutput struct {
 	// MediaTailor substitutes player-specific and session-specific parameters as
 	// needed when calling the ADS. Alternately, for testing, you can provide a
 	// static VAST URL. The maximum length is 25,000 characters.
-	AdDecisionServerUrl *string `type:"string"`
+	AdDecisionServerUrl *string `json:"api.mediatailor:GetPlaybackConfigurationOutput:AdDecisionServerUrl" type:"string"`
 
 	// The configuration for using a content delivery network (CDN), like Amazon
 	// CloudFront, for content and ad segment management.
-	CdnConfiguration *CdnConfiguration `type:"structure"`
+	CdnConfiguration *CdnConfiguration `json:"api.mediatailor:GetPlaybackConfigurationOutput:CdnConfiguration" type:"structure"`
 
 	// The configuration for DASH content.
-	DashConfiguration *DashConfiguration `type:"structure"`
+	DashConfiguration *DashConfiguration `json:"api.mediatailor:GetPlaybackConfigurationOutput:DashConfiguration" type:"structure"`
 
 	// The configuration for HLS content.
-	HlsConfiguration *HlsConfiguration `type:"structure"`
+	HlsConfiguration *HlsConfiguration `json:"api.mediatailor:GetPlaybackConfigurationOutput:HlsConfiguration" type:"structure"`
 
 	// The identifier for the playback configuration.
-	Name *string `type:"string"`
+	Name *string `json:"api.mediatailor:GetPlaybackConfigurationOutput:Name" type:"string"`
 
 	// The Amazon Resource Name (ARN) for the playback configuration.
-	PlaybackConfigurationArn *string `type:"string"`
+	PlaybackConfigurationArn *string `json:"api.mediatailor:GetPlaybackConfigurationOutput:PlaybackConfigurationArn" type:"string"`
 
 	// The URL that the player accesses to get a manifest from AWS Elemental MediaTailor.
 	// This session will use server-side reporting.
-	PlaybackEndpointPrefix *string `type:"string"`
+	PlaybackEndpointPrefix *string `json:"api.mediatailor:GetPlaybackConfigurationOutput:PlaybackEndpointPrefix" type:"string"`
 
 	// The URL that the player uses to initialize a session that uses client-side
 	// reporting.
-	SessionInitializationEndpointPrefix *string `type:"string"`
+	SessionInitializationEndpointPrefix *string `json:"api.mediatailor:GetPlaybackConfigurationOutput:SessionInitializationEndpointPrefix" type:"string"`
 
 	// The URL for a high-quality video asset to transcode and use to fill in time
 	// that's not used by ads. AWS Elemental MediaTailor shows the slate to fill
@@ -91,20 +91,20 @@ type GetPlaybackConfigurationOutput struct {
 	// playback configurations. For VPAID, the slate is required because MediaTailor
 	// provides it in the slots designated for dynamic ad content. The slate must
 	// be a high-quality asset that contains both audio and video.
-	SlateAdUrl *string `type:"string"`
+	SlateAdUrl *string `json:"api.mediatailor:GetPlaybackConfigurationOutput:SlateAdUrl" type:"string"`
 
 	// The tags assigned to the playback configuration.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"api.mediatailor:GetPlaybackConfigurationOutput:Tags" locationName:"tags" type:"map"`
 
 	// The name that is used to associate this playback configuration with a custom
 	// transcode profile. This overrides the dynamic transcoding defaults of MediaTailor.
 	// Use this only if you have already set up custom profiles with the help of
 	// AWS Support.
-	TranscodeProfileName *string `type:"string"`
+	TranscodeProfileName *string `json:"api.mediatailor:GetPlaybackConfigurationOutput:TranscodeProfileName" type:"string"`
 
 	// The URL prefix for the master playlist for the stream, minus the asset ID.
 	// The maximum length is 512 characters.
-	VideoContentSourceUrl *string `type:"string"`
+	VideoContentSourceUrl *string `json:"api.mediatailor:GetPlaybackConfigurationOutput:VideoContentSourceUrl" type:"string"`
 }
 
 // String returns the string representation

@@ -61,7 +61,7 @@ type DescribeSecretOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the secret.
-	ARN *string `min:"20" type:"string"`
+	ARN *string `json:"secretsmanager:DescribeSecretOutput:ARN" min:"20" type:"string"`
 
 	// This value exists if the secret is scheduled for deletion. Some time after
 	// the specified date and time, Secrets Manager deletes the secret and all of
@@ -70,51 +70,51 @@ type DescribeSecretOutput struct {
 	// If a secret is scheduled for deletion, then its details, including the encrypted
 	// secret information, is not accessible. To cancel a scheduled deletion and
 	// restore access, use RestoreSecret.
-	DeletedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	DeletedDate *time.Time `json:"secretsmanager:DescribeSecretOutput:DeletedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The user-provided description of the secret.
-	Description *string `type:"string"`
+	Description *string `json:"secretsmanager:DescribeSecretOutput:Description" type:"string"`
 
 	// The ARN or alias of the AWS KMS customer master key (CMK) that's used to
 	// encrypt the SecretString or SecretBinary fields in each version of the secret.
 	// If you don't provide a key, then Secrets Manager defaults to encrypting the
 	// secret fields with the default AWS KMS CMK (the one named awssecretsmanager)
 	// for this account.
-	KmsKeyId *string `type:"string"`
+	KmsKeyId *string `json:"secretsmanager:DescribeSecretOutput:KmsKeyId" type:"string"`
 
 	// The last date that this secret was accessed. This value is truncated to midnight
 	// of the date and therefore shows only the date, not the time.
-	LastAccessedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastAccessedDate *time.Time `json:"secretsmanager:DescribeSecretOutput:LastAccessedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The last date and time that this secret was modified in any way.
-	LastChangedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastChangedDate *time.Time `json:"secretsmanager:DescribeSecretOutput:LastChangedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The most recent date and time that the Secrets Manager rotation process was
 	// successfully completed. This value is null if the secret has never rotated.
-	LastRotatedDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastRotatedDate *time.Time `json:"secretsmanager:DescribeSecretOutput:LastRotatedDate" type:"timestamp" timestampFormat:"unix"`
 
 	// The user-provided friendly name of the secret.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"secretsmanager:DescribeSecretOutput:Name" min:"1" type:"string"`
 
-	OwningService *string `min:"1" type:"string"`
+	OwningService *string `json:"secretsmanager:DescribeSecretOutput:OwningService" min:"1" type:"string"`
 
 	// Specifies whether automatic rotation is enabled for this secret.
 	//
 	// To enable rotation, use RotateSecret with AutomaticallyRotateAfterDays set
 	// to a value greater than 0. To disable rotation, use CancelRotateSecret.
-	RotationEnabled *bool `type:"boolean"`
+	RotationEnabled *bool `json:"secretsmanager:DescribeSecretOutput:RotationEnabled" type:"boolean"`
 
 	// The ARN of a Lambda function that's invoked by Secrets Manager to rotate
 	// the secret either automatically per the schedule or manually by a call to
 	// RotateSecret.
-	RotationLambdaARN *string `type:"string"`
+	RotationLambdaARN *string `json:"secretsmanager:DescribeSecretOutput:RotationLambdaARN" type:"string"`
 
 	// A structure that contains the rotation configuration for this secret.
-	RotationRules *RotationRulesType `type:"structure"`
+	RotationRules *RotationRulesType `json:"secretsmanager:DescribeSecretOutput:RotationRules" type:"structure"`
 
 	// The list of user-defined tags that are associated with the secret. To add
 	// tags to a secret, use TagResource. To remove tags, use UntagResource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"secretsmanager:DescribeSecretOutput:Tags" type:"list"`
 
 	// A list of all of the currently assigned VersionStage staging labels and the
 	// VersionId that each is attached to. Staging labels are used to keep track
@@ -122,7 +122,7 @@ type DescribeSecretOutput struct {
 	//
 	// A version that does not have any staging labels attached is considered deprecated
 	// and subject to deletion. Such versions are not included in this list.
-	VersionIdsToStages map[string][]string `type:"map"`
+	VersionIdsToStages map[string][]string `json:"secretsmanager:DescribeSecretOutput:VersionIdsToStages" type:"map"`
 }
 
 // String returns the string representation

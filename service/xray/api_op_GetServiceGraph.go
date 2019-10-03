@@ -107,20 +107,20 @@ type GetServiceGraphOutput struct {
 	// A flag indicating whether the group's filter expression has been consistent,
 	// or if the returned service graph may show traces from an older version of
 	// the group's filter expression.
-	ContainsOldGroupVersions *bool `type:"boolean"`
+	ContainsOldGroupVersions *bool `json:"xray:GetServiceGraphOutput:ContainsOldGroupVersions" type:"boolean"`
 
 	// The end of the time frame for which the graph was generated.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"xray:GetServiceGraphOutput:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Pagination token. Not used.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"xray:GetServiceGraphOutput:NextToken" type:"string"`
 
 	// The services that have processed a traced request during the specified time
 	// frame.
-	Services []Service `type:"list"`
+	Services []Service `json:"xray:GetServiceGraphOutput:Services" type:"list"`
 
 	// The start of the time frame for which the graph was generated.
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"xray:GetServiceGraphOutput:StartTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation

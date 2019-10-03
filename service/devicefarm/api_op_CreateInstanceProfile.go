@@ -60,7 +60,7 @@ type CreateInstanceProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about your instance profile.
-	InstanceProfile *InstanceProfile `locationName:"instanceProfile" type:"structure"`
+	InstanceProfile *InstanceProfile `json:"devicefarm:CreateInstanceProfileOutput:InstanceProfile" locationName:"instanceProfile" type:"structure"`
 }
 
 // String returns the string representation

@@ -99,32 +99,32 @@ type CreateMountTargetOutput struct {
 	// The ID of the file system for which the mount target is intended.
 	//
 	// FileSystemId is a required field
-	FileSystemId *string `type:"string" required:"true"`
+	FileSystemId *string `json:"elasticfilesystem:CreateMountTargetOutput:FileSystemId" type:"string" required:"true"`
 
 	// Address at which the file system can be mounted by using the mount target.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"elasticfilesystem:CreateMountTargetOutput:IpAddress" type:"string"`
 
 	// Lifecycle state of the mount target.
 	//
 	// LifeCycleState is a required field
-	LifeCycleState LifeCycleState `type:"string" required:"true" enum:"true"`
+	LifeCycleState LifeCycleState `json:"elasticfilesystem:CreateMountTargetOutput:LifeCycleState" type:"string" required:"true" enum:"true"`
 
 	// System-assigned mount target ID.
 	//
 	// MountTargetId is a required field
-	MountTargetId *string `type:"string" required:"true"`
+	MountTargetId *string `json:"elasticfilesystem:CreateMountTargetOutput:MountTargetId" type:"string" required:"true"`
 
 	// The ID of the network interface that Amazon EFS created when it created the
 	// mount target.
-	NetworkInterfaceId *string `type:"string"`
+	NetworkInterfaceId *string `json:"elasticfilesystem:CreateMountTargetOutput:NetworkInterfaceId" type:"string"`
 
 	// AWS account ID that owns the resource.
-	OwnerId *string `type:"string"`
+	OwnerId *string `json:"elasticfilesystem:CreateMountTargetOutput:OwnerId" type:"string"`
 
 	// The ID of the mount target's subnet.
 	//
 	// SubnetId is a required field
-	SubnetId *string `type:"string" required:"true"`
+	SubnetId *string `json:"elasticfilesystem:CreateMountTargetOutput:SubnetId" type:"string" required:"true"`
 }
 
 // String returns the string representation

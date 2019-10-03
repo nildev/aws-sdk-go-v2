@@ -26,7 +26,7 @@ type ListSourceCredentialsOutput struct {
 	// A list of SourceCredentialsInfo objects. Each SourceCredentialsInfo object
 	// includes the authentication type, token ARN, and type of source provider
 	// for one set of credentials.
-	SourceCredentialsInfos []SourceCredentialsInfo `locationName:"sourceCredentialsInfos" type:"list"`
+	SourceCredentialsInfos []SourceCredentialsInfo `json:"codebuild:ListSourceCredentialsOutput:SourceCredentialsInfos" locationName:"sourceCredentialsInfos" type:"list"`
 }
 
 // String returns the string representation

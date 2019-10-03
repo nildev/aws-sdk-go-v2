@@ -70,11 +70,11 @@ func (s GetAuthorizersInput) MarshalFields(e protocol.FieldEncoder) error {
 type GetAuthorizersOutput struct {
 	_ struct{} `type:"structure"`
 
-	Items []Authorizer `locationName:"items" type:"list"`
+	Items []Authorizer `json:"apigateway:GetAuthorizersOutput:Items" locationName:"items" type:"list"`
 
 	// The next page of elements from this collection. Not valid for the last element
 	// of the collection.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"apigateway:GetAuthorizersOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

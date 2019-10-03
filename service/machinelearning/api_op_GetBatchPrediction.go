@@ -46,66 +46,66 @@ type GetBatchPredictionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the DataSource that was used to create the BatchPrediction.
-	BatchPredictionDataSourceId *string `min:"1" type:"string"`
+	BatchPredictionDataSourceId *string `json:"machinelearning:GetBatchPredictionOutput:BatchPredictionDataSourceId" min:"1" type:"string"`
 
 	// An ID assigned to the BatchPrediction at creation. This value should be identical
 	// to the value of the BatchPredictionID in the request.
-	BatchPredictionId *string `min:"1" type:"string"`
+	BatchPredictionId *string `json:"machinelearning:GetBatchPredictionOutput:BatchPredictionId" min:"1" type:"string"`
 
 	// The approximate CPU time in milliseconds that Amazon Machine Learning spent
 	// processing the BatchPrediction, normalized and scaled on computation resources.
 	// ComputeTime is only available if the BatchPrediction is in the COMPLETED
 	// state.
-	ComputeTime *int64 `type:"long"`
+	ComputeTime *int64 `json:"machinelearning:GetBatchPredictionOutput:ComputeTime" type:"long"`
 
 	// The time when the BatchPrediction was created. The time is expressed in epoch
 	// time.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"machinelearning:GetBatchPredictionOutput:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS user account that invoked the BatchPrediction. The account type can
 	// be either an AWS root account or an AWS Identity and Access Management (IAM)
 	// user account.
-	CreatedByIamUser *string `type:"string"`
+	CreatedByIamUser *string `json:"machinelearning:GetBatchPredictionOutput:CreatedByIamUser" type:"string"`
 
 	// The epoch time when Amazon Machine Learning marked the BatchPrediction as
 	// COMPLETED or FAILED. FinishedAt is only available when the BatchPrediction
 	// is in the COMPLETED or FAILED state.
-	FinishedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FinishedAt *time.Time `json:"machinelearning:GetBatchPredictionOutput:FinishedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The location of the data file or directory in Amazon Simple Storage Service
 	// (Amazon S3).
-	InputDataLocationS3 *string `type:"string"`
+	InputDataLocationS3 *string `json:"machinelearning:GetBatchPredictionOutput:InputDataLocationS3" type:"string"`
 
 	// The number of invalid records that Amazon Machine Learning saw while processing
 	// the BatchPrediction.
-	InvalidRecordCount *int64 `type:"long"`
+	InvalidRecordCount *int64 `json:"machinelearning:GetBatchPredictionOutput:InvalidRecordCount" type:"long"`
 
 	// The time of the most recent edit to BatchPrediction. The time is expressed
 	// in epoch time.
-	LastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"machinelearning:GetBatchPredictionOutput:LastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A link to the file that contains logs of the CreateBatchPrediction operation.
-	LogUri *string `type:"string"`
+	LogUri *string `json:"machinelearning:GetBatchPredictionOutput:LogUri" type:"string"`
 
 	// The ID of the MLModel that generated predictions for the BatchPrediction
 	// request.
-	MLModelId *string `min:"1" type:"string"`
+	MLModelId *string `json:"machinelearning:GetBatchPredictionOutput:MLModelId" min:"1" type:"string"`
 
 	// A description of the most recent details about processing the batch prediction
 	// request.
-	Message *string `type:"string"`
+	Message *string `json:"machinelearning:GetBatchPredictionOutput:Message" type:"string"`
 
 	// A user-supplied name or description of the BatchPrediction.
-	Name *string `type:"string"`
+	Name *string `json:"machinelearning:GetBatchPredictionOutput:Name" type:"string"`
 
 	// The location of an Amazon S3 bucket or directory to receive the operation
 	// results.
-	OutputUri *string `type:"string"`
+	OutputUri *string `json:"machinelearning:GetBatchPredictionOutput:OutputUri" type:"string"`
 
 	// The epoch time when Amazon Machine Learning marked the BatchPrediction as
 	// INPROGRESS. StartedAt isn't available if the BatchPrediction is in the PENDING
 	// state.
-	StartedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"machinelearning:GetBatchPredictionOutput:StartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The status of the BatchPrediction, which can be one of the following values:
 	//
@@ -120,11 +120,11 @@ type GetBatchPredictionOutput struct {
 	//    * COMPLETED - The batch prediction process completed successfully.
 	//
 	//    * DELETED - The BatchPrediction is marked as deleted. It is not usable.
-	Status EntityStatus `type:"string" enum:"true"`
+	Status EntityStatus `json:"machinelearning:GetBatchPredictionOutput:Status" type:"string" enum:"true"`
 
 	// The number of total records that Amazon Machine Learning saw while processing
 	// the BatchPrediction.
-	TotalRecordCount *int64 `type:"long"`
+	TotalRecordCount *int64 `json:"machinelearning:GetBatchPredictionOutput:TotalRecordCount" type:"long"`
 }
 
 // String returns the string representation

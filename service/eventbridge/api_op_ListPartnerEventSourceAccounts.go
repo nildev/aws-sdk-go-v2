@@ -62,10 +62,10 @@ type ListPartnerEventSourceAccountsOutput struct {
 
 	// A token you can use in a subsequent operation to retrieve the next set of
 	// results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"events:ListPartnerEventSourceAccountsOutput:NextToken" min:"1" type:"string"`
 
 	// The list of partner event sources returned by the operation.
-	PartnerEventSourceAccounts []PartnerEventSourceAccount `type:"list"`
+	PartnerEventSourceAccounts []PartnerEventSourceAccount `json:"events:ListPartnerEventSourceAccountsOutput:PartnerEventSourceAccounts" type:"list"`
 }
 
 // String returns the string representation

@@ -44,10 +44,10 @@ type DescribeCacheSubnetGroupsOutput struct {
 
 	// A list of cache subnet groups. Each element in the list contains detailed
 	// information about one group.
-	CacheSubnetGroups []CacheSubnetGroup `locationNameList:"CacheSubnetGroup" type:"list"`
+	CacheSubnetGroups []CacheSubnetGroup `json:"elasticache:DescribeCacheSubnetGroupsOutput:CacheSubnetGroups" locationNameList:"CacheSubnetGroup" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeCacheSubnetGroupsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

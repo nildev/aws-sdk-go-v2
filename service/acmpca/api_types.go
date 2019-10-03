@@ -26,56 +26,56 @@ type ASN1Subject struct {
 	_ struct{} `type:"structure"`
 
 	// Fully qualified domain name (FQDN) associated with the certificate subject.
-	CommonName *string `type:"string"`
+	CommonName *string `json:"acm-pca:ASN1Subject:CommonName" type:"string"`
 
 	// Two-digit code that specifies the country in which the certificate subject
 	// located.
-	Country *string `type:"string"`
+	Country *string `json:"acm-pca:ASN1Subject:Country" type:"string"`
 
 	// Disambiguating information for the certificate subject.
-	DistinguishedNameQualifier *string `type:"string"`
+	DistinguishedNameQualifier *string `json:"acm-pca:ASN1Subject:DistinguishedNameQualifier" type:"string"`
 
 	// Typically a qualifier appended to the name of an individual. Examples include
 	// Jr. for junior, Sr. for senior, and III for third.
-	GenerationQualifier *string `type:"string"`
+	GenerationQualifier *string `json:"acm-pca:ASN1Subject:GenerationQualifier" type:"string"`
 
 	// First name.
-	GivenName *string `type:"string"`
+	GivenName *string `json:"acm-pca:ASN1Subject:GivenName" type:"string"`
 
 	// Concatenation that typically contains the first letter of the GivenName,
 	// the first letter of the middle name if one exists, and the first letter of
 	// the SurName.
-	Initials *string `type:"string"`
+	Initials *string `json:"acm-pca:ASN1Subject:Initials" type:"string"`
 
 	// The locality (such as a city or town) in which the certificate subject is
 	// located.
-	Locality *string `type:"string"`
+	Locality *string `json:"acm-pca:ASN1Subject:Locality" type:"string"`
 
 	// Legal name of the organization with which the certificate subject is affiliated.
-	Organization *string `type:"string"`
+	Organization *string `json:"acm-pca:ASN1Subject:Organization" type:"string"`
 
 	// A subdivision or unit of the organization (such as sales or finance) with
 	// which the certificate subject is affiliated.
-	OrganizationalUnit *string `type:"string"`
+	OrganizationalUnit *string `json:"acm-pca:ASN1Subject:OrganizationalUnit" type:"string"`
 
 	// Typically a shortened version of a longer GivenName. For example, Jonathan
 	// is often shortened to John. Elizabeth is often shortened to Beth, Liz, or
 	// Eliza.
-	Pseudonym *string `type:"string"`
+	Pseudonym *string `json:"acm-pca:ASN1Subject:Pseudonym" type:"string"`
 
 	// The certificate serial number.
-	SerialNumber *string `type:"string"`
+	SerialNumber *string `json:"acm-pca:ASN1Subject:SerialNumber" type:"string"`
 
 	// State in which the subject of the certificate is located.
-	State *string `type:"string"`
+	State *string `json:"acm-pca:ASN1Subject:State" type:"string"`
 
 	// Family name. In the US and the UK, for example, the surname of an individual
 	// is ordered last. In Asian cultures the surname is typically ordered first.
-	Surname *string `type:"string"`
+	Surname *string `json:"acm-pca:ASN1Subject:Surname" type:"string"`
 
 	// A title such as Mr. or Ms., which is pre-pended to the name to refer formally
 	// to the certificate subject.
-	Title *string `type:"string"`
+	Title *string `json:"acm-pca:ASN1Subject:Title" type:"string"`
 }
 
 // String returns the string representation
@@ -98,43 +98,43 @@ type CertificateAuthority struct {
 
 	// Amazon Resource Name (ARN) for your private certificate authority (CA). The
 	// format is 12345678-1234-1234-1234-123456789012 .
-	Arn *string `min:"5" type:"string"`
+	Arn *string `json:"acm-pca:CertificateAuthority:Arn" min:"5" type:"string"`
 
 	// Your private CA configuration.
-	CertificateAuthorityConfiguration *CertificateAuthorityConfiguration `type:"structure"`
+	CertificateAuthorityConfiguration *CertificateAuthorityConfiguration `json:"acm-pca:CertificateAuthority:CertificateAuthorityConfiguration" type:"structure"`
 
 	// Date and time at which your private CA was created.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"acm-pca:CertificateAuthority:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Reason the request to create your private CA failed.
-	FailureReason FailureReason `type:"string" enum:"true"`
+	FailureReason FailureReason `json:"acm-pca:CertificateAuthority:FailureReason" type:"string" enum:"true"`
 
 	// Date and time at which your private CA was last updated.
-	LastStateChangeAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastStateChangeAt *time.Time `json:"acm-pca:CertificateAuthority:LastStateChangeAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Date and time after which your private CA certificate is not valid.
-	NotAfter *time.Time `type:"timestamp" timestampFormat:"unix"`
+	NotAfter *time.Time `json:"acm-pca:CertificateAuthority:NotAfter" type:"timestamp" timestampFormat:"unix"`
 
 	// Date and time before which your private CA certificate is not valid.
-	NotBefore *time.Time `type:"timestamp" timestampFormat:"unix"`
+	NotBefore *time.Time `json:"acm-pca:CertificateAuthority:NotBefore" type:"timestamp" timestampFormat:"unix"`
 
 	// The period during which a deleted CA can be restored. For more information,
 	// see the PermanentDeletionTimeInDays parameter of the DeleteCertificateAuthorityRequest
 	// action.
-	RestorableUntil *time.Time `type:"timestamp" timestampFormat:"unix"`
+	RestorableUntil *time.Time `json:"acm-pca:CertificateAuthority:RestorableUntil" type:"timestamp" timestampFormat:"unix"`
 
 	// Information about the certificate revocation list (CRL) created and maintained
 	// by your private CA.
-	RevocationConfiguration *RevocationConfiguration `type:"structure"`
+	RevocationConfiguration *RevocationConfiguration `json:"acm-pca:CertificateAuthority:RevocationConfiguration" type:"structure"`
 
 	// Serial number of your private CA.
-	Serial *string `type:"string"`
+	Serial *string `json:"acm-pca:CertificateAuthority:Serial" type:"string"`
 
 	// Status of your private CA.
-	Status CertificateAuthorityStatus `type:"string" enum:"true"`
+	Status CertificateAuthorityStatus `json:"acm-pca:CertificateAuthority:Status" type:"string" enum:"true"`
 
 	// Type of your private CA.
-	Type CertificateAuthorityType `type:"string" enum:"true"`
+	Type CertificateAuthorityType `json:"acm-pca:CertificateAuthority:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -157,18 +157,18 @@ type CertificateAuthorityConfiguration struct {
 	// CA, you must use a key algorithm supported by the parent CA.
 	//
 	// KeyAlgorithm is a required field
-	KeyAlgorithm KeyAlgorithm `type:"string" required:"true" enum:"true"`
+	KeyAlgorithm KeyAlgorithm `json:"acm-pca:CertificateAuthorityConfiguration:KeyAlgorithm" type:"string" required:"true" enum:"true"`
 
 	// Name of the algorithm your private CA uses to sign certificate requests.
 	//
 	// SigningAlgorithm is a required field
-	SigningAlgorithm SigningAlgorithm `type:"string" required:"true" enum:"true"`
+	SigningAlgorithm SigningAlgorithm `json:"acm-pca:CertificateAuthorityConfiguration:SigningAlgorithm" type:"string" required:"true" enum:"true"`
 
 	// Structure that contains X.500 distinguished name information for your private
 	// CA.
 	//
 	// Subject is a required field
-	Subject *ASN1Subject `type:"structure" required:"true"`
+	Subject *ASN1Subject `json:"acm-pca:CertificateAuthorityConfiguration:Subject" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -253,7 +253,7 @@ type CrlConfiguration struct {
 	// Name inserted into the certificate CRL Distribution Points extension that
 	// enables the use of an alias for the CRL distribution point. Use this value
 	// if you don't want the name of your S3 bucket to be public.
-	CustomCname *string `type:"string"`
+	CustomCname *string `json:"acm-pca:CrlConfiguration:CustomCname" type:"string"`
 
 	// Boolean value that specifies whether certificate revocation lists (CRLs)
 	// are enabled. You can use this value to enable certificate revocation for
@@ -261,10 +261,10 @@ type CrlConfiguration struct {
 	// CA when you call the UpdateCertificateAuthority action.
 	//
 	// Enabled is a required field
-	Enabled *bool `type:"boolean" required:"true"`
+	Enabled *bool `json:"acm-pca:CrlConfiguration:Enabled" type:"boolean" required:"true"`
 
 	// Number of days until a certificate expires.
-	ExpirationInDays *int64 `min:"1" type:"integer"`
+	ExpirationInDays *int64 `json:"acm-pca:CrlConfiguration:ExpirationInDays" min:"1" type:"integer"`
 
 	// Name of the S3 bucket that contains the CRL. If you do not provide a value
 	// for the CustomCname argument, the name of your S3 bucket is placed into the
@@ -272,7 +272,7 @@ type CrlConfiguration struct {
 	// the name of your bucket by calling the UpdateCertificateAuthority action.
 	// You must specify a bucket policy that allows ACM Private CA to write the
 	// CRL to your bucket.
-	S3BucketName *string `min:"3" type:"string"`
+	S3BucketName *string `json:"acm-pca:CrlConfiguration:S3BucketName" min:"3" type:"string"`
 }
 
 // String returns the string representation
@@ -311,24 +311,24 @@ type Permission struct {
 	_ struct{} `type:"structure"`
 
 	// The private CA actions that can be performed by the designated AWS service.
-	Actions []ActionType `min:"1" type:"list"`
+	Actions []ActionType `json:"acm-pca:Permission:Actions" min:"1" type:"list"`
 
 	// The Amazon Resource Number (ARN) of the private CA from which the permission
 	// was issued.
-	CertificateAuthorityArn *string `min:"5" type:"string"`
+	CertificateAuthorityArn *string `json:"acm-pca:Permission:CertificateAuthorityArn" min:"5" type:"string"`
 
 	// The time at which the permission was created.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"acm-pca:Permission:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the policy that is associated with the permission.
-	Policy *string `type:"string"`
+	Policy *string `json:"acm-pca:Permission:Policy" type:"string"`
 
 	// The AWS service or entity that holds the permission. At this time, the only
 	// valid principal is acm.amazonaws.com.
-	Principal *string `type:"string"`
+	Principal *string `json:"acm-pca:Permission:Principal" type:"string"`
 
 	// The ID of the account that assigned the permission.
-	SourceAccount *string `type:"string"`
+	SourceAccount *string `json:"acm-pca:Permission:SourceAccount" type:"string"`
 }
 
 // String returns the string representation
@@ -347,7 +347,7 @@ type RevocationConfiguration struct {
 
 	// Configuration of the certificate revocation list (CRL), if any, maintained
 	// by your private CA.
-	CrlConfiguration *CrlConfiguration `type:"structure"`
+	CrlConfiguration *CrlConfiguration `json:"acm-pca:RevocationConfiguration:CrlConfiguration" type:"structure"`
 }
 
 // String returns the string representation
@@ -382,10 +382,10 @@ type Tag struct {
 	// Key (name) of the tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"acm-pca:Tag:Key" min:"1" type:"string" required:"true"`
 
 	// Value of the tag.
-	Value *string `type:"string"`
+	Value *string `json:"acm-pca:Tag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -420,12 +420,12 @@ type Validity struct {
 	// Specifies whether the Value parameter represents days, months, or years.
 	//
 	// Type is a required field
-	Type ValidityPeriodType `type:"string" required:"true" enum:"true"`
+	Type ValidityPeriodType `json:"acm-pca:Validity:Type" type:"string" required:"true" enum:"true"`
 
 	// Time period.
 	//
 	// Value is a required field
-	Value *int64 `min:"1" type:"long" required:"true"`
+	Value *int64 `json:"acm-pca:Validity:Value" min:"1" type:"long" required:"true"`
 }
 
 // String returns the string representation

@@ -58,7 +58,7 @@ type PutAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The attributes applied to your resource.
-	Attributes []Attribute `locationName:"attributes" type:"list"`
+	Attributes []Attribute `json:"ecs:PutAttributesOutput:Attributes" locationName:"attributes" type:"list"`
 }
 
 // String returns the string representation

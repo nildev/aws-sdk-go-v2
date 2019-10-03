@@ -86,7 +86,7 @@ type GetTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Type object.
-	Type *Type `locationName:"type" type:"structure"`
+	Type *Type `json:"appsync:GetTypeOutput:Type" locationName:"type" type:"structure"`
 }
 
 // String returns the string representation

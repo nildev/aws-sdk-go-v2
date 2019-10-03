@@ -114,7 +114,7 @@ type ExecuteSqlOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The results of the SQL statement or statements.
-	SqlStatementResults []SqlStatementResult `locationName:"sqlStatementResults" type:"list"`
+	SqlStatementResults []SqlStatementResult `json:"rds-data:ExecuteSqlOutput:SqlStatementResults" locationName:"sqlStatementResults" type:"list"`
 }
 
 // String returns the string representation

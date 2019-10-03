@@ -89,10 +89,10 @@ type ListQueuesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Use this string to request the next batch of queues.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediaconvert:ListQueuesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// List of queues.
-	Queues []Queue `locationName:"queues" type:"list"`
+	Queues []Queue `json:"mediaconvert:ListQueuesOutput:Queues" locationName:"queues" type:"list"`
 }
 
 // String returns the string representation

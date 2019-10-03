@@ -71,10 +71,10 @@ type AddTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the ML object that was tagged.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"machinelearning:AddTagsOutput:ResourceId" min:"1" type:"string"`
 
 	// The type of the ML object that was tagged.
-	ResourceType TaggableResourceType `type:"string" enum:"true"`
+	ResourceType TaggableResourceType `json:"machinelearning:AddTagsOutput:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation

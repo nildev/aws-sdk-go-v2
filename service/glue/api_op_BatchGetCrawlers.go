@@ -44,10 +44,10 @@ type BatchGetCrawlersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of crawler definitions.
-	Crawlers []Crawler `type:"list"`
+	Crawlers []Crawler `json:"glue:BatchGetCrawlersOutput:Crawlers" type:"list"`
 
 	// A list of names of crawlers that were not found.
-	CrawlersNotFound []string `type:"list"`
+	CrawlersNotFound []string `json:"glue:BatchGetCrawlersOutput:CrawlersNotFound" type:"list"`
 }
 
 // String returns the string representation

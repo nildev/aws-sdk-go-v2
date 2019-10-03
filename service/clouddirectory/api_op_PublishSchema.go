@@ -104,7 +104,7 @@ type PublishSchemaOutput struct {
 
 	// The ARN that is associated with the published schema. For more information,
 	// see arns.
-	PublishedSchemaArn *string `type:"string"`
+	PublishedSchemaArn *string `json:"clouddirectory:PublishSchemaOutput:PublishedSchemaArn" type:"string"`
 }
 
 // String returns the string representation

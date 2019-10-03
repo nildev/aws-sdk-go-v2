@@ -70,20 +70,20 @@ type GetDeploymentStatusOutput struct {
 
 	// The status of the deployment: ''InProgress'', ''Building'', ''Success'',
 	// or ''Failure''.
-	DeploymentStatus *string `type:"string"`
+	DeploymentStatus *string `json:"greengrass:GetDeploymentStatusOutput:DeploymentStatus" type:"string"`
 
 	// The type of the deployment.
-	DeploymentType DeploymentType `type:"string" enum:"true"`
+	DeploymentType DeploymentType `json:"greengrass:GetDeploymentStatusOutput:DeploymentType" type:"string" enum:"true"`
 
 	// Error details
-	ErrorDetails []ErrorDetail `type:"list"`
+	ErrorDetails []ErrorDetail `json:"greengrass:GetDeploymentStatusOutput:ErrorDetails" type:"list"`
 
 	// Error message
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"greengrass:GetDeploymentStatusOutput:ErrorMessage" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the deployment status was
 	// updated.
-	UpdatedAt *string `type:"string"`
+	UpdatedAt *string `json:"greengrass:GetDeploymentStatusOutput:UpdatedAt" type:"string"`
 }
 
 // String returns the string representation

@@ -46,7 +46,7 @@ type GetClassifierOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested classifier.
-	Classifier *Classifier `type:"structure"`
+	Classifier *Classifier `json:"glue:GetClassifierOutput:Classifier" type:"structure"`
 }
 
 // String returns the string representation

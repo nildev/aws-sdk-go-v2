@@ -29,7 +29,7 @@ type DeleteGitHubAccountTokenOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the GitHub account connection that was deleted.
-	TokenName *string `locationName:"tokenName" type:"string"`
+	TokenName *string `json:"codedeploy:DeleteGitHubAccountTokenOutput:TokenName" locationName:"tokenName" type:"string"`
 }
 
 // String returns the string representation

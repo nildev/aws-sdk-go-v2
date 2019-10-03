@@ -59,11 +59,11 @@ type DeleteProjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Resources which were deleted.
-	DeletedResources []Resource `locationName:"deletedResources" type:"list"`
+	DeletedResources []Resource `json:"mobile:DeleteProjectOutput:DeletedResources" locationName:"deletedResources" type:"list"`
 
 	// Resources which were not deleted, due to a risk of losing potentially important
 	// data or files.
-	OrphanedResources []Resource `locationName:"orphanedResources" type:"list"`
+	OrphanedResources []Resource `json:"mobile:DeleteProjectOutput:OrphanedResources" locationName:"orphanedResources" type:"list"`
 }
 
 // String returns the string representation

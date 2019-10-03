@@ -98,10 +98,10 @@ type DisassociateResourceShareOutput struct {
 
 	// A unique, case-sensitive identifier that you provide to ensure the idempotency
 	// of the request.
-	ClientToken *string `locationName:"clientToken" type:"string"`
+	ClientToken *string `json:"ram:DisassociateResourceShareOutput:ClientToken" locationName:"clientToken" type:"string"`
 
 	// Information about the associations.
-	ResourceShareAssociations []ResourceShareAssociation `locationName:"resourceShareAssociations" type:"list"`
+	ResourceShareAssociations []ResourceShareAssociation `json:"ram:DisassociateResourceShareOutput:ResourceShareAssociations" locationName:"resourceShareAssociations" type:"list"`
 }
 
 // String returns the string representation

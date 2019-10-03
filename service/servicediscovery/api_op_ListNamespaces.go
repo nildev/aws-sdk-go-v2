@@ -70,7 +70,7 @@ type ListNamespacesOutput struct {
 
 	// An array that contains one NamespaceSummary object for each namespace that
 	// matches the specified filter criteria.
-	Namespaces []NamespaceSummary `type:"list"`
+	Namespaces []NamespaceSummary `json:"servicediscovery:ListNamespacesOutput:Namespaces" type:"list"`
 
 	// If the response contains NextToken, submit another ListNamespaces request
 	// to get the next group of results. Specify the value of NextToken from the
@@ -80,7 +80,7 @@ type ListNamespacesOutput struct {
 	// specified criteria. It's possible that no namespaces in the first MaxResults
 	// namespaces matched the specified criteria but that subsequent groups of MaxResults
 	// namespaces do contain namespaces that match the criteria.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"servicediscovery:ListNamespacesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -358,7 +358,7 @@ type QueryOutput struct {
 	// returned if the ReturnConsumedCapacity parameter was specified. For more
 	// information, see Provisioned Throughput (https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html)
 	// in the Amazon DynamoDB Developer Guide.
-	ConsumedCapacity *ConsumedCapacity `type:"structure"`
+	ConsumedCapacity *ConsumedCapacity `json:"dynamodb:QueryOutput:ConsumedCapacity" type:"structure"`
 
 	// The number of items in the response.
 	//
@@ -368,11 +368,11 @@ type QueryOutput struct {
 	//
 	// If you did not use a filter in the request, then Count and ScannedCount are
 	// the same.
-	Count *int64 `type:"integer"`
+	Count *int64 `json:"dynamodb:QueryOutput:Count" type:"integer"`
 
 	// An array of item attributes that match the query criteria. Each element in
 	// this array consists of an attribute name and the value for that attribute.
-	Items []map[string]AttributeValue `type:"list"`
+	Items []map[string]AttributeValue `json:"dynamodb:QueryOutput:Items" type:"list"`
 
 	// The primary key of the item where the operation stopped, inclusive of the
 	// previous result set. Use this value to start a new operation, excluding this
@@ -384,7 +384,7 @@ type QueryOutput struct {
 	// If LastEvaluatedKey is not empty, it does not necessarily mean that there
 	// is more data in the result set. The only way to know when you have reached
 	// the end of the result set is when LastEvaluatedKey is empty.
-	LastEvaluatedKey map[string]AttributeValue `type:"map"`
+	LastEvaluatedKey map[string]AttributeValue `json:"dynamodb:QueryOutput:LastEvaluatedKey" type:"map"`
 
 	// The number of items evaluated, before any QueryFilter is applied. A high
 	// ScannedCount value with few, or no, Count results indicates an inefficient
@@ -393,7 +393,7 @@ type QueryOutput struct {
 	//
 	// If you did not use a filter in the request, then ScannedCount is the same
 	// as Count.
-	ScannedCount *int64 `type:"integer"`
+	ScannedCount *int64 `json:"dynamodb:QueryOutput:ScannedCount" type:"integer"`
 }
 
 // String returns the string representation

@@ -91,7 +91,7 @@ type CreateInsightOutput struct {
 	// The ARN of the insight created.
 	//
 	// InsightArn is a required field
-	InsightArn *string `type:"string" required:"true"`
+	InsightArn *string `json:"securityhub:CreateInsightOutput:InsightArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

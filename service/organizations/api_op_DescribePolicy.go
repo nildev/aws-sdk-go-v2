@@ -47,7 +47,7 @@ type DescribePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains details about the specified policy.
-	Policy *Policy `type:"structure"`
+	Policy *Policy `json:"organizations:DescribePolicyOutput:Policy" type:"structure"`
 }
 
 // String returns the string representation

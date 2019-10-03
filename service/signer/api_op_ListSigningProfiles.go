@@ -75,11 +75,11 @@ type ListSigningProfilesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Value for specifying the next set of paginated results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"signer:ListSigningProfilesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// A list of profiles that are available in the AWS account. This includes profiles
 	// with the status of CANCELED if the includeCanceled parameter is set to true.
-	Profiles []SigningProfile `locationName:"profiles" type:"list"`
+	Profiles []SigningProfile `json:"signer:ListSigningProfilesOutput:Profiles" locationName:"profiles" type:"list"`
 }
 
 // String returns the string representation

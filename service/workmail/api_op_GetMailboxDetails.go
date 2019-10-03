@@ -56,10 +56,10 @@ type GetMailboxDetailsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum allowed mailbox size, in MB, for the specified user.
-	MailboxQuota *int64 `min:"1" type:"integer"`
+	MailboxQuota *int64 `json:"workmail:GetMailboxDetailsOutput:MailboxQuota" min:"1" type:"integer"`
 
 	// The current mailbox size, in MB, for the specified user.
-	MailboxSize *float64 `type:"double"`
+	MailboxSize *float64 `json:"workmail:GetMailboxDetailsOutput:MailboxSize" type:"double"`
 }
 
 // String returns the string representation

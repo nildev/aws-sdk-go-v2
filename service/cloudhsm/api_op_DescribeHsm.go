@@ -34,71 +34,71 @@ type DescribeHsmOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Availability Zone that the HSM is in.
-	AvailabilityZone *string `type:"string"`
+	AvailabilityZone *string `json:"cloudhsm:DescribeHsmOutput:AvailabilityZone" type:"string"`
 
 	// The identifier of the elastic network interface (ENI) attached to the HSM.
-	EniId *string `type:"string"`
+	EniId *string `json:"cloudhsm:DescribeHsmOutput:EniId" type:"string"`
 
 	// The IP address assigned to the HSM's ENI.
-	EniIp *string `type:"string"`
+	EniIp *string `json:"cloudhsm:DescribeHsmOutput:EniIp" type:"string"`
 
 	// The ARN of the HSM.
-	HsmArn *string `type:"string"`
+	HsmArn *string `json:"cloudhsm:DescribeHsmOutput:HsmArn" type:"string"`
 
 	// The HSM model type.
-	HsmType *string `type:"string"`
+	HsmType *string `json:"cloudhsm:DescribeHsmOutput:HsmType" type:"string"`
 
 	// The ARN of the IAM role assigned to the HSM.
-	IamRoleArn *string `type:"string"`
+	IamRoleArn *string `json:"cloudhsm:DescribeHsmOutput:IamRoleArn" type:"string"`
 
 	// The list of partitions on the HSM.
-	Partitions []string `type:"list"`
+	Partitions []string `json:"cloudhsm:DescribeHsmOutput:Partitions" type:"list"`
 
 	// The serial number of the HSM.
-	SerialNumber *string `type:"string"`
+	SerialNumber *string `json:"cloudhsm:DescribeHsmOutput:SerialNumber" type:"string"`
 
 	// The date and time that the server certificate was last updated.
-	ServerCertLastUpdated *string `type:"string"`
+	ServerCertLastUpdated *string `json:"cloudhsm:DescribeHsmOutput:ServerCertLastUpdated" type:"string"`
 
 	// The URI of the certificate server.
-	ServerCertUri *string `type:"string"`
+	ServerCertUri *string `json:"cloudhsm:DescribeHsmOutput:ServerCertUri" type:"string"`
 
 	// The HSM software version.
-	SoftwareVersion *string `type:"string"`
+	SoftwareVersion *string `json:"cloudhsm:DescribeHsmOutput:SoftwareVersion" type:"string"`
 
 	// The date and time that the SSH key was last updated.
-	SshKeyLastUpdated *string `type:"string"`
+	SshKeyLastUpdated *string `json:"cloudhsm:DescribeHsmOutput:SshKeyLastUpdated" type:"string"`
 
 	// The public SSH key.
-	SshPublicKey *string `type:"string"`
+	SshPublicKey *string `json:"cloudhsm:DescribeHsmOutput:SshPublicKey" type:"string"`
 
 	// The status of the HSM.
-	Status HsmStatus `type:"string" enum:"true"`
+	Status HsmStatus `json:"cloudhsm:DescribeHsmOutput:Status" type:"string" enum:"true"`
 
 	// Contains additional information about the status of the HSM.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"cloudhsm:DescribeHsmOutput:StatusDetails" type:"string"`
 
 	// The identifier of the subnet that the HSM is in.
-	SubnetId *string `type:"string"`
+	SubnetId *string `json:"cloudhsm:DescribeHsmOutput:SubnetId" type:"string"`
 
 	// The subscription end date.
-	SubscriptionEndDate *string `type:"string"`
+	SubscriptionEndDate *string `json:"cloudhsm:DescribeHsmOutput:SubscriptionEndDate" type:"string"`
 
 	// The subscription start date.
-	SubscriptionStartDate *string `type:"string"`
+	SubscriptionStartDate *string `json:"cloudhsm:DescribeHsmOutput:SubscriptionStartDate" type:"string"`
 
 	// Specifies the type of subscription for the HSM.
 	//
 	//    * PRODUCTION - The HSM is being used in a production environment.
 	//
 	//    * TRIAL - The HSM is being used in a product trial.
-	SubscriptionType SubscriptionType `type:"string" enum:"true"`
+	SubscriptionType SubscriptionType `json:"cloudhsm:DescribeHsmOutput:SubscriptionType" type:"string" enum:"true"`
 
 	// The name of the HSM vendor.
-	VendorName *string `type:"string"`
+	VendorName *string `json:"cloudhsm:DescribeHsmOutput:VendorName" type:"string"`
 
 	// The identifier of the VPC that the HSM is in.
-	VpcId *string `type:"string"`
+	VpcId *string `json:"cloudhsm:DescribeHsmOutput:VpcId" type:"string"`
 }
 
 // String returns the string representation

@@ -73,20 +73,20 @@ type ListBucketAnalyticsConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of analytics configurations for a bucket.
-	AnalyticsConfigurationList []AnalyticsConfiguration `locationName:"AnalyticsConfiguration" type:"list" flattened:"true"`
+	AnalyticsConfigurationList []AnalyticsConfiguration `json:"s3:ListBucketAnalyticsConfigurationsOutput:AnalyticsConfigurationList" locationName:"AnalyticsConfiguration" type:"list" flattened:"true"`
 
 	// The ContinuationToken that represents where this request began.
-	ContinuationToken *string `type:"string"`
+	ContinuationToken *string `json:"s3:ListBucketAnalyticsConfigurationsOutput:ContinuationToken" type:"string"`
 
 	// Indicates whether the returned list of analytics configurations is complete.
 	// A value of true indicates that the list is not complete and the NextContinuationToken
 	// will be provided for a subsequent request.
-	IsTruncated *bool `type:"boolean"`
+	IsTruncated *bool `json:"s3:ListBucketAnalyticsConfigurationsOutput:IsTruncated" type:"boolean"`
 
 	// NextContinuationToken is sent when isTruncated is true, which indicates that
 	// there are more analytics configurations to list. The next request must include
 	// this NextContinuationToken. The token is obfuscated and is not a usable value.
-	NextContinuationToken *string `type:"string"`
+	NextContinuationToken *string `json:"s3:ListBucketAnalyticsConfigurationsOutput:NextContinuationToken" type:"string"`
 }
 
 // String returns the string representation

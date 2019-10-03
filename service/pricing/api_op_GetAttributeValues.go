@@ -65,10 +65,10 @@ type GetAttributeValuesOutput struct {
 
 	// The list of values for an attribute. For example, Throughput Optimized HDD
 	// and Provisioned IOPS are two available values for the AmazonEC2 volumeType.
-	AttributeValues []AttributeValue `type:"list"`
+	AttributeValues []AttributeValue `json:"api.pricing:GetAttributeValuesOutput:AttributeValues" type:"list"`
 
 	// The pagination token that indicates the next set of results to retrieve.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.pricing:GetAttributeValuesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

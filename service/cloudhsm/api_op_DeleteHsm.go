@@ -47,7 +47,7 @@ type DeleteHsmOutput struct {
 	// The status of the operation.
 	//
 	// Status is a required field
-	Status *string `type:"string" required:"true"`
+	Status *string `json:"cloudhsm:DeleteHsmOutput:Status" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -108,7 +108,7 @@ type CreateEndpointGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The information about the endpoint group that was created.
-	EndpointGroup *EndpointGroup `type:"structure"`
+	EndpointGroup *EndpointGroup `json:"globalaccelerator:CreateEndpointGroupOutput:EndpointGroup" type:"structure"`
 }
 
 // String returns the string representation

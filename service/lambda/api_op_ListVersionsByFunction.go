@@ -92,10 +92,10 @@ type ListVersionsByFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token that's included if more results are available.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"lambda:ListVersionsByFunctionOutput:NextMarker" type:"string"`
 
 	// A list of Lambda function versions.
-	Versions []FunctionConfiguration `type:"list"`
+	Versions []FunctionConfiguration `json:"lambda:ListVersionsByFunctionOutput:Versions" type:"list"`
 }
 
 // String returns the string representation

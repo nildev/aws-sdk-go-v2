@@ -44,7 +44,7 @@ type DescribeReservedInstancesListingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Reserved Instance listing.
-	ReservedInstancesListings []ReservedInstancesListing `locationName:"reservedInstancesListingsSet" locationNameList:"item" type:"list"`
+	ReservedInstancesListings []ReservedInstancesListing `json:"ec2:DescribeReservedInstancesListingsOutput:ReservedInstancesListings" locationName:"reservedInstancesListingsSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

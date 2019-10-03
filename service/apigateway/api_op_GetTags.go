@@ -77,7 +77,7 @@ type GetTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The collection of tags. Each tag element is associated with a given resource.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:GetTagsOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

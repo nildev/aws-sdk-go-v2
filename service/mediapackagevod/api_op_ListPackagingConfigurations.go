@@ -68,9 +68,9 @@ func (s ListPackagingConfigurationsInput) MarshalFields(e protocol.FieldEncoder)
 type ListPackagingConfigurationsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediapackage-vod:ListPackagingConfigurationsOutput:NextToken" locationName:"nextToken" type:"string"`
 
-	PackagingConfigurations []PackagingConfiguration `locationName:"packagingConfigurations" type:"list"`
+	PackagingConfigurations []PackagingConfiguration `json:"mediapackage-vod:ListPackagingConfigurationsOutput:PackagingConfigurations" locationName:"packagingConfigurations" type:"list"`
 }
 
 // String returns the string representation

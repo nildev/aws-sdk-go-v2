@@ -68,11 +68,11 @@ type AdminListGroupsForUserOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The groups that the user belongs to.
-	Groups []GroupType `type:"list"`
+	Groups []GroupType `json:"cognito-idp:AdminListGroupsForUserOutput:Groups" type:"list"`
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cognito-idp:AdminListGroupsForUserOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

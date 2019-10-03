@@ -61,7 +61,7 @@ type DescribeIndexFieldsOutput struct {
 	// The index fields configured for the domain.
 	//
 	// IndexFields is a required field
-	IndexFields []IndexFieldStatus `type:"list" required:"true"`
+	IndexFields []IndexFieldStatus `json:"cloudsearch:DescribeIndexFieldsOutput:IndexFields" type:"list" required:"true"`
 }
 
 // String returns the string representation

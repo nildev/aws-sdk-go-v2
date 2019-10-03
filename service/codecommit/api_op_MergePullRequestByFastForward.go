@@ -61,7 +61,7 @@ type MergePullRequestByFastForwardOutput struct {
 
 	// Information about the specified pull request, including information about
 	// the merge.
-	PullRequest *PullRequest `locationName:"pullRequest" type:"structure"`
+	PullRequest *PullRequest `json:"codecommit:MergePullRequestByFastForwardOutput:PullRequest" locationName:"pullRequest" type:"structure"`
 }
 
 // String returns the string representation

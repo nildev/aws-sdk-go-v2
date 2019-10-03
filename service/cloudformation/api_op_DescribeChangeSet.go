@@ -65,66 +65,66 @@ type DescribeChangeSetOutput struct {
 
 	// If you execute the change set, the list of capabilities that were explicitly
 	// acknowledged when the change set was created.
-	Capabilities []Capability `type:"list"`
+	Capabilities []Capability `json:"cloudformation:DescribeChangeSetOutput:Capabilities" type:"list"`
 
 	// The ARN of the change set.
-	ChangeSetId *string `min:"1" type:"string"`
+	ChangeSetId *string `json:"cloudformation:DescribeChangeSetOutput:ChangeSetId" min:"1" type:"string"`
 
 	// The name of the change set.
-	ChangeSetName *string `min:"1" type:"string"`
+	ChangeSetName *string `json:"cloudformation:DescribeChangeSetOutput:ChangeSetName" min:"1" type:"string"`
 
 	// A list of Change structures that describes the resources AWS CloudFormation
 	// changes if you execute the change set.
-	Changes []Change `type:"list"`
+	Changes []Change `json:"cloudformation:DescribeChangeSetOutput:Changes" type:"list"`
 
 	// The start time when the change set was created, in UTC.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	CreationTime *time.Time `json:"cloudformation:DescribeChangeSetOutput:CreationTime" type:"timestamp" timestampFormat:"iso8601"`
 
 	// Information about the change set.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"cloudformation:DescribeChangeSetOutput:Description" min:"1" type:"string"`
 
 	// If the change set execution status is AVAILABLE, you can execute the change
 	// set. If you can’t execute the change set, the status indicates why. For
 	// example, a change set might be in an UNAVAILABLE state because AWS CloudFormation
 	// is still creating it or in an OBSOLETE state because the stack was already
 	// updated.
-	ExecutionStatus ExecutionStatus `type:"string" enum:"true"`
+	ExecutionStatus ExecutionStatus `json:"cloudformation:DescribeChangeSetOutput:ExecutionStatus" type:"string" enum:"true"`
 
 	// If the output exceeds 1 MB, a string that identifies the next page of changes.
 	// If there is no additional page, this value is null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:DescribeChangeSetOutput:NextToken" min:"1" type:"string"`
 
 	// The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that
 	// will be associated with the stack if you execute the change set.
-	NotificationARNs []string `type:"list"`
+	NotificationARNs []string `json:"cloudformation:DescribeChangeSetOutput:NotificationARNs" type:"list"`
 
 	// A list of Parameter structures that describes the input parameters and their
 	// values used to create the change set. For more information, see the Parameter
 	// (https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html)
 	// data type.
-	Parameters []Parameter `type:"list"`
+	Parameters []Parameter `json:"cloudformation:DescribeChangeSetOutput:Parameters" type:"list"`
 
 	// The rollback triggers for AWS CloudFormation to monitor during stack creation
 	// and updating operations, and for the specified monitoring period afterwards.
-	RollbackConfiguration *RollbackConfiguration `type:"structure"`
+	RollbackConfiguration *RollbackConfiguration `json:"cloudformation:DescribeChangeSetOutput:RollbackConfiguration" type:"structure"`
 
 	// The ARN of the stack that is associated with the change set.
-	StackId *string `type:"string"`
+	StackId *string `json:"cloudformation:DescribeChangeSetOutput:StackId" type:"string"`
 
 	// The name of the stack that is associated with the change set.
-	StackName *string `type:"string"`
+	StackName *string `json:"cloudformation:DescribeChangeSetOutput:StackName" type:"string"`
 
 	// The current status of the change set, such as CREATE_IN_PROGRESS, CREATE_COMPLETE,
 	// or FAILED.
-	Status ChangeSetStatus `type:"string" enum:"true"`
+	Status ChangeSetStatus `json:"cloudformation:DescribeChangeSetOutput:Status" type:"string" enum:"true"`
 
 	// A description of the change set's status. For example, if your attempt to
 	// create a change set failed, AWS CloudFormation shows the error message.
-	StatusReason *string `type:"string"`
+	StatusReason *string `json:"cloudformation:DescribeChangeSetOutput:StatusReason" type:"string"`
 
 	// If you execute the change set, the tags that will be associated with the
 	// stack.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"cloudformation:DescribeChangeSetOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

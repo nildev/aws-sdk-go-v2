@@ -31,10 +31,10 @@ type CreateUsageReportSubscriptionOutput struct {
 	// you enable usage reporting in this case, AppStream 2.0 uses the same bucket
 	// to store your usage reports. If you haven't already enabled on-instance session
 	// scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
-	S3BucketName *string `min:"1" type:"string"`
+	S3BucketName *string `json:"appstream2:CreateUsageReportSubscriptionOutput:S3BucketName" min:"1" type:"string"`
 
 	// The schedule for generating usage reports.
-	Schedule UsageReportSchedule `type:"string" enum:"true"`
+	Schedule UsageReportSchedule `json:"appstream2:CreateUsageReportSubscriptionOutput:Schedule" type:"string" enum:"true"`
 }
 
 // String returns the string representation

@@ -54,9 +54,9 @@ func (s DescribePackagingGroupInput) MarshalFields(e protocol.FieldEncoder) erro
 type DescribePackagingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage-vod:DescribePackagingGroupOutput:Arn" locationName:"arn" type:"string"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage-vod:DescribePackagingGroupOutput:Id" locationName:"id" type:"string"`
 }
 
 // String returns the string representation

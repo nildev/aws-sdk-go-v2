@@ -22,13 +22,13 @@ type AppliedTerminology struct {
 
 	// The name of the custom terminology applied to the input text by Amazon Translate
 	// for the translated text response.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"translate:AppliedTerminology:Name" min:"1" type:"string"`
 
 	// The specific terms of the custom terminology applied to the input text by
 	// Amazon Translate for the translated text response. A maximum of 250 terms
 	// will be returned, and the specific terms applied will be the first 250 terms
 	// in the source text.
-	Terms []Term `type:"list"`
+	Terms []Term `json:"translate:AppliedTerminology:Terms" type:"list"`
 }
 
 // String returns the string representation
@@ -46,12 +46,12 @@ type EncryptionKey struct {
 	// the custom terminology.
 	//
 	// Id is a required field
-	Id *string `min:"1" type:"string" required:"true"`
+	Id *string `json:"translate:EncryptionKey:Id" min:"1" type:"string" required:"true"`
 
 	// The type of encryption key used by Amazon Translate to encrypt custom terminologies.
 	//
 	// Type is a required field
-	Type EncryptionKeyType `type:"string" required:"true" enum:"true"`
+	Type EncryptionKeyType `json:"translate:EncryptionKey:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -85,10 +85,10 @@ type Term struct {
 	_ struct{} `type:"structure"`
 
 	// The source text of the term being translated by the custom terminology.
-	SourceText *string `type:"string"`
+	SourceText *string `json:"translate:Term:SourceText" type:"string"`
 
 	// The target text of the term being translated by the custom terminology.
-	TargetText *string `type:"string"`
+	TargetText *string `json:"translate:Term:TargetText" type:"string"`
 }
 
 // String returns the string representation
@@ -106,12 +106,12 @@ type TerminologyData struct {
 	// File is automatically base64 encoded/decoded by the SDK.
 	//
 	// File is a required field
-	File []byte `type:"blob" required:"true"`
+	File []byte `json:"translate:TerminologyData:File" type:"blob" required:"true"`
 
 	// The data format of the custom terminology. Either CSV or TMX.
 	//
 	// Format is a required field
-	Format TerminologyDataFormat `type:"string" required:"true" enum:"true"`
+	Format TerminologyDataFormat `json:"translate:TerminologyData:Format" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -144,12 +144,12 @@ type TerminologyDataLocation struct {
 	// The location of the custom terminology data.
 	//
 	// Location is a required field
-	Location *string `type:"string" required:"true"`
+	Location *string `json:"translate:TerminologyDataLocation:Location" type:"string" required:"true"`
 
 	// The repository type for the custom terminology data.
 	//
 	// RepositoryType is a required field
-	RepositoryType *string `type:"string" required:"true"`
+	RepositoryType *string `json:"translate:TerminologyDataLocation:RepositoryType" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -163,36 +163,36 @@ type TerminologyProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the custom terminology.
-	Arn *string `type:"string"`
+	Arn *string `json:"translate:TerminologyProperties:Arn" type:"string"`
 
 	// The time at which the custom terminology was created, based on the timestamp.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"translate:TerminologyProperties:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the custom terminology properties.
-	Description *string `type:"string"`
+	Description *string `json:"translate:TerminologyProperties:Description" type:"string"`
 
 	// The encryption key for the custom terminology.
-	EncryptionKey *EncryptionKey `type:"structure"`
+	EncryptionKey *EncryptionKey `json:"translate:TerminologyProperties:EncryptionKey" type:"structure"`
 
 	// The time at which the custom terminology was last update, based on the timestamp.
-	LastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"translate:TerminologyProperties:LastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the custom terminology.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"translate:TerminologyProperties:Name" min:"1" type:"string"`
 
 	// The size of the file used when importing a custom terminology.
-	SizeBytes *int64 `type:"integer"`
+	SizeBytes *int64 `json:"translate:TerminologyProperties:SizeBytes" type:"integer"`
 
 	// The language code for the source text of the translation request for which
 	// the custom terminology is being used.
-	SourceLanguageCode *string `min:"2" type:"string"`
+	SourceLanguageCode *string `json:"translate:TerminologyProperties:SourceLanguageCode" min:"2" type:"string"`
 
 	// The language codes for the target languages available with the custom terminology
 	// file. All possible target languages are returned in array.
-	TargetLanguageCodes []string `type:"list"`
+	TargetLanguageCodes []string `json:"translate:TerminologyProperties:TargetLanguageCodes" type:"list"`
 
 	// The number of terms included in the custom terminology.
-	TermCount *int64 `type:"integer"`
+	TermCount *int64 `json:"translate:TerminologyProperties:TermCount" type:"integer"`
 }
 
 // String returns the string representation

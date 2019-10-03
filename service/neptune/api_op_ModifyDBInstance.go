@@ -322,7 +322,7 @@ type ModifyDBInstanceOutput struct {
 	// Contains the details of an Amazon Neptune DB instance.
 	//
 	// This data type is used as a response element in the DescribeDBInstances action.
-	DBInstance *DBInstance `type:"structure"`
+	DBInstance *DBInstance `json:"rds:ModifyDBInstanceOutput:DBInstance" type:"structure"`
 }
 
 // String returns the string representation

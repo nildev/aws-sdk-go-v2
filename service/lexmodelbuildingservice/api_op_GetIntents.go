@@ -80,11 +80,11 @@ type GetIntentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of Intent objects. For more information, see PutBot.
-	Intents []IntentMetadata `locationName:"intents" type:"list"`
+	Intents []IntentMetadata `json:"models.lex:GetIntentsOutput:Intents" locationName:"intents" type:"list"`
 
 	// If the response is truncated, the response includes a pagination token that
 	// you can specify in your next request to fetch the next page of intents.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetIntentsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

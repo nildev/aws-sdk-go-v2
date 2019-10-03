@@ -98,7 +98,7 @@ type DeleteRouteOutput struct {
 	// The route that was deleted.
 	//
 	// Route is a required field
-	Route *RouteData `locationName:"route" type:"structure" required:"true"`
+	Route *RouteData `json:"appmesh:DeleteRouteOutput:Route" locationName:"route" type:"structure" required:"true"`
 }
 
 // String returns the string representation

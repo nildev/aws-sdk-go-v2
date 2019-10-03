@@ -152,17 +152,17 @@ type RegisterJobDefinitionOutput struct {
 	// The Amazon Resource Name (ARN) of the job definition.
 	//
 	// JobDefinitionArn is a required field
-	JobDefinitionArn *string `locationName:"jobDefinitionArn" type:"string" required:"true"`
+	JobDefinitionArn *string `json:"batch:RegisterJobDefinitionOutput:JobDefinitionArn" locationName:"jobDefinitionArn" type:"string" required:"true"`
 
 	// The name of the job definition.
 	//
 	// JobDefinitionName is a required field
-	JobDefinitionName *string `locationName:"jobDefinitionName" type:"string" required:"true"`
+	JobDefinitionName *string `json:"batch:RegisterJobDefinitionOutput:JobDefinitionName" locationName:"jobDefinitionName" type:"string" required:"true"`
 
 	// The revision of the job definition.
 	//
 	// Revision is a required field
-	Revision *int64 `locationName:"revision" type:"integer" required:"true"`
+	Revision *int64 `json:"batch:RegisterJobDefinitionOutput:Revision" locationName:"revision" type:"integer" required:"true"`
 }
 
 // String returns the string representation

@@ -58,7 +58,7 @@ type DescribeMountTargetSecurityGroupsOutput struct {
 	// An array of security groups.
 	//
 	// SecurityGroups is a required field
-	SecurityGroups []string `type:"list" required:"true"`
+	SecurityGroups []string `json:"elasticfilesystem:DescribeMountTargetSecurityGroupsOutput:SecurityGroups" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -68,7 +68,7 @@ type ApplySecurityGroupsToClientVpnTargetNetworkOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The IDs of the applied security groups.
-	SecurityGroupIds []string `locationName:"securityGroupIds" locationNameList:"item" type:"list"`
+	SecurityGroupIds []string `json:"ec2:ApplySecurityGroupsToClientVpnTargetNetworkOutput:SecurityGroupIds" locationName:"securityGroupIds" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

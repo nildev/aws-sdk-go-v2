@@ -30,12 +30,12 @@ type ListApplicationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of application names.
-	Applications []string `locationName:"applications" type:"list"`
+	Applications []string `json:"codedeploy:ListApplicationsOutput:Applications" locationName:"applications" type:"list"`
 
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent list applications call to return the next
 	// set of applications in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListApplicationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

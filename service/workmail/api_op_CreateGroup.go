@@ -55,7 +55,7 @@ type CreateGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the group.
-	GroupId *string `min:"12" type:"string"`
+	GroupId *string `json:"workmail:CreateGroupOutput:GroupId" min:"12" type:"string"`
 }
 
 // String returns the string representation

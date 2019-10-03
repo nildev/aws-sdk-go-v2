@@ -76,19 +76,19 @@ type GetAuthorizerOutput struct {
 
 	// Optional customer-defined field, used in OpenAPI imports and exports without
 	// functional impact.
-	AuthType *string `locationName:"authType" type:"string"`
+	AuthType *string `json:"apigateway:GetAuthorizerOutput:AuthType" locationName:"authType" type:"string"`
 
 	// Specifies the required credentials as an IAM role for API Gateway to invoke
 	// the authorizer. To specify an IAM role for API Gateway to assume, use the
 	// role's Amazon Resource Name (ARN). To use resource-based permissions on the
 	// Lambda function, specify null.
-	AuthorizerCredentials *string `locationName:"authorizerCredentials" type:"string"`
+	AuthorizerCredentials *string `json:"apigateway:GetAuthorizerOutput:AuthorizerCredentials" locationName:"authorizerCredentials" type:"string"`
 
 	// The TTL in seconds of cached authorizer results. If it equals 0, authorization
 	// caching is disabled. If it is greater than 0, API Gateway will cache authorizer
 	// responses. If this field is not set, the default value is 300. The maximum
 	// value is 3600, or 1 hour.
-	AuthorizerResultTtlInSeconds *int64 `locationName:"authorizerResultTtlInSeconds" type:"integer"`
+	AuthorizerResultTtlInSeconds *int64 `json:"apigateway:GetAuthorizerOutput:AuthorizerResultTtlInSeconds" locationName:"authorizerResultTtlInSeconds" type:"integer"`
 
 	// Specifies the authorizer's Uniform Resource Identifier (URI). For TOKEN or
 	// REQUEST authorizers, this must be a well-formed Lambda function URI, for
@@ -98,10 +98,10 @@ type GetAuthorizerOutput struct {
 	// indicates that the remaining substring in the URI should be treated as the
 	// path to the resource, including the initial /. For Lambda functions, this
 	// is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.
-	AuthorizerUri *string `locationName:"authorizerUri" type:"string"`
+	AuthorizerUri *string `json:"apigateway:GetAuthorizerOutput:AuthorizerUri" locationName:"authorizerUri" type:"string"`
 
 	// The identifier for the authorizer resource.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"apigateway:GetAuthorizerOutput:Id" locationName:"id" type:"string"`
 
 	// The identity source for which authorization is requested.
 	//    * For a TOKEN or COGNITO_USER_POOLS authorizer, this is required and specifies
@@ -122,7 +122,7 @@ type GetAuthorizerOutput struct {
 	//    calling the Lambda function. The valid value is a string of comma-separated
 	//    mapping expressions of the specified request parameters. When the authorization
 	//    caching is not enabled, this property is optional.
-	IdentitySource *string `locationName:"identitySource" type:"string"`
+	IdentitySource *string `json:"apigateway:GetAuthorizerOutput:IdentitySource" locationName:"identitySource" type:"string"`
 
 	// A validation expression for the incoming identity token. For TOKEN authorizers,
 	// this value is a regular expression. For COGNITO_USER_POOLS authorizers, API
@@ -131,21 +131,21 @@ type GetAuthorizerOutput struct {
 	// function when there is a match. Otherwise, it will return a 401 Unauthorized
 	// response without calling the Lambda function. The validation expression does
 	// not apply to the REQUEST authorizer.
-	IdentityValidationExpression *string `locationName:"identityValidationExpression" type:"string"`
+	IdentityValidationExpression *string `json:"apigateway:GetAuthorizerOutput:IdentityValidationExpression" locationName:"identityValidationExpression" type:"string"`
 
 	// [Required] The name of the authorizer.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"apigateway:GetAuthorizerOutput:Name" locationName:"name" type:"string"`
 
 	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
 	// Each element is of this format: arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}.
 	// For a TOKEN or REQUEST authorizer, this is not defined.
-	ProviderARNs []string `locationName:"providerARNs" type:"list"`
+	ProviderARNs []string `json:"apigateway:GetAuthorizerOutput:ProviderARNs" locationName:"providerARNs" type:"list"`
 
 	// The authorizer type. Valid values are TOKEN for a Lambda function using a
 	// single authorization token submitted in a custom header, REQUEST for a Lambda
 	// function using incoming request parameters, and COGNITO_USER_POOLS for using
 	// an Amazon Cognito user pool.
-	Type AuthorizerType `locationName:"type" type:"string" enum:"true"`
+	Type AuthorizerType `json:"apigateway:GetAuthorizerOutput:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation

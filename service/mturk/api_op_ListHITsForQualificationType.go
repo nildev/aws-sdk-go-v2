@@ -58,16 +58,16 @@ type ListHITsForQualificationTypeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of HIT elements returned by the query.
-	HITs []HIT `type:"list"`
+	HITs []HIT `json:"mturk-requester:ListHITsForQualificationTypeOutput:HITs" type:"list"`
 
 	// If the previous response was incomplete (because there is more data to retrieve),
 	// Amazon Mechanical Turk returns a pagination token in the response. You can
 	// use this pagination token to retrieve the next set of results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"mturk-requester:ListHITsForQualificationTypeOutput:NextToken" min:"1" type:"string"`
 
 	// The number of HITs on this page in the filtered results list, equivalent
 	// to the number of HITs being returned by this call.
-	NumResults *int64 `type:"integer"`
+	NumResults *int64 `json:"mturk-requester:ListHITsForQualificationTypeOutput:NumResults" type:"integer"`
 }
 
 // String returns the string representation

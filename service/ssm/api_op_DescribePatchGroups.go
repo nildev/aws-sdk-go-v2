@@ -59,11 +59,11 @@ type DescribePatchGroupsOutput struct {
 	// PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)
 	//
 	// PatchBaselineIdentity: A PatchBaselineIdentity element.
-	Mappings []PatchGroupPatchBaselineMapping `type:"list"`
+	Mappings []PatchGroupPatchBaselineMapping `json:"ssm:DescribePatchGroupsOutput:Mappings" type:"list"`
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribePatchGroupsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -75,12 +75,12 @@ type CreateActivityOutput struct {
 	// The Amazon Resource Name (ARN) that identifies the created activity.
 	//
 	// ActivityArn is a required field
-	ActivityArn *string `locationName:"activityArn" min:"1" type:"string" required:"true"`
+	ActivityArn *string `json:"states:CreateActivityOutput:ActivityArn" locationName:"activityArn" min:"1" type:"string" required:"true"`
 
 	// The date the activity is created.
 	//
 	// CreationDate is a required field
-	CreationDate *time.Time `locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreationDate *time.Time `json:"states:CreateActivityOutput:CreationDate" locationName:"creationDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation

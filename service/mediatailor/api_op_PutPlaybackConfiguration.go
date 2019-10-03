@@ -123,33 +123,33 @@ func (s PutPlaybackConfigurationInput) MarshalFields(e protocol.FieldEncoder) er
 type PutPlaybackConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
-	AdDecisionServerUrl *string `type:"string"`
+	AdDecisionServerUrl *string `json:"api.mediatailor:PutPlaybackConfigurationOutput:AdDecisionServerUrl" type:"string"`
 
 	// The configuration for using a content delivery network (CDN), like Amazon
 	// CloudFront, for content and ad segment management.
-	CdnConfiguration *CdnConfiguration `type:"structure"`
+	CdnConfiguration *CdnConfiguration `json:"api.mediatailor:PutPlaybackConfigurationOutput:CdnConfiguration" type:"structure"`
 
 	// The configuration for DASH content.
-	DashConfiguration *DashConfiguration `type:"structure"`
+	DashConfiguration *DashConfiguration `json:"api.mediatailor:PutPlaybackConfigurationOutput:DashConfiguration" type:"structure"`
 
 	// The configuration for HLS content.
-	HlsConfiguration *HlsConfiguration `type:"structure"`
+	HlsConfiguration *HlsConfiguration `json:"api.mediatailor:PutPlaybackConfigurationOutput:HlsConfiguration" type:"structure"`
 
-	Name *string `type:"string"`
+	Name *string `json:"api.mediatailor:PutPlaybackConfigurationOutput:Name" type:"string"`
 
-	PlaybackConfigurationArn *string `type:"string"`
+	PlaybackConfigurationArn *string `json:"api.mediatailor:PutPlaybackConfigurationOutput:PlaybackConfigurationArn" type:"string"`
 
-	PlaybackEndpointPrefix *string `type:"string"`
+	PlaybackEndpointPrefix *string `json:"api.mediatailor:PutPlaybackConfigurationOutput:PlaybackEndpointPrefix" type:"string"`
 
-	SessionInitializationEndpointPrefix *string `type:"string"`
+	SessionInitializationEndpointPrefix *string `json:"api.mediatailor:PutPlaybackConfigurationOutput:SessionInitializationEndpointPrefix" type:"string"`
 
-	SlateAdUrl *string `type:"string"`
+	SlateAdUrl *string `json:"api.mediatailor:PutPlaybackConfigurationOutput:SlateAdUrl" type:"string"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"api.mediatailor:PutPlaybackConfigurationOutput:Tags" locationName:"tags" type:"map"`
 
-	TranscodeProfileName *string `type:"string"`
+	TranscodeProfileName *string `json:"api.mediatailor:PutPlaybackConfigurationOutput:TranscodeProfileName" type:"string"`
 
-	VideoContentSourceUrl *string `type:"string"`
+	VideoContentSourceUrl *string `json:"api.mediatailor:PutPlaybackConfigurationOutput:VideoContentSourceUrl" type:"string"`
 }
 
 // String returns the string representation

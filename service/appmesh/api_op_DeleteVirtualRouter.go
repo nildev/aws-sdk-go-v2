@@ -80,7 +80,7 @@ type DeleteVirtualRouterOutput struct {
 	// The virtual router that was deleted.
 	//
 	// VirtualRouter is a required field
-	VirtualRouter *VirtualRouterData `locationName:"virtualRouter" type:"structure" required:"true"`
+	VirtualRouter *VirtualRouterData `json:"appmesh:DeleteVirtualRouterOutput:VirtualRouter" locationName:"virtualRouter" type:"structure" required:"true"`
 }
 
 // String returns the string representation

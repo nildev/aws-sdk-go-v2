@@ -130,7 +130,7 @@ type StartAutomationExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID of a newly scheduled automation execution.
-	AutomationExecutionId *string `min:"36" type:"string"`
+	AutomationExecutionId *string `json:"ssm:StartAutomationExecutionOutput:AutomationExecutionId" min:"36" type:"string"`
 }
 
 // String returns the string representation

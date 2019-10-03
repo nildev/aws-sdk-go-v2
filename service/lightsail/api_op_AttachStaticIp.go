@@ -52,7 +52,7 @@ type AttachStaticIpOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of key-value pairs containing information about your API operations.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:AttachStaticIpOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

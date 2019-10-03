@@ -57,7 +57,7 @@ type DeleteMissionProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// ID of a mission profile.
-	MissionProfileId *string `locationName:"missionProfileId" type:"string"`
+	MissionProfileId *string `json:"groundstation:DeleteMissionProfileOutput:MissionProfileId" locationName:"missionProfileId" type:"string"`
 }
 
 // String returns the string representation

@@ -58,13 +58,13 @@ type DescribeScalingActivitiesOutput struct {
 	// in progress are described first.
 	//
 	// Activities is a required field
-	Activities []Activity `type:"list" required:"true"`
+	Activities []Activity `json:"autoscaling:DescribeScalingActivitiesOutput:Activities" type:"list" required:"true"`
 
 	// A string that indicates that the response contains more items than can be
 	// returned in a single response. To receive additional items, specify this
 	// string for the NextToken value when requesting the next set of items. This
 	// value is null when there are no more items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeScalingActivitiesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

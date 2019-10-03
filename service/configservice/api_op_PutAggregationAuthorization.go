@@ -65,7 +65,7 @@ type PutAggregationAuthorizationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns an AggregationAuthorization object.
-	AggregationAuthorization *AggregationAuthorization `type:"structure"`
+	AggregationAuthorization *AggregationAuthorization `json:"config:PutAggregationAuthorizationOutput:AggregationAuthorization" type:"structure"`
 }
 
 // String returns the string representation

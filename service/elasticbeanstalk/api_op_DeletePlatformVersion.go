@@ -27,7 +27,7 @@ type DeletePlatformVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about the version of the custom platform.
-	PlatformSummary *PlatformSummary `type:"structure"`
+	PlatformSummary *PlatformSummary `json:"elasticbeanstalk:DeletePlatformVersionOutput:PlatformSummary" type:"structure"`
 }
 
 // String returns the string representation

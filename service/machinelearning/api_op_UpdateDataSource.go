@@ -58,7 +58,7 @@ type UpdateDataSourceOutput struct {
 
 	// The ID assigned to the DataSource during creation. This value should be identical
 	// to the value of the DataSourceID in the request.
-	DataSourceId *string `min:"1" type:"string"`
+	DataSourceId *string `json:"machinelearning:UpdateDataSourceOutput:DataSourceId" min:"1" type:"string"`
 }
 
 // String returns the string representation

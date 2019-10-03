@@ -59,7 +59,7 @@ type DecreaseReplicationFactorOutput struct {
 
 	// A description of the DAX cluster, after you have decreased its replication
 	// factor.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"dax:DecreaseReplicationFactorOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

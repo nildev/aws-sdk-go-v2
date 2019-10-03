@@ -18,13 +18,13 @@ type BulkDeployment struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the bulk deployment.
-	BulkDeploymentArn *string `type:"string"`
+	BulkDeploymentArn *string `json:"greengrass:BulkDeployment:BulkDeploymentArn" type:"string"`
 
 	// The ID of the bulk deployment.
-	BulkDeploymentId *string `type:"string"`
+	BulkDeploymentId *string `json:"greengrass:BulkDeployment:BulkDeploymentId" type:"string"`
 
 	// The time, in ISO format, when the deployment was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"greengrass:BulkDeployment:CreatedAt" type:"string"`
 }
 
 // String returns the string representation
@@ -64,17 +64,17 @@ type BulkDeploymentMetrics struct {
 	// this can occur if a group record from the input file uses an invalid format
 	// or specifies a nonexistent group version, or if the execution role doesn't
 	// grant permission to deploy a group or group version.
-	InvalidInputRecords *int64 `type:"integer"`
+	InvalidInputRecords *int64 `json:"greengrass:BulkDeploymentMetrics:InvalidInputRecords" type:"integer"`
 
 	// The total number of group records from the input file that have been processed
 	// so far, or attempted.
-	RecordsProcessed *int64 `type:"integer"`
+	RecordsProcessed *int64 `json:"greengrass:BulkDeploymentMetrics:RecordsProcessed" type:"integer"`
 
 	// The total number of deployment attempts that returned a retryable error.
 	// For example, a retry is triggered if the attempt to deploy a group returns
 	// a throttling error. ''StartBulkDeployment'' retries a group deployment up
 	// to five times.
-	RetryAttempts *int64 `type:"integer"`
+	RetryAttempts *int64 `json:"greengrass:BulkDeploymentMetrics:RetryAttempts" type:"integer"`
 }
 
 // String returns the string representation
@@ -111,29 +111,29 @@ type BulkDeploymentResult struct {
 	_ struct{} `type:"structure"`
 
 	// The time, in ISO format, when the deployment was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"greengrass:BulkDeploymentResult:CreatedAt" type:"string"`
 
 	// The ARN of the group deployment.
-	DeploymentArn *string `type:"string"`
+	DeploymentArn *string `json:"greengrass:BulkDeploymentResult:DeploymentArn" type:"string"`
 
 	// The ID of the group deployment.
-	DeploymentId *string `type:"string"`
+	DeploymentId *string `json:"greengrass:BulkDeploymentResult:DeploymentId" type:"string"`
 
 	// The current status of the group deployment: ''InProgress'', ''Building'',
 	// ''Success'', or ''Failure''.
-	DeploymentStatus *string `type:"string"`
+	DeploymentStatus *string `json:"greengrass:BulkDeploymentResult:DeploymentStatus" type:"string"`
 
 	// The type of the deployment.
-	DeploymentType DeploymentType `type:"string" enum:"true"`
+	DeploymentType DeploymentType `json:"greengrass:BulkDeploymentResult:DeploymentType" type:"string" enum:"true"`
 
 	// Details about the error.
-	ErrorDetails []ErrorDetail `type:"list"`
+	ErrorDetails []ErrorDetail `json:"greengrass:BulkDeploymentResult:ErrorDetails" type:"list"`
 
 	// The error message for a failed deployment
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"greengrass:BulkDeploymentResult:ErrorMessage" type:"string"`
 
 	// The ARN of the Greengrass group.
-	GroupArn *string `type:"string"`
+	GroupArn *string `json:"greengrass:BulkDeploymentResult:GroupArn" type:"string"`
 }
 
 // String returns the string representation
@@ -206,16 +206,16 @@ type ConnectivityInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint for the Greengrass core. Can be an IP address or DNS.
-	HostAddress *string `type:"string"`
+	HostAddress *string `json:"greengrass:ConnectivityInfo:HostAddress" type:"string"`
 
 	// The ID of the connectivity information.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:ConnectivityInfo:Id" type:"string"`
 
 	// Metadata for this endpoint.
-	Metadata *string `type:"string"`
+	Metadata *string `json:"greengrass:ConnectivityInfo:Metadata" type:"string"`
 
 	// The port of the Greengrass core. Usually 8883.
-	PortNumber *int64 `type:"integer"`
+	PortNumber *int64 `json:"greengrass:ConnectivityInfo:PortNumber" type:"integer"`
 }
 
 // String returns the string representation
@@ -260,15 +260,15 @@ type Connector struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the connector.
-	ConnectorArn *string `type:"string"`
+	ConnectorArn *string `json:"greengrass:Connector:ConnectorArn" type:"string"`
 
 	// A descriptive or arbitrary ID for the connector. This value must be unique
 	// within the connector definition version. Max length is 128 characters with
 	// pattern [a-zA-Z0-9:_-]+.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:Connector:Id" type:"string"`
 
 	// The parameters or configuration that the connector uses.
-	Parameters map[string]string `type:"map"`
+	Parameters map[string]string `json:"greengrass:Connector:Parameters" type:"map"`
 }
 
 // String returns the string representation
@@ -313,7 +313,7 @@ type ConnectorDefinitionVersion struct {
 
 	// A list of references to connectors in this version, with their corresponding
 	// configuration settings.
-	Connectors []Connector `type:"list"`
+	Connectors []Connector `json:"greengrass:ConnectorDefinitionVersion:Connectors" type:"list"`
 }
 
 // String returns the string representation
@@ -344,17 +344,17 @@ type Core struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the certificate associated with the core.
-	CertificateArn *string `type:"string"`
+	CertificateArn *string `json:"greengrass:Core:CertificateArn" type:"string"`
 
 	// A descriptive or arbitrary ID for the core. This value must be unique within
 	// the core definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:Core:Id" type:"string"`
 
 	// If true, the core's local shadow is automatically synced with the cloud.
-	SyncShadow *bool `type:"boolean"`
+	SyncShadow *bool `json:"greengrass:Core:SyncShadow" type:"boolean"`
 
 	// The ARN of the thing which is the core.
-	ThingArn *string `type:"string"`
+	ThingArn *string `json:"greengrass:Core:ThingArn" type:"string"`
 }
 
 // String returns the string representation
@@ -397,7 +397,7 @@ type CoreDefinitionVersion struct {
 	_ struct{} `type:"structure"`
 
 	// A list of cores in the core definition version.
-	Cores []Core `type:"list"`
+	Cores []Core `json:"greengrass:CoreDefinitionVersion:Cores" type:"list"`
 }
 
 // String returns the string representation
@@ -428,27 +428,27 @@ type DefinitionInformation struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the definition.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:DefinitionInformation:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the definition was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:DefinitionInformation:CreationTimestamp" type:"string"`
 
 	// The ID of the definition.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:DefinitionInformation:Id" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the definition was last updated.
-	LastUpdatedTimestamp *string `type:"string"`
+	LastUpdatedTimestamp *string `json:"greengrass:DefinitionInformation:LastUpdatedTimestamp" type:"string"`
 
 	// The latest version of the definition.
-	LatestVersion *string `type:"string"`
+	LatestVersion *string `json:"greengrass:DefinitionInformation:LatestVersion" type:"string"`
 
 	// The ARN of the latest version of the definition.
-	LatestVersionArn *string `type:"string"`
+	LatestVersionArn *string `json:"greengrass:DefinitionInformation:LatestVersionArn" type:"string"`
 
 	// The name of the definition.
-	Name *string `type:"string"`
+	Name *string `json:"greengrass:DefinitionInformation:Name" type:"string"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"greengrass:DefinitionInformation:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -521,19 +521,19 @@ type Deployment struct {
 	_ struct{} `type:"structure"`
 
 	// The time, in milliseconds since the epoch, when the deployment was created.
-	CreatedAt *string `type:"string"`
+	CreatedAt *string `json:"greengrass:Deployment:CreatedAt" type:"string"`
 
 	// The ARN of the deployment.
-	DeploymentArn *string `type:"string"`
+	DeploymentArn *string `json:"greengrass:Deployment:DeploymentArn" type:"string"`
 
 	// The ID of the deployment.
-	DeploymentId *string `type:"string"`
+	DeploymentId *string `json:"greengrass:Deployment:DeploymentId" type:"string"`
 
 	// The type of the deployment.
-	DeploymentType DeploymentType `type:"string" enum:"true"`
+	DeploymentType DeploymentType `json:"greengrass:Deployment:DeploymentType" type:"string" enum:"true"`
 
 	// The ARN of the group for this deployment.
-	GroupArn *string `type:"string"`
+	GroupArn *string `json:"greengrass:Deployment:GroupArn" type:"string"`
 }
 
 // String returns the string representation
@@ -582,19 +582,19 @@ type Device struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the certificate associated with the device.
-	CertificateArn *string `type:"string"`
+	CertificateArn *string `json:"greengrass:Device:CertificateArn" type:"string"`
 
 	// A descriptive or arbitrary ID for the device. This value must be unique within
 	// the device definition version. Max length is 128 characters with pattern
 	// ''[a-zA-Z0-9:_-]+''.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:Device:Id" type:"string"`
 
 	// If true, the device's local shadow will be automatically synced with the
 	// cloud.
-	SyncShadow *bool `type:"boolean"`
+	SyncShadow *bool `json:"greengrass:Device:SyncShadow" type:"boolean"`
 
 	// The thing ARN of the device.
-	ThingArn *string `type:"string"`
+	ThingArn *string `json:"greengrass:Device:ThingArn" type:"string"`
 }
 
 // String returns the string representation
@@ -637,7 +637,7 @@ type DeviceDefinitionVersion struct {
 	_ struct{} `type:"structure"`
 
 	// A list of devices in the definition version.
-	Devices []Device `type:"list"`
+	Devices []Device `json:"greengrass:DeviceDefinitionVersion:Devices" type:"list"`
 }
 
 // String returns the string representation
@@ -668,10 +668,10 @@ type ErrorDetail struct {
 	_ struct{} `type:"structure"`
 
 	// A detailed error code.
-	DetailedErrorCode *string `type:"string"`
+	DetailedErrorCode *string `json:"greengrass:ErrorDetail:DetailedErrorCode" type:"string"`
 
 	// A detailed error message.
-	DetailedErrorMessage *string `type:"string"`
+	DetailedErrorMessage *string `json:"greengrass:ErrorDetail:DetailedErrorMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -702,15 +702,15 @@ type Function struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the Lambda function.
-	FunctionArn *string `type:"string"`
+	FunctionArn *string `json:"greengrass:Function:FunctionArn" type:"string"`
 
 	// The configuration of the Lambda function.
-	FunctionConfiguration *FunctionConfiguration `type:"structure"`
+	FunctionConfiguration *FunctionConfiguration `json:"greengrass:Function:FunctionConfiguration" type:"structure"`
 
 	// A descriptive or arbitrary ID for the function. This value must be unique
 	// within the function definition version. Max length is 128 characters with
 	// pattern ''[a-zA-Z0-9:_-]+''.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:Function:Id" type:"string"`
 }
 
 // String returns the string representation
@@ -748,30 +748,30 @@ type FunctionConfiguration struct {
 
 	// The expected encoding type of the input payload for the function. The default
 	// is ''json''.
-	EncodingType EncodingType `type:"string" enum:"true"`
+	EncodingType EncodingType `json:"greengrass:FunctionConfiguration:EncodingType" type:"string" enum:"true"`
 
 	// The environment configuration of the function.
-	Environment *FunctionConfigurationEnvironment `type:"structure"`
+	Environment *FunctionConfigurationEnvironment `json:"greengrass:FunctionConfiguration:Environment" type:"structure"`
 
 	// The execution arguments.
-	ExecArgs *string `type:"string"`
+	ExecArgs *string `json:"greengrass:FunctionConfiguration:ExecArgs" type:"string"`
 
 	// The name of the function executable.
-	Executable *string `type:"string"`
+	Executable *string `json:"greengrass:FunctionConfiguration:Executable" type:"string"`
 
 	// The memory size, in KB, which the function requires. This setting is not
 	// applicable and should be cleared when you run the Lambda function without
 	// containerization.
-	MemorySize *int64 `type:"integer"`
+	MemorySize *int64 `json:"greengrass:FunctionConfiguration:MemorySize" type:"integer"`
 
 	// True if the function is pinned. Pinned means the function is long-lived and
 	// starts when the core starts.
-	Pinned *bool `type:"boolean"`
+	Pinned *bool `json:"greengrass:FunctionConfiguration:Pinned" type:"boolean"`
 
 	// The allowed function execution time, after which Lambda should terminate
 	// the function. This timeout still applies to pinned Lambda functions for each
 	// request.
-	Timeout *int64 `type:"integer"`
+	Timeout *int64 `json:"greengrass:FunctionConfiguration:Timeout" type:"integer"`
 }
 
 // String returns the string representation
@@ -835,19 +835,19 @@ type FunctionConfigurationEnvironment struct {
 	// Use this when the Lambda function needs to read device information from /sys.
 	// This setting applies only when you run the Lambda function in a Greengrass
 	// container.
-	AccessSysfs *bool `type:"boolean"`
+	AccessSysfs *bool `json:"greengrass:FunctionConfigurationEnvironment:AccessSysfs" type:"boolean"`
 
 	// Configuration related to executing the Lambda function
-	Execution *FunctionExecutionConfig `type:"structure"`
+	Execution *FunctionExecutionConfig `json:"greengrass:FunctionConfigurationEnvironment:Execution" type:"structure"`
 
 	// A list of the resources, with their permissions, to which the Lambda function
 	// will be granted access. A Lambda function can have at most 10 resources.
 	// ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass
 	// container.
-	ResourceAccessPolicies []ResourceAccessPolicy `type:"list"`
+	ResourceAccessPolicies []ResourceAccessPolicy `json:"greengrass:FunctionConfigurationEnvironment:ResourceAccessPolicies" type:"list"`
 
 	// Environment variables for the Lambda function's configuration.
-	Variables map[string]string `type:"map"`
+	Variables map[string]string `json:"greengrass:FunctionConfigurationEnvironment:Variables" type:"map"`
 }
 
 // String returns the string representation
@@ -903,7 +903,7 @@ type FunctionDefaultConfig struct {
 	_ struct{} `type:"structure"`
 
 	// Configuration information that specifies how a Lambda function runs.
-	Execution *FunctionDefaultExecutionConfig `type:"structure"`
+	Execution *FunctionDefaultExecutionConfig `json:"greengrass:FunctionDefaultConfig:Execution" type:"structure"`
 }
 
 // String returns the string representation
@@ -932,7 +932,7 @@ type FunctionDefaultExecutionConfig struct {
 	// containerization, we recommend that you run in a Greengrass container. Omit
 	// this value to run the Lambda function with the default containerization for
 	// the group.
-	IsolationMode FunctionIsolationMode `type:"string" enum:"true"`
+	IsolationMode FunctionIsolationMode `json:"greengrass:FunctionDefaultExecutionConfig:IsolationMode" type:"string" enum:"true"`
 
 	// Specifies the user and group whose permissions are used when running the
 	// Lambda function. You can specify one or both values to override the default
@@ -940,7 +940,7 @@ type FunctionDefaultExecutionConfig struct {
 	// to minimize the risk of unintended changes or malicious attacks. To run as
 	// root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json
 	// in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
-	RunAs *FunctionRunAsConfig `type:"structure"`
+	RunAs *FunctionRunAsConfig `json:"greengrass:FunctionDefaultExecutionConfig:RunAs" type:"structure"`
 }
 
 // String returns the string representation
@@ -972,10 +972,10 @@ type FunctionDefinitionVersion struct {
 
 	// The default configuration that applies to all Lambda functions in this function
 	// definition version. Individual Lambda functions can override these settings.
-	DefaultConfig *FunctionDefaultConfig `type:"structure"`
+	DefaultConfig *FunctionDefaultConfig `json:"greengrass:FunctionDefinitionVersion:DefaultConfig" type:"structure"`
 
 	// A list of Lambda functions in this function definition version.
-	Functions []Function `type:"list"`
+	Functions []Function `json:"greengrass:FunctionDefinitionVersion:Functions" type:"list"`
 }
 
 // String returns the string representation
@@ -1016,7 +1016,7 @@ type FunctionExecutionConfig struct {
 	// containerization, we recommend that you run in a Greengrass container. Omit
 	// this value to run the Lambda function with the default containerization for
 	// the group.
-	IsolationMode FunctionIsolationMode `type:"string" enum:"true"`
+	IsolationMode FunctionIsolationMode `json:"greengrass:FunctionExecutionConfig:IsolationMode" type:"string" enum:"true"`
 
 	// Specifies the user and group whose permissions are used when running the
 	// Lambda function. You can specify one or both values to override the default
@@ -1024,7 +1024,7 @@ type FunctionExecutionConfig struct {
 	// to minimize the risk of unintended changes or malicious attacks. To run as
 	// root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json
 	// in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
-	RunAs *FunctionRunAsConfig `type:"structure"`
+	RunAs *FunctionRunAsConfig `json:"greengrass:FunctionExecutionConfig:RunAs" type:"structure"`
 }
 
 // String returns the string representation
@@ -1060,10 +1060,10 @@ type FunctionRunAsConfig struct {
 	_ struct{} `type:"structure"`
 
 	// The group ID whose permissions are used to run a Lambda function.
-	Gid *int64 `type:"integer"`
+	Gid *int64 `json:"greengrass:FunctionRunAsConfig:Gid" type:"integer"`
 
 	// The user ID whose permissions are used to run a Lambda function.
-	Uid *int64 `type:"integer"`
+	Uid *int64 `json:"greengrass:FunctionRunAsConfig:Uid" type:"integer"`
 }
 
 // String returns the string representation
@@ -1094,10 +1094,10 @@ type GroupCertificateAuthorityProperties struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the certificate authority for the group.
-	GroupCertificateAuthorityArn *string `type:"string"`
+	GroupCertificateAuthorityArn *string `json:"greengrass:GroupCertificateAuthorityProperties:GroupCertificateAuthorityArn" type:"string"`
 
 	// The ID of the certificate authority for the group.
-	GroupCertificateAuthorityId *string `type:"string"`
+	GroupCertificateAuthorityId *string `json:"greengrass:GroupCertificateAuthorityProperties:GroupCertificateAuthorityId" type:"string"`
 }
 
 // String returns the string representation
@@ -1128,25 +1128,25 @@ type GroupInformation struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the group.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GroupInformation:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the group was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GroupInformation:CreationTimestamp" type:"string"`
 
 	// The ID of the group.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GroupInformation:Id" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the group was last updated.
-	LastUpdatedTimestamp *string `type:"string"`
+	LastUpdatedTimestamp *string `json:"greengrass:GroupInformation:LastUpdatedTimestamp" type:"string"`
 
 	// The latest version of the group.
-	LatestVersion *string `type:"string"`
+	LatestVersion *string `json:"greengrass:GroupInformation:LatestVersion" type:"string"`
 
 	// The ARN of the latest version of the group.
-	LatestVersionArn *string `type:"string"`
+	LatestVersionArn *string `json:"greengrass:GroupInformation:LatestVersionArn" type:"string"`
 
 	// The name of the group.
-	Name *string `type:"string"`
+	Name *string `json:"greengrass:GroupInformation:Name" type:"string"`
 }
 
 // String returns the string representation
@@ -1209,11 +1209,11 @@ type GroupOwnerSetting struct {
 	// If true, AWS IoT Greengrass automatically adds the specified Linux OS group
 	// owner of the resource to the Lambda process privileges. Thus the Lambda process
 	// will have the file access permissions of the added Linux group.
-	AutoAddGroupOwner *bool `type:"boolean"`
+	AutoAddGroupOwner *bool `json:"greengrass:GroupOwnerSetting:AutoAddGroupOwner" type:"boolean"`
 
 	// The name of the Linux OS group whose privileges will be added to the Lambda
 	// process. This field is optional.
-	GroupOwner *string `type:"string"`
+	GroupOwner *string `json:"greengrass:GroupOwnerSetting:GroupOwner" type:"string"`
 }
 
 // String returns the string representation
@@ -1244,25 +1244,25 @@ type GroupVersion struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the connector definition version for this group.
-	ConnectorDefinitionVersionArn *string `type:"string"`
+	ConnectorDefinitionVersionArn *string `json:"greengrass:GroupVersion:ConnectorDefinitionVersionArn" type:"string"`
 
 	// The ARN of the core definition version for this group.
-	CoreDefinitionVersionArn *string `type:"string"`
+	CoreDefinitionVersionArn *string `json:"greengrass:GroupVersion:CoreDefinitionVersionArn" type:"string"`
 
 	// The ARN of the device definition version for this group.
-	DeviceDefinitionVersionArn *string `type:"string"`
+	DeviceDefinitionVersionArn *string `json:"greengrass:GroupVersion:DeviceDefinitionVersionArn" type:"string"`
 
 	// The ARN of the function definition version for this group.
-	FunctionDefinitionVersionArn *string `type:"string"`
+	FunctionDefinitionVersionArn *string `json:"greengrass:GroupVersion:FunctionDefinitionVersionArn" type:"string"`
 
 	// The ARN of the logger definition version for this group.
-	LoggerDefinitionVersionArn *string `type:"string"`
+	LoggerDefinitionVersionArn *string `json:"greengrass:GroupVersion:LoggerDefinitionVersionArn" type:"string"`
 
 	// The ARN of the resource definition version for this group.
-	ResourceDefinitionVersionArn *string `type:"string"`
+	ResourceDefinitionVersionArn *string `json:"greengrass:GroupVersion:ResourceDefinitionVersionArn" type:"string"`
 
 	// The ARN of the subscription definition version for this group.
-	SubscriptionDefinitionVersionArn *string `type:"string"`
+	SubscriptionDefinitionVersionArn *string `json:"greengrass:GroupVersion:SubscriptionDefinitionVersionArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1323,11 +1323,11 @@ type LocalDeviceResourceData struct {
 	_ struct{} `type:"structure"`
 
 	// Group/owner related settings for local resources.
-	GroupOwnerSetting *GroupOwnerSetting `type:"structure"`
+	GroupOwnerSetting *GroupOwnerSetting `json:"greengrass:LocalDeviceResourceData:GroupOwnerSetting" type:"structure"`
 
 	// The local absolute path of the device resource. The source path for a device
 	// resource can refer only to a character device or block device under ''/dev''.
-	SourcePath *string `type:"string"`
+	SourcePath *string `json:"greengrass:LocalDeviceResourceData:SourcePath" type:"string"`
 }
 
 // String returns the string representation
@@ -1358,15 +1358,15 @@ type LocalVolumeResourceData struct {
 	_ struct{} `type:"structure"`
 
 	// The absolute local path of the resource inside the Lambda environment.
-	DestinationPath *string `type:"string"`
+	DestinationPath *string `json:"greengrass:LocalVolumeResourceData:DestinationPath" type:"string"`
 
 	// Allows you to configure additional group privileges for the Lambda process.
 	// This field is optional.
-	GroupOwnerSetting *GroupOwnerSetting `type:"structure"`
+	GroupOwnerSetting *GroupOwnerSetting `json:"greengrass:LocalVolumeResourceData:GroupOwnerSetting" type:"structure"`
 
 	// The local absolute path of the volume resource on the host. The source path
 	// for a volume resource type cannot start with ''/sys''.
-	SourcePath *string `type:"string"`
+	SourcePath *string `json:"greengrass:LocalVolumeResourceData:SourcePath" type:"string"`
 }
 
 // String returns the string representation
@@ -1403,22 +1403,22 @@ type Logger struct {
 	_ struct{} `type:"structure"`
 
 	// The component that will be subject to logging.
-	Component LoggerComponent `type:"string" enum:"true"`
+	Component LoggerComponent `json:"greengrass:Logger:Component" type:"string" enum:"true"`
 
 	// A descriptive or arbitrary ID for the logger. This value must be unique within
 	// the logger definition version. Max length is 128 characters with pattern
 	// ''[a-zA-Z0-9:_-]+''.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:Logger:Id" type:"string"`
 
 	// The level of the logs.
-	Level LoggerLevel `type:"string" enum:"true"`
+	Level LoggerLevel `json:"greengrass:Logger:Level" type:"string" enum:"true"`
 
 	// The amount of file space, in KB, to use if the local file system is used
 	// for logging purposes.
-	Space *int64 `type:"integer"`
+	Space *int64 `json:"greengrass:Logger:Space" type:"integer"`
 
 	// The type of log output which will be used.
-	Type LoggerType `type:"string" enum:"true"`
+	Type LoggerType `json:"greengrass:Logger:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1467,7 +1467,7 @@ type LoggerDefinitionVersion struct {
 	_ struct{} `type:"structure"`
 
 	// A list of loggers.
-	Loggers []Logger `type:"list"`
+	Loggers []Logger `json:"greengrass:LoggerDefinitionVersion:Loggers" type:"list"`
 }
 
 // String returns the string representation
@@ -1500,15 +1500,15 @@ type Resource struct {
 	// The resource ID, used to refer to a resource in the Lambda function configuration.
 	// Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must
 	// be unique within a Greengrass group.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:Resource:Id" type:"string"`
 
 	// The descriptive resource name, which is displayed on the AWS IoT Greengrass
 	// console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This
 	// must be unique within a Greengrass group.
-	Name *string `type:"string"`
+	Name *string `json:"greengrass:Resource:Name" type:"string"`
 
 	// A container of data for all resource types.
-	ResourceDataContainer *ResourceDataContainer `type:"structure"`
+	ResourceDataContainer *ResourceDataContainer `json:"greengrass:Resource:ResourceDataContainer" type:"structure"`
 }
 
 // String returns the string representation
@@ -1546,11 +1546,11 @@ type ResourceAccessPolicy struct {
 
 	// The permissions that the Lambda function has to the resource. Can be one
 	// of ''rw'' (read/write) or ''ro'' (read-only).
-	Permission Permission `type:"string" enum:"true"`
+	Permission Permission `json:"greengrass:ResourceAccessPolicy:Permission" type:"string" enum:"true"`
 
 	// The ID of the resource. (This ID is assigned to the resource when you create
 	// the resource definiton.)
-	ResourceId *string `type:"string"`
+	ResourceId *string `json:"greengrass:ResourceAccessPolicy:ResourceId" type:"string"`
 }
 
 // String returns the string representation
@@ -1584,20 +1584,20 @@ type ResourceDataContainer struct {
 	_ struct{} `type:"structure"`
 
 	// Attributes that define the local device resource.
-	LocalDeviceResourceData *LocalDeviceResourceData `type:"structure"`
+	LocalDeviceResourceData *LocalDeviceResourceData `json:"greengrass:ResourceDataContainer:LocalDeviceResourceData" type:"structure"`
 
 	// Attributes that define the local volume resource.
-	LocalVolumeResourceData *LocalVolumeResourceData `type:"structure"`
+	LocalVolumeResourceData *LocalVolumeResourceData `json:"greengrass:ResourceDataContainer:LocalVolumeResourceData" type:"structure"`
 
 	// Attributes that define an Amazon S3 machine learning resource.
-	S3MachineLearningModelResourceData *S3MachineLearningModelResourceData `type:"structure"`
+	S3MachineLearningModelResourceData *S3MachineLearningModelResourceData `json:"greengrass:ResourceDataContainer:S3MachineLearningModelResourceData" type:"structure"`
 
 	// Attributes that define an Amazon SageMaker machine learning resource.
-	SageMakerMachineLearningModelResourceData *SageMakerMachineLearningModelResourceData `type:"structure"`
+	SageMakerMachineLearningModelResourceData *SageMakerMachineLearningModelResourceData `json:"greengrass:ResourceDataContainer:SageMakerMachineLearningModelResourceData" type:"structure"`
 
 	// Attributes that define a secret resource, which references a secret from
 	// AWS Secrets Manager.
-	SecretsManagerSecretResourceData *SecretsManagerSecretResourceData `type:"structure"`
+	SecretsManagerSecretResourceData *SecretsManagerSecretResourceData `json:"greengrass:ResourceDataContainer:SecretsManagerSecretResourceData" type:"structure"`
 }
 
 // String returns the string representation
@@ -1646,7 +1646,7 @@ type ResourceDefinitionVersion struct {
 	_ struct{} `type:"structure"`
 
 	// A list of resources.
-	Resources []Resource `type:"list"`
+	Resources []Resource `json:"greengrass:ResourceDefinitionVersion:Resources" type:"list"`
 }
 
 // String returns the string representation
@@ -1677,11 +1677,11 @@ type S3MachineLearningModelResourceData struct {
 	_ struct{} `type:"structure"`
 
 	// The absolute local path of the resource inside the Lambda environment.
-	DestinationPath *string `type:"string"`
+	DestinationPath *string `json:"greengrass:S3MachineLearningModelResourceData:DestinationPath" type:"string"`
 
 	// The URI of the source model in an S3 bucket. The model package must be in
 	// tar.gz or .zip format.
-	S3Uri *string `type:"string"`
+	S3Uri *string `json:"greengrass:S3MachineLearningModelResourceData:S3Uri" type:"string"`
 }
 
 // String returns the string representation
@@ -1712,10 +1712,10 @@ type SageMakerMachineLearningModelResourceData struct {
 	_ struct{} `type:"structure"`
 
 	// The absolute local path of the resource inside the Lambda environment.
-	DestinationPath *string `type:"string"`
+	DestinationPath *string `json:"greengrass:SageMakerMachineLearningModelResourceData:DestinationPath" type:"string"`
 
 	// The ARN of the Amazon SageMaker training job that represents the source model.
-	SageMakerJobArn *string `type:"string"`
+	SageMakerJobArn *string `json:"greengrass:SageMakerMachineLearningModelResourceData:SageMakerJobArn" type:"string"`
 }
 
 // String returns the string representation
@@ -1751,11 +1751,11 @@ type SecretsManagerSecretResourceData struct {
 	// The ARN of the Secrets Manager secret to make available on the core. The
 	// value of the secret's latest version (represented by the ''AWSCURRENT'' staging
 	// label) is included by default.
-	ARN *string `type:"string"`
+	ARN *string `json:"greengrass:SecretsManagerSecretResourceData:ARN" type:"string"`
 
 	// Optional. The staging labels whose values you want to make available on the
 	// core, in addition to ''AWSCURRENT''.
-	AdditionalStagingLabelsToDownload []string `type:"list"`
+	AdditionalStagingLabelsToDownload []string `json:"greengrass:SecretsManagerSecretResourceData:AdditionalStagingLabelsToDownload" type:"list"`
 }
 
 // String returns the string representation
@@ -1794,18 +1794,18 @@ type Subscription struct {
 	// A descriptive or arbitrary ID for the subscription. This value must be unique
 	// within the subscription definition version. Max length is 128 characters
 	// with pattern ''[a-zA-Z0-9:_-]+''.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:Subscription:Id" type:"string"`
 
 	// The source of the subscription. Can be a thing ARN, a Lambda function ARN,
 	// a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
-	Source *string `type:"string"`
+	Source *string `json:"greengrass:Subscription:Source" type:"string"`
 
 	// The MQTT topic used to route the message.
-	Subject *string `type:"string"`
+	Subject *string `json:"greengrass:Subscription:Subject" type:"string"`
 
 	// Where the message is sent to. Can be a thing ARN, a Lambda function ARN,
 	// a connector ARN, 'cloud' (which represents the AWS IoT cloud), or 'GGShadowService'.
-	Target *string `type:"string"`
+	Target *string `json:"greengrass:Subscription:Target" type:"string"`
 }
 
 // String returns the string representation
@@ -1848,7 +1848,7 @@ type SubscriptionDefinitionVersion struct {
 	_ struct{} `type:"structure"`
 
 	// A list of subscriptions.
-	Subscriptions []Subscription `type:"list"`
+	Subscriptions []Subscription `json:"greengrass:SubscriptionDefinitionVersion:Subscriptions" type:"list"`
 }
 
 // String returns the string representation
@@ -1879,16 +1879,16 @@ type VersionInformation struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:VersionInformation:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the version was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:VersionInformation:CreationTimestamp" type:"string"`
 
 	// The ID of the version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:VersionInformation:Id" type:"string"`
 
 	// The unique ID of the version.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:VersionInformation:Version" type:"string"`
 }
 
 // String returns the string representation

@@ -50,32 +50,32 @@ type DescribeTaskOutput struct {
 	//
 	// For more information on these groups, see "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html"
 	// (Working with Log Groups and Log Streams) in the Amazon CloudWatch UserGuide.
-	CloudWatchLogGroupArn *string `type:"string"`
+	CloudWatchLogGroupArn *string `json:"datasync:DescribeTaskOutput:CloudWatchLogGroupArn" type:"string"`
 
 	// The time that the task was created.
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"datasync:DescribeTaskOutput:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the task execution that is syncing files.
-	CurrentTaskExecutionArn *string `type:"string"`
+	CurrentTaskExecutionArn *string `json:"datasync:DescribeTaskOutput:CurrentTaskExecutionArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the AWS storage resource's location.
-	DestinationLocationArn *string `type:"string"`
+	DestinationLocationArn *string `json:"datasync:DescribeTaskOutput:DestinationLocationArn" type:"string"`
 
 	// Errors that AWS DataSync encountered during execution of the task. You can
 	// use this error code to help troubleshoot issues.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"datasync:DescribeTaskOutput:ErrorCode" type:"string"`
 
 	// Detailed description of an error that was encountered during the task execution.
 	// You can use this information to help troubleshoot issues.
-	ErrorDetail *string `type:"string"`
+	ErrorDetail *string `json:"datasync:DescribeTaskOutput:ErrorDetail" type:"string"`
 
 	// Specifies that the task excludes files in the transfer based on the specified
 	// pattern in the filter. Transfers all files in the task’s subdirectory,
 	// except files that match the filter that is set.
-	Excludes []FilterRule `type:"list"`
+	Excludes []FilterRule `json:"datasync:DescribeTaskOutput:Excludes" type:"list"`
 
 	// The name of the task that was described.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"datasync:DescribeTaskOutput:Name" min:"1" type:"string"`
 
 	// The set of configuration options that control the behavior of a single execution
 	// of the task that occurs when you call StartTaskExecution. You can configure
@@ -84,19 +84,19 @@ type DescribeTaskOutput struct {
 	//
 	// For each individual task execution, you can override these options by specifying
 	// the overriding OverrideOptions value to operation.
-	Options *Options `type:"structure"`
+	Options *Options `json:"datasync:DescribeTaskOutput:Options" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the source file system's location.
-	SourceLocationArn *string `type:"string"`
+	SourceLocationArn *string `json:"datasync:DescribeTaskOutput:SourceLocationArn" type:"string"`
 
 	// The status of the task that was described.
 	//
 	// For detailed information about task execution statuses, see "https://docs.aws.amazon.com/datasync/latest/userguide/working-with-tasks.html#understand-task-creation-statuses"
 	// (Understanding Task Statuses).
-	Status TaskStatus `type:"string" enum:"true"`
+	Status TaskStatus `json:"datasync:DescribeTaskOutput:Status" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the task that was described.
-	TaskArn *string `type:"string"`
+	TaskArn *string `json:"datasync:DescribeTaskOutput:TaskArn" type:"string"`
 }
 
 // String returns the string representation

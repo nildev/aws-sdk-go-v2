@@ -121,29 +121,29 @@ type CreateRobotApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the robot application.
-	Arn *string `locationName:"arn" min:"1" type:"string"`
+	Arn *string `json:"robomaker:CreateRobotApplicationOutput:Arn" locationName:"arn" min:"1" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the robot application was
 	// last updated.
-	LastUpdatedAt *time.Time `locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"robomaker:CreateRobotApplicationOutput:LastUpdatedAt" locationName:"lastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The name of the robot application.
-	Name *string `locationName:"name" min:"1" type:"string"`
+	Name *string `json:"robomaker:CreateRobotApplicationOutput:Name" locationName:"name" min:"1" type:"string"`
 
 	// The revision id of the robot application.
-	RevisionId *string `locationName:"revisionId" min:"1" type:"string"`
+	RevisionId *string `json:"robomaker:CreateRobotApplicationOutput:RevisionId" locationName:"revisionId" min:"1" type:"string"`
 
 	// The robot software suite used by the robot application.
-	RobotSoftwareSuite *RobotSoftwareSuite `locationName:"robotSoftwareSuite" type:"structure"`
+	RobotSoftwareSuite *RobotSoftwareSuite `json:"robomaker:CreateRobotApplicationOutput:RobotSoftwareSuite" locationName:"robotSoftwareSuite" type:"structure"`
 
 	// The sources of the robot application.
-	Sources []Source `locationName:"sources" type:"list"`
+	Sources []Source `json:"robomaker:CreateRobotApplicationOutput:Sources" locationName:"sources" type:"list"`
 
 	// The list of all tags added to the robot application.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"robomaker:CreateRobotApplicationOutput:Tags" locationName:"tags" type:"map"`
 
 	// The version of the robot application.
-	Version *string `locationName:"version" min:"1" type:"string"`
+	Version *string `json:"robomaker:CreateRobotApplicationOutput:Version" locationName:"version" min:"1" type:"string"`
 }
 
 // String returns the string representation

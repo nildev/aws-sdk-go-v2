@@ -145,7 +145,7 @@ type StartJobOutput struct {
 	// Summary for the Job.
 	//
 	// JobSummary is a required field
-	JobSummary *JobSummary `locationName:"jobSummary" type:"structure" required:"true"`
+	JobSummary *JobSummary `json:"amplify:StartJobOutput:JobSummary" locationName:"jobSummary" type:"structure" required:"true"`
 }
 
 // String returns the string representation

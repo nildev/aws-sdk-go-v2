@@ -48,7 +48,7 @@ type DescribeStreamSummaryOutput struct {
 	// A StreamDescriptionSummary containing information about the stream.
 	//
 	// StreamDescriptionSummary is a required field
-	StreamDescriptionSummary *StreamDescriptionSummary `type:"structure" required:"true"`
+	StreamDescriptionSummary *StreamDescriptionSummary `json:"kinesis:DescribeStreamSummaryOutput:StreamDescriptionSummary" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -69,20 +69,20 @@ type GetResourceDefinitionVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Arn of the resource definition version.
-	Arn *string `type:"string"`
+	Arn *string `json:"greengrass:GetResourceDefinitionVersionOutput:Arn" type:"string"`
 
 	// The time, in milliseconds since the epoch, when the resource definition version
 	// was created.
-	CreationTimestamp *string `type:"string"`
+	CreationTimestamp *string `json:"greengrass:GetResourceDefinitionVersionOutput:CreationTimestamp" type:"string"`
 
 	// Information about the definition.
-	Definition *ResourceDefinitionVersion `type:"structure"`
+	Definition *ResourceDefinitionVersion `json:"greengrass:GetResourceDefinitionVersionOutput:Definition" type:"structure"`
 
 	// The ID of the resource definition version.
-	Id *string `type:"string"`
+	Id *string `json:"greengrass:GetResourceDefinitionVersionOutput:Id" type:"string"`
 
 	// The version of the resource definition version.
-	Version *string `type:"string"`
+	Version *string `json:"greengrass:GetResourceDefinitionVersionOutput:Version" type:"string"`
 }
 
 // String returns the string representation

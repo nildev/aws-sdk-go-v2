@@ -61,14 +61,14 @@ type CreateFieldLevelEncryptionProfileOutput struct {
 	_ struct{} `type:"structure" payload:"FieldLevelEncryptionProfile"`
 
 	// The current version of the field level encryption profile. For example: E2QWRUHAPOMQZL.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"cloudfront:CreateFieldLevelEncryptionProfileOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// Returned when you create a new field-level encryption profile.
-	FieldLevelEncryptionProfile *FieldLevelEncryptionProfile `type:"structure"`
+	FieldLevelEncryptionProfile *FieldLevelEncryptionProfile `json:"cloudfront:CreateFieldLevelEncryptionProfileOutput:FieldLevelEncryptionProfile" type:"structure"`
 
 	// The fully qualified URI of the new profile resource just created. For example:
 	// https://cloudfront.amazonaws.com/2010-11-01/field-level-encryption-profile/EDFDVBD632BHDS5.
-	Location *string `location:"header" locationName:"Location" type:"string"`
+	Location *string `json:"cloudfront:CreateFieldLevelEncryptionProfileOutput:Location" location:"header" locationName:"Location" type:"string"`
 }
 
 // String returns the string representation

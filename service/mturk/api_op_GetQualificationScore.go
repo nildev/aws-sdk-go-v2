@@ -59,7 +59,7 @@ type GetQualificationScoreOutput struct {
 
 	// The Qualification data structure of the Qualification assigned to a user,
 	// including the Qualification type and the value (score).
-	Qualification *Qualification `type:"structure"`
+	Qualification *Qualification `json:"mturk-requester:GetQualificationScoreOutput:Qualification" type:"structure"`
 }
 
 // String returns the string representation

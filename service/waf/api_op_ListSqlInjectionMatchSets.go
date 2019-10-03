@@ -57,10 +57,10 @@ type ListSqlInjectionMatchSetsOutput struct {
 	// more SqlInjectionMatchSet objects, submit another ListSqlInjectionMatchSets
 	// request, and specify the NextMarker value from the response in the NextMarker
 	// value in the next request.
-	NextMarker *string `min:"1" type:"string"`
+	NextMarker *string `json:"waf:ListSqlInjectionMatchSetsOutput:NextMarker" min:"1" type:"string"`
 
 	// An array of SqlInjectionMatchSetSummary objects.
-	SqlInjectionMatchSets []SqlInjectionMatchSetSummary `type:"list"`
+	SqlInjectionMatchSets []SqlInjectionMatchSetSummary `json:"waf:ListSqlInjectionMatchSetsOutput:SqlInjectionMatchSets" type:"list"`
 }
 
 // String returns the string representation

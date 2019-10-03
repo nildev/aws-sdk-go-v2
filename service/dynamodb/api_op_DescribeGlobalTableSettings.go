@@ -46,10 +46,10 @@ type DescribeGlobalTableSettingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the global table.
-	GlobalTableName *string `min:"3" type:"string"`
+	GlobalTableName *string `json:"dynamodb:DescribeGlobalTableSettingsOutput:GlobalTableName" min:"3" type:"string"`
 
 	// The Region-specific settings for the global table.
-	ReplicaSettings []ReplicaSettingsDescription `type:"list"`
+	ReplicaSettings []ReplicaSettingsDescription `json:"dynamodb:DescribeGlobalTableSettingsOutput:ReplicaSettings" type:"list"`
 }
 
 // String returns the string representation

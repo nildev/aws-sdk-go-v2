@@ -74,7 +74,7 @@ type ListBackupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of BackupSummary objects.
-	BackupSummaries []BackupSummary `type:"list"`
+	BackupSummaries []BackupSummary `json:"dynamodb:ListBackupsOutput:BackupSummaries" type:"list"`
 
 	// The ARN of the backup last evaluated when the current page of results was
 	// returned, inclusive of the current page of results. This value may be specified
@@ -87,7 +87,7 @@ type ListBackupsOutput struct {
 	// If LastEvaluatedBackupArn is not empty, this may or may not indicate that
 	// there is more data to be returned. All results are guaranteed to have been
 	// returned if and only if no value for LastEvaluatedBackupArn is returned.
-	LastEvaluatedBackupArn *string `min:"37" type:"string"`
+	LastEvaluatedBackupArn *string `json:"dynamodb:ListBackupsOutput:LastEvaluatedBackupArn" min:"37" type:"string"`
 }
 
 // String returns the string representation

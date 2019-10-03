@@ -25,14 +25,14 @@ type GetInvitationConfigurationOutput struct {
 
 	// The email ID of the organization or individual contact that the enrolled
 	// user can use.
-	ContactEmail *string `min:"1" type:"string"`
+	ContactEmail *string `json:"a4b:GetInvitationConfigurationOutput:ContactEmail" min:"1" type:"string"`
 
 	// The name of the organization sending the enrollment invite to a user.
-	OrganizationName *string `min:"1" type:"string"`
+	OrganizationName *string `json:"a4b:GetInvitationConfigurationOutput:OrganizationName" min:"1" type:"string"`
 
 	// The list of private skill IDs that you want to recommend to the user to enable
 	// in the invitation.
-	PrivateSkillIds []string `type:"list"`
+	PrivateSkillIds []string `json:"a4b:GetInvitationConfigurationOutput:PrivateSkillIds" type:"list"`
 }
 
 // String returns the string representation

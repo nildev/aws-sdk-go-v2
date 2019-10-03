@@ -47,7 +47,7 @@ type DescribeCachediSCSIVolumesOutput struct {
 
 	// An array of objects where each object contains metadata about one cached
 	// volume.
-	CachediSCSIVolumes []CachediSCSIVolume `type:"list"`
+	CachediSCSIVolumes []CachediSCSIVolume `json:"storagegateway:DescribeCachediSCSIVolumesOutput:CachediSCSIVolumes" type:"list"`
 }
 
 // String returns the string representation

@@ -62,10 +62,10 @@ type AddInstanceGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Instance group IDs of the newly created instance groups.
-	InstanceGroupIds []string `type:"list"`
+	InstanceGroupIds []string `json:"elasticmapreduce:AddInstanceGroupsOutput:InstanceGroupIds" type:"list"`
 
 	// The job flow ID in which the instance groups are added.
-	JobFlowId *string `type:"string"`
+	JobFlowId *string `json:"elasticmapreduce:AddInstanceGroupsOutput:JobFlowId" type:"string"`
 }
 
 // String returns the string representation

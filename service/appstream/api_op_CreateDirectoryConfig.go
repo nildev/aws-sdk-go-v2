@@ -67,7 +67,7 @@ type CreateDirectoryConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the directory configuration.
-	DirectoryConfig *DirectoryConfig `type:"structure"`
+	DirectoryConfig *DirectoryConfig `json:"appstream2:CreateDirectoryConfigOutput:DirectoryConfig" type:"structure"`
 }
 
 // String returns the string representation

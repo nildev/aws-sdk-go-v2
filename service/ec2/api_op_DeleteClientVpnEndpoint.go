@@ -49,7 +49,7 @@ type DeleteClientVpnEndpointOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current state of the Client VPN endpoint.
-	Status *VpnEndpointStatus `locationName:"status" type:"structure"`
+	Status *VpnEndpointStatus `json:"ec2:DeleteClientVpnEndpointOutput:Status" locationName:"status" type:"structure"`
 }
 
 // String returns the string representation

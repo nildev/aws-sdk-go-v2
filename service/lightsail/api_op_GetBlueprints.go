@@ -32,11 +32,11 @@ type GetBlueprintsOutput struct {
 
 	// An array of key-value pairs that contains information about the available
 	// blueprints.
-	Blueprints []Blueprint `locationName:"blueprints" type:"list"`
+	Blueprints []Blueprint `json:"lightsail:GetBlueprintsOutput:Blueprints" locationName:"blueprints" type:"list"`
 
 	// A token used for advancing to the next page of results from your get blueprints
 	// request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetBlueprintsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 }
 
 // String returns the string representation

@@ -82,7 +82,7 @@ type UpdateThingGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The version of the updated thing group.
-	Version *int64 `locationName:"version" type:"long"`
+	Version *int64 `json:"iot:UpdateThingGroupOutput:Version" locationName:"version" type:"long"`
 }
 
 // String returns the string representation

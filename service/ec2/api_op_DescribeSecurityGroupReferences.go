@@ -49,7 +49,7 @@ type DescribeSecurityGroupReferencesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the VPCs with the referencing security groups.
-	SecurityGroupReferenceSet []SecurityGroupReference `locationName:"securityGroupReferenceSet" locationNameList:"item" type:"list"`
+	SecurityGroupReferenceSet []SecurityGroupReference `json:"ec2:DescribeSecurityGroupReferencesOutput:SecurityGroupReferenceSet" locationName:"securityGroupReferenceSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

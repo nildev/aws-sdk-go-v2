@@ -55,7 +55,7 @@ type ListFieldLevelEncryptionProfilesOutput struct {
 
 	// Returns a list of the field-level encryption profiles that have been created
 	// in CloudFront for this account.
-	FieldLevelEncryptionProfileList *FieldLevelEncryptionProfileList `type:"structure"`
+	FieldLevelEncryptionProfileList *FieldLevelEncryptionProfileList `json:"cloudfront:ListFieldLevelEncryptionProfilesOutput:FieldLevelEncryptionProfileList" type:"structure"`
 }
 
 // String returns the string representation

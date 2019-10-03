@@ -133,10 +133,10 @@ type DescribeScalingActivitiesOutput struct {
 
 	// The token required to get the next set of results. This value is null if
 	// there are no more results to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeScalingActivitiesOutput:NextToken" type:"string"`
 
 	// A list of scaling activity objects.
-	ScalingActivities []ScalingActivity `type:"list"`
+	ScalingActivities []ScalingActivity `json:"autoscaling:DescribeScalingActivitiesOutput:ScalingActivities" type:"list"`
 }
 
 // String returns the string representation

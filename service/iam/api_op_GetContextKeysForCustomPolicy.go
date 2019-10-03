@@ -59,7 +59,7 @@ type GetContextKeysForCustomPolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of context keys that are referenced in the input policies.
-	ContextKeyNames []string `type:"list"`
+	ContextKeyNames []string `json:"iam:GetContextKeysForCustomPolicyOutput:ContextKeyNames" type:"list"`
 }
 
 // String returns the string representation

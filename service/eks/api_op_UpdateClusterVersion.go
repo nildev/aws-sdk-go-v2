@@ -88,7 +88,7 @@ type UpdateClusterVersionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The full description of the specified update
-	Update *Update `locationName:"update" type:"structure"`
+	Update *Update `json:"eks:UpdateClusterVersionOutput:Update" locationName:"update" type:"structure"`
 }
 
 // String returns the string representation

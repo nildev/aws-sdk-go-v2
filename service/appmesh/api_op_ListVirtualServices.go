@@ -93,12 +93,12 @@ type ListVirtualServicesOutput struct {
 	// the results of a ListVirtualServices request exceed limit, you can use this
 	// value to retrieve the next page of results. This value is null when there
 	// are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appmesh:ListVirtualServicesOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The list of existing virtual services for the specified service mesh.
 	//
 	// VirtualServices is a required field
-	VirtualServices []VirtualServiceRef `locationName:"virtualServices" type:"list" required:"true"`
+	VirtualServices []VirtualServiceRef `json:"appmesh:ListVirtualServicesOutput:VirtualServices" locationName:"virtualServices" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -33,7 +33,7 @@ type DescribeAccountAttributesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the account attributes.
-	AccountAttributes []AccountAttribute `locationName:"accountAttributeSet" locationNameList:"item" type:"list"`
+	AccountAttributes []AccountAttribute `json:"ec2:DescribeAccountAttributesOutput:AccountAttributes" locationName:"accountAttributeSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

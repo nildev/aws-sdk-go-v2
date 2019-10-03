@@ -47,7 +47,7 @@ type DescribeAddressOutput struct {
 
 	// The address that you want the Snowball or Snowballs associated with a specific
 	// job to be shipped to.
-	Address *Address `type:"structure"`
+	Address *Address `json:"snowball:DescribeAddressOutput:Address" type:"structure"`
 }
 
 // String returns the string representation

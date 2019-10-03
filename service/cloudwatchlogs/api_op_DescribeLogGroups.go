@@ -54,11 +54,11 @@ type DescribeLogGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The log groups.
-	LogGroups []LogGroup `locationName:"logGroups" type:"list"`
+	LogGroups []LogGroup `json:"logs:DescribeLogGroupsOutput:LogGroups" locationName:"logGroups" type:"list"`
 
 	// The token for the next set of items to return. The token expires after 24
 	// hours.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"logs:DescribeLogGroupsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

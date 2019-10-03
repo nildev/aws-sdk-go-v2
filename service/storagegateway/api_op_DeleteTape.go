@@ -62,7 +62,7 @@ type DeleteTapeOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the deleted virtual tape.
-	TapeARN *string `min:"50" type:"string"`
+	TapeARN *string `json:"storagegateway:DeleteTapeOutput:TapeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

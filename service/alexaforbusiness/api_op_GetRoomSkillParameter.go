@@ -59,7 +59,7 @@ type GetRoomSkillParameterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the room skill parameter requested. Required.
-	RoomSkillParameter *RoomSkillParameter `type:"structure"`
+	RoomSkillParameter *RoomSkillParameter `json:"a4b:GetRoomSkillParameterOutput:RoomSkillParameter" type:"structure"`
 }
 
 // String returns the string representation

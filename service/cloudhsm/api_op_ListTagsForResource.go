@@ -45,7 +45,7 @@ type ListTagsForResourceOutput struct {
 	// One or more tags.
 	//
 	// TagList is a required field
-	TagList []Tag `type:"list" required:"true"`
+	TagList []Tag `json:"cloudhsm:ListTagsForResourceOutput:TagList" type:"list" required:"true"`
 }
 
 // String returns the string representation

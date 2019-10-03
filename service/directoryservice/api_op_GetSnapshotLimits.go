@@ -46,7 +46,7 @@ type GetSnapshotLimitsOutput struct {
 
 	// A SnapshotLimits object that contains the manual snapshot limits for the
 	// specified directory.
-	SnapshotLimits *SnapshotLimits `type:"structure"`
+	SnapshotLimits *SnapshotLimits `json:"ds:GetSnapshotLimitsOutput:SnapshotLimits" type:"structure"`
 }
 
 // String returns the string representation

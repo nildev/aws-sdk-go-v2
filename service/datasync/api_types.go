@@ -17,13 +17,13 @@ type AgentListEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the agent.
-	AgentArn *string `type:"string"`
+	AgentArn *string `json:"datasync:AgentListEntry:AgentArn" type:"string"`
 
 	// The name of the agent.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"datasync:AgentListEntry:Name" min:"1" type:"string"`
 
 	// The status of the agent.
-	Status AgentStatus `type:"string" enum:"true"`
+	Status AgentStatus `json:"datasync:AgentListEntry:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -43,13 +43,13 @@ type Ec2Config struct {
 	// for the Amazon EC2 resource.
 	//
 	// SecurityGroupArns is a required field
-	SecurityGroupArns []string `min:"1" type:"list" required:"true"`
+	SecurityGroupArns []string `json:"datasync:Ec2Config:SecurityGroupArns" min:"1" type:"list" required:"true"`
 
 	// The ARN of the subnet and the security group that DataSync uses to access
 	// the target EFS file system.
 	//
 	// SubnetArn is a required field
-	SubnetArn *string `type:"string" required:"true"`
+	SubnetArn *string `json:"datasync:Ec2Config:SubnetArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -82,9 +82,9 @@ func (s *Ec2Config) Validate() error {
 type EndpointOptions struct {
 	_ struct{} `type:"structure"`
 
-	Fips *bool `type:"boolean"`
+	Fips *bool `json:"datasync:EndpointOptions:Fips" type:"boolean"`
 
-	PrivateLink *bool `type:"boolean"`
+	PrivateLink *bool `json:"datasync:EndpointOptions:PrivateLink" type:"boolean"`
 }
 
 // String returns the string representation
@@ -100,11 +100,11 @@ type FilterRule struct {
 
 	// Specifies the type of filter rule pattern to apply. DataSync only supports
 	// the SIMPLE_PATTERN rule type.
-	FilterType FilterType `type:"string" enum:"true"`
+	FilterType FilterType `json:"datasync:FilterRule:FilterType" type:"string" enum:"true"`
 
 	// A pattern that defines the filter. The filter might include or exclude files
 	// is a transfer.
-	Value *string `type:"string"`
+	Value *string `json:"datasync:FilterRule:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -122,7 +122,7 @@ type LocationListEntry struct {
 	// The Amazon Resource Name (ARN) of the location. For Network File System (NFS)
 	// or Amazon EFS, the location is the export path. For Amazon S3, the location
 	// is the prefix path that you want to mount and use as the root of the location.
-	LocationArn *string `type:"string"`
+	LocationArn *string `json:"datasync:LocationListEntry:LocationArn" type:"string"`
 
 	// Represents a list of URLs of a location. LocationUri returns an array that
 	// contains a list of locations when the ListLocations operation is called.
@@ -140,7 +140,7 @@ type LocationListEntry struct {
 	// *nix convention. For NFS and Amazon EFS, it's the export path to mount the
 	// location. For Amazon S3, it's the prefix path that you mount to and treat
 	// as the root of the location.
-	LocationUri *string `type:"string"`
+	LocationUri *string `json:"datasync:LocationListEntry:LocationUri" type:"string"`
 }
 
 // String returns the string representation
@@ -158,7 +158,7 @@ type NfsMountOptions struct {
 	// share. If you don't specify a version, DataSync defaults to AUTOMATIC. That
 	// is, DataSync automatically selects a version based on negotiation with the
 	// NFS server.
-	Version NfsVersion `type:"string" enum:"true"`
+	Version NfsVersion `json:"datasync:NfsMountOptions:Version" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -175,7 +175,7 @@ type OnPremConfig struct {
 	// ARNs)of the agents to use for an NFS location.
 	//
 	// AgentArns is a required field
-	AgentArns []string `min:"1" type:"list" required:"true"`
+	AgentArns []string `json:"datasync:OnPremConfig:AgentArns" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -229,11 +229,11 @@ type Options struct {
 	// If Atime is set to BEST_EFFORT, Mtime must be set to PRESERVE.
 	//
 	// If Atime is set to NONE, Mtime must also be NONE.
-	Atime Atime `type:"string" enum:"true"`
+	Atime Atime `json:"datasync:Options:Atime" type:"string" enum:"true"`
 
 	// A value that limits the bandwidth used by AWS DataSync. For example, if you
 	// want AWS DataSync to use a maximum of 1 MB, set this value to 1048576 (=1024*1024).
-	BytesPerSecond *int64 `type:"long"`
+	BytesPerSecond *int64 `json:"datasync:Options:BytesPerSecond" type:"long"`
 
 	// The group ID (GID) of the file's owners.
 	//
@@ -242,7 +242,7 @@ type Options struct {
 	// INT_VALUE: Preserve the integer value of user ID (UID) and GID (recommended).
 	//
 	// NONE: Ignore UID and GID.
-	Gid Gid `type:"string" enum:"true"`
+	Gid Gid `json:"datasync:Options:Gid" type:"string" enum:"true"`
 
 	// A value that indicates the last time that a file was modified (that is, a
 	// file was written to) before the PREPARING phase.
@@ -256,7 +256,7 @@ type Options struct {
 	// If Mtime is set to PRESERVE, Atime must be set to BEST_EFFORT.
 	//
 	// If Mtime is set to NONE, Atime must also be set to NONE.
-	Mtime Mtime `type:"string" enum:"true"`
+	Mtime Mtime `json:"datasync:Options:Mtime" type:"string" enum:"true"`
 
 	// A value that determines which users or groups can access a file for a specific
 	// purpose such as reading, writing, or execution of the file.
@@ -268,7 +268,7 @@ type Options struct {
 	// NONE: Ignore permissions.
 	//
 	// AWS DataSync can preserve extant permissions of a source location.
-	PosixPermissions PosixPermissions `type:"string" enum:"true"`
+	PosixPermissions PosixPermissions `json:"datasync:Options:PosixPermissions" type:"string" enum:"true"`
 
 	// A value that specifies whether files in the destination that don't exist
 	// in the source file system should be preserved.
@@ -278,7 +278,7 @@ type Options struct {
 	// PRESERVE: Ignore such destination files (recommended).
 	//
 	// REMOVE: Delete destination files that aren’t present in the source.
-	PreserveDeletedFiles PreserveDeletedFiles `type:"string" enum:"true"`
+	PreserveDeletedFiles PreserveDeletedFiles `json:"datasync:Options:PreserveDeletedFiles" type:"string" enum:"true"`
 
 	// A value that determines whether AWS DataSync should preserve the metadata
 	// of block and character devices in the source file system, and recreate the
@@ -293,7 +293,7 @@ type Options struct {
 	//
 	// PRESERVE: Preserve character and block device metadata. This option isn't
 	// currently supported for Amazon EFS.
-	PreserveDevices PreserveDevices `type:"string" enum:"true"`
+	PreserveDevices PreserveDevices `json:"datasync:Options:PreserveDevices" type:"string" enum:"true"`
 
 	// The user ID (UID) of the file's owner.
 	//
@@ -302,7 +302,7 @@ type Options struct {
 	// INT_VALUE: Preserve the integer value of UID and group ID (GID) (recommended).
 	//
 	// NONE: Ignore UID and GID.
-	Uid Uid `type:"string" enum:"true"`
+	Uid Uid `json:"datasync:Options:Uid" type:"string" enum:"true"`
 
 	// A value that determines whether a data integrity verification should be performed
 	// at the end of a task execution after all data and metadata have been transferred.
@@ -312,7 +312,7 @@ type Options struct {
 	// POINT_IN_TIME_CONSISTENT: Perform verification (recommended).
 	//
 	// NONE: Skip verification.
-	VerifyMode VerifyMode `type:"string" enum:"true"`
+	VerifyMode VerifyMode `json:"datasync:Options:VerifyMode" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -337,11 +337,11 @@ func (s *Options) Validate() error {
 type PrivateLinkConfig struct {
 	_ struct{} `type:"structure"`
 
-	PrivateLinkEndpoint *string `type:"string"`
+	PrivateLinkEndpoint *string `json:"datasync:PrivateLinkConfig:PrivateLinkEndpoint" type:"string"`
 
-	SecurityGroupArns []string `min:"1" type:"list"`
+	SecurityGroupArns []string `json:"datasync:PrivateLinkConfig:SecurityGroupArns" min:"1" type:"list"`
 
-	SubnetArns []string `min:"1" type:"list"`
+	SubnetArns []string `json:"datasync:PrivateLinkConfig:SubnetArns" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -362,7 +362,7 @@ type S3Config struct {
 	// CreateLocationS3 operation.
 	//
 	// BucketAccessRoleArn is a required field
-	BucketAccessRoleArn *string `type:"string" required:"true"`
+	BucketAccessRoleArn *string `json:"datasync:S3Config:BucketAccessRoleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -394,10 +394,10 @@ type TagListEntry struct {
 	// The key for an AWS resource tag.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"datasync:TagListEntry:Key" min:"1" type:"string" required:"true"`
 
 	// The value for an AWS resource tag.
-	Value *string `min:"1" type:"string"`
+	Value *string `json:"datasync:TagListEntry:Value" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -433,10 +433,10 @@ type TaskExecutionListEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The status of a task execution.
-	Status TaskExecutionStatus `type:"string" enum:"true"`
+	Status TaskExecutionStatus `json:"datasync:TaskExecutionListEntry:Status" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the task that was executed.
-	TaskExecutionArn *string `type:"string"`
+	TaskExecutionArn *string `json:"datasync:TaskExecutionListEntry:TaskExecutionArn" type:"string"`
 }
 
 // String returns the string representation
@@ -453,30 +453,30 @@ type TaskExecutionResultDetail struct {
 
 	// Errors that AWS DataSync encountered during execution of the task. You can
 	// use this error code to help troubleshoot issues.
-	ErrorCode *string `type:"string"`
+	ErrorCode *string `json:"datasync:TaskExecutionResultDetail:ErrorCode" type:"string"`
 
 	// Detailed description of an error that was encountered during the task execution.
 	// You can use this information to help troubleshoot issues.
-	ErrorDetail *string `type:"string"`
+	ErrorDetail *string `json:"datasync:TaskExecutionResultDetail:ErrorDetail" type:"string"`
 
 	// The total time in milliseconds that AWS DataSync spent in the PREPARING phase.
-	PrepareDuration *int64 `type:"long"`
+	PrepareDuration *int64 `json:"datasync:TaskExecutionResultDetail:PrepareDuration" type:"long"`
 
 	// The status of the PREPARING phase.
-	PrepareStatus PhaseStatus `type:"string" enum:"true"`
+	PrepareStatus PhaseStatus `json:"datasync:TaskExecutionResultDetail:PrepareStatus" type:"string" enum:"true"`
 
 	// The total time in milliseconds that AWS DataSync spent in the TRANSFERRING
 	// phase.
-	TransferDuration *int64 `type:"long"`
+	TransferDuration *int64 `json:"datasync:TaskExecutionResultDetail:TransferDuration" type:"long"`
 
 	// The status of the TRANSFERRING Phase.
-	TransferStatus PhaseStatus `type:"string" enum:"true"`
+	TransferStatus PhaseStatus `json:"datasync:TaskExecutionResultDetail:TransferStatus" type:"string" enum:"true"`
 
 	// The total time in milliseconds that AWS DataSync spent in the VERIFYING phase.
-	VerifyDuration *int64 `type:"long"`
+	VerifyDuration *int64 `json:"datasync:TaskExecutionResultDetail:VerifyDuration" type:"long"`
 
 	// The status of the VERIFYING Phase.
-	VerifyStatus PhaseStatus `type:"string" enum:"true"`
+	VerifyStatus PhaseStatus `json:"datasync:TaskExecutionResultDetail:VerifyStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -493,13 +493,13 @@ type TaskListEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the task.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"datasync:TaskListEntry:Name" min:"1" type:"string"`
 
 	// The status of the task.
-	Status TaskStatus `type:"string" enum:"true"`
+	Status TaskStatus `json:"datasync:TaskListEntry:Status" type:"string" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the task.
-	TaskArn *string `type:"string"`
+	TaskArn *string `json:"datasync:TaskListEntry:TaskArn" type:"string"`
 }
 
 // String returns the string representation

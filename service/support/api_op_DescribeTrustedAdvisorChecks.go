@@ -49,7 +49,7 @@ type DescribeTrustedAdvisorChecksOutput struct {
 	// Information about all available Trusted Advisor checks.
 	//
 	// Checks is a required field
-	Checks []TrustedAdvisorCheckDescription `locationName:"checks" type:"list" required:"true"`
+	Checks []TrustedAdvisorCheckDescription `json:"support:DescribeTrustedAdvisorChecksOutput:Checks" locationName:"checks" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -27,7 +27,7 @@ type DescribeInterconnectsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The interconnects.
-	Interconnects []Interconnect `locationName:"interconnects" type:"list"`
+	Interconnects []Interconnect `json:"directconnect:DescribeInterconnectsOutput:Interconnects" locationName:"interconnects" type:"list"`
 }
 
 // String returns the string representation

@@ -59,10 +59,10 @@ type ListTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The token returned to indicate that there is more data available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"a4b:ListTagsOutput:NextToken" min:"1" type:"string"`
 
 	// The tags requested for the specified resource.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"a4b:ListTagsOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

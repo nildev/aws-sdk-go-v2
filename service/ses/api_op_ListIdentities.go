@@ -41,10 +41,10 @@ type ListIdentitiesOutput struct {
 	// A list of identities.
 	//
 	// Identities is a required field
-	Identities []string `type:"list" required:"true"`
+	Identities []string `json:"email:ListIdentitiesOutput:Identities" type:"list" required:"true"`
 
 	// The token used for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"email:ListIdentitiesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

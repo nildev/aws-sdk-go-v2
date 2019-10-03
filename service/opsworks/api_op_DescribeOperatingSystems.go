@@ -25,7 +25,7 @@ type DescribeOperatingSystemsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Contains information in response to a DescribeOperatingSystems request.
-	OperatingSystems []OperatingSystem `type:"list"`
+	OperatingSystems []OperatingSystem `json:"opsworks:DescribeOperatingSystemsOutput:OperatingSystems" type:"list"`
 }
 
 // String returns the string representation

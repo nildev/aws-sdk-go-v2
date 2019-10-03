@@ -43,47 +43,47 @@ type GetLicenseConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of summaries for consumed licenses used by various resources.
-	ConsumedLicenseSummaryList []ConsumedLicenseSummary `type:"list"`
+	ConsumedLicenseSummaryList []ConsumedLicenseSummary `json:"license-manager:GetLicenseConfigurationOutput:ConsumedLicenseSummaryList" type:"list"`
 
 	// Number of licenses assigned to resources.
-	ConsumedLicenses *int64 `type:"long"`
+	ConsumedLicenses *int64 `json:"license-manager:GetLicenseConfigurationOutput:ConsumedLicenses" type:"long"`
 
 	// Description of the license configuration.
-	Description *string `type:"string"`
+	Description *string `json:"license-manager:GetLicenseConfigurationOutput:Description" type:"string"`
 
 	// ARN of the license configuration requested.
-	LicenseConfigurationArn *string `type:"string"`
+	LicenseConfigurationArn *string `json:"license-manager:GetLicenseConfigurationOutput:LicenseConfigurationArn" type:"string"`
 
 	// Unique ID for the license configuration.
-	LicenseConfigurationId *string `type:"string"`
+	LicenseConfigurationId *string `json:"license-manager:GetLicenseConfigurationOutput:LicenseConfigurationId" type:"string"`
 
 	// Number of available licenses.
-	LicenseCount *int64 `type:"long"`
+	LicenseCount *int64 `json:"license-manager:GetLicenseConfigurationOutput:LicenseCount" type:"long"`
 
 	// Sets the number of available licenses as a hard limit.
-	LicenseCountHardLimit *bool `type:"boolean"`
+	LicenseCountHardLimit *bool `json:"license-manager:GetLicenseConfigurationOutput:LicenseCountHardLimit" type:"boolean"`
 
 	// Dimension on which the licenses are counted (for example, instances, cores,
 	// sockets, or VCPUs).
-	LicenseCountingType LicenseCountingType `type:"string" enum:"true"`
+	LicenseCountingType LicenseCountingType `json:"license-manager:GetLicenseConfigurationOutput:LicenseCountingType" type:"string" enum:"true"`
 
 	// List of flexible text strings designating license rules.
-	LicenseRules []string `type:"list"`
+	LicenseRules []string `json:"license-manager:GetLicenseConfigurationOutput:LicenseRules" type:"list"`
 
 	// List of summaries of managed resources.
-	ManagedResourceSummaryList []ManagedResourceSummary `type:"list"`
+	ManagedResourceSummaryList []ManagedResourceSummary `json:"license-manager:GetLicenseConfigurationOutput:ManagedResourceSummaryList" type:"list"`
 
 	// Name of the license configuration.
-	Name *string `type:"string"`
+	Name *string `json:"license-manager:GetLicenseConfigurationOutput:Name" type:"string"`
 
 	// Owner account ID for the license configuration.
-	OwnerAccountId *string `type:"string"`
+	OwnerAccountId *string `json:"license-manager:GetLicenseConfigurationOutput:OwnerAccountId" type:"string"`
 
 	// License configuration status (active, etc.).
-	Status *string `type:"string"`
+	Status *string `json:"license-manager:GetLicenseConfigurationOutput:Status" type:"string"`
 
 	// List of tags attached to the license configuration.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"license-manager:GetLicenseConfigurationOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

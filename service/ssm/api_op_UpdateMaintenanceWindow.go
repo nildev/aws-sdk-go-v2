@@ -104,45 +104,45 @@ type UpdateMaintenanceWindowOutput struct {
 
 	// Whether targets must be registered with the maintenance window before tasks
 	// can be defined for those targets.
-	AllowUnassociatedTargets *bool `type:"boolean"`
+	AllowUnassociatedTargets *bool `json:"ssm:UpdateMaintenanceWindowOutput:AllowUnassociatedTargets" type:"boolean"`
 
 	// The number of hours before the end of the maintenance window that Systems
 	// Manager stops scheduling new tasks for execution.
-	Cutoff *int64 `type:"integer"`
+	Cutoff *int64 `json:"ssm:UpdateMaintenanceWindowOutput:Cutoff" type:"integer"`
 
 	// An optional description of the update.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"ssm:UpdateMaintenanceWindowOutput:Description" min:"1" type:"string"`
 
 	// The duration of the maintenance window in hours.
-	Duration *int64 `min:"1" type:"integer"`
+	Duration *int64 `json:"ssm:UpdateMaintenanceWindowOutput:Duration" min:"1" type:"integer"`
 
 	// Whether the maintenance window is enabled.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"ssm:UpdateMaintenanceWindowOutput:Enabled" type:"boolean"`
 
 	// The date and time, in ISO-8601 Extended format, for when the maintenance
 	// window is scheduled to become inactive. The maintenance window will not run
 	// after this specified time.
-	EndDate *string `type:"string"`
+	EndDate *string `json:"ssm:UpdateMaintenanceWindowOutput:EndDate" type:"string"`
 
 	// The name of the maintenance window.
-	Name *string `min:"3" type:"string"`
+	Name *string `json:"ssm:UpdateMaintenanceWindowOutput:Name" min:"3" type:"string"`
 
 	// The schedule of the maintenance window in the form of a cron or rate expression.
-	Schedule *string `min:"1" type:"string"`
+	Schedule *string `json:"ssm:UpdateMaintenanceWindowOutput:Schedule" min:"1" type:"string"`
 
 	// The time zone that the scheduled maintenance window executions are based
 	// on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles",
 	// "etc/UTC", or "Asia/Seoul". For more information, see the Time Zone Database
 	// (https://www.iana.org/time-zones) on the IANA website.
-	ScheduleTimezone *string `type:"string"`
+	ScheduleTimezone *string `json:"ssm:UpdateMaintenanceWindowOutput:ScheduleTimezone" type:"string"`
 
 	// The date and time, in ISO-8601 Extended format, for when the maintenance
 	// window is scheduled to become active. The maintenance window will not run
 	// before this specified time.
-	StartDate *string `type:"string"`
+	StartDate *string `json:"ssm:UpdateMaintenanceWindowOutput:StartDate" type:"string"`
 
 	// The ID of the created maintenance window.
-	WindowId *string `min:"20" type:"string"`
+	WindowId *string `json:"ssm:UpdateMaintenanceWindowOutput:WindowId" min:"20" type:"string"`
 }
 
 // String returns the string representation

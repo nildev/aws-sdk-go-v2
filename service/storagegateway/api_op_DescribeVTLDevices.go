@@ -72,17 +72,17 @@ type DescribeVTLDevicesOutput struct {
 
 	// The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation
 	// to return a list of gateways for your account and region.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:DescribeVTLDevicesOutput:GatewayARN" min:"50" type:"string"`
 
 	// An opaque string that indicates the position at which the VTL devices that
 	// were fetched for description ended. Use the marker in your next request to
 	// fetch the next set of VTL devices in the list. If there are no more VTL devices
 	// to describe, this field does not appear in the response.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"storagegateway:DescribeVTLDevicesOutput:Marker" min:"1" type:"string"`
 
 	// An array of VTL device objects composed of the Amazon Resource Name(ARN)
 	// of the VTL devices.
-	VTLDevices []VTLDevice `type:"list"`
+	VTLDevices []VTLDevice `json:"storagegateway:DescribeVTLDevicesOutput:VTLDevices" type:"list"`
 }
 
 // String returns the string representation

@@ -19,16 +19,16 @@ type Group struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the group.
-	Arn *string `type:"string"`
+	Arn *string `json:"quicksight:Group:Arn" type:"string"`
 
 	// The group description.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"quicksight:Group:Description" min:"1" type:"string"`
 
 	// The name of the group.
-	GroupName *string `min:"1" type:"string"`
+	GroupName *string `json:"quicksight:Group:GroupName" min:"1" type:"string"`
 
 	// The principal ID of the group.
-	PrincipalId *string `type:"string"`
+	PrincipalId *string `json:"quicksight:Group:PrincipalId" type:"string"`
 }
 
 // String returns the string representation
@@ -72,10 +72,10 @@ type GroupMember struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) for the group member (user).
-	Arn *string `type:"string"`
+	Arn *string `json:"quicksight:GroupMember:Arn" type:"string"`
 
 	// The name of the group member (user).
-	MemberName *string `min:"1" type:"string"`
+	MemberName *string `json:"quicksight:GroupMember:MemberName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -109,25 +109,25 @@ type User struct {
 	// Active status of user. When you create an Amazon QuickSight user that’s
 	// not an IAM user or an AD user, that user is inactive until they sign in and
 	// provide a password
-	Active *bool `type:"boolean"`
+	Active *bool `json:"quicksight:User:Active" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) for the user.
-	Arn *string `type:"string"`
+	Arn *string `json:"quicksight:User:Arn" type:"string"`
 
 	// The user's email address.
-	Email *string `type:"string"`
+	Email *string `json:"quicksight:User:Email" type:"string"`
 
 	// The type of identity authentication used by the user.
-	IdentityType IdentityType `type:"string" enum:"true"`
+	IdentityType IdentityType `json:"quicksight:User:IdentityType" type:"string" enum:"true"`
 
 	// The principal ID of the user.
-	PrincipalId *string `type:"string"`
+	PrincipalId *string `json:"quicksight:User:PrincipalId" type:"string"`
 
 	// The Amazon QuickSight role for the user.
-	Role UserRole `type:"string" enum:"true"`
+	Role UserRole `json:"quicksight:User:Role" type:"string" enum:"true"`
 
 	// The user's user name.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"quicksight:User:UserName" min:"1" type:"string"`
 }
 
 // String returns the string representation

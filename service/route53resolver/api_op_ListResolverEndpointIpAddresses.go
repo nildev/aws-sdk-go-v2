@@ -63,16 +63,16 @@ type ListResolverEndpointIpAddressesOutput struct {
 
 	// The IP addresses that DNS queries pass through on their way to your network
 	// (outbound endpoint) or on the way to Resolver (inbound endpoint).
-	IpAddresses []IpAddressResponse `type:"list"`
+	IpAddresses []IpAddressResponse `json:"route53resolver:ListResolverEndpointIpAddressesOutput:IpAddresses" type:"list"`
 
 	// The value that you specified for MaxResults in the request.
-	MaxResults *int64 `min:"1" type:"integer"`
+	MaxResults *int64 `json:"route53resolver:ListResolverEndpointIpAddressesOutput:MaxResults" min:"1" type:"integer"`
 
 	// If the specified endpoint has more than MaxResults IP addresses, you can
 	// submit another ListResolverEndpointIpAddresses request to get the next group
 	// of IP addresses. In the next request, specify the value of NextToken from
 	// the previous response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"route53resolver:ListResolverEndpointIpAddressesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

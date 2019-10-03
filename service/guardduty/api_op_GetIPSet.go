@@ -77,27 +77,27 @@ type GetIPSetOutput struct {
 	// The format of the file that contains the IPSet.
 	//
 	// Format is a required field
-	Format IpSetFormat `locationName:"format" min:"1" type:"string" required:"true" enum:"true"`
+	Format IpSetFormat `json:"guardduty:GetIPSetOutput:Format" locationName:"format" min:"1" type:"string" required:"true" enum:"true"`
 
 	// The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
 	//
 	// Location is a required field
-	Location *string `locationName:"location" min:"1" type:"string" required:"true"`
+	Location *string `json:"guardduty:GetIPSetOutput:Location" locationName:"location" min:"1" type:"string" required:"true"`
 
 	// The user friendly name to identify the IPSet. This name is displayed in all
 	// findings that are triggered by activity that involves IP addresses included
 	// in this IPSet.
 	//
 	// Name is a required field
-	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+	Name *string `json:"guardduty:GetIPSetOutput:Name" locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The status of ipSet file uploaded.
 	//
 	// Status is a required field
-	Status IpSetStatus `locationName:"status" min:"1" type:"string" required:"true" enum:"true"`
+	Status IpSetStatus `json:"guardduty:GetIPSetOutput:Status" locationName:"status" min:"1" type:"string" required:"true" enum:"true"`
 
 	// The tags of the IP set resource.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"guardduty:GetIPSetOutput:Tags" locationName:"tags" min:"1" type:"map"`
 }
 
 // String returns the string representation

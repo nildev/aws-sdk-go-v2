@@ -121,12 +121,12 @@ type CreateJobQueueOutput struct {
 	// The Amazon Resource Name (ARN) of the job queue.
 	//
 	// JobQueueArn is a required field
-	JobQueueArn *string `locationName:"jobQueueArn" type:"string" required:"true"`
+	JobQueueArn *string `json:"batch:CreateJobQueueOutput:JobQueueArn" locationName:"jobQueueArn" type:"string" required:"true"`
 
 	// The name of the job queue.
 	//
 	// JobQueueName is a required field
-	JobQueueName *string `locationName:"jobQueueName" type:"string" required:"true"`
+	JobQueueName *string `json:"batch:CreateJobQueueOutput:JobQueueName" locationName:"jobQueueName" type:"string" required:"true"`
 }
 
 // String returns the string representation

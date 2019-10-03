@@ -97,7 +97,7 @@ type DeleteJobOutput struct {
 	// Structure for the summary of a Job.
 	//
 	// JobSummary is a required field
-	JobSummary *JobSummary `locationName:"jobSummary" type:"structure" required:"true"`
+	JobSummary *JobSummary `json:"amplify:DeleteJobOutput:JobSummary" locationName:"jobSummary" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -54,7 +54,7 @@ type RegisterInstancesWithLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The updated list of instances for the load balancer.
-	Instances []Instance `type:"list"`
+	Instances []Instance `json:"elasticloadbalancing:RegisterInstancesWithLoadBalancerOutput:Instances" type:"list"`
 }
 
 // String returns the string representation

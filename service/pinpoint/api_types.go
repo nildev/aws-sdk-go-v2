@@ -23,16 +23,16 @@ type ADMChannelRequest struct {
 	// The Client ID that you received from Amazon to send messages by using ADM.
 	//
 	// ClientId is a required field
-	ClientId *string `type:"string" required:"true"`
+	ClientId *string `json:"pinpoint:ADMChannelRequest:ClientId" type:"string" required:"true"`
 
 	// The Client Secret that you received from Amazon to send messages by using
 	// ADM.
 	//
 	// ClientSecret is a required field
-	ClientSecret *string `type:"string" required:"true"`
+	ClientSecret *string `json:"pinpoint:ADMChannelRequest:ClientSecret" type:"string" required:"true"`
 
 	// Specifies whether to enable the ADM channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:ADMChannelRequest:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -88,38 +88,38 @@ type ADMChannelResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for the application that the ADM channel applies to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:ADMChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time when the ADM channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:ADMChannelResponse:CreationDate" type:"string"`
 
 	// Specifies whether the ADM channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:ADMChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:ADMChannelResponse:HasCredential" type:"boolean"`
 
 	// (Deprecated) An identifier for the ADM channel. This property is retained
 	// only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:ADMChannelResponse:Id" type:"string"`
 
 	// Specifies whether the ADM channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:ADMChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the ADM channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:ADMChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time when the ADM channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:ADMChannelResponse:LastModifiedDate" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the ADM
 	// channel, this value is ADM.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:ADMChannelResponse:Platform" type:"string" required:"true"`
 
 	// The current version of the ADM channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:ADMChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -210,70 +210,70 @@ type ADMMessage struct {
 	//
 	//    * URL - The default mobile browser on the recipient's device opens and
 	//    loads the web page at a URL that you specify.
-	Action Action `type:"string" enum:"true"`
+	Action Action `json:"pinpoint:ADMMessage:Action" type:"string" enum:"true"`
 
 	// The body of the notification message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:ADMMessage:Body" type:"string"`
 
 	// An arbitrary string that indicates that multiple messages are logically the
 	// same and that Amazon Device Messaging (ADM) can drop previously enqueued
 	// messages in favor of this message.
-	ConsolidationKey *string `type:"string"`
+	ConsolidationKey *string `json:"pinpoint:ADMMessage:ConsolidationKey" type:"string"`
 
 	// The JSON data payload to use for the push notification, if the notification
 	// is a silent push notification. This payload is added to the data.pinpoint.jsonBody
 	// object of the notification.
-	Data map[string]string `type:"map"`
+	Data map[string]string `json:"pinpoint:ADMMessage:Data" type:"map"`
 
 	// The amount of time, in seconds, that ADM should store the message if the
 	// recipient's device is offline. Amazon Pinpoint specifies this value in the
 	// expiresAfter parameter when it sends the notification message to ADM.
-	ExpiresAfter *string `type:"string"`
+	ExpiresAfter *string `json:"pinpoint:ADMMessage:ExpiresAfter" type:"string"`
 
 	// The icon image name of the asset saved in your app.
-	IconReference *string `type:"string"`
+	IconReference *string `json:"pinpoint:ADMMessage:IconReference" type:"string"`
 
 	// The URL of the large icon image to display in the content view of the push
 	// notification.
-	ImageIconUrl *string `type:"string"`
+	ImageIconUrl *string `json:"pinpoint:ADMMessage:ImageIconUrl" type:"string"`
 
 	// The URL of an image to display in the push notification.
-	ImageUrl *string `type:"string"`
+	ImageUrl *string `json:"pinpoint:ADMMessage:ImageUrl" type:"string"`
 
 	// The base64-encoded, MD5 checksum of the value specified by the Data property.
 	// ADM uses the MD5 value to verify the integrity of the data.
-	MD5 *string `type:"string"`
+	MD5 *string `json:"pinpoint:ADMMessage:MD5" type:"string"`
 
 	// The raw, JSON-formatted string to use as the payload for the notification
 	// message. This value overrides the message.
-	RawContent *string `type:"string"`
+	RawContent *string `json:"pinpoint:ADMMessage:RawContent" type:"string"`
 
 	// Specifies whether the notification is a silent push notification, which is
 	// a push notification that doesn't display on a recipient's device. Silent
 	// push notifications can be used for cases such as updating an app's configuration
 	// or supporting phone home functionality.
-	SilentPush *bool `type:"boolean"`
+	SilentPush *bool `json:"pinpoint:ADMMessage:SilentPush" type:"boolean"`
 
 	// The URL of the small icon image to display in the status bar and the content
 	// view of the push notification.
-	SmallImageIconUrl *string `type:"string"`
+	SmallImageIconUrl *string `json:"pinpoint:ADMMessage:SmallImageIconUrl" type:"string"`
 
 	// The sound to play when the recipient receives the push notification. You
 	// can use the default stream or specify the file name of a sound resource that's
 	// bundled in your app. On an Android platform, the sound file must reside in
 	// /res/raw/.
-	Sound *string `type:"string"`
+	Sound *string `json:"pinpoint:ADMMessage:Sound" type:"string"`
 
 	// The default message variables to use in the notification message. You can
 	// override the default variables with individual address variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:ADMMessage:Substitutions" type:"map"`
 
 	// The title to display above the notification message on the recipient's device.
-	Title *string `type:"string"`
+	Title *string `json:"pinpoint:ADMMessage:Title" type:"string"`
 
 	// The URL to open in the recipient's default mobile browser, if a recipient
 	// taps the push notification and the value of the Action property is URL.
-	Url *string `type:"string"`
+	Url *string `json:"pinpoint:ADMMessage:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -407,33 +407,33 @@ type APNSChannelRequest struct {
 
 	// The bundle identifier that's assigned to your iOS app. This identifier is
 	// used for APNs tokens.
-	BundleId *string `type:"string"`
+	BundleId *string `json:"pinpoint:APNSChannelRequest:BundleId" type:"string"`
 
 	// The APNs client certificate that you received from Apple, if you want Amazon
 	// Pinpoint to communicate with APNs by using an APNs certificate.
-	Certificate *string `type:"string"`
+	Certificate *string `json:"pinpoint:APNSChannelRequest:Certificate" type:"string"`
 
 	// The default authentication method that you want Amazon Pinpoint to use when
 	// authenticating with APNs, key or certificate.
-	DefaultAuthenticationMethod *string `type:"string"`
+	DefaultAuthenticationMethod *string `json:"pinpoint:APNSChannelRequest:DefaultAuthenticationMethod" type:"string"`
 
 	// Specifies whether to enable the APNs channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:APNSChannelRequest:Enabled" type:"boolean"`
 
 	// The private key for the APNs client certificate that you want Amazon Pinpoint
 	// to use to communicate with APNs.
-	PrivateKey *string `type:"string"`
+	PrivateKey *string `json:"pinpoint:APNSChannelRequest:PrivateKey" type:"string"`
 
 	// The identifier that's assigned to your Apple developer account team. This
 	// identifier is used for APNs tokens.
-	TeamId *string `type:"string"`
+	TeamId *string `json:"pinpoint:APNSChannelRequest:TeamId" type:"string"`
 
 	// The authentication key to use for APNs tokens.
-	TokenKey *string `type:"string"`
+	TokenKey *string `json:"pinpoint:APNSChannelRequest:TokenKey" type:"string"`
 
 	// The key identifier that's assigned to your APNs signing key, if you want
 	// Amazon Pinpoint to communicate with APNs by using APNs tokens.
-	TokenKeyId *string `type:"string"`
+	TokenKeyId *string `json:"pinpoint:APNSChannelRequest:TokenKeyId" type:"string"`
 }
 
 // String returns the string representation
@@ -501,47 +501,47 @@ type APNSChannelResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for the application that the APNs channel applies to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:APNSChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time when the APNs channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:APNSChannelResponse:CreationDate" type:"string"`
 
 	// The default authentication method that Amazon Pinpoint uses to authenticate
 	// with APNs for this channel, key or certificate.
-	DefaultAuthenticationMethod *string `type:"string"`
+	DefaultAuthenticationMethod *string `json:"pinpoint:APNSChannelResponse:DefaultAuthenticationMethod" type:"string"`
 
 	// Specifies whether the APNs channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:APNSChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:APNSChannelResponse:HasCredential" type:"boolean"`
 
 	// Specifies whether the APNs channel is configured to communicate with APNs
 	// by using APNs tokens. To provide an authentication key for APNs tokens, set
 	// the TokenKey property of the channel.
-	HasTokenKey *bool `type:"boolean"`
+	HasTokenKey *bool `json:"pinpoint:APNSChannelResponse:HasTokenKey" type:"boolean"`
 
 	// (Deprecated) An identifier for the APNs channel. This property is retained
 	// only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:APNSChannelResponse:Id" type:"string"`
 
 	// Specifies whether the APNs channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:APNSChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the APNs channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:APNSChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time when the APNs channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:APNSChannelResponse:LastModifiedDate" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the APNs
 	// channel, this value is APNS.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:APNSChannelResponse:Platform" type:"string" required:"true"`
 
 	// The current version of the APNs channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:APNSChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -643,21 +643,21 @@ type APNSMessage struct {
 	//
 	//    * URL - The default mobile browser on the recipient's device opens and
 	//    loads the web page at a URL that you specify.
-	Action Action `type:"string" enum:"true"`
+	Action Action `json:"pinpoint:APNSMessage:Action" type:"string" enum:"true"`
 
 	// The key that indicates whether and how to modify the badge of your app's
 	// icon when the recipient receives the push notification. If this key isn't
 	// included in the dictionary, the badge doesn't change. To remove the badge,
 	// set this value to 0.
-	Badge *int64 `type:"integer"`
+	Badge *int64 `json:"pinpoint:APNSMessage:Badge" type:"integer"`
 
 	// The body of the notification message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:APNSMessage:Body" type:"string"`
 
 	// The key that indicates the notification type for the push notification. This
 	// key is a value that's defined by the identifier property of one of your app's
 	// registered categories.
-	Category *string `type:"string"`
+	Category *string `json:"pinpoint:APNSMessage:Category" type:"string"`
 
 	// An arbitrary identifier that, if assigned to multiple messages, APNs uses
 	// to coalesce the messages into a single push notification instead of delivering
@@ -665,18 +665,18 @@ type APNSMessage struct {
 	//
 	// Amazon Pinpoint specifies this value in the apns-collapse-id request header
 	// when it sends the notification message to APNs.
-	CollapseId *string `type:"string"`
+	CollapseId *string `json:"pinpoint:APNSMessage:CollapseId" type:"string"`
 
 	// The JSON payload to use for a silent push notification. This payload is added
 	// to the data.pinpoint.jsonBody object of the notification.
-	Data map[string]string `type:"map"`
+	Data map[string]string `json:"pinpoint:APNSMessage:Data" type:"map"`
 
 	// The URL of an image or video to display in the push notification.
-	MediaUrl *string `type:"string"`
+	MediaUrl *string `json:"pinpoint:APNSMessage:MediaUrl" type:"string"`
 
 	// The authentication method that you want Amazon Pinpoint to use when authenticating
 	// with Apple Push Notification service (APNs), CERTIFICATE or TOKEN.
-	PreferredAuthenticationMethod *string `type:"string"`
+	PreferredAuthenticationMethod *string `json:"pinpoint:APNSMessage:PreferredAuthenticationMethod" type:"string"`
 
 	// para>5 - Low priority, the notification might be delayed, delivered as part
 	// of a group, or throttled.
@@ -692,34 +692,34 @@ type APNSMessage struct {
 	// Cloud Messaging (GCM), are normal, for 5, and high, for 10. If you specify
 	// an FCM value for this property, Amazon Pinpoint accepts and converts the
 	// value to the corresponding APNs value.
-	Priority *string `type:"string"`
+	Priority *string `json:"pinpoint:APNSMessage:Priority" type:"string"`
 
 	// The raw, JSON-formatted string to use as the payload for the notification
 	// message. This value overrides the message.
-	RawContent *string `type:"string"`
+	RawContent *string `json:"pinpoint:APNSMessage:RawContent" type:"string"`
 
 	// Specifies whether the notification is a silent push notification, which is
 	// a push notification that doesn't display on a recipient's device. Silent
 	// push notifications can be used for cases such as updating an app's configuration,
 	// displaying messages in an in-app message center, or supporting phone home
 	// functionality.
-	SilentPush *bool `type:"boolean"`
+	SilentPush *bool `json:"pinpoint:APNSMessage:SilentPush" type:"boolean"`
 
 	// The key for the sound to play when the recipient receives the push notification.
 	// The value of this key is the name of a sound file in your app's main bundle
 	// or the Library/Sounds folder in your app's data container. If the sound file
 	// can't be found or you specify default for the value, the system plays the
 	// default alert sound.
-	Sound *string `type:"string"`
+	Sound *string `json:"pinpoint:APNSMessage:Sound" type:"string"`
 
 	// The default message variables to use in the notification message. You can
 	// override these default variables with individual address variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:APNSMessage:Substitutions" type:"map"`
 
 	// The key that represents your app-specific identifier for grouping notifications.
 	// If you provide a Notification Content app extension, you can use this value
 	// to group your notifications together.
-	ThreadId *string `type:"string"`
+	ThreadId *string `json:"pinpoint:APNSMessage:ThreadId" type:"string"`
 
 	// The amount of time, in seconds, that APNs should store and attempt to deliver
 	// the push notification, if the service is unable to deliver the notification
@@ -729,14 +729,14 @@ type APNSMessage struct {
 	//
 	// Amazon Pinpoint specifies this value in the apns-expiration request header
 	// when it sends the notification message to APNs.
-	TimeToLive *int64 `type:"integer"`
+	TimeToLive *int64 `json:"pinpoint:APNSMessage:TimeToLive" type:"integer"`
 
 	// The title to display above the notification message on the recipient's device.
-	Title *string `type:"string"`
+	Title *string `json:"pinpoint:APNSMessage:Title" type:"string"`
 
 	// The URL to open in the recipient's default mobile browser, if a recipient
 	// taps the push notification and the value of the Action property is URL.
-	Url *string `type:"string"`
+	Url *string `json:"pinpoint:APNSMessage:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -876,35 +876,35 @@ type APNSSandboxChannelRequest struct {
 
 	// The bundle identifier that's assigned to your iOS app. This identifier is
 	// used for APNs tokens.
-	BundleId *string `type:"string"`
+	BundleId *string `json:"pinpoint:APNSSandboxChannelRequest:BundleId" type:"string"`
 
 	// The APNs client certificate that you received from Apple, if you want Amazon
 	// Pinpoint to communicate with the APNs sandbox environment by using an APNs
 	// certificate.
-	Certificate *string `type:"string"`
+	Certificate *string `json:"pinpoint:APNSSandboxChannelRequest:Certificate" type:"string"`
 
 	// The default authentication method that you want Amazon Pinpoint to use when
 	// authenticating with the APNs sandbox environment, key or certificate.
-	DefaultAuthenticationMethod *string `type:"string"`
+	DefaultAuthenticationMethod *string `json:"pinpoint:APNSSandboxChannelRequest:DefaultAuthenticationMethod" type:"string"`
 
 	// Specifies whether to enable the APNs sandbox channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:APNSSandboxChannelRequest:Enabled" type:"boolean"`
 
 	// The private key for the APNs client certificate that you want Amazon Pinpoint
 	// to use to communicate with the APNs sandbox environment.
-	PrivateKey *string `type:"string"`
+	PrivateKey *string `json:"pinpoint:APNSSandboxChannelRequest:PrivateKey" type:"string"`
 
 	// The identifier that's assigned to your Apple developer account team. This
 	// identifier is used for APNs tokens.
-	TeamId *string `type:"string"`
+	TeamId *string `json:"pinpoint:APNSSandboxChannelRequest:TeamId" type:"string"`
 
 	// The authentication key to use for APNs tokens.
-	TokenKey *string `type:"string"`
+	TokenKey *string `json:"pinpoint:APNSSandboxChannelRequest:TokenKey" type:"string"`
 
 	// The key identifier that's assigned to your APNs signing key, if you want
 	// Amazon Pinpoint to communicate with the APNs sandbox environment by using
 	// APNs tokens.
-	TokenKeyId *string `type:"string"`
+	TokenKeyId *string `json:"pinpoint:APNSSandboxChannelRequest:TokenKeyId" type:"string"`
 }
 
 // String returns the string representation
@@ -973,47 +973,47 @@ type APNSSandboxChannelResponse struct {
 
 	// The unique identifier for the application that the APNs sandbox channel applies
 	// to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:APNSSandboxChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time when the APNs sandbox channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:APNSSandboxChannelResponse:CreationDate" type:"string"`
 
 	// The default authentication method that Amazon Pinpoint uses to authenticate
 	// with the APNs sandbox environment for this channel, key or certificate.
-	DefaultAuthenticationMethod *string `type:"string"`
+	DefaultAuthenticationMethod *string `json:"pinpoint:APNSSandboxChannelResponse:DefaultAuthenticationMethod" type:"string"`
 
 	// Specifies whether the APNs sandbox channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:APNSSandboxChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:APNSSandboxChannelResponse:HasCredential" type:"boolean"`
 
 	// Specifies whether the APNs sandbox channel is configured to communicate with
 	// APNs by using APNs tokens. To provide an authentication key for APNs tokens,
 	// set the TokenKey property of the channel.
-	HasTokenKey *bool `type:"boolean"`
+	HasTokenKey *bool `json:"pinpoint:APNSSandboxChannelResponse:HasTokenKey" type:"boolean"`
 
 	// (Deprecated) An identifier for the APNs sandbox channel. This property is
 	// retained only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:APNSSandboxChannelResponse:Id" type:"string"`
 
 	// Specifies whether the APNs sandbox channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:APNSSandboxChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the APNs sandbox channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:APNSSandboxChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time when the APNs sandbox channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:APNSSandboxChannelResponse:LastModifiedDate" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the APNs
 	// sandbox channel, this value is APNS_SANDBOX.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:APNSSandboxChannelResponse:Platform" type:"string" required:"true"`
 
 	// The current version of the APNs sandbox channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:APNSSandboxChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -1106,33 +1106,33 @@ type APNSVoipChannelRequest struct {
 
 	// The bundle identifier that's assigned to your iOS app. This identifier is
 	// used for APNs tokens.
-	BundleId *string `type:"string"`
+	BundleId *string `json:"pinpoint:APNSVoipChannelRequest:BundleId" type:"string"`
 
 	// The APNs client certificate that you received from Apple, if you want Amazon
 	// Pinpoint to communicate with APNs by using an APNs certificate.
-	Certificate *string `type:"string"`
+	Certificate *string `json:"pinpoint:APNSVoipChannelRequest:Certificate" type:"string"`
 
 	// The default authentication method that you want Amazon Pinpoint to use when
 	// authenticating with APNs, key or certificate.
-	DefaultAuthenticationMethod *string `type:"string"`
+	DefaultAuthenticationMethod *string `json:"pinpoint:APNSVoipChannelRequest:DefaultAuthenticationMethod" type:"string"`
 
 	// Specifies whether to enable the APNs VoIP channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:APNSVoipChannelRequest:Enabled" type:"boolean"`
 
 	// The private key for the APNs client certificate that you want Amazon Pinpoint
 	// to use to communicate with APNs.
-	PrivateKey *string `type:"string"`
+	PrivateKey *string `json:"pinpoint:APNSVoipChannelRequest:PrivateKey" type:"string"`
 
 	// The identifier that's assigned to your Apple developer account team. This
 	// identifier is used for APNs tokens.
-	TeamId *string `type:"string"`
+	TeamId *string `json:"pinpoint:APNSVoipChannelRequest:TeamId" type:"string"`
 
 	// The authentication key to use for APNs tokens.
-	TokenKey *string `type:"string"`
+	TokenKey *string `json:"pinpoint:APNSVoipChannelRequest:TokenKey" type:"string"`
 
 	// The key identifier that's assigned to your APNs signing key, if you want
 	// Amazon Pinpoint to communicate with APNs by using APNs tokens.
-	TokenKeyId *string `type:"string"`
+	TokenKeyId *string `json:"pinpoint:APNSVoipChannelRequest:TokenKeyId" type:"string"`
 }
 
 // String returns the string representation
@@ -1201,47 +1201,47 @@ type APNSVoipChannelResponse struct {
 
 	// The unique identifier for the application that the APNs VoIP channel applies
 	// to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:APNSVoipChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time when the APNs VoIP channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:APNSVoipChannelResponse:CreationDate" type:"string"`
 
 	// The default authentication method that Amazon Pinpoint uses to authenticate
 	// with APNs for this channel, key or certificate.
-	DefaultAuthenticationMethod *string `type:"string"`
+	DefaultAuthenticationMethod *string `json:"pinpoint:APNSVoipChannelResponse:DefaultAuthenticationMethod" type:"string"`
 
 	// Specifies whether the APNs VoIP channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:APNSVoipChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:APNSVoipChannelResponse:HasCredential" type:"boolean"`
 
 	// Specifies whether the APNs VoIP channel is configured to communicate with
 	// APNs by using APNs tokens. To provide an authentication key for APNs tokens,
 	// set the TokenKey property of the channel.
-	HasTokenKey *bool `type:"boolean"`
+	HasTokenKey *bool `json:"pinpoint:APNSVoipChannelResponse:HasTokenKey" type:"boolean"`
 
 	// (Deprecated) An identifier for the APNs VoIP channel. This property is retained
 	// only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:APNSVoipChannelResponse:Id" type:"string"`
 
 	// Specifies whether the APNs VoIP channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:APNSVoipChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the APNs VoIP channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:APNSVoipChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time when the APNs VoIP channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:APNSVoipChannelResponse:LastModifiedDate" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the APNs
 	// VoIP channel, this value is APNS_VOIP.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:APNSVoipChannelResponse:Platform" type:"string" required:"true"`
 
 	// The current version of the APNs VoIP channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:APNSVoipChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -1334,36 +1334,36 @@ type APNSVoipSandboxChannelRequest struct {
 
 	// The bundle identifier that's assigned to your iOS app. This identifier is
 	// used for APNs tokens.
-	BundleId *string `type:"string"`
+	BundleId *string `json:"pinpoint:APNSVoipSandboxChannelRequest:BundleId" type:"string"`
 
 	// The APNs client certificate that you received from Apple, if you want Amazon
 	// Pinpoint to communicate with the APNs sandbox environment by using an APNs
 	// certificate.
-	Certificate *string `type:"string"`
+	Certificate *string `json:"pinpoint:APNSVoipSandboxChannelRequest:Certificate" type:"string"`
 
 	// The default authentication method that you want Amazon Pinpoint to use when
 	// authenticating with the APNs sandbox environment for this channel, key or
 	// certificate.
-	DefaultAuthenticationMethod *string `type:"string"`
+	DefaultAuthenticationMethod *string `json:"pinpoint:APNSVoipSandboxChannelRequest:DefaultAuthenticationMethod" type:"string"`
 
 	// Specifies whether the APNs VoIP sandbox channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:APNSVoipSandboxChannelRequest:Enabled" type:"boolean"`
 
 	// The private key for the APNs client certificate that you want Amazon Pinpoint
 	// to use to communicate with the APNs sandbox environment.
-	PrivateKey *string `type:"string"`
+	PrivateKey *string `json:"pinpoint:APNSVoipSandboxChannelRequest:PrivateKey" type:"string"`
 
 	// The identifier that's assigned to your Apple developer account team. This
 	// identifier is used for APNs tokens.
-	TeamId *string `type:"string"`
+	TeamId *string `json:"pinpoint:APNSVoipSandboxChannelRequest:TeamId" type:"string"`
 
 	// The authentication key to use for APNs tokens.
-	TokenKey *string `type:"string"`
+	TokenKey *string `json:"pinpoint:APNSVoipSandboxChannelRequest:TokenKey" type:"string"`
 
 	// The key identifier that's assigned to your APNs signing key, if you want
 	// Amazon Pinpoint to communicate with the APNs sandbox environment by using
 	// APNs tokens.
-	TokenKeyId *string `type:"string"`
+	TokenKeyId *string `json:"pinpoint:APNSVoipSandboxChannelRequest:TokenKeyId" type:"string"`
 }
 
 // String returns the string representation
@@ -1432,47 +1432,47 @@ type APNSVoipSandboxChannelResponse struct {
 
 	// The unique identifier for the application that the APNs VoIP sandbox channel
 	// applies to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:APNSVoipSandboxChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time when the APNs VoIP sandbox channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:APNSVoipSandboxChannelResponse:CreationDate" type:"string"`
 
 	// The default authentication method that Amazon Pinpoint uses to authenticate
 	// with the APNs sandbox environment for this channel, key or certificate.
-	DefaultAuthenticationMethod *string `type:"string"`
+	DefaultAuthenticationMethod *string `json:"pinpoint:APNSVoipSandboxChannelResponse:DefaultAuthenticationMethod" type:"string"`
 
 	// Specifies whether the APNs VoIP sandbox channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:APNSVoipSandboxChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:APNSVoipSandboxChannelResponse:HasCredential" type:"boolean"`
 
 	// Specifies whether the APNs VoIP sandbox channel is configured to communicate
 	// with APNs by using APNs tokens. To provide an authentication key for APNs
 	// tokens, set the TokenKey property of the channel.
-	HasTokenKey *bool `type:"boolean"`
+	HasTokenKey *bool `json:"pinpoint:APNSVoipSandboxChannelResponse:HasTokenKey" type:"boolean"`
 
 	// (Deprecated) An identifier for the APNs VoIP sandbox channel. This property
 	// is retained only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:APNSVoipSandboxChannelResponse:Id" type:"string"`
 
 	// Specifies whether the APNs VoIP sandbox channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:APNSVoipSandboxChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the APNs VoIP sandbox channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:APNSVoipSandboxChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time when the APNs VoIP sandbox channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:APNSVoipSandboxChannelResponse:LastModifiedDate" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the APNs
 	// VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:APNSVoipSandboxChannelResponse:Platform" type:"string" required:"true"`
 
 	// The current version of the APNs VoIP sandbox channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:APNSVoipSandboxChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -1565,11 +1565,11 @@ type ActivitiesResponse struct {
 	// An array of responses, one for each activity that was performed by the campaign.
 	//
 	// Item is a required field
-	Item []ActivityResponse `type:"list" required:"true"`
+	Item []ActivityResponse `json:"pinpoint:ActivitiesResponse:Item" type:"list" required:"true"`
 
 	// The string to use in a subsequent request to get the next page of results
 	// in a paginated response. This value is null if there are no additional pages.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pinpoint:ActivitiesResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -1608,54 +1608,54 @@ type ActivityResponse struct {
 	// The unique identifier for the application that the campaign applies to.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:ActivityResponse:ApplicationId" type:"string" required:"true"`
 
 	// The unique identifier for the campaign that the activity applies to.
 	//
 	// CampaignId is a required field
-	CampaignId *string `type:"string" required:"true"`
+	CampaignId *string `json:"pinpoint:ActivityResponse:CampaignId" type:"string" required:"true"`
 
 	// The actual time, in ISO 8601 format, when the activity was marked CANCELLED
 	// or COMPLETED.
-	End *string `type:"string"`
+	End *string `json:"pinpoint:ActivityResponse:End" type:"string"`
 
 	// The unique identifier for the activity.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:ActivityResponse:Id" type:"string" required:"true"`
 
 	// Specifies whether the activity succeeded. Possible values are SUCCESS and
 	// FAIL.
-	Result *string `type:"string"`
+	Result *string `json:"pinpoint:ActivityResponse:Result" type:"string"`
 
 	// The scheduled start time, in ISO 8601 format, for the activity.
-	ScheduledStart *string `type:"string"`
+	ScheduledStart *string `json:"pinpoint:ActivityResponse:ScheduledStart" type:"string"`
 
 	// The actual start time, in ISO 8601 format, of the activity.
-	Start *string `type:"string"`
+	Start *string `json:"pinpoint:ActivityResponse:Start" type:"string"`
 
 	// The state of the activity. Possible values are: PENDING, INITIALIZING, RUNNING,
 	// PAUSED, CANCELLED, and COMPLETED.
-	State *string `type:"string"`
+	State *string `json:"pinpoint:ActivityResponse:State" type:"string"`
 
 	// The total number of endpoints that the campaign successfully delivered messages
 	// to.
-	SuccessfulEndpointCount *int64 `type:"integer"`
+	SuccessfulEndpointCount *int64 `json:"pinpoint:ActivityResponse:SuccessfulEndpointCount" type:"integer"`
 
 	// The total number of time zones that were completed.
-	TimezonesCompletedCount *int64 `type:"integer"`
+	TimezonesCompletedCount *int64 `json:"pinpoint:ActivityResponse:TimezonesCompletedCount" type:"integer"`
 
 	// The total number of unique time zones that are in the segment for the campaign.
-	TimezonesTotalCount *int64 `type:"integer"`
+	TimezonesTotalCount *int64 `json:"pinpoint:ActivityResponse:TimezonesTotalCount" type:"integer"`
 
 	// The total number of endpoints that the campaign attempted to deliver messages
 	// to.
-	TotalEndpointCount *int64 `type:"integer"`
+	TotalEndpointCount *int64 `json:"pinpoint:ActivityResponse:TotalEndpointCount" type:"integer"`
 
 	// The unique identifier for the campaign treatment that the activity applies
 	// to. A treatment is a variation of a campaign that's used for A/B testing
 	// of a campaign.
-	TreatmentId *string `type:"string"`
+	TreatmentId *string `json:"pinpoint:ActivityResponse:TreatmentId" type:"string"`
 }
 
 // String returns the string representation
@@ -1754,29 +1754,29 @@ type AddressConfiguration struct {
 
 	// The message body to use instead of the default message body. This value overrides
 	// the default message body.
-	BodyOverride *string `type:"string"`
+	BodyOverride *string `json:"pinpoint:AddressConfiguration:BodyOverride" type:"string"`
 
 	// The channel to use when sending the message.
-	ChannelType ChannelType `type:"string" enum:"true"`
+	ChannelType ChannelType `json:"pinpoint:AddressConfiguration:ChannelType" type:"string" enum:"true"`
 
 	// An object that maps custom attributes to attributes for the address and is
 	// attached to the message. For a push notification, this payload is added to
 	// the data.pinpoint object. For an email or text message, this payload is added
 	// to email/SMS delivery receipt event attributes.
-	Context map[string]string `type:"map"`
+	Context map[string]string `json:"pinpoint:AddressConfiguration:Context" type:"map"`
 
 	// The raw, JSON-formatted string to use as the payload for the notification
 	// message. This value overrides the message.
-	RawContent *string `type:"string"`
+	RawContent *string `json:"pinpoint:AddressConfiguration:RawContent" type:"string"`
 
 	// An object that maps variable values for the message. Amazon Pinpoint merges
 	// these values with the variable values specified by properties of the DefaultMessage
 	// object. The substitutions in this map take precedence over all other substitutions.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:AddressConfiguration:Substitutions" type:"map"`
 
 	// The message title to use instead of the default message title. This value
 	// overrides the default message title.
-	TitleOverride *string `type:"string"`
+	TitleOverride *string `json:"pinpoint:AddressConfiguration:TitleOverride" type:"string"`
 }
 
 // String returns the string representation
@@ -1851,13 +1851,13 @@ type ApplicationDateRangeKpiResponse struct {
 	// The unique identifier for the application that the metric applies to.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:ApplicationDateRangeKpiResponse:ApplicationId" type:"string" required:"true"`
 
 	// The last date or date and time of the date range that was used to filter
 	// the query results, in ISO 8601 format. The date range is inclusive.
 	//
 	// EndTime is a required field
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	EndTime *time.Time `json:"pinpoint:ApplicationDateRangeKpiResponse:EndTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the metric, also referred to as a key performance indicator (KPI),
 	// that the data was retrieved for. This value describes the associated metric
@@ -1866,24 +1866,24 @@ type ApplicationDateRangeKpiResponse struct {
 	// Pinpoint Developer Guide (developerguide.html).
 	//
 	// KpiName is a required field
-	KpiName *string `type:"string" required:"true"`
+	KpiName *string `json:"pinpoint:ApplicationDateRangeKpiResponse:KpiName" type:"string" required:"true"`
 
 	// An array of objects that contains the results of the query. Each object contains
 	// the value for the metric and metadata about that value.
 	//
 	// KpiResult is a required field
-	KpiResult *BaseKpiResult `type:"structure" required:"true"`
+	KpiResult *BaseKpiResult `json:"pinpoint:ApplicationDateRangeKpiResponse:KpiResult" type:"structure" required:"true"`
 
 	// The string to use in a subsequent request to get the next page of results
 	// in a paginated response. This value is null for the App Metrics resource.
 	// The App Metrics resource returns all results in a single page.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pinpoint:ApplicationDateRangeKpiResponse:NextToken" type:"string"`
 
 	// The first date or date and time of the date range that was used to filter
 	// the query results, in ISO 8601 format. The date range is inclusive.
 	//
 	// StartTime is a required field
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartTime *time.Time `json:"pinpoint:ApplicationDateRangeKpiResponse:StartTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -1940,24 +1940,24 @@ type ApplicationResponse struct {
 	// The Amazon Resource Name (ARN) of the application.
 	//
 	// Arn is a required field
-	Arn *string `type:"string" required:"true"`
+	Arn *string `json:"pinpoint:ApplicationResponse:Arn" type:"string" required:"true"`
 
 	// The unique identifier for the application. This identifier is displayed as
 	// the Project ID on the Amazon Pinpoint console.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:ApplicationResponse:Id" type:"string" required:"true"`
 
 	// The display name of the application. This name is displayed as the Project
 	// name on the Amazon Pinpoint console.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"pinpoint:ApplicationResponse:Name" type:"string" required:"true"`
 
 	// A string-to-string map of key-value pairs that identifies the tags that are
 	// associated with the application. Each tag consists of a required tag key
 	// and an associated tag value.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"pinpoint:ApplicationResponse:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -2010,18 +2010,18 @@ type ApplicationSettingsResource struct {
 	// the Project ID on the Amazon Pinpoint console.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:ApplicationSettingsResource:ApplicationId" type:"string" required:"true"`
 
 	// The settings for the AWS Lambda function to use by default as a code hook
 	// for campaigns in the application.
-	CampaignHook *CampaignHook `type:"structure"`
+	CampaignHook *CampaignHook `json:"pinpoint:ApplicationSettingsResource:CampaignHook" type:"structure"`
 
 	// The date and time, in ISO 8601 format, when the application's settings were
 	// last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:ApplicationSettingsResource:LastModifiedDate" type:"string"`
 
 	// The default sending limits for campaigns in the application.
-	Limits *CampaignLimits `type:"structure"`
+	Limits *CampaignLimits `json:"pinpoint:ApplicationSettingsResource:Limits" type:"structure"`
 
 	// The default quiet time for campaigns in the application. Quiet time is a
 	// specific time range when campaigns don't send messages to endpoints, if all
@@ -2040,7 +2040,7 @@ type ApplicationSettingsResource struct {
 	//
 	// If any of the preceding conditions isn't met, the endpoint will receive messages
 	// from a campaign, even if quiet time is enabled.
-	QuietTime *QuietTime `type:"structure"`
+	QuietTime *QuietTime `json:"pinpoint:ApplicationSettingsResource:QuietTime" type:"structure"`
 }
 
 // String returns the string representation
@@ -2089,11 +2089,11 @@ type ApplicationsResponse struct {
 	_ struct{} `type:"structure"`
 
 	// An array of responses, one for each application that was returned.
-	Item []ApplicationResponse `type:"list"`
+	Item []ApplicationResponse `json:"pinpoint:ApplicationsResponse:Item" type:"list"`
 
 	// The string to use in a subsequent request to get the next page of results
 	// in a paginated response. This value is null if there are no additional pages.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pinpoint:ApplicationsResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -2133,14 +2133,14 @@ type AttributeDimension struct {
 	// The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints
 	// that match the criteria are included in the segment; and, EXCLUSIVE, endpoints
 	// that match the criteria are excluded from the segment.
-	AttributeType AttributeType `type:"string" enum:"true"`
+	AttributeType AttributeType `json:"pinpoint:AttributeDimension:AttributeType" type:"string" enum:"true"`
 
 	// The criteria values to use for the segment dimension. Depending on the value
 	// of the AttributeType property, endpoints are included or excluded from the
 	// segment if their attribute values match the criteria values.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"pinpoint:AttributeDimension:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2194,7 +2194,7 @@ type AttributesResource struct {
 	// The unique identifier for the application.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:AttributesResource:ApplicationId" type:"string" required:"true"`
 
 	// The type of attribute or attributes that were removed from the endpoints.
 	// Valid values are:
@@ -2207,11 +2207,11 @@ type AttributesResource struct {
 	//    * endpoint-user-attributes - Custom attributes that describe users
 	//
 	// AttributeType is a required field
-	AttributeType *string `type:"string" required:"true"`
+	AttributeType *string `json:"pinpoint:AttributesResource:AttributeType" type:"string" required:"true"`
 
 	// An array that specifies the names of the attributes that were removed from
 	// the endpoints.
-	Attributes []string `type:"list"`
+	Attributes []string `json:"pinpoint:AttributesResource:Attributes" type:"list"`
 }
 
 // String returns the string representation
@@ -2258,16 +2258,16 @@ type BaiduChannelRequest struct {
 	// with the service.
 	//
 	// ApiKey is a required field
-	ApiKey *string `type:"string" required:"true"`
+	ApiKey *string `json:"pinpoint:BaiduChannelRequest:ApiKey" type:"string" required:"true"`
 
 	// Specifies whether to enable the Baidu channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:BaiduChannelRequest:Enabled" type:"boolean"`
 
 	// The secret key that you received from the Baidu Cloud Push service to communicate
 	// with the service.
 	//
 	// SecretKey is a required field
-	SecretKey *string `type:"string" required:"true"`
+	SecretKey *string `json:"pinpoint:BaiduChannelRequest:SecretKey" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2324,44 +2324,44 @@ type BaiduChannelResponse struct {
 
 	// The unique identifier for the application that the Baidu channel applies
 	// to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:BaiduChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time when the Baidu channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:BaiduChannelResponse:CreationDate" type:"string"`
 
 	// The API key that you received from the Baidu Cloud Push service to communicate
 	// with the service.
 	//
 	// Credential is a required field
-	Credential *string `type:"string" required:"true"`
+	Credential *string `json:"pinpoint:BaiduChannelResponse:Credential" type:"string" required:"true"`
 
 	// Specifies whether the Baidu channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:BaiduChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:BaiduChannelResponse:HasCredential" type:"boolean"`
 
 	// (Deprecated) An identifier for the Baidu channel. This property is retained
 	// only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:BaiduChannelResponse:Id" type:"string"`
 
 	// Specifies whether the Baidu channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:BaiduChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the Baidu channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:BaiduChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time when the Baidu channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:BaiduChannelResponse:LastModifiedDate" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the Baidu
 	// channel, this value is BAIDU.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:BaiduChannelResponse:Platform" type:"string" required:"true"`
 
 	// The current version of the Baidu channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:BaiduChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -2458,61 +2458,61 @@ type BaiduMessage struct {
 	//
 	//    * URL - The default mobile browser on the recipient's device opens and
 	//    loads the web page at a URL that you specify.
-	Action Action `type:"string" enum:"true"`
+	Action Action `json:"pinpoint:BaiduMessage:Action" type:"string" enum:"true"`
 
 	// The body of the notification message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:BaiduMessage:Body" type:"string"`
 
 	// The JSON data payload to use for the push notification, if the notification
 	// is a silent push notification. This payload is added to the data.pinpoint.jsonBody
 	// object of the notification.
-	Data map[string]string `type:"map"`
+	Data map[string]string `json:"pinpoint:BaiduMessage:Data" type:"map"`
 
 	// The icon image name of the asset saved in your app.
-	IconReference *string `type:"string"`
+	IconReference *string `json:"pinpoint:BaiduMessage:IconReference" type:"string"`
 
 	// The URL of the large icon image to display in the content view of the push
 	// notification.
-	ImageIconUrl *string `type:"string"`
+	ImageIconUrl *string `json:"pinpoint:BaiduMessage:ImageIconUrl" type:"string"`
 
 	// The URL of an image to display in the push notification.
-	ImageUrl *string `type:"string"`
+	ImageUrl *string `json:"pinpoint:BaiduMessage:ImageUrl" type:"string"`
 
 	// The raw, JSON-formatted string to use as the payload for the notification
 	// message. This value overrides the message.
-	RawContent *string `type:"string"`
+	RawContent *string `json:"pinpoint:BaiduMessage:RawContent" type:"string"`
 
 	// Specifies whether the notification is a silent push notification, which is
 	// a push notification that doesn't display on a recipient's device. Silent
 	// push notifications can be used for cases such as updating an app's configuration
 	// or supporting phone home functionality.
-	SilentPush *bool `type:"boolean"`
+	SilentPush *bool `json:"pinpoint:BaiduMessage:SilentPush" type:"boolean"`
 
 	// The URL of the small icon image to display in the status bar and the content
 	// view of the push notification.
-	SmallImageIconUrl *string `type:"string"`
+	SmallImageIconUrl *string `json:"pinpoint:BaiduMessage:SmallImageIconUrl" type:"string"`
 
 	// The sound to play when the recipient receives the push notification. You
 	// can use the default stream or specify the file name of a sound resource that's
 	// bundled in your app. On an Android platform, the sound file must reside in
 	// /res/raw/.
-	Sound *string `type:"string"`
+	Sound *string `json:"pinpoint:BaiduMessage:Sound" type:"string"`
 
 	// The default message variables to use in the notification message. You can
 	// override the default variables with individual address variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:BaiduMessage:Substitutions" type:"map"`
 
 	// The amount of time, in seconds, that the Baidu Cloud Push service should
 	// store the message if the recipient's device is offline. The default value
 	// and maximum supported time is 604,800 seconds (7 days).
-	TimeToLive *int64 `type:"integer"`
+	TimeToLive *int64 `json:"pinpoint:BaiduMessage:TimeToLive" type:"integer"`
 
 	// The title to display above the notification message on the recipient's device.
-	Title *string `type:"string"`
+	Title *string `json:"pinpoint:BaiduMessage:Title" type:"string"`
 
 	// The URL to open in the recipient's default mobile browser, if a recipient
 	// taps the push notification and the value of the Action property is URL.
-	Url *string `type:"string"`
+	Url *string `json:"pinpoint:BaiduMessage:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -2636,7 +2636,7 @@ type BaseKpiResult struct {
 	// data for a standard metric that applies to an application or campaign.
 	//
 	// Rows is a required field
-	Rows []ResultRow `type:"list" required:"true"`
+	Rows []ResultRow `json:"pinpoint:BaseKpiResult:Rows" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -2670,18 +2670,18 @@ type CampaignDateRangeKpiResponse struct {
 	// The unique identifier for the application that the metric applies to.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:CampaignDateRangeKpiResponse:ApplicationId" type:"string" required:"true"`
 
 	// The unique identifier for the campaign that the metric applies to.
 	//
 	// CampaignId is a required field
-	CampaignId *string `type:"string" required:"true"`
+	CampaignId *string `json:"pinpoint:CampaignDateRangeKpiResponse:CampaignId" type:"string" required:"true"`
 
 	// The last date or date and time of the date range that was used to filter
 	// the query results, in ISO 8601 format. The date range is inclusive.
 	//
 	// EndTime is a required field
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	EndTime *time.Time `json:"pinpoint:CampaignDateRangeKpiResponse:EndTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the metric, also referred to as a key performance indicator (KPI),
 	// that the data was retrieved for. This value describes the associated metric
@@ -2690,24 +2690,24 @@ type CampaignDateRangeKpiResponse struct {
 	// Pinpoint Developer Guide (developerguide.html).
 	//
 	// KpiName is a required field
-	KpiName *string `type:"string" required:"true"`
+	KpiName *string `json:"pinpoint:CampaignDateRangeKpiResponse:KpiName" type:"string" required:"true"`
 
 	// An array of objects that contains the results of the query. Each object contains
 	// the value for the metric and metadata about that value.
 	//
 	// KpiResult is a required field
-	KpiResult *BaseKpiResult `type:"structure" required:"true"`
+	KpiResult *BaseKpiResult `json:"pinpoint:CampaignDateRangeKpiResponse:KpiResult" type:"structure" required:"true"`
 
 	// The string to use in a subsequent request to get the next page of results
 	// in a paginated response. This value is null for the Campaign Metrics resource.
 	// The Campaign Metrics resource returns all results in a single page.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pinpoint:CampaignDateRangeKpiResponse:NextToken" type:"string"`
 
 	// The first date or date and time of the date range that was used to filter
 	// the query results, in ISO 8601 format. The date range is inclusive.
 	//
 	// StartTime is a required field
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix" required:"true"`
+	StartTime *time.Time `json:"pinpoint:CampaignDateRangeKpiResponse:StartTime" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -2770,20 +2770,20 @@ type CampaignEmailMessage struct {
 
 	// The body of the email for recipients whose email clients don't support HTML
 	// content.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:CampaignEmailMessage:Body" type:"string"`
 
 	// The verified email address to send the email from. The default address is
 	// the FromAddress specified for the email channel for the application.
-	FromAddress *string `type:"string"`
+	FromAddress *string `json:"pinpoint:CampaignEmailMessage:FromAddress" type:"string"`
 
 	// The body of the email, in HTML format, for recipients whose email clients
 	// support HTML content.
-	HtmlBody *string `type:"string"`
+	HtmlBody *string `json:"pinpoint:CampaignEmailMessage:HtmlBody" type:"string"`
 
 	// The subject line, or title, of the email.
 	//
 	// Title is a required field
-	Title *string `type:"string" required:"true"`
+	Title *string `json:"pinpoint:CampaignEmailMessage:Title" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2842,14 +2842,14 @@ type CampaignEventFilter struct {
 	// The dimension settings of the event filter for the campaign.
 	//
 	// Dimensions is a required field
-	Dimensions *EventDimensions `type:"structure" required:"true"`
+	Dimensions *EventDimensions `json:"pinpoint:CampaignEventFilter:Dimensions" type:"structure" required:"true"`
 
 	// The type of event that causes the campaign to be sent. Valid values are:
 	// SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends
 	// the campaign when an endpoint event (Events resource) occurs.
 	//
 	// FilterType is a required field
-	FilterType FilterType `type:"string" required:"true" enum:"true"`
+	FilterType FilterType `json:"pinpoint:CampaignEventFilter:FilterType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -2903,14 +2903,14 @@ type CampaignHook struct {
 
 	// The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon
 	// Pinpoint invokes to send messages for a campaign.
-	LambdaFunctionName *string `type:"string"`
+	LambdaFunctionName *string `json:"pinpoint:CampaignHook:LambdaFunctionName" type:"string"`
 
 	// Specifies which Lambda mode to use when invoking the AWS Lambda function.
-	Mode Mode `type:"string" enum:"true"`
+	Mode Mode `json:"pinpoint:CampaignHook:Mode" type:"string" enum:"true"`
 
 	// The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function
 	// over HTTPS.
-	WebUrl *string `type:"string"`
+	WebUrl *string `json:"pinpoint:CampaignHook:WebUrl" type:"string"`
 }
 
 // String returns the string representation
@@ -2948,20 +2948,20 @@ type CampaignLimits struct {
 
 	// The maximum number of messages that a campaign can send to a single endpoint
 	// during a 24-hour period. The maximum value is 100.
-	Daily *int64 `type:"integer"`
+	Daily *int64 `json:"pinpoint:CampaignLimits:Daily" type:"integer"`
 
 	// The maximum amount of time, in seconds, that a campaign can attempt to deliver
 	// a message after the scheduled start time for the campaign. The minimum value
 	// is 60 seconds.
-	MaximumDuration *int64 `type:"integer"`
+	MaximumDuration *int64 `json:"pinpoint:CampaignLimits:MaximumDuration" type:"integer"`
 
 	// The maximum number of messages that a campaign can send each second. The
 	// minimum value is 50. The maximum value is 20,000.
-	MessagesPerSecond *int64 `type:"integer"`
+	MessagesPerSecond *int64 `json:"pinpoint:CampaignLimits:MessagesPerSecond" type:"integer"`
 
 	// The maximum number of messages that a campaign can send to a single endpoint
 	// during the course of the campaign. The maximum value is 100.
-	Total *int64 `type:"integer"`
+	Total *int64 `json:"pinpoint:CampaignLimits:Total" type:"integer"`
 }
 
 // String returns the string representation
@@ -3006,90 +3006,90 @@ type CampaignResponse struct {
 
 	// An array of responses, one for each treatment that you defined for the campaign,
 	// in addition to the default treatment.
-	AdditionalTreatments []TreatmentResource `type:"list"`
+	AdditionalTreatments []TreatmentResource `json:"pinpoint:CampaignResponse:AdditionalTreatments" type:"list"`
 
 	// The unique identifier for the application that the campaign applies to.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:CampaignResponse:ApplicationId" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the campaign.
 	//
 	// Arn is a required field
-	Arn *string `type:"string" required:"true"`
+	Arn *string `json:"pinpoint:CampaignResponse:Arn" type:"string" required:"true"`
 
 	// The date, ISO 8601 format, when the campaign was created.
 	//
 	// CreationDate is a required field
-	CreationDate *string `type:"string" required:"true"`
+	CreationDate *string `json:"pinpoint:CampaignResponse:CreationDate" type:"string" required:"true"`
 
 	// The current status of the campaign's default treatment. This value exists
 	// only for campaigns that have more than one treatment, to support A/B testing.
-	DefaultState *CampaignState `type:"structure"`
+	DefaultState *CampaignState `json:"pinpoint:CampaignResponse:DefaultState" type:"structure"`
 
 	// The custom description of the campaign.
-	Description *string `type:"string"`
+	Description *string `json:"pinpoint:CampaignResponse:Description" type:"string"`
 
 	// The allocated percentage of users (segment members) who shouldn't receive
 	// messages from the campaign.
-	HoldoutPercent *int64 `type:"integer"`
+	HoldoutPercent *int64 `json:"pinpoint:CampaignResponse:HoldoutPercent" type:"integer"`
 
 	// The settings for the AWS Lambda function to use as a code hook for the campaign.
-	Hook *CampaignHook `type:"structure"`
+	Hook *CampaignHook `json:"pinpoint:CampaignResponse:Hook" type:"structure"`
 
 	// The unique identifier for the campaign.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:CampaignResponse:Id" type:"string" required:"true"`
 
 	// Specifies whether the campaign is paused. A paused campaign doesn't run unless
 	// you resume it by changing this value to false.
-	IsPaused *bool `type:"boolean"`
+	IsPaused *bool `json:"pinpoint:CampaignResponse:IsPaused" type:"boolean"`
 
 	// The date, in ISO 8601 format, when the campaign was last modified.
 	//
 	// LastModifiedDate is a required field
-	LastModifiedDate *string `type:"string" required:"true"`
+	LastModifiedDate *string `json:"pinpoint:CampaignResponse:LastModifiedDate" type:"string" required:"true"`
 
 	// The messaging limits for the campaign.
-	Limits *CampaignLimits `type:"structure"`
+	Limits *CampaignLimits `json:"pinpoint:CampaignResponse:Limits" type:"structure"`
 
 	// The message configuration settings for the campaign.
-	MessageConfiguration *MessageConfiguration `type:"structure"`
+	MessageConfiguration *MessageConfiguration `json:"pinpoint:CampaignResponse:MessageConfiguration" type:"structure"`
 
 	// The name of the campaign.
-	Name *string `type:"string"`
+	Name *string `json:"pinpoint:CampaignResponse:Name" type:"string"`
 
 	// The schedule settings for the campaign.
-	Schedule *Schedule `type:"structure"`
+	Schedule *Schedule `json:"pinpoint:CampaignResponse:Schedule" type:"structure"`
 
 	// The unique identifier for the segment that's associated with the campaign.
 	//
 	// SegmentId is a required field
-	SegmentId *string `type:"string" required:"true"`
+	SegmentId *string `json:"pinpoint:CampaignResponse:SegmentId" type:"string" required:"true"`
 
 	// The version number of the segment that's associated with the campaign.
 	//
 	// SegmentVersion is a required field
-	SegmentVersion *int64 `type:"integer" required:"true"`
+	SegmentVersion *int64 `json:"pinpoint:CampaignResponse:SegmentVersion" type:"integer" required:"true"`
 
 	// The current status of the campaign.
-	State *CampaignState `type:"structure"`
+	State *CampaignState `json:"pinpoint:CampaignResponse:State" type:"structure"`
 
 	// A string-to-string map of key-value pairs that identifies the tags that are
 	// associated with the campaign. Each tag consists of a required tag key and
 	// an associated tag value.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"pinpoint:CampaignResponse:Tags" locationName:"tags" type:"map"`
 
 	// The custom description of a variation of the campaign that's used for A/B
 	// testing.
-	TreatmentDescription *string `type:"string"`
+	TreatmentDescription *string `json:"pinpoint:CampaignResponse:TreatmentDescription" type:"string"`
 
 	// The custom name of a variation of the campaign that's used for A/B testing.
-	TreatmentName *string `type:"string"`
+	TreatmentName *string `json:"pinpoint:CampaignResponse:TreatmentName" type:"string"`
 
 	// The version number of the campaign.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:CampaignResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -3253,17 +3253,17 @@ type CampaignSmsMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The body of the SMS message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:CampaignSmsMessage:Body" type:"string"`
 
 	// The type of SMS message. Valid values are: TRANSACTIONAL, the message is
 	// critical or time-sensitive, such as a one-time password that supports a customer
 	// transaction; and, PROMOTIONAL, the message isn't critical or time-sensitive,
 	// such as a marketing message.
-	MessageType MessageType `type:"string" enum:"true"`
+	MessageType MessageType `json:"pinpoint:CampaignSmsMessage:MessageType" type:"string" enum:"true"`
 
 	// The sender ID to display on recipients' devices when they receive the SMS
 	// message.
-	SenderId *string `type:"string"`
+	SenderId *string `json:"pinpoint:CampaignSmsMessage:SenderId" type:"string"`
 }
 
 // String returns the string representation
@@ -3302,7 +3302,7 @@ type CampaignState struct {
 	// The status of the campaign, or the status of a treatment that belongs to
 	// an A/B test campaign. If a campaign uses A/B testing, the campaign has a
 	// status of COMPLETED only when all campaign treatments have a status of COMPLETED.
-	CampaignStatus CampaignStatus `type:"string" enum:"true"`
+	CampaignStatus CampaignStatus `json:"pinpoint:CampaignState:CampaignStatus" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -3330,11 +3330,11 @@ type CampaignsResponse struct {
 	// An array of responses, one for each campaign that's associated with the application.
 	//
 	// Item is a required field
-	Item []CampaignResponse `type:"list" required:"true"`
+	Item []CampaignResponse `json:"pinpoint:CampaignsResponse:Item" type:"list" required:"true"`
 
 	// The string to use in a subsequent request to get the next page of results
 	// in a paginated response. This value is null if there are no additional pages.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pinpoint:CampaignsResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -3372,32 +3372,32 @@ type ChannelResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for the application.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:ChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:ChannelResponse:CreationDate" type:"string"`
 
 	// Specifies whether the channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:ChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:ChannelResponse:HasCredential" type:"boolean"`
 
 	// (Deprecated) An identifier for the channel. This property is retained only
 	// for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:ChannelResponse:Id" type:"string"`
 
 	// Specifies whether the channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:ChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:ChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:ChannelResponse:LastModifiedDate" type:"string"`
 
 	// The current version of the channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:ChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -3474,7 +3474,7 @@ type ChannelsResponse struct {
 	// in this object, the ChannelType is the key and the Channel is the value.
 	//
 	// Channels is a required field
-	Channels map[string]ChannelResponse `type:"map" required:"true"`
+	Channels map[string]ChannelResponse `json:"pinpoint:ChannelsResponse:Channels" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -3509,12 +3509,12 @@ type CreateApplicationRequest struct {
 	// name on the Amazon Pinpoint console.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"pinpoint:CreateApplicationRequest:Name" type:"string" required:"true"`
 
 	// A string-to-string map of key-value pairs that defines the tags to associate
 	// with the application. Each tag consists of a required tag key and an associated
 	// tag value.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"pinpoint:CreateApplicationRequest:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -3565,12 +3565,12 @@ type DefaultMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The default message body of the push notification, email, or SMS message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:DefaultMessage:Body" type:"string"`
 
 	// The default message variables to use in the push notification, email, or
 	// SMS message. You can override these default variables with individual address
 	// variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:DefaultMessage:Substitutions" type:"map"`
 }
 
 // String returns the string representation
@@ -3624,33 +3624,33 @@ type DefaultPushNotificationMessage struct {
 	//
 	//    * URL - The default mobile browser on the recipient's device opens and
 	//    loads the web page at a URL that you specify.
-	Action Action `type:"string" enum:"true"`
+	Action Action `json:"pinpoint:DefaultPushNotificationMessage:Action" type:"string" enum:"true"`
 
 	// The default body of the notification message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:DefaultPushNotificationMessage:Body" type:"string"`
 
 	// The JSON data payload to use for the default push notification, if the notification
 	// is a silent push notification. This payload is added to the data.pinpoint.jsonBody
 	// object of the notification.
-	Data map[string]string `type:"map"`
+	Data map[string]string `json:"pinpoint:DefaultPushNotificationMessage:Data" type:"map"`
 
 	// Specifies whether the default notification is a silent push notification,
 	// which is a push notification that doesn't display on a recipient's device.
 	// Silent push notifications can be used for cases such as updating an app's
 	// configuration or delivering messages to an in-app notification center.
-	SilentPush *bool `type:"boolean"`
+	SilentPush *bool `json:"pinpoint:DefaultPushNotificationMessage:SilentPush" type:"boolean"`
 
 	// The default message variables to use in the notification message. You can
 	// override the default variables with individual address variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:DefaultPushNotificationMessage:Substitutions" type:"map"`
 
 	// The default title to display above the notification message on a recipient's
 	// device.
-	Title *string `type:"string"`
+	Title *string `json:"pinpoint:DefaultPushNotificationMessage:Title" type:"string"`
 
 	// The default URL to open in a recipient's default mobile browser, if a recipient
 	// taps the push notification and the value of the Action property is URL.
-	Url *string `type:"string"`
+	Url *string `json:"pinpoint:DefaultPushNotificationMessage:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -3730,40 +3730,40 @@ type DirectMessageConfiguration struct {
 
 	// The default push notification message for the ADM (Amazon Device Messaging)
 	// channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
-	ADMMessage *ADMMessage `type:"structure"`
+	ADMMessage *ADMMessage `json:"pinpoint:DirectMessageConfiguration:ADMMessage" type:"structure"`
 
 	// The default push notification message for the APNs (Apple Push Notification
 	// service) channel. This message overrides the default push notification message
 	// (DefaultPushNotificationMessage).
-	APNSMessage *APNSMessage `type:"structure"`
+	APNSMessage *APNSMessage `json:"pinpoint:DirectMessageConfiguration:APNSMessage" type:"structure"`
 
 	// The default push notification message for the Baidu (Baidu Cloud Push) channel.
 	// This message overrides the default push notification message (DefaultPushNotificationMessage).
-	BaiduMessage *BaiduMessage `type:"structure"`
+	BaiduMessage *BaiduMessage `json:"pinpoint:DirectMessageConfiguration:BaiduMessage" type:"structure"`
 
 	// The default message body for all channels.
-	DefaultMessage *DefaultMessage `type:"structure"`
+	DefaultMessage *DefaultMessage `json:"pinpoint:DirectMessageConfiguration:DefaultMessage" type:"structure"`
 
 	// The default push notification message for all push channels.
-	DefaultPushNotificationMessage *DefaultPushNotificationMessage `type:"structure"`
+	DefaultPushNotificationMessage *DefaultPushNotificationMessage `json:"pinpoint:DirectMessageConfiguration:DefaultPushNotificationMessage" type:"structure"`
 
 	// The default message for the email channel. This message overrides the default
 	// message (DefaultMessage).
-	EmailMessage *EmailMessage `type:"structure"`
+	EmailMessage *EmailMessage `json:"pinpoint:DirectMessageConfiguration:EmailMessage" type:"structure"`
 
 	// The default push notification message for the GCM channel, which is used
 	// to send notifications through the Firebase Cloud Messaging (FCM), formerly
 	// Google Cloud Messaging (GCM), service. This message overrides the default
 	// push notification message (DefaultPushNotificationMessage).
-	GCMMessage *GCMMessage `type:"structure"`
+	GCMMessage *GCMMessage `json:"pinpoint:DirectMessageConfiguration:GCMMessage" type:"structure"`
 
 	// The default message for the SMS channel. This message overrides the default
 	// message (DefaultMessage).
-	SMSMessage *SMSMessage `type:"structure"`
+	SMSMessage *SMSMessage `json:"pinpoint:DirectMessageConfiguration:SMSMessage" type:"structure"`
 
 	// The default message for the voice channel. This message overrides the default
 	// message (DefaultMessage).
-	VoiceMessage *VoiceMessage `type:"structure"`
+	VoiceMessage *VoiceMessage `json:"pinpoint:DirectMessageConfiguration:VoiceMessage" type:"structure"`
 }
 
 // String returns the string representation
@@ -3837,27 +3837,27 @@ type EmailChannelRequest struct {
 
 	// The configuration set that you want to apply to email that you send through
 	// the channel by using the Amazon Pinpoint Email API (emailAPIreference.html).
-	ConfigurationSet *string `type:"string"`
+	ConfigurationSet *string `json:"pinpoint:EmailChannelRequest:ConfigurationSet" type:"string"`
 
 	// Specifies whether to enable the email channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:EmailChannelRequest:Enabled" type:"boolean"`
 
 	// The verified email address that you want to send email from when you send
 	// email through the channel.
 	//
 	// FromAddress is a required field
-	FromAddress *string `type:"string" required:"true"`
+	FromAddress *string `json:"pinpoint:EmailChannelRequest:FromAddress" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple
 	// Email Service (Amazon SES), that you want to use when you send email through
 	// the channel.
 	//
 	// Identity is a required field
-	Identity *string `type:"string" required:"true"`
+	Identity *string `json:"pinpoint:EmailChannelRequest:Identity" type:"string" required:"true"`
 
 	// The ARN of the AWS Identity and Access Management (IAM) role that you want
 	// Amazon Pinpoint to use when it submits email-related event data for the channel.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"pinpoint:EmailChannelRequest:RoleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -3926,58 +3926,58 @@ type EmailChannelResponse struct {
 
 	// The unique identifier for the application that the email channel applies
 	// to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:EmailChannelResponse:ApplicationId" type:"string"`
 
 	// The configuration set that's applied to email that's sent through the channel
 	// by using the Amazon Pinpoint Email API (emailAPIreference.html).
-	ConfigurationSet *string `type:"string"`
+	ConfigurationSet *string `json:"pinpoint:EmailChannelResponse:ConfigurationSet" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the email channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:EmailChannelResponse:CreationDate" type:"string"`
 
 	// Specifies whether the email channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:EmailChannelResponse:Enabled" type:"boolean"`
 
 	// The verified email address that you send email from when you send email through
 	// the channel.
-	FromAddress *string `type:"string"`
+	FromAddress *string `json:"pinpoint:EmailChannelResponse:FromAddress" type:"string"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:EmailChannelResponse:HasCredential" type:"boolean"`
 
 	// (Deprecated) An identifier for the email channel. This property is retained
 	// only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:EmailChannelResponse:Id" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple
 	// Email Service (Amazon SES), that you use when you send email through the
 	// channel.
-	Identity *string `type:"string"`
+	Identity *string `json:"pinpoint:EmailChannelResponse:Identity" type:"string"`
 
 	// Specifies whether the email channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:EmailChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the email channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:EmailChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the email channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:EmailChannelResponse:LastModifiedDate" type:"string"`
 
 	// The maximum number of emails that you can send through the channel each second.
-	MessagesPerSecond *int64 `type:"integer"`
+	MessagesPerSecond *int64 `json:"pinpoint:EmailChannelResponse:MessagesPerSecond" type:"integer"`
 
 	// The type of messaging or notification platform for the channel. For the email
 	// channel, this value is EMAIL.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:EmailChannelResponse:Platform" type:"string" required:"true"`
 
 	// The ARN of the AWS Identity and Access Management (IAM) role that Amazon
 	// Pinpoint uses to submit email-related event data for the channel.
-	RoleArn *string `type:"string"`
+	RoleArn *string `json:"pinpoint:EmailChannelResponse:RoleArn" type:"string"`
 
 	// The current version of the email channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:EmailChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -4087,29 +4087,29 @@ type EmailMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The body of the email message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:EmailMessage:Body" type:"string"`
 
 	// The email address to forward bounces and complaints to, if feedback forwarding
 	// is enabled.
-	FeedbackForwardingAddress *string `type:"string"`
+	FeedbackForwardingAddress *string `json:"pinpoint:EmailMessage:FeedbackForwardingAddress" type:"string"`
 
 	// The verified email address to send the email message from. The default value
 	// is the FromAddress specified for the email channel.
-	FromAddress *string `type:"string"`
+	FromAddress *string `json:"pinpoint:EmailMessage:FromAddress" type:"string"`
 
 	// The email message, represented as a raw MIME message.
-	RawEmail *RawEmail `type:"structure"`
+	RawEmail *RawEmail `json:"pinpoint:EmailMessage:RawEmail" type:"structure"`
 
 	// The reply-to email address(es) for the email message. If a recipient replies
 	// to the email, each reply-to address receives the reply.
-	ReplyToAddresses []string `type:"list"`
+	ReplyToAddresses []string `json:"pinpoint:EmailMessage:ReplyToAddresses" type:"list"`
 
 	// The email message, composed of a subject, a text part, and an HTML part.
-	SimpleEmail *SimpleEmail `type:"structure"`
+	SimpleEmail *SimpleEmail `json:"pinpoint:EmailMessage:SimpleEmail" type:"structure"`
 
 	// The default message variables to use in the email message. You can override
 	// the default variables with individual address variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:EmailMessage:Substitutions" type:"map"`
 }
 
 // String returns the string representation
@@ -4193,7 +4193,7 @@ type EndpointBatchItem struct {
 	// Push Notification service (APNs) device token or a Firebase Cloud Messaging
 	// (FCM) registration token. For the SMS channel, use a phone number in E.164
 	// format, such as +12065550100. For the email channel, use an email address.
-	Address *string `type:"string"`
+	Address *string `json:"pinpoint:EndpointBatchItem:Address" type:"string"`
 
 	// One or more custom attributes that describe the endpoint by associating a
 	// name with an array of values. For example, the value of a custom attribute
@@ -4205,43 +4205,43 @@ type EndpointBatchItem struct {
 	// and slash (/). The Amazon Pinpoint console can't display attribute names
 	// that contain these characters. This limitation doesn't apply to attribute
 	// values.
-	Attributes map[string][]string `type:"map"`
+	Attributes map[string][]string `json:"pinpoint:EndpointBatchItem:Attributes" type:"map"`
 
 	// The channel to use when sending messages or push notifications to the endpoint.
-	ChannelType ChannelType `type:"string" enum:"true"`
+	ChannelType ChannelType `json:"pinpoint:EndpointBatchItem:ChannelType" type:"string" enum:"true"`
 
 	// The demographic information for the endpoint, such as the time zone and platform.
-	Demographic *EndpointDemographic `type:"structure"`
+	Demographic *EndpointDemographic `json:"pinpoint:EndpointBatchItem:Demographic" type:"structure"`
 
 	// The date and time, in ISO 8601 format, when the endpoint was created or updated.
-	EffectiveDate *string `type:"string"`
+	EffectiveDate *string `json:"pinpoint:EndpointBatchItem:EffectiveDate" type:"string"`
 
 	// Not used.
-	EndpointStatus *string `type:"string"`
+	EndpointStatus *string `json:"pinpoint:EndpointBatchItem:EndpointStatus" type:"string"`
 
 	// The unique identifier for the endpoint in the context of the batch.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:EndpointBatchItem:Id" type:"string"`
 
 	// The geographic information for the endpoint.
-	Location *EndpointLocation `type:"structure"`
+	Location *EndpointLocation `json:"pinpoint:EndpointBatchItem:Location" type:"structure"`
 
 	// One or more custom metrics that your app reports to Amazon Pinpoint for the
 	// endpoint.
-	Metrics map[string]float64 `type:"map"`
+	Metrics map[string]float64 `json:"pinpoint:EndpointBatchItem:Metrics" type:"map"`
 
 	// Specifies whether the user who's associated with the endpoint has opted out
 	// of receiving messages and push notifications from you. Possible values are:
 	// ALL, the user has opted out and doesn't want to receive any messages or push
 	// notifications; and, NONE, the user hasn't opted out and wants to receive
 	// all messages and push notifications.
-	OptOut *string `type:"string"`
+	OptOut *string `json:"pinpoint:EndpointBatchItem:OptOut" type:"string"`
 
 	// The unique identifier for the request to create or update the endpoint.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"pinpoint:EndpointBatchItem:RequestId" type:"string"`
 
 	// One or more custom user attributes that your app reports to Amazon Pinpoint
 	// for the user who's associated with the endpoint.
-	User *EndpointUser `type:"structure"`
+	User *EndpointUser `json:"pinpoint:EndpointBatchItem:User" type:"structure"`
 }
 
 // String returns the string representation
@@ -4354,7 +4354,7 @@ type EndpointBatchRequest struct {
 	// items.
 	//
 	// Item is a required field
-	Item []EndpointBatchItem `type:"list" required:"true"`
+	Item []EndpointBatchItem `json:"pinpoint:EndpointBatchRequest:Item" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -4400,30 +4400,30 @@ type EndpointDemographic struct {
 	_ struct{} `type:"structure"`
 
 	// The version of the app that's associated with the endpoint.
-	AppVersion *string `type:"string"`
+	AppVersion *string `json:"pinpoint:EndpointDemographic:AppVersion" type:"string"`
 
 	// The locale of the endpoint, in the following format: the ISO 639-1 alpha-2
 	// code, followed by an underscore (_), followed by an ISO 3166-1 alpha-2 value.
-	Locale *string `type:"string"`
+	Locale *string `json:"pinpoint:EndpointDemographic:Locale" type:"string"`
 
 	// The manufacturer of the endpoint device, such as Apple or Samsung.
-	Make *string `type:"string"`
+	Make *string `json:"pinpoint:EndpointDemographic:Make" type:"string"`
 
 	// The model name or number of the endpoint device, such as iPhone.
-	Model *string `type:"string"`
+	Model *string `json:"pinpoint:EndpointDemographic:Model" type:"string"`
 
 	// The model version of the endpoint device.
-	ModelVersion *string `type:"string"`
+	ModelVersion *string `json:"pinpoint:EndpointDemographic:ModelVersion" type:"string"`
 
 	// The platform of the endpoint device, such as iOS or Android.
-	Platform *string `type:"string"`
+	Platform *string `json:"pinpoint:EndpointDemographic:Platform" type:"string"`
 
 	// The platform version of the endpoint device.
-	PlatformVersion *string `type:"string"`
+	PlatformVersion *string `json:"pinpoint:EndpointDemographic:PlatformVersion" type:"string"`
 
 	// The time zone of the endpoint, specified as a tz database name value, such
 	// as America/Los_Angeles.
-	Timezone *string `type:"string"`
+	Timezone *string `json:"pinpoint:EndpointDemographic:Timezone" type:"string"`
 }
 
 // String returns the string representation
@@ -4492,11 +4492,11 @@ type EndpointItemResponse struct {
 
 	// The custom message that's returned in the response as a result of processing
 	// the endpoint data.
-	Message *string `type:"string"`
+	Message *string `json:"pinpoint:EndpointItemResponse:Message" type:"string"`
 
 	// The status code that's returned in the response as a result of processing
 	// the endpoint data.
-	StatusCode *int64 `type:"integer"`
+	StatusCode *int64 `json:"pinpoint:EndpointItemResponse:StatusCode" type:"integer"`
 }
 
 // String returns the string representation
@@ -4527,26 +4527,26 @@ type EndpointLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the city where the endpoint is located.
-	City *string `type:"string"`
+	City *string `json:"pinpoint:EndpointLocation:City" type:"string"`
 
 	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or
 	// region where the endpoint is located. For example, US for the United States.
-	Country *string `type:"string"`
+	Country *string `json:"pinpoint:EndpointLocation:Country" type:"string"`
 
 	// The latitude coordinate of the endpoint location, rounded to one decimal
 	// place.
-	Latitude *float64 `type:"double"`
+	Latitude *float64 `json:"pinpoint:EndpointLocation:Latitude" type:"double"`
 
 	// The longitude coordinate of the endpoint location, rounded to one decimal
 	// place.
-	Longitude *float64 `type:"double"`
+	Longitude *float64 `json:"pinpoint:EndpointLocation:Longitude" type:"double"`
 
 	// The postal or ZIP code for the area where the endpoint is located.
-	PostalCode *string `type:"string"`
+	PostalCode *string `json:"pinpoint:EndpointLocation:PostalCode" type:"string"`
 
 	// The name of the region where the endpoint is located. For locations in the
 	// United States, this value is the name of a state.
-	Region *string `type:"string"`
+	Region *string `json:"pinpoint:EndpointLocation:Region" type:"string"`
 }
 
 // String returns the string representation
@@ -4602,7 +4602,7 @@ type EndpointMessageResult struct {
 	_ struct{} `type:"structure"`
 
 	// The endpoint address that the message was delivered to.
-	Address *string `type:"string"`
+	Address *string `json:"pinpoint:EndpointMessageResult:Address" type:"string"`
 
 	// The delivery status of the message. Possible values are:
 	//
@@ -4629,22 +4629,22 @@ type EndpointMessageResult struct {
 	//    * UNKNOWN_FAILURE - An unknown error occurred.
 	//
 	// DeliveryStatus is a required field
-	DeliveryStatus DeliveryStatus `type:"string" required:"true" enum:"true"`
+	DeliveryStatus DeliveryStatus `json:"pinpoint:EndpointMessageResult:DeliveryStatus" type:"string" required:"true" enum:"true"`
 
 	// The unique identifier for the message that was sent.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"pinpoint:EndpointMessageResult:MessageId" type:"string"`
 
 	// The downstream service status code for delivering the message.
 	//
 	// StatusCode is a required field
-	StatusCode *int64 `type:"integer" required:"true"`
+	StatusCode *int64 `json:"pinpoint:EndpointMessageResult:StatusCode" type:"integer" required:"true"`
 
 	// The status message for delivering the message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"pinpoint:EndpointMessageResult:StatusMessage" type:"string"`
 
 	// For push notifications that are sent through the GCM channel, specifies whether
 	// the token was updated as part of delivering the message.
-	UpdatedToken *string `type:"string"`
+	UpdatedToken *string `json:"pinpoint:EndpointMessageResult:UpdatedToken" type:"string"`
 }
 
 // String returns the string representation
@@ -4704,7 +4704,7 @@ type EndpointRequest struct {
 	// Push Notification service (APNs) device token or a Firebase Cloud Messaging
 	// (FCM) registration token. For the SMS channel, use a phone number in E.164
 	// format, such as +12065550100. For the email channel, use an email address.
-	Address *string `type:"string"`
+	Address *string `json:"pinpoint:EndpointRequest:Address" type:"string"`
 
 	// One or more custom attributes that describe the endpoint by associating a
 	// name with an array of values. For example, the value of a custom attribute
@@ -4716,40 +4716,40 @@ type EndpointRequest struct {
 	// and slash (/). The Amazon Pinpoint console can't display attribute names
 	// that contain these characters. This limitation doesn't apply to attribute
 	// values.
-	Attributes map[string][]string `type:"map"`
+	Attributes map[string][]string `json:"pinpoint:EndpointRequest:Attributes" type:"map"`
 
 	// The channel to use when sending messages or push notifications to the endpoint.
-	ChannelType ChannelType `type:"string" enum:"true"`
+	ChannelType ChannelType `json:"pinpoint:EndpointRequest:ChannelType" type:"string" enum:"true"`
 
 	// The demographic information for the endpoint, such as the time zone and platform.
-	Demographic *EndpointDemographic `type:"structure"`
+	Demographic *EndpointDemographic `json:"pinpoint:EndpointRequest:Demographic" type:"structure"`
 
 	// The date and time, in ISO 8601 format, when the endpoint is updated.
-	EffectiveDate *string `type:"string"`
+	EffectiveDate *string `json:"pinpoint:EndpointRequest:EffectiveDate" type:"string"`
 
 	// Not used.
-	EndpointStatus *string `type:"string"`
+	EndpointStatus *string `json:"pinpoint:EndpointRequest:EndpointStatus" type:"string"`
 
 	// The geographic information for the endpoint.
-	Location *EndpointLocation `type:"structure"`
+	Location *EndpointLocation `json:"pinpoint:EndpointRequest:Location" type:"structure"`
 
 	// One or more custom metrics that your app reports to Amazon Pinpoint for the
 	// endpoint.
-	Metrics map[string]float64 `type:"map"`
+	Metrics map[string]float64 `json:"pinpoint:EndpointRequest:Metrics" type:"map"`
 
 	// Specifies whether the user who's associated with the endpoint has opted out
 	// of receiving messages and push notifications from you. Possible values are:
 	// ALL, the user has opted out and doesn't want to receive any messages or push
 	// notifications; and, NONE, the user hasn't opted out and wants to receive
 	// all messages and push notifications.
-	OptOut *string `type:"string"`
+	OptOut *string `json:"pinpoint:EndpointRequest:OptOut" type:"string"`
 
 	// The unique identifier for the most recent request to update the endpoint.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"pinpoint:EndpointRequest:RequestId" type:"string"`
 
 	// One or more custom user attributes that describe the user who's associated
 	// with the endpoint.
-	User *EndpointUser `type:"structure"`
+	User *EndpointUser `json:"pinpoint:EndpointRequest:User" type:"structure"`
 }
 
 // String returns the string representation
@@ -4857,64 +4857,64 @@ type EndpointResponse struct {
 	// token or a Firebase Cloud Messaging (FCM) registration token. The address
 	// for the SMS channel is a phone number in E.164 format, such as +12065550100.
 	// The address for the email channel is an email address.
-	Address *string `type:"string"`
+	Address *string `json:"pinpoint:EndpointResponse:Address" type:"string"`
 
 	// The unique identifier for the application that's associated with the endpoint.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:EndpointResponse:ApplicationId" type:"string"`
 
 	// One or more custom attributes that describe the endpoint by associating a
 	// name with an array of values. For example, the value of a custom attribute
 	// named Interests might be: ["science", "music", "travel"]. You can use these
 	// attributes as filter criteria when you create segments.
-	Attributes map[string][]string `type:"map"`
+	Attributes map[string][]string `json:"pinpoint:EndpointResponse:Attributes" type:"map"`
 
 	// The channel that's used when sending messages or push notifications to the
 	// endpoint.
-	ChannelType ChannelType `type:"string" enum:"true"`
+	ChannelType ChannelType `json:"pinpoint:EndpointResponse:ChannelType" type:"string" enum:"true"`
 
 	// A number from 0-99 that represents the cohort that the endpoint is assigned
 	// to. Endpoints are grouped into cohorts randomly, and each cohort contains
 	// approximately 1 percent of the endpoints for an application. Amazon Pinpoint
 	// assigns cohorts to the holdout or treatment allocations for campaigns.
-	CohortId *string `type:"string"`
+	CohortId *string `json:"pinpoint:EndpointResponse:CohortId" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the endpoint was created.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:EndpointResponse:CreationDate" type:"string"`
 
 	// The demographic information for the endpoint, such as the time zone and platform.
-	Demographic *EndpointDemographic `type:"structure"`
+	Demographic *EndpointDemographic `json:"pinpoint:EndpointResponse:Demographic" type:"structure"`
 
 	// The date and time, in ISO 8601 format, when the endpoint was last updated.
-	EffectiveDate *string `type:"string"`
+	EffectiveDate *string `json:"pinpoint:EndpointResponse:EffectiveDate" type:"string"`
 
 	// Not used.
-	EndpointStatus *string `type:"string"`
+	EndpointStatus *string `json:"pinpoint:EndpointResponse:EndpointStatus" type:"string"`
 
 	// The unique identifier that you assigned to the endpoint. The identifier should
 	// be a globally unique identifier (GUID) to ensure that it doesn't conflict
 	// with other endpoint identifiers that are associated with the application.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:EndpointResponse:Id" type:"string"`
 
 	// The geographic information for the endpoint.
-	Location *EndpointLocation `type:"structure"`
+	Location *EndpointLocation `json:"pinpoint:EndpointResponse:Location" type:"structure"`
 
 	// One or more custom metrics that your app reports to Amazon Pinpoint for the
 	// endpoint.
-	Metrics map[string]float64 `type:"map"`
+	Metrics map[string]float64 `json:"pinpoint:EndpointResponse:Metrics" type:"map"`
 
 	// Specifies whether the user who's associated with the endpoint has opted out
 	// of receiving messages and push notifications from you. Possible values are:
 	// ALL, the user has opted out and doesn't want to receive any messages or push
 	// notifications; and, NONE, the user hasn't opted out and wants to receive
 	// all messages and push notifications.
-	OptOut *string `type:"string"`
+	OptOut *string `json:"pinpoint:EndpointResponse:OptOut" type:"string"`
 
 	// The unique identifier for the most recent request to update the endpoint.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"pinpoint:EndpointResponse:RequestId" type:"string"`
 
 	// One or more custom user attributes that your app reports to Amazon Pinpoint
 	// for the user who's associated with the endpoint.
-	User *EndpointUser `type:"structure"`
+	User *EndpointUser `json:"pinpoint:EndpointResponse:User" type:"structure"`
 }
 
 // String returns the string representation
@@ -5042,26 +5042,26 @@ type EndpointSendConfiguration struct {
 
 	// The body of the message. If specified, this value overrides the default message
 	// body.
-	BodyOverride *string `type:"string"`
+	BodyOverride *string `json:"pinpoint:EndpointSendConfiguration:BodyOverride" type:"string"`
 
 	// A map of custom attributes to attach to the message for the address. For
 	// a push notification, this payload is added to the data.pinpoint object. For
 	// an email or text message, this payload is added to email/SMS delivery receipt
 	// event attributes.
-	Context map[string]string `type:"map"`
+	Context map[string]string `json:"pinpoint:EndpointSendConfiguration:Context" type:"map"`
 
 	// The raw, JSON-formatted string to use as the payload for the message. If
 	// specified, this value overrides the message.
-	RawContent *string `type:"string"`
+	RawContent *string `json:"pinpoint:EndpointSendConfiguration:RawContent" type:"string"`
 
 	// A map of the message variables to merge with the variables specified for
 	// the default message (DefaultMessage.Substitutions). The variables specified
 	// in this map take precedence over all other variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:EndpointSendConfiguration:Substitutions" type:"map"`
 
 	// The title or subject line of the message. If specified, this value overrides
 	// the default message title or subject line.
-	TitleOverride *string `type:"string"`
+	TitleOverride *string `json:"pinpoint:EndpointSendConfiguration:TitleOverride" type:"string"`
 }
 
 // String returns the string representation
@@ -5137,10 +5137,10 @@ type EndpointUser struct {
 	// and slash (/). The Amazon Pinpoint console can't display attribute names
 	// that contain these characters. This limitation doesn't apply to attribute
 	// values.
-	UserAttributes map[string][]string `type:"map"`
+	UserAttributes map[string][]string `json:"pinpoint:EndpointUser:UserAttributes" type:"map"`
 
 	// The unique identifier for the user.
-	UserId *string `type:"string"`
+	UserId *string `json:"pinpoint:EndpointUser:UserId" type:"string"`
 }
 
 // String returns the string representation
@@ -5186,7 +5186,7 @@ type EndpointsResponse struct {
 	// ID.
 	//
 	// Item is a required field
-	Item []EndpointResponse `type:"list" required:"true"`
+	Item []EndpointResponse `json:"pinpoint:EndpointsResponse:Item" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -5217,38 +5217,38 @@ type Event struct {
 	_ struct{} `type:"structure"`
 
 	// The package name of the app that's recording the event.
-	AppPackageName *string `type:"string"`
+	AppPackageName *string `json:"pinpoint:Event:AppPackageName" type:"string"`
 
 	// The title of the app that's recording the event.
-	AppTitle *string `type:"string"`
+	AppTitle *string `json:"pinpoint:Event:AppTitle" type:"string"`
 
 	// The version number of the app that's recording the event.
-	AppVersionCode *string `type:"string"`
+	AppVersionCode *string `json:"pinpoint:Event:AppVersionCode" type:"string"`
 
 	// One or more custom attributes that are associated with the event.
-	Attributes map[string]string `type:"map"`
+	Attributes map[string]string `json:"pinpoint:Event:Attributes" type:"map"`
 
 	// The version of the SDK that's running on the client device.
-	ClientSdkVersion *string `type:"string"`
+	ClientSdkVersion *string `json:"pinpoint:Event:ClientSdkVersion" type:"string"`
 
 	// The name of the event.
 	//
 	// EventType is a required field
-	EventType *string `type:"string" required:"true"`
+	EventType *string `json:"pinpoint:Event:EventType" type:"string" required:"true"`
 
 	// One or more custom metrics that are associated with the event.
-	Metrics map[string]float64 `type:"map"`
+	Metrics map[string]float64 `json:"pinpoint:Event:Metrics" type:"map"`
 
 	// The name of the SDK that's being used to record the event.
-	SdkName *string `type:"string"`
+	SdkName *string `json:"pinpoint:Event:SdkName" type:"string"`
 
 	// Information about the session in which the event occurred.
-	Session *Session `type:"structure"`
+	Session *Session `json:"pinpoint:Event:Session" type:"structure"`
 
 	// The date and time, in ISO 8601 format, when the event occurred.
 	//
 	// Timestamp is a required field
-	Timestamp *string `type:"string" required:"true"`
+	Timestamp *string `json:"pinpoint:Event:Timestamp" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5364,16 +5364,16 @@ type EventDimensions struct {
 
 	// One or more custom attributes that your app reports to Amazon Pinpoint. You
 	// can use these attributes as selection criteria when you create an event filter.
-	Attributes map[string]AttributeDimension `type:"map"`
+	Attributes map[string]AttributeDimension `json:"pinpoint:EventDimensions:Attributes" type:"map"`
 
 	// The name of the event that causes the campaign to be sent. This can be a
 	// standard type of event that Amazon Pinpoint generates, such as _session.start,
 	// or a custom event that's specific to your app.
-	EventType *SetDimension `type:"structure"`
+	EventType *SetDimension `json:"pinpoint:EventDimensions:EventType" type:"structure"`
 
 	// One or more custom metrics that your app reports to Amazon Pinpoint. You
 	// can use these metrics as selection criteria when you create an event filter.
-	Metrics map[string]MetricDimension `type:"map"`
+	Metrics map[string]MetricDimension `json:"pinpoint:EventDimensions:Metrics" type:"map"`
 }
 
 // String returns the string representation
@@ -5452,12 +5452,12 @@ type EventItemResponse struct {
 
 	// A custom message that's returned in the response as a result of processing
 	// the event.
-	Message *string `type:"string"`
+	Message *string `json:"pinpoint:EventItemResponse:Message" type:"string"`
 
 	// The status code that's returned in the response as a result of processing
 	// the event. Possible values are: 202, for events that were accepted; and,
 	// 400, for events that weren't valid.
-	StatusCode *int64 `type:"integer"`
+	StatusCode *int64 `json:"pinpoint:EventItemResponse:StatusCode" type:"integer"`
 }
 
 // String returns the string representation
@@ -5491,7 +5491,7 @@ type EventStream struct {
 	// The unique identifier for the application to publish event data for.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:EventStream:ApplicationId" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon
 	// Kinesis Data Firehose delivery stream to publish event data to.
@@ -5501,26 +5501,26 @@ type EventStream struct {
 	// For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:region:account-id:deliverystream/stream_name
 	//
 	// DestinationStreamArn is a required field
-	DestinationStreamArn *string `type:"string" required:"true"`
+	DestinationStreamArn *string `json:"pinpoint:EventStream:DestinationStreamArn" type:"string" required:"true"`
 
 	// (Deprecated) Your AWS account ID, which you assigned to an external ID key
 	// in an IAM trust policy. Amazon Pinpoint previously used this value to assume
 	// an IAM role when publishing event data, but we removed this requirement.
 	// We don't recommend use of external IDs for IAM roles that are assumed by
 	// Amazon Pinpoint.
-	ExternalId *string `type:"string"`
+	ExternalId *string `json:"pinpoint:EventStream:ExternalId" type:"string"`
 
 	// The date, in ISO 8601 format, when the event stream was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:EventStream:LastModifiedDate" type:"string"`
 
 	// The IAM user who last modified the event stream.
-	LastUpdatedBy *string `type:"string"`
+	LastUpdatedBy *string `json:"pinpoint:EventStream:LastUpdatedBy" type:"string"`
 
 	// The AWS Identity and Access Management (IAM) role that authorizes Amazon
 	// Pinpoint to publish event data to the stream in your AWS account.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"pinpoint:EventStream:RoleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -5577,12 +5577,12 @@ type EventsBatch struct {
 	// A set of properties and attributes that are associated with the endpoint.
 	//
 	// Endpoint is a required field
-	Endpoint *PublicEndpoint `type:"structure" required:"true"`
+	Endpoint *PublicEndpoint `json:"pinpoint:EventsBatch:Endpoint" type:"structure" required:"true"`
 
 	// A set of properties that are associated with the event.
 	//
 	// Events is a required field
-	Events map[string]Event `type:"map" required:"true"`
+	Events map[string]Event `json:"pinpoint:EventsBatch:Events" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -5647,7 +5647,7 @@ type EventsRequest struct {
 	// acts as a key that has an EventsBatch object as its value.
 	//
 	// BatchItem is a required field
-	BatchItem map[string]EventsBatch `type:"map" required:"true"`
+	BatchItem map[string]EventsBatch `json:"pinpoint:EventsRequest:BatchItem" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -5704,7 +5704,7 @@ type EventsResponse struct {
 	// If no item response exists, the value can also be one of the following: 202,
 	// the request was processed successfully; or 400, the payload wasn't valid
 	// or required fields were missing.
-	Results map[string]ItemResponse `type:"map"`
+	Results map[string]ItemResponse `json:"pinpoint:EventsResponse:Results" type:"map"`
 }
 
 // String returns the string representation
@@ -5740,7 +5740,7 @@ type ExportJobRequest struct {
 	// where you want to export endpoint definitions to.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"pinpoint:ExportJobRequest:RoleArn" type:"string" required:"true"`
 
 	// The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket
 	// where you want to export endpoint definitions to. This location is typically
@@ -5748,15 +5748,15 @@ type ExportJobRequest struct {
 	// format: s3://bucket-name/folder-name/.
 	//
 	// S3UrlPrefix is a required field
-	S3UrlPrefix *string `type:"string" required:"true"`
+	S3UrlPrefix *string `json:"pinpoint:ExportJobRequest:S3UrlPrefix" type:"string" required:"true"`
 
 	// The identifier for the segment to export endpoint definitions from. If you
 	// don't specify this value, Amazon Pinpoint exports definitions for all the
 	// endpoints that are associated with the application.
-	SegmentId *string `type:"string"`
+	SegmentId *string `json:"pinpoint:ExportJobRequest:SegmentId" type:"string"`
 
 	// The version of the segment to export endpoint definitions from, if specified.
-	SegmentVersion *int64 `type:"integer"`
+	SegmentVersion *int64 `json:"pinpoint:ExportJobRequest:SegmentVersion" type:"integer"`
 }
 
 // String returns the string representation
@@ -5824,7 +5824,7 @@ type ExportJobResource struct {
 	// where the endpoint definitions were exported to.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"pinpoint:ExportJobResource:RoleArn" type:"string" required:"true"`
 
 	// The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket
 	// where the endpoint definitions were exported to. This location is typically
@@ -5832,15 +5832,15 @@ type ExportJobResource struct {
 	// format: s3://bucket-name/folder-name/.
 	//
 	// S3UrlPrefix is a required field
-	S3UrlPrefix *string `type:"string" required:"true"`
+	S3UrlPrefix *string `json:"pinpoint:ExportJobResource:S3UrlPrefix" type:"string" required:"true"`
 
 	// The identifier for the segment that the endpoint definitions were exported
 	// from. If this value isn't present, Amazon Pinpoint exported definitions for
 	// all the endpoints that are associated with the application.
-	SegmentId *string `type:"string"`
+	SegmentId *string `json:"pinpoint:ExportJobResource:SegmentId" type:"string"`
 
 	// The version of the segment that the endpoint definitions were exported from.
-	SegmentVersion *int64 `type:"integer"`
+	SegmentVersion *int64 `json:"pinpoint:ExportJobResource:SegmentVersion" type:"integer"`
 }
 
 // String returns the string representation
@@ -5889,62 +5889,62 @@ type ExportJobResponse struct {
 	// job.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:ExportJobResponse:ApplicationId" type:"string" required:"true"`
 
 	// The number of pieces that were processed successfully (completed) by the
 	// export job, as of the time of the request.
-	CompletedPieces *int64 `type:"integer"`
+	CompletedPieces *int64 `json:"pinpoint:ExportJobResponse:CompletedPieces" type:"integer"`
 
 	// The date, in ISO 8601 format, when the export job was completed.
-	CompletionDate *string `type:"string"`
+	CompletionDate *string `json:"pinpoint:ExportJobResponse:CompletionDate" type:"string"`
 
 	// The date, in ISO 8601 format, when the export job was created.
 	//
 	// CreationDate is a required field
-	CreationDate *string `type:"string" required:"true"`
+	CreationDate *string `json:"pinpoint:ExportJobResponse:CreationDate" type:"string" required:"true"`
 
 	// The resource settings that apply to the export job.
 	//
 	// Definition is a required field
-	Definition *ExportJobResource `type:"structure" required:"true"`
+	Definition *ExportJobResource `json:"pinpoint:ExportJobResponse:Definition" type:"structure" required:"true"`
 
 	// The number of pieces that weren't processed successfully (failed) by the
 	// export job, as of the time of the request.
-	FailedPieces *int64 `type:"integer"`
+	FailedPieces *int64 `json:"pinpoint:ExportJobResponse:FailedPieces" type:"integer"`
 
 	// An array of entries, one for each of the first 100 entries that weren't processed
 	// successfully (failed) by the export job, if any.
-	Failures []string `type:"list"`
+	Failures []string `json:"pinpoint:ExportJobResponse:Failures" type:"list"`
 
 	// The unique identifier for the export job.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:ExportJobResponse:Id" type:"string" required:"true"`
 
 	// The status of the export job. The job status is FAILED if Amazon Pinpoint
 	// wasn't able to process one or more pieces in the job.
 	//
 	// JobStatus is a required field
-	JobStatus JobStatus `type:"string" required:"true" enum:"true"`
+	JobStatus JobStatus `json:"pinpoint:ExportJobResponse:JobStatus" type:"string" required:"true" enum:"true"`
 
 	// The total number of endpoint definitions that weren't processed successfully
 	// (failed) by the export job, typically because an error, such as a syntax
 	// error, occurred.
-	TotalFailures *int64 `type:"integer"`
+	TotalFailures *int64 `json:"pinpoint:ExportJobResponse:TotalFailures" type:"integer"`
 
 	// The total number of pieces that must be processed to complete the export
 	// job. Each piece consists of an approximately equal portion of the endpoint
 	// definitions that are part of the export job.
-	TotalPieces *int64 `type:"integer"`
+	TotalPieces *int64 `json:"pinpoint:ExportJobResponse:TotalPieces" type:"integer"`
 
 	// The total number of endpoint definitions that were processed by the export
 	// job.
-	TotalProcessed *int64 `type:"integer"`
+	TotalProcessed *int64 `json:"pinpoint:ExportJobResponse:TotalProcessed" type:"integer"`
 
 	// The job type. This value is EXPORT for export jobs.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"pinpoint:ExportJobResponse:Type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -6052,11 +6052,11 @@ type ExportJobsResponse struct {
 	// application (Export Jobs resource) or segment (Segment Export Jobs resource).
 	//
 	// Item is a required field
-	Item []ExportJobResponse `type:"list" required:"true"`
+	Item []ExportJobResponse `json:"pinpoint:ExportJobsResponse:Item" type:"list" required:"true"`
 
 	// The string to use in a subsequent request to get the next page of results
 	// in a paginated response. This value is null if there are no additional pages.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pinpoint:ExportJobsResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -6098,10 +6098,10 @@ type GCMChannelRequest struct {
 	// to communicate with Google services.
 	//
 	// ApiKey is a required field
-	ApiKey *string `type:"string" required:"true"`
+	ApiKey *string `json:"pinpoint:GCMChannelRequest:ApiKey" type:"string" required:"true"`
 
 	// Specifies whether to enable the GCM channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:GCMChannelRequest:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -6149,44 +6149,44 @@ type GCMChannelResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for the application that the GCM channel applies to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:GCMChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time when the GCM channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:GCMChannelResponse:CreationDate" type:"string"`
 
 	// The API key, also referred to as a server key, that you received from Google
 	// to communicate with Google services.
 	//
 	// Credential is a required field
-	Credential *string `type:"string" required:"true"`
+	Credential *string `json:"pinpoint:GCMChannelResponse:Credential" type:"string" required:"true"`
 
 	// Specifies whether the GCM channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:GCMChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:GCMChannelResponse:HasCredential" type:"boolean"`
 
 	// (Deprecated) An identifier for the GCM channel. This property is retained
 	// only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:GCMChannelResponse:Id" type:"string"`
 
 	// Specifies whether the GCM channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:GCMChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the GCM channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:GCMChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time when the GCM channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:GCMChannelResponse:LastModifiedDate" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the GCM
 	// channel, this value is GCM.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:GCMChannelResponse:Platform" type:"string" required:"true"`
 
 	// The current version of the GCM channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:GCMChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -6285,10 +6285,10 @@ type GCMMessage struct {
 	//
 	//    * URL - The default mobile browser on the recipient's device opens and
 	//    loads the web page at a URL that you specify.
-	Action Action `type:"string" enum:"true"`
+	Action Action `json:"pinpoint:GCMMessage:Action" type:"string" enum:"true"`
 
 	// The body of the notification message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:GCMMessage:Body" type:"string"`
 
 	// An arbitrary string that identifies a group of messages that can be collapsed
 	// to ensure that only the last message is sent when delivery can resume. This
@@ -6297,22 +6297,22 @@ type GCMMessage struct {
 	//
 	// Amazon Pinpoint specifies this value in the Firebase Cloud Messaging (FCM)
 	// collapse_key parameter when it sends the notification message to FCM.
-	CollapseKey *string `type:"string"`
+	CollapseKey *string `json:"pinpoint:GCMMessage:CollapseKey" type:"string"`
 
 	// The JSON data payload to use for the push notification, if the notification
 	// is a silent push notification. This payload is added to the data.pinpoint.jsonBody
 	// object of the notification.
-	Data map[string]string `type:"map"`
+	Data map[string]string `json:"pinpoint:GCMMessage:Data" type:"map"`
 
 	// The icon image name of the asset saved in your app.
-	IconReference *string `type:"string"`
+	IconReference *string `json:"pinpoint:GCMMessage:IconReference" type:"string"`
 
 	// The URL of the large icon image to display in the content view of the push
 	// notification.
-	ImageIconUrl *string `type:"string"`
+	ImageIconUrl *string `json:"pinpoint:GCMMessage:ImageIconUrl" type:"string"`
 
 	// The URL of an image to display in the push notification.
-	ImageUrl *string `type:"string"`
+	ImageUrl *string `json:"pinpoint:GCMMessage:ImageUrl" type:"string"`
 
 	// para>normal - The notification might be delayed. Delivery is optimized for
 	// battery usage on the recipient's device. Use this value unless immediate
@@ -6326,35 +6326,35 @@ type GCMMessage struct {
 	// The equivalent values for Apple Push Notification service (APNs) are 5, for
 	// normal, and 10, for high. If you specify an APNs value for this property,
 	// Amazon Pinpoint accepts and converts the value to the corresponding FCM value.
-	Priority *string `type:"string"`
+	Priority *string `json:"pinpoint:GCMMessage:Priority" type:"string"`
 
 	// The raw, JSON-formatted string to use as the payload for the notification
 	// message. This value overrides the message.
-	RawContent *string `type:"string"`
+	RawContent *string `json:"pinpoint:GCMMessage:RawContent" type:"string"`
 
 	// The package name of the application where registration tokens must match
 	// in order for the recipient to receive the message.
-	RestrictedPackageName *string `type:"string"`
+	RestrictedPackageName *string `json:"pinpoint:GCMMessage:RestrictedPackageName" type:"string"`
 
 	// Specifies whether the notification is a silent push notification, which is
 	// a push notification that doesn't display on a recipient's device. Silent
 	// push notifications can be used for cases such as updating an app's configuration
 	// or supporting phone home functionality.
-	SilentPush *bool `type:"boolean"`
+	SilentPush *bool `json:"pinpoint:GCMMessage:SilentPush" type:"boolean"`
 
 	// The URL of the small icon image to display in the status bar and the content
 	// view of the push notification.
-	SmallImageIconUrl *string `type:"string"`
+	SmallImageIconUrl *string `json:"pinpoint:GCMMessage:SmallImageIconUrl" type:"string"`
 
 	// The sound to play when the recipient receives the push notification. You
 	// can use the default stream or specify the file name of a sound resource that's
 	// bundled in your app. On an Android platform, the sound file must reside in
 	// /res/raw/.
-	Sound *string `type:"string"`
+	Sound *string `json:"pinpoint:GCMMessage:Sound" type:"string"`
 
 	// The default message variables to use in the notification message. You can
 	// override the default variables with individual address variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:GCMMessage:Substitutions" type:"map"`
 
 	// The amount of time, in seconds, that FCM should store and attempt to deliver
 	// the push notification, if the service is unable to deliver the notification
@@ -6363,14 +6363,14 @@ type GCMMessage struct {
 	//
 	// Amazon Pinpoint specifies this value in the FCM time_to_live parameter when
 	// it sends the notification message to FCM.
-	TimeToLive *int64 `type:"integer"`
+	TimeToLive *int64 `json:"pinpoint:GCMMessage:TimeToLive" type:"integer"`
 
 	// The title to display above the notification message on the recipient's device.
-	Title *string `type:"string"`
+	Title *string `json:"pinpoint:GCMMessage:Title" type:"string"`
 
 	// The URL to open in the recipient's default mobile browser, if a recipient
 	// taps the push notification and the value of the Action property is URL.
-	Url *string `type:"string"`
+	Url *string `json:"pinpoint:GCMMessage:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -6510,12 +6510,12 @@ type GPSCoordinates struct {
 	// The latitude coordinate of the location.
 	//
 	// Latitude is a required field
-	Latitude *float64 `type:"double" required:"true"`
+	Latitude *float64 `json:"pinpoint:GPSCoordinates:Latitude" type:"double" required:"true"`
 
 	// The longitude coordinate of the location.
 	//
 	// Longitude is a required field
-	Longitude *float64 `type:"double" required:"true"`
+	Longitude *float64 `json:"pinpoint:GPSCoordinates:Longitude" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -6567,10 +6567,10 @@ type GPSPointDimension struct {
 	// The GPS coordinates to measure distance from.
 	//
 	// Coordinates is a required field
-	Coordinates *GPSCoordinates `type:"structure" required:"true"`
+	Coordinates *GPSCoordinates `json:"pinpoint:GPSPointDimension:Coordinates" type:"structure" required:"true"`
 
 	// The range, in kilometers, from the GPS coordinates.
-	RangeInKilometers *float64 `type:"double"`
+	RangeInKilometers *float64 `json:"pinpoint:GPSPointDimension:RangeInKilometers" type:"double"`
 }
 
 // String returns the string representation
@@ -6622,14 +6622,14 @@ type ImportJobRequest struct {
 
 	// Specifies whether to create a segment that contains the endpoints, when the
 	// endpoint definitions are imported.
-	DefineSegment *bool `type:"boolean"`
+	DefineSegment *bool `json:"pinpoint:ImportJobRequest:DefineSegment" type:"boolean"`
 
 	// (Deprecated) Your AWS account ID, which you assigned to an external ID key
 	// in an IAM trust policy. Amazon Pinpoint previously used this value to assume
 	// an IAM role when importing endpoint definitions, but we removed this requirement.
 	// We don't recommend use of external IDs for IAM roles that are assumed by
 	// Amazon Pinpoint.
-	ExternalId *string `type:"string"`
+	ExternalId *string `json:"pinpoint:ImportJobRequest:ExternalId" type:"string"`
 
 	// The format of the files that contain the endpoint definitions to import.
 	// Valid values are: CSV, for comma-separated values format; and, JSON, for
@@ -6638,18 +6638,18 @@ type ImportJobRequest struct {
 	// the files that use the specified format.
 	//
 	// Format is a required field
-	Format Format `type:"string" required:"true" enum:"true"`
+	Format Format `json:"pinpoint:ImportJobRequest:Format" type:"string" required:"true" enum:"true"`
 
 	// Specifies whether to register the endpoints with Amazon Pinpoint, when the
 	// endpoint definitions are imported.
-	RegisterEndpoints *bool `type:"boolean"`
+	RegisterEndpoints *bool `json:"pinpoint:ImportJobRequest:RegisterEndpoints" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 	// (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location
 	// to import endpoint definitions from.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"pinpoint:ImportJobRequest:RoleArn" type:"string" required:"true"`
 
 	// The URL of the Amazon Simple Storage Service (Amazon S3) bucket that contains
 	// the endpoint definitions to import. This location can be a folder or a single
@@ -6662,15 +6662,15 @@ type ImportJobRequest struct {
 	// qualifies multiple objects.
 	//
 	// S3Url is a required field
-	S3Url *string `type:"string" required:"true"`
+	S3Url *string `json:"pinpoint:ImportJobRequest:S3Url" type:"string" required:"true"`
 
 	// The identifier for the segment to update or add the imported endpoint definitions
 	// to, if the import job is meant to update an existing segment.
-	SegmentId *string `type:"string"`
+	SegmentId *string `json:"pinpoint:ImportJobRequest:SegmentId" type:"string"`
 
 	// The custom name for the segment that's created by the import job, if the
 	// value of the DefineSegment property is true.
-	SegmentName *string `type:"string"`
+	SegmentName *string `json:"pinpoint:ImportJobRequest:SegmentName" type:"string"`
 }
 
 // String returns the string representation
@@ -6762,14 +6762,14 @@ type ImportJobResource struct {
 
 	// Specifies whether the import job creates a segment that contains the endpoints,
 	// when the endpoint definitions are imported.
-	DefineSegment *bool `type:"boolean"`
+	DefineSegment *bool `json:"pinpoint:ImportJobResource:DefineSegment" type:"boolean"`
 
 	// (Deprecated) Your AWS account ID, which you assigned to an external ID key
 	// in an IAM trust policy. Amazon Pinpoint previously used this value to assume
 	// an IAM role when importing endpoint definitions, but we removed this requirement.
 	// We don't recommend use of external IDs for IAM roles that are assumed by
 	// Amazon Pinpoint.
-	ExternalId *string `type:"string"`
+	ExternalId *string `json:"pinpoint:ImportJobResource:ExternalId" type:"string"`
 
 	// The format of the files that contain the endpoint definitions to import.
 	// Valid values are: CSV, for comma-separated values format; and, JSON, for
@@ -6780,18 +6780,18 @@ type ImportJobResource struct {
 	// from the files that use the specified format.
 	//
 	// Format is a required field
-	Format Format `type:"string" required:"true" enum:"true"`
+	Format Format `json:"pinpoint:ImportJobResource:Format" type:"string" required:"true" enum:"true"`
 
 	// Specifies whether the import job registers the endpoints with Amazon Pinpoint,
 	// when the endpoint definitions are imported.
-	RegisterEndpoints *bool `type:"boolean"`
+	RegisterEndpoints *bool `json:"pinpoint:ImportJobResource:RegisterEndpoints" type:"boolean"`
 
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 	// (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location
 	// to import endpoint definitions from.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"pinpoint:ImportJobResource:RoleArn" type:"string" required:"true"`
 
 	// The URL of the Amazon Simple Storage Service (Amazon S3) bucket that contains
 	// the endpoint definitions to import. This location can be a folder or a single
@@ -6804,15 +6804,15 @@ type ImportJobResource struct {
 	// qualifies multiple objects.
 	//
 	// S3Url is a required field
-	S3Url *string `type:"string" required:"true"`
+	S3Url *string `json:"pinpoint:ImportJobResource:S3Url" type:"string" required:"true"`
 
 	// The identifier for the segment that the import job updates or adds endpoint
 	// definitions to, if the import job updates an existing segment.
-	SegmentId *string `type:"string"`
+	SegmentId *string `json:"pinpoint:ImportJobResource:SegmentId" type:"string"`
 
 	// The custom name for the segment that's created by the import job, if the
 	// value of the DefineSegment property is true.
-	SegmentName *string `type:"string"`
+	SegmentName *string `json:"pinpoint:ImportJobResource:SegmentName" type:"string"`
 }
 
 // String returns the string representation
@@ -6885,62 +6885,62 @@ type ImportJobResponse struct {
 	// job.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:ImportJobResponse:ApplicationId" type:"string" required:"true"`
 
 	// The number of pieces that were processed successfully (completed) by the
 	// import job, as of the time of the request.
-	CompletedPieces *int64 `type:"integer"`
+	CompletedPieces *int64 `json:"pinpoint:ImportJobResponse:CompletedPieces" type:"integer"`
 
 	// The date, in ISO 8601 format, when the import job was completed.
-	CompletionDate *string `type:"string"`
+	CompletionDate *string `json:"pinpoint:ImportJobResponse:CompletionDate" type:"string"`
 
 	// The date, in ISO 8601 format, when the import job was created.
 	//
 	// CreationDate is a required field
-	CreationDate *string `type:"string" required:"true"`
+	CreationDate *string `json:"pinpoint:ImportJobResponse:CreationDate" type:"string" required:"true"`
 
 	// The resource settings that apply to the import job.
 	//
 	// Definition is a required field
-	Definition *ImportJobResource `type:"structure" required:"true"`
+	Definition *ImportJobResource `json:"pinpoint:ImportJobResponse:Definition" type:"structure" required:"true"`
 
 	// The number of pieces that weren't processed successfully (failed) by the
 	// import job, as of the time of the request.
-	FailedPieces *int64 `type:"integer"`
+	FailedPieces *int64 `json:"pinpoint:ImportJobResponse:FailedPieces" type:"integer"`
 
 	// An array of entries, one for each of the first 100 entries that weren't processed
 	// successfully (failed) by the import job, if any.
-	Failures []string `type:"list"`
+	Failures []string `json:"pinpoint:ImportJobResponse:Failures" type:"list"`
 
 	// The unique identifier for the import job.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:ImportJobResponse:Id" type:"string" required:"true"`
 
 	// The status of the import job. The job status is FAILED if Amazon Pinpoint
 	// wasn't able to process one or more pieces in the job.
 	//
 	// JobStatus is a required field
-	JobStatus JobStatus `type:"string" required:"true" enum:"true"`
+	JobStatus JobStatus `json:"pinpoint:ImportJobResponse:JobStatus" type:"string" required:"true" enum:"true"`
 
 	// The total number of endpoint definitions that weren't processed successfully
 	// (failed) by the import job, typically because an error, such as a syntax
 	// error, occurred.
-	TotalFailures *int64 `type:"integer"`
+	TotalFailures *int64 `json:"pinpoint:ImportJobResponse:TotalFailures" type:"integer"`
 
 	// The total number of pieces that must be processed to complete the import
 	// job. Each piece consists of an approximately equal portion of the endpoint
 	// definitions that are part of the import job.
-	TotalPieces *int64 `type:"integer"`
+	TotalPieces *int64 `json:"pinpoint:ImportJobResponse:TotalPieces" type:"integer"`
 
 	// The total number of endpoint definitions that were processed by the import
 	// job.
-	TotalProcessed *int64 `type:"integer"`
+	TotalProcessed *int64 `json:"pinpoint:ImportJobResponse:TotalProcessed" type:"integer"`
 
 	// The job type. This value is IMPORT for import jobs.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"pinpoint:ImportJobResponse:Type" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -7048,11 +7048,11 @@ type ImportJobsResponse struct {
 	// application (Import Jobs resource) or segment (Segment Import Jobs resource).
 	//
 	// Item is a required field
-	Item []ImportJobResponse `type:"list" required:"true"`
+	Item []ImportJobResponse `json:"pinpoint:ImportJobsResponse:Item" type:"list" required:"true"`
 
 	// The string to use in a subsequent request to get the next page of results
 	// in a paginated response. This value is null if there are no additional pages.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pinpoint:ImportJobsResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -7090,12 +7090,12 @@ type ItemResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The response that was received after the endpoint data was accepted.
-	EndpointItemResponse *EndpointItemResponse `type:"structure"`
+	EndpointItemResponse *EndpointItemResponse `json:"pinpoint:ItemResponse:EndpointItemResponse" type:"structure"`
 
 	// A multipart response object that contains a key and a value for each event
 	// in the request. In each object, the event ID is the key and an EventItemResponse
 	// object is the value.
-	EventsItemResponse map[string]EventItemResponse `type:"map"`
+	EventsItemResponse map[string]EventItemResponse `json:"pinpoint:ItemResponse:EventsItemResponse" type:"map"`
 }
 
 // String returns the string representation
@@ -7143,39 +7143,39 @@ type Message struct {
 	//
 	//    * URL - The default mobile browser on the recipient's device opens and
 	//    loads the web page at a URL that you specify.
-	Action Action `type:"string" enum:"true"`
+	Action Action `json:"pinpoint:Message:Action" type:"string" enum:"true"`
 
 	// The body of the notification message. The maximum number of characters is
 	// 200.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:Message:Body" type:"string"`
 
 	// The URL of the image to display as the push-notification icon, such as the
 	// icon for the app.
-	ImageIconUrl *string `type:"string"`
+	ImageIconUrl *string `json:"pinpoint:Message:ImageIconUrl" type:"string"`
 
 	// The URL of the image to display as the small, push-notification icon, such
 	// as a small version of the icon for the app.
-	ImageSmallIconUrl *string `type:"string"`
+	ImageSmallIconUrl *string `json:"pinpoint:Message:ImageSmallIconUrl" type:"string"`
 
 	// The URL of an image to display in the push notification.
-	ImageUrl *string `type:"string"`
+	ImageUrl *string `json:"pinpoint:Message:ImageUrl" type:"string"`
 
 	// The JSON payload to use for a silent push notification.
-	JsonBody *string `type:"string"`
+	JsonBody *string `json:"pinpoint:Message:JsonBody" type:"string"`
 
 	// The URL of the image or video to display in the push notification.
-	MediaUrl *string `type:"string"`
+	MediaUrl *string `json:"pinpoint:Message:MediaUrl" type:"string"`
 
 	// The raw, JSON-formatted string to use as the payload for the notification
 	// message. This value overrides other values for the message.
-	RawContent *string `type:"string"`
+	RawContent *string `json:"pinpoint:Message:RawContent" type:"string"`
 
 	// Specifies whether the notification is a silent push notification, which is
 	// a push notification that doesn't display on a recipient's device. Silent
 	// push notifications can be used for cases such as updating an app's configuration,
 	// displaying messages in an in-app message center, or supporting phone home
 	// functionality.
-	SilentPush *bool `type:"boolean"`
+	SilentPush *bool `json:"pinpoint:Message:SilentPush" type:"boolean"`
 
 	// The number of seconds that the push-notification service should keep the
 	// message, if the service is unable to deliver the notification the first time.
@@ -7186,14 +7186,14 @@ type Message struct {
 	//
 	// This value doesn't apply to messages that are sent through the Amazon Device
 	// Messaging (ADM) service.
-	TimeToLive *int64 `type:"integer"`
+	TimeToLive *int64 `json:"pinpoint:Message:TimeToLive" type:"integer"`
 
 	// The title to display above the notification message on a recipient's device.
-	Title *string `type:"string"`
+	Title *string `json:"pinpoint:Message:Title" type:"string"`
 
 	// The URL to open in a recipient's default mobile browser, if a recipient taps
 	// the push notification and the value of the Action property is URL.
-	Url *string `type:"string"`
+	Url *string `json:"pinpoint:Message:Url" type:"string"`
 }
 
 // String returns the string representation
@@ -7284,10 +7284,10 @@ type MessageBody struct {
 	_ struct{} `type:"structure"`
 
 	// The message that's returned from the API.
-	Message *string `type:"string"`
+	Message *string `json:"pinpoint:MessageBody:Message" type:"string"`
 
 	// The unique identifier for the request or response.
-	RequestID *string `type:"string"`
+	RequestID *string `json:"pinpoint:MessageBody:RequestID" type:"string"`
 }
 
 // String returns the string representation
@@ -7319,31 +7319,31 @@ type MessageConfiguration struct {
 
 	// The message that the campaign sends through the ADM (Amazon Device Messaging)
 	// channel. This message overrides the default message.
-	ADMMessage *Message `type:"structure"`
+	ADMMessage *Message `json:"pinpoint:MessageConfiguration:ADMMessage" type:"structure"`
 
 	// The message that the campaign sends through the APNs (Apple Push Notification
 	// service) channel. This message overrides the default message.
-	APNSMessage *Message `type:"structure"`
+	APNSMessage *Message `json:"pinpoint:MessageConfiguration:APNSMessage" type:"structure"`
 
 	// The message that the campaign sends through the Baidu (Baidu Cloud Push)
 	// channel. This message overrides the default message.
-	BaiduMessage *Message `type:"structure"`
+	BaiduMessage *Message `json:"pinpoint:MessageConfiguration:BaiduMessage" type:"structure"`
 
 	// The default message that the campaign sends through all the channels that
 	// are configured for the campaign.
-	DefaultMessage *Message `type:"structure"`
+	DefaultMessage *Message `json:"pinpoint:MessageConfiguration:DefaultMessage" type:"structure"`
 
 	// The message that the campaign sends through the email channel.
-	EmailMessage *CampaignEmailMessage `type:"structure"`
+	EmailMessage *CampaignEmailMessage `json:"pinpoint:MessageConfiguration:EmailMessage" type:"structure"`
 
 	// The message that the campaign sends through the GCM channel, which enables
 	// Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging
 	// (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides
 	// the default message.
-	GCMMessage *Message `type:"structure"`
+	GCMMessage *Message `json:"pinpoint:MessageConfiguration:GCMMessage" type:"structure"`
 
 	// The message that the campaign sends through the SMS channel.
-	SMSMessage *CampaignSmsMessage `type:"structure"`
+	SMSMessage *CampaignSmsMessage `json:"pinpoint:MessageConfiguration:SMSMessage" type:"structure"`
 }
 
 // String returns the string representation
@@ -7424,27 +7424,27 @@ type MessageRequest struct {
 	// a phone number, or an email address. You can use an AddressConfiguration
 	// object to tailor the message for an address by specifying settings such as
 	// content overrides and message variables.
-	Addresses map[string]AddressConfiguration `type:"map"`
+	Addresses map[string]AddressConfiguration `json:"pinpoint:MessageRequest:Addresses" type:"map"`
 
 	// A map of custom attributes to attach to the message. For a push notification,
 	// this payload is added to the data.pinpoint object. For an email or text message,
 	// this payload is added to email/SMS delivery receipt event attributes.
-	Context map[string]string `type:"map"`
+	Context map[string]string `json:"pinpoint:MessageRequest:Context" type:"map"`
 
 	// A map of key-value pairs, where each key is an endpoint ID and each value
 	// is an EndpointSendConfiguration object. You can use an EndpointSendConfiguration
 	// object to tailor the message for an endpoint by specifying settings such
 	// as content overrides and message variables.
-	Endpoints map[string]EndpointSendConfiguration `type:"map"`
+	Endpoints map[string]EndpointSendConfiguration `json:"pinpoint:MessageRequest:Endpoints" type:"map"`
 
 	// The set of properties that defines the configuration settings for the message.
 	//
 	// MessageConfiguration is a required field
-	MessageConfiguration *DirectMessageConfiguration `type:"structure" required:"true"`
+	MessageConfiguration *DirectMessageConfiguration `json:"pinpoint:MessageRequest:MessageConfiguration" type:"structure" required:"true"`
 
 	// The unique identifier for tracing the message. This identifier is visible
 	// to message recipients.
-	TraceId *string `type:"string"`
+	TraceId *string `json:"pinpoint:MessageRequest:TraceId" type:"string"`
 }
 
 // String returns the string representation
@@ -7528,20 +7528,20 @@ type MessageResponse struct {
 	// The unique identifier for the application that was used to send the message.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:MessageResponse:ApplicationId" type:"string" required:"true"`
 
 	// A map that contains a multipart response for each address that the message
 	// was sent to. In the map, the endpoint ID is the key and the result is the
 	// value.
-	EndpointResult map[string]EndpointMessageResult `type:"map"`
+	EndpointResult map[string]EndpointMessageResult `json:"pinpoint:MessageResponse:EndpointResult" type:"map"`
 
 	// The identifier for the original request that the message was delivered for.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"pinpoint:MessageResponse:RequestId" type:"string"`
 
 	// A map that contains a multipart response for each address (email address,
 	// phone number, or push notification token) that the message was sent to. In
 	// the map, the address is the key and the result is the value.
-	Result map[string]MessageResult `type:"map"`
+	Result map[string]MessageResult `json:"pinpoint:MessageResponse:Result" type:"map"`
 }
 
 // String returns the string representation
@@ -7623,22 +7623,22 @@ type MessageResult struct {
 	//    * UNKNOWN_FAILURE - An unknown error occurred.
 	//
 	// DeliveryStatus is a required field
-	DeliveryStatus DeliveryStatus `type:"string" required:"true" enum:"true"`
+	DeliveryStatus DeliveryStatus `json:"pinpoint:MessageResult:DeliveryStatus" type:"string" required:"true" enum:"true"`
 
 	// The unique identifier for the message that was sent.
-	MessageId *string `type:"string"`
+	MessageId *string `json:"pinpoint:MessageResult:MessageId" type:"string"`
 
 	// The downstream service status code for delivering the message.
 	//
 	// StatusCode is a required field
-	StatusCode *int64 `type:"integer" required:"true"`
+	StatusCode *int64 `json:"pinpoint:MessageResult:StatusCode" type:"integer" required:"true"`
 
 	// The status message for delivering the message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"pinpoint:MessageResult:StatusMessage" type:"string"`
 
 	// For push notifications that are sent through the GCM channel, specifies whether
 	// the token was updated as part of delivering the message.
-	UpdatedToken *string `type:"string"`
+	UpdatedToken *string `json:"pinpoint:MessageResult:UpdatedToken" type:"string"`
 }
 
 // String returns the string representation
@@ -7692,12 +7692,12 @@ type MetricDimension struct {
 	// LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, and EQUAL.
 	//
 	// ComparisonOperator is a required field
-	ComparisonOperator *string `type:"string" required:"true"`
+	ComparisonOperator *string `json:"pinpoint:MetricDimension:ComparisonOperator" type:"string" required:"true"`
 
 	// The value to compare.
 	//
 	// Value is a required field
-	Value *float64 `type:"double" required:"true"`
+	Value *float64 `json:"pinpoint:MetricDimension:Value" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -7747,12 +7747,12 @@ type NumberValidateRequest struct {
 
 	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or
 	// region where the phone number was originally registered.
-	IsoCountryCode *string `type:"string"`
+	IsoCountryCode *string `json:"pinpoint:NumberValidateRequest:IsoCountryCode" type:"string"`
 
 	// The phone number to retrieve information about. The phone number that you
 	// provide should include a valid numeric country code. Otherwise, the operation
 	// might result in an error.
-	PhoneNumber *string `type:"string"`
+	PhoneNumber *string `json:"pinpoint:NumberValidateRequest:PhoneNumber" type:"string"`
 }
 
 // String returns the string representation
@@ -7785,54 +7785,54 @@ type NumberValidateResponse struct {
 	// The carrier or service provider that the phone number is currently registered
 	// with. In some countries and regions, this value may be the carrier or service
 	// provider that the phone number was originally registered with.
-	Carrier *string `type:"string"`
+	Carrier *string `json:"pinpoint:NumberValidateResponse:Carrier" type:"string"`
 
 	// The name of the city where the phone number was originally registered.
-	City *string `type:"string"`
+	City *string `json:"pinpoint:NumberValidateResponse:City" type:"string"`
 
 	// The cleansed phone number, in E.164 format, for the location where the phone
 	// number was originally registered.
-	CleansedPhoneNumberE164 *string `type:"string"`
+	CleansedPhoneNumberE164 *string `json:"pinpoint:NumberValidateResponse:CleansedPhoneNumberE164" type:"string"`
 
 	// The cleansed phone number, in the format for the location where the phone
 	// number was originally registered.
-	CleansedPhoneNumberNational *string `type:"string"`
+	CleansedPhoneNumberNational *string `json:"pinpoint:NumberValidateResponse:CleansedPhoneNumberNational" type:"string"`
 
 	// The name of the country or region where the phone number was originally registered.
-	Country *string `type:"string"`
+	Country *string `json:"pinpoint:NumberValidateResponse:Country" type:"string"`
 
 	// The two-character code, in ISO 3166-1 alpha-2 format, for the country or
 	// region where the phone number was originally registered.
-	CountryCodeIso2 *string `type:"string"`
+	CountryCodeIso2 *string `json:"pinpoint:NumberValidateResponse:CountryCodeIso2" type:"string"`
 
 	// The numeric code for the country or region where the phone number was originally
 	// registered.
-	CountryCodeNumeric *string `type:"string"`
+	CountryCodeNumeric *string `json:"pinpoint:NumberValidateResponse:CountryCodeNumeric" type:"string"`
 
 	// The name of the county where the phone number was originally registered.
-	County *string `type:"string"`
+	County *string `json:"pinpoint:NumberValidateResponse:County" type:"string"`
 
 	// The two-character code, in ISO 3166-1 alpha-2 format, that was sent in the
 	// request body.
-	OriginalCountryCodeIso2 *string `type:"string"`
+	OriginalCountryCodeIso2 *string `json:"pinpoint:NumberValidateResponse:OriginalCountryCodeIso2" type:"string"`
 
 	// The phone number that was sent in the request body.
-	OriginalPhoneNumber *string `type:"string"`
+	OriginalPhoneNumber *string `json:"pinpoint:NumberValidateResponse:OriginalPhoneNumber" type:"string"`
 
 	// The description of the phone type. Valid values are: MOBILE, LANDLINE, VOIP,
 	// INVALID, PREPAID, and OTHER.
-	PhoneType *string `type:"string"`
+	PhoneType *string `json:"pinpoint:NumberValidateResponse:PhoneType" type:"string"`
 
 	// The phone type, represented by an integer. Valid values are: 0 (mobile),
 	// 1 (landline), 2 (VoIP), 3 (invalid), 4 (other), and 5 (prepaid).
-	PhoneTypeCode *int64 `type:"integer"`
+	PhoneTypeCode *int64 `json:"pinpoint:NumberValidateResponse:PhoneTypeCode" type:"integer"`
 
 	// The time zone for the location where the phone number was originally registered.
-	Timezone *string `type:"string"`
+	Timezone *string `json:"pinpoint:NumberValidateResponse:Timezone" type:"string"`
 
 	// The postal or ZIP code for the location where the phone number was originally
 	// registered.
-	ZipCode *string `type:"string"`
+	ZipCode *string `json:"pinpoint:NumberValidateResponse:ZipCode" type:"string"`
 }
 
 // String returns the string representation
@@ -7937,47 +7937,47 @@ type PublicEndpoint struct {
 
 	// The unique identifier for the recipient, such as a device token, email address,
 	// or mobile phone number.
-	Address *string `type:"string"`
+	Address *string `json:"pinpoint:PublicEndpoint:Address" type:"string"`
 
 	// One or more custom attributes that describe the endpoint by associating a
 	// name with an array of values. You can use these attributes as filter criteria
 	// when you create segments.
-	Attributes map[string][]string `type:"map"`
+	Attributes map[string][]string `json:"pinpoint:PublicEndpoint:Attributes" type:"map"`
 
 	// The channel that's used when sending messages or push notifications to the
 	// endpoint.
-	ChannelType ChannelType `type:"string" enum:"true"`
+	ChannelType ChannelType `json:"pinpoint:PublicEndpoint:ChannelType" type:"string" enum:"true"`
 
 	// The demographic information for the endpoint, such as the time zone and platform.
-	Demographic *EndpointDemographic `type:"structure"`
+	Demographic *EndpointDemographic `json:"pinpoint:PublicEndpoint:Demographic" type:"structure"`
 
 	// The date and time, in ISO 8601 format, when the endpoint was last updated.
-	EffectiveDate *string `type:"string"`
+	EffectiveDate *string `json:"pinpoint:PublicEndpoint:EffectiveDate" type:"string"`
 
 	// The status of the update request for the endpoint. Possible values are: INACTIVE,
 	// the update failed; and, ACTIVE, the endpoint was updated successfully.
-	EndpointStatus *string `type:"string"`
+	EndpointStatus *string `json:"pinpoint:PublicEndpoint:EndpointStatus" type:"string"`
 
 	// The geographic information for the endpoint.
-	Location *EndpointLocation `type:"structure"`
+	Location *EndpointLocation `json:"pinpoint:PublicEndpoint:Location" type:"structure"`
 
 	// One or more custom metrics that your app reports to Amazon Pinpoint for the
 	// endpoint.
-	Metrics map[string]float64 `type:"map"`
+	Metrics map[string]float64 `json:"pinpoint:PublicEndpoint:Metrics" type:"map"`
 
 	// Specifies whether the user who's associated with the endpoint has opted out
 	// of receiving messages and push notifications from you. Possible values are:
 	// ALL, the user has opted out and doesn't want to receive any messages or push
 	// notifications; and, NONE, the user hasn't opted out and wants to receive
 	// all messages and push notifications.
-	OptOut *string `type:"string"`
+	OptOut *string `json:"pinpoint:PublicEndpoint:OptOut" type:"string"`
 
 	// A unique identifier that's generated each time the endpoint is updated.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"pinpoint:PublicEndpoint:RequestId" type:"string"`
 
 	// One or more custom user attributes that your app reports to Amazon Pinpoint
 	// for the user who's associated with the endpoint.
-	User *EndpointUser `type:"structure"`
+	User *EndpointUser `json:"pinpoint:PublicEndpoint:User" type:"structure"`
 }
 
 // String returns the string representation
@@ -8083,13 +8083,13 @@ type QuietTime struct {
 	// and be in HH:MM format, where HH is the hour (with a leading zero, if applicable)
 	// and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30
 	// to represent 2:30 PM.
-	End *string `type:"string"`
+	End *string `json:"pinpoint:QuietTime:End" type:"string"`
 
 	// The specific time when quiet time begins. This value has to use 24-hour notation
 	// and be in HH:MM format, where HH is the hour (with a leading zero, if applicable)
 	// and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30
 	// to represent 2:30 PM.
-	Start *string `type:"string"`
+	Start *string `json:"pinpoint:QuietTime:Start" type:"string"`
 }
 
 // String returns the string representation
@@ -8123,7 +8123,7 @@ type RawEmail struct {
 	// must be base64 encoded.
 	//
 	// Data is automatically base64 encoded/decoded by the SDK.
-	Data []byte `type:"blob"`
+	Data []byte `json:"pinpoint:RawEmail:Data" type:"blob"`
 }
 
 // String returns the string representation
@@ -8151,7 +8151,7 @@ type RecencyDimension struct {
 	// The duration to use when determining whether an endpoint is active or inactive.
 	//
 	// Duration is a required field
-	Duration Duration `type:"string" required:"true" enum:"true"`
+	Duration Duration `json:"pinpoint:RecencyDimension:Duration" type:"string" required:"true" enum:"true"`
 
 	// The type of recency dimension to use for the segment. Valid values are: ACTIVE,
 	// endpoints that were active within the specified duration are included in
@@ -8159,7 +8159,7 @@ type RecencyDimension struct {
 	// duration are included in the segment.
 	//
 	// RecencyType is a required field
-	RecencyType RecencyType `type:"string" required:"true" enum:"true"`
+	RecencyType RecencyType `json:"pinpoint:RecencyDimension:RecencyType" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation
@@ -8211,13 +8211,13 @@ type ResultRow struct {
 	// is null if the data in a result set isn’t grouped.
 	//
 	// GroupedBys is a required field
-	GroupedBys []ResultRowValue `type:"list" required:"true"`
+	GroupedBys []ResultRowValue `json:"pinpoint:ResultRow:GroupedBys" type:"list" required:"true"`
 
 	// An array of objects that provides pre-aggregated values for a standard metric
 	// that applies to an application or campaign.
 	//
 	// Values is a required field
-	Values []ResultRowValue `type:"list" required:"true"`
+	Values []ResultRowValue `json:"pinpoint:ResultRow:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -8265,19 +8265,19 @@ type ResultRowValue struct {
 	// by the Value property.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"pinpoint:ResultRowValue:Key" type:"string" required:"true"`
 
 	// The data type of the value specified by the Value property.
 	//
 	// Type is a required field
-	Type *string `type:"string" required:"true"`
+	Type *string `json:"pinpoint:ResultRowValue:Type" type:"string" required:"true"`
 
 	// In a Values object, the value for the metric that the query retrieved data
 	// for. In a GroupedBys object, the value for the field that was used to group
 	// data in a result set that contains multiple results (Values objects).
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"pinpoint:ResultRowValue:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -8314,15 +8314,15 @@ type SMSChannelRequest struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether to enable the SMS channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:SMSChannelRequest:Enabled" type:"boolean"`
 
 	// The identity that you want to display on recipients' devices when they receive
 	// messages from the SMS channel.
-	SenderId *string `type:"string"`
+	SenderId *string `json:"pinpoint:SMSChannelRequest:SenderId" type:"string"`
 
 	// The registered short code that you want to use when you send messages through
 	// the SMS channel.
-	ShortCode *string `type:"string"`
+	ShortCode *string `json:"pinpoint:SMSChannelRequest:ShortCode" type:"string"`
 }
 
 // String returns the string representation
@@ -8360,53 +8360,53 @@ type SMSChannelResponse struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier for the application that the SMS channel applies to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:SMSChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the SMS channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:SMSChannelResponse:CreationDate" type:"string"`
 
 	// Specifies whether the SMS channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:SMSChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:SMSChannelResponse:HasCredential" type:"boolean"`
 
 	// (Deprecated) An identifier for the SMS channel. This property is retained
 	// only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:SMSChannelResponse:Id" type:"string"`
 
 	// Specifies whether the SMS channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:SMSChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the SMS channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:SMSChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the SMS channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:SMSChannelResponse:LastModifiedDate" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the SMS
 	// channel, this value is SMS.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:SMSChannelResponse:Platform" type:"string" required:"true"`
 
 	// The maximum number of promotional messages that you can send through the
 	// SMS channel each second.
-	PromotionalMessagesPerSecond *int64 `type:"integer"`
+	PromotionalMessagesPerSecond *int64 `json:"pinpoint:SMSChannelResponse:PromotionalMessagesPerSecond" type:"integer"`
 
 	// The identity that displays on recipients' devices when they receive messages
 	// from the SMS channel.
-	SenderId *string `type:"string"`
+	SenderId *string `json:"pinpoint:SMSChannelResponse:SenderId" type:"string"`
 
 	// The registered short code to use when you send messages through the SMS channel.
-	ShortCode *string `type:"string"`
+	ShortCode *string `json:"pinpoint:SMSChannelResponse:ShortCode" type:"string"`
 
 	// The maximum number of transactional messages that you can send through the
 	// SMS channel each second.
-	TransactionalMessagesPerSecond *int64 `type:"integer"`
+	TransactionalMessagesPerSecond *int64 `json:"pinpoint:SMSChannelResponse:TransactionalMessagesPerSecond" type:"integer"`
 
 	// The current version of the SMS channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:SMSChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -8510,31 +8510,31 @@ type SMSMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The body of the SMS message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:SMSMessage:Body" type:"string"`
 
 	// The SMS program name that you provided to AWS Support when you requested
 	// your dedicated number.
-	Keyword *string `type:"string"`
+	Keyword *string `json:"pinpoint:SMSMessage:Keyword" type:"string"`
 
 	// The SMS message type. Valid values are: TRANSACTIONAL, the message is critical
 	// or time-sensitive, such as a one-time password that supports a customer transaction;
 	// and, PROMOTIONAL, the message is not critical or time-sensitive, such as
 	// a marketing message.
-	MessageType MessageType `type:"string" enum:"true"`
+	MessageType MessageType `json:"pinpoint:SMSMessage:MessageType" type:"string" enum:"true"`
 
 	// The number that the SMS message originates from. This should be one of the
 	// dedicated long codes or short codes that you requested from AWS Support and
 	// is assigned to your AWS account. If you don't specify a long or short code,
 	// Amazon Pinpoint assigns a random long code to the SMS message.
-	OriginationNumber *string `type:"string"`
+	OriginationNumber *string `json:"pinpoint:SMSMessage:OriginationNumber" type:"string"`
 
 	// The sender ID to display as the sender of the message on a recipient's device.
 	// Support for sender IDs varies by country or region.
-	SenderId *string `type:"string"`
+	SenderId *string `json:"pinpoint:SMSMessage:SenderId" type:"string"`
 
 	// The message variables to use in the SMS message. You can override the default
 	// variables with individual address variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:SMSMessage:Substitutions" type:"map"`
 }
 
 // String returns the string representation
@@ -8600,20 +8600,20 @@ type Schedule struct {
 	_ struct{} `type:"structure"`
 
 	// The scheduled time, in ISO 8601 format, for the campaign to end.
-	EndTime *string `type:"string"`
+	EndTime *string `json:"pinpoint:Schedule:EndTime" type:"string"`
 
 	// The type of event that causes the campaign to be sent, if the value of the
 	// Frequency property is EVENT.
-	EventFilter *CampaignEventFilter `type:"structure"`
+	EventFilter *CampaignEventFilter `json:"pinpoint:Schedule:EventFilter" type:"structure"`
 
 	// Specifies how often the campaign is sent or whether the campaign is sent
 	// in response to a specific event.
-	Frequency Frequency `type:"string" enum:"true"`
+	Frequency Frequency `json:"pinpoint:Schedule:Frequency" type:"string" enum:"true"`
 
 	// Specifies whether the start and end times for the campaign schedule use each
 	// recipient's local time. To base the schedule on each recipient's local time,
 	// set this value to true.
-	IsLocalTime *bool `type:"boolean"`
+	IsLocalTime *bool `json:"pinpoint:Schedule:IsLocalTime" type:"boolean"`
 
 	// The default quiet time for the campaign. Quiet time is a specific time range
 	// when a campaign doesn't send messages to endpoints, if all the following
@@ -8630,19 +8630,19 @@ type Schedule struct {
 	//
 	// If any of the preceding conditions isn't met, the endpoint will receive messages
 	// from the campaign, even if quiet time is enabled.
-	QuietTime *QuietTime `type:"structure"`
+	QuietTime *QuietTime `json:"pinpoint:Schedule:QuietTime" type:"structure"`
 
 	// The scheduled time, in ISO 8601 format, for the campaign to begin.
 	//
 	// StartTime is a required field
-	StartTime *string `type:"string" required:"true"`
+	StartTime *string `json:"pinpoint:Schedule:StartTime" type:"string" required:"true"`
 
 	// The starting UTC offset for the campaign schedule, if the value of the IsLocalTime
 	// property is true. Valid values are: UTC, UTC+01, UTC+02, UTC+03, UTC+03:30,
 	// UTC+04, UTC+04:30, UTC+05, UTC+05:30, UTC+05:45, UTC+06, UTC+06:30, UTC+07,
 	// UTC+08, UTC+09, UTC+09:30, UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+13, UTC-02,
 	// UTC-03, UTC-04, UTC-05, UTC-06, UTC-07, UTC-08, UTC-09, UTC-10, and UTC-11.
-	Timezone *string `type:"string"`
+	Timezone *string `json:"pinpoint:Schedule:Timezone" type:"string"`
 }
 
 // String returns the string representation
@@ -8723,7 +8723,7 @@ type SegmentBehaviors struct {
 	_ struct{} `type:"structure"`
 
 	// The dimension settings that are based on how recently an endpoint was active.
-	Recency *RecencyDimension `type:"structure"`
+	Recency *RecencyDimension `json:"pinpoint:SegmentBehaviors:Recency" type:"structure"`
 }
 
 // String returns the string representation
@@ -8765,22 +8765,22 @@ type SegmentDemographics struct {
 	_ struct{} `type:"structure"`
 
 	// The app version criteria for the segment.
-	AppVersion *SetDimension `type:"structure"`
+	AppVersion *SetDimension `json:"pinpoint:SegmentDemographics:AppVersion" type:"structure"`
 
 	// The channel criteria for the segment.
-	Channel *SetDimension `type:"structure"`
+	Channel *SetDimension `json:"pinpoint:SegmentDemographics:Channel" type:"structure"`
 
 	// The device type criteria for the segment.
-	DeviceType *SetDimension `type:"structure"`
+	DeviceType *SetDimension `json:"pinpoint:SegmentDemographics:DeviceType" type:"structure"`
 
 	// The device make criteria for the segment.
-	Make *SetDimension `type:"structure"`
+	Make *SetDimension `json:"pinpoint:SegmentDemographics:Make" type:"structure"`
 
 	// The device model criteria for the segment.
-	Model *SetDimension `type:"structure"`
+	Model *SetDimension `json:"pinpoint:SegmentDemographics:Model" type:"structure"`
 
 	// The device platform criteria for the segment.
-	Platform *SetDimension `type:"structure"`
+	Platform *SetDimension `json:"pinpoint:SegmentDemographics:Platform" type:"structure"`
 }
 
 // String returns the string representation
@@ -8875,23 +8875,23 @@ type SegmentDimensions struct {
 	_ struct{} `type:"structure"`
 
 	// One or more custom attributes to use as criteria for the segment.
-	Attributes map[string]AttributeDimension `type:"map"`
+	Attributes map[string]AttributeDimension `json:"pinpoint:SegmentDimensions:Attributes" type:"map"`
 
 	// The behavior-based criteria, such as how recently users have used your app,
 	// for the segment.
-	Behavior *SegmentBehaviors `type:"structure"`
+	Behavior *SegmentBehaviors `json:"pinpoint:SegmentDimensions:Behavior" type:"structure"`
 
 	// The demographic-based criteria, such as device platform, for the segment.
-	Demographic *SegmentDemographics `type:"structure"`
+	Demographic *SegmentDemographics `json:"pinpoint:SegmentDimensions:Demographic" type:"structure"`
 
 	// The location-based criteria, such as region or GPS coordinates, for the segment.
-	Location *SegmentLocation `type:"structure"`
+	Location *SegmentLocation `json:"pinpoint:SegmentDimensions:Location" type:"structure"`
 
 	// One or more custom metrics to use as criteria for the segment.
-	Metrics map[string]MetricDimension `type:"map"`
+	Metrics map[string]MetricDimension `json:"pinpoint:SegmentDimensions:Metrics" type:"map"`
 
 	// One or more custom user attributes to use as criteria for the segment.
-	UserAttributes map[string]AttributeDimension `type:"map"`
+	UserAttributes map[string]AttributeDimension `json:"pinpoint:SegmentDimensions:UserAttributes" type:"map"`
 }
 
 // String returns the string representation
@@ -9011,7 +9011,7 @@ type SegmentGroup struct {
 	_ struct{} `type:"structure"`
 
 	// An array that defines the dimensions for the segment.
-	Dimensions []SegmentDimensions `type:"list"`
+	Dimensions []SegmentDimensions `json:"pinpoint:SegmentGroup:Dimensions" type:"list"`
 
 	// The base segment to build the segment on. A base segment, also referred to
 	// as a source segment, defines the initial population of endpoints for a segment.
@@ -9022,17 +9022,17 @@ type SegmentGroup struct {
 	// If you specify an imported segment, the Amazon Pinpoint console displays
 	// a segment size estimate that indicates the size of the imported segment without
 	// any filters applied to it.
-	SourceSegments []SegmentReference `type:"list"`
+	SourceSegments []SegmentReference `json:"pinpoint:SegmentGroup:SourceSegments" type:"list"`
 
 	// Specifies how to handle multiple base segments for the segment. For example,
 	// if you specify three base segments for the segment, whether the resulting
 	// segment is based on all, any, or none of the base segments.
-	SourceType SourceType `type:"string" enum:"true"`
+	SourceType SourceType `json:"pinpoint:SegmentGroup:SourceType" type:"string" enum:"true"`
 
 	// Specifies how to handle multiple dimensions for the segment. For example,
 	// if you specify three dimensions for the segment, whether the resulting segment
 	// includes endpoints that match all, any, or none of the dimensions.
-	Type Type `type:"string" enum:"true"`
+	Type Type `json:"pinpoint:SegmentGroup:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9113,12 +9113,12 @@ type SegmentGroupList struct {
 
 	// An array that defines the set of segment criteria to evaluate when handling
 	// segment groups for the segment.
-	Groups []SegmentGroup `type:"list"`
+	Groups []SegmentGroup `json:"pinpoint:SegmentGroupList:Groups" type:"list"`
 
 	// Specifies how to handle multiple segment groups for the segment. For example,
 	// if the segment includes three segment groups, whether the resulting segment
 	// includes endpoints that match all, any, or none of the segment groups.
-	Include Include `type:"string" enum:"true"`
+	Include Include `json:"pinpoint:SegmentGroupList:Include" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -9174,7 +9174,7 @@ type SegmentImportResource struct {
 
 	// The number of channel types in the endpoint definitions that were imported
 	// to create the segment.
-	ChannelCounts map[string]int64 `type:"map"`
+	ChannelCounts map[string]int64 `json:"pinpoint:SegmentImportResource:ChannelCounts" type:"map"`
 
 	// (Deprecated) Your AWS account ID, which you assigned to an external ID key
 	// in an IAM trust policy. Amazon Pinpoint previously used this value to assume
@@ -9183,33 +9183,33 @@ type SegmentImportResource struct {
 	// Amazon Pinpoint.
 	//
 	// ExternalId is a required field
-	ExternalId *string `type:"string" required:"true"`
+	ExternalId *string `json:"pinpoint:SegmentImportResource:ExternalId" type:"string" required:"true"`
 
 	// The format of the files that were imported to create the segment. Valid values
 	// are: CSV, for comma-separated values format; and, JSON, for newline-delimited
 	// JSON format.
 	//
 	// Format is a required field
-	Format Format `type:"string" required:"true" enum:"true"`
+	Format Format `json:"pinpoint:SegmentImportResource:Format" type:"string" required:"true" enum:"true"`
 
 	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 	// (IAM) role that authorized Amazon Pinpoint to access the Amazon S3 location
 	// to import endpoint definitions from.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"pinpoint:SegmentImportResource:RoleArn" type:"string" required:"true"`
 
 	// The URL of the Amazon Simple Storage Service (Amazon S3) bucket that the
 	// endpoint definitions were imported from to create the segment.
 	//
 	// S3Url is a required field
-	S3Url *string `type:"string" required:"true"`
+	S3Url *string `json:"pinpoint:SegmentImportResource:S3Url" type:"string" required:"true"`
 
 	// The number of endpoint definitions that were imported successfully to create
 	// the segment.
 	//
 	// Size is a required field
-	Size *int64 `type:"integer" required:"true"`
+	Size *int64 `json:"pinpoint:SegmentImportResource:Size" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -9270,10 +9270,10 @@ type SegmentLocation struct {
 	_ struct{} `type:"structure"`
 
 	// The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
-	Country *SetDimension `type:"structure"`
+	Country *SetDimension `json:"pinpoint:SegmentLocation:Country" type:"structure"`
 
 	// The GPS location and range for the segment.
-	GPSPoint *GPSPointDimension `type:"structure"`
+	GPSPoint *GPSPointDimension `json:"pinpoint:SegmentLocation:GPSPoint" type:"structure"`
 }
 
 // String returns the string representation
@@ -9326,10 +9326,10 @@ type SegmentReference struct {
 	// The unique identifier for the segment.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:SegmentReference:Id" type:"string" required:"true"`
 
 	// The version number of the segment.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:SegmentReference:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -9378,39 +9378,39 @@ type SegmentResponse struct {
 	// with.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:SegmentResponse:ApplicationId" type:"string" required:"true"`
 
 	// The Amazon Resource Name (ARN) of the segment.
 	//
 	// Arn is a required field
-	Arn *string `type:"string" required:"true"`
+	Arn *string `json:"pinpoint:SegmentResponse:Arn" type:"string" required:"true"`
 
 	// The date and time when the segment was created.
 	//
 	// CreationDate is a required field
-	CreationDate *string `type:"string" required:"true"`
+	CreationDate *string `json:"pinpoint:SegmentResponse:CreationDate" type:"string" required:"true"`
 
 	// The dimension settings for the segment.
-	Dimensions *SegmentDimensions `type:"structure"`
+	Dimensions *SegmentDimensions `json:"pinpoint:SegmentResponse:Dimensions" type:"structure"`
 
 	// The unique identifier for the segment.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:SegmentResponse:Id" type:"string" required:"true"`
 
 	// The settings for the import job that's associated with the segment.
-	ImportDefinition *SegmentImportResource `type:"structure"`
+	ImportDefinition *SegmentImportResource `json:"pinpoint:SegmentResponse:ImportDefinition" type:"structure"`
 
 	// The date and time when the segment was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:SegmentResponse:LastModifiedDate" type:"string"`
 
 	// The name of the segment.
-	Name *string `type:"string"`
+	Name *string `json:"pinpoint:SegmentResponse:Name" type:"string"`
 
 	// A list of one or more segment groups that apply to the segment. Each segment
 	// group consists of zero or more base segments and the dimensions that are
 	// applied to those base segments.
-	SegmentGroups *SegmentGroupList `type:"structure"`
+	SegmentGroups *SegmentGroupList `json:"pinpoint:SegmentResponse:SegmentGroups" type:"structure"`
 
 	// The segment type. Valid values are:
 	//
@@ -9423,15 +9423,15 @@ type SegmentResponse struct {
 	//    from a file. Imported segments are static; they don't change over time.
 	//
 	// SegmentType is a required field
-	SegmentType SegmentType `type:"string" required:"true" enum:"true"`
+	SegmentType SegmentType `json:"pinpoint:SegmentResponse:SegmentType" type:"string" required:"true" enum:"true"`
 
 	// A string-to-string map of key-value pairs that identifies the tags that are
 	// associated with the segment. Each tag consists of a required tag key and
 	// an associated tag value.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"pinpoint:SegmentResponse:Tags" locationName:"tags" type:"map"`
 
 	// The version number of the segment.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:SegmentResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -9532,11 +9532,11 @@ type SegmentsResponse struct {
 	// application (Segment Versions resource).
 	//
 	// Item is a required field
-	Item []SegmentResponse `type:"list" required:"true"`
+	Item []SegmentResponse `json:"pinpoint:SegmentsResponse:Item" type:"list" required:"true"`
 
 	// The string to use in a subsequent request to get the next page of results
 	// in a paginated response. This value is null if there are no additional pages.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"pinpoint:SegmentsResponse:NextToken" type:"string"`
 }
 
 // String returns the string representation
@@ -9577,24 +9577,24 @@ type SendUsersMessageRequest struct {
 	// adds these attributes to the data.pinpoint object in the body of the notification
 	// payload. Amazon Pinpoint also provides these attributes in the events that
 	// it generates for users-messages deliveries.
-	Context map[string]string `type:"map"`
+	Context map[string]string `json:"pinpoint:SendUsersMessageRequest:Context" type:"map"`
 
 	// The message definitions for the default message and any default messages
 	// that you defined for specific channels.
 	//
 	// MessageConfiguration is a required field
-	MessageConfiguration *DirectMessageConfiguration `type:"structure" required:"true"`
+	MessageConfiguration *DirectMessageConfiguration `json:"pinpoint:SendUsersMessageRequest:MessageConfiguration" type:"structure" required:"true"`
 
 	// The unique identifier for tracing the message. This identifier is visible
 	// to message recipients.
-	TraceId *string `type:"string"`
+	TraceId *string `json:"pinpoint:SendUsersMessageRequest:TraceId" type:"string"`
 
 	// A map that associates user IDs with EndpointSendConfiguration objects. You
 	// can use an EndpointSendConfiguration object to tailor the message for a user
 	// by specifying settings such as content overrides and message variables.
 	//
 	// Users is a required field
-	Users map[string]EndpointSendConfiguration `type:"map" required:"true"`
+	Users map[string]EndpointSendConfiguration `json:"pinpoint:SendUsersMessageRequest:Users" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -9669,16 +9669,16 @@ type SendUsersMessageResponse struct {
 	// The unique identifier for the application that was used to send the message.
 	//
 	// ApplicationId is a required field
-	ApplicationId *string `type:"string" required:"true"`
+	ApplicationId *string `json:"pinpoint:SendUsersMessageResponse:ApplicationId" type:"string" required:"true"`
 
 	// The unique identifier that was assigned to the message request.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"pinpoint:SendUsersMessageResponse:RequestId" type:"string"`
 
 	// An object that indicates which endpoints the message was sent to, for each
 	// user. The object lists user IDs and, for each user ID, provides the endpoint
 	// IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult
 	// object.
-	Result map[string]map[string]EndpointMessageResult `type:"map"`
+	Result map[string]map[string]EndpointMessageResult `json:"pinpoint:SendUsersMessageResponse:Result" type:"map"`
 }
 
 // String returns the string representation
@@ -9726,20 +9726,20 @@ type Session struct {
 	_ struct{} `type:"structure"`
 
 	// The duration of the session, in milliseconds.
-	Duration *int64 `type:"integer"`
+	Duration *int64 `json:"pinpoint:Session:Duration" type:"integer"`
 
 	// The unique identifier for the session.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:Session:Id" type:"string" required:"true"`
 
 	// The date and time when the session began.
 	//
 	// StartTimestamp is a required field
-	StartTimestamp *string `type:"string" required:"true"`
+	StartTimestamp *string `json:"pinpoint:Session:StartTimestamp" type:"string" required:"true"`
 
 	// The date and time when the session ended.
-	StopTimestamp *string `type:"string"`
+	StopTimestamp *string `json:"pinpoint:Session:StopTimestamp" type:"string"`
 }
 
 // String returns the string representation
@@ -9802,14 +9802,14 @@ type SetDimension struct {
 	// The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints
 	// that match the criteria are included in the segment; and, EXCLUSIVE, endpoints
 	// that match the criteria are excluded from the segment.
-	DimensionType DimensionType `type:"string" enum:"true"`
+	DimensionType DimensionType `json:"pinpoint:SetDimension:DimensionType" type:"string" enum:"true"`
 
 	// The criteria values to use for the segment dimension. Depending on the value
 	// of the DimensionType property, endpoints are included or excluded from the
 	// segment if their values match the criteria values.
 	//
 	// Values is a required field
-	Values []string `type:"list" required:"true"`
+	Values []string `json:"pinpoint:SetDimension:Values" type:"list" required:"true"`
 }
 
 // String returns the string representation
@@ -9863,15 +9863,15 @@ type SimpleEmail struct {
 	// The body of the email message, in HTML format. We recommend using an HTML
 	// part for email clients that support HTML. You can include links, formatted
 	// text, and more in an HTML message.
-	HtmlPart *SimpleEmailPart `type:"structure"`
+	HtmlPart *SimpleEmailPart `json:"pinpoint:SimpleEmail:HtmlPart" type:"structure"`
 
 	// The subject line, or title, of the email.
-	Subject *SimpleEmailPart `type:"structure"`
+	Subject *SimpleEmailPart `json:"pinpoint:SimpleEmail:Subject" type:"structure"`
 
 	// The body of the email message, in text format. We recommend using a text
 	// part for email clients that don't support HTML and clients that are connected
 	// to high-latency networks, such as mobile devices.
-	TextPart *SimpleEmailPart `type:"structure"`
+	TextPart *SimpleEmailPart `json:"pinpoint:SimpleEmail:TextPart" type:"structure"`
 }
 
 // String returns the string representation
@@ -9909,10 +9909,10 @@ type SimpleEmailPart struct {
 	_ struct{} `type:"structure"`
 
 	// The applicable character set for the message content.
-	Charset *string `type:"string"`
+	Charset *string `json:"pinpoint:SimpleEmailPart:Charset" type:"string"`
 
 	// The textual data of the message content.
-	Data *string `type:"string"`
+	Data *string `json:"pinpoint:SimpleEmailPart:Data" type:"string"`
 }
 
 // String returns the string representation
@@ -9951,7 +9951,7 @@ type TagsModel struct {
 	// value is 256 characters.
 	//
 	// Tags is a required field
-	Tags map[string]string `locationName:"tags" type:"map" required:"true"`
+	Tags map[string]string `json:"pinpoint:TagsModel:Tags" locationName:"tags" type:"map" required:"true"`
 }
 
 // String returns the string representation
@@ -9999,29 +9999,29 @@ type TreatmentResource struct {
 	// The unique identifier for the treatment.
 	//
 	// Id is a required field
-	Id *string `type:"string" required:"true"`
+	Id *string `json:"pinpoint:TreatmentResource:Id" type:"string" required:"true"`
 
 	// The message configuration settings for the treatment.
-	MessageConfiguration *MessageConfiguration `type:"structure"`
+	MessageConfiguration *MessageConfiguration `json:"pinpoint:TreatmentResource:MessageConfiguration" type:"structure"`
 
 	// The schedule settings for the treatment.
-	Schedule *Schedule `type:"structure"`
+	Schedule *Schedule `json:"pinpoint:TreatmentResource:Schedule" type:"structure"`
 
 	// The allocated percentage of users (segment members) that the treatment is
 	// sent to.
 	//
 	// SizePercent is a required field
-	SizePercent *int64 `type:"integer" required:"true"`
+	SizePercent *int64 `json:"pinpoint:TreatmentResource:SizePercent" type:"integer" required:"true"`
 
 	// The status of the treatment.
-	State *CampaignState `type:"structure"`
+	State *CampaignState `json:"pinpoint:TreatmentResource:State" type:"structure"`
 
 	// The custom description of the treatment.
-	TreatmentDescription *string `type:"string"`
+	TreatmentDescription *string `json:"pinpoint:TreatmentResource:TreatmentDescription" type:"string"`
 
 	// The custom name of the treatment. A treatment is a variation of a campaign
 	// that's used for A/B testing of a campaign.
-	TreatmentName *string `type:"string"`
+	TreatmentName *string `json:"pinpoint:TreatmentResource:TreatmentName" type:"string"`
 }
 
 // String returns the string representation
@@ -10086,7 +10086,7 @@ type UpdateAttributesRequest struct {
 	// with the application. The array can specify the complete, exact name of each
 	// attribute to remove or it can specify a glob pattern that an attribute name
 	// must match in order for the attribute to be removed.
-	Blacklist []string `type:"list"`
+	Blacklist []string `json:"pinpoint:UpdateAttributesRequest:Blacklist" type:"list"`
 }
 
 // String returns the string representation
@@ -10117,7 +10117,7 @@ type VoiceChannelRequest struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies whether to enable the voice channel for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:VoiceChannelRequest:Enabled" type:"boolean"`
 }
 
 // String returns the string representation
@@ -10144,40 +10144,40 @@ type VoiceChannelResponse struct {
 
 	// The unique identifier for the application that the voice channel applies
 	// to.
-	ApplicationId *string `type:"string"`
+	ApplicationId *string `json:"pinpoint:VoiceChannelResponse:ApplicationId" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the voice channel was enabled.
-	CreationDate *string `type:"string"`
+	CreationDate *string `json:"pinpoint:VoiceChannelResponse:CreationDate" type:"string"`
 
 	// Specifies whether the voice channel is enabled for the application.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"pinpoint:VoiceChannelResponse:Enabled" type:"boolean"`
 
 	// (Not used) This property is retained only for backward compatibility.
-	HasCredential *bool `type:"boolean"`
+	HasCredential *bool `json:"pinpoint:VoiceChannelResponse:HasCredential" type:"boolean"`
 
 	// (Deprecated) An identifier for the voice channel. This property is retained
 	// only for backward compatibility.
-	Id *string `type:"string"`
+	Id *string `json:"pinpoint:VoiceChannelResponse:Id" type:"string"`
 
 	// Specifies whether the voice channel is archived.
-	IsArchived *bool `type:"boolean"`
+	IsArchived *bool `json:"pinpoint:VoiceChannelResponse:IsArchived" type:"boolean"`
 
 	// The user who last modified the voice channel.
-	LastModifiedBy *string `type:"string"`
+	LastModifiedBy *string `json:"pinpoint:VoiceChannelResponse:LastModifiedBy" type:"string"`
 
 	// The date and time, in ISO 8601 format, when the voice channel was last modified.
-	LastModifiedDate *string `type:"string"`
+	LastModifiedDate *string `json:"pinpoint:VoiceChannelResponse:LastModifiedDate" type:"string"`
 
-	OriginationNumber *string `type:"string"`
+	OriginationNumber *string `json:"pinpoint:VoiceChannelResponse:OriginationNumber" type:"string"`
 
 	// The type of messaging or notification platform for the channel. For the voice
 	// channel, this value is VOICE.
 	//
 	// Platform is a required field
-	Platform *string `type:"string" required:"true"`
+	Platform *string `json:"pinpoint:VoiceChannelResponse:Platform" type:"string" required:"true"`
 
 	// The current version of the voice channel.
-	Version *int64 `type:"integer"`
+	Version *int64 `json:"pinpoint:VoiceChannelResponse:Version" type:"integer"`
 }
 
 // String returns the string representation
@@ -10263,24 +10263,24 @@ type VoiceMessage struct {
 	_ struct{} `type:"structure"`
 
 	// The text script for the voice message.
-	Body *string `type:"string"`
+	Body *string `json:"pinpoint:VoiceMessage:Body" type:"string"`
 
 	// The language to use when delivering the message. For a list of supported
 	// languages, see the Amazon Polly Developer Guide (AmazonPollyDG.html).
-	LanguageCode *string `type:"string"`
+	LanguageCode *string `json:"pinpoint:VoiceMessage:LanguageCode" type:"string"`
 
 	// The phone number from the pool or messaging service to send the message from.
 	// Although it isn't required, we recommend that you specify the phone number
 	// in E.164 format to ensure prompt and accurate delivery.
-	OriginationNumber *string `type:"string"`
+	OriginationNumber *string `json:"pinpoint:VoiceMessage:OriginationNumber" type:"string"`
 
 	// The default message variables to use in the voice message. You can override
 	// the default variables with individual address variables.
-	Substitutions map[string][]string `type:"map"`
+	Substitutions map[string][]string `json:"pinpoint:VoiceMessage:Substitutions" type:"map"`
 
 	// The name of the voice to use when delivering the message. For a list of supported
 	// voices, see the Amazon Polly Developer Guide (AmazonPollyDG.html).
-	VoiceId *string `type:"string"`
+	VoiceId *string `json:"pinpoint:VoiceMessage:VoiceId" type:"string"`
 }
 
 // String returns the string representation
@@ -10343,15 +10343,15 @@ type WriteApplicationSettingsRequest struct {
 	// for campaigns in the application. To override these settings for a specific
 	// campaign, use the Campaign resource to define custom Lambda function settings
 	// for the campaign.
-	CampaignHook *CampaignHook `type:"structure"`
+	CampaignHook *CampaignHook `json:"pinpoint:WriteApplicationSettingsRequest:CampaignHook" type:"structure"`
 
 	// Specifies whether to enable application-related alarms in Amazon CloudWatch.
-	CloudWatchMetricsEnabled *bool `type:"boolean"`
+	CloudWatchMetricsEnabled *bool `json:"pinpoint:WriteApplicationSettingsRequest:CloudWatchMetricsEnabled" type:"boolean"`
 
 	// The default sending limits for campaigns in the application. To override
 	// these limits for a specific campaign, use the Campaign resource to define
 	// custom limits for the campaign.
-	Limits *CampaignLimits `type:"structure"`
+	Limits *CampaignLimits `json:"pinpoint:WriteApplicationSettingsRequest:Limits" type:"structure"`
 
 	// The default quiet time for campaigns in the application. Quiet time is a
 	// specific time range when campaigns don't send messages to endpoints, if all
@@ -10373,7 +10373,7 @@ type WriteApplicationSettingsRequest struct {
 	//
 	// To override the default quiet time settings for a specific campaign, use
 	// the Campaign resource to define a custom quiet time for the campaign.
-	QuietTime *QuietTime `type:"structure"`
+	QuietTime *QuietTime `json:"pinpoint:WriteApplicationSettingsRequest:QuietTime" type:"structure"`
 }
 
 // String returns the string representation
@@ -10417,50 +10417,50 @@ type WriteCampaignRequest struct {
 
 	// An array of requests that defines additional treatments for the campaign,
 	// in addition to the default treatment for the campaign.
-	AdditionalTreatments []WriteTreatmentResource `type:"list"`
+	AdditionalTreatments []WriteTreatmentResource `json:"pinpoint:WriteCampaignRequest:AdditionalTreatments" type:"list"`
 
 	// The custom description of the campaign.
-	Description *string `type:"string"`
+	Description *string `json:"pinpoint:WriteCampaignRequest:Description" type:"string"`
 
 	// The allocated percentage of users (segment members) who shouldn't receive
 	// messages from the campaign.
-	HoldoutPercent *int64 `type:"integer"`
+	HoldoutPercent *int64 `json:"pinpoint:WriteCampaignRequest:HoldoutPercent" type:"integer"`
 
 	// The settings for the AWS Lambda function to use as a code hook for the campaign.
-	Hook *CampaignHook `type:"structure"`
+	Hook *CampaignHook `json:"pinpoint:WriteCampaignRequest:Hook" type:"structure"`
 
 	// Specifies whether to pause the campaign. A paused campaign doesn't run unless
 	// you resume it by setting this value to false.
-	IsPaused *bool `type:"boolean"`
+	IsPaused *bool `json:"pinpoint:WriteCampaignRequest:IsPaused" type:"boolean"`
 
 	// The messaging limits for the campaign.
-	Limits *CampaignLimits `type:"structure"`
+	Limits *CampaignLimits `json:"pinpoint:WriteCampaignRequest:Limits" type:"structure"`
 
 	// The message configuration settings for the campaign.
-	MessageConfiguration *MessageConfiguration `type:"structure"`
+	MessageConfiguration *MessageConfiguration `json:"pinpoint:WriteCampaignRequest:MessageConfiguration" type:"structure"`
 
 	// The custom name of the campaign.
-	Name *string `type:"string"`
+	Name *string `json:"pinpoint:WriteCampaignRequest:Name" type:"string"`
 
 	// The schedule settings for the campaign.
-	Schedule *Schedule `type:"structure"`
+	Schedule *Schedule `json:"pinpoint:WriteCampaignRequest:Schedule" type:"structure"`
 
 	// The unique identifier for the segment to associate with the campaign.
-	SegmentId *string `type:"string"`
+	SegmentId *string `json:"pinpoint:WriteCampaignRequest:SegmentId" type:"string"`
 
 	// The version of the segment to associate with the campaign.
-	SegmentVersion *int64 `type:"integer"`
+	SegmentVersion *int64 `json:"pinpoint:WriteCampaignRequest:SegmentVersion" type:"integer"`
 
 	// A string-to-string map of key-value pairs that defines the tags to associate
 	// with the campaign. Each tag consists of a required tag key and an associated
 	// tag value.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"pinpoint:WriteCampaignRequest:Tags" locationName:"tags" type:"map"`
 
 	// The custom description of a variation of the campaign to use for A/B testing.
-	TreatmentDescription *string `type:"string"`
+	TreatmentDescription *string `json:"pinpoint:WriteCampaignRequest:TreatmentDescription" type:"string"`
 
 	// The custom name of a variation of the campaign to use for A/B testing.
-	TreatmentName *string `type:"string"`
+	TreatmentName *string `json:"pinpoint:WriteCampaignRequest:TreatmentName" type:"string"`
 }
 
 // String returns the string representation
@@ -10612,13 +10612,13 @@ type WriteEventStream struct {
 	// For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:region:account-id:deliverystream/stream_name
 	//
 	// DestinationStreamArn is a required field
-	DestinationStreamArn *string `type:"string" required:"true"`
+	DestinationStreamArn *string `json:"pinpoint:WriteEventStream:DestinationStreamArn" type:"string" required:"true"`
 
 	// The AWS Identity and Access Management (IAM) role that authorizes Amazon
 	// Pinpoint to publish event data to the stream in your AWS account.
 	//
 	// RoleArn is a required field
-	RoleArn *string `type:"string" required:"true"`
+	RoleArn *string `json:"pinpoint:WriteEventStream:RoleArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -10669,20 +10669,20 @@ type WriteSegmentRequest struct {
 	_ struct{} `type:"structure"`
 
 	// The criteria that define the dimensions for the segment.
-	Dimensions *SegmentDimensions `type:"structure"`
+	Dimensions *SegmentDimensions `json:"pinpoint:WriteSegmentRequest:Dimensions" type:"structure"`
 
 	// The name of the segment.
-	Name *string `type:"string"`
+	Name *string `json:"pinpoint:WriteSegmentRequest:Name" type:"string"`
 
 	// The segment group to use and the dimensions to apply to the group's base
 	// segments in order to build the segment. A segment group can consist of zero
 	// or more base segments. Your request can include only one segment group.
-	SegmentGroups *SegmentGroupList `type:"structure"`
+	SegmentGroups *SegmentGroupList `json:"pinpoint:WriteSegmentRequest:SegmentGroups" type:"structure"`
 
 	// A string-to-string map of key-value pairs that defines the tags to associate
 	// with the segment. Each tag consists of a required tag key and an associated
 	// tag value.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"pinpoint:WriteSegmentRequest:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -10752,23 +10752,23 @@ type WriteTreatmentResource struct {
 	_ struct{} `type:"structure"`
 
 	// The message configuration settings for the treatment.
-	MessageConfiguration *MessageConfiguration `type:"structure"`
+	MessageConfiguration *MessageConfiguration `json:"pinpoint:WriteTreatmentResource:MessageConfiguration" type:"structure"`
 
 	// The schedule settings for the treatment.
-	Schedule *Schedule `type:"structure"`
+	Schedule *Schedule `json:"pinpoint:WriteTreatmentResource:Schedule" type:"structure"`
 
 	// The allocated percentage of users (segment members) to send the treatment
 	// to.
 	//
 	// SizePercent is a required field
-	SizePercent *int64 `type:"integer" required:"true"`
+	SizePercent *int64 `json:"pinpoint:WriteTreatmentResource:SizePercent" type:"integer" required:"true"`
 
 	// The custom description of the treatment.
-	TreatmentDescription *string `type:"string"`
+	TreatmentDescription *string `json:"pinpoint:WriteTreatmentResource:TreatmentDescription" type:"string"`
 
 	// The custom name of the treatment. A treatment is a variation of a campaign
 	// that's used for A/B testing of a campaign.
-	TreatmentName *string `type:"string"`
+	TreatmentName *string `json:"pinpoint:WriteTreatmentResource:TreatmentName" type:"string"`
 }
 
 // String returns the string representation

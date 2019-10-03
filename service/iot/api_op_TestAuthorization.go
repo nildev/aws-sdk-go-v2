@@ -123,7 +123,7 @@ type TestAuthorizationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The authentication results.
-	AuthResults []AuthResult `locationName:"authResults" type:"list"`
+	AuthResults []AuthResult `json:"iot:TestAuthorizationOutput:AuthResults" locationName:"authResults" type:"list"`
 }
 
 // String returns the string representation

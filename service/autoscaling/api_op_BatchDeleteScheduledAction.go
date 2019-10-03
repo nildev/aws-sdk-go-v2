@@ -57,7 +57,7 @@ type BatchDeleteScheduledActionOutput struct {
 
 	// The names of the scheduled actions that could not be deleted, including an
 	// error message.
-	FailedScheduledActions []FailedScheduledUpdateGroupActionRequest `type:"list"`
+	FailedScheduledActions []FailedScheduledUpdateGroupActionRequest `json:"autoscaling:BatchDeleteScheduledActionOutput:FailedScheduledActions" type:"list"`
 }
 
 // String returns the string representation

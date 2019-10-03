@@ -90,14 +90,14 @@ type UpgradeElasticsearchDomainOutput struct {
 	// owned by an account within an AWS region. Domain names start with a letter
 	// or number and can contain the following characters: a-z (lowercase), 0-9,
 	// and - (hyphen).
-	DomainName *string `min:"3" type:"string"`
+	DomainName *string `json:"es:UpgradeElasticsearchDomainOutput:DomainName" min:"3" type:"string"`
 
 	// This flag, when set to True, indicates that an Upgrade Eligibility Check
 	// needs to be performed. This will not actually perform the Upgrade.
-	PerformCheckOnly *bool `type:"boolean"`
+	PerformCheckOnly *bool `json:"es:UpgradeElasticsearchDomainOutput:PerformCheckOnly" type:"boolean"`
 
 	// The version of Elasticsearch that you intend to upgrade the domain to.
-	TargetVersion *string `type:"string"`
+	TargetVersion *string `json:"es:UpgradeElasticsearchDomainOutput:TargetVersion" type:"string"`
 }
 
 // String returns the string representation

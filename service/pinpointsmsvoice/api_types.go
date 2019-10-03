@@ -19,7 +19,7 @@ type CallInstructionsMessageType struct {
 
 	// The language to use when delivering the message. For a complete list of supported
 	// languages, see the Amazon Polly Developer Guide.
-	Text *string `type:"string"`
+	Text *string `json:"sms-voice.pinpoint:CallInstructionsMessageType:Text" type:"string"`
 }
 
 // String returns the string representation
@@ -46,11 +46,11 @@ type CloudWatchLogsDestination struct {
 
 	// The Amazon Resource Name (ARN) of an Amazon Identity and Access Management
 	// (IAM) role that is able to write event data to an Amazon CloudWatch destination.
-	IamRoleArn *string `type:"string"`
+	IamRoleArn *string `json:"sms-voice.pinpoint:CloudWatchLogsDestination:IamRoleArn" type:"string"`
 
 	// The name of the Amazon CloudWatch Log Group that you want to record events
 	// in.
-	LogGroupArn *string `type:"string"`
+	LogGroupArn *string `json:"sms-voice.pinpoint:CloudWatchLogsDestination:LogGroupArn" type:"string"`
 }
 
 // String returns the string representation
@@ -82,27 +82,27 @@ type EventDestination struct {
 
 	// An object that contains information about an event destination that sends
 	// data to Amazon CloudWatch Logs.
-	CloudWatchLogsDestination *CloudWatchLogsDestination `type:"structure"`
+	CloudWatchLogsDestination *CloudWatchLogsDestination `json:"sms-voice.pinpoint:EventDestination:CloudWatchLogsDestination" type:"structure"`
 
 	// Indicates whether or not the event destination is enabled. If the event destination
 	// is enabled, then Amazon Pinpoint sends response data to the specified event
 	// destination.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"sms-voice.pinpoint:EventDestination:Enabled" type:"boolean"`
 
 	// An object that contains information about an event destination that sends
 	// data to Amazon Kinesis Data Firehose.
-	KinesisFirehoseDestination *KinesisFirehoseDestination `type:"structure"`
+	KinesisFirehoseDestination *KinesisFirehoseDestination `json:"sms-voice.pinpoint:EventDestination:KinesisFirehoseDestination" type:"structure"`
 
 	// An array of EventDestination objects. Each EventDestination object includes
 	// ARNs and other information that define an event destination.
-	MatchingEventTypes []EventType `type:"list"`
+	MatchingEventTypes []EventType `json:"sms-voice.pinpoint:EventDestination:MatchingEventTypes" type:"list"`
 
 	// A name that identifies the event destination configuration.
-	Name *string `type:"string"`
+	Name *string `json:"sms-voice.pinpoint:EventDestination:Name" type:"string"`
 
 	// An object that contains information about an event destination that sends
 	// data to Amazon SNS.
-	SnsDestination *SnsDestination `type:"structure"`
+	SnsDestination *SnsDestination `json:"sms-voice.pinpoint:EventDestination:SnsDestination" type:"structure"`
 }
 
 // String returns the string representation
@@ -164,24 +164,24 @@ type EventDestinationDefinition struct {
 
 	// An object that contains information about an event destination that sends
 	// data to Amazon CloudWatch Logs.
-	CloudWatchLogsDestination *CloudWatchLogsDestination `type:"structure"`
+	CloudWatchLogsDestination *CloudWatchLogsDestination `json:"sms-voice.pinpoint:EventDestinationDefinition:CloudWatchLogsDestination" type:"structure"`
 
 	// Indicates whether or not the event destination is enabled. If the event destination
 	// is enabled, then Amazon Pinpoint sends response data to the specified event
 	// destination.
-	Enabled *bool `type:"boolean"`
+	Enabled *bool `json:"sms-voice.pinpoint:EventDestinationDefinition:Enabled" type:"boolean"`
 
 	// An object that contains information about an event destination that sends
 	// data to Amazon Kinesis Data Firehose.
-	KinesisFirehoseDestination *KinesisFirehoseDestination `type:"structure"`
+	KinesisFirehoseDestination *KinesisFirehoseDestination `json:"sms-voice.pinpoint:EventDestinationDefinition:KinesisFirehoseDestination" type:"structure"`
 
 	// An array of EventDestination objects. Each EventDestination object includes
 	// ARNs and other information that define an event destination.
-	MatchingEventTypes []EventType `type:"list"`
+	MatchingEventTypes []EventType `json:"sms-voice.pinpoint:EventDestinationDefinition:MatchingEventTypes" type:"list"`
 
 	// An object that contains information about an event destination that sends
 	// data to Amazon SNS.
-	SnsDestination *SnsDestination `type:"structure"`
+	SnsDestination *SnsDestination `json:"sms-voice.pinpoint:EventDestinationDefinition:SnsDestination" type:"structure"`
 }
 
 // String returns the string representation
@@ -238,11 +238,11 @@ type KinesisFirehoseDestination struct {
 
 	// The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon
 	// Kinesis Data Firehose stream.
-	DeliveryStreamArn *string `type:"string"`
+	DeliveryStreamArn *string `json:"sms-voice.pinpoint:KinesisFirehoseDestination:DeliveryStreamArn" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination
 	// that you want to use in the event destination.
-	IamRoleArn *string `type:"string"`
+	IamRoleArn *string `json:"sms-voice.pinpoint:KinesisFirehoseDestination:IamRoleArn" type:"string"`
 }
 
 // String returns the string representation
@@ -274,14 +274,14 @@ type PlainTextMessageType struct {
 
 	// The language to use when delivering the message. For a complete list of supported
 	// languages, see the Amazon Polly Developer Guide.
-	LanguageCode *string `type:"string"`
+	LanguageCode *string `json:"sms-voice.pinpoint:PlainTextMessageType:LanguageCode" type:"string"`
 
 	// The plain (not SSML-formatted) text to deliver to the recipient.
-	Text *string `type:"string"`
+	Text *string `json:"sms-voice.pinpoint:PlainTextMessageType:Text" type:"string"`
 
 	// The name of the voice that you want to use to deliver the message. For a
 	// complete list of supported voices, see the Amazon Polly Developer Guide.
-	VoiceId *string `type:"string"`
+	VoiceId *string `json:"sms-voice.pinpoint:PlainTextMessageType:VoiceId" type:"string"`
 }
 
 // String returns the string representation
@@ -319,14 +319,14 @@ type SSMLMessageType struct {
 
 	// The language to use when delivering the message. For a complete list of supported
 	// languages, see the Amazon Polly Developer Guide.
-	LanguageCode *string `type:"string"`
+	LanguageCode *string `json:"sms-voice.pinpoint:SSMLMessageType:LanguageCode" type:"string"`
 
 	// The SSML-formatted text to deliver to the recipient.
-	Text *string `type:"string"`
+	Text *string `json:"sms-voice.pinpoint:SSMLMessageType:Text" type:"string"`
 
 	// The name of the voice that you want to use to deliver the message. For a
 	// complete list of supported voices, see the Amazon Polly Developer Guide.
-	VoiceId *string `type:"string"`
+	VoiceId *string `json:"sms-voice.pinpoint:SSMLMessageType:VoiceId" type:"string"`
 }
 
 // String returns the string representation
@@ -365,7 +365,7 @@ type SnsDestination struct {
 
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish
 	// events to.
-	TopicArn *string `type:"string"`
+	TopicArn *string `json:"sms-voice.pinpoint:SnsDestination:TopicArn" type:"string"`
 }
 
 // String returns the string representation
@@ -392,13 +392,13 @@ type VoiceMessageContent struct {
 
 	// An object that defines a message that contains text formatted using Amazon
 	// Pinpoint Voice Instructions markup.
-	CallInstructionsMessage *CallInstructionsMessageType `type:"structure"`
+	CallInstructionsMessage *CallInstructionsMessageType `json:"sms-voice.pinpoint:VoiceMessageContent:CallInstructionsMessage" type:"structure"`
 
 	// An object that defines a message that contains unformatted text.
-	PlainTextMessage *PlainTextMessageType `type:"structure"`
+	PlainTextMessage *PlainTextMessageType `json:"sms-voice.pinpoint:VoiceMessageContent:PlainTextMessage" type:"structure"`
 
 	// An object that defines a message that contains SSML-formatted text.
-	SSMLMessage *SSMLMessageType `type:"structure"`
+	SSMLMessage *SSMLMessageType `json:"sms-voice.pinpoint:VoiceMessageContent:SSMLMessage" type:"structure"`
 }
 
 // String returns the string representation

@@ -73,10 +73,10 @@ type ListPoliciesOutput struct {
 
 	// The marker for the next set of results, or null if there are no additional
 	// results.
-	NextMarker *string `locationName:"nextMarker" type:"string"`
+	NextMarker *string `json:"iot:ListPoliciesOutput:NextMarker" locationName:"nextMarker" type:"string"`
 
 	// The descriptions of the policies.
-	Policies []Policy `locationName:"policies" type:"list"`
+	Policies []Policy `json:"iot:ListPoliciesOutput:Policies" locationName:"policies" type:"list"`
 }
 
 // String returns the string representation

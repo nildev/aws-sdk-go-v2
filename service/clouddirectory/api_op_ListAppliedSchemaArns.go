@@ -87,10 +87,10 @@ type ListAppliedSchemaArnsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListAppliedSchemaArnsOutput:NextToken" type:"string"`
 
 	// The ARNs of schemas that are applied to the directory.
-	SchemaArns []string `type:"list"`
+	SchemaArns []string `json:"clouddirectory:ListAppliedSchemaArnsOutput:SchemaArns" type:"list"`
 }
 
 // String returns the string representation

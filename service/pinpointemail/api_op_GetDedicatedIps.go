@@ -67,12 +67,12 @@ type GetDedicatedIpsOutput struct {
 
 	// A list of dedicated IP addresses that are reserved for use by your Amazon
 	// Pinpoint account.
-	DedicatedIps []DedicatedIp `type:"list"`
+	DedicatedIps []DedicatedIp `json:"email:GetDedicatedIpsOutput:DedicatedIps" type:"list"`
 
 	// A token that indicates that there are additional dedicated IP addresses to
 	// list. To view additional addresses, issue another request to GetDedicatedIps,
 	// passing this token in the NextToken parameter.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"email:GetDedicatedIpsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

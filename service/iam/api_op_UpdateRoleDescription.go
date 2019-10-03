@@ -55,7 +55,7 @@ type UpdateRoleDescriptionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A structure that contains details about the modified role.
-	Role *Role `type:"structure"`
+	Role *Role `json:"iam:UpdateRoleDescriptionOutput:Role" type:"structure"`
 }
 
 // String returns the string representation

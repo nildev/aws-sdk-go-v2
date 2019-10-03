@@ -44,10 +44,10 @@ type DescribeCacheParameterGroupsOutput struct {
 
 	// A list of cache parameter groups. Each element in the list contains detailed
 	// information about one cache parameter group.
-	CacheParameterGroups []CacheParameterGroup `locationNameList:"CacheParameterGroup" type:"list"`
+	CacheParameterGroups []CacheParameterGroup `json:"elasticache:DescribeCacheParameterGroupsOutput:CacheParameterGroups" locationNameList:"CacheParameterGroup" type:"list"`
 
 	// Provides an identifier to allow retrieval of paginated results.
-	Marker *string `type:"string"`
+	Marker *string `json:"elasticache:DescribeCacheParameterGroupsOutput:Marker" type:"string"`
 }
 
 // String returns the string representation

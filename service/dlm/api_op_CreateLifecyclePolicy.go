@@ -110,7 +110,7 @@ type CreateLifecyclePolicyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the lifecycle policy.
-	PolicyId *string `type:"string"`
+	PolicyId *string `json:"dlm:CreateLifecyclePolicyOutput:PolicyId" type:"string"`
 }
 
 // String returns the string representation

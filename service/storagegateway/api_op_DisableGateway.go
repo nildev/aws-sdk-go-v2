@@ -49,7 +49,7 @@ type DisableGatewayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique Amazon Resource Name (ARN) of the disabled gateway.
-	GatewayARN *string `min:"50" type:"string"`
+	GatewayARN *string `json:"storagegateway:DisableGatewayOutput:GatewayARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

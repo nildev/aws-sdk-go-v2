@@ -63,13 +63,13 @@ type DescribeProvisionedProductPlanOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:DescribeProvisionedProductPlanOutput:NextPageToken" type:"string"`
 
 	// Information about the plan.
-	ProvisionedProductPlanDetails *ProvisionedProductPlanDetails `type:"structure"`
+	ProvisionedProductPlanDetails *ProvisionedProductPlanDetails `json:"servicecatalog:DescribeProvisionedProductPlanOutput:ProvisionedProductPlanDetails" type:"structure"`
 
 	// Information about the resource changes that will occur when the plan is executed.
-	ResourceChanges []ResourceChange `type:"list"`
+	ResourceChanges []ResourceChange `json:"servicecatalog:DescribeProvisionedProductPlanOutput:ResourceChanges" type:"list"`
 }
 
 // String returns the string representation

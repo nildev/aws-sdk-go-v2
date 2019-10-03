@@ -20,10 +20,10 @@ type DeviceTemplate struct {
 
 	// An optional Lambda function to invoke instead of the default Lambda function
 	// provided by the placement template.
-	CallbackOverrides map[string]string `locationName:"callbackOverrides" type:"map"`
+	CallbackOverrides map[string]string `json:"projects.iot1click:DeviceTemplate:CallbackOverrides" locationName:"callbackOverrides" type:"map"`
 
 	// The device type, which currently must be "button".
-	DeviceType *string `locationName:"deviceType" type:"string"`
+	DeviceType *string `json:"projects.iot1click:DeviceTemplate:DeviceType" locationName:"deviceType" type:"string"`
 }
 
 // String returns the string representation
@@ -62,29 +62,29 @@ type PlacementDescription struct {
 	// The user-defined attributes associated with the placement.
 	//
 	// Attributes is a required field
-	Attributes map[string]string `locationName:"attributes" type:"map" required:"true"`
+	Attributes map[string]string `json:"projects.iot1click:PlacementDescription:Attributes" locationName:"attributes" type:"map" required:"true"`
 
 	// The date when the placement was initially created, in UNIX epoch time format.
 	//
 	// CreatedDate is a required field
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedDate *time.Time `json:"projects.iot1click:PlacementDescription:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the placement.
 	//
 	// PlacementName is a required field
-	PlacementName *string `locationName:"placementName" min:"1" type:"string" required:"true"`
+	PlacementName *string `json:"projects.iot1click:PlacementDescription:PlacementName" locationName:"placementName" min:"1" type:"string" required:"true"`
 
 	// The name of the project containing the placement.
 	//
 	// ProjectName is a required field
-	ProjectName *string `locationName:"projectName" min:"1" type:"string" required:"true"`
+	ProjectName *string `json:"projects.iot1click:PlacementDescription:ProjectName" locationName:"projectName" min:"1" type:"string" required:"true"`
 
 	// The date when the placement was last updated, in UNIX epoch time format.
 	// If the placement was not updated, then createdDate and updatedDate are the
 	// same.
 	//
 	// UpdatedDate is a required field
-	UpdatedDate *time.Time `locationName:"updatedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdatedDate *time.Time `json:"projects.iot1click:PlacementDescription:UpdatedDate" locationName:"updatedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -141,24 +141,24 @@ type PlacementSummary struct {
 	// The date when the placement was originally created, in UNIX epoch time format.
 	//
 	// CreatedDate is a required field
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedDate *time.Time `json:"projects.iot1click:PlacementSummary:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the placement being summarized.
 	//
 	// PlacementName is a required field
-	PlacementName *string `locationName:"placementName" min:"1" type:"string" required:"true"`
+	PlacementName *string `json:"projects.iot1click:PlacementSummary:PlacementName" locationName:"placementName" min:"1" type:"string" required:"true"`
 
 	// The name of the project containing the placement.
 	//
 	// ProjectName is a required field
-	ProjectName *string `locationName:"projectName" min:"1" type:"string" required:"true"`
+	ProjectName *string `json:"projects.iot1click:PlacementSummary:ProjectName" locationName:"projectName" min:"1" type:"string" required:"true"`
 
 	// The date when the placement was last updated, in UNIX epoch time format.
 	// If the placement was not updated, then createdDate and updatedDate are the
 	// same.
 	//
 	// UpdatedDate is a required field
-	UpdatedDate *time.Time `locationName:"updatedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdatedDate *time.Time `json:"projects.iot1click:PlacementSummary:UpdatedDate" locationName:"updatedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -202,11 +202,11 @@ type PlacementTemplate struct {
 
 	// The default attributes (key/value pairs) to be applied to all placements
 	// using this template.
-	DefaultAttributes map[string]string `locationName:"defaultAttributes" type:"map"`
+	DefaultAttributes map[string]string `json:"projects.iot1click:PlacementTemplate:DefaultAttributes" locationName:"defaultAttributes" type:"map"`
 
 	// An object specifying the DeviceTemplate for all placements using this (PlacementTemplate)
 	// template.
-	DeviceTemplates map[string]DeviceTemplate `locationName:"deviceTemplates" type:"map"`
+	DeviceTemplates map[string]DeviceTemplate `json:"projects.iot1click:PlacementTemplate:DeviceTemplates" locationName:"deviceTemplates" type:"map"`
 }
 
 // String returns the string representation
@@ -250,32 +250,32 @@ type ProjectDescription struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the project.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"projects.iot1click:ProjectDescription:Arn" locationName:"arn" type:"string"`
 
 	// The date when the project was originally created, in UNIX epoch time format.
 	//
 	// CreatedDate is a required field
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedDate *time.Time `json:"projects.iot1click:ProjectDescription:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The description of the project.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"projects.iot1click:ProjectDescription:Description" locationName:"description" type:"string"`
 
 	// An object describing the project's placement specifications.
-	PlacementTemplate *PlacementTemplate `locationName:"placementTemplate" type:"structure"`
+	PlacementTemplate *PlacementTemplate `json:"projects.iot1click:ProjectDescription:PlacementTemplate" locationName:"placementTemplate" type:"structure"`
 
 	// The name of the project for which to obtain information from.
 	//
 	// ProjectName is a required field
-	ProjectName *string `locationName:"projectName" min:"1" type:"string" required:"true"`
+	ProjectName *string `json:"projects.iot1click:ProjectDescription:ProjectName" locationName:"projectName" min:"1" type:"string" required:"true"`
 
 	// The tags (metadata key/value pairs) associated with the project.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"projects.iot1click:ProjectDescription:Tags" locationName:"tags" min:"1" type:"map"`
 
 	// The date when the project was last updated, in UNIX epoch time format. If
 	// the project was not updated, then createdDate and updatedDate are the same.
 	//
 	// UpdatedDate is a required field
-	UpdatedDate *time.Time `locationName:"updatedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdatedDate *time.Time `json:"projects.iot1click:ProjectDescription:UpdatedDate" locationName:"updatedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation
@@ -343,26 +343,26 @@ type ProjectSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the project.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"projects.iot1click:ProjectSummary:Arn" locationName:"arn" type:"string"`
 
 	// The date when the project was originally created, in UNIX epoch time format.
 	//
 	// CreatedDate is a required field
-	CreatedDate *time.Time `locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	CreatedDate *time.Time `json:"projects.iot1click:ProjectSummary:CreatedDate" locationName:"createdDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 
 	// The name of the project being summarized.
 	//
 	// ProjectName is a required field
-	ProjectName *string `locationName:"projectName" min:"1" type:"string" required:"true"`
+	ProjectName *string `json:"projects.iot1click:ProjectSummary:ProjectName" locationName:"projectName" min:"1" type:"string" required:"true"`
 
 	// The tags (metadata key/value pairs) associated with the project.
-	Tags map[string]string `locationName:"tags" min:"1" type:"map"`
+	Tags map[string]string `json:"projects.iot1click:ProjectSummary:Tags" locationName:"tags" min:"1" type:"map"`
 
 	// The date when the project was last updated, in UNIX epoch time format. If
 	// the project was not updated, then createdDate and updatedDate are the same.
 	//
 	// UpdatedDate is a required field
-	UpdatedDate *time.Time `locationName:"updatedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
+	UpdatedDate *time.Time `json:"projects.iot1click:ProjectSummary:UpdatedDate" locationName:"updatedDate" type:"timestamp" timestampFormat:"unix" required:"true"`
 }
 
 // String returns the string representation

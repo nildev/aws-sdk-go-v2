@@ -19,7 +19,7 @@ type AvailabilityZone struct {
 	_ struct{} `type:"structure"`
 
 	// Id for the availability zone.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mq:AvailabilityZone:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -44,10 +44,10 @@ type BrokerEngineType struct {
 	_ struct{} `type:"structure"`
 
 	// The type of broker engine.
-	EngineType EngineType `locationName:"engineType" type:"string" enum:"true"`
+	EngineType EngineType `json:"mq:BrokerEngineType:EngineType" locationName:"engineType" type:"string" enum:"true"`
 
 	// The list of engine versions.
-	EngineVersions []EngineVersion `locationName:"engineVersions" type:"list"`
+	EngineVersions []EngineVersion `json:"mq:BrokerEngineType:EngineVersions" locationName:"engineVersions" type:"list"`
 }
 
 // String returns the string representation
@@ -84,13 +84,13 @@ type BrokerInstance struct {
 	_ struct{} `type:"structure"`
 
 	// The URL of the broker's ActiveMQ Web Console.
-	ConsoleURL *string `locationName:"consoleURL" type:"string"`
+	ConsoleURL *string `json:"mq:BrokerInstance:ConsoleURL" locationName:"consoleURL" type:"string"`
 
 	// The broker's wire-level protocol endpoints.
-	Endpoints []string `locationName:"endpoints" type:"list"`
+	Endpoints []string `json:"mq:BrokerInstance:Endpoints" locationName:"endpoints" type:"list"`
 
 	// The IP address of the Elastic Network Interface (ENI) attached to the broker.
-	IpAddress *string `locationName:"ipAddress" type:"string"`
+	IpAddress *string `json:"mq:BrokerInstance:IpAddress" locationName:"ipAddress" type:"string"`
 }
 
 // String returns the string representation
@@ -133,16 +133,16 @@ type BrokerInstanceOption struct {
 	_ struct{} `type:"structure"`
 
 	// The list of available az.
-	AvailabilityZones []AvailabilityZone `locationName:"availabilityZones" type:"list"`
+	AvailabilityZones []AvailabilityZone `json:"mq:BrokerInstanceOption:AvailabilityZones" locationName:"availabilityZones" type:"list"`
 
 	// The type of broker engine.
-	EngineType EngineType `locationName:"engineType" type:"string" enum:"true"`
+	EngineType EngineType `json:"mq:BrokerInstanceOption:EngineType" locationName:"engineType" type:"string" enum:"true"`
 
 	// The type of broker instance.
-	HostInstanceType *string `locationName:"hostInstanceType" type:"string"`
+	HostInstanceType *string `json:"mq:BrokerInstanceOption:HostInstanceType" locationName:"hostInstanceType" type:"string"`
 
 	// The list of supported engine versions.
-	SupportedEngineVersions []string `locationName:"supportedEngineVersions" type:"list"`
+	SupportedEngineVersions []string `json:"mq:BrokerInstanceOption:SupportedEngineVersions" locationName:"supportedEngineVersions" type:"list"`
 }
 
 // String returns the string representation
@@ -197,28 +197,28 @@ type BrokerSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the broker.
-	BrokerArn *string `locationName:"brokerArn" type:"string"`
+	BrokerArn *string `json:"mq:BrokerSummary:BrokerArn" locationName:"brokerArn" type:"string"`
 
 	// The unique ID that Amazon MQ generates for the broker.
-	BrokerId *string `locationName:"brokerId" type:"string"`
+	BrokerId *string `json:"mq:BrokerSummary:BrokerId" locationName:"brokerId" type:"string"`
 
 	// The name of the broker. This value must be unique in your AWS account, 1-50
 	// characters long, must contain only letters, numbers, dashes, and underscores,
 	// and must not contain whitespaces, brackets, wildcard characters, or special
 	// characters.
-	BrokerName *string `locationName:"brokerName" type:"string"`
+	BrokerName *string `json:"mq:BrokerSummary:BrokerName" locationName:"brokerName" type:"string"`
 
 	// The status of the broker.
-	BrokerState BrokerState `locationName:"brokerState" type:"string" enum:"true"`
+	BrokerState BrokerState `json:"mq:BrokerSummary:BrokerState" locationName:"brokerState" type:"string" enum:"true"`
 
 	// The time when the broker was created.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"mq:BrokerSummary:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// Required. The deployment mode of the broker.
-	DeploymentMode DeploymentMode `locationName:"deploymentMode" type:"string" enum:"true"`
+	DeploymentMode DeploymentMode `json:"mq:BrokerSummary:DeploymentMode" locationName:"deploymentMode" type:"string" enum:"true"`
 
 	// The broker's instance type.
-	HostInstanceType *string `locationName:"hostInstanceType" type:"string"`
+	HostInstanceType *string `json:"mq:BrokerSummary:HostInstanceType" locationName:"hostInstanceType" type:"string"`
 }
 
 // String returns the string representation
@@ -279,35 +279,35 @@ type Configuration struct {
 	_ struct{} `type:"structure"`
 
 	// Required. The ARN of the configuration.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mq:Configuration:Arn" locationName:"arn" type:"string"`
 
 	// Required. The date and time of the configuration revision.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"mq:Configuration:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// Required. The description of the configuration.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mq:Configuration:Description" locationName:"description" type:"string"`
 
 	// Required. The type of broker engine. Note: Currently, Amazon MQ supports
 	// only ACTIVEMQ.
-	EngineType EngineType `locationName:"engineType" type:"string" enum:"true"`
+	EngineType EngineType `json:"mq:Configuration:EngineType" locationName:"engineType" type:"string" enum:"true"`
 
 	// Required. The version of the broker engine. For a list of supported engine
 	// versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-	EngineVersion *string `locationName:"engineVersion" type:"string"`
+	EngineVersion *string `json:"mq:Configuration:EngineVersion" locationName:"engineVersion" type:"string"`
 
 	// Required. The unique ID that Amazon MQ generates for the configuration.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mq:Configuration:Id" locationName:"id" type:"string"`
 
 	// Required. The latest revision of the configuration.
-	LatestRevision *ConfigurationRevision `locationName:"latestRevision" type:"structure"`
+	LatestRevision *ConfigurationRevision `json:"mq:Configuration:LatestRevision" locationName:"latestRevision" type:"structure"`
 
 	// Required. The name of the configuration. This value can contain only alphanumeric
 	// characters, dashes, periods, underscores, and tildes (- . _ ~). This value
 	// must be 1-150 characters long.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mq:Configuration:Name" locationName:"name" type:"string"`
 
 	// The list of all tags associated with this configuration.
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mq:Configuration:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -386,10 +386,10 @@ type ConfigurationId struct {
 	_ struct{} `type:"structure"`
 
 	// Required. The unique ID that Amazon MQ generates for the configuration.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mq:ConfigurationId:Id" locationName:"id" type:"string"`
 
 	// The revision number of the configuration.
-	Revision *int64 `locationName:"revision" type:"integer"`
+	Revision *int64 `json:"mq:ConfigurationId:Revision" locationName:"revision" type:"integer"`
 }
 
 // String returns the string representation
@@ -420,13 +420,13 @@ type ConfigurationRevision struct {
 	_ struct{} `type:"structure"`
 
 	// Required. The date and time of the configuration revision.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"mq:ConfigurationRevision:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
 	// The description of the configuration revision.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mq:ConfigurationRevision:Description" locationName:"description" type:"string"`
 
 	// Required. The revision number of the configuration.
-	Revision *int64 `locationName:"revision" type:"integer"`
+	Revision *int64 `json:"mq:ConfigurationRevision:Revision" locationName:"revision" type:"integer"`
 }
 
 // String returns the string representation
@@ -463,13 +463,13 @@ type Configurations struct {
 	_ struct{} `type:"structure"`
 
 	// The current configuration of the broker.
-	Current *ConfigurationId `locationName:"current" type:"structure"`
+	Current *ConfigurationId `json:"mq:Configurations:Current" locationName:"current" type:"structure"`
 
 	// The history of configurations applied to the broker.
-	History []ConfigurationId `locationName:"history" type:"list"`
+	History []ConfigurationId `json:"mq:Configurations:History" locationName:"history" type:"list"`
 
 	// The pending configuration of the broker.
-	Pending *ConfigurationId `locationName:"pending" type:"structure"`
+	Pending *ConfigurationId `json:"mq:Configurations:Pending" locationName:"pending" type:"structure"`
 }
 
 // String returns the string representation
@@ -514,12 +514,12 @@ type EncryptionOptions struct {
 	// The customer master key (CMK) to use for the AWS Key Management Service (KMS).
 	// This key is used to encrypt your data at rest. If not provided, Amazon MQ
 	// will use a default CMK to encrypt your data.
-	KmsKeyId *string `locationName:"kmsKeyId" type:"string"`
+	KmsKeyId *string `json:"mq:EncryptionOptions:KmsKeyId" locationName:"kmsKeyId" type:"string"`
 
 	// Enables the use of an AWS owned CMK using AWS Key Management Service (KMS).
 	//
 	// UseAwsOwnedKey is a required field
-	UseAwsOwnedKey *bool `locationName:"useAwsOwnedKey" type:"boolean" required:"true"`
+	UseAwsOwnedKey *bool `json:"mq:EncryptionOptions:UseAwsOwnedKey" locationName:"useAwsOwnedKey" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -564,7 +564,7 @@ type EngineVersion struct {
 	_ struct{} `type:"structure"`
 
 	// Id for the version.
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mq:EngineVersion:Name" locationName:"name" type:"string"`
 }
 
 // String returns the string representation
@@ -590,10 +590,10 @@ type Logs struct {
 
 	// Enables audit logging. Every user management action made using JMX or the
 	// ActiveMQ Web Console is logged.
-	Audit *bool `locationName:"audit" type:"boolean"`
+	Audit *bool `json:"mq:Logs:Audit" locationName:"audit" type:"boolean"`
 
 	// Enables general logging.
-	General *bool `locationName:"general" type:"boolean"`
+	General *bool `json:"mq:Logs:General" locationName:"general" type:"boolean"`
 }
 
 // String returns the string representation
@@ -626,20 +626,20 @@ type LogsSummary struct {
 
 	// Enables audit logging. Every user management action made using JMX or the
 	// ActiveMQ Web Console is logged.
-	Audit *bool `locationName:"audit" type:"boolean"`
+	Audit *bool `json:"mq:LogsSummary:Audit" locationName:"audit" type:"boolean"`
 
 	// The location of the CloudWatch Logs log group where audit logs are sent.
-	AuditLogGroup *string `locationName:"auditLogGroup" type:"string"`
+	AuditLogGroup *string `json:"mq:LogsSummary:AuditLogGroup" locationName:"auditLogGroup" type:"string"`
 
 	// Enables general logging.
-	General *bool `locationName:"general" type:"boolean"`
+	General *bool `json:"mq:LogsSummary:General" locationName:"general" type:"boolean"`
 
 	// The location of the CloudWatch Logs log group where general logs are sent.
-	GeneralLogGroup *string `locationName:"generalLogGroup" type:"string"`
+	GeneralLogGroup *string `json:"mq:LogsSummary:GeneralLogGroup" locationName:"generalLogGroup" type:"string"`
 
 	// The list of information about logs pending to be deployed for the specified
 	// broker.
-	Pending *PendingLogs `locationName:"pending" type:"structure"`
+	Pending *PendingLogs `json:"mq:LogsSummary:Pending" locationName:"pending" type:"structure"`
 }
 
 // String returns the string representation
@@ -689,10 +689,10 @@ type PendingLogs struct {
 
 	// Enables audit logging. Every user management action made using JMX or the
 	// ActiveMQ Web Console is logged.
-	Audit *bool `locationName:"audit" type:"boolean"`
+	Audit *bool `json:"mq:PendingLogs:Audit" locationName:"audit" type:"boolean"`
 
 	// Enables general logging.
-	General *bool `locationName:"general" type:"boolean"`
+	General *bool `json:"mq:PendingLogs:General" locationName:"general" type:"boolean"`
 }
 
 // String returns the string representation
@@ -724,13 +724,13 @@ type SanitizationWarning struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the XML attribute that has been sanitized.
-	AttributeName *string `locationName:"attributeName" type:"string"`
+	AttributeName *string `json:"mq:SanitizationWarning:AttributeName" locationName:"attributeName" type:"string"`
 
 	// The name of the XML element that has been sanitized.
-	ElementName *string `locationName:"elementName" type:"string"`
+	ElementName *string `json:"mq:SanitizationWarning:ElementName" locationName:"elementName" type:"string"`
 
 	// Required. The reason for which the XML elements or attributes were sanitized.
-	Reason SanitizationWarningReason `locationName:"reason" type:"string" enum:"true"`
+	Reason SanitizationWarningReason `json:"mq:SanitizationWarning:Reason" locationName:"reason" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -767,22 +767,22 @@ type User struct {
 	_ struct{} `type:"structure"`
 
 	// Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-	ConsoleAccess *bool `locationName:"consoleAccess" type:"boolean"`
+	ConsoleAccess *bool `json:"mq:User:ConsoleAccess" locationName:"consoleAccess" type:"boolean"`
 
 	// The list of groups (20 maximum) to which the ActiveMQ user belongs. This
 	// value can contain only alphanumeric characters, dashes, periods, underscores,
 	// and tildes (- . _ ~). This value must be 2-100 characters long.
-	Groups []string `locationName:"groups" type:"list"`
+	Groups []string `json:"mq:User:Groups" locationName:"groups" type:"list"`
 
 	// Required. The password of the ActiveMQ user. This value must be at least
 	// 12 characters long, must contain at least 4 unique characters, and must not
 	// contain commas.
-	Password *string `locationName:"password" type:"string"`
+	Password *string `json:"mq:User:Password" locationName:"password" type:"string"`
 
 	// Required. The username of the ActiveMQ user. This value can contain only
 	// alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 	// ~). This value must be 2-100 characters long.
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"mq:User:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -832,15 +832,15 @@ type UserPendingChanges struct {
 	_ struct{} `type:"structure"`
 
 	// Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-	ConsoleAccess *bool `locationName:"consoleAccess" type:"boolean"`
+	ConsoleAccess *bool `json:"mq:UserPendingChanges:ConsoleAccess" locationName:"consoleAccess" type:"boolean"`
 
 	// The list of groups (20 maximum) to which the ActiveMQ user belongs. This
 	// value can contain only alphanumeric characters, dashes, periods, underscores,
 	// and tildes (- . _ ~). This value must be 2-100 characters long.
-	Groups []string `locationName:"groups" type:"list"`
+	Groups []string `json:"mq:UserPendingChanges:Groups" locationName:"groups" type:"list"`
 
 	// Required. The type of change pending for the ActiveMQ user.
-	PendingChange ChangeType `locationName:"pendingChange" type:"string" enum:"true"`
+	PendingChange ChangeType `json:"mq:UserPendingChanges:PendingChange" locationName:"pendingChange" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -883,12 +883,12 @@ type UserSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The type of change pending for the ActiveMQ user.
-	PendingChange ChangeType `locationName:"pendingChange" type:"string" enum:"true"`
+	PendingChange ChangeType `json:"mq:UserSummary:PendingChange" locationName:"pendingChange" type:"string" enum:"true"`
 
 	// Required. The username of the ActiveMQ user. This value can contain only
 	// alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 	// ~). This value must be 2-100 characters long.
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"mq:UserSummary:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -920,14 +920,14 @@ type WeeklyStartTime struct {
 	_ struct{} `type:"structure"`
 
 	// Required. The day of the week.
-	DayOfWeek DayOfWeek `locationName:"dayOfWeek" type:"string" enum:"true"`
+	DayOfWeek DayOfWeek `json:"mq:WeeklyStartTime:DayOfWeek" locationName:"dayOfWeek" type:"string" enum:"true"`
 
 	// Required. The time, in 24-hour format.
-	TimeOfDay *string `locationName:"timeOfDay" type:"string"`
+	TimeOfDay *string `json:"mq:WeeklyStartTime:TimeOfDay" locationName:"timeOfDay" type:"string"`
 
 	// The time zone, UTC by default, in either the Country/City format, or the
 	// UTC offset format.
-	TimeZone *string `locationName:"timeZone" type:"string"`
+	TimeZone *string `json:"mq:WeeklyStartTime:TimeZone" locationName:"timeZone" type:"string"`
 }
 
 // String returns the string representation

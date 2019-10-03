@@ -58,7 +58,7 @@ type PurchaseProvisionedCapacityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID that identifies the provisioned capacity unit.
-	CapacityId *string `location:"header" locationName:"x-amz-capacity-id" type:"string"`
+	CapacityId *string `json:"glacier:PurchaseProvisionedCapacityOutput:CapacityId" location:"header" locationName:"x-amz-capacity-id" type:"string"`
 }
 
 // String returns the string representation

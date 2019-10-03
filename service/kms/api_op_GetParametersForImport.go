@@ -80,22 +80,22 @@ type GetParametersForImportOutput struct {
 	// The import token to send in a subsequent ImportKeyMaterial request.
 	//
 	// ImportToken is automatically base64 encoded/decoded by the SDK.
-	ImportToken []byte `min:"1" type:"blob"`
+	ImportToken []byte `json:"kms:GetParametersForImportOutput:ImportToken" min:"1" type:"blob"`
 
 	// The identifier of the CMK to use in a subsequent ImportKeyMaterial request.
 	// This is the same CMK specified in the GetParametersForImport request.
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"kms:GetParametersForImportOutput:KeyId" min:"1" type:"string"`
 
 	// The time at which the import token and public key are no longer valid. After
 	// this time, you cannot use them to make an ImportKeyMaterial request and you
 	// must send another GetParametersForImport request to get new ones.
-	ParametersValidTo *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ParametersValidTo *time.Time `json:"kms:GetParametersForImportOutput:ParametersValidTo" type:"timestamp" timestampFormat:"unix"`
 
 	// The public key to use to encrypt the key material before importing it with
 	// ImportKeyMaterial.
 	//
 	// PublicKey is automatically base64 encoded/decoded by the SDK.
-	PublicKey []byte `min:"1" type:"blob"`
+	PublicKey []byte `json:"kms:GetParametersForImportOutput:PublicKey" min:"1" type:"blob"`
 }
 
 // String returns the string representation

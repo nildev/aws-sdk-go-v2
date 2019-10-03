@@ -84,7 +84,7 @@ type GetHostedZoneLimitOutput struct {
 	// have created in the specified hosted zone.
 	//
 	// Count is a required field
-	Count *int64 `type:"long" required:"true"`
+	Count *int64 `json:"route53:GetHostedZoneLimitOutput:Count" type:"long" required:"true"`
 
 	// The current setting for the specified limit. For example, if you specified
 	// MAX_RRSETS_BY_ZONE for the value of Type in the request, the value of Limit
@@ -92,7 +92,7 @@ type GetHostedZoneLimitOutput struct {
 	// zone.
 	//
 	// Limit is a required field
-	Limit *HostedZoneLimit `type:"structure" required:"true"`
+	Limit *HostedZoneLimit `json:"route53:GetHostedZoneLimitOutput:Limit" type:"structure" required:"true"`
 }
 
 // String returns the string representation

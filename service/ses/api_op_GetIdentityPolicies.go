@@ -65,7 +65,7 @@ type GetIdentityPoliciesOutput struct {
 	// A map of policy names to policies.
 	//
 	// Policies is a required field
-	Policies map[string]string `type:"map" required:"true"`
+	Policies map[string]string `json:"email:GetIdentityPoliciesOutput:Policies" type:"map" required:"true"`
 }
 
 // String returns the string representation

@@ -44,7 +44,7 @@ type GetTemplateOutput struct {
 
 	// The content of the email, composed of a subject line, an HTML part, and a
 	// text-only part.
-	Template *Template `type:"structure"`
+	Template *Template `json:"email:GetTemplateOutput:Template" type:"structure"`
 }
 
 // String returns the string representation

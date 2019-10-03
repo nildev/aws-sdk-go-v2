@@ -75,13 +75,13 @@ type ListClustersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of all of the clusters for your account in the specified Region.
-	Clusters []string `locationName:"clusters" type:"list"`
+	Clusters []string `json:"eks:ListClustersOutput:Clusters" locationName:"clusters" type:"list"`
 
 	// The nextToken value to include in a future ListClusters request. When the
 	// results of a ListClusters request exceed maxResults, you can use this value
 	// to retrieve the next page of results. This value is null when there are no
 	// more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"eks:ListClustersOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

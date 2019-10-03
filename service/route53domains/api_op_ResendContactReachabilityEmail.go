@@ -28,16 +28,16 @@ type ResendContactReachabilityEmailOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The domain name for which you requested a confirmation email.
-	DomainName *string `locationName:"domainName" type:"string"`
+	DomainName *string `json:"route53domains:ResendContactReachabilityEmailOutput:DomainName" locationName:"domainName" type:"string"`
 
 	// The email address for the registrant contact at the time that we sent the
 	// verification email.
-	EmailAddress *string `locationName:"emailAddress" type:"string"`
+	EmailAddress *string `json:"route53domains:ResendContactReachabilityEmailOutput:EmailAddress" locationName:"emailAddress" type:"string"`
 
 	// True if the email address for the registrant contact has already been verified,
 	// and false otherwise. If the email address has already been verified, we don't
 	// send another confirmation email.
-	IsAlreadyVerified *bool `locationName:"isAlreadyVerified" type:"boolean"`
+	IsAlreadyVerified *bool `json:"route53domains:ResendContactReachabilityEmailOutput:IsAlreadyVerified" locationName:"isAlreadyVerified" type:"boolean"`
 }
 
 // String returns the string representation

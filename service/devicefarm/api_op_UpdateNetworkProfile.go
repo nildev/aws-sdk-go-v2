@@ -85,7 +85,7 @@ type UpdateNetworkProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the available network profiles.
-	NetworkProfile *NetworkProfile `locationName:"networkProfile" type:"structure"`
+	NetworkProfile *NetworkProfile `json:"devicefarm:UpdateNetworkProfileOutput:NetworkProfile" locationName:"networkProfile" type:"structure"`
 }
 
 // String returns the string representation

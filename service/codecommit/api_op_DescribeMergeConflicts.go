@@ -104,32 +104,32 @@ type DescribeMergeConflictsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The commit ID of the merge base.
-	BaseCommitId *string `locationName:"baseCommitId" type:"string"`
+	BaseCommitId *string `json:"codecommit:DescribeMergeConflictsOutput:BaseCommitId" locationName:"baseCommitId" type:"string"`
 
 	// Contains metadata about the conflicts found in the merge.
 	//
 	// ConflictMetadata is a required field
-	ConflictMetadata *ConflictMetadata `locationName:"conflictMetadata" type:"structure" required:"true"`
+	ConflictMetadata *ConflictMetadata `json:"codecommit:DescribeMergeConflictsOutput:ConflictMetadata" locationName:"conflictMetadata" type:"structure" required:"true"`
 
 	// The commit ID of the destination commit specifier that was used in the merge
 	// evaluation.
 	//
 	// DestinationCommitId is a required field
-	DestinationCommitId *string `locationName:"destinationCommitId" type:"string" required:"true"`
+	DestinationCommitId *string `json:"codecommit:DescribeMergeConflictsOutput:DestinationCommitId" locationName:"destinationCommitId" type:"string" required:"true"`
 
 	// A list of merge hunks of the differences between the files or lines.
 	//
 	// MergeHunks is a required field
-	MergeHunks []MergeHunk `locationName:"mergeHunks" type:"list" required:"true"`
+	MergeHunks []MergeHunk `json:"codecommit:DescribeMergeConflictsOutput:MergeHunks" locationName:"mergeHunks" type:"list" required:"true"`
 
 	// An enumeration token that can be used in a request to return the next batch
 	// of the results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codecommit:DescribeMergeConflictsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The commit ID of the source commit specifier that was used in the merge evaluation.
 	//
 	// SourceCommitId is a required field
-	SourceCommitId *string `locationName:"sourceCommitId" type:"string" required:"true"`
+	SourceCommitId *string `json:"codecommit:DescribeMergeConflictsOutput:SourceCommitId" locationName:"sourceCommitId" type:"string" required:"true"`
 }
 
 // String returns the string representation

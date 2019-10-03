@@ -58,7 +58,7 @@ type DisableDirectoryOutput struct {
 	// The ARN of the directory that has been disabled.
 	//
 	// DirectoryArn is a required field
-	DirectoryArn *string `type:"string" required:"true"`
+	DirectoryArn *string `json:"clouddirectory:DisableDirectoryOutput:DirectoryArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

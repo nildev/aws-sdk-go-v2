@@ -84,12 +84,12 @@ type ListWorkflowTypesOutput struct {
 	//
 	// The configured maximumPageSize determines how many results can be returned
 	// in a single call.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"swf:ListWorkflowTypesOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// The list of workflow type information.
 	//
 	// TypeInfos is a required field
-	TypeInfos []WorkflowTypeInfo `locationName:"typeInfos" type:"list" required:"true"`
+	TypeInfos []WorkflowTypeInfo `json:"swf:ListWorkflowTypesOutput:TypeInfos" locationName:"typeInfos" type:"list" required:"true"`
 }
 
 // String returns the string representation

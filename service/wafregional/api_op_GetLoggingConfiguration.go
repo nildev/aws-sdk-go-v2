@@ -48,7 +48,7 @@ type GetLoggingConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The LoggingConfiguration for the specified web ACL.
-	LoggingConfiguration *waf.LoggingConfiguration `type:"structure"`
+	LoggingConfiguration *waf.LoggingConfiguration `json:"waf-regional:GetLoggingConfigurationOutput:LoggingConfiguration" type:"structure"`
 }
 
 // String returns the string representation

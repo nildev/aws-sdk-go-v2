@@ -81,10 +81,10 @@ type DescribeActionTargetsOutput struct {
 	// Description, and Name of a custom action target available in Security Hub.
 	//
 	// ActionTargets is a required field
-	ActionTargets []ActionTarget `type:"list" required:"true"`
+	ActionTargets []ActionTarget `json:"securityhub:DescribeActionTargetsOutput:ActionTargets" type:"list" required:"true"`
 
 	// The token that is required for pagination.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"securityhub:DescribeActionTargetsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

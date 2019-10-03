@@ -31,10 +31,10 @@ type ErrorReason struct {
 	//
 	// SERVICE_QUOTA_NOT_AVAILABLE_ERROR is returned when there was an error in
 	// Service Quotas.
-	ErrorCode ErrorCode `type:"string" enum:"true"`
+	ErrorCode ErrorCode `json:"servicequotas:ErrorReason:ErrorCode" type:"string" enum:"true"`
 
 	// The error message that provides more detail.
-	ErrorMessage *string `type:"string"`
+	ErrorMessage *string `json:"servicequotas:ErrorReason:ErrorMessage" type:"string"`
 }
 
 // String returns the string representation
@@ -53,20 +53,20 @@ type MetricInfo struct {
 	// of dimensions as categories for those characteristics. These dimensions are
 	// part of the CloudWatch Metric Identity that measures usage against a particular
 	// service quota.
-	MetricDimensions map[string]string `type:"map"`
+	MetricDimensions map[string]string `json:"servicequotas:MetricInfo:MetricDimensions" type:"map"`
 
 	// The name of the CloudWatch metric that measures usage of a service quota.
 	// This is a required field.
-	MetricName *string `type:"string"`
+	MetricName *string `json:"servicequotas:MetricInfo:MetricName" type:"string"`
 
 	// The namespace of the metric. The namespace is a container for CloudWatch
 	// metrics. You can specify a name for the namespace when you create a metric.
-	MetricNamespace *string `type:"string"`
+	MetricNamespace *string `json:"servicequotas:MetricInfo:MetricNamespace" type:"string"`
 
 	// Statistics are metric data aggregations over specified periods of time. This
 	// is the recommended statistic to use when comparing usage in the CloudWatch
 	// Metric against your Service Quota.
-	MetricStatisticRecommendation *string `min:"1" type:"string"`
+	MetricStatisticRecommendation *string `json:"servicequotas:MetricInfo:MetricStatisticRecommendation" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -80,10 +80,10 @@ type QuotaPeriod struct {
 	_ struct{} `type:"structure"`
 
 	// The time unit of a period.
-	PeriodUnit PeriodUnit `type:"string" enum:"true"`
+	PeriodUnit PeriodUnit `json:"servicequotas:QuotaPeriod:PeriodUnit" type:"string" enum:"true"`
 
 	// The value of a period.
-	PeriodValue *int64 `type:"integer"`
+	PeriodValue *int64 `json:"servicequotas:QuotaPeriod:PeriodValue" type:"integer"`
 }
 
 // String returns the string representation
@@ -97,48 +97,48 @@ type RequestedServiceQuotaChange struct {
 	_ struct{} `type:"structure"`
 
 	// The case Id for the service quota increase request.
-	CaseId *string `type:"string"`
+	CaseId *string `json:"servicequotas:RequestedServiceQuotaChange:CaseId" type:"string"`
 
 	// The date and time when the service quota increase request was received and
 	// the case Id was created.
-	Created *time.Time `type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"servicequotas:RequestedServiceQuotaChange:Created" type:"timestamp" timestampFormat:"unix"`
 
 	// New increased value for the service quota.
-	DesiredValue *float64 `type:"double"`
+	DesiredValue *float64 `json:"servicequotas:RequestedServiceQuotaChange:DesiredValue" type:"double"`
 
 	// Identifies if the quota is global.
-	GlobalQuota *bool `type:"boolean"`
+	GlobalQuota *bool `json:"servicequotas:RequestedServiceQuotaChange:GlobalQuota" type:"boolean"`
 
 	// The unique identifier of a requested service quota change.
-	Id *string `min:"1" type:"string"`
+	Id *string `json:"servicequotas:RequestedServiceQuotaChange:Id" min:"1" type:"string"`
 
 	// The date and time of the most recent change in the service quota increase
 	// request.
-	LastUpdated *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"servicequotas:RequestedServiceQuotaChange:LastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// The Amazon Resource Name (ARN) of the service quota.
-	QuotaArn *string `type:"string"`
+	QuotaArn *string `json:"servicequotas:RequestedServiceQuotaChange:QuotaArn" type:"string"`
 
 	// Specifies the service quota that you want to use.
-	QuotaCode *string `min:"1" type:"string"`
+	QuotaCode *string `json:"servicequotas:RequestedServiceQuotaChange:QuotaCode" min:"1" type:"string"`
 
 	// Name of the service quota.
-	QuotaName *string `type:"string"`
+	QuotaName *string `json:"servicequotas:RequestedServiceQuotaChange:QuotaName" type:"string"`
 
 	// The IAM identity who submitted the service quota increase request.
-	Requester *string `type:"string"`
+	Requester *string `json:"servicequotas:RequestedServiceQuotaChange:Requester" type:"string"`
 
 	// Specifies the service that you want to use.
-	ServiceCode *string `min:"1" type:"string"`
+	ServiceCode *string `json:"servicequotas:RequestedServiceQuotaChange:ServiceCode" min:"1" type:"string"`
 
 	// The name of the AWS service specified in the increase request.
-	ServiceName *string `type:"string"`
+	ServiceName *string `json:"servicequotas:RequestedServiceQuotaChange:ServiceName" type:"string"`
 
 	// State of the service quota increase request.
-	Status RequestStatus `type:"string" enum:"true"`
+	Status RequestStatus `json:"servicequotas:RequestedServiceQuotaChange:Status" type:"string" enum:"true"`
 
 	// Specifies the unit used for the quota.
-	Unit *string `type:"string"`
+	Unit *string `json:"servicequotas:RequestedServiceQuotaChange:Unit" type:"string"`
 }
 
 // String returns the string representation
@@ -154,10 +154,10 @@ type ServiceInfo struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies the service that you want to use.
-	ServiceCode *string `min:"1" type:"string"`
+	ServiceCode *string `json:"servicequotas:ServiceInfo:ServiceCode" min:"1" type:"string"`
 
 	// The name of the AWS service specified in the increase request.
-	ServiceName *string `type:"string"`
+	ServiceName *string `json:"servicequotas:ServiceInfo:ServiceName" type:"string"`
 }
 
 // String returns the string representation
@@ -172,40 +172,40 @@ type ServiceQuota struct {
 	_ struct{} `type:"structure"`
 
 	// Specifies if the quota value can be increased.
-	Adjustable *bool `type:"boolean"`
+	Adjustable *bool `json:"servicequotas:ServiceQuota:Adjustable" type:"boolean"`
 
 	// Specifies the ErrorCode and ErrorMessage when success isn't achieved.
-	ErrorReason *ErrorReason `type:"structure"`
+	ErrorReason *ErrorReason `json:"servicequotas:ServiceQuota:ErrorReason" type:"structure"`
 
 	// Specifies if the quota is global.
-	GlobalQuota *bool `type:"boolean"`
+	GlobalQuota *bool `json:"servicequotas:ServiceQuota:GlobalQuota" type:"boolean"`
 
 	// Identifies the unit and value of how time is measured.
-	Period *QuotaPeriod `type:"structure"`
+	Period *QuotaPeriod `json:"servicequotas:ServiceQuota:Period" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the service quota.
-	QuotaArn *string `type:"string"`
+	QuotaArn *string `json:"servicequotas:ServiceQuota:QuotaArn" type:"string"`
 
 	// The code identifier for the service quota specified.
-	QuotaCode *string `min:"1" type:"string"`
+	QuotaCode *string `json:"servicequotas:ServiceQuota:QuotaCode" min:"1" type:"string"`
 
 	// The name identifier of the service quota.
-	QuotaName *string `type:"string"`
+	QuotaName *string `json:"servicequotas:ServiceQuota:QuotaName" type:"string"`
 
 	// Specifies the service that you want to use.
-	ServiceCode *string `min:"1" type:"string"`
+	ServiceCode *string `json:"servicequotas:ServiceQuota:ServiceCode" min:"1" type:"string"`
 
 	// The name of the AWS service specified in the increase request.
-	ServiceName *string `type:"string"`
+	ServiceName *string `json:"servicequotas:ServiceQuota:ServiceName" type:"string"`
 
 	// The unit of measurement for the value of the service quota.
-	Unit *string `type:"string"`
+	Unit *string `json:"servicequotas:ServiceQuota:Unit" type:"string"`
 
 	// Specifies the details about the measurement.
-	UsageMetric *MetricInfo `type:"structure"`
+	UsageMetric *MetricInfo `json:"servicequotas:ServiceQuota:UsageMetric" type:"structure"`
 
 	// The value of service quota.
-	Value *float64 `type:"double"`
+	Value *float64 `json:"servicequotas:ServiceQuota:Value" type:"double"`
 }
 
 // String returns the string representation
@@ -219,29 +219,29 @@ type ServiceQuotaIncreaseRequestInTemplate struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS Region where the increase request occurs.
-	AwsRegion *string `min:"1" type:"string"`
+	AwsRegion *string `json:"servicequotas:ServiceQuotaIncreaseRequestInTemplate:AwsRegion" min:"1" type:"string"`
 
 	// Identifies the new, increased value of the service quota in the increase
 	// request.
-	DesiredValue *float64 `type:"double"`
+	DesiredValue *float64 `json:"servicequotas:ServiceQuotaIncreaseRequestInTemplate:DesiredValue" type:"double"`
 
 	// Specifies if the quota is a global quota.
-	GlobalQuota *bool `type:"boolean"`
+	GlobalQuota *bool `json:"servicequotas:ServiceQuotaIncreaseRequestInTemplate:GlobalQuota" type:"boolean"`
 
 	// The code identifier for the service quota specified in the increase request.
-	QuotaCode *string `min:"1" type:"string"`
+	QuotaCode *string `json:"servicequotas:ServiceQuotaIncreaseRequestInTemplate:QuotaCode" min:"1" type:"string"`
 
 	// The name of the service quota in the increase request.
-	QuotaName *string `type:"string"`
+	QuotaName *string `json:"servicequotas:ServiceQuotaIncreaseRequestInTemplate:QuotaName" type:"string"`
 
 	// The code identifier for the AWS service specified in the increase request.
-	ServiceCode *string `min:"1" type:"string"`
+	ServiceCode *string `json:"servicequotas:ServiceQuotaIncreaseRequestInTemplate:ServiceCode" min:"1" type:"string"`
 
 	// The name of the AWS service specified in the increase request.
-	ServiceName *string `type:"string"`
+	ServiceName *string `json:"servicequotas:ServiceQuotaIncreaseRequestInTemplate:ServiceName" type:"string"`
 
 	// The unit of measure for the increase request.
-	Unit *string `type:"string"`
+	Unit *string `json:"servicequotas:ServiceQuotaIncreaseRequestInTemplate:Unit" type:"string"`
 }
 
 // String returns the string representation

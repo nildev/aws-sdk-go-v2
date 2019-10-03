@@ -63,10 +63,10 @@ type ListAccountSettingsOutput struct {
 	// the results of a ListAccountSettings request exceed maxResults, this value
 	// can be used to retrieve the next page of results. This value is null when
 	// there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ecs:ListAccountSettingsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The account settings for the resource.
-	Settings []Setting `locationName:"settings" type:"list"`
+	Settings []Setting `json:"ecs:ListAccountSettingsOutput:Settings" locationName:"settings" type:"list"`
 }
 
 // String returns the string representation

@@ -77,10 +77,10 @@ type DescribeMaintenanceWindowExecutionsOutput struct {
 
 	// The token to use when requesting the next set of items. If there are no additional
 	// items to return, the string is empty.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ssm:DescribeMaintenanceWindowExecutionsOutput:NextToken" type:"string"`
 
 	// Information about the maintenance window executions.
-	WindowExecutions []MaintenanceWindowExecution `type:"list"`
+	WindowExecutions []MaintenanceWindowExecution `json:"ssm:DescribeMaintenanceWindowExecutionsOutput:WindowExecutions" type:"list"`
 }
 
 // String returns the string representation

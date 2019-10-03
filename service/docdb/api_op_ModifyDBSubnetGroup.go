@@ -62,7 +62,7 @@ type ModifyDBSubnetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Detailed information about a DB subnet group.
-	DBSubnetGroup *DBSubnetGroup `type:"structure"`
+	DBSubnetGroup *DBSubnetGroup `json:"rds:ModifyDBSubnetGroupOutput:DBSubnetGroup" type:"structure"`
 }
 
 // String returns the string representation

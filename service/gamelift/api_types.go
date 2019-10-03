@@ -31,28 +31,28 @@ type Alias struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for an alias; alias ARNs are unique across all regions.
-	AliasArn *string `min:"1" type:"string"`
+	AliasArn *string `json:"gamelift:Alias:AliasArn" min:"1" type:"string"`
 
 	// Unique identifier for an alias; alias IDs are unique within a region.
-	AliasId *string `type:"string"`
+	AliasId *string `json:"gamelift:Alias:AliasId" type:"string"`
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:Alias:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Human-readable description of an alias.
-	Description *string `type:"string"`
+	Description *string `json:"gamelift:Alias:Description" type:"string"`
 
 	// Time stamp indicating when this data object was last modified. Format is
 	// a number expressed in Unix time as milliseconds (for example "1469498468.057").
-	LastUpdatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedTime *time.Time `json:"gamelift:Alias:LastUpdatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Descriptive label that is associated with an alias. Alias names do not need
 	// to be unique.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"gamelift:Alias:Name" min:"1" type:"string"`
 
 	// Alias configuration for the alias, including routing type and settings.
-	RoutingStrategy *RoutingStrategy `type:"structure"`
+	RoutingStrategy *RoutingStrategy `json:"gamelift:Alias:RoutingStrategy" type:"structure"`
 }
 
 // String returns the string representation
@@ -69,19 +69,19 @@ type AttributeValue struct {
 	_ struct{} `type:"structure"`
 
 	// For number values, expressed as double.
-	N *float64 `type:"double"`
+	N *float64 `json:"gamelift:AttributeValue:N" type:"double"`
 
 	// For single string values. Maximum string length is 100 characters.
-	S *string `min:"1" type:"string"`
+	S *string `json:"gamelift:AttributeValue:S" min:"1" type:"string"`
 
 	// For a map of up to 10 data type:value pairs. Maximum length for each string
 	// value is 100 characters.
-	SDM map[string]float64 `type:"map"`
+	SDM map[string]float64 `json:"gamelift:AttributeValue:SDM" type:"map"`
 
 	// For a list of up to 10 strings. Maximum length for each string is 100 characters.
 	// Duplicate values are not recognized; all occurrences of the repeated value
 	// after the first of a repeated value are ignored.
-	SL []string `type:"list"`
+	SL []string `json:"gamelift:AttributeValue:SL" type:"list"`
 }
 
 // String returns the string representation
@@ -110,14 +110,14 @@ type AwsCredentials struct {
 	_ struct{} `type:"structure"`
 
 	// Temporary key allowing access to the Amazon GameLift S3 account.
-	AccessKeyId *string `min:"1" type:"string"`
+	AccessKeyId *string `json:"gamelift:AwsCredentials:AccessKeyId" min:"1" type:"string"`
 
 	// Temporary secret key allowing access to the Amazon GameLift S3 account.
-	SecretAccessKey *string `min:"1" type:"string"`
+	SecretAccessKey *string `json:"gamelift:AwsCredentials:SecretAccessKey" min:"1" type:"string"`
 
 	// Token used to associate a specific build ID with the files uploaded using
 	// these credentials.
-	SessionToken *string `min:"1" type:"string"`
+	SessionToken *string `json:"gamelift:AwsCredentials:SessionToken" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -143,23 +143,23 @@ type Build struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for a build.
-	BuildId *string `type:"string"`
+	BuildId *string `json:"gamelift:Build:BuildId" type:"string"`
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:Build:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Descriptive label that is associated with a build. Build names do not need
 	// to be unique. It can be set using CreateBuild or UpdateBuild.
-	Name *string `type:"string"`
+	Name *string `json:"gamelift:Build:Name" type:"string"`
 
 	// Operating system that the game server binaries are built to run on. This
 	// value determines the type of fleet resources that you can use for this build.
-	OperatingSystem OperatingSystem `type:"string" enum:"true"`
+	OperatingSystem OperatingSystem `json:"gamelift:Build:OperatingSystem" type:"string" enum:"true"`
 
 	// File size of the uploaded game build, expressed in bytes. When the build
 	// status is INITIALIZED, this value is 0.
-	SizeOnDisk *int64 `min:"1" type:"long"`
+	SizeOnDisk *int64 `json:"gamelift:Build:SizeOnDisk" min:"1" type:"long"`
 
 	// Current status of the build.
 	//
@@ -175,11 +175,11 @@ type Build struct {
 	//
 	//    * FAILED -- The game build upload failed. You cannot create new fleets
 	//    for this build.
-	Status BuildStatus `type:"string" enum:"true"`
+	Status BuildStatus `json:"gamelift:Build:Status" type:"string" enum:"true"`
 
 	// Version that is associated with a build or script. Version strings do not
 	// need to be unique. This value can be set using CreateBuild or UpdateBuild.
-	Version *string `type:"string"`
+	Version *string `json:"gamelift:Build:Version" type:"string"`
 }
 
 // String returns the string representation
@@ -195,10 +195,10 @@ type DesiredPlayerSession struct {
 
 	// Developer-defined information related to a player. Amazon GameLift does not
 	// use this data, so it can be formatted as needed for use in the game.
-	PlayerData *string `min:"1" type:"string"`
+	PlayerData *string `json:"gamelift:DesiredPlayerSession:PlayerData" min:"1" type:"string"`
 
 	// Unique identifier for a player to associate with the player session.
-	PlayerId *string `min:"1" type:"string"`
+	PlayerId *string `json:"gamelift:DesiredPlayerSession:PlayerId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -247,27 +247,27 @@ type EC2InstanceCounts struct {
 	_ struct{} `type:"structure"`
 
 	// Actual number of active instances in the fleet.
-	ACTIVE *int64 `type:"integer"`
+	ACTIVE *int64 `json:"gamelift:EC2InstanceCounts:ACTIVE" type:"integer"`
 
 	// Ideal number of active instances in the fleet.
-	DESIRED *int64 `type:"integer"`
+	DESIRED *int64 `json:"gamelift:EC2InstanceCounts:DESIRED" type:"integer"`
 
 	// Number of active instances in the fleet that are not currently hosting a
 	// game session.
-	IDLE *int64 `type:"integer"`
+	IDLE *int64 `json:"gamelift:EC2InstanceCounts:IDLE" type:"integer"`
 
 	// Maximum value allowed for the fleet's instance count.
-	MAXIMUM *int64 `type:"integer"`
+	MAXIMUM *int64 `json:"gamelift:EC2InstanceCounts:MAXIMUM" type:"integer"`
 
 	// Minimum value allowed for the fleet's instance count.
-	MINIMUM *int64 `type:"integer"`
+	MINIMUM *int64 `json:"gamelift:EC2InstanceCounts:MINIMUM" type:"integer"`
 
 	// Number of instances in the fleet that are starting but not yet active.
-	PENDING *int64 `type:"integer"`
+	PENDING *int64 `json:"gamelift:EC2InstanceCounts:PENDING" type:"integer"`
 
 	// Number of instances in the fleet that are no longer active but haven't yet
 	// been terminated.
-	TERMINATING *int64 `type:"integer"`
+	TERMINATING *int64 `json:"gamelift:EC2InstanceCounts:TERMINATING" type:"integer"`
 }
 
 // String returns the string representation
@@ -283,17 +283,17 @@ type EC2InstanceLimit struct {
 
 	// Number of instances of the specified type that are currently in use by this
 	// AWS account.
-	CurrentInstances *int64 `type:"integer"`
+	CurrentInstances *int64 `json:"gamelift:EC2InstanceLimit:CurrentInstances" type:"integer"`
 
 	// Name of an EC2 instance type that is supported in Amazon GameLift. A fleet
 	// instance type determines the computing resources of each instance in the
 	// fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift
 	// supports the following EC2 instance types. See Amazon EC2 Instance Types
 	// (http://aws.amazon.com/ec2/instance-types/) for detailed descriptions.
-	EC2InstanceType EC2InstanceType `type:"string" enum:"true"`
+	EC2InstanceType EC2InstanceType `json:"gamelift:EC2InstanceLimit:EC2InstanceType" type:"string" enum:"true"`
 
 	// Number of instances allowed.
-	InstanceLimit *int64 `type:"integer"`
+	InstanceLimit *int64 `json:"gamelift:EC2InstanceLimit:InstanceLimit" type:"integer"`
 }
 
 // String returns the string representation
@@ -402,25 +402,25 @@ type Event struct {
 	//    * FLEET_DELETED -- A request to delete a fleet was initiated.
 	//
 	//    * GENERIC_EVENT -- An unspecified event has occurred.
-	EventCode EventCode `type:"string" enum:"true"`
+	EventCode EventCode `json:"gamelift:Event:EventCode" type:"string" enum:"true"`
 
 	// Unique identifier for a fleet event.
-	EventId *string `min:"1" type:"string"`
+	EventId *string `json:"gamelift:Event:EventId" min:"1" type:"string"`
 
 	// Time stamp indicating when this event occurred. Format is a number expressed
 	// in Unix time as milliseconds (for example "1469498468.057").
-	EventTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EventTime *time.Time `json:"gamelift:Event:EventTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Additional information related to the event.
-	Message *string `min:"1" type:"string"`
+	Message *string `json:"gamelift:Event:Message" min:"1" type:"string"`
 
 	// Location of stored logs with additional detail that is related to the event.
 	// This is useful for debugging issues. The URL is valid for 15 minutes. You
 	// can also access fleet creation logs through the Amazon GameLift console.
-	PreSignedLogUrl *string `min:"1" type:"string"`
+	PreSignedLogUrl *string `json:"gamelift:Event:PreSignedLogUrl" min:"1" type:"string"`
 
 	// Unique identifier for an event resource, such as a fleet ID.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"gamelift:Event:ResourceId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -449,24 +449,24 @@ type FleetAttributes struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for a build.
-	BuildId *string `type:"string"`
+	BuildId *string `json:"gamelift:FleetAttributes:BuildId" type:"string"`
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:FleetAttributes:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Human-readable description of the fleet.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"gamelift:FleetAttributes:Description" min:"1" type:"string"`
 
 	// Identifier for a fleet that is unique across all regions.
-	FleetArn *string `min:"1" type:"string"`
+	FleetArn *string `json:"gamelift:FleetAttributes:FleetArn" min:"1" type:"string"`
 
 	// Unique identifier for a fleet.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:FleetAttributes:FleetId" type:"string"`
 
 	// Indicates whether the fleet uses on-demand or spot instances. A spot instance
 	// in use may be interrupted with a two-minute notification.
-	FleetType FleetType `type:"string" enum:"true"`
+	FleetType FleetType `json:"gamelift:FleetAttributes:FleetType" type:"string" enum:"true"`
 
 	// Unique identifier for an AWS IAM role that manages access to your AWS services.
 	// With an instance role ARN set, any application that runs on an instance in
@@ -475,13 +475,13 @@ type FleetAttributes struct {
 	// the IAM dashboard (https://console.aws.amazon.com/iam/) in the AWS Management
 	// Console. Learn more about using on-box credentials for your game servers
 	// at Access external resources from a game server (https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html).
-	InstanceRoleArn *string `min:"1" type:"string"`
+	InstanceRoleArn *string `json:"gamelift:FleetAttributes:InstanceRoleArn" min:"1" type:"string"`
 
 	// EC2 instance type indicating the computing resources of each instance in
 	// the fleet, including CPU, memory, storage, and networking capacity. See Amazon
 	// EC2 Instance Types (http://aws.amazon.com/ec2/instance-types/) for detailed
 	// descriptions.
-	InstanceType EC2InstanceType `type:"string" enum:"true"`
+	InstanceType EC2InstanceType `json:"gamelift:FleetAttributes:InstanceType" type:"string" enum:"true"`
 
 	// Location of default log files. When a server process is shut down, Amazon
 	// GameLift captures and stores any log files in this location. These logs are
@@ -491,17 +491,17 @@ type FleetAttributes struct {
 	// uploads logs that are stored on each instance at C:\game\logs (for Windows)
 	// or /local/game/logs (for Linux). Use the Amazon GameLift console to access
 	// stored logs.
-	LogPaths []string `type:"list"`
+	LogPaths []string `json:"gamelift:FleetAttributes:LogPaths" type:"list"`
 
 	// Names of metric groups that this fleet is included in. In Amazon CloudWatch,
 	// you can view metrics for an individual fleet or aggregated metrics for fleets
 	// that are in a fleet metric group. A fleet can be included in only one metric
 	// group at a time.
-	MetricGroups []string `type:"list"`
+	MetricGroups []string `json:"gamelift:FleetAttributes:MetricGroups" type:"list"`
 
 	// Descriptive label that is associated with a fleet. Fleet names do not need
 	// to be unique.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"gamelift:FleetAttributes:Name" min:"1" type:"string"`
 
 	// Type of game session protection to set for all new instances started in the
 	// fleet.
@@ -511,29 +511,29 @@ type FleetAttributes struct {
 	//
 	//    * FullProtection -- If the game session is in an ACTIVE status, it cannot
 	//    be terminated during a scale-down event.
-	NewGameSessionProtectionPolicy ProtectionPolicy `type:"string" enum:"true"`
+	NewGameSessionProtectionPolicy ProtectionPolicy `json:"gamelift:FleetAttributes:NewGameSessionProtectionPolicy" type:"string" enum:"true"`
 
 	// Operating system of the fleet's computing resources. A fleet's operating
 	// system depends on the OS specified for the build that is deployed on this
 	// fleet.
-	OperatingSystem OperatingSystem `type:"string" enum:"true"`
+	OperatingSystem OperatingSystem `json:"gamelift:FleetAttributes:OperatingSystem" type:"string" enum:"true"`
 
 	// Fleet policy to limit the number of game sessions an individual player can
 	// create over a span of time.
-	ResourceCreationLimitPolicy *ResourceCreationLimitPolicy `type:"structure"`
+	ResourceCreationLimitPolicy *ResourceCreationLimitPolicy `json:"gamelift:FleetAttributes:ResourceCreationLimitPolicy" type:"structure"`
 
 	// Unique identifier for a Realtime script.
-	ScriptId *string `type:"string"`
+	ScriptId *string `json:"gamelift:FleetAttributes:ScriptId" type:"string"`
 
 	// Game server launch parameters specified for fleets created before 2016-08-04
 	// (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after
 	// this date are specified in the fleet's RuntimeConfiguration.
-	ServerLaunchParameters *string `min:"1" type:"string"`
+	ServerLaunchParameters *string `json:"gamelift:FleetAttributes:ServerLaunchParameters" min:"1" type:"string"`
 
 	// Path to a game server executable in the fleet's build, specified for fleets
 	// created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for
 	// fleets created after this date are specified in the fleet's RuntimeConfiguration.
-	ServerLaunchPath *string `min:"1" type:"string"`
+	ServerLaunchPath *string `json:"gamelift:FleetAttributes:ServerLaunchPath" min:"1" type:"string"`
 
 	// Current status of the fleet.
 	//
@@ -554,15 +554,15 @@ type FleetAttributes struct {
 	//    * DELETING -- Hosts are responding to a delete fleet request.
 	//
 	//    * TERMINATED -- The fleet no longer exists.
-	Status FleetStatus `type:"string" enum:"true"`
+	Status FleetStatus `json:"gamelift:FleetAttributes:Status" type:"string" enum:"true"`
 
 	// List of fleet actions that have been suspended using StopFleetActions. This
 	// includes auto-scaling.
-	StoppedActions []FleetAction `min:"1" type:"list"`
+	StoppedActions []FleetAction `json:"gamelift:FleetAttributes:StoppedActions" min:"1" type:"list"`
 
 	// Time stamp indicating when this data object was terminated. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	TerminationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TerminationTime *time.Time `json:"gamelift:FleetAttributes:TerminationTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -594,17 +594,17 @@ type FleetCapacity struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for a fleet.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:FleetCapacity:FleetId" type:"string"`
 
 	// Current status of fleet capacity.
-	InstanceCounts *EC2InstanceCounts `type:"structure"`
+	InstanceCounts *EC2InstanceCounts `json:"gamelift:FleetCapacity:InstanceCounts" type:"structure"`
 
 	// Name of an EC2 instance type that is supported in Amazon GameLift. A fleet
 	// instance type determines the computing resources of each instance in the
 	// fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift
 	// supports the following EC2 instance types. See Amazon EC2 Instance Types
 	// (http://aws.amazon.com/ec2/instance-types/) for detailed descriptions.
-	InstanceType EC2InstanceType `type:"string" enum:"true"`
+	InstanceType EC2InstanceType `json:"gamelift:FleetCapacity:InstanceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -635,22 +635,22 @@ type FleetUtilization struct {
 
 	// Number of active game sessions currently being hosted on all instances in
 	// the fleet.
-	ActiveGameSessionCount *int64 `type:"integer"`
+	ActiveGameSessionCount *int64 `json:"gamelift:FleetUtilization:ActiveGameSessionCount" type:"integer"`
 
 	// Number of server processes in an ACTIVE status currently running across all
 	// instances in the fleet
-	ActiveServerProcessCount *int64 `type:"integer"`
+	ActiveServerProcessCount *int64 `json:"gamelift:FleetUtilization:ActiveServerProcessCount" type:"integer"`
 
 	// Number of active player sessions currently being hosted on all instances
 	// in the fleet.
-	CurrentPlayerSessionCount *int64 `type:"integer"`
+	CurrentPlayerSessionCount *int64 `json:"gamelift:FleetUtilization:CurrentPlayerSessionCount" type:"integer"`
 
 	// Unique identifier for a fleet.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:FleetUtilization:FleetId" type:"string"`
 
 	// Maximum players allowed across all game sessions currently being hosted on
 	// all instances in the fleet.
-	MaximumPlayerSessionCount *int64 `type:"integer"`
+	MaximumPlayerSessionCount *int64 `json:"gamelift:FleetUtilization:MaximumPlayerSessionCount" type:"integer"`
 }
 
 // String returns the string representation
@@ -672,12 +672,12 @@ type GameProperty struct {
 	// Game property identifier.
 	//
 	// Key is a required field
-	Key *string `type:"string" required:"true"`
+	Key *string `json:"gamelift:GameProperty:Key" type:"string" required:"true"`
 
 	// Game property value.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"gamelift:GameProperty:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -732,38 +732,38 @@ type GameSession struct {
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:GameSession:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Unique identifier for a player. This ID is used to enforce a resource protection
 	// policy (if one exists), that limits the number of game sessions a player
 	// can create.
-	CreatorId *string `min:"1" type:"string"`
+	CreatorId *string `json:"gamelift:GameSession:CreatorId" min:"1" type:"string"`
 
 	// Number of players currently in the game session.
-	CurrentPlayerSessionCount *int64 `type:"integer"`
+	CurrentPlayerSessionCount *int64 `json:"gamelift:GameSession:CurrentPlayerSessionCount" type:"integer"`
 
 	// Unique identifier for a fleet that the game session is running on.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:GameSession:FleetId" type:"string"`
 
 	// Set of custom properties for a game session, formatted as key:value pairs.
 	// These properties are passed to a game server process in the GameSession object
 	// with a request to start a new game session (see Start a Game Session (https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession)).
 	// You can search for active game sessions based on this custom data with SearchGameSessions.
-	GameProperties []GameProperty `type:"list"`
+	GameProperties []GameProperty `json:"gamelift:GameSession:GameProperties" type:"list"`
 
 	// Set of custom game session properties, formatted as a single string value.
 	// This data is passed to a game server process in the GameSession object with
 	// a request to start a new game session (see Start a Game Session (https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession)).
-	GameSessionData *string `min:"1" type:"string"`
+	GameSessionData *string `json:"gamelift:GameSession:GameSessionData" min:"1" type:"string"`
 
 	// Unique identifier for the game session. A game session ARN has the following
 	// format: arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string
 	// or idempotency token>.
-	GameSessionId *string `min:"1" type:"string"`
+	GameSessionId *string `json:"gamelift:GameSession:GameSessionId" min:"1" type:"string"`
 
 	// IP address of the game session. To connect to a Amazon GameLift game server,
 	// an app needs both the IP address and port number.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"gamelift:GameSession:IpAddress" type:"string"`
 
 	// Information about the matchmaking process that was used to create the game
 	// session. It is in JSON syntax, formatted as a string. In addition the matchmaking
@@ -772,35 +772,35 @@ type GameSession struct {
 	// data, see Match Data (https://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data).
 	// Matchmaker data is useful when requesting match backfills, and is updated
 	// whenever new players are added during a successful backfill (see StartMatchBackfill).
-	MatchmakerData *string `min:"1" type:"string"`
+	MatchmakerData *string `json:"gamelift:GameSession:MatchmakerData" min:"1" type:"string"`
 
 	// Maximum number of players that can be connected simultaneously to the game
 	// session.
-	MaximumPlayerSessionCount *int64 `type:"integer"`
+	MaximumPlayerSessionCount *int64 `json:"gamelift:GameSession:MaximumPlayerSessionCount" type:"integer"`
 
 	// Descriptive label that is associated with a game session. Session names do
 	// not need to be unique.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"gamelift:GameSession:Name" min:"1" type:"string"`
 
 	// Indicates whether or not the game session is accepting new players.
-	PlayerSessionCreationPolicy PlayerSessionCreationPolicy `type:"string" enum:"true"`
+	PlayerSessionCreationPolicy PlayerSessionCreationPolicy `json:"gamelift:GameSession:PlayerSessionCreationPolicy" type:"string" enum:"true"`
 
 	// Port number for the game session. To connect to a Amazon GameLift game server,
 	// an app needs both the IP address and port number.
-	Port *int64 `min:"1" type:"integer"`
+	Port *int64 `json:"gamelift:GameSession:Port" min:"1" type:"integer"`
 
 	// Current status of the game session. A game session must have an ACTIVE status
 	// to have player sessions.
-	Status GameSessionStatus `type:"string" enum:"true"`
+	Status GameSessionStatus `json:"gamelift:GameSession:Status" type:"string" enum:"true"`
 
 	// Provides additional information about game session status. INTERRUPTED indicates
 	// that the game session was hosted on a spot instance that was reclaimed, causing
 	// the active game session to be terminated.
-	StatusReason GameSessionStatusReason `type:"string" enum:"true"`
+	StatusReason GameSessionStatusReason `json:"gamelift:GameSession:StatusReason" type:"string" enum:"true"`
 
 	// Time stamp indicating when this data object was terminated. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	TerminationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TerminationTime *time.Time `json:"gamelift:GameSession:TerminationTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -820,19 +820,19 @@ type GameSessionConnectionInfo struct {
 
 	// Amazon Resource Name (ARN (https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html))
 	// that is assigned to a game session and uniquely identifies it.
-	GameSessionArn *string `min:"1" type:"string"`
+	GameSessionArn *string `json:"gamelift:GameSessionConnectionInfo:GameSessionArn" min:"1" type:"string"`
 
 	// IP address of the game session. To connect to a Amazon GameLift game server,
 	// an app needs both the IP address and port number.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"gamelift:GameSessionConnectionInfo:IpAddress" type:"string"`
 
 	// Collection of player session IDs, one for each player ID that was included
 	// in the original matchmaking request.
-	MatchedPlayerSessions []MatchedPlayerSession `type:"list"`
+	MatchedPlayerSessions []MatchedPlayerSession `json:"gamelift:GameSessionConnectionInfo:MatchedPlayerSessions" type:"list"`
 
 	// Port number for the game session. To connect to a Amazon GameLift game server,
 	// an app needs both the IP address and port number.
-	Port *int64 `min:"1" type:"integer"`
+	Port *int64 `json:"gamelift:GameSessionConnectionInfo:Port" min:"1" type:"integer"`
 }
 
 // String returns the string representation
@@ -846,7 +846,7 @@ type GameSessionDetail struct {
 	_ struct{} `type:"structure"`
 
 	// Object that describes a game session.
-	GameSession *GameSession `type:"structure"`
+	GameSession *GameSession `json:"gamelift:GameSessionDetail:GameSession" type:"structure"`
 
 	// Current status of protection for the game session.
 	//
@@ -855,7 +855,7 @@ type GameSessionDetail struct {
 	//
 	//    * FullProtection -- If the game session is in an ACTIVE status, it cannot
 	//    be terminated during a scale-down event.
-	ProtectionPolicy ProtectionPolicy `type:"string" enum:"true"`
+	ProtectionPolicy ProtectionPolicy `json:"gamelift:GameSessionDetail:ProtectionPolicy" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -880,56 +880,56 @@ type GameSessionPlacement struct {
 
 	// Time stamp indicating when this request was completed, canceled, or timed
 	// out.
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"gamelift:GameSessionPlacement:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Set of custom properties for a game session, formatted as key:value pairs.
 	// These properties are passed to a game server process in the GameSession object
 	// with a request to start a new game session (see Start a Game Session (https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession)).
-	GameProperties []GameProperty `type:"list"`
+	GameProperties []GameProperty `json:"gamelift:GameSessionPlacement:GameProperties" type:"list"`
 
 	// Identifier for the game session created by this placement request. This value
 	// is set once the new game session is placed (placement status is FULFILLED).
 	// This identifier is unique across all regions. You can use this value as a
 	// GameSessionId value as needed.
-	GameSessionArn *string `min:"1" type:"string"`
+	GameSessionArn *string `json:"gamelift:GameSessionPlacement:GameSessionArn" min:"1" type:"string"`
 
 	// Set of custom game session properties, formatted as a single string value.
 	// This data is passed to a game server process in the GameSession object with
 	// a request to start a new game session (see Start a Game Session (https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession)).
-	GameSessionData *string `min:"1" type:"string"`
+	GameSessionData *string `json:"gamelift:GameSessionPlacement:GameSessionData" min:"1" type:"string"`
 
 	// Unique identifier for the game session. This value is set once the new game
 	// session is placed (placement status is FULFILLED).
-	GameSessionId *string `min:"1" type:"string"`
+	GameSessionId *string `json:"gamelift:GameSessionPlacement:GameSessionId" min:"1" type:"string"`
 
 	// Descriptive label that is associated with a game session. Session names do
 	// not need to be unique.
-	GameSessionName *string `min:"1" type:"string"`
+	GameSessionName *string `json:"gamelift:GameSessionPlacement:GameSessionName" min:"1" type:"string"`
 
 	// Descriptive label that is associated with game session queue. Queue names
 	// must be unique within each region.
-	GameSessionQueueName *string `min:"1" type:"string"`
+	GameSessionQueueName *string `json:"gamelift:GameSessionPlacement:GameSessionQueueName" min:"1" type:"string"`
 
 	// Name of the region where the game session created by this placement request
 	// is running. This value is set once the new game session is placed (placement
 	// status is FULFILLED).
-	GameSessionRegion *string `min:"1" type:"string"`
+	GameSessionRegion *string `json:"gamelift:GameSessionPlacement:GameSessionRegion" min:"1" type:"string"`
 
 	// IP address of the game session. To connect to a Amazon GameLift game server,
 	// an app needs both the IP address and port number. This value is set once
 	// the new game session is placed (placement status is FULFILLED).
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"gamelift:GameSessionPlacement:IpAddress" type:"string"`
 
 	// Information on the matchmaking process for this game. Data is in JSON syntax,
 	// formatted as a string. It identifies the matchmaking configuration used to
 	// create the match, and contains data on all players assigned to the match,
 	// including player attributes and team assignments. For more details on matchmaker
 	// data, see Match Data (https://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data).
-	MatchmakerData *string `min:"1" type:"string"`
+	MatchmakerData *string `json:"gamelift:GameSessionPlacement:MatchmakerData" min:"1" type:"string"`
 
 	// Maximum number of players that can be connected simultaneously to the game
 	// session.
-	MaximumPlayerSessionCount *int64 `type:"integer"`
+	MaximumPlayerSessionCount *int64 `json:"gamelift:GameSessionPlacement:MaximumPlayerSessionCount" type:"integer"`
 
 	// Collection of information on player sessions created in response to the game
 	// session placement request. These player sessions are created only once a
@@ -937,23 +937,23 @@ type GameSessionPlacement struct {
 	// This information includes the player ID (as provided in the placement request)
 	// and the corresponding player session ID. Retrieve full player sessions by
 	// calling DescribePlayerSessions with the player session ID.
-	PlacedPlayerSessions []PlacedPlayerSession `type:"list"`
+	PlacedPlayerSessions []PlacedPlayerSession `json:"gamelift:GameSessionPlacement:PlacedPlayerSessions" type:"list"`
 
 	// Unique identifier for a game session placement.
-	PlacementId *string `min:"1" type:"string"`
+	PlacementId *string `json:"gamelift:GameSessionPlacement:PlacementId" min:"1" type:"string"`
 
 	// Set of values, expressed in milliseconds, indicating the amount of latency
 	// that a player experiences when connected to AWS regions.
-	PlayerLatencies []PlayerLatency `type:"list"`
+	PlayerLatencies []PlayerLatency `json:"gamelift:GameSessionPlacement:PlayerLatencies" type:"list"`
 
 	// Port number for the game session. To connect to a Amazon GameLift game server,
 	// an app needs both the IP address and port number. This value is set once
 	// the new game session is placed (placement status is FULFILLED).
-	Port *int64 `min:"1" type:"integer"`
+	Port *int64 `json:"gamelift:GameSessionPlacement:Port" min:"1" type:"integer"`
 
 	// Time stamp indicating when this request was placed in the queue. Format is
 	// a number expressed in Unix time as milliseconds (for example "1469498468.057").
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"gamelift:GameSessionPlacement:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Current status of the game session placement request.
 	//
@@ -968,7 +968,7 @@ type GameSessionPlacement struct {
 	//
 	//    * TIMED_OUT -- A new game session was not successfully created before
 	//    the time limit expired. You can resubmit the placement request as needed.
-	Status GameSessionPlacementState `type:"string" enum:"true"`
+	Status GameSessionPlacementState `json:"gamelift:GameSessionPlacement:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1007,16 +1007,16 @@ type GameSessionQueue struct {
 	// List of fleets that can be used to fulfill game session placement requests
 	// in the queue. Fleets are identified by either a fleet ARN or a fleet alias
 	// ARN. Destinations are listed in default preference order.
-	Destinations []GameSessionQueueDestination `type:"list"`
+	Destinations []GameSessionQueueDestination `json:"gamelift:GameSessionQueue:Destinations" type:"list"`
 
 	// Amazon Resource Name (ARN (https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html))
 	// that is assigned to a game session queue and uniquely identifies it. Format
 	// is arn:aws:gamelift:<region>:<aws account>:gamesessionqueue/<queue name>.
-	GameSessionQueueArn *string `min:"1" type:"string"`
+	GameSessionQueueArn *string `json:"gamelift:GameSessionQueue:GameSessionQueueArn" min:"1" type:"string"`
 
 	// Descriptive label that is associated with game session queue. Queue names
 	// must be unique within each region.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"gamelift:GameSessionQueue:Name" min:"1" type:"string"`
 
 	// Collection of latency policies to apply when processing game sessions placement
 	// requests with player latency information. Multiple policies are evaluated
@@ -1026,12 +1026,12 @@ type GameSessionQueue struct {
 	// consecutively for its duration period. For example, a queue might enforce
 	// a 60-second policy followed by a 120-second policy, and then no policy for
 	// the remainder of the placement.
-	PlayerLatencyPolicies []PlayerLatencyPolicy `type:"list"`
+	PlayerLatencyPolicies []PlayerLatencyPolicy `json:"gamelift:GameSessionQueue:PlayerLatencyPolicies" type:"list"`
 
 	// Maximum time, in seconds, that a new game session placement request remains
 	// in the queue. When a request exceeds this time, the game session placement
 	// changes to a TIMED_OUT status.
-	TimeoutInSeconds *int64 `type:"integer"`
+	TimeoutInSeconds *int64 `json:"gamelift:GameSessionQueue:TimeoutInSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -1057,7 +1057,7 @@ type GameSessionQueueDestination struct {
 	// Amazon Resource Name (ARN) assigned to fleet or fleet alias. ARNs, which
 	// include a fleet ID or alias ID and a region name, provide a unique identifier
 	// across all regions.
-	DestinationArn *string `min:"1" type:"string"`
+	DestinationArn *string `json:"gamelift:GameSessionQueueDestination:DestinationArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1086,19 +1086,19 @@ type Instance struct {
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:Instance:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Unique identifier for a fleet that the instance is in.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:Instance:FleetId" type:"string"`
 
 	// Unique identifier for an instance.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"gamelift:Instance:InstanceId" type:"string"`
 
 	// IP address assigned to the instance.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"gamelift:Instance:IpAddress" type:"string"`
 
 	// Operating system that is running on this instance.
-	OperatingSystem OperatingSystem `type:"string" enum:"true"`
+	OperatingSystem OperatingSystem `json:"gamelift:Instance:OperatingSystem" type:"string" enum:"true"`
 
 	// Current status of the instance. Possible statuses include the following:
 	//
@@ -1113,10 +1113,10 @@ type Instance struct {
 	//    * TERMINATING -- The instance is in the process of shutting down. This
 	//    may happen to reduce capacity during a scaling down event or to recycle
 	//    resources in the event of a problem.
-	Status InstanceStatus `type:"string" enum:"true"`
+	Status InstanceStatus `json:"gamelift:Instance:Status" type:"string" enum:"true"`
 
 	// EC2 instance type that defines the computing resources of this instance.
-	Type EC2InstanceType `type:"string" enum:"true"`
+	Type EC2InstanceType `json:"gamelift:Instance:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1131,19 +1131,19 @@ type InstanceAccess struct {
 	_ struct{} `type:"structure"`
 
 	// Credentials required to access the instance.
-	Credentials *InstanceCredentials `type:"structure"`
+	Credentials *InstanceCredentials `json:"gamelift:InstanceAccess:Credentials" type:"structure"`
 
 	// Unique identifier for a fleet containing the instance being accessed.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:InstanceAccess:FleetId" type:"string"`
 
 	// Unique identifier for an instance being accessed.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"gamelift:InstanceAccess:InstanceId" type:"string"`
 
 	// IP address assigned to the instance.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"gamelift:InstanceAccess:IpAddress" type:"string"`
 
 	// Operating system that is running on the instance.
-	OperatingSystem OperatingSystem `type:"string" enum:"true"`
+	OperatingSystem OperatingSystem `json:"gamelift:InstanceAccess:OperatingSystem" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1161,10 +1161,10 @@ type InstanceCredentials struct {
 	// Secret string. For Windows instances, the secret is a password for use with
 	// Windows Remote Desktop. For Linux instances, it is a private key (which must
 	// be saved as a .pem file) for use with SSH.
-	Secret *string `min:"1" type:"string"`
+	Secret *string `json:"gamelift:InstanceCredentials:Secret" min:"1" type:"string"`
 
 	// User login string.
-	UserName *string `min:"1" type:"string"`
+	UserName *string `json:"gamelift:InstanceCredentials:UserName" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1186,25 +1186,25 @@ type IpPermission struct {
 	// Starting value for a range of allowed port numbers.
 	//
 	// FromPort is a required field
-	FromPort *int64 `min:"1" type:"integer" required:"true"`
+	FromPort *int64 `json:"gamelift:IpPermission:FromPort" min:"1" type:"integer" required:"true"`
 
 	// Range of allowed IP addresses. This value must be expressed in CIDR notation.
 	// Example: "000.000.000.000/[subnet mask]" or optionally the shortened version
 	// "0.0.0.0/[subnet mask]".
 	//
 	// IpRange is a required field
-	IpRange *string `type:"string" required:"true"`
+	IpRange *string `json:"gamelift:IpPermission:IpRange" type:"string" required:"true"`
 
 	// Network communication protocol used by the fleet.
 	//
 	// Protocol is a required field
-	Protocol IpProtocol `type:"string" required:"true" enum:"true"`
+	Protocol IpProtocol `json:"gamelift:IpPermission:Protocol" type:"string" required:"true" enum:"true"`
 
 	// Ending value for a range of allowed port numbers. Port numbers are end-inclusive.
 	// This value must be higher than FromPort.
 	//
 	// ToPort is a required field
-	ToPort *int64 `min:"1" type:"integer" required:"true"`
+	ToPort *int64 `json:"gamelift:IpPermission:ToPort" min:"1" type:"integer" required:"true"`
 }
 
 // String returns the string representation
@@ -1254,10 +1254,10 @@ type MatchedPlayerSession struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for a player
-	PlayerId *string `min:"1" type:"string"`
+	PlayerId *string `json:"gamelift:MatchedPlayerSession:PlayerId" min:"1" type:"string"`
 
 	// Unique identifier for a player session
-	PlayerSessionId *string `type:"string"`
+	PlayerSessionId *string `json:"gamelift:MatchedPlayerSession:PlayerSessionId" type:"string"`
 }
 
 // String returns the string representation
@@ -1273,73 +1273,73 @@ type MatchmakingConfiguration struct {
 
 	// Flag that determines whether a match that was created with this configuration
 	// must be accepted by the matched players. To require acceptance, set to TRUE.
-	AcceptanceRequired *bool `type:"boolean"`
+	AcceptanceRequired *bool `json:"gamelift:MatchmakingConfiguration:AcceptanceRequired" type:"boolean"`
 
 	// Length of time (in seconds) to wait for players to accept a proposed match.
 	// If any player rejects the match or fails to accept before the timeout, the
 	// ticket continues to look for an acceptable match.
-	AcceptanceTimeoutSeconds *int64 `min:"1" type:"integer"`
+	AcceptanceTimeoutSeconds *int64 `json:"gamelift:MatchmakingConfiguration:AcceptanceTimeoutSeconds" min:"1" type:"integer"`
 
 	// Number of player slots in a match to keep open for future players. For example,
 	// if the configuration's rule set specifies a match for a single 12-person
 	// team, and the additional player count is set to 2, only 10 players are selected
 	// for the match.
-	AdditionalPlayerCount *int64 `type:"integer"`
+	AdditionalPlayerCount *int64 `json:"gamelift:MatchmakingConfiguration:AdditionalPlayerCount" type:"integer"`
 
 	// Method used to backfill game sessions created with this matchmaking configuration.
 	// MANUAL indicates that the game makes backfill requests or does not use the
 	// match backfill feature. AUTOMATIC indicates that GameLift creates StartMatchBackfill
 	// requests whenever a game session has one or more open slots. Learn more about
 	// manual and automatic backfill in Backfill Existing Games with FlexMatch (https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html).
-	BackfillMode BackfillMode `type:"string" enum:"true"`
+	BackfillMode BackfillMode `json:"gamelift:MatchmakingConfiguration:BackfillMode" type:"string" enum:"true"`
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:MatchmakingConfiguration:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Information to attach to all events related to the matchmaking configuration.
-	CustomEventData *string `type:"string"`
+	CustomEventData *string `json:"gamelift:MatchmakingConfiguration:CustomEventData" type:"string"`
 
 	// Descriptive label that is associated with matchmaking configuration.
-	Description *string `min:"1" type:"string"`
+	Description *string `json:"gamelift:MatchmakingConfiguration:Description" min:"1" type:"string"`
 
 	// Set of custom properties for a game session, formatted as key:value pairs.
 	// These properties are passed to a game server process in the GameSession object
 	// with a request to start a new game session (see Start a Game Session (https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession)).
 	// This information is added to the new GameSession object that is created for
 	// a successful match.
-	GameProperties []GameProperty `type:"list"`
+	GameProperties []GameProperty `json:"gamelift:MatchmakingConfiguration:GameProperties" type:"list"`
 
 	// Set of custom game session properties, formatted as a single string value.
 	// This data is passed to a game server process in the GameSession object with
 	// a request to start a new game session (see Start a Game Session (https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession)).
 	// This information is added to the new GameSession object that is created for
 	// a successful match.
-	GameSessionData *string `min:"1" type:"string"`
+	GameSessionData *string `json:"gamelift:MatchmakingConfiguration:GameSessionData" min:"1" type:"string"`
 
 	// Amazon Resource Name (ARN (https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html))
 	// that is assigned to a game session queue and uniquely identifies it. Format
 	// is arn:aws:gamelift:<region>:<aws account>:gamesessionqueue/<queue name>.
 	// These queues are used when placing game sessions for matches that are created
 	// with this matchmaking configuration. Queues can be located in any region.
-	GameSessionQueueArns []string `type:"list"`
+	GameSessionQueueArns []string `json:"gamelift:MatchmakingConfiguration:GameSessionQueueArns" type:"list"`
 
 	// Unique identifier for a matchmaking configuration. This name is used to identify
 	// the configuration associated with a matchmaking request or ticket.
-	Name *string `type:"string"`
+	Name *string `json:"gamelift:MatchmakingConfiguration:Name" type:"string"`
 
 	// SNS topic ARN that is set up to receive matchmaking notifications.
-	NotificationTarget *string `type:"string"`
+	NotificationTarget *string `json:"gamelift:MatchmakingConfiguration:NotificationTarget" type:"string"`
 
 	// Maximum duration, in seconds, that a matchmaking ticket can remain in process
 	// before timing out. Requests that fail due to timing out can be resubmitted
 	// as needed.
-	RequestTimeoutSeconds *int64 `min:"1" type:"integer"`
+	RequestTimeoutSeconds *int64 `json:"gamelift:MatchmakingConfiguration:RequestTimeoutSeconds" min:"1" type:"integer"`
 
 	// Unique identifier for a matchmaking rule set to use with this configuration.
 	// A matchmaking configuration can only use rule sets that are defined in the
 	// same region.
-	RuleSetName *string `type:"string"`
+	RuleSetName *string `json:"gamelift:MatchmakingConfiguration:RuleSetName" type:"string"`
 }
 
 // String returns the string representation
@@ -1386,16 +1386,16 @@ type MatchmakingRuleSet struct {
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:MatchmakingRuleSet:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Collection of matchmaking rules, formatted as a JSON string. Comments are
 	// not allowed in JSON, but most elements support a description field.
 	//
 	// RuleSetBody is a required field
-	RuleSetBody *string `min:"1" type:"string" required:"true"`
+	RuleSetBody *string `json:"gamelift:MatchmakingRuleSet:RuleSetBody" min:"1" type:"string" required:"true"`
 
 	// Unique identifier for a matchmaking rule set
-	RuleSetName *string `type:"string"`
+	RuleSetName *string `json:"gamelift:MatchmakingRuleSet:RuleSetName" type:"string"`
 }
 
 // String returns the string representation
@@ -1414,31 +1414,31 @@ type MatchmakingTicket struct {
 	// Name of the MatchmakingConfiguration that is used with this ticket. Matchmaking
 	// configurations determine how players are grouped into a match and how a new
 	// game session is created for the match.
-	ConfigurationName *string `type:"string"`
+	ConfigurationName *string `json:"gamelift:MatchmakingTicket:ConfigurationName" type:"string"`
 
 	// Time stamp indicating when this matchmaking request stopped being processed
 	// due to success, failure, or cancellation. Format is a number expressed in
 	// Unix time as milliseconds (for example "1469498468.057").
-	EndTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	EndTime *time.Time `json:"gamelift:MatchmakingTicket:EndTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Average amount of time (in seconds) that players are currently waiting for
 	// a match. If there is not enough recent data, this property may be empty.
-	EstimatedWaitTime *int64 `type:"integer"`
+	EstimatedWaitTime *int64 `json:"gamelift:MatchmakingTicket:EstimatedWaitTime" type:"integer"`
 
 	// Identifier and connection information of the game session created for the
 	// match. This information is added to the ticket only after the matchmaking
 	// request has been successfully completed.
-	GameSessionConnectionInfo *GameSessionConnectionInfo `type:"structure"`
+	GameSessionConnectionInfo *GameSessionConnectionInfo `json:"gamelift:MatchmakingTicket:GameSessionConnectionInfo" type:"structure"`
 
 	// A set of Player objects, each representing a player to find matches for.
 	// Players are identified by a unique player ID and may include latency data
 	// for use during matchmaking. If the ticket is in status COMPLETED, the Player
 	// objects include the team the players were assigned to in the resulting match.
-	Players []Player `type:"list"`
+	Players []Player `json:"gamelift:MatchmakingTicket:Players" type:"list"`
 
 	// Time stamp indicating when this matchmaking request was received. Format
 	// is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-	StartTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `json:"gamelift:MatchmakingTicket:StartTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Current status of the matchmaking request.
 	//
@@ -1470,18 +1470,18 @@ type MatchmakingTicket struct {
 	// Matchmaking requests that fail to successfully complete (statuses FAILED,
 	// CANCELLED, TIMED_OUT) can be resubmitted as new requests with new ticket
 	// IDs.
-	Status MatchmakingConfigurationStatus `type:"string" enum:"true"`
+	Status MatchmakingConfigurationStatus `json:"gamelift:MatchmakingTicket:Status" type:"string" enum:"true"`
 
 	// Additional information about the current status.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"gamelift:MatchmakingTicket:StatusMessage" type:"string"`
 
 	// Code to explain the current status. For example, a status reason may indicate
 	// when a ticket has returned to SEARCHING status after a proposed match fails
 	// to receive player acceptances.
-	StatusReason *string `type:"string"`
+	StatusReason *string `json:"gamelift:MatchmakingTicket:StatusReason" type:"string"`
 
 	// Unique identifier for a matchmaking ticket.
-	TicketId *string `type:"string"`
+	TicketId *string `json:"gamelift:MatchmakingTicket:TicketId" type:"string"`
 }
 
 // String returns the string representation
@@ -1507,10 +1507,10 @@ type PlacedPlayerSession struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for a player that is associated with this player session.
-	PlayerId *string `min:"1" type:"string"`
+	PlayerId *string `json:"gamelift:PlacedPlayerSession:PlayerId" min:"1" type:"string"`
 
 	// Unique identifier for a player session.
-	PlayerSessionId *string `type:"string"`
+	PlayerSessionId *string `json:"gamelift:PlacedPlayerSession:PlayerSessionId" type:"string"`
 }
 
 // String returns the string representation
@@ -1534,20 +1534,20 @@ type Player struct {
 	// latency in order to be matched. If no latency is reported in this scenario,
 	// FlexMatch assumes that no regions are available to the player and the ticket
 	// is not matchable.
-	LatencyInMs map[string]int64 `type:"map"`
+	LatencyInMs map[string]int64 `json:"gamelift:Player:LatencyInMs" type:"map"`
 
 	// Collection of key:value pairs containing player information for use in matchmaking.
 	// Player attribute keys must match the playerAttributes used in a matchmaking
 	// rule set. Example: "PlayerAttributes": {"skill": {"N": "23"}, "gameMode":
 	// {"S": "deathmatch"}}.
-	PlayerAttributes map[string]AttributeValue `type:"map"`
+	PlayerAttributes map[string]AttributeValue `json:"gamelift:Player:PlayerAttributes" type:"map"`
 
 	// Unique identifier for a player
-	PlayerId *string `min:"1" type:"string"`
+	PlayerId *string `json:"gamelift:Player:PlayerId" min:"1" type:"string"`
 
 	// Name of the team that the player is assigned to in a match. Team names are
 	// defined in a matchmaking rule set.
-	Team *string `min:"1" type:"string"`
+	Team *string `json:"gamelift:Player:Team" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1590,13 +1590,13 @@ type PlayerLatency struct {
 
 	// Amount of time that represents the time lag experienced by the player when
 	// connected to the specified region.
-	LatencyInMilliseconds *float64 `type:"float"`
+	LatencyInMilliseconds *float64 `json:"gamelift:PlayerLatency:LatencyInMilliseconds" type:"float"`
 
 	// Unique identifier for a player associated with the latency data.
-	PlayerId *string `min:"1" type:"string"`
+	PlayerId *string `json:"gamelift:PlayerLatency:PlayerId" min:"1" type:"string"`
 
 	// Name of the region that is associated with the latency value.
-	RegionIdentifier *string `min:"1" type:"string"`
+	RegionIdentifier *string `json:"gamelift:PlayerLatency:RegionIdentifier" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1639,12 +1639,12 @@ type PlayerLatencyPolicy struct {
 
 	// The maximum latency value that is allowed for any player, in milliseconds.
 	// All policies must have a value set for this property.
-	MaximumIndividualPlayerLatencyMilliseconds *int64 `type:"integer"`
+	MaximumIndividualPlayerLatencyMilliseconds *int64 `json:"gamelift:PlayerLatencyPolicy:MaximumIndividualPlayerLatencyMilliseconds" type:"integer"`
 
 	// The length of time, in seconds, that the policy is enforced while placing
 	// a new game session. A null value for this property means that the policy
 	// is enforced until the queue times out.
-	PolicyDurationSeconds *int64 `type:"integer"`
+	PolicyDurationSeconds *int64 `json:"gamelift:PlayerLatencyPolicy:PolicyDurationSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -1678,32 +1678,32 @@ type PlayerSession struct {
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:PlayerSession:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Unique identifier for a fleet that the player's game session is running on.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:PlayerSession:FleetId" type:"string"`
 
 	// Unique identifier for the game session that the player session is connected
 	// to.
-	GameSessionId *string `min:"1" type:"string"`
+	GameSessionId *string `json:"gamelift:PlayerSession:GameSessionId" min:"1" type:"string"`
 
 	// IP address of the game session. To connect to a Amazon GameLift game server,
 	// an app needs both the IP address and port number.
-	IpAddress *string `type:"string"`
+	IpAddress *string `json:"gamelift:PlayerSession:IpAddress" type:"string"`
 
 	// Developer-defined information related to a player. Amazon GameLift does not
 	// use this data, so it can be formatted as needed for use in the game.
-	PlayerData *string `min:"1" type:"string"`
+	PlayerData *string `json:"gamelift:PlayerSession:PlayerData" min:"1" type:"string"`
 
 	// Unique identifier for a player that is associated with this player session.
-	PlayerId *string `min:"1" type:"string"`
+	PlayerId *string `json:"gamelift:PlayerSession:PlayerId" min:"1" type:"string"`
 
 	// Unique identifier for a player session.
-	PlayerSessionId *string `type:"string"`
+	PlayerSessionId *string `json:"gamelift:PlayerSession:PlayerSessionId" type:"string"`
 
 	// Port number for the game session. To connect to a Amazon GameLift server
 	// process, an app needs both the IP address and port number.
-	Port *int64 `min:"1" type:"integer"`
+	Port *int64 `json:"gamelift:PlayerSession:Port" min:"1" type:"integer"`
 
 	// Current status of the player session.
 	//
@@ -1719,11 +1719,11 @@ type PlayerSession struct {
 	//
 	//    * TIMEDOUT -- A player session request was received, but the player did
 	//    not connect and/or was not validated within the timeout limit (60 seconds).
-	Status PlayerSessionStatus `type:"string" enum:"true"`
+	Status PlayerSessionStatus `json:"gamelift:PlayerSession:Status" type:"string" enum:"true"`
 
 	// Time stamp indicating when this data object was terminated. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	TerminationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	TerminationTime *time.Time `json:"gamelift:PlayerSession:TerminationTime" type:"timestamp" timestampFormat:"unix"`
 }
 
 // String returns the string representation
@@ -1748,10 +1748,10 @@ type ResourceCreationLimitPolicy struct {
 
 	// Maximum number of game sessions that an individual can create during the
 	// policy period.
-	NewGameSessionsPerCreator *int64 `type:"integer"`
+	NewGameSessionsPerCreator *int64 `json:"gamelift:ResourceCreationLimitPolicy:NewGameSessionsPerCreator" type:"integer"`
 
 	// Time span used in evaluating the resource creation limit policy.
-	PolicyPeriodInMinutes *int64 `type:"integer"`
+	PolicyPeriodInMinutes *int64 `json:"gamelift:ResourceCreationLimitPolicy:PolicyPeriodInMinutes" type:"integer"`
 }
 
 // String returns the string representation
@@ -1777,10 +1777,10 @@ type RoutingStrategy struct {
 	_ struct{} `type:"structure"`
 
 	// Unique identifier for a fleet that the alias points to.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:RoutingStrategy:FleetId" type:"string"`
 
 	// Message text to be used with a terminal routing strategy.
-	Message *string `type:"string"`
+	Message *string `json:"gamelift:RoutingStrategy:Message" type:"string"`
 
 	// Type of routing strategy.
 	//
@@ -1792,7 +1792,7 @@ type RoutingStrategy struct {
 	//    * TERMINAL -- The alias does not resolve to a fleet but instead can be
 	//    used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException
 	//    with the RoutingStrategy message embedded.
-	Type RoutingStrategyType `type:"string" enum:"true"`
+	Type RoutingStrategyType `json:"gamelift:RoutingStrategy:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -1836,16 +1836,16 @@ type RuntimeConfiguration struct {
 	// Maximum amount of time (in seconds) that a game session can remain in status
 	// ACTIVATING. If the game session is not active before the timeout, activation
 	// is terminated and the game session status is changed to TERMINATED.
-	GameSessionActivationTimeoutSeconds *int64 `min:"1" type:"integer"`
+	GameSessionActivationTimeoutSeconds *int64 `json:"gamelift:RuntimeConfiguration:GameSessionActivationTimeoutSeconds" min:"1" type:"integer"`
 
 	// Maximum number of game sessions with status ACTIVATING to allow on an instance
 	// simultaneously. This setting limits the amount of instance resources that
 	// can be used for new game activations at any one time.
-	MaxConcurrentGameSessionActivations *int64 `min:"1" type:"integer"`
+	MaxConcurrentGameSessionActivations *int64 `json:"gamelift:RuntimeConfiguration:MaxConcurrentGameSessionActivations" min:"1" type:"integer"`
 
 	// Collection of server process configurations that describe which server processes
 	// to run on each instance in a fleet.
-	ServerProcesses []ServerProcess `min:"1" type:"list"`
+	ServerProcesses []ServerProcess `json:"gamelift:RuntimeConfiguration:ServerProcesses" min:"1" type:"list"`
 }
 
 // String returns the string representation
@@ -1887,20 +1887,20 @@ type S3Location struct {
 	_ struct{} `type:"structure"`
 
 	// Amazon S3 bucket identifier. This is the name of the S3 bucket.
-	Bucket *string `min:"1" type:"string"`
+	Bucket *string `json:"gamelift:S3Location:Bucket" min:"1" type:"string"`
 
 	// Name of the zip file containing the build files or script files.
-	Key *string `min:"1" type:"string"`
+	Key *string `json:"gamelift:S3Location:Key" min:"1" type:"string"`
 
 	// Version of the file, if object versioning is turned on for the bucket. Amazon
 	// GameLift uses this information when retrieving files from an S3 bucket that
 	// you own. Use this parameter to specify a specific version of the file; if
 	// not set, the latest version of the file is retrieved.
-	ObjectVersion *string `min:"1" type:"string"`
+	ObjectVersion *string `json:"gamelift:S3Location:ObjectVersion" min:"1" type:"string"`
 
 	// Amazon Resource Name (ARN (https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html))
 	// for an IAM role that allows Amazon GameLift to access the S3 bucket.
-	RoleArn *string `min:"1" type:"string"`
+	RoleArn *string `json:"gamelift:S3Location:RoleArn" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -1949,14 +1949,14 @@ type ScalingPolicy struct {
 
 	// Comparison operator to use when measuring a metric against the threshold
 	// value.
-	ComparisonOperator ComparisonOperatorType `type:"string" enum:"true"`
+	ComparisonOperator ComparisonOperatorType `json:"gamelift:ScalingPolicy:ComparisonOperator" type:"string" enum:"true"`
 
 	// Length of time (in minutes) the metric must be at or beyond the threshold
 	// before a scaling event is triggered.
-	EvaluationPeriods *int64 `min:"1" type:"integer"`
+	EvaluationPeriods *int64 `json:"gamelift:ScalingPolicy:EvaluationPeriods" min:"1" type:"integer"`
 
 	// Unique identifier for a fleet that is associated with this scaling policy.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:ScalingPolicy:FleetId" type:"string"`
 
 	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling
 	// adjustment. For detailed descriptions of fleet metrics, see Monitor Amazon
@@ -1994,20 +1994,20 @@ type ScalingPolicy struct {
 	//
 	//    * WaitTime -- Current wait time for pending game session placement requests,
 	//    in any queue, where the current fleet is the top-priority destination.
-	MetricName MetricName `type:"string" enum:"true"`
+	MetricName MetricName `json:"gamelift:ScalingPolicy:MetricName" type:"string" enum:"true"`
 
 	// Descriptive label that is associated with a scaling policy. Policy names
 	// do not need to be unique.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"gamelift:ScalingPolicy:Name" min:"1" type:"string"`
 
 	// Type of scaling policy to create. For a target-based policy, set the parameter
 	// MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration.
 	// For a rule-based policy set the following parameters: MetricName, ComparisonOperator,
 	// Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
-	PolicyType PolicyType `type:"string" enum:"true"`
+	PolicyType PolicyType `json:"gamelift:ScalingPolicy:PolicyType" type:"string" enum:"true"`
 
 	// Amount of adjustment to make, based on the scaling adjustment type.
-	ScalingAdjustment *int64 `type:"integer"`
+	ScalingAdjustment *int64 `json:"gamelift:ScalingPolicy:ScalingAdjustment" type:"integer"`
 
 	// Type of adjustment to make to a fleet's instance count (see FleetCapacity):
 	//
@@ -2020,7 +2020,7 @@ type ScalingPolicy struct {
 	//    * PercentChangeInCapacity -- increase or reduce the current instance count
 	//    by the scaling adjustment, read as a percentage. Positive values scale
 	//    up while negative values scale down.
-	ScalingAdjustmentType ScalingAdjustmentType `type:"string" enum:"true"`
+	ScalingAdjustmentType ScalingAdjustmentType `json:"gamelift:ScalingPolicy:ScalingAdjustmentType" type:"string" enum:"true"`
 
 	// Current status of the scaling policy. The scaling policy can be in force
 	// only when in an ACTIVE status. Scaling policies can be suspended for individual
@@ -2043,13 +2043,13 @@ type ScalingPolicy struct {
 	//
 	//    * ERROR -- An error occurred in creating the policy. It should be removed
 	//    and recreated.
-	Status ScalingStatusType `type:"string" enum:"true"`
+	Status ScalingStatusType `json:"gamelift:ScalingPolicy:Status" type:"string" enum:"true"`
 
 	// Object that contains settings for a target-based scaling policy.
-	TargetConfiguration *TargetConfiguration `type:"structure"`
+	TargetConfiguration *TargetConfiguration `json:"gamelift:ScalingPolicy:TargetConfiguration" type:"structure"`
 
 	// Metric value used to trigger a scaling event.
-	Threshold *float64 `type:"double"`
+	Threshold *float64 `json:"gamelift:ScalingPolicy:Threshold" type:"double"`
 }
 
 // String returns the string representation
@@ -2076,27 +2076,27 @@ type Script struct {
 
 	// Time stamp indicating when this data object was created. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:Script:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Descriptive label that is associated with a script. Script names do not need
 	// to be unique.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"gamelift:Script:Name" min:"1" type:"string"`
 
 	// Unique identifier for a Realtime script
-	ScriptId *string `type:"string"`
+	ScriptId *string `json:"gamelift:Script:ScriptId" type:"string"`
 
 	// File size of the uploaded Realtime script, expressed in bytes. When files
 	// are uploaded from an S3 location, this value remains at "0".
-	SizeOnDisk *int64 `min:"1" type:"long"`
+	SizeOnDisk *int64 `json:"gamelift:Script:SizeOnDisk" min:"1" type:"long"`
 
 	// Location in Amazon Simple Storage Service (Amazon S3) where build or script
 	// files are stored for access by Amazon GameLift. This location is specified
 	// in CreateBuild, CreateScript, and UpdateScript requests.
-	StorageLocation *S3Location `type:"structure"`
+	StorageLocation *S3Location `json:"gamelift:Script:StorageLocation" type:"structure"`
 
 	// Version that is associated with a build or script. Version strings do not
 	// need to be unique.
-	Version *string `min:"1" type:"string"`
+	Version *string `json:"gamelift:Script:Version" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2119,7 +2119,7 @@ type ServerProcess struct {
 	// an instance.
 	//
 	// ConcurrentExecutions is a required field
-	ConcurrentExecutions *int64 `min:"1" type:"integer" required:"true"`
+	ConcurrentExecutions *int64 `json:"gamelift:ServerProcess:ConcurrentExecutions" min:"1" type:"integer" required:"true"`
 
 	// Location of the server executable in a custom game build or the name of the
 	// Realtime script file that contains the Init() function. Game builds and Realtime
@@ -2130,11 +2130,11 @@ type ServerProcess struct {
 	//    * Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
 	//
 	// LaunchPath is a required field
-	LaunchPath *string `min:"1" type:"string" required:"true"`
+	LaunchPath *string `json:"gamelift:ServerProcess:LaunchPath" min:"1" type:"string" required:"true"`
 
 	// Optional list of parameters to pass to the server executable or Realtime
 	// script on launch.
-	Parameters *string `min:"1" type:"string"`
+	Parameters *string `json:"gamelift:ServerProcess:Parameters" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2197,7 +2197,7 @@ type TargetConfiguration struct {
 	// that should be idle and ready for new game sessions).
 	//
 	// TargetValue is a required field
-	TargetValue *float64 `type:"double" required:"true"`
+	TargetValue *float64 `json:"gamelift:TargetConfiguration:TargetValue" type:"double" required:"true"`
 }
 
 // String returns the string representation
@@ -2241,25 +2241,25 @@ type VpcPeeringAuthorization struct {
 
 	// Time stamp indicating when this authorization was issued. Format is a number
 	// expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationTime *time.Time `json:"gamelift:VpcPeeringAuthorization:CreationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Time stamp indicating when this authorization expires (24 hours after issuance).
 	// Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-	ExpirationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpirationTime *time.Time `json:"gamelift:VpcPeeringAuthorization:ExpirationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Unique identifier for the AWS account that you use to manage your Amazon
 	// GameLift fleet. You can find your Account ID in the AWS Management Console
 	// under account settings.
-	GameLiftAwsAccountId *string `min:"1" type:"string"`
+	GameLiftAwsAccountId *string `json:"gamelift:VpcPeeringAuthorization:GameLiftAwsAccountId" min:"1" type:"string"`
 
-	PeerVpcAwsAccountId *string `min:"1" type:"string"`
+	PeerVpcAwsAccountId *string `json:"gamelift:VpcPeeringAuthorization:PeerVpcAwsAccountId" min:"1" type:"string"`
 
 	// Unique identifier for a VPC with resources to be accessed by your Amazon
 	// GameLift fleet. The VPC must be in the same region where your fleet is deployed.
 	// Look up a VPC ID using the VPC Dashboard (https://console.aws.amazon.com/vpc/)
 	// in the AWS Management Console. Learn more about VPC peering in VPC Peering
 	// with Amazon GameLift Fleets (https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html).
-	PeerVpcId *string `min:"1" type:"string"`
+	PeerVpcId *string `json:"gamelift:VpcPeeringAuthorization:PeerVpcId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2288,33 +2288,33 @@ type VpcPeeringConnection struct {
 
 	// Unique identifier for a fleet. This ID determines the ID of the Amazon GameLift
 	// VPC for your fleet.
-	FleetId *string `type:"string"`
+	FleetId *string `json:"gamelift:VpcPeeringConnection:FleetId" type:"string"`
 
 	// Unique identifier for the VPC that contains the Amazon GameLift fleet for
 	// this connection. This VPC is managed by Amazon GameLift and does not appear
 	// in your AWS account.
-	GameLiftVpcId *string `min:"1" type:"string"`
+	GameLiftVpcId *string `json:"gamelift:VpcPeeringConnection:GameLiftVpcId" min:"1" type:"string"`
 
 	// CIDR block of IPv4 addresses assigned to the VPC peering connection for the
 	// GameLift VPC. The peered VPC also has an IPv4 CIDR block associated with
 	// it; these blocks cannot overlap or the peering connection cannot be created.
-	IpV4CidrBlock *string `min:"1" type:"string"`
+	IpV4CidrBlock *string `json:"gamelift:VpcPeeringConnection:IpV4CidrBlock" min:"1" type:"string"`
 
 	// Unique identifier for a VPC with resources to be accessed by your Amazon
 	// GameLift fleet. The VPC must be in the same region where your fleet is deployed.
 	// Look up a VPC ID using the VPC Dashboard (https://console.aws.amazon.com/vpc/)
 	// in the AWS Management Console. Learn more about VPC peering in VPC Peering
 	// with Amazon GameLift Fleets (https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html).
-	PeerVpcId *string `min:"1" type:"string"`
+	PeerVpcId *string `json:"gamelift:VpcPeeringConnection:PeerVpcId" min:"1" type:"string"`
 
 	// Object that contains status information about the connection. Status indicates
 	// if a connection is pending, successful, or failed.
-	Status *VpcPeeringConnectionStatus `type:"structure"`
+	Status *VpcPeeringConnectionStatus `json:"gamelift:VpcPeeringConnection:Status" type:"structure"`
 
 	// Unique identifier that is automatically assigned to the connection record.
 	// This ID is referenced in VPC peering connection events, and is used when
 	// deleting a connection with DeleteVpcPeeringConnection.
-	VpcPeeringConnectionId *string `min:"1" type:"string"`
+	VpcPeeringConnectionId *string `json:"gamelift:VpcPeeringConnection:VpcPeeringConnectionId" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -2331,10 +2331,10 @@ type VpcPeeringConnectionStatus struct {
 	_ struct{} `type:"structure"`
 
 	// Code indicating the status of a VPC peering connection.
-	Code *string `min:"1" type:"string"`
+	Code *string `json:"gamelift:VpcPeeringConnectionStatus:Code" min:"1" type:"string"`
 
 	// Additional messaging associated with the connection status.
-	Message *string `min:"1" type:"string"`
+	Message *string `json:"gamelift:VpcPeeringConnectionStatus:Message" min:"1" type:"string"`
 }
 
 // String returns the string representation

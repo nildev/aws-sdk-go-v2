@@ -81,7 +81,7 @@ type ImportTerminologyOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The properties of the custom terminology being imported.
-	TerminologyProperties *TerminologyProperties `type:"structure"`
+	TerminologyProperties *TerminologyProperties `json:"translate:ImportTerminologyOutput:TerminologyProperties" type:"structure"`
 }
 
 // String returns the string representation

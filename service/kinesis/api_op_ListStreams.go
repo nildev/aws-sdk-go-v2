@@ -50,13 +50,13 @@ type ListStreamsOutput struct {
 	// If set to true, there are more streams available to list.
 	//
 	// HasMoreStreams is a required field
-	HasMoreStreams *bool `type:"boolean" required:"true"`
+	HasMoreStreams *bool `json:"kinesis:ListStreamsOutput:HasMoreStreams" type:"boolean" required:"true"`
 
 	// The names of the streams that are associated with the AWS account making
 	// the ListStreams request.
 	//
 	// StreamNames is a required field
-	StreamNames []string `type:"list" required:"true"`
+	StreamNames []string `json:"kinesis:ListStreamsOutput:StreamNames" type:"list" required:"true"`
 }
 
 // String returns the string representation

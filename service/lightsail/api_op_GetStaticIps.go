@@ -29,11 +29,11 @@ type GetStaticIpsOutput struct {
 
 	// A token used for advancing to the next page of results from your get static
 	// IPs request.
-	NextPageToken *string `locationName:"nextPageToken" type:"string"`
+	NextPageToken *string `json:"lightsail:GetStaticIpsOutput:NextPageToken" locationName:"nextPageToken" type:"string"`
 
 	// An array of key-value pairs containing information about your get static
 	// IPs request.
-	StaticIps []StaticIp `locationName:"staticIps" type:"list"`
+	StaticIps []StaticIp `json:"lightsail:GetStaticIpsOutput:StaticIps" locationName:"staticIps" type:"list"`
 }
 
 // String returns the string representation

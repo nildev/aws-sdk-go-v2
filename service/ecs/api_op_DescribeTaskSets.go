@@ -57,10 +57,10 @@ type DescribeTaskSetsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Any failures associated with the call.
-	Failures []Failure `locationName:"failures" type:"list"`
+	Failures []Failure `json:"ecs:DescribeTaskSetsOutput:Failures" locationName:"failures" type:"list"`
 
 	// The list of task sets described.
-	TaskSets []TaskSet `locationName:"taskSets" type:"list"`
+	TaskSets []TaskSet `json:"ecs:DescribeTaskSetsOutput:TaskSets" locationName:"taskSets" type:"list"`
 }
 
 // String returns the string representation

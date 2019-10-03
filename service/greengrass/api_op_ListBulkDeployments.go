@@ -48,11 +48,11 @@ type ListBulkDeploymentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of bulk deployments.
-	BulkDeployments []BulkDeployment `type:"list"`
+	BulkDeployments []BulkDeployment `json:"greengrass:ListBulkDeploymentsOutput:BulkDeployments" type:"list"`
 
 	// The token for the next set of results, or ''null'' if there are no additional
 	// results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListBulkDeploymentsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

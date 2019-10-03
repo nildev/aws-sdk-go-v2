@@ -69,10 +69,10 @@ type StartRemediationExecutionOutput struct {
 
 	// For resources that have failed to start execution, the API returns a resource
 	// key object.
-	FailedItems []ResourceKey `min:"1" type:"list"`
+	FailedItems []ResourceKey `json:"config:StartRemediationExecutionOutput:FailedItems" min:"1" type:"list"`
 
 	// Returns a failure message. For example, the resource is already compliant.
-	FailureMessage *string `type:"string"`
+	FailureMessage *string `json:"config:StartRemediationExecutionOutput:FailureMessage" type:"string"`
 }
 
 // String returns the string representation

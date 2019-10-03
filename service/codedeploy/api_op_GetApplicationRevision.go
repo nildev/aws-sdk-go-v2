@@ -57,13 +57,13 @@ type GetApplicationRevisionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the application that corresponds to the revision.
-	ApplicationName *string `locationName:"applicationName" min:"1" type:"string"`
+	ApplicationName *string `json:"codedeploy:GetApplicationRevisionOutput:ApplicationName" locationName:"applicationName" min:"1" type:"string"`
 
 	// Additional information about the revision, including type and location.
-	Revision *RevisionLocation `locationName:"revision" type:"structure"`
+	Revision *RevisionLocation `json:"codedeploy:GetApplicationRevisionOutput:Revision" locationName:"revision" type:"structure"`
 
 	// General information about the revision.
-	RevisionInfo *GenericRevisionInfo `locationName:"revisionInfo" type:"structure"`
+	RevisionInfo *GenericRevisionInfo `json:"codedeploy:GetApplicationRevisionOutput:RevisionInfo" locationName:"revisionInfo" type:"structure"`
 }
 
 // String returns the string representation

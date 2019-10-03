@@ -59,7 +59,7 @@ type DeleteInsightOutput struct {
 	// The ARN of the insight that was deleted.
 	//
 	// InsightArn is a required field
-	InsightArn *string `type:"string" required:"true"`
+	InsightArn *string `json:"securityhub:DeleteInsightOutput:InsightArn" type:"string" required:"true"`
 }
 
 // String returns the string representation

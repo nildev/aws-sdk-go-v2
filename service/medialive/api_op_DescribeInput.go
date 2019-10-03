@@ -54,32 +54,32 @@ func (s DescribeInputInput) MarshalFields(e protocol.FieldEncoder) error {
 type DescribeInputOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"medialive:DescribeInputOutput:Arn" locationName:"arn" type:"string"`
 
-	AttachedChannels []string `locationName:"attachedChannels" type:"list"`
+	AttachedChannels []string `json:"medialive:DescribeInputOutput:AttachedChannels" locationName:"attachedChannels" type:"list"`
 
-	Destinations []InputDestination `locationName:"destinations" type:"list"`
+	Destinations []InputDestination `json:"medialive:DescribeInputOutput:Destinations" locationName:"destinations" type:"list"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"medialive:DescribeInputOutput:Id" locationName:"id" type:"string"`
 
 	// A standard input has two sources and a single pipeline input only has one.
-	InputClass InputClass `locationName:"inputClass" type:"string" enum:"true"`
+	InputClass InputClass `json:"medialive:DescribeInputOutput:InputClass" locationName:"inputClass" type:"string" enum:"true"`
 
-	MediaConnectFlows []MediaConnectFlow `locationName:"mediaConnectFlows" type:"list"`
+	MediaConnectFlows []MediaConnectFlow `json:"medialive:DescribeInputOutput:MediaConnectFlows" locationName:"mediaConnectFlows" type:"list"`
 
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"medialive:DescribeInputOutput:Name" locationName:"name" type:"string"`
 
-	RoleArn *string `locationName:"roleArn" type:"string"`
+	RoleArn *string `json:"medialive:DescribeInputOutput:RoleArn" locationName:"roleArn" type:"string"`
 
-	SecurityGroups []string `locationName:"securityGroups" type:"list"`
+	SecurityGroups []string `json:"medialive:DescribeInputOutput:SecurityGroups" locationName:"securityGroups" type:"list"`
 
-	Sources []InputSource `locationName:"sources" type:"list"`
+	Sources []InputSource `json:"medialive:DescribeInputOutput:Sources" locationName:"sources" type:"list"`
 
-	State InputState `locationName:"state" type:"string" enum:"true"`
+	State InputState `json:"medialive:DescribeInputOutput:State" locationName:"state" type:"string" enum:"true"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"medialive:DescribeInputOutput:Tags" locationName:"tags" type:"map"`
 
-	Type InputType `locationName:"type" type:"string" enum:"true"`
+	Type InputType `json:"medialive:DescribeInputOutput:Type" locationName:"type" type:"string" enum:"true"`
 }
 
 // String returns the string representation

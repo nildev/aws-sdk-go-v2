@@ -269,66 +269,66 @@ type CreateFunctionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The SHA256 hash of the function's deployment package.
-	CodeSha256 *string `type:"string"`
+	CodeSha256 *string `json:"lambda:CreateFunctionOutput:CodeSha256" type:"string"`
 
 	// The size of the function's deployment package, in bytes.
-	CodeSize *int64 `type:"long"`
+	CodeSize *int64 `json:"lambda:CreateFunctionOutput:CodeSize" type:"long"`
 
 	// The function's dead letter queue.
-	DeadLetterConfig *DeadLetterConfig `type:"structure"`
+	DeadLetterConfig *DeadLetterConfig `json:"lambda:CreateFunctionOutput:DeadLetterConfig" type:"structure"`
 
 	// The function's description.
-	Description *string `type:"string"`
+	Description *string `json:"lambda:CreateFunctionOutput:Description" type:"string"`
 
 	// The function's environment variables.
-	Environment *EnvironmentResponse `type:"structure"`
+	Environment *EnvironmentResponse `json:"lambda:CreateFunctionOutput:Environment" type:"structure"`
 
 	// The function's Amazon Resource Name (ARN).
-	FunctionArn *string `type:"string"`
+	FunctionArn *string `json:"lambda:CreateFunctionOutput:FunctionArn" type:"string"`
 
 	// The name of the function.
-	FunctionName *string `min:"1" type:"string"`
+	FunctionName *string `json:"lambda:CreateFunctionOutput:FunctionName" min:"1" type:"string"`
 
 	// The function that Lambda calls to begin executing your function.
-	Handler *string `type:"string"`
+	Handler *string `json:"lambda:CreateFunctionOutput:Handler" type:"string"`
 
 	// The KMS key that's used to encrypt the function's environment variables.
 	// This key is only returned if you've configured a customer-managed CMK.
-	KMSKeyArn *string `type:"string"`
+	KMSKeyArn *string `json:"lambda:CreateFunctionOutput:KMSKeyArn" type:"string"`
 
 	// The date and time that the function was last updated, in ISO-8601 format
 	// (https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
-	LastModified *string `type:"string"`
+	LastModified *string `json:"lambda:CreateFunctionOutput:LastModified" type:"string"`
 
 	// The function's layers (https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
-	Layers []Layer `type:"list"`
+	Layers []Layer `json:"lambda:CreateFunctionOutput:Layers" type:"list"`
 
 	// For Lambda@Edge functions, the ARN of the master function.
-	MasterArn *string `type:"string"`
+	MasterArn *string `json:"lambda:CreateFunctionOutput:MasterArn" type:"string"`
 
 	// The memory that's allocated to the function.
-	MemorySize *int64 `min:"128" type:"integer"`
+	MemorySize *int64 `json:"lambda:CreateFunctionOutput:MemorySize" min:"128" type:"integer"`
 
 	// The latest updated revision of the function or alias.
-	RevisionId *string `type:"string"`
+	RevisionId *string `json:"lambda:CreateFunctionOutput:RevisionId" type:"string"`
 
 	// The function's execution role.
-	Role *string `type:"string"`
+	Role *string `json:"lambda:CreateFunctionOutput:Role" type:"string"`
 
 	// The runtime environment for the Lambda function.
-	Runtime Runtime `type:"string" enum:"true"`
+	Runtime Runtime `json:"lambda:CreateFunctionOutput:Runtime" type:"string" enum:"true"`
 
 	// The amount of time that Lambda allows a function to run before stopping it.
-	Timeout *int64 `min:"1" type:"integer"`
+	Timeout *int64 `json:"lambda:CreateFunctionOutput:Timeout" min:"1" type:"integer"`
 
 	// The function's AWS X-Ray tracing configuration.
-	TracingConfig *TracingConfigResponse `type:"structure"`
+	TracingConfig *TracingConfigResponse `json:"lambda:CreateFunctionOutput:TracingConfig" type:"structure"`
 
 	// The version of the Lambda function.
-	Version *string `min:"1" type:"string"`
+	Version *string `json:"lambda:CreateFunctionOutput:Version" min:"1" type:"string"`
 
 	// The function's networking configuration.
-	VpcConfig *VpcConfigResponse `type:"structure"`
+	VpcConfig *VpcConfigResponse `json:"lambda:CreateFunctionOutput:VpcConfig" type:"structure"`
 }
 
 // String returns the string representation

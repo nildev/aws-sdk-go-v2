@@ -67,7 +67,7 @@ type GetTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Table object that defines the specified table.
-	Table *Table `type:"structure"`
+	Table *Table `json:"glue:GetTableOutput:Table" type:"structure"`
 }
 
 // String returns the string representation

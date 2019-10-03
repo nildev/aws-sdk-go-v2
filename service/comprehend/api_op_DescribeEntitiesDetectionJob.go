@@ -48,7 +48,7 @@ type DescribeEntitiesDetectionJobOutput struct {
 
 	// An object that contains the properties associated with an entities detection
 	// job.
-	EntitiesDetectionJobProperties *EntitiesDetectionJobProperties `type:"structure"`
+	EntitiesDetectionJobProperties *EntitiesDetectionJobProperties `json:"comprehend:DescribeEntitiesDetectionJobOutput:EntitiesDetectionJobProperties" type:"structure"`
 }
 
 // String returns the string representation

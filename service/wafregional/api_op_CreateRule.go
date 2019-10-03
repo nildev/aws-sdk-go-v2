@@ -88,10 +88,10 @@ type CreateRuleOutput struct {
 	// The ChangeToken that you used to submit the CreateRule request. You can also
 	// use this value to query the status of the request. For more information,
 	// see GetChangeTokenStatus.
-	ChangeToken *string `min:"1" type:"string"`
+	ChangeToken *string `json:"waf-regional:CreateRuleOutput:ChangeToken" min:"1" type:"string"`
 
 	// The Rule returned in the CreateRule response.
-	Rule *waf.Rule `type:"structure"`
+	Rule *waf.Rule `json:"waf-regional:CreateRuleOutput:Rule" type:"structure"`
 }
 
 // String returns the string representation

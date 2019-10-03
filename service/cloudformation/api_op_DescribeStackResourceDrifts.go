@@ -82,7 +82,7 @@ type DescribeStackResourceDriftsOutput struct {
 	// set to a token. To retrieve the next set of results, call DescribeStackResourceDrifts
 	// again and assign that token to the request object's NextToken parameter.
 	// If the request returns all results, NextToken is set to null.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"cloudformation:DescribeStackResourceDriftsOutput:NextToken" min:"1" type:"string"`
 
 	// Drift information for the resources that have been checked for drift in the
 	// specified stack. This includes actual and expected configuration values for
@@ -95,7 +95,7 @@ type DescribeStackResourceDriftsOutput struct {
 	// support drift detection, see Resources that Support Drift Detection (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html).
 	//
 	// StackResourceDrifts is a required field
-	StackResourceDrifts []StackResourceDrift `type:"list" required:"true"`
+	StackResourceDrifts []StackResourceDrift `json:"cloudformation:DescribeStackResourceDriftsOutput:StackResourceDrifts" type:"list" required:"true"`
 }
 
 // String returns the string representation

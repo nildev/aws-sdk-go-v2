@@ -71,7 +71,7 @@ type CreateInstanceProfileOutput struct {
 	// A structure containing details about the new instance profile.
 	//
 	// InstanceProfile is a required field
-	InstanceProfile *InstanceProfile `type:"structure" required:"true"`
+	InstanceProfile *InstanceProfile `json:"iam:CreateInstanceProfileOutput:InstanceProfile" type:"structure" required:"true"`
 }
 
 // String returns the string representation

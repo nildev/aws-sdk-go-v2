@@ -43,7 +43,7 @@ type GetNetworkProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The network profile associated with a device.
-	NetworkProfile *NetworkProfile `type:"structure"`
+	NetworkProfile *NetworkProfile `json:"a4b:GetNetworkProfileOutput:NetworkProfile" type:"structure"`
 }
 
 // String returns the string representation

@@ -44,7 +44,7 @@ type DeleteInstanceSnapshotOutput struct {
 
 	// An array of key-value pairs containing information about the results of your
 	// delete instance snapshot request.
-	Operations []Operation `locationName:"operations" type:"list"`
+	Operations []Operation `json:"lightsail:DeleteInstanceSnapshotOutput:Operations" locationName:"operations" type:"list"`
 }
 
 // String returns the string representation

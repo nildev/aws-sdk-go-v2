@@ -95,7 +95,7 @@ type ModifyListenerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the modified listener.
-	Listeners []Listener `type:"list"`
+	Listeners []Listener `json:"elasticloadbalancing:ModifyListenerOutput:Listeners" type:"list"`
 }
 
 // String returns the string representation

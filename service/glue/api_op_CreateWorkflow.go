@@ -56,7 +56,7 @@ type CreateWorkflowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the workflow which was provided as part of the request.
-	Name *string `min:"1" type:"string"`
+	Name *string `json:"glue:CreateWorkflowOutput:Name" min:"1" type:"string"`
 }
 
 // String returns the string representation

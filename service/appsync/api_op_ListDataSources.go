@@ -76,11 +76,11 @@ type ListDataSourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The DataSource objects.
-	DataSources []DataSource `locationName:"dataSources" type:"list"`
+	DataSources []DataSource `json:"appsync:ListDataSourcesOutput:DataSources" locationName:"dataSources" type:"list"`
 
 	// An identifier to be passed in the next request to this operation to return
 	// the next set of items in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appsync:ListDataSourcesOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

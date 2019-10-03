@@ -52,7 +52,7 @@ type AssociateIamInstanceProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the IAM instance profile association.
-	IamInstanceProfileAssociation *IamInstanceProfileAssociation `locationName:"iamInstanceProfileAssociation" type:"structure"`
+	IamInstanceProfileAssociation *IamInstanceProfileAssociation `json:"ec2:AssociateIamInstanceProfileOutput:IamInstanceProfileAssociation" locationName:"iamInstanceProfileAssociation" type:"structure"`
 }
 
 // String returns the string representation

@@ -53,7 +53,7 @@ type RecognizeCelebritiesOutput struct {
 
 	// Details about each celebrity found in the image. Amazon Rekognition can detect
 	// a maximum of 15 celebrities in an image.
-	CelebrityFaces []Celebrity `type:"list"`
+	CelebrityFaces []Celebrity `json:"rekognition:RecognizeCelebritiesOutput:CelebrityFaces" type:"list"`
 
 	// The orientation of the input image (counterclockwise direction). If your
 	// application displays the image, you can use this value to correct the orientation.
@@ -66,10 +66,10 @@ type RecognizeCelebritiesOutput struct {
 	// OrientationCorrection is null. The CelebrityFaces and UnrecognizedFaces bounding
 	// box coordinates represent face locations after Exif metadata is used to correct
 	// the image orientation. Images in .png format don't contain Exif metadata.
-	OrientationCorrection OrientationCorrection `type:"string" enum:"true"`
+	OrientationCorrection OrientationCorrection `json:"rekognition:RecognizeCelebritiesOutput:OrientationCorrection" type:"string" enum:"true"`
 
 	// Details about each unrecognized face in the image.
-	UnrecognizedFaces []ComparedFace `type:"list"`
+	UnrecognizedFaces []ComparedFace `json:"rekognition:RecognizeCelebritiesOutput:UnrecognizedFaces" type:"list"`
 }
 
 // String returns the string representation

@@ -121,10 +121,10 @@ type GetResourceShareAssociationsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ram:GetResourceShareAssociationsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about the association.
-	ResourceShareAssociations []ResourceShareAssociation `locationName:"resourceShareAssociations" type:"list"`
+	ResourceShareAssociations []ResourceShareAssociation `json:"ram:GetResourceShareAssociationsOutput:ResourceShareAssociations" locationName:"resourceShareAssociations" type:"list"`
 }
 
 // String returns the string representation

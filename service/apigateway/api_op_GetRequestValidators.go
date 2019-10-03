@@ -81,9 +81,9 @@ type GetRequestValidatorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []RequestValidator `locationName:"item" type:"list"`
+	Items []RequestValidator `json:"apigateway:GetRequestValidatorsOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetRequestValidatorsOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

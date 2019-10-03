@@ -49,7 +49,7 @@ type DeleteTrafficMirrorSessionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the deleted Traffic Mirror session.
-	TrafficMirrorSessionId *string `locationName:"trafficMirrorSessionId" type:"string"`
+	TrafficMirrorSessionId *string `json:"ec2:DeleteTrafficMirrorSessionOutput:TrafficMirrorSessionId" locationName:"trafficMirrorSessionId" type:"string"`
 }
 
 // String returns the string representation

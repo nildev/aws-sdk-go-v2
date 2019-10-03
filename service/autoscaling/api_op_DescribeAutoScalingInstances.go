@@ -37,13 +37,13 @@ type DescribeAutoScalingInstancesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The instances.
-	AutoScalingInstances []AutoScalingInstanceDetails `type:"list"`
+	AutoScalingInstances []AutoScalingInstanceDetails `json:"autoscaling:DescribeAutoScalingInstancesOutput:AutoScalingInstances" type:"list"`
 
 	// A string that indicates that the response contains more items than can be
 	// returned in a single response. To receive additional items, specify this
 	// string for the NextToken value when requesting the next set of items. This
 	// value is null when there are no more items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeAutoScalingInstancesOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

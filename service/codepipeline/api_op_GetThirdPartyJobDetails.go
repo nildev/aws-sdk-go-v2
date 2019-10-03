@@ -61,7 +61,7 @@ type GetThirdPartyJobDetailsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The details of the job, including any protected values defined for the job.
-	JobDetails *ThirdPartyJobDetails `locationName:"jobDetails" type:"structure"`
+	JobDetails *ThirdPartyJobDetails `json:"codepipeline:GetThirdPartyJobDetailsOutput:JobDetails" locationName:"jobDetails" type:"structure"`
 }
 
 // String returns the string representation

@@ -98,7 +98,7 @@ type MergePullRequestByThreeWayOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns information about a pull request.
-	PullRequest *PullRequest `locationName:"pullRequest" type:"structure"`
+	PullRequest *PullRequest `json:"codecommit:MergePullRequestByThreeWayOutput:PullRequest" locationName:"pullRequest" type:"structure"`
 }
 
 // String returns the string representation

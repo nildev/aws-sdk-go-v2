@@ -64,24 +64,24 @@ type GetPersonTrackingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current status of the person tracking job.
-	JobStatus VideoJobStatus `type:"string" enum:"true"`
+	JobStatus VideoJobStatus `json:"rekognition:GetPersonTrackingOutput:JobStatus" type:"string" enum:"true"`
 
 	// If the response is truncated, Amazon Rekognition Video returns this token
 	// that you can use in the subsequent request to retrieve the next set of persons.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"rekognition:GetPersonTrackingOutput:NextToken" type:"string"`
 
 	// An array of the persons detected in the video and the time(s) their path
 	// was tracked throughout the video. An array element will exist for each time
 	// a person's path is tracked.
-	Persons []PersonDetection `type:"list"`
+	Persons []PersonDetection `json:"rekognition:GetPersonTrackingOutput:Persons" type:"list"`
 
 	// If the job fails, StatusMessage provides a descriptive error message.
-	StatusMessage *string `type:"string"`
+	StatusMessage *string `json:"rekognition:GetPersonTrackingOutput:StatusMessage" type:"string"`
 
 	// Information about a video that Amazon Rekognition Video analyzed. Videometadata
 	// is returned in every page of paginated responses from a Amazon Rekognition
 	// Video operation.
-	VideoMetadata *VideoMetadata `type:"structure"`
+	VideoMetadata *VideoMetadata `json:"rekognition:GetPersonTrackingOutput:VideoMetadata" type:"structure"`
 }
 
 // String returns the string representation

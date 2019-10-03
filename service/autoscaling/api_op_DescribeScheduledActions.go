@@ -65,10 +65,10 @@ type DescribeScheduledActionsOutput struct {
 	// returned in a single response. To receive additional items, specify this
 	// string for the NextToken value when requesting the next set of items. This
 	// value is null when there are no more items to return.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"autoscaling:DescribeScheduledActionsOutput:NextToken" type:"string"`
 
 	// The scheduled actions.
-	ScheduledUpdateGroupActions []ScheduledUpdateGroupAction `type:"list"`
+	ScheduledUpdateGroupActions []ScheduledUpdateGroupAction `json:"autoscaling:DescribeScheduledActionsOutput:ScheduledUpdateGroupActions" type:"list"`
 }
 
 // String returns the string representation

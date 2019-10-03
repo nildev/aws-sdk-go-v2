@@ -77,9 +77,9 @@ type GetBasePathMappingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current page of elements from this collection.
-	Items []BasePathMapping `locationName:"item" type:"list"`
+	Items []BasePathMapping `json:"apigateway:GetBasePathMappingsOutput:Items" locationName:"item" type:"list"`
 
-	Position *string `locationName:"position" type:"string"`
+	Position *string `json:"apigateway:GetBasePathMappingsOutput:Position" locationName:"position" type:"string"`
 }
 
 // String returns the string representation

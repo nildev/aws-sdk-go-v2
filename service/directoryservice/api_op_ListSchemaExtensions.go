@@ -53,10 +53,10 @@ type ListSchemaExtensionsOutput struct {
 	// If not null, more results are available. Pass this value for the NextToken
 	// parameter in a subsequent call to ListSchemaExtensions to retrieve the next
 	// set of items.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ds:ListSchemaExtensionsOutput:NextToken" type:"string"`
 
 	// Information about the schema extensions applied to the directory.
-	SchemaExtensionsInfo []SchemaExtensionInfo `type:"list"`
+	SchemaExtensionsInfo []SchemaExtensionInfo `json:"ds:ListSchemaExtensionsOutput:SchemaExtensionsInfo" type:"list"`
 }
 
 // String returns the string representation

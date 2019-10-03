@@ -45,7 +45,7 @@ type DeleteSnapshotOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the directory snapshot that was deleted.
-	SnapshotId *string `type:"string"`
+	SnapshotId *string `json:"ds:DeleteSnapshotOutput:SnapshotId" type:"string"`
 }
 
 // String returns the string representation

@@ -44,7 +44,7 @@ type DeleteKeyPairOutput struct {
 
 	// An array of key-value pairs containing information about the results of your
 	// delete key pair request.
-	Operation *Operation `locationName:"operation" type:"structure"`
+	Operation *Operation `json:"lightsail:DeleteKeyPairOutput:Operation" locationName:"operation" type:"structure"`
 }
 
 // String returns the string representation

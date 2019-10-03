@@ -62,13 +62,13 @@ type ListExclusionsOutput struct {
 	// A list of exclusions' ARNs returned by the action.
 	//
 	// ExclusionArns is a required field
-	ExclusionArns []string `locationName:"exclusionArns" type:"list" required:"true"`
+	ExclusionArns []string `json:"inspector:ListExclusionsOutput:ExclusionArns" locationName:"exclusionArns" type:"list" required:"true"`
 
 	// When a response is generated, if there is more data to be listed, this parameters
 	// is present in the response and contains the value to use for the nextToken
 	// parameter in a subsequent pagination request. If there is no more data to
 	// be listed, this parameter is set to null.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"inspector:ListExclusionsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

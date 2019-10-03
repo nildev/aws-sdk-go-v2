@@ -69,7 +69,7 @@ type DescribeVpnGatewaysOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about one or more virtual private gateways.
-	VpnGateways []VpnGateway `locationName:"vpnGatewaySet" locationNameList:"item" type:"list"`
+	VpnGateways []VpnGateway `json:"ec2:DescribeVpnGatewaysOutput:VpnGateways" locationName:"vpnGatewaySet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

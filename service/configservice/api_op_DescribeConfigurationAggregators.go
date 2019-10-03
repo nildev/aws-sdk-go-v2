@@ -35,11 +35,11 @@ type DescribeConfigurationAggregatorsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Returns a ConfigurationAggregators object.
-	ConfigurationAggregators []ConfigurationAggregator `type:"list"`
+	ConfigurationAggregators []ConfigurationAggregator `json:"config:DescribeConfigurationAggregatorsOutput:ConfigurationAggregators" type:"list"`
 
 	// The nextToken string returned on a previous page that you use to get the
 	// next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:DescribeConfigurationAggregatorsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

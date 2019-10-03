@@ -20,32 +20,32 @@ type Attribute struct {
 
 	// The 0-based character offset in the input text that shows where the attribute
 	// begins. The offset returns the UTF-8 code point in the string.
-	BeginOffset *int64 `type:"integer"`
+	BeginOffset *int64 `json:"comprehendmedical:Attribute:BeginOffset" type:"integer"`
 
 	// The 0-based character offset in the input text that shows where the attribute
 	// ends. The offset returns the UTF-8 code point in the string.
-	EndOffset *int64 `type:"integer"`
+	EndOffset *int64 `json:"comprehendmedical:Attribute:EndOffset" type:"integer"`
 
 	// The numeric identifier for this attribute. This is a monotonically increasing
 	// id unique within this response rather than a global unique identifier.
-	Id *int64 `type:"integer"`
+	Id *int64 `json:"comprehendmedical:Attribute:Id" type:"integer"`
 
 	// The level of confidence that Comprehend Medical has that this attribute is
 	// correctly related to this entity.
-	RelationshipScore *float64 `type:"float"`
+	RelationshipScore *float64 `json:"comprehendmedical:Attribute:RelationshipScore" type:"float"`
 
 	// The level of confidence that Comprehend Medical has that the segment of text
 	// is correctly recognized as an attribute.
-	Score *float64 `type:"float"`
+	Score *float64 `json:"comprehendmedical:Attribute:Score" type:"float"`
 
 	// The segment of input text extracted as this attribute.
-	Text *string `min:"1" type:"string"`
+	Text *string `json:"comprehendmedical:Attribute:Text" min:"1" type:"string"`
 
 	// Contextual information for this attribute.
-	Traits []Trait `type:"list"`
+	Traits []Trait `json:"comprehendmedical:Attribute:Traits" type:"list"`
 
 	// The type of attribute.
-	Type EntitySubType `type:"string" enum:"true"`
+	Type EntitySubType `json:"comprehendmedical:Attribute:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -59,35 +59,35 @@ type Entity struct {
 	_ struct{} `type:"structure"`
 
 	// The extracted attributes that relate to this entity.
-	Attributes []Attribute `type:"list"`
+	Attributes []Attribute `json:"comprehendmedical:Entity:Attributes" type:"list"`
 
 	// The 0-based character offset in the input text that shows where the entity
 	// begins. The offset returns the UTF-8 code point in the string.
-	BeginOffset *int64 `type:"integer"`
+	BeginOffset *int64 `json:"comprehendmedical:Entity:BeginOffset" type:"integer"`
 
 	// The category of the entity.
-	Category EntityType `type:"string" enum:"true"`
+	Category EntityType `json:"comprehendmedical:Entity:Category" type:"string" enum:"true"`
 
 	// The 0-based character offset in the input text that shows where the entity
 	// ends. The offset returns the UTF-8 code point in the string.
-	EndOffset *int64 `type:"integer"`
+	EndOffset *int64 `json:"comprehendmedical:Entity:EndOffset" type:"integer"`
 
 	// The numeric identifier for the entity. This is a monotonically increasing
 	// id unique within this response rather than a global unique identifier.
-	Id *int64 `type:"integer"`
+	Id *int64 `json:"comprehendmedical:Entity:Id" type:"integer"`
 
 	// The level of confidence that Comprehend Medical has in the accuracy of the
 	// detection.
-	Score *float64 `type:"float"`
+	Score *float64 `json:"comprehendmedical:Entity:Score" type:"float"`
 
 	// The segment of input text extracted as this entity.
-	Text *string `min:"1" type:"string"`
+	Text *string `json:"comprehendmedical:Entity:Text" min:"1" type:"string"`
 
 	// Contextual information for the entity
-	Traits []Trait `type:"list"`
+	Traits []Trait `json:"comprehendmedical:Entity:Traits" type:"list"`
 
 	// Describes the specific type of entity with category of entities.
-	Type EntitySubType `type:"string" enum:"true"`
+	Type EntitySubType `json:"comprehendmedical:Entity:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -101,11 +101,11 @@ type Trait struct {
 	_ struct{} `type:"structure"`
 
 	// Provides a name or contextual description about the trait.
-	Name AttributeName `type:"string" enum:"true"`
+	Name AttributeName `json:"comprehendmedical:Trait:Name" type:"string" enum:"true"`
 
 	// The level of confidence that Comprehend Medical has in the accuracy of this
 	// trait.
-	Score *float64 `type:"float"`
+	Score *float64 `json:"comprehendmedical:Trait:Score" type:"float"`
 }
 
 // String returns the string representation
@@ -119,11 +119,11 @@ type UnmappedAttribute struct {
 	_ struct{} `type:"structure"`
 
 	// The specific attribute that has been extracted but not mapped to an entity.
-	Attribute *Attribute `type:"structure"`
+	Attribute *Attribute `json:"comprehendmedical:UnmappedAttribute:Attribute" type:"structure"`
 
 	// The type of the attribute, could be one of the following values: "MEDICATION",
 	// "MEDICAL_CONDITION", "ANATOMY", "TEST_AND_TREATMENT_PROCEDURE" or "PERSONAL_HEALTH_INFORMATION".
-	Type EntityType `type:"string" enum:"true"`
+	Type EntityType `json:"comprehendmedical:UnmappedAttribute:Type" type:"string" enum:"true"`
 }
 
 // String returns the string representation

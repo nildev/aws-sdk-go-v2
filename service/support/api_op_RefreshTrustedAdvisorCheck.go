@@ -49,7 +49,7 @@ type RefreshTrustedAdvisorCheckOutput struct {
 	// the check is eligible for refresh.
 	//
 	// Status is a required field
-	Status *TrustedAdvisorCheckRefreshStatus `locationName:"status" type:"structure" required:"true"`
+	Status *TrustedAdvisorCheckRefreshStatus `json:"support:RefreshTrustedAdvisorCheckOutput:Status" locationName:"status" type:"structure" required:"true"`
 }
 
 // String returns the string representation

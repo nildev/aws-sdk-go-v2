@@ -53,10 +53,10 @@ type DescribeVpcEndpointConnectionsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeVpcEndpointConnectionsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// Information about one or more VPC endpoint connections.
-	VpcEndpointConnections []VpcEndpointConnection `locationName:"vpcEndpointConnectionSet" locationNameList:"item" type:"list"`
+	VpcEndpointConnections []VpcEndpointConnection `json:"ec2:DescribeVpcEndpointConnectionsOutput:VpcEndpointConnections" locationName:"vpcEndpointConnectionSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

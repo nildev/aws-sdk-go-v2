@@ -101,7 +101,7 @@ type CreateResolverRuleOutput struct {
 
 	// Information about the CreateResolverRule request, including the status of
 	// the request.
-	ResolverRule *ResolverRule `type:"structure"`
+	ResolverRule *ResolverRule `json:"route53resolver:CreateResolverRuleOutput:ResolverRule" type:"structure"`
 }
 
 // String returns the string representation

@@ -63,10 +63,10 @@ type DescribeAlarmsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The information for the specified alarms.
-	MetricAlarms []MetricAlarm `type:"list"`
+	MetricAlarms []MetricAlarm `json:"monitoring:DescribeAlarmsOutput:MetricAlarms" type:"list"`
 
 	// The token that marks the start of the next batch of returned results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"monitoring:DescribeAlarmsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

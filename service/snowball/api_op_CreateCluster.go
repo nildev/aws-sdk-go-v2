@@ -131,7 +131,7 @@ type CreateClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The automatically generated ID for a cluster.
-	ClusterId *string `min:"39" type:"string"`
+	ClusterId *string `json:"snowball:CreateClusterOutput:ClusterId" min:"39" type:"string"`
 }
 
 // String returns the string representation

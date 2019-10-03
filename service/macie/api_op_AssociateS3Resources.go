@@ -57,7 +57,7 @@ type AssociateS3ResourcesOutput struct {
 
 	// S3 resources that couldn't be associated with Amazon Macie. An error code
 	// and an error message are provided for each failed item.
-	FailedS3Resources []FailedS3Resource `locationName:"failedS3Resources" type:"list"`
+	FailedS3Resources []FailedS3Resource `json:"macie:AssociateS3ResourcesOutput:FailedS3Resources" locationName:"failedS3Resources" type:"list"`
 }
 
 // String returns the string representation

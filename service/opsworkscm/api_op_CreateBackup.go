@@ -49,7 +49,7 @@ type CreateBackupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Backup created by request.
-	Backup *Backup `type:"structure"`
+	Backup *Backup `json:"opsworks-cm:CreateBackupOutput:Backup" type:"structure"`
 }
 
 // String returns the string representation

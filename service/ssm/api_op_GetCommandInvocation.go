@@ -65,22 +65,22 @@ type GetCommandInvocationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// CloudWatch Logs information where Systems Manager sent the command output.
-	CloudWatchOutputConfig *CloudWatchOutputConfig `type:"structure"`
+	CloudWatchOutputConfig *CloudWatchOutputConfig `json:"ssm:GetCommandInvocationOutput:CloudWatchOutputConfig" type:"structure"`
 
 	// The parent command ID of the invocation plugin.
-	CommandId *string `min:"36" type:"string"`
+	CommandId *string `json:"ssm:GetCommandInvocationOutput:CommandId" min:"36" type:"string"`
 
 	// The comment text for the command.
-	Comment *string `type:"string"`
+	Comment *string `json:"ssm:GetCommandInvocationOutput:Comment" type:"string"`
 
 	// The name of the document that was run. For example, AWS-RunShellScript.
-	DocumentName *string `type:"string"`
+	DocumentName *string `json:"ssm:GetCommandInvocationOutput:DocumentName" type:"string"`
 
 	// The SSM document version used in the request.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:GetCommandInvocationOutput:DocumentVersion" type:"string"`
 
 	// Duration since ExecutionStartDateTime.
-	ExecutionElapsedTime *string `type:"string"`
+	ExecutionElapsedTime *string `json:"ssm:GetCommandInvocationOutput:ExecutionElapsedTime" type:"string"`
 
 	// The date and time the plugin was finished running. Date and time are written
 	// in ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7.
@@ -89,7 +89,7 @@ type GetCommandInvocationOutput struct {
 	// aws ssm list-commands --filters key=InvokedAfter,value=2017-06-07T00:00:00Z
 	//
 	// If the plugin has not started to run, the string is empty.
-	ExecutionEndDateTime *string `type:"string"`
+	ExecutionEndDateTime *string `json:"ssm:GetCommandInvocationOutput:ExecutionEndDateTime" type:"string"`
 
 	// The date and time the plugin started running. Date and time are written in
 	// ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7. The
@@ -98,41 +98,41 @@ type GetCommandInvocationOutput struct {
 	// aws ssm list-commands --filters key=InvokedBefore,value=2017-06-07T00:00:00Z
 	//
 	// If the plugin has not started to run, the string is empty.
-	ExecutionStartDateTime *string `type:"string"`
+	ExecutionStartDateTime *string `json:"ssm:GetCommandInvocationOutput:ExecutionStartDateTime" type:"string"`
 
 	// The ID of the managed instance targeted by the command. A managed instance
 	// can be an Amazon EC2 instance or an instance in your hybrid environment that
 	// is configured for Systems Manager.
-	InstanceId *string `type:"string"`
+	InstanceId *string `json:"ssm:GetCommandInvocationOutput:InstanceId" type:"string"`
 
 	// The name of the plugin for which you want detailed results. For example,
 	// aws:RunShellScript is a plugin.
-	PluginName *string `min:"4" type:"string"`
+	PluginName *string `json:"ssm:GetCommandInvocationOutput:PluginName" min:"4" type:"string"`
 
 	// The error level response code for the plugin script. If the response code
 	// is -1, then the command has not started running on the instance, or it was
 	// not received by the instance.
-	ResponseCode *int64 `type:"integer"`
+	ResponseCode *int64 `json:"ssm:GetCommandInvocationOutput:ResponseCode" type:"integer"`
 
 	// The first 8,000 characters written by the plugin to stderr. If the command
 	// has not finished running, then this string is empty.
-	StandardErrorContent *string `type:"string"`
+	StandardErrorContent *string `json:"ssm:GetCommandInvocationOutput:StandardErrorContent" type:"string"`
 
 	// The URL for the complete text written by the plugin to stderr. If the command
 	// has not finished running, then this string is empty.
-	StandardErrorUrl *string `type:"string"`
+	StandardErrorUrl *string `json:"ssm:GetCommandInvocationOutput:StandardErrorUrl" type:"string"`
 
 	// The first 24,000 characters written by the plugin to stdout. If the command
 	// has not finished running, if ExecutionStatus is neither Succeeded nor Failed,
 	// then this string is empty.
-	StandardOutputContent *string `type:"string"`
+	StandardOutputContent *string `json:"ssm:GetCommandInvocationOutput:StandardOutputContent" type:"string"`
 
 	// The URL for the complete text written by the plugin to stdout in Amazon S3.
 	// If an Amazon S3 bucket was not specified, then this string is empty.
-	StandardOutputUrl *string `type:"string"`
+	StandardOutputUrl *string `json:"ssm:GetCommandInvocationOutput:StandardOutputUrl" type:"string"`
 
 	// The status of this invocation plugin. This status can be different than StatusDetails.
-	Status CommandInvocationStatus `type:"string" enum:"true"`
+	Status CommandInvocationStatus `json:"ssm:GetCommandInvocationOutput:Status" type:"string" enum:"true"`
 
 	// A detailed status of the command execution for an invocation. StatusDetails
 	// includes more information than Status because it includes states resulting
@@ -182,7 +182,7 @@ type GetCommandInvocationOutput struct {
 	//
 	//    * Terminated: The parent command exceeded its MaxErrors limit and subsequent
 	//    command invocations were canceled by the system. This is a terminal state.
-	StatusDetails *string `type:"string"`
+	StatusDetails *string `json:"ssm:GetCommandInvocationOutput:StatusDetails" type:"string"`
 }
 
 // String returns the string representation

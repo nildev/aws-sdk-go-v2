@@ -74,7 +74,7 @@ type GetPartitionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The requested information, in the form of a Partition object.
-	Partition *Partition `type:"structure"`
+	Partition *Partition `json:"glue:GetPartitionOutput:Partition" type:"structure"`
 }
 
 // String returns the string representation

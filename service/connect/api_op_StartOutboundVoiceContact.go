@@ -166,7 +166,7 @@ type StartOutboundVoiceContactOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique identifier of this contact within your Amazon Connect instance.
-	ContactId *string `min:"1" type:"string"`
+	ContactId *string `json:"connect:StartOutboundVoiceContactOutput:ContactId" min:"1" type:"string"`
 }
 
 // String returns the string representation

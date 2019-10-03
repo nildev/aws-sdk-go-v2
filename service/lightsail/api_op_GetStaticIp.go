@@ -44,7 +44,7 @@ type GetStaticIpOutput struct {
 
 	// An array of key-value pairs containing information about the requested static
 	// IP.
-	StaticIp *StaticIp `locationName:"staticIp" type:"structure"`
+	StaticIp *StaticIp `json:"lightsail:GetStaticIpOutput:StaticIp" locationName:"staticIp" type:"structure"`
 }
 
 // String returns the string representation

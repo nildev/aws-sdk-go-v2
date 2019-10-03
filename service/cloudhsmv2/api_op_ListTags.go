@@ -56,12 +56,12 @@ type ListTagsOutput struct {
 
 	// An opaque string that indicates that the response contains only a subset
 	// of tags. Use this value in a subsequent ListTags request to get more tags.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"cloudhsmv2:ListTagsOutput:NextToken" type:"string"`
 
 	// A list of tags.
 	//
 	// TagList is a required field
-	TagList []Tag `min:"1" type:"list" required:"true"`
+	TagList []Tag `json:"cloudhsmv2:ListTagsOutput:TagList" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation

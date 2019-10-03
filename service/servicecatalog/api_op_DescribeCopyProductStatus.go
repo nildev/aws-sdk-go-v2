@@ -55,13 +55,13 @@ type DescribeCopyProductStatusOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The status of the copy product operation.
-	CopyProductStatus CopyProductStatus `type:"string" enum:"true"`
+	CopyProductStatus CopyProductStatus `json:"servicecatalog:DescribeCopyProductStatusOutput:CopyProductStatus" type:"string" enum:"true"`
 
 	// The status message.
-	StatusDetail *string `type:"string"`
+	StatusDetail *string `json:"servicecatalog:DescribeCopyProductStatusOutput:StatusDetail" type:"string"`
 
 	// The identifier of the copied product.
-	TargetProductId *string `min:"1" type:"string"`
+	TargetProductId *string `json:"servicecatalog:DescribeCopyProductStatusOutput:TargetProductId" min:"1" type:"string"`
 }
 
 // String returns the string representation

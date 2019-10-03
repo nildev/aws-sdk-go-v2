@@ -62,7 +62,7 @@ type ModifyDBClusterParameterGroupOutput struct {
 	//    * Cannot end with a hyphen or contain two consecutive hyphens
 	//
 	// This value is stored as a lowercase string.
-	DBClusterParameterGroupName *string `type:"string"`
+	DBClusterParameterGroupName *string `json:"rds:ModifyDBClusterParameterGroupOutput:DBClusterParameterGroupName" type:"string"`
 }
 
 // String returns the string representation

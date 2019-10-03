@@ -47,7 +47,7 @@ type StopJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The job that was stopped.
-	Job *Job `locationName:"job" type:"structure"`
+	Job *Job `json:"devicefarm:StopJobOutput:Job" locationName:"job" type:"structure"`
 }
 
 // String returns the string representation

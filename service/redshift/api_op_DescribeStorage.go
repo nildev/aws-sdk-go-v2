@@ -24,10 +24,10 @@ type DescribeStorageOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The total amount of storage currently used for snapshots.
-	TotalBackupSizeInMegaBytes *float64 `type:"double"`
+	TotalBackupSizeInMegaBytes *float64 `json:"redshift:DescribeStorageOutput:TotalBackupSizeInMegaBytes" type:"double"`
 
 	// The total amount of storage currently provisioned.
-	TotalProvisionedStorageInMegaBytes *float64 `type:"double"`
+	TotalProvisionedStorageInMegaBytes *float64 `json:"redshift:DescribeStorageOutput:TotalProvisionedStorageInMegaBytes" type:"double"`
 }
 
 // String returns the string representation

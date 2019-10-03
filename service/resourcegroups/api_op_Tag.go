@@ -82,10 +82,10 @@ type TagOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the tagged resource.
-	Arn *string `min:"12" type:"string"`
+	Arn *string `json:"resource-groups:TagOutput:Arn" min:"12" type:"string"`
 
 	// The tags that have been added to the specified resource.
-	Tags map[string]string `type:"map"`
+	Tags map[string]string `json:"resource-groups:TagOutput:Tags" type:"map"`
 }
 
 // String returns the string representation

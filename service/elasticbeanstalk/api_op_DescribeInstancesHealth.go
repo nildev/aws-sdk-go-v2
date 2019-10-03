@@ -61,13 +61,13 @@ type DescribeInstancesHealthOutput struct {
 	// The output differs slightly between Linux and Windows environments. There
 	// is a difference in the members that are supported under the <CPUUtilization>
 	// type.
-	InstanceHealthList []SingleInstanceHealth `type:"list"`
+	InstanceHealthList []SingleInstanceHealth `json:"elasticbeanstalk:DescribeInstancesHealthOutput:InstanceHealthList" type:"list"`
 
 	// Pagination token for the next page of results, if available.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"elasticbeanstalk:DescribeInstancesHealthOutput:NextToken" min:"1" type:"string"`
 
 	// The date and time that the health information was retrieved.
-	RefreshedAt *time.Time `type:"timestamp" timestampFormat:"iso8601"`
+	RefreshedAt *time.Time `json:"elasticbeanstalk:DescribeInstancesHealthOutput:RefreshedAt" type:"timestamp" timestampFormat:"iso8601"`
 }
 
 // String returns the string representation

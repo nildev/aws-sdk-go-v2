@@ -55,25 +55,25 @@ func (s DescribeConfigurationInput) MarshalFields(e protocol.FieldEncoder) error
 type DescribeConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mq:DescribeConfigurationOutput:Arn" locationName:"arn" type:"string"`
 
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `json:"mq:DescribeConfigurationOutput:Created" locationName:"created" type:"timestamp" timestampFormat:"unix"`
 
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mq:DescribeConfigurationOutput:Description" locationName:"description" type:"string"`
 
 	// The type of broker engine. Note: Currently, Amazon MQ supports only ActiveMQ.
-	EngineType EngineType `locationName:"engineType" type:"string" enum:"true"`
+	EngineType EngineType `json:"mq:DescribeConfigurationOutput:EngineType" locationName:"engineType" type:"string" enum:"true"`
 
-	EngineVersion *string `locationName:"engineVersion" type:"string"`
+	EngineVersion *string `json:"mq:DescribeConfigurationOutput:EngineVersion" locationName:"engineVersion" type:"string"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mq:DescribeConfigurationOutput:Id" locationName:"id" type:"string"`
 
 	// Returns information about the specified configuration revision.
-	LatestRevision *ConfigurationRevision `locationName:"latestRevision" type:"structure"`
+	LatestRevision *ConfigurationRevision `json:"mq:DescribeConfigurationOutput:LatestRevision" locationName:"latestRevision" type:"structure"`
 
-	Name *string `locationName:"name" type:"string"`
+	Name *string `json:"mq:DescribeConfigurationOutput:Name" locationName:"name" type:"string"`
 
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mq:DescribeConfigurationOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

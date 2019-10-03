@@ -49,7 +49,7 @@ type ExportClientVpnClientConfigurationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The contents of the Client VPN endpoint configuration file.
-	ClientConfiguration *string `locationName:"clientConfiguration" type:"string"`
+	ClientConfiguration *string `json:"ec2:ExportClientVpnClientConfigurationOutput:ClientConfiguration" locationName:"clientConfiguration" type:"string"`
 }
 
 // String returns the string representation

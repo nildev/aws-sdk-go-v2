@@ -61,7 +61,7 @@ type DescribeExpressionsOutput struct {
 	// The expressions configured for the domain.
 	//
 	// Expressions is a required field
-	Expressions []ExpressionStatus `type:"list" required:"true"`
+	Expressions []ExpressionStatus `json:"cloudsearch:DescribeExpressionsOutput:Expressions" type:"list" required:"true"`
 }
 
 // String returns the string representation

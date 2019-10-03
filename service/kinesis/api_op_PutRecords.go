@@ -74,10 +74,10 @@ type PutRecordsOutput struct {
 	//
 	//    * KMS: Use server-side encryption on the records using a customer-managed
 	//    AWS KMS key.
-	EncryptionType EncryptionType `type:"string" enum:"true"`
+	EncryptionType EncryptionType `json:"kinesis:PutRecordsOutput:EncryptionType" type:"string" enum:"true"`
 
 	// The number of unsuccessfully processed records in a PutRecords request.
-	FailedRecordCount *int64 `min:"1" type:"integer"`
+	FailedRecordCount *int64 `json:"kinesis:PutRecordsOutput:FailedRecordCount" min:"1" type:"integer"`
 
 	// An array of successfully and unsuccessfully processed record results, correlated
 	// with the request by natural ordering. A record that is successfully added
@@ -86,7 +86,7 @@ type PutRecordsOutput struct {
 	// result.
 	//
 	// Records is a required field
-	Records []PutRecordsResultEntry `min:"1" type:"list" required:"true"`
+	Records []PutRecordsResultEntry `json:"kinesis:PutRecordsOutput:Records" min:"1" type:"list" required:"true"`
 }
 
 // String returns the string representation

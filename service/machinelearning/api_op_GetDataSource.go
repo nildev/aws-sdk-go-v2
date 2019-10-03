@@ -54,78 +54,78 @@ type GetDataSourceOutput struct {
 
 	// The parameter is true if statistics need to be generated from the observation
 	// data.
-	ComputeStatistics *bool `type:"boolean"`
+	ComputeStatistics *bool `json:"machinelearning:GetDataSourceOutput:ComputeStatistics" type:"boolean"`
 
 	// The approximate CPU time in milliseconds that Amazon Machine Learning spent
 	// processing the DataSource, normalized and scaled on computation resources.
 	// ComputeTime is only available if the DataSource is in the COMPLETED state
 	// and the ComputeStatistics is set to true.
-	ComputeTime *int64 `type:"long"`
+	ComputeTime *int64 `json:"machinelearning:GetDataSourceOutput:ComputeTime" type:"long"`
 
 	// The time that the DataSource was created. The time is expressed in epoch
 	// time.
-	CreatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedAt *time.Time `json:"machinelearning:GetDataSourceOutput:CreatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The AWS user account from which the DataSource was created. The account type
 	// can be either an AWS root account or an AWS Identity and Access Management
 	// (IAM) user account.
-	CreatedByIamUser *string `type:"string"`
+	CreatedByIamUser *string `json:"machinelearning:GetDataSourceOutput:CreatedByIamUser" type:"string"`
 
 	// The location of the data file or directory in Amazon Simple Storage Service
 	// (Amazon S3).
-	DataLocationS3 *string `type:"string"`
+	DataLocationS3 *string `json:"machinelearning:GetDataSourceOutput:DataLocationS3" type:"string"`
 
 	// A JSON string that represents the splitting and rearrangement requirement
 	// used when this DataSource was created.
-	DataRearrangement *string `type:"string"`
+	DataRearrangement *string `json:"machinelearning:GetDataSourceOutput:DataRearrangement" type:"string"`
 
 	// The total size of observations in the data files.
-	DataSizeInBytes *int64 `type:"long"`
+	DataSizeInBytes *int64 `json:"machinelearning:GetDataSourceOutput:DataSizeInBytes" type:"long"`
 
 	// The ID assigned to the DataSource at creation. This value should be identical
 	// to the value of the DataSourceId in the request.
-	DataSourceId *string `min:"1" type:"string"`
+	DataSourceId *string `json:"machinelearning:GetDataSourceOutput:DataSourceId" min:"1" type:"string"`
 
 	// The schema used by all of the data files of this DataSource.
 	//  Note
 	// This parameter is provided as part of the verbose format.
-	DataSourceSchema *string `type:"string"`
+	DataSourceSchema *string `json:"machinelearning:GetDataSourceOutput:DataSourceSchema" type:"string"`
 
 	// The epoch time when Amazon Machine Learning marked the DataSource as COMPLETED
 	// or FAILED. FinishedAt is only available when the DataSource is in the COMPLETED
 	// or FAILED state.
-	FinishedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	FinishedAt *time.Time `json:"machinelearning:GetDataSourceOutput:FinishedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The time of the most recent edit to the DataSource. The time is expressed
 	// in epoch time.
-	LastUpdatedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdatedAt *time.Time `json:"machinelearning:GetDataSourceOutput:LastUpdatedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// A link to the file containing logs of CreateDataSourceFrom* operations.
-	LogUri *string `type:"string"`
+	LogUri *string `json:"machinelearning:GetDataSourceOutput:LogUri" type:"string"`
 
 	// The user-supplied description of the most recent details about creating the
 	// DataSource.
-	Message *string `type:"string"`
+	Message *string `json:"machinelearning:GetDataSourceOutput:Message" type:"string"`
 
 	// A user-supplied name or description of the DataSource.
-	Name *string `type:"string"`
+	Name *string `json:"machinelearning:GetDataSourceOutput:Name" type:"string"`
 
 	// The number of data files referenced by the DataSource.
-	NumberOfFiles *int64 `type:"long"`
+	NumberOfFiles *int64 `json:"machinelearning:GetDataSourceOutput:NumberOfFiles" type:"long"`
 
 	// The datasource details that are specific to Amazon RDS.
-	RDSMetadata *RDSMetadata `type:"structure"`
+	RDSMetadata *RDSMetadata `json:"machinelearning:GetDataSourceOutput:RDSMetadata" type:"structure"`
 
 	// Describes the DataSource details specific to Amazon Redshift.
-	RedshiftMetadata *RedshiftMetadata `type:"structure"`
+	RedshiftMetadata *RedshiftMetadata `json:"machinelearning:GetDataSourceOutput:RedshiftMetadata" type:"structure"`
 
 	// The Amazon Resource Name (ARN) of an AWS IAM Role (http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html#roles-about-termsandconcepts),
 	// such as the following: arn:aws:iam::account:role/rolename.
-	RoleARN *string `min:"1" type:"string"`
+	RoleARN *string `json:"machinelearning:GetDataSourceOutput:RoleARN" min:"1" type:"string"`
 
 	// The epoch time when Amazon Machine Learning marked the DataSource as INPROGRESS.
 	// StartedAt isn't available if the DataSource is in the PENDING state.
-	StartedAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	StartedAt *time.Time `json:"machinelearning:GetDataSourceOutput:StartedAt" type:"timestamp" timestampFormat:"unix"`
 
 	// The current status of the DataSource. This element can have one of the following
 	// values:
@@ -140,7 +140,7 @@ type GetDataSourceOutput struct {
 	//    * COMPLETED - The creation process completed successfully.
 	//
 	//    * DELETED - The DataSource is marked as deleted. It is not usable.
-	Status EntityStatus `type:"string" enum:"true"`
+	Status EntityStatus `json:"machinelearning:GetDataSourceOutput:Status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

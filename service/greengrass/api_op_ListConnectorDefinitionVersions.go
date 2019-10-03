@@ -70,9 +70,9 @@ func (s ListConnectorDefinitionVersionsInput) MarshalFields(e protocol.FieldEnco
 type ListConnectorDefinitionVersionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	NextToken *string `type:"string"`
+	NextToken *string `json:"greengrass:ListConnectorDefinitionVersionsOutput:NextToken" type:"string"`
 
-	Versions []VersionInformation `type:"list"`
+	Versions []VersionInformation `json:"greengrass:ListConnectorDefinitionVersionsOutput:Versions" type:"list"`
 }
 
 // String returns the string representation

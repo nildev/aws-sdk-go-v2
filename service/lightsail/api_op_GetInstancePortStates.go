@@ -43,7 +43,7 @@ type GetInstancePortStatesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the port states resulting from your request.
-	PortStates []InstancePortState `locationName:"portStates" type:"list"`
+	PortStates []InstancePortState `json:"lightsail:GetInstancePortStatesOutput:PortStates" locationName:"portStates" type:"list"`
 }
 
 // String returns the string representation

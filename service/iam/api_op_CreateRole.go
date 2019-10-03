@@ -150,7 +150,7 @@ type CreateRoleOutput struct {
 	// A structure containing details about the new role.
 	//
 	// Role is a required field
-	Role *Role `type:"structure" required:"true"`
+	Role *Role `json:"iam:CreateRoleOutput:Role" type:"structure" required:"true"`
 }
 
 // String returns the string representation

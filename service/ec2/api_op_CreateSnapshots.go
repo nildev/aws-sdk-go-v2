@@ -57,7 +57,7 @@ type CreateSnapshotsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// List of snapshots.
-	Snapshots []SnapshotInfo `locationName:"snapshotSet" locationNameList:"item" type:"list"`
+	Snapshots []SnapshotInfo `json:"ec2:CreateSnapshotsOutput:Snapshots" locationName:"snapshotSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

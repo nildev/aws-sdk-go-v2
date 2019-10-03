@@ -49,7 +49,7 @@ type DeleteIdentitiesOutput struct {
 
 	// An array of UnprocessedIdentityId objects, each of which contains an ErrorCode
 	// and IdentityId.
-	UnprocessedIdentityIds []UnprocessedIdentityId `type:"list"`
+	UnprocessedIdentityIds []UnprocessedIdentityId `json:"cognito-identity:DeleteIdentitiesOutput:UnprocessedIdentityIds" type:"list"`
 }
 
 // String returns the string representation

@@ -58,12 +58,12 @@ type ListClusterJobsOutput struct {
 
 	// Each JobListEntry object contains a job's state, a job's ID, and a value
 	// that indicates whether the job is a job part, in the case of export jobs.
-	JobListEntries []JobListEntry `type:"list"`
+	JobListEntries []JobListEntry `json:"snowball:ListClusterJobsOutput:JobListEntries" type:"list"`
 
 	// HTTP requests are stateless. If you use the automatically generated NextToken
 	// value in your next ListClusterJobsResult call, your list of returned jobs
 	// will start from this point in the array.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"snowball:ListClusterJobsOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

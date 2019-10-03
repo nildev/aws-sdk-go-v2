@@ -43,7 +43,7 @@ type DescribeDatasetOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A listing of the dataset's properties.
-	Dataset *Dataset `locationName:"dataset" type:"structure"`
+	Dataset *Dataset `json:"personalize:DescribeDatasetOutput:Dataset" locationName:"dataset" type:"structure"`
 }
 
 // String returns the string representation

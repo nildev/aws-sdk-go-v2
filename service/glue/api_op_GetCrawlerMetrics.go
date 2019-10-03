@@ -46,11 +46,11 @@ type GetCrawlerMetricsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of metrics for the specified crawler.
-	CrawlerMetricsList []CrawlerMetrics `type:"list"`
+	CrawlerMetricsList []CrawlerMetrics `json:"glue:GetCrawlerMetricsOutput:CrawlerMetricsList" type:"list"`
 
 	// A continuation token, if the returned list does not contain the last metric
 	// available.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"glue:GetCrawlerMetricsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

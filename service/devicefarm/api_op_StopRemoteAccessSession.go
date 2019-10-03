@@ -50,7 +50,7 @@ type StopRemoteAccessSessionOutput struct {
 
 	// A container representing the metadata from the service about the remote access
 	// session you are stopping.
-	RemoteAccessSession *RemoteAccessSession `locationName:"remoteAccessSession" type:"structure"`
+	RemoteAccessSession *RemoteAccessSession `json:"devicefarm:StopRemoteAccessSessionOutput:RemoteAccessSession" locationName:"remoteAccessSession" type:"structure"`
 }
 
 // String returns the string representation

@@ -51,16 +51,16 @@ type ApplyEnvironmentManagedActionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A description of the managed action.
-	ActionDescription *string `type:"string"`
+	ActionDescription *string `json:"elasticbeanstalk:ApplyEnvironmentManagedActionOutput:ActionDescription" type:"string"`
 
 	// The action ID of the managed action.
-	ActionId *string `type:"string"`
+	ActionId *string `json:"elasticbeanstalk:ApplyEnvironmentManagedActionOutput:ActionId" type:"string"`
 
 	// The type of managed action.
-	ActionType ActionType `type:"string" enum:"true"`
+	ActionType ActionType `json:"elasticbeanstalk:ApplyEnvironmentManagedActionOutput:ActionType" type:"string" enum:"true"`
 
 	// The status of the managed action.
-	Status *string `type:"string"`
+	Status *string `json:"elasticbeanstalk:ApplyEnvironmentManagedActionOutput:Status" type:"string"`
 }
 
 // String returns the string representation

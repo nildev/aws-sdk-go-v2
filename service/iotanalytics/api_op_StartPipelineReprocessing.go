@@ -78,7 +78,7 @@ type StartPipelineReprocessingOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the pipeline reprocessing activity that was started.
-	ReprocessingId *string `locationName:"reprocessingId" type:"string"`
+	ReprocessingId *string `json:"iotanalytics:StartPipelineReprocessingOutput:ReprocessingId" locationName:"reprocessingId" type:"string"`
 }
 
 // String returns the string representation

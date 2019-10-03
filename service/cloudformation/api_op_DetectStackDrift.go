@@ -58,7 +58,7 @@ type DetectStackDriftOutput struct {
 	// CloudFormation retains for any given stack, and for how long, may vary.
 	//
 	// StackDriftDetectionId is a required field
-	StackDriftDetectionId *string `min:"1" type:"string" required:"true"`
+	StackDriftDetectionId *string `json:"cloudformation:DetectStackDriftOutput:StackDriftDetectionId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

@@ -142,7 +142,7 @@ type BatchExecuteStatementOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The execution results of each batch entry.
-	UpdateResults []UpdateResult `locationName:"updateResults" type:"list"`
+	UpdateResults []UpdateResult `json:"rds-data:BatchExecuteStatementOutput:UpdateResults" locationName:"updateResults" type:"list"`
 }
 
 // String returns the string representation

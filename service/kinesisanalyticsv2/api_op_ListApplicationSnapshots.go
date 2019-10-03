@@ -62,10 +62,10 @@ type ListApplicationSnapshotsOutput struct {
 
 	// The token for the next set of results, or null if there are no additional
 	// results.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"kinesisanalytics:ListApplicationSnapshotsOutput:NextToken" min:"1" type:"string"`
 
 	// A collection of objects containing information about the application snapshots.
-	SnapshotSummaries []SnapshotDetails `type:"list"`
+	SnapshotSummaries []SnapshotDetails `json:"kinesisanalytics:ListApplicationSnapshotsOutput:SnapshotSummaries" type:"list"`
 }
 
 // String returns the string representation

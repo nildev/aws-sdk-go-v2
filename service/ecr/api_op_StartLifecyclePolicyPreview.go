@@ -57,16 +57,16 @@ type StartLifecyclePolicyPreviewOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The JSON repository policy text.
-	LifecyclePolicyText *string `locationName:"lifecyclePolicyText" min:"100" type:"string"`
+	LifecyclePolicyText *string `json:"api.ecr:StartLifecyclePolicyPreviewOutput:LifecyclePolicyText" locationName:"lifecyclePolicyText" min:"100" type:"string"`
 
 	// The registry ID associated with the request.
-	RegistryId *string `locationName:"registryId" type:"string"`
+	RegistryId *string `json:"api.ecr:StartLifecyclePolicyPreviewOutput:RegistryId" locationName:"registryId" type:"string"`
 
 	// The repository name associated with the request.
-	RepositoryName *string `locationName:"repositoryName" min:"2" type:"string"`
+	RepositoryName *string `json:"api.ecr:StartLifecyclePolicyPreviewOutput:RepositoryName" locationName:"repositoryName" min:"2" type:"string"`
 
 	// The status of the lifecycle policy preview request.
-	Status LifecyclePolicyPreviewStatus `locationName:"status" type:"string" enum:"true"`
+	Status LifecyclePolicyPreviewStatus `json:"api.ecr:StartLifecyclePolicyPreviewOutput:Status" locationName:"status" type:"string" enum:"true"`
 }
 
 // String returns the string representation

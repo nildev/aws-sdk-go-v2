@@ -102,14 +102,14 @@ type GetResourcesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The documents in the specified collection.
-	Documents []DocumentMetadata `type:"list"`
+	Documents []DocumentMetadata `json:"workdocs:GetResourcesOutput:Documents" type:"list"`
 
 	// The folders in the specified folder.
-	Folders []FolderMetadata `type:"list"`
+	Folders []FolderMetadata `json:"workdocs:GetResourcesOutput:Folders" type:"list"`
 
 	// The marker to use when requesting the next set of results. If there are no
 	// additional results, the string is empty.
-	Marker *string `min:"1" type:"string"`
+	Marker *string `json:"workdocs:GetResourcesOutput:Marker" min:"1" type:"string"`
 }
 
 // String returns the string representation

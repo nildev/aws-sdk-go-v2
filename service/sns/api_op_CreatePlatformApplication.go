@@ -66,7 +66,7 @@ type CreatePlatformApplicationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// PlatformApplicationArn is returned.
-	PlatformApplicationArn *string `type:"string"`
+	PlatformApplicationArn *string `json:"sns:CreatePlatformApplicationOutput:PlatformApplicationArn" type:"string"`
 }
 
 // String returns the string representation

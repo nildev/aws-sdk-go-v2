@@ -91,17 +91,17 @@ type GenerateDataKeyOutput struct {
 	// CLI, the value is Base64-encoded. Otherwise, it is not encoded.
 	//
 	// CiphertextBlob is automatically base64 encoded/decoded by the SDK.
-	CiphertextBlob []byte `min:"1" type:"blob"`
+	CiphertextBlob []byte `json:"kms:GenerateDataKeyOutput:CiphertextBlob" min:"1" type:"blob"`
 
 	// The identifier of the CMK that encrypted the data key.
-	KeyId *string `min:"1" type:"string"`
+	KeyId *string `json:"kms:GenerateDataKeyOutput:KeyId" min:"1" type:"string"`
 
 	// The plaintext data key. When you use the HTTP API or the AWS CLI, the value
 	// is Base64-encoded. Otherwise, it is not encoded. Use this data key to encrypt
 	// your data outside of KMS. Then, remove it from memory as soon as possible.
 	//
 	// Plaintext is automatically base64 encoded/decoded by the SDK.
-	Plaintext []byte `min:"1" type:"blob"`
+	Plaintext []byte `json:"kms:GenerateDataKeyOutput:Plaintext" min:"1" type:"blob"`
 }
 
 // String returns the string representation

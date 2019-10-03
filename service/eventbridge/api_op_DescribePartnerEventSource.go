@@ -46,10 +46,10 @@ type DescribePartnerEventSourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ARN of the event source.
-	Arn *string `type:"string"`
+	Arn *string `json:"events:DescribePartnerEventSourceOutput:Arn" type:"string"`
 
 	// The name of the event source.
-	Name *string `type:"string"`
+	Name *string `json:"events:DescribePartnerEventSourceOutput:Name" type:"string"`
 }
 
 // String returns the string representation

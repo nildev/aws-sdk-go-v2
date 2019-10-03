@@ -67,20 +67,20 @@ type GetAggregateDiscoveredResourceCountsOutput struct {
 
 	// The key passed into the request object. If GroupByKey is not provided, the
 	// result will be empty.
-	GroupByKey *string `min:"1" type:"string"`
+	GroupByKey *string `json:"config:GetAggregateDiscoveredResourceCountsOutput:GroupByKey" min:"1" type:"string"`
 
 	// Returns a list of GroupedResourceCount objects.
-	GroupedResourceCounts []GroupedResourceCount `type:"list"`
+	GroupedResourceCounts []GroupedResourceCount `json:"config:GetAggregateDiscoveredResourceCountsOutput:GroupedResourceCounts" type:"list"`
 
 	// The nextToken string returned on a previous page that you use to get the
 	// next page of results in a paginated response.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"config:GetAggregateDiscoveredResourceCountsOutput:NextToken" type:"string"`
 
 	// The total number of resources that are present in an aggregator with the
 	// filters that you provide.
 	//
 	// TotalDiscoveredResources is a required field
-	TotalDiscoveredResources *int64 `type:"long" required:"true"`
+	TotalDiscoveredResources *int64 `json:"config:GetAggregateDiscoveredResourceCountsOutput:TotalDiscoveredResources" type:"long" required:"true"`
 }
 
 // String returns the string representation

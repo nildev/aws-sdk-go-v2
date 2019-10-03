@@ -58,7 +58,7 @@ type DescribeReceiptRuleOutput struct {
 	// A data structure that contains the specified receipt rule's name, actions,
 	// recipients, domains, enabled status, scan status, and Transport Layer Security
 	// (TLS) policy.
-	Rule *ReceiptRule `type:"structure"`
+	Rule *ReceiptRule `json:"email:DescribeReceiptRuleOutput:Rule" type:"structure"`
 }
 
 // String returns the string representation

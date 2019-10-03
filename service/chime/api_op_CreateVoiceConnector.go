@@ -74,7 +74,7 @@ type CreateVoiceConnectorOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Chime Voice Connector details.
-	VoiceConnector *VoiceConnector `type:"structure"`
+	VoiceConnector *VoiceConnector `json:"chime:CreateVoiceConnectorOutput:VoiceConnector" type:"structure"`
 }
 
 // String returns the string representation

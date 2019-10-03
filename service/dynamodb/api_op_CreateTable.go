@@ -236,7 +236,7 @@ type CreateTableOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the properties of the table.
-	TableDescription *TableDescription `type:"structure"`
+	TableDescription *TableDescription `json:"dynamodb:CreateTableOutput:TableDescription" type:"structure"`
 }
 
 // String returns the string representation

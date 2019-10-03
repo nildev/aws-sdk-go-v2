@@ -48,7 +48,7 @@ type GetJobOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object containing information about the requested job.
-	Job *Job `locationName:"job" type:"structure"`
+	Job *Job `json:"devicefarm:GetJobOutput:Job" locationName:"job" type:"structure"`
 }
 
 // String returns the string representation

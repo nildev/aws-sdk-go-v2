@@ -55,12 +55,12 @@ type DescribeGameSessionQueuesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Collection of objects that describes the requested game session queues.
-	GameSessionQueues []GameSessionQueue `type:"list"`
+	GameSessionQueues []GameSessionQueue `json:"gamelift:DescribeGameSessionQueuesOutput:GameSessionQueues" type:"list"`
 
 	// Token that indicates where to resume retrieving results on the next call
 	// to this action. If no token is returned, these results represent the end
 	// of the list.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"gamelift:DescribeGameSessionQueuesOutput:NextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

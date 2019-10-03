@@ -33,18 +33,18 @@ type ListPipelinesOutput struct {
 
 	// Indicates whether there are more results that can be obtained by a subsequent
 	// call.
-	HasMoreResults *bool `locationName:"hasMoreResults" type:"boolean"`
+	HasMoreResults *bool `json:"datapipeline:ListPipelinesOutput:HasMoreResults" locationName:"hasMoreResults" type:"boolean"`
 
 	// The starting point for the next page of results. To view the next page of
 	// results, call ListPipelinesOutput again with this marker value. If the value
 	// is null, there are no more results.
-	Marker *string `locationName:"marker" type:"string"`
+	Marker *string `json:"datapipeline:ListPipelinesOutput:Marker" locationName:"marker" type:"string"`
 
 	// The pipeline identifiers. If you require additional information about the
 	// pipelines, you can use these identifiers to call DescribePipelines and GetPipelineDefinition.
 	//
 	// PipelineIdList is a required field
-	PipelineIdList []PipelineIdName `locationName:"pipelineIdList" type:"list" required:"true"`
+	PipelineIdList []PipelineIdName `json:"datapipeline:ListPipelinesOutput:PipelineIdList" locationName:"pipelineIdList" type:"list" required:"true"`
 }
 
 // String returns the string representation

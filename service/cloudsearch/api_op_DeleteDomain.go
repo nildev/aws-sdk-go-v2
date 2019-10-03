@@ -48,7 +48,7 @@ type DeleteDomainOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The current status of the search domain.
-	DomainStatus *DomainStatus `type:"structure"`
+	DomainStatus *DomainStatus `json:"cloudsearch:DeleteDomainOutput:DomainStatus" type:"structure"`
 }
 
 // String returns the string representation

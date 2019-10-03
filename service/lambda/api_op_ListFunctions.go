@@ -84,10 +84,10 @@ type ListFunctionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of Lambda functions.
-	Functions []FunctionConfiguration `type:"list"`
+	Functions []FunctionConfiguration `json:"lambda:ListFunctionsOutput:Functions" type:"list"`
 
 	// The pagination token that's included if more results are available.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"lambda:ListFunctionsOutput:NextMarker" type:"string"`
 }
 
 // String returns the string representation

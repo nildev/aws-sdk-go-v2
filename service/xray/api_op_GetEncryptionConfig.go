@@ -31,7 +31,7 @@ type GetEncryptionConfigOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The encryption configuration document.
-	EncryptionConfig *EncryptionConfig `type:"structure"`
+	EncryptionConfig *EncryptionConfig `json:"xray:GetEncryptionConfigOutput:EncryptionConfig" type:"structure"`
 }
 
 // String returns the string representation

@@ -172,7 +172,7 @@ type UpdateMethodOutput struct {
 
 	// A boolean flag specifying whether a valid ApiKey is required to invoke this
 	// method.
-	ApiKeyRequired *bool `locationName:"apiKeyRequired" type:"boolean"`
+	ApiKeyRequired *bool `json:"apigateway:UpdateMethodOutput:ApiKeyRequired" locationName:"apiKeyRequired" type:"boolean"`
 
 	// A list of authorization scopes configured on the method. The scopes are used
 	// with a COGNITO_USER_POOLS authorizer to authorize the method invocation.
@@ -182,19 +182,19 @@ type UpdateMethodOutput struct {
 	// token. Otherwise, the invocation is not authorized. When the method scope
 	// is configured, the client must provide an access token instead of an identity
 	// token for authorization purposes.
-	AuthorizationScopes []string `locationName:"authorizationScopes" type:"list"`
+	AuthorizationScopes []string `json:"apigateway:UpdateMethodOutput:AuthorizationScopes" locationName:"authorizationScopes" type:"list"`
 
 	// The method's authorization type. Valid values are NONE for open access, AWS_IAM
 	// for using AWS IAM permissions, CUSTOM for using a custom authorizer, or COGNITO_USER_POOLS
 	// for using a Cognito user pool.
-	AuthorizationType *string `locationName:"authorizationType" type:"string"`
+	AuthorizationType *string `json:"apigateway:UpdateMethodOutput:AuthorizationType" locationName:"authorizationType" type:"string"`
 
 	// The identifier of an Authorizer to use on this method. The authorizationType
 	// must be CUSTOM.
-	AuthorizerId *string `locationName:"authorizerId" type:"string"`
+	AuthorizerId *string `json:"apigateway:UpdateMethodOutput:AuthorizerId" locationName:"authorizerId" type:"string"`
 
 	// The method's HTTP verb.
-	HttpMethod *string `locationName:"httpMethod" type:"string"`
+	HttpMethod *string `json:"apigateway:UpdateMethodOutput:HttpMethod" locationName:"httpMethod" type:"string"`
 
 	// Gets the method's integration responsible for passing the client-submitted
 	// request to the back end and performing necessary transformations to make
@@ -239,7 +239,7 @@ type UpdateMethodOutput struct {
 	//  } }
 	//
 	// AWS CLI (https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html)
-	MethodIntegration *Integration `locationName:"methodIntegration" type:"structure"`
+	MethodIntegration *Integration `json:"apigateway:UpdateMethodOutput:MethodIntegration" locationName:"methodIntegration" type:"structure"`
 
 	// Gets a method response associated with a given HTTP status code.
 	//
@@ -270,17 +270,17 @@ type UpdateMethodOutput struct {
 	//  }
 	//
 	// AWS CLI (https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html)
-	MethodResponses map[string]MethodResponse `locationName:"methodResponses" type:"map"`
+	MethodResponses map[string]MethodResponse `json:"apigateway:UpdateMethodOutput:MethodResponses" locationName:"methodResponses" type:"map"`
 
 	// A human-friendly operation identifier for the method. For example, you can
 	// assign the operationName of ListPets for the GET /pets method in the PetStore
 	// example.
-	OperationName *string `locationName:"operationName" type:"string"`
+	OperationName *string `json:"apigateway:UpdateMethodOutput:OperationName" locationName:"operationName" type:"string"`
 
 	// A key-value map specifying data schemas, represented by Model resources,
 	// (as the mapped value) of the request payloads of given content types (as
 	// the mapping key).
-	RequestModels map[string]string `locationName:"requestModels" type:"map"`
+	RequestModels map[string]string `json:"apigateway:UpdateMethodOutput:RequestModels" locationName:"requestModels" type:"map"`
 
 	// A key-value map defining required or optional method request parameters that
 	// can be accepted by API Gateway. A key is a method request parameter name
@@ -290,10 +290,10 @@ type UpdateMethodOutput struct {
 	// the parameter is required (true) or optional (false). The method request
 	// parameter names defined here are available in Integration to be mapped to
 	// integration request parameters or templates.
-	RequestParameters map[string]bool `locationName:"requestParameters" type:"map"`
+	RequestParameters map[string]bool `json:"apigateway:UpdateMethodOutput:RequestParameters" locationName:"requestParameters" type:"map"`
 
 	// The identifier of a RequestValidator for request validation.
-	RequestValidatorId *string `locationName:"requestValidatorId" type:"string"`
+	RequestValidatorId *string `json:"apigateway:UpdateMethodOutput:RequestValidatorId" locationName:"requestValidatorId" type:"string"`
 }
 
 // String returns the string representation

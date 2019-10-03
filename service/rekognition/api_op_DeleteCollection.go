@@ -44,7 +44,7 @@ type DeleteCollectionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// HTTP status code that indicates the result of the operation.
-	StatusCode *int64 `type:"integer"`
+	StatusCode *int64 `json:"rekognition:DeleteCollectionOutput:StatusCode" type:"integer"`
 }
 
 // String returns the string representation

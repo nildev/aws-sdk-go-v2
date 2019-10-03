@@ -100,9 +100,9 @@ func (s ListDeviceEventsInput) MarshalFields(e protocol.FieldEncoder) error {
 type ListDeviceEventsOutput struct {
 	_ struct{} `type:"structure"`
 
-	Events []DeviceEvent `locationName:"events" type:"list"`
+	Events []DeviceEvent `json:"devices.iot1click:ListDeviceEventsOutput:Events" locationName:"events" type:"list"`
 
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"devices.iot1click:ListDeviceEventsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

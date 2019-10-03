@@ -77,12 +77,12 @@ type ListDeploymentsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of deployment IDs.
-	Deployments []string `locationName:"deployments" type:"list"`
+	Deployments []string `json:"codedeploy:ListDeploymentsOutput:Deployments" locationName:"deployments" type:"list"`
 
 	// If a large amount of information is returned, an identifier is also returned.
 	// It can be used in a subsequent list deployments call to return the next set
 	// of deployments in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"codedeploy:ListDeploymentsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

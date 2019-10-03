@@ -41,11 +41,11 @@ type ListServiceActionsOutput struct {
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListServiceActionsOutput:NextPageToken" type:"string"`
 
 	// An object containing information about the service actions associated with
 	// the provisioning artifact.
-	ServiceActionSummaries []ServiceActionSummary `type:"list"`
+	ServiceActionSummaries []ServiceActionSummary `json:"servicecatalog:ListServiceActionsOutput:ServiceActionSummaries" type:"list"`
 }
 
 // String returns the string representation

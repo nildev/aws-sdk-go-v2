@@ -61,7 +61,7 @@ type GetDedicatedIpOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An object that contains information about a dedicated IP address.
-	DedicatedIp *DedicatedIp `type:"structure"`
+	DedicatedIp *DedicatedIp `json:"email:GetDedicatedIpOutput:DedicatedIp" type:"structure"`
 }
 
 // String returns the string representation

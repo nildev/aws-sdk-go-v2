@@ -62,17 +62,17 @@ func (s UpdateChannelInput) MarshalFields(e protocol.FieldEncoder) error {
 type UpdateChannelOutput struct {
 	_ struct{} `type:"structure"`
 
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage:UpdateChannelOutput:Arn" locationName:"arn" type:"string"`
 
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediapackage:UpdateChannelOutput:Description" locationName:"description" type:"string"`
 
 	// An HTTP Live Streaming (HLS) ingest resource configuration.
-	HlsIngest *HlsIngest `locationName:"hlsIngest" type:"structure"`
+	HlsIngest *HlsIngest `json:"mediapackage:UpdateChannelOutput:HlsIngest" locationName:"hlsIngest" type:"structure"`
 
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage:UpdateChannelOutput:Id" locationName:"id" type:"string"`
 
 	// A collection of tags associated with a resource
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mediapackage:UpdateChannelOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

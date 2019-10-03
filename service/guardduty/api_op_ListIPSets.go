@@ -87,11 +87,11 @@ type ListIPSetsOutput struct {
 	// The IDs of the IPSet resources.
 	//
 	// IpSetIds is a required field
-	IpSetIds []string `locationName:"ipSetIds" type:"list" required:"true"`
+	IpSetIds []string `json:"guardduty:ListIPSetsOutput:IpSetIds" locationName:"ipSetIds" type:"list" required:"true"`
 
 	// Pagination parameter to be used on the next list operation to retrieve more
 	// items.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"guardduty:ListIPSetsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

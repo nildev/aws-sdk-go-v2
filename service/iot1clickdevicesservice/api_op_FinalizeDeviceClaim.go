@@ -68,7 +68,7 @@ func (s FinalizeDeviceClaimInput) MarshalFields(e protocol.FieldEncoder) error {
 type FinalizeDeviceClaimOutput struct {
 	_ struct{} `type:"structure"`
 
-	State *string `locationName:"state" type:"string"`
+	State *string `json:"devices.iot1click:FinalizeDeviceClaimOutput:State" locationName:"state" type:"string"`
 }
 
 // String returns the string representation

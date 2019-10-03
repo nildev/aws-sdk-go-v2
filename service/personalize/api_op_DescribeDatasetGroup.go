@@ -43,7 +43,7 @@ type DescribeDatasetGroupOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A listing of the dataset group's properties.
-	DatasetGroup *DatasetGroup `locationName:"datasetGroup" type:"structure"`
+	DatasetGroup *DatasetGroup `json:"personalize:DescribeDatasetGroupOutput:DatasetGroup" locationName:"datasetGroup" type:"structure"`
 }
 
 // String returns the string representation

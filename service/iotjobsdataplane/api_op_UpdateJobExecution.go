@@ -169,10 +169,10 @@ type UpdateJobExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A JobExecutionState object.
-	ExecutionState *JobExecutionState `locationName:"executionState" type:"structure"`
+	ExecutionState *JobExecutionState `json:"data.jobs.iot:UpdateJobExecutionOutput:ExecutionState" locationName:"executionState" type:"structure"`
 
 	// The contents of the Job Documents.
-	JobDocument *string `locationName:"jobDocument" type:"string"`
+	JobDocument *string `json:"data.jobs.iot:UpdateJobExecutionOutput:JobDocument" locationName:"jobDocument" type:"string"`
 }
 
 // String returns the string representation

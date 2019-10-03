@@ -76,7 +76,7 @@ type UpdateTaskSetOutput struct {
 	// an EXTERNAL deployment. An Amazon ECS task set includes details such as the
 	// desired number of tasks, how many tasks are running, and whether the task
 	// set serves production traffic.
-	TaskSet *TaskSet `locationName:"taskSet" type:"structure"`
+	TaskSet *TaskSet `json:"ecs:UpdateTaskSetOutput:TaskSet" locationName:"taskSet" type:"structure"`
 }
 
 // String returns the string representation

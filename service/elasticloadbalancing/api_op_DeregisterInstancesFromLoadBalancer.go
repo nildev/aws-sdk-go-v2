@@ -54,7 +54,7 @@ type DeregisterInstancesFromLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The remaining instances registered with the load balancer.
-	Instances []Instance `type:"list"`
+	Instances []Instance `json:"elasticloadbalancing:DeregisterInstancesFromLoadBalancerOutput:Instances" type:"list"`
 }
 
 // String returns the string representation

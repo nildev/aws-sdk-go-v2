@@ -87,7 +87,7 @@ type SendAnnouncementOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The identifier of the announcement.
-	AnnouncementArn *string `type:"string"`
+	AnnouncementArn *string `json:"a4b:SendAnnouncementOutput:AnnouncementArn" type:"string"`
 }
 
 // String returns the string representation

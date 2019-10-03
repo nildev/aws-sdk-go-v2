@@ -76,11 +76,11 @@ type ListFunctionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of Function objects.
-	Functions []FunctionConfiguration `locationName:"functions" type:"list"`
+	Functions []FunctionConfiguration `json:"appsync:ListFunctionsOutput:Functions" locationName:"functions" type:"list"`
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"appsync:ListFunctionsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

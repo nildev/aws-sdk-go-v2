@@ -43,7 +43,7 @@ type RebootClusterOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Describes a cluster.
-	Cluster *Cluster `type:"structure"`
+	Cluster *Cluster `json:"redshift:RebootClusterOutput:Cluster" type:"structure"`
 }
 
 // String returns the string representation

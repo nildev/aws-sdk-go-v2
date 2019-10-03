@@ -87,7 +87,7 @@ type AssociateWebsiteCertificateAuthorityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A unique identifier for the CA.
-	WebsiteCaId *string `min:"1" type:"string"`
+	WebsiteCaId *string `json:"worklink:AssociateWebsiteCertificateAuthorityOutput:WebsiteCaId" min:"1" type:"string"`
 }
 
 // String returns the string representation

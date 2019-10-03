@@ -69,7 +69,7 @@ type DefineSuggesterOutput struct {
 	// The value of a Suggester and its current status.
 	//
 	// Suggester is a required field
-	Suggester *SuggesterStatus `type:"structure" required:"true"`
+	Suggester *SuggesterStatus `json:"cloudsearch:DefineSuggesterOutput:Suggester" type:"structure" required:"true"`
 }
 
 // String returns the string representation

@@ -76,12 +76,12 @@ type ListTrainingJobsOutput struct {
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of training jobs, use it in the subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListTrainingJobsOutput:NextToken" type:"string"`
 
 	// An array of TrainingJobSummary objects, each listing a training job.
 	//
 	// TrainingJobSummaries is a required field
-	TrainingJobSummaries []TrainingJobSummary `type:"list" required:"true"`
+	TrainingJobSummaries []TrainingJobSummary `json:"api.sagemaker:ListTrainingJobsOutput:TrainingJobSummaries" type:"list" required:"true"`
 }
 
 // String returns the string representation

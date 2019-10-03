@@ -85,7 +85,7 @@ type CreateFolderOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The metadata of the folder.
-	Metadata *FolderMetadata `type:"structure"`
+	Metadata *FolderMetadata `json:"workdocs:CreateFolderOutput:Metadata" type:"structure"`
 }
 
 // String returns the string representation

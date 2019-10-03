@@ -371,41 +371,41 @@ type PutObjectOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Entity tag for the uploaded object.
-	ETag *string `location:"header" locationName:"ETag" type:"string"`
+	ETag *string `json:"s3:PutObjectOutput:ETag" location:"header" locationName:"ETag" type:"string"`
 
 	// If the object expiration is configured, this will contain the expiration
 	// date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
-	Expiration *string `location:"header" locationName:"x-amz-expiration" type:"string"`
+	Expiration *string `json:"s3:PutObjectOutput:Expiration" location:"header" locationName:"x-amz-expiration" type:"string"`
 
 	// If present, indicates that the requester was successfully charged for the
 	// request.
-	RequestCharged RequestCharged `location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
+	RequestCharged RequestCharged `json:"s3:PutObjectOutput:RequestCharged" location:"header" locationName:"x-amz-request-charged" type:"string" enum:"true"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header confirming the encryption algorithm
 	// used.
-	SSECustomerAlgorithm *string `location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
+	SSECustomerAlgorithm *string `json:"s3:PutObjectOutput:SSECustomerAlgorithm" location:"header" locationName:"x-amz-server-side-encryption-customer-algorithm" type:"string"`
 
 	// If server-side encryption with a customer-provided encryption key was requested,
 	// the response will include this header to provide round trip message integrity
 	// verification of the customer-provided encryption key.
-	SSECustomerKeyMD5 *string `location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
+	SSECustomerKeyMD5 *string `json:"s3:PutObjectOutput:SSECustomerKeyMD5" location:"header" locationName:"x-amz-server-side-encryption-customer-key-MD5" type:"string"`
 
 	// If present, specifies the AWS KMS Encryption Context to use for object encryption.
 	// The value of this header is a base64-encoded UTF-8 string holding JSON with
 	// the encryption context key-value pairs.
-	SSEKMSEncryptionContext *string `location:"header" locationName:"x-amz-server-side-encryption-context" type:"string"`
+	SSEKMSEncryptionContext *string `json:"s3:PutObjectOutput:SSEKMSEncryptionContext" location:"header" locationName:"x-amz-server-side-encryption-context" type:"string"`
 
 	// If present, specifies the ID of the AWS Key Management Service (KMS) master
 	// encryption key that was used for the object.
-	SSEKMSKeyId *string `location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
+	SSEKMSKeyId *string `json:"s3:PutObjectOutput:SSEKMSKeyId" location:"header" locationName:"x-amz-server-side-encryption-aws-kms-key-id" type:"string"`
 
 	// The Server-side encryption algorithm used when storing this object in S3
 	// (e.g., AES256, aws:kms).
-	ServerSideEncryption ServerSideEncryption `location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
+	ServerSideEncryption ServerSideEncryption `json:"s3:PutObjectOutput:ServerSideEncryption" location:"header" locationName:"x-amz-server-side-encryption" type:"string" enum:"true"`
 
 	// Version of the object.
-	VersionId *string `location:"header" locationName:"x-amz-version-id" type:"string"`
+	VersionId *string `json:"s3:PutObjectOutput:VersionId" location:"header" locationName:"x-amz-version-id" type:"string"`
 }
 
 // String returns the string representation

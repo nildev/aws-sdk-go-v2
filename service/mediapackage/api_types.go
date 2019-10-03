@@ -19,19 +19,19 @@ type Channel struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) assigned to the Channel.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage:Channel:Arn" locationName:"arn" type:"string"`
 
 	// A short text description of the Channel.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediapackage:Channel:Description" locationName:"description" type:"string"`
 
 	// An HTTP Live Streaming (HLS) ingest resource configuration.
-	HlsIngest *HlsIngest `locationName:"hlsIngest" type:"structure"`
+	HlsIngest *HlsIngest `json:"mediapackage:Channel:HlsIngest" locationName:"hlsIngest" type:"structure"`
 
 	// The ID of the Channel.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage:Channel:Id" locationName:"id" type:"string"`
 
 	// A collection of tags associated with a resource
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mediapackage:Channel:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation
@@ -86,13 +86,13 @@ type CmafEncryption struct {
 	_ struct{} `type:"structure"`
 
 	// Time (in seconds) between each encryption key rotation.
-	KeyRotationIntervalSeconds *int64 `locationName:"keyRotationIntervalSeconds" type:"integer"`
+	KeyRotationIntervalSeconds *int64 `json:"mediapackage:CmafEncryption:KeyRotationIntervalSeconds" locationName:"keyRotationIntervalSeconds" type:"integer"`
 
 	// A configuration for accessing an external Secure Packager and Encoder Key
 	// Exchange (SPEKE) service that will provide encryption keys.
 	//
 	// SpekeKeyProvider is a required field
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure" required:"true"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediapackage:CmafEncryption:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -142,21 +142,21 @@ type CmafPackage struct {
 	_ struct{} `type:"structure"`
 
 	// A Common Media Application Format (CMAF) encryption configuration.
-	Encryption *CmafEncryption `locationName:"encryption" type:"structure"`
+	Encryption *CmafEncryption `json:"mediapackage:CmafPackage:Encryption" locationName:"encryption" type:"structure"`
 
 	// A list of HLS manifest configurations
-	HlsManifests []HlsManifest `locationName:"hlsManifests" type:"list"`
+	HlsManifests []HlsManifest `json:"mediapackage:CmafPackage:HlsManifests" locationName:"hlsManifests" type:"list"`
 
 	// Duration (in seconds) of each segment. Actual segments will berounded to
 	// the nearest multiple of the source segment duration.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage:CmafPackage:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 
 	// An optional custom string that is prepended to the name of each segment.
 	// If not specified, it defaults to the ChannelId.
-	SegmentPrefix *string `locationName:"segmentPrefix" type:"string"`
+	SegmentPrefix *string `json:"mediapackage:CmafPackage:SegmentPrefix" locationName:"segmentPrefix" type:"string"`
 
 	// A StreamSelection configuration.
-	StreamSelection *StreamSelection `locationName:"streamSelection" type:"structure"`
+	StreamSelection *StreamSelection `json:"mediapackage:CmafPackage:StreamSelection" locationName:"streamSelection" type:"structure"`
 }
 
 // String returns the string representation
@@ -211,21 +211,21 @@ type CmafPackageCreateOrUpdateParameters struct {
 	_ struct{} `type:"structure"`
 
 	// A Common Media Application Format (CMAF) encryption configuration.
-	Encryption *CmafEncryption `locationName:"encryption" type:"structure"`
+	Encryption *CmafEncryption `json:"mediapackage:CmafPackageCreateOrUpdateParameters:Encryption" locationName:"encryption" type:"structure"`
 
 	// A list of HLS manifest configurations
-	HlsManifests []HlsManifestCreateOrUpdateParameters `locationName:"hlsManifests" type:"list"`
+	HlsManifests []HlsManifestCreateOrUpdateParameters `json:"mediapackage:CmafPackageCreateOrUpdateParameters:HlsManifests" locationName:"hlsManifests" type:"list"`
 
 	// Duration (in seconds) of each segment. Actual segments will berounded to
 	// the nearest multiple of the source segment duration.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage:CmafPackageCreateOrUpdateParameters:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 
 	// An optional custom string that is prepended to the name of each segment.
 	// If not specified, it defaults to the ChannelId.
-	SegmentPrefix *string `locationName:"segmentPrefix" type:"string"`
+	SegmentPrefix *string `json:"mediapackage:CmafPackageCreateOrUpdateParameters:SegmentPrefix" locationName:"segmentPrefix" type:"string"`
 
 	// A StreamSelection configuration.
-	StreamSelection *StreamSelection `locationName:"streamSelection" type:"structure"`
+	StreamSelection *StreamSelection `json:"mediapackage:CmafPackageCreateOrUpdateParameters:StreamSelection" locationName:"streamSelection" type:"structure"`
 }
 
 // String returns the string representation
@@ -302,13 +302,13 @@ type DashEncryption struct {
 	_ struct{} `type:"structure"`
 
 	// Time (in seconds) between each encryption key rotation.
-	KeyRotationIntervalSeconds *int64 `locationName:"keyRotationIntervalSeconds" type:"integer"`
+	KeyRotationIntervalSeconds *int64 `json:"mediapackage:DashEncryption:KeyRotationIntervalSeconds" locationName:"keyRotationIntervalSeconds" type:"integer"`
 
 	// A configuration for accessing an external Secure Packager and Encoder Key
 	// Exchange (SPEKE) service that will provide encryption keys.
 	//
 	// SpekeKeyProvider is a required field
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure" required:"true"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediapackage:DashEncryption:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -360,7 +360,7 @@ type DashPackage struct {
 	// A list of SCTE-35 message types that are treated as ad markers in the output.
 	// If empty, noad markers are output. Specify multiple items to create ad markers
 	// for all of the includedmessage types.
-	AdTriggers []__AdTriggersElement `locationName:"adTriggers" type:"list"`
+	AdTriggers []__AdTriggersElement `json:"mediapackage:DashPackage:AdTriggers" locationName:"adTriggers" type:"list"`
 
 	// This setting allows the delivery restriction flags on SCTE-35 segmentation
 	// descriptors todetermine whether a message signals an ad. Choosing "NONE"
@@ -372,42 +372,42 @@ type DashPackage struct {
 	// types specified inAdTriggers will be treated as ads. Note that Splice Insert
 	// messages do not have these flagsand are always treated as ads if specified
 	// in AdTriggers.
-	AdsOnDeliveryRestrictions AdsOnDeliveryRestrictions `locationName:"adsOnDeliveryRestrictions" type:"string" enum:"true"`
+	AdsOnDeliveryRestrictions AdsOnDeliveryRestrictions `json:"mediapackage:DashPackage:AdsOnDeliveryRestrictions" locationName:"adsOnDeliveryRestrictions" type:"string" enum:"true"`
 
 	// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
-	Encryption *DashEncryption `locationName:"encryption" type:"structure"`
+	Encryption *DashEncryption `json:"mediapackage:DashPackage:Encryption" locationName:"encryption" type:"structure"`
 
 	// Determines the position of some tags in the Media Presentation Description
 	// (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection
 	// are included in each Representation. When set to COMPACT, duplicate elements
 	// are combined and presented at the AdaptationSet level.
-	ManifestLayout ManifestLayout `locationName:"manifestLayout" type:"string" enum:"true"`
+	ManifestLayout ManifestLayout `json:"mediapackage:DashPackage:ManifestLayout" locationName:"manifestLayout" type:"string" enum:"true"`
 
 	// Time window (in seconds) contained in each manifest.
-	ManifestWindowSeconds *int64 `locationName:"manifestWindowSeconds" type:"integer"`
+	ManifestWindowSeconds *int64 `json:"mediapackage:DashPackage:ManifestWindowSeconds" locationName:"manifestWindowSeconds" type:"integer"`
 
 	// Minimum duration (in seconds) that a player will buffer media before starting
 	// the presentation.
-	MinBufferTimeSeconds *int64 `locationName:"minBufferTimeSeconds" type:"integer"`
+	MinBufferTimeSeconds *int64 `json:"mediapackage:DashPackage:MinBufferTimeSeconds" locationName:"minBufferTimeSeconds" type:"integer"`
 
 	// Minimum duration (in seconds) between potential changes to the Dynamic Adaptive
 	// Streaming over HTTP (DASH) Media Presentation Description (MPD).
-	MinUpdatePeriodSeconds *int64 `locationName:"minUpdatePeriodSeconds" type:"integer"`
+	MinUpdatePeriodSeconds *int64 `json:"mediapackage:DashPackage:MinUpdatePeriodSeconds" locationName:"minUpdatePeriodSeconds" type:"integer"`
 
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming
 	// over HTTP (DASH)Media Presentation Description (MPD) will be partitioned
 	// into multiple periods. If empty, the content will notbe partitioned into
 	// more than one period. If the list contains "ADS", new periods will be created
 	// wherethe Channel source contains SCTE-35 ad markers.
-	PeriodTriggers []__PeriodTriggersElement `locationName:"periodTriggers" type:"list"`
+	PeriodTriggers []__PeriodTriggersElement `json:"mediapackage:DashPackage:PeriodTriggers" locationName:"periodTriggers" type:"list"`
 
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to
 	// "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-	Profile Profile `locationName:"profile" type:"string" enum:"true"`
+	Profile Profile `json:"mediapackage:DashPackage:Profile" locationName:"profile" type:"string" enum:"true"`
 
 	// Duration (in seconds) of each segment. Actual segments will berounded to
 	// the nearest multiple of the source segment duration.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage:DashPackage:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 
 	// Determines the type of SegmentTemplate included in the Media Presentation
 	// Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented
@@ -415,13 +415,13 @@ type DashPackage struct {
 	// a full timeline is presented in each SegmentTemplate, with $Time$ media URLs.
 	// When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate,
 	// with $Number$ media URLs.
-	SegmentTemplateFormat SegmentTemplateFormat `locationName:"segmentTemplateFormat" type:"string" enum:"true"`
+	SegmentTemplateFormat SegmentTemplateFormat `json:"mediapackage:DashPackage:SegmentTemplateFormat" locationName:"segmentTemplateFormat" type:"string" enum:"true"`
 
 	// A StreamSelection configuration.
-	StreamSelection *StreamSelection `locationName:"streamSelection" type:"structure"`
+	StreamSelection *StreamSelection `json:"mediapackage:DashPackage:StreamSelection" locationName:"streamSelection" type:"structure"`
 
 	// Duration (in seconds) to delay live content before presentation.
-	SuggestedPresentationDelaySeconds *int64 `locationName:"suggestedPresentationDelaySeconds" type:"integer"`
+	SuggestedPresentationDelaySeconds *int64 `json:"mediapackage:DashPackage:SuggestedPresentationDelaySeconds" locationName:"suggestedPresentationDelaySeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -546,22 +546,22 @@ type HlsEncryption struct {
 
 	// A constant initialization vector for encryption (optional).When not specified
 	// the initialization vector will be periodically rotated.
-	ConstantInitializationVector *string `locationName:"constantInitializationVector" type:"string"`
+	ConstantInitializationVector *string `json:"mediapackage:HlsEncryption:ConstantInitializationVector" locationName:"constantInitializationVector" type:"string"`
 
 	// The encryption method to use.
-	EncryptionMethod EncryptionMethod `locationName:"encryptionMethod" type:"string" enum:"true"`
+	EncryptionMethod EncryptionMethod `json:"mediapackage:HlsEncryption:EncryptionMethod" locationName:"encryptionMethod" type:"string" enum:"true"`
 
 	// Interval (in seconds) between each encryption key rotation.
-	KeyRotationIntervalSeconds *int64 `locationName:"keyRotationIntervalSeconds" type:"integer"`
+	KeyRotationIntervalSeconds *int64 `json:"mediapackage:HlsEncryption:KeyRotationIntervalSeconds" locationName:"keyRotationIntervalSeconds" type:"integer"`
 
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-	RepeatExtXKey *bool `locationName:"repeatExtXKey" type:"boolean"`
+	RepeatExtXKey *bool `json:"mediapackage:HlsEncryption:RepeatExtXKey" locationName:"repeatExtXKey" type:"boolean"`
 
 	// A configuration for accessing an external Secure Packager and Encoder Key
 	// Exchange (SPEKE) service that will provide encryption keys.
 	//
 	// SpekeKeyProvider is a required field
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure" required:"true"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediapackage:HlsEncryption:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -629,7 +629,7 @@ type HlsIngest struct {
 	_ struct{} `type:"structure"`
 
 	// A list of endpoints to which the source stream should be sent.
-	IngestEndpoints []IngestEndpoint `locationName:"ingestEndpoints" type:"list"`
+	IngestEndpoints []IngestEndpoint `json:"mediapackage:HlsIngest:IngestEndpoints" locationName:"ingestEndpoints" type:"list"`
 }
 
 // String returns the string representation
@@ -664,28 +664,28 @@ type HlsManifest struct {
 	// manifest to contain a copy of the SCTE-35 admarkers (comments) taken directly
 	// from the input HTTP Live Streaming (HLS) manifest."SCTE35_ENHANCED" generates
 	// ad markers and blackout tags based on SCTE-35messages in the input source.
-	AdMarkers AdMarkers `locationName:"adMarkers" type:"string" enum:"true"`
+	AdMarkers AdMarkers `json:"mediapackage:HlsManifest:AdMarkers" locationName:"adMarkers" type:"string" enum:"true"`
 
 	// The ID of the manifest. The ID must be unique within the OriginEndpoint and
 	// it cannot be changed after it is created.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" type:"string" required:"true"`
+	Id *string `json:"mediapackage:HlsManifest:Id" locationName:"id" type:"string" required:"true"`
 
 	// When enabled, an I-Frame only stream will be included in the output.
-	IncludeIframeOnlyStream *bool `locationName:"includeIframeOnlyStream" type:"boolean"`
+	IncludeIframeOnlyStream *bool `json:"mediapackage:HlsManifest:IncludeIframeOnlyStream" locationName:"includeIframeOnlyStream" type:"boolean"`
 
 	// An optional short string appended to the end of the OriginEndpoint URL. If
 	// not specified, defaults to the manifestName for the OriginEndpoint.
-	ManifestName *string `locationName:"manifestName" type:"string"`
+	ManifestName *string `json:"mediapackage:HlsManifest:ManifestName" locationName:"manifestName" type:"string"`
 
 	// The HTTP Live Streaming (HLS) playlist type.When either "EVENT" or "VOD"
 	// is specified, a corresponding EXT-X-PLAYLIST-TYPEentry will be included in
 	// the media playlist.
-	PlaylistType PlaylistType `locationName:"playlistType" type:"string" enum:"true"`
+	PlaylistType PlaylistType `json:"mediapackage:HlsManifest:PlaylistType" locationName:"playlistType" type:"string" enum:"true"`
 
 	// Time window (in seconds) contained in each parent manifest.
-	PlaylistWindowSeconds *int64 `locationName:"playlistWindowSeconds" type:"integer"`
+	PlaylistWindowSeconds *int64 `json:"mediapackage:HlsManifest:PlaylistWindowSeconds" locationName:"playlistWindowSeconds" type:"integer"`
 
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME taginserted
 	// into manifests. Additionally, when an interval is specifiedID3Timed Metadata
@@ -695,10 +695,10 @@ type HlsManifest struct {
 	// be generated. Note that irrespectiveof this parameter, if any ID3 Timed Metadata
 	// is found in HTTP Live Streaming (HLS) input,it will be passed through to
 	// HLS output.
-	ProgramDateTimeIntervalSeconds *int64 `locationName:"programDateTimeIntervalSeconds" type:"integer"`
+	ProgramDateTimeIntervalSeconds *int64 `json:"mediapackage:HlsManifest:ProgramDateTimeIntervalSeconds" locationName:"programDateTimeIntervalSeconds" type:"integer"`
 
 	// The URL of the packaged OriginEndpoint for consumption.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediapackage:HlsManifest:Url" locationName:"url" type:"string"`
 }
 
 // String returns the string representation
@@ -769,12 +769,12 @@ type HlsManifestCreateOrUpdateParameters struct {
 	// manifest to contain a copy of the SCTE-35 admarkers (comments) taken directly
 	// from the input HTTP Live Streaming (HLS) manifest."SCTE35_ENHANCED" generates
 	// ad markers and blackout tags based on SCTE-35messages in the input source.
-	AdMarkers AdMarkers `locationName:"adMarkers" type:"string" enum:"true"`
+	AdMarkers AdMarkers `json:"mediapackage:HlsManifestCreateOrUpdateParameters:AdMarkers" locationName:"adMarkers" type:"string" enum:"true"`
 
 	// A list of SCTE-35 message types that are treated as ad markers in the output.
 	// If empty, noad markers are output. Specify multiple items to create ad markers
 	// for all of the includedmessage types.
-	AdTriggers []__AdTriggersElement `locationName:"adTriggers" type:"list"`
+	AdTriggers []__AdTriggersElement `json:"mediapackage:HlsManifestCreateOrUpdateParameters:AdTriggers" locationName:"adTriggers" type:"list"`
 
 	// This setting allows the delivery restriction flags on SCTE-35 segmentation
 	// descriptors todetermine whether a message signals an ad. Choosing "NONE"
@@ -786,28 +786,28 @@ type HlsManifestCreateOrUpdateParameters struct {
 	// types specified inAdTriggers will be treated as ads. Note that Splice Insert
 	// messages do not have these flagsand are always treated as ads if specified
 	// in AdTriggers.
-	AdsOnDeliveryRestrictions AdsOnDeliveryRestrictions `locationName:"adsOnDeliveryRestrictions" type:"string" enum:"true"`
+	AdsOnDeliveryRestrictions AdsOnDeliveryRestrictions `json:"mediapackage:HlsManifestCreateOrUpdateParameters:AdsOnDeliveryRestrictions" locationName:"adsOnDeliveryRestrictions" type:"string" enum:"true"`
 
 	// The ID of the manifest. The ID must be unique within the OriginEndpoint and
 	// it cannot be changed after it is created.
 	//
 	// Id is a required field
-	Id *string `locationName:"id" type:"string" required:"true"`
+	Id *string `json:"mediapackage:HlsManifestCreateOrUpdateParameters:Id" locationName:"id" type:"string" required:"true"`
 
 	// When enabled, an I-Frame only stream will be included in the output.
-	IncludeIframeOnlyStream *bool `locationName:"includeIframeOnlyStream" type:"boolean"`
+	IncludeIframeOnlyStream *bool `json:"mediapackage:HlsManifestCreateOrUpdateParameters:IncludeIframeOnlyStream" locationName:"includeIframeOnlyStream" type:"boolean"`
 
 	// An optional short string appended to the end of the OriginEndpoint URL. If
 	// not specified, defaults to the manifestName for the OriginEndpoint.
-	ManifestName *string `locationName:"manifestName" type:"string"`
+	ManifestName *string `json:"mediapackage:HlsManifestCreateOrUpdateParameters:ManifestName" locationName:"manifestName" type:"string"`
 
 	// The HTTP Live Streaming (HLS) playlist type.When either "EVENT" or "VOD"
 	// is specified, a corresponding EXT-X-PLAYLIST-TYPEentry will be included in
 	// the media playlist.
-	PlaylistType PlaylistType `locationName:"playlistType" type:"string" enum:"true"`
+	PlaylistType PlaylistType `json:"mediapackage:HlsManifestCreateOrUpdateParameters:PlaylistType" locationName:"playlistType" type:"string" enum:"true"`
 
 	// Time window (in seconds) contained in each parent manifest.
-	PlaylistWindowSeconds *int64 `locationName:"playlistWindowSeconds" type:"integer"`
+	PlaylistWindowSeconds *int64 `json:"mediapackage:HlsManifestCreateOrUpdateParameters:PlaylistWindowSeconds" locationName:"playlistWindowSeconds" type:"integer"`
 
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME taginserted
 	// into manifests. Additionally, when an interval is specifiedID3Timed Metadata
@@ -817,7 +817,7 @@ type HlsManifestCreateOrUpdateParameters struct {
 	// be generated. Note that irrespectiveof this parameter, if any ID3 Timed Metadata
 	// is found in HTTP Live Streaming (HLS) input,it will be passed through to
 	// HLS output.
-	ProgramDateTimeIntervalSeconds *int64 `locationName:"programDateTimeIntervalSeconds" type:"integer"`
+	ProgramDateTimeIntervalSeconds *int64 `json:"mediapackage:HlsManifestCreateOrUpdateParameters:ProgramDateTimeIntervalSeconds" locationName:"programDateTimeIntervalSeconds" type:"integer"`
 }
 
 // String returns the string representation
@@ -914,12 +914,12 @@ type HlsPackage struct {
 	// manifest to contain a copy of the SCTE-35 admarkers (comments) taken directly
 	// from the input HTTP Live Streaming (HLS) manifest."SCTE35_ENHANCED" generates
 	// ad markers and blackout tags based on SCTE-35messages in the input source.
-	AdMarkers AdMarkers `locationName:"adMarkers" type:"string" enum:"true"`
+	AdMarkers AdMarkers `json:"mediapackage:HlsPackage:AdMarkers" locationName:"adMarkers" type:"string" enum:"true"`
 
 	// A list of SCTE-35 message types that are treated as ad markers in the output.
 	// If empty, noad markers are output. Specify multiple items to create ad markers
 	// for all of the includedmessage types.
-	AdTriggers []__AdTriggersElement `locationName:"adTriggers" type:"list"`
+	AdTriggers []__AdTriggersElement `json:"mediapackage:HlsPackage:AdTriggers" locationName:"adTriggers" type:"list"`
 
 	// This setting allows the delivery restriction flags on SCTE-35 segmentation
 	// descriptors todetermine whether a message signals an ad. Choosing "NONE"
@@ -931,21 +931,21 @@ type HlsPackage struct {
 	// types specified inAdTriggers will be treated as ads. Note that Splice Insert
 	// messages do not have these flagsand are always treated as ads if specified
 	// in AdTriggers.
-	AdsOnDeliveryRestrictions AdsOnDeliveryRestrictions `locationName:"adsOnDeliveryRestrictions" type:"string" enum:"true"`
+	AdsOnDeliveryRestrictions AdsOnDeliveryRestrictions `json:"mediapackage:HlsPackage:AdsOnDeliveryRestrictions" locationName:"adsOnDeliveryRestrictions" type:"string" enum:"true"`
 
 	// An HTTP Live Streaming (HLS) encryption configuration.
-	Encryption *HlsEncryption `locationName:"encryption" type:"structure"`
+	Encryption *HlsEncryption `json:"mediapackage:HlsPackage:Encryption" locationName:"encryption" type:"structure"`
 
 	// When enabled, an I-Frame only stream will be included in the output.
-	IncludeIframeOnlyStream *bool `locationName:"includeIframeOnlyStream" type:"boolean"`
+	IncludeIframeOnlyStream *bool `json:"mediapackage:HlsPackage:IncludeIframeOnlyStream" locationName:"includeIframeOnlyStream" type:"boolean"`
 
 	// The HTTP Live Streaming (HLS) playlist type.When either "EVENT" or "VOD"
 	// is specified, a corresponding EXT-X-PLAYLIST-TYPEentry will be included in
 	// the media playlist.
-	PlaylistType PlaylistType `locationName:"playlistType" type:"string" enum:"true"`
+	PlaylistType PlaylistType `json:"mediapackage:HlsPackage:PlaylistType" locationName:"playlistType" type:"string" enum:"true"`
 
 	// Time window (in seconds) contained in each parent manifest.
-	PlaylistWindowSeconds *int64 `locationName:"playlistWindowSeconds" type:"integer"`
+	PlaylistWindowSeconds *int64 `json:"mediapackage:HlsPackage:PlaylistWindowSeconds" locationName:"playlistWindowSeconds" type:"integer"`
 
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME taginserted
 	// into manifests. Additionally, when an interval is specifiedID3Timed Metadata
@@ -955,17 +955,17 @@ type HlsPackage struct {
 	// be generated. Note that irrespectiveof this parameter, if any ID3 Timed Metadata
 	// is found in HTTP Live Streaming (HLS) input,it will be passed through to
 	// HLS output.
-	ProgramDateTimeIntervalSeconds *int64 `locationName:"programDateTimeIntervalSeconds" type:"integer"`
+	ProgramDateTimeIntervalSeconds *int64 `json:"mediapackage:HlsPackage:ProgramDateTimeIntervalSeconds" locationName:"programDateTimeIntervalSeconds" type:"integer"`
 
 	// Duration (in seconds) of each fragment. Actual fragments will berounded to
 	// the nearest multiple of the source fragment duration.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage:HlsPackage:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 
 	// A StreamSelection configuration.
-	StreamSelection *StreamSelection `locationName:"streamSelection" type:"structure"`
+	StreamSelection *StreamSelection `json:"mediapackage:HlsPackage:StreamSelection" locationName:"streamSelection" type:"structure"`
 
 	// When enabled, audio streams will be placed in rendition groups in the output.
-	UseAudioRenditionGroup *bool `locationName:"useAudioRenditionGroup" type:"boolean"`
+	UseAudioRenditionGroup *bool `json:"mediapackage:HlsPackage:UseAudioRenditionGroup" locationName:"useAudioRenditionGroup" type:"boolean"`
 }
 
 // String returns the string representation
@@ -1071,16 +1071,16 @@ type IngestEndpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The system generated unique identifier for the IngestEndpoint
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage:IngestEndpoint:Id" locationName:"id" type:"string"`
 
 	// The system generated password for ingest authentication.
-	Password *string `locationName:"password" type:"string"`
+	Password *string `json:"mediapackage:IngestEndpoint:Password" locationName:"password" type:"string"`
 
 	// The ingest URL to which the source stream should be sent.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediapackage:IngestEndpoint:Url" locationName:"url" type:"string"`
 
 	// The system generated username for ingest authentication.
-	Username *string `locationName:"username" type:"string"`
+	Username *string `json:"mediapackage:IngestEndpoint:Username" locationName:"username" type:"string"`
 }
 
 // String returns the string representation
@@ -1126,7 +1126,7 @@ type MssEncryption struct {
 	// Exchange (SPEKE) service that will provide encryption keys.
 	//
 	// SpekeKeyProvider is a required field
-	SpekeKeyProvider *SpekeKeyProvider `locationName:"spekeKeyProvider" type:"structure" required:"true"`
+	SpekeKeyProvider *SpekeKeyProvider `json:"mediapackage:MssEncryption:SpekeKeyProvider" locationName:"spekeKeyProvider" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -1170,16 +1170,16 @@ type MssPackage struct {
 	_ struct{} `type:"structure"`
 
 	// A Microsoft Smooth Streaming (MSS) encryption configuration.
-	Encryption *MssEncryption `locationName:"encryption" type:"structure"`
+	Encryption *MssEncryption `json:"mediapackage:MssPackage:Encryption" locationName:"encryption" type:"structure"`
 
 	// The time window (in seconds) contained in each manifest.
-	ManifestWindowSeconds *int64 `locationName:"manifestWindowSeconds" type:"integer"`
+	ManifestWindowSeconds *int64 `json:"mediapackage:MssPackage:ManifestWindowSeconds" locationName:"manifestWindowSeconds" type:"integer"`
 
 	// The duration (in seconds) of each segment.
-	SegmentDurationSeconds *int64 `locationName:"segmentDurationSeconds" type:"integer"`
+	SegmentDurationSeconds *int64 `json:"mediapackage:MssPackage:SegmentDurationSeconds" locationName:"segmentDurationSeconds" type:"integer"`
 
 	// A StreamSelection configuration.
-	StreamSelection *StreamSelection `locationName:"streamSelection" type:"structure"`
+	StreamSelection *StreamSelection `json:"mediapackage:MssPackage:StreamSelection" locationName:"streamSelection" type:"structure"`
 }
 
 // String returns the string representation
@@ -1237,48 +1237,48 @@ type OriginEndpoint struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
-	Arn *string `locationName:"arn" type:"string"`
+	Arn *string `json:"mediapackage:OriginEndpoint:Arn" locationName:"arn" type:"string"`
 
 	// The ID of the Channel the OriginEndpoint is associated with.
-	ChannelId *string `locationName:"channelId" type:"string"`
+	ChannelId *string `json:"mediapackage:OriginEndpoint:ChannelId" locationName:"channelId" type:"string"`
 
 	// A Common Media Application Format (CMAF) packaging configuration.
-	CmafPackage *CmafPackage `locationName:"cmafPackage" type:"structure"`
+	CmafPackage *CmafPackage `json:"mediapackage:OriginEndpoint:CmafPackage" locationName:"cmafPackage" type:"structure"`
 
 	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-	DashPackage *DashPackage `locationName:"dashPackage" type:"structure"`
+	DashPackage *DashPackage `json:"mediapackage:OriginEndpoint:DashPackage" locationName:"dashPackage" type:"structure"`
 
 	// A short text description of the OriginEndpoint.
-	Description *string `locationName:"description" type:"string"`
+	Description *string `json:"mediapackage:OriginEndpoint:Description" locationName:"description" type:"string"`
 
 	// An HTTP Live Streaming (HLS) packaging configuration.
-	HlsPackage *HlsPackage `locationName:"hlsPackage" type:"structure"`
+	HlsPackage *HlsPackage `json:"mediapackage:OriginEndpoint:HlsPackage" locationName:"hlsPackage" type:"structure"`
 
 	// The ID of the OriginEndpoint.
-	Id *string `locationName:"id" type:"string"`
+	Id *string `json:"mediapackage:OriginEndpoint:Id" locationName:"id" type:"string"`
 
 	// A short string appended to the end of the OriginEndpoint URL.
-	ManifestName *string `locationName:"manifestName" type:"string"`
+	ManifestName *string `json:"mediapackage:OriginEndpoint:ManifestName" locationName:"manifestName" type:"string"`
 
 	// A Microsoft Smooth Streaming (MSS) packaging configuration.
-	MssPackage *MssPackage `locationName:"mssPackage" type:"structure"`
+	MssPackage *MssPackage `json:"mediapackage:OriginEndpoint:MssPackage" locationName:"mssPackage" type:"structure"`
 
 	// Maximum duration (seconds) of content to retain for startover playback.If
 	// not specified, startover playback will be disabled for the OriginEndpoint.
-	StartoverWindowSeconds *int64 `locationName:"startoverWindowSeconds" type:"integer"`
+	StartoverWindowSeconds *int64 `json:"mediapackage:OriginEndpoint:StartoverWindowSeconds" locationName:"startoverWindowSeconds" type:"integer"`
 
 	// A collection of tags associated with a resource
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"mediapackage:OriginEndpoint:Tags" locationName:"tags" type:"map"`
 
 	// Amount of delay (seconds) to enforce on the playback of live content.If not
 	// specified, there will be no time delay in effect for the OriginEndpoint.
-	TimeDelaySeconds *int64 `locationName:"timeDelaySeconds" type:"integer"`
+	TimeDelaySeconds *int64 `json:"mediapackage:OriginEndpoint:TimeDelaySeconds" locationName:"timeDelaySeconds" type:"integer"`
 
 	// The URL of the packaged OriginEndpoint for consumption.
-	Url *string `locationName:"url" type:"string"`
+	Url *string `json:"mediapackage:OriginEndpoint:Url" locationName:"url" type:"string"`
 
 	// A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
-	Whitelist []string `locationName:"whitelist" type:"list"`
+	Whitelist []string `json:"mediapackage:OriginEndpoint:Whitelist" locationName:"whitelist" type:"list"`
 }
 
 // String returns the string representation
@@ -1396,28 +1396,28 @@ type SpekeKeyProvider struct {
 	// An Amazon Resource Name (ARN) of a Certificate Manager certificatethat MediaPackage
 	// will use for enforcing secure end-to-end datatransfer with the key provider
 	// service.
-	CertificateArn *string `locationName:"certificateArn" type:"string"`
+	CertificateArn *string `json:"mediapackage:SpekeKeyProvider:CertificateArn" locationName:"certificateArn" type:"string"`
 
 	// The resource ID to include in key requests.
 	//
 	// ResourceId is a required field
-	ResourceId *string `locationName:"resourceId" type:"string" required:"true"`
+	ResourceId *string `json:"mediapackage:SpekeKeyProvider:ResourceId" locationName:"resourceId" type:"string" required:"true"`
 
 	// An Amazon Resource Name (ARN) of an IAM role that AWS ElementalMediaPackage
 	// will assume when accessing the key provider service.
 	//
 	// RoleArn is a required field
-	RoleArn *string `locationName:"roleArn" type:"string" required:"true"`
+	RoleArn *string `json:"mediapackage:SpekeKeyProvider:RoleArn" locationName:"roleArn" type:"string" required:"true"`
 
 	// The system IDs to include in key requests.
 	//
 	// SystemIds is a required field
-	SystemIds []string `locationName:"systemIds" type:"list" required:"true"`
+	SystemIds []string `json:"mediapackage:SpekeKeyProvider:SystemIds" locationName:"systemIds" type:"list" required:"true"`
 
 	// The URL of the external key provider service.
 	//
 	// Url is a required field
-	Url *string `locationName:"url" type:"string" required:"true"`
+	Url *string `json:"mediapackage:SpekeKeyProvider:Url" locationName:"url" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -1498,13 +1498,13 @@ type StreamSelection struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum video bitrate (bps) to include in output.
-	MaxVideoBitsPerSecond *int64 `locationName:"maxVideoBitsPerSecond" type:"integer"`
+	MaxVideoBitsPerSecond *int64 `json:"mediapackage:StreamSelection:MaxVideoBitsPerSecond" locationName:"maxVideoBitsPerSecond" type:"integer"`
 
 	// The minimum video bitrate (bps) to include in output.
-	MinVideoBitsPerSecond *int64 `locationName:"minVideoBitsPerSecond" type:"integer"`
+	MinVideoBitsPerSecond *int64 `json:"mediapackage:StreamSelection:MinVideoBitsPerSecond" locationName:"minVideoBitsPerSecond" type:"integer"`
 
 	// A directive that determines the order of streams in the output.
-	StreamOrder StreamOrder `locationName:"streamOrder" type:"string" enum:"true"`
+	StreamOrder StreamOrder `json:"mediapackage:StreamSelection:StreamOrder" locationName:"streamOrder" type:"string" enum:"true"`
 }
 
 // String returns the string representation

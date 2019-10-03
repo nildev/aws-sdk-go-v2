@@ -48,12 +48,12 @@ type ListActionTypesOutput struct {
 	// Provides details of the action types.
 	//
 	// ActionTypes is a required field
-	ActionTypes []ActionType `locationName:"actionTypes" type:"list" required:"true"`
+	ActionTypes []ActionType `json:"codepipeline:ListActionTypesOutput:ActionTypes" locationName:"actionTypes" type:"list" required:"true"`
 
 	// If the amount of returned information is significantly large, an identifier
 	// is also returned which can be used in a subsequent list action types call
 	// to return the next set of action types in the list.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codepipeline:ListActionTypesOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

@@ -86,13 +86,13 @@ type GetIntentVersionsOutput struct {
 
 	// An array of IntentMetadata objects, one for each numbered version of the
 	// intent plus one for the $LATEST version.
-	Intents []IntentMetadata `locationName:"intents" type:"list"`
+	Intents []IntentMetadata `json:"models.lex:GetIntentVersionsOutput:Intents" locationName:"intents" type:"list"`
 
 	// A pagination token for fetching the next page of intent versions. If the
 	// response to this call is truncated, Amazon Lex returns a pagination token
 	// in the response. To fetch the next page of versions, specify the pagination
 	// token in the next request.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"models.lex:GetIntentVersionsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

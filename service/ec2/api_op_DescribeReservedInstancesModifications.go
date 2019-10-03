@@ -69,10 +69,10 @@ type DescribeReservedInstancesModificationsOutput struct {
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeReservedInstancesModificationsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// The Reserved Instance modification information.
-	ReservedInstancesModifications []ReservedInstancesModification `locationName:"reservedInstancesModificationsSet" locationNameList:"item" type:"list"`
+	ReservedInstancesModifications []ReservedInstancesModification `json:"ec2:DescribeReservedInstancesModificationsOutput:ReservedInstancesModifications" locationName:"reservedInstancesModificationsSet" locationNameList:"item" type:"list"`
 }
 
 // String returns the string representation

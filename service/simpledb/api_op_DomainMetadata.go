@@ -41,25 +41,25 @@ type DomainMetadataOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The number of unique attribute names in the domain.
-	AttributeNameCount *int64 `type:"integer"`
+	AttributeNameCount *int64 `json:"sdb:DomainMetadataOutput:AttributeNameCount" type:"integer"`
 
 	// The total size of all unique attribute names in the domain, in bytes.
-	AttributeNamesSizeBytes *int64 `type:"long"`
+	AttributeNamesSizeBytes *int64 `json:"sdb:DomainMetadataOutput:AttributeNamesSizeBytes" type:"long"`
 
 	// The number of all attribute name/value pairs in the domain.
-	AttributeValueCount *int64 `type:"integer"`
+	AttributeValueCount *int64 `json:"sdb:DomainMetadataOutput:AttributeValueCount" type:"integer"`
 
 	// The total size of all attribute values in the domain, in bytes.
-	AttributeValuesSizeBytes *int64 `type:"long"`
+	AttributeValuesSizeBytes *int64 `json:"sdb:DomainMetadataOutput:AttributeValuesSizeBytes" type:"long"`
 
 	// The number of all items in the domain.
-	ItemCount *int64 `type:"integer"`
+	ItemCount *int64 `json:"sdb:DomainMetadataOutput:ItemCount" type:"integer"`
 
 	// The total size of all item names in the domain, in bytes.
-	ItemNamesSizeBytes *int64 `type:"long"`
+	ItemNamesSizeBytes *int64 `json:"sdb:DomainMetadataOutput:ItemNamesSizeBytes" type:"long"`
 
 	// The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-	Timestamp *int64 `type:"integer"`
+	Timestamp *int64 `json:"sdb:DomainMetadataOutput:Timestamp" type:"integer"`
 }
 
 // String returns the string representation

@@ -135,7 +135,7 @@ type CreateFlowOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The settings for a flow, including its source, outputs, and entitlements.
-	Flow *Flow `locationName:"flow" type:"structure"`
+	Flow *Flow `json:"mediaconnect:CreateFlowOutput:Flow" locationName:"flow" type:"structure"`
 }
 
 // String returns the string representation

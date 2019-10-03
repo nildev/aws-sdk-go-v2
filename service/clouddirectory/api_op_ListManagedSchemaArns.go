@@ -72,10 +72,10 @@ type ListManagedSchemaArnsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The pagination token.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"clouddirectory:ListManagedSchemaArnsOutput:NextToken" type:"string"`
 
 	// The ARNs for all AWS managed schemas.
-	SchemaArns []string `type:"list"`
+	SchemaArns []string `json:"clouddirectory:ListManagedSchemaArnsOutput:SchemaArns" type:"list"`
 }
 
 // String returns the string representation

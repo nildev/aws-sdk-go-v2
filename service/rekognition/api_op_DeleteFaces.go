@@ -56,7 +56,7 @@ type DeleteFacesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// An array of strings (face IDs) of the faces that were deleted.
-	DeletedFaces []string `min:"1" type:"list"`
+	DeletedFaces []string `json:"rekognition:DeleteFacesOutput:DeletedFaces" min:"1" type:"list"`
 }
 
 // String returns the string representation

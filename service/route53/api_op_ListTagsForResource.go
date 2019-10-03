@@ -80,7 +80,7 @@ type ListTagsForResourceOutput struct {
 	// A ResourceTagSet containing tags associated with the specified resource.
 	//
 	// ResourceTagSet is a required field
-	ResourceTagSet *ResourceTagSet `type:"structure" required:"true"`
+	ResourceTagSet *ResourceTagSet `json:"route53:ListTagsForResourceOutput:ResourceTagSet" type:"structure" required:"true"`
 }
 
 // String returns the string representation

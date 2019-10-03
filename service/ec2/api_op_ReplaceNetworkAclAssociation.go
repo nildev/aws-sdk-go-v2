@@ -59,7 +59,7 @@ type ReplaceNetworkAclAssociationOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the new association.
-	NewAssociationId *string `locationName:"newAssociationId" type:"string"`
+	NewAssociationId *string `json:"ec2:ReplaceNetworkAclAssociationOutput:NewAssociationId" locationName:"newAssociationId" type:"string"`
 }
 
 // String returns the string representation

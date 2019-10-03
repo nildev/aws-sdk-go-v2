@@ -69,7 +69,7 @@ type CreateCampaignOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the campaign.
-	CampaignArn *string `locationName:"campaignArn" type:"string"`
+	CampaignArn *string `json:"personalize:CreateCampaignOutput:CampaignArn" locationName:"campaignArn" type:"string"`
 }
 
 // String returns the string representation

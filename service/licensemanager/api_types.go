@@ -18,10 +18,10 @@ type ConsumedLicenseSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Number of licenses consumed by a resource.
-	ConsumedLicenses *int64 `type:"long"`
+	ConsumedLicenses *int64 `json:"license-manager:ConsumedLicenseSummary:ConsumedLicenses" type:"long"`
 
 	// Resource type of the resource consuming a license (instance, host, or AMI).
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"license-manager:ConsumedLicenseSummary:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -39,10 +39,10 @@ type Filter struct {
 	_ struct{} `type:"structure"`
 
 	// Name of the filter. Filter names are case-sensitive.
-	Name *string `type:"string"`
+	Name *string `json:"license-manager:Filter:Name" type:"string"`
 
 	// One or more filter values. Filter values are case-sensitive.
-	Values []string `type:"list"`
+	Values []string `json:"license-manager:Filter:Values" type:"list"`
 }
 
 // String returns the string representation
@@ -58,15 +58,15 @@ type InventoryFilter struct {
 	// The condition of the filter.
 	//
 	// Condition is a required field
-	Condition InventoryFilterCondition `type:"string" required:"true" enum:"true"`
+	Condition InventoryFilterCondition `json:"license-manager:InventoryFilter:Condition" type:"string" required:"true" enum:"true"`
 
 	// The name of the filter.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"license-manager:InventoryFilter:Name" type:"string" required:"true"`
 
 	// Value of the filter.
-	Value *string `type:"string"`
+	Value *string `json:"license-manager:InventoryFilter:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -102,43 +102,43 @@ type LicenseConfiguration struct {
 	_ struct{} `type:"structure"`
 
 	// List of summaries for licenses consumed by various resources.
-	ConsumedLicenseSummaryList []ConsumedLicenseSummary `type:"list"`
+	ConsumedLicenseSummaryList []ConsumedLicenseSummary `json:"license-manager:LicenseConfiguration:ConsumedLicenseSummaryList" type:"list"`
 
 	// Number of licenses consumed.
-	ConsumedLicenses *int64 `type:"long"`
+	ConsumedLicenses *int64 `json:"license-manager:LicenseConfiguration:ConsumedLicenses" type:"long"`
 
 	// Description of the license configuration.
-	Description *string `type:"string"`
+	Description *string `json:"license-manager:LicenseConfiguration:Description" type:"string"`
 
 	// ARN of the LicenseConfiguration object.
-	LicenseConfigurationArn *string `type:"string"`
+	LicenseConfigurationArn *string `json:"license-manager:LicenseConfiguration:LicenseConfigurationArn" type:"string"`
 
 	// Unique ID of the LicenseConfiguration object.
-	LicenseConfigurationId *string `type:"string"`
+	LicenseConfigurationId *string `json:"license-manager:LicenseConfiguration:LicenseConfigurationId" type:"string"`
 
 	// Number of licenses managed by the license configuration.
-	LicenseCount *int64 `type:"long"`
+	LicenseCount *int64 `json:"license-manager:LicenseConfiguration:LicenseCount" type:"long"`
 
 	// Sets the number of available licenses as a hard limit.
-	LicenseCountHardLimit *bool `type:"boolean"`
+	LicenseCountHardLimit *bool `json:"license-manager:LicenseConfiguration:LicenseCountHardLimit" type:"boolean"`
 
 	// Dimension to use to track license inventory.
-	LicenseCountingType LicenseCountingType `type:"string" enum:"true"`
+	LicenseCountingType LicenseCountingType `json:"license-manager:LicenseConfiguration:LicenseCountingType" type:"string" enum:"true"`
 
 	// Array of configured License Manager rules.
-	LicenseRules []string `type:"list"`
+	LicenseRules []string `json:"license-manager:LicenseConfiguration:LicenseRules" type:"list"`
 
 	// List of summaries for managed resources.
-	ManagedResourceSummaryList []ManagedResourceSummary `type:"list"`
+	ManagedResourceSummaryList []ManagedResourceSummary `json:"license-manager:LicenseConfiguration:ManagedResourceSummaryList" type:"list"`
 
 	// Name of the license configuration.
-	Name *string `type:"string"`
+	Name *string `json:"license-manager:LicenseConfiguration:Name" type:"string"`
 
 	// Account ID of the license configuration's owner.
-	OwnerAccountId *string `type:"string"`
+	OwnerAccountId *string `json:"license-manager:LicenseConfiguration:OwnerAccountId" type:"string"`
 
 	// Status of the license configuration.
-	Status *string `type:"string"`
+	Status *string `json:"license-manager:LicenseConfiguration:Status" type:"string"`
 }
 
 // String returns the string representation
@@ -152,16 +152,16 @@ type LicenseConfigurationAssociation struct {
 	_ struct{} `type:"structure"`
 
 	// Time when the license configuration was associated with the resource.
-	AssociationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AssociationTime *time.Time `json:"license-manager:LicenseConfigurationAssociation:AssociationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// ARN of the resource associated with the license configuration.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"license-manager:LicenseConfigurationAssociation:ResourceArn" type:"string"`
 
 	// ID of the AWS account that owns the resource consuming licenses.
-	ResourceOwnerId *string `type:"string"`
+	ResourceOwnerId *string `json:"license-manager:LicenseConfigurationAssociation:ResourceOwnerId" type:"string"`
 
 	// Type of server resource.
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"license-manager:LicenseConfigurationAssociation:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -175,23 +175,23 @@ type LicenseConfigurationUsage struct {
 	_ struct{} `type:"structure"`
 
 	// Time when the license configuration was initially associated with a resource.
-	AssociationTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	AssociationTime *time.Time `json:"license-manager:LicenseConfigurationUsage:AssociationTime" type:"timestamp" timestampFormat:"unix"`
 
 	// Number of licenses consumed out of the total provisioned in the license configuration.
-	ConsumedLicenses *int64 `type:"long"`
+	ConsumedLicenses *int64 `json:"license-manager:LicenseConfigurationUsage:ConsumedLicenses" type:"long"`
 
 	// ARN of the resource associated with a license configuration.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"license-manager:LicenseConfigurationUsage:ResourceArn" type:"string"`
 
 	// ID of the account that owns a resource that is associated with the license
 	// configuration.
-	ResourceOwnerId *string `type:"string"`
+	ResourceOwnerId *string `json:"license-manager:LicenseConfigurationUsage:ResourceOwnerId" type:"string"`
 
 	// Status of a resource associated with the license configuration.
-	ResourceStatus *string `type:"string"`
+	ResourceStatus *string `json:"license-manager:LicenseConfigurationUsage:ResourceStatus" type:"string"`
 
 	// Type of resource associated with athe license configuration.
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"license-manager:LicenseConfigurationUsage:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -207,7 +207,7 @@ type LicenseSpecification struct {
 	// ARN of the LicenseConfiguration object.
 	//
 	// LicenseConfigurationArn is a required field
-	LicenseConfigurationArn *string `type:"string" required:"true"`
+	LicenseConfigurationArn *string `json:"license-manager:LicenseSpecification:LicenseConfigurationArn" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -235,10 +235,10 @@ type ManagedResourceSummary struct {
 	_ struct{} `type:"structure"`
 
 	// Number of resources associated with licenses.
-	AssociationCount *int64 `type:"long"`
+	AssociationCount *int64 `json:"license-manager:ManagedResourceSummary:AssociationCount" type:"long"`
 
 	// Type of resource associated with a license (instance, host, or AMI).
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"license-manager:ManagedResourceSummary:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -254,7 +254,7 @@ type OrganizationConfiguration struct {
 	// Flag to activate AWS Organization integration.
 	//
 	// EnableIntegration is a required field
-	EnableIntegration *bool `type:"boolean" required:"true"`
+	EnableIntegration *bool `json:"license-manager:OrganizationConfiguration:EnableIntegration" type:"boolean" required:"true"`
 }
 
 // String returns the string representation
@@ -282,22 +282,22 @@ type ResourceInventory struct {
 	_ struct{} `type:"structure"`
 
 	// The platform of the resource.
-	Platform *string `type:"string"`
+	Platform *string `json:"license-manager:ResourceInventory:Platform" type:"string"`
 
 	// Platform version of the resource in the inventory.
-	PlatformVersion *string `type:"string"`
+	PlatformVersion *string `json:"license-manager:ResourceInventory:PlatformVersion" type:"string"`
 
 	// The ARN of the resource.
-	ResourceArn *string `type:"string"`
+	ResourceArn *string `json:"license-manager:ResourceInventory:ResourceArn" type:"string"`
 
 	// Unique ID of the resource.
-	ResourceId *string `type:"string"`
+	ResourceId *string `json:"license-manager:ResourceInventory:ResourceId" type:"string"`
 
 	// Unique ID of the account that owns the resource.
-	ResourceOwningAccountId *string `type:"string"`
+	ResourceOwningAccountId *string `json:"license-manager:ResourceInventory:ResourceOwningAccountId" type:"string"`
 
 	// The type of resource.
-	ResourceType ResourceType `type:"string" enum:"true"`
+	ResourceType ResourceType `json:"license-manager:ResourceInventory:ResourceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -311,10 +311,10 @@ type Tag struct {
 	_ struct{} `type:"structure"`
 
 	// Key for the resource tag.
-	Key *string `type:"string"`
+	Key *string `json:"license-manager:Tag:Key" type:"string"`
 
 	// Value for the resource tag.
-	Value *string `type:"string"`
+	Value *string `json:"license-manager:Tag:Value" type:"string"`
 }
 
 // String returns the string representation

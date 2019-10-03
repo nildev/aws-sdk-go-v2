@@ -117,7 +117,7 @@ type CreateTapeWithBarcodeOutput struct {
 
 	// A unique Amazon Resource Name (ARN) that represents the virtual tape that
 	// was created.
-	TapeARN *string `min:"50" type:"string"`
+	TapeARN *string `json:"storagegateway:CreateTapeWithBarcodeOutput:TapeARN" min:"50" type:"string"`
 }
 
 // String returns the string representation

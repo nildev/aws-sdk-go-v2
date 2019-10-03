@@ -81,14 +81,14 @@ type ListQueryLoggingConfigsOutput struct {
 	// more configurations by submitting another ListQueryLoggingConfigs (https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html)
 	// request. Get the value of NextToken that Amazon Route 53 returned in the
 	// previous response and include it in NextToken in the next request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"route53:ListQueryLoggingConfigsOutput:NextToken" type:"string"`
 
 	// An array that contains one QueryLoggingConfig (https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html)
 	// element for each configuration for DNS query logging that is associated with
 	// the current AWS account.
 	//
 	// QueryLoggingConfigs is a required field
-	QueryLoggingConfigs []QueryLoggingConfig `locationNameList:"QueryLoggingConfig" type:"list" required:"true"`
+	QueryLoggingConfigs []QueryLoggingConfig `json:"route53:ListQueryLoggingConfigsOutput:QueryLoggingConfigs" locationNameList:"QueryLoggingConfig" type:"list" required:"true"`
 }
 
 // String returns the string representation

@@ -19,15 +19,15 @@ type ComplianceViolator struct {
 	_ struct{} `type:"structure"`
 
 	// The resource ID.
-	ResourceId *string `min:"1" type:"string"`
+	ResourceId *string `json:"fms:ComplianceViolator:ResourceId" min:"1" type:"string"`
 
 	// The resource type. This is in the format shown in AWS Resource Types Reference
 	// (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	// For example: AWS::ElasticLoadBalancingV2::LoadBalancer or AWS::CloudFront::Distribution.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"fms:ComplianceViolator:ResourceType" min:"1" type:"string"`
 
 	// The reason that the resource is not protected by the policy.
-	ViolationReason ViolationReason `type:"string" enum:"true"`
+	ViolationReason ViolationReason `json:"fms:ComplianceViolator:ViolationReason" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -43,15 +43,15 @@ type EvaluationResult struct {
 	_ struct{} `type:"structure"`
 
 	// Describes an AWS account's compliance with the AWS Firewall Manager policy.
-	ComplianceStatus PolicyComplianceStatusType `type:"string" enum:"true"`
+	ComplianceStatus PolicyComplianceStatusType `json:"fms:EvaluationResult:ComplianceStatus" type:"string" enum:"true"`
 
 	// Indicates that over 100 resources are non-compliant with the AWS Firewall
 	// Manager policy.
-	EvaluationLimitExceeded *bool `type:"boolean"`
+	EvaluationLimitExceeded *bool `json:"fms:EvaluationResult:EvaluationLimitExceeded" type:"boolean"`
 
 	// Number of resources that are non-compliant with the specified policy. A resource
 	// is considered non-compliant if it is not associated with the specified policy.
-	ViolatorCount *int64 `type:"long"`
+	ViolatorCount *int64 `json:"fms:EvaluationResult:ViolatorCount" type:"long"`
 }
 
 // String returns the string representation
@@ -71,7 +71,7 @@ type Policy struct {
 	//
 	// The key to the map is ACCOUNT. For example, a valid ExcludeMap would be {“ACCOUNT”
 	// : [“accountID1”, “accountID2”]}.
-	ExcludeMap map[string][]string `type:"map"`
+	ExcludeMap map[string][]string `json:"fms:Policy:ExcludeMap" type:"map"`
 
 	// If set to True, resources with the tags that are specified in the ResourceTag
 	// array are not protected by the policy. If set to False, and the ResourceTag
@@ -79,7 +79,7 @@ type Policy struct {
 	// with the policy.
 	//
 	// ExcludeResourceTags is a required field
-	ExcludeResourceTags *bool `type:"boolean" required:"true"`
+	ExcludeResourceTags *bool `json:"fms:Policy:ExcludeResourceTags" type:"boolean" required:"true"`
 
 	// Specifies the AWS account IDs to include in the policy. If IncludeMap is
 	// null, all accounts in the organization in AWS Organizations are included
@@ -88,44 +88,44 @@ type Policy struct {
 	//
 	// The key to the map is ACCOUNT. For example, a valid IncludeMap would be {“ACCOUNT”
 	// : [“accountID1”, “accountID2”]}.
-	IncludeMap map[string][]string `type:"map"`
+	IncludeMap map[string][]string `json:"fms:Policy:IncludeMap" type:"map"`
 
 	// The ID of the AWS Firewall Manager policy.
-	PolicyId *string `min:"36" type:"string"`
+	PolicyId *string `json:"fms:Policy:PolicyId" min:"36" type:"string"`
 
 	// The friendly name of the AWS Firewall Manager policy.
 	//
 	// PolicyName is a required field
-	PolicyName *string `min:"1" type:"string" required:"true"`
+	PolicyName *string `json:"fms:Policy:PolicyName" min:"1" type:"string" required:"true"`
 
 	// A unique identifier for each update to the policy. When issuing a PutPolicy
 	// request, the PolicyUpdateToken in the request must match the PolicyUpdateToken
 	// of the current policy version. To get the PolicyUpdateToken of the current
 	// policy version, use a GetPolicy request.
-	PolicyUpdateToken *string `min:"1" type:"string"`
+	PolicyUpdateToken *string `json:"fms:Policy:PolicyUpdateToken" min:"1" type:"string"`
 
 	// Indicates if the policy should be automatically applied to new resources.
 	//
 	// RemediationEnabled is a required field
-	RemediationEnabled *bool `type:"boolean" required:"true"`
+	RemediationEnabled *bool `json:"fms:Policy:RemediationEnabled" type:"boolean" required:"true"`
 
 	// An array of ResourceTag objects.
-	ResourceTags []ResourceTag `type:"list"`
+	ResourceTags []ResourceTag `json:"fms:Policy:ResourceTags" type:"list"`
 
 	// The type of resource to protect with the policy. This is in the format shown
 	// in AWS Resource Types Reference (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	// For example: AWS::ElasticLoadBalancingV2::LoadBalancer or AWS::CloudFront::Distribution.
 	//
 	// ResourceType is a required field
-	ResourceType *string `min:"1" type:"string" required:"true"`
+	ResourceType *string `json:"fms:Policy:ResourceType" min:"1" type:"string" required:"true"`
 
 	// An array of ResourceType.
-	ResourceTypeList []string `type:"list"`
+	ResourceTypeList []string `json:"fms:Policy:ResourceTypeList" type:"list"`
 
 	// Details about the security service that is being used to protect the resources.
 	//
 	// SecurityServicePolicyData is a required field
-	SecurityServicePolicyData *SecurityServicePolicyData `type:"structure" required:"true"`
+	SecurityServicePolicyData *SecurityServicePolicyData `json:"fms:Policy:SecurityServicePolicyData" type:"structure" required:"true"`
 }
 
 // String returns the string representation
@@ -196,29 +196,29 @@ type PolicyComplianceDetail struct {
 
 	// Indicates if over 100 resources are non-compliant with the AWS Firewall Manager
 	// policy.
-	EvaluationLimitExceeded *bool `type:"boolean"`
+	EvaluationLimitExceeded *bool `json:"fms:PolicyComplianceDetail:EvaluationLimitExceeded" type:"boolean"`
 
 	// A time stamp that indicates when the returned information should be considered
 	// out-of-date.
-	ExpiredAt *time.Time `type:"timestamp" timestampFormat:"unix"`
+	ExpiredAt *time.Time `json:"fms:PolicyComplianceDetail:ExpiredAt" type:"timestamp" timestampFormat:"unix"`
 
 	// Details about problems with dependent services, such as AWS WAF or AWS Config,
 	// that are causing a resource to be non-compliant. The details include the
 	// name of the dependent service and the error message received that indicates
 	// the problem with the service.
-	IssueInfoMap map[string]string `type:"map"`
+	IssueInfoMap map[string]string `json:"fms:PolicyComplianceDetail:IssueInfoMap" type:"map"`
 
 	// The AWS account ID.
-	MemberAccount *string `min:"1" type:"string"`
+	MemberAccount *string `json:"fms:PolicyComplianceDetail:MemberAccount" min:"1" type:"string"`
 
 	// The ID of the AWS Firewall Manager policy.
-	PolicyId *string `min:"36" type:"string"`
+	PolicyId *string `json:"fms:PolicyComplianceDetail:PolicyId" min:"36" type:"string"`
 
 	// The AWS account that created the AWS Firewall Manager policy.
-	PolicyOwner *string `min:"1" type:"string"`
+	PolicyOwner *string `json:"fms:PolicyComplianceDetail:PolicyOwner" min:"1" type:"string"`
 
 	// An array of resources that are not protected by the policy.
-	Violators []ComplianceViolator `type:"list"`
+	Violators []ComplianceViolator `json:"fms:PolicyComplianceDetail:Violators" type:"list"`
 }
 
 // String returns the string representation
@@ -234,28 +234,28 @@ type PolicyComplianceStatus struct {
 	_ struct{} `type:"structure"`
 
 	// An array of EvaluationResult objects.
-	EvaluationResults []EvaluationResult `type:"list"`
+	EvaluationResults []EvaluationResult `json:"fms:PolicyComplianceStatus:EvaluationResults" type:"list"`
 
 	// Details about problems with dependent services, such as AWS WAF or AWS Config,
 	// that are causing a resource to be non-compliant. The details include the
 	// name of the dependent service and the error message received that indicates
 	// the problem with the service.
-	IssueInfoMap map[string]string `type:"map"`
+	IssueInfoMap map[string]string `json:"fms:PolicyComplianceStatus:IssueInfoMap" type:"map"`
 
 	// Time stamp of the last update to the EvaluationResult objects.
-	LastUpdated *time.Time `type:"timestamp" timestampFormat:"unix"`
+	LastUpdated *time.Time `json:"fms:PolicyComplianceStatus:LastUpdated" type:"timestamp" timestampFormat:"unix"`
 
 	// The member account ID.
-	MemberAccount *string `min:"1" type:"string"`
+	MemberAccount *string `json:"fms:PolicyComplianceStatus:MemberAccount" min:"1" type:"string"`
 
 	// The ID of the AWS Firewall Manager policy.
-	PolicyId *string `min:"36" type:"string"`
+	PolicyId *string `json:"fms:PolicyComplianceStatus:PolicyId" min:"36" type:"string"`
 
 	// The friendly name of the AWS Firewall Manager policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"fms:PolicyComplianceStatus:PolicyName" min:"1" type:"string"`
 
 	// The AWS account that created the AWS Firewall Manager policy.
-	PolicyOwner *string `min:"1" type:"string"`
+	PolicyOwner *string `json:"fms:PolicyComplianceStatus:PolicyOwner" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -269,26 +269,26 @@ type PolicySummary struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the specified policy.
-	PolicyArn *string `min:"1" type:"string"`
+	PolicyArn *string `json:"fms:PolicySummary:PolicyArn" min:"1" type:"string"`
 
 	// The ID of the specified policy.
-	PolicyId *string `min:"36" type:"string"`
+	PolicyId *string `json:"fms:PolicySummary:PolicyId" min:"36" type:"string"`
 
 	// The friendly name of the specified policy.
-	PolicyName *string `min:"1" type:"string"`
+	PolicyName *string `json:"fms:PolicySummary:PolicyName" min:"1" type:"string"`
 
 	// Indicates if the policy should be automatically applied to new resources.
-	RemediationEnabled *bool `type:"boolean"`
+	RemediationEnabled *bool `json:"fms:PolicySummary:RemediationEnabled" type:"boolean"`
 
 	// The type of resource to protect with the policy. This is in the format shown
 	// in AWS Resource Types Reference (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	// For example: AWS::ElasticLoadBalancingV2::LoadBalancer or AWS::CloudFront::Distribution.
-	ResourceType *string `min:"1" type:"string"`
+	ResourceType *string `json:"fms:PolicySummary:ResourceType" min:"1" type:"string"`
 
 	// The service that the policy is using to protect the resources. This specifies
 	// the type of policy that is created, either a WAF policy or Shield Advanced
 	// policy.
-	SecurityServiceType SecurityServiceType `type:"string" enum:"true"`
+	SecurityServiceType SecurityServiceType `json:"fms:PolicySummary:SecurityServiceType" type:"string" enum:"true"`
 }
 
 // String returns the string representation
@@ -311,10 +311,10 @@ type ResourceTag struct {
 	// The resource tag key.
 	//
 	// Key is a required field
-	Key *string `min:"1" type:"string" required:"true"`
+	Key *string `json:"fms:ResourceTag:Key" min:"1" type:"string" required:"true"`
 
 	// The resource tag value.
-	Value *string `type:"string"`
+	Value *string `json:"fms:ResourceTag:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -352,14 +352,14 @@ type SecurityServicePolicyData struct {
 	// \"BLOCK\"}}
 	//
 	// If this is a Shield Advanced policy, this string will be empty.
-	ManagedServiceData *string `min:"1" type:"string"`
+	ManagedServiceData *string `json:"fms:SecurityServicePolicyData:ManagedServiceData" min:"1" type:"string"`
 
 	// The service that the policy is using to protect the resources. This specifies
 	// the type of policy that is created, either a WAF policy or Shield Advanced
 	// policy.
 	//
 	// Type is a required field
-	Type SecurityServiceType `type:"string" required:"true" enum:"true"`
+	Type SecurityServiceType `json:"fms:SecurityServicePolicyData:Type" type:"string" required:"true" enum:"true"`
 }
 
 // String returns the string representation

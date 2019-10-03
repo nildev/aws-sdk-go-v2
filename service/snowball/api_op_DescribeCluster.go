@@ -47,7 +47,7 @@ type DescribeClusterOutput struct {
 
 	// Information about a specific cluster, including shipping information, cluster
 	// status, and other important metadata.
-	ClusterMetadata *ClusterMetadata `type:"structure"`
+	ClusterMetadata *ClusterMetadata `json:"snowball:DescribeClusterOutput:ClusterMetadata" type:"structure"`
 }
 
 // String returns the string representation

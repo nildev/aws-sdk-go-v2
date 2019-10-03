@@ -52,10 +52,10 @@ type ListResourceInventoryOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Token for the next set of results.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"license-manager:ListResourceInventoryOutput:NextToken" type:"string"`
 
 	// The detailed list of resources.
-	ResourceInventoryList []ResourceInventory `type:"list"`
+	ResourceInventoryList []ResourceInventory `json:"license-manager:ListResourceInventoryOutput:ResourceInventoryList" type:"list"`
 }
 
 // String returns the string representation

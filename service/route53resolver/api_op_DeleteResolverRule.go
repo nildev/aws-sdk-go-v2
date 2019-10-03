@@ -47,7 +47,7 @@ type DeleteResolverRuleOutput struct {
 
 	// Information about the DeleteResolverRule request, including the status of
 	// the request.
-	ResolverRule *ResolverRule `type:"structure"`
+	ResolverRule *ResolverRule `json:"route53resolver:DeleteResolverRuleOutput:ResolverRule" type:"structure"`
 }
 
 // String returns the string representation

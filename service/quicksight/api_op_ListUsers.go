@@ -97,16 +97,16 @@ type ListUsersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A pagination token that can be used in a subsequent request.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"quicksight:ListUsersOutput:NextToken" type:"string"`
 
 	// The AWS request ID for this operation.
-	RequestId *string `type:"string"`
+	RequestId *string `json:"quicksight:ListUsersOutput:RequestId" type:"string"`
 
 	// The http status of the request.
-	Status *int64 `location:"statusCode" type:"integer"`
+	Status *int64 `json:"quicksight:ListUsersOutput:Status" location:"statusCode" type:"integer"`
 
 	// The list of users.
-	UserList []User `type:"list"`
+	UserList []User `json:"quicksight:ListUsersOutput:UserList" type:"list"`
 }
 
 // String returns the string representation

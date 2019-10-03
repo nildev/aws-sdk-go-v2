@@ -71,7 +71,7 @@ type UpdateWorkteamOutput struct {
 	// A Workteam object that describes the updated work team.
 	//
 	// Workteam is a required field
-	Workteam *Workteam `type:"structure" required:"true"`
+	Workteam *Workteam `json:"api.sagemaker:UpdateWorkteamOutput:Workteam" type:"structure" required:"true"`
 }
 
 // String returns the string representation

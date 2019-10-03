@@ -53,7 +53,7 @@ type GetServerCertificateOutput struct {
 	// A structure containing details about the server certificate.
 	//
 	// ServerCertificate is a required field
-	ServerCertificate *ServerCertificate `type:"structure" required:"true"`
+	ServerCertificate *ServerCertificate `json:"iam:GetServerCertificateOutput:ServerCertificate" type:"structure" required:"true"`
 }
 
 // String returns the string representation

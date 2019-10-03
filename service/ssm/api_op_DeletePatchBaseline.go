@@ -46,7 +46,7 @@ type DeletePatchBaselineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the deleted patch baseline.
-	BaselineId *string `min:"20" type:"string"`
+	BaselineId *string `json:"ssm:DeletePatchBaselineOutput:BaselineId" min:"20" type:"string"`
 }
 
 // String returns the string representation

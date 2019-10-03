@@ -46,7 +46,7 @@ type VerifyTrustOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The unique Trust ID of the trust relationship that was verified.
-	TrustId *string `type:"string"`
+	TrustId *string `json:"ds:VerifyTrustOutput:TrustId" type:"string"`
 }
 
 // String returns the string representation

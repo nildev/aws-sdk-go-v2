@@ -65,7 +65,7 @@ type BatchAssociateServiceActionWithProvisioningArtifactOutput struct {
 
 	// An object that contains a list of errors, along with information to help
 	// you identify the self-service action.
-	FailedServiceActionAssociations []FailedServiceActionAssociation `type:"list"`
+	FailedServiceActionAssociations []FailedServiceActionAssociation `json:"servicecatalog:BatchAssociateServiceActionWithProvisioningArtifactOutput:FailedServiceActionAssociations" type:"list"`
 }
 
 // String returns the string representation

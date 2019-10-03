@@ -55,7 +55,7 @@ type TestRenderTemplateOutput struct {
 
 	// The complete MIME message rendered by applying the data in the TemplateData
 	// parameter to the template specified in the TemplateName parameter.
-	RenderedTemplate *string `type:"string"`
+	RenderedTemplate *string `json:"email:TestRenderTemplateOutput:RenderedTemplate" type:"string"`
 }
 
 // String returns the string representation

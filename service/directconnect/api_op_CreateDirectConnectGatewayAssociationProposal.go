@@ -67,7 +67,7 @@ type CreateDirectConnectGatewayAssociationProposalOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Direct Connect gateway proposal.
-	DirectConnectGatewayAssociationProposal *DirectConnectGatewayAssociationProposal `locationName:"directConnectGatewayAssociationProposal" type:"structure"`
+	DirectConnectGatewayAssociationProposal *DirectConnectGatewayAssociationProposal `json:"directconnect:CreateDirectConnectGatewayAssociationProposalOutput:DirectConnectGatewayAssociationProposal" locationName:"directConnectGatewayAssociationProposal" type:"structure"`
 }
 
 // String returns the string representation

@@ -55,7 +55,7 @@ type CreateSchemaOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The Amazon Resource Name (ARN) of the created schema.
-	SchemaArn *string `locationName:"schemaArn" type:"string"`
+	SchemaArn *string `json:"personalize:CreateSchemaOutput:SchemaArn" locationName:"schemaArn" type:"string"`
 }
 
 // String returns the string representation

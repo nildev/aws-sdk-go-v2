@@ -59,7 +59,7 @@ type DetectStackResourceDriftOutput struct {
 	// values and any differences detected.
 	//
 	// StackResourceDrift is a required field
-	StackResourceDrift *StackResourceDrift `type:"structure" required:"true"`
+	StackResourceDrift *StackResourceDrift `json:"cloudformation:DetectStackResourceDriftOutput:StackResourceDrift" type:"structure" required:"true"`
 }
 
 // String returns the string representation

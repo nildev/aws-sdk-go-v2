@@ -48,7 +48,7 @@ type DescribeTrustsOutput struct {
 	// If not null, more results are available. Pass this value for the NextToken
 	// parameter in a subsequent call to DescribeTrusts to retrieve the next set
 	// of items.
-	NextToken *string `type:"string"`
+	NextToken *string `json:"ds:DescribeTrustsOutput:NextToken" type:"string"`
 
 	// The list of Trust objects that were retrieved.
 	//
@@ -56,7 +56,7 @@ type DescribeTrustsOutput struct {
 	// in the Limit member of the request. This occurs if there are less than the
 	// requested number of items left to retrieve, or if the limitations of the
 	// operation have been exceeded.
-	Trusts []Trust `type:"list"`
+	Trusts []Trust `json:"ds:DescribeTrustsOutput:Trusts" type:"list"`
 }
 
 // String returns the string representation

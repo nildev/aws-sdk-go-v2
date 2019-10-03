@@ -61,10 +61,10 @@ type ImportKeyPairOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-	KeyFingerprint *string `locationName:"keyFingerprint" type:"string"`
+	KeyFingerprint *string `json:"ec2:ImportKeyPairOutput:KeyFingerprint" locationName:"keyFingerprint" type:"string"`
 
 	// The key pair name you provided.
-	KeyName *string `locationName:"keyName" type:"string"`
+	KeyName *string `json:"ec2:ImportKeyPairOutput:KeyName" locationName:"keyName" type:"string"`
 }
 
 // String returns the string representation

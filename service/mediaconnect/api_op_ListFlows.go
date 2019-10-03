@@ -63,14 +63,14 @@ type ListFlowsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of flow summaries.
-	Flows []ListedFlow `locationName:"flows" type:"list"`
+	Flows []ListedFlow `json:"mediaconnect:ListFlowsOutput:Flows" locationName:"flows" type:"list"`
 
 	// The token that identifies which batch of results that you want to see. For
 	// example, you submit a ListFlows request with MaxResults set at 5. The service
 	// returns the first batch of results (up to 5) and a NextToken value. To see
 	// the next batch of results, you can submit the ListFlows request a second
 	// time and specify the NextToken value.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"mediaconnect:ListFlowsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

@@ -52,11 +52,11 @@ type DetectPHIOutput struct {
 	// confidence that Comprehend Medical has in its detection.
 	//
 	// Entities is a required field
-	Entities []Entity `type:"list" required:"true"`
+	Entities []Entity `json:"comprehendmedical:DetectPHIOutput:Entities" type:"list" required:"true"`
 
 	// If the result of the previous request to DetectPHI was truncated, include
 	// the Paginationtoken to fetch the next page of PHI entities.
-	PaginationToken *string `min:"1" type:"string"`
+	PaginationToken *string `json:"comprehendmedical:DetectPHIOutput:PaginationToken" min:"1" type:"string"`
 }
 
 // String returns the string representation

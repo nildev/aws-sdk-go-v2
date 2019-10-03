@@ -78,27 +78,27 @@ type CreateUserProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date the user profile was created, in timestamp format.
-	CreatedTimestamp *time.Time `locationName:"createdTimestamp" type:"timestamp" timestampFormat:"unix"`
+	CreatedTimestamp *time.Time `json:"codestar:CreateUserProfileOutput:CreatedTimestamp" locationName:"createdTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The name that is displayed as the friendly name for the user in AWS CodeStar.
-	DisplayName *string `locationName:"displayName" min:"1" type:"string"`
+	DisplayName *string `json:"codestar:CreateUserProfileOutput:DisplayName" locationName:"displayName" min:"1" type:"string"`
 
 	// The email address that is displayed as part of the user's profile in AWS
 	// CodeStar.
-	EmailAddress *string `locationName:"emailAddress" min:"3" type:"string"`
+	EmailAddress *string `json:"codestar:CreateUserProfileOutput:EmailAddress" locationName:"emailAddress" min:"3" type:"string"`
 
 	// The date the user profile was last modified, in timestamp format.
-	LastModifiedTimestamp *time.Time `locationName:"lastModifiedTimestamp" type:"timestamp" timestampFormat:"unix"`
+	LastModifiedTimestamp *time.Time `json:"codestar:CreateUserProfileOutput:LastModifiedTimestamp" locationName:"lastModifiedTimestamp" type:"timestamp" timestampFormat:"unix"`
 
 	// The SSH public key associated with the user in AWS CodeStar. This is the
 	// public portion of the public/private keypair the user can use to access project
 	// resources if a project owner allows the user remote access to those resources.
-	SshPublicKey *string `locationName:"sshPublicKey" type:"string"`
+	SshPublicKey *string `json:"codestar:CreateUserProfileOutput:SshPublicKey" locationName:"sshPublicKey" type:"string"`
 
 	// The Amazon Resource Name (ARN) of the user in IAM.
 	//
 	// UserArn is a required field
-	UserArn *string `locationName:"userArn" min:"32" type:"string" required:"true"`
+	UserArn *string `json:"codestar:CreateUserProfileOutput:UserArn" locationName:"userArn" min:"32" type:"string" required:"true"`
 }
 
 // String returns the string representation

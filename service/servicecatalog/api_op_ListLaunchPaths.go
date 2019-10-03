@@ -62,11 +62,11 @@ type ListLaunchPathsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the launch path.
-	LaunchPathSummaries []LaunchPathSummary `type:"list"`
+	LaunchPathSummaries []LaunchPathSummary `json:"servicecatalog:ListLaunchPathsOutput:LaunchPathSummaries" type:"list"`
 
 	// The page token to use to retrieve the next set of results. If there are no
 	// additional results, this value is null.
-	NextPageToken *string `type:"string"`
+	NextPageToken *string `json:"servicecatalog:ListLaunchPathsOutput:NextPageToken" type:"string"`
 }
 
 // String returns the string representation

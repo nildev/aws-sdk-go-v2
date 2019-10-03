@@ -56,7 +56,7 @@ type GetVoiceConnectorTerminationHealthOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The termination health details.
-	TerminationHealth *TerminationHealth `type:"structure"`
+	TerminationHealth *TerminationHealth `json:"chime:GetVoiceConnectorTerminationHealthOutput:TerminationHealth" type:"structure"`
 }
 
 // String returns the string representation

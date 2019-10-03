@@ -15,19 +15,19 @@ var _ = awsutil.Prettify
 type Attribute struct {
 	_ struct{} `type:"structure"`
 
-	AlternateNameEncoding *string `type:"string"`
+	AlternateNameEncoding *string `json:"sdb:Attribute:AlternateNameEncoding" type:"string"`
 
-	AlternateValueEncoding *string `type:"string"`
+	AlternateValueEncoding *string `json:"sdb:Attribute:AlternateValueEncoding" type:"string"`
 
 	// The name of the attribute.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"sdb:Attribute:Name" type:"string" required:"true"`
 
 	// The value of the attribute.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"sdb:Attribute:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -41,10 +41,10 @@ type DeletableAttribute struct {
 	// The name of the attribute.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"sdb:DeletableAttribute:Name" type:"string" required:"true"`
 
 	// The value of the attribute.
-	Value *string `type:"string"`
+	Value *string `json:"sdb:DeletableAttribute:Value" type:"string"`
 }
 
 // String returns the string representation
@@ -69,10 +69,10 @@ func (s *DeletableAttribute) Validate() error {
 type DeletableItem struct {
 	_ struct{} `type:"structure"`
 
-	Attributes []DeletableAttribute `locationNameList:"Attribute" type:"list" flattened:"true"`
+	Attributes []DeletableAttribute `json:"sdb:DeletableItem:Attributes" locationNameList:"Attribute" type:"list" flattened:"true"`
 
 	// Name is a required field
-	Name *string `locationName:"ItemName" type:"string" required:"true"`
+	Name *string `json:"sdb:DeletableItem:Name" locationName:"ItemName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -104,17 +104,17 @@ func (s *DeletableItem) Validate() error {
 type Item struct {
 	_ struct{} `type:"structure"`
 
-	AlternateNameEncoding *string `type:"string"`
+	AlternateNameEncoding *string `json:"sdb:Item:AlternateNameEncoding" type:"string"`
 
 	// A list of attributes.
 	//
 	// Attributes is a required field
-	Attributes []Attribute `locationNameList:"Attribute" type:"list" flattened:"true" required:"true"`
+	Attributes []Attribute `json:"sdb:Item:Attributes" locationNameList:"Attribute" type:"list" flattened:"true" required:"true"`
 
 	// The name of the item.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"sdb:Item:Name" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -128,18 +128,18 @@ type ReplaceableAttribute struct {
 	// The name of the replaceable attribute.
 	//
 	// Name is a required field
-	Name *string `type:"string" required:"true"`
+	Name *string `json:"sdb:ReplaceableAttribute:Name" type:"string" required:"true"`
 
 	// A flag specifying whether or not to replace the attribute/value pair or to
 	// add a new attribute/value pair. The default setting is
 	//    false
 	// .
-	Replace *bool `type:"boolean"`
+	Replace *bool `json:"sdb:ReplaceableAttribute:Replace" type:"boolean"`
 
 	// The value of the replaceable attribute.
 	//
 	// Value is a required field
-	Value *string `type:"string" required:"true"`
+	Value *string `json:"sdb:ReplaceableAttribute:Value" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -171,12 +171,12 @@ type ReplaceableItem struct {
 	// The list of attributes for a replaceable item.
 	//
 	// Attributes is a required field
-	Attributes []ReplaceableAttribute `locationNameList:"Attribute" type:"list" flattened:"true" required:"true"`
+	Attributes []ReplaceableAttribute `json:"sdb:ReplaceableItem:Attributes" locationNameList:"Attribute" type:"list" flattened:"true" required:"true"`
 
 	// The name of the replaceable item.
 	//
 	// Name is a required field
-	Name *string `locationName:"ItemName" type:"string" required:"true"`
+	Name *string `json:"sdb:ReplaceableItem:Name" locationName:"ItemName" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -221,14 +221,14 @@ type UpdateCondition struct {
 	// true if the attribute must exist for the update condition to be satisfied.
 	// Specify false if the attribute should not exist in order for the update condition
 	// to be satisfied.
-	Exists *bool `type:"boolean"`
+	Exists *bool `json:"sdb:UpdateCondition:Exists" type:"boolean"`
 
 	// The name of the attribute involved in the condition.
-	Name *string `type:"string"`
+	Name *string `json:"sdb:UpdateCondition:Name" type:"string"`
 
 	// The value of an attribute. This value can only be specified when the Exists
 	// parameter is equal to true.
-	Value *string `type:"string"`
+	Value *string `json:"sdb:UpdateCondition:Value" type:"string"`
 }
 
 // String returns the string representation

@@ -59,29 +59,29 @@ type GetLayerVersionByArnOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The layer's compatible runtimes.
-	CompatibleRuntimes []Runtime `type:"list"`
+	CompatibleRuntimes []Runtime `json:"lambda:GetLayerVersionByArnOutput:CompatibleRuntimes" type:"list"`
 
 	// Details about the layer version.
-	Content *LayerVersionContentOutput `type:"structure"`
+	Content *LayerVersionContentOutput `json:"lambda:GetLayerVersionByArnOutput:Content" type:"structure"`
 
 	// The date that the layer version was created, in ISO-8601 format (https://www.w3.org/TR/NOTE-datetime)
 	// (YYYY-MM-DDThh:mm:ss.sTZD).
-	CreatedDate *string `type:"string"`
+	CreatedDate *string `json:"lambda:GetLayerVersionByArnOutput:CreatedDate" type:"string"`
 
 	// The description of the version.
-	Description *string `type:"string"`
+	Description *string `json:"lambda:GetLayerVersionByArnOutput:Description" type:"string"`
 
 	// The ARN of the layer.
-	LayerArn *string `min:"1" type:"string"`
+	LayerArn *string `json:"lambda:GetLayerVersionByArnOutput:LayerArn" min:"1" type:"string"`
 
 	// The ARN of the layer version.
-	LayerVersionArn *string `min:"1" type:"string"`
+	LayerVersionArn *string `json:"lambda:GetLayerVersionByArnOutput:LayerVersionArn" min:"1" type:"string"`
 
 	// The layer's software license.
-	LicenseInfo *string `type:"string"`
+	LicenseInfo *string `json:"lambda:GetLayerVersionByArnOutput:LicenseInfo" type:"string"`
 
 	// The version number.
-	Version *int64 `type:"long"`
+	Version *int64 `json:"lambda:GetLayerVersionByArnOutput:Version" type:"long"`
 }
 
 // String returns the string representation

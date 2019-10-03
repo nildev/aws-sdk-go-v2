@@ -54,14 +54,14 @@ type CreateWorkspacesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the WorkSpaces that could not be created.
-	FailedRequests []FailedCreateWorkspaceRequest `type:"list"`
+	FailedRequests []FailedCreateWorkspaceRequest `json:"workspaces:CreateWorkspacesOutput:FailedRequests" type:"list"`
 
 	// Information about the WorkSpaces that were created.
 	//
 	// Because this operation is asynchronous, the identifier returned is not immediately
 	// available for use with other operations. For example, if you call DescribeWorkspaces
 	// before the WorkSpace is created, the information returned can be incomplete.
-	PendingRequests []Workspace `type:"list"`
+	PendingRequests []Workspace `json:"workspaces:CreateWorkspacesOutput:PendingRequests" type:"list"`
 }
 
 // String returns the string representation

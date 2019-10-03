@@ -61,10 +61,10 @@ type SearchThingsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The string to specify as nextToken when you request the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"iotthingsgraph:SearchThingsOutput:NextToken" locationName:"nextToken" type:"string"`
 
 	// An array of things in the result set.
-	Things []Thing `locationName:"things" type:"list"`
+	Things []Thing `json:"iotthingsgraph:SearchThingsOutput:Things" locationName:"things" type:"list"`
 }
 
 // String returns the string representation

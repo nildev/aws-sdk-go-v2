@@ -25,7 +25,7 @@ type DescribeMyUserProfileOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A UserProfile object that describes the user's SSH information.
-	UserProfile *SelfUserProfile `type:"structure"`
+	UserProfile *SelfUserProfile `json:"opsworks:DescribeMyUserProfileOutput:UserProfile" type:"structure"`
 }
 
 // String returns the string representation

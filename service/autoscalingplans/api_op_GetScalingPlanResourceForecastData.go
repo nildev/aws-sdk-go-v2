@@ -146,7 +146,7 @@ type GetScalingPlanResourceForecastDataOutput struct {
 	// The data points to return.
 	//
 	// Datapoints is a required field
-	Datapoints []Datapoint `type:"list" required:"true"`
+	Datapoints []Datapoint `json:"autoscaling:GetScalingPlanResourceForecastDataOutput:Datapoints" type:"list" required:"true"`
 }
 
 // String returns the string representation

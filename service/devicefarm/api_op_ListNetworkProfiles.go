@@ -58,11 +58,11 @@ type ListNetworkProfilesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of the available network profiles.
-	NetworkProfiles []NetworkProfile `locationName:"networkProfiles" type:"list"`
+	NetworkProfiles []NetworkProfile `json:"devicefarm:ListNetworkProfilesOutput:NetworkProfiles" locationName:"networkProfiles" type:"list"`
 
 	// An identifier that was returned from the previous call to this operation,
 	// which can be used to return the next set of items in the list.
-	NextToken *string `locationName:"nextToken" min:"4" type:"string"`
+	NextToken *string `json:"devicefarm:ListNetworkProfilesOutput:NextToken" locationName:"nextToken" min:"4" type:"string"`
 }
 
 // String returns the string representation

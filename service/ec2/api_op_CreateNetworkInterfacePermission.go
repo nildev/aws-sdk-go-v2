@@ -65,7 +65,7 @@ type CreateNetworkInterfacePermissionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the permission for the network interface.
-	InterfacePermission *NetworkInterfacePermission `locationName:"interfacePermission" type:"structure"`
+	InterfacePermission *NetworkInterfacePermission `json:"ec2:CreateNetworkInterfacePermissionOutput:InterfacePermission" locationName:"interfacePermission" type:"structure"`
 }
 
 // String returns the string representation

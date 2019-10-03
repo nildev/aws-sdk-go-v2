@@ -48,10 +48,10 @@ type GetRepositoryTriggersOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The system-generated unique ID for the trigger.
-	ConfigurationId *string `locationName:"configurationId" type:"string"`
+	ConfigurationId *string `json:"codecommit:GetRepositoryTriggersOutput:ConfigurationId" locationName:"configurationId" type:"string"`
 
 	// The JSON block of configuration information for each trigger.
-	Triggers []RepositoryTrigger `locationName:"triggers" type:"list"`
+	Triggers []RepositoryTrigger `json:"codecommit:GetRepositoryTriggersOutput:Triggers" locationName:"triggers" type:"list"`
 }
 
 // String returns the string representation

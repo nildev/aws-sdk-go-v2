@@ -56,37 +56,37 @@ type GetDocumentOutput struct {
 
 	// A description of the document attachments, including names, locations, sizes,
 	// etc.
-	AttachmentsContent []AttachmentContent `type:"list"`
+	AttachmentsContent []AttachmentContent `json:"ssm:GetDocumentOutput:AttachmentsContent" type:"list"`
 
 	// The contents of the Systems Manager document.
-	Content *string `min:"1" type:"string"`
+	Content *string `json:"ssm:GetDocumentOutput:Content" min:"1" type:"string"`
 
 	// The document format, either JSON or YAML.
-	DocumentFormat DocumentFormat `type:"string" enum:"true"`
+	DocumentFormat DocumentFormat `json:"ssm:GetDocumentOutput:DocumentFormat" type:"string" enum:"true"`
 
 	// The document type.
-	DocumentType DocumentType `type:"string" enum:"true"`
+	DocumentType DocumentType `json:"ssm:GetDocumentOutput:DocumentType" type:"string" enum:"true"`
 
 	// The document version.
-	DocumentVersion *string `type:"string"`
+	DocumentVersion *string `json:"ssm:GetDocumentOutput:DocumentVersion" type:"string"`
 
 	// The name of the Systems Manager document.
-	Name *string `type:"string"`
+	Name *string `json:"ssm:GetDocumentOutput:Name" type:"string"`
 
 	// The status of the Systems Manager document, such as Creating, Active, Updating,
 	// Failed, and Deleting.
-	Status DocumentStatus `type:"string" enum:"true"`
+	Status DocumentStatus `json:"ssm:GetDocumentOutput:Status" type:"string" enum:"true"`
 
 	// A message returned by AWS Systems Manager that explains the Status value.
 	// For example, a Failed status might be explained by the StatusInformation
 	// message, "The specified S3 bucket does not exist. Verify that the URL of
 	// the S3 bucket is correct."
-	StatusInformation *string `type:"string"`
+	StatusInformation *string `json:"ssm:GetDocumentOutput:StatusInformation" type:"string"`
 
 	// The version of the artifact associated with the document. For example, "Release
 	// 12, Update 6". This value is unique across all versions of a document, and
 	// cannot be changed.
-	VersionName *string `type:"string"`
+	VersionName *string `json:"ssm:GetDocumentOutput:VersionName" type:"string"`
 }
 
 // String returns the string representation

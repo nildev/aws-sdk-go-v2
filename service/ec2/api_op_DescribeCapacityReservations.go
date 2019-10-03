@@ -57,11 +57,11 @@ type DescribeCapacityReservationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the Capacity Reservations.
-	CapacityReservations []CapacityReservation `locationName:"capacityReservationSet" locationNameList:"item" type:"list"`
+	CapacityReservations []CapacityReservation `json:"ec2:DescribeCapacityReservationsOutput:CapacityReservations" locationName:"capacityReservationSet" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results. This value is null
 	// when there are no more results to return.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeCapacityReservationsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

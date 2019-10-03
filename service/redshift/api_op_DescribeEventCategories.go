@@ -30,7 +30,7 @@ type DescribeEventCategoriesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of event categories descriptions.
-	EventCategoriesMapList []EventCategoriesMap `locationNameList:"EventCategoriesMap" type:"list"`
+	EventCategoriesMapList []EventCategoriesMap `json:"redshift:DescribeEventCategoriesOutput:EventCategoriesMapList" locationNameList:"EventCategoriesMap" type:"list"`
 }
 
 // String returns the string representation

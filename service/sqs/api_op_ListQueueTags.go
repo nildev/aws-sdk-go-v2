@@ -43,7 +43,7 @@ type ListQueueTagsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The list of all tags added to the specified queue.
-	Tags map[string]string `locationName:"Tag" locationNameKey:"Key" locationNameValue:"Value" type:"map" flattened:"true"`
+	Tags map[string]string `json:"sqs:ListQueueTagsOutput:Tags" locationName:"Tag" locationNameKey:"Key" locationNameValue:"Value" type:"map" flattened:"true"`
 }
 
 // String returns the string representation

@@ -66,7 +66,7 @@ type PutEvaluationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Requests that failed because of a client or server error.
-	FailedEvaluations []Evaluation `type:"list"`
+	FailedEvaluations []Evaluation `json:"config:PutEvaluationsOutput:FailedEvaluations" type:"list"`
 }
 
 // String returns the string representation

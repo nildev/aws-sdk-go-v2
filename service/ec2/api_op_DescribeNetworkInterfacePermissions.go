@@ -66,10 +66,10 @@ type DescribeNetworkInterfacePermissionsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The network interface permissions.
-	NetworkInterfacePermissions []NetworkInterfacePermission `locationName:"networkInterfacePermissions" locationNameList:"item" type:"list"`
+	NetworkInterfacePermissions []NetworkInterfacePermission `json:"ec2:DescribeNetworkInterfacePermissionsOutput:NetworkInterfacePermissions" locationName:"networkInterfacePermissions" locationNameList:"item" type:"list"`
 
 	// The token to use to retrieve the next page of results.
-	NextToken *string `locationName:"nextToken" type:"string"`
+	NextToken *string `json:"ec2:DescribeNetworkInterfacePermissionsOutput:NextToken" locationName:"nextToken" type:"string"`
 }
 
 // String returns the string representation

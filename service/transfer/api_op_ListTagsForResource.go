@@ -63,17 +63,17 @@ type ListTagsForResourceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// This value is the ARN you specified to list the tags of.
-	Arn *string `min:"20" type:"string"`
+	Arn *string `json:"transfer:ListTagsForResourceOutput:Arn" min:"20" type:"string"`
 
 	// When you can get additional results from the ListTagsForResource call, a
 	// NextToken parameter is returned in the output. You can then pass in a subsequent
 	// command the NextToken parameter to continue listing additional tags.
-	NextToken *string `min:"1" type:"string"`
+	NextToken *string `json:"transfer:ListTagsForResourceOutput:NextToken" min:"1" type:"string"`
 
 	// Key-value pairs that are assigned to a resource, usually for the purpose
 	// of grouping and searching for items. Tags are metadata that you define that
 	// you can use for any purpose.
-	Tags []Tag `min:"1" type:"list"`
+	Tags []Tag `json:"transfer:ListTagsForResourceOutput:Tags" min:"1" type:"list"`
 }
 
 // String returns the string representation

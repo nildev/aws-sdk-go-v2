@@ -61,28 +61,28 @@ type GetDeliverabilityTestReportOutput struct {
 	// An object that contains the results of the predictive inbox placement test.
 	//
 	// DeliverabilityTestReport is a required field
-	DeliverabilityTestReport *DeliverabilityTestReport `type:"structure" required:"true"`
+	DeliverabilityTestReport *DeliverabilityTestReport `json:"email:GetDeliverabilityTestReportOutput:DeliverabilityTestReport" type:"structure" required:"true"`
 
 	// An object that describes how the test email was handled by several email
 	// providers, including Gmail, Hotmail, Yahoo, AOL, and others.
 	//
 	// IspPlacements is a required field
-	IspPlacements []IspPlacement `type:"list" required:"true"`
+	IspPlacements []IspPlacement `json:"email:GetDeliverabilityTestReportOutput:IspPlacements" type:"list" required:"true"`
 
 	// An object that contains the message that you sent when you performed this
 	// predictive inbox placement test.
-	Message *string `type:"string"`
+	Message *string `json:"email:GetDeliverabilityTestReportOutput:Message" type:"string"`
 
 	// An object that specifies how many test messages that were sent during the
 	// predictive inbox placement test were delivered to recipients' inboxes, how
 	// many were sent to recipients' spam folders, and how many weren't delivered.
 	//
 	// OverallPlacement is a required field
-	OverallPlacement *PlacementStatistics `type:"structure" required:"true"`
+	OverallPlacement *PlacementStatistics `json:"email:GetDeliverabilityTestReportOutput:OverallPlacement" type:"structure" required:"true"`
 
 	// An array of objects that define the tags (keys and values) that are associated
 	// with the predictive inbox placement test.
-	Tags []Tag `type:"list"`
+	Tags []Tag `json:"email:GetDeliverabilityTestReportOutput:Tags" type:"list"`
 }
 
 // String returns the string representation

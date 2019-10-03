@@ -66,11 +66,11 @@ type ListEndpointConfigsOutput struct {
 	// An array of endpoint configurations.
 	//
 	// EndpointConfigs is a required field
-	EndpointConfigs []EndpointConfigSummary `type:"list" required:"true"`
+	EndpointConfigs []EndpointConfigSummary `json:"api.sagemaker:ListEndpointConfigsOutput:EndpointConfigs" type:"list" required:"true"`
 
 	// If the response is truncated, Amazon SageMaker returns this token. To retrieve
 	// the next set of endpoint configurations, use it in the subsequent request
-	NextToken *string `type:"string"`
+	NextToken *string `json:"api.sagemaker:ListEndpointConfigsOutput:NextToken" type:"string"`
 }
 
 // String returns the string representation

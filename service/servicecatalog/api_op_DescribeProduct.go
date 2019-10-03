@@ -55,13 +55,13 @@ type DescribeProductOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the associated budgets.
-	Budgets []BudgetDetail `type:"list"`
+	Budgets []BudgetDetail `json:"servicecatalog:DescribeProductOutput:Budgets" type:"list"`
 
 	// Summary information about the product view.
-	ProductViewSummary *ProductViewSummary `type:"structure"`
+	ProductViewSummary *ProductViewSummary `json:"servicecatalog:DescribeProductOutput:ProductViewSummary" type:"structure"`
 
 	// Information about the provisioning artifacts for the specified product.
-	ProvisioningArtifacts []ProvisioningArtifact `type:"list"`
+	ProvisioningArtifacts []ProvisioningArtifact `json:"servicecatalog:DescribeProductOutput:ProvisioningArtifacts" type:"list"`
 }
 
 // String returns the string representation

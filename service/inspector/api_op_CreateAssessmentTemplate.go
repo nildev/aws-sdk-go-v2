@@ -100,7 +100,7 @@ type CreateAssessmentTemplateOutput struct {
 	// The ARN that specifies the assessment template that is created.
 	//
 	// AssessmentTemplateArn is a required field
-	AssessmentTemplateArn *string `locationName:"assessmentTemplateArn" min:"1" type:"string" required:"true"`
+	AssessmentTemplateArn *string `json:"inspector:CreateAssessmentTemplateOutput:AssessmentTemplateArn" locationName:"assessmentTemplateArn" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

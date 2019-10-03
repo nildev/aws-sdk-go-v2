@@ -93,7 +93,7 @@ type RegisterContainerInstanceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The container instance that was registered.
-	ContainerInstance *ContainerInstance `locationName:"containerInstance" type:"structure"`
+	ContainerInstance *ContainerInstance `json:"ecs:RegisterContainerInstanceOutput:ContainerInstance" locationName:"containerInstance" type:"structure"`
 }
 
 // String returns the string representation

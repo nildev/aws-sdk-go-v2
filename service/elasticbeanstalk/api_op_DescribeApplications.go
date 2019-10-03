@@ -30,7 +30,7 @@ type DescribeApplicationsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// This parameter contains a list of ApplicationDescription.
-	Applications []ApplicationDescription `type:"list"`
+	Applications []ApplicationDescription `json:"elasticbeanstalk:DescribeApplicationsOutput:Applications" type:"list"`
 }
 
 // String returns the string representation

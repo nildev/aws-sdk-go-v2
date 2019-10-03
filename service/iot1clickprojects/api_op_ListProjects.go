@@ -68,12 +68,12 @@ type ListProjectsOutput struct {
 
 	// The token used to retrieve the next set of results - will be effectively
 	// empty if there are no further results.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"projects.iot1click:ListProjectsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// An object containing the list of projects.
 	//
 	// Projects is a required field
-	Projects []ProjectSummary `locationName:"projects" type:"list" required:"true"`
+	Projects []ProjectSummary `json:"projects.iot1click:ListProjectsOutput:Projects" locationName:"projects" type:"list" required:"true"`
 }
 
 // String returns the string representation

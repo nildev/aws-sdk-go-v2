@@ -75,7 +75,7 @@ type UpdateHostedZoneCommentOutput struct {
 	// request.
 	//
 	// HostedZone is a required field
-	HostedZone *HostedZone `type:"structure" required:"true"`
+	HostedZone *HostedZone `json:"route53:UpdateHostedZoneCommentOutput:HostedZone" type:"structure" required:"true"`
 }
 
 // String returns the string representation

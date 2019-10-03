@@ -55,7 +55,7 @@ type UploadEntityDefinitionsOutput struct {
 	// of the upload.
 	//
 	// UploadId is a required field
-	UploadId *string `locationName:"uploadId" min:"1" type:"string" required:"true"`
+	UploadId *string `json:"iotthingsgraph:UploadEntityDefinitionsOutput:UploadId" locationName:"uploadId" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation

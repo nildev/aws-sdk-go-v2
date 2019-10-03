@@ -85,7 +85,7 @@ type DescribeJobExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the job execution.
-	Execution *JobExecution `locationName:"execution" type:"structure"`
+	Execution *JobExecution `json:"iot:DescribeJobExecutionOutput:Execution" locationName:"execution" type:"structure"`
 }
 
 // String returns the string representation

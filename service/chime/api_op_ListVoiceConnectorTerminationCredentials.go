@@ -56,7 +56,7 @@ type ListVoiceConnectorTerminationCredentialsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A list of user names.
-	Usernames []string `type:"list"`
+	Usernames []string `json:"chime:ListVoiceConnectorTerminationCredentialsOutput:Usernames" type:"list"`
 }
 
 // String returns the string representation

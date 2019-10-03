@@ -93,7 +93,7 @@ type GetFindingsStatisticsOutput struct {
 	// Finding statistics object.
 	//
 	// FindingStatistics is a required field
-	FindingStatistics *FindingStatistics `locationName:"findingStatistics" type:"structure" required:"true"`
+	FindingStatistics *FindingStatistics `json:"guardduty:GetFindingsStatisticsOutput:FindingStatistics" locationName:"findingStatistics" type:"structure" required:"true"`
 }
 
 // String returns the string representation

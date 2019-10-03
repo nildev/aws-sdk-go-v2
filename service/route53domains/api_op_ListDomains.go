@@ -43,12 +43,12 @@ type ListDomainsOutput struct {
 	// A summary of domains.
 	//
 	// Domains is a required field
-	Domains []DomainSummary `type:"list" required:"true"`
+	Domains []DomainSummary `json:"route53domains:ListDomainsOutput:Domains" type:"list" required:"true"`
 
 	// If there are more domains than you specified for MaxItems in the request,
 	// submit another request and include the value of NextPageMarker in the value
 	// of Marker.
-	NextPageMarker *string `type:"string"`
+	NextPageMarker *string `json:"route53domains:ListDomainsOutput:NextPageMarker" type:"string"`
 }
 
 // String returns the string representation

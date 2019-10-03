@@ -58,10 +58,10 @@ type BatchGetDeploymentGroupsOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Information about the deployment groups.
-	DeploymentGroupsInfo []DeploymentGroupInfo `locationName:"deploymentGroupsInfo" type:"list"`
+	DeploymentGroupsInfo []DeploymentGroupInfo `json:"codedeploy:BatchGetDeploymentGroupsOutput:DeploymentGroupsInfo" locationName:"deploymentGroupsInfo" type:"list"`
 
 	// Information about errors that might have occurred during the API call.
-	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+	ErrorMessage *string `json:"codedeploy:BatchGetDeploymentGroupsOutput:ErrorMessage" locationName:"errorMessage" type:"string"`
 }
 
 // String returns the string representation

@@ -56,7 +56,7 @@ type DescribeStreamConsumerOutput struct {
 	// An object that represents the details of the consumer.
 	//
 	// ConsumerDescription is a required field
-	ConsumerDescription *ConsumerDescription `type:"structure" required:"true"`
+	ConsumerDescription *ConsumerDescription `json:"kinesis:DescribeStreamConsumerOutput:ConsumerDescription" type:"structure" required:"true"`
 }
 
 // String returns the string representation

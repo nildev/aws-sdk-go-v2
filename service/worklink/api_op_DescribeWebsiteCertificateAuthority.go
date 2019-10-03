@@ -79,13 +79,13 @@ type DescribeWebsiteCertificateAuthorityOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The root certificate of the certificate authority.
-	Certificate *string `min:"1" type:"string"`
+	Certificate *string `json:"worklink:DescribeWebsiteCertificateAuthorityOutput:Certificate" min:"1" type:"string"`
 
 	// The time that the certificate authority was added.
-	CreatedTime *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreatedTime *time.Time `json:"worklink:DescribeWebsiteCertificateAuthorityOutput:CreatedTime" type:"timestamp" timestampFormat:"unix"`
 
 	// The certificate name to display.
-	DisplayName *string `type:"string"`
+	DisplayName *string `json:"worklink:DescribeWebsiteCertificateAuthorityOutput:DisplayName" type:"string"`
 }
 
 // String returns the string representation

@@ -72,17 +72,17 @@ type UpdateDomainNameOutput struct {
 	// An expression used to extract information at runtime. See Selection Expressions
 	// (https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions)
 	// for more information.
-	ApiMappingSelectionExpression *string `locationName:"apiMappingSelectionExpression" type:"string"`
+	ApiMappingSelectionExpression *string `json:"apigateway:UpdateDomainNameOutput:ApiMappingSelectionExpression" locationName:"apiMappingSelectionExpression" type:"string"`
 
 	// A string with a length between [1-512].
-	DomainName *string `locationName:"domainName" type:"string"`
+	DomainName *string `json:"apigateway:UpdateDomainNameOutput:DomainName" locationName:"domainName" type:"string"`
 
 	// The domain name configurations.
-	DomainNameConfigurations []DomainNameConfiguration `locationName:"domainNameConfigurations" type:"list"`
+	DomainNameConfigurations []DomainNameConfiguration `json:"apigateway:UpdateDomainNameOutput:DomainNameConfigurations" locationName:"domainNameConfigurations" type:"list"`
 
 	// A key value pair of string with key length between[1-128] and value length
 	// between[1-256]
-	Tags map[string]string `locationName:"tags" type:"map"`
+	Tags map[string]string `json:"apigateway:UpdateDomainNameOutput:Tags" locationName:"tags" type:"map"`
 }
 
 // String returns the string representation

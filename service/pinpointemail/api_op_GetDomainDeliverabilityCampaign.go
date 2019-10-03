@@ -71,7 +71,7 @@ type GetDomainDeliverabilityCampaignOutput struct {
 	// An object that contains the deliverability data for the campaign.
 	//
 	// DomainDeliverabilityCampaign is a required field
-	DomainDeliverabilityCampaign *DomainDeliverabilityCampaign `type:"structure" required:"true"`
+	DomainDeliverabilityCampaign *DomainDeliverabilityCampaign `json:"email:GetDomainDeliverabilityCampaignOutput:DomainDeliverabilityCampaign" type:"structure" required:"true"`
 }
 
 // String returns the string representation

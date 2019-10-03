@@ -30,7 +30,7 @@ type DescribeVirtualInterfacesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The virtual interfaces
-	VirtualInterfaces []VirtualInterface `locationName:"virtualInterfaces" type:"list"`
+	VirtualInterfaces []VirtualInterface `json:"directconnect:DescribeVirtualInterfacesOutput:VirtualInterfaces" locationName:"virtualInterfaces" type:"list"`
 }
 
 // String returns the string representation

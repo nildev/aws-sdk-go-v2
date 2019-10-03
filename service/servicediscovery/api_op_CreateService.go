@@ -92,7 +92,7 @@ type CreateServiceOutput struct {
 	_ struct{} `type:"structure"`
 
 	// A complex type that contains information about the new service.
-	Service *Service `type:"structure"`
+	Service *Service `json:"servicediscovery:CreateServiceOutput:Service" type:"structure"`
 }
 
 // String returns the string representation

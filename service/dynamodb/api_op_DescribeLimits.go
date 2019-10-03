@@ -27,21 +27,21 @@ type DescribeLimitsOutput struct {
 
 	// The maximum total read capacity units that your account allows you to provision
 	// across all of your tables in this Region.
-	AccountMaxReadCapacityUnits *int64 `min:"1" type:"long"`
+	AccountMaxReadCapacityUnits *int64 `json:"dynamodb:DescribeLimitsOutput:AccountMaxReadCapacityUnits" min:"1" type:"long"`
 
 	// The maximum total write capacity units that your account allows you to provision
 	// across all of your tables in this Region.
-	AccountMaxWriteCapacityUnits *int64 `min:"1" type:"long"`
+	AccountMaxWriteCapacityUnits *int64 `json:"dynamodb:DescribeLimitsOutput:AccountMaxWriteCapacityUnits" min:"1" type:"long"`
 
 	// The maximum read capacity units that your account allows you to provision
 	// for a new table that you are creating in this Region, including the read
 	// capacity units provisioned for its global secondary indexes (GSIs).
-	TableMaxReadCapacityUnits *int64 `min:"1" type:"long"`
+	TableMaxReadCapacityUnits *int64 `json:"dynamodb:DescribeLimitsOutput:TableMaxReadCapacityUnits" min:"1" type:"long"`
 
 	// The maximum write capacity units that your account allows you to provision
 	// for a new table that you are creating in this Region, including the write
 	// capacity units provisioned for its global secondary indexes (GSIs).
-	TableMaxWriteCapacityUnits *int64 `min:"1" type:"long"`
+	TableMaxWriteCapacityUnits *int64 `json:"dynamodb:DescribeLimitsOutput:TableMaxWriteCapacityUnits" min:"1" type:"long"`
 }
 
 // String returns the string representation

@@ -48,10 +48,10 @@ type DescribeSSLPoliciesOutput struct {
 
 	// If there are additional results, this is the marker for the next set of results.
 	// Otherwise, this is null.
-	NextMarker *string `type:"string"`
+	NextMarker *string `json:"elasticloadbalancing:DescribeSSLPoliciesOutput:NextMarker" type:"string"`
 
 	// Information about the policies.
-	SslPolicies []SslPolicy `type:"list"`
+	SslPolicies []SslPolicy `json:"elasticloadbalancing:DescribeSSLPoliciesOutput:SslPolicies" type:"list"`
 }
 
 // String returns the string representation

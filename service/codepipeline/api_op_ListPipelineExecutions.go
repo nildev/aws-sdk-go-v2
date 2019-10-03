@@ -66,10 +66,10 @@ type ListPipelineExecutionsOutput struct {
 	// A token that can be used in the next ListPipelineExecutions call. To view
 	// all items in the list, continue to call this operation with each subsequent
 	// token until no more nextToken values are returned.
-	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+	NextToken *string `json:"codepipeline:ListPipelineExecutionsOutput:NextToken" locationName:"nextToken" min:"1" type:"string"`
 
 	// A list of executions in the history of a pipeline.
-	PipelineExecutionSummaries []PipelineExecutionSummary `locationName:"pipelineExecutionSummaries" type:"list"`
+	PipelineExecutionSummaries []PipelineExecutionSummary `json:"codepipeline:ListPipelineExecutionsOutput:PipelineExecutionSummaries" locationName:"pipelineExecutionSummaries" type:"list"`
 }
 
 // String returns the string representation
